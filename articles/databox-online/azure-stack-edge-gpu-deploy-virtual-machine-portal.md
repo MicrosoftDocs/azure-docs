@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/02/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -165,28 +165,20 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
     Select **Next: Advanced**. On the **Advanced** tab, you can select an extension to install during VM deployment, and you can specify a `cloud-init` script to customize your VM.
 
-    ![Screenshot that shows the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab.png)
+1. To install an extension on your VM when you create it, choose **Select an extension to install**. Then select the extension on the **Add extension** screen.
 
-1. If you're creating a GPU virtual machine, you can install the GPU extension during VM deployment from the **Advanced** tab. The GPU extensions are only available for a virtual machine with a VM size supported for GPU VMs. For more information, see [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
+    ![Illustration that shows how to use the Select an extension option on the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-01.png)
+
+    The **Advanced** tab shows the selected extension.
+
+    ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-02.png)
 
     > [!NOTE]
-    > If you're using a Red Hat image, you'll need to install the GPU extension after VM deployment. Follow the steps in [Install GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
-
-    1. Choose **Select an extension to install**.
-
-       ![Screenshot that shows the Select an extension option on the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-select-an-extension-to-install.png)
-
-    1. On the **Add extension** pane, select the extension to install.
-
-       ![Screenshot that shows the Add extension pane. Select the extension to install.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-add-extension-pane.png)
-
-       The **Advanced** tab shows the extension you selected.
-
-       ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-extension-added.png) 
+    > For detailed steps to install a GPU extension, see [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
 1. If you want to use the `cloud-init` utility to customize the new VM on its first boot, on the **Advanced** tab, paste your `cloud-init` script into the **Custom data** box under **Custom data and cloud init**. 
 
-    <!--You can use `cloud-init` to install packages and write files, or to configure users and security. As `cloud-init` runs during the initial boot process, no other steps are required to apply your configuration. -->For more information about using `cloud-init`, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+    For more information about using `cloud-init`, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
 
     ![Screenshot that shows the Advanced tab with a cloud init script in the Custom data box.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-cloud-init-script.png)
 
@@ -200,10 +192,9 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
     ![Screenshot that shows the Deployments page.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-deployments-page-1.png)
 
-    
-1. After the VM is successfully created, the **Overview** page updates to display the new VM.
+1. After the VM is successfully created, you'll see your new VM on the **Overview** pane.
 
-    ![Screenshot that shows the Overview page with the new VM listed.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
+    ![Screenshot that shows the Overview pane with a new VM identified.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-overview-page-1.png)
 
 1. Select the newly created VM to go to **Virtual machines**.
 
