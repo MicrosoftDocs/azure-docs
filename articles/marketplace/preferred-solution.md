@@ -9,7 +9,7 @@ ms.author: feospina
 ms.date: 7/02/2021
 ---
 
-# Microsoft preferred solutions badge
+# Microsoft preferred solution badge
 
 ## What is the Microsoft preferred solution badge?
 
