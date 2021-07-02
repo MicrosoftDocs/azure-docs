@@ -112,7 +112,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 3. At the sign-in screen, use the local administrator account on the machine to sign-in.
 4. For specify application type, select **ASP.NET web apps** as the type of application you want to containerize.
 
-    ![Default load-up for App Containerization tool.](./media/tutorial-containerize-apps-aks/tool-home.png)
+    ![Default load-up for App Containerization tool.](./media/tutorial-containerize-apps-aks/tool-home.jpg)
 
 
 ### Complete tool pre-requisites
@@ -135,7 +135,7 @@ Click **Login** to log in to your Azure account.
 1. You'll need a device code to authenticate with Azure. Clicking on Login will open a modal with the device code.
 2. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 
-    ![Modal showing device code.](./media/tutorial-containerize-apps-aks/login-modal.png)
+    ![Modal showing device code.](./media/tutorial-containerize-apps-aks/login-modal.jpg)
 
 3. On the new tab, paste the device code and complete log in using your Azure account credentials. You can close the browser tab after log in is complete and return to the App Containerization tool's web interface.
 4. Select the **Azure tenant** that you want to use.
@@ -152,13 +152,13 @@ The App Containerization helper tool connects remotely to the application server
 
 2. Click **Validate** to verify that the application server is reachable from the machine running the tool and that the credentials are valid. Upon successful validation, the status column will show the status as **Mapped**.  
 
-    ![Screenshot for server IP and credentials.](./media/tutorial-containerize-apps-aks/discovery-credentials.png)
+    ![Screenshot for server IP and credentials.](./media/tutorial-containerize-apps-aks/discovery-credentials.jpg)
 
 3. Click **Continue** to start application discovery on the selected application servers.
 
 4. Upon successful completion of application discovery, you can select the list of applications to containerize.
 
-    ![Screenshot for discovered ASP.NET application.](./media/tutorial-containerize-apps-aks/discovered-app.png)
+    ![Screenshot for discovered ASP.NET application.](./media/tutorial-containerize-apps-aks/discovered-app.jpg)
 
 
 4. Use the checkbox to select the applications to containerize.
@@ -170,7 +170,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 2. Select the checkbox to parameterize the detected application configurations.
 3. Click **Apply** after selecting the configurations to parameterize.
 
-   ![Screenshot for app configuration parameterization ASP.NET application.](./media/tutorial-containerize-apps-aks/discovered-app-configs.png)
+   ![Screenshot for app configuration parameterization ASP.NET application.](./media/tutorial-containerize-apps-aks/discovered-app-configs.jpg)
 
 ### Externalize file system dependencies
 
@@ -182,7 +182,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 3. To add multiple folders to the same volume, provide comma (`,`) separated values.
 4. Select **Persistent Volume** as the storage option if you want the folders to be stored outside the container on a Persistent Volume.
 5. Click **Save** after reviewing the application folders.
-   ![Screenshot for app volumes storage selection.](./media/tutorial-containerize-apps-aks/discovered-app-volumes.png)
+   ![Screenshot for app volumes storage selection.](./media/tutorial-containerize-apps-aks/discovered-app-volumes.jpg)
 
 6. Click **Continue** to proceed to the container image build phase.
 
@@ -191,7 +191,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
 
-    ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
+    ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-aspnet-app.jpg)
 
 
 2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
@@ -202,7 +202,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 5. Once the build is completed, click **Continue** to specify deployment settings.
 
-    ![Screenshot for app container image build completion.](./media/tutorial-containerize-apps-aks/build-aspnet-app-completed.png)
+    ![Screenshot for app container image build completion.](./media/tutorial-containerize-apps-aks/build-aspnet-app-completed.jpg)
 
 ## Deploy the containerized app on AKS
 
@@ -234,14 +234,14 @@ Once the container image is built, the next step is to deploy the application as
      - Click **Apply** to save the deployment configuration.
      - Click **Continue** to deploy the application.
 
-    ![Screenshot for deployment app configuration.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-config.png)
+    ![Screenshot for deployment app configuration.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-config.jpg)
 
 4. **Deploy the application**: Once the deployment configuration for the application is saved, the tool will generate the Kubernetes deployment YAML for the application.
      - Click **Edit** to review and customize the Kubernetes deployment YAML for the applications.
      - Select the application to deploy.
      - Click **Deploy** to start deployments for the selected applications
 
-         ![Screenshot for app deployment configuration.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-deploy.png)
+         ![Screenshot for app deployment configuration.](./media/tutorial-containerize-apps-aks/deploy-aspnet-app-deploy.jpg)
 
      - Once the application is deployed, you can click the *Deployment status* column to track the resources that were deployed for the application.
 

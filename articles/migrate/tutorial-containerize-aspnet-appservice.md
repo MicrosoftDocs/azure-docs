@@ -1,11 +1,11 @@
 ---
 title: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure App Service.
-description: Tutorial: Containerize & migrate ASP.NET applications to Azure App Service.
+description: Tutorial:Containerize & migrate ASP.NET applications to Azure App Service.
 services:
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 7/02/2021
+ms.date: 07/02/2021
 ms.author: rahugup
 ---
 # ASP.NET app containerization and migration to Azure App Service
@@ -31,7 +31,7 @@ The Azure Migrate: App Containerization tool helps you to -
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
 - **Improved infrastructure utilization:** With containers, multiple applications can share resources and be hosted on the same infrastructure. This can help you consolidate infrastructure and improve utilization.
-- **Simplified management:** By hosting your applications on a modern managed platforms like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
+- **Simplified management:** By hosting your applications on modern managed platforms like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
 - **Application portability:** With increased adoption and standardization of container specification formats and platforms, application portability is no longer a concern.
 - **Adopt modern management with DevOps:** Helps you adopt and standardize on modern practices for management and security and transition to DevOps.
 
@@ -90,7 +90,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
       ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
-10. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+10. In case the *App registrations* settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install Azure Migrate: App Containerization tool
 
@@ -193,7 +193,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-aspnet-app.jpg)
 
 > [!NOTE]
-> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](/azure/container-registry/container-registry-authentication#admin-account)
 
 2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
 
@@ -214,7 +214,7 @@ Once the container image is built, the next step is to deploy the application as
      - If you don’t have an App Service plan or would like to create a new App Service plan to use, you can choose to create on from the tool by clicking **Create new App Service plan**.      
      - Click **Continue** after selecting the App Service plan.
 
-2. **Specify secret store**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](https://docs.microsoft.com/azure/app-service/configure-common#configure-connection-strings)
+2. **Specify secret store**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or App Service application settings for managing your application secrets. [Learn more](/azure/app-service/configure-common#configure-connection-strings)
 
      - If you've selected App Service application settings for managing secrets, then click **Continue**.
      - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     
