@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Learning Multivariate Anomaly Detection in one hour"
+title: "Tutorial: Learn Multivariate Anomaly Detection in one hour"
 titleSuffix: Azure Cognitive Services
 description: An end-to-end tutorial of multivariate anomaly detection.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 06/27/2021
 ms.author: juaduan
 ---
 
-# Tutorial: Learning Multivariate Anomaly Detection in one hour
+# Tutorial: Learn Multivariate Anomaly Detection in one hour
 
 Anomaly Detector with Multivariate Anomaly Detection (MVAD) is an advanced AI tool for detecting anomalies from a group of metrics in an **unsupervised** manner.
 
@@ -201,7 +201,7 @@ except Exception as e:
 
 Response code `201` indicates a successful request.
 
-[!INCLUDE [mvad-input-params](../includes/mvad-data-schema.md)]
+[!INCLUDE [mvad-input-params](../includes/mvad-input-params.md)]
 
 ## 4. Get Model Status
 

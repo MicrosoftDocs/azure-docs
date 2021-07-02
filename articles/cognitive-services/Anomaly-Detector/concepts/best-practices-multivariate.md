@@ -28,9 +28,10 @@ In this tutorial, you'll:
 
 Follow the instructions in this section to avoid errors while using MVAD. If you still get errors, please refer to the [full list of error codes](./troubleshoot.md) for explanations and actions to take.
 
+[!INCLUDE [mvad-input-params](../includes/mvad-input-params.md)]
+
 [!INCLUDE [mvad-data-schema](../includes/mvad-data-schema.md)]
 
-[!INCLUDE [mvad-input-params](../includes/mvad-data-schema.md)]
 
 ## Data engineering
 
