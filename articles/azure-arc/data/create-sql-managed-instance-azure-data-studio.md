@@ -71,7 +71,7 @@ azdata login
 - View all the Azure SQL Managed Instances provisioned, using the following commands:
 
 ```console
-azdata arc sql mi list
+az sql mi-arc list
 ```
 
 Output should look like this, copy the ServerEndpoint (including the port number) from here.

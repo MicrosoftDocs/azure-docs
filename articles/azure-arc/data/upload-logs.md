@@ -222,13 +222,13 @@ With the environment variables set, you can upload logs to the log workspace.
 1. Export all logs to the specified file:
 
    ```console
-   azdata arc dc export --type logs --path logs.json
+   az arcdata dc export --type logs --path logs.json
    ```
 
 2. Upload logs to an Azure monitor log analytics workspace:
 
    ```console
-   azdata arc dc upload --path logs.json
+   az arcdata dc upload --path logs.json
    ```
 
 ## View your logs in Azure portal
@@ -252,8 +252,8 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
 ```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc upload --path metrics.json
 ```
 
 Make the script file executable

@@ -54,7 +54,7 @@ You can delete Azure Arc enabled SQL Managed Instances or Arc enabled PostgreSQL
 
 - You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal.
 
-- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
+- In direct connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
 - Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
 - Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
 - Currently, only one Azure Arc data controller in direct connected mode per kubernetes cluster is supported.
@@ -113,7 +113,7 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc enabled SQL Managed Instance
 
-- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Arc enabled SQL Managed Instance has the same commands as `azdata arc sql mi <command>`. All Arc enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
+- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Arc enabled SQL Managed Instance has the same commands as `az sql mi-arc <command>`. All Arc enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
 
    To add the extension:
   
@@ -274,10 +274,10 @@ You can review detailed steps at [Azure resource providers and types](../../azur
 
 This release introduces direct connectivity mode. Direct connectivity mode enables the data controller to automatically upload the usage information to Azure. As part of the usage upload, the Arc data controller resource is automatically created in the portal, if it is not already created via `azdata` upload.  
 
-You can specify direct connectivity when you create the data controller. The following example creates a data controller with `azdata arc dc create` named `arc` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
+You can specify direct connectivity when you create the data controller. The following example creates a data controller with `az arcdata dc create` named `arc` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
 
 ```console
-azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
+az arcdata dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 ## October 2020 
@@ -303,7 +303,7 @@ This release introduces the following breaking changes:
    * Number of points uploaded to Azure
      or 
    * If no data has been loaded to Azure, a prompt to try it again.
-* `azdata arc dc debug copy-logs` now also reads from `/var/opt/controller/log` folder and collects PostgreSQL engine logs on Linux.
+* `az arcdata dc debug copy-logs` now also reads from `/var/opt/controller/log` folder and collects PostgreSQL engine logs on Linux.
 *	Display a working indicator during creating and restoring backup with PostgreSQL Hyperscale.
 * `azdata arc postrgres backup list` now includes backup size information.
 * SQL Managed Instance admin name property was added to right column of overview blade in the Azure portal.

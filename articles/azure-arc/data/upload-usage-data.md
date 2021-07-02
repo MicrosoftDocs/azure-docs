@@ -41,10 +41,10 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
    azdata login
    ```
 
-1. Export the usage data using `azdata arc dc export` command, as follows:
+1. Export the usage data using `az arcdata dc export` command, as follows:
 
    ```console
-   azdata arc dc export --type usage --path usage.json
+   az arcdata dc export --type usage --path usage.json
    ```
  
    This command creates a `usage.json` file with all the Azure Arc enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
@@ -52,7 +52,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
 2. Upload the usage data using ```azdata upload``` command
 
    ```console
-   azdata arc dc upload --path usage.json
+   az arcdata dc upload --path usage.json
    ```
 
 ## Automating uploads (optional)
@@ -62,8 +62,8 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as `.sh` (Linux/Mac) or `.cmd`, `.bat`, or `.ps1`.
 
 ```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc upload --path metrics.json
 ```
 
 Make the script file executable

@@ -35,20 +35,20 @@ You can get service logs across all pods or specific pods for troubleshooting pu
 2. Run the following command to dump the logs:
 
    ```console
-   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   az arcdata dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
    ```
 
    For example:
 
    ```console
-   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   #az arcdata dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
    ```
 
 The data controller creates the log files in the current working directory in a subdirectory called `logs`. 
 
 ## Options
 
-The `azdata arc dc debug copy-logs` command provides the following options to manage the output:
+The `az arcdata dc debug copy-logs` command provides the following options to manage the output:
 
 * Output the log files to a different directory by using the `--target-folder` parameter.
 * Compress the files by omitting the `--skip-compress` parameter.
@@ -59,13 +59,13 @@ The `azdata arc dc debug copy-logs` command provides the following options to ma
 With these parameters, you can replace the `<parameters>` in the following example: 
 
 ```console
-azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
 For example:
 
 ```console
-#azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
+#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
 The following folder hierarchy is an example. It's organized by pod name, then container, and then by directory hierarchy within the container.
@@ -191,4 +191,4 @@ The following folder hierarchy is an example. It's organized by pod name, then c
 
 ## Next steps
 
-[azdata arc dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)
+[az arcdata dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

@@ -109,13 +109,13 @@ To upload metrics for your Azure arc enabled SQL managed instances and Azure Arc
 1. Export all metrics to the specified file:
 
    ```console
-   azdata arc dc export --type metrics --path metrics.json
+   az arcdata dc export --type metrics --path metrics.json
    ```
 
 2. Upload metrics to Azure monitor:
 
    ```console
-   azdata arc dc upload --path metrics.json
+   az arcdata dc upload --path metrics.json
    ```
 
    >[!NOTE]
@@ -127,7 +127,7 @@ To upload metrics for your Azure arc enabled SQL managed instances and Azure Arc
 If you see any errors indicating "Failure to get metrics" during export, check if data collection is set to `true` by running the following command:
 
 ```console
-azdata arc dc config show
+az arcdata dc config show
 ```
 
 Look under "security section"
@@ -171,8 +171,8 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
 ```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc upload --path metrics.json
 ```
 
 Make the script file executable
