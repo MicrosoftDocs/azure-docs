@@ -55,5 +55,6 @@ See the following technical documents for information about the algorithms used:
 
 ## Next steps
 
+- [Tutorial](./tutorials/learn-multivariate-anomaly-detection.md): This article is an end-to-end tutorial of how to use the multivariate APIs.
 - [Quickstarts](./quickstarts/client-libraries-multivariate.md).
-- [Best Practices](./concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the  multivariate APIs.
+- [Best Practices](./concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the multivariate APIs.
