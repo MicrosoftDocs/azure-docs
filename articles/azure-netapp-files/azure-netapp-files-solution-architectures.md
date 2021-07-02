@@ -29,7 +29,7 @@ This section provides references for solutions for Linux OSS applications and da
 
 ### Oracle
 
-* [Oracle Databases on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/media/17105-tr4780.pdf)
+* [Oracle Databases on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/media/tr4780.pdf)
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](../virtual-machines/workloads/oracle/oracle-vm-solutions.md#shared-storage-configuration-options)
 * [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md)
 * [Benefits of using Azure NetApp Files with Oracle Database](solutions-benefits-azure-netapp-files-oracle-database.md)
