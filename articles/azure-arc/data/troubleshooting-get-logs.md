@@ -19,12 +19,12 @@ ms.topic: how-to
 
 Before you proceed, you need:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. For more information, see [Install client tools for deploying and managing Azure Arc data services](./install-client-tools.md).
+* Azure CLI (`az`) with the `arcdata` extension. For more information, see [Install client tools for deploying and managing Azure Arc data services](./install-client-tools.md).
 * An administrator account to sign in to the Azure Arc enabled data controller.
 
 ## Get log files
 
-You can get service logs across all pods or specific pods for troubleshooting purposes. One way is to use standard Kubernetes tools such as the `kubectl logs` command. In this article, you'll use the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, which makes it easier to get all of the logs at once.
+You can get service logs across all pods or specific pods for troubleshooting purposes. One way is to use standard Kubernetes tools such as the `kubectl logs` command. In this article, you'll use the Azure (`az`) CLI `arcdata` extension, which makes it easier to get all of the logs at once.
 
 1. Sign in to the data controller with an administrator account.
 

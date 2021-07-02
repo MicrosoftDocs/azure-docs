@@ -211,10 +211,10 @@ With the environment variables set, you can upload logs to the log workspace.
 
  To upload logs for your Azure Arc enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
-1. Log in to to the Azure Arc data controller with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
+1. Log in to to the Azure Arc data controller with Azure (`az`)  CLI with the `arcdata` extension.
 
    ```console
-   azdata login
+   az arcdata login
    ```
 
    Follow the prompts to set the namespace, the administrator username, and the password. 
