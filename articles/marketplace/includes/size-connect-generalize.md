@@ -22,8 +22,6 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 
 ### For Linux
 
-The following process generalizes a Linux VM and redeploys it as a separate VM. For details, see [How to create an image of a virtual machine or VHD](../../virtual-machines/linux/capture-image.md). You can stop when you reach the section called "Create a VM from the captured image".
-
 1. Remove the Azure Linux agent.
     1. Connect to your Linux VM using an SSH client.
     2. In the SSH window, enter this command: `sudo waagent –deprovision+user`.

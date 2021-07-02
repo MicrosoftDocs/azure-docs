@@ -9,7 +9,7 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 07/02/2021
 ---
 
 # Set up an indexer connection to a Cosmos DB database using a managed identity
