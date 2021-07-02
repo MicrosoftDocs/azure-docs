@@ -16,7 +16,7 @@ This article explains the best ways to move data to blob storage for use with Az
 
 > [!TIP]
 >
-> This article does not apply to NFS-mounted blob storage (ADLS-NFS storage targets). You can use any NFS-based method to populate an ADLS-NFS blob container before adding it to the HPC Cache. Read [Pre-load data with NFS protocol](nfs-blob-considerations.md#Pre-load-data-with-nfs-protocol) to learn more.
+> This article does not apply to NFS-mounted blob storage (ADLS-NFS storage targets). You can use any NFS-based method to populate an ADLS-NFS blob container before adding it to the HPC Cache. Read [Pre-load data with NFS protocol](nfs-blob-considerations.md#pre-load-data-with-nfs-protocol) to learn more.
 
 Keep these facts in mind:
 
