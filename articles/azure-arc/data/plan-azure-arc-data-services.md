@@ -6,7 +6,7 @@ ms.service: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 06/27/2021
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 # Plan to deploy Azure Arc enabled data services
