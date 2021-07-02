@@ -133,7 +133,7 @@ This section gives an overview of the code required to sign in users. This overv
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
 
- :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="Configure_service" highlight="3,4":::
+ :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="Configure_service_ref_for_docs_ms" highlight="3,4":::
 
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
@@ -148,7 +148,7 @@ The line that contains `.AddMicrosoftIdentityWebApp` adds Microsoft identity pla
 
 The `Configure()` method contains two important methods, `app.UseAuthentication()` and `app.UseAuthorization()`, that enable their named functionality. Also in the `Configure()` method, you must register Microsoft Identity Web routes with at least one call to `endpoints.MapControllerRoute()` or a call to `endpoints.MapControllers()`:
 
- :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" range="64-73" :::
+ :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="endpoint_map_ref_for_docs_ms":::
 
 
 ### Attribute for protecting a controller or methods
