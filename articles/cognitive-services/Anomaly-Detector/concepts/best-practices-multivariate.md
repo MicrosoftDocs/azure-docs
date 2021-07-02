@@ -129,7 +129,7 @@ Values of different variables at close timestamps are well aligned, and the MVAD
 
 ## Common pitfalls
 
-Apart from the [error code table](./troubleshoot.md), we've learnt from customers like you some common pitfalls while using MVAD APIs. This table will help you dodge them in your practice.
+Apart from the [error code table](./troubleshoot.md), we've learned from customers like you some common pitfalls while using MVAD APIs. This table will help you to avoid these issues.
 
 | Pitfall | Consequence |Explanation and solution |
 | --------- | ----- | ----- |
