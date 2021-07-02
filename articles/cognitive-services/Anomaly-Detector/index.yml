@@ -68,12 +68,10 @@ landingContent:
 
     - linkListType: tutorial
       links:
-        - text: Visualize anomalies using batch detection and Power BI
+        - text: Learn Multivariate Anomaly Detection in one hour
+          url: tutorials/learn-multivariate-anomaly-detection.md
+        - text: Visualize (univariate) anomalies using batch detection and Power BI
           url: tutorials/batch-anomaly-detection-powerbi.md
-    - linkListType: video
-      links:
-        - text: Anomaly detection on streaming data using Azure Databricks
-          url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
 
 - title: Optimize your detection results
   linkLists:
