@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: ginalee-dotcom
   ms.author: ginle
-  ms.date: 06/01/2021
+  ms.date: 06/21/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,4 +24,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: DICOM overview
-            url: dicom-overview.md
+            url: dicom-services-overview.md
