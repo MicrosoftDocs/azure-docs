@@ -127,10 +127,10 @@
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-availability-performance-application-issues.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Deployment FAQ
-        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-deployment.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Open source technologies FAQ
-        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-open-source-technologies.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Configuration and management FAQ
-        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-configuration-and-management.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
