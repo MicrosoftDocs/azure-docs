@@ -81,7 +81,7 @@ These commands produce the following root and the device certificate
 | sampleDevice01_key.pem | The private key for the device X509 certificate |
 | sampleDevice01_fullchain.pem | The entire keychain for the device X509 certificate. |
 
-Make a note of the location of these files. You need then later.
+Make a note of the location of these files. You need it later.
 
 ### Create a group enrollment
 
@@ -551,7 +551,7 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
 - Copy the device certificate and key files onto your IoT Edge device. In the previous group enrollment example, these files were called **sampleDevice01_key.pem** and **sampleDevice01_cert.pem**.
 - On the IoT Edge device, edit `provisioning` section in the **/etc/iotedge/config.yaml** configuration file as follows:
 
-    ```yml
+    ```yaml
     # DPS X.509 provisioning configuration
     provisioning:
       source: "dps"
@@ -655,4 +655,3 @@ When the secondary certificate nears expiration, and needs to be rolled, you can
 ## Next steps
 
 Now that you've learned how to connect devices using  X.509 certificates, the suggested next step is to learn how to [Monitor device connectivity using Azure CLI](howto-monitor-devices-azure-cli.md).
-
