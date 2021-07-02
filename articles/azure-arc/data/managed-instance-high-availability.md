@@ -5,7 +5,7 @@ description: Learn how to deploy Azure Arc enabled Managed Instance with high av
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 07/08/2021
 ms.topic: conceptual
 services: azure-arc
 ms.service: azure-arc

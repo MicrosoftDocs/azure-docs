@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dinethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 06/27/2021
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 # Create custom configuration templates
