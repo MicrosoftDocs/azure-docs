@@ -262,7 +262,18 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 ### Log custom telemetry
 
-By default, Functions writes output as traces to Application Insights. For more control, you can instead use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance.
+By default, Functions writes output as traces to Application Insights. For more control, you can instead use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance. 
+
+>[!NOTE]
+> To use the OpenCensus Python Extensions, you need to enable [Python Extensions](#python-worker-extensions) by setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1` in `local.settings.json` and application settings
+>
+
+```
+// requirements.txt
+...
+opencensus-extension-azure-functions
+opencensus-ext-requests
+```
 
 ```python
 import json
