@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 05/20/2021
+ms.date: 07/05/2021
 ---
 
 # Create plans for a virtual machine offer
@@ -26,7 +26,7 @@ After you create your plans, select the **Plan overview** tab to display:
 The actions available on this pane vary depending on the current status of your plan.
 
 - If the plan status is a draft, select **Delete draft**.
-- If the plan status is published live, select **Stop sell plan** or **Sync private audience**.
+- If the plan status is published live, select **Deprecate plan** or **Sync private audience**.
 
 ## Create a new plan
 
