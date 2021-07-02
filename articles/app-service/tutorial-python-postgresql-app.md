@@ -23,7 +23,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
 
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal).
+You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal&pivots=postgres-single-server).
 
 :::zone-end
 
@@ -41,7 +41,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
 
-You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal).
+You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal&pivots=postgres-flexible-server).
 
 :::zone-end
 
@@ -121,7 +121,13 @@ git checkout flexible-server
 
 # [Download](#tab/download)
 
-Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp), select **Clone**, and then select **Download ZIP**. 
+Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp).
+
+::: zone pivot="postgres-flexible-server"
+For Flexible Server (Preview), select the branches control that says "master" and select the flexible-server branch instead.
+::: zone-end
+
+Select **Clone**, and then select **Download ZIP**. 
 
 Unpack the ZIP file into a folder named *djangoapp*. 
 
@@ -268,21 +274,21 @@ This command performs the following actions, which may take a few minutes:
 
 1. Run the following [`az webapp up`](/cli/azure/webapp#az_webapp_up) command to create the App Service host for the app:
 
-```azurecli
-az webapp up --name <app-name> --sku B1 
-```
-<!-- without --sku creates PremiumV2 plan -->
-
-- For the `--location` argument, use the same location as you did for the database in the previous section.
-
-This command performs the following actions, which may take a few minutes:
-
-<!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
-<!-- No it doesn't. az webapp up doesn't respect --resource-group -->
-- Create an [App Service plan](overview-hosting-plans.md) in the Basic pricing tier (B1). You can omit `--sku` to use default values.
-- Create the App Service app.
-- Enable default logging for the app.
-- Upload the repository using ZIP deployment with build automation enabled.
+    ```azurecli
+    az webapp up --name <app-name> --sku B1 
+    ```
+    <!-- without --sku creates PremiumV2 plan -->
+    
+    - For the `--location` argument, use the same location as you did for the database in the previous section.
+    
+    This command performs the following actions, which may take a few minutes:
+    
+    <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
+    <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
+    - Create an [App Service plan](overview-hosting-plans.md) in the Basic pricing tier (B1). You can omit `--sku` to use default values.
+    - Create the App Service app.
+    - Enable default logging for the app.
+    - Upload the repository using ZIP deployment with build automation enabled.
 
 ::: zone-end
 
