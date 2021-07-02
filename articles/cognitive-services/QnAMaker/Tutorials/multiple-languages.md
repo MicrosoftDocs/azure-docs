@@ -11,17 +11,16 @@ ms.date: 06/29/2021
 
 # Create knowledge bases in multiple languages
 
-Microsoft’s device division is increasingly receiving user queries from different countries. So, they want to add knowledge bases in multiple languages to address user queries.
-
-In this tutorial, we use the [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) URL and create knowledge bases in German and English. We then publish the knowledge bases and use [GenerateAnswerAPI](/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Runtime/GenerateAnswer) to query them to get answers to FAQs in the desired language.
+This tutorial will walk through the process of creating knowledge bases in multiple languages. We use the [Surface Pen FAQ](https://support.microsoft.com/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98) URL to create knowledge bases in German and English. We then publish the knowledge bases and use the [GenerateAnswerAPI](/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Runtime/GenerateAnswer) to query them to get answers to FAQs in the desired language.
 
 ## Create Knowledge Base in German
-To be able to create a knowledge base in more than one language, the language setting must be set at the creation of the first KB of the QnA service.
+
+To be able to create a knowledge base in more than one language, the language setting must be set at the creation of the first Knowledge Base (KB) of the QnA service.
 
 > [!NOTE]
-> The option to enable adding knowledge bases in multiple language to a service is only available as Custom Question Answering > feature as part of Text Analytics.
+> The option to enable adding knowledge bases in multiple languages to a service is only available as part of Custom Question Answering which is a feature of Text Analytics.
 >
-> If you are using the GA version, a separate QnA Maker resource would need to be created for each distinct language.
+> If you are using the GA version of QnA Maker, a separate QnA Maker resource would need to be created for each distinct language.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of UI for Connect your QnA service to your knowledge base with add knowledge bases in multiple languages selected]( ../media/multiple-languages/add-knowledge-bases.png) ]( ../media/multiple-languages/add-knowledge-bases.png#lightbox)
@@ -29,7 +28,7 @@ To be able to create a knowledge base in more than one language, the language se
 In **Step 2**: Enable “Add knowledge bases in multiple languages to this service” and choose **German** as the language of the KB from “Language” drop-down list.
 Fill relevant details in Step 3 and 4 and finally select on **Create your KB**.
  
-At this step, QnA maker reads the document and extracts QnA pairs from the source URL to create the knowledge base in the German language. The Knowledge base page opens where we can edit the contents of the knowledge base.
+At this step, QnA maker reads the document and extracts QnA pairs from the source URL to create the knowledge base in the German language. The knowledge base page opens where we can edit the contents of the knowledge base.
 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of UI with German questions and answers]( ../media/multiple-languages/german.png) ]( ../media/multiple-languages/german.png#lightbox)

@@ -11,7 +11,7 @@ ms.date: 06/29/2021
 
 # Improve quality of response with synonyms
 
-The team observed that users are not getting an accurate response to their queries, when they use alternate forms, synonyms or acronyms of a word. So, they decide to improve the quality of the response by using [Alterations API](/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) to add synonyms to such keywords.
+This tutorial will show you how you can improve the quality of your responses by using synonymns. Let's assume that users are not getting an accurate response to their queries, when they use alternate forms, synonyms or acronyms of a word. So, they decide to improve the quality of the response by using [Alterations API](/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) to add synonyms for keywords.
 
 ## Add synonyms using Alterations API
 
@@ -72,7 +72,7 @@ For the question and answer pair “Fix problems with Surface Pen” shown below
 As you can see, when `trouble shoot` was not added as a synonym, we got a low confidence response to the query “How to troubleshoot your surface pen”. However, after we add `trouble shoot` as a synonym to “fix problems”, we received the correct response to the query with a higher confidence score. Once, these word alterations were added, the relevance of results improved thereby improving user experience. 
 
 > [!NOTE]
-> It may be noted that synonyms are case insensitive. Synonyms also might not work as expected if you add stop words as synonyms. The list of stop words can be found here: [List of stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
+> Synonyms are case insensitive. Synonyms also might not work as expected if you add stop words as synonyms. The list of stop words can be found here: [List of stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
 
 For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and filtered when query is processed.
 

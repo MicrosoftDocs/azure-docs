@@ -11,9 +11,9 @@ ms.date: 06/29/2021
 
 # Enrich your knowledge base with Active Learning
 
-Over time, the Microsoft team observed that customers are asking questions, which are not part of the knowledge base. There were variations of the question that were paraphrased differently. 
+This tutorial shows you how enhance your knowledge base with active learning. If you notice that customers are asking questions, which are not part of your knowledge base. There are often variations of question that are paraphrased differently. 
 
-These variations when added as alternate questions to the relevant QnA pair, helps optimize the knowledge base to answer real world user queries. The customer can manually add alternate questions to QnA pairs through the editor. At the same time, they can also use the Active Learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
+These variations when added as alternate questions to the relevant QnA pair, help to optimize the knowledge base to answer real world user queries. You can manually add alternate questions to QnA pairs through the editor. At the same time, you can also use the active learning feature to generate active learning suggestions based on user queries. The active learning feature, however, requires that the knowledge base receives regular user traffic to generate suggestions.
 
 ## Enable Active Learning
 Active Learning is turned on by default for the Custom Question Answering feature. However, you need to manually update the Active Learning setting for QnA Maker GA. You can find more details here: [Turn on Active Learning](../how-to/use-active-learning.md#turn-on-active-learning-for-alternate-questions).
