@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 
@@ -46,7 +46,7 @@ For example, let's troubleshoot a PostgreSQL Hyperscale server group that might 
 
 ### Install tools
 
-Install Azure Data Studio, `kubectl` and [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
+Install Azure Data Studio, `kubectl`, and Azure (`az`) CLI with the `arcdata` extension on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
 
 ### Update the PATH environment variable
 

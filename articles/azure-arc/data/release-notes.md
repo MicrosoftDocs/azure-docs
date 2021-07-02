@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 06/02/2021
+ms.date: 07/08/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -15,6 +15,86 @@ ms.topic: conceptual
 # Release notes - Azure Arc enabled data services (Preview)
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
+
+## June 2021
+
+This preview release is published July 8, 2021.
+
+### Breaking change
+
+#### New Azure CLI extension for data controller and Azure Arc-enabled SQL Managed Instance
+
+This release introduces the `arcdata` extension to the Azure CLI. To add the extension, run the following command: 
+
+```azurecli
+az extension add --name arcdata 
+```
+
+The extension supports command line interaction with data controller and managed instance resources. 
+
+To update your scripts for data controller, replace `azdata arc dc...` with `az arcdata dc...`.
+
+To update your scripts for managed instance, replace `azdata arc sql mi...` with `az sql mi-arc...`.
+
+For Azure Arc-enabled PostgreSQL Hyperscale, continue to use `azdata`.
+
+
+### What's new
+
+This release introduces `az` CLI extensions for Azure Arc enabled data services. See information in [Breaking change](#breaking-change) above. 
+
+#### Platform
+
+You can delete Azure Arc enabled SQL Managed Instances or Arc enabled PostgreSQL Hyperscale groups from the portal on a data controller that is directly connected to Azure.
+
+#### Azure Arc enabled PostgreSQL Hyperscale
+
+- Azure Arc PostgreSQL Hyperscale now supports NFS storage.
+- Azure Arc PostgreSQL Hyperscale deployments now supports Kubernetes pods to nodes assignments strategies with nodeSelector, nodeAffinity and anti-affinity.
+- You can now configure compute parameters (vCore & memory) per role (Coordinator or Worker) when you deploy a PostgreSQL Hyperscale server group or after deployment from Azure Data Studio and from the Azure Portal.
+- From the Azure Portal, you can now view the list of PostgreSQL extensions created on your PostgreSQL Hyperscale server group.
+
+#### Azure Arc enabled SQL Managed Instance
+
+### Known issues
+
+#### Platform
+
+- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+   - Azure Data Studio
+   - Azure Data CLI (`azdata`)
+   - Kubernetes native tools (`kubectl`)
+
+   [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md) explains how to create the data controller in the portal. 
+
+- You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal.
+
+- In direct connected mode, upload of usage, metrics, and logs using `az arcdata dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
+- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
+- Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
+- Currently, only one Azure Arc data controller in direct connected mode per kubernetes cluster is supported.
+
+#### Azure Arc enabled PostgreSQL Hyperscale
+
+- It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
+
+   1. Enable the extension:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --extensions pg_cron 
+      ```
+
+   1. Restart the server group.
+
+   1. Configure the extension:
+   
+      ```console
+      azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
+      ```
+
+   If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
+
+- Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 
 ## May 2021
 
@@ -37,7 +117,7 @@ As a preview feature, the technology presented in this article is subject to [Su
 - Create custom configuration profiles to support custom settings when you deploy Arc enabled data controller using the Azure portal.
 - Optionally, automatically upload your logs to Azure Log analytics workspace in the directly connected mode.
 
-#### 	Azure Arc enabled PostgreSQL Hyperscale
+#### Azure Arc enabled PostgreSQL Hyperscale
 
 This release introduces the following features or capabilities:
 
@@ -48,7 +128,7 @@ This release introduces the following features or capabilities:
 
 #### Azure Arc enabled SQL Managed Instance
 
-- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Arc enabled SQL Managed Instance has the same commands as `azdata arc sql mi <command>`. All Arc enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
+- New [Azure CLI extension](/cli/azure/azure-cli-extensions-overview) for Arc enabled SQL Managed Instance has the same commands as `az sql mi-arc <command>`. All Arc enabled SQL Managed Instance commands are located at `az sql mi-arc`. All Arc related `azdata` commands will be deprecated and moved to Azure CLI in a future release.
 
    To add the extension:
   
@@ -72,47 +152,6 @@ This release introduces the following features or capabilities:
       ```
     
 - Transact-SQL `BACKUP` command is blocked unless using `COPY_ONLY` setting. This supports point in time restore capability.
-
-### Known issues
-
-#### Platform
-
-- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment with other Azure Arc enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
-   - Azure Data Studio
-   - Azure Data CLI (`azdata`)
-   - Kubernetes native tools (`kubectl`)
-
-   [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md) explains how to create the data controller in the portal. 
-
-- You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal.
-
-- In direct connected mode, upload of usage, metrics, and logs using `azdata arc dc upload` is currently blocked. Usage is automatically uploaded. Upload for data controller created in indirect connected mode should continue to work.
-- Automatic upload of usage data in direct connectivity mode will not succeed if using proxy via `–proxy-cert <path-t-cert-file>`.
-- Azure Arc enabled SQL Managed instance and Azure Arc enabled PostgreSQL Hyperscale are not GB18030 certified.
-- Currently, only one Azure Arc data controller in direct connected mode per kubernetes cluster is supported.
-
-#### Azure Arc enabled PostgreSQL Hyperscale
-
-- Point in time restore is not supported for now on NFS storage.
-- It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
-
-   1. Enable the extension:
-   
-      ```console
-      azdata arc postgres server edit -n myservergroup --extensions pg_cron 
-      ```
-
-   1. Restart the server group.
-
-   1. Configure the extension:
-   
-      ```console
-      azdata arc postgres server edit -n myservergroup --engine-settings cron.database_name='postgres'
-      ```
-
-   If you execute the second command before the restart has completed it will fail. If that is the case, simply wait for a few more moments and execute the second command again.
-
-- Passing  an invalid value to the `--extensions` parameter when editing the configuration of a server group to enable additional extensions incorrectly resets the list of enabled extensions to what it was at the create time of the server group and prevents user from creating additional extensions. The only workaround available when that happens is to delete the server group and redeploy it.
 
 ## April 2021
 
@@ -250,10 +289,10 @@ You can review detailed steps at [Azure resource providers and types](../../azur
 
 This release introduces direct connectivity mode. Direct connectivity mode enables the data controller to automatically upload the usage information to Azure. As part of the usage upload, the Arc data controller resource is automatically created in the portal, if it is not already created via `azdata` upload.  
 
-You can specify direct connectivity when you create the data controller. The following example creates a data controller with `azdata arc dc create` named `arc` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
+You can specify direct connectivity when you create the data controller. The following example creates a data controller with `az arcdata dc create` named `arc` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
 
-```console
-azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
+```azurecli
+az arcdata dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 
 ## October 2020 
@@ -279,7 +318,7 @@ This release introduces the following breaking changes:
    * Number of points uploaded to Azure
      or 
    * If no data has been loaded to Azure, a prompt to try it again.
-* `azdata arc dc debug copy-logs` now also reads from `/var/opt/controller/log` folder and collects PostgreSQL engine logs on Linux.
+* `az arcdata dc debug copy-logs` now also reads from `/var/opt/controller/log` folder and collects PostgreSQL engine logs on Linux.
 *	Display a working indicator during creating and restoring backup with PostgreSQL Hyperscale.
 * `azdata arc postrgres backup list` now includes backup size information.
 * SQL Managed Instance admin name property was added to right column of overview blade in the Azure portal.

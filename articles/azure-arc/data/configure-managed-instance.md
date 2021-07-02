@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 
@@ -19,24 +19,24 @@ This article explains how to configure Azure Arc enabled SQL managed instance.
 
 ## Configure resources
 
-### Configure using [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+### Configure using CLI
 
-You can edit the configuration of Azure Arc enabled SQL Managed Instances with the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Run the following command to see configuration options. 
+You can edit the configuration of Azure Arc enabled SQL Managed Instances with the CLI. Run the following command to see configuration options. 
 
-```
-azdata arc sql mi edit --help
+```azurecli
+az sql mi-arc edit --help
 ```
 
 The following example sets the cpu core and memory requests and limits.
 
-```
-azdata arc sql mi edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
+```azurecli
+az sql mi-arc edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI>
 ```
 
 To view the changes made to the SQL managed instance, you can use the following commands to view the configuration yaml file:
 
-```
-azdata arc sql mi show -n <NAME_OF_SQL_MI>
+```azurecli
+az sql mi-arc show -n <NAME_OF_SQL_MI>
 ```
 
 ## Configure Server options

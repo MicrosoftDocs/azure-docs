@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 01/15/2021
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 
@@ -27,5 +27,5 @@ It applies to deployments on Azure Red Hat OpenShift or Red Hat OpenShift Contai
 
 - [Create the Azure Arc data controller](create-data-controller.md)
 - [Create data controller in Azure Data Studio](create-data-controller-azure-data-studio.md)
-- [Create Azure Arc data controller using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
+- [Create Azure Arc data controller with CLI](create-data-controller-using-cli.md)
 

@@ -8,7 +8,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 03/31/2021
+ms.date: 07/08/2021
 ms.topic: overview
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
@@ -38,7 +38,7 @@ Azure Arc also provides other cloud benefits such as fast deployment and automat
 
 ## Unified management
 
-Using familiar tools such as the Azure portal, Azure Data Studio, and the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], you can now gain a unified view of all your data assets deployed with Azure Arc. You are able to not only view and manage a variety of relational databases across your environment and Azure, but also get logs and telemetry from Kubernetes APIs to analyze the underlying infrastructure capacity and health. Besides having localized log analytics and performance monitoring, you can now leverage Azure Monitor for comprehensive operational insights across your entire estate.
+Using familiar tools such as the Azure portal, Azure Data Studio, and the Azure CLI (`az`) with the `arcdata` extension, you can now gain a unified view of all your data assets deployed with Azure Arc. You are able to not only view and manage a variety of relational databases across your environment and Azure, but also get logs and telemetry from Kubernetes APIs to analyze the underlying infrastructure capacity and health. Besides having localized log analytics and performance monitoring, you can now leverage Azure Monitor for comprehensive operational insights across your entire estate.
 
 ## Disconnected scenario support
 

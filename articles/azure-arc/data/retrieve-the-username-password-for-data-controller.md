@@ -7,17 +7,13 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 
 # Retrieve the user name and password to connect to the Arc Data Controller
 
 You may be in a situation where you need to retrieve the user name and password for the Data controller. These are the commands you need when you run. 
-
-```console
-azdata login
-```
 
 If you are the Kubernetes administrator for the cluster. As such you have the privileges to run commands to retrieve from the Kubernetes secret stores the information that Azure Arc persists there.
 

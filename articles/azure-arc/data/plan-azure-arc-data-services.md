@@ -6,7 +6,7 @@ ms.service: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 06/27/2021
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 # Plan to deploy Azure Arc enabled data services
@@ -15,36 +15,42 @@ This article describes how to plan to deploy Azure Arc enabled data services.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-To plan to deploy Azure Arc enabled data services:
-
-1. Understand the database workloads and business requirements.
-1. Prepare an infrastructure to support the workloads and meet those requirements. 
-
-First, deployment of Azure Arc data services involves proper understanding of the database workloads and the business requirements for those workloads such as availability, business continuity etc. and capacity requirements for memory, CPU, storage etc. for those workloads. Second, the infrastructure to support those database workloads needs to be prepared based on the business requirements. 
+First, deployment of Azure Arc data services involves proper understanding of the database workloads and the business requirements for those workloads. For example, consider things like availability, business continuity, and capacity requirements for memory, CPU, and storage for those workloads. Second, the infrastructure to support those database workloads needs to be prepared based on the business requirements. 
 
 ## Prerequisites
 
-Before deploy the Azure Arc enabled data services, its important to understand the prerequisites first and have all the necessary information ready, infrastructure environment properly configured with right level of access, appropriate capacity for storage, CPU, memory etc. so you can have a successful deployment at the end.
+Before you deploy the Azure Arc enabled data services, it's important to understand the prerequisites and have all the necessary information ready, infrastructure environment properly configured with right level of access, appropriate capacity for storage, CPU, and memory. so you can have a successful deployment at the end.
 
-Prerequisites include:
-- Understanding of [sizing guidance](sizing-guidance.md)
-- Understanding of [storage configuration](storage-configuration.md)
-- Understanding of [connectivity modes and their requirements](connectivity.md)
+Review the following sections:
+- [Sizing guidance](sizing-guidance.md)
+- [Storage configuration](storage-configuration.md)
+- [Connectivity modes and their requirements](connectivity.md)
+
+Verify that you have:
+- [Installed `az` CLI and the `arcdata` extension](install-arcdata-extension.md)
+- [Installed the other client tools](install-client-tools.md) 
 - Access to the Kubernetes cluster
-- Your `kubeconfig` file configured to point to the Kubernetes cluster you want to deploy to. Run the following command to verify the current context of your cluster you will be deploying to:
+- Your `kubeconfig` file configured. It should point to the Kubernetes cluster you want to deploy to. Run the following command to verify the current context of your cluster you will be deploying to:
+
    ```console
    kubectl cluster-info
    ``` 
-- [Install the client tools](install-client-tools.md) 
-- An Azure subscription to which resources such as Azure Arc data controller, Azure Arc enabled SQL managed instance or Azure Arc enabled PostgreSQL Hyperscale server will be projected and billed to (when not using for dev edition).
+- An Azure subscription to which resources such as Azure Arc data controller, Azure Arc enabled SQL managed instance or Azure Arc enabled PostgreSQL Hyperscale server will be projected and billed to. 
 
-Once the infrastructure is prepared, deploying Azure Arc enabled data services involves (1) creating an Azure Arc data controller on one of the supported distributions of a kubernetes cluster, and then (2) creating an Azure Arc enabled SQL managed instance or an Azure Arc enabled PostgreSQL Hyperscale server group.
 
-## Overview of creating the Azure Arc data controller
+> [!NOTE]
+> Billing applies after general availability and when not using for dev edition.
 
-Azure Arc enabled data services can be created on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
+Once the infrastructure is prepared, deploy Azure Arc enabled data services in the following way:
+1. Create an Azure Arc-enabled data controller on one of the validated distributions of a Kubernetes cluster
+1. Create an Azure Arc-enabled SQL managed instance or an Azure Arc-enabled PostgreSQL Hyperscale server group.
 
-Currently, the supported list of Kubernetes services and distributions are the following:
+## Overview: Create the Azure Arc-enabled data controller
+
+You can create Azure Arc-enabled data services on multiple different types of Kubernetes clusters and managed Kubernetes services using multiple different approaches.
+
+Currently, the validated list of Kubernetes services and distributions includes:
+
 
 - AWS Elastic Kubernetes Service (EKS)
 - Azure Kubernetes Service (AKS)
@@ -79,13 +85,13 @@ Regardless of the option you choose, during the creation process you will need t
 ## Additional concepts for direct connected mode
 
 As described in the [connectivity modes](./connectivity.md), Azure Arc data controller can be deployed in **direct** or **indirect** connectivity modes. Deploying Azure Arc data services in **direct** connected mode requires understanding of some additional concepts and considerations. 
-First, the kubernetes cluster where the Arc enabled data services will be deployed needs to be an [Azure Arc enabled kubernetes cluster](../kubernetes/overview.md). Onboarding the kubernetes cluster to Azure Arc provides Azure connectivity that is leveraged for capabilities such as automatic upload of usage information, logs, metrics etc. Connecting your kubernetes cluster to Azure also allows you to deploy and manage Azure Arc data services to your cluster directly from the Azure portal. 
+First, the Kubernetes cluster where the Arc enabled data services will be deployed needs to be an [Azure Arc enabled Kubernetes cluster](../kubernetes/overview.md). Onboarding the Kubernetes cluster to Azure Arc provides Azure connectivity that is leveraged for capabilities such as automatic upload of usage information, logs, metrics etc. Connecting your Kubernetes cluster to Azure also allows you to deploy and manage Azure Arc data services to your cluster directly from the Azure portal. 
 
-Connecting your kubernetes cluster to Azure involves the following steps:
+Connecting your Kubernetes cluster to Azure involves the following steps:
 - Install the required az extensions
 - [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md)
 
-Second, after the kubernetes cluster is onboarded to Azure Arc, deploying Azure Arc data services on an Azure Arc enabled kubernetes cluster involves the following:
+Second, after the Kubernetes cluster is onboarded to Azure Arc, deploying Azure Arc data services on an Azure Arc enabled Kubernetes cluster involves the following:
 - Create the Arc data services extension, learn more about [cluster extensions](../kubernetes/conceptual-extensions.md) 
 - Create a custom location, learn more about [custom locations](../kubernetes/conceptual-custom-locations.md)
 - Create the Azure Arc data controller
@@ -100,6 +106,8 @@ There are multiple options for creating the Azure Arc data controller:
 > **Just want to try things out?**  
 > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
 > 
+
+- [Create a data controller in indirect connected mode with CLI](create-data-controller-using-cli.md)
 - [Create a data controller in indirect connected mode with azdata](create-data-controller-using-azdata.md)
 - [Create a data controller in indirect connected mode with Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Create a data controller in indirect connected mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
