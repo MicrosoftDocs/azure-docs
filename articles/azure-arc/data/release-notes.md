@@ -291,7 +291,7 @@ This release introduces direct connectivity mode. Direct connectivity mode enabl
 
 You can specify direct connectivity when you create the data controller. The following example creates a data controller with `az arcdata dc create` named `arc` using direct connectivity mode (`connectivity-mode direct`). Before you run the example, replace `<subscription id>` with your subscription ID.
 
-```console
+```azurecli
 az arcdata dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group my-resource-group --location eastus --connectivity-mode direct
 ```
 

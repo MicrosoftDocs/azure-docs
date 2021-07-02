@@ -10,13 +10,15 @@ ms.reviewer: mikeray
 ms.date: 06/27/2021
 ms.topic: how-to
 ---
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
 # Create custom configuration templates
 
+This article explains how to create a custom configuration template for Azure Arc-enabled data controller. 
 
-One of required parameters during deployment of a data controller, whether in direct mode or indirect mode, is the ```--profile-name``` parameter. Currently, the available list of built-in profiles can be found via running the query:
-```
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+One of required parameters during deployment of a data controller, whether in direct mode or indirect mode, is the `--profile-name` parameter. Currently, the available list of built-in profiles can be found via running the query:
+
+```azurecli
 az arcdata dc config list
 ```
 These profiles are template JSON files that have various settings for the Azure Arc data controller such as docker registry and repository settings, storage classes for data and logs, storage size for data and logs, security, service type etc. and can be customized to your environment. 
@@ -25,7 +27,7 @@ These profiles are template JSON files that have various settings for the Azure 
 
 Run the ```az arcdata dc config init``` command to initiate a control.json file with pre-defined settings based on your distribution of kubernetes cluster.
 For instance, a template control.json file for a kubernetes cluster based on upstream kubeadm can be created as follows:
-```
+```azurecli
 az arcdata dc config init --source azure-arc-kubeadm --path custom
 ```
 The created control.json file can be edited in any editor such as Visual Studio Code to customize the settings appropriate for your environment.
@@ -33,7 +35,7 @@ The created control.json file can be edited in any editor such as Visual Studio 
 ### Use custom control.json file for deploying Azure Arc data controller using azdata CLI
 
 Once the template file is updated, the file can be applied during Azure Arc data controller create as follows:
-```
+```azurecli
 az arcdata dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:

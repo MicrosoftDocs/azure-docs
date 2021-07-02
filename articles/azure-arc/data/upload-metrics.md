@@ -126,7 +126,7 @@ To upload metrics for your Azure arc enabled SQL managed instances and Azure Arc
 
 If you see any errors indicating "Failure to get metrics" during export, check if data collection is set to `true` by running the following command:
 
-```console
+```azurecli
 az arcdata dc config show
 ```
 
@@ -170,7 +170,7 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
-```console
+```azurecli
 az arcdata dc export --type metrics --path metrics.json --force
 az arcdata dc upload --path metrics.json
 ```

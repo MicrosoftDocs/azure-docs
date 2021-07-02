@@ -29,13 +29,13 @@ azdata login
 
 Run the following command to check if there are any SQL managed instances created:
 
-```
+```azurecli
 az sql mi-arc list
 ```
 
 For each SQL managed instance from the list above, run the delete command as follows:
 
-```
+```azurecli
 az sql mi-arc delete -n <name>
 # for example: az sql mi-arc delete -n sqlinstance1
 ```
@@ -56,7 +56,7 @@ azdata arc postgres server delete -n <name>
 
 After all the SQL managed instances and PostgreSQL Hyperscale instances have been removed, the data controller can be deleted as follows:
 
-```
+```azurecli
 az arcdata dc delete -n <name> -ns <namespace>
 # for example: az arcdata dc delete -ns arc -n arcdc
 ```

@@ -58,7 +58,7 @@ The `az arcdata dc debug copy-logs` command provides the following options to ma
 
 With these parameters, you can replace the `<parameters>` in the following example: 
 
-```console
+```azurecli
 az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 

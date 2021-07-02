@@ -70,7 +70,7 @@ azdata login
 
 - View all the Azure SQL Managed Instances provisioned, using the following commands:
 
-```console
+```azurecli
 az sql mi-arc list
 ```
 

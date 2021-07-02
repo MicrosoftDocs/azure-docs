@@ -80,14 +80,14 @@ Capabilities that availability groups enable:
 
 To deploy a managed instance with availability groups, run the following command.
 
-```console
+```azurecli
 az sql mi-arc create -n <name of instance> --replicas 3
 ```
 
 ### Check status
 Once the instance has been deployed, run the following commands to check the status of your instance:
 
-```console
+```azurecli
 az sql mi-arc list
 az sql mi-arc show -n <name of instance>
 ```
