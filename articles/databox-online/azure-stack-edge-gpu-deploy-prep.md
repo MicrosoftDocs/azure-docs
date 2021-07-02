@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/29/2021
+ms.date: 07/01/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -144,8 +144,7 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
 
 7. Based on your business need, you can select Azure Stack Edge Pro with 1 or 2 Graphical Processing Units (GPUs) from Nvidia. 
 
-    ![Select a 1 GPU or 2 GPU configuration for your Azure Stack Edge Pro GPU order](media/azure-stack-edge-gpu-deploy-prep/create-resource-4
-.png)
+    ![Select a 1 GPU or 2 GPU configuration for your Azure Stack Edge Pro GPU order](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
 8. On the **Basics** tab, enter or select the following **Project details**.
     
