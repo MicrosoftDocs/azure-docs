@@ -61,7 +61,7 @@ A virtual environment is a folder within a project that isolates a copy of a spe
 
 Set up and [configure your local Python dev environment for Azure](/azure/developer/python/configure-local-development-environment)
 
-Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme?view=azure-python#environment-variables)
+Install the azure-identity library for Python. This module is needed for Azure Active Directory authentication. See the details at [Azure Identity client library for Python](/python/api/overview/azure/identity-readme#environment-variables)
 
 ``` bash
 pip install azure-identity
