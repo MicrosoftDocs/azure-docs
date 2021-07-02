@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 06/08/2021
 
 ms.author: mimart
 author: msmimart
@@ -59,7 +59,7 @@ You can also give Google guest users a direct link to an application or resource
 Starting in the second half of 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using [self-service sign-up with Gmail](identity-providers.md), if your apps authenticate users with an embedded web-view, Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
-- Windows apps that use the [WebView](https://docs.microsoft.com/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](https://docs.microsoft.com/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
+- Windows apps that use the [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using UIWebView/WKWebview 
 - Apps using ADAL
@@ -76,11 +76,15 @@ We’re confirming with Google whether this change affects the following:
 
 We’re continuing to test various platforms and scenarios, and will update this article accordingly.
 ### Action needed for embedded web-views
-Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers#embedded-vs-system-web-ui) in the MSAL.NET documentation. All MSAL SDKs use the system web-view by default.
+Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) in the MSAL.NET documentation. All MSAL SDKs use the system web-view by default.
 ### What to expect
 Before Google puts these changes into place in the second half of 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked.
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
+
+If applications are not migrated to an allowed web-view for authentication, then affected Gmail users will see the following screen.
+
+![Google sign-in error if apps are not migrated to system browsers](media/google-federation/google-sign-in-error-ewv.png)
 
 We will update this document as dates and further details are shared by Google.
 

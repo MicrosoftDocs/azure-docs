@@ -581,7 +581,7 @@ Certificate Authorities" on Windows machines and in the path
 `/usr/local/share/ca-certificates/extra` on Linux machines. For the node to verify signed content,
 install the certificate public key on the machine before applying the custom policy. This process
 can be done using any technique inside the VM or by using Azure Policy. An example template is
-[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
+[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows).
 The Key Vault access policy must allow the Compute resource provider to access certificates during
 deployments. For detailed steps, see
 [Set up Key Vault for virtual machines in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).

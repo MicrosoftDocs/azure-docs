@@ -15,20 +15,6 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how you can use the Azure Image Builder to create a basic customized Windows image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
 
-
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```powershell-interactive
-# Register for Azure Image Builder Feature
-
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-```
 ## Set variables and permissions 
 
 You will be using some pieces of information repeatedly. Create some variables to store that information.

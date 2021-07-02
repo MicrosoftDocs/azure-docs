@@ -38,7 +38,7 @@ Learn what's new in the service. These items include release notes, videos, blog
         * [Continuous Integration and Continuous Delivery workflows for LUIS DevOps](luis-concept-devops-automation.md)
         * [Testing for LUIS DevOps](luis-concept-devops-testing.md)
     * How-to
-        * [Apply DevOps to LUIS app development using GitHub Actions](luis-how-to-devops-with-github.md)
+        * [Apply DevOps to LUIS app development using GitHub Actions](./luis-concept-devops-automation.md)
     * [Complete code GitHub repo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### May 2020 - //Build

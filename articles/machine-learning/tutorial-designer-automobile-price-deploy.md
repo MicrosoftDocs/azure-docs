@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Deploy ML models with the designer'
+title: 'Tutorial: Designer - deploy no-code models'
 titleSuffix: Azure Machine Learning
-description: Build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model using drag-and-drop modules.
+description: Deploy a machine learning model to predict car prices with the Azure Machine Learning designer.
 
 author: likebupt
 ms.author: keli19
@@ -9,14 +9,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/25/2021
-ms.custom: designer
+ms.date: 06/11/2021
+ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Deploy a machine learning model with the designer
+# Tutorial: Designer - deploy a machine learning model
+
+Use the designer to deploy a machine learning model to predict the price of cars. This tutorial is part two of a two-part series.
 
 
-You can deploy the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to give others a chance to use it. In part one, you trained your model. Now, it's time to generate predictions based on user input. In this part of the tutorial, you will:
+In [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) you trained a linear regression model on car prices. In part two, you deploy the model to give others a chance to use it. In this tutorial, you:
 
 > [!div class="checklist"]
 > * Create a real-time inference pipeline.

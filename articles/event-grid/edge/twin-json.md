@@ -1,9 +1,7 @@
 ---
 title: Module Twin - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Configuration via Module Twin.
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021

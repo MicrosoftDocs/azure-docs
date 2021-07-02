@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.author: cavoeg
+ms.author: zxue
 ms.date: 05/10/2021
 ---
 
@@ -42,7 +42,7 @@ An Azure account with an active subscription. [Create one for free](https://azur
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-api-for-fhir/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-for-fhir/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json":::
 

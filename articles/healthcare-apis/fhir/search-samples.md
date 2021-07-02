@@ -25,7 +25,7 @@ Below are some examples of using FHIR search operations, including search parame
 ```
 
 > [!NOTE]
-> **_include** and **_revinclude** is limited to 100 items.
+> **_include** and **_revinclude** are limited to 100 items.
 
 ### _revinclude
 
@@ -97,7 +97,7 @@ To perform a series of search operations that cover multiple reference parameter
 
 ```
 
-This request would return all the resources with the patient subject named "Sarah". The period `.` after the field `Patient` performs the chained search on the reference parameter of the `subject` parameter.
+This request would return all the `DiagnosticReport` resources with a patient subject named "Sarah". The period `.` after the field `Patient` performs the chained search on the reference parameter of the `subject` parameter.
 
 Another common use of a regular search (not a chained search) is finding all encounters for a specific patient. `Patient`s will often have one or more `Encounter`s with a subject. To search for all `Encounter` resources for a `Patient` with the provided `id`:
 
@@ -115,14 +115,14 @@ GET [your-fhir-server]/Encounter?subject:Patient.birthdate=1987-02-20
 
 This would allow not just searching `Encounter` resources for a single patient, but across all patients that have the specified birth date value. 
 
-In addition, chained search can be done more than once in one request by using the symbol `&`, which allows you to search for multiple conditions in one request. In such cases, chained search "independently" searches for each parameter, instead of searching for conditions that only satisfy all the conditions at once. It's an OR operation, not an AND operation. For instance, if you want to get all patients who had a practitioner with a certain name or from a particular state:
+In addition, chained search can be done more than once in one request by using the symbol `&`, which allows you to search for multiple conditions in one request. In such cases, chained search "independently" searches for each parameter, instead of searching for conditions that only satisfy all the conditions at once:
 
 ```rest
-GET [your-fhir-server]/Patient?general-practitioner.name=Sarah&general-practitioner.address-state=WA
+GET [your-fhir-server]/Patient?general-practitioner:Practitioner.name=Sarah&general-practitioner:Practitioner.address-state=WA
 
 ```
 
-This would return all `Patient` resources that have "Sarah" as the `generalPractitioner`, and all `Patient` resources that have `generalPractitioner` that have the address with the state WA. In other words, you can have Sarah from the state NY and Bill from the state WA both as the returned results. Chained search doesn't require meeting all conditions and is evaluated individually per the parameter.
+This would return all `Patient` resources that have "Sarah" as the `generalPractitioner` and have a `generalPractitioner` that has the address with the state WA. In other words, if a patient had Sarah from the state NY and Bill from the state WA both referenced as the patient's `generalPractitioner`, the would be returned.
 
 For scenarios in which the search has to be an AND operation that covers all conditions as a group, refer to the **composite search** example below.
 
@@ -140,12 +140,12 @@ This request returns Patient resources that are referred by `Observation` with t
 In addition, reverse chain search can have a recursive structure. For example, if you want to search for all patients that have `Observation` where the observation has an audit event from a specific user `janedoe`, you could do:
 
 ```rest
-GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:user=janedoe
+GET [base]/Patient?_has:Observation:patient:_has:AuditEvent:entity:agent:Practitioner.name=janedoe
 
 ``` 
 
 > [!NOTE]
-> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown. By default, chained search is behind a feature flag. To use the chained searching on Cosmos DB, use the header x-ms-enable-chained-search: true.
+> In the Azure API for FHIR and the open-source FHIR server backed by Cosmos, the chained search and reverse chained search is an MVP implementation. To accomplish chained search on Cosmos DB, the implementation walks down the search expression and issues sub-queries to resolve the matched resources. This is done for each level of the expression. If any query returns more than 100 results, an error will be thrown.
 
 ## Composite search
 

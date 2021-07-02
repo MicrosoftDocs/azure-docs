@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Use your organization's logo and custom color schemes to provide a consistent look-and-feel on your Azure Active Directory (Azure AD) sign-in pages. Your sign-in pages appear when users sign in to your organization's web-based apps, such as Microsoft 365, which uses Azure AD as your identity provider.
 
 >[!NOTE]
->Adding custom branding requires you to have Azure Active Directory Premium 1 or Premium 2 licenses. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
+>Adding custom branding requires you to have either Azure Active Directory Premium 1, Premium 2, or Office 365 (for Office 365 apps) licenses. For more information about licensing and editions, see [Sign up for Azure AD Premium](active-directory-get-started-premium.md).<br><br>Azure AD Premium editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure AD Premium editions aren't currently supported in the Azure service operated by 21Vianet in China. For more information, talk to us using the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## Customize your Azure AD sign-in page
 You can customize your Azure AD sign-in pages, which appear when users sign in to your organization's tenant-specific apps, such as `https://outlook.com/contoso.com`, or when passing a domain variable, such as `https://passwordreset.microsoftonline.com/?whr=contoso.com`.
@@ -62,13 +62,16 @@ Your custom branding won't immediately appear when your users go to sites such a
 
            You can customize the sign-in page text you entered. To begin a new paragraph, use the enter key twice. You can also change text formatting to include bold, italics, an underline or clickable link. Use the following syntax to add formatting to text: 
 
-          > Hyperlink: ```[text](link)``` 
+          > Hyperlink: `[text](link)` 
           
-          > Bold: ``` **text** ``` or ``` __text__ ``` 
+          > Bold: `**text**` or `__text__` 
           
-          > Italics: ``` *text* ``` or ``` _text_ ``` 
+          > Italics: `*text*` or `_text_` 
           
-          > Underline: ``` ++text++ ``` 
+          > Underline: `++text++` 
+         
+          > [!IMPORTANT]
+          > Hyperlinks that are added with sign-in page text render as text in native environments, like in desktop and mobile applications.
 
     - **Advanced settings**
             

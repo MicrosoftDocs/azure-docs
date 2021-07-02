@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 04/12/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -56,7 +56,7 @@ To use Azure AD entitlement management and assign users to access packages, you 
 
 ### Viewing assignments programmatically
 
-You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta&preserve-view=true).
+You can also retrieve assignments in an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can call the API to [list accessPackageAssignments](/graph/api/accesspackageassignment-list?view=graph-rest-beta&preserve-view=true). While an identity governance administrator can retrieve access packages from multiple catalogs, if user is assigned only to catalog-specific delegated administrative roles, the request must supply a filter to indicate a specific access package, such as: `$filter=accessPackage/id eq 'a914b616-e04e-476b-aa37-91038f0b165b'`. An application that has the application permission `EntitlementManagement.Read.All` or `EntitlementManagement.ReadWrite.All` permission can also use this API.
 
 ## Directly assign a user
 
@@ -74,13 +74,22 @@ In some cases, you might want to directly assign specific users to an access pac
 
     ![Assignments - Add user to access package](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Click **Add users** to select the users you want to assign this access package to.
+1.	In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add a new policy.
 
-1. In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add a new policy.
+1.	Once you select a policy, you’ll be able to Add users to select the users you want to assign this access package to, under the chosen policy.
+
+    > [!NOTE]
+    > If you select a policy with questions, you can only assign one user at a time.
 
 1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
 
-1. Optionally provide a justification for your direct assignment for record keeping.
+1.	Optionally provide a justification for your direct assignment for record keeping.
+
+1.	If the selected policy includes additional requestor information, click **View questions** to answer them on behalf of the users, then click **Save**.  
+
+     ![Assignments - click view questions](./media/entitlement-management-access-package-assignments/assignments-view-questions.png)
+
+    ![Assignments - questions pane](./media/entitlement-management-access-package-assignments/assignments-questions-pane.png)
 
 1. Click **Add** to directly assign the selected users to the access package.
 
@@ -88,7 +97,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 ### Directly assigning users programmatically
 
-You can also directly assign a user to an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true).
+You can also directly assign a user to an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true). In this request, the value of the `requestType` property should be `AdminAdd`, and the `accessPackageAssignment` property is a structure that contains the `targetId` of the user being assigned.
 
 ## Remove an assignment
 
@@ -107,6 +116,10 @@ You can also directly assign a user to an access package using Microsoft Graph. 
     ![Assignments - Remove user from access package](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
 
     A notification will appear informing you that the assignment has been removed. 
+
+### Removing an assignment programmatically
+
+You can also remove an assignment of a user to an access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageAssignmentRequest](/graph/api/accesspackageassignmentrequest-post?view=graph-rest-beta&preserve-view=true).  In this request, the value of the `requestType` property should be `AdminRemove`, and the `accessPackageAssignment` property is a structure that contains the `id` property identifying the `accessPackageAssignment` being removed.
 
 ## Next steps
 

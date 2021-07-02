@@ -983,6 +983,23 @@ Within few seconds, you should see the following response in the OUTPUT window
 
 Status code of 200 indicates that the  pipeline topology was successfully deleted.
 
+## Playing back the recording
+
+You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
+1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+1. Locate your Video Analyzer account among the resources you have in your subscription, and open the account pane.
+1. Select **Videos** in the **Video Analyzers** list.
+1. You'll find a video listed with the name `sample-motion-video-camera001`. This is the name chosen in your pipeline topology file.
+1. Select the video.
+1. The video details page will open and the playback should start automatically.
+
+    <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
+
+
+> [!NOTE]
+> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
+    
+
 ## Clean up resources
 
 [!INCLUDE [prerequisites](./includes/common-includes/clean-up-resources.md)]

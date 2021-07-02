@@ -45,8 +45,6 @@ The following table summarizes the differences between the three standard plans:
 | S1        | 2            | 5,000          | A few messages per hour |
 | S2        | 2            | 30,000         | Messages every few minutes |
 
-To learn more, see [Manage your bill in an IoT Central application](howto-view-bill.md).
-
 ### Application name
 
 The _application name_ you choose appears in the title bar on every page in your IoT Central application. It also appears on your application's tile on the **My apps** page on the [Azure IoT Central](https://aka.ms/iotcentral) site.

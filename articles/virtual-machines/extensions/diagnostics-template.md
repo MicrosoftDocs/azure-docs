@@ -168,4 +168,4 @@ Each WADMetrics table contains the following columns:
 ## Next Steps
 * For a complete sample template of a Windows virtual machine with diagnostics extension, see [vm-monitoring-diagnostics-extension](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-monitoring-diagnostics-extension)
 * Deploy the Azure Resource Manager template using [Azure PowerShell](../windows/ps-template.md) or [Azure Command Line](../linux/create-ssh-secured-vm-from-template.md)
-* Learn more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
+* Learn more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md)

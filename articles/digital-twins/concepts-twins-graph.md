@@ -40,13 +40,15 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 ## Create with the APIs
 
 This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that utilize the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide additional context on what goes on inside each of these concepts.
 
 ### Create digital twins
 
-Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type Room.
+Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to instantiate a twin of type Room with a `twinId` that's defined during the instantiation.
 
 You can initialize the properties of a twin when it is created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
 

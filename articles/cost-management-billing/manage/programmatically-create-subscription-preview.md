@@ -1,19 +1,19 @@
 ---
-title: Programmatically create Azure subscriptions with preview APIs
-description: Learn how to create additional Azure subscriptions programmatically using preview versions of REST API, Azure CLI, and Azure PowerShell.
+title: Programmatically create Azure subscriptions with legacy APIs
+description: Learn how to create additional Azure subscriptions programmatically using legacy versions of REST API, Azure CLI, and Azure PowerShell.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 06/09/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Programmatically create Azure subscriptions with preview APIs
+# Programmatically create Azure subscriptions with legacy APIs
 
-This article helps you programmatically create Azure subscriptions using our older preview API. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+This article helps you programmatically create Azure subscriptions using our legacy preview API. In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
 We have new articles for the latest API version for use with different Azure agreement subscription types:
 

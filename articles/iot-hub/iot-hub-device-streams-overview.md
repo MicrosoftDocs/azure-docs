@@ -147,64 +147,6 @@ Two sides of each stream (on the device and service side) use the IoT Hub SDK to
 
 * The NodeJS and C# SDK support device streams on the service side.
 
-## IoT Hub device stream samples
-
-There are two [quickstart samples](./index.yml) available on the IoT Hub page. These demonstrate the use of device streams by applications.
-
-* The *echo* sample demonstrates programmatic use of device streams (by calling the SDK API's directly).
-
-* The *local proxy* sample demonstrates the tunneling of off-the-shelf client/server application traffic (such as SSH, RDP, or web) through device streams.
-
-These samples are covered in greater detail below.
-
-### Echo sample
-
-The echo sample demonstrates programmatic use of device streams to send and receive bytes between service and device applications. Note that you can use service and device programs in different languages. For example, you can use the C device program with the C# service program.
-
-Here are the echo samples:
-
-* [C# service and service program](quickstart-device-streams-echo-csharp.md)
-
-* [Node.js service program](quickstart-device-streams-echo-nodejs.md)
-
-* [C device program](quickstart-device-streams-echo-c.md)
-
-### Local proxy sample (for SSH or RDP)
-
-The local proxy sample demonstrates a way to enable tunneling of an existing application's traffic that involves communication between a client and a server program. This set up works for client/server protocols like SSH and RDP, where the service-side acts as a client (running SSH or RDP client programs), and the device-side acts as the server (running SSH daemon or RDP server programs).
-
-This section describes the use of device streams to enable the user to SSH to a device over device streams (the case for RDP or other client/server application are similar by using the protocol's corresponding port).
-
-The setup leverages two *local proxy* programs shown in the figure below, namely *device-local proxy* and *service-local proxy*. The local proxy programs are responsible for performing the [device stream initiation handshake](#device-stream-creation-flow) with IoT Hub, and  interacting with SSH client and SSH daemon using regular client/server sockets.
-
-!["Device stream proxy setup for SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
-
-1. The user runs service-local proxy to initiate a device stream to the device.
-
-2. The device-local proxy accepts the stream initiation request and the tunnel is established to IoT Hub's streaming endpoint (as discussed above).
-
-3. The device-local proxy connects to the SSH daemon endpoint listening on port 22 on the device.
-
-4. The service-local proxy listens on a designated port awaiting new SSH connections from the user (port 2222 used in the sample, but this can be configured to any other available port). The user points the SSH client to the service-local proxy port on localhost.
-
-### Notes
-
-* The above steps complete an end-to-end tunnel between the SSH client (on the right) to the SSH daemon (on the left). Part of this end-to-end connectivity involves sending traffic over a device stream to IoT Hub.
-
-* The arrows in the figure indicate the direction in which connections are established between endpoints. Specifically, note that there is no inbound connections going to the device (this is often blocked by a firewall).
-
-* The choice of using port 2222 on the service-local proxy is an arbitrary choice. The proxy can be configured to use any other available port.
-
-* The choice of port 22 is protocol-dependent and specific to SSH in this case. For the case of RDP, the port 3389 must be used. This can be configured in the provided sample programs.
-
-Use the links below for instructions on how to run the local proxy programs in your language of choice. Similar to the [echo sample](#echo-sample), you can run device- and service-local proxy programs in different languages as they are fully interoperable.
-
-* [C# service and service program](quickstart-device-streams-proxy-csharp.md)
-
-* [Node.js service program](quickstart-device-streams-proxy-nodejs.md)
-
-* [C device program](quickstart-device-streams-proxy-c.md)
-
 ## Next steps
 
 Use the links below to learn more about device streams.

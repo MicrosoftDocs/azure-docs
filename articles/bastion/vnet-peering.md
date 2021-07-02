@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 06/22/2021
 ms.author: cherylmc
 
 ---
@@ -56,7 +56,7 @@ This figure shows the architecture of an Azure Bastion deployment in a hub-and-s
 
 ## FAQ
 
-[!INCLUDE [FAQ for VNet peering](../../includes/bastion-faq-peering-include.md)]
+For frequently asked questions, see the Bastion VNet Peering [FAQ](bastion-faq.md#peering).
 
 ## Next steps
 

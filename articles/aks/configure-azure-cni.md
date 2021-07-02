@@ -150,11 +150,17 @@ The following screenshot from the Azure portal shows an example of configuring t
 > This preview feature is currently available in the following regions:
 >
 > * East US
+> * East US 2
+> * North Central US
 > * West Central US
+> * West US
 > * West US 2
 > * Canada Central
 > * Australia East
 > * UK South
+> * North Europe
+> * West Europe
+> * Southeast Asia
 
 A drawback with the traditional CNI is the exhaustion of pod IP addresses as the AKS cluster grows, resulting in the need to rebuild the entire cluster in a bigger subnet. The new dynamic IP allocation capability in Azure CNI solves this problem by allotting pod IPs from a subnet separate from the subnet hosting the AKS cluster.  It offers the following benefits:
 

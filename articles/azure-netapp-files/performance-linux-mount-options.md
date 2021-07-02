@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Linux NFS mount options best practices for Azure NetApp Files
 
-This article helps you understand mount options and the best practices about using them with Azure NetApp Files.
+This article helps you understand mount options and the best practices for using them with Azure NetApp Files.
 
 ## `Nconnect` 
 

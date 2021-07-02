@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 05/26/2021
+ms.date: 06/04/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -142,6 +142,7 @@ Service Tags:
 * AzureTrafficManager
 * AzureResourceManager
 * AzureArcInfrastructure
+* Storage
 
 URLs:
 
@@ -153,7 +154,7 @@ URLs:
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Guest Configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
-|`www.office.com`|Office 365|
+|`*.blob.core.windows.net`|Download source for Arc enabled servers extensions|
 
 Preview agents (version 0.11 and lower) also require access to the following URLs:
 

@@ -25,11 +25,14 @@ As well as enabling downstream devices to communicate with your IoT Central appl
 * Respond to writable property updates made by an operator. For example, an operator could changes the telemetry send interval.
 * Respond to commands, such as rebooting the device.
 
+In this tutorial, you learn how to:
+
 > [!div class="checklist"]
-> Create downstream device templates
-> Create a gateway device template
-> Publish the device template
-> Create the simulated devices
+>
+> * Create downstream device templates
+> * Create a gateway device template
+> * Publish the device template
+> * Create the simulated devices
 
 ## Prerequisites
 
@@ -89,7 +92,6 @@ To add a new gateway device template to your application:
 1. Select **+ Add capability** to add another capability. Enter **Boolean Telemetry** as the display name, select **Telemetry** as the capability type, and then select **Boolean** as schema.
 
 1. Select **Save**.
-
 
 ### Add relationships
 
@@ -205,6 +207,33 @@ Both your simulated downstream devices are now connected to your simulated gatew
 
 ![Downstream devices view](./media/tutorial-define-gateway-device-type/downstream-device-view.png)
 
+## Connect real downstream devices
+
+In the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial, the sample code shows how to include the model ID from the device template in the provisioning payload the device sends. The model ID lets IoT Central associate the device with the correct device template. For example:
+
+```python
+async def provision_device(provisioning_host, id_scope, registration_id, symmetric_key, model_id):
+  provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
+    provisioning_host=provisioning_host,
+    registration_id=registration_id,
+    id_scope=id_scope,
+    symmetric_key=symmetric_key,
+  )
+
+  provisioning_device_client.provisioning_payload = {"modelId": model_id}
+  return await provisioning_device_client.register()
+```
+
+When you connect a downstream device, you can modify the provisioning payload to include the the ID of the gateway device. The model ID lets IoT Central associate the device with the correct downstream device template. The gateway ID lets IoT Central establish the relationship between the downstream device and its gateway. In this case the provisioning payload the device sends looks like the following JSON:
+
+```json
+{
+  "iotcModelId": "dtmi:rigado:S1Sensor;2",
+  "iotcGateway":{
+    "iotcGatewayId": "gateway-device-001"
+  }
+}
+```
 
 ## Clean up resources
 

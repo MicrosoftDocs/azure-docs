@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: aahi
 ---
 
@@ -28,6 +28,7 @@ In this quickstart, you'll learn how to sign up for Azure Cognitive Services and
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
 * The [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli)
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## Install the Azure CLI and sign in
 
@@ -73,51 +74,10 @@ az group create \
 
 When creating a new resource, you will need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or sku) you want. You will use this and other information as parameters when creating the resource.
 
-### Multi-service
-
-| Service                    | Kind                      |
-|----------------------------|---------------------------|
-| Multiple services. See the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) page for more details.            | `CognitiveServices`     |
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 
-> [!NOTE]
-> Many of the Cognitive Services below have a free tier you can use to try the service. To use the free tier, use `F0` as the sku for your resource.
-
-### Vision
-
-| Service                    | Kind                      |
-|----------------------------|---------------------------|
-| Computer Vision            | `ComputerVision`          |
-| Custom Vision - Prediction | `CustomVision.Prediction` |
-| Custom Vision - Training   | `CustomVision.Training`   |
-| Face                       | `Face`                    |
-| Form Recognizer            | `FormRecognizer`          |
-| Ink Recognizer             | `InkRecognizer`           |
-
-### Speech
-
-| Service            | Kind                 |
-|--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
-| Speech Recognition | `SpeakerRecognition` |
-
-### Language
-
-| Service            | Kind                |
-|--------------------|---------------------|
-| Form Understanding | `FormUnderstanding` |
-| LUIS               | `LUIS`              |
-| QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
-| Text Translation   | `TextTranslation`   |
-
-### Decision
-
-| Service           | Kind               |
-|-------------------|--------------------|
-| Anomaly Detector  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
-| Personalizer      | `Personalizer`     |
+[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 You can find a list of available Cognitive Service "kinds" with the [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_kinds) command:
 
@@ -188,6 +148,8 @@ To remove the resource group and its associated resources, use the az group dele
 ```azurecli-interactive
 az group delete --name cognitive-services-resource-group
 ```
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
 
 ## See also
 

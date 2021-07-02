@@ -23,16 +23,6 @@ To distribute the image to a Shared Image Gallery, the template uses [sharedImag
 ## Register the features
 To use Azure Image Builder, you need to register the new feature.
 
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview -o json | grep state
-```
-
 Check your registration.
 
 ```azurecli-interactive

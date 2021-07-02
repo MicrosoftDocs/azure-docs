@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
-author: matjazl
+author: zxue
 ms.date: 04/02/2019
 ---
 

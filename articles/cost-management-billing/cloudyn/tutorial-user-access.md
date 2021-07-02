@@ -74,7 +74,7 @@ You cannot remove yourself as a user.
 
 ## Delete or export personal data
 
-If you want to delete or export personal data from Cloudyn, you need to create a support ticket. When the support ticket is created, it acts as formal request - a Data Subject Request. Microsoft then takes prompt action to remove the account and delete any customer or personal data. To learn about how you can request to have your data deleted or exported, see [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests).
+If you want to delete or export personal data from Cloudyn, you need to create a support ticket. When the support ticket is created, it acts as formal request - a Data Subject Request. Microsoft then takes prompt action to remove the account and delete any customer or personal data.
 
 ## Create and manage entities
 

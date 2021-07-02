@@ -50,4 +50,4 @@ You can set other resources as dependent on the linked template, and [get values
 
 ## Solution 2 - Reduce name size
 
-Try to shorten the length of the names you use for [parameters](template-parameters.md), [variables](template-variables.md), and [outputs](template-outputs.md). When these values are repeated through copy loops, a large name gets multiplied many times.
+Try to shorten the length of the names you use for [parameters](./parameters.md), [variables](./variables.md), and [outputs](./outputs.md). When these values are repeated through copy loops, a large name gets multiplied many times.

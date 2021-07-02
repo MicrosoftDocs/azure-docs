@@ -3,9 +3,8 @@ title: Create a skillset
 titleSuffix: Azure Cognitive Search
 description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Cognitive Search.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: vkurpad
+ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -169,7 +168,7 @@ Let's look at the first skill, which is the built-in [entity recognition skill](
 
 * Outputs from the one skill can conflict with outputs from a different skill. If you have multiple skills returning a ```result``` property, you can use the ```targetName``` property of skill outputs to capture a named JSON output from a skill into a different property.
 
-* The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
+* The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure Blob indexer. 
 
 * The skill has one output called ```"organizations"``` that is captured in a property ```orgs```. Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as ```"/document/orgs"```.
 
