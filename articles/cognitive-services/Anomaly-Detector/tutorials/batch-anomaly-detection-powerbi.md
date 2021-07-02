@@ -166,8 +166,3 @@ After clicking **Ok**, you will have a `Value for True` field, at the bottom of 
 Apply colors to your chart by clicking on the **Format** tool and **Data colors**. Your chart should look something like the following:
 
 ![An image of the final chart](../media/tutorials/final-chart.png)
-
-## Next steps
-
-> [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](../overview.md)
