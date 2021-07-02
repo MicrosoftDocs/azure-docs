@@ -358,6 +358,18 @@ Some of the changes above must be committed in order to become active. This can 
 $url = "https://${PaloAltoIpAddress}/api/?type=commit&cmd=<commit></commit>"
 Invoke-RestMethod -Method Get -Uri $url  -SkipCertificateCheck -Headers $paloAltoHeaders
 ```
+
+## Configure the Security Rules for Azure Spring Cloud subnets
+
+Add Network Security Rules to enable traffic from Palo Alto to access Azure Spring Cloud. In the examples below, we reference the spoke Network Security Groups created by the Reference Architecture: `nsg-spokeapp` and `nsg-spokeruntime`.
+
+We run the following command to create the necessary network security rule for each of these NSGs, where $PaloAltoAddressPrefix is the CIDR of Palo Alto's private IPs.
+
+```bash
+ az network nsg rule create --name 'allow-palo-alto' --nsg-name 'nsg-spokeapp' --access Allow --source-address-prefixes $PaloAltoAddressPrefix -g $ResourceGroupName --priority 1000
+ az network nsg rule create --name 'allow-palo-alto' --nsg-name 'nsg-spokeruntime' --access Allow --source-address-prefixes $PaloAltoAddressPrefix -g $ResourceGroupName --priority 1000
+```
+
 ## Configure the next hop
 
 With Palo Alto configured, Azure Spring Cloud must be configured to have Palo Alto as its next hop for outbound internet access.
