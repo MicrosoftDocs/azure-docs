@@ -35,13 +35,6 @@ landingContent:
         links:
           - text: Deploy javascript app to read data from FHIR service
             url: ./fhir/tutorial-web-app-fhir-server.md
-          
-  - title: DICOM
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Overview of DICOM
-            url: ./dicom/dicom-services-overview.md
 
   - title: Data Transformation
     linkLists:
