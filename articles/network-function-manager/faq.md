@@ -4,9 +4,9 @@ titleSuffix: Azure Network Function Manager
 description: Learn FAQs about Network Function Manager.
 author: cherylmc
 
-ms.service: vnf-manager
+ms.service: network-function-manager
 ms.topic: article
-ms.date: 06/16/2021
+ms.date: 06/30/2021
 ms.author: cherylmc
 ms.custom: references_regions
 
@@ -48,10 +48,6 @@ During preview, you can register the Azure Stack Edge device and Network Functio
 ### When I delete the managed application for my network function running on Azure Stack Edge, will the billing for network functions automatically stop?
 
 Check with your network function partner on the billing cycle for network functions deployed using Network Function Manager. Each partner will have a different billing policy for their network function offerings.
-
-### When should I use the cloud-managed Virtual Machines feature to manage VMs on my Azure Stack Edge?
-
-If you need general-purpose VMs for your apps to run along with network functions, you can use the cloud-managed VMs feature for Azure Stack Edge. For more information, see [Deploy VMs on your Azure Stack Edge Pro GPU device](../databox-online/azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 
 ## Next steps
 

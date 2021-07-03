@@ -274,6 +274,8 @@
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
+    - name: Cluster point data
+      href: clustering-point-data-android-sdk.md
     - name: Use data-driven expressions
       href: data-driven-style-expressions-android-sdk.md
     - name: Reacting to events
@@ -296,6 +298,8 @@
       href: power-bi-visual-show-real-time-traffic.md
     - name: Manage access
       href: power-bi-visual-manage-access.md
+    - name: Use Azure Maps in Power Apps
+      href: /powerapps/maker/canvas-apps/geospatial-component-map
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference

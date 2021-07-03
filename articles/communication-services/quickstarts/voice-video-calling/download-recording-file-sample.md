@@ -7,7 +7,7 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: joseys
-ms.date: 04/14/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---

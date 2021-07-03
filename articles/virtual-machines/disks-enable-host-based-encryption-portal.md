@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -12,11 +12,7 @@ ms.custom: references_regions
 
 # Use the Azure portal to enable end-to-end encryption using encryption at host
 
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see:
-
-* Linux: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
-
-* Windows: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## Restrictions
 
@@ -77,6 +73,16 @@ Now that you've setup an Azure Key Vault and disk encryption set, you can deploy
 1. Finish the VM deployment process, make selections that fit your environment.
 
 You have now deployed a VM with encryption at host enabled, all its associated disks will be encrypted using encryption at host.
+
+## Disable host based encryption
+
+Make sure your VM is deallocated first, you cannot disable encryption at host unless your VM is deallocated.
+
+1. On your VM, select **Disks** and then select **Additional settings**.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-host-based-encryption-additional-settings.png" alt-text="Screenshot of the Disks blade on a VM, Additional Settings is highlighted.":::
+
+1. Select **No** for **Encryption at host** then select **Save**.
 
 ## Next steps
 
