@@ -10,4 +10,4 @@ items:
   expanded: true
   items:
     - name: dicom-overivew
-      href: dicom-services-overview.md
+      href: ./dicom/dicom-services-overview.md
