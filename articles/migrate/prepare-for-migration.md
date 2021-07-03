@@ -187,7 +187,7 @@ After migration, complete these steps on the Azure VMs that are created:
 ## Next steps
 
 Decide which method you want to use to [migrate VMware VMs](server-migrate-overview.md) to Azure, or begin migrating [Hyper-V VMs](tutorial-migrate-hyper-v.md) or [physical servers or virtualized or cloud VMs](tutorial-migrate-physical-virtual-machines.md).
-[Prepare for VMware agentless migration](./prepare-for-agentless-migration.md)
+
 
 ## See what's supported
 
