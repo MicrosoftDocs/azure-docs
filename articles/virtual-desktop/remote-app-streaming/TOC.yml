@@ -20,21 +20,21 @@
   items:
   - name: Essentials for Remote App Streaming
     items:
-    - name: Architecture
+    - name: Architecture recommendations
       href: 
-    - name: Use MSIX app attach for apps
+    - name: Deploy apps with MSIX app attach
       href: 
-    - name: Stream custom apps
+    - name: Host custom apps
       href: 
-    - name: License hosting 
+    - name: App hosting licenses 
       href: 
-    - name: Set up metered licensing
+    - name: Enroll in per-user license pricing
       href: 
-    - name: Secure your deployment
+    - name: Security guidelines
       href: 
-    - name: Estimate total costs 
+    - name: Estimate total deployment costs 
       href: 
-    - name: Estimate streaming costs 
+    - name: Estimate per-user app streaming costs 
       href: 
     - name: Deploy apps with Microsoft Intune
       href: /mem/intune/apps/apps-windows-10-app-deploy?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
