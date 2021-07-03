@@ -111,6 +111,6 @@ The following table lists common and recommended alert rules for App Service.
 
 ## Next steps
 
-- See [Monitoring App Service data reference](monitor-app-service-reference.md) for a reference of metrics, logs, and other important values created by [service name].
+- See [Monitoring App Service data reference](monitor-app-service-reference.md) for a reference of metrics, logs, and other important values created by App Service.
 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.

@@ -92,4 +92,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 ## See Also
 
 - See [Monitoring Azure App Service](monitor-app-service.md) for a description of monitoring Azure App Service.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
