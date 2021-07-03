@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Integrate Managed HSM with Azure Private Link (preview)
+# Integrate Managed HSM with Azure Private Link
 
 Azure Private Link Service enables you to access Azure Services (for example, Managed HSM, Azure Storage, and Azure Cosmos DB etc.) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 
