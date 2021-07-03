@@ -41,19 +41,17 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* The sample applications you run in this article is written using C#. For the Azure IoT C# samples, we recommend the .NET Core SDK 3.1 or greater on your development machine.
+* The sample applications you run in this article is written using C#. For the Azure IoT C# samples, we recommend you have the .NET Core SDK 3.1 or greater on your development machine.
 
     You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
-    You can verify the current version of C# on your development machine using the following command:
+    You can verify the current version of the .NET Core SDK on your development machine using the following command:
 
     ```cmd/sh
     dotnet --version
     ```
 
 * Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
-
-* Open the *FileUploadSample* folder in Visual Studio Code, and open the *FileUploadSample.cs* file.
 
 * Make sure that port 8883 is open in your firewall. The sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
