@@ -88,10 +88,10 @@ In an Azure function, you can use the managed identity credentials like this:
 
 The [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method is intended for interactive applications and will bring up a web browser for authentication. You can use this instead of `DefaultAzureCredential` in cases where you require interactive authentication.
 
-To use the interactive browser credentials, you will need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [How-to: Create an app registration](how-to-create-app-registration.md). Once the app registration is set up, you'll need...
-* the app registration's *Application (client) ID* ([instructions to find](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* the app registration's *Directory (tenant) ID* ([instructions to find](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+To use the interactive browser credentials, you will need an **app registration** that has permissions to the Azure Digital Twins APIs. For steps on how to set up this app registration, see [How-to: Create an app registration](./how-to-create-app-registration-portal.md). Once the app registration is set up, you'll need...
+* [the app registration's Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+* [the app registration's Directory (tenant) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id)
+* [the Azure Digital Twins instance's URL](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 
 Here is an example of the code to create an authenticated SDK client using `InteractiveBrowserCredential`.
 

@@ -35,7 +35,7 @@ This will bring up the **Azure Digital Twins URL modal**, where you can enter th
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
 
 >[!NOTE]
->At this time, the ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the correct instance in the Azure portal, or may connect to a certain instance through a [direct link](#link-to-your-environment).
+>At this time, the ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the correct instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
 
 
 ## Query your digital twin graph
@@ -210,7 +210,7 @@ To view the property values of a twin or a relationship, select the element in t
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-You can use this panel to directly edit writeable properties. Update their values inline, and click the **Patch twin** (save) button at the top of the panel to save your changes. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
+You can use this panel to directly edit writable properties. Update their values inline, and click the **Patch twin** (save) button at the top of the panel to save your changes. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 

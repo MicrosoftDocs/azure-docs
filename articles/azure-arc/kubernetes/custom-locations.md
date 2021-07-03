@@ -72,16 +72,29 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 
 ## Enable custom locations on cluster
 
-To enable this feature on your cluster, execute the following command:
+If you are logged into Azure CLI as a Azure AD user, to enable this feature on your cluster, execute the following command:
 
 ```console
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
+If you are logged into Azure CLI using a service principal, to enable this feature on your cluster, execute the following steps:
+
+1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+
+    ```console
+    az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
+    ```
+
+1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+
+    ```console
+    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
+    ```
+
 > [!NOTE]
 > 1. Custom Locations feature is dependent on the Cluster Connect feature. So both features have to be enabled for custom locations to work.
 > 2. `az connectedk8s enable-features` needs to be run on a machine where the `kubeconfig` file is pointing to the cluster on which the features are to be enabled.
-> 3. If you are logged into Azure CLI using a service principal, [additional permissions](troubleshooting.md#enable-custom-locations-using-service-principal) have to be granted to the service principal before enabling the custom location feature.
 
 ## Create custom location
 
@@ -102,7 +115,7 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
         az k8s-extension create --name <extensionInstanceName> --extension-type 'Microsoft.Web.Appservice' --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace appservice-ns --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" --configuration-settings "appsNamespace=appservice-ns" 
         ```
 
-    * [Event Grid on Kubernetes](/azure/event-grid/kubernetes/overview)
+    * [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
 
         ```azurecli
           az k8s-extension create --name <extensionInstanceName> --extension-type Microsoft.EventGrid --cluster-type connectedClusters -c <clusterName> -g <resourceGroupName> --scope cluster --release-namespace eventgrid-ext --configuration-protected-settings-file protected-settings-extension.json --configuration-settings-file settings-extension.json
@@ -130,6 +143,5 @@ az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --featur
 
 - Securely connect to the cluster using [Cluster Connect](cluster-connect.md).
 - Continue with [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) for end-to-end instructions on installing extensions, creating custom locations, and creating the App Service Kubernetes environment. 
-- Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](/azure/event-grid/kubernetes/overview).
+- Create an Event Grid topic and an event subscription for [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 - Learn more about currently available [Azure Arc enabled Kubernetes extensions](extensions.md#currently-available-extensions).
-

@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -216,6 +216,7 @@ If the AZDATA_PASSWORD **session** environment variable exists but has not value
 ## Audit
 
 For audit scenarios please configure your server group to use the `pgaudit` extensions of Postgres. For more details about `pgaudit` see [`pgAudit` GitHub project](https://github.com/pgaudit/pgaudit/blob/master/README.md). To enable the `pgaudit` extension in your server group read [Use PostgreSQL extensions](using-extensions-in-postgresql-hyperscale-server-group.md).
+
 
 
 ## Next steps

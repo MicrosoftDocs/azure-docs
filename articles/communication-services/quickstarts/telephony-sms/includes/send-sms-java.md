@@ -2,12 +2,12 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: paolamvhz
+author: pvicencio
 manager: ankita
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/12/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
@@ -16,6 +16,9 @@ ms.author: pvicencio
 Get started with Azure Communication Services by using the Communication Services Java SMS SDK to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart)
 
 ## Prerequisites
 
@@ -50,19 +53,11 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
 ### Set up the app framework
-
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core</artifactId>
-    <version>1.16.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
-</dependency>
-```
 
 Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, add import directives and remove the `System.out.println("Hello world!");` statement:
 
@@ -116,7 +111,7 @@ SmsClient smsClient = new SmsClientBuilder()
 You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key.
 ```java
 // You can find your connection string from your resource in the Azure portal
-String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
+String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
 
 SmsClient smsClient = new SmsClientBuilder()
             .connectionString(connectionString)

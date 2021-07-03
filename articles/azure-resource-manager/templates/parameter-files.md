@@ -2,13 +2,13 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 04/15/2021 
+ms.date: 05/11/2021
 ms.custom: devx-track-azurepowershell
 ---
 
 # Create Resource Manager parameter file
 
-Rather than passing parameters as inline values in your script, you can use a JSON file that contains the parameter values. This article shows how to create a parameter file that you use with a JSON template or Bicep file.
+Rather than passing parameters as inline values in your script, you can use a JSON file that contains the parameter values. This article shows how to create a parameter file that you use with a JSON template.
 
 ## Parameter file
 
@@ -57,9 +57,7 @@ For more information about using values from a key vault, see [Use Azure Key Vau
 
 ## Define parameter values
 
-To determine how to define the parameter names and values, open your JSON or Bicep template. Look at the parameters section of the template. The following examples show the parameters from JSON and Bicep templates.
-
-# [JSON](#tab/json)
+To determine how to define the parameter names and values, open your JSON template and review the  `parameters` section. The following example shows the JSON template's parameters.
 
 ```json
 "parameters": {
@@ -79,23 +77,6 @@ To determine how to define the parameter names and values, open your JSON or Bic
   }
 }
 ```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-@maxLength(11)
-param storagePrefix string
-
-@allowed([
-  'Standard_LRS'
-  'Standard_GRS'
-  'Standard_ZRS'
-  'Premium_LRS'
-])
-param storageAccountType string = 'Standard_LRS'
-```
-
----
 
 In the parameter file, the first detail to notice is the name of each parameter. The parameter names in your parameter file must match the parameter names in your template.
 
@@ -212,7 +193,7 @@ az deployment group create \
   --parameters @storage.parameters.json
 ```
 
-For more information, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters). To deploy _.bicep_ files you need Azure CLI version 2.20 or higher.
+For more information, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters).
 
 From Azure PowerShell you pass a local parameter file using the `TemplateParameterFile` parameter.
 
@@ -222,7 +203,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile C:\MyTemplates\storage.parameters.json
 ```
 
-For more information, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values). To deploy _.bicep_ files you need Azure PowerShell version 5.6.0 or higher.
+For more information, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values).
 
 > [!NOTE]
 > It's not possible to use a parameter file with the custom template blade in the portal.
@@ -248,5 +229,5 @@ If your template includes a parameter with the same name as one of the parameter
 
 ## Next steps
 
-- For more information about how to define parameters in a template, see [Parameters in ARM templates](template-parameters.md).
+- For more information about how to define parameters in a template, see [Parameters in ARM templates](./parameters.md).
 - For more information about using values from a key vault, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md).

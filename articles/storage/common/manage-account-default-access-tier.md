@@ -1,14 +1,15 @@
 ---
 title: Manage the default access tier of an Azure Storage account
 description: Learn how to change the default access tier of a GPv2 or Blob Storage account
-author: twooley
+author: tamram
 
-ms.author: twooley
+ms.author: tamram
 ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.reviewer: klaasl
+ms.reviewer: klaasl 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage the default access tier of an Azure Storage account

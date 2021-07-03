@@ -62,8 +62,8 @@ The user risk for B2B collaboration users is evaluated at their home directory. 
 There are limitations in the implementation of Identity Protection for B2B collaboration users in a resource directory due to their identity existing in their home directory. The main limitations are as follows:
 
 - If a guest user triggers the Identity Protection user risk policy to force password reset, **they will be blocked**. This block is due to the inability to reset passwords in the resource directory.
-- **Guest users do not appear in the risky users report**. This loss of visibility is due to the risk evaluation occurring in the B2B user's home directory.
-- Administrators **cannot dismiss or remediate a risky B2B collaboration user** in their resource directory. This loss of functionality is due to administrators in the resource directory not having access to the B2B user's home directory.
+- **Guest users do not appear in the risky users report**. This limitation is due to the risk evaluation occurring in the B2B user's home directory.
+- Administrators **cannot dismiss or remediate a risky B2B collaboration user** in their resource directory. This limitation is due to administrators in the resource directory not having access to the B2B user's home directory.
 
 ### Why can't I remediate risky B2B collaboration users in my directory?
 

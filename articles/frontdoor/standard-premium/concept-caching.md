@@ -32,7 +32,7 @@ Front Door Standard/Premium (Preview) delivers large files without a cap on file
 
 After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection.
 
-For more information on the byte-range request, read [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+For more information on the byte-range request, read [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, pre-fetching is used to request chunks from the backend. This optimization relies on the origin's ability to support byte-range requests. If the origin doesn't support byte-range requests, this optimization isn't effective.
 
 ## File compression

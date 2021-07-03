@@ -24,7 +24,7 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 ## View and manage metered usage anomalies
 
 1. Sign-in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze**.
+1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze** > **Usage**.
 1. Select the **Metered usage anomalies** tab.
 
     [![Illustrates the Metered usage anomalies tab on the Usage page.](./media/anomaly-detection/metered-usage-anomalies.png)](./media/anomaly-detection/metered-usage-anomalies.png#lightbox)<br>
@@ -78,5 +78,5 @@ After you mark an overage usage as an anomaly or acknowledge a model that flagge
 
 ## See also
 - [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md)
-- [Managed application metered billing](./partner-center-portal/azure-app-metered-billing.md)
+- [Managed application metered billing](marketplace-metering-service-apis.md)
 - [Anomaly detection service for metered billing](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

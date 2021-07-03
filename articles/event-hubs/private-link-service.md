@@ -2,7 +2,8 @@
 title: Integrate Azure Event Hubs with Azure Private Link Service
 description: Learn how to integrate Azure Event Hubs with Azure Private Link Service
 ms.date: 05/10/2021
-ms.topic: article
+ms.topic: article 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Allow access to Azure Event Hubs namespaces via private endpoints 
@@ -86,7 +87,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
-[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+[!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
 To allow trusted services to access your namespace, switch to the **Firewalls and Virtual networks** tab on the **Networking** page, and select **Yes** for **Allow trusted Microsoft services to bypass this firewall?**. 
 
@@ -94,8 +95,6 @@ To allow trusted services to access your namespace, switch to the **Firewalls an
 The following example shows how to use Azure PowerShell to create a private endpoint connection. It doesn't create a dedicated cluster for you. Follow steps in [this article](event-hubs-dedicated-cluster-create-portal.md) to create a dedicated Event Hubs cluster. 
 
 ```azurepowershell-interactive
-# create resource group
-
 $rgName = "<RESOURCE GROUP NAME>"
 $vnetlocation = "<VIRTUAL NETWORK LOCATION>"
 $vnetName = "<VIRTUAL NETWORK NAME>"
@@ -103,6 +102,9 @@ $subnetName = "<SUBNET NAME>"
 $namespaceLocation = "<NAMESPACE LOCATION>"
 $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
+
+# create resource group
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `

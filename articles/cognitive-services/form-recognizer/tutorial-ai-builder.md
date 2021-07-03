@@ -5,7 +5,7 @@ description: In this tutorial, you'll use AI Builder to create and train a form 
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 11/23/2020

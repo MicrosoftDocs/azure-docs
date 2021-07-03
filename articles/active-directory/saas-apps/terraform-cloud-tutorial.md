@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 06/01/2021
 ms.author: jeedes
 
 ---
@@ -33,11 +33,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Terraform Cloud supports **SP and IDP** initiated SSO
-* Terraform Cloud supports **Just In Time** user provisioning
+* Terraform Cloud supports **SP and IDP** initiated SSO.
+* Terraform Cloud supports **Just In Time** user provisioning.
 
-
-## Adding Terraform Cloud from the gallery
+## Add Terraform Cloud from the gallery
 
 To configure the integration of Terraform Cloud into Azure AD, you need to add Terraform Cloud from the gallery to your list of managed SaaS apps.
 
@@ -47,7 +46,6 @@ To configure the integration of Terraform Cloud into Azure AD, you need to add T
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Terraform Cloud** in the search box.
 1. Select **Terraform Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Terraform Cloud
 
@@ -68,14 +66,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Terraform Cloud** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL using the following pattern:
     `https://app.terraform.io/sso/saml/samlconf-<ID>/metadata`
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://app.terraform.io/sso/saml/samlconf-<ID>/acs`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -83,11 +84,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.terraform.io/session`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update the value with the actual Identifier. Contact [Terraform Cloud Client support team](mailto:tf-cloud@hashicorp.support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Terraform Cloud Client support team](mailto:tf-cloud@hashicorp.support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -124,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. If you want to setup Terraform Cloud manually, in a different web browser window, sign in to your Terraform Cloud company site as an administrator.
 
-2. Go to the **Settings > SSO > Edit Settings**
+2. Go to the **Settings > SSO > Edit Settings**.
 
     ![Terraform Cloud settings](./media/terraform-cloud-tutorial/sso-settings.png)
 
@@ -156,11 +158,10 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Terraform Cloud for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Terraform Cloud for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Terraform Cloud tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Terraform Cloud for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
-
+You can also use Microsoft My Apps to test the application in any mode. When you click the Terraform Cloud tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Terraform Cloud for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Terraform Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Terraform Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

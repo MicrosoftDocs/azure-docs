@@ -97,4 +97,4 @@ Start with [Quickstart: Get started with Azure Machine Learning](quickstart-crea
   + [Use a Jupyter notebook to train image classification models](tutorial-train-models-with-aml.md)
   + [Use automated machine learning](tutorial-designer-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
-  + [Use the ML extension to the CLI](tutorial-train-deploy-model-cli.md)
+  + [Use the ML extension to the CLI](how-to-train-cli.md)

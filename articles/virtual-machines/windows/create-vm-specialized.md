@@ -8,7 +8,8 @@ ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a Windows VM from a specialized disk by using PowerShell

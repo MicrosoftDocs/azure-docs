@@ -9,7 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 05/28/2021
+ms.custom: contperf-fy21q4
 ---
 
 # How to create and manage LUIS resources

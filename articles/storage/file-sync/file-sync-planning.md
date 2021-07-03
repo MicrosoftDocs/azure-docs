@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
 # Planning for an Azure File Sync deployment
@@ -305,11 +305,6 @@ For more information about encryption in transit, see [requiring secure transfer
 
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
-
-### Enable standard file shares to span up to 100 TiB
-
-By default, standard file shares can span only up to 5 TiB, but you can increase the share limit to 100 TiB. To learn how to increase your share limit, see [Enable and create large file shares](../files/storage-files-how-to-create-large-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
-
 
 #### Regional availability
 [!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]

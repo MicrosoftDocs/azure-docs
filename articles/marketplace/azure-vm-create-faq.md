@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 author: kriti-ms
 ms.author: krsh
-ms.date: 03/10/2021
+ms.date: 03/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Common questions about VM in Azure Marketplace

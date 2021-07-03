@@ -15,7 +15,7 @@ ms.author: memildin
 
 This page explains the principles behind Azure Security Center's just-in-time (JIT) VM access feature and the logic behind the recommendation.
 
-To learn how to apply JIT to your VMs using the Azure portal (either Security Center or Azure Virtual Machines) or programatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
+To learn how to apply JIT to your VMs using the Azure portal (either Security Center or Azure Virtual Machines) or programmatically, see [How to secure your management ports with JIT](security-center-just-in-time.md).
 
 
 ## The risk of open management ports on a virtual machine
@@ -52,11 +52,11 @@ When a user requests access to a VM, Security Center checks that the user has [A
 
 The diagram below shows the logic that Security Center applies when deciding how to categorize your supported VMs: 
 
-[![Just-in-time (JIT) virtual machine (VM) logic flow](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
+[![Just-in-time (JIT) virtual machine (VM) logic flow.](media/just-in-time-explained/jit-logic-flow.png)](media/just-in-time-explained/jit-logic-flow.png#lightbox)
 
 When Security Center finds a machine that can benefit from JIT, it adds that machine to the recommendation's **Unhealthy resources** tab. 
 
-![Just-in-time (JIT) virtual machine (VM) access recommendation](./media/just-in-time-explained/unhealthy-resources.png)
+![Just-in-time (JIT) virtual machine (VM) access recommendation.](./media/just-in-time-explained/unhealthy-resources.png)
 
 
 ## FAQ - Just-in-time virtual machine access

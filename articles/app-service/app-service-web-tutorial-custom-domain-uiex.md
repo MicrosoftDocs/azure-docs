@@ -310,7 +310,7 @@ Browse to the DNS names that you configured earlier.
 <details>
 <summary>I get an HTTP 404 (Not Found) error.</summary>
 <ul>
-<li>The custom domain configured is missing an A record or a CNAME record.</li>
+<li>The custom domain configured is missing an A record or a CNAME record.  Check if the DNS records are exposed using an <a href="https://www.nslookup.io/">online DNS lookup</a> tool.</li>
 <li>The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with <code>ipconfig /flushdns</code>.</li>
 </ul>
 </details>

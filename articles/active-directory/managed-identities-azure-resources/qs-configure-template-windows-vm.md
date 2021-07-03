@@ -35,7 +35,7 @@ In this article, using the Azure Resource Manager deployment template, you learn
 
 As with the Azure portal and scripting, [Azure Resource Manager](../../azure-resource-manager/management/overview.md) templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
 
-   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/documentation/templates/).
+   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
    - Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/templates/export-template-portal.md), or from the [current state of the deployment](../../azure-resource-manager/templates/export-template-portal.md).
    - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to both create and deploy a template.

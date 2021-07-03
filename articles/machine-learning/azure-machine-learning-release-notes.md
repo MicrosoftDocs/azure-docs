@@ -18,6 +18,44 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
+## 2021-06-21
+
+### Azure Machine Learning SDK for Python v1.31.0
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Improved documentation for platform property on Environment class
+    + Changed default AML Compute node scale down time from 120 seconds to 1800 seconds
+    + Updated default troubleshooting link displayed on the portal for troubleshooting failed runs to: https://aka.ms/azureml-run-troubleshooting
+  + **azureml-automl-runtime**
+    + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training
+  + **azureml-interpret**
+    + Prevent flush task queue error on remote AzureML runs that use ExplanationClient by increasing timeout
+  + **azureml-pipeline-core**
+    + Add jar parameter to synapse step
+  + **azureml-train-automl-runtime**
+    + Fix high cardinality guardrails to be more aligned with docs
+
+## 2021-06-07
+
+### Azure Machine Learning SDK for Python v1.30.0
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Pin dependency `ruamel-yaml` to < 0.17.5 as a breaking change was released in 0.17.5.
+    + `aml_k8s_config` property is being replaced with `namespace`, `default_instance_type`, and `instance_types` parameters for `KubernetesCompute` attach.
+    + Workspace sync keys was changed to a long running operation.
+  + **azureml-automl-runtime**
+    + Fixed problems where runs with big data may fail with `Elements of y_test cannot be NaN`.
+  + **azureml-mlflow**
+    + MLFlow deployment plugin bugfix for models with no signature.
+  + **azureml-pipeline-steps**
+    + ParallelRunConfig: update doc for process_count_per_node.
+  + **azureml-train-automl-runtime**
+    + Support for custom defined quantiles during MM inference
+    + Support for forecast_quantiles during batch inference.
+  + **azureml-contrib-automl-pipeline-steps**
+    + Support for custom defined quantiles during MM inference
+    + Support for forecast_quantiles during batch inference.
+
 ## 2021-05-25
 
 ### Announcing the 2.0 CLI (preview) for Azure Machine Learning

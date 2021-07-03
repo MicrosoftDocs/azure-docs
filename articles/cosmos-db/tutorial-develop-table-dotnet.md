@@ -33,7 +33,7 @@ You need the following to complete this sample successfully:
 
 ## Create an Azure Cosmos DB Table API account
 
-[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-table](includes/cosmos-db-create-dbaccount-table.md)]
 
 ## Create a .NET console project
 

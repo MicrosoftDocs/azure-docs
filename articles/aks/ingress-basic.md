@@ -166,7 +166,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
-  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -202,7 +201,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
-  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
@@ -224,7 +222,7 @@ spec:
 Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
 
 ```
-$ kubectl apply -f hello-world-ingress.yaml
+$ kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 
 ingress.extensions/hello-world-ingress created
 ingress.extensions/hello-world-ingress-static created

@@ -3,7 +3,7 @@ title: Azure Video Analyzer quotas and limitations - Azure
 description: This article describes Azure Video Analyzer quotas and limitations.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 03/26/2021 
+ms.date: 05/26/2021 
  
 ---
 # Video Analyzer quotas and limitations
@@ -39,6 +39,7 @@ Following are the limitations on how different nodes can be connected together i
    * Cannot be used downstream from an HTTP or a gRPC extension processor.
 * Signal gate processor
    * Must be immediately downstream from RTSP source.
+   * Cannot be used upstream from an HTTP or a gRPC extension processor.
 * Object tracker processor
    * Must be immediately downstream from an HTTP or a gRPC extension processor. The extension processor should not be applying an AI model on every frame of the live video.
 * Line crossing processor

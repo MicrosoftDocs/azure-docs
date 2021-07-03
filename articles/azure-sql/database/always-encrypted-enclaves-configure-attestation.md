@@ -10,7 +10,8 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
+ms.date: 05/01/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure Azure Attestation for your Azure SQL logical server

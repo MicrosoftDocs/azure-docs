@@ -128,6 +128,8 @@
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
         href: event-schema-event-hubs.md
+      - name: Azure FarmBeats
+        href: event-schema-farmbeats.md
       - name: Azure IoT Hub
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
@@ -284,6 +286,8 @@
         href: add-identity-roles.md
       - name: Create an event subscription that uses the managed identity
         href: managed-service-identity.md
+    - name: Enforce security controls with custom Azure policies
+      href: custom-azure-policies-for-security-control.md
     - name: Deliver events securely over a private link
       href: consume-private-endpoints.md      
     - name: Configure IP firewall

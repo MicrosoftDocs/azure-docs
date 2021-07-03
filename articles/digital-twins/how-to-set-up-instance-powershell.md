@@ -39,7 +39,7 @@ This version of this article goes through these steps manually, one by one, usin
        1. Connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
     * If you choose to use Azure Cloud Shell:
         1. See [Overview of Azure Cloud Shell](../cloud-shell/overview.md) for more information about Cloud Shell.
-        1. Open a Cloud Shell window by following [this link](https://shell.azure.com) in your browser.
+        1. [Open a Cloud Shell window in your browser](https://shell.azure.com).
         1. In the Cloud Shell icon bar, make sure your Cloud Shell is set to run the PowerShell version.
     
             :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Screenshot of the Cloud Shell window in the Azure portal showing selection of the PowerShell version.":::

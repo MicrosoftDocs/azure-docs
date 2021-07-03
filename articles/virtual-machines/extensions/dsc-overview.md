@@ -62,7 +62,7 @@ Installing WMF requires a restart. After restarting, the extension downloads the
 
 ### Default configuration script
 
-The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/azmgmt-demo/nestedtemplates/scripts/UpdateLCMforAAPull.zip).
 
 ## Information for registering with Azure Automation State Configuration (DSC) service
 

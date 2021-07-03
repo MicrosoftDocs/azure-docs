@@ -92,7 +92,7 @@ az functionapp config appsettings set --name <your-App-Service-function-app-name
 To see live-updating temperature, follow the steps below:
 
 1. Begin sending simulated IoT data by running the **DeviceSimulator** project from the Azure Digital Twins [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md). The instructions for this are in the [Configure and run the simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
-2. Use [the **Azure Maps Indoor** module](../azure-maps/how-to-use-indoor-module.md) to render your indoor maps created in Azure Maps Creator.
+2. Use [the Azure Maps Indoor module](../azure-maps/how-to-use-indoor-module.md) to render your indoor maps created in Azure Maps Creator.
     1. Copy the HTML from the [Example: Use the Indoor Maps Module](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) section of the indoor maps [Tutorial: Use the Azure Maps Indoor Maps module](../azure-maps/how-to-use-indoor-module.md) to a local file.
     1. Replace the *subscription key*, *tilesetId*, and *statesetID*  in the local HTML file with your values.
     1. Open that file in your browser.

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/13/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Change your performance tier using the Azure PowerShell module or the Azure CLI

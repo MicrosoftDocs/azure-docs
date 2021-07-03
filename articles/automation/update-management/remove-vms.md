@@ -3,7 +3,7 @@ title: Remove VMs from Azure Automation Update Management
 description: This article tells how to remove machines managed with Update Management.
 services: automation
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 06/03/2021
 ms.custom: mvc
 ---
 # Remove VMs from Update Management
@@ -28,11 +28,22 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 4. In your Log Analytics workspace, select **Computer Groups** from the left-hand menu.
 
-5. From **Computer Groups** in the right-hand pane, the **Saved groups** tab is shown by default..
+5. From **Computer Groups** in the right-hand pane, the **Saved groups** tab is shown by default.
 
 6. From the table, click the icon **Run query** to the right of the item **MicrosoftDefaultComputerGroup** with the **Legacy category** value **Updates**.
 
 7. In the query editor, review the query and find the UUID for the VM. Remove the UUID for the VM and repeat the steps for any other VMs you want to remove.
+
+   > [!NOTE]
+   > For added protection, before making edits be sure to make a copy of the query. Then you can restore it if a problem occurs.
+
+   If you want to start with the original query and re-add machines in support of a cleanup or maintenance activity, copy the following query:
+
+   ```kusto
+   Heartbeat
+   | where Computer in~ ("") or VMUUID in~ ("")
+   | distinct Computer
+   ```
 
 8. Save the saved search when you're finished editing it by selecting **Save > Save as function** from the top bar. When prompted, specify the following:
 

@@ -39,8 +39,6 @@ The Detect API detects human faces in an image and returns the rectangle coordin
 > [!NOTE]
 > The face detection feature is also available through the [Computer Vision service](../computer-vision/overview.md). However, if you want to do further Face operations like Identify, Verify, Find Similar, or Group, you should use this Face service instead.
 
-![An image of a woman and a man, with rectangles drawn around their faces and age and gender displayed](./Images/Face.detection.jpg)
-
 For more information on face detection, see the [Face detection](concepts/face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
 ## Face verification

@@ -4,7 +4,7 @@ description: Use the Form Recognizer client library for JavaScript to create a f
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
@@ -18,7 +18,7 @@ ms.custom: "devx-track-js"
 
 > [!IMPORTANT]
 >
-> * This quickstart uses SDK version **3.1.0** and targets API version **2.1**.
+> * This quickstart uses SDK version **3.1.1** and targets API version **2.1**.
 >
 >* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. See the reference documentation below.
 
@@ -74,7 +74,7 @@ Create variables for your resource's Azure endpoint and key.
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is used to create and Manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is used to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 
@@ -187,7 +187,7 @@ To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
 ## Analyze identity documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about invoice analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
 
 To analyze identity documents from a URL use the `beginRecognizeIdDocumentsFromUrl` method.
 

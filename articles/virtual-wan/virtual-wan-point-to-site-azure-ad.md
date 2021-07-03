@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
-ms.author: alzam
+ms.author: alzam 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure Azure Active Directory authentication for User VPN

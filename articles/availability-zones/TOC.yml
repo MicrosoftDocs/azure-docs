@@ -93,10 +93,6 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
-  - name: Edge Zones Documentation
-    items:
-    - name: What are Edge Zones?
-      href: ../networking/edge-zones-overview.md
   - name: Azure Orbital Documentation
     items:
     - name: What is Azure Orbital?

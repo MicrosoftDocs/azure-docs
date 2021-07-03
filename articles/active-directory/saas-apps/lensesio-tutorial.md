@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/02/2020
+ms.date: 06/21/2021
 ms.author: jeedes
 ---
 
@@ -21,8 +21,6 @@ In this tutorial, you'll learn how to integrate the [Lenses.io](https://lenses.i
 * Enable your users to be automatically signed-in to Lenses with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-To learn more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure AD](../manage-apps/what-is-single-sign-on.md).
-
 ## Prerequisites
 
 To get started, you need the following items:
@@ -31,19 +29,20 @@ To get started, you need the following items:
 * An instance of a Lenses portal. You can choose from a number of [deployment options](https://lenses.io/product/deployment/).
 * A Lenses.io [license](https://lenses.io/product/pricing/) that supports single sign-on (SSO).
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
 * Lenses.io supports service provider (SP) initiated SSO.
 
-* You can enforce session control after you configure Lenses.io. Session control protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
 ## Add Lenses.io from the gallery
 
 To configure the integration of Lenses.io into Azure AD, add Lenses.io to your list of managed SaaS apps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal by using a work or school account, or a personal Microsoft account.
 1. On the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. Select **New application**.
@@ -54,7 +53,7 @@ To configure the integration of Lenses.io into Azure AD, add Lenses.io to your l
 
 You'll create a test user called *B.Simon* to configure and test Azure AD SSO with your Lenses.io portal. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Lenses.io.
 
-Complete the following steps:
+Perform the following steps:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
     1. [Create an Azure AD test user and group](#create-an-azure-ad-test-user-and-group) to test Azure AD SSO with B.Simon.
@@ -67,22 +66,22 @@ Complete the following steps:
 
 Follow these steps to enable Azure AD SSO in the Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Lenses.io** application integration page, find the **Manage** section, and then select **single sign-on**.
+1. In the Azure portal, on the **Lenses.io** application integration page, find the **Manage** section, and then select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Screenshot that shows the icon for editing basic SAML configuration.](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, enter values in the following text-entry boxes:
+1. In the **Basic SAML Configuration** section, perform the following steps:
 
-    a. **Sign on URL**: Enter a URL that has the following pattern: `https://<CUSTOMER_LENSES_BASE_URL>`. An example is `https://lenses.my.company.com`.
+    a. **Identifier (Entity ID)**: Enter a URL that has the following pattern: `https://<CUSTOMER_LENSES_BASE_URL>`. An example is `https://lenses.my.company.com`.
 
-    b. **Identifier (Entity ID)**: Enter a URL that has the following pattern: `https://<CUSTOMER_LENSES_BASE_URL>`. An example is `https://lenses.my.company.com`.
+    b. **Reply URL**: Enter a URL that has the following pattern: `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`. An example is `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`.
 
-    c. **Reply URL**: Enter a URL that has the following pattern: `https://<CUSTOMER_LENSES_BASE_URL>/api/v2/auth/saml/callback?client_name=SAML2Client`. An example is `https://lenses.my.company.com/api/v2/auth/saml/callback?client_name=SAML2Client`.
+    c. **Sign on URL**: Enter a URL that has the following pattern: `https://<CUSTOMER_LENSES_BASE_URL>`. An example is `https://lenses.my.company.com`.
 
     > [!NOTE]
-    > These values are not real. Update them with the actual sign-on URL, reply URL, and identifier of the base URL of your Lenses portal instance. See the [Lenses.io SSO documentation](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0) for more information.
+    > These values are not real. Update them with the actual Identifier,Reply URL and Sign on URL of the base URL of your Lenses portal instance. See the [Lenses.io SSO documentation](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0) for more information.
 
 1. On the **Set up single sign-on with SAML** page, go to the **SAML Signing Certificate** section. Find **Federation Metadata XML**, and then select **Download** to download and save the certificate on your computer.
 
@@ -132,13 +131,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. On the applications list, select **Lenses.io**.
 1. On the app overview page, in the **Manage** section, select **Users and groups**.
-
-   ![Screenshot that shows the "Users and groups" link.](common/users-groups-blade.png)
-
 1. Select **Add user**.
-
-   ![Screenshot that shows the Add User link.](common/add-assign-user.png)
-
 1. In the **Add Assignment** dialog box, select **Users and groups**.
 1. In the **Users and groups** dialog box, select **B.Simon** from the Users list. Then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, choose the appropriate role for the user from the list. Then click the **Select** button at the bottom of the screen.
@@ -157,22 +150,14 @@ For more information, see [Azure - Lenses group mapping](https://docs.lenses.io/
 
 ## Test SSO
 
-In this section, test your Azure AD SSO configuration by using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select the Lenses.io tile on the Access Panel, you should be automatically signed in to your Lenses.io portal. For more information, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to Lenses.io Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to Lenses.io Sign-on URL directly and initiate the login flow from there.
 
-- [Set up SSO in your Lenses.io instance](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
+* You can use Microsoft My Apps. When you click the Lenses.io tile in the My Apps, this will redirect to Lenses.io Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [List of tutorials on how to integrate SaaS apps with Azure AD](./tutorial-list.md)
+## Next steps
 
-- [What is application access and SSO with Azure AD?](../manage-apps/what-is-single-sign-on.md)
-
-- [What is conditional access in Azure AD?](../conditional-access/overview.md)
-
-- [Try Lenses.io with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Lenses.io with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure Lenses.io you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

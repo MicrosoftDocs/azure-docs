@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene
-ms.date: 04/15/2021
+ms.date: 04/15/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -110,7 +111,7 @@ To deploy the extension for Linux:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforLinux",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -132,7 +133,7 @@ To deploy the extension for Windows:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforWindows",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}

@@ -43,14 +43,15 @@ Deploying the API Management gateway on an Arc-enabled Kubernetes cluster expand
 1. In your provisioned gateway resource, click **Deployment** from the side navigation menu.
 1. Make note of the **Token** and **Configuration URL** values for the next step.
 1. In Azure CLI, deploy the gateway extension using the `az k8s-extension create` command. Fill in the `token` and `configuration URL` values.
-    * The following example uses the `service.Type='NodePort'` extension configuration. See more [available extension configurations](#available-extension-configurations).
+    * The following example uses the `service.type='LoadBalancer'` extension configuration. See more [available extension configurations](#available-extension-configurations).
 
     ```azurecli
     az k8s-extension create --cluster-type connectedClusters --cluster-name <cluster-name> \
       --resource-group <rg-name> --name <extension-name> --extension-type Microsoft.ApiManagement.Gateway \
       --scope namespace --target-namespace <namespace> \
       --configuration-settings gateway.endpoint='<Configuration URL>' \
-      --configuration-protected-settings gateway.authKey='<token>' --release-train preview
+      --configuration-protected-settings gateway.authKey='<token>' \
+      --configuration-settings service.type='LoadBalancer' --release-train preview
     ```
 
     > [!TIP]
@@ -87,7 +88,7 @@ The following extension configurations are **required**.
 | ------- | ----------- | 
 | `gateway.endpoint` | The gateway endpoint's Configuration URL. |
 | `gateway.authKey` | Token for access to the gateway. | 
-| `service.Type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. |
+| `service.type` | Kubernetes service configuration for the gateway: `LoadBalancer`, `NodePort`, or `ClusterIP`. |
 
 ### Log Analytics settings
 

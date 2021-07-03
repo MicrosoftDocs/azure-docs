@@ -14,7 +14,7 @@ ms.author: trbye
 
 # What is Custom Neural Voice?
 
-Custom Neural Voice is a text-to-speech (TTS) feature that lets you create a one-of-a-kind customized synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data. Based on the Neural TTS technology and the multi-lingual multi-speaker universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. 
+Custom Neural Voice is a text-to-speech (TTS) feature that lets you create a one-of-a-kind customized synthetic voice for your applications. With Custom Neural Voice, you can build a highly natural-sounding voice by providing your audio samples as training data. Based on the Neural TTS technology and the multi-lingual multi-speaker universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the supported [languages](language-support.md#customization) for Custom Neural Voice and cross-lingual feature.
 
 > [!NOTE]
 > The Custom Neural Voice feature requires registration, and access to it is limited based upon Microsoft’s eligibility and use criteria. Customers who wish to use this feature are required to register their use cases through the [intake form](https://aka.ms/customneural).

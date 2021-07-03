@@ -6,13 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 06/30/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
 ---
 # Login to Windows virtual machine in Azure using Azure Active Directory authentication
@@ -28,7 +28,6 @@ There are many security benefits of using Azure AD based authentication to login
 - Use Azure deploy and audit policies to require Azure AD login for Windows VMs and to flag use of no approved local account on the VMs.
 - Login to Windows VMs with Azure Active Directory also works for customers that use Federation Services.
 - Automate and scale Azure AD join with MDM auto enrollment with Intune of Azure Windows VMs that are part for your VDI deployments. Auto MDM enrollment requires Azure AD P1 license. Windows Server 2019 VMs do not support MDM enrollment.
-
 
 > [!NOTE]
 > Once you enable this capability, your Windows VMs in Azure will be Azure AD joined. You cannot join it to other domain like on-premises AD or Azure AD DS. If you need to do so, you will need to disconnect the VM from your Azure AD tenant by uninstalling the extension.
@@ -51,8 +50,6 @@ This feature is now available in the following Azure clouds:
 - Azure Government
 - Azure China
 
-
-
 ### Network requirements
 
 To enable Azure AD authentication for your Windows VMs in Azure, you need to ensure your VMs network configuration permits outbound access to the following endpoints over TCP port 443:
@@ -63,20 +60,17 @@ For Azure Global
 - `https://login.microsoftonline.com` - For authentication flows.
 - `https://pas.windows.net` - For Azure RBAC flows.
 
-
 For Azure Government
 - `https://enterpriseregistration.microsoftonline.us` - For device registration.
 - `http://169.254.169.254` - Azure Instance Metadata Service.
 - `https://login.microsoftonline.us` - For authentication flows.
 - `https://pasff.usgovcloudapi.net` - For Azure RBAC flows.
 
-
 For Azure China
 - `https://enterpriseregistration.partner.microsoftonline.cn` - For device registration.
 - `http://169.254.169.254` - Azure Instance Metadata Service endpoint.
 - `https://login.chinacloudapi.cn` - For authentication flows.
 - `https://pas.chinacloudapi.cn` - For Azure RBAC flows.
-
 
 ## Enabling Azure AD login in for Windows VM in Azure
 
@@ -175,16 +169,18 @@ There are multiple ways you can configure role assignments for VM:
 
 To configure role assignments for your Azure AD enabled Windows Server 2019 Datacenter VMs:
 
-1. Navigate to the specific virtual machine overview page
-1. Select **Access control (IAM)** from the menu options
-1. Select **Add**, **Add role assignment** to open the Add role assignment pane.
-1. In the **Role** drop-down list, select a role such as **Virtual Machine Administrator Login** or **Virtual Machine User Login**.
-1. In the **Select** field, select a user, group, service principal, or managed identity. If you don't see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
-1. Select **Save**, to assign the role.
+1. Select **Access control (IAM)**.
 
-After a few moments, the security principal is assigned the role at the selected scope.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-![Assign roles to users who will access the VM](./media/howto-vm-sign-in-azure-ad-windows/azure-portal-access-control-assign-role.png)
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | **Virtual Machine Administrator Login** or **Virtual Machine User Login** |
+    | Assign access to | User, group, service principal, or managed identity |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ### Using the Azure Cloud Shell experience
 
@@ -256,7 +252,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as `CommandExecution_YYYYMMDDHHMMSSSSS.log`. 
 "
-1. Open a PowerShell command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
+1. Open a PowerShell window on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
 
    | Command to run | Expected output |
    | --- | --- |
@@ -267,18 +263,17 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `appid` in the access token matches the managed identity assigned to the VM.
 
-1. Ensure the required endpoints are accessible from the VM using the command line:
+1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-
-   > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
 
+   > [!NOTE]
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+            
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
    > [!NOTE]
@@ -292,7 +287,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
 1. Verify the Azure VM can retrieve the TenantID from the Instance Metadata Service.
 
-   - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated command line on the VM:
+   - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
       - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
@@ -302,17 +297,16 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
 This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension is not able to reach the `https://enterpriseregistration.windows.net` endpoint.
 
-1. Verify the required endpoints are accessible from the VM using the command line:
+1. Verify the required endpoints are accessible from the VM using PowerShell:
 
    - `curl https://login.microsoftonline.com/ -D -`
    - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   
-   > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
-
    - `curl https://enterpriseregistration.windows.net/ -D -`
    - `curl https://device.login.microsoftonline.com/ -D -`
    - `curl https://pas.windows.net/ -D -`
+   
+   > [!NOTE]
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
 
 1. If any of the commands fails with "Could not resolve host `<URL>`", try running this command to determine the DNS server that is being used by the VM.
    

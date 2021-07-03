@@ -8,7 +8,8 @@ ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 05/06/2021
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
 
 # List Azure role definitions

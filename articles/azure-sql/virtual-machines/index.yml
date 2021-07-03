@@ -8,6 +8,7 @@ metadata:
   description: Find documentation about SQL Server installed to Azure virtual machines, both Windows and Linux.
   services: virtual-machines-sql
   ms.service:  virtual-machines-sql
+  ms.subservice: service-overview
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
@@ -126,8 +127,8 @@ landingContent:
         links:
         - text: Azure portal
           url: windows/sql-vm-create-portal-quickstart.md
-        - text: Azure CLI samples
-          url: /cli/azure/sql/vm
+        - text: Azure CLI
+          url: /cli/azure/azure-cli-reference-for-sql#sql-virtual-machines-references
         - text: PowerShell samples
           url: windows/sql-vm-create-powershell-quickstart.md
         - text: ARM template samples 
@@ -149,7 +150,7 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: /cli/azure/sql
+            url: /cli/azure/azure-cli-reference-for-sql#sql-virtual-machines-references
           - text: PowerShell
             url: /powershell/module/az.sql
           - text: REST API

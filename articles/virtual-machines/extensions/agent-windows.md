@@ -7,7 +7,8 @@ ms.subservice: extensions
 ms.author: amjads
 author: amjads1
 ms.collection: windows
-ms.date: 07/20/2019
+ms.date: 07/20/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Virtual Machine Agent overview
