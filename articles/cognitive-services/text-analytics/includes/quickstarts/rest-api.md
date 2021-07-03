@@ -618,8 +618,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/key
          "id":"1",
          "keyPhrases":[
             "wonderful trip",
-            "Seattle",
-            "week"
+            "Seattle"
          ],
          "warnings":[
             
@@ -629,7 +628,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/key
    "errors":[
       
    ],
-   "modelVersion":"2020-07-01"
+   "modelVersion":"2021-06-01"
 }
 ```
 
