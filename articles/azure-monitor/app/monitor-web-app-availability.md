@@ -2,7 +2,7 @@
 title: Monitor availability with URL ping tests- Azure Monitor 
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 07/02/2021
 
 ms.reviewer: sdash
 ---
@@ -11,29 +11,17 @@ ms.reviewer: sdash
 
 The name "URL ping test" is a bit of a misnomer. To be clear, these tests are not making any use of ICMP (Internet Control Message Protocol) to check your site's availability. Instead they use more advanced HTTP request functionality to validate whether an endpoint is responding. They also measure the performance associated with that response, and adds the ability to set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
 
-There are two types of URL ping test you can create, basic and standard ping tests.
-
 > [!NOTE]
-> Basic and Standard ping tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
-
-Basic vs Standard:
-
-- Basic is restricted to five locations per test.
-- Standard tests can have custom headers or request body.
-- Standard tests can use any HTTP request method while basic can only use `GET`.
-- SSL certificate lifetime check alerts you of a set period time before your certificate expires.
-- Standard tests are a paid feature.
+> Standard ping tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
 > [!NOTE]
 > There are currently no additional charges for the preview feature Standard Ping tests. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using Standard Ping tests after the notice period, you will be billed at the applicable rate.
 
-## Create a URL ping test
+## Create a Standard URL ping test
 
 In order to create an availability test, you need use an existing Application Insight resource or [create an Application Insights resource](create-new-resource.md).
 
-To create your first availability request, open the Availability pane and select  Create Test & choose your test SKU.
-
-:::image type="content" source="./media/monitor-web-app-availability/create-basic-test.png" alt-text="Screenshot of create a basic url ping test in Azure Portal":::
+:::image type="content" source="./media/monitor-web-app-availability/standard-test-post.png" alt-text="Screenshot of standard test info tab." border="false":::
 
 |Setting | Explanation |
 |--------|-------------|
@@ -43,35 +31,29 @@ To create your first availability request, open the Availability pane and select
 | **SSL certificate validation test** | You can verify the SSL certificate on your website to make sure it is correctly installed, valid, trusted and doesn't give any errors to any of your users. |
 | **Proactive lifetime check** | This enables you to define a set time period before your SSL certificate expires. Once it expires your test will fail. |
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
-|**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** in order to insure that you can distinguish problems in your website from network issues. You can select more than five locations with standard test and up to 16 locations.|
+|**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** in order to insure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
+| **Custom headers** | Key value pairs that define the operating parameters. |
+| **HTTP request verb** | Indicate what action you would like to take with your request. IF your chosen verb is not available in the UI you can deploy a standard test using Azure Resource Monitor with the desired choice. |
+| **Request body** | Custom data associated with your HTTP request. You can upload type own files type in your content, or disable this feature. For raw body content we support TEXT, JSON, HTML, XML, and JavaScript. |
+
 
 **If your URL is not visible from the public internet, you can choose to selectively open up your firewall to allow only the test transactions through**. To learn more about the firewall exceptions for our availability test agents, consult the [IP address guide](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > We strongly recommend testing from multiple locations with **a minimum of five locations**. This is to prevent false alarms that may result from transient issues with a specific location. In addition we have found that the optimal configuration is to have the **number of test locations be equal to the alert location threshold + 2**.
 
-## Standard Test
-
-:::image type="content" source="./media/monitor-web-app-availability/standard-test-post.png" alt-text="Screenshot of standard test info tab." border="false":::
-
-|Setting | Explanation |
-|--------|-------------|
-| **Custom headers** | Key value pairs that define the operating parameters. |
-| **HTTP request verb** | Indicate what action you would like to take with your request. IF your chosen verb is not available in the UI you can deploy a standard test using Azure Resource Monitor with the desired choice. |
-| **Request body** | Custom data associated with your HTTP request. You can upload type own files type in your content, or disable this feature. For raw body content we support TEXT, JSON, HTML, XML, and JavaScript. |
-
 ## Success criteria
 
-|Setting| Explanation
-|----|----|----|
+|Setting| Explanation|
+|-------|------------|
 | **Test timeout** |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site have not been received within this period. If you selected **Parse dependent requests**, then all the images, style files, scripts, and other dependent resources must have been received within this period.|
 | **HTTP response** | The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.|
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are supported with content match** |
 
 ## Alerts
 
-|Setting| Explanation
-|----|----|----|
+|Setting| Explanation|
+|-------|------------|
 |**Near-realtime (Preview)** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
