@@ -6,3 +6,8 @@ items:
   items:
     - name: About Healthcare APIs
       href: healthcare-apis-overview.md
+- name: DICOM
+  expanded: true
+  items:
+    - name: dicom-overivew
+      href: dicom-services-overview.md
