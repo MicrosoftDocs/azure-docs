@@ -161,7 +161,7 @@ Using a text editor, replace the pom.xml file with the following:
 
 ```
 
-## Upload a file
+## Upload a file from a device app
 
 Copy the file that you want to upload to the `my-app` folder in your project tree. Using a text editor, replace App.java with the following code. Supply your device connection string and file name where noted. You copied the device connection string when you registered the device.
 
@@ -280,7 +280,7 @@ public class App
 }
 ```
 
-## Build and Run the application
+## Build and run the application
 
 At a command prompt in the `my-app` folder, run the following command:
 
