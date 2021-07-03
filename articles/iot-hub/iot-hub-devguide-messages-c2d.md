@@ -137,7 +137,7 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | maxDeliveryCount          | Maximum delivery count for cloud-to-device per-device queues | 1 to 100; default: 10 |
 | feedback.ttlAsIso8601     | Retention for service-bound feedback messages | ISO_8601 interval up to 2 days (minimum 1 minute); default: 1 hour |
 | feedback.maxDeliveryCount | Maximum delivery count for the feedback queue | 1 to 100; default: 10 |
-| feedback.lockDurationAsIso8601 | Maximum delivery count for the feedback queue | ISO_8601 interval from 5 to 300 seconds (minimum 5 seconds); default: 60 seconds. |
+| feedback.lockDurationAsIso8601 | Lock duration for the feedback queue | ISO_8601 interval from 5 to 300 seconds (minimum 5 seconds); default: 60 seconds. |
 
 You can set the configuration options in one of the following ways:
 
