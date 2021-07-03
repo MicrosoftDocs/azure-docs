@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 07/02/2021
 ms.author: robinsh
 ms.custom: mqtt, devx-track-python
 ---
@@ -43,7 +43,11 @@ There is a more advanced version of the file upload app which can be found at [h
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+[!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-include-associate-storage.md)]
 
 ## Upload a file from a device app
 
