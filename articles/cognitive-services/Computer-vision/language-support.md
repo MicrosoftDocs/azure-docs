@@ -24,7 +24,7 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |:-----|:----:|:-----:|:---:|:---:|
 |Afrikaans|`af`|✔ | | |
 |Albanian |`sq`|✔ | | |
-|Arabic | `ar`| ✔ | | |
+|Arabic | `ar`|  | ✔ | |
 |Asturian |`ast`|✔ | | |
 |Basque  |`eu`| ✔ | | |
 |Bislama   |`bi`|✔ | | |
@@ -32,15 +32,15 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |Catalan    |`ca`|✔ | | |
 |Cebuano    |`ceb`|✔ | | |
 |Chamorro  |`ch`|✔| | |
-|Chinese (Simplified) | `zh-Hans`|✔ |✔ | |
-|Chinese (Traditional) | `zh-Hant`|✔ |✔ | |
+|Chinese Simplified | `zh-Hans`|✔ |✔ | |
+|Chinese Traditional | `zh-Hant`|✔ |✔ | |
 |Cornish     |`kw`|✔ | | |
 |Corsican      |`co`|✔ | | |
-|Crimean Tatar (Latin)  |`crh`| ✔ | | |
+|Crimean Tatar Latin  |`crh`| ✔ | | |
 |Czech | `cs` |✔ | ✔ | |
 |Danish | `da` |✔ | ✔ | |
 |Dutch | `nl` |✔ |✔ |✔ |
-|English | `en` |✔ |✔ |✔ |
+|English (incl. handwritten) | `en` |✔ |✔ (print only)|✔ |
 |Estonian  |`et`|✔ | | |
 |Fijian |`fj`|✔ | | |
 |Filipino  |`fil`|✔ | | |
@@ -54,25 +54,25 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |Greenlandic   | `kl` |✔ | | |
 |Haitian Creole  | `ht` |✔ | | |
 |Hani  | `hni` |✔ | | |
-|Hmong Daw (Latin) | `mww` | ✔ | | |
+|Hmong Daw Latin | `mww` | ✔ | | |
 |Hungarian | `hu` | ✔ |✔ | |
 |Indonesian   | `id` |✔ | | |
 |Interlingua  | `ia` |✔ | | |
-|Inuktitut (Latin)  | `iu` | ✔ | | |
+|Inuktitut Latin  | `iu` | ✔ | | |
 |Irish    | `ga` |✔ | | |
 |Italian | `it` |✔ |✔ |✔ |
 |Japanese | `ja` |✔ |✔ | |
 |Javanese | `jv` |✔ | | |
 |K'iche'  | `quc` |✔ | | |
 |Kabuverdianu | `kea` |✔ | | |
-|Kachin (Latin) | `kac` |✔ | | |
+|Kachin Latin | `kac` |✔ | | |
 |Kara-Kalpak | `kaa` | ✔ | | |
 |Kashubian | `csb` |✔ | | |
 |Khasi  | `kha` | ✔ | | |
 |Korean | `ko` |✔ |✔ | |
-|Kurdish (latin) | `kur` |✔ | | |
+|Kurdish Latin | `kur` |✔ | | |
 |Luxembourgish  | `lb` | ✔ | | |
-|Malay (Latin)  | `ms` | ✔ | | |
+|Malay Latin  | `ms` | ✔ | | |
 |Manx  | `gv` | ✔ | | |
 |Neapolitan   | `nap` | ✔ | | |
 |Norwegian | `nb` | | ✔ | |
@@ -85,18 +85,18 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |Russian | `ru` | |✔ | |
 |Scots  | `sco` | ✔ | | |
 |Scottish Gaelic  | `gd` |✔ | | |
-|Serbian (Cyrillic) | `sr-Cyrl` | |✔ | |
-|Serbian (Latin) | `sr-Latn` | |✔ | |
+|Serbian Cyrillic | `sr-Cyrl` | |✔ | |
+|Serbian Latin | `sr-Latn` | |✔ | |
 |Slovak | `sk` | |✔ | |
 |Slovenian  | `slv` | ✔ || |
 |Spanish | `es` |✔ |✔ |✔ |
-|Swahili (Latin)  | `sw` |✔ | | |
+|Swahili Latin  | `sw` |✔ | | |
 |Swedish | `sv` |✔ |✔ | |
-|Tatar (Latin)  | `tat` | ✔ | | |
+|Tatar Latin  | `tat` | ✔ | | |
 |Tetum    | `tet` |✔ |  | |
 |Turkish | `tr` |✔ | ✔ | |
 |Upper Sorbian  | `hsb` |✔ |  | |
-|Uzbek (Latin)     | `uz` |✔ |  | |
+|Uzbek Latin     | `uz` |✔ |  | |
 |Volapük   | `vo` | ✔ | | |
 |Walser    | `wae` | ✔ | | |
 |Western Frisian | `fy` | ✔ | | |

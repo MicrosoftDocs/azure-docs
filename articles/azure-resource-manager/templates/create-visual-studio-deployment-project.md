@@ -45,7 +45,7 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 
 ## Customize Resource Manager template
 
-You can customize a deployment project by modifying the Resource Manager template that describes the resources you want to deploy. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
+You can customize a deployment project by modifying the Resource Manager template that describes the resources you want to deploy. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](./syntax.md).
 
 1. To work on your template, open **WebSite.json**.
 

@@ -18,7 +18,7 @@ keywords: forms processing, automated data processing
 
 # Quickstart: get started with the client library SDKs or REST API
 
-Get started with Azure Form Recognizer using the programming language of your choice. Azure Form Recognizer is an [Azure Applied AI Service](https://aka.ms/applied-ai-services-hub) that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data, and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Get started with Azure Form Recognizer using the programming language of your choice. Azure Form Recognizer is an [Azure Applied AI Service](../../../applied-ai-services/index.yml) that lets you build automated data processing software using machine learning technology. Identify and extract text, key/value pairs, selection marks, table data, and more from your form documents&mdash;the service outputs structured data that includes the relationships in the original file. You can use Form Recognizer via the REST API or SDK. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 You'll use the following APIs to extract structured data from forms and documents:
 

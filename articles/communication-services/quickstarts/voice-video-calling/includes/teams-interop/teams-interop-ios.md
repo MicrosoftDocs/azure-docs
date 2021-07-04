@@ -115,10 +115,9 @@ struct ContentView: View {
         }
     }
 
-
     func leaveMeeting() {
         if let call = call {
-            call.hangup(options: nil, completionHandler: { (error) in
+            call.hangUp(options: nil, completionHandler: { (error) in
                 if error == nil {
                     self.message = "Leaving Teams meeting was successful"
                 } else {
@@ -157,7 +156,6 @@ class CallObserver : NSObject, CallDelegate {
             owner.recordingStatus = ""
         }
     }
-
 
     private static func callStateToString(state: CallState) -> String {
         switch state {

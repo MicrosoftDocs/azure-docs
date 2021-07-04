@@ -39,22 +39,6 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ### Register features
 
-If this is your first time using Azure image builder, register the **VirtualMachineTemplatePreview** feature.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-> [!NOTE]
-> The **RegistrationState** may be in the `Registering` state for several minutes before changing to
-> `Registered`. Wait until the status is **Registered** before continuing.
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
-```
-
 Register the following resource providers for use with your Azure subscription if they
 aren't already registered.
 

@@ -663,4 +663,4 @@ Consider the following tips for testing and automation:
 ## Next steps
 
 * [Azure Resource Manager template considerations](/azure-stack/user/azure-stack-develop-templates)
-* [Best practices for ARM templates](template-syntax.md)
+* [Best practices for ARM templates](./syntax.md)

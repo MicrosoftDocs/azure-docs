@@ -189,7 +189,7 @@ To gather additional details for troubleshooting agent-related problems, follow 
 
 ---------------------
 
-Azure AD allows you to monitor the provisioning service in the cloud as well as collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the [Azure portal UI, APIs, and log analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#ways-of-interacting-with-the-provisioning-logs). In addition, the ECMA host generates logs on-premises, showing each provisioning request received and the response sent to Azure AD.
+Azure AD allows you to monitor the provisioning service in the cloud as well as collect logs on-premises. The provisioning service emits logs for each user that was evaluated as part of the synchronization process. Those logs can be consumed through the [Azure portal UI, APIs, and log analytics](../reports-monitoring/concept-provisioning-logs.md). In addition, the ECMA host generates logs on-premises, showing each provisioning request received and the response sent to Azure AD.
 
 ### Agent installation fails
 * The error `System.ComponentModel.Win32Exception: The specified service already exists` indicates that the previous ECMA Host was unsuccessfully uninstalled. Please uninstall the host application. Navigate to program files and remove the ECMA Host folder. You may want to store the configuration file for backup. 

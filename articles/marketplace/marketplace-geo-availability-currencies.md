@@ -200,5 +200,5 @@ For details on how to enter prices for specific offer types, refer to these arti
 - [Create a Dynamics 365 Business Central offer](dynamics-365-business-central-offer-setup.md)
 - [Create an IoT Edge module offer](iot-edge-offer-setup.md)
 - [Create a Managed Service offer](./plan-managed-service-offer.md)
-- [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
+- [Create a Power BI app](./power-bi-app-offer-setup.md)
 - [Create a SaaS offer](./create-new-saas-offer.md)

@@ -13,7 +13,7 @@ items:
   - name: What's new
     href: whats-new.md
   - name: Text Analytics FAQ
-    href: text-analytics-resource-faq.md
+    href: text-analytics-resource-faq.yml
 - name: Quickstart
   href: quickstarts/client-libraries-rest-api.md
 - name: Samples

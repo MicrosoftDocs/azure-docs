@@ -141,8 +141,8 @@ Azure Spring Cloud supports Spring Boot version 2.2, 2.3, 2.4. The following tab
 
 Spring Boot version | Spring Cloud version
 ---|---
-2.2 | Hoxton.SR8
-2.3 | Hoxton.SR8
+2.2 | Hoxton.SR8+
+2.3 | Hoxton.SR8+
 2.4.1+ | 2020.0.0
 
 > [!NOTE]

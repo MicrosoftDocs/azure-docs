@@ -52,6 +52,8 @@ To create a new micro-fulfillment center application that uses preview features:
 
     ![Screenshot of Azure IoT Central New application page](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
+    ![Screenshot of Azure IoT Central billing info](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc-billing.png)
+
 ## Walk through the application 
 
 After successfully deploying the app template, you see the **Northwind Traders micro-fulfillment center dashboard**. Northwind Traders is a fictitious retailer that has a micro-fulfillment center being managed in this Azure IoT Central application. On this operator dashboard, you see information and telemetry about the devices in this template, along with a set of commands, jobs, and actions that you can take. The dashboard is logically split into two sections. On the left, you can monitor the environmental conditions within the fulfillment structure, and on the right, you can monitor the health of a robotic carrier within the facility.  
@@ -61,11 +63,11 @@ From the dashboard, you can:
    * View the floor plan and location of the robotic carriers within the fulfillment structure.
    * Trigger commands, such as resetting the control system, updating the carrier's firmware, and reconfiguring the network.
 
-     ![Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-1.png)
    * See an example of the dashboard that an operator can use to monitor conditions within the fulfillment center. 
    * Monitor the health of the payloads that are running on the gateway device within the fulfillment center.    
 
-     ![Screenshot of the botton half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Screenshot of the botton half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png)
 
 ## Device template
 If you select the device templates tab, you see that there are two different device types that are part of the template: 

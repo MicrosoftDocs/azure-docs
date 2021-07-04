@@ -1,13 +1,13 @@
 ---
 title: Migrate to Azure Cloud Services (extended support) using PowerShell 
 description: How to migrate from Azure Cloud Services (classic) to Azure Cloud Services (extended support) using PowerShell
-author: tanmaygore
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
-ms.author: tagore  
+author: hirenshah1
+ms.author: hirshah
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -117,7 +117,7 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 
 
 ## 5) Migrate your Cloud Services 
-Before starting the migration, understand how the [migration steps](https://docs.microsoft.com/azure/cloud-services-extended-support/in-place-migration-overview#migration-steps) works and what each step does. 
+Before starting the migration, understand how the [migration steps](./in-place-migration-overview.md#migration-steps) works and what each step does. 
 
 * [Migrate a Cloud Service not in a virtual network](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
 * [Migrate a Cloud Service in a virtual network](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)

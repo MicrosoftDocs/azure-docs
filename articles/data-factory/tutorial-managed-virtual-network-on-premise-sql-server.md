@@ -20,9 +20,9 @@ This tutorial provides steps for using the Azure portal to setup Private Link Se
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **Virtual Network**. If you don't have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
+* **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
 * **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=/azure/virtual-network/toc.json) or [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/virtual-network/toc.json).
-* **Data Factory with Managed VNet enabled**. If you don't have a Data Factory or Managed VNet is not enabled, create one following [Create Data Factory with Managed VNet](tutorial-copy-data-portal-private.md).
+* **Data Factory with Managed VNet enabled**. If you don’t have a Data Factory or Managed VNet is not enabled, create one following [Create Data Factory with Managed VNet](tutorial-copy-data-portal-private.md).
 
 ## Create subnets for resources
 

@@ -49,7 +49,7 @@ landingContent:
         links:
           - text: Map a custom domain to your app
             url: app-service-web-tutorial-custom-domain.md
-          - text: Secure a custom domain with an SSL binding
+          - text: Secure a custom domain with a TLS/SSL binding
             url: configure-ssl-bindings.md
           - text: Run app in staged environments
             url: deploy-staging-slots.md

@@ -13,6 +13,13 @@ ms.subservice: files
 
 This article lists some common problems related to Azure file shares. It provides potential causes and workarounds for when you encounter these problems.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## High latency, low throughput, and general performance issues
 
 ### Cause 1: Share was throttled
@@ -55,7 +62,7 @@ To confirm whether your share is being throttled, you can access and use Azure m
 
 ### Solution
 
-- If you're using a standard file share, enable [large file shares](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) on your storage account. Large file shares support up to 10,000 IOPS per share.
+- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
 - If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](./understanding-billing.md#provisioned-model).
 
 ### Cause 2: Metadata or namespace heavy workload
@@ -271,7 +278,7 @@ To confirm, you can use Azure Metrics in the portal -
 12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## How to create alerts if a premium file share is trending toward being throttled
 
@@ -309,7 +316,7 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
     >    - In step 5, select the **Transactions** metric instead of **Egress**.
     >    - In step 10, the only option for **Aggregation type** is *Total*. Therefore, the threshold value depends on your selected aggregation granularity. For example, if you want your threshold to be 80&nbsp;percent of provisioned baseline IOPS and you select *1 hour* for **Aggregation granularity**, your **Threshold value** would be your baseline IOPS (in bytes) &times;&nbsp;0.8 &times;&nbsp;3600. 
 
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## See also
 - [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)  

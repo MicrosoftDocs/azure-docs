@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 06/10/2021
 ms.author: b-juche
 ---
 # SMB performance best practices for Azure NetApp Files
@@ -106,6 +106,31 @@ You can check for activity on each of the adapters in Windows Performance Monito
 After you have data traffic running in your volumes, you can monitor your adapters in Windows Performance Monitor. If you do not use all of these 16 virtual adapters, you might not be maximizing your network bandwidth capacity.
 
 ![Screenshot that shows Performance Monitor output.](../media/azure-netapp-files/smb-performance-performance-monitor-output.png)
+
+## SMB encryption
+
+This section helps you understand SMB encryption (SMB 3.0 and SMB 3.1.1) 
+
+[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
+
+When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.
+
+Windows 10, Windows 2012, and later versions support SMB encryption.
+
+### SMB encryption and Azure NetApp Files
+
+SMB encryption is enabled at the share level for Azure NetApp Files. SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm.
+
+SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
+
+### <a name="smb_encryption_impact"></a>Impact of SMB encryption on client workloads
+
+Although SMB encryption has impact to both the client (CPU overhead for encrypting and decrypting messages) and the storage (reductions in throughput), the following table highlights storage impact only. You should test the encryption performance impact against your own applications before deploying workloads into production.
+
+|     I/O profile    	|     Impact    	|
+|-	|-	|
+|     Read and write workloads    	|     10% to 15%     	|
+|     Metadata intensive    	|     5%  	|
 
 ## Accelerated Networking 
 
