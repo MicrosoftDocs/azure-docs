@@ -49,13 +49,13 @@ Select **Create** to create a new Azure Healthcare APIs account.
    :::image type="content" source="media/create-healthcare-api-workspace-new.png" alt-text="Create Azure Healthcare APIs workspace.":::
 
 
-2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Do not use a hyphen "-" as it is an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Do not use a hyphen "-" as it is an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../../articles/availability-zones/az-overview.md).
 
 3. (**Optional**) Select **Next: Tags >**. Enter a **Name** and **Value**, and then select **Next: Review + create**. 
 
    :::image type="content" source="media/tags-new.png" alt-text="Tags.":::
 
-   Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources).
+   Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../articles/azure-resource-manager/management/tag-resources.md).
 
 4. Select **Create**.
 

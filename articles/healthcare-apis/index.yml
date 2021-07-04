@@ -74,10 +74,10 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy DICOM Services using the Azure portal
-            url: deploy-dicom-services-in-azure.md
+            url: ./dicom/deploy-dicom-services-in-azure.md
       - linkListType: tutorial
         links:
           - text: Using DICOMweb Standard APIs with Python
-            url: dicomweb-standard-apis-python.md
+            url: ./dicom/dicomweb-standard-apis-python.md
 
             
