@@ -45,11 +45,11 @@ In this example, you'll create a three secrets that you can use to authenticate 
 
 1. Open your GitHub repository and go to **Settings**.
 
-    :::image type="content" source="media/container-instances-container-scan/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
+    :::image type="content" source="media/github-action-scan/github-repo-settings.png" alt-text="Select Settings in the navigation.":::
 
 1. Select **Secrets** and then **New Secret**.
 
-    :::image type="content" source="media/container-instances-container-scan/azure-secret-add.png" alt-text="Choose to add a secret.":::
+    :::image type="content" source="media/github-action-scan/azure-secret-add.png" alt-text="Choose to add a secret.":::
 
 1. Paste the following values for each secret created with the following values from the Azure portal by navigating to the **Access Keys** in the Container Registry. 
 
@@ -180,4 +180,4 @@ Once the image is scanned and there are no vulnerabilities found, it's safe to p
         
 ```
 ## Next steps
-- Learn how to [Deploy to Azure Container Instances from Azure Container Registry](./container-instances-using-azure-container-registry.md).
+- Learn how to [Deploy to Azure Container Instances from Azure Container Registry](../container-instances/container-instances-using-azure-container-registry.md).
