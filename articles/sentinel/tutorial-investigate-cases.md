@@ -65,6 +65,43 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 
 1. Select **Investigate** to view the investigation map.
 
+## Search for incidents
+
+To find a specific incident quickly, enter a search string in the search box above the incidents grid and press **Enter** to modify the list of incidents shown accordingly. If your incident isn't included in the results, you may want to narrow your search by using **Advanced search** options.
+
+
+To modify the search parameters, select the **Search** :::image type="icon" source="media/tutorial-investigate-cases/search-button.png" border="false"::: button and then select the parameters where you want to run your search.
+
+For example:
+
+:::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Enter text and select the search button to the right of the search box to select basic and/or advanced search options.":::
+
+By default, incident searches run as a basic search, across the incident ID, title, tags, owner, and product name. Scroll down the list to select one or more other parameters to search, and select **Apply** to update the search parameters. Select **Set to default** to set the selected parameters to be used the next time you search as well.
+
+> [!NOTE]
+> Searches in the **Owner** field support both names and email addresses.
+>
+
+Using advanced search options changes the search behavior as follows:
+
+- **Search sources**. Basic searches are run on investigation graph data, while advanced searches are run directly on Log Analytics data.
+
+- **Search button color**. The color of the search button changes, depending on the types of parameters currently being used in the search.  
+
+    When only basic parameters are being searched, the button is grey: :::image type="icon" source="media/tutorial-investigate-cases/search-button-grey.png" border="false":::  
+
+    If advanced search parameters are selected, the button is blue: :::image type="icon" source="media/tutorial-investigate-cases/search-button.png" border="false":::
+
+- **Auto-refresh**. Using advanced search parameters prevents you from selecting to automatically refresh your results.
+
+- **Entity parameters**. All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.
+
+- **Search strings**. Searching for a string of words includes all of the words in the search query.
+
+- **Cross workspace support**. Advanced searches are not supported for cross-workspace views.
+
+If you're unable to find the incident you're looking for, remove search parameters to expand your search.
+
 ## Use the investigation graph to deep dive
 
 The investigation graph enables analysts to ask the right questions for each investigation. The investigation graph helps you understand the scope, and identify the root cause, of a potential security threat by correlating relevant data with any involved entity. You can dive deeper and investigate any entity presented in the graph by selecting it and choosing between different expansion options.  
@@ -112,31 +149,6 @@ To use the investigation graph:
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
 
-## Search for incidents
-
-NOTES:
-currently in private preview, will run for 3 weeks or so. targeted end july.
-
-basic search - icon is grey. comes from investigation graph data.
-advanced search - comes from log analytics data. shows blue. 
-
-we only show top 50 results. currently only first 50. maybe this bug will get fixed.
-
-updates might take a few minutes to show in results.
-
-you cannot enable auto-refresh once you've searched.
-
-if you're searching for entities - all entities fields are supported - it searches through all entity fields.
-
-owner supports name or email address.
-
-searches are strings - not advanced. 
-
-not supported for cross workspace views
-
-if you don't find what you're looking for - expand your search
-
-need to press enter each time in order to start the search.
 
 ## Closing an incident
 
