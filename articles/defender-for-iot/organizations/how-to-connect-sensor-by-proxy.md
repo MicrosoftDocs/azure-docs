@@ -2,7 +2,7 @@
 title: Connect sensors with a proxy
 description: Learn how to configure Azure Defender for IoT to communicate with a sensor through a proxy with no direct internet access.
 ms.topic: how-to
-ms.date: 06/28/2021
+ms.date: 07/04/2021
 ---
 
 # Connect Azure Defender for IoT sensors without direct internet access by using a proxy 
@@ -83,3 +83,7 @@ For this scenario we will be installing, and configuring the latest version of [
 1. (Optional) Enter a proxy user, and password.
 
 1. Select **Save**.
+
+## See also
+
+[Manage your subscriptions](how-to-manage-subscriptions.md).
