@@ -76,7 +76,9 @@ For this scenario we will be installing, and configuring the latest version of [
 
     :::image type="content" source="media/how-to-connect-sensor-by-proxy/enable-proxy.png" alt-text="Select enable proxy from the Sensor Network Configuration window.":::
 
-1. Enter the proxy address, and port.
+1. Enter the proxy address.
+
+1. Enter a port. The default port is `3128`.
 
 1. (Optional) Enter a proxy user, and password.
 
