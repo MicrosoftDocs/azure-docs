@@ -6,6 +6,8 @@ ms.date: 07/04/2021
 ms.author: glenga
 ---
 
+You can use either [Azure Monitor metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data.
+
 # [Portal](#tabs/portal)
 
 Use [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) to view cost-related data for your Consumption plan function apps in a graphical format. 
@@ -30,7 +32,7 @@ This chart shows a total of 1.11 billion `Function Execution Units` consumed in 
 
 # [Azure CLI](#tabs/azurecli)
 
-The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command returns hourly data over same time period used before.
+The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../articles/cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command returns hourly data over same time period used before.
 
 Make sure to replace `<AZURE_SUBSCRIPTON_ID>` with your Azure subscription ID running the command.
 
