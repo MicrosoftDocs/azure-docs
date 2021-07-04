@@ -20,13 +20,13 @@ This migration guide is part of series on migrating databases from MongoDB to Az
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/). It offers a way to do offline migrations on a large-scale dataset. You can use Azure Databricks to do an offline migration of databases from MongoDB to Azure Cosmos DB API for MongoDB.
 
-In this tutorial, you learn how to:
+In this tutorial, you will learn how to:
 
 - Provision an Azure Databricks cluster
 
 - Add dependencies
 
-- Create and run Scala or Python Notebook
+- Create and run Scala or Python notebook
 
 - Optimize the migration performance
 
@@ -48,9 +48,9 @@ You can follow instructions to [provision an Azure Databricks cluster](/azure/da
 
 ## Add dependencies
 
-Add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB API for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` in Maven coordinates.
+Add the MongoDB Connector for Spark library to your cluster to connect to both native MongoDB and Azure Cosmos DB API for MongoDB endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `org.mongodb.spark:mongo-spark-connector_2.12:3.0.1` Maven coordinates.
 
-![Diagram of adding databricks cluster dependencies.](./media/mongodb-migrate-databricks/databricks-cluster-dependencies.png)
+:::image type="content" source="./media/mongodb-migrate-databricks/databricks-cluster-dependencies.png" alt-text="Diagram of adding databricks cluster dependencies.":::
 
 
 Select **Install**, and then restart the cluster when installation is complete.
@@ -58,12 +58,12 @@ Select **Install**, and then restart the cluster when installation is complete.
 > [!NOTE]
 > Make sure that you restart the Databricks cluster after the MongoDB Connector for Spark library has been installed.
 
-Post that, you may create a Scala or Python notebook for migration.
+After that, you may create a Scala or Python notebook for migration.
 
 
-## Create Scala Notebook for migration
+## Create Scala notebook for migration
 
-Create a Scala Notebook in Databricks. Enter the right values for the variables in the following code. Then run the code:
+Create a Scala Notebook in Databricks. Make sure to enter the right values for the variables before running the following code:
 
 
 ```scala
@@ -102,7 +102,7 @@ val customRdd = MongoSpark.load(sparkSession, readConfig)
 MongoSpark.save(customRdd, writeConfig)
 ```
 
-## Create Python Notebook for migration
+## Create Python notebook for migration
 
 Create a Python Notebook in Databricks. Enter the right values for the variables in the following code. Then run the code:
 
@@ -133,7 +133,7 @@ The migration performance can be adjusted through these configurations:
 
 - **Number of workers and cores in the Spark cluster**: More workers mean more compute nodes to execute tasks.
 
-- **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](prevent-rate-limiting-errors.md) errors.
+- **maxBatchSize**: The `maxBatchSize` value controls the rate at which data is saved to the target Azure Cosmos DB collection. However, if the maxBatchSize is too high for the collection throughput, it can cause [rate limiting](prevent-rate-limiting-errors.md) errors.
 
   You would need to adjust the number of workers and maxBatchSize, depending on the number of executors in the Spark cluster, potentially the size (and that's why RU cost) of each document being written, and the target collection throughput limits.
 
