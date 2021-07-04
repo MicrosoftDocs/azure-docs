@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 01/03/2021
+ms.date: 07/04/2021
 ms.author: memildin
 
 ---
@@ -28,11 +28,12 @@ In addition to the built-in roles, there are two roles specific to Security Cent
 
 The following table displays roles and allowed actions in Security Center.
 
-| Action                                                                                                                      | Security Reader / <br> Reader | Security Admin | Resource Group Contributor / <br> Resource Group Owner | Subscription Contributor | Subscription Owner |
+|                                                                                                                       | [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) / <br> [Reader](../role-based-access-control/built-in-roles.md#reader) | [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) / [Owner](../role-based-access-control/built-in-roles.md#owner)| [Contributor](../role-based-access-control/built-in-roles.md#contributor)| [Owner](../role-based-access-control/built-in-roles.md#owner)|
 |:----------------------------------------------------------------------------------------------------------------------------|:-----------------------------:|:--------------:|:------------------------------------------------------:|:------------------------:|:------------------:|
+| **Action**|||**(Resource group level)**|**(Subscription level)**|**(Subscription level)**|
 | Edit security policy                                                                                                        | -                             | ✔             | -                                                      | -                        | ✔                 |
 | Add/assign initiatives (including) regulatory compliance standards)                                                         | -                             | -              | -                                                      | -                        | ✔                 |
-| Enable / disable Azure Defender                                                                                             | -                             | ✔             | -                                                      | -                        | ✔                 |
+| Enable / disable Azure Defender plans                                                                                             | -                             | ✔             | -                                                      | -                        | ✔                 |
 | Enable / disable auto-provisioning                                                                                          | -                             | ✔             | -                                                      | ✔                       | ✔                  |
 | Apply security recommendations for a resource</br> (and use [Fix](security-center-remediate-recommendations.md#fix-button)) | -                             | -              | ✔                                                     | ✔                        | ✔                 |
 | Dismiss alerts                                                                                                              | -                             | ✔             | -                                                      | ✔                       | ✔                  |
