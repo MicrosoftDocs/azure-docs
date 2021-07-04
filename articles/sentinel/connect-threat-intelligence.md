@@ -44,7 +44,8 @@ Manage threat indicators from the Azure Sentinel **Threat Intelligence** page, o
 > [!TIP]
 > If you have multiple workspaces in the same tenant, such as for Managed Service Providers (MSSPs), it may be more cost effective to connect threat indicators only to the centralized workspace.
 >
-> When you have the same set of threat indicators imported into each separate workspace, you can run cross-workspace queries to aggregate threat indicators across your workspaces. Correlate them within your MSSP incident detection, investigation, and hunting experience.Optional information to help a user be more successful
+> When you have the same set of threat indicators imported into each separate workspace, you can run cross-workspace queries to aggregate threat indicators across your workspaces. Correlate them within your MSSP incident detection, investigation, and hunting experience.
+>
 
 ## Integrated threat intelligence platform products
 
