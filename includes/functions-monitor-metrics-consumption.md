@@ -6,9 +6,9 @@ ms.date: 07/04/2021
 ms.author: glenga
 ---
 
-You can use either [Azure Monitor metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data.
+You can use either [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data.
 
-# [Portal](#tabs/portal)
+#### [Portal](#tabs/portal)
 
 Use [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) to view cost-related data for your Consumption plan function apps in a graphical format. 
 
@@ -30,7 +30,7 @@ As the number of execution units is so much greater than the execution count, th
 
 This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1024000. In this example, the function app consumed `1110000000 / 1024000 = 1083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page][pricing page], which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
 
-# [Azure CLI](#tabs/azurecli)
+#### [Azure CLI](#tabs/azurecli)
 
 The [Azure CLI](/cli/azure/) has commands for retrieving metrics. You can use the CLI from a local command environment or directly from the portal using [Azure Cloud Shell](../articles/cloud-shell/overview.md). For example, the following [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command returns hourly data over same time period used before.
 
