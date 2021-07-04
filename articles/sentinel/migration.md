@@ -59,13 +59,51 @@ Use a side-by-side architecture either as a short-term, transitional phase that 
 
 For example, while the recommended architecture is to use a side-by-side architecture just long enough to complete the migration, your organization may want stay with your side-by-side configuration for longer, such as if you aren't ready to move away from your legacy SIEM. Typically, organizations who use a long-term, side-by-side configuration use Azure Sentinel to analyze only their cloud data.
 
-The following table lists the pros and cons of each architecture configuration.
+Consider the pros and cons for each approach when deciding which one to use in your migration.
 
-|Approach  |Pros  |Cons  |
-|---------|---------|---------|
-|**Short-term approach**     |  - Gives SOC staff time to adapt to new processes as workloads and analytics migrate.<br><br>- Gains deep correlation across all data sources for hunting scenarios.<br><br>- Eliminates having to do analytics between SIEMs, create forwarding rules, and close investigations in two places.<br><br>- Enables your SOC team to quickly downgrade legacy SIEM solutions, eliminating infrastructure and licensing costs.       |- Can require a steep learning curve for SOC staff.         |
-|**Medium- to long-term approach**     |  - Lets you use key Azure Sentinel benefits, like AI, ML, and investigation capabilities, without moving completely away from your legacy SIEM.<br><br>- Saves money compared to your legacy SIEM, by analyzing cloud or Microsoft data in Azure Sentinel.       |  - Increases complexity by separating analytics across different databases.<br><br>- Splits case management and investigations for multi-environment incidents.<br><br>- Incurs greater staff and infrastructure costs.<br><br>- Requires SOC staff to be knowledgeable about two different SIEM solutions.       |
-|     |         |         |
+### Short-term approach
+
+:::row:::
+   :::column span="":::
+      **Pros**
+
+        - Gives SOC staff time to adapt to new processes as workloads and analytics migrate.
+
+        - Gains deep correlation across all data sources for hunting scenarios.
+
+        - Eliminates having to do analytics between SIEMs, create forwarding rules, and close investigations in two places.
+
+        - Enables your SOC team to quickly downgrade legacy SIEM solutions, eliminating infrastructure and licensing costs.
+   :::column-end:::
+   :::column span="":::
+      **Cons**
+
+        - Can require a steep learning curve for SOC staff.
+   :::column-end:::
+:::row-end:::
+
+### Medium- to long-term approach
+
+:::row:::
+   :::column span="":::
+      **Pros**
+
+        - Lets you use key Azure Sentinel benefits, like AI, ML, and investigation capabilities, without moving completely away from your legacy SIEM.
+
+        - Saves money compared to your legacy SIEM, by analyzing cloud or Microsoft data in Azure Sentinel.
+   :::column-end:::
+   :::column span="":::
+      **Cons**
+
+        - Increases complexity by separating analytics across different databases.
+
+        - Splits case management and investigations for multi-environment incidents.
+
+        - Incurs greater staff and infrastructure costs.
+
+        - Requires SOC staff to be knowledgeable about two different SIEM solutions.
+   :::column-end:::
+:::row-end:::
 
 > [!NOTE]
 > Many organizations avoid running multiple on-premises analytics solutions because of cost and complexity.
