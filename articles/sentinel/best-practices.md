@@ -92,8 +92,7 @@ If you discover that the incident is a true positive, take action directly from 
 
 In addition to [visualizing and displaying information and trends](quickstart-get-visibility.md), Azure Sentinel workbooks are valuable investigative tools.
 
-For example, use the [Investigation Insights](#investigation-insights) workbook to investigate specific incidents together with any associated entities and alerts. Dive deeper into entities by showing related logs, actions, and alerts.
-
+For example, use the [Investigation Insights](top-workbooks.md#investigation-insights) workbook to investigate specific incidents together with any associated entities and alerts. Dive deeper into entities by showing related logs, actions, and alerts.
 
 ### Handle incidents with threat hunting
 
