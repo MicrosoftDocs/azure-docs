@@ -61,6 +61,11 @@ For example, while the recommended architecture is to use a side-by-side archite
 
 Consider the pros and cons for each approach when deciding which one to use in your migration.
 
+> [!NOTE]
+> Many organizations avoid running multiple on-premises analytics solutions because of cost and complexity.
+>
+> Azure Sentinel provides [pay-as-you-go pricing](azure-sentinel-billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Migrate and test your content at a pace that works best for your organization.
+>
 ### Short-term approach
 
 :::row:::
@@ -105,13 +110,7 @@ Consider the pros and cons for each approach when deciding which one to use in y
    :::column-end:::
 :::row-end:::
 
-> [!NOTE]
-> Many organizations avoid running multiple on-premises analytics solutions because of cost and complexity.
->
-> Azure Sentinel provides [pay-as-you-go pricing](azure-sentinel-billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Migrate and test your content at a pace that works best for your organization.
->
 
-The following sections describe methods for configuring your side-by-side operations.
 
 ### Send alerts from a legacy SIEM to Azure Sentinel (Recommended)
 
