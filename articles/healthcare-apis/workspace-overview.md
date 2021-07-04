@@ -74,7 +74,7 @@ configuration settings are available during the Private Preview.
 
 Private link enables you to access all your Azure Healthcare APIs instances over a private endpoint. A 
 private endpoint is a network interface that connects these instances privately and securely using a 
-private IP address from your virtual network. An advantage of using a private link is that you can accessor services securely from your VNet as a first-party service without having to go through a public domain name system (DNS). For more information, see [Private Link](../../articles/private-link/) documentation.
+private IP address from your virtual network. An advantage of using a private link is that you can accessor services securely from your VNet as a first-party service without having to go through a public domain name system (DNS). For more information, see [Private Link](../../articles/private-link/index.yml) documentation.
 
 ### Customer-managed keys (CMK)
 
@@ -82,7 +82,7 @@ When you create a workspace, the data for all Healthcare APIs instances are encr
 
 
 ### Application monitoring
-Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For more information, see [Azure Monitor](../../articles/azure-monitor/) documentation.
+Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For more information, see [Azure Monitor](../../articles/azure-monitor/index.yml) documentation.
 
 
 ### Role based access control (RBAC)
@@ -91,7 +91,7 @@ Azure role-based access control (Azure RBAC) is a system that provides fine-grai
 of Azure resources. Using Azure RBAC, you can segregate duties within your team and grant only the 
 amount of access to users that they need to perform their jobs. Furthermore, it helps you manage who 
 has access to Azure resources, what they can do with those resources, and what areas they have access 
-to. For more information, see [Azure RBAC](../../articles/role-based-access-control/) documentation.
+to. For more information, see [Azure RBAC](../../articles/role-based-access-control/index.yml) documentation.
 
 ## Next steps
 

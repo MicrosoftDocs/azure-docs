@@ -30,11 +30,11 @@ landingContent:
         links:
           - text: About workspace
             url: workspace-overview.md
-  - title: Getting started with Healthcare APIs
+  - title: Deploy Healthcare APIs
     linkLists:
       - linkListType: deploy
         links:
-          - text: Deploy Healthcare APIs
+          - text: Getting started with Healthcare APIs
             url: healthcare-apis-quickstart.md
 
   - title: FHIR
