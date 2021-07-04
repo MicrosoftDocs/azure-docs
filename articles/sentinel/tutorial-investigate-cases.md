@@ -70,37 +70,35 @@ An incident can include multiple alerts. It's an aggregation of all the relevant
 To find a specific incident quickly, enter a search string in the search box above the incidents grid and press **Enter** to modify the list of incidents shown accordingly. If your incident isn't included in the results, you may want to narrow your search by using **Advanced search** options.
 
 
-To modify the search parameters, select the **Search** :::image type="icon" source="media/tutorial-investigate-cases/search-button.png" border="false"::: button and then select the parameters where you want to run your search.
+To modify the search parameters, select the **Search** :::image type="icon" source="media/tutorial-investigate-cases/search-button-grey.png" border="false"::: button and then select the parameters where you want to run your search.
 
 For example:
 
 :::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Enter text and select the search button to the right of the search box to select basic and/or advanced search options.":::
 
-By default, incident searches run as a basic search, across the incident ID, title, tags, owner, and product name. Scroll down the list to select one or more other parameters to search, and select **Apply** to update the search parameters. Select **Set to default** to set the selected parameters to be used the next time you search as well.
+By default, incident searches run as a basic search, across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name**. Scroll down the list to select one or more other parameters to search, and select **Apply** to update the search parameters. Select **Set to default** to set the selected parameters to be used the next time you search as well.
 
 > [!NOTE]
 > Searches in the **Owner** field support both names and email addresses.
 >
 
+> [!TIP]
+> If you're unable to find the incident you're looking for, remove search parameters to expand your search.
+>
+
 Using advanced search options changes the search behavior as follows:
 
-- **Search sources**. Basic searches are run on investigation graph data, while advanced searches are run directly on Log Analytics data.
+|Search behavior  |Description  |
+|---------|---------|
+|**Search sources**     |   Basic searches are run on investigation graph data, while advanced searches are run directly on Log Analytics data.     |
+|**Search button color**     |The color of the search button changes, depending on the types of parameters currently being used in the search.  <br><br>- When only basic parameters are being searched, the button is grey: :::image type="icon" source="media/tutorial-investigate-cases/search-button-grey.png" border="false":::  <br><br>-    If advanced search parameters are selected, the button is blue: :::image type="icon" source="media/tutorial-investigate-cases/search-button.png" border="false":::         |
+|**Auto-refresh**     | Using advanced search parameters prevents you from selecting to automatically refresh your results.        |
+|**Entity parameters**     |All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.         |
+|**Search strings**     |    Searching for a string of words includes all of the words in the search query.     |
+|**Cross workspace support**     |    Advanced searches are not supported for cross-workspace views.     |
+|     |         |
 
-- **Search button color**. The color of the search button changes, depending on the types of parameters currently being used in the search.  
 
-    When only basic parameters are being searched, the button is grey: :::image type="icon" source="media/tutorial-investigate-cases/search-button-grey.png" border="false":::  
-
-    If advanced search parameters are selected, the button is blue: :::image type="icon" source="media/tutorial-investigate-cases/search-button.png" border="false":::
-
-- **Auto-refresh**. Using advanced search parameters prevents you from selecting to automatically refresh your results.
-
-- **Entity parameters**. All entity parameters are supported for advanced searches. When searching in any entity parameter, the search runs in all entity parameters.
-
-- **Search strings**. Searching for a string of words includes all of the words in the search query.
-
-- **Cross workspace support**. Advanced searches are not supported for cross-workspace views.
-
-If you're unable to find the incident you're looking for, remove search parameters to expand your search.
 
 ## Use the investigation graph to deep dive
 
