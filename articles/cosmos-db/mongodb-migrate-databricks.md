@@ -13,7 +13,7 @@ ms.date: 06/29/2021
 
 This migration guide is part of series on migrating databases from MongoDB to CosmosDB API for MongoDB. The critical migration steps are [pre-migration](mongodb-pre-migration.md), migration, and [post-migration](mongodb-post-migration.md), as shown below.
 
-![Diagram of migration steps.](./media/mongodb-pre-migration/overall-migration-steps.png)
+:::image type="content" source="./media/mongodb-pre-migration/overall-migration-steps.png" alt-text="Diagram of migration steps":::
 
 
 ## Overview of data migration using Azure Databricks
