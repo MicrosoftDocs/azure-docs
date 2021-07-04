@@ -1,5 +1,5 @@
 ---
-title: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB, using Databricks Spark
+title: Migrate from MongoDB to Azure Cosmos DB API for MongoDB, using Databricks and Spark
 description: Learn how Databricks Spark can be used to migrate large datasets from MongoDB instances to Azure Cosmos DB
 author: nayakshweta
 ms.author: shwetn
