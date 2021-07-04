@@ -43,7 +43,7 @@ To complete this tutorial, you need to:
 
 You can follow instructions to [provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). We recommend selecting Databricks runtime version 7.6, which supports Spark 3.0.
 
-![Diagram of databricks new cluster creation.](./media/mongodb-migrate-databricks/databricks-cluster-creation.png)
+:::image type="content" source="./media/mongodb-migrate-databricks/databricks-cluster-creation.png" alt-text="Diagram of databricks new cluster creation.":::
 
 
 ## Add dependencies
