@@ -41,6 +41,8 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name:   Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Train a custom model with the sample labeling tool
     href: label-tool.md
   - name: Use containers
