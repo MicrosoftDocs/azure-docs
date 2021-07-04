@@ -52,12 +52,8 @@ items:
       href: davinci-drug-formulary-tutorial.md
     - name: Da Vinci PDex
       href: davinci-pdex-tutorial.md
-<<<<<<< HEAD
-
-=======
     - name: Da Vinci Plan Net
       href: davinci-plan-net.md
->>>>>>> 54263dbe56a352158afa42e3849fc1b460e1937d
 - name: How-to guides
   expanded: false
   items:

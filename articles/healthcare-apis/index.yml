@@ -63,19 +63,19 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Deploy IoT Connector Using Portal
-            url: iot-fhir-portal-quickstart.md
+            url: ./data-transformation/iot-fhir-portal-quickstart.md
           - text: Deploy IoT Connector Using ARM template
-            url: iot-fhir-arm-template-quickstart.md
+            url: ./data-transformation/iot-fhir-arm-template-quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Exporting your data
-            url: export-data.md
+            url: ./data-transformation/export-data.md
           - text: Export data to Synapse
-            url: move-to-synapse.md
+            url: ./data-transformation/move-to-synapse.md
       - linkListType: concept
         links:
           - text: $convert-data and FHIR Converter Extension Templates
-            url: convert-data.md
+            url: ./data-transformation/convert-data.md
 
   - title: DICOM
     linkLists:

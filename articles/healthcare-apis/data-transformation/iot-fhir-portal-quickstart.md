@@ -20,7 +20,7 @@ Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*
 ## Prerequisites
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Azure API for FHIR resource - [Deploy Azure API for FHIR using Azure portal](fhir-paas-portal-quickstart.md)
+- Azure API for FHIR resource - [Deploy Azure API for FHIR using Azure portal](../fhir/fhir-paas-portal-quickstart.md)
 
 ## Go to Azure API for FHIR resource
 
@@ -186,10 +186,10 @@ Create a new data export:
 
 ## View device data in Azure API for FHIR
 
-You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. Set up your [Postman to access Azure API for FHIR](access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
+You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. Set up your [Postman to access Azure API for FHIR](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
 
 > [!TIP]
-> Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign required data plane roles.
+> Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](../fhir/configure-azure-rbac.md) to assign required data plane roles.
 
 ## Clean up resources
 
