@@ -70,7 +70,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 **To configure your SAP system for the SAP data connector**:
 
-1. If you are using a version of SAP earlier than 750, ensure that the following SAP notes are deployed in your system, depending on your version:
+1. Ensure that the following SAP notes are deployed in your system, depending on your version:
 
     |SAP BASIS versions  |Required note |
     |---------|---------|

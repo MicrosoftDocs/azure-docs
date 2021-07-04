@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Quickstart: Create an Azure Database for MySQL using a simple Azure CLI command - az mysql up (preview)
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 > [!IMPORTANT]
 > The [az mysql up](/cli/azure/mysql#az_mysql_up) Azure CLI command is in preview.
