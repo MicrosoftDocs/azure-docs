@@ -53,7 +53,7 @@ If you can't use one the deployment tasks in the previous section, then you need
 
     :::image type="content" source="./media/annotations/inline-script.png" alt-text="Screenshot of Azure CLI task settings with Script Type, Script Location, Inline Script, and Script Arguments highlighted." lightbox="./media/annotations/inline-script.png":::
 
-    Below is an example of metatdata you can set in the optional releaseProperties argument using [build](/azure/devops/pipelines/build/variables#build-variables-devops-services) and [release](/azure/devops/pipelines/release/variables#default-variables---release) variables.
+    Below is an example of metadata you can set in the optional releaseProperties argument using [build](/azure/devops/pipelines/build/variables#build-variables-devops-services) and [release](/azure/devops/pipelines/release/variables#default-variables---release) variables.
     
 
     ```powershell
