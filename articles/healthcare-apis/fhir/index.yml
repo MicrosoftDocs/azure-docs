@@ -25,14 +25,12 @@ landingContent:
         links:
           - text: What is Azure API for FHIR?
             url: overview.md
-          - text: What is Azure IoT Connector for FHIR (preview)?
-            url: overview.md#azure-iot-connector-for-fhir-preview
+
       - linkListType: quickstart
         links:
           - text: Deploy API Server for FHIR
             url: fhir-paas-portal-quickstart.md
-          - text: Deploy Azure IoT Connector for FHIR (preview)
-            url: iot-fhir-portal-quickstart.md 
+
 
   - title: Set-up tutorials
     linkLists:
@@ -44,8 +42,7 @@ landingContent:
             url: access-fhir-postman-tutorial.md
           - text: SMART integration for third-party apps & medical records
             url: use-smart-on-fhir-proxy.md
-          - text: Receive device data through Azure IoT Hub
-            url: device-data-through-iot-hub.md
+
 
   - title: Register apps for AD authentication
     linkLists:

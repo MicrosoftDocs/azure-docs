@@ -60,14 +60,26 @@ landingContent:
 
   - title: Data Transformation
     linkLists:
-      - linkListType: learn
+      - linkListType: get-started
         links:
-          - text: C-CDA to FHIR conversion
-            url: ./data-transformation/ccda-to-fhir-conversion.md
+          - text: Deploy IoT Connector Using Portal
+            url: iot-fhir-portal-quickstart.md
+          - text: Deploy IoT Connector Using ARM template
+            url: iot-fhir-arm-template-quickstart.md
+      - linkListType: how-to-guide
+        links:
+          - text: Exporting your data
+            url: export-data.md
+          - text: Export data to Synapse
+            url: move-to-synapse.md
+      - linkListType: concept
+        links:
+          - text: $convert-data and FHIR Converter Extension Templates
+            url: convert-data.md
 
   - title: DICOM
     linkLists:
-      - linkListType: get-started
+      - linkListType: overview
         links:
           - text: About DICOM service 
             url: ./dicom/dicom-services-overview.md
