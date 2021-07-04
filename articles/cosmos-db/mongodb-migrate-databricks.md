@@ -16,7 +16,7 @@ This migration guide is part of series on migrating databases from MongoDB to Az
 :::image type="content" source="./media/mongodb-pre-migration/overall-migration-steps.png" alt-text="Diagram of migration steps":::
 
 
-## Overview of data migration using Azure Databricks
+## Data migration using Azure Databricks
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a platform as a service (PaaS) offering for [Apache Spark](https://spark.apache.org/). It offers a way to do offline migrations on a large scale. You can use Azure Databricks to do an offline migration of databases from MongoDB to Azure Cosmos DB API for MongoDB.
 
