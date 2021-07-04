@@ -105,8 +105,6 @@ The data collected for each event:
 
 - **Remediation** – The recommendation for remediation from CIS.
 
-- **Severity** - The severity check.
-
 ## Next steps
 
 Check your [Defender for IoT security alerts](concept-security-alerts.md).
