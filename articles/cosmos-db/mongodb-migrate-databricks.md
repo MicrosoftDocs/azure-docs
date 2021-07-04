@@ -72,12 +72,12 @@ import com.mongodb.spark.config._
 import org.apache.spark._
 import org.apache.spark.sql._
 
-var sourceConnectionString = ""
-var sourceDb = ""
-var sourceCollection =  ""
-var targetConnectionString = ""
-var targetDb = ""
-var targetCollection =  ""
+var sourceConnectionString = "mongodb://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<AUTHDB>"
+var sourceDb = "<DBNAME>"
+var sourceCollection =  "<COLLECTIONNAME>"
+var targetConnectionString = "mongodb://<ACCOUNTNAME>:<PASSWORD>@<ACCOUNTNAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<ACCOUNTNAME>@"
+var targetDb = "<DBNAME>"
+var targetCollection =  "<COLLECTIONNAME>"
 
 val readConfig = ReadConfig(Map(
   "spark.mongodb.input.uri" -> sourceConnectionString,
@@ -104,18 +104,18 @@ MongoSpark.save(customRdd, writeConfig)
 
 ## Create Python notebook for migration
 
-Create a Python Notebook in Databricks. Enter the right values for the variables in the following code. Then run the code:
+Create a Python Notebook in Databricks. Make sure to enter the right values for the variables before running the following code:
 
 
 ```python
 from pyspark.sql import SparkSession
 
-sourceConnectionString = ""
-sourceDb = ""
-sourceCollection =  ""
-targetConnectionString = ""
-targetDb = ""
-targetCollection =  ""
+sourceConnectionString = "mongodb://<USERNAME>:<PASSWORD>@<HOST>:<PORT>/<AUTHDB>"
+sourceDb = "<DBNAME>"
+sourceCollection =  "<COLLECTIONNAME>"
+targetConnectionString = "mongodb://<ACCOUNTNAME>:<PASSWORD>@<ACCOUNTNAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<ACCOUNTNAME>@"
+targetDb = "<DBNAME>"
+targetCollection =  "<COLLECTIONNAME>"
 
 my_spark = SparkSession \
     .builder \
@@ -149,12 +149,15 @@ The migration performance can be adjusted through these configurations:
 
 ## Troubleshoot
 
-### Rate limiting (429 error)
-
-You might see a 429 error code for operations against the Cosmos DB API for MongoDB database. The following scenarios can cause rate limiting:
+### Timeout Error (Error code 50)
+You might see a 50 error code for operations against the Cosmos DB API for MongoDB database. The following scenarios can cause timeout errors:
 
 - **Throughput allocated to the database is low**: Ensure that the target collection has sufficient throughput assigned to it.
 - **Excessive data skew with large data volume**. If you have a large amount of data to migrate into a given table but have a significant skew in the data, you might still experience rate limiting even if you have several [request units](request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single shard. Data skew means large number of records for the same shard key value.
+
+### Rate limiting (Error code 16500)
+
+You might see a 16500 error code for operations against the Cosmos DB API for MongoDB database. These are rate limiting errors and may be observed on older accounts or accounts where server-side retry feature is disabled.
 - **Enable Server-side retry**: Enable the Server Side Retry (SSR) feature and let the server retry the rate limited operations automatically.
 
 
