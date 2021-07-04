@@ -6,7 +6,7 @@ documentationcenter: na
 author: batamig
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/04/2021
 ms.author: bagol
 ---
 
@@ -47,7 +47,7 @@ For example, evaluate the following key areas:
 |**Capacity growth friction.**     |  Compare the level of difficulty in adding capacity as usage grows. Keep in mind that cloud services and applications tend to generate more log data than traditional on-premises workloads.       |
 |     |         |
 
-If you have limited or no investment in an existing on-premises SIEM, moving to Azure Sentinel can be a straightforward, direct migration. However, enterprises that are heavily invested in a legacy SIEM typically require a multi-stage process to accommodate transition tasks.
+If you have limited or no investment in an existing on-premises SIEM, moving to Azure Sentinel can be a straightforward, direct deployment. However, enterprises that are heavily invested in a legacy SIEM typically require a multi-stage process to accommodate transition tasks.
 
 Although Azure Sentinel provides extended data and response for both on-premises the cloud, you may want to start your migration slowly, by running Azure Sentinel and your legacy SIEM [side-by-side](#select-a-side-by-side-approach-and-method). In a side-by-side architecture local resources can use the on-premises SIEM and cloud resources and new workloads use cloud-based analytics.
 
@@ -143,7 +143,7 @@ Make sure that you migrate only the data that represents your current key use ca
         For more information, see [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 > [!TIP]
-> - Free data connectors may limit your ability to test with data that's important to you. When testing, consider limited data ingestion from both free and paid data connectors to get the most out of your test results.
+> - Limiting yourself to only free data sources may limit your ability to test with data that's important to you. When testing, consider limited data ingestion from both free and paid data connectors to get the most out of your test results.
 >
 > - As you migrate detections and build use cases in Azure Sentinel, stay mindful of the data you ingest, and verify its value to your key priorities. Revisit data collection conversations to ensure data depth and breadth across your use cases.
 >
