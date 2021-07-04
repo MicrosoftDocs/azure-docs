@@ -9,6 +9,8 @@
       href: overview.md
     - name: Pricing
       href: https://aka.ms/adpricing
+    - name: What's new
+      href: whats-new.md
 - name: Quickstarts
   items:
     - name: Multivariate client libraries
@@ -64,6 +66,8 @@
       href: concepts/multivariate-architecture.md
 - name: Tutorials
   items:
+    - name: Learn Multivariate Anomaly Detection in one hour
+      href: tutorials/learn-multivariate-anomaly-detection.md
     - name: Visualize anomalies as a batch using Power BI
       href: tutorials/batch-anomaly-detection-powerbi.md
 - name: Responsible use of AI
@@ -104,8 +108,6 @@
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Microsoft Learn modules
       href: /learn/modules/intro-to-anomaly-detector/
-    - name: User-generated content
-      href: user-generated-content.md
     - name: Join the Anomaly Detector Advisors group on Microsoft Teams
       href: https://aka.ms/adadvisorsjoin
     - name: Reference solution architecture

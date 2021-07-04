@@ -152,7 +152,7 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 **Recommended actions**  
 - Ensure that the impacted server has the latest kernel and OS updates installed.
 - Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.
-- Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance-discovery.md) to check if they return null or empty data.
+- Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance.md) to check if they return null or empty data.
 - If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager).  
 
 ### Error 60108 - SoftwareInventoryCredentialNotAssociated  

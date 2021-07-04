@@ -6,7 +6,7 @@ author: ddematheu2
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
