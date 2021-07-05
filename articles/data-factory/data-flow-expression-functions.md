@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 07/04/2021
 ---
 
 # Data transformation expressions in mapping data flow
@@ -1063,12 +1063,6 @@ Array functions perform transformations on data structures that are arrays. Thes
 * ```#index``` represents the current array index, along with array index numbers ```#index2, #index3 ...```
 * ```#item``` represents the current element value in the array
 
-### <code>at</code>
-<code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
-Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key is not found it returns null.
-*	``at(['bojjus', 'gunchus'], 1) => 'bojjus'``
-*	``at(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], 'bojjus') => 'gunchus'``
-___
 ### <code>array</code>
 <code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
 Creates an array of items. All items should be of the same type. If no items are specified, an empty string array is the default. Same as a [] creation operator.  
@@ -1077,11 +1071,22 @@ Creates an array of items. All items should be of the same type. If no items are
 * ``['Seattle', 'Washington'][1]``
 * ``'Washington'``
 ___
+### <code>at</code>
+<code><b>at(<i>&lt;value1&gt;</i> : array/map, <i>&lt;value2&gt;</i> : integer/key type) => array</b></code><br/><br/>
+Finds the element at an array index. The index is 1-based. Out of bounds index results in a null value. Finds a value in a map given a key. If the key is not found it returns null.
+*	``at(['apples', 'pears'], 1) => 'apples'``
+*	``at(['fruit' -> 'apples', 'vegetable' -> 'carrot'], 'fruit') => 'apples'``
+___
 ### <code>contains</code>
 <code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
 Returns true if any element in the provided array evaluates as true in the provided predicate. Contains expects a reference to one element in the predicate function as #item.  
 * ``contains([1, 2, 3, 4], #item == 3) -> true``  
 * ``contains([1, 2, 3, 4], #item > 5) -> false``  
+___
+### <code>distinct</code>
+<code><b>distinct(<i>&lt;value1&gt;</i> : array) => array</b></code><br/><br/>
+Returns a distinct set of items from an array.
+* ``distinct([10, 20, 30, 10]) => [10, 20, 30]``  
 ___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
