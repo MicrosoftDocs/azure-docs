@@ -34,7 +34,7 @@ Aside from function-specific metrics, the App Service platform implements more m
 
 ## Accessing metrics
 
-You can use either [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data. 
+You can use either [Azure Monitor metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal](https://portal.azure.com) or REST APIs to get Monitor Metrics data. 
 
 The following examples use Monitor Metrics to help estimate the cost of running your function app on a Consumption plan. To learn more about estimating Consumption plan costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
 
