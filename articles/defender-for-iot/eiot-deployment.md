@@ -89,37 +89,42 @@ Onboard a new subscription, and provide the subscription ID to your Azure Defend
 
 To create a new subscription.
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/)
-1. Select **Subscriptions**
-1. Select **Add**
+1. Navigate to the [Azure portal](https://ms.portal.azure.com/).
+
+1. Select **Subscriptions**.
+
+1. Select **Add**.
+
    :::image type="content" source="../cost-management-billing/manage/media/create-subscription/subscription-add.png" alt-text="Screenshot that shows adding a subscription.":::
+
 1. Select the billing account for which you want to create the subscription.
+
 1. Fill in the form and click **Create**. The tables below list the fields on the form for each type of billing account.
 
-**Enterprise Agreement**
+    **Enterprise Agreement**
+    
+    | Field | Definition |
+    |--|--|
+    | Name | The display name that helps you easily identify the subscription in the Azure portal. |
+    | Offer | Select EA Dev/Test, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Enterprise. DevTest offer must be enabled for your enrollment account to create EA Dev/Test subscriptions. |
 
-| Field | Definition |
-|--|--|
-| Name | The display name that helps you easily identify the subscription in the Azure portal. |
-| Offer | Select EA Dev/Test, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Enterprise. DevTest offer must be enabled for your enrollment account to create EA Dev/Test subscriptions. |
+    **Microsoft Customer Agreement**
+    
+    | Field | Definition |
+    |--|--|
+    | Billing profile | The charges for your subscription will be billed to the billing profile that you select. If you have access to only one billing profile, the selection will be greyed out. |
+    | Invoice section | The charges for your subscription will appear on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out. |
+    | Plan | Select Microsoft Azure Plan for DevTest, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Plan. If only one plan is enabled for the billing profile, the selection will be greyed out. |
+    | Name | The display name that helps you easily identify the subscription in the Azure portal. |
 
-**Microsoft Customer Agreement**
-
-| Field | Definition |
-|--|--|
-| Billing profile | The charges for your subscription will be billed to the billing profile that you select. If you have access to only one billing profile, the selection will be greyed out. |
-| Invoice section | The charges for your subscription will appear on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out. |
-| Plan | Select Microsoft Azure Plan for DevTest, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Plan. If only one plan is enabled for the billing profile, the selection will be greyed out. |
-| Name | The display name that helps you easily identify the subscription in the Azure portal. |
-
-**Microsoft Partner Agreement**
-
-| Field | Definition |
-|--|--|
-| Customer | The subscription is created for the customer that you select. If you have only one customer, the selection will be greyed out. |
-| Reseller | The reseller that will provide services to the customer. This is an optional field, which is only applicable to Indirect providers in the CSP two-tier model. |
-| Name | The display name that helps you easily identify the subscription in the Azure portal. |
-
+    **Microsoft Partner Agreement**
+    
+    | Field | Definition |
+    |--|--|
+    | Customer | The subscription is created for the customer that you select. If you have only one customer, the selection will be greyed out. |
+    | Reseller | The reseller that will provide services to the customer. This is an optional field, which is only applicable to Indirect providers in the CSP two-tier model. |
+    | Name | The display name that helps you easily identify the subscription in the Azure portal. |
+    
 1. Copy the subscription ID, and send a copy to your Azure Defender for IoT contact to ensure you will not be billed.
  
 ## Onboard a new subscription
