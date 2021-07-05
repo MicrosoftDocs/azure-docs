@@ -77,7 +77,7 @@ You should now see in your **on-premises edge router** where the ExpressRoute co
 Continue to the next tutorial to install VMware HCX add-on in your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
-> [Install VMware HCX](tutorial-install-vmware-hcx.md)
+> [Install VMware HCX](install-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

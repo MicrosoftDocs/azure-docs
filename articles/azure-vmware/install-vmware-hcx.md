@@ -130,4 +130,4 @@ Continue to the next tutorial to configure the VMware HCX Connector.  After you'
 
 
 >[!div class="nextstepaction"]
->[Configure VMware HCX in Azure VMware Solution](tutorial-configure-vmware-hcx.md)
+>[Configure VMware HCX in Azure VMware Solution](configure-vmware-hcx.md)

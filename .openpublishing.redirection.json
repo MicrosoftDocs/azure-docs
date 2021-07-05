@@ -13520,7 +13520,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
-      "redirect_url": "/azure/azure-vmware/tutorial-configure-vmware-hcx",
+      "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
       "redirect_document_id": false
     }, 
     {

@@ -7,7 +7,7 @@ ms.date: 07/07/2021
 
 # Configure on-premises VMware HCX Connector
 
-Once you've [installed the VMware HCX add-on](tutorial-install-vmware-hcx.md), you're ready to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.  
+Once you've [installed the VMware HCX add-on](install-vmware-hcx.md), you're ready to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.  
 
 In this tutorial, you learn how to:
 
@@ -20,7 +20,7 @@ After you complete the steps in this tutorial, you'll have a production-ready en
 
 ## Prerequisites
 
-- [VMware HCX Connector](tutorial-install-vmware-hcx.md) has been installed.
+- [VMware HCX Connector](install-vmware-hcx.md) has been installed.
 
 - If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support).
 
