@@ -26,7 +26,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Supported VMware features
 
-- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the VM. Instead, just provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware server with Azure Backup Server.
+- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the VM. Instead, just provide the IP address or fully qualified domain name (FQDN) and the sign in credentials used to authenticate the VMware server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
 - **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a vCenter or ESXi server. Azure Backup Server also detects VMs managed by vCenter so that you can protect large deployments.
 - **Folder-level auto protection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. When protecting folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
@@ -242,7 +242,7 @@ If you downloaded the software package to a different server, copy the files to 
 
 1. On the **Welcome** screen, select **Next** to continue to the **Prerequisite Checks** page.
 
-1. To determing if the hardware and software meet the prerequisites for Azure Backup Server, select **Check Again**. If met successfully, select **Next**.
+1. To determine if the hardware and software meet the prerequisites for Azure Backup Server, select **Check Again**. If met successfully, select **Next**.
 
 1. The Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries that are needed. When you start a new Azure Backup Server installation, select the **Install new Instance of SQL Server with this Setup** option. Then select **Check and Install**.
 

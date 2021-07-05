@@ -182,7 +182,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
    > [!NOTE]
    > When you select a folder or VMs, folders inside that folder are also selected for backup. You can uncheck folders or VMs you don't want to back up. If a VM or folder is already being backed up, you can't select it, which ensures duplicate recovery points aren't created for a VM.
 
-   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png" alt-text="Screenshot showing the Create New Protection Group Wizard to select group memebers.":::
+   :::image type="content" source="../backup/media/backup-azure-backup-server-vmware/server-add-selected-members.png" alt-text="Screenshot showing the Create New Protection Group Wizard to select group members.":::
 
 1. On the **Select Data Protection Method** page, enter a name for the protection group and protection settings. 
 
