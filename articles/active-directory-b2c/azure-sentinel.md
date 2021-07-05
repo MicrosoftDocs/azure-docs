@@ -97,8 +97,7 @@ Once you've configured your Azure AD B2C instance to send logs to Log Analytics,
 Now you have deployed the instance, you have to do this thing.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Etc.
-1. etc.
+
 
 ## 3. Visualize your data - or do Sentinel stuff here?
 
