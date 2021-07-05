@@ -145,8 +145,7 @@ Follow these steps to update the mobile app registration with your app redirect 
 1. Enter the **Package name**, and **Signature hash**.
 1. Select **Save**.
 
-Your redirect URI should look similar to this: 
-
+Your redirect URI and the `BrowserTabActivity` activity should look similar to the following sample: 
 
 #### [Kotlin](#tab/kotlin)
 
