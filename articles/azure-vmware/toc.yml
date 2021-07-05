@@ -9,9 +9,9 @@
 - name: Get started
   items:
   - name: 1 - Plan the deployment
-    href: tutorial-plan-private-cloud-deployment.md
+    href: plan-private-cloud-deployment.md
   - name: 2 - Deploy Azure VMware Solution
-    href: tutorial-deploy-azure-vmware-solution.md
+    href: deploy-azure-vmware-solution.md
   - name: 3 - Connect to on-premises environment
     href: tutorial-expressroute-global-reach-private-cloud.md
   - name: 4 - Install the VMware HCX Connector

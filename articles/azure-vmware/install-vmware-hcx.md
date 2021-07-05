@@ -1,7 +1,7 @@
 ---
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/07/2021
 ---
 
@@ -16,12 +16,11 @@ VMware HCX Advanced Connector supports up to three site connections (on-premises
 >You can also uninstall VMware HCX Advanced Connector through the portal. When you uninstall VMware HCX, make sure you don't have any active migrations in progress.
 
 
-In this tutorial, you learn how to:
+In this how-to, you'll:
 
-> [!div class="checklist"]
-> * Install VMware HCX through the Azure portal
-> * Download and deploy the VMware HCX Connector OVA
-> * Activate VMware HCX with a license key
+* Install VMware HCX through the Azure portal
+* Download and deploy the VMware HCX Connector OVA
+* Activate VMware HCX with a license key
 
 After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
 

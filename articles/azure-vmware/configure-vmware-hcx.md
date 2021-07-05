@@ -9,14 +9,13 @@ ms.date: 07/07/2021
 
 Once you've [installed the VMware HCX add-on](install-vmware-hcx.md), you're ready to configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud.  
 
-In this tutorial, you learn how to:
+In this how-to, you'll':
 
-> [!div class="checklist"]
-> * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
-> * Configure the network profile, compute profile, and service mesh
-> * Check the appliance status and validate that migration is possible
+* Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
+* Configure the network profile, compute profile, and service mesh
+* Check the appliance status and validate that migration is possible
 
-After you complete the steps in this tutorial, you'll have a production-ready environment for creating virtual machines (VMs) and migration. 
+After you complete these steps, you'll have a production-ready environment for creating virtual machines (VMs) and migration. 
 
 ## Prerequisites
 

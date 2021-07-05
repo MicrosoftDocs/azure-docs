@@ -74,7 +74,7 @@ landingContent:
         - text: 1 - Plan the deployment
           url: tutorial-plan-private-cloud-deployment.md
         - text: 2 - Deploy Azure VMware Solution
-          url: tutorial-deploy-azure-vmware-solution.md
+          url: deploy-azure-vmware-solution.md
         - text: 3 - Connect to on-premises environment
           url: tutorial-expressroute-global-reach-private-cloud.md
         - text: 4 - Install VMware HCX Connector
