@@ -1,5 +1,5 @@
 ---
-title: Deploy the Azure Sentinel SAP data connector on-premises | Microsoft Docs
+title: Expert configuration options, on-premise deployment and SAPControl log sources | Microsoft Docs
 description: Learn how to deploy the Azure Sentinel data connector for SAP environments using an on-premises machine.
 author: batamig
 ms.author: bagol
