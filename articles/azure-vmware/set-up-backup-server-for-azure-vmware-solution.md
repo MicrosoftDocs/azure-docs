@@ -51,7 +51,7 @@ To set up Azure Backup Server for Azure VMware Solution, you must finish the fol
 
 Azure Backup Server is deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs.
 
-:::image type="content" source="media/azure-vmware-solution-backup/deploy-backup-server-azure-vmware-solution-diagram.png" alt-text="Diagram showing Azure Backup Server is deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs." border="false":::
+:::image type="content" source="media/azure-vmware-solution-backup/deploy-backup-server-azure-vmware-solution-diagram.png" alt-text="Diagram showing Azure Backup Server deployed as an Azure infrastructure as a service (IaaS) VM to protect Azure VMware Solution VMs." border="false":::
 
 ## Prerequisites for the Azure Backup Server environment
 
@@ -213,13 +213,13 @@ Follow the steps in this section to download, extract, and install the software 
 
    1. From the **Where is your workload running?** menu, select **On-Premises**.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Where is your workload running?":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Screenshot showing the options for where your workload runs and what to backup.":::
 
    1. From the **What do you want to back up?** menu, select the workloads you want to protect by using Azure Backup Server.
 
    1. Select **Prepare Infrastructure** to download and install Azure Backup Server and the vault credentials.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Prepare Infrastructure":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Screenshot showing the step to prepare the infrastructure.":::
 
 1. In the **Prepare infrastructure** window that opens:
 
@@ -227,7 +227,7 @@ Follow the steps in this section to download, extract, and install the software 
 
    1. Select **Already downloaded or using the latest Azure Backup Server installation** and then **Download** to download the vault credentials. You'll use these credentials when you register the Azure Backup Server to the Recovery Services vault. The links take you to the Download Center, where you download the software package.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure-2.png" alt-text="Prepare Infrastructure - Azure Backup Server":::
+   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure-2.png" alt-text="Screenshot showing the steps to prepare the infrastructure for Azure Backup Server.":::
 
 1. On the download page, select all the files and select **Next**.
 
