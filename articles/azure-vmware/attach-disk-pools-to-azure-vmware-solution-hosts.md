@@ -2,7 +2,7 @@
 title: Attach disk pools to Azure VMware Solution hosts (Preview)
 description: Learn how to attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
 ms.topic: how-to 
-ms.date: 06/28/2021
+ms.date: 07/13/2021
 
 #Customer intent: As an Azure service administrator, I want to scale my AVS hosts using disk pools instead of scaling clusters. So that I can use block storage for active working sets and tier less frequently accessed data from vSAN to disks. I can also replicate data from on-premises or primary VMware environment to disk storage for the secondary site.  
 
@@ -25,7 +25,7 @@ Azure Disks are attached to the managed iSCSI controller, a virtual machine depl
 The diagram shows how disk pools work with Azure VMware Solution hosts. Each iSCSI controller can access each managed disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI.
 
 
-:::image type="content" source="media/disk-pools/azure-disks-attached-to-managed-iscsi-controllers.png" alt-text="Diagram showing how disk pools work with Azure VMware Solution hosts. Each iSCSI controller can access each managed disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI." border="false":::
+:::image type="content" source="media/disk-pools/azure-disks-attached-to-managed-iscsi-controllers.png" alt-text="Diagram showing how disk pools work with Azure VMware Solution hosts. Each iSCSI controller can access each managed disk over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI." border="false" lightbox="media/disk-pools/azure-disks-attached-to-managed-iscsi-controllers.png":::
 
 
 ## Supported regions
@@ -62,16 +62,16 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az extension show --name vmware
       ```
 
+   - If the extension is already installed, check if the version is **3.0.0**. If an older version is installed, update the extension:
+
+      ```azurecli
+      az extension update --name vmware
+      ```
+
    - If the extension is not installed:
 
       ```azurecli
       az extension add --name vmware
-      ```
-
-   - If the extension is already installed, check if the version is "3.0.0" (yet to be released). If an older version is installed, update the extension:
-
-      ```azurecli
-      az extension update --name vmware
       ```
 
 2. Display help on the datastores cmdlets:
