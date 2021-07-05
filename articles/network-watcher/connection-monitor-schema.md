@@ -44,7 +44,7 @@ Listed below are the fields in the Connection Monitor Tests schema and what they
 | Field  |    Description   |
 |---|---|
 | TimeGenerated	| The timestamp (UTC) of when the log was generated |
-| RecordId	| The record ID for unique IDentification of test result record |
+| RecordId	| The record ID for unique identification of test result record |
 | ConnectionMonitorResourceId	| The connection monitor resource ID of the test |
 | TestGroupName	| The test group name to which the test belongs to |
 | TestConfigurationName	| The test configuration name to which the test belongs to |
@@ -84,7 +84,7 @@ Listed below are the fields in the Connection Monitor Path schema and what they 
 | Field  |    Description   |
 |---|---|
 | TimeGenerated	 | The timestamp (UTC) of when the log was generated |
-| RecordId	| The record ID for unique IDentification of test result record |
+| RecordId	| The record ID for unique identification of test result record |
 | TopologyId	| The topology ID of the path record |
 | ConnectionMonitorResourceId	| The connection monitor resource ID of the test |
 | TestGroupName	| The test group name to which the test belongs to |
@@ -115,10 +115,10 @@ Listed below are the fields in the Connection Monitor Path schema and what they 
 | MaxRoundTripTimeMs	| The maximum round trip time for the test |
 | AvgRoundTripTimeMs	| The average round trip time for the test |
 | JitterMs	| The mean deviation round trip time for the test |
-| HopAddresses | The hop addresses Identified for the test |
-| HopTypes	| The hop types Identified for the test |
-| HopLinkTypes	| The hop link types IDentified for the test |
-| HopResourceIds	| The hop resource IDs Identified for the test |
-| Issues	| The issues Identified for the test |
-| Hops	| The hops Identified for the test |
+| HopAddresses | The hop addresses identified for the test |
+| HopTypes	| The hop types identified for the test |
+| HopLinkTypes	| The hop link types identified for the test |
+| HopResourceIds	| The hop resource IDs identified for the test |
+| Issues	| The issues identified for the test |
+| Hops	| The hops identified for the test |
 | AdditionalData | The additional data for the test |
