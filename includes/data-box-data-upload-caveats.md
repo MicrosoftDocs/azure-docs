@@ -3,13 +3,13 @@ author: alkohli
 ms.service: databox  
 ms.subservice: heavy
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 06/28/2021
 ms.author: alkohli
 ---
 
 - Don't copy files directly to any of the precreated shares. You need to create a folder under the share and then copy files to that folder.
 - A folder under the *StorageAccount_BlockBlob* and *StorageAccount_PageBlob* is a container. For instance, containers are created as *StorageAccount_BlockBlob/container* and *StorageAccount_PageBlob/container*.
-- Each folder created directly under *StorageAccount_AzureFiles* is translated into an Azure File Share.
+- Each folder created directly under *StorageAccount_AzFile* is translated into an Azure File Share.
 - If an object that is being copied has the same name as an Azure object, such as a blob or a file, that is already in the cloud, Data Box will overwrite the file in the cloud.
 - Every file written into *StorageAccount_BlockBlob* and *StorageAccount_PageBlob* shares is uploaded as a block blob and page blob respectively.
 - Azure Blob Storage doesn't support directories. If you create a folder under the *StorageAccount_BlockBlob* folder, then virtual folders are created in the blob name. For Azure Files, the actual directory structure is maintained.

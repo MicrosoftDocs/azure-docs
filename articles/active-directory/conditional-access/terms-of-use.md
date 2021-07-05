@@ -54,7 +54,7 @@ Azure AD terms of use policies have the following capabilities:
 To use and configure Azure AD terms of use policies, you must have:
 
 - Azure AD Premium P1, P2, EMS E3, or EMS E5 subscription.
-   - If you don't have one of theses subscriptions, you can [get Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) or [enable Azure AD Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+   - If you don't have one of these subscriptions, you can [get Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) or [enable Azure AD Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 - One of the following administrator accounts for the directory you want to configure:
    - Global Administrator
    - Security Administrator
@@ -219,7 +219,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
 1. In the Edit terms of use pane, you can change the following:
     - **Name** – this is the internal name of the ToU that is not shared with end users
     - **Display name** – this is the name that end users can see when viewing the ToU
-    - **Require users to expand the terms of use** – Setting this to **On** will force the end use to expand the terms of use policy document before accepting it.
+    - **Require users to expand the terms of use** – Setting this to **On** will force the end user to expand the terms of use policy document before accepting it.
     - (Preview) You can **update an existing terms of use** document
     - You can add a language to an existing ToU
 

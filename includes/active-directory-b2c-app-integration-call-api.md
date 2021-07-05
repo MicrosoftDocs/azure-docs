@@ -14,4 +14,3 @@ Authorization: Bearer <token>
 ```
 
 If the access token scope doesn't match the web API scopes, the authentication library obtains a new access token with the correct scopes.
-  s

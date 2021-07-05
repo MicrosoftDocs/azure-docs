@@ -310,6 +310,9 @@ Refunds are available to customers under certain conditions and for certain char
 
 Refunds are not issued for variable charges resulting from usage (from either virtual machine offers or metered billing).
 
+> [!NOTE]
+> Refunds are not granted for metered usage of Virtual Machines, metered billing for SaaS and Azure Apps, or other instances of product consumption (Pay as you Go, etc.).  If a vendor does receive a refund, it will be reflected in the Partner Center [payout reporting](/partner-center/payout-statement?context=/azure/marketplace/context/context).
+
 ## Resources
 
 ### Where can I find more information about the commercial marketplace?

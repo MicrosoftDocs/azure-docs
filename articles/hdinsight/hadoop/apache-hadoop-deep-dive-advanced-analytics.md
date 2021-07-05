@@ -105,12 +105,12 @@ Follow [this tutorial](../spark/apache-spark-microsoft-cognitive-toolkit.md) to 
 
 Apache Hive and Azure Machine Learning
 
-* [Apache Hive and Azure Machine Learning end-to-end](../../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [Using an Azure HDInsight Hadoop Cluster on a 1-TB dataset](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
+* [Apache Hive and Azure Machine Learning end-to-end](/azure/architecture/data-science-process/hive-walkthrough)
+* [Using an Azure HDInsight Hadoop Cluster on a 1-TB dataset](/azure/architecture/data-science-process/hive-criteo-walkthrough)
 
 Apache Spark and MLLib
 
-* [Machine learning with Apache Spark on HDInsight](../../machine-learning/team-data-science-process/spark-overview.md)
+* [Machine learning with Apache Spark on HDInsight](/azure/architecture/data-science-process/spark-overview)
 * [Apache Spark with Machine Learning: Use Apache Spark in HDInsight for analyzing building temperature using HVAC data](../spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark with Machine Learning: Use Apache Spark in HDInsight to predict food inspection results](../spark/apache-spark-machine-learning-mllib-ipython.md)
 

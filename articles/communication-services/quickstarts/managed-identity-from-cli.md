@@ -6,7 +6,7 @@ services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
 ---
@@ -75,7 +75,6 @@ The Azure Identity SDK reads values from three environment variables at runtime 
 > After you set the environment variables, close and re-open your console window. If you are using Visual Studio or another development environment, you may need to restart it in order for it to register the new environment variables.
 
 Once these variables have been set, you should be able to use the DefaultAzureCredential object in your code to authenticate to the service client of your choice.
-
 
 ## Next steps
 

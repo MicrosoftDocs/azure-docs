@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: mattchenderson
 
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 06/11/2021
 ms.author: mahender
 ms.custom: seodec18
 
@@ -20,17 +20,13 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 1. Create a key vault by following the [Key Vault quickstart](../key-vault/secrets/quick-create-cli.md).
 
-1. Create a [system-assigned managed identity](overview-managed-identity.md) for your application.
+1. Create a [managed identity](overview-managed-identity.md) for your application.
 
-   > [!NOTE] 
-   > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
+    Key Vault references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-vaults-with-a-user-assigned-identity).
 
 1. Create an [access policy in Key Vault](../key-vault/general/security-features.md#privileged-access) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
 ### Access network-restricted vaults
-
-> [!NOTE]
-> Linux-based applications are not presently able to resolve secrets from a network-restricted key vault unless the app is hosted within an [App Service Environment](./environment/intro.md).
 
 If your vault is configured with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md), you will also need to ensure that the application has network access.
 
@@ -38,8 +34,23 @@ If your vault is configured with [network restrictions](../key-vault/general/ove
 
 2. Make sure that the vault's configuration accounts for the network or subnet through which your app will access it.
 
-> [!IMPORTANT]
-> Accessing a vault through virtual network integration is currently incompatible with [automatic updates for secrets without a specified version](#rotation).
+### Access vaults with a user-assigned identity
+
+Some apps need to reference secrets at creation time, when a system-assigned identity would not yet be available. In these cases, a user-assigned identity can be created and given access to the vault in advance.
+
+Once you have granted permissions to the user-assigned identity, follow these steps:
+
+1. [Assign the identity](./overview-managed-identity.md#add-a-user-assigned-identity) to your application if you haven't already.
+
+1. Configure the app to use this identity for Key Vault reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity.
+
+    ```azurecli-interactive
+    userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
+    appResourceId=$(az webapp show -g MyResourceGroupName -n MyAppName --query id -o tsv)
+    az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
+    ```
+
+This configuration will apply to all references for the app.
 
 ## Reference syntax
 
@@ -64,9 +75,6 @@ Alternatively:
 ```
 
 ## Rotation
-
-> [!IMPORTANT]
-> [Accessing a vault through virtual network integration](#access-network-restricted-vaults) is currently incompatible with automatic updates for secrets without a specified version.
 
 If a version is not specified in the reference, then the app will use the latest version that exists in Key Vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within one day. Any configuration changes made to the app will cause an immediate update to the latest versions of all referenced secrets.
 

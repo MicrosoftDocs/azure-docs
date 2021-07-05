@@ -5,7 +5,7 @@ author: linda33wj
 ms.service: data-factory
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 01/18/2021
+ms.date: 05/31/2021
 ms.author: jingwang 
 ms.custom: devx-track-azurepowershell
 ---

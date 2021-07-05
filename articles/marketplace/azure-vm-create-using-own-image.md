@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: krsh
 ms.author: krsh
-ms.date: 06/02/2021
+ms.date: 06/23/2021
 ---
 
 # Create a virtual machine using your own image
@@ -68,5 +68,5 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ## Next steps
 
 - [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements (optional).
-- If you don't want to test your VM image, sign in to [Partner Center](https://partner.microsoft.com/) and publish the SIG Image.
+- If you don't want to test your VM image, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) and publish the SIG Image.
 - If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).

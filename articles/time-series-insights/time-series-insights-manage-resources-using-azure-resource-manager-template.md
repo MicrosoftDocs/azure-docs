@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Manage your environment using Azure Resource Manager templates - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
 ms.service: time-series-insights
@@ -46,13 +46,13 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps).
 
-1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
+1. Clone or copy the [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
 
    - Create a parameters file
 
-     To create a parameters file, copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) file.
+     To create a parameters file, copy the [timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) file.
 
-      [!code-json[deployment-parameters](~/quickstart-templates/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
+      [!code-json[deployment-parameters](~/quickstart-templates/quickstarts/microsoft.timeseriesinsights/timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json)]
 
     <div id="required-parameters"></div>
 
@@ -245,7 +245,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
    - The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](#required-parameters) or [optional parameters](#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
     </br>
     </br>
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.timeseriesinsights%2Ftimeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
        <img src="https://azuredeploy.net/deploybutton.png" alt="The Deploy to Azure button."/>
     </a>
 

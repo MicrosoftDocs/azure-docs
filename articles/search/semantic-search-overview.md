@@ -74,11 +74,11 @@ To use semantic capabilities in queries, you'll need to make small modifications
 
 Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. It improves the quality of search results in two ways:
 
-* First, it promotes any matches are semantically closer to the intent of original query is a significant benefit.
+* First, it promotes matches that are semantically closer to the intent of original query.
 
-* Second, it makes results more easily consumable when captions, and potentially answers, are present on the page.
+* Second, it makes results easier to use when captions, and potentially answers, are present on the page.
 
-At all times, the engine is working with existing content, and the features work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
+At all times, the engine is working with existing content, and the language models work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
 
 Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
 
