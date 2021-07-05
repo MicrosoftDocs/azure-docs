@@ -238,7 +238,13 @@ ___
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Divides pair of numbers. Same as the `/` operator.  
 * ``divide(20, 10) -> 2``  
-* ``20 / 10 -> 2``  
+* ``20 / 10 -> 2``
+___
+### <code>divide</code>
+<code><b>dropLeft(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : integer) => string</b></code><br/><br/>
+Removes as many characters from the left of the string. If the drop requested exceeds the length of the string, an empty string is returned.
+*	dropLeft('bojjus', 2) => 'jjus' 
+*	dropLeft('cake', 10) => ''
 ___
 ### <code>endsWith</code>
 <code><b>endsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
