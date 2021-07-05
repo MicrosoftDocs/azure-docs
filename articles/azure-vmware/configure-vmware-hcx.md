@@ -31,7 +31,7 @@ After you complete these steps, you'll have a production-ready environment for c
 
 - [All required ports](https://ports.vmware.com/home/VMware-HCX) are open for communication between on-premises components and Azure VMware Solution private.
 
-- [Define VMware HCX network segments](tutorial-plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  The primary use cases for VMware HCX are workload migrations and disaster recovery.
+- [Define VMware HCX network segments](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  The primary use cases for VMware HCX are workload migrations and disaster recovery.
 
 - Review the [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-BFD7E194-CFE5-4259-B74B-991B26A51758.html) for information on using HCX.
 
@@ -62,7 +62,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
 ## Create network profiles
 
-VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [planning phase](tutorial-plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  You'll create four network profiles:
+VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments you identified during the [planning phase](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments).  You'll create four network profiles:
 
    - Management
    - vMotion

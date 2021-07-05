@@ -8,7 +8,7 @@ ms.date: 07/07/2021
 
 # Deploy and configure Azure VMware Solution
 
-Once you've [planned your deployment](tutorial-plan-private-cloud-deployment.md), you'll deploy and configure your Azure VMware Solution private cloud. 
+Once you've [planned your deployment](plan-private-cloud-deployment.md), you'll deploy and configure your Azure VMware Solution private cloud. 
 
 The diagram shows the deployment workflow of Azure VMware Solution. 
 

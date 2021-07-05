@@ -66,7 +66,7 @@ In this step, you'll download the VMware HCX Connector OVA file and then you'll 
 
 1. Select storage and select **Next**. [huh? is this the same as the previous step?]
 
-1. Select the [VMware HCX management network segment](tutorial-plan-private-cloud-deployment.md#define-vmware-hcx-network-segments) that you defined during the planning state. Then select **Next**.  
+1. Select the [VMware HCX management network segment](plan-private-cloud-deployment.md#define-vmware-hcx-network-segments) that you defined during the planning state. Then select **Next**.  
 
 1. In **Customize template**, enter all required information and then select **Next**.
 

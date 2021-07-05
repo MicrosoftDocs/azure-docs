@@ -72,7 +72,7 @@ landingContent:
       - linkListType: deploy
         links:
         - text: 1 - Plan the deployment
-          url: tutorial-plan-private-cloud-deployment.md
+          url: plan-private-cloud-deployment.md
         - text: 2 - Deploy Azure VMware Solution
           url: deploy-azure-vmware-solution.md
         - text: 3 - Connect to on-premises environment

@@ -13529,11 +13529,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/deploy-azure-vmware-solution.md",
-      "redirect_url": "/azure/azure-vmware/tutorial-deploy-azure-vmware-solution",
-      "redirect_document_id": false
-    },    
-    {
       "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
       "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
       "redirect_document_id": false
