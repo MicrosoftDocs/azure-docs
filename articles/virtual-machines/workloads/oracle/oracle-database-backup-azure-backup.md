@@ -67,8 +67,9 @@ To setup an Azure Files fileshare on Linux, using SMB 3.0 protocol (recommended)
 
 ### Prepare the databases
 
-This step assumes that you have followed the [Oracle create database quickstart](./oracle-database-quick-create.md) and you have an Oracle instance named `oratest1` that is running on a VM named `vmoracle19c`, and that you are using the standard Oracle “oraenv” script with its dependency on the standard Oracle configuration file “/etc/oratab” to set up environment variables in a shell session..
+This step assumes that you have followed the [Oracle create database quickstart](./oracle-database-quick-create.md) and you have an Oracle instance named `oratest1` that is running on a VM named `vmoracle19c`, and that you are using the standard Oracle “oraenv” script with its dependency on the standard Oracle configuration file “/etc/oratab” to set up environment variables in a shell session.
 
+Perform the following steps for each database on the VM:
 
 1. Switch user to the *oracle* user:
  
@@ -82,7 +83,7 @@ This step assumes that you have followed the [Oracle create database quickstart]
     $ . oraenv
     ```
     
-1. Start the Oracle listener if it's not already running:
+1. Start the Oracle listener if it's not already running. The listener only needs to be started once.
 
     ```output
     $ lsnrctl start
@@ -125,16 +126,10 @@ This step assumes that you have followed the [Oracle create database quickstart]
 1.   Add the Azure Files share as an additional database archive log file destination
      
      This step assumes you have configured and mounted an Azure Files share on the Linux VM, for example under a mount point directory named `/backup`.
+
+     For each database installed on the VM, make a sub-directory named after your database SID using the following as an example.
      
-     First check the name of the Oracle SID
-     ```bash
-     echo $ORACLE_SID
-     oratest1
-     ```
-
-     Make a sub-directory named after your database SID. In this example the mount point name is `/backup` and the SID returned in by the previous command is `oratest1` so we will create a sub-directory `/backup/oratest1` and change ownership to the oracle user. Please substitute **/backup/SID** for your mount point name and database SID. 
-
-     Note: If you have multiple database instances on the VM, make a sub-directory for each one using it's database name and change the ownership to the oracle user:
+     In this example the mount point name is `/backup` and the SID is `oratest1` so we will create a sub-directory `/backup/oratest1` and change ownership to the oracle user. Please substitute **/backup/SID** for your mount point name and database SID. 
 
      ```bash
      sudo mkdir /backup/oratest1
@@ -222,7 +217,9 @@ The framework has now been enhanced so that packaged pre-scripts and post-script
 > 
 > Azure Backup will run the pre and post backup scripts for each database listed in the file pointed to by configuration_path, except those lines that begin with # (treated as comment) or +ASM (Oracle Automatic Storage Management instance).
 > 
-> The Azure Backup enhanced framework takes online backups of Oracle databases operating in ARCHIVELOG mode. The pre and post scripts use the ALTER DATABASE BEGIN/END BACKUP commands to achieve application consistency. Databases in NOARCHIVELOG mode must be shutdown cleanly before the snapshot commences for the database backup to be considered consistent.
+> The Azure Backup enhanced framework takes online backups of Oracle databases operating in ARCHIVELOG mode. The pre and post scripts use the ALTER DATABASE BEGIN/END BACKUP commands to achieve application consistency. 
+>
+> Databases in NOARCHIVELOG mode must be shutdown cleanly before the snapshot commences for the database backup to be consistent.
 
 
 In this section, you will use Azure Backup framework to take application-consistent snapshots of your running VM and Oracle databases. The databases will be placed into backup mode allowing a transactionally consistent online backup to occur while Azure Backup takes a snapshot of the VM disks. The snapshot will be a full copy of the storage and not an incremental or Copy on Write snapshot, so it is an effective medium to restore your database from. The advantage of using Azure Backup application-consistent snapshots is that they are extremely fast to take no matter how large your database is, and a snapshot can be used for restore operations as soon as it is taken without having to wait for it to be transferred to the Recovery Services vault.
@@ -235,7 +232,7 @@ To use Azure Backup to back up the database, complete these steps:
 
 ### Prepare the environment for an application-consistent backup
 
-> [!IMPORTANT] 
+> [!Note] 
 > The Oracle database employs job role separation to provide separation of duties using least privilege. This is achieved by associating separate operating system groups with separate database administrative roles. Operating system users can then have different database privileges granted to them depending on their membership of operating system groups. 
 >
 > The `SYSBACKUP` database role, (generic name OSBACKUPDBA), is used to provide limited privileges to perform backup operations in the database, and is required by Azure Backup.
@@ -336,7 +333,7 @@ To use Azure Backup to back up the database, complete these steps:
    
 1. Create a stored procedure to log backup messages to the database alert log:
 
-   For each database run the following: 
+   Perform the following for each database installed on the VM:
 
    ```bash
    sqlplus / as sysdba
@@ -370,7 +367,7 @@ To use Azure Backup to back up the database, complete these steps:
    fi
    ```
 
-1. Check for "workload.conf" within the folder. If that is not present, create a file in the */etc/azure* directory called *workload.conf* with the following contents, which must begin with `[workload]`. If the file is already present, then just edit the fields such that it matches the following content. Otherwise, the following command will create the file and populate the contents:
+1. Check for "workload.conf" within the folder. If that is not present, create a file in the */etc/azure* directory called *workload.conf* with the following contents, which must begin with `[workload]`. If the file is already present, then just edit the fields so that it matches the following content. Otherwise, the following command will create the file and populate the contents:
 
    ```bash
    echo "[workload]
@@ -773,11 +770,14 @@ Perform the following steps for each database on the VM:
    ```
 
 1. Open the database
+   
+   > [!IMPORTANT]
+   > The RESETLOGS option is required when the RECOVER command uses the USING BACKUP CONTROLFILE option. RESETLOGS creates a new incarnation of the database by resetting the redo history back to the beginning, because there is no way to determine how much of the previous database incarnation was skipped in the recovery.
+
    ```bash
    SQL> alter database open resetlogs;
    ```
-   > [!IMPORTANT]
-   > The RESETLOGS option is required when the RECOVER command uses the USING BACKUP CONTROLFILE option. RESETLOGS creates a new incarnation of the database by resetting the redo history back to the beginning, because there is no way to determine how much of the previous database incarnation was skipped in the recovery.
+
    
 1. Check the database content has been fully recovered:
 
@@ -806,13 +806,12 @@ Instead of restoring the deleted files from the Recovery Services vaults, you ca
 
 To restore the entire VM, complete these steps:
 
-1. Stop and delete vmoracle19c.
-1. Recover the VM.
-1. Set the public IP address.
-1. Connect to the VM.
-1. Start the database to mount stage and perform recovery.
+1. [Stop and delete the VM](#stop-and-delete-the-vm).
+1. [Recover the VM](#recover-the-vm).
+1. [Set the public IP address](#set-the-public-ip-address).
+1. [Perform database recovery](#perform-database-recovery).
 
-### Stop and delete vmoracle19c
+### Stop and delete the VM
 
 # [Portal](#tab/azure-portal)
 
@@ -1077,18 +1076,16 @@ After the VM is restored, you should reassign the original IP address to the new
 
 ---
 
-### Connect to the VM
-
-To connect to the VM:
+### Perform database recovery
+First reconnect to the VM:
 
 ```azurecli
 ssh azureuser@<publicIpAddress>
 ```
 
-### Start the database to mount stage and perform recovery
-When the whole VM has been restored, it is important to recover each database on the VM by performing the following steps on each database:
+When the whole VM has been restored, it is important to recover each database on the VM by performing the following steps on each:
 
-1. You may find that the instance is running as the auto start has attempted to start the database on VM boot. However the database requires recovery and is likely to be at mount stage only, so a preparatory shutdown is run first.
+1. You may find that the instance is running as the auto start has attempted to start the database on VM boot. However the database requires recovery and is likely to be at mount stage only, so a preparatory shutdown is run first followed by starting to mount stage.
 
     ```bash
     $ sudo su - oracle
