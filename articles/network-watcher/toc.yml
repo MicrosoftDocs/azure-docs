@@ -30,7 +30,7 @@
   items:
   - name: Connection Monitor
     href: connection-monitor-overview.md
-  - name: Connection Monitor Schema
+  - name: Connection Monitor schema
     href: connection-monitor-schema.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
@@ -56,7 +56,7 @@
       href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Data residency
     href: data-residency.md
-- name: How-to guide
+- name: How-to guides
   items:
   - name: Configure Network Watcher
     href: network-watcher-create.md
