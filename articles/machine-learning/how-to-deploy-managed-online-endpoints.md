@@ -211,7 +211,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 
 ### Check the status of the deployment
 
-The `show` command contains information in `provisioning_status` for both endpoint and deployment:
+The `show` command contains information in `provisioning_status` for endpoint and deployment:
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
