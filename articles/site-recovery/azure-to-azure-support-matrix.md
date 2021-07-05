@@ -257,6 +257,7 @@ Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
 Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
+Disk subscription limits | Up to 3000 protected disks per Subscription | Ensure that the Source and Target subscriptions do not have more than 3000 ASR-protected Disks (Both Data and OS). 
 Standard SSD | Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
