@@ -111,14 +111,14 @@
           href: releasenotes.md
         - name: Speech-to-text REST API
           href: rest-speech-to-text.md
-        - name: Ingestion Client
-          href: ingestion-client.md
     - name: Resources
       items:
         - name: Language support
           href: language-support.md#speech-to-text
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: Ingestion Client
+          href: ingestion-client.md
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
           href: faq-stt.yml
