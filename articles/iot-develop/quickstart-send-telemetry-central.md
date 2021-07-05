@@ -75,6 +75,6 @@ In this quickstart, you learned a basic Azure IoT application workflow for secur
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Send telemetry to Azure IoT hub](quickstart-send-telemetry-cli-python.md)
+> [Send telemetry to Azure IoT hub](./quickstart-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [Create an IoT Central application](../iot-central/core/quick-deploy-iot-central.md)

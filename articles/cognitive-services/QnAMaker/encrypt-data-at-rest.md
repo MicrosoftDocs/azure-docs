@@ -79,7 +79,7 @@ Customer-managed keys are available in all Azure Search regions.
 
 ## Encryption of data in transit
 
-QnA Maker portal runs in the user's browser. Every action triggers a direct call to the respective cognitive service API. Hence, QnA Maker is compliant for data in transit.
+QnA Maker portal runs in the user's browser. Every action triggers a direct call to the respective Cognitive Service API. Hence, QnA Maker is compliant for data in transit.
 However, as the QnA Maker portal service is hosted in West-US, it is still not ideal for non-US customers. 
 
 ## Next steps

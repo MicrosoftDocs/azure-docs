@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 06/01/2021
 
 ms.author: justinha
 author: mjsantani
@@ -212,7 +212,7 @@ Here are a few sample JSONs you can use to get started!
 
    ![User object ID](./media/how-to-nudge-authenticator-app/object-id.png)
 
-### Identify the GUIDs of users to insert in the JSONs
+### Identify the GUIDs of groups to insert in the JSONs
 
 1. Navigate to the Azure portal.
 1. Tap **Azure Active Directory**.

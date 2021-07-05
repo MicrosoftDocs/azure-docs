@@ -20,6 +20,18 @@ For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transa
 
 In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md).This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation).
 
+## Prerequisites
+
+- Make sure that you have prepared Analytical store:
+  - Enable analytical store on [your Cosmos DB containers](../quickstart-connect-synapse-link-cosmos-db.md#enable-azure-cosmos-db-analytical-store).
+  - Get the connection string with a read-only key that you will use to query analytical store. 
+  - Get the read-only [key that will be used to access Cosmos DB container](../../cosmos-db/database-security.md#primary-keys)
+- Make sure that you have applied all [best practices](best-practices-serverless-sql-pool.md), such as:
+  - Ensure that your Cosmos DB analytical storage is in the same region as serverless SQL pool.
+  - Ensure that the client application (Power BI, Analysis service) is in the same region as serverless SQL pool.
+  - If you are returning a large amount of data (bigger than 80GB), consider using caching layer such as Analysis services and load the partitions smaller than 80GB in the Analysis services model.
+  - If you are filtering data using string columns, make sure that you are using the `OPENROWSET` function with the explicit `WITH` clause that has the smallest possible types (for example, don't use VARCHAR(1000) if you know that the property has up to 5 characters).
+
 ## Overview
 
 Serverless SQL pool enables you to query Azure Cosmos DB analytical storage using `OPENROWSET` function. 
@@ -211,7 +223,7 @@ For more information about the SQL types that should be used for Azure Cosmos DB
 
 ## Create view
 
-Creating views in the master or default databases is not recommended or supported. So you need to create an user database for your views.
+Creating views in the master or default databases is not recommended or supported. So you need to create a user database for your views.
 
 Once you identify the schema, you can prepare a view on top of your Azure Cosmos DB data. You should place your Azure Cosmos DB account key in a separate credential and reference this credential from `OPENROWSET` function. Do not keep your account key in the view definition.
 
@@ -448,3 +460,4 @@ For more information, see the following articles:
 - [Use Power BI and serverless SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
 - [Create and use views in a serverless SQL pool](create-use-views.md)
 - [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
+- Visit [Synapse link for Cosmos DB self-help page](resources-self-help-sql-on-demand.md#cosmos-db) if you are getting some errors or experiencing performance issues.

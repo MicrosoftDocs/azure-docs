@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 06/02/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -102,7 +102,7 @@ To clean up Azure AD:
 >* Deleting devices in your on-premises AD or Azure AD does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. Conditional Access). Read additional information on how to [remove registration on the client](faq.yml).
 >* Deleting a Windows 10 device only in Azure AD will re-synchronize the device from your on-premises using Azure AD connect but as a new object in "Pending" state. A re-registration is required on the device.
 >* Removing the device from sync scope for Windows 10/Server 2016 devices will delete the Azure AD device. Adding it back to sync scope will place a new object in "Pending" state. A re-registration of the device is required.
->* If you not using Azure AD Connect for Windows 10 devices to synchronize (e.g. ONLY using AD FS for registration), you must manage lifecycle similar to Windows 7/8 devices.
+>* If you are not using Azure AD Connect for Windows 10 devices to synchronize (e.g. ONLY using AD FS for registration), you must manage lifecycle similar to Windows 7/8 devices.
 
 ### Azure AD joined devices
 
@@ -152,8 +152,8 @@ Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} 
 Using the same commands we can pipe the output to the set command to disable the devices over a certain age.
 
 ```powershell
-$dt = [datetime]’2017/01/01’
-Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice
+$dt = (Get-Date).AddDays(-90)
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | Set-AzureADDevice -AccountEnabled $false
 ```
 
 ## What you should know

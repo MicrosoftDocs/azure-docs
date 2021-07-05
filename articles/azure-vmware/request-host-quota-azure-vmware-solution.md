@@ -22,7 +22,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
 
 ## Request host quota for EA customers
 
-1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
+1. In your Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
    - **Issue type:** Technical
    - **Subscription:** Select your subscription
    - **Service:** All services > Azure VMware Solution
@@ -31,7 +31,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
    - **Problem type:** Capacity Management Issues
    - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
 
-1. In the **Description** of the support ticket, on the **Details** tab, provide:
+1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
 
    - POC or Production 
    - Region Name
@@ -39,7 +39,7 @@ You'll need an Azure account in an Azure subscription. The Azure subscription mu
    - Any other details
 
    >[!NOTE]
-   >Azure VMware Solution recommends a minimum of three hosts to spin up your private cloud and for redundancy N+1 hosts. 
+   >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
 
 1. Select **Review + Create** to submit the request.
 
@@ -75,7 +75,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. Expand customer details and select **Microsoft Azure Management Portal**.
    
-   1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information for the ticket:
+   1. In Azure portal, under **Help + Support**, create a **[New support request](https://rc.portal.azure.com/#create/Microsoft.Support)** and provide the following information:
       - **Issue type:** Technical
       - **Subscription:** Select your subscription
       - **Service:** All services > Azure VMware Solution
@@ -84,7 +84,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
       - **Problem type:** Capacity Management Issues
       - **Problem subtype:** Customer Request for Additional Host Quota/Capacity
    
-   1. In the **Description** of the support ticket, on the **Details** tab, provide:
+   1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
    
       - POC or Production 
       - Region Name
@@ -93,7 +93,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
       - Is intended to host multiple customers?
    
       >[!NOTE]
-      >Azure VMware Solution recommends a minimum of three hosts to spin up your private cloud and for redundancy N+1 hosts. 
+      >Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts. 
    
    1. Select **Review + Create** to submit the request.
 

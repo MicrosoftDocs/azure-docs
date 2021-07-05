@@ -12,8 +12,9 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/22/2019
+ms.date: 06/07/2021
 ms.author: rolyon
+ms.custom: subject-rbac-steps
 
 #Customer intent: As a new user, I want to see how to grant access to resources in the portal, so that I can start granting access to others.
 
@@ -39,53 +40,52 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. In the navigation list, click **Resource groups**.
 
-1. Click **Add** to open the **Resource group** blade.
+1. Click **New** to open the **Create a resource group** page.
 
-   ![Add a new resource group](./media/quickstart-assign-role-user-portal/resource-group.png)
+   ![Create a new resource group page.](./media/quickstart-assign-role-user-portal/resource-group.png)
 
-1. For **Resource group name**, enter **rbac-resource-group**.
+1. Select a subscription.
 
-1. Select a subscription and a location.
+1. For **Resource group** name, enter **example-group** or another name.
 
-1. Click **Create** to create the resource group.
+1. Click **Review + create** and then click **Create** to create the resource group.
 
 1. Click **Refresh** to refresh the list of resource groups.
 
    The new resource group appears in your resource groups list.
 
-   ![Resource group list](./media/quickstart-assign-role-user-portal/resource-group-list.png)
-
 ## Grant access
 
 In Azure RBAC, to grant access, you assign an Azure role.
 
-1. In the list of **Resource groups**, click the new **rbac-resource-group** resource group.
+1. In the list of **Resource groups**, open the new **example-group** resource group.
 
-1. Click **Access control (IAM)**.
+1. In the navigation menu, click **Access control (IAM)**.
 
 1. Click the **Role assignments** tab to see the current list of role assignments.
 
-   ![Access control (IAM) blade for resource group](./media/quickstart-assign-role-user-portal/access-control.png)
+   ![Access control (IAM) page for resource group.](./media/shared/rg-role-assignments.png)
 
-1. Click **Add** > **Add role assignment** to open the Add role assignment pane.
+
+1. Click **Add** > **Add role assignment (Preview)**.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add role assignment menu](./media/shared/add-role-assignment-menu.png)
+   ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
-    The Add role assignment pane opens.
+1. On the **Role** tab, select the **Virtual Machine Contributor** role.
 
-   ![Add role assignment pane](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-1. In the **Role** drop-down list, select **Virtual Machine Contributor**.
+1. On the **Members** tab, select yourself or another user.
 
-1. In the **Select** list, select yourself or another user.
+1. On the **Review + assign** tab, review the role assignment settings.
 
-1. Click **Save** to assign the role.
+1. Click **Review + assign** to assign the role.
 
-   After a few moments, the user is assigned the Virtual Machine Contributor role at the rbac-resource-group resource group scope.
+   After a few moments, the user is assigned the Virtual Machine Contributor role at the example-group resource group scope.
 
-   ![Virtual Machine Contributor role assignment](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
+   ![Virtual Machine Contributor role assignment.](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
 ## Remove access
 
@@ -95,7 +95,7 @@ In Azure RBAC, to remove access, you remove a role assignment.
 
 1. Click **Remove**.
 
-   ![Remove role assignment message](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
+   ![Remove role assignments message.](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
 1. In the remove role assignment message that appears, click **Yes**.
 
@@ -103,15 +103,11 @@ In Azure RBAC, to remove access, you remove a role assignment.
 
 1. In the navigation list, click **Resource groups**.
 
-1. Click **rbac-resource-group** to open the resource group.
+1. Click **example-group** to open the resource group.
 
 1. Click **Delete resource group** to delete the resource group.
 
-   ![Delete resource group](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
-
-1. On the **Are you sure you want to delete** blade, type the resource group name: **rbac-resource-group**.
-
-1. Click **Delete** to delete the resource group.
+1. On the **Are you sure you want to delete** pane, type the resource group name and then click **Delete**.
 
 ## Next steps
 

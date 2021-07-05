@@ -123,7 +123,7 @@ The offer is tested across various platforms and versions to ensure it’s robus
 
 If your offer fails any of the listing, technical, or policy checks, or if you are not eligible to submit an offer of that type, we email a certification failure report to you.
 
-This report contains descriptions of any policies that failed, along with review notes. Review this email report, address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
+This report contains descriptions of any policies that failed, along with review notes. Review this email report, address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
 
 ## Preview creation phase
 
@@ -274,4 +274,4 @@ No user is shown for system processes that correspond to [validation and publish
 
 ## Next steps
 
-- [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
+- [Access analytic reports for the commercial marketplace in Partner Center](analytics.md)

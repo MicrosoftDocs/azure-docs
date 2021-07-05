@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -109,7 +109,6 @@ In this quickstart, you learned how to consume SMS events. You can receive SMS m
 > [Send SMS](../telephony-sms/send.md)
 
 You may also want to:
-
 
  - [Learn about event handling concepts](../../../event-grid/event-schema-communication-services.md)
  - [Learn about Event Grid](../../../event-grid/overview.md)

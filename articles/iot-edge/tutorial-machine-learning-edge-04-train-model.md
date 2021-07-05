@@ -40,7 +40,7 @@ This article is part of a series for a tutorial about using Machine Learning on 
 We use Machine Learning Studio to host the two Jupyter notebooks and supporting files. Here we create and configure a Machine Learning project. If you haven't used Jupyter or Machine Learning Studio, here are two introductory documents:
 
 * **Jupyter Notebook**: [Working with Jupyter notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support)
-* **Azure Machine Learning**: [Get started with Azure Machine Learning in Jupyter notebooks](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
+* **Azure Machine Learning**: [Get started with Azure Machine Learning in Jupyter notebooks](../machine-learning/quickstart-create-resources.md)
 
 > [!NOTE]
 > After the service is set up, Machine Learning can be accessed from any machine. During setup, you should use the development VM, which has all of the files that you'll need.

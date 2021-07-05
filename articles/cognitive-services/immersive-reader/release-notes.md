@@ -6,7 +6,7 @@ services: cognitive-services
 author: dylankil
 manager: guillasi
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 10/12/2020

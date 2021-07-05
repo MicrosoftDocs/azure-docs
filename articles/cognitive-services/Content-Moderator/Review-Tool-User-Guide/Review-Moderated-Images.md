@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Create human reviews
 
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
 In this guide, you'll learn how to set up [reviews](../review-api.md#reviews) on the Review tool website. Reviews store and display content for human moderators to assess. Moderators can alter the applied tags and apply their own custom tags as appropriate. When a user completes a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
 ## Prerequisites

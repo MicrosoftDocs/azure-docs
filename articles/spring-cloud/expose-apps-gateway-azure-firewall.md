@@ -104,7 +104,7 @@ az network application-gateway rewrite-rule create \
     --resource-group ${RESOURCE_GROUP} \
     --rule-set-name ${APPLICATION_GATEWAY_REWRITE_SET_NAME} \
     --name ${APPLICATION_GATEWAY_REWRITE_RULE_NAME} \
-    --request-headers X-Forwarded-Proto=""
+    --request-headers X-Forwarded-Proto="https"
 az network application-gateway rule update \
     --gateway-name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP} \

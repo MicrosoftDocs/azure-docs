@@ -30,7 +30,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing models](purchasing-models.md). When you create a single database, you also define a [server](logical-servers.md) to manage it and place it within [Azure resource group](../../active-directory-b2c/overview.md) in a specified region.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-database/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/sql-database/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sql-database/azuredeploy.json":::
 

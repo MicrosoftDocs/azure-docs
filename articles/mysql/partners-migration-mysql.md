@@ -9,11 +9,15 @@ ms.date: 08/08/2018
 ---
 
 # Azure Database for MySQL migration partners
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
+
 To broadly support your Azure Database for MySQL solution, you can choose from a wide variety of industry-leading partners and tools. This article highlights Microsoft partners with migration solutions that support Azure Database for MySQL.
 
 ## Migration partners
+
 | Partner | Description | Links | Videos |
-| --- | --- | --- | --- |
+|---------|-------------|-------|--------|
 | ![SNP Technologies][1] |**SNP Technologies**<br>SNP Technologies is a cloud-only service provider, building secure and reliable solutions for businesses of the future. The company believes in generating real value for your business. From thought to execution, SNP Technologies shares a common purpose with clients, to turn their investment into an advantage.|[Website][snp_website]<br>[Twitter][snp_twitter]<br>[Contact][snp_contact] | |
 | ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB Best helps customers get the most out of a managed Azure database service. The company offers several ways for you to get started, including [Future-State Architectural Design](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Data Management Optimization for Microsoft Data Platform](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Microsoft Azure Deployment Planning Services](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services), and [Azure Data Platform Readiness Training](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Website][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Contact][dbbest_contact] | |
 | ![Pragmatic Works][3] |**Pragmatic Works**<br>Pragmatic Works is a training and consulting company with deep expertise in data management and performance, Business Intelligence, Big Data, Power BI, and Azure. They focus on data optimization and improving the efficiency of SQL Server and cloud management.|[Website][pragmatic-works_website]<br>[Twitter][pragmatic-works_twitter]<br>[YouTube][pragmatic-works_youtube]<br>[Contact][pragmatic-works_contact] | |
@@ -22,6 +26,7 @@ To broadly support your Azure Database for MySQL solution, you can choose from a
 | ![Pactera][6] |**Pactera**<br>Pactera is a global company offering consulting, digital, technology, and operations services to the world’s leading enterprises. From their roots in engineering to the latest in digital transformation, they give customers a competitive edge. Their proven methodologies and tools ensure your data is secure, authentic, and accurate.|[Website][pactera_website]<br>[Twitter][pactera_twitter]<br>[Contact][pactera_contact] | |
 
 ## Next steps
+
 To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
 
 <!--Image references-->

@@ -88,7 +88,7 @@ The dashboard includes the following kinds of tiles:
 
 * **Average pH KPI tiles**: KPI tiles like **Average pH in the last 30 minutes** are at the top of the dashboard pane. You can customize KPI tiles and set each to a different type and time range.
 
-* **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device location. You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
+* **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device [location](../core/howto-use-location-data.md). You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
 
 * **Average pH distribution heat-map chart**: You can select different visualization charts to show device telemetry in the way that is most appropriate for your application.
 

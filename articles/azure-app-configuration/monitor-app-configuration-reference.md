@@ -15,7 +15,7 @@ ms.date: 05/05/2021
 This article is a reference for the monitoring data collected by App Configuration. See [Monitoring App Configuration](monitor-app-configuration.md) for a walk through on to collect and analyze monitoring data for App Configuration.
 
 ## Metrics 
-Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftappconfigurationconfigurationstores)
+Resource Provider and Type: [App Configuration Platform Metrics](../azure-monitor/essentials/metrics-supported.md#microsoftappconfigurationconfigurationstores)
 
 | Metric | Unit | Description |
 |-------|-----| ----- |
@@ -23,7 +23,7 @@ Resource Provider and Type: [App Configuration Platform Metrics](/azure/azure-mo
 |Http Incoming Request Duration | Milliseconds | Server side duration of an Http Request |
 | Throttled Http Request Count | Count |	Throttled requests are Http Requests that return a 429 Status Code (too many requests) |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 
 ## Metric Dimensions
@@ -35,16 +35,16 @@ App Configuration has the following dimensions associated with its metr
 | Http Incoming Request Duration | The server side duration of each request. The supported dimensions are the  using the **HttpStatusCode** or **AuthenticationScheme** of each request. **AuthenticationScheme** can be filtered by AAD or HMAC authentication. |
 | Throttled Http Request Count | This metric does not have any dimensions |
 
- For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+ For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ## Resource logs
 This section lists the category types of resource log collected for App Configuration. 
 
 | Resource log type | Further information|
 |-------|-----|
-| HttpRequest | [App Configuration Resource Log Category Information](/azure/azure-monitor/platform/resource-logs-categories) |
+| HttpRequest | [App Configuration Resource Log Category Information](../azure-monitor/essentials/resource-logs-categories.md) |
 
-For more information, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+For more information, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
  
 ## Azure Monitor Logs tables
 
@@ -87,5 +87,4 @@ App Configuration uses the [AACHttpRequest Table](/azure/azure-monitor/refere
 ## See Also
 
 * See [Monitoring Azure App Configuration](monitor-app-configuration.md) for a description of monitoring Azure App Configuration.
-* See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
-
+* See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

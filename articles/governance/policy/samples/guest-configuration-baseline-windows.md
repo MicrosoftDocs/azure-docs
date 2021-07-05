@@ -1,7 +1,7 @@
 ---
 title: Reference - Azure Policy Guest Configuration baseline for Windows
 description: Details of the Windows baseline on Azure implemented through Azure Policy Guest Configuration.
-ms.date: 05/11/2021
+ms.date: 06/11/2021
 ms.topic: reference
 ms.custom: generated
 ---

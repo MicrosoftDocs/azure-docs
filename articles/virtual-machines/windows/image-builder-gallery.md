@@ -1,5 +1,5 @@
 ---
-title: Use Azure Image Builder with an image gallery for Windows VMs (preview)
+title: Use Azure Image Builder with an image gallery for Windows VMs
 description: Create Azure Shared Gallery image versions using Azure Image Builder and Azure PowerShell.
 author: cynthn
 ms.author: cynthn
@@ -10,7 +10,7 @@ ms.subervice: image-builder
 ms.colletion: windows 
 ms.custom: devx-track-azurepowershell
 ---
-# Preview: Create a Windows image and distribute it to a Shared Image Gallery 
+# Create a Windows image and distribute it to a Shared Image Gallery 
 
 This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
 
@@ -22,25 +22,9 @@ Azure Image Builder automatically runs sysprep to generalize the image, this is 
 
 Be aware how many times you layer customizations. You can run the Sysprep command up to 8 times on a single Windows image. After running Sysprep 8 times, you must recreate your Windows image. For more information, see [Limits on how many times you can run Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```powershell
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Check the status of the feature registration.
-
-```powershell
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
-
-Wait until `RegistrationState` is `Registered` before moving to the next step.
+To use Azure Image Builder, you need to register the feature.
 
 Check your provider registrations. Make sure each returns `Registered`.
 

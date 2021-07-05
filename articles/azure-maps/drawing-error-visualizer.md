@@ -3,7 +3,7 @@ title: Use Azure Maps Drawing Error Visualizer
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 04/21/2021
+ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,7 +12,8 @@ manager: philmea
 
 # Using the Azure Maps Drawing Error Visualizer with Creator
 
-The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with the [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](/rest/api/maps/v2/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
+
+The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](/rest/api/maps/v2/conversion) returns a response with a link to the Error Visualizer only when an error is detected.
 
 ## Prerequisites
 
@@ -40,9 +41,8 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
         "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Failed",
-        "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
         "properties": {
-            "diagnosticPackageLocation": "https://atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=1.0"
+            "diagnosticPackageLocation": "https://us.atlas.microsoft.com/mapData/ce61c3c1-faa8-75b7-349f-d863f6523748?api-version=2.0"
         }
     }
     ```

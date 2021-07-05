@@ -1,13 +1,14 @@
 ---
 title: Azure Video Analyzer for Media (formerly Video Indexer) release notes | Microsoft Docs
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Analyzer for Media (formerly Video Indexer).
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: Juliako
 manager: femila
 editor: ''
 ms.workload: na
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.custom: references_regions
 ms.date: 05/06/2021
 ms.author: juliako
@@ -23,6 +24,31 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## May 2021
+
+### New source languages support for speech-to-text (STT), translation, and search
+
+Video Analyzer for Media now supports STT, translation, and search in Chinese (Cantonese) ('zh-HK'), Dutch (Netherlands) ('Nl-NL'), Czech ('Cs-CZ'), Polish ('Pl-PL'), Swedish (Sweden) ('Sv-SE'), Norwegian('nb-NO'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), 
+Arabic: (United Arab Emirates) ('ar-AE', 'ar-EG'), (Iraq) ('ar-IQ'), (Jordan) ('ar-JO'), (Kuwait) ('ar-KW'), (Lebanon) ('ar-LB'), (Oman) ('ar-OM'), (Qatar) ('ar-QA'), (Palestinian Authority) ('ar-PS'), (Syria) ('ar-SY'), and Turkish('tr-TR'). 
+
+These languages are available in both API and Video Analyzer for Media website. Select the language from the combobox under **Video source language**.
+
+### New theme for Azure Video Analyzer for Media
+
+New theme is available: 'Azure' along with the 'light' and 'dark themes. To select a theme, click on the gear icon in the top-right corner of the website, find themes under **User settings**.
+ 
+### New open-source code you can leverage 
+
+Three new Git-Hub projects are available at our [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer):
+
+* Code to help you leverage the newly added [widget customization](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Embedding%20widgets).
+* Solution to help you add [custom search](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/VideoSearchWithAutoMLVision) to your video libraries.
+* Solution to help you add [de-duplication](https://github.com/Azure-Samples/media-services-video-indexer/commit/6b828f598f5bf61ce1b6dbcbea9e8b87ba11c7b1) to your video libraries.
+ 
+### New option to toggle bounding boxes (for observed people) on the player  
+
+When indexing a video through our advanced video settings, you can view our new observed people capabilities. If there are people detected in your media file, you can enable a bounding box on the detected person through the media player.
 
 ## April 2021
 
@@ -86,14 +112,14 @@ You can now use the search feature, at the top of  the [Video Analyzer for Media
 
 ### Multiple account owners 
 
-Account owner role was added to Video Analyzer for Media. You can add, change and remove users; change their role. For details on how to share an account, see [Invite users](invite-users.md).
+Account owner role was added to Video Analyzer for Media. You can add, change, and remove users; change their role. For details on how to share an account, see [Invite users](invite-users.md).
 
 ### Audio event detection (public preview)
 
 > [!NOTE]
 > This feature is only available in trial accounts. 
 
-Video Analyzer for Media now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, crowd reactions (cheering, clapping and booing) and Silence. 
+Video Analyzer for Media now detects the following audio effects in the non-speech segments of the content: gunshot, glass shatter, alarm, siren, explosion, dog bark, screaming, laughter, crowd reactions (cheering, clapping, and booing) and Silence. 
 
 The newly added audio affects feature is available when indexing your file by choosing the **Advanced option** -> **Advanced audio** preset (under Video + audio indexing). Standard indexing will only include **silence** and **crowd reaction**. 
 
@@ -239,7 +265,7 @@ In the coming weeks we will change it and return the [Video Analyzer for Media w
     Do not use the internal URLs, you should be using the [Video Analyzer for Media public APIs](https://api-portal.videoindexer.ai/).
 * If you are embedding Video Analyzer for Media URLs in your applications and the URLs are not pointing to the [Video Analyzer for Media website](https://www.videoindexer.ai/) or the Video Analyzer for Media API endpoint (`https://api.videoindexer.ai`) but rather to a regional endpoint (for example, `https://wus2.videoindexer.ai`), regenerate the URLs.
 
-   You can do it it by either:
+   You can do it by either:
 
     * Replacing the URL with a URL pointing to the Video Analyzer for Media widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Insights-Widget))
     * Using the Video Analyzer for Media website to generate a new embedded URL:

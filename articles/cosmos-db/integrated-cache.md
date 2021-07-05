@@ -21,6 +21,10 @@ An integrated cache is automatically configured within the dedicated gateway. Th
 
 The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
 
+> [!NOTE]
+> Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
+cosmoscachefeedback@microsoft.com
+
 ## Workloads that benefit from the integrated cache
 
 The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, is not the main benefit of the integrated cache because Azure Cosmos DB is already fast without caching.
@@ -86,7 +90,29 @@ The easiest way to configure eventual consistency for all reads is to [set it at
 
 ## Integrated cache retention time
 
-The cache retention time is the maximum retention for cached data. During the preview, the `MaxIntegratedCacheStaleness` is always set to 5 minutes and isn't possible to customize.
+The cache retention time is the maximum retention for cached data. You can set the cache retention time by configuring the `MaxIntegratedCacheStaleness` for each request. 
+
+Your `MaxIntegratedCacheStaleness` is the maximum time in which you are willing to tolerate stale cached data. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if the data is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
+
+> [!NOTE]
+> When not explicitly configured, the MaxIntegratedCacheStaleness defaults to 5 minutes.
+
+To better understand the `MaxIntegratedCacheStaleness` parameter, consider the following example:
+
+| Time       | Request                                         | Response                                                     |
+| ---------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| t = 0 sec  | Run Query A with MaxIntegratedCacheStaleness = 30 seconds | Return results from backend database (normal RU charges) and populate cache     |
+| t = 0 sec  | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from backend database (normal RU charges) and populate cache     |
+| t = 20 sec | Run Query A with MaxIntegratedCacheStaleness = 30 seconds | Return results from integrated cache (0 RU charge)           |
+| t = 20 sec | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from integrated cache (0 RU charge)           |
+| t = 40 sec | Run Query A with MaxIntegratedCacheStaleness = 30 seconds | Return results from backend database (normal RU charges) and refresh cache |
+| t = 40 sec | Run Query B with MaxIntegratedCacheStaleness = 60 seconds | Return results from integrated cache (0 RU charge)           |
+| t = 50 sec | Run Query B with MaxIntegratedCacheStaleness = 20 seconds | Return results from backend database (normal RU charges) and refresh cache |
+
+> [!NOTE]
+> Customizing `MaxIntegratedCacheStaleness` is only supported in the latest .NET and Java preview SDK's.
+
+[Learn to configure the `MaxIntegratedCacheStaleness`.](how-to-configure-integrated-cache.md#adjust-maxintegratedcachestaleness)
 
 ## Metrics
 

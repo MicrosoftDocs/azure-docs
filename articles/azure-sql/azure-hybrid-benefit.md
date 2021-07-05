@@ -27,8 +27,8 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
 You can choose or change your licensing model in the Azure portal: 
-- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to save money.
-- For existing databases, select **Configure** in the **Settings** menu and select the option to save money.
+- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to **Save Money**.
+- For existing databases, select **Compute + Storage** in the **Settings** menu and select the option to **Save Money**.
 
 You can also configure a new or existing database by using one of the following APIs:
 

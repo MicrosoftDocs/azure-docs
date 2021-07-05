@@ -32,16 +32,16 @@ Microsoft Translator is served out of multiple datacenter locations. Currently t
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
 * **Europe:** North Europe, West Europe
 
-Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
+Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the geography.
 
-To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired geographical endpoint:
+To force the request to be handled by a specific geography, change the Global endpoint in the API request to the desired geographical endpoint:
 
-|Description|Azure geography|Base URL (geographical endpoint)|
-|:--|:--|:--|
-|Azure|Global (non-regional)|	api.cognitive.microsofttranslator.com|
-|Azure|United States|	api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
-|Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
+|Geography|Base URL (geographical endpoint)|
+|:--|:--|
+|Global (non-regional)|	api.cognitive.microsofttranslator.com|
+|United States|	api-nam.cognitive.microsofttranslator.com|
+|Europe|	api-eur.cognitive.microsofttranslator.com|
+|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
 
 <sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’ then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
 ```curl

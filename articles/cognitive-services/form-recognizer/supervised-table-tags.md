@@ -5,7 +5,7 @@ description: Learn how to effectively use supervised table tag labeling.
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021

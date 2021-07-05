@@ -274,8 +274,12 @@
           href: update-management/overview.md
         - name: Supported regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
+        - name: Plan your deployment
+          href: update-management/plan-deployment.md
         - name: Enable
           items:
+            - name: System prerequisites
+              href: update-management/operating-system-requirements.md
             - name: Enable using Azure Resource Manager template
               href: update-management/enable-from-template.md
             - name: Enable from the Azure portal

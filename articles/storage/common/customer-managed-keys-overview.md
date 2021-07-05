@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 05/19/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -51,6 +51,8 @@ The managed identity that's associated with the storage account must have these 
 - *get*  
 
 For more information about key permissions, see [Key types, algorithms, and operations](../../key-vault/keys/about-keys-details.md#key-access-control).
+
+Azure Policy provides a built-in policy to require that storage accounts use customer-managed keys for Blob Storage and Azure Files workloads. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
 ## Customer-managed keys for queues and tables
 

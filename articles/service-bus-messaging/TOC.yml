@@ -94,6 +94,8 @@
     href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
   - name: Advanced features
     items: 
+    - name: Overview of advanced features
+      href: advanced-features-overview.md
     - name: Message sessions
       href: message-sessions.md
     - name: Duplicate message detection

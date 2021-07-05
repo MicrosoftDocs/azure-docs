@@ -61,6 +61,15 @@ The following population tags can be used for the geo-location attribute when de
 | USDoD East     | usgov-ddeast-azr    |
 | USDoD Central  | usgov-ddcentral-azr |
 
+### Azure China
+
+| Display Name   | Population Name     |
+|----------------|---------------------|
+| China East     | mc-cne-azr          |
+| China East 2   | mc-cne2-azr         |
+| China North    | mc-cnn-azr          |
+| China North 2  | mc-cnn2-azr         |
+
 #### Azure
 
 | Display Name                           | Population Name   |
@@ -140,4 +149,4 @@ In addition to the raw results, you can also view two key Availability metrics i
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
 * [Troubleshooting](troubleshoot-availability.md)
-* [Web Tests Azure Resource Manager template](https://docs.microsoft.com/azure/templates/microsoft.insights/webtests?tabs=json)
+* [Web Tests Azure Resource Manager template](/azure/templates/microsoft.insights/webtests?tabs=json)
