@@ -227,7 +227,7 @@ Follow the steps in this section to download, extract, and install the software 
 
    1. Select **Already downloaded or using the latest Azure Backup Server installation** and then **Download** to download the vault credentials. You'll use these credentials when you register the Azure Backup Server to the Recovery Services vault. The links take you to the Download Center, where you download the software package.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Prepare Infrastructure - Azure Backup Server":::
+   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure-2.png" alt-text="Prepare Infrastructure - Azure Backup Server":::
 
 1. On the download page, select all the files and select **Next**.
 
