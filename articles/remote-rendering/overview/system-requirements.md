@@ -106,10 +106,22 @@ The following software must be installed:
 
 ## Unity
 
-For development with Unity, install a current version of Unity 2019.3 or 2019.4 LTS [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+For development with Unity, install a a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
 * **IL2CPP** - Windows Build Support (IL2CPP)
+
+### Unity 2019
+
+For Unity 2019, version 2019.3 or 2019.4 LTS is supported. However to work with the OpenXR version of the plugin, a 2020-based version is required.
+
+### Unity 2020
+
+For Unity 2020, use Unity 2020.3.
+
+> [!IMPORTANT]
+> When working with the OpenXR version of the plugin, it has to be verified that the *Universal Render Pipeline* (URP) has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
+> ![Version of the Universal RP](./media/unity-universal-rp-version-10-5-1.png)
 
 ## Next steps
 
