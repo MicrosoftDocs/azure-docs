@@ -2,7 +2,7 @@
 title: EIoT deployment guide
 description: Learn how to deploy EIoT for your Defender for IoT service.
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 07/05/2021
 ---
 
 # Deploy EIoT 
@@ -55,7 +55,7 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
     
     - 2 Network Adapters
     
-    - OS: Ubuntu 18.04.1 or higher 
+    - OS: Ubuntu 18.04
 
 1. Connect a NIC to a switch.
 
@@ -71,29 +71,57 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
     If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have. 
 
-**Configure an Azure instance**:
-
-Purchase, and set up an Azure IoTHub. The minimum size needed is the smallest hub ($20). 
-
-When creating an IoTHub, fill out your information on the Basics tab, but leave all other tabs on their default settings.
-
-> [!Note]
-> Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
-
-Onboard a new subscription, and provide the subscription ID to your ADIoT contact to ensure you will not be billed.
-
 **Prepare the environment**:
 
 Open the following ports in your firewall:
 
-- 443
+- HTTPS - 443
 
-- 53
+- DNS - 53
 
-- 5671
+- AMQP - 5671, 5672 
 
-- 5672
+### Create a new subscription
 
+If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription. 
+
+Onboard a new subscription, and provide the subscription ID to your Azure Defender for IoT contact to ensure you will not be billed.
+
+To create a new subscription.
+
+1. Navigate to the [Azure portal](https://ms.portal.azure.com/)
+1. Select **Subscriptions**
+1. Select **Add**
+   :::image type="content" source="../cost-management-billing/manage/media/create-subscription/subscription-add.png" alt-text="Screenshot that shows adding a subscription.":::
+1. Select the billing account for which you want to create the subscription.
+1. Fill in the form and click **Create**. The tables below list the fields on the form for each type of billing account.
+
+**Enterprise Agreement**
+
+| Field | Definition |
+|--|--|
+| Name | The display name that helps you easily identify the subscription in the Azure portal. |
+| Offer | Select EA Dev/Test, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Enterprise. DevTest offer must be enabled for your enrollment account to create EA Dev/Test subscriptions. |
+
+**Microsoft Customer Agreement**
+
+| Field | Definition |
+|--|--|
+| Billing profile | The charges for your subscription will be billed to the billing profile that you select. If you have access to only one billing profile, the selection will be greyed out. |
+| Invoice section | The charges for your subscription will appear on this section of the billing profile's invoice. If you have access to only one invoice section, the selection will be greyed out. |
+| Plan | Select Microsoft Azure Plan for DevTest, if you plan to use this subscription for development or testing workloads else use Microsoft Azure Plan. If only one plan is enabled for the billing profile, the selection will be greyed out. |
+| Name | The display name that helps you easily identify the subscription in the Azure portal. |
+
+**Microsoft Partner Agreement**
+
+| Field | Definition |
+|--|--|
+| Customer | The subscription is created for the customer that you select. If you have only one customer, the selection will be greyed out. |
+| Reseller | The reseller that will provide services to the customer. This is an optional field, which is only applicable to Indirect providers in the CSP two-tier model. |
+| Name | The display name that helps you easily identify the subscription in the Azure portal. |
+
+1. Copy the subscription ID, and send a copy to your Azure Defender for IoT contact to ensure you will not be billed.
+ 
 ## Onboard a new subscription
 
 Create, and onboard a new subscription, even if you already have a current subscription with Azure Defender for IoT.
@@ -115,9 +143,9 @@ Create, and onboard a new subscription, even if you already have a current subsc
 
 1. Select the **Onboard** button.
 
-## Configure an Azure Instance
+## Configure an IotHub
 
-**To configure an instance in Azure**:
+**To configure an IoTHub**:
 
 1. Navigate to the [Azure portal](https://ms.portal.azure.com/?enterpriseiot=true#home) located at `https://ms.portal.azure.com/?enterpriseiot=true#home`.
 
@@ -247,7 +275,7 @@ You will need to download a package, and move it, and your activation file to th
     ```bash
     sudo docker logs -f compose_attributes-collector_1
     ```
-    Ensure that a large number of packets is sent to the eventHub. For example, `Sending 100000 messages to eventHub`.
+    Ensure that packets are being sent to the eventHub.
 
 ## Remove the sensor (optional)
 
