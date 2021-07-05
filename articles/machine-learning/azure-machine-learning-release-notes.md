@@ -22,10 +22,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ### Azure Machine Learning SDK for Python v1.32.0
 + **Bug fixes and improvements**
-  + **azureml-automl-core**
-    + Set the time allocated to dynamically search across various featurization strategies to a maximum of one-fourth of the overall experiment timeout
-  + **azureml-automl-runtime**
-    + Set the time allocated to dynamically search across various featurization strategies to a maximum of a one-fourth of the overall experiment timeout
   + **azureml-core**
     + Expose diagnose workspace health in SDK/CLI
   + **azureml-defaults**
@@ -35,8 +31,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-responsibleai**
     + New error analysis client added to upload, download and list error analysis reports
     + Ensure `raiwidgets` and `responsibleai` packages are version synchronised
-  + **azureml-train-automl-client**
-    + Set the time allocated to dynamically search across various featurization strategies to a maximum of one-fourth of the overall experiment timeout
   + **azureml-train-automl-runtime**
     + Set the time allocated to dynamically search across various featurization strategies to a maximum of one-fourth of the overall experiment timeout
 
