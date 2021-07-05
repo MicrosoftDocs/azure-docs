@@ -211,7 +211,7 @@ Azure Backup service provides a [framework](../../../backup/backup-azure-linux-a
 The framework has now been enhanced so that packaged pre-scripts and post-scripts for selected applications like Oracle are provided by the Azure Backup service and are pre-loaded on the Linux image, so there is nothing you need to install. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre and post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are *Oracle* and *MySQL*.
 
 > [!Note]
-> The enhanced framework will apply the pre and post scripts to all Oracle databases installed on the VM. 
+> The enhanced framework will run the pre and post scripts on all Oracle databases installed on the VM each time a backup is executed. 
 >
 > The parameter `configuration_path` in the **workload.conf** file points to the location of the Oracle /etc/oratab file (or a user defined file that follows the oratab syntax). See  [Set up application-consistent backups](#set-up-application-consistent-backups) for details.
 > 
