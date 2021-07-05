@@ -142,7 +142,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
    b. Select **Azure SQL Database** from the gallery, and then select **Continue**.
 
-   c. On the **New connection (Azure SQL Database)** page, select your Azure subscription, server name and database name from the dropdown list, and specify the username and password, then select **Create**.
+   c. On the **New connection (Azure SQL Database)** page, select your Azure subscription, server name and database name from the dropdown list. Then select **SQL authentication** under **Authentication type**, specify the username and password. Test connection and select **Create**.
 
    ![Configure Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
