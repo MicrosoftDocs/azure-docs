@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/06/2020
-ms.author: mmacy
+ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
