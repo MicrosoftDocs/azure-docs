@@ -13,7 +13,11 @@ Azure Functions integrates with Azure Monitor Metrics to let you analyze the met
 > [!NOTE]
 > Azure Monitor Metrics is not currently supported when your function app runs on Linux in a Consumption plan.
 
-## Functions-specific metrics
+## Available metrics
+
+Azure Monitor collects numeric data from a set of monitored resources, which are entered into a time series database. Azure Monitor collects metrics specific to both Functions and the underlying App Service resources.   
+
+### Functions-specific metrics
 
 There are two metrics specific to Functions that are of interest:
 
@@ -22,11 +26,15 @@ There are two metrics specific to Functions that are of interest:
 | **FunctionExecutionCount** | Function execution count indicates the number of times your function app has executed. This value correlates to the number of times a function runs in your app. |
 | **FunctionExecutionUnits** | Function execution units are a combination of execution time and your memory usage.  Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
 
-## General App Service metrics
+These metrics are used specifically when [estimating Consumption plan costs](functions-consumption-costs.md). 
+
+### General App Service metrics
 
 Aside from function-specific metrics, the App Service platform implements more metrics, which you can use to monitor function apps. For the complete list, see [metrics available to App Service apps](../app-service/web-sites-monitor.md#understand-metrics).
 
-## Estimate consumption costs
+## Accessing metrics
+
+You can use either [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data. 
 
 The following examples use Monitor Metrics to help estimate the cost of running your function app on a Consumption plan. To learn more about estimating Consumption plan costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
 

@@ -6,13 +6,11 @@ ms.date: 07/04/2021
 ms.author: glenga
 ---
 
-You can use either [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) in the [Azure portal] or REST APIs to get Monitor Metrics data.
-
 #### [Portal](#tab/portal)
 
 Use [Azure Monitor metrics explorer](../articles/azure-monitor/essentials/metrics-getting-started.md) to view cost-related data for your Consumption plan function apps in a graphical format. 
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
+1. In the [Azure portal], navigate to your function app.
 
 1. In the left panel, scroll down to **Monitoring** and choose **Metrics**.  
 
@@ -28,7 +26,7 @@ The resulting chart contains the totals for both execution metrics in the chosen
 
 As the number of execution units is so much greater than the execution count, the chart just shows execution units.
 
-This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1024000. In this example, the function app consumed `1110000000 / 1024000 = 1083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page][pricing page], which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
+This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1024000. In this example, the function app consumed `1110000000 / 1024000 = 1083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/), which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
 
 #### [Azure CLI](#tab/azurecli)
 
@@ -122,3 +120,5 @@ This command returns a JSON payload that looks like the following example:
 This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
 
 ---
+
+[Azure portal]: https://portal.azure.com
