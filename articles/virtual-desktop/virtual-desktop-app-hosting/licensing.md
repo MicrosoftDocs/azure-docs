@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Desktop app hosting licenses - Azure
-description: An overview of app hosting licensing options for Azure Virtual Desktop.
+title: Licensing Azure Virtual Desktop for remote app streaming - Azure
+description: An overview of Azure Virtual Desktop licensing considerations for remote app streaming.
 services: virtual-desktop
 author: Heidilohr
 
@@ -18,17 +18,17 @@ This article explains the licensing requirements for using Azure Virtual Desktop
 
 There are two different ways you can use Azure Virtual Desktop. Each way has different licensing requirements:
 
-- For streaming RemoteApps and desktops to internal users. For example, a company named Contoso might use Azure Virtual Desktop to provide Contoso’s employees with access to virtual workstations and line-of-business apps. In this case, Contoso must purchase one of the eligible licenses listed in [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for each of their employees that will access Azure Virtual Desktop.
+- For streaming RemoteApps and desktops to internal users. For example, the manufacturing company Fabrikam, Inc. might use Azure Virtual Desktop to provide Fabrikam's employees with access to virtual workstations and line-of-business apps. In this case, Fabrikam must purchase one of the eligible licenses listed in [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for each of their employees that will access Azure Virtual Desktop.
 
 - For streaming RemoteApps and desktops to external users. For example, a software vendor called Contoso might use Azure Virtual Desktop to serve remote streams of Contoso’s productivity app to Contoso’s customers (users who aren't Contoso employees). In this case, Contoso must enroll in Azure Virtual Desktop’s per-user access pricing. This license type lets Contoso pay for Azure Virtual Desktop access rights on behalf of those users through an Azure meter based on the number of users who access Azure Virtual Desktop each month. The users in the deployment don't need a separate license like Microsoft 365 to access Azure Virtual Desktop.
 
 ## Per-user access pricing for Azure Virtual Desktop
 
-Per-user access pricing lets you pay for Azure Virtual Desktop access rights on behalf of external users. You must enroll in per-user access pricing to build a compliant deployment for external users. To learn more, see [Enroll in per-user access licensing]().
+Per-user access pricing lets you pay for Azure Virtual Desktop access rights on behalf of external users. You must enroll in per-user access pricing to build a compliant deployment for external users. To learn more, see [Enroll in per-user access pricing]().
 
 You pay for per-user access pricing through your enrolled Azure subscription or subscriptions on top of your charges for virtual machines, storage, and other Azure services. Each billing cycle, you only pay for users who actually used the service. Only users that connect at least once to Azure Virtual Desktop that month incur an access charge.
 
-There are two price tiers for Azure Virtual Desktop per-user access pricing. Charges are determined automatically each billing cycle based on the RemoteApps and Desktops a user connected to.
+There are two price tiers for Azure Virtual Desktop per-user access pricing. Charges are determined automatically each billing cycle based on the type of [application groups](https://docs.microsoft.com/azure/virtual-desktop/environment-setup#app-groups) a user connected to.
 
 - The first price tier is called "Apps." This flat price is charged for each user who accesses at least one RemoteApp application group and zero Desktop application groups.
 - The second tier is "Apps + Desktops." This flat price is charged for each user who accesses at least one Desktop application group.
@@ -43,7 +43,7 @@ For more information about prices, see [Azure Virtual Desktop pricing](https://a
 
 Each price tier has flat per-user access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle.
 
-Azure Virtual Desktop will also charge users with separate assigned licenses that otherwise entitles them to Azure Virtual Desktop access. If you have internal users you're purchasing eligible licenses for, we recommend you give them access to Azure Virtual Desktop through a separate subscription that isn't enrolled in per-user access pricing to avoid effectively paying twice for those users.
+Azure Virtual Desktop will also charge users with separate assigned licenses that otherwise entitle them to Azure Virtual Desktop access. If you have internal users you're purchasing eligible licenses for, we recommend you give them access to Azure Virtual Desktop through a separate subscription that isn't enrolled in per-user access pricing to avoid effectively paying twice for those users.
 
 Azure Virtual Desktop will issue at most one access charge for a given user in a given billing period. So if your deployment grants user Alice access to Azure Virtual Desktop resources across two different Azure subscriptions in the same tenant, only the first subscription accessed by Alice will incur a usage charge.
 
