@@ -16,7 +16,11 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-INTRO TK
+After you activate an Azure Stack Edge Pro GPU device, you can manage the local (Edge) resource groups in the Azure portal. 
+
+Edge resource groups contain resources that you create while creating and deploying virtual machines on your device. The default Edge resource group, ASERG, contains the default local network configuration, ASENET.
+
+The Resources pane is available in the portal after you activate your device.
 
 ## View Edge resource groups
 
@@ -26,9 +30,15 @@ To view the Edge resource groups on your Azure Stack Edge Pro GPU device, do the
 
     ![Screenshot showing Edge resource groups tab in Resources for a virtual machine in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-01-edge-resource-groups.png)
 
+You can also use [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0) in [Azure Az Powershell](/powershell/azure/new-azureps-module-az?view=azps-6.1.0) to list the Edge resource groups on a device. Get-AzResource by default returns all local resource groups for the current subscription. 
+
+ADD SAMPLE RETURNED LIST.
+
 ## Delete a resource group
 
-When a resource group is no longer in use, it's a good idea to delete it. To be deleted, a resource group must be empty.
+When a resource group is no longer in use, it's a good idea to delete it.
+
+A resource group must be empty to be deleted. You can't delete the default Edge resource group, ASERG.
 
 To delete an Edge resource group, do these steps:
 

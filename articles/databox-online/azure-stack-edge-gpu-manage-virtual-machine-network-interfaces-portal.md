@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 07/06/2021
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
+# Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.<!--Does "it" refer to the device or to the virtual NICs?-->
 ---
 
 # Use the Azure portal to manage network interfaces on the VMs on your Azure Stack Edge Pro GPU
@@ -20,7 +20,7 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge device u
 
 When you create a VM, you specify one virtual network interface to be created. You may want to add one or more network interfaces to the virtual machine after it is created. You may also want to change the default network interface settings for an existing network interface.
 
-This article explains how to add a network interface to an existing VM, change existing settings such as IP type (static vs. dynamic), and finally remove or detach an existing interface. 
+This article explains how to add a network interface to an existing VM, change existing settings such as IP type (static vs. dynamic), and finally detach or delete an existing interface. 
 
         
 ## About network interfaces on VMs
@@ -53,11 +53,11 @@ Before you begin to manage VMs on your device via the Azure portal, make sure th
 
 ## Add a network interface
 
-Follow these steps to add a network interface to a virtual machine deployed on your device. 
+Follow these steps to add a network interface to a virtual machine deployed on your device.<!--There's no obvious way to add a new NIC to a VM or to an Edge resource group in the portal. To update these procedures, I need to create my own test VM, which I can start and stop, create a new NIC for, detach a NIC from the stopped VM, etc.-->
 
-1. Go to the virtual machine that you have stopped and then go to the **VM Properties** page. Select **Networking**.
+1. Go to the virtual machine that you have stopped, and then go to the **VM Properties** page. Select **Networking**.<!--Networking settings will be on the main screen for the VM. They look to be a passive display. To add a NIC, they need to add it to an Edge resource group, and then attach it to the VM?-->
     
-    ![Select Networking on VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
+    ![Select Resources and then Networking on the Virtual machines page for a device](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
 
 2. In the **Networking** blade, from the command bar, select **+ Add network interface**.
 
@@ -112,6 +112,19 @@ Follow these steps to detach or remove a network interface associated with a vir
     ![Select a network interface to detach](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
 
 1. After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
+
+## Delete a network interface
+
+Follow these steps to delete a network interface that isn't attached to a virtual machine. The default network interface, ASENET, can't be deleted.
+
+1. Go to **Virtual machines** and then go to the **Resources** page. Select **Networking**.
+    
+    ![Select Networking on Resources page for virtual machines](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
+
+2. In the **Networking** blade, select the trashcan icon by the network interface you want to delete. The icon is only displayed for network interfaces that aren't attached to a VM.
+
+    ![Select the trashcan icon to Delete an unattached network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-2.png)
+
 
 ## Next steps
 
