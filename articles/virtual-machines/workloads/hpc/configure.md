@@ -5,7 +5,7 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/19/2021
+ms.date: 06/02/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -18,13 +18,14 @@ This article shares some guidance on configuring and optimizing the InfiniBand e
 ## VM images
 On InfiniBand (IB) enabled VMs, the appropriate drivers are required to enable RDMA.
 - The [CentOS-HPC VM images](#centos-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers.
+  - The CentOS-HPC version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers. 
 - The [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers and GPU drivers.
 
 These VM images (VMI) are based on the base CentOS and Ubuntu marketplace VM images. Scripts used in the creation of these VM images from their base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 
 On GPU enabled [N-series](../../sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required. This can be available by the following methods:
-- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
-- Add the GPU drivers through the [VM extensions](../../extensions/hpccompute-gpu-linux.md)
+- Use the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [CentOS-HPC VM image](#centos-hpc-vm-images) version 7.9 which come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
+- Add the GPU drivers through the [VM extensions](../../extensions/hpccompute-gpu-linux.md).
 - Install the GPU drivers [manually](../../linux/n-series-driver-setup.md).
 - Some other VM images on the Marketplace also come pre-installed with the Nvidia GPU drivers, including some VM images from Nvidia.
 
@@ -39,7 +40,7 @@ The latest Azure HPC marketplace images come with Mellanox OFED 5.1 and above, w
 - [N-series](../../sizes-gpu.md): NDv2, NDv4
 
 #### GPU driver support
-Currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
+Currently only the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images)  and [CentOS-HPC VM images](#centos-hpc-vm-images) version 7.9 come pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
 
 The VM size support matrix for the GPU drivers in supported HPC VM images is as follows:
 - [N-series](../../sizes-gpu.md): NDv2, NDv4 VM sizes are supported with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
@@ -58,6 +59,9 @@ For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances)
    ```
 - Scripts used in the creation of the CentOS-HPC version 7.6 and later VM images from a base CentOS Marketplace image are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/tree/master/centos).
 - Additionally, details on what's included in the CentOS-HPC version 7.6 and later VM images, and how to deploy them are in a [TechCommunity article](https://techcommunity.microsoft.com/t5/azure-compute/azure-hpc-vm-images/ba-p/977094).
+
+> [!NOTE] 
+> Among the CentOS-HPC VM images, currently only the version 7.9 VM image additionally comes pre-configured with the Nvidia GPU drivers and GPU compute software stack (CUDA, NCCL).
 
 > [!NOTE] 
 > SR-IOV enabled N-series VM sizes with FDR InfiniBand (e.g. NCv3 and older) will be able to use the following CentOS-HPC VM image or older versions from the Marketplace:

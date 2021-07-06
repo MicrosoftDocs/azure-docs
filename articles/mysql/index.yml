@@ -33,11 +33,13 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: single-server-overview.md
-          - text: What's new in Single Server?
-            url: single-server-whats-new.md            
+            url: single-server-overview.md  
           - text: View all Single server documentation
             url: single-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Single Server?
+            url: single-server-whats-new.md
       - linkListType: concept
         links:
           - text: Server concepts
@@ -63,6 +65,10 @@ landingContent:
             url: flexible-server/overview.md
           - text: View all Flexible server documentation
             url: flexible-server/index.yml
+      - linkListType: whats-new
+        links:
+          - text: What's new in Flexible Server?
+            url: flexible-server/whats-new.md
       - linkListType: concept
         links:
           - text: Server concepts
@@ -100,7 +106,27 @@ landingContent:
           - text: Connect to Flexible server using Python
             url: flexible-server/connect-python.md
 
-# Card 4
+# Card 5
+  - title: Migrations
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Azure Database for MySQL migration guide
+          url: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
+        - text: dbForge Studio for MySQL
+          url: concepts-migrate-dbforge-studio-for-mysql.md
+        - text: Dump and restore
+          url: concepts-migrate-dump-restore.md
+        - text: Import and export
+          url: concepts-migrate-import-export.md
+        - text: Migrate Amazon RDS for MySQL with MySQL Workbench
+          url: how-to-migrate-rds-mysql-workbench.md
+        - text: Minimal-downtime migration
+          url: howto-migrate-online.md
+        - text: Common errors during or post migration
+          url: howto-troubleshoot-common-errors.md
+
+# Card 5
   - title: Manage and migrate data
     linkLists:
       - linkListType: concept
@@ -124,7 +150,7 @@ landingContent:
           - text: Troubleshoot common errors
             url: howto-troubleshoot-common-errors.md
 
-# Card 5
+# Card 6
   - title: Application Development
     linkLists:
       - linkListType: concept

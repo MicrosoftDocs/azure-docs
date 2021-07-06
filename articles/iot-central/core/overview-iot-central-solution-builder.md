@@ -36,8 +36,7 @@ When a device connects to an IoT Central, the device is associated with a device
 A solution developer can add rules to an IoT Central application that run customizable actions. Rules evaluate conditions, based on data coming from a device, to determine when to run an action. To learn more about rules, see:
 
 - [Tutorial: Create a rule and set up notifications in your Azure IoT Central application](tutorial-create-telemetry-rules.md)
-- [Create webhook actions on rules in Azure IoT Central](howto-create-webhooks.md)
-- [Group multiple actions to run from one or more rules](howto-use-action-groups.md)
+- [Configure rules](howto-configure-rules.md)
 
 IoT Central has built-in analytics capabilities that an operator can use to analyze the data flowing from the connected devices. To learn more, see [How to use analytics to analyze device data](howto-create-analytics.md).
 

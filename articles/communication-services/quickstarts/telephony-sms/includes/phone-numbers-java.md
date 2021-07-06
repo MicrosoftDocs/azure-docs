@@ -1,3 +1,6 @@
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/PhoneNumbers)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -21,6 +24,12 @@ You'll notice that the 'generate' task created a directory with the same name as
 Open the **pom.xml** file in your text editor. Add the following dependency elements to the group of dependencies.
 
 ```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-communication-common</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>

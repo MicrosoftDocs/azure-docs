@@ -50,6 +50,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | NCv3 | All sizes |
 | NCasT4_v3 | All sizes |
 | ND | All sizes |
+| NDv4 | All sizes |
 | NDv2 | None - not yet available |
 | NP | All sizes |
 | NV | All sizes |

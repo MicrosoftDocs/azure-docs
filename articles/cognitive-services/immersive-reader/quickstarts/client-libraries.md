@@ -6,7 +6,7 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 zone_pivot_groups: programming-languages-set-twenty
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 03/08/2021

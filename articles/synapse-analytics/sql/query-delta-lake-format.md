@@ -177,8 +177,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 
 ## Limitations
 
-- Schema inference doesn't work if you have complex data types. For complex data types, use explicit `WITH` schema and specify `VARCHAR(MAX)` type. 
-- The `OPENROWSET` function doesn't support updating a Delta Lake file or time travel. Use Apache Spark engine to perform these actions.
+This feature is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Next steps
 
@@ -189,5 +188,6 @@ If you want to continue building Delta Lake solution, learn how to create [views
 
 - [What is Delta Lake](../spark/apache-spark-what-is-delta-lake.md)
 - [Learn how to use Delta Lake in Apache Spark pools for Azure Synapse Analytics](../spark/apache-spark-delta-lake-overview.md)
-- [Azure Databricks Delta Lake best practices](/azure/databricks/delta/best-practices.md)
+- [Azure Databricks Delta Lake best practices](/azure/databricks/best-practices-index)
 - [Delta Lake Documentation Page](https://docs.delta.io/latest/delta-intro.html)
+- [Know issues and limitations](resources-self-help-sql-on-demand.md#delta-lake)

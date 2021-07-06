@@ -29,7 +29,7 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 |Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Reader** on the workspace to which the host connects|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, Azure China)|
 |||
 
 ## Identify and remediate security vulnerabilities in your Docker configuration
@@ -40,18 +40,18 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
     The recommendation page shows the affected resources (Docker hosts). 
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations ":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-found.png" alt-text="Recommendation to remediate vulnerabilities in container security configurations .":::
 
 1. To view and remediate the CIS controls that a specific host failed, select the host you want to investigate. 
 
     > [!TIP]
-    > If you started at the asset inventory page and reached this recommendation from there, selec tthe **Take action** button on the recommendation page.
+    > If you started at the asset inventory page and reached this recommendation from there, select the **Take action** button on the recommendation page.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Take action button to launch Log Analytics":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Take action button to launch Log Analytics.":::
 
     Log Analytics opens with a custom operation ready to run. The default custom query includes a list of all failed rules that were assessed, along with guidelines to help you resolve the issues.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Log Analytics page with the query showing all failed CIS controls":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Log Analytics page with the query showing all failed CIS controls.":::
 
 1. Tweak the query parameters if necessary.
 

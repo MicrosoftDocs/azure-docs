@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/16/2021
 ms.author: aahi
 ---
 
@@ -72,17 +72,6 @@ See the [entity categories](../named-entity-types.md?tabs=health) returned by Te
 
 Text Analytics for health only supports English language documents. 
 
-## Request access to the public preview
-
-Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to the Text Analytics for health public preview. You will not be billed for Text Analytics for health usage. 
-
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
-
-> [!IMPORTANT]
-> * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Azure resource you use must have been created with the approved Azure subscription ID. 
-> * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
-
 ## Using the Docker container 
 
 To run the Text Analytics for health container in your own environment, follow these [instructions to download and install the container](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare).
@@ -100,11 +89,9 @@ The latest prerelease of the Text Analytics client library enables you to call T
 
 ### Preparation
 
-Text Analytics for health produces a higher-quality result when you give it smaller amounts of text to work on. This is opposite to some of the other Text Analytics features such as key phrase extraction which performs better on larger blocks of text. To get the best results from these operations, consider restructuring the inputs accordingly.
-
 You must have JSON documents in this format: ID, text, and language. 
 
-Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../concepts/data-limits.md?tabs=version-3) article under Concepts. The collection is submitted in the body of the request.
+Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../concepts/data-limits.md?tabs=version-3) article under Concepts. The collection is submitted in the body of the request. If your text exceeds this limit, consider splitting the text into separate requests. For best results, split text between sentences.  
 
 ### Structure the API request for the hosted asynchronous web API
 
@@ -512,6 +499,18 @@ Text Analytics for Health recognizes relations between different concepts, inclu
 
 **ABBREVIATION**
 
+**BODY_SITE_OF_CONDITION**
+
+**BODY_SITE_OF_TREATMENT**
+
+**COURSE_OF_CONDITION**
+
+**COURSE_OF_EXAMINATION**
+
+**COURSE_OF_MEDICATION**
+
+**COURSE_OF_TREATMENT**
+
 **DIRECTION_OF_BODY_STRUCTURE**
 
 **DIRECTION_OF_CONDITION**
@@ -522,17 +521,31 @@ Text Analytics for Health recognizes relations between different concepts, inclu
 
 **DOSAGE_OF_MEDICATION**
 
+**EXAMINATION_FINDS_CONDITION**
+
+**EXPRESSION_OF_GENE**
+
+**EXPRESSION_OF_VARIANT**
+
 **FORM_OF_MEDICATION**
+
+**FREQUENCY_OF_CONDITION**
 
 **FREQUENCY_OF_MEDICATION**
 
 **FREQUENCY_OF_TREATMENT**
+
+**MUTATION_TYPE_OF_GENE**
+
+**MUTATION_TYPE_OF_VARIANT**
 
 **QUALIFIER_OF_CONDITION**
 
 **RELATION_OF_EXAMINATION**
 
 **ROUTE_OF_MEDICATION**	
+
+**SCALE_OF_CONDITION**
 
 **TIME_OF_CONDITION**
 
@@ -551,6 +564,8 @@ Text Analytics for Health recognizes relations between different concepts, inclu
 **VALUE_OF_CONDITION**	
 
 **VALUE_OF_EXAMINATION**
+
+**VARIANT_OF_GENE**
 
 > [!NOTE]
 > * Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.

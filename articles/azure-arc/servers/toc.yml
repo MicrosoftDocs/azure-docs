@@ -25,6 +25,8 @@
       href: security-controls-policy.md
     - name: Security overview
       href: security-overview.md
+    - name: Private Link networking
+      href: private-link-security.md
 - name: How-to guides
   items:
   - name: Deploy

@@ -4,8 +4,8 @@ description: Set plan technical configuration for an IoT Edge Module offer on Az
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: aarathin
+ms.author: aarathin
 ms.date: 05/21/2021
 ---
 
@@ -120,5 +120,5 @@ Select **Save draft**, then **← Plan overview** in the left-nav menu to return
 
 ## Next steps
 
-- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](marketplace-co-sell.md).
+- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](./co-sell-overview.md).
 - If you're not setting up co-sell or you've finished, it's time to [Review and publish your offer](review-publish-offer.md).

@@ -4,7 +4,7 @@ description: Describes how to define and consume a module, and how to use module
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/03/2021
 ---
 
 # Use Bicep modules
@@ -79,7 +79,7 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
 - **module**: Keyword.
 - **symbolic name** (stgModule): Identifier for the module.
-- **module file**: The path to the module in this example is specified using a relative path (./storageAccount.bicep). All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash (\\) character is unsupported.
+- **module file**: Module files must be referenced by using relative paths. All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash (\\) character is unsupported. Paths can contain spaces.
 - The **_name_** property (storageDeploy) is required when consuming a module. When Bicep generates the template IL, this field is used as the name of the nested deployment resource, which is generated for the module:
 
     ```json

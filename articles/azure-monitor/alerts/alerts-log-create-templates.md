@@ -10,7 +10,7 @@ ms.date: 09/22/2020
 
 Log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resources logs every set frequency, and fire an alert based on the results. Rules can trigger run one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
 
-This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
+This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to configure [log alerts](./alerts-unified-log.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Log alerts are created in the `Microsoft.Insights/scheduledQueryRules` resource provider. See API reference for [Scheduled Query Rules API](/rest/api/monitor/scheduledqueryrules/).
 
 The basic steps are as follows:
 

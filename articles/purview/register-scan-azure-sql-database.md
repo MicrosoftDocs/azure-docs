@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 05/08/2021
+ms.date: 06/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -24,7 +24,6 @@ The Azure SQL Database data source supports the following functionality:
 
 ### Known limitations
 
-> * Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) in Azure SQL Database.
 > * Azure Purview doesn't support over 300 columns in the Schema tab and it will show "Additional-Columns-Truncated". 
 
 ## Prerequisites

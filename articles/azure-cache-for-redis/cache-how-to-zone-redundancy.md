@@ -52,7 +52,7 @@ To create a cache, follow these steps:
     > Zone redundancy doesn't support AOF persistence or work with geo-replication currently.
     >
 
-1. Click **Create**. 
+1. Select **Create**. 
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
    
@@ -69,7 +69,7 @@ To create a cache, follow these steps:
 
 ### Why can't I enable zone redundancy when creating a Premium cache?
 
-Zone redundancy is available only in Azure regions that have Availability Zones. See [Azure regions with Availability Zones](/azure/availability-zones/az-region#azure-services-supporting-availability-zones) for the latest list.
+Zone redundancy is available only in Azure regions that have Availability Zones. See [Azure regions with Availability Zones](../availability-zones/az-region.md#azure-services-supporting-availability-zones) for the latest list.
 
 ### Why can't I select all three zones during cache create?
 

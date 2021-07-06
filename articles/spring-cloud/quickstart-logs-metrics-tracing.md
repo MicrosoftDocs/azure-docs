@@ -237,7 +237,7 @@ az group delete --name <your resource group name; for example: helloworld-155840
 In an earlier quickstart, you also set the default resource group name. If you don't intend to continue to the next quickstart, clear out that default by running the following CLI command:
 
 ```azurecli
-az configure --defaults group=
+az config set defaults.group=
 ```
 
 ## Next steps

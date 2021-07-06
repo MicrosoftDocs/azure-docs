@@ -13,9 +13,9 @@ ms.custom: devx-track-azurepowershell
 
 # Virtual machines in an Azure Resource Manager template
 
-This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn’t describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-There are many [templates in the gallery](https://azure.microsoft.com/documentation/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
+There are many [templates in the gallery](https://azure.microsoft.com/resources/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
  
 
@@ -29,7 +29,7 @@ This example shows a typical resource section of a template for creating a speci
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",	
+      "name": "virtualMachineLoop",  
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -160,7 +160,7 @@ Use these opportunities for getting the latest API versions:
 
 ## Parameters and variables
 
-[Parameters](../../azure-resource-manager/templates/template-syntax.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
+[Parameters](../../azure-resource-manager/templates/syntax.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
 
 ```json
 "parameters": {
@@ -172,7 +172,7 @@ Use these opportunities for getting the latest API versions:
 
 When you deploy the example template, you enter values for the name and password of the administrator account on each VM and the number of VMs to create. You have the option of specifying parameter values in a separate file that's managed with the template, or providing values when prompted.
 
-[Variables](../../azure-resource-manager/templates/template-syntax.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
+[Variables](../../azure-resource-manager/templates/syntax.md) make it easy for you to set up values in the template that are used repeatedly throughout it or that can change over time. This variables section is used in the example:
 
 ```json
 "variables": { 
@@ -205,7 +205,7 @@ When you deploy the example template, you enter values for the name and password
 }, 
 ```
 
-When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/template-best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
+When you deploy the example template, variable values are used for the name and identifier of the previously created storage account. Variables are also used to provide the settings for the diagnostic extension. Use the [best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/best-practices.md) to help you decide how you want to structure the parameters and variables in your template.
 
 ## Resource loops
 
@@ -213,7 +213,7 @@ When you need more than one virtual machine for your application, you can use a 
 
 ```json
 "copy": {
-  "name": "virtualMachineLoop",	
+  "name": "virtualMachineLoop",  
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -233,7 +233,7 @@ Also, notice in the example that the loop index is used when specifying some of 
 >
 >
 
-Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can’t use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
+Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can't use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
 
 ```json
 "networkInterfaces": [ { 
@@ -244,7 +244,7 @@ Keep in mind that creating a loop for one resource in the template may require y
 
 ## Dependencies
 
-Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
+Most resources depend on other resources to work correctly. Virtual machines must be associated with a virtual network and to do that it needs a network interface. The [dependsOn](../../azure-resource-manager/templates/resource-dependency.md) element is used to make sure that the network interface is ready to be used before the VMs are created:
 
 ```json
 "dependsOn": [
@@ -444,11 +444,11 @@ If you're curious about the status of resources in the deployment, view the reso
 
 ![Get deployment information](./media/template-description/virtual-machines-deployment-info.png)
     
-It’s not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../azure-resource-manager/templates/deploy-powershell.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that aren't in the template.
+It's not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../azure-resource-manager/templates/deploy-powershell.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that aren't in the template.
 
 ## Next Steps
 
-- Create your own template using [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+- Create your own template using [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 - Deploy the template that you created using [Create a Windows virtual machine with a Resource Manager template](ps-template.md).
 - Learn how to manage the VMs that you created by reviewing [Create and manage Windows VMs with the Azure PowerShell module](tutorial-manage-vm.md).
 - For the JSON syntax and properties of resource types in templates, see [Azure Resource Manager template reference](/azure/templates/).

@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/21/2021
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
@@ -73,7 +73,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 **Suggested solution:** To resolve the issue, do these steps:
 
-1.	To find out what process is applying the lock, search the \var\log\azure\nvidia-vmext-status log for an error such as “dpkg is used by another process” or ”Another app is holding yum lock”.
+1.	To find out what process is applying the lock, search the \var\log\azure\nvidia-vmext-status log for an error such as “dpkg is used by another process” or ”Another app is holding `yum lock`”.
 
 1. Either wait for the process to finish, or end the process.
 
@@ -84,4 +84,4 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 ## Next steps
 
-- [Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)
+[Collect guest logs, and create a Support package](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md)

@@ -157,4 +157,4 @@ az spring-cloud app update --name visits-service \
 
 ## Next steps
 * [Bind an Azure Database for MySQL instance to your Azure Spring Cloud application](how-to-bind-mysql.md)
-* [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](/connect-managed-identity-to-azure-sql.md)
+* [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](./connect-managed-identity-to-azure-sql.md)

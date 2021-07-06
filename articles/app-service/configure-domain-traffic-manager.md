@@ -95,4 +95,4 @@ After the records for your domain name have propagated, use the browser to verif
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure a custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md)
+> [Secure a custom DNS name with an TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

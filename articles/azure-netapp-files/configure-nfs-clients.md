@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/17/2021
+ms.date: 06/17/2021
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
@@ -244,7 +244,11 @@ The following steps are optional.  You need to perform the steps only if you wan
 
     `base dc=contoso,dc=com uri ldap://10.20.0.4:389/ ldap_version 3 rootbinddn cn=admin,cn=Users,dc=contoso,dc=com pam_password ad`   
 
-2. Run the following command to restart and enable the service:
+2. Ensure that your `/etc/nsswitch.conf` file has the following `ldap` entries:   
+    `passwd:    compat systemd ldap`   
+    `group:     compat systemd ldap`
+
+3. Run the following command to restart and enable the service:
 
     `sudo systemctl restart nscd && sudo systemctl enable nscd`   
 

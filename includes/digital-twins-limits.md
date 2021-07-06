@@ -12,7 +12,7 @@ ms.author: baanders
 The following table lists the functional limits of Azure Digital Twins. 
 
 > [!TIP]
-> For modeling recommendations to operate within these functional limits, see [Best practices for designing models](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
+> For modeling recommendations to operate within these functional limits, see [Modeling best practices](../articles/digital-twins/concepts-models.md#modeling-best-practices).
 
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |

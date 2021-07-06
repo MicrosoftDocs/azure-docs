@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 06/24/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
@@ -28,16 +28,16 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------|---------------|---------------|
-| [Gremlin API support](search-howto-index-cosmosdb-gremlin.md) | For indexer-based indexing, you can now create a data source that retrieves content from Cosmos DB accessed through the Gremlin API. | Public preview ([by request](https://aka.ms/azure-cognitive-search/indexer-preview)), using api-version=2020-06-30-Preview. |
+| [Gremlin API support (preview)](search-howto-index-cosmosdb-gremlin.md) | For indexer-based indexing, you can now create a data source that retrieves content from Cosmos DB accessed through the Gremlin API. | Public preview ([by request](https://aka.ms/azure-cognitive-search/indexer-preview)), using api-version=2020-06-30-Preview. |
 
 ## March 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------|---------------|---------------|
-| [Semantic search](semantic-search-overview.md) | A collection of query-related features that significantly improve the relevance of search results through minimal adjustments to a query request. </br></br>[Semantic ranking](semantic-ranking.md) computes relevance scores using the semantic meaning behind words and content. </br></br>[Semantic captions](semantic-how-to-query-request.md) return relevant passages from the document that best summarize the document, with highlights over the most important terms or phrases. </br></br>[Semantic answers](semantic-answers.md) return key passages, extracted from a search document, that are formulated as a direct answer to a query that looks like a question. | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview or [Search explorer](search-explorer.md) in Azure portal. </br></br>Region and tier restrictions apply. |
-| [Spell check query terms](speller-how-to-add.md) | Before query terms reach the search engine, you can have them checked for spelling errors. The `speller` option works with any query type (simple, full, or semantic). |  Public preview, REST only, api-version=2020-06-30-Preview|
-| [SharePoint Online indexer](search-howto-index-sharepoint-online.md) | This indexer connects you to a SharePoint Online site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
-| [Normalizers](search-normalizers.md) | Normalizers provide simple text pre-processing: consistent casing, accent removal, and ASCII folding, without invoking the full text analysis chain.| Public preview, REST only, api-version=2020-06-30-Preview |
+| [Semantic search (preview)](semantic-search-overview.md) | A collection of query-related features that significantly improve the relevance of search results through minimal adjustments to a query request. </br></br>[Semantic ranking](semantic-ranking.md) computes relevance scores using the semantic meaning behind words and content. </br></br>[Semantic captions](semantic-how-to-query-request.md) return relevant passages from the document that best summarize the document, with highlights over the most important terms or phrases. </br></br>[Semantic answers](semantic-answers.md) return key passages, extracted from a search document, that are formulated as a direct answer to a query that looks like a question. | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview or [Search explorer](search-explorer.md) in Azure portal. </br></br>Region and tier restrictions apply. |
+| [Spell check query terms (preview)](speller-how-to-add.md) | Before query terms reach the search engine, you can have them checked for spelling errors. The `speller` option works with any query type (simple, full, or semantic). |  Public preview, REST only, api-version=2020-06-30-Preview|
+| [SharePoint Online indexer (preview)](search-howto-index-sharepoint-online.md) | This indexer connects you to a SharePoint Online site so that you can index content from a document library. | Public preview, REST only, api-version=2020-06-30-Preview |
+| [Normalizers (preview)](search-normalizers.md) | Normalizers provide simple text pre-processing: consistent casing, accent removal, and ASCII folding, without invoking the full text analysis chain.| Public preview, REST only, api-version=2020-06-30-Preview |
 | [Custom Entity Lookup skill](cognitive-search-skill-custom-entity-lookup.md ) |  A cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. | Generally available. |
 
 ## February 2021
@@ -86,14 +86,14 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |February | [PII Detection skill (preview)](cognitive-search-skill-pii-detection.md)  | A cognitive skill that extracts and masks personal information. |
 |February | [Custom Entity Lookup skill (preview)](cognitive-search-skill-custom-entity-lookup.md) | A cognitive skill that finds words and phrases from a list and labels all documents with matching entities.  |
 |January | [Customer-managed key encryption](search-security-manage-encryption-keys.md) | Generally available  |
-|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service).  |
+|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
 |January | [Create a private endpoint (preview)](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
 
 ## 2019 Archive
 
 | Month | Feature | Description |
 |-------|---------|-------------|
-|December | [Create Demo App (preview)](search-create-app-portal.md) | A wizard that generates a downloadable HTML file with query (read-only) access to an index, intended as a validation and testing tool rather than a short cut to a full client app.|
+|December | [Create Demo App](search-create-app-portal.md) | A wizard that generates a downloadable HTML file with query (read-only) access to an index, intended as a validation and testing tool rather than a short cut to a full client app.|
 |November | [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) | Caches skillset processing for future reuse.  |
 |November | [Document Extraction skill (preview)](cognitive-search-skill-document-extraction.md) | A cognitive skill to extract the contents of a file from within a skillset.|
 |November | [Text Translation skill](cognitive-search-skill-text-translation.md) | A cognitive skill used during indexing that evaluates and translates text. Generally available.|

@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Build Java app to create Azure Cosmos DB Cassandra API account'
 description: This tutorial shows how to create a Cassandra API account, add a database (also called a keyspace), and add a table to that account by using a Java application.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -37,7 +37,7 @@ This tutorial covers the following tasks:
 
 ## Create a database account 
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Get the connection details of your account  
 

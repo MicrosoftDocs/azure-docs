@@ -37,15 +37,15 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server a
 
 1. Select **DHCP** for the **Server Type**, provide the server name and IP address, and then select **Save**.
 
-   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="add DHCP server" border="true":::
+   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="Screenshot showing how to add a DHCP server in NSX-T Manager." border="true":::
 
 1. Select **Tier 1 Gateways**, select the vertical ellipsis on the Tier-1 gateway, and then select **Edit**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="select the gateway to use" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway for using a DHCP server." border="true":::
 
 1. Select **No IP Allocation Set** to add a subnet.
 
-   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="add a subnet" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Screenshot showing how to add a subnet to the Tier-1 Gateway for using a DHCP server." border="true":::
 
 1. For **Type**, select **DHCP Local Server**. 
    
@@ -70,15 +70,15 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
    
 1. Select **Set Subnets** to specify the DHCP IP address for the subnet. 
    
-   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="network segments" border="true":::
+   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="Screenshot showing how to set the subnets to specify the DHCP IP address  for using a DHCP server." border="true":::
       
 1. Modify the gateway IP address if needed, and enter the DHCP range IP. 
       
-   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="edit subnets" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges for using a DHCP server." border="true":::
       
 1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
       
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="DHCP server pool assigned to segment" border="true":::
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment for using a DHCP server." border="true":::
 
 
 ## Use a third-party external DHCP server
@@ -94,15 +94,15 @@ Use a DHCP relay for any non-NSX based DHCP service. For example, a VM running D
 
 1. Select **DHCP Relay** for the **Server Type**, provide the server name and IP address, and then select **Save**.
 
-   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="create dhcp relay service" border="true":::
+   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Screenshot showing how to create a DHCP relay service in NSX-T Manager." border="true":::
 
 1. Select **Tier 1 Gateways**, select the vertical ellipsis on the Tier-1 gateway, and then select **Edit**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="edit tier 1 gateway" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="Screenshot showing how to edit the Tier-1 Gateway." border="true":::
 
 1. Select **No IP Allocation Set** to define the IP address allocation.
 
-   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="edit ip address allocation" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Screenshot showing how to add a subnet to the Tier-1 Gateway." border="true":::
 
 1. For **Type**, select **DHCP Server**. 
    
@@ -124,16 +124,15 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
    
 1. Select **Set Subnets** to specify the DHCP IP address for the subnet. 
    
-   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="network segments" border="true":::
+   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="Screenshot showing how to set the subnets to specify the DHCP IP address." border="true":::
       
 1. Modify the gateway IP address if needed, and enter the DHCP range IP. 
       
-   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="edit subnets" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges." border="true":::
       
 1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
       
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="DHCP server pool assigned to segment" border="true":::
-
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true":::
 
 
 ## Next steps

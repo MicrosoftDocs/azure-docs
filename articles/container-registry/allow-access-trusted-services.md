@@ -25,7 +25,7 @@ Azure Container Registry has a layered security model, supporting multiple netwo
 * [Private endpoint with Azure Private Link](container-registry-private-link.md). When configured, a registry's private endpoint is accessible only to resources within the virtual network, using private IP addresses.  
 * [Registry firewall rules](container-registry-access-selected-networks.md), which allow access to the registry's public endpoint only from specific public IP addresses or address ranges. You can also configure the firewall to block all access to the public endpoint when using private endpoints.
 
-When deployed in a virtual network or configured with firewall rules, a registry denies access by default to users or services from outside those sources. 
+When deployed in a virtual network or configured with firewall rules, a registry denies access to users or services from outside those sources. 
 
 Several multi-tenant Azure services operate from networks that can't be included in these registry network settings, preventing them from performing operations such as pull or push images to the registry. By designating certain service instances as "trusted", a registry owner can allow select Azure resources to securely bypass the registry's network settings to perform registry operations. 
 

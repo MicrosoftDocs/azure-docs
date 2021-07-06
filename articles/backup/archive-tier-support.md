@@ -2,7 +2,7 @@
 title: Archive Tier support (Preview)
 description: Learn about Archive Tier Support for Azure Backup
 ms.topic: conceptual
-ms.date: 05/24/2021 
+ms.date: 06/03/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -73,15 +73,15 @@ Supported clients:
 
         `$bckItm = $BackupItemList | Where-Object {$_.Name -match '<dbName>' -and $_.ContainerName -match '<vmName>'}`
 
-1. Add the date range for which you want to view the recovery  points. For example, if you want to view the recovery points from the last 60 days to last 30 days, use the following command:
+1. Add the date range for which you want to view the recovery  points. For example, if you want to view the recovery points from the last 124 days to last 95 days, use the following command:
 
    ```azurepowershell
-    $startDate = (Get-Date).AddDays(-59)
-    $endDate = (Get-Date).AddDays(-30) 
+    $startDate = (Get-Date).AddDays(-124)
+    $endDate = (Get-Date).AddDays(-95) 
 
     ```
     >[!NOTE]
-    >The span of the start date and the end date should not be more than 30 days.
+    >The span of the start date and the end date should not be more than 30 days.<br><br>To view recovery points for a different time range, modify the start and the end date accordingly.
 ## Use PowerShell
 
 ### Check archivable recovery points
@@ -125,8 +125,10 @@ $RecommendedRecoveryPointList = Get-AzRecoveryServicesBackupRecommendedArchivabl
 ### Move to archive
 
 ```azurepowershell
-Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[2] -SourceTier VaultStandard -DestinationTier VaultArchive
+Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp[0] -SourceTier VaultStandard -DestinationTier VaultArchive
 ```
+
+Where, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
 
 This command moves an archivable recovery point to archive. It returns a job that can be used to track the move operation both from portal and with PowerShell.
 
@@ -135,7 +137,7 @@ This command moves an archivable recovery point to archive. It returns a job tha
 This command returns all the archived recovery points.
 
 ```azurepowershell
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 ```
 
 ### Restore with PowerShell

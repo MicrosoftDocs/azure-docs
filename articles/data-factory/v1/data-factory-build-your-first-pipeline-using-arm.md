@@ -37,7 +37,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/) article to install latest version of Azure PowerShell on your computer.
-* See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md) to learn about Azure Resource Manager templates. 
+* See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/syntax.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
 
@@ -618,4 +618,3 @@ This template creates a data factory named GatewayUsingArmDF with a gateway name
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
 | [Scheduling and execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
 | [Monitor and manage pipelines using Monitoring App](data-factory-monitor-manage-app.md) |This article describes how to monitor, manage, and debug pipelines using the Monitoring & Management App. |
-

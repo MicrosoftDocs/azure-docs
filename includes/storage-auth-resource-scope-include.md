@@ -4,7 +4,7 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
-ms.date: 02/10/2021
+ms.date: 06/07/2021
 ms.author: tamram
 ---
 

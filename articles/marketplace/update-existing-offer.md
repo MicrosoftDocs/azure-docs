@@ -12,7 +12,7 @@ ms.custom: contperf-fy21q2
 
 # Update existing offers in the commercial marketplace
 
-This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers on the **Overview** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
+This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers in the [Commercial Marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935.) in Partner Center.
 
 ## Update a published offer
 
@@ -134,7 +134,7 @@ After you stop selling an offer or plan, you'll still see it in Partner Center w
 
 ## Remove offers from existing customers
 
-To remove offers from existing customers, [log a support request](https://aka.ms/marketplacepublishersupport). In the support topic list, select **Commercial Marketplace** > **Offer or App Delisting, Removal, or Termination** and submit the request. The support team will guide you through the offer removal process.
+To remove offers from existing customers, [log a support request](https://go.microsoft.com/fwlink/?linkid=2165533). In the support topic list, select **Commercial Marketplace** > **Offer or App Delisting, Removal, or Termination** and submit the request. The support team will guide you through the offer removal process.
 
 When the offer removal is initiated by the publisher, the publisher owns communication of the removal to the customer.
 

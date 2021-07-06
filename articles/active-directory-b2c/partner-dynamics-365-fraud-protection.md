@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C
 
-In this sample tutorial, learn how to integrate [Microsoft Dynamics 365 Fraud Protection](https://docs.microsoft.com/dynamics365/fraud-protection/overview) (DFP) with Azure Active Directory (AD) B2C.
+In this sample tutorial, learn how to integrate [Microsoft Dynamics 365 Fraud Protection](/dynamics365/fraud-protection/overview) (DFP) with Azure Active Directory (AD) B2C.
 
 Microsoft DFP provides organizations with the capability to assess the risk of attempts to create fraudulent accounts and  log-ins. Microsoft DFP assessment can be used by the customer to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.
 
@@ -66,7 +66,7 @@ The following architecture diagram shows the implementation.
 
 ## Set up your custom domain
 
-In a production environment, you must use a [custom domain for Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-custom-policy) and for the [Microsoft DFP fingerprinting service](https://docs.microsoft.com/dynamics365/fraud-protection/device-fingerprinting#set-up-dns). The domain for both services should be in the same root DNS zone to prevent browser privacy settings from blocking cross-domain cookies, isn't necessary in a non-production environment.
+In a production environment, you must use a [custom domain for Azure AD B2C](./custom-domain.md?pivots=b2c-custom-policy) and for the [Microsoft DFP fingerprinting service](/dynamics365/fraud-protection/device-fingerprinting#set-up-dns). The domain for both services should be in the same root DNS zone to prevent browser privacy settings from blocking cross-domain cookies, isn't necessary in a non-production environment.
 
 Following is an example:
 
@@ -92,15 +92,15 @@ Following is an example:
 
 4. Ensure CORS is enabled for your Azure AD B2C domain name `https://{your_tenant_name}.b2clogin.com` or `your custom domain`.
 
-See [UI customization documentation](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-custom-policy) to learn more.
+See [UI customization documentation](./customize-ui-with-html.md?pivots=b2c-custom-policy) to learn more.
 
 ## Azure AD B2C configuration
 
 ### Add policy keys for your Microsoft DFP client app ID and secret
 
-1. In the Azure AD tenant where Microsoft DFP is set up, create an [Azure AD application and grant admin consent](https://docs.microsoft.com/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
+1. In the Azure AD tenant where Microsoft DFP is set up, create an [Azure AD application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
 2. Create a secret value for this application registration and note the application's client ID and client secret value.
-3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/policy-keys-overview).
+3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](./policy-keys-overview.md).
 
  >[!NOTE]
  >You'll later need the policy keys to configure your Azure AD B2C policies.
@@ -127,7 +127,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 | {Settings:DfpAppClientIdKeyContainer} | Name of the policy key-in which you save the DFP client ID | `B2C_1A_DFPClientId` |
 | {Settings:DfpAppClientSecretKeyContainer} | Name of the policy key-in which you save the DFP client secret | `B2C_1A_DFPClientSecret` |
 
-*Application insights can be set up in any Azure AD tenant/subscription. This value is optional but [recommended to assist with debugging](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-with-application-insights).
+*Application insights can be set up in any Azure AD tenant/subscription. This value is optional but [recommended to assist with debugging](./troubleshoot-with-application-insights.md).
 
 >[!NOTE]
 >Add consent notification to the attribute collection page. Notify that the users' telemetry and user identity information will be recorded for account protection purposes.

@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: matjazl
+ms.author: cavoeg
 author: matjazl
 ms.date: 03/26/2021
 ---
@@ -22,7 +22,7 @@ A client application can access the Azure API for FHIR through a [REST API](http
   To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
 
 - A registered [confidential client application](register-confidential-azure-ad-client-app.md) to access the FHIR service.
-- You have granted permissions to the confidential client application, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
+- You have granted permissions to the confidential client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
 - Postman installed. 
     
   For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).

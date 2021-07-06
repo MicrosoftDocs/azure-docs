@@ -2,14 +2,14 @@
 title: Use tenant restrictions to manage access to SaaS apps - Azure AD
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/6/2021
-ms.author: iangithinji
+ms.date: 6/2/2021
+ms.author: mtillman
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
 ---
@@ -24,7 +24,7 @@ With tenant restrictions, organizations can specify the list of tenants that the
 
 This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (e.g. in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications-public-preview) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
+Additionally, the tenant restrictions feature now supports [blocking the use of all Microsoft consumer applications](#blocking-consumer-applications) (MSA apps) such as OneDrive, Hotmail, and Xbox.com.  This uses a separate header to the `login.live.com` endpoint, and is detailed at the end of the document.
 
 ## How it works
 
@@ -192,7 +192,7 @@ Depending on the capabilities of your proxy infrastructure, you may be able to s
 
 For specific details, refer to your proxy server documentation.
 
-## Blocking consumer applications (public preview)
+## Blocking consumer applications
 
 Applications from Microsoft that support both consumer accounts and organizational accounts, like [OneDrive](https://onedrive.live.com/) or [Microsoft Learn](/learn/), can sometimes be hosted on the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
 
