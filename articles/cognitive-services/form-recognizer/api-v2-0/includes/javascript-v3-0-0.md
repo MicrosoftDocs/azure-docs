@@ -1,5 +1,5 @@
 ---
-title: "Reference: Form Recognizer client library 3.1.0 for JavaScript"
+title: "Reference: Form Recognizer client library 3.1.1 for JavaScript"
 description: Use the Form Recognizer client library for JavaScript to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: laujan

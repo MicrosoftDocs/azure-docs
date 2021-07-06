@@ -2,7 +2,7 @@
 title: Convert a Linux VM from unmanaged disks to managed disks
 description: How to convert a Linux VM from unmanaged disks to managed disks by using Azure CLI.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.collection: linux
 ms.topic: how-to
 ms.date: 12/15/2017
