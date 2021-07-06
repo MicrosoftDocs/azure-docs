@@ -128,10 +128,10 @@ The following is an example of the response of a GET request.  The output is ava
 
 ```json
 {
-    "jobId": "be437134-a76b-4e45-829e-9b37dcd209bf",
-    "lastUpdateDateTime": "2021-03-11T05:43:37Z",
-    "createdDateTime": "2021-03-11T05:42:32Z",
-    "expirationDateTime": "2021-03-12T05:42:32Z",
+    "jobId": "69081148-055b-4f92-977d-115df343de69",
+    "lastUpdateDateTime": "2021-07-06T19:06:03Z",
+    "createdDateTime": "2021-07-06T19:05:41Z",
+    "expirationDateTime": "2021-07-07T19:05:41Z",
     "status": "succeeded",
     "errors": [],
     "results": {
@@ -213,14 +213,14 @@ The following is an example of the response of a GET request.  The output is ava
                         "length": 13,
                         "text": "intravenously",
                         "category": "MedicationRoute",
-                        "confidenceScore": 1.0
+                        "confidenceScore": 0.99
                     },
                     {
                         "offset": 73,
                         "length": 7,
                         "text": "120 min",
                         "category": "Time",
-                        "confidenceScore": 0.94
+                        "confidenceScore": 0.98
                     }
                 ],
                 "relations": [
@@ -268,7 +268,7 @@ The following is an example of the response of a GET request.  The output is ava
             }
         ],
         "errors": [],
-        "modelVersion": "2021-03-01"
+        "modelVersion": "2021-05-15"
     }
 }
 ```

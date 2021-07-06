@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/29/2021
+ms.date: 07/06/2021
 ms.author: aahi
 ---
 
@@ -105,7 +105,7 @@ For information about request definition, see [How to call the Text Analytics AP
 
 + Create a **POST** request. Review the API documentation for this request: [Key Phrases API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/KeyPhrases).
 
-+ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). if you're using the API synchronously, you must include `/text/analytics/v3.0/keyPhrases` in the URL. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`.
++ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). if you're using the API synchronously, you must include `/text/analytics/v3.1/keyPhrases` in the URL. For example: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.1/keyPhrases`.
 
 + Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
@@ -131,62 +131,59 @@ An example of the output for key phrase extraction from the v3.1 endpoint is sho
 ### Synchronous result
 
 ```json
-    {
-       "documents":[
-          {
-             "id":"1",
-             "keyPhrases":[
-                "year",
+{
+    "documents": [
+        {
+            "id": "1",
+            "keyPhrases": [
                 "trail",
                 "trip",
                 "views",
                 "hike"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"2",
-             "keyPhrases":[
-                "marked trails",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "2",
+            "keyPhrases": [
                 "Worst hike",
-                "goners"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"3",
-             "keyPhrases":[
-                "trail",
+                "trails"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "3",
+            "keyPhrases": [
+                "less athletic",
                 "small children",
-                "family"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"4",
-             "keyPhrases":[
+                "Everyone",
+                "family",
+                "trail"
+            ],
+            "warnings": []
+        },
+        {
+            "id": "4",
+            "keyPhrases": [
                 "spectacular views",
                 "trail",
-                "Worth",
                 "area"
-             ],
-             "warnings":[]
-          },
-          {
-             "id":"5",
-             "keyPhrases":[
-                "places",
-                "beautiful views",
+            ],
+            "warnings": []
+        },
+        {
+            "id": "5",
+            "keyPhrases": [
                 "favorite trail",
-                "rest"
-             ],
-             "warnings":[]
-          }
-       ],
-       "errors":[],
-       "modelVersion":"2020-07-01"
-    }
-
+                "beautiful views",
+                "many places"
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
+}
 ```
 As noted, the analyzer finds and discards non-essential words, and it keeps single terms or phrases that appear to be the subject or object of a sentence.
 

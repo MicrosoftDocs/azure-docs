@@ -160,7 +160,6 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false"
                 }
             }
@@ -169,7 +168,6 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "true",
                     "domain": "phi",
                     "piiCategories":["default"]
@@ -180,7 +178,6 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false"
                 }
             }
@@ -197,7 +194,6 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElement_v8",
                     "loggingOptOut": "false",
                     "opinionMining": "true"
                 }

@@ -146,6 +146,22 @@ The following JSON is an example of content you might send to the API. The reque
 }
 ```
 
+### Example synchronous PII request
+
+The following JSON is an example of content you might send to the API to detect PII in text.
+
+```json
+{
+  "documents": [
+    {
+        "id": "1",
+        "language": "en",
+        "text": "You can even pre-order from their online menu at www.contososteakhouse.com, call 312-555-0176 or send email to order@contososteakhouse.com!"
+    }
+  ]
+}
+```
+
 ### Example asynchronous NER request
 
 If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-how-to-call-api.md), you will get a response containing the tasks you sent to the API.
@@ -169,8 +185,7 @@ If you use the `/analyze` endpoint for [asynchronous operation](text-analytics-h
         "entityRecognitionTasks": [
             {
                 "parameters": {
-                    "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "model-version": "latest"
                 }
             }
         ],
@@ -227,53 +242,46 @@ Example of a general NER response:
 
 ```json
 {
-  "documents": [
-    {
-      "id": "1",
-      "entities": [
+    "documents": [
         {
-          "text": "tour guide",
-          "category": "PersonType",
-          "offset": 4,
-          "length": 10,
-          "confidenceScore": 0.45
-        },
-        {
-          "text": "Space Needle",
-          "category": "Location",
-          "offset": 30,
-          "length": 12,
-          "confidenceScore": 0.38
-        },
-        {
-          "text": "trip",
-          "category": "Event",
-          "offset": 54,
-          "length": 4,
-          "confidenceScore": 0.78
-        },
-        {
-          "text": "Seattle",
-          "category": "Location",
-          "subcategory": "GPE",
-          "offset": 62,
-          "length": 7,
-          "confidenceScore": 0.78
-        },
-        {
-          "text": "last week",
-          "category": "DateTime",
-          "subcategory": "DateRange",
-          "offset": 70,
-          "length": 9,
-          "confidenceScore": 0.8
+            "id": "1",
+            "entities": [
+                {
+                    "text": "tour guide",
+                    "category": "PersonType",
+                    "offset": 4,
+                    "length": 10,
+                    "confidenceScore": 0.94
+                },
+                {
+                    "text": "Space Needle",
+                    "category": "Location",
+                    "offset": 30,
+                    "length": 12,
+                    "confidenceScore": 0.96
+                },
+                {
+                    "text": "Seattle",
+                    "category": "Location",
+                    "subcategory": "GPE",
+                    "offset": 62,
+                    "length": 7,
+                    "confidenceScore": 1.0
+                },
+                {
+                    "text": "last week",
+                    "category": "DateTime",
+                    "subcategory": "DateRange",
+                    "offset": 70,
+                    "length": 9,
+                    "confidenceScore": 0.8
+                }
+            ],
+            "warnings": []
         }
-      ],
-      "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-04-01"
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
 }
 ```
 
@@ -281,38 +289,38 @@ Example of a PII response:
 
 ```json
 {
-  "documents": [
-    {
-    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
-    "id": "0",
-    "entities": [
+    "documents": [
         {
-        "text": "www.contososteakhouse.com",
-        "category": "URL",
-        "offset": 49,
-        "length": 25,
-        "confidenceScore": 0.8
-        }, 
-        {
-        "text": "312-555-0176",
-        "category": "Phone Number",
-        "offset": 81,
-        "length": 12,
-        "confidenceScore": 0.8
-        }, 
-        {
-        "text": "order@contososteakhouse.com",
-        "category": "Email",
-        "offset": 111,
-        "length": 27,
-        "confidenceScore": 0.8
+            "redactedText": "You can even pre-order from their online menu at www.contososteakhouse.com, call ************ or send email to ***************************!",
+            "id": "1",
+            "entities": [
+                {
+                    "text": "312-555-0176",
+                    "category": "PhoneNumber",
+                    "offset": 81,
+                    "length": 12,
+                    "confidenceScore": 0.8
+                },
+                {
+                    "text": "order@contososteakhouse.com",
+                    "category": "Email",
+                    "offset": 111,
+                    "length": 27,
+                    "confidenceScore": 0.8
+                },
+                {
+                    "text": "contososteakhouse",
+                    "category": "Organization",
+                    "offset": 117,
+                    "length": 17,
+                    "confidenceScore": 0.45
+                }
+            ],
+            "warnings": []
         }
-      ],
-    "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-07-01"
+    ],
+    "errors": [],
+    "modelVersion": "2021-01-15"
 }
 ```
 
@@ -320,48 +328,48 @@ Example of an Entity linking response:
 
 ```json
 {
-  "documents": [
-    {
-      "id": "1",
-      "entities": [
+    "documents": [
         {
-          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
-          "name": "Space Needle",
-          "matches": [
-            {
-              "text": "Space Needle",
-              "offset": 30,
-              "length": 12,
-              "confidenceScore": 0.4
-            }
-          ],
-          "language": "en",
-          "id": "Space Needle",
-          "url": "https://en.wikipedia.org/wiki/Space_Needle",
-          "dataSource": "Wikipedia"
-        },
-        {
-          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-          "name": "Seattle",
-          "matches": [
-            {
-              "text": "Seattle",
-              "offset": 62,
-              "length": 7,
-              "confidenceScore": 0.25
-            }
-          ],
-          "language": "en",
-          "id": "Seattle",
-          "url": "https://en.wikipedia.org/wiki/Seattle",
-          "dataSource": "Wikipedia"
+            "id": "1",
+            "entities": [
+                {
+                    "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e",
+                    "name": "Space Needle",
+                    "matches": [
+                        {
+                            "text": "Space Needle",
+                            "offset": 30,
+                            "length": 12,
+                            "confidenceScore": 0.4
+                        }
+                    ],
+                    "language": "en",
+                    "id": "Space Needle",
+                    "url": "https://en.wikipedia.org/wiki/Space_Needle",
+                    "dataSource": "Wikipedia"
+                },
+                {
+                    "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+                    "name": "Seattle",
+                    "matches": [
+                        {
+                            "text": "Seattle",
+                            "offset": 62,
+                            "length": 7,
+                            "confidenceScore": 0.25
+                        }
+                    ],
+                    "language": "en",
+                    "id": "Seattle",
+                    "url": "https://en.wikipedia.org/wiki/Seattle",
+                    "dataSource": "Wikipedia"
+                }
+            ],
+            "warnings": []
         }
-      ],
-      "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-02-01"
+    ],
+    "errors": [],
+    "modelVersion": "2021-06-01"
 }
 ```
 
@@ -369,51 +377,83 @@ Example of an Entity linking response:
 
 ```json
 {
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
+    "jobId": "f480e1f9-0b61-4d47-93da-240f084582cf",
+    "lastUpdateDateTime": "2021-07-06T19:03:15Z",
+    "createdDateTime": "2021-07-06T19:02:47Z",
+    "expirationDateTime": "2021-07-07T19:02:47Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "My Job",
+    "tasks": {
+        "completed": 2,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 2,
+        "entityRecognitionTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-06T19:03:15.212633Z",
+                "taskName": "NamedEntityRecognition_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "doc1",
+                            "entities": [],
+                            "warnings": []
+                        },
+                        {
+                            "id": "doc2",
+                            "entities": [
+                                {
+                                    "text": "Pike place market",
+                                    "category": "Location",
+                                    "offset": 0,
+                                    "length": 17,
+                                    "confidenceScore": 0.95
+                                },
+                                {
+                                    "text": "Seattle",
+                                    "category": "Location",
+                                    "subcategory": "GPE",
+                                    "offset": 33,
+                                    "length": 7,
+                                    "confidenceScore": 0.99
+                                }
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-06-01"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-06T19:03:03.2063832Z",
+                "taskName": "PersonallyIdentifiableInformation_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "redactedText": "It's incredibly sunny outside! I'm so happy",
+                            "id": "doc1",
+                            "entities": [],
+                            "warnings": []
+                        },
+                        {
+                            "redactedText": "Pike place market is my favorite Seattle attraction.",
+                            "id": "doc2",
+                            "entities": [],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-01-15"
+                }
+            }
+        ]
+    }
 }
 ```
 

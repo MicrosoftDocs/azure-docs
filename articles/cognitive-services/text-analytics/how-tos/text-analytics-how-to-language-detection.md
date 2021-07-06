@@ -92,67 +92,55 @@ Language detection will return one predominant language for one document, along 
 
 ```json
 {
-    "documents":[
+    "documents": [
         {
-            "detectedLanguage":{
-                "confidenceScore":0.99,
-                "iso6391Name":"en",
-                "name":"English"
+            "id": "1",
+            "detectedLanguage": {
+                "name": "English",
+                "iso6391Name": "en",
+                "confidenceScore": 0.99
             },
-            "id":"1",
-            "warnings":[
-                
-            ]
+            "warnings": []
         },
         {
-            "detectedLanguage":{
-                "confidenceScore":1.0,
-                "iso6391Name":"es",
-                "name":"Spanish"
+            "id": "2",
+            "detectedLanguage": {
+                "name": "Spanish",
+                "iso6391Name": "es",
+                "confidenceScore": 0.91
             },
-            "id":"2",
-            "warnings":[
-                
-            ]
+            "warnings": []
         },
         {
-            "detectedLanguage":{
-                "confidenceScore":1.0,
-                "iso6391Name":"fr",
-                "name":"French"
+            "id": "3",
+            "detectedLanguage": {
+                "name": "French",
+                "iso6391Name": "fr",
+                "confidenceScore": 0.78
             },
-            "id":"3",
-            "warnings":[
-                
-            ]
+            "warnings": []
         },
         {
-            "detectedLanguage":{
-                "confidenceScore":1.0,
-                "iso6391Name":"zh_chs",
-                "name":"Chinese_Simplified"
+            "id": "4",
+            "detectedLanguage": {
+                "name": "Chinese_Simplified",
+                "iso6391Name": "zh_chs",
+                "confidenceScore": 1.0
             },
-            "id":"4",
-            "warnings":[
-                
-            ]
+            "warnings": []
         },
         {
-            "detectedLanguage":{
-                "confidenceScore":1.0,
-                "iso6391Name":"ru",
-                "name":"Russian"
+            "id": "5",
+            "detectedLanguage": {
+                "name": "Russian",
+                "iso6391Name": "ru",
+                "confidenceScore": 1.0
             },
-            "id":"5",
-            "warnings":[
-                
-            ]
+            "warnings": []
         }
     ],
-    "errors":[
-        
-    ],
-    "modelVersion":"2020-09-01"
+    "errors": [],
+    "modelVersion": "2021-01-05"
 }
 ```
 
@@ -221,23 +209,19 @@ If the analyzer can't parse the input, it returns `(Unknown)`. An example is if 
 
 ```json
 {
-    "documents":[
+    "documents": [
         {
-            "detectedLanguage":{
-                "confidenceScore":0.0,
-                "iso6391Name":"(Unknown)",
-                "name":"(Unknown)"
+            "id": "1",
+            "detectedLanguage": {
+                "name": "(Unknown)",
+                "iso6391Name": "(Unknown)",
+                "confidenceScore": 0.0
             },
-            "id":"1",
-            "warnings":[
-                
-            ]
+            "warnings": []
         }
     ],
-    "errors":[
-        
-    ],
-    "modelVersion":"2020-09-01"
+    "errors": [],
+    "modelVersion": "2021-01-05"
 }
 ```
 
@@ -264,23 +248,19 @@ The resulting output consists of the predominant language, with a score of less 
 
 ```json
 {
-    "documents":[
+    "documents": [
         {
-            "detectedLanguage":{
-                "confidenceScore":0.94,
-                "iso6391Name":"es",
-                "name":"Spanish"
+            "id": "1",
+            "detectedLanguage": {
+                "name": "Spanish",
+                "iso6391Name": "es",
+                "confidenceScore": 0.88
             },
-            "id":"1",
-            "warnings":[
-                
-            ]
+            "warnings": []
         }
     ],
-    "errors":[
-        
-    ],
-    "modelVersion":"2020-09-01"
+    "errors": [],
+    "modelVersion": "2021-01-05"
 }
 ```
 
