@@ -4,7 +4,7 @@ description: Overview on the App Service Environment
 author: ccompy
 ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
-ms.date: 06/30/2021
+ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -82,9 +82,39 @@ There are a few features that are not available in ASEv3 that were available in 
 
 With ASEv3, there is a different pricing model depending on the type of ASE deployment you have. The three pricing models are: 
 
-- ASEv3: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
-- Availability Zone ASEv3: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. 
-- Dedicated host ASEv3: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
+- **ASEv3**: If ASE is empty, there is a charge as if you had one ASP with one instance of Windows I1v2. The one instance charge is not an additive charge but is only applied if the ASE is totally empty.
+- **Availability Zone ASEv3**: There is a minimum 9 Windows I1v2 instance charge. There is no added charge for availability zone support if you have 9 or more App Service plan instances. 
+- **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
 Reserved Instance pricing for Isolated v2 will be available after GA.  
 
+## Regions
+
+The ASEv3 is available in the following regions.
+
+|Normal ASEv3 regions|	Dedicated hosts regions|	AZ ASEv3 regions|
+|--------------------|-------------------------|------------------|
+|Australia East|	Australia East|	Australia East|
+|Australia Southeast|	Australia Southeast	|Canada Central|
+|Brazil South	|Brazil South	|Central US|
+|Canada Central|	Canada Central|	East US|
+|Central India	|Central India|	East US 2|
+|Central US	|Central US	|East US 2 EUAP|
+|East Asia	|East Asia|	France Central|
+|East US	|East US	|Germany West Central|
+|East US 2|	East US 2|	North Europe|
+|France Central	|France Central	|South Central US|
+|Germany West Central	|Germany West Central|	Southeast Asia|
+|Korea Central	|Korea Central	|UK South|
+|North Europe	|North Europe|	West Europe|
+|Norway East	|Norway East|	West US 2|
+|South Africa North|	South Africa North| |	
+|South Central US	|South Central US	| |
+|Southeast Asia|	Southeast Asia	| |
+|Switzerland North	|Switzerland North| |	
+|UK South|	UK West| |	
+|UK West|	West Central US	| |
+|West Central US	|West Europe| |	
+|West Europe	|West US	| |
+|West US	|West US 2|  |	
+|West US 2		| |
