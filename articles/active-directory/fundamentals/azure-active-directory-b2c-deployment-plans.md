@@ -214,7 +214,3 @@ This phase includes the following capabilities.
 - [Azure AD B2C best practices](https://docs.microsoft.com/azure/active-directory-b2c/best-practices)
 
 - [Azure AD B2C service limits](https://docs.microsoft.com/azure/active-directory-b2c/service-limits)
-
-- [Protecting Web APIs with Azure AD B2C](https://www.youtube.com/watch?v=wuUu71RcsIo&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=8)
-
-- [Configure monitoring in Azure AD B2C using Azure Monitor](https://www.youtube.com/watch?v=tF2JS6TGc3g&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=12)
