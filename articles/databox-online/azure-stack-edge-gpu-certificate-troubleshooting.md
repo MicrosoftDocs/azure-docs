@@ -60,5 +60,5 @@ The following table shows common certificate errors and detailed information abo
 
 ## Next steps
 
-- Review [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md)
+- Review [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
 - [Troubleshoot using device logs, diagnostic tests](azure-stack-edge-gpu-troubleshoot.md).

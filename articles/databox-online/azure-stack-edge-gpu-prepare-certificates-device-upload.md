@@ -102,4 +102,4 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 
 ## Next steps
 
-Learn how to [Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md)
+Learn how to [Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md).

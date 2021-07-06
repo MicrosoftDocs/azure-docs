@@ -150,7 +150,7 @@ There are three IoT Edge certificates that you need to install to enable this tr
 
 - The IoT Edge certificates are uploaded in `.pem` format. 
 
-For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates) .
+For more information on IoT Edge certificates, see [Azure IoT Edge certificate details](../iot-edge/iot-edge-certs.md#iot-edge-certificates) and [Create IoT Edge production certificates](/azure/iot-edge/how-to-manage-device-certificates?view=iotedge-2020-11&preserve-view=true#create-production-certificates).
 
 ## Kubernetes certificates
 
@@ -195,5 +195,4 @@ If your  device is experiencing any issues, then to troubleshoot those issues, a
 
 ## Next steps
 
-- [Review certificate requirements](azure-stack-edge-gpu-certificate-requirements.md)
-
+[Review certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).

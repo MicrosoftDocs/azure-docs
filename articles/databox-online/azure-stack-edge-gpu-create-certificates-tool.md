@@ -148,4 +148,4 @@ First, you'll generate a proper folder structure and place the certificates in t
 
 ## Next steps
 
-- [Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md)
+[Upload certificates on your device](azure-stack-edge-gpu-manage-certificates.md).

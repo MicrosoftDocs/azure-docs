@@ -301,7 +301,7 @@
         href: azure-stack-edge-gpu-certificate-requirements.md 
       - name: Create certificates
         items:
-        - name: Via Azure Powershell
+        - name: Via Azure PowerShell
           href: azure-stack-edge-gpu-create-certificates-powershell.md 
         - name: Via Azure Stack Readiness Checker tool
           href: azure-stack-edge-gpu-create-certificates-tool.md 
