@@ -75,9 +75,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
     In the **Identifier (Entity ID)** text box, type in the following: 
-    urn:amazon:cognito:sp:eu-west-2_IDmTxjGr6
+    `urn:amazon:cognito:sp:eu-west-2_IDmTxjGr6`
+    
     In the **Identifier (Entity ID)** text box, type in the following:
-    https://vitruevida.auth.eu-west-2.amazoncognito.com/saml2/idpresponse
+    `https://vitruevida.auth.eu-west-2.amazoncognito.com/saml2/idpresponse`
+    
     In the **Sign-on URL** text box, type a URL using the following pattern:
     
     `https://vitruevida.com/?teamid=<ID>&idp=<IDP_NAME>`
