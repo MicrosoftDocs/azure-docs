@@ -64,7 +64,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GatewayLogs|Logs related to ApiManagement Gateway|Yes|
+|GatewayLogs|Logs related to ApiManagement Gateway|No|
 
 
 ## Microsoft.AppConfiguration/configurationStores
@@ -459,14 +459,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|CassandraRequests|CassandraRequests|Yes|
-|ControlPlaneRequests|ControlPlaneRequests|Yes|
-|DataPlaneRequests|DataPlaneRequests|Yes|
-|GremlinRequests|GremlinRequests|Yes|
-|MongoRequests|MongoRequests|Yes|
-|PartitionKeyRUConsumption|PartitionKeyRUConsumption|Yes|
-|PartitionKeyStatistics|PartitionKeyStatistics|Yes|
-|QueryRuntimeStatistics|QueryRuntimeStatistics|Yes|
+|CassandraRequests|CassandraRequests|No|
+|ControlPlaneRequests|ControlPlaneRequests|No|
+|DataPlaneRequests|DataPlaneRequests|No|
+|GremlinRequests|GremlinRequests|No|
+|MongoRequests|MongoRequests|No|
+|PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
+|PartitionKeyStatistics|PartitionKeyStatistics|No|
+|QueryRuntimeStatistics|QueryRuntimeStatistics|No|
 |TableApiRequests|TableApiRequests|Yes|
 
 
@@ -592,14 +592,14 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|IntegrationAccountTrackingEvents|Integration Account track events|Yes|
+|IntegrationAccountTrackingEvents|Integration Account track events|No|
 
 
 ## Microsoft.Logic/Workflows
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|WorkflowRuntime|Workflow runtime diagnostic events|Yes|
+|WorkflowRuntime|Workflow runtime diagnostic events|No|
 
 
 ## Microsoft.MachineLearningServices/workspaces
@@ -678,8 +678,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|FrontdoorAccessLog|Frontdoor Access Log|Yes|
-|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|Yes|
+|FrontdoorAccessLog|Frontdoor Access Log|No|
+|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application Firewall Log|No|
 
 
 ## Microsoft.Network/loadBalancers
@@ -703,18 +703,18 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GatewayDiagnosticLog|Gateway Diagnostic Logs|Yes|
-|IKEDiagnosticLog|IKE Diagnostic Logs|Yes|
-|P2SDiagnosticLog|P2S Diagnostic Logs|Yes|
+|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
+|IKEDiagnosticLog|IKE Diagnostic Logs|No|
+|P2SDiagnosticLog|P2S Diagnostic Logs|No|
 
 
 ## Microsoft.Network/publicIPAddresses
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|Yes|
-|DDoSMitigationReports|Reports of DDoS mitigations|Yes|
-|DDoSProtectionNotifications|DDoS protection notifications|Yes|
+|DDoSMitigationFlowLogs|Flow logs of DDoS mitigation decisions|No|
+|DDoSMitigationReports|Reports of DDoS mitigations|No|
+|DDoSProtectionNotifications|DDoS protection notifications|No|
 
 
 ## Microsoft.Network/trafficManagerProfiles
@@ -746,10 +746,10 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|GatewayDiagnosticLog|Gateway Diagnostic Logs|Yes|
-|IKEDiagnosticLog|IKE Diagnostic Logs|Yes|
-|RouteDiagnosticLog|Route Diagnostic Logs|Yes|
-|TunnelDiagnosticLog|Tunnel Diagnostic Logs|Yes|
+|GatewayDiagnosticLog|Gateway Diagnostic Logs|No|
+|IKEDiagnosticLog|IKE Diagnostic Logs|No|
+|RouteDiagnosticLog|Route Diagnostic Logs|No|
+|TunnelDiagnosticLog|Tunnel Diagnostic Logs|No|
 
 
 ## Microsoft.NotificationHubs/namespaces
@@ -859,6 +859,36 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ResourceUsageStats|Resource Usage Statistics|No|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 
+## Microsoft.Sql/managedInstances/databases
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Errors|Errors|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|SQLInsights|SQL Insights|No|
+
+
+## Microsoft.Sql/servers/databases
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|AutomaticTuning|Automatic tuning|No|
+|Blocks|Blocks|No|
+|DatabaseWaitStatistics|Database Wait Statistics|No|
+|Deadlocks|Deadlocks|No|
+|DevOpsOperationsAudit|Devops operations Audit Logs|No|
+|DmsWorkers|Dms Workers|No|
+|Errors|Errors|No|
+|ExecRequests|Exec Requests|No|
+|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
+|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
+|RequestSteps|Request Steps|No|
+|SQLInsights|SQL Insights|No|
+|SqlRequests|Sql Requests|No|
+|SQLSecurityAuditEvents|SQL Security Audit Event|No|
+|Timeouts|Timeouts|No|
+|Waits|Waits|No|
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
@@ -969,7 +999,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|Yes|
+|AppServiceEnvironmentPlatformLogs|App Service Environment Platform Logs|No|
 
 
 ## Microsoft.Web/sites
