@@ -33,8 +33,8 @@ During Preview, you must use the Azure portal if you want to specify the Standar
 | Method | Value | Links |
 | --- | --- | --- |
 | Azure portal | Tier - Basic or Standard | [Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md) |
-| Azure PowerShell | N/A |[cmdlet](/bastion-create-host-powershell.md) |
-| Azure CLI |  N/A | [command](create-host-cli.md) |
+| Azure PowerShell | Basic only - no settings |[cmdlet](/bastion-create-host-powershell.md) |
+| Azure CLI |  Basic only - no settings | [command](create-host-cli.md) |
 
 ### Upgrade a SKU
 
