@@ -231,54 +231,6 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 ::: zone-end
 
-## Security considerations
-
-You protect your REST API endpoint so that only authenticated clients can communicate with it. The REST API must use an HTTPS endpoint. Set the authentication type to one of the following authentication methods.
-
-### API Key
-
-API key is a unique identifier used to authenticate a user to access a REST API endpoint. For example, [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) includes the `code` as a query parameter in the endpoint URL.
-
-::: zone pivot="b2c-user-flow"
-
-```http
-https://contoso.azurewebsites.net/api/endpoint?code=0123456789 
-```
-
-API key authentication shouldn't be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-The API key can be sent a custom HTTP header. For example, the [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) uses the `x-functions-key` HTTP header to identify the requester.  
-
-::: zone-end
-
-### Client certificate
-
-The client certificate authentication is a mutual certificate-based authentication method where the client provides a client certificate to the server to prove its identity. In this case, Azure AD B2C will use the certificate that you upload as part of the API connector configuration.  This behavior happens as a part of the SSL handshake. 
-
-Your API service can then limit access to only services that have proper certificates. The client certificate is a PKCS12 (PFX) X.509 digital certificate. In production environments, it should be signed by a certificate authority.
-
-### HTTP basic authentication
-
-The HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure AD B2C sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string `username:password`. Your API then checks these values to determine whether to reject an API call or not.
-
-::: zone pivot="b2c-custom-policy"
-
-### Bearer token
-
-Bearer token authentication is defined in [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). In bearer token authentication, Azure AD B2C sends an HTTP request with a token in the authorization header.
-
-```http
-Authorization: Bearer <token>
-```
-
-A bearer token is an opaque string. It can be a JWT access token or any string that the REST API expects Azure AD B2C to send in the authorization header. 
- 
-::: zone-end
-
 ## REST API platform
 
 Your REST API can be based on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
@@ -292,12 +244,11 @@ Design your REST API service and its underlying components (such as the database
 
 ## Next steps
 
-
-
 ::: zone pivot="b2c-user-flow"
 
 - Learn how to [add an API connector to a user flow](add-api-connector.md)
-- Get started with our [samples](code-samples.md#api-connectors).
+- Learn how to [Secure your API Connector](secure-rest-api.md)
+- Get started with our [samples](code-samples.md#api-connectors)
 
 ::: zone-end
 

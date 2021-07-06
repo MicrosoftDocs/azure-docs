@@ -50,7 +50,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 5. Provide a display name for the call. For example, **Validate user information**.
 6. Provide the **Endpoint URL** for the API call.
-7. Choose the **Authentication type** and configure the authentication information for calling your API. See [Secure your API Connector](secure-rest-api.md) for more on the authentication options.
+7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
     :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
 

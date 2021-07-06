@@ -520,9 +520,14 @@ The following XML snippet is an example of a RESTful technical profile configure
   </TechnicalProfiles>
 </ClaimsProvider>
 ```
+::: zone-end
 
 ## Next steps
 
-- Learn more about the [Restful technical profile](restful-technical-profile.md) element in the custom policy reference.
+::: zone pivot="b2c-user-flow"
+- Get started with our [samples](code-samples.md#api-connectors).
+::: zone-end
 
+::: zone pivot="b2c-custom-policy"
+- Learn more about the [Restful technical profile](restful-technical-profile.md) element in the custom policy reference.
 ::: zone-end
