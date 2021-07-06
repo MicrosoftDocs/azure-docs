@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/14/2021
+ms.date: 7/02/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
