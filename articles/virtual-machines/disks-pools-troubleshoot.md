@@ -13,7 +13,7 @@ ms.subservice: disks
 
 This article lists some common failure codes related to Azure disk pools. It also provides possible resolutions and some clarity on disk pool statuses.
 
-## What do the unknown and updating statuses mean?
+## Disk pool status
 
 Disk pools and iSCSI targets each have four states, Unknown, Running, Updating, and Stopped (deallocated).
 
@@ -21,7 +21,7 @@ Unknown means that the resource is in a bad or unknown state. To attempt recover
 
 Updating means that the resource is going through an update. This usually happens during deployment or when applying an update like adding disks or LUNs.
 
-## How do I recover if my disk pool or iSCSI target is in an unhealthy state?
+## Recover a disk pool or an iSCSI target
 
 First, stop the disk pool and restart it. Then check the status of the disk pool and the iSCSI target. If they have recovered, then any Azure VMware clusters connected to the disk pool will recover automatically unless the disk pool has been inaccessible for more than 24 hours. If it has been more than 24 hours, then you need to contact Azure support to forcibly disconnect the inaccessible datastores associated with the disk pool. After that, you can reconnect the VS clusters to the disk pool and configure the datastores.
 

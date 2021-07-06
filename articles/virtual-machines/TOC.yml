@@ -983,6 +983,8 @@
       href: disks-pools-manage.md
     - name: Deprovision a disk pool
       href: disks-pools-deprovision.md
+    - name: Troubleshoot a disk pool
+      href: disks-pools-troubleshoot.md
   - name: Encryption
     items:
     - name: Disk encryption overview
