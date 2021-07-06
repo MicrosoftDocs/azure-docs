@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/11/2020
+ms.date: 07/06/2021
 ms.author: kumud
 ---
 
@@ -35,28 +35,30 @@ If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-res
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
-
-Log in to the Azure portal at https://portal.azure.com.
-
 ## Create a virtual network
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
-2. Select **Networking**, and then select **Virtual networks**.
-3. Click **+ Add** and enter the following information: 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-   |Setting|Value|
+1. Select **+ Create a resource** on the upper left corner of the Azure portal.
+
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-resources.png" alt-text="Screenshot of search for virtual network in create a resource page.":::    
+
+1. Search for **Virtual Networking**, and then select **Create**.
+
+1. On the **Basics** tab, enter the following information and then select **Next: IP addresses >**. 
+
+   | Setting | Value |
    |----|----|
-   |Subscription| Select your subscription|
-   |Resource group | Select **Create new** and enter *myResourceGroup*.|
-   |Name| Enter *myVirtualNetwork* |
-   |Region| Select **(US) East US** |
+   | Subscription | Select your subscription|
+   | Resource group | Select **Create new** and enter *myResourceGroup*.|
+   | Name | Enter *myVirtualNetwork* |
+   | Region | Select **(US) East US** |
 
-   ![Enter basic information about your virtual network](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png" alt-text="Screenshot of basics tab for create a virtual network.":::  
 
-4. Click **Next: IP addresses >**
+1. On the **IP addresses** tab, select the following network settings.
    
-   |Setting|Value|
+   | Setting | Value |
    |----|----|
    |IPv4Address space| Leave as default |
    |Subnet name| Click **default** and change the name from "default" to "Public"|
