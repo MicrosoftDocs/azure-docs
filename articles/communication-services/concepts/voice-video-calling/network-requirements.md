@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 
 
-# Network Recommendations
+# Network recommendations
 
 This document summarizes how the network environment impacts voice and video calling quality. There are many different factors that contribute to Azure Communication Services real-time media (audio, video, and application sharing) quality. These include network quality, bandwidth, firewall, host, and device configurations.
 
