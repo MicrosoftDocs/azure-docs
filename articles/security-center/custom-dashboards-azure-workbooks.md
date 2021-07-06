@@ -6,7 +6,7 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 07/07/2021
 ---
 
 # Create rich, interactive reports of Security Center data
@@ -25,18 +25,18 @@ Within Azure Security Center, you can access the built-in workbooks to track you
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                  | General Availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
-| Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group                                      |
-| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, Azure China) |
+| Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China) |
 |                                 |                                                                                                                                              |
 
 ## Workbooks gallery in Azure Security Center
 
 With the integrated Azure Workbooks functionality, Azure Security Center makes it straightforward to build your own custom, interactive workbooks. Security Center also includes a gallery with the following workbooks ready for your customization:
 
-- ['Secure Score Over Time' report](#use-the-secure-score-over-time-report) - Track your subscriptions' scores and changes to recommendations for your resources
-- ['System Updates' report](#use-the-system-updates-report) - View missing system updates by resources, OS, severity, and more
-- ['Vulnerability Assessment Findings' report](#use-the-vulnerability-assessment-findings-report) - View the findings of vulnerability scans of your Azure resources
-- ['Compliance Over Time' report](#use-the-compliance-over-time-report) - View the status of a  subscription's compliance with the regulatory or industry standards you've selected 
+- ['Secure Score Over Time' workbook](#use-the-secure-score-over-time-workbook) - Track your subscriptions' scores and changes to recommendations for your resources
+- ['System Updates' workbook](#use-the-system-updates-workbook) - View missing system updates by resources, OS, severity, and more
+- ['Vulnerability Assessment Findings' workbook](#use-the-vulnerability-assessment-findings-workbook) - View the findings of vulnerability scans of your Azure resources
+- ['Compliance Over Time' workbook](#use-the-compliance-over-time-workbook) - View the status of a subscription's compliance with the regulatory or industry standards you've selected 
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Gallery of built-in workbooks in Azure Security Center.":::
 
@@ -106,11 +106,11 @@ This workbook gathers these findings and organizes them by severity, resource ty
 :::image type="content" source="media/custom-dashboards-azure-workbooks/vulnerability-assessment-findings-report.png" alt-text="Security Center's vulnerability assessment findings report.":::
 
 
-### Use the 'Compliance Over Time' report
+### Use the 'Compliance Over Time' workbook
 
 Azure Security Center continually compares the configuration of your resources with requirements in industry standards, regulations, and benchmarks. Built-in standards include NIST SP 800-53, SWIFT CSP CSCF v2020, Canada Federal PBMM, HIPAA HITRUST, and more. You can select the specific standards relevant to your organization using the regulatory compliance dashboard. Learn more in [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-This report lets you track your compliance status over time with the various standards you've added to your dashboard.
+This workbook lets you track your compliance status over time with the various standards you've added to your dashboard.
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-select-standards.png" alt-text="Select the standards for your compliance over time report.":::
 
