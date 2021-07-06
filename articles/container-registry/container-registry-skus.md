@@ -46,7 +46,7 @@ If you experience issues with throughput to your registry, see [Troubleshoot reg
 
 #### Example
 
-Pushing a single 133 MB `nginx:latest` image to an Azure container registry requires multiple read and write operations for the image's 5 layers: 
+Pushing a single 133 MB `nginx:latest` image to an Azure container registry requires multiple read and write operations for the image's five layers: 
 
 * Read operations to read the image manifest, if it exists in the registry
 * Write operations to write the configuration blob of the image
