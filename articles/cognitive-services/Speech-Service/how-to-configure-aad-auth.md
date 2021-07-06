@@ -99,4 +99,166 @@ ibc = InteractiveBrowserCredential()
 token = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ```
 ::: zone-end
+
+## Get the Speech Resoruce ID
+
+You'll need the Speech Resource's ID to make SDK calls using AAD Authtentication.
+
+> [!NOTE]
+> For Intent Recognition use the ID for the LUIS Prediction Resource.
+
+# [Azure portal](#tab/portal)
+
+To get the resoruce ID in the Azure Portal:
+
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the required Speech resource.
+1. In the **Resource Management** group on the left pane, select **Properties**.
+1. Copy the **Resource ID**
+
+# [PowerShell](#tab/powershell)
+
+To retrieve the Resource ID using PowerShell, confirm that your computer has PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. To see the versions of these tools, follow these steps:
+
+1. In a PowerShell window, enter:
+
+    `$PSVersionTable`
+
+    Confirm that the `PSVersion` value is 7.x or later. To upgrade PowerShell, follow the instructions at [Installing various versions of PowerShell](/powershell/scripting/install/installing-powershell).
+
+1. In a PowerShell window, enter:
+
+    `Get-Module -ListAvailable Az`
+
+    If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-Az-ps) to upgrade.
+
+Before you proceed, run `Connect-AzAccount` to create a connection with Azure.
+
+
+```azurepowershell
+$subId = "Your Azure subscription Id"
+$resourceGroup = "Resource group name where Speech resource is located"
+$speechResourceName = "Your Speech resource name"
+
+# Select the Azure subscription that contains the Speech resource.
+# You can skip this step if your Azure account has only one active subscription.
+Set-AzContext -SubscriptionId $subId
+
+# Get the Speech Resource 
+$resource = Get-AzCognitiveServicesAccount -Name $speechResourceName -ResourceGroupName $resourceGroup
+
+# Get the resource ID:
+$resourceId = resource.Id
+```
+
+***
+
 ## Call the Speech SDK
+With an AAD Token, you can now call the Speech SDK.
+
+The method of providing the token, and the method to construct the corresponding Speech SDK Config object varies by the object you'll be using.
+
+### SpeechRecognizer, IntentRecognizer, ConversationTranscriber & SpeechSynthizer
+
+For these objects the authorization token is built from the Resource ID and the AAD Token and then used to create a SpeechConfig object.
+
+::: zone pivot="programming-language-csharp"
+string resourceId = "Your ResourceID";
+string aadToken = "Your AAD Token";
+string region =  "Your Speech Region";
+
+var speechToken = $"aad#{resourceId}#{aadToken}";
+var speechConfig = SpeechConfig.FromAuthorizationToken(speechToken, region);
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+std::string resourceId = "Your ResourceID";
+std::string aadToken = "Your AAD Token";
+std::string region = "Your Speech Region";
+
+auto speechToken = "aad#" + resourceId + "#" + aadToken;
+
+auto speechConfig = SpeechConfig::FromAuthorizationToken(speechToken, region);
+::: zone-end
+
+::: zone pivot="programming-language-java"
+::: zone-end
+
+::: zone pivot="programming-language-python"
+::: zone-end
+
+### TranslationRecognizer
+
+For the TranslationRecognizer the authorization token is built from the Resource ID and the AAD Token and then used to create a SpeechTranslationConfig object.
+
+::: zone pivot="programming-language-csharp"
+string resourceId = "Your ResourceID";
+string aadToken = "Your AAD Token";
+string region =  "Your Speech Region";
+
+var speechToken = $"aad#{resourceId}#{aadToken}";
+var speechConfig = SpeechTranslationConfig.FromAuthorizationToken(speechToken, region);
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+std::string resourceId = "Your ResourceID";
+std::string aadToken = "Your AAD Token";
+std::string region = "Your Speech Region";
+
+auto speechToken = "aad#" + resourceId + "#" + aadToken;
+
+auto speechConfig = SpeechTranslationConfig::FromAuthorizationToken(speechToken, region);
+::: zone-end
+
+::: zone pivot="programming-language-java"
+::: zone-end
+
+::: zone pivot="programming-language-python"
+::: zone-end
+
+### DialogServiceConnector
+
+For the DialogServiceConnection the authorization token is built from the Resource ID and the AAD Token and then used to create a CustomCommandsConfig or a BotFrameworkConfig object.
+
+::: zone pivot="programming-language-csharp"string resourceId = "Your ResourceID";
+string resourceId = "Your ResourceID";
+string aadToken = "Your AAD Token";
+string region =  "Your Speech Region";
+string appId = "Your app ID";
+
+var speechToken = $"aad#{resourceId}#{aadToken}";
+var customCommandsConfig = CustomCommandsConfig.FromAuthorizationToken(appId, speechToken, region);
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+std::string resourceId = "Your ResourceID";
+std::string aadToken = "Your AAD Token";
+std::string region = "Your Speech Region";
+std::string appId = "Your app Id";
+
+auto speechToken = "aad#" + resourceId + "#" + aadToken;
+
+auto customCommandsConfig = CustomCommandsConfig::FromAuthorizationToken(appId, speechToken, region);
+::: zone-end
+
+::: zone pivot="programming-language-java"
+::: zone-end
+
+::: zone pivot="programming-language-python"
+::: zone-end
+
+### VoiceProfileClient
+::: zone pivot="programming-language-csharp"
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+::: zone-end
+
+::: zone pivot="programming-language-java"
+::: zone-end
+
+::: zone pivot="programming-language-python"
+::: zone-end
+
+> [!NOTE]
+> **ConversationTranslator** does not currently support AAD Authentication.
