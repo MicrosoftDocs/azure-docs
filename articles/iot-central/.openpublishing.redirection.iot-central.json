@@ -1162,7 +1162,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-monitor-application-health.md",
-      "redirect_url": "/azure/iot-central/core/how-manage-iot-central-from-portal",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal",
       "redirect_document_id": false
     }
   ]
