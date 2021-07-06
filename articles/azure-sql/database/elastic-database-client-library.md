@@ -39,7 +39,7 @@ To download:
 13. [Elastic Database client library with Dapper](elastic-scale-working-with-dapper.md)
 14. [Split-merge tool](elastic-scale-overview-split-and-merge.md)
 15. [Performance counters for shard map manager](elastic-database-client-library.md) 
-16. [FAQ for Elastic Database tools](elastic-scale-faq.md)
+16. [FAQ for Elastic Database tools](elastic-scale-faq.yml)
 
 ## Client capabilities
 

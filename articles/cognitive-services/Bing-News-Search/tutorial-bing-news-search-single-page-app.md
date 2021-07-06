@@ -425,4 +425,4 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Bing News Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)
+> [Bing News Search API reference](/rest/api/cognitiveservices/bing-news-api-v7-reference)

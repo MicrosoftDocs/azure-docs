@@ -3,9 +3,9 @@ title: 'Tutorial: Create a device resource for Azure Network Function Manager'
 description: In this tutorial, learn about how to create a device resource for Azure Network Function Manager.
 author: cherylmc
 
-ms.service: vnf-manager
+ms.service: network-function-manager
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 06/30/2021
 ms.author: cherylmc
 
 ---
@@ -71,9 +71,9 @@ To create a **device** resource, use the following steps.
 
 Follow these steps to register the device resource with Azure Stack Edge.
 
-1. To register the device with the registration key obtained in the previous step, connect to the Azure Stack Edge device via Windows PowerShell.
-1. Once you have a PowerShell (minishell) connection to the appliance, enter the following command with the device registration key you obtained from the previous step as the parameter:
+1. To register the device with the registration key obtained in the previous step, [connect to the Azure Stack Edge device via Windows PowerShell](../databox-online/azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
+1. Once you have a PowerShell (minishell) connection to the appliance, enter the following command with the device registration key you obtained from the previous step as the parameter:
    ```powershell
    Invoke-MecRegister <device-registration-key>
    ```

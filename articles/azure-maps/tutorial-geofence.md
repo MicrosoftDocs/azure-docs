@@ -39,11 +39,9 @@ For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCo
 >[!TIP]
 >You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload-preview).
 
-1. Open the Postman app. Near the top, select **New**. In the **Create New** window, select **Collection**. Name the collection and select **Create**.
+1. Open the Postman app. Near the top, select **New**.  In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, and then select **Save**.
-
-3. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofencing data to Azure Maps. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **POST** HTTP method in the builder tab, and enter the following URL to upload the geofencing data to Azure Maps. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```HTTP
     https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
@@ -51,7 +49,7 @@ For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCo
 
     The `geojson` parameter in the URL path represents the data format of the data being uploaded.
 
-4. Select the **Body** tab. Select **raw**, and then **JSON** as the input format. Copy and paste the following GeoJSON data into the **Body** text area:
+3. Select the **Body** tab. Select **raw**, and then **JSON** as the input format. Copy and paste the following GeoJSON data into the **Body** text area:
 
    ```JSON
    {
@@ -139,29 +137,29 @@ For this tutorial, you upload geofencing GeoJSON data that contains a `FeatureCo
    }
    ```
 
-5. Select **Send**, and wait for the request to process. When the request completes, go to the **Headers** tab of the response. Copy the value of the **Operation-Location** key, which is the `status URL`.
+4. Select **Send**, and wait for the request to process. When the request completes, go to the **Headers** tab of the response. Copy the value of the **Operation-Location** key, which is the `status URL`.
 
     ```http
     https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
-6. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
+5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
    ```HTTP
    https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
    ```
 
-7. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Save the `udid` to query the Get Geofence API in the last section of this tutorial. Optionally, you can use the `resource location URL` to retrieve metadata from this resource in the next step.
+6. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Save the `udid` to query the Get Geofence API in the last section of this tutorial. Optionally, you can use the `resource location URL` to retrieve metadata from this resource in the next step.
 
     :::image type="content" source="./media/tutorial-geofence/resource-location-url.png" alt-text="Copy the resource location URL.":::
 
-8. To retrieve content metadata, create a **GET** HTTP request on the `resource location URL` that was retrieved in step 7. Make sure to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
+7. To retrieve content metadata, create a **GET** HTTP request on the `resource location URL` that was retrieved in step 7. Make sure to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
     ```http
     https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. When the request completes successfully, select the **Headers** tab in the response window. The metadata should like the following JSON fragment:
+8. When the request completes successfully, select the **Headers** tab in the response window. The metadata should like the following JSON fragment:
 
     ```json
     {
@@ -264,7 +262,7 @@ Each of the following sections makes API requests by using the five different lo
 
 ### Equipment location 1 (47.638237,-122.132483)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Make it *Location 1*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. Make it *Location 1*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
 2. Select the **GET** HTTP method in the builder tab, and enter the following URL. Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
@@ -304,7 +302,7 @@ In the preceding GeoJSON response, the negative distance from the main site geof
 
 ### Location 2 (47.63800,-122.132531)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Make it *Location 2*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. Make it *Location 2*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
 2. Select the **GET** HTTP method in the builder tab, and enter the following URL. Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
@@ -344,7 +342,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 ### Location 3 (47.63810783315048,-122.13336020708084)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Make it *Location 3*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. Make it *Location 3*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
 2. Select the **GET** HTTP method in the builder tab, and enter the following URL. Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
@@ -387,7 +385,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 ### Location 4 (47.637988,-122.1338344)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Make it *Location 4*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. Make it *Location 4*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
 2. Select the **GET** HTTP method in the builder tab, and enter the following URL. Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
@@ -421,7 +419,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 
 ### Location 5 (47.63799, -122.134505)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Make it *Location 5*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. Make it *Location 5*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
 2. Select the **GET** HTTP method in the builder tab, and enter the following URL. Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
