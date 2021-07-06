@@ -61,7 +61,7 @@ These endpoint differences must be taken into account when you connect to storag
 2. Copy/paste the storage account connection string.
 
 #### C# 
-1. Open up Visual Studio and create a new project. Add a reference to the [Azure.Storage.Blobs NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/). This NuGet package contains classes we will need to connect to your storage account.
+1. Open up Visual Studio and create a new project. Add a reference to the [Azure.Data.Tables NuGet package](https://www.nuget.org/packages/Azure.Data.Tables/). This NuGet package contains classes we will need to connect to your storage account.
 
 2. Add these two lines of C# code to connect:
     ```cs
