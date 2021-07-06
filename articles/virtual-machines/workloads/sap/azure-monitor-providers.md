@@ -10,7 +10,7 @@ ms.author: radeltch
 
 ---
 
-# Azure Monitor for SAP solutions providers (preview)
+# Azure Monitor for SAP Solutions providers (preview)
 
 ## Overview
 
