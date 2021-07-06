@@ -99,7 +99,7 @@ Display name: "data"
 
 ## Customizing resource set grouping using pattern rules
 
-hen scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. These issues can include:
+When scanning a storage account, Azure Purview uses a set of defined patterns to determine if a group of assets is a resource set. In some cases, Azure Purview's resource set grouping may not accurately reflect your data estate. These issues can include:
 
 - Incorrectly marking an asset as a resource set
 - Putting an asset into the wrong resource set
