@@ -1244,6 +1244,18 @@ The table below lists the limits for data that you send to Document Translation.
 
 Document Translation can not be used to translate secured documents such as those with an encrypted password or with restricted access to copy content.
 
+## Troubleshooting
+
+### Common HTTP status codes
+
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 200 | OK | The request was successful. |
+| 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
+| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. When managing your subscription on the Azure portal, please ensure you're using the **Translator** single-service resource  _not_ the **Cognitive Services** multi-service resource. 
+| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
+
 ## Learn more
 
 * [Translator v3 API reference](../reference/v3-0-reference.md)
