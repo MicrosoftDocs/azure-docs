@@ -96,7 +96,7 @@ Follow the steps in this section to view, add, and delete policy signer certific
 1.	Go to the Azure portal menu or the home page and select **All resources**.
 1.	In the filter box, enter the attestation provider name.
 1.	Select the attestation provider and go to the overview page.
-1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane.
+1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication,  please choose the appropriate option to proceed.
 1.	Select **Add** on the upper menu. The button will be disabled for attestation providers created without the policy signing requirement.
 1.	Upload the policy signer certificate file and select **Add**. [See examples of policy signer certificates](./policy-signer-examples.md).
 
@@ -105,7 +105,7 @@ Follow the steps in this section to view, add, and delete policy signer certific
 1.	Go to the Azure portal menu or the home page and select **All resources**.
 1.	In the filter box, enter the attestation provider name.
 1.	Select the attestation provider and go to the overview page.
-1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane.
+1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication,  please choose the appropriate option to proceed.
 1.	Select **Delete** on the upper menu. The button will be disabled for attestation providers created without the policy signing requirement.
 1.	Upload the policy signer certificate file and select **Delete**. [See examples of policy signer certificates](./policy-signer-examples.md). 
 
