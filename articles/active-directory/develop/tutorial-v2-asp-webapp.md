@@ -391,6 +391,7 @@ To register your application and add the app's registration information to your 
 
 1. Replace `ClientId` with the Application ID you just registered.
 1. Replace `redirectUri` with the SSL URL of your project.
+1. If you plan to use Microsoft Accounts (MSA) to authenticate, you should replace `Tenant` with "consumer" 
 
 ## Test your code
 
