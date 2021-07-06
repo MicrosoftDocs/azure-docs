@@ -32,9 +32,9 @@ During Preview, you must use the Azure portal if you want to specify the Standar
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier - Basic or Standard | [Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md) |
-| Azure PowerShell | Basic only - no settings |[cmdlet](/bastion-create-host-powershell.md) |
-| Azure CLI |  Basic only - no settings | [command](create-host-cli.md) |
+| Azure portal | Tier - Basic or Standard | [Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md) |
+| Azure PowerShell | Basic only - no settings |[Create a bastion host - PowerShell](bastion-create-host-powershell.md) |
+| Azure CLI |  Basic only - no settings | [Create a bastion host - CLI](create-host-cli.md) |
 
 ### Upgrade a SKU
 
@@ -56,7 +56,7 @@ You can configure this setting using the following methods:
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal |Instance count  | [Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md)|
+| Azure portal |Instance count  | [Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md)|
 
 ### To change the instance count
 
@@ -82,7 +82,7 @@ You can configure this setting using the following methods:
 
 | Method | Value | Links |
 | --- | --- |--- |
-| Azure portal | Subnet  |[Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md)|
+| Azure portal | Subnet  |[Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
 | Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az_network_vnet_create) |
 
