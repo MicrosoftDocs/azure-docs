@@ -37,7 +37,6 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | ------------ | ------------- | ------------- |
-| Offers | Publishers can publish a virtual machine (VM) that they have built on premises. To learn more, see [Create a virtual machine using your own image](/azure/marketplace/azure-vm-create-using-own-image). | 2021-06-23 |
 | Co-sell | Information added for the MACC program including, requirements, how often we update MACC status, and definitions for Enrolled, and not Enrolled. To learn more, see [Azure Consumption Commitment enrollment](/azure/marketplace/azure-consumption-commitment-enrollment), or [Co-sell with Microsoft sales teams and partners overview](/azure/marketplace/co-sell-overview). | 2021-06-03 |
 | Offers | Additional information regarding VM pricing options and descriptions. To learn more see [How to plan a SaaS offer for the commercial marketplace](/azure/marketplace/plan-saas-offer). | 2021-05-25|
 | API guidance | This topic gives publishers a single convenient location to find recent changes to the commercial marketplace, including updates to certification policy, changes to tax rules, and more. To learn more, see [Align your business with our e-commerce platform](/azure/marketplace/marketplace-apis-guide). | 2021-05-13 |
