@@ -74,11 +74,13 @@ Yes. In the portal, navigate to the **VPN gateway -> Point-to-site configuration
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2 in certain OS versions, you must install updates and set a registry key value locally. Note that OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
+
+> NOTE: Windows OS builds newer than Windows 10 Version 1709 and Windows Server 2016 Version 1607 do not require these steps.
 
 To prepare Windows 10 or Server 2016 for IKEv2:
 
-1. Install the update.
+1. Install the update based on your OS version:
 
    | OS version | Date | Number/Link |
    |---|---|---|

@@ -188,6 +188,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
 
+## Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | budgets | subscription or resource group | 1-63 | Alphanumerics, hyphens, and underscores. |
+
 ## Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
@@ -400,7 +407,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Can't use:<br>`/&%\?` <br><br>Can't end with space or period.  |
+> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
 > | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` <br><br>Can't end with space or period.  |
 > | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` <br><br>Can't end with space or period.  |

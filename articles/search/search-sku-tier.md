@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 06/26/2021
 ms.custom: contperf-fy21q2 
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
 
-Part of [creating a search service](search-create-service-portal.md) means choosing a pricing tier (or SKU) that's fixed for the lifetime of the service. Prices - or the estimated monthly cost of running the service - are shown in the portal's **Select Pricing Tier** page when you create the service. If you're provisioning through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter, and you should check [service pricing](https://azure.microsoft.com/pricing/details/search/) to learn about estimated costs.
+Part of [creating a search service](search-create-service-portal.md) means choosing a pricing tier (or SKU) that's fixed for the lifetime of the service. In the portal, tier is specified in the **Select Pricing Tier** page when you create the service. If you're provisioning through PowerShell or Azure CLI instead, the tier is specified through the **`-Sku`** parameter
 
 The tier you select determines:
 
@@ -23,6 +23,8 @@ The tier you select determines:
 + Billable rate as a fixed monthly cost, but also an incremental cost if you add capacity
 
 In a few instances, the tier you choose determines the availability of [premium features](#premium-features).
+
+Pricing - or the estimated monthly cost of running the service - are shown in the portal's **Select Pricing Tier** page. You should check [service pricing](https://azure.microsoft.com/pricing/details/search/) to learn about estimated costs.
 
 > [!NOTE]
 > Looking for information about "Azure SKUs"? Start with [Azure pricing](https://azure.microsoft.com/pricing/) and then scroll down for links to per-service pricing pages.

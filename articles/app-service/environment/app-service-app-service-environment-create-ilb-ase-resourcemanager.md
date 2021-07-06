@@ -138,5 +138,5 @@ To get started with App Service Environments, see [Introduction to App Service E
 <!-- LINKS -->
 [quickstartilbasecreate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-create/
 [examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
-[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/201-web-app-ase-ilb-configure-default-ssl/
+[configuringDefaultSSLCertificate]: https://azure.microsoft.com/resources/templates/web-app-ase-ilb-configure-default-ssl/
 
