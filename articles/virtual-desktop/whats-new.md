@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 06/30/2021
+ms.date: 07/07/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -86,10 +86,6 @@ We've made some significant updates to improve the Azure Virtual Desktop pricing
    - A custom section that shows cost-per-user
 
 You can access the pricing calculator at [this page](https://azure.microsoft.com/pricing/calculator/).
-
-### All image gallery images now include include Teams with optimizations
-
-All images available in the Azure Virtual Desktop image gallery that include Microsoft 365 Apps for Enterprise now include the media-optimized version of Teams.
 
 ### Single Sign-on (SSO) using Active Directory Federation Services (AD FS)
 
