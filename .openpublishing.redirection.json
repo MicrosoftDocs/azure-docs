@@ -13534,16 +13534,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
-      "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-vmware/backup-azure-vmware-solution-virtual-machines.md",
-      "redirect_url": "/azure/backup/backup-azure-backup-server-vmware",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
       "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
       "redirect_document_id": false

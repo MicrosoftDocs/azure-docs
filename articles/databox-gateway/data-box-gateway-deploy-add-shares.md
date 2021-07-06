@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 07/06/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 ---
@@ -147,4 +147,4 @@ In this tutorial, you learned about  Data Box Gateway topics such as:
 Advance to the next tutorial to learn how to administer your Data Box Gateway.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer a Data Box Gateway](https://aka.ms/dbg-docs)
+> [Use local web UI to administer a Data Box Gateway](data-box-gateway-manage-access-power-connectivity-mode.md)
