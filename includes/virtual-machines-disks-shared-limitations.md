@@ -5,12 +5,12 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/11/2021
+ ms.date: 07/06/2021
  ms.author: rogarana
  ms.custom: include file
 ---
 
-Enabling shared disks is only available to a subset of disk types. Currently only ultra disks and premium SSDs can enable shared disks. Each managed disk that have shared disks enabled are subject to the following limitations, organized by disk type:
+Enabling shared disks is only available to a subset of disk types. Currently only ultra disks, premium SSDs, and standard SSDs can enable shared disks. Each managed disk that have shared disks enabled are subject to the following limitations, organized by disk type:
 
 ### Ultra disks
 
@@ -39,4 +39,11 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 #### Regional availability
 
-Shared premium SSDs are available in all regions that managed disks are available.
+Shared premium SSDs are available in all regions that managed disks are available. For P1-P15 sizes, they are currently only available in Central US, East US, East US 2, West US, West US 2, Japan East, and Canada Central.
+
+
+### Standard SSDs
+
+
+
+
