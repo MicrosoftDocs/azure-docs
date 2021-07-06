@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 06/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Enable authentication in your own web application that calls a web API using Azure Active Directory B2C
 
-This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own ASP.NET web application that calls a web API. Learn how create an ASP.NET Core web application with ASP.NET Core middleware that uses the [OpenID Connect](openid-connect.md) protocol. Use this article with [Configure authentication in a sample web application that calls a web API](configure-authentication-sample-web-app-with-api.md), substituting the sample web app with your own web app.
+This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own ASP.NET web application that calls a web API. Learn how create an ASP.NET Core web application with ASP.NET Core middleware that uses the [OpenID Connect](openid-connect.md) protocol. Use this article with [Configure authentication in a sample web application that calls a web API](configure-authentication-sample-web-app-with-api.md), replace the sample web app with your own web app.
 
 This article focus on the web application project. For instructions how to create the web API, see the [to do list web API sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C).
 
@@ -258,7 +258,7 @@ using Microsoft.AspNetCore.Authorization;
 
 ## Add the to do list view
 
-To call the to do web api, you need to have an access token with the right scopes. In this step you acc and action to the `Home` controller. Under the `Views/Home` folder, add the `TodoList.cshtml` view.
+To call the to do web api, you need to have an access token with the right scopes. In this step, you add an action to the `Home` controller. Under the `Views/Home` folder, add the `TodoList.cshtml` view.
 
 ```razor
 @{
@@ -330,7 +330,7 @@ Azure AD B2C identity provider settings are stored in the `appsettings.json` fil
 1. Select **SignIn/Up**.
 1. Complete the sign-up or sign-in process.
 
-After you successfully authenticate, you will see your display name in the  navigation bar. 
+After you successfully authenticate, check your display name in the navigation bar. 
 
 * To view the claims the Azure AD B2C token return to your app, select **Claims**.
 * To view the access token, select **To do list**.
@@ -338,3 +338,4 @@ After you successfully authenticate, you will see your display name in the  navi
 ## Next steps
 
 * Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-web-application-options.md)
+* [Enable authentication in your own web API](enable-authentication-web-api.md)

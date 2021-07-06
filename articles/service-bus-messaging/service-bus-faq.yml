@@ -69,7 +69,7 @@ sections:
           
           The official Azure SDKs generally use the AMQP protocol for sending and receiving messages from Service Bus. 
           
-          [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
+          [!INCLUDE [service-bus-websockets-options](./includes/service-bus-websockets-options.md)]
           
           The older WindowsAzure.ServiceBus package for the .NET Framework has an option to use the legacy "Service Bus Messaging Protocol" (SBMP), also referred to as "NetMessaging". This protocol uses TCP ports 9350-9354. The default mode for this package is to automatically detect whether those ports are available for communication and will switch to WebSockets with TLS over port 443 if that is not the case. You can override this setting and force this mode by setting the `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode) on the [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) setting, which applies globally to the application.
           

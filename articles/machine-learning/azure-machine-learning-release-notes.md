@@ -18,11 +18,22 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
 
-## 2021-05-25
+## 2021-06-21
 
-### Announcing the 2.0 CLI (preview) for Azure Machine Learning
-
-The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
+### Azure Machine Learning SDK for Python v1.31.0
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Improved documentation for platform property on Environment class
+    + Changed default AML Compute node scale down time from 120 seconds to 1800 seconds
+    + Updated default troubleshooting link displayed on the portal for troubleshooting failed runs to: https://aka.ms/azureml-run-troubleshooting
+  + **azureml-automl-runtime**
+    + Data Cleaning: Samples with target values in [None, "", "nan", np.nan] will be dropped prior to featurization and/or model training
+  + **azureml-interpret**
+    + Prevent flush task queue error on remote AzureML runs that use ExplanationClient by increasing timeout
+  + **azureml-pipeline-core**
+    + Add jar parameter to synapse step
+  + **azureml-train-automl-runtime**
+    + Fix high cardinality guardrails to be more aligned with docs
 
 ## 2021-06-07
 
@@ -45,6 +56,11 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Support for custom defined quantiles during MM inference
     + Support for forecast_quantiles during batch inference.
 
+## 2021-05-25
+
+### Announcing the 2.0 CLI (preview) for Azure Machine Learning
+
+The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 
 ### Azure Machine Learning SDK for Python v1.29.0
 + **Bug fixes and improvements**

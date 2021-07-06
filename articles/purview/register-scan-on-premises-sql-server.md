@@ -28,10 +28,6 @@ SQL server on-premises data source supports:
 
 - Authentication method: SQL authentication
 
-### Known limitations
-
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views) in SQL Server.
-
 ## Prerequisites
 
 - Before registering data sources, create an Azure Purview account. For more information on creating a Purview account, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
