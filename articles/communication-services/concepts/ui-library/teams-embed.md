@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
-Teams Embed is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Teams Embed system is [video and voice calling](../voice-video-calling/calling-sdk-features.md), but the Teams Embed system builds on Azure's calling primitives to deliver a complete user experience based on Microsoft Teams meetings.
+Teams Embed is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Teams Embed system is [video and voice calling](../voice-video-calling/calling-sdk-features.md), and it builds on Azure's calling primitives to deliver a complete user experience based on Microsoft Teams meetings.
 
 Teams Embed SDK is closed-source and make these capabilities available to you in a turnkey, composite format. You drop Teams Embed into your app's canvas, and the SDK generates a complete user experience. Because this user experience is very similar to Microsoft Teams meetings, you can take advantage of:
 
@@ -81,7 +81,6 @@ You can use an Azure Communication Service access token, more information [how g
 | *Meeting actions*                                                   |              |
 | Display the call roster                                             | Yes          |
 | Background blur                                                     | Yes          |
-| Background video image                                              | Yes          |
 | Customize the layout: colors, icons, buttons                        | Partially    |
 | Customize the call screen icons                                     | Yes          |
 | Change meeting views layout                                         | Yes          |
@@ -104,4 +103,4 @@ You can use an Azure Communication Service access token, more information [how g
 | Joining can configure to show name plate on call screen             | Yes          |
 | Customize the looby screen                                          | Partially    |
 
-For more information about how to start into the Embed SDK,[Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md) or if you want to learn more about the SDK capabilities see the [samples guide](../../quickstarts/meeting/samples-for-teams-embed.md
+For more information about how to start with the Teams Embed SDK, please follow [Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md). If you want to learn more about the SDK capabilities see the [samples guide.](../../quickstarts/meeting/samples-for-teams-embed.md)
