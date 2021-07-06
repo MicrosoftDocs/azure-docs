@@ -48,7 +48,7 @@ For more information on Azure Storage Explorer, navigate [here](../vs-azure-tool
 
 ### Prerequisites
 * Have an active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 * Download Visual Studio 2019
 
 ### Getting Started with Storage API
@@ -61,91 +61,53 @@ These endpoint differences must be taken into account when you connect to storag
 2. Copy/paste the storage account connection string.
 
 #### C# 
-1. Open up Visual Studio and create a new project. Add a reference to the [WindowsAzure.Storage NuGet package](https://www.nuget.org/packages/WindowsAzure.Storage/). This NuGet package contains classes we will need to connect to your storage account.
+1. Open up Visual Studio and create a new project. Add a reference to the [Azure.Storage.Blobs NuGet package](https://www.nuget.org/packages/Azure.Storage.Blobs/). This NuGet package contains classes we will need to connect to your storage account.
 
 2. Add these two lines of C# code to connect:
     ```cs
-    var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
-
-    var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
+    var credentials = new TableSharedKeyCredential(storageAccountName, storageAccountKey);
+    var storageTableUri = //Paste Azure Storage Table Uri here
+    var storageAccount = new TableServiceClient(new Uri(storageTableUri), credentials);   
     ```
 
-    -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](/java/api/com.microsoft.azure.storage.cloudstorageaccount.cloudstorageaccount) – enabling us to explicitly pass in the endpoint suffix of "core.usgovcloudapi.net". This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
-
-3. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific record from our table storage we could do it like this:
+3. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific entity from our table storage we could do it like this:
 
    ```cs
-    var tableClient = storageAccount.CreateCloudTableClient();
+    var tableClient = storageAccount.GetTableClient("Contacts");
 
-    var table = tableClient.GetTableReference("Contacts");
-    var retrieveOperation = TableOperation.Retrieve<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
-    var result = await table.ExecuteAsync(retrieveOperation);
-    var contact = result.Result as ContactEntity;
-    Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
+    var retrieveResult = tableClient.GetEntity<TableEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
+    Console.WriteLine($"Contact: {retrieveResult.GetString("FirstName")} {retrieveResult.GetString("LastName")}");
     ```
 
 #### Java
-1. Download the [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) and configure your project correctly.
-2. Create a `CustomerEntity` class in your project and paste the code below:
-
-    ```java
-    import com.microsoft.azure.storage.table.TableServiceEntity;
-    
-    public class CustomerEntity extends TableServiceEntity {
-            public CustomerEntity(String lastName, String firstName) {
-                this.partitionKey = lastName;
-                this.rowKey = firstName;
-            }
-    
-            public CustomerEntity() { }
-    
-            String email;
-            
-            public String getEmail() {
-                return this.email;
-            }
-    
-            public void setEmail(String email) {
-                this.email = email;
-            }
-    
-        }
-    ``` 
-3. Create a "test" class where we'll access Azure Table Storage using the Azure Storage API. 
+1. Download the [Azure Data Tables SDK for Java](https://search.maven.org/artifact/com.azure/azure-data-tables) and configure your project correctly.
+2. Create a "test" class where we'll access Azure Table Storage using the Azure Data Tables API. 
  Copy and paste the code below, and **paste** your Storage Account connection string into the storageConnectionString variable. 
-
+ 
     ```java
-    import com.microsoft.azure.storage.*;
-    import com.microsoft.azure.storage.table.*;
-    
+    import com.azure.data.tables.implementation.ModelHelper;
+    import com.azure.data.tables.models.*;
+    import java.util.HashMap;
     public class test {
-
         public static final String storageConnectionString = //Paste in your Storage Account connection string
-
         public static void main(String[] args) {
-
         try
         {
-            // Retrieve storage account from connection-string.
-            CloudStorageAccount storageAccount =
-            CloudStorageAccount.parse(storageConnectionString);
-
-            // Create the table client.
-            CloudTableClient tableClient = storageAccount.createCloudTableClient();
-
+            // Create the table service client.
+            TableServiceClient tableServiceClient = new TableServiceClientBuilder()
+                .connectionString(storageConnectionString)
+                .buildClient();
             // Create the table if it doesn't exist.
             String tableName = "Contacts";
-            CloudTable cloudTable = tableClient.getTableReference(tableName);
-            cloudTable.createIfNotExists();
+            TableClient tableClient = tableServiceClient.createTableIfNotExists(tableName);
             // Create a new customer entity.
-            CustomerEntity customer1 = new CustomerEntity("Brown", "Walter");
-            customer1.setEmail("Walter@contoso.com");
-
-            // Create an operation to add the new customer to the people table.
-            TableOperation insertCustomer1 = TableOperation.insertOrReplace(customer1);
-
-            // Submit the operation to the table service.
-            cloudTable.execute(insertCustomer1);
+            TableEntity customer1 = ModelHelper.createEntity(new HashMap<String, Object>() {{
+                put("PartitionKey", "Brown");
+                put("RowKey", "Walter");
+                put("Email", "Walter@contoso.com");
+            }});
+            // Insert table entry into table
+            tableClient.createEntity(customer1);
         }
         catch (Exception e)
         {
@@ -162,28 +124,25 @@ These endpoint differences must be taken into account when you connect to storag
     **Paste** your Azure Storage account connection string into the storageConnectionString variable below. 
 
     ```javascript
-    var azure = require('azure-storage');
+    var { BlobServiceClient } = require("@azure/storage-blob");
     var storageConnectionString = //Paste Azure Storage connection string here
-    var blobSvc = azure.createBlobService(storageConnectionString);
-    blobSvc.createContainerIfNotExists('testing', function(error, result, response){
-    if(!error){
-    // Container exists and is private
-    }
-    });
+    var blobServiceClient = BlobServiceClient.fromConnectionString(storageConnectionString);
+    var containerClient = blobServiceClient.getContainerClient('testing');
+    containerClient.createIfNotExists();
     ```
 
 #### Python
 1. Download the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
-2. When using the Storage SDK for Python to connect to Azure Government, you **must separately define an "endpoint_suffix" parameter**. 
-    **Paste** in your Azure storage account name and key in the placeholders below.
+2. When using the Storage SDK for Python to connect to Azure Government, **Paste** in your Azure storage connection string in the placeholders below.
     
     ```python
-    # Create the BlockBlockService that is used to call the Blob service for the storage account
-    block_blob_service = BlockBlobService(account_name='#your account name', account_key='#your account key', endpoint_suffix="core.usgovcloudapi.net") 
+    # Create the BlobServiceClient that is used to call the Blob service for the storage account
+    blob_service_client = BlobServiceClient.from_connection_string(conn_str='#your connection string')
     container_name ='ml-gov-demo'
-    generator = block_blob_service.list_blobs(container_name)
+    container = blob_service_client.get_container_client(container=container_name)
+    generator = container.list_blobs()
     for blob in generator:
-        print(blob.name)
+        print("\t Blob name: " + blob.name)
     ```
 
 #### PHP
