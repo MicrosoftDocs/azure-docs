@@ -37,7 +37,7 @@ You can do full-database backups at an application level or do backups with stor
 SAP HANA on Azure (Large Instances) offers two backup and restore options:
 
 - You can use a third-party data protection tool to create backups. This tool should be able to create application consistent snapshots or it must be able to use the backing interface to stream with multiple sessions to a proper backup location. There are several supported tools available. The choice of the tool should be discussed and designed with the project team to meet the customer backup windows requirements. And very important is to test the backup and restore procedure during the project phase.
-- You can use storage snapshot backps with a utility provided by Microsoft as described in the next chapter
+- You can use storage snapshot backups with a utility provided by Microsoft as described in the next chapter
 
 >[!NOTE]
 >Before HANA2.0 SPS4 it was not supported to take database snapshots of multi-tenant database container databases (more than one tenant).
