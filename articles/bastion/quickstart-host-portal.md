@@ -94,7 +94,7 @@ There are a few different ways to configure a bastion host. In the following ste
 1. After the subnet creates, the page advances automatically to **Step 3**. For Step 3, use the following values:
 
    * **Name:** Name the bastion host.
-   * **Tier:** The tier is the SKU. Select **Standard** from the dropdown. This lets you configure the instance count for host scaling. The Basic SKU does not support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
+   * **Tier:** The tier is the SKU. Select **Standard** from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
    * **Instance count:** This is the setting for host scaling. Use the slider to configure. If you specify the Basic tier SKU, you are limited to 2 instances and cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). Instance count is in Preview and relies on the Standard SKU.
    * **Public IP address:** Select **Create new**.
    * **Public IP address name:** The name of the Public IP address resource.
