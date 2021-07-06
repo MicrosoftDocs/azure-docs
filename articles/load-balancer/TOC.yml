@@ -75,14 +75,16 @@
     href: skus.md
   - name: Health monitoring
     items:
+    - name: Monitor load balancer
+      href: monitor-load-balancer.md
+    - name: Monitoring data reference
+      href: monitor-load-balancer-reference.md
     - name: Health probes
       href: load-balancer-custom-probe-overview.md
     - name: Azure Monitor Insights for Load Balancer
       href: load-balancer-insights.md
     - name: Standard Load Balancer metrics and diagnostics
       href: load-balancer-standard-diagnostics.md
-    - name: Azure Monitor logs for Load Balancer
-      href: load-balancer-monitor-log.md
     - name: Get Load Balancer metrics with REST
       href: load-balancer-query-metrics-rest-api.md
   - name: High Availability ports
@@ -220,4 +222,4 @@
   - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
   - name: FAQ
-    href: load-balancer-faqs.md
+    href: load-balancer-faqs.yml

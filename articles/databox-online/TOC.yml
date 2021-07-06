@@ -221,6 +221,8 @@
           href: azure-stack-edge-gpu-deploy-arc-data-controller.md           
     - name: Configure Azure Resource Manager (Preview)
       items:
+      - name: What is local Azure Resource Manager?
+        href: azure-stack-edge-gpu-local-resource-manager-overview.md 
       - name: Connect via Azure PowerShell
         href: azure-stack-edge-gpu-connect-resource-manager.md 
       - name: Set Azure Resource Manager password

@@ -5,7 +5,7 @@ services:
 author: rahugup
 manager: bsiva
 ms.topic: tutorial
-ms.date: 3/2/2021
+ms.date: 6/30/2021
 ms.author: rahugup
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
@@ -14,9 +14,11 @@ In this article, you'll learn how to containerize Java web applications (running
 
 The Azure Migrate: App Containerization tool currently supports -
 
-- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
-- Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS.
 
+- Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS.
+- Containerizing Java Web Apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more](./tutorial-app-containerization-java-app-service.md)
+- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
+- Containerizing ASP.NET apps and deploying them on Windows containers on App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)
 
 The Azure Migrate: App Containerization tool helps you to -
 
@@ -30,9 +32,9 @@ The Azure Migrate: App Containerization tool helps you to -
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
 - **Improved infrastructure utilization:** With containers, multiple applications can share resources and be hosted on the same infrastructure. This can help you consolidate infrastructure and improve utilization.
-- **Simplified management:** By hosting your applications on a modern managed infrastructure platform like AKS, you can simplify your management practices while still retaining control over your infrastructure. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
-- **Application portability:** With increased adoption and standardization of container specification formats and orchestration platforms, application portability is no longer a concern.
-- **Adopt modern management with DevOps:** Helps you adopt and standardize on modern practices for management and security with Infrastructure as Code and transition to DevOps.
+- **Simplified management:** By hosting your applications on a modern managed platform like AKS and App Service, you can simplify your management practices. You can achieve this by retiring or reducing the infrastructure maintenance and management processes that you'd traditionally perform with owned infrastructure.
+- **Application portability:** With increased adoption and standardization of container specification formats and platforms, application portability is no longer a concern.
+- **Adopt modern management with DevOps:** Helps you adopt and standardize on modern practices for management and security and transition to DevOps.
 
 
 In this tutorial, you'll learn how to:
@@ -84,12 +86,12 @@ If you just created a free Azure account, you're the owner of your subscription.
     ![Opens the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-vmware/assign-role.png)
 
 7. Your Azure account also needs **permissions to register Azure Active Directory apps.**
-8.  In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
-9.  In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
+8. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
+9. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
       ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
-10.  In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+10. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install Azure Migrate: App Containerization tool
 
@@ -103,16 +105,15 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Launch the App Containerization tool
 
-1. Open a browser on any machine that can connect to the Windows machine running the App Containerization tool, and open the tool URL: **https://*machine name or IP address*: 44368**.
+1. Open a browser on any machine that can connect to the Windows machine running the App Containerization tool, and open the tool URL: **https://*machine name or IP address*: 44369**.
 
    Alternately, you can open the app from the desktop by selecting the app shortcut.
 
 2. If you see a warning stating that says your connection isn’t private, click Advanced and choose to proceed to the website. This warning appears as the web interface uses a self-signed TLS/SSL certificate.
 3. At the sign-in screen, use the local administrator account on the machine to sign-in.
-4. For specify application type, select **Java web apps on Tomcat** as the type of application you want to containerize.
-
+4. Select **Java web apps on Tomcat** as the type of application you want to containerize.
+5. To specify target Azure service, select **Containers on Azure Kubernetes Service**.
     ![Default load-up for App Containerization tool.](./media/tutorial-containerize-apps-aks/tool-home.png)
-
 
 ### Complete tool pre-requisites
 1. Accept the **license terms**, and read the third-party information.
@@ -126,16 +127,16 @@ If you just created a free Azure account, you're the owner of your subscription.
    - **Enable Secure Shell (SSH)**: The tool will inform you to ensure that Secure Shell (SSH)  is enabled on the application servers running the Java web applications to be containerized.
 
 
-## Login to Azure
+## Sign in to Azure
 
-Click **Login** to log in to your Azure account.
+Click **Sign in** to log in to your Azure account.
 
-1. You'll need a device code to authenticate with Azure. Clicking on Login will open a modal with the device code.
-2. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
+1. You'll need a device code to authenticate with Azure. Clicking on sign in will open a modal with the device code.
+2. Click on **Copy code & sign in** to copy the device code and open an Azure sign in prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 
     ![Modal showing device code.](./media/tutorial-containerize-apps-aks/login-modal.png)
 
-3. On the new tab, paste the device code and complete log in using your Azure account credentials. You can close the browser tab after log in is complete and return to the App Containerization tool's web interface.
+3. On the new tab, paste the device code and complete sign in using your Azure account credentials. You can close the browser tab after sign in is complete and return to the App Containerization tool's web interface.
 4. Select the **Azure tenant** that you want to use.
 5. Specify the **Azure subscription** that you want to use.
 
@@ -184,7 +185,6 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 6. Click **Continue** to proceed to the container image build phase.
 
-
 ## Build container image
 
 
@@ -195,11 +195,13 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
 
-3. **Trigger build process**: Select the applications to build images for and click **Build**. Clicking build will start the container image build for each application. The tool keeps monitoring the build status continuously and will let you proceed to the next step upon successful completion of the build.
+3. **Configure Application Insights**: You can enable monitoring for your Java apps running on App Service without instrumenting your code. The tool will install the Java standalone agent as part of the container image. Once configured during deployment, the Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics for your application that can be used for monitoring with Application Insights. This option is enabled by default for all Java applications.  
 
-4. **Track build status**: You can also monitor progress of the build step by clicking the **Build in Progress** link under the status column. The link takes a couple of minutes to be active after you've triggered the build process.  
+4. **Trigger build process**: Select the applications to build images for and click **Build**. Clicking build will start the container image build for each application. The tool keeps monitoring the build status continuously and will let you proceed to the next step upon successful completion of the build.
 
-5. Once the build is completed, click **Continue** to specify deployment settings.
+5. **Track build status**: You can also monitor progress of the build step by clicking the **Build in Progress** link under the status column. The link takes a couple of minutes to be active after you've triggered the build process.  
+
+6. Once the build is completed, click **Continue** to specify deployment settings.
 
     ![Screenshot for app container image build completion.](./media/tutorial-containerize-apps-aks/build-java-app-completed.png)
 
@@ -218,6 +220,14 @@ Once the container image is built, the next step is to deploy the application as
      - If you don’t have an AKS cluster or would like to create a new AKS cluster to deploy the application to, you can choose to create on from the tool by clicking **Create new AKS cluster**.      
           - The AKS cluster created using the tool will be created with a Linux node pool. The cluster will be configured to allow it to pull images from the Azure Container Registry that was created earlier (if create new registry option was chosen).
      - Click **Continue** after selecting the AKS cluster.
+2. **Specify secret store and monitoring workspace**: If you had opted to parameterize application configurations, then specify the secret store to be used for the application. You can choose Azure Key Vault or Kubernetes Secrets for managing your application secrets.
+
+     - If you've selected Kubernetes secrets for managing secrets, then click **Continue**.
+     - If you'd like to use an Azure Key Vault for managing your application secrets, then specify the Azure Key Vault that you'd want to use.     
+         - If you don’t have an Azure Key Vault or would like to create a new Key Vault, you can choose to create on from the tool by clicking **Create new**.
+         - The tool will automatically assign the necessary permissions for managing secrets through the Key Vault.
+    - **Monitoring workspace**: If you'd selected to enabled monitoring with Application Insights, then specify the Application Insights resource that you'd want to use. This option won't be visible if you had disabled monitoring integration.
+         - If you don’t have an Application Insights resource or would like to create a new resource, you can choose to create on from the tool by clicking **Create new**.
 
 2. **Specify Azure file share**: If you had added more folders and selected the Persistent Volume option, then specify the Azure file share that should be used by Azure Migrate: App Containerization tool during the deployment process. The tool will create new directories in this Azure file share to copy over the application folders that are configured for Persistent Volume storage. Once the application deployment is complete, the tool will clean up the Azure file share by deleting the directories it had created.
 
@@ -232,14 +242,14 @@ Once the container image is built, the next step is to deploy the application as
      - Click **Apply** to save the deployment configuration.
      - Click **Continue** to deploy the application.
 
-    ![Screenshot for deployment app configuration.](./media/tutorial-containerize-apps-aks/deploy-java-app-config.png)
+    ![Screenshot for deployment app configuration.](./media/tutorial-containerize-apps-aks/deploy-java-app-config-aks.png)
 
 4. **Deploy the application**: Once the deployment configuration for the application is saved, the tool will generate the Kubernetes deployment YAML for the application.
-     - Click **Edit** to review and customize the Kubernetes deployment YAML for the applications.
+     - Click **Review** to review and customize the Kubernetes deployment YAML for the applications.
      - Select the application to deploy.
      - Click **Deploy** to start deployments for the selected applications
 
-         ![Screenshot for app deployment configuration.](./media/tutorial-containerize-apps-aks/deploy-java-app-deploy.png)
+         ![Screenshot for app deployment configuration.](./media/tutorial-containerize-apps-aks/deploy-java-app-deploy-aks.png)
 
      - Once the application is deployed, you can click the *Deployment status* column to track the resources that were deployed for the application.
 
@@ -255,4 +265,6 @@ To troubleshoot any issues with the tool, you can look at the log files on the W
 
 ## Next steps
 
-- Containerizing ASP.NET apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
+- Containerizing Java web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on App Service. [Learn more](./tutorial-app-containerization-java-app-service.md)
+- Containerizing ASP.NET web apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
+- Containerizing ASP.NET web apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)

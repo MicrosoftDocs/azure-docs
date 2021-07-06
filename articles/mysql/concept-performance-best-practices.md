@@ -10,6 +10,8 @@ ms.date: 1/28/2021
 
 # Best practices for optimal performance of your Azure Database for MySQL - Single server
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Learn how to get best performance while working with your Azure Database for MySQL - Single server. As we add new capabilities to the platform, we will continue refining our recommendations in this section.
 
 ## Physical Proximity
