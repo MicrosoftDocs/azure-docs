@@ -10,7 +10,7 @@ ms.date: 6/30/2020
 
 # How to backup and restore a server in Azure Database for MySQL using the Azure portal
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 ## Backup happens automatically
 Azure Database for MySQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.

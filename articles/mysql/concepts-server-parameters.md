@@ -9,7 +9,7 @@ ms.date: 1/26/2021
 ---
 # Server parameters in Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL.
 

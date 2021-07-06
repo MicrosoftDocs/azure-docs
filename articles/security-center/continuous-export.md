@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/13/2021
+ms.date: 07/01/2021
 ms.author: memildin
 
 ---
@@ -37,8 +37,8 @@ This article describes how to configure continuous export to Log Analytics works
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) Azure China|
+|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li><li>To export data to Event Hub, you'll need Write permission on the Event Hub Policy.</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, Azure China)| 
 |||
 
 
@@ -68,7 +68,9 @@ You can configure continuous export from the Security Center pages in Azure port
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
 1. From Security Center's sidebar, select **Pricing & settings**.
+
 1. Select the specific subscription for which you want to configure the data export.
+
 1. From the sidebar of the settings page for that subscription, select **Continuous Export**.
 
     :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center.":::
@@ -76,9 +78,10 @@ The steps below are necessary whether you're setting up a continuous export to L
     Here you see the export options. There's a tab for each available export target. 
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
+
 1. Select the appropriate export frequency:
     - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
-    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
+    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent once a week per subscription. This is a preview feature for weekly snapshots of secure scores and regulatory compliance data. To identify snapshot data, look for the field ``IsSnapshot``.
 
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
     - Vulnerability Assessment findings on your SQL databases should be remediated
@@ -116,10 +119,6 @@ The API provides additional functionality not available from the Azure portal, f
     > If you've set up multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
 
 Learn more about the automations API in the [REST API documentation](/rest/api/securitycenter/automations).
-
-
-
-
 
 ### [**Deploy at scale with Azure Policy**](#tab/azure-policy)
 
