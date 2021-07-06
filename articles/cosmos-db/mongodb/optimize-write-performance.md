@@ -11,7 +11,7 @@ ms.author: gahllevy
 ---
 
 # Optimize write performance in Azure Cosmos DB API for MongoDB
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
 Optimizing write performance helps you get the most out of Azure Cosmos DB API for MongoDB's unlimited scale. Unlike other managed MongoDB services, the API for MongoDB automatically and transparently shards your collections for you (when using sharded collections) to scale infinitely. 
 
@@ -35,7 +35,14 @@ Reducing the number of indexes to only the indexes you need to support your quer
 ## Set ordered to false in the MongoDB drivers
 By default, the MongoDB drivers set the ordered option to "true" when writing data, which writes each document in order one by one. This option reduces write performance since each write request has to wait for the previous one to complete. When writing data, set this option to false to improve performance. 
 
-
+```JavaScript
+db.collection.insertMany(
+   [ <doc1> , <doc2>, ... ],
+   {
+      ordered: false
+   }
+)
+```
 
 ## Tune for the optimal batch size and thread count
 Parallelization of write operations across many threads/processes is key to scaling writes. The API for MongoDB accepts writes in batches of up to 1,000 documents for each process/thread. If you are writing more than 1,000 documents at a time per process/thread, client functions such as `insertMany()` should be limited to roughly 1,000 documents. Otherwise, the client will wait for each batch to commit before moving on to the next batch. 
