@@ -172,7 +172,7 @@ Configure and enable GitHub Actions on the GitHub Enterprise Server instance.
 
 1. Copy the `config.sh` command and paste it into a session on your Actions runner (created previously).
 
-   :::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Screenshot shoing the GitHub Actions runner registration and settings.":::
+   :::image type="content" source="media/github-enterprise-server/actions-runner.png" alt-text="Screenshot showing the GitHub Actions runner registration and settings.":::
 
 1. Use the `./run.sh` command to *run* the runner:
 
