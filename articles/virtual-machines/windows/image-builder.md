@@ -119,7 +119,7 @@ az role definition create --role-definition ./aibRoleImageCreation.json
 # grant role definition to the user assigned identity
 az role assignment create \
     --assignee $imgBuilderCliId \
-    --role $imageRoleDefName \
+    --role "$imageRoleDefName" \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
