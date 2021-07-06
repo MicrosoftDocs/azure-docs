@@ -93,7 +93,7 @@ If you're using SMB MultiChannel and the number of channels you have exceeds fou
 
 #### Solution
 
-Set the Windows per NIC setting for SMB so that the total channels don't exceed 4. For example, if you have two NICs, you can set the maximum per NIC to two using the following PowerShell cmdlet: `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2`.
+Set the Windows per NIC setting for SMB so that the total channels don't exceed four. For example, if you have two NICs, you can set the maximum per NIC to two using the following PowerShell cmdlet: `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2`.
 
 ## Very high latency for requests
 
