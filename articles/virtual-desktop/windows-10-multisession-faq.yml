@@ -52,10 +52,10 @@ sections:
         answer: Windows 10 Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows 10 Enterprise for Virtual Desktops release. For an image integrated with Microsoft 365 Apps for enterprise, go to the Azure portal and search for **Microsoft Windows 10 + Microsoft 365 Apps for enterprise**.
 
       - question: Which Windows 10 Enterprise multi-session image should I use?
-        answer: The Azure gallery has several releases, including Windows 10 Enterprise multi-session, version 1809, and Windows 10 Enterprise multi-session, version 1903. We recommend using the latest version for improved performance and reliability.
+        answer: The Azure gallery has several releases, including Windows 10 Enterprise multi-session, version 1909, and Windows 10 Enterprise multi-session, version 1903. We recommend using the latest version for improved performance and reliability.
 
       - question: Which Windows 10 Enterprise multi-session versions are supported?
-        answer: Windows 10 Enterprise multi-session, versions 1809 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows 10 Enterprise, which means the March release is supported for 18 months and the September release for 30 months.
+        answer: Windows 10 Enterprise multi-session, versions 1909 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows 10 Enterprise, which means the March release is supported for 18 months and the September release for 30 months.
 
       - question: Which profile management solution should I use for Windows 10 Enterprise multi-session?
         answer: |

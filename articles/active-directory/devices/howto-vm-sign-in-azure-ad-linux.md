@@ -6,13 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/20/2021
+ms.date: 06/30/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
 ---
 # Preview: Login to a Linux virtual machine in Azure with Azure Active Directory using SSH certificate-based authentication
@@ -185,12 +185,18 @@ There are multiple ways you can configure role assignments for VM, as an example
 
 To configure role assignments for your Azure AD enabled Linux VMs:
 
-1. Navigate to the virtual machine to be configured.
-1. Select **Access control (IAM)** from the menu options.
-1. Select **Add**, **Add role assignment** to open the Add role assignment pane.
-1. In the **Role** drop-down list, select the role **Virtual Machine Administrator Login** or **Virtual Machine User Login**.
-1. In the **Select** field, select a user, group, service principal, or managed identity. If you do not see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
-1. Select **Save**, to assign the role.
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | **Virtual Machine Administrator Login** or **Virtual Machine User Login** |
+    | Assign access to | User, group, service principal, or managed identity |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 After a few moments, the security principal is assigned the role at the selected scope.
  

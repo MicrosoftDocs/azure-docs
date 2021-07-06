@@ -53,7 +53,7 @@ An Azure PowerShell script is available that does the following:
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/5.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:

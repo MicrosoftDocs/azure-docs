@@ -13,7 +13,7 @@ ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
 
-**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -25,7 +25,7 @@ The Gallery has a variety of resources that you can use to develop your own anal
 
 The Azure AI Gallery contains a number of different resources that have been contributed by Microsoft and members of the data science community. These include:
 
-* **Experiments** - The Gallery contains a wide variety of experiments that have been developed in Azure Machine Learning Studio (classic). These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
+* **Experiments** - The Gallery contains a wide variety of experiments that have been developed in Machine Learning Studio (classic). These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.
 * **Tutorials** - A number of tutorials are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
 * **Collections** - A collection allows you to group together experiments, APIs, and other Gallery resources that address a specific solution or concept.
 * **Custom Modules** - You can download custom modules into your Studio (classic) workspace to use in your own experiments.

@@ -231,7 +231,7 @@ The following sections specify the parameters required for all authentication ty
         4. Click **+ Add** and select **Add role assignment** from the dropdown menu.
 
         5. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
-        ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
+        ![lake-service-principals](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
 
         **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
@@ -360,7 +360,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     3. Click **+ Add** and select **Add role assignment** from the dropdown menu.
     4. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
     
-        ![lake-service-principals](media/datafeeds/adls-gen2-app-reg-assign-roles.png)
+        ![lake-service-principals](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
 
     
     **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
@@ -406,7 +406,7 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ![set connection detail](media/datafeeds/connection-details.png)
         
         **Azure portal**: Select Query editor in your SQL database, sign in admin account.
-        ![edit query in Azure Portal](media/datafeeds/query-editor-MI.png)
+        ![edit query in Azure Portal](media/datafeeds/query-editor.png)
 
         Then in the query window, you should execute the following lines (same for management tool method):
     

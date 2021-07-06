@@ -54,7 +54,7 @@ After you select **OK**, a Teams hook will be created. You can use it in any ale
 
 ### Web hook
 
-A web hook is another notification channel by using an endpoint that provided by the customer. Any anomaly detected on the time series will be noticed through a web hook. There're several steps to enable a web hook as alert notification channel within Metrics Advisor. 
+A web hook is another notification channel by using an endpoint that is provided by the customer. Any anomaly detected on the time series will be notified through a web hook. There're several steps to enable a web hook as alert notification channel within Metrics Advisor. 
 
 **Step1.** 	Enable Managed Identity in your Metrics Advisor resource
 
@@ -105,9 +105,9 @@ To create a web hook, you will need to add the following information:
 **Step3. (optional)** Store your certificate in Azure Key vaults and get identifier
 As mentioned, if accessing the endpoint needs to be authenticated by a certificate, the certificate should be stored in Azure Key vaults. 
 
-- Check [Set and retrieve a certificate from Azure Key Vault using the Azure portal](https://docs.microsoft.com/en-us/azure/key-vault/certificates/quick-create-portal)
+- Check [Set and retrieve a certificate from Azure Key Vault using the Azure portal](../../../key-vault/certificates/quick-create-portal.md)
 - Click on the certificate you've added, then you're able to copy the "Certificate identifier". 
-- Then select "Access policies" and "Add access policy", grant "get" permission for "Key permissions", "Secrete permissions" and "Certificate permissions". Select principal as the anem of your Metrics Advisor resource. Select "Add" and "Save" button in "Access policies" page. 
+- Then select "Access policies" and "Add access policy", grant "get" permission for "Key permissions", "Secrete permissions" and "Certificate permissions". Select principal as the name of your Metrics Advisor resource. Select "Add" and "Save" button in "Access policies" page. 
 
 **Step4.** Receive anomaly notification
 When a notification is pushed through a web hook, you can  fetch incidents data by calling the "callBackUrl" in Webhook Request. Details for this api:

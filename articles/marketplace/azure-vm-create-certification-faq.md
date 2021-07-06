@@ -52,14 +52,14 @@ Provisioning issues can include the following failure scenarios:
 |Scenario|Error|Reason|Solution|
 |---|---|---|---|
 |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer is incorrect, the VHD will be considered invalid.|Re-create the image and submit the request.|
-|2|Invalid blob type|VM provisioning failed because the used block is a blob type instead of a page type.|Re-create the image and submit the request.|
+|2|Invalid blob type|VM provisioning failed because the used block is a block type instead of a page type.|Re-create the image as page type and submit the request.|
 |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
 |
 
 > [!NOTE]
 > For more information about VM generalization, see:
 > - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
-> - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+> - [Windows documentation](../virtual-machines/generalize.md#windows)
 
 ## VHD specifications
 
