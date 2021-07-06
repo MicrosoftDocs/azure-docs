@@ -4,7 +4,7 @@ description: You can simplify the task of migrating between Azure Data Lake Stor
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 06/22/2021
+ms.date: 07/06/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -51,8 +51,8 @@ As you create the account, make sure to configure settings with the following va
 
 | Setting | Value |
 |--|--|
-| **Storage account name** | Any name that you want. This name doesn't have to match the name of your Gen1 account and can be in any subscription of your choice |
-| **Location** | The same region used by the Data Lake Storage Gen1 account. |
+| **Storage account name** | Any name that you want. This name doesn't have to match the name of your Gen1 account and can be in any subscription of your choice. |
+| **Location** | The same region used by the Data Lake Storage Gen1 account |
 | **Replication** | LRS or ZRS |
 | **Minimum TLS version** | 1.0 |
 | **NFS v3** | Disabled |
@@ -63,15 +63,17 @@ As you create the account, make sure to configure settings with the following va
 
 ## Verify RBAC role assignments
 
-Ensure that you have Storage Blob Data Owner RBAC assignment for your identity on Gen2 and Owner RBAC assignment on Gen1.
+For Gen2, ensure that the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role has been assigned to your Azure Active Directory (Azure AD) user identity in the scope of the storage account, parent resource group, or subscription. 
+
+For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles.md#owner) role has been assigned to your Azure AD identity in the scope of the Gen1 account, parent resource group, or subscription.
 
 ## Perform the migration
 
 Before you begin, decide whether to copy only data or perform a complete migration. 
 
-If you copy only the data, both accounts remain active after the migration is completed. During the migration, your Gen1 account will be read only. You can then update your compute workloads to use your new Gen2-enabled. Once you've verified that your applications and workloads work as expected, you can retire the Gen1 account. Microsoft recommends this option.
+If you copy only the data, both accounts remain active after the migration is completed. During the migration, your Gen1 account will become read-only. You can then update your compute workloads to use your new Gen2 enabled storage account. Once you've verified that your applications and workloads work as expected, you can retire the Gen1 account. Microsoft recommends this option.
 
-If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. This option might make sense if you have updated your applications to Gen2, and if you think there might be other unknown applications that would still be using the Gen1 APIs.
+If you perform a complete migration, data is copied from Gen1 to Gen2. Then, your Gen1 URI is redirected to your Gen2 URI. After the migration completes you won't have access to your Gen1 account and all Gen1 requests will be redirected to your Gen2 enabled account. Your Gen1 account will no longer be available for data operations, and you will no longer be billed for the data in your Gen1 account. You can delete your Gen1 account once your pipelines are running on your Gen2 enabled account.
 
 > [!NOTE]
 > Gen2 doesn't support Azure Data Lake Analytics applications. If you have any, make sure to move them to Azure Synapse Analytics or another supported workload before you migrate from Gen1 to Gen2.
@@ -166,7 +168,7 @@ The following functionality isn't supported in Gen2, and therefore the compatibi
 
 #### How much does the data migration cost?
 
-During the data migration, you will be billed for your data and transactions on Gen1. If you choose the "Copy data" option, you will be billed for both Gen1 and Gen2 after the migration is completed. You will need to delete the Gen1 account when you have completed updating your applications. If you chose the "Complete migration" option, you will be billed only for Gen2 after the migration. 
+During the data migration, you will be billed for the data storage and transactions of the Gen1 account. If you choose the option that copies only data, then you will be billed for the data storage and transactions for both accounts after the migration is completed. To avoid being billed for the Gen1 account, you'll have to delete the Gen1 account. Delete the Gen1 account after you have completed updating your applications. If you choose to perform a complete migration, you will be billed only for the data storage and transactions of the Gen2 enabled account after the migration. 
 
 #### After the migration completes, can I choose to go back to using the Gen2 account?
 
