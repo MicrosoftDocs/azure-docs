@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 07/06/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need a quick way to get rid of resource groups no longer in use that were created for VMs on my Azure Stack Edge Pro GPU devices.
 ---
@@ -24,7 +24,7 @@ To view the Edge resource groups on your Azure Stack Edge Pro GPU device, do the
 
 1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Virtual machines**, open **Resources**, and select **Edge resource groups**.<!--To get to Resources, the device must have been activated. First order of business Tue a.m.: Create and activate a device (maybe - delivery issue may be a barrier). Use screenshots from the demo to write the procedures.-->
 
-    ![Screenshot showing Edge resource groups tab in Resources for a virtual machine in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-resource-groups/resources-01-edge-resource-groups.png)
+    ![Screenshot showing Edge resource groups tab in Resources for a virtual machine in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-01-edge-resource-groups.png)
 
 ## Delete a resource group
 
