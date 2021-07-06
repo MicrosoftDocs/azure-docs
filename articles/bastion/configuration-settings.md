@@ -17,12 +17,10 @@ The sections in this article discuss the resources and settings for Azure Bastio
 
 ## <a name="skus"></a>SKUs
 
-A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. 
+A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The SKU is configured in the Azure portal during the workflow when you configure Bastion. You can upgrade a Basic SKU to a Standard SKU. However, downgrading from a Standard SKU to a Basic SKU is not supported. 
 
 * The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs. 
 * The **Standard SKU** enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. 
-
-The SKU is configured during the workflow when you create the bastion host. However, you can later upgrade the Basic SKU to the Standard SKU.
 
 The following table shows features and corresponding SKUs. 
 
@@ -48,9 +46,9 @@ Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgr
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
 
-The AzureBastionSubnet contains the scale units. For host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of scale units. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
+The AzureBastionSubnet contains the instances. For host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
-See the [Quickstart -create from VM settings][quickstart-host-portal.md] or the [Tutorial-create a bastion host](tutorial-create-host-portal.md) for steps.
+See the [Quickstart -create from VM settings](quickstart-host-portal.md) or the [Tutorial-create a bastion host](tutorial-create-host-portal.md) for steps.
 
 ### Configuration methods
 
