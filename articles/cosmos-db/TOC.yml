@@ -1157,7 +1157,7 @@
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: mongodb/estimate-ru-capacity-planner.md
-        - name: Optimize write peformance
+        - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
