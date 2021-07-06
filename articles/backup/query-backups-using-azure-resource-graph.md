@@ -95,6 +95,17 @@ Resources
 
 ```
 
+### List all Backup policies used for Azure VMs
+
+```dotnetcli
+RecoveryServicesResources
+| where type == 'microsoft.recoveryservices/vaults/backuppolicies'
+| extend vaultName = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],type == 'microsoft.recoveryservices/vaults/backuppolicies', split(split(id, 'microsoft.recoveryservices/vaults/')[1],'/')[0],'--')
+| extend datasourceType = case(type == 'microsoft.recoveryservices/vaults/backuppolicies', properties.backupManagementType,type == 'microsoft.dataprotection/backupVaults/backupPolicies',properties.datasourceTypes[0],'--')
+| project id,name,vaultName,resourceGroup,properties,datasourceType
+| where datasourceType == 'AzureIaasVM'
+```
+
 ### List all Backup policies used for Azure Databases for PostgreSQL Servers
 
 ```dotnetcli
