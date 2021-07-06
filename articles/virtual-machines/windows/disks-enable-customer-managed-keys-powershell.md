@@ -6,7 +6,8 @@ ms.date: 03/02/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks

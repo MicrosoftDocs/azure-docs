@@ -4,12 +4,11 @@ description: Migrate to the new Elastic Database Jobs.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: johnpaulkee
-ms.author: joke
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 03/13/2019
 ---
 # Migrate to the new Elastic Database jobs (preview)

@@ -91,7 +91,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 3. Provide the following information and then select **Create**:
 
    - Profile name
-   - Routing method (use [weighted](../traffic-manager/traffic-manager-routing-methods.md)
+   - Routing method (use [weighted](../traffic-manager/traffic-manager-routing-methods.md))
    - Subscription
    - Resource group
 

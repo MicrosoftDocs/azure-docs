@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 

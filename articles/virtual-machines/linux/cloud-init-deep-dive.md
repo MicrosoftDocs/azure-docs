@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
+ms.subservice: cloud-init
 ---
 
 # Diving deeper into cloud-init

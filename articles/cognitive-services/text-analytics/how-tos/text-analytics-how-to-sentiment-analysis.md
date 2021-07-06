@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/29/2021
+ms.date: 06/10/2021
 ms.author: aahi
 ---
 
@@ -69,7 +69,7 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 #### [Version 3.1-preview](#tab/version-3-1)
 
-[Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
+[Sentiment Analysis v3.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
 
 #### [Version 3.0](#tab/version-3)
 
@@ -88,13 +88,13 @@ Set the HTTPS endpoint for sentiment analysis by using either a Text Analytics r
 
 **Sentiment Analysis**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment`
 
 **Opinion Mining**
 
 To get Opinion Mining results, you must include the `opinionMining=true` parameter. For example:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment?opinionMining=true`
 
 This parameter is set to `false` by default. 
 
@@ -291,7 +291,7 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 + Sentiment Analysis and Opinion Mining is available for select languages.
 + JSON documents in the request body include an ID, text, and language code.
 + The POST request is to a `/sentiment` endpoint by using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your subscription.
-+ Use `opinionMining=true` in Sentient Analysis requests to get Opinion Mining results.
++ Use `opinionMining=true` in Sentiment Analysis requests to get Opinion Mining results.
 + Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON. For example, Excel and Power BI.
 
 ## See also
@@ -299,3 +299,4 @@ In this article, you learned concepts and workflow for sentiment analysis using 
 * [Text Analytics overview](../overview.md)
 * [Using the Text Analytics client library](../quickstarts/client-libraries-rest-api.md)
 * [What's new](../whats-new.md)
+* [Model versions](../concepts/model-versioning.md)

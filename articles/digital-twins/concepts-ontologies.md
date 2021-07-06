@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # What is an ontology? 
 
-The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entity that exist in your environment.
+The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment.
 
 Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. These pre-existing model sets are called **ontologies**. 
 
@@ -55,11 +55,12 @@ No matter which strategy you choose for integrating an ontology into Azure Digit
 1. Proceed with your chosen ontology integration strategy from above: [Adopt](concepts-ontologies-adopt.md), [Convert](concepts-ontologies-convert.md), or [Author](concepts-models.md) your models based on your ontology.
     1. If necessary, [extend](concepts-ontologies-extend.md) your ontology to customize it to your needs.
 1. [Validate](how-to-parse-models.md) your models to verify they are working DTDL documents.
-1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader).
+1. Upload your finished models to Azure Digital Twins, using the [APIs](how-to-manage-model.md#upload-models) or a sample like the [Azure Digital Twins model uploader](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels).
 
 After this, you should be able to use your models in your Azure Digital Twins instance. 
 
-You can visualize them with samples like [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer), or move on to using them to create [digital twins](concepts-twins-graph.md).
+>[!TIP]
+> You can visualize the models in your ontology using the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) or [Azure Digital Twins Model Visualizer](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer).
 
 ## Next steps
 

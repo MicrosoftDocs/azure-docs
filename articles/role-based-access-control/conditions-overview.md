@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -82,6 +82,10 @@ If Chandra tries to read a blob without the Project=Cascade tag, access will not
 
 ![Diagram of access is not allowed with a condition.](./media/conditions-overview/condition-access-multiple.png)
 
+Here is what the condition looks like in the Azure portal:
+
+![Build expression section with values for blob index tags.](./media/shared/condition-expressions.png)
+
 Here is what the condition looks like in code:
 
 ```
@@ -93,12 +97,16 @@ Here is what the condition looks like in code:
     )
     OR
     (
-        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEqualsIgnoreCase 'Cascade'
     )
 )
 ```
 
 For more information about the format of conditions, see [Azure role assignment condition format and syntax](conditions-format.md).
+
+## Conditions and Privileged Identity Management (PIM)
+
+You can also add conditions to eligible role assignments using Privileged Identity Management (PIM). With PIM, your end users must activate an eligible role assignment to get permission to perform certain actions. Using conditions in PIM enables you not only to limit a user's access to a resource using fine-grained conditions, but also to use PIM to secure it with a time-bound setting, approval workflow, audit trail, and so on. For more information, see [Assign Azure resource roles in Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ## Terminology
 

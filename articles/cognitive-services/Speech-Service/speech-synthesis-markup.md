@@ -101,77 +101,6 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 |-----------|-------------|---------------------|
 | `name` | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required |
 
-> [!IMPORTANT]
-> Multiple voices are incompatible with the word boundary feature. The word boundary feature needs to be disabled in order to use multiple voices.
-
-### Disable word boundary
-
-Depending on the Speech SDK language, you'll set the `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` property to `false` on an instance of the `SpeechConfig` object.
-
-# [C#](#tab/csharp)
-
-For more information, see <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
-
-```csharp
-speechConfig.SetProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# [C++](#tab/cpp)
-
-For more information, see <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
-
-```cpp
-speechConfig->SetProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# [Java](#tab/java)
-
-For more information, see <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
-
-```java
-speechConfig.setProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# [Python](#tab/python)
-
-For more information, see <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
-
-```python
-speech_config.set_property_by_name(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# [JavaScript](#tab/javascript)
-
-For more information, see <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
-
-```javascript
-speechConfig.setProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# [Objective-C](#tab/objectivec)
-
-For more information, see <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
-
-```objectivec
-[speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
-```
-
-# [Swift](#tab/swift)
-
-For more information, see <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
-
-```swift
-speechConfig!.setPropertyTo(
-    "false", byName: "SpeechServiceResponse_Synthesis_WordBoundaryEnabled")
-```
-
----
-
 **Example**
 
 ```xml
@@ -197,14 +126,11 @@ Currently, speaking style adjustments are supported for the following neural voi
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural` (Preview)
-* `zh-CN-XiaohanNeural` (Preview)
-* `zh-CN-XiaomoNeural` (Preview)
-* `zh-CN-XiaoxuanNeural` (Preview)
-* `zh-CN-XiaoruiNeural` (Preview)
-
-> [!NOTE]
-> Voices in preview are only available in these 3 regions: East US, West Europe and Southeast Asia.
+* `zh-CN-YunxiNeural`
+* `zh-CN-XiaohanNeural`
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
+* `zh-CN-XiaoruiNeural`
 
 The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Currently, speaking style adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
@@ -226,7 +152,7 @@ Above changes are applied at the sentence level, and styles and role-plays vary 
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural. 
+> At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices. `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.
 
 **Attributes**
 
@@ -367,6 +293,65 @@ This SSML snippet illustrates how the `role` attribute is used to change the rol
         <mstts:express-as role="OlderAdultMale" style="calm">
             “刚打车过来的，路上还挺顺畅。”
         </mstts:express-as>
+    </voice>
+</speak>
+```
+
+## Adjust speaking languages
+
+You can adjust speaking languages for neural voices.
+Enable one voice to speak different languages fluently (like English, Spanish, and Chinese) using the `<lang xml:lang>` element. This is an optional element unique to the Speech service. Without this element, the voice will speak its primary language.
+Currently, speaking language adjustments are supported for these neural voices: `en-US-JennyMultilingualNeural`. Above changes are applied at the sentence level and word level. If a language isn't supported, the service will return no audio stream.
+
+> [!NOTE]
+> Currently, the `<lang xml:lang>` element is incompatible with `prosody` and `break` element, you cannot adjust pause and prosody like pitch, contour, rate, duration, volume in this element.
+
+**Syntax**
+
+```xml
+<lang xml:lang="string"></lang>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `lang` | Specifies the speaking languages. Currently, speaking different languages are voice-specific. | Required if adjusting the speaking language for a neural voice. If using `lang xml:lang`, then locale must be provided. |
+
+Use this table to determine which speaking languages are supported for each neural voice.
+
+| Voice                            | Locale language           | Description                                                 |
+|----------------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | Speak en-US locale, which is the primary locale of this voice |
+|                                  | `lang="en-CA"`            | Speak en-CA locale language                                  |
+|                                  | `lang="en-AU"`            | Speak en-AU locale language                                  |
+|                                  | `lang="en-GB"`            | Speak en-GB locale language                                  |
+|                                  | `lang="de-DE"`            | Speak de-DE locale language                                  |
+|                                  | `lang="fr-FR"`            | Speak fr-FR locale language                                  |
+|                                  | `lang="fr-CA"`            | Speak fr-CA locale language                                  |
+|                                  | `lang="es-ES"`            | Speak es-ES locale language                                  |
+|                                  | `lang="es-MX"`            | Speak es-MX locale language                                  |
+|                                  | `lang="zh-CN"`            | Speak zh-CN locale language                                  |
+|                                  | `lang="ko-KR"`            | Speak ko-KR locale language                                  |
+|                                  | `lang="ja-JP"`            | Speak ja-JP locale language                                  |
+|                                  | `lang="it-IT"`            | Speak it-IT locale language                                  |
+|                                  | `lang="pt-BR"`            | Speak pt-BR locale language                                  |
+
+**Example**
+
+This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX` and `de-DE`.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        I am looking forward to the exciting things.
+        <lang xml:lang="es-MX">
+            Estoy deseando que lleguen las cosas emocionantes.
+        </lang>
+        <lang xml:lang="de-DE">
+            Ich freue mich auf die spannenden Dinge.
+        </lang>
     </voice>
 </speak>
 ```
@@ -567,8 +552,8 @@ To define how multiple entities are read, you can create a custom lexicon, which
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
   <lexeme>
-    <grapheme>😀</grapheme> 
-    <alias>test emoji</alias> 
+    <grapheme>😀</grapheme>
+    <alias>test emoji</alias>
   </lexeme>
 </lexicon>
 ```
@@ -908,7 +893,7 @@ As an example, you might want to know the time offset of each flower word as fol
 You can subscribe to the `BookmarkReached` event in Speech SDK to get the bookmark offsets.
 
 > [!NOTE]
-> `BookmarkReached` event is only available since Speech SDK version 1.16.0.
+> `BookmarkReached` event is only available since Speech SDK version 1.16.
 
 `BookmarkReached` events are raised as the output audio data becomes available, which will be faster than playback to an output device.
 

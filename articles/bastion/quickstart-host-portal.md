@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Configure Azure Bastion and connect to a VM via private IP address and a browser'
 titleSuffix: Azure Bastion
-description: In this quickstart article, learn how to create an Azure Bastion host from a virtual machine and connect to the VM securely through your browser via private IP address.
+description: Learn how to create an Azure Bastion host from a virtual machine and connect to the VM securely through your browser via private IP address.
 services: bastion
 author: cherylmc
 
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 
@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 # Quickstart: Connect to a VM securely through a browser via private IP address
 
-You can connect to a virtual machine (VM) through your browser using the Azure portal and Azure Bastion. This quickstart article shows you how to configure Azure Bastion based on your VM settings, and then connect to your VM through the portal. The VM doesn't need a public IP address, client software, agent, or a special configuration. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
+You can connect to a virtual machine (VM) through your browser using the Azure portal and Azure Bastion. This quickstart article shows you how to configure Azure Bastion based on your VM settings. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -97,19 +97,26 @@ There are a few different ways to configure a bastion host. In the following ste
    * **Public IP address name:** The name of the Public IP address resource.
    * **Public IP address SKU:** Pre-configured as **Standard**
    * **Assignment:** Pre-configured to **Static**. You can't use a Dynamic assignment for Azure Bastion.
-   * **Resource group**: The same resource group as the VM.
+   * **Resource group:** The same resource group as the VM.
 
    :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="Screenshot of Step 3.":::
 1. After completing the values, select **Create Azure Bastion using defaults**. Azure validates your settings, then creates the host. The host and its resources take about 5 minutes to create and deploy.
 
-## <a name="connect"></a>Connect
+## <a name="remove"></a>Remove VM public IP address
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
+
+## <a name="connect"></a>Connect to a VM
 
 After Bastion has been deployed to the virtual network, the screen changes to the connect page.
 
 1. Type the username and password for your virtual machine. Then, select **Connect**.
 
    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Screenshot shows the Connect using Azure Bastion dialog.":::
-1. The RDP connection to this virtual machine will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
+1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. 
+
+   * When you connect, the desktop of the VM may look different than the example screenshot. 
+   * Using keyboard shortcut keys while connected to a VM may not result in the same behavior as shortcut keys on a local computer. For example, when connected to a Windows VM from a Windows client, CTRL+ALT+END is the keyboard shortcut for CTRL+ALT+Delete on a local computer. To do this from a Mac while connected to a Windows VM, the keyboard shortcut is Fn+CTRL+ALT+Backspace.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP connect":::
 

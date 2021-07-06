@@ -176,26 +176,6 @@ The following FQDN / application rules are required for AKS clusters that have t
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
 | *.monitoring.azure.com | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
 
-### Azure Dev Spaces
-
-Update your firewall or security configuration to allow network traffic to and from the all of the below FQDNs and [Azure Dev Spaces infrastructure services][dev-spaces-service-tags].
-
-#### Required network rules
-
-| Destination Endpoint                                                             | Protocol | Port    | Use  |
-|----------------------------------------------------------------------------------|----------|---------|------|
-| [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureDevSpaces`**  | TCP           | 443      | This endpoint is used to send metrics data and logs to Azure Monitor and Log Analytics. |
-
-#### Required FQDN / application rules
-
-The following FQDN / application rules are required for AKS clusters that have the Azure Dev Spaces enabled:
-
-| FQDN                                    | Port      | Use      |
-|-----------------------------------------|-----------|----------|
-| `cloudflare.docker.com` | **`HTTPS:443`** | This address is used to pull linux alpine and other Azure Dev Spaces images |
-| `gcr.io` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
-| `storage.googleapis.com` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
-
 ### Azure Policy
 
 #### Required FQDN / application rules
@@ -800,4 +780,3 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations

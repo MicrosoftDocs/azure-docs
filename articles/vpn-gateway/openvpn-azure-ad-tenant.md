@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 05/27/2021
 ms.author: cherylmc
 
 ---
@@ -24,11 +24,11 @@ Verify that you have an Azure AD tenant. If you don't have an Azure AD tenant, y
 * Organizational name
 * Initial domain name
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="New Azure AD tenant" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/newtenant.png" alt-text="Screenshot of Create Directory page." border="false":::
 
 ## <a name="users"></a>2. Create Azure AD tenant users
 
-Your Azure AD tenant needs the following accounts: a Global Admin account and a master user account. The master user account is used as your master embedding account (service account). When you create an Azure AD tenant user account, you adjust the Directory role for the type of user that you want to create.
+Your Azure AD tenant needs the following accounts: a Global Admin account and a user account. The user account is used as your embedding account (service account). When you create an Azure AD tenant user account, you adjust the Directory role for the type of user that you want to create.
 
 Use the steps in [Add or delete users - Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md) to create at least two users for your Azure AD tenant. Be sure to change the **Directory Role** to create the account types:
 
@@ -39,7 +39,7 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
 1. Locate the Directory ID of the directory that you want to use for authentication. It's listed in the properties section of the Active Directory page.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Screenshot that shows the Directory Properties" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Screenshot that shows the Directory Properties." lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
 
 1. Copy the Directory ID.
 
@@ -77,7 +77,7 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
 
 1. Select the **Global Admin** account if prompted.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Pick an account" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Screnshot showing Pick an account page." border="false":::
 1. Select **Accept** when prompted.
 
    :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Screenshot shows the message Permissions requested Accept for your organization with details and the option to accept." border="false":::
@@ -104,7 +104,7 @@ Use the steps in [Add or delete users - Azure Active Directory](../active-direct
    * **Issuer**: URL of the Secure Token Service ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="SAzure VPN" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Screenshot showing settings for Tunnel type, Authentication type, and Azure Active Directory settings." border="false":::
 
    > [!NOTE]
    > Make sure you include a trailing slash at the end of the `AadIssuerUri` value. Otherwise, the connection may fail.

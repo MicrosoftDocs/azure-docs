@@ -3,7 +3,7 @@ title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 05/12/2021
 ---
 
 # Create a dashboard in the Azure portal
@@ -83,6 +83,14 @@ Many resource pages include a pin icon in the page header, which means that you 
 If you select this icon, you can pin the tile to an existing private or shared dashboard. You can also create a new dashboard which will include this pin by selecting **Create new**.
 
 :::image type="content" source="media/azure-portal-dashboards/dashboard-pin-pane.png" alt-text="Screenshot of Pin to dashboard options.":::
+
+### Copy a tile to a new dashboard
+
+If you want to reuse a tile on a different dashboard, you can copy it from one dashboard to another. To do so, select the context menu in the upper right corner and then select **Copy**.
+
+:::image type="content" source="media/azure-portal-dashboards/copy-dashboard.png" alt-text="Screenshot showing how to copy a tile in the Azure portal.":::
+
+You can then select whether to copy the tile to an existing private or shared dashboard, or create a copy of the tile within the dashboard you're already working in. You can also create a new dashboard which will include a copy of the tile by selecting **Create new**.
 
 ### Resize or rearrange tiles
 

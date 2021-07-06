@@ -997,26 +997,19 @@ When using the `/detect` endpoint, the response will include alternate detection
 
 ```json
 [
+
     {
-        "alternatives": [
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "nl",
-                "score": 0.92
-            },
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "sk",
-                "score": 0.77
-            }
-        ],
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false,
+
         "language": "de",
-        "score": 1.0
+
+        "score": 1.0,
+
+        "isTranslationSupported": true,
+
+        "isTransliterationSupported": false
+
     }
+
 ]
 ```
 
@@ -2828,10 +2821,5 @@ If you're encountering connection issues, it may be that your SSL certificate ha
 
 ## Next steps
 
-* [Learn how the API counts characters](character-counts.md)
-* [Customize and improve translation](customization.md)
-
-## See also
-
-* [Translator v3 API reference](reference/v3-0-reference.md)
-* [Language support](language-support.md)
+> [!div class="nextstepaction"]
+> [Customize and improve translation](customization.md)

@@ -6,7 +6,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: how-to
 ms.date: 05/03/2021
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Delegate an Azure DNS subdomain using Azure PowerShell

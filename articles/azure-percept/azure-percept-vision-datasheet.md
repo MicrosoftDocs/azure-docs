@@ -21,14 +21,14 @@ Specifications listed below are for the Azure Percept Vision device, included in
 |Supported Software and Services |[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) <br> Azure Device Update |
 |AI Acceleration                 |Intel Movidius Myriad X (MA2085) Vision Processing Unit (VPU) with Intel Camera ISP integrated, 0.7 TOPS |
 |Sensors and Visual Indicators   |Sony IMX219 Camera sensor with 6P Lens<br>Resolution: 8MP at 30FPS, Distance: 50 cm - infinity<br>FoV: 120-degrees diagonal, Color: Wide Dynamic Range, Fixed Focus Rolling Shutter|
-|Camera Support                  |RGB <br> 2 cameras can be run simultaneously |
+|Camera Support                  |RGB |
 |Security Crypto-Controller      |ST-Micro STM32L462CE      |
 |Versioning / ID Component       |64 kb EEPROM |
 |Memory                          |LPDDR4 2GB     |
 |Power                           |3.5 W     |
 |Ports                           |1x USB 3.0 Type C <br> 2x MIPI 4 Lane (up to 1.5 Gbps per lane)     |
 |Control Interfaces              |2x I2C <br> 2x SPI <br> 6x PWM (GPIOs: 2x clock, 2x frame sync, 2x unused) <br> 2x spare GPIO |
-|Certification                   |FCC <br> IC <br> RoHS <br> REACH <br> UL   |
+|Certification                   |CE <br> ACMA <br> FCC <br> IC <br> VCCI <br> NRTL <br> CB  |
 |Operating Temperature           |0 degrees to 27 degrees C (Azure Percept Vision SoM assembly with housing) <br> -10 degrees to 70 degrees C (Vision SoM chip) |
 |Touch Temperature               |<= 48 degrees C |
 |Relative Humidity               |8% to 90%    |

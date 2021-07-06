@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 05/30/2021
 ---
 
 # Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
@@ -53,7 +53,12 @@ For partition key, use {date} and {time} tokens from your event fields in the pa
 
 ## Output batch size
 
-For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). The maximum blob block size is 4 MB and the maximum blob bock count is 50,000. |
+For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). The maximum blob block size is 4 MB and the maximum blob bock count is 50,000.
+
+## Limitations
+
+* If "/" is used in the path pattern (e.g /folder2/folder3), then empty folders will be created and they will not be visible in Storage Explorer
+* Stream Analytics appends to the same file in cases where a new blob file is not needed. Please note that this could cause additional triggers to be generated if azure services like event grid are configured to be triggered on blob file update
 
 ## Next steps
 

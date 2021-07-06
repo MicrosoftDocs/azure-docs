@@ -9,7 +9,8 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/27/2021
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---

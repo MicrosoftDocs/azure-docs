@@ -25,7 +25,9 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<sup>1</sup><br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<sup>2</sup><br/>(file) | columnCount<sup>2</sup><br>(file) | exists<sup>3</sup><br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Oracle Cloud Storage](connector-oracle-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Blob storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
@@ -35,12 +37,12 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
 
 <sup>1</sup> Metadata `lastModified`:
-- For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder. 
+- For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder. 
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
 
 <sup>2</sup> Metadata `structure` and `columnCount` are not supported when getting metadata from Binary, JSON, or XML files.
 
-<sup>3</sup> Metadata `exists`: For Amazon S3 and Google Cloud Storage, `exists` applies to the bucket and the key but not to the prefix or virtual folder.
+<sup>3</sup> Metadata `exists`: For Amazon S3, Amazon S3 Compatible Storage, Google Cloud Storage and Oracle Cloud Storage, `exists` applies to the bucket and the key but not to the prefix or virtual folder.
 
 Note the following:
 

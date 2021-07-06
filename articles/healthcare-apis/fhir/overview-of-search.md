@@ -1,11 +1,11 @@
 ---
 title:  Overview of search in Azure API for FHIR
 description: This article describes an overview of FHIR search that is implemented in Azure API for FHIR
-author: stevewohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/3/2021
+ms.date: 5/17/2021
 ms.author: cavoeg
 ---
 # Overview of FHIR search
@@ -111,7 +111,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 |  :type (reference) | Yes             | Yes                       | Yes                             | 
 |  :not         | Yes                  | Yes                       | Yes                             | 
 |  :below (uri) | Yes                  | Yes                       | Yes                             |  
-|  :above (uri) | No                   | No                        | No                              | 
+|  :above (uri) | Yes                  | Yes                       | Yes                             | 
 |  :in (token)  | No                   | No                        | No                              | 
 |  :below (token) | No                 | No                        | No                              | 
 |  :above (token) | No                 | No                        | No                              | 
@@ -124,7 +124,7 @@ To help manage the returned resources, there are search result parameters that y
 
 | **Search result parameters**  | **Supported - PaaS** | **Supported - OSS (SQL)** | **Supported - OSS (Cosmos DB)** | **Comments**                 |
 | ----------------------------  | -------------------- | ------------------------- | ------------------------------- | -----------------------------|
-| _elements                     | Yes                  | Yes                       | Yes                             |  Issue [1256](https://github.com/microsoft/fhir-server/issues/1256)                              |
+| _elements                     | Yes                  | Yes                       | Yes                             |                                |
 | _count                        | Yes                  | Yes                       | Yes                             | _count is limited to 1000 resources. If it's set higher than 1000, only 1000 will be returned and a warning will be returned in the bundle.                               |
 | _include                      | Yes                  | Yes                       | Yes                             | Included items are limited to 100. _include on PaaS and OSS on Cosmos DB do not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).                               |
 | _revinclude                   | Yes                  | Yes                       | Yes                             |  Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB do not include :iterate support [(#1313)](https://github.com/microsoft/fhir-server/issues/1313).  Issue [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |

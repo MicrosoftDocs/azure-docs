@@ -1,13 +1,13 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 05/04/2021
+ms.date: 06/02/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: iangithinji
-author: iantheninja
+ms.author: mtillman
+author: mtillman
 manager: CelesteDG
 ---
 
@@ -15,11 +15,18 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
 
+## May 2021
+
+### Updated articles
+
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+
+
 ## April 2021
 
 ### New articles
 
-- [Active Directory (Azure AD) Application Proxy frequently asked questions](application-proxy-faq.yml)
+- [Active Directory (Azure AD) Application Proxy frequently asked questions](../app-proxy/application-proxy-faq.yml)
 
 ### Updated articles
 

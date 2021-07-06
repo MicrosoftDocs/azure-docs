@@ -11,8 +11,6 @@ ms.topic: how-to
 
 # Manage IoT Central from the Azure portal
 
-[!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
-
 You can use the [Azure portal](https://portal.azure.com) to create and manage IoT Central applications.
 
 ## Create IoT Central applications

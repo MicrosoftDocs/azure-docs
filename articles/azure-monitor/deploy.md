@@ -134,7 +134,7 @@ To enable monitoring for an application, you must decide whether you will use co
 - [ASP.NET Applications](app/asp-net.md)
 - [ASP.NET Core Applications](app/asp-net-core.md)
 - [.NET Console Applications](app/console.md)
-- [Java](app/java-get-started.md)
+- [Java](app/java-in-process-agent.md)
 - [Node.js](app/nodejs.md)
 - [Python](app/opencensus-python.md)
 - [Other platforms](app/platforms.md)

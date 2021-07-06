@@ -6,7 +6,8 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/10/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Pipelines and Activities in Azure Data Factory

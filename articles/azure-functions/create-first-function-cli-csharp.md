@@ -112,7 +112,7 @@ The return object is an [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.acti
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
+    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command     creates the function app in Azure. 
     
     # [Azure PowerShell](#tab/azure-powershell)
     

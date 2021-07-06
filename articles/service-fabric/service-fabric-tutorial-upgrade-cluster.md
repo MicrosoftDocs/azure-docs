@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use PowerShell to upgrade the ru
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 # Tutorial: Upgrade the runtime of a Service Fabric cluster in Azure
 

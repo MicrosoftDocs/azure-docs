@@ -34,6 +34,8 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
     >[!TIP]
     > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
 
+- If your Git repository is located outside the firewall and git protocol is being used with the configuration repository parameter, then TCP on port 9418 (`git://:9418`) needs to be enabled for egress access on firewall.
+
 ## Create a configuration
 
 The [example repository](https://github.com/Azure/arc-k8s-demo) used in this article is structured around the persona of a cluster operator. The manifests in this repository provision a few namespaces, deploy workloads, and provide some team-specific configuration. Using this repository with GitOps creates the following resources on your cluster:
@@ -144,7 +146,7 @@ Just like private keys, you can provide your known_hosts content directly or in 
 >[!NOTE]
 >* Helm operator chart version 1.2.0+ supports the HTTPS Helm release private auth.
 >* HTTPS Helm release is not supported for AKS managed clusters.
->* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server).
+>* If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server).
 
 
 ## Additional Parameters
@@ -176,6 +178,9 @@ Customize the configuration with the following optional parameters:
 If you don't want Flux to write to the repository and `--git-user` or `--git-email` aren't set, then `--git-readonly` will automatically be set.
 
 For more information, see the [Flux documentation](https://aka.ms/FluxcdReadme).
+
+>[!NOTE]
+> Flux defaults to sync from the `master` branch of the git repo. However, newer git repositories have the root branch named `main`, in which case you need to set `--git-branch=main` in the --operator-params. 
 
 > [!TIP]
 > You can create a configuration in the Azure portal in the **GitOps** tab of the Azure Arc enabled Kubernetes resource.

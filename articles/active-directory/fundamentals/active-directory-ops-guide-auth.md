@@ -148,7 +148,7 @@ If you would like to learn more about passwordless authentication, see [A world 
 
 ### Single sign-on for apps
 
-Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance. If you are using applications that support SSO with Azure AD but are currently configured to use local accounts, you should reconfigure those applications to use SSO with Azure AD. Likewise, if you are using any applications that support SSO with Azure AD but are using another Identity Provider, you should reconfigure those applications to use SSO with Azure AD as well. For applications that don't support federation protocols but do support forms-based authentication, we recommend you configure the application to use [password vaulting](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) with Azure AD Application Proxy.
+Providing a standardized single sign-on mechanism to the entire enterprise is crucial for best user experience, reduction of risk, ability to report, and governance. If you are using applications that support SSO with Azure AD but are currently configured to use local accounts, you should reconfigure those applications to use SSO with Azure AD. Likewise, if you are using any applications that support SSO with Azure AD but are using another Identity Provider, you should reconfigure those applications to use SSO with Azure AD as well. For applications that don't support federation protocols but do support forms-based authentication, we recommend you configure the application to use [password vaulting](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md) with Azure AD Application Proxy.
 
 ![AppProxy Password-based Sign-on](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
@@ -191,10 +191,10 @@ On the other hand, if you find applications that have assignment to individual u
 
 ### Named locations
 
-With [named locations](../reports-monitoring/quickstart-configure-named-locations.md) in Azure AD, you can label trusted IP address ranges in your organization. Azure AD uses named locations to:
+With [named locations](../conditional-access/location-condition.md) in Azure AD, you can label trusted IP address ranges in your organization. Azure AD uses named locations to:
 
 - Prevent false positives in risk events. Signing in from a trusted network location lowers a user's sign-in risk.
-- Configure [location-based Conditional Access](../reports-monitoring/quickstart-configure-named-locations.md).
+- Configure [location-based Conditional Access](../conditional-access/location-condition.md).
 
 ![Named location](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 

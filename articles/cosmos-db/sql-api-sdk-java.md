@@ -49,6 +49,13 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 |**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## Release notes
+### <a name="2.6.3"></a>2.6.3
+* Fixed a retry policy when `GoneException` is wrapped in `IllegalStateException` - - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
+
+### <a name="2.6.2"></a>2.6.2
+* Added a new retry policy to  retry on Read Timeouts
+* Upgraded dependency `com.fasterxml.jackson.core/jackson-databind` to 2.9.10.8
+* Upgraded dependency `org.apache.httpcomponents/httpclient` to 4.5.13
 
 ### <a name="2.6.1"></a>2.6.1
 * Fixed a bug in handling a query through service interop.
@@ -332,7 +339,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 | 0.9.0-prelease |December 10, 2014 |February 29, 2016 |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

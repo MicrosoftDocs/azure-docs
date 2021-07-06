@@ -69,7 +69,7 @@ A multi-regional deployment relies on creation of Azure Machine Learning and oth
 
 * __Regional availability__: Use regions that are close to your users. To check regional availability for Azure Machine Learning, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/).
 * __Azure paired regions__: Paired regions coordinate platform updates and prioritize recovery efforts where needed. For more information, see [Azure paired regions](../best-practices-availability-paired-regions.md).
-* __Service availability__: Decide whether the resources used by your solution should be hot/hot, hot/warm, or hot/code.
+* __Service availability__: Decide whether the resources used by your solution should be hot/hot, hot/warm, or hot/cold.
     
     * __Hot/hot__: Both regions are active at the same time, with one region ready to begin use immediately.
     * __Hot/warm__: Primary region active, secondary region has critical resources (for example, deployed models) ready to start. Non-critical resources would need to be manually deployed in the secondary region.
@@ -145,12 +145,13 @@ Runs in Azure Machine Learning are defined by a run specification. This specific
       > Pipelines created in studio designer cannot currently be exported as code.
 
 * Manage configurations as code.
-    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) command [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder#ext_azure_cli_ml_az_ml_folder_attach).
-    * Use run submission helpers such as [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
-    * Use [Environments.save_to_directory()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) to save your environment definitions.
+
+    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#ext_azure_cli_ml_az_ml_folder_attach).
+    * Use run submission helpers such as [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
+    * Use [Environments.save_to_directory()](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) to save your environment definitions.
     * Use a Dockerfile if you use custom Docker images.
-    * Use the [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)) class to define the collection of data [paths](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath) used by your solution.
-    * Use the [Inferenceconfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig) class to deploy models as inference endpoints.
+    * Use the [Dataset](/python/api/azureml-core/azureml.core.dataset(class)) class to define the collection of data [paths](/python/api/azureml-core/azureml.data.datapath) used by your solution.
+    * Use the [Inferenceconfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) class to deploy models as inference endpoints.
 
 ## Initiate a failover
 
@@ -173,13 +174,12 @@ The following artifacts can be exported and imported between workspaces by using
 
 | Artifact | Export | Import |
 | ----- | ----- | ----- |
-| Models | [az ml model download --model-id {ID} --target-dir {PATH}](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download) | [az ml model register –name {NAME} --path {PATH}](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model) |
-| Environments | [az ml environment download -n {NAME} -d {PATH}](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_download) | [az ml environment register -d {PATH}](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_register) |
-| Azure ML pipelines (code-generated) | [az ml pipeline get --path {PATH}](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
+| Models | [az ml model download --model-id {ID} --target-dir {PATH}](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download) | [az ml model register –name {NAME} --path {PATH}](/cli/azure/ext/azure-cli-ml/ml/model) |
+| Environments | [az ml environment download -n {NAME} -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_download) | [az ml environment register -d {PATH}](/cli/azure/ext/azure-cli-ml/ml/environment#ext_azure_cli_ml_az_ml_environment_register) |
+| Azure ML pipelines (code-generated) | [az ml pipeline get --path {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_get) | [az ml pipeline create --name {NAME} -y {PATH}](/cli/azure/ml(v1)/pipeline#ext_azure_cli_ml_az_ml_pipeline_create)
 
 > [!TIP]
-> * __Registered datasets__ cannot be downloaded or moved. This includes datasets generated by Azure ML, such as intermediate pipeline datasets. However datasets that refer to a shared file location that both workspaces can access, or where the underlying data storage is replicated, can be registered on both workspaces. Use the [az ml dataset register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset#ext_azure_cli_ml_az_ml_dataset_register) to register a dataset.
->
+> * __Registered datasets__ cannot be downloaded or moved. This includes datasets generated by Azure ML, such as intermediate pipeline datasets. However datasets that refer to a shared file location that both workspaces can access, or where the underlying data storage is replicated, can be registered on both workspaces. Use the [az ml dataset register](/cli/azure/ml(v1)/dataset#ext_azure_cli_ml_az_ml_dataset_register) to register a dataset.
 > * __Run outputs__ are stored in the default storage account associated with a workspace. While run outputs might become inaccessible from the studio UI in the case of a service outage, you can directly access the data through the storage account. For more information on working with data stored in blobs, see [Create, download, and list blobs with Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md).
 ## Next steps
 

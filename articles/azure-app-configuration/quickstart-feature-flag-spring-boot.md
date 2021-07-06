@@ -1,11 +1,11 @@
 ---
 title: Quickstart for adding feature flags to Spring Boot with Azure App Configuration
 description: Add feature flags to Spring Boot apps and manage them using Azure App Configuration
-author: AlexandraKemperMS
+author: mrm9084
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 08/06/2020
-ms.author: alkemper
+ms.date: 06/25/2021
+ms.author: mametcal
 ms.custom: devx-track-java
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -55,8 +55,6 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open the *pom.xml* file in a text editor and add the following to the list of `<dependencies>`:
 
-    **Spring Boot 2.4**
-
     ```xml
     <dependency>
         <groupId>com.azure.spring</groupId>
@@ -66,7 +64,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     <dependency>
         <groupId>com.azure.spring</groupId>
         <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-        <version>2.0.0-beta.2</version>
+        <version>2.0.0</version>
     </dependency>
     <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -75,10 +73,8 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
     ```
 
 > [!NOTE]
-> If you need to support an older version of Spring Boot see our [old appconfiguration library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md) and our [old feature flag library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
-
-> [!Note]
-> There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-spring-cloud-feature-management) for differences.
+> * If you need to support an older version of Spring Boot see our [old appconfiguration library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md) and our [old feature flag library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-azure-feature-management/README.md).
+> * There is a non-web Feature Management Library that doesn't have a dependency on spring-web. Refer to GitHub's [documentation](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-spring-cloud-feature-management) for differences.
 
 ## Connect to an App Configuration store
 

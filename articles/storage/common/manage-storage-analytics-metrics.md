@@ -8,7 +8,7 @@ ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.custom: monitoring
+ms.custom: monitoring, devx-track-azurepowershell
 ---
 # Enable and manage Azure Storage Analytics metrics (classic)
 
@@ -112,7 +112,7 @@ You can disable metrics collection and logging by setting **Status** to **Off**.
 
    For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see [Install and configure Azure PowerShell](/powershell/azure/).  
 
-### [.NET v12](#tab/dotnet)
+### [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
@@ -120,7 +120,7 @@ For more information about using a .NET language to configure storage metrics, s
 
 For general information about configuring storage metrics by using the REST API, see [Enabling and configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics). 
 
-### [.NET v11](#tab/dotnet11)  
+### [.NET v11 SDK](#tab/dotnet11)  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  

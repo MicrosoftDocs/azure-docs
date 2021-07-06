@@ -34,7 +34,7 @@ The process is explained in the following table.
 
 Features used include but aren't limited to word-level semantics, term-level importance in a corpus, and deep learned semantic models to determine similarity and relevance between two text strings.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 The trained and [published](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker knowledge base receives a user query, from a bot or other client application, at the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md). The following diagram illustrates the process when the user query is received.
 

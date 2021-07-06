@@ -2,7 +2,7 @@
 title: Create on-demand backup of your Oracle Database in SnapCenter
 description: Learn how to create an on-demand backup of your Oracle Database in SnapCenter on Oracle BareMetal Infrastructure.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 05/07/2021
 ---
 

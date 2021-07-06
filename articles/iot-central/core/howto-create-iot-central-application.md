@@ -34,7 +34,7 @@ The *standard* plans:
 
 - Do require an Azure subscription. You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md).
 - Let you create and manage IoT Central applications using any of the available methods.
-- Let you connect as many devices as you need. You're billed by device. To learn more, see [Azure IoT Central pricing](/pricing/details/iot-central/).
+- Let you connect as many devices as you need. You're billed by device. To learn more, see [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/).
 - Cannot be downgraded to a free plan, but can be upgraded or downgraded to other standard plans.
 
 The following table summarizes the differences between the three standard plans:
@@ -44,8 +44,6 @@ The following table summarizes the differences between the three standard plans:
 | S0        | 2            | 400            | A few messages per day |
 | S1        | 2            | 5,000          | A few messages per hour |
 | S2        | 2            | 30,000         | Messages every few minutes |
-
-To learn more, see [Manage your bill in an IoT Central application](howto-view-bill.md).
 
 ### Application name
 
@@ -82,16 +80,15 @@ If you select **Create app**, you can provide the necessary information to creat
 The **My apps** page lists all the IoT Central applications you have access to. The list includes applications you created and applications that you've been granted access to.
 
 > [!TIP]
-> All the applications you create using a standard pricing plan on the Azure IoT Central site use the **IOTC** resource group in your subscription. The approaches decribed in the following section let you choose a resource group to use.
+> All the applications you create using a standard pricing plan on the Azure IoT Central site use the **IOTC** resource group in your subscription. The approaches described in the following section let you choose a resource group to use.
 
 ## Other approaches
 
 You can also use the following approaches to create an IoT Central application:
 
 - [Create an IoT Central application from the Azure portal](howto-manage-iot-central-from-portal.md#create-iot-central-applications)
-- [Create an IoT Central application using the Azure CLI](howto-manage-iot-central-from-cli.md#create-an-application)
-- [Create an IoT Central application using PowerShell](howto-manage-iot-central-from-powershell.md#create-an-application)
-- [Create an IoT Central application programmatically](howto-manage-iot-central-programmatically.md)
+- [Create an IoT Central application using the command line](howto-manage-iot-central-from-cli.md#create-an-application)
+- [Create an IoT Central application programmatically](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/)
 
 ## Next steps
 

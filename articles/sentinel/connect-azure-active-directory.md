@@ -20,6 +20,11 @@ ms.author: yelevin
 ---
 # Connect Azure Active Directory (Azure AD) data to Azure Sentinel
 
+> [!IMPORTANT]
+> As indicated below, some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 You can use Azure Sentinel's built-in connector to collect data from [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) and stream it into Azure Sentinel. The connector allows you to stream the following log types:
 
 - [**Sign-in logs**](../active-directory/reports-monitoring/concept-all-sign-ins.md), which contain information about interactive user sign-ins where a user provides an authentication factor.
@@ -36,8 +41,7 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 - [**Provisioning logs**](../active-directory/reports-monitoring/concept-provisioning-logs.md) (also in **PREVIEW**), which contain system activity information about users, groups, and roles provisioned by the Azure AD provisioning service. 
 
-> [!IMPORTANT]
-> As indicated above, some of the available log types are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 - An Azure Active Directory P1 or P2 license is required to ingest sign-in logs into Azure Sentinel. Any Azure AD license (Free/O365/P1/P2) is sufficient to ingest the other log types. Additional per-gigabyte charges may apply for Azure Monitor (Log Analytics) and Azure Sentinel.

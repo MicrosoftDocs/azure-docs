@@ -1,5 +1,5 @@
 ---
-title: Register SAP S/4HANA source and setup scans (preview) in Azure Purview
+title: Register SAP S/4HANA source and setup scans in Azure Purview
 description: This article outlines how to register SAP S/4HANA source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and Scan a SAP S/4HANA source (preview)
+# Register and Scan a SAP S/4HANA source
 
 This article outlines how to register an SAP S/4HANA source in Purview
 and set up a scan.

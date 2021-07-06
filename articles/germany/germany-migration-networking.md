@@ -6,7 +6,7 @@ ms.date: 10/16/2020
 author: gitralf
 ms.author: ralfwi 
 ms.service: germany
-ms.custom: bfmigrate, devx-track-azurecli
+ms.custom: bfmigrate, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Migrate network resources to global Azure

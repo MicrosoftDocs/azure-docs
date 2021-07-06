@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 06/25/2021
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
 
@@ -49,13 +49,11 @@ We recommend that you keep feature flags outside the application and manage them
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
 
-### Spring Boot 2.4
-
 ```xml
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-cloud-feature-management-web</artifactId>
-    <version>2.0.0-beta.2</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 

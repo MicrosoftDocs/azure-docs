@@ -50,7 +50,7 @@ conceptualContent:
         - url: ./app/worker-service.md
           itemType: how-to-guide
           text: .NET Core Worker Service
-        - url: ./app/java-get-started.md
+        - url: ./app/java-2x-get-started.md
           itemType: how-to-guide
           text: Java
         - url: ./app/opencensus-python.md
@@ -176,9 +176,6 @@ conceptualContent:
         - url: ./app/asp-net-trace-logs.md
           itemType: how-to-guide
           text:  System diagnostic trace logs
-        - url: ./app/micrometer-java.md
-          itemType: how-to-guide
-          text:  Micrometer metrics
         - url: ./app/diagnostic-search.md
           itemType: how-to-guide
           text:  Search
@@ -420,7 +417,7 @@ conceptualContent:
         - url: ./app/asp-net-troubleshoot-no-data.md
           itemType: how-to-guide
           text:  Troubleshoot no data
-        - url: ./faq.md
+        - url: ./faq.yml
           itemType: how-to-guide
           text:  Troubleshooting FAQ
 

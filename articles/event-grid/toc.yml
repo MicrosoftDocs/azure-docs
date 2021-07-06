@@ -1,5 +1,7 @@
 - name: Azure Event Grid Documentation
   href: index.yml
+- name: Switch to Event Grid on Kubernetes documentation
+  href: kubernetes/index.yml
 - name: Switch to Event Grid on IoT Edge documentation
   href: edge/pub-sub-events-webhook-local.md
 - name: Overview
@@ -126,6 +128,8 @@
         href: event-schema-container-registry.md
       - name: Azure Event Hubs
         href: event-schema-event-hubs.md
+      - name: Azure FarmBeats
+        href: event-schema-farmbeats.md
       - name: Azure IoT Hub
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
@@ -268,8 +272,6 @@
       href: move-custom-topics-across-regions.md
     - name: Move domains across regions
       href: move-domains-across-regions.md
-    - name: Move partner namespaces across regions
-      href: move-partner-namespaces-across-regions.md
   - name: Secure
     items:
     - name: Publish events securely over a private link
@@ -284,6 +286,8 @@
         href: add-identity-roles.md
       - name: Create an event subscription that uses the managed identity
         href: managed-service-identity.md
+    - name: Enforce security controls with custom Azure policies
+      href: custom-azure-policies-for-security-control.md
     - name: Deliver events securely over a private link
       href: consume-private-endpoints.md      
     - name: Configure IP firewall
