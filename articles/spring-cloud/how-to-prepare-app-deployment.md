@@ -143,7 +143,7 @@ Spring Boot version | Spring Cloud version
 ---|---
 2.2 | Hoxton.SR8+
 2.3 | Hoxton.SR8+
-2.4.1+ | 2020.0.0
+2.4.1+ | 2020.0.1+
 
 > [!NOTE]
 > We've identified an issue with Spring Boot 2.4.0 on TLS authentication between your apps and Eureka, please use 2.4.1 or above. Please refer to our [FAQ](./faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
@@ -183,7 +183,7 @@ For Spring Boot version 2.2 add the following dependencies to the application PO
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.1.RELEASE</version>
+        <version>2.4.8</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -192,7 +192,7 @@ For Spring Boot version 2.2 add the following dependencies to the application PO
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>2020.0.0</version>
+                <version>2020.0.2</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -255,6 +255,10 @@ To enable Distributed Configuration, include the following `spring-cloud-config-
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-config-client</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bootstrap</artifactId>
 </dependency>
 ```
 
