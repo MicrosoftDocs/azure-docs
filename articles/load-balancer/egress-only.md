@@ -310,5 +310,5 @@ This configuration allows you to load balance incoming internal traffic to your 
 
 - Learn about [Azure Load Balancer](load-balancer-overview.md).
 - Learn about [outbound connections in Azure](load-balancer-outbound-connections.md).
-- Load balancer [FAQs](load-balancer-faqs.md).
+- Load balancer [FAQs](load-balancer-faqs.yml).
 - Learn about [Azure Bastion](../bastion/bastion-overview.md)

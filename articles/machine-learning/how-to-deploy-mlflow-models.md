@@ -15,7 +15,7 @@ ms.custom: devx-track-python
 
 # Deploy MLflow models as Azure web services
 
-In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models.
+In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model as an Azure web service, so you can leverage and apply Azure Machine Learning's model management and data drift detection capabilities to your production models. See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
 Azure Machine Learning offers deployment configurations for:
 * Azure Container Instance (ACI) which is a suitable choice for a quick dev-test deployment.
