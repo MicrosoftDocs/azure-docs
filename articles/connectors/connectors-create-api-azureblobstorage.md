@@ -256,7 +256,7 @@ Next, [enable managed identity support](../logic-apps/create-managed-service-ide
 
 ### Enable support for managed identity in logic app
 
-Next, add an [HTTP trigger or action](/azure/connectors/connectors-native-http) in your workflow. Make sure to [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). 
+Next, add an [HTTP trigger or action](connectors-native-http.md) in your workflow. Make sure to [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). 
 
 The steps are the same for logic apps in both single-tenant and multi-tenant environments.
 
