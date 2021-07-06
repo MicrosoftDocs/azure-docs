@@ -142,8 +142,8 @@ No, your cache name and keys are unchanged during a scaling operation.
 * When you scale a **Basic** cache to a new size, all data is lost and the cache is unavailable during the scaling operation.
 * When you scale a **Basic** cache to a **Standard** cache, the data in the cache is typically preserved.
 * When you scale a **Standard** cache to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling down a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when it's scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
-* When you scale up a clustered cache, new shards are provisioned and added to the redis-server cluster. Data is then resharded across all shards.
-* When you scale down a clustered cache, data is first resharded and then cluster size is reduced to required shards.
+* When you scale out a clustered cache, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
+* When you scale in a clustered cache, data is first resharded and then cluster size is reduced to required shards.
 
 ### Is my custom databases setting affected during scaling?
 
