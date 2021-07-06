@@ -25,7 +25,7 @@ With Horizon's introduction on Azure VMware Solution, there are now two Virtual 
 
 :::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Horizon on Azure VMware Solution and Horizon Cloud on Azure" border="false":::
 
-Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Additional products in the Horizon ecosystem are also supported. For for information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
+Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For for information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
 
 ## Deploy Horizon in a hybrid cloud
 
@@ -114,7 +114,7 @@ The diagram shows how to support connectivity for on-premises resources. To conn
 
 Another scenario is scaling Horizon across multiple pods.  In this scenario, you deploy two Horizon pods in two different regions and federate them using CPA. It's similar to the network configuration in the previous example, but with some additional cross-regional links. 
 
-You'll connect the Azure Virtual Network in each region to the private clouds/SDDCs in the other region. It allows Horizon connection servers part of the CPA federation to connect to all desktops under management. Adding additional private clouds/SDDCs to this configuration would allow you to scale to 24,000 sessions overall. 
+You'll connect the Azure Virtual Network in each region to the private clouds/SDDCs in the other region. It allows Horizon connection servers part of the CPA federation to connect to all desktops under management. Adding extra private clouds/SDDCs to this configuration would allow you to scale to 24,000 sessions overall. 
 
 The same principles apply if you deploy two Horizon pods in the same region.  Make sure to deploy the second Horizon pod in a *separate Azure Virtual Network*. Just like the single pod example, you can connect your corporate network and on-premises pod to this multi-pod/region example using ExpressRoute and Global Reach. 
 
@@ -207,7 +207,7 @@ Work with your VMware EUC sales team to determine the Horizon licensing cost bas
 
 ### Azure Instance Types
 
-To understand the Azure virtual machine sizes which will be required for the Horizon Infrastructure please refer to VMware's guidelines which can be found [here](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
+To understand the Azure virtual machine sizes that will be required for the Horizon Infrastructure, see [Horizon Installation on Azure VMware Solution](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
 
 ## References
 [System Requirements For Horizon Agent for Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)

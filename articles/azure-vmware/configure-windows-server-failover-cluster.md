@@ -66,7 +66,7 @@ Currently, the configurations supported are:
 | Virtual NIC | VMXNET3 paravirtualized network interface card (NIC); enable the in-guest Windows Receive Side Scaling (RSS) on the virtual NIC. |
 | Memory | Use full VM reservation memory for nodes in the WSFC cluster. |
 | Increase the I/O timeout of each WSFC node. | Modify HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Services\Disk\TimeOutValueSet to 60 seconds or more. (If you recreate the cluster, this value might be reset to its default, so you must change it again.) |
-| Windows cluster health monitoring | The value of the SameSubnetThreshold Parameter of Windows cluster health monitoring must be modified to allow 10 missed heartbeats at minimum. This is [the default in Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/tuning-failover-cluster-network-thresholds/ba-p/371834). This recommendation applies to all applications using WSFC, including shared and non-shared disks. |
+| Windows cluster health monitoring | The value of the SameSubnetThreshold Parameter of Windows cluster health monitoring must be modified to allow 10 missed heartbeats at minimum. It's [the default in Windows Server 2016](https://techcommunity.microsoft.com/t5/failover-clustering/tuning-failover-cluster-network-thresholds/ba-p/371834). This recommendation applies to all applications using WSFC, including shared and non-shared disks. |
 
 ### WSFC node - Boot disks configuration parameters
 
@@ -141,7 +141,7 @@ The following activities aren't supported and might cause WSFC node failover:
         
       - **Validate Network Communication**. The Cluster Validation test will throw a warning that only one network interface per cluster node is available. You may ignore this warning. Azure VMware Solution provides the required availability and performance needed, since the nodes are connected to one of the NSX-T segments. However, keep this item as part of the Cluster Validation test, as it will validate other aspects of network communication.
 
-16. Create a DRS rule to place the WSFC VMs on the same Azure VMware Solution nodes. To do so, you need a host-to-VM affinity rule. This way, cluster nodes will run on the same Azure VMware Solution host. Again, this is for pilot purposes until placement policies are available.
+16. Create a DRS rule to place the WSFC VMs on the same Azure VMware Solution nodes. To do so, you need a host-to-VM affinity rule. This way, cluster nodes will run on the same Azure VMware Solution host. Again, it's for pilot purposes until placement policies are available.
 
     >[!NOTE]
     > For this you need to create a Support Request ticket. Our Azure support organization will be able to help you with this.
