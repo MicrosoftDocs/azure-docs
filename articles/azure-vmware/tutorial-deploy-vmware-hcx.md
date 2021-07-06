@@ -2,7 +2,7 @@
 title: Deploy and configure VMware HCX
 description: Learn how to deploy and configure a VMware HCX solution for your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 06/30/2021
 ---
 
 # Deploy and configure VMware HCX
@@ -16,7 +16,7 @@ VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It suppo
 >
 > VMware HCX Enterprise is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt out of the service. Downgrading from HCX Enterprise to HCX Advanced is possible without redeploying, but you'll have to log a support ticket for that action to take place. If planning a downgrade, make sure no migrations are scheduled and features such as RAV, MON are not in use.
 
-First, review [Before you begin](#before-you-begin), [Software version requirements](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html), and the [Prerequisites](#prerequisites) sections.
+First, review [Before you begin](#before-you-begin), [Software version requirements](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-54E5293B-8707-4D29-BFE8-EE63539CC49B.html), and the [Prerequisites](#prerequisites) sections.
 
 Then, we'll walk through all the necessary procedures to:
 
@@ -34,11 +34,11 @@ After you're finished, follow the recommended next steps at the end of this arti
 
 As you prepare your deployment, we recommend that you review the following VMware documentation:
 
-* [VMware HCX user guide](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)
-* [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
-* [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)
+* [VMware HCX user guide](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-BFD7E194-CFE5-4259-B74B-991B26A51758.html)
+* [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html)
+* [Prepare for HCX installations](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-A631101E-8564-4173-8442-1D294B731CEB.html)
 * [VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
-* [Network ports required for VMware HCX](https://ports.vmware.com/home/VMware-HCX)
+* [Network ports required for VMware HCX](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)
 
 ## Prerequisites
 
