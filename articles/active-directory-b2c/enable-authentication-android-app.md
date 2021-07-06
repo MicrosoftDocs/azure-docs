@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 07/06/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -151,7 +151,7 @@ Your redirect URI and the `BrowserTabActivity` activity should look similar to t
 
 The redirect URL for the sample Android:
 
-```kotlin
+```
 msauth://com.azuresamples.msalandroidkotlinapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D
 ```
 
