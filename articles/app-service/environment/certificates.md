@@ -33,7 +33,7 @@ As a third variant, you can create an ILB ASE certificate that includes all of y
 
 After an ILB ASE is created in the portal, the certificate must be set for the ILB ASE. Until the certificate is set, the ASE will show a banner that the certificate was not set.  
 
-The certificate that you upload must be a .pfx file. After the certificate is uploaded, there is a time delay of approximately 20 minutes befor the certificate is used. 
+The certificate that you upload must be a .pfx file. After the certificate is uploaded, there is a time delay of approximately 20 minutes before the certificate is used. 
 
 You cannot create the ASE and upload the certificate as one action in the portal or even in one template. As a separate action, you can upload the certificate using a template as described in the [Create an ASE from a template](./create-from-template.md) document.  
 
