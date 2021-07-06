@@ -65,7 +65,8 @@ $Server="your VM's public IP"
 $User="VM's username"
 $Password="VM's password"
 cmdkey /generic:TERMSRV/$Server /user:$User /pass:$Password
-mstsc /v:$Server```
+mstsc /v:$Server
+```
 
 ## Next steps
 If you have difficulty connecting, see [Troubleshoot Remote Desktop connections](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
