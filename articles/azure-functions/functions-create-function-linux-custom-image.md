@@ -321,9 +321,6 @@ Once the image is running in a local container, open a browser to `http://localh
 Once the image is running in a local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
 ::: zone-end  
 
-> [!TIP]  
-> You can use the [`DisableColor` setting](functions-host-json.md#console) in the host.json file to remove any incorrectly rendered format characters from the container logs. 
-
 After you've verified the function app in the container, stop docker with **Ctrl**+**C**.
 
 ## Push the image to Docker Hub
@@ -405,6 +402,9 @@ A function app on Azure manages the execution of your functions in your hosting 
     ::: zone-end
     
     The *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) command to deploy from a different image.
+    
+    > [!TIP]  
+    > You can use the [`DisableColor` setting](functions-host-json.md#console) in the host.json file to prevent ANSI control characters from being written to the container logs. 
 
 1. Display the connection string for the storage account you created by using the [az storage account show-connection-string](/cli/azure/storage/account) command. Replace `<storage-name>` with the name of the storage account you created above:
 
