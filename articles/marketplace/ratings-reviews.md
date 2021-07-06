@@ -49,7 +49,7 @@ Reviews are displayed in chronological order for when they were posted. The defa
 
 ### Responding to a review
 
-You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. To respond to a review, follow these steps:
+You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. This functionality applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge Module, Managed service, Power BI app, and Software as a Service. To respond to a review, follow these steps:
 
 1. Select the **Ratings & reviews** tab, and then select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
 
