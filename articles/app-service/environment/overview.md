@@ -7,7 +7,6 @@ ms.topic: article
 ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: references_regions
-ms.custom: seodec18
 ---
 # App Service Environment overview 
 > [!NOTE]
