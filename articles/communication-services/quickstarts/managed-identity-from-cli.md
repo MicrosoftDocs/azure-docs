@@ -11,11 +11,13 @@ ms.author: jbeauregardb
 ms.reviewer: mikben
 ---
 
-# Authorize access with managed identity to your communication resource in your development environment
+# Authorize access with Azure Active Directory to your communication resource in your development environment
 
-The Azure Identity SDK provides Azure Active Directory (Azure AD) token authentication support for the Azure SDK. The latest versions of the Azure Communication Services SDKs for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
+The Azure Identity SDK provides Azure Active Directory (Azure AD) token authentication support for Azure SDK packages. The latest versions of the Azure Communication Services SDKs for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
 
-An advantage of the Azure Identity SDK is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. The Azure Identity SDK authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources. In the development environment, the managed identity does not exist, so the SDK authenticates either the user or a registered application for testing purposes.
+An advantage of the Azure Identity SDK is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. 
+
+The Azure Identity SDK authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources. In the development environment, the managed identity does not exist, so the SDK authenticates either the user or a registered application for testing purposes.
 
 ## Prerequisites
 

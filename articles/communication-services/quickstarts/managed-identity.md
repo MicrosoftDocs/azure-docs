@@ -1,7 +1,7 @@
 ---
-title: Use managed identities in Communication Services
+title: Use Azure Active Directory in Communication Services
 titleSuffix: An Azure Communication Services quickstart
-description: Managed identities let you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
+description: Azure Active Directory lets you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
 services: azure-communication-services
 author: peiliu
 ms.service: azure-communication-services
@@ -12,17 +12,17 @@ ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
-# Use managed identities
-Get started with Azure Communication Services by using managed identities. The Communication Services Identity and SMS SDKs support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+# Use Azure Active Directory with Communication Services
+Get started with Azure Communication Services by using Azure Active Directory. The Communication Services Identity and SMS SDKs support Azure Active Directory (Azure AD) authentication.
 
-This quickstart shows you how to authorize access to the Identity and SMS SDKs from an Azure environment that supports managed identities. It also describes how to test your code in a development environment.
+This quickstart shows you how to authorize access to the Identity and SMS SDKs from an Azure environment that supports Active Directory. It also describes how to test your code in a development environment by creating a service principal for your work.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
 - An active Azure Communication Services resource, see [create a Communication Services resource](./create-communication-resource.md) if you do not have one.
 - To send an SMS you will need a [Phone Number](./telephony-sms/get-phone-number.md).
-- A setup managed identity for a development environment, see [Authorize access with managed identity](./managed-identity-from-cli.md)
+- A setup Service Principal for a development environment, see [Authorize access with managed identity](./managed-identity-from-cli.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/managed-identity/managed-identity-net.md)]
