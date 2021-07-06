@@ -1,5 +1,5 @@
 ---
-title: Partner data connectors for Azure Sentinel | Microsoft Docs
+title: Azure Sentinel Partner data connectors reference | Microsoft Docs
 description: Learn about all the partner data connectors for Azure Sentinel.
 services: sentinel
 documentationcenter: na

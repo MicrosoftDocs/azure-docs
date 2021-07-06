@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
 ---
-# Connect your <PRODUCT NAME> to Azure Sentinel
+# Use Azure Functions to connect your data source to Azure Sentinel
 
-You can use Azure Functions together with a RESTful API and various coding languages, such as [PowerShell](../azure-functions/functions-reference-powershell.md), to create a serverless custom connector.
+You can use Azure Functions, in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md), to create a serverless connector to REST API endpoints of your compatible data sources.
 
-
-The <PRODUCT NAME> connector allows you to easily connect your <PRODUCT NAME>'s logs to Azure Sentinel, so that you can view the data in workbooks, query it to create custom alerts, and incorporate it to improve investigation. <PRODUCT NAME> integrates with Azure Sentinel using Azure Functions and REST API.
+Azure Function Apps allow you to easily connect Azure Sentinel to your data source's REST API and pull in logs. This document will show you how to configure Azure Sentinel for this purpose. You may also need to configure your source system as well. You can find vendor- and product-specific information links on the [Partner data connectors](partner-data-connectors.md) page.
 
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -43,19 +42,22 @@ The following are required to connect <PRODUCT NAME> to Azure Sentinel:
 ## Configure and connect your data source
 
 > [!NOTE]
-> You can securely store workspace and API authorization keys or tokens in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
+> - You can securely store workspace and API authorization keys or tokens in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
+>
+> - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. See your product's section on the [Partner data connectors](partner-data-connectors.md) page for links to instructions to create the Kusto function and alias.
 
 ### STEP 1 - Get your source system's API credentials
 
-Follow your source system's instructions to get its API credentials / authorization keys / tokens, in the form of a **Client ID** and a **Client Secret**, and copy/paste them into a text file for later.
+Follow your source system's instructions to get its API credentials / authorization keys / tokens, possibly in the form of a **Client ID** and a **Client Secret**, and copy/paste them into a text file for later.
 
-### STEP 2 - (Optional) Enable the Security Graph API
+> [!NOTE]
+> **(Optional) Enable the Security Graph API**
+>
+> To take advantage of sharing data with Azure Sentinel using the Security Graph API, you'll need to [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
+>
+> This process will give you three pieces of information for use when deploying the Function App below: the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret**.
 
-To take advantage of sharing data with Azure Sentinel using the Security Graph API, you'll need to [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
-
-This process will give you three pieces of information for use when deploying the Function App below: the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret**.
-
-### STEP 3 - Deploy the connector and the associated Azure Function App
+### STEP 2 - Deploy the connector and the associated Azure Function App
 
 #### Choose a deployment option
 
@@ -96,10 +98,14 @@ This process will give you three pieces of information for use when deploying th
 
     1. Select **Save**.
 
-# [Manual deployment of Azure Functions](#tab/Manual)
+# [Manual deployment with PowerShell](#tab/MPS)
+
+1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
+
+1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
 
 1. **Create a Function App**
-    1. From the Azure Portal, search for and select **Function App**.
+    1. From the Azure portal, search for and select **Function App**.
 
     1. In the **Function App** page, select **Create**. The **Create Function App** wizard will open.
 
@@ -125,7 +131,7 @@ This process will give you three pieces of information for use when deploying th
 
     1. In the **Functions** page, select **+ Add**.
     
-    1. ***Choose a trigger, and other missing instructions!!!???***
+    1. Select the **Timer** trigger and enter the appropriate parameters.
 
     1. Click on **Code + Test** on the left pane.
 
@@ -138,7 +144,7 @@ This process will give you three pieces of information for use when deploying th
 
     1. In the **Application settings** tab, select **+ New application setting**.
 
-    1. Add each of the following eight to twelve (8-12) application settings individually, with their respective string values (case-sensitive):
+    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values.
 
         | Application setting name | Application setting value |
         |-|-|
@@ -172,6 +178,12 @@ This process will give you three pieces of information for use when deploying th
     1. Select **Save**.
 
 1. Complete Setup. ***WHAT'S LEFT TO DO???***
+
+# [Manual deployment with Python](#tab/MPY)
+
+1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
+
+1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
 
 
 
