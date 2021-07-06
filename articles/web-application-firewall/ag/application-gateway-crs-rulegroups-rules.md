@@ -262,7 +262,7 @@ The following rule groups and rules are available when using Web Application Fir
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
-|941140|XSS Filter - Category 4: Javascript URI Vector|
+|941140|XSS Filter - Category 4: JavaScript URI Vector|
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
@@ -514,14 +514,14 @@ The following rule groups and rules are available when using Web Application Fir
 |941101|XSS Attack Detected via libinjection|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
-|941140|XSS Filter - Category 4 = Javascript URI Vector|
+|941140|XSS Filter - Category 4 = JavaScript URI Vector|
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated Javascript|
+|941210|XSS using obfuscated JavaScript|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -744,12 +744,12 @@ The following rule groups and rules are available when using Web Application Fir
 |941100|XSS Attack Detected via libinjection|
 |941110|XSS Filter - Category 1 = Script Tag Vector|
 |941130|XSS Filter - Category 3 = Attribute Vector|
-|941140|XSS Filter - Category 4 = Javascript URI Vector|
+|941140|XSS Filter - Category 4 = JavaScript URI Vector|
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
 |941180|Node-Validator Blocklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
-|941210|XSS using obfuscated Javascript|
+|941210|XSS using obfuscated JavaScript|
 |941220|XSS using obfuscated VB Script|
 |941230|XSS using 'embed' tag|
 |941240|XSS using 'import' or 'implementation' attribute|
@@ -948,7 +948,7 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |973336|XSS Filter - Category 1 = Script Tag Vector|
-|973338|XSS Filter - Category 3 = Javascript URI Vector|
+|973338|XSS Filter - Category 3 = JavaScript URI Vector|
 |981136|Rule 981136|
 |981018|Rule 981018|
 |958016|Cross-site Scripting (XSS) Attack|
