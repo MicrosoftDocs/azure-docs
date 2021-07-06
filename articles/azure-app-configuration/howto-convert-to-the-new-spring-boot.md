@@ -1,5 +1,5 @@
 ---
-title: Convert to New App Configuration Spring Boot Library
+title: Convert to the Spring Boot Library
 titleSuffix: Azure App Configuration
 description: Learn how to convert to the new App Configuration Spring Boot Library from the previous version.
 ms.service: azure-app-configuration
