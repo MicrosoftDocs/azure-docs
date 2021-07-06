@@ -13534,16 +13534,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/set-up-backup-server-for-azure-vmware-solution.md",
-      "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-vmware/backup-azure-vmware-solution-virtual-machines.md",
-      "redirect_url": "/azure/backup/backup-azure-backup-server-vmware",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-vmware/windows-server-failover-cluster.md",
       "redirect_url": "/azure/azure-vmware/configure-windows-server-failover-cluster",
       "redirect_document_id": false
@@ -44864,6 +44854,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/troubleshoot-appliance-discovery.md",
+      "redirect_url": "troubleshoot-appliance",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/migrate/tutorial-assess-vmware.md",
       "redirect_url": "tutorial-assess-vmware-azure-vm",
       "redirect_document_id": false
@@ -61972,6 +61967,11 @@
       "source_path": "articles/virtual-desktop/linux-overview.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/linux-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/anomaly-detector/user-generated-content.md",
+      "redirect_url": "/azure/cognitive-services/anomaly-detector/whats-new",
+      "redirect_document_id": false
     }
   ]
 }

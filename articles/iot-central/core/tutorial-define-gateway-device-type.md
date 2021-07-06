@@ -228,7 +228,7 @@ When you connect a downstream device, you can modify the provisioning payload to
 
 ```json
 {
-  "iotcModelId": "dtmi:rigado:S1Sensor;2",
+  "modelId": "dtmi:rigado:S1Sensor;2",
   "iotcGateway":{
     "iotcGatewayId": "gateway-device-001"
   }
