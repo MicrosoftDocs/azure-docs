@@ -58,7 +58,7 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
     > - The check boxes and **Connect** toggles will be active only on the subscriptions for which you have the required permissions.
     > - The **Connect** button will be active only if at least one subscription's check box has been marked.
 
-1. To enable bi-directional sync on a subscription, locate the subscription in the list, and choose **Enabled** from the drop-down list in the **Bi-directional sync (Preview)** column. To enable bi-directional sync on several subsriptions at once, mark their check boxes and select the **Enable bi-directional sync** button on the bar above the list.
+1. To enable bi-directional sync on a subscription, locate the subscription in the list, and choose **Enabled** from the drop-down list in the **Bi-directional sync (Preview)** column. To enable bi-directional sync on several subscriptions at once, mark their check boxes and select the **Enable bi-directional sync** button on the bar above the list.
 
     > [!NOTE]
     > - The check boxes and drop-down lists will be active only on the subscriptions for which you have the [required permissions](#prerequisites).
