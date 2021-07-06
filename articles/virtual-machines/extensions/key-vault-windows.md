@@ -284,11 +284,15 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 ```
 
 #### Logs and configuration
-
-```
-%windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
-```
-
+The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting
+|Location|Description|
+|--|--|
+| C:\WindowsAzure\Logs\WaAppAgent.log | Shows when an update to the extension occurred. |
+| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\ | Shows the status of certificate download. The download location will always be the Windows computer's MY store (certlm.msc). |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\RuntimeSettings\ |	The Key Vault VM Extension service logs show the status of the akvvm_service service. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\Status\	| The configuration and binaries for Key Vault VM Extension service. |
+|||  
+  
 ### Support
 
 If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
