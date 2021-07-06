@@ -13,7 +13,9 @@ This article describes how to configure the Defender for IoT solution integratio
 
 You can change the name of the platform at any time.
 
-When building sites and assigning appliances to zones in the on-premises management console, you should assign each appliance a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line.
+When building sites and assigning appliances to zones in the on-premises management console, you should assign each appliance a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line. 
+
+It is important to pick a meaningful name for your appliance, because the appliance's name is passed on to the logs. When reviewing logs, each alert has a sensor attached to it. You will be able to identify which sensor is related to each alert based on it's name.
 
 **To change the appliance name**:
 
