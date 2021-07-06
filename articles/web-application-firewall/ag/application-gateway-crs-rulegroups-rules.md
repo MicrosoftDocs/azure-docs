@@ -121,7 +121,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
-# [OWASP 3.2](#tab/owasp32)
+# [OWASP 3.2 (public preview)](#tab/owasp32)
 
 ## <a name="owasp32"></a> 3.2 rule sets
 
