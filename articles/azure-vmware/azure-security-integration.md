@@ -18,7 +18,7 @@ Azure Security Center offers many features, including:
 
 The diagram shows the integrated monitoring architecture of integrated security for Azure VMware Solution VMs.
  
-:::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure-Integrated Security." border="false":::
+:::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure Integrated Security." border="false":::
 
 
 ## Prerequisites
@@ -71,7 +71,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 ## View recommendations and passed assessments
 
-Recommendations and passed assessments provides you with the security health details of your resource. 
+Recommendations and assessments provide you with the security health details of your resource. 
 
 1. In Azure Security Center, select **Inventory** from the left pane.
 
@@ -87,7 +87,7 @@ Recommendations and passed assessments provides you with the security health det
 
 ## Deploy an Azure Sentinel workspace
 
-Since Azure Sentinel is built on top of a Log Analytics workspace, you'll just need to select the workspace you want to use.
+Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
 
 1. In the Azure portal, search for **Azure Sentinel**, and select it.
 
