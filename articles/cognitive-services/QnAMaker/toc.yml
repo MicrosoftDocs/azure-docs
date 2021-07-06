@@ -127,7 +127,7 @@
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Customize your FAQ bot
     items:
-    - name: Create Guided conversations with multi-turn prompts
+    - name: Create guided conversations with multi-turn prompts
       href: Tutorials/guided-conversations.md
     - name: Add multiple domains to bot
       href: Tutorials/create-faq-bot-for-multiple-domains.md
