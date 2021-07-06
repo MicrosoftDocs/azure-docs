@@ -118,7 +118,7 @@ This section describes how to view an attestation policy and how to configure po
 1.	Go to the Azure portal menu or the home page and select **All resources**.
 1.	In the filter box, enter the attestation provider name.
 1.	Select the attestation provider and go to the overview page.
-1.	Select **Policy** on the resource menu on the left side of the window or on the lower pane. You see a prompt to select certificate for authentication. Please choose the appropriate option to proceed.
+1.	Select **Policy** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication, please choose the appropriate option to proceed.
 1.	Select the preferred **Attestation Type** and view the **Current policy**.
 
 ### Configure an attestation policy
