@@ -35,7 +35,7 @@ If the disk pool didn't recover after this process, contact Azure support and pr
 |DeploymentFailureZonalAllocationFailed     |This occurs when Azure runs out of capacity to provision a VM in the specified region/zone. Retry the deployment at another time.         |
 |DeploymentFailureQuotaExceeded     |The subscription used to deploy the disk pool is out of VM core quota in this region. You can [request an increase in vCPU quota limits per Azure VM series](../azure-portal/supportability/per-vm-quota-requests.md) for Dsv3 series.         |
 |DeploymentFailurePolicyViolation     |A policy on the subscription prevented the deployment of Azure resources that are required to support a disk pool. See the error for more details.         |
-|DeploymentTimeout     |This occurs when the deployment of the disk pool infrastructure gets stuck and doesn't complete in the alloted time. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error message.         |
+|DeploymentTimeout     |This occurs when the deployment of the disk pool infrastructure gets stuck and doesn't complete in the allotted time. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error message.         |
 |OngoingOperationInProgress     |An ongoing operation is in-progress on the disk pool. Wait until that operation completes, then retry deployment.         |
 
 ## Common failure codes when enabling iSCSI on disk pools
