@@ -47,7 +47,7 @@ For samples, we recommend that you always create and activate a Python virtual e
       py -3 -m venv .venv
     ```
 
-  This command runs the Python venv module and creates a virtual environment in a folder named .venv.
+   This command runs the Python venv module and creates a virtual environment in a folder named .venv.
 
 3. Activate the virtual environment:
 
