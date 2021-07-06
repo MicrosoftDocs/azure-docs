@@ -21,6 +21,9 @@ From your server code, the provider-specific tokens are injected into the reques
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
+> [!NOTE]
+> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+
 From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me` ([token store](overview-authentication-authorization.md#token-store) must be enabled). The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
