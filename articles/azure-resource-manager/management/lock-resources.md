@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -38,7 +38,9 @@ Applying locks can lead to unexpected results because some operations that don't
 
 - A read-only lock on a **storage account** prevents users from listing the account keys. The Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is handled through a POST request to protect access to the account keys, which provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys must use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue).
 
-- A cannot-delete lock on a **storage account** doesn't prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted, and doesn't protect blob, queue, table, or file data within that storage account.
+- A cannot-delete lock on a **storage account** doesn't prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted. If a request uses [data plane operations](control-plane-and-data-plane.md#data-plane), the lock on the storage account doesn't protect blob, queue, table, or file data within that storage account. However, if the request uses [control plane operations](control-plane-and-data-plane.md#control-plane), the lock protects those resources.
+
+  For example, if a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), which is a control plane operation, the deletion is denied. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use the control plane operations.
 
 - A read-only lock on a **storage account** doesn't prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted or modified, and doesn't protect blob, queue, table, or file data within that storage account.
 
@@ -55,6 +57,8 @@ Applying locks can lead to unexpected results because some operations that don't
 - A cannot-delete lock on a **resource group** prevents **Azure Machine Learning** from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
+
+- A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses POST](/rest/api/application-gateway/application-gateways/backend-health), which is blocked by the read-only lock.
 
 ## Who can create or delete locks
 

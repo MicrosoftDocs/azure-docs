@@ -42,7 +42,7 @@ If you already have the Service Fabric plug-in installed, install the latest ver
 3. Once you update the Service Fabric plug-in, also refresh the Gradle project.  Right click **build.gradle**, then select **Refresh**.
 
 > [!NOTE]
-> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location (*https://servicefabricdownloads.blob.core.windows.net/eclipse/*).
+> If installing or updating the Service Fabric plug-in is slow, it might be due to an Eclipse setting. Eclipse collects metadata on all changes to update sites that are registered with your Eclipse instance. To speed up the process of checking for and installing a Service Fabric plug-in update, go to **Available Software Sites**. Clear the check boxes for all sites except for the one that points to the Service Fabric plug-in location ('https://servicefabricdownloads.blob.core.windows.net/eclipse/').
 
 > [!NOTE]
 >If Eclipse isn't working as expected on your Mac, or needs you run as super user), go to the **ECLIPSE_INSTALLATION_PATH** folder and navigate to the subfolder **Eclipse.app/Contents/MacOS**. Start Eclipse by running `./eclipse`.

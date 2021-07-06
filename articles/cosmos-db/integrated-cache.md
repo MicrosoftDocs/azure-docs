@@ -21,6 +21,10 @@ An integrated cache is automatically configured within the dedicated gateway. Th
 
 The integrated cache is a read-through, write-through cache with a Least Recently Used (LRU) eviction policy. The item cache and query cache share the same capacity within the integrated cache and the LRU eviction policy applies to both. In other words, data is evicted from the cache strictly based on when it was least recently used, regardless of whether it is a point read or query.
 
+> [!NOTE]
+> Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:
+cosmoscachefeedback@microsoft.com
+
 ## Workloads that benefit from the integrated cache
 
 The main goal of the integrated cache is to reduce costs for read-heavy workloads. Low latency, while helpful, is not the main benefit of the integrated cache because Azure Cosmos DB is already fast without caching.

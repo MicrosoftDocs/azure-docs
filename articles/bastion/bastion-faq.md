@@ -76,6 +76,10 @@ No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](
 
 Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
 
+### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
+
+Azure Bastion currently does not support timezone redirection and is not timezone configurable.
+
 ### <a name="udr"></a>Is user-defined routing (UDR) supported on an Azure Bastion subnet?
 
 No. UDR is not supported on an Azure Bastion subnet.
