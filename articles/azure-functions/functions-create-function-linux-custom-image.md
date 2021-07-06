@@ -321,7 +321,7 @@ Once the image is running in a local container, open a browser to `http://localh
 Once the image is running in a local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which should display the same "hello" message as before. Because the Maven archetype generates an HTTP triggered function that uses anonymous authorization, you can still call the function even though it's running in the container. 
 ::: zone-end  
 
-You can use the [`DisableColor` setting in the host.json file](functions-host-json.md#console) to remove any incorrectly trendered format characters from the container logs. 
+You can use the [`DisableColor` setting](functions-host-json.md#console)  in the host.json file to remove any incorrectly rendered format characters from the container logs. 
 
 After you've verified the function app in the container, stop docker with **Ctrl**+**C**.
 
