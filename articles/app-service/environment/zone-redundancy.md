@@ -9,11 +9,11 @@ ms.date: 07/05/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
+# Availability Zone support for App Service Environments
+
 > [!NOTE]
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 
-
-# Availability Zone support for App Service Environments
 
 App Service Environments (ASE) can be deployed into Availability Zones (AZ).  Customers can deploy an internal load balancer (ILB) ASEs into a specific AZ within an Azure region. If you pin your ILB ASE to a specific AZ, the resources used by a ILB ASE will either be pinned to the specified AZ, or deployed in a zone redundant manner.  
 
