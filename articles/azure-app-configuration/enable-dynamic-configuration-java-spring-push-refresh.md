@@ -88,10 +88,8 @@ management.endpoints.web.exposure.include= "appconfiguration-refresh"
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
 > [!NOTE]
-> The Primary token name should be store in App Configuration and Primary token secret should be stored in App Configuration as a Key Vault Reference for added security.
-
-> [!NOTE]
-> Event Grid Web Hooks requires validation on creation. This can be done by following the [guide](/azure/event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you.
+> * The Primary token name should be store in App Configuration and Primary token secret should be stored in App Configuration as a Key Vault Reference for added security.
+> * Event Grid Web Hooks requires validation on creation. This can be done by following the [guide](/azure/event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you.
 
 ## Build and run the app locally
 
@@ -154,6 +152,8 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 > [!NOTE]
 > When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](/azure/event-grid/event-filtering.md) or [Service Bus subscription filters](/azure/service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+
+## Verify and Test Application
 
 1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
 

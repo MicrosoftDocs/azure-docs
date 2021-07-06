@@ -78,8 +78,8 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
 
 1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
 
-    You can also use *curl* to test your application, for example: 
-    
+    You can also use *curl* to test your application, for example:
+
     ```cmd
     curl -X GET http://localhost:8080/
     ```
