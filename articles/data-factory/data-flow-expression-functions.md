@@ -623,6 +623,11 @@ ___
 Raises one number to the power of another.  
 * ``power(10, 2) -> 100``  
 ___
+### <code>radians</code>
+<code><b>radians(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
+Converts degrees to radians
+* ``radians(180) => 3.141592653589793``  
+___
 ### <code>random</code>
 <code><b>random(<i>&lt;value1&gt;</i> : integral) => long</b></code><br/><br/>
 Returns a random number given an optional seed within a partition. The seed should be a fixed value and is used in conjunction with the partitionId to produce random values  
@@ -1098,7 +1103,12 @@ ___
 ### <code>distinct</code>
 <code><b>distinct(<i>&lt;value1&gt;</i> : array) => array</b></code><br/><br/>
 Returns a distinct set of items from an array.
-* ``distinct([10, 20, 30, 10]) => [10, 20, 30]``  
+* ``distinct([10, 20, 30, 10]) => [10, 20, 30]``
+___
+### <code>except</code>
+<code><b>except(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns a difference set of one array from another dropping duplicates.
+* ``except([10, 20, 30], [20, 40]) => [10, 30]``  
 ___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
@@ -1138,6 +1148,12 @@ Find the first item from an array that match the condition. It takes a filter fu
                  ]
     )
   ``  
+___
+### <code>flatten</code>
+<code><b>flatten(<i>&lt;array&gt;</i> : array, <i>&lt;value2&gt;</i> : array ..., <i>&lt;value2&gt;</i> : boolen) => array</b></code><br/><br/>
+Flattens array or arrays into a single array. Arrays of atomic items are return unaltered. The last argument is optional and is defaulted to false to flatten recursively more than one level deep.
+*	``flatten([['bojjus', 'girl'], ['gunchus', 'boy']]) => ['bojjus', 'girl', 'gunchus', 'boy']``
+*	``flatten([[['bojjus', 'gunchus']]] , true) => ['bojjus', 'gunchus']``
 ___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
