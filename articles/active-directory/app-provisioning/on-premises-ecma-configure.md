@@ -36,7 +36,7 @@ Configuring the Azure AD ECMA Connector Host occurs in two parts:
    - **Create a connector**: Create a connector, for example, SQL or LDAP, to allow the Azure AD ECMA Connector Host to export or import data to a data source.
 
 ### Configure the settings
-When you first start the Azure AD ECMA Connector Host, you'll see a port number that's filled with the default 8585. 
+When you first start the Azure AD ECMA Connector Host, you'll see a port number that's filled with the default **8585**. 
 
  ![Screenshot that shows configuring your settings.](.\media\on-premises-ecma-configure\configure-1.png)
 

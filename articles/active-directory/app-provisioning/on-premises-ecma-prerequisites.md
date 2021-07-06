@@ -40,6 +40,7 @@ For more installation and configuration information, see:
 ## Cloud requirements
 
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
+ 
     [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
  - The Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
 
@@ -47,5 +48,5 @@ For more installation and configuration information, see:
 
 - [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
 - [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
-- [Generic SQL Connector](on-premises-sql-connector-configure.md)
+- [Generic SQL connector](on-premises-sql-connector-configure.md)
 - [Tutorial - ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)

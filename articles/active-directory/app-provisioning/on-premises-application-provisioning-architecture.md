@@ -50,7 +50,7 @@ Some common questions are answered here.
 
 ### What is the GA version of the provisioning agent?
 
-For the latest GA version of the provisioning agent, see [Azure AD Connect Provisioning Agent: Version release history](provisioning-agent-release-version-history.md).
+For the latest GA version of the provisioning agent, see [Azure AD connect provisioning agent: Version release history](provisioning-agent-release-version-history.md).
 
 ### How do I know the version of my provisioning agent?
 
