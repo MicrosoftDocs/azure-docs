@@ -64,7 +64,7 @@ In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id
 
     ![Viewing blobs button](Images/view-containers.png)
 
-1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container. Type "photos" (without quotation marks) into the **Name** field and select **Blob** as the **Public access level**. Then click **OK** to create a container named "photos."
+1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container. Type `photos` into the **Name** field and select **Blob** as the **Public access level**. Then click **OK** to create a container named "photos."
 
 	> By default, containers and their contents are private. Selecting **Blob** as the access level makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want because the images stored in the "photos" container will be linked to from a Web app. 
 
@@ -118,7 +118,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 
     ![The initial application](Images/initial-application.png)
 
-1. Close the browser and return to Visual Studio. In Solution Explorer, right-click the **Intellipix** project and select **Manage NuGet Packages...**. Click **Browse**. Then type "imageresizer" (without quotation marks) into the search box and select the NuGet package named **ImageResizer**. Finally, click **Install** to install the latest stable version of the package. ImageResizer contains APIs that you'll use to create image thumbnails from the images uploaded to the app. OK any changes and accept any licenses presented to you.
+1. Close the browser and return to Visual Studio. In Solution Explorer, right-click the **Intellipix** project and select **Manage NuGet Packages...**. Click **Browse**. Then type `imageresizer` into the search box and select the NuGet package named **ImageResizer**. Finally, click **Install** to install the latest stable version of the package. ImageResizer contains APIs that you'll use to create image thumbnails from the images uploaded to the app. OK any changes and accept any licenses presented to you.
 
     ![Installing ImageResizer](Images/install-image-resizer.png)
 
@@ -243,7 +243,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 	}
 	```
 
-	This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the "photos" container, creates a thumbnail image from the original image using the `ImageResizer` package you installed in the previous lab, and stores the thumbnail image as a blob in the "thumbnails" container.
+	This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the "photos" container, creates a thumbnail image from the original image using the `ImageResizer` package you installed in the previous section, and stores the thumbnail image as a blob in the "thumbnails" container.
 
 1. Open *Index.cshmtl* in the project's **Views/Home** folder and replace its contents with the following code and markup:
 
@@ -403,7 +403,7 @@ Then in the Solution Explorer, right-click the project and use the **Manage NuGe
 
 ### Add metadata generation code
 
-Next, you'll add the code that actually uses the Computer Vision service to create metadata for images. These steps will apply to the ASP.NET app in the lab, but you can adapt them to your own app. What's important is that at this point you have an ASP.NET web application that can upload images to an Azure Storage container, read images from it, and display them in the view.
+Next, you'll add the code that actually uses the Computer Vision service to create metadata for images.
 
 1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statements at the top of the file:
 
