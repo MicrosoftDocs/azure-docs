@@ -30,9 +30,39 @@ To view the Edge resource groups on your Azure Stack Edge Pro GPU device, do the
 
     ![Screenshot showing Edge resource groups tab in Resources for a virtual machine in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-01-edge-resource-groups.png)
 
-You can also use [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0&preserve-view=true) in [Azure Az Powershell](/powershell/azure/new-azureps-module-az?view=azps-6.1.0&preserve-view=true) to list the Edge resource groups on a device. Get-AzResource by default returns all local resource groups for the current subscription. 
+You can also use [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0&preserve-view=true) in [Azure Az Powershell](/powershell/azure/new-azureps-module-az?view=azps-6.1.0&preserve-view=true) to list Edge resource groups. Get-AzResource by default returns all local resource groups for the current subscription.
 
-ADD SAMPLE RETURNED LIST.
+The following is example output from Get-AzResource.<!--Taken from azure-stack-edge-gpu-connect-resource-manager. Intro could use a little work.-->
+
+    ```output
+    PS C:\WINDOWS\system32> Get-AzResource
+    
+    Name              : aseimagestorageaccount
+    ResourceGroupName : ase-image-resourcegroup
+    ResourceType      : Microsoft.Storage/storageaccounts
+    Location          : dbelocal
+    ResourceId        : /subscriptions/.../resourceGroups/ase-image-resourcegroup/providers/Microsoft.Storage/storageac
+                        counts/aseimagestorageaccount
+    Tags              :
+    
+    Name              : myaselinuxvmimage1
+    ResourceGroupName : ASERG
+    ResourceType      : Microsoft.Compute/images
+    Location          : dbelocal
+    ResourceId        : /subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Compute/images/myaselinuxvmimage1
+    Tags              :
+    
+    Name              : ASEVNET
+    ResourceGroupName : ASERG
+    ResourceType      : Microsoft.Network/virtualNetworks
+    Location          : dbelocal
+    ResourceId        : /subscriptions/.../resourceGroups/ASERG/providers/Microsoft.Network/virtualNetworks/ASEVNET
+    Tags              :
+    
+    PS C:\WINDOWS\system32>  
+    ```
+
+
 
 ## Delete a resource group
 
@@ -52,8 +82,8 @@ To delete an Edge resource group, do these steps:
 
     ![Screenshot showing Edge resource groups for an Azure Stack Edge VM, with Delete button identified.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-02-edge-resource-groups-ready-to-delete.png)
 
-1. CONFIRMATION PROMPT? No screen needed. Just describe.
-
 ## Next steps
 
-To learn how to administer your Azure Stack Edge Pro GPU device, see [Use local web UI to administer an Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
+- To learn how to administer your Azure Stack Edge Pro GPU device, see [Use local web UI to administer an Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
+
+- [Connect to Azure Resource Manager on your device](azure-stack-edge-gpu-connect-resource-manager.md).
