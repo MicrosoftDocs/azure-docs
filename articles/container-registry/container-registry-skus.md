@@ -40,7 +40,7 @@ For details, see documentation for the [Docker HTTP API V2](https://docs.docker.
 When evaluating or troubleshooting registry throughput, also consider the configuration of your client environment:
 
 * your Docker daemon configuration for concurrent operations
-* your network connection to the registry's data endpoint (or endpoints, if your registry is [geo-replicated](container-registry-geo-replication.md).
+* your network connection to the registry's data endpoint (or endpoints, if your registry is [geo-replicated](container-registry-geo-replication.md)).
 
 If you experience issues with throughput to your registry, see [Troubleshoot registry performance](container-registry-troubleshoot-performance.md). 
 
