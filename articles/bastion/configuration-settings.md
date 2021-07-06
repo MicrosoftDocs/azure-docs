@@ -48,7 +48,7 @@ Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgr
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
 
-If you want to configure host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the amount of scale units. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
+The AzureBastionSubnet contains the scale units. For host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of scale units. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
 See the [Quickstart -create from VM settings][quickstart-host-portal.md] or the [Tutorial-create a bastion host](tutorial-create-host-portal.md) for steps.
 
