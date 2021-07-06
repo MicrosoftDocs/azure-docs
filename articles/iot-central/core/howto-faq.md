@@ -32,6 +32,10 @@ To get information about your IoT Central application:
 
     Use the **Copy info** button to copy the information to the clipboard.
 
+## How many IoT Central applications can I deploy in my subscription?
+
+Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+
 ## How do I transfer a device from IoT Hub to IoT Central?
 
 A device can connect to an IoT hub directly using a connection string or using the [Device Provisioning Service (DPS)](../../iot-dps/about-iot-dps.md). IoT Central always uses DPS.
