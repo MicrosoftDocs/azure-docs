@@ -17,9 +17,9 @@ keywords: anomaly detection, machine learning, algorithms
 
 This article provides guidance on how to troubleshoot and remediate common error messages when using the multivariate API.
 
-### Multivariate error codes
+## Multivariate error codes
 
-#### Common Errors
+### Common Errors
 
 | Error Code                 | HTTP Error Code | Error Message                                  | Comment                                                      |
 | -------------------------- | --------------- | ---------------------------------------------- | ------------------------------------------------------------ |
@@ -30,7 +30,7 @@ This article provides guidance on how to troubleshoot and remediate common error
 | `StorageReadError`         | 403             |                                                | Same as `StorageWriteError`.                                 |
 | `UnexpectedError`          | 500             |                                                | Please contact us with detailed error information. You could take the support options from [this document](/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/anomaly-detector/context/context) or email us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com)           |
 
-#### Train a Multivariate Anomaly Detection Model
+### Train a Multivariate Anomaly Detection Model
 
 | Error Code               | HTTP Error Code | Error Message                                                | Comment                                                      |
 | ------------------------ | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -46,13 +46,13 @@ This article provides guidance on how to troubleshoot and remediate common error
 | `RequiredEndTime`        | 400             | The `'endTime'` field is required in the request.            | Your training request has not specified a value for the `'startTime'` field. Example: `{"endTime": "2021-01-01T00:00:00Z"}`. |
 | `InvalidSlidingWindow`   | 400             | The `'slidingWindow'` field must be an integer between 28 and 2880. | `'slidingWindow'` must be an integer between 28 and 2880 (inclusive). |
 
-#### Get Multivariate Model with Model ID
+### Get Multivariate Model with Model ID
 
 | Error Code      | HTTP Error Code | Error Message             | Comment                                                      |
 | --------------- | --------------- | ------------------------- | ------------------------------------------------------------ |
 | `ModelNotExist` | 404             | The model does not exist. | The model with corresponding model ID does not exist. Please check the model ID in the request URL. |
 
-#### Anomaly Detection with a Trained Model
+### Anomaly Detection with a Trained Model
 
 | Error Code        | HTTP Error Code | Error Message                                                | Comment                                                      |
 | ----------------- | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -61,13 +61,14 @@ This article provides guidance on how to troubleshoot and remediate common error
 | `ModelNotReady`   | 400             | The model is not ready yet.                                  | The model is not ready yet. Please wait for a while until the training process completes. |
 | `InvalidFileSize` | 413             | File \<file> exceeds the file size limit (\<size limit> bytes). | The size of inference data exceeds the upper limit (2GB currently). Please use less data for inference. |
 
-#### Get Detection Results
+### Get Detection Results
 
 | Error Code       | HTTP Error Code | Error Message              | Comment                                                      |
 | ---------------- | --------------- | -------------------------- | ------------------------------------------------------------ |
 | `ResultNotExist` | 404             | The result does not exist. | The result per request does not exist. Either inference has not completed or result has expired (7 days). |
 
-#### Data Processing Errors
+### Data Processing Errors
+
 The following error codes do not have associated HTTP Error codes.
 
 | Error Code             | Error Message                                                | Comment                                                      |
