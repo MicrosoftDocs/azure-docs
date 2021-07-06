@@ -80,16 +80,15 @@ If you select **Create app**, you can provide the necessary information to creat
 The **My apps** page lists all the IoT Central applications you have access to. The list includes applications you created and applications that you've been granted access to.
 
 > [!TIP]
-> All the applications you create using a standard pricing plan on the Azure IoT Central site use the **IOTC** resource group in your subscription. The approaches decribed in the following section let you choose a resource group to use.
+> All the applications you create using a standard pricing plan on the Azure IoT Central site use the **IOTC** resource group in your subscription. The approaches described in the following section let you choose a resource group to use.
 
 ## Other approaches
 
 You can also use the following approaches to create an IoT Central application:
 
 - [Create an IoT Central application from the Azure portal](howto-manage-iot-central-from-portal.md#create-iot-central-applications)
-- [Create an IoT Central application using the Azure CLI](howto-manage-iot-central-from-cli.md#create-an-application)
-- [Create an IoT Central application using PowerShell](howto-manage-iot-central-from-powershell.md#create-an-application)
-- [Create an IoT Central application programmatically](howto-manage-iot-central-programmatically.md)
+- [Create an IoT Central application using the command line](howto-manage-iot-central-from-cli.md#create-an-application)
+- [Create an IoT Central application programmatically](/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/)
 
 ## Next steps
 
