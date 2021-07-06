@@ -12,24 +12,22 @@ manager: femila
 ---
 # How to host custom apps with Azure Virtual Desktop
 
-Azure Virtual Desktop can serve multiple types of Windows applications. This article describes which virtualization paths we recommend depending on the app package types you want to host in Azure Virtual Desktop.
-
-Azure Virtual Desktop can host multiple types of Windows applications. We recommend you prepare your apps according to the type of app packages you're using to host your apps. In this article, we'll explain what you need to do for each type of app package. 
+Azure Virtual Desktop can host multiple types of Windows applications. We recommend you prepare your apps according to the type of app packages you plan to deploy your apps with. In this article, we'll explain what you need to do for each type of app package. 
 
 >[!NOTE]
->Before you start hosting, we recommend you test your apps to make sure they behave as expected while running on virtual machines. For example, run a test to see if two or more users on the same session host can launch the app at the same time.
+>We recommend you host your apps on a multi-session host. We also recommend that you test your apps to make sure they behave as expected while running on your multi-session host. For example, run a test to see if two or more users on the same session host can successfully run the app at the same time.
 
 ## MSIX
 
 MSIX is the recommended type of package for custom apps in Azure Virtual Desktop because they can take advantage of the service's built-in [MSIX app attach feature](../app-attach-glossary.md). To learn how to repackage existing Win32 applications in the MSIX format, visit [Repackage your existing Win32 applications to the MSIX format](/windows/application-management/msix-app-packaging-tool).
 
-Once you've packaged your app in the MSIX format, you can use Azure Virtual Desktop’s MSIX app attach feature to deliver your apps to your customers. Learn how to use MISX app attach for your apps at [Set up MSIX app attach with the Azure portal](../app-attach-azure-portal.md).
+Once you've packaged your app in the MSIX format, you can use Azure Virtual Desktop’s MSIX app attach feature to deliver your apps to your customers. Learn how to use MSIX app attach for your apps at [Deploy apps with MSIX app attach]().
 
-## Win32 applications
+## Other options for Win32 applications
 
 You can also offer Win32 applications to your customers without repackaging them in MSIX format by using the following options.
 
-### Include the application as part of the Windows image 
+### Include the application manually on session hosts
 
 Follow the instructions at [Prepare and customize a master VHD image](../set-up-customize-master-image.md) to include an app as part of the Windows image you use for your virtual machines. More specifically, follow the directions in the [Other applications and registry configuration](../set-up-customize-master-image.md#other-applications-and-registry-configuration) section to install the application for all users.
 
