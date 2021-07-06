@@ -87,7 +87,7 @@ Recommendations and assessments provide you with the security health details of 
 
 ## Deploy an Azure Sentinel workspace
 
-Since Azure Sentinel is built on top of a Log Analytics workspace, you'll just need to select the workspace you want to use.
+Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
 
 1. In the Azure portal, search for **Azure Sentinel**, and select it.
 
