@@ -192,7 +192,7 @@ To address basic compliance requirements, consider:
 
 ### User experience
 
-Consider the sample checklist to define the requirements:
+Consider the sample checklist to define the user experience (UX) requirements:
 
 - Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
 
