@@ -220,7 +220,7 @@ auto speechConfig = SpeechTranslationConfig::FromAuthorizationToken(speechToken,
 
 For the DialogServiceConnection the authorization token is built from the Resource ID and the AAD Token and then used to create a CustomCommandsConfig or a BotFrameworkConfig object.
 
-::: zone pivot="programming-language-csharp"string resourceId = "Your ResourceID";
+::: zone pivot="programming-language-csharp"
 string resourceId = "Your ResourceID";
 string aadToken = "Your AAD Token";
 string region =  "Your Speech Region";
