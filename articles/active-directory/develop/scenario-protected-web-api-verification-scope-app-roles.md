@@ -163,7 +163,7 @@ The following code snippet shows the usage of the `[RequiredScope]` attribute wi
 using Microsoft.Identity.Web
 
 [Authorize]
-[RequiredScope(scopeRequiredByApi)
+[RequiredScope(scopeRequiredByApi)]
 public class TodoListController : Controller
 {
     /// <summary>
