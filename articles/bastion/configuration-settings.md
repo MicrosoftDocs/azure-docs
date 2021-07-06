@@ -26,13 +26,15 @@ The following table shows features and corresponding SKUs.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-### Configuration methods for the Standard SKU
+### Configuration methods
 
-During Preview, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or PowerShell to configure Bastion, the SKU is not specified and defaults to the Basic SKU.
+During Preview, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or Azure PowerShell to configure Bastion, the SKU can't be specified and defaults to the Basic SKU.
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier | [Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md) |
+| Azure portal | Tier - Basic or Standard | [Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md) |
+| Azure PowerShell | N/A |[cmdlet](/bastion-create-host-powershell.md) |
+| Azure CLI |  N/A | [command](create-host-cli.md) |
 
 ### Upgrade a SKU
 
