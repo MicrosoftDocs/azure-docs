@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 06/19/2021
 ms.author: yexu
 ---
-# Build large-scale data copy pipelines with metadata-driven approach in copy data tool
+# Build large-scale data copy pipelines with metadata-driven approach in copy data tool (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 When you want to copy huge amounts of objects (for example, thousands of tables) or load data from large variety of sources, the appropriate approach is to input the name list of the objects with required copy behaviors in a control table, and then use parameterized pipelines to read the same from the control table and apply them to the jobs accordingly.  By doing so, you can maintain (for example, add/remove) the objects list to be copied easily by just updating the object names in control table instead of redeploying the pipelines. What’s more, you will have single place to easily check which objects copied by which pipelines/triggers with defined copy behaviors. 
@@ -69,18 +69,18 @@ Copy data tool in ADF eases the journey of building such metadata driven data co
 
     You are required to input the following parameters:
    
-   | Parameters name | Description | 
-   |:--- |:--- |
-   |MaxNumberOfConcurrentTasks |You can always change the max number of concurrent copy activities run before pipeline run. The default value will be the one you input in copy data tool. |
-   |MainControlTableName | You can always change the main control table name, so the pipeline will get the metadata from that table before run.  |
-   |ConnectionControlTableName |You can always change the connection control table name (optional), so the pipeline will get the metadata related to data store connection before run. |
-   |MaxNumberOfObjectsReturnedFromLookupActivity |In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of objects returned by lookup activity. In most cases, the default value is not required to be changed.  |
-   |windowStart |When you input dynamic value (for example, yyyy/mm/dd) as folder path, the parameter is used to pass the current trigger time to pipeline in order to fill the dynamic folder path. When the pipeline is triggered by schedule trigger or tumbling windows trigger, users do not need to input the value of this parameter. Sample value: 2021-01-25T01:49:28Z | 
+    | Parameters name | Description | 
+    |:--- |:--- |
+    |MaxNumberOfConcurrentTasks |You can always change the max number of concurrent copy activities run before pipeline run. The default value will be the one you input in copy data tool. |
+    |MainControlTableName | You can always change the main control table name, so the pipeline will get the metadata from that table before run.  |
+    |ConnectionControlTableName |You can always change the connection control table name (optional), so the pipeline will get the metadata related to data store connection before run. |
+    |MaxNumberOfObjectsReturnedFromLookupActivity |In order to avoid reaching the limit of output lookup activity, there is a way to define the max number of objects returned by lookup activity. In most cases, the default value is not required to be changed.  |
+    |windowStart |When you input dynamic value (for example, yyyy/mm/dd) as folder path, the parameter is used to pass the current trigger time to pipeline in order to fill the dynamic folder path. When the pipeline is triggered by schedule trigger or tumbling windows trigger, users do not need to input the value of this parameter. Sample value: 2021-01-25T01:49:28Z | 
    
 
 11. Enable the trigger to operationalize the pipelines.
 
-   ![Enable trigger](./media/copy-data-tool-metadata-driven/enable-trigger.png)
+    ![Enable trigger](./media/copy-data-tool-metadata-driven/enable-trigger.png)
 
 
 ## Update control table by copy data tool
