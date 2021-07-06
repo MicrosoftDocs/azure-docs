@@ -11,8 +11,6 @@ ms.custom: cc996988-fb4f-47
 
 Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
 
-:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Azure Cosmos DB code":::
-
 ## Prerequisites
 
 To complete this tutorial:
@@ -23,15 +21,16 @@ To complete this tutorial:
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## Sign in to Azure
+
 Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
 ## Create an Azure Cosmos DB account
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the trigger.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
-## Create an Azure Function app
+## Create a function app in Azure
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 

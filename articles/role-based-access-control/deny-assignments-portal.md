@@ -50,7 +50,7 @@ Follow these steps to list deny assignments at the subscription or management gr
 
     ![Deny assignments - Columns](./media/deny-assignments-portal/deny-assignments-columns.png)
 
-    |  |  |
+    | Column | Description  |
     | --- | --- |
     | **Name** | Name of the deny assignment. |
     | **Principal type** | User, group, system-defined group, or service principal. |
@@ -75,7 +75,7 @@ Follow these steps to list additional details about a deny assignment.
 
     The **Users** blade includes the following two sections.
 
-    |  |  |
+    | Deny setting  | Description |
     | --- | --- |
     | **Deny assignment applies to**  | Security principals that the deny assignment applies to. |
     | **Deny assignment excludes** | Security principals that are excluded from the deny assignment. |

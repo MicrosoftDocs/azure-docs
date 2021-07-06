@@ -1,9 +1,9 @@
 ---
 title: 'ML Studio (classic): Excel add-in for web services - Azure'
-description: How to use Azure Machine Learning Web services directly in Excel without writing any code.
+description: How to use Machine Learning Web services directly in Excel without writing any code.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -11,7 +11,7 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
 ---
-# Excel Add-in for Azure Machine Learning Studio (classic) web services
+# Excel Add-in for Machine Learning Studio (classic) web services
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -24,7 +24,7 @@ Excel makes it easy to call web services directly without the need to write any 
  
     > [!NOTE]
     > - You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated every time there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
-    > - The Azure Machine Learning Excel add-in will call Office add-ins store to load. If your organization ban access to Office add-ins store, you will see error when loading the add-in. For this case, please deploy the Azure Machine Learning Excel add-in from Microsoft 365 admin center. Then invoke the add-in and add the web service manually by paste the URL and API key.
+    > - The Machine Learning Excel add-in will call Office add-ins store to load. If your organization ban access to Office add-ins store, you will see error when loading the add-in. For this case, please deploy the Machine Learning Excel add-in from Microsoft 365 admin center. Then invoke the add-in and add the web service manually by paste the URL and API key.
 
  
 
@@ -54,13 +54,13 @@ Get the API key for your web service. Where you perform this action depends on w
 4. Look for the **Request URI** section.  Copy and save the URL.
 
 > [!NOTE]
-> It is now possible to sign into the [Azure Machine Learning Web Services](https://services.azureml.net) portal to obtain the API key for a Classic Machine Learning web service.
+> It is now possible to sign into the [Machine Learning Web Services](https://services.azureml.net) portal to obtain the API key for a Classic Machine Learning web service.
 > 
 > 
 
 **Use a New web service**
 
-1. In the [Azure Machine Learning Web Services](https://services.azureml.net) portal, click **Web Services**, then select your web service. 
+1. In the [Machine Learning Web Services](https://services.azureml.net) portal, click **Web Services**, then select your web service. 
 2. Click **Consume**.
 3. Look for the **Basic consumption info** section. Copy and save the **Primary Key** and the **Request-Response** URL.
 

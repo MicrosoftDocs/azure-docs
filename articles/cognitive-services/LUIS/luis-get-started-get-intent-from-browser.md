@@ -3,8 +3,8 @@ title: "How to query for predictions using a browser - LUIS"
 description: In this article, use an available public LUIS app to determine a user's intention from conversational text in a browser.
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 11/30/2020
+ms.topic: quickstart
+ms.date: 03/26/2021
 #Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
@@ -172,4 +172,4 @@ Learn more about:
 * [Custom subdomains](../cognitive-services-custom-subdomains.md)
 
 > [!div class="nextstepaction"]
-> [Create an app in the LUIS portal](get-started-portal-build-app.md)
+> [Use the client libraries or REST API](client-libraries-rest-api.md)

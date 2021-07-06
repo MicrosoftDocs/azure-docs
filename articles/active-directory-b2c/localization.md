@@ -4,13 +4,13 @@ description: Specify the Localization element of a custom policy in Azure Active
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Localization element
@@ -142,7 +142,7 @@ The **LocalizedString** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ElementType | Yes | Possible values: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation), or [UxElement](#uxelement).   | 
+| ElementType | Yes | Possible values: [ClaimsProvider](#claimsprovider), [ClaimType](#claimtype), [ErrorMessage](#errormessage), [GetLocalizedStringsTransformationClaimType](#getlocalizedstringstransformationclaimtype), [FormatLocalizedStringTransformationClaimType](#formatlocalizedstringtransformationclaimtype), [Predicate](#predicate), [InputValidation](#inputvalidation), or [UxElement](#uxelement).   | 
 | ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
 | StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName`, `AdminHelpText`, or `PatternHelpText`. The `DisplayName` value is used to set the claim display name. The `AdminHelpText` value is used to set the help text name of the claim user. The `PatternHelpText` value is used to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. See [Localization string IDs](localization-string-ids.md) for a complete list of the `UxElement` identifiers.|
 
@@ -227,6 +227,31 @@ The following example shows how to localize the UserMessageIfClaimsPrincipalAlre
 
 ```xml
 <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">The account you are trying to create already exists, please sign-in.</LocalizedString>
+```
+
+### FormatLocalizedStringTransformationClaimType
+
+The FormatLocalizedStringTransformationClaimType value is used to format claims into a localized string. For more information, see [FormatLocalizedString claims transformation](string-transformations.md#formatlocalizedstring)
+
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+The following example shows how to localize string format of the FormatLocalizedStringTransformationClaimType claims transformation.
+
+```xml
+<LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
 ```
 
 ### GetLocalizedStringsTransformationClaimType
@@ -331,7 +356,7 @@ The UxElement value is used to localize one of the user interface elements. The 
 
 ### DisplayControl
 
-The DisplayControl value is used to localize one of the [display Control](display-controls.md) user interface elements. The following example shows how to localize the send and verify buttons. 
+The DisplayControl value is used to localize one of the [display Control](display-controls.md) user interface elements. When enabled, the display control localizedStrings takes the ***precedence*** over some of the **UxElement** StringIDs like **ver_but_send**, **ver_but_edit**, **ver_but_resend** and **ver_but_verify**. The following example shows how to localize the send and verify buttons. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>

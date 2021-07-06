@@ -4,9 +4,9 @@ description: In this Quickstart, learn how to create an Azure Database for Postg
 author: mksuni
 ms.service: postgresql
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: sumuth
-ms.date: 10/23/2020
+ms.date: 2/11/2021
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - Flexible Server
@@ -93,7 +93,7 @@ Create a _postgres-flexible-server-template.json_ file and copy the following JS
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "tier": "[parameters('serverEdition')]"
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -204,6 +204,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 ```
 
 ---
+
 
 ## Clean up resources
 

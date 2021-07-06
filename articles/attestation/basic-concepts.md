@@ -7,6 +7,7 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
+ms.custom: references_regions
 ---
 
 # Basic Concepts
@@ -23,21 +24,24 @@ Below are some basic concepts related to Microsoft Azure Attestation.
 
 ## Attestation provider
 
-Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. 
+Attestation provider belongs to Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md). Each attestation provider honors a specific, discoverable policy. Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
 
-Attestation providers get created with a default policy for each attestation type (note that VBS enclave has no default policy). See [examples of an attestation policy](policy-examples.md) for more details on the default policy for SGX.
+### Regional shared provider
 
-### Regional default provider
-
-Azure Attestation provides a default provider in each region. Customers can choose to use the default provider for attestation, or create their own providers with custom policies. The default providers are accessible by any Azure AD user and the policy associated with a default provider cannot be altered.
+Azure Attestation provides a regional shared provider in every available region. Customers can choose to use the regional shared provider for attestation, or create their own providers with custom policies. The shared providers are accessible by any Azure AD user and the policy associated with it cannot be altered.
 
 | Region | Attest Uri | 
 |--|--|
+| East US | `https://sharedeus.eus.attest.azure.net` | 
+| West US | `https://sharedwus.wus.attest.azure.net` | 
 | UK South | `https://shareduks.uks.attest.azure.net` | 
+| UK West| `https://sharedukw.ukw.attest.azure.net	` | 
+| Canada East | `https://sharedcae.cae.attest.azure.net` | 
+| Canada Central | `https://sharedcac.cac.attest.azure.net` | 
+| North Europe | `https://sharedneu.neu.attest.azure.net` | 
+| West Europe| `https://sharedweu.weu.attest.azure.net` | 
 | US East 2 | `https://sharedeus2.eus2.attest.azure.net` | 
 | Central US | `https://sharedcus.cus.attest.azure.net` | 
-| East US| `https://sharedeus.eus.attest.azure.net` | 
-| Canada Central | `https://sharedcac.cac.attest.azure.net` | 
 
 ## Attestation request
 
@@ -54,7 +58,7 @@ Attestation policy is used to process the attestation evidence and is configurab
 
 If the default policy in the attestation provider doesn’t meet the needs, customers will be able to create custom policies in any of the regions supported by Azure Attestation. Policy management is a key feature provided to customers by Azure Attestation. Policies will be attestation type specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
-See [examples of an attestation policy](policy-examples.md) for default policy content and samples.
+See [examples of an attestation policy](policy-examples.md) for policy samples.
 
 ## Benefits of policy signing
 
@@ -76,26 +80,70 @@ Example of JWT generated for an SGX enclave:
 
 ```
 {
-  “alg”: “RS256”,
-  “jku”: “https://tradewinds.us.attest.azure.net/certs”,
-  “kid”: “f1lIjBlb6jUHEUp1/Nh6BNUHc6vwiUyMKKhReZeEpGc=”,
-  “typ”: “JWT”
+  "alg": "RS256",
+  "jku": "https://tradewinds.us.attest.azure.net/certs",
+  "kid": <self signed certificate reference to perform signature verification of attestation token,
+  "typ": "JWT"
 }.{
-  “maa-ehd”: <input enclave held data>,
-  “exp”: 1568187398,
-  “iat”: 1568158598,
-  “is-debuggable”: false,
-  “iss”: “https://tradewinds.us.attest.azure.net”,
-  “nbf”: 1568158598,
-  “product-id”: 4639,
-  “sgx-mrenclave”: “”,
-  “sgx-mrsigner”: “”,
-  “svn”: 0,
-  “tee”: “sgx”
+  "aas-ehd": <input enclave held data>,
+  "exp": 1568187398,
+  "iat": 1568158598,
+  "is-debuggable": false,
+  "iss": "https://tradewinds.us.attest.azure.net",
+  "maa-attestationcollateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "maa-ehd": <input enclave held data>,
+  "nbf": 1568158598,
+  "product-id": 4639,
+  "sgx-mrenclave": <SGX enclave mrenclave value>,
+  "sgx-mrsigner": <SGX enclave msrigner value>,
+  "svn": 0,
+  "tee": "sgx"
+  "x-ms-attestation-type": "sgx", 
+  "x-ms-policy-hash": <>,
+  "x-ms-sgx-collateral": 
+    {
+      "qeidcertshash": <SHA256 value of QE Identity issuing certs>,
+      "qeidcrlhash": <SHA256 value of QE Identity issuing certs CRL list>,
+      "qeidhash": <SHA256 value of the QE Identity collateral>,
+      "quotehash": <SHA256 value of the evaluated quote>, 
+      "tcbinfocertshash": <SHA256 value of the TCB Info issuing certs>, 
+      "tcbinfocrlhash": <SHA256 value of the TCB Info issuing certs CRL list>, 
+      "tcbinfohash": <SHA256 value of the TCB Info collateral>
+     },
+  "x-ms-sgx-ehd": <>, 
+  "x-ms-sgx-is-debuggable": true,
+  "x-ms-sgx-mrenclave": <SGX enclave mrenclave value>,
+  "x-ms-sgx-mrsigner": <SGX enclave msrigner value>, 
+  "x-ms-sgx-product-id": 1, 
+  "x-ms-sgx-svn": 1,
+  "x-ms-ver": "1.0",
+  "x-ms-sgx-config-id": "000102030405060708090a0b0c0d8f99000102030405060708090a0b0c860e9a000102030405060708090a0b7d0d0e9b000102030405060708090a740c0d0e9c",
+  "x-ms-sgx-config-svn": 3451,
+  "x-ms-sgx-isv-extended-product-id": "8765432143211234abcdabcdef123456",
+  "x-ms-sgx-isv-family-id": "1234567812344321abcd1234567890ab"
 }.[Signature]
 ```
-Claims like “exp”, “iat”, “iss”, “nbf” are defined by the [JWT RFC](https://tools.ietf.org/html/rfc7517) and remaining are generated by Azure Attestation. 
-See [claims issued by Azure Attestation](claim-sets.md) for more information.
+
+Some of the claims used above are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the non-deprecated claim names. See [claims issued by Azure Attestation](claim-sets.md) for more information.
+
+The below claims will appear only in the attestation token generated for Intel® Xeon® Scalable processor-based server platforms. The claims will not appear if the SGX enclave is not configured with [Key Separation and and Sharing Support](https://github.com/openenclave/openenclave/issues/3054)
+
+**x-ms-sgx-config-id**
+
+**x-ms-sgx-config-svn**
+
+**x-ms-sgx-isv-extended-product-id**
+
+**x-ms-sgx-isv-family-id**
 
 ## Encryption of data at rest
 

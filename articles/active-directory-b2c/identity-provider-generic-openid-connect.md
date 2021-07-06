@@ -9,14 +9,18 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
 # Set up sign-up and sign-in with OpenID Connect using Azure Active Directory B2C
 
-[OpenID Connect](openid-connect.md) is an authentication protocol built on top of OAuth 2.0 that can be used for secure user sign-in. Most identity providers that use this protocol are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your user flows.
+[OpenID Connect](openid-connect.md) is an authentication protocol built on top of OAuth 2.0 that can be used for secure user sign-in. Most identity providers that use this protocol are supported in Azure AD B2C. 
+
+This article explains how you can add custom OpenID Connect identity providers into your user flows.
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## Add the identity provider
 
@@ -24,6 +28,7 @@ ms.subservice: B2C
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
+1. Enter a **Name**. For example, enter *Contoso*.
 
 ## Configure the identity provider
 
@@ -38,7 +43,7 @@ To allow users to sign in, the identity provider requires developers to register
 
 ## Scope
 
-Scope defines the information and permissions you are looking to gather from your custom identity provider. OpenID Connect requests must contain the `openid` scope value in order to receive the ID token from the identity provider. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. Refer to the custom identity provider's documentation to see what other scopes may be available.
+Scope defines the information and permissions you are looking to gather from your identity provider, for example `openid profile`. In order to receive the ID token from the identity provider, the `openid` scope must be specified. Without the ID token, users are not able to sign in to Azure AD B2C using the custom identity provider. Other scopes can be appended separated by space. Refer to the custom identity provider's documentation to see what other scopes may be available.
 
 ## Response type
 
@@ -67,3 +72,16 @@ After the custom identity provider sends an ID token back to Azure AD B2C, Azure
 * **Given Name**: Enter the claim that provides the *first name* of the user.
 * **Surname**: Enter the claim that provides the *last name* of the user.
 * **Email**: Enter the claim that provides the *email address* of the user.
+
+## Add the identity provider to a user flow 
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Click the user flow that you want to add the identity provider. 
+1. Under the **Social identity providers**, select the identity provider you added. For example, *Contoso*.
+1. Select **Save**.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select the identity provider you want to sign-in. For example, *Contoso*.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.

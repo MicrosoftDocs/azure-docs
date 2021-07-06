@@ -8,9 +8,9 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.date: 11/16/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, contperf-fy21q1, devx-track-azurecli
+ms.date: 03/22/2021
+ms.topic: how-to
+ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -50,7 +50,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 
 This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
-To use this file from your code, use the [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#from-config-path-none--auth-none---logger-none---file-name-none-&preserve-view=true) method. This code loads the information from the file and connects to your workspace.
+To use this file from your code, use the [`Workspace.from_config`](/python/api/azureml-core/azureml.core.workspace.workspace#from-config-path-none--auth-none---logger-none---file-name-none-) method. This code loads the information from the file and connects to your workspace.
 
 Create a workspace configuration file in one of the following methods:
 
@@ -62,7 +62,7 @@ Create a workspace configuration file in one of the following methods:
 
 * Azure Machine Learning Python SDK
 
-    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#write-config-path-none--file-name-none-&preserve-view=true) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
+    Create a script to connect to your Azure Machine Learning workspace and use the [`write_config`](/python/api/azureml-core/azureml.core.workspace.workspace#write-config-path-none--file-name-none-) method to generate your file and save it as *.azureml/config.json*. Make sure to replace `subscription_id`,`resource_group`, and `workspace_name` with your own.
 
     ```python
     from azureml.core import Workspace
@@ -94,10 +94,10 @@ To configure a local development environment or remote VM:
     > If you're on Linux or macOS and use a shell other than bash (for example, zsh) you might receive errors when you run some commands. To work around this problem, use the `bash` command to start a new bash shell and run the commands there.
 
 1. Activate your newly created Python virtual environment.
-1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-1. To to configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
+1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install).
+1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
 
-Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-sdk-setup-local.md) to get started.
+Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-hello-world.md) to get started.
 
 ### <a id="jupyter"></a>Jupyter Notebooks
 
@@ -127,9 +127,14 @@ See the [Azure Machine Learning notebooks repository](https://github.com/Azure/M
 To use Visual Studio Code for development:
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Install the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md) (preview).
+1. Install the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md) (preview).
 
-Once you have the Visual Studio Code extension installed, you can manage your [Azure Machine Learning resources](how-to-manage-resources-vscode.md), [run and debug experiments](how-to-debug-visual-studio-code.md), and [deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
+Once you have the Visual Studio Code extension installed, use it to:
+
+* [Manage your Azure Machine Learning resources](how-to-manage-resources-vscode.md)
+* [Connect to an Azure Machine Learning compute instance](how-to-set-up-vs-code-remote.md)
+* [Run and debug experiments](how-to-debug-visual-studio-code.md)
+* [Deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ## <a id="compute-instance"></a>Azure Machine Learning compute instance
 
@@ -137,7 +142,7 @@ The Azure Machine Learning [compute instance](concept-compute-instance.md) is a 
 
 There is nothing to install or configure for a compute instance.  
 
-Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](quickstart-create-resources.md).
 
 To learn more about compute instances, including how to install packages, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
@@ -146,7 +151,7 @@ To learn more about compute instances, including how to install packages, see [C
 
 In addition to a Jupyter Notebook server and JupyterLab, you can use compute instances in the [integrated notebook feature inside of Azure Machine Learning studio](how-to-run-jupyter-notebooks.md).
 
-You can also use the Azure Machine Learning Visual Studio Code extension to [configure an Azure Machine Learning compute instance as a remote Jupyter Notebook server](how-to-set-up-vs-code-remote.md#configure-compute-instance-as-remote-notebook-server).
+You can also use the Azure Machine Learning Visual Studio Code extension to [connect to a remote compute instance using VS Code](how-to-set-up-vs-code-remote.md).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -212,4 +217,4 @@ For more information, see [Data Science Virtual Machines](https://azure.microsof
 ## Next steps
 
 - [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset.
-- See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). 
+- See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro). 

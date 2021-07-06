@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 12/15/2020
 ---
 
-# Quickstart: Connect hybrid machine with Azure Arc enabled servers
+# Quickstart: Connect hybrid machines with Azure Arc enabled servers
 
 [Azure Arc enabled servers](../overview.md) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc enabled servers.
 

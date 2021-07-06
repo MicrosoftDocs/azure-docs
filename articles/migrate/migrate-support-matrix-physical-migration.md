@@ -10,7 +10,7 @@ ms.date: 06/14/2020
 
 # Support matrix for physical server migration
 
-This article summarizes support settings and limitations for migrating physical servers with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
+This article summarizes support settings and limitations for migrating physical servers to Azure with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing physical servers for migration to Azure, review the [assessment support matrix](migrate-support-matrix-physical.md).
 
 ## Migrating machines as physical
 
@@ -20,7 +20,7 @@ You can migrate on-premises machines as physical servers, using agent-based repl
 - VMs virtualized by platforms such as Xen, KVM.
 - Hyper-V VMs or VMware VMs if for some reason you don't want to use the standard [Hyper-V](tutorial-migrate-hyper-v.md) or [VMware](server-migrate-overview.md) flows.
 - VMs running in private clouds.
-- VMs running in public clouds such as Amazon Web Services (AWS) or Google Cloud Platform (GCP).
+- VMs running in public clouds, including Amazon Web Services (AWS) or Google Cloud Platform (GCP).
 
 
 ## Migration limitations
@@ -43,7 +43,7 @@ The table summarizes support for physical servers you want to migrate using agen
 **UEFI boot** | Supported. UEFI-based machines will be migrated to Azure generation 2 VMs.  <br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 **UEFI - Secure boot**         | Not supported for migration.
 **Target disk** | Machines can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk; 32 TB for data disks.
+**Disk size** | up to 2 TB OS disk for gen 1 VM; up to 4 TB OS disk for gen 2 VM;; 32 TB for data disks.
 **Disk limits** |  Up to 63 disks per machine.
 **Encrypted disks/volumes** |  Machines with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -52,7 +52,6 @@ The table summarizes support for physical servers you want to migrate using agen
 **NFS** | NFS volumes mounted as volumes on the machines won't be replicated.
 **iSCSI targets** | Machines with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
-**Storage vMotion** | Supported
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
 
@@ -77,7 +76,7 @@ Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 4,095 GB | Check fails if unsupported.
+Data disk size | Up to 32 TB | Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.

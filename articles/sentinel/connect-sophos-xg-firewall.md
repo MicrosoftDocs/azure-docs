@@ -24,6 +24,8 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your [Sophos XG Firewall](https://www.sophos.com/products/next-gen-firewall.aspx) appliance to Azure Sentinel. The Sophos XG Firewall data connector allows you to easily connect your Sophos XG Firewall logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between Sophos XG Firewall and Azure Sentinel makes use of Syslog.
 
 > [!NOTE]
@@ -45,7 +47,7 @@ After a successful connection is established, the data appears in Log Analytics 
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics.
+It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 

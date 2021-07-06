@@ -26,7 +26,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/data-lake-analytics-security-baseline?toc=/azure/data-lake-analytics/TOC.json
 - name: How-to guides
   items:
   - name: Manage Data Lake Analytics
@@ -68,7 +68,7 @@
       - name: Basics
         href: data-lake-analytics-u-sql-get-started.md
       - name: Language reference
-        href: https://docs.microsoft.com/u-sql
+        href: /u-sql
       - name: Catalog
         href: data-lake-analytics-u-sql-catalog.md
       - name: User-defined operators

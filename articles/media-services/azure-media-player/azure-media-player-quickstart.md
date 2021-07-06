@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ---
 
 # Azure Media Player quickstart
@@ -17,7 +17,7 @@ Azure Media Player is easy to set up. It only takes a few minutes to get basic p
 ```
 
 > [!IMPORTANT]
-> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player; for example replace `latest` with `1.0.0`. Azure Media Player versions can be queried from [here](azure-media-player-changelog.md).
+> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player; for example replace `latest` with `1.0.0`. Azure Media Player versions can be queried from [here](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 ## Use the video element
 
@@ -34,7 +34,7 @@ Next, simply use the `<video>` element as you normally would, but with an additi
 
 If you don't want to use auto-setup, you can omit the `data-setup` attribute and initialize a video element manually.
 
-```html
+```javascript
     var myPlayer = amp('vid1', { /* Options */
             "nativeControlsForTouch": false,
             autoplay: false,
@@ -47,7 +47,7 @@ If you don't want to use auto-setup, you can omit the `data-setup` attribute and
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{
@@ -58,4 +58,4 @@ If you don't want to use auto-setup, you can omit the `data-setup` attribute and
 
 ## Next steps ##
 
-- [Azure Media Player Full Setup](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Azure Media Player Full Setup](./azure-media-player-full-setup.md)

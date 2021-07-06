@@ -5,7 +5,7 @@ author: rodrigoaatmicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: mamccrea
+
 ms.custom: mvc, devx-track-js
 ms.date: 12/15/2020
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Synerise AI Growth Ecosystem | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Synerise AI Growth Ecosystem.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Synerise AI Growth Operating System | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Synerise AI Growth Operating System.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/15/2020
+ms.date: 01/06/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Synerise AI Growth Ecosystem
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Synerise AI Growth Operating System
 
-In this tutorial, you'll learn how to integrate Synerise AI Growth Ecosystem with Azure Active Directory (Azure AD). When you integrate Synerise AI Growth Ecosystem with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Synerise with Azure Active Directory (Azure AD). When you integrate Synerise with Azure AD, you can:
 
-* Control in Azure AD who has access to Synerise AI Growth Ecosystem.
-* Enable your users to be automatically signed-in to Synerise AI Growth Ecosystem with their Azure AD accounts.
+* Control in Azure AD who has access to Synerise.
+* Enable your users to be automatically signed-in to Synerise with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
@@ -27,72 +27,72 @@ In this tutorial, you'll learn how to integrate Synerise AI Growth Ecosystem wit
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Synerise AI Growth Ecosystem single sign-on (SSO) enabled subscription.
+* Synerise single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Synerise AI Growth Ecosystem supports **SP and IDP** initiated SSO
-* Synerise AI Growth Ecosystem supports **Just In Time** user provisioning
+* Synerise supports **SP and IDP** initiated SSO
+* Synerise supports **Just In Time** user provisioning
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 
-## Adding Synerise AI Growth Ecosystem from the gallery
+## Adding Synerise AI Growth Operating System from the gallery
 
-To configure the integration of Synerise AI Growth Ecosystem into Azure AD, you need to add Synerise AI Growth Ecosystem from the gallery to your list of managed SaaS apps.
+To configure the integration of Synerise into Azure AD, you need to add Synerise from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Synerise AI Growth Ecosystem** in the search box.
-1. Select **Synerise AI Growth Ecosystem** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **Synerise AI Growth Operating System** in the search box.
+1. Select **Synerise AI Growth Operating System** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD SSO for Synerise AI Growth Ecosystem
+## Configure and test Azure AD SSO for Synerise AI Growth Operating System
 
-Configure and test Azure AD SSO with Synerise AI Growth Ecosystem using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Synerise AI Growth Ecosystem.
+Configure and test Azure AD SSO with Synerise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Synerise.
 
-To configure and test Azure AD SSO with Synerise AI Growth Ecosystem, perform the following steps:
+To configure and test Azure AD SSO with Synerise, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Synerise AI Growth Ecosystem SSO](#configure-synerise-ai-growth-ecosystem-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Synerise AI Growth Ecosystem test user](#create-synerise-ai-growth-ecosystem-test-user)** - to have a counterpart of B.Simon in Synerise AI Growth Ecosystem that is linked to the Azure AD representation of user.
+1. **[Configure Synerise AI Growth Operating System SSO](#configure-synerise-ai-growth-operating-system-sso)** - to configure the single sign-on settings on application side.
+    1. **[Create Synerise AI Growth Operating System test user](#create-synerise-ai-growth-operating-system-test-user)** - to have a counterpart of B.Simon in Synerise that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Synerise AI Growth Ecosystem** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Synerise AI Growth Operating System** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     In the **Reply URL** text box, type a URL using the following pattern:
-    `https://app.synerise.com/api-portal/uauth/saml/auth/<CUSTOMER_PROFILE_HASH>`
+    `https://app.synerise.com/api-portal/uauth/saml/auth/<PROFILE_HASH>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://app.synerise.com/api-portal/uauth/saml/auth/<CUSTOMER_PROFILE_HASH>`
+    `https://app.synerise.com/api-portal/uauth/saml/auth/<PROFILE_HASH>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Synerise AI Growth Ecosystem Client support team](mailto:support@synerise.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Synerise support team](mailto:support@synerise.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Synerise AI Growth Ecosystem** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Synerise** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
@@ -109,23 +109,51 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Synerise AI Growth Ecosystem.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Synerise.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Synerise AI Growth Ecosystem**.
+1. In the applications list, select **Synerise AI Growth Operating System**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Synerise AI Growth Ecosystem SSO
+## Configure Synerise AI Growth Operating System SSO
 
-To configure single sign-on on **Synerise AI Growth Ecosystem** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Synerise AI Growth Ecosystem support team](mailto:support@synerise.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to the Synerise as an administrator.
 
-### Create Synerise AI Growth Ecosystem test user
+1. Go to the **Settings > Access Control**.
 
-In this section, a user called Britta Simon is created in Synerise AI Growth Ecosystem. Synerise AI Growth Ecosystem supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Synerise AI Growth Ecosystem, a new one is created after authentication.
+    ![Synerise settings](./media/synerise-ai-growth-ecosystem-tutorial/settings.png)
+
+1. In the **Access Control** page, click on **Show** button in the **Single Sign-On** tab.
+
+    ![Synerise Access Control](./media/synerise-ai-growth-ecosystem-tutorial/single-sign-on.png)
+
+1. Perform the following steps in the below page.
+
+    ![Synerise configuration](./media/synerise-ai-growth-ecosystem-tutorial/configuration.png)
+
+    a. In the **Identifier Provider Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+
+    b. In the **SSO endpoint(https)** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+    c. In the **Identity Provider application ID** textbox, paste the **application ID** value.
+
+    d. Copy **Service Provider redirect URI** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
+
+    e. Select **HTTP REDIRECT** in the **Request binding**.
+
+    f. Switch on the **Request signature**.
+
+    g. Upload the downloaded **Certificate(Base64)** file in to the **Identity Provider Signature Certificate**.
+
+    i. Click on **Apply**.
+
+### Create Synerise AI Growth Operating System test user
+
+In this section, a user called Britta Simon is created in Synerise. Synerise supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Synerise, a new one is created after authentication.
 
 ## Test SSO 
 
@@ -133,19 +161,17 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Synerise AI Growth Ecosystem Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Synerise Sign on URL where you can initiate the login flow.  
 
-* Go to Synerise AI Growth Ecosystem Sign-on URL directly and initiate the login flow from there.
+* Go to Synerise Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Synerise AI Growth Ecosystem for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Synerise for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Synerise AI Growth Ecosystem tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Synerise AI Growth Ecosystem for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Synerise tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Synerise for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Synerise AI Growth Ecosystem you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Synerise you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

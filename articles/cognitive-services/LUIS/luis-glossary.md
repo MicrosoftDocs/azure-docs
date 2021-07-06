@@ -4,7 +4,7 @@ description: The glossary explains terms that you might encounter as you work wi
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/08/2020
+ms.date: 05/17/2021
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -39,18 +39,19 @@ The [authoring key](luis-how-to-azure-subscription.md) is used to author the app
 
 ### Authoring Resource
 
-Your LUIS [authoring resource](luis-how-to-azure-subscription.md#azure-resources-for-luis) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
+Your LUIS [authoring resource](luis-how-to-azure-subscription.md) is a manageable item that is available through Azure. The resource is your access to the associated authoring, training, and publishing abilities of the Azure service. The resource includes authentication, authorization, and security information you need to access the associated Azure service.
 
 The authoring resource has an Azure "kind" of `LUIS-Authoring`.
 
 ## Batch test
 
-Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
+Batch testing is the ability to validate a current LUIS app's models with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](./luis-how-to-batch-test.md#batch-test-file).
+
 
 See also:
-* [Concepts](luis-concept-batch-test.md)
+* [Concepts](./luis-how-to-batch-test.md)
 * [How-to](luis-how-to-batch-test.md) run a batch test
-* [Tutorial](luis-tutorial-batch-testing.md) - create and run a batch test
+* [Tutorial](./luis-how-to-batch-test.md) - create and run a batch test
 
 ### F-measure
 
@@ -289,7 +290,7 @@ The model will return the normalized value for the entity when any of synonyms a
 
 ## Test
 
-[Testing](luis-concept-test.md) a LUIS app means viewing model predictions.
+[Testing](./luis-interactive-test.md) a LUIS app means viewing model predictions.
 
 ## Timezone offset
 

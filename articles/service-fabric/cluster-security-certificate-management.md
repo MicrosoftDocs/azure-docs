@@ -3,7 +3,7 @@ title: Certificate management in a Service Fabric cluster
 description: Learn about managing certificates in a Service Fabric cluster secured with X.509 certificates.
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.custom: sfrev
+ms.custom: sfrev, devx-track-azurepowershell
 ---
 # Certificate management in Service Fabric clusters
 
@@ -84,10 +84,10 @@ At this point, a certificate exists in the vault, ready for consumption. Onward 
 ### Certificate provisioning
 We mentioned a 'provisioning agent', which is the entity that retrieves the certificate, inclusive of its private key, from the vault and installs it on to each of the hosts of the cluster. (Recall that Service Fabric does not provision certificates.) In our context, the cluster will be hosted on a collection of Azure VMs and/or virtual machine scale sets. In Azure, provisioning a certificate from a vault to a VM/VMSS can be achieved with the following mechanisms - assuming, as above, that the provisioning agent was previously granted 'get' permissions on the vault by the vault owner: 
   - ad-hoc: an operator retrieves the certificate from the vault (as pfx/PKCS #12 or pem) and installs it on each node
-  - as a virtual machine scale set 'secret' during deployment: the Compute service retrieves, using its first party identity on behalf of the operator, the certificate from a template-deployment-enabled vault and installs it on each node of the virtual machine scale set ([like so](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates)); note this allows the provisioning of versioned secrets only
+  - as a virtual machine scale set 'secret' during deployment: the Compute service retrieves, using its first party identity on behalf of the operator, the certificate from a template-deployment-enabled vault and installs it on each node of the virtual machine scale set ([like so](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#certificates)); note this allows the provisioning of versioned secrets only
   - using the [Key Vault VM extension](../virtual-machines/extensions/key-vault-windows.md); this allows the provisioning of certificates using version-less declarations, with periodic refreshing of observed certificates. In this case, the VM/VMSS is expected to have a [managed identity](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), an identity that has been granted access to the vault(s) containing the observed certificates.
 
-The ad-hoc mechanism is not recommended for multiple reasons, ranging from security to availability, and won't be discussed here further; for details, refer to [certificates in virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
+The ad-hoc mechanism is not recommended for multiple reasons, ranging from security to availability, and won't be discussed here further; for details, refer to [certificates in virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#certificates).
 
 The VMSS-/Compute-based provisioning presents security and availability advantages, but it also presents restrictions. It requires - by design - declaring certificates as versioned secrets, which makes it suitable only for clusters secured with certificates declared by thumbprint. In contrast, the Key Vault VM extension-based provisioning will always install the latest version of each observed certificate, which makes it suitable only for clusters secured with certificates declared by subject common name. To emphasize, do not use an autorefresh provisioning mechanism (such as the KVVM extension) for certificates declared by instance (that is, by thumbprint) - the risk of losing availability is considerable.
 
@@ -422,6 +422,7 @@ The KVVM extension, as a provisioning agent, runs continuously on a predetermine
 You may have noticed the KVVM extension's 'linkOnRenewal' flag, and the fact that it is set to false. We're addressing here in depth the behavior controlled by this flag and its implications on the functioning of a cluster. Note this behavior is specific to Windows.
 
 According to its [definition](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
@@ -453,7 +454,7 @@ As it emerged from the json snippets above, a specific sequencing of the operati
 
 To dispose the creation of a managed identity, or to assign it to another resource, the deployment operator must have the required role (ManagedIdentityOperator) in the subscription or the resource group, in addition to the roles required to manage the other resources referenced in the template. 
 
-From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regards to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
+From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regard to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
 
 ## Troubleshooting and frequently asked questions
 

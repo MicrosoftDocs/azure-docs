@@ -95,4 +95,4 @@ static class Program
 
 
 ## Next steps
-* Learn more about reentrancy in the [Actor API reference documentation](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet))
+* Learn more about reentrancy in the [Actor API reference documentation](/dotnet/api/microsoft.servicefabric.actors))

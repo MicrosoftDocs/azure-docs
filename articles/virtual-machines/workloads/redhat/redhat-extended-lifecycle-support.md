@@ -2,12 +2,12 @@
 title: Red Hat Enterprise Linux Extended Lifecycle Support 
 description: Learn about adding Red Hat Enterprise Extended Lifecycle support add on
 author: mathapli
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: mathapli
-ms.reviewer: cynthn
 
 ---
 

@@ -150,7 +150,7 @@ sudo ./install.sh #or upgrade.sh if prior LIS was previously installed
 Learn more about Linux Integration Services Version 4.2 for Hyper-V by viewing the [download page](https://www.microsoft.com/download/details.aspx?id=55106).
 
 ## Next steps
-* Deploy VMs close to each other for low latency with [Proximity Placement Group](../virtual-machines/windows/co-location.md)
+* Deploy VMs close to each other for low latency with [Proximity Placement Group](../virtual-machines/co-location.md)
 * See the optimized result with [Bandwidth/Throughput testing Azure VM](virtual-network-bandwidth-testing.md) for your scenario.
 * Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md)
 * Learn more with [Azure Virtual Network frequently asked questions (FAQ)](virtual-networks-faq.md)

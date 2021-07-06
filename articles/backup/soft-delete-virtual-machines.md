@@ -3,7 +3,7 @@ title: Soft delete for virtual machines
 description: Learn how soft delete for virtual machines makes backups more secure.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.custom: references_regions 
+ms.custom: references_regions , devx-track-azurepowershell
 ---
 # Soft delete for virtual machines
 

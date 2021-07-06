@@ -24,6 +24,8 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The VMware Carbon Black Cloud Endpoint Standard connector allows you to easily connect all your [VMware Carbon Black Endpoint Standard](https://www.carbonblack.com/products/endpoint-standard/) security solution logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between VMware Carbon Black and Azure Sentinel makes use of Azure Functions to pull log data using REST API.
 
 
@@ -44,7 +46,7 @@ Azure Functions can integrate and pull events and logs directly from VMware Carb
 After a successful connection is established, the data appears in Log Analytics under the **CarbonBlackAuditLogs_CL**, **CarbonBlackNotifications_CL** and ****CarbonBlackEvents_CL**** tables.
 
 ## Validate connectivity
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
 
 
 ## Next steps

@@ -8,24 +8,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 06/11/2021
 ---
 
 # Python code samples for Azure Cognitive Search
 
-Learn about the Python code samples that demonstrate the features and functionality of Azure Cognitive Search. The primary repositories are as follows:
+Learn about the Python code samples that demonstrate the functionality and workflow of an Azure Cognitive Search solution. These samples use the [**Azure Cognitive Search client library**](/python/api/overview/azure/search-documents-readme) for the [**Azure SDK for Python**](/azure/developer/python/), which you can explore through the following links.
 
-| Repository | Description |
-|------------|-------------|
-| [azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples/](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) | Samples produced by the Azure SDK team that ship with the Azure.Search.Documents client library in the SDK. You can also review [unit tests](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests) for the client library to see how various APIs are called. |
-| [Azure-Samples/azure-search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples) | Code samples that accompany how-to articles, including [Quickstart: Create a search index in Python](search-get-started-python.md).|
+| Target | Link |
+|--------|------|
+| Package download | [pypi.org/project/azure-search-documents/](https://pypi.org/project/azure-search-documents/) |
+| API reference | [azure-search-documents](/python/api/azure-search-documents)  |
+| API test cases | [github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/tests) |
+| Source code | [github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents)  |
 
-> [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+## SDK samples
 
-## Python SDK samples
-
-The Azure SDK for Python includes numerous samples and a [getting started page](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) that includes prerequisites and package installation. The page also contains links to the following samples, listed here for your convenience.
+Code samples from the Azure SDK development team demonstrate API usage. You can find these samples in [**azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples**](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/search/azure-search-documents/samples) on GitHub.
 
 | Samples | Description |
 |---------|-------------|
@@ -39,12 +38,16 @@ The Azure SDK for Python includes numerous samples and a [getting started page](
 | [Filter query](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_filter_query.py) | Demonstrates setting up a [filter expression](search-filters.md). |
 | [Facet query](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/samples/sample_facet_query.py) | Demonstrates working with [facets](search-filters-facets.md). |
 
-## Documentation samples
+## Doc samples
 
-The following samples have an associated article in [Azure Cognitive Search documentation](./index.yml).
+Code samples from the Cognitive Search team demonstrate features and workflows. Many of these samples are referenced in tutorials, quickstarts, and how-to articles. You can find these samples in [**Azure-Samples/azure-search-python-samples**](https://github.com/Azure-Samples/azure-search-python-samples) on GitHub.
 
-| Samples | Description | 
-|---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | Source code for [Quickstart: Create a search index in Python](search-get-started-python.md).  |
-| [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Source code for [Tutorial: Use Python and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob-python.md).  |
-| [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | Source code for [Example: Create a custom skill using Python](cognitive-search-custom-skill-python.md).  |
+| Samples | Article |
+|---------|---------|
+| [quickstart](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Quickstart) | Source code for [Quickstart: Create a search index in Python](search-get-started-python.md). This article covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [search-website](https://github.com/azure-samples/azure-search-python-samples/tree/master/search-website) | Source code for [Tutorial: Add search to web apps](tutorial-python-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
+| [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment)  | Source code for [Tutorial: Use Python and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob-python.md). This article shows how to create a blob indexer with a cognitive skillset, where the skillset creates and transforms raw content to make it searchable or consumable. |
+| [AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill)  | Source code for [Example: Create a custom skill using Python](cognitive-search-custom-skill-python.md). This article demonstrates indexer and skillset integration with deep learning models in Azure Machine Learning. |
+
+> [!Tip]
+> Try the [Samples browser](/samples/browse/?languages=python&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.

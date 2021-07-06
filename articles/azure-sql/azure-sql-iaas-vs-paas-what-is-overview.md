@@ -3,13 +3,13 @@ title: "What is Azure SQL?"
 description: "Learn about the different options within the Azure SQL family of services: Azure SQL Database, Azure SQL Managed Instance, and SQL Server on Azure VM." 
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.devlang: 
 ms.topic: overview
 keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS, IaaS
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: 
 ms.date: 07/27/2020
 ---
@@ -26,11 +26,11 @@ Azure SQL is built upon the familiar SQL Server engine, so you can migrate appli
 
 Learn how each product fits into Microsoft's Azure SQL data platform to match the right option for your business requirements. Whether you prioritize cost savings or minimal administration, this article can help you decide which approach delivers against the business requirements you care about most.
 
-
 If you're new to Azure SQL, check out the *What is Azure SQL* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
-
+> [!TIP]
+> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## Overview
 
@@ -47,7 +47,7 @@ Spend more time innovating and less time patching, updating, and backing up your
 
 Azure constantly monitors your data for threats. With Azure SQL, you can:
 
-- Remediate potential threats in real time with intelligent [advanced threat detection](../security/fundamentals/threat-detection.md#advanced-threat-detection-features-other-azure-services) and proactive vulnerability assessment alerts. 
+- Remediate potential threats in real time with intelligent [advanced threat detection](../security/fundamentals/threat-detection.md#threat-protection-features-other-azure-services) and proactive vulnerability assessment alerts. 
 - Get industry-leading, multi-layered protection with [built-in security controls](https://azure.microsoft.com/overview/security/) including T-SQL, authentication, networking, and key management. 
 - Take advantage of the most comprehensive [compliance](https://azure.microsoft.com/overview/trusted-cloud/compliance/) coverage of any cloud database service. 
 
@@ -92,18 +92,19 @@ Azure SQL Database offers the following deployment options:
 ### SQL Server on Azure VM
 
 [SQL Server on Azure VM](virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) falls into the industry category *Infrastructure-as-a-Service (IaaS)* and allows you to run SQL Server inside a fully managed virtual machine (VM) in Azure. 
-- Best for migrations and applications requiring OS-level access. SQL virtual machines in Azure are lift-and-shift ready for existing applications that require fast migration to the cloud with minimal changes or no changes. SQL virtual machines offer full administrative control over the SQL Server instance and underlying OS for migration to Azure. 
-- Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware. SQL virtual machines also run on standardized hardware that is owned, hosted, and maintained by Microsoft. When using SQL virtual machines, you can either pay-as-you-go for a SQL Server license already included in a SQL Server image or easily use an existing license. You can also stop or resume the VM as needed. 
 - SQL Server installed and hosted in the cloud runs on Windows Server or Linux virtual machines running on Azure, also known as an infrastructure as a service (IaaS). SQL virtual machines are a good option for migrating on-premises SQL Server databases and applications without any database change. All recent versions and editions of SQL Server are available for installation in an IaaS virtual machine. 
-
-    The most significant difference from SQL Database and SQL Managed Instance is that SQL Server on Azure Virtual Machines allows full control over the database engine. You can choose when to start maintenance/patching, change the recovery model to simple or bulk-logged, pause or start the service when needed, and you can fully customize the SQL Server database engine. With this additional control comes the added responsibility to manage the virtual machine.
+- Best for migrations and applications requiring OS-level access. SQL virtual machines in Azure are lift-and-shift ready for existing applications that require fast migration to the cloud with minimal changes or no changes. SQL virtual machines offer full administrative control over the SQL Server instance and underlying OS for migration to Azure. 
+- The most significant difference from SQL Database and SQL Managed Instance is that SQL Server on Azure Virtual Machines allows full control over the database engine. You can choose when to start maintenance/patching, change the recovery model to simple or bulk-logged, pause or start the service when needed, and you can fully customize the SQL Server database engine. With this additional control comes the added responsibility to manage the virtual machine.
+- Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware. SQL virtual machines also run on standardized hardware that is owned, hosted, and maintained by Microsoft. When using SQL virtual machines, you can either pay-as-you-go for a SQL Server license already included in a SQL Server image or easily use an existing license. You can also stop or resume the VM as needed. 
 - Optimized for migrating existing applications to Azure or extending existing on-premises applications to the cloud in hybrid deployments. In addition, you can use SQL Server in a virtual machine to develop and test traditional SQL Server applications. With SQL virtual machines, you have the full administrative rights over a dedicated SQL Server instance and a cloud-based VM. It is a perfect choice when an organization already has IT resources available to maintain the virtual machines. These capabilities allow you to build a highly customized system to address your application’s specific performance and availability requirements.
 
-Additional differences are listed in the following table, but *both SQL Database and SQL Managed Instance are optimized to reduce overall management costs to the minimum for provisioning and managing many databases.* Ongoing administration costs are reduced since you do not have to manage any virtual machines, operating system, or database software. You do not have to manage upgrades, high availability, or [backups](database/automated-backups-overview.md). 
-
-In general, SQL Database and SQL Managed Instance can dramatically increase the number of databases managed by a single IT or development resource. [Elastic pools](database/elastic-pool-overview.md) also support SaaS multi-tenant application architectures with features including tenant isolation and the ability to scale to reduce costs by sharing resources across databases. [SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) provides support for instance-scoped features enabling easy migration of existing applications, as well as sharing resources among databases.
 
 ### Comparison table
+
+Additional differences are listed in the following table, but *both SQL Database and SQL Managed Instance are optimized to reduce overall management costs to a minimum for provisioning and managing many databases.* Ongoing administration costs are reduced since you do not have to manage any virtual machines, operating system, or database software. You do not have to manage upgrades, high availability, or [backups](database/automated-backups-overview.md). 
+
+In general, SQL Database and SQL Managed Instance can dramatically increase the number of databases managed by a single IT or development resource. [Elastic pools](database/elastic-pool-overview.md) also support SaaS multi-tenant application architectures with features including tenant isolation and the ability to scale to reduce costs by sharing resources across databases. [SQL Managed Instance](managed-instance/sql-managed-instance-paas-overview.md) provides support for instance-scoped features enabling easy migration of existing applications, as well as sharing resources among databases. Whereas, [SQL Server on Azure VMs](virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) provide DBAs with an experience most similar to the on-premises environment they're familiar with. 
+
 
 | Azure SQL Database | Azure SQL Managed Instance | SQL Server on Azure VM |
 | :--- | :--- | :--- |
@@ -151,7 +152,7 @@ For many businesses, the decision to transition to a cloud service is as much ab
 
 For many IT departments, meeting up-time obligations of a service-level agreement (SLA) is a top priority. In this section, we look at what SLA applies to each database hosting option.
 
-For both **Azure SQL Database** and **Azure SQL Managed Instance**, Microsoft provides an availability SLA of 99.99%. For the latest information, see [Service-level agreement](https://azure.microsoft.com/support/legal/sla/sql-database/).
+For both **Azure SQL Database** and **Azure SQL Managed Instance**, Microsoft provides an availability SLA of 99.99%. For the latest information, see [Service-level agreement](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
 For **SQL on Azure VM**, Microsoft provides an availability SLA of 99.95% that covers just the virtual machine. This SLA does not cover the processes (such as SQL Server) running on the VM and requires that you host at least two VM instances in an availability set. For the latest information, see the [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). For database high availability (HA) within VMs, you should configure one of the supported high availability options in SQL Server, such as [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Using a supported high availability option doesn't provide an additional SLA, but allows you to achieve >99.99% database availability.
 
@@ -161,7 +162,7 @@ For **SQL on Azure VM**, Microsoft provides an availability SLA of 99.95% that c
 
 **Azure SQL Managed Instance** greatly simplifies the migration of existing applications to Azure, enabling you to bring migrated database applications to market in Azure quickly.
 
-**SQL on Azure VM** is perfect if your existing or new applications require large databases or access to all features in SQL Server or Windows/Linux, and you want to avoid the time and expense of acquiring new on-premises hardware. It is also a good fit when you want to migrate existing on-premises applications and databases to Azure as-is - in cases where SQL Database or SQL Managed Instance is not a good fit. Since you do not need to change the presentation, application, and data layers, you save time and budget on re-architecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and in doing some performance optimizations that may be required by the Azure platform. For more information, see [Performance Best Practices for SQL Server on Azure Virtual Machines](virtual-machines/windows/performance-guidelines-best-practices.md).
+**SQL on Azure VM** is perfect if your existing or new applications require large databases or access to all features in SQL Server or Windows/Linux, and you want to avoid the time and expense of acquiring new on-premises hardware. It is also a good fit when you want to migrate existing on-premises applications and databases to Azure as-is - in cases where SQL Database or SQL Managed Instance is not a good fit. Since you do not need to change the presentation, application, and data layers, you save time and budget on re-architecting your existing solution. Instead, you can focus on migrating all your solutions to Azure and in doing some performance optimizations that may be required by the Azure platform. For more information, see [Performance Best Practices for SQL Server on Azure Virtual Machines](./virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 [!INCLUDE [sql-database-create-manage-portal](includes/sql-database-create-manage-portal.md)]
 

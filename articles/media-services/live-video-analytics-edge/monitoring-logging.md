@@ -1,11 +1,13 @@
 ---
-title: Monitoring and logging - Azure
-description: This article provides an overview of monitoring and logging in Live Video Analytics on IoT Edge.
+title: Monitoring and logging in Live Video Analytics - Azure
+description: This article provides an overview of monitoring and logging in Azure Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
 
 ---
-# Monitoring and logging
+# Monitoring and logging in Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 In this article, you'll learn how to receive events for remote monitoring from the Live Video Analytics on IoT Edge module. 
 
@@ -249,14 +251,14 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
       urls = ["http://edgeHub:9600/metrics", "http://edgeAgent:9600/metrics", "http://{LVA_EDGE_MODULE_NAME}:9600/metrics"]
 
     [[outputs.azure_monitor]]
-      namespace_prefix = ""
+      namespace_prefix = "lvaEdge"
       region = "westus"
       resource_id = "/subscriptions/{SUBSCRIPTON_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Devices/IotHubs/{IOT_HUB_NAME}"
     ```
     > [!IMPORTANT]
     > Be sure to replace the variables in the .toml file. The variables are denoted by braces (`{}`).
 
-1. In the same folder, create a `.dockerfile` that contains the following commands:
+1. In the same folder, create a Dockerfile that contains the following commands:
     ```
         FROM telegraf:1.15.3-alpine
         COPY telegraf.toml /etc/telegraf/telegraf.conf
@@ -264,7 +266,7 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
 
 1. Use Docker CLI commands to build the Docker file and publish the image to your Azure container registry.
     
-   For more information about using the Docker CLI to push to a container registry, see [Push and pull Docker images](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli). For other information about Azure Container Registry, see the [documentation](https://docs.microsoft.com/azure/container-registry/).
+   For more information about using the Docker CLI to push to a container registry, see [Push and pull Docker images](../../container-registry/container-registry-get-started-docker-cli.md). For other information about Azure Container Registry, see the [documentation](../../container-registry/index.yml).
 
 
 1. After the push to Azure Container Registry is complete, add the following node to your deployment manifest file:
@@ -300,12 +302,70 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
      `AZURE_CLIENT_SECRET`: Specifies the app secret to use.  
      
      >[!TIP]
-     > You can give the service principal the **Monitoring Metrics Publisher** role.
+     > You can give the service principal the **Monitoring Metrics Publisher** role. Follow the steps in **[Create service principal](../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** to create the service principal and assign the role .
 
 1. After the modules are deployed, metrics will appear in Azure Monitor under a single namespace. Metric names will match the ones emitted by Prometheus. 
 
    In this case, in the Azure portal, go to the IoT hub and select **Metrics** in the left pane. You should see the metrics there.
 
+### Log Analytics metrics collection
+Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along with [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), you can generate and [monitor metrics](../../azure-monitor/essentials/metrics-supported.md) such as used CPUPercent, MemoryUsedPercent, etc.   
+
+> [!NOTE]
+> The configuration below does not collect logs, **only metrics**. It is feasible to extend the collector module to also collect and upload logs.
+
+[ ![Diagram that shows the metrics collection using Log Analytics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
+
+1. Learn how to [collect metrics](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
+1. Use Docker CLI commands to build the [Docker file](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) and publish the image to your Azure container registry.
+    
+   For more information about using the Docker CLI to push to a container registry, see [Push and pull Docker images](../../container-registry/container-registry-get-started-docker-cli.md). For other information about Azure Container Registry, see the [documentation](../../container-registry/index.yml).
+
+1. After the push to Azure Container Registry is complete, the following is inserted into the deployment manifest:
+    ```json
+    "azmAgent": {
+      "settings": {
+        "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_METRICS_COLLECTOR}"
+      },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": {
+        "LogAnalyticsWorkspaceId": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_ID}" },
+        "LogAnalyticsSharedKey": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_SECRET}" },
+        "LogAnalyticsLogType": { "value": "IoTEdgeMetrics" },
+        "MetricsEndpointsCSV": { "value": "http://edgeHub:9600/metrics,http://edgeAgent:9600/metrics,http://lvaEdge:9600/metrics" },
+        "ScrapeFrequencyInSecs": { "value": "30 " },
+        "UploadTarget": { "value": "AzureLogAnalytics" }
+      }
+    }
+    ```
+    > [!NOTE]
+    > The modules `edgeHub`, `edgeAgent` and `lvaEdge` are the names of the modules defined in the deployment manifest file. Please make sure that the names of the modules match.   
+
+    You can get your `LogAnalyticsWorkspaceId` and `LogAnalyticsSharedKey` values by following these steps:
+    1. Go to the Azure portal
+    1. Look for your Log Analytics workspaces
+    1. Once you find your Log Analytics workspace, navigate to the `Agents management` option in the left navigation pane.
+    1. You will find the Workspace ID and the Secret Keys that you can use.
+
+1. Next, create a workbook by clicking on the `Workbooks` tab in the left navigation pane.
+1. Using Kusto query language, you can write queries as below and get CPU percentage used by the IoT Edge modules.
+    ```kusto
+    let cpu_metrics = IoTEdgeMetrics_CL
+    | where Name_s == "edgeAgent_used_cpu_percent"
+    | extend dimensions = parse_json(Tags_s)
+    | extend module_name = tostring(dimensions.module_name)
+    | where module_name in ("lvaEdge","yolov3","tinyyolov3")
+    | summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+    cpu_metrics
+    | summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+    | extend module_name = "Total"
+    | union cpu_metrics
+    ```
+
+    [ ![Diagram that shows the metrics using Kusto query.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## Logging
 
 As with other IoT Edge modules, you can also [examine the container logs](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) on the edge device. You can configure the information that's written to the logs by using the [following module twin](module-twin-configuration-schema.md) properties:
@@ -352,7 +412,7 @@ The module will now write debug logs in a binary format to the device storage pa
 
 ## FAQ
 
-If you have questions, see the [monitoring and metrics FAQ](faq.md#monitoring-and-metrics).
+If you have questions, see the [monitoring and metrics FAQ](/azure/media-services/live-video-analytics-edge/faq#monitoring-and-metrics).
 
 ## Next steps
 

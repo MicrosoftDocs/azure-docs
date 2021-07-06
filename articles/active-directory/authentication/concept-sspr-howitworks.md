@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 06/14/2021
 
 ms.author: justinha
 author: justinha
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # How it works: Azure AD self-service password reset
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application.
+Azure Active Directory (Azure AD) self-service password reset (SSPR) gives users the ability to change or reset their password, with no administrator or help desk involvement. If a user's account is locked or they forget their password, they can follow prompts to unblock themselves and get back to work. This ability reduces help desk calls and loss of productivity when a user can't sign in to their device or an application. We recommend this video on [how to enable and configure SSPR in Azure AD](https://www.youtube.com/watch?v=rA8TvhNcCvQ).
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how self-service password reset works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -69,7 +69,7 @@ To get started with SSPR, complete the following tutorial:
 
 ## Require users to register when they sign in
 
-You can enable the option to require a user to complete the SSPR registration if they sign in to any applications using Azure AD. This workflow includes the following applications:
+You can enable the option to require a user to complete the SSPR registration if they use modern authentication or web browser to sign in to any applications using Azure AD. This workflow includes the following applications:
 
 * Microsoft 365
 * Azure portal
@@ -90,7 +90,7 @@ When you don't require registration, users aren't prompted during sign-in, but t
 
 To make sure that authentication methods are correct when they're needed to reset or change their password, you can require users confirm their info registered information after a certain period of time. This option is only available if you enable the **Require users to register when signing in** option.
 
-Valid values to prompt a user to confirm their registered methods are from *0* to *730* days. Setting this value to *0* means that users are never asked to confirm their authentication information.
+Valid values to prompt a user to confirm their registered methods are from *0* to *730* days. Setting this value to *0* means that users are never asked to confirm their authentication information. When using the combined registration experience users will be required to confirm their identity before reconfirming their information.
 
 ## Authentication methods
 
@@ -102,7 +102,7 @@ The following authentication methods are available for SSPR:
 * Mobile app code
 * Email
 * Mobile phone
-* Office phone
+* Office phone (available only for tenants with paid subscriptions)
 * Security questions
 
 Users can only reset their password if they have registered an authentication method that the administrator has enabled.
@@ -134,7 +134,7 @@ When using a mobile app as a method for password reset, like the Microsoft Authe
 Users don't have the option to register their mobile app when registering for self-service password reset from [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup), or in the combined security info registration at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> The Authenticator app can't be selected as the only authentication method when only method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
+> The Authenticator app can't be selected as the only authentication method when only one method is required. Similarly, the Authenticator app and only one additional method cannot be selected when requiring two methods.
 >
 > When configuring SSPR policies that include the Authenticator app as a method, at least one additional method should be selected when one method is required, and at least two additional methods should be selected when configuring two methods are required.
 >

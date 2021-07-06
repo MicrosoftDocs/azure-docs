@@ -20,9 +20,6 @@ This article describes considerations for integrating a hybrid environment with 
 > [!NOTE]
 > To integrate a Microsoft Active Directory environment (either on-premises or hosted in an IaaS that is part of the same cloud instance) with the Azure Government cloud, you need to upgrade to the latest release of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-> [!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
-
 For a full list of United States government Department of Defense endpoints, refer to the [documentation](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## Azure AD Pass-through Authentication
@@ -34,7 +31,7 @@ The following information describes implementation of Pass-through Authenticatio
 Before you deploy the Pass-through Authentication agent, verify whether a firewall exists between your servers and Azure AD. If your firewall or proxy allows Domain Name System (DNS) blocked or safe programs, add the following connections.
 
 > [!NOTE]
-> The following guidance also applies to installing the [Azure AD Application Proxy connector](../manage-apps/what-is-application-proxy.md) for Azure Government environments.
+> The following guidance also applies to installing the [Azure AD Application Proxy connector](../app-proxy/what-is-application-proxy.md) for Azure Government environments.
 
 |URL |How it's used|
 |-----|-----|

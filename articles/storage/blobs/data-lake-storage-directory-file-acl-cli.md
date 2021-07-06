@@ -1,29 +1,32 @@
 ---
-title: Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2
-description: Use the Azure CLI to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
+title: Use Azure CLI to manage data (Azure Data Lake Storage Gen2)
+description: Use the Azure CLI to manage directories and files in storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: prishet 
 ms.custom: devx-track-azurecli
 ---
 
-# Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
+# Use Azure CLI to manage directories and files in Azure Data Lake Storage Gen2
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to create and manage directories and files in storage accounts that have a hierarchical namespace.
+
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md).
 
 [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](../common/storage-account-create.md) instructions to create one.
-> * Azure CLI version `2.6.0` or higher.
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
+
+- Azure CLI version `2.6.0` or higher.
 
 ## Ensure that you have the correct version of Azure CLI installed
 
@@ -34,6 +37,7 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/
    ```azurecli
     az --version
    ```
+
    If your version of Azure CLI is lower than `2.6.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the account
@@ -59,7 +63,7 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 > [!NOTE]
-> The example presented in this article show Azure Active Directory (AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
+> The example presented in this article show Azure Active Directory (Azure AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md).
 
 ## Create a container
 
@@ -175,7 +179,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 ## Upload a file to a directory
 
-Upload a file to a directory by using the `az storage fs directory upload` command.
+Upload a file to a directory by using the `az storage fs file upload` command.
 
 This example uploads a file named `upload.txt` to a directory named `my-directory`. 
 
@@ -211,106 +215,9 @@ This example deletes a file named `my-file.txt`
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## Manage access control lists (ACLs)
-
-You can get, set, and update access permissions of directories and files.
-
-> [!NOTE]
-> If you're using Azure Active Directory (Azure AD) to authorize commands, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
-
-### Get an ACL
-
-Get the ACL of a **directory** by using the `az storage fs access show` command.
-
-This example gets the ACL of a directory, and then prints the ACL to the console.
-
-```azurecli
-az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Get the access permissions of a **file** by using the `az storage fs access show` command. 
-
-This example gets the ACL of a file and then prints the ACL to the console.
-
-```azurecli
-az storage fs access show -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-The following image shows the output after getting the ACL of a directory.
-
-![Get ACL output](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
-
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-### Set an ACL
-
-Use the `az storage fs access set` command to set the ACL of a **directory**. 
-
-This example sets the ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
-
-```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-This example sets the *default* ACL on a directory for the owning user, owning group, or other users, and then prints the ACL to the console.
-
-```azurecli
-az storage fs access set --acl "default:user::rw-,group::rw-,other::-wx" -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-Use the `az storage fs access set` command to set the acl of a **file**. 
-
-This example sets the ACL on a file for the owning user, owning group, or other users, and then prints the ACL to the console.
-
-```azurecli
-az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-The following image shows the output after setting the ACL of a file.
-
-![Get ACL output 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
-
-In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-### Update an ACL
-
-Another way to set this permission is to use the `az storage fs access set` command. 
-
-Update the ACL of a directory or file by setting the `-permissions` parameter to the short form of an ACL.
-
-This example updates the ACL of a **directory**.
-
-```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-This example updates the ACL of a **file**.
-
-```azurecli
-az storage fs access set --permissions rwxrwxrwx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-You can also update the owning user and group of a directory or file by setting the `--owner` or `group` parameters to the entity ID or User Principal Name (UPN) of a user. 
-
-This example changes the owner of a directory. 
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
-```
-
-This example changes the owner of a file. 
-
-```azurecli
-az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-directory/upload.txt -f my-file-system --account-name mystorageaccount --auth-mode login
-
-```
-
-### Set an ACL recursively
-
-You can add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
-
 ## See also
 
-* [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
-* [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
-* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
+- [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
+- [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+- [Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md)

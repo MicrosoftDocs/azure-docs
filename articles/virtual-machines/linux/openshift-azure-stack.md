@@ -3,8 +3,9 @@ title: Deploy OpenShift in Azure Stack
 description: Deploy OpenShift in Azure Stack.
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019

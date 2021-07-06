@@ -1,22 +1,21 @@
 ---
-title: "Azure Cloud Services Def. WorkerRole Schema | Microsoft Docs"
+title: Azure Cloud Services (classic) Def. WorkerRole Schema | Microsoft Docs
 description: The Azure worker role is used for generalized development and may perform background processing for a web role. Learn about the Azure worker role schema.
-services: cloud-services
-ms.custom: ""
-ms.date: "04/14/2015"
-ms.reviewer: ""
-ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: tgore03
-ms.author: tagore
-
+ms.topic: article
+ms.service: cloud-services
+ms.subservice: deployment-files
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Azure Cloud Services Definition WorkerRole Schema
+# Azure Cloud Services (classic) Definition WorkerRole Schema
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 The Azure worker role is a role that is useful for generalized development, and may perform background processing for a web role.
 
 The default extension for the service definition file is .csdef.

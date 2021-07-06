@@ -35,7 +35,7 @@ For more information, see [Manage data sources in Azure Purview (Preview)](manag
 In Azure Purview, you can register and scan source types. Once the scan is complete, you can view the asset distribution in Asset Insights, which tells you the state of your data estate by classification and resource sets. It also tells you if there is any change in data size.
 
 > [!NOTE]
-> After you have scanned your source types, give Asset Insights up to an hour to reflect the new assets.
+> After you have scanned your source types, give Asset Insights 3-8 hours to reflect the new assets. The delay may be due to high traffic in deployment region or size of your workload. For further information, please contact the field support team.
 
 1. Navigate to your Azure Purview resource in the Azure portal.
 

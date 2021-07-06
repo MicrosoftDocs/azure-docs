@@ -1,5 +1,5 @@
 ---
-title: Sign-in using authentication with a work or school account - Azure AD
+title: Sign in using authentication with a work or school account - Azure AD
 description: Learn how to sign in to your work or school account using the various two-factor verification methods.
 services: active-directory
 author: curtand

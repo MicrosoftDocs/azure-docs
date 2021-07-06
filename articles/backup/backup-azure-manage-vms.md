@@ -15,7 +15,7 @@ In the Azure portal, the Recovery Services vault dashboard provides access to va
 * The total size of all backup snapshots.
 * The number of VMs that are enabled for backups.
 
-You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard.
+You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard:
 
 ![Full dashboard view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
@@ -91,7 +91,7 @@ You can run an on-demand backup of a VM after you set up its protection. Keep th
 * The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
 
 > [!NOTE]
-> The Azure Backup service supports up to nine on-demand backups per day, but Microsoft recommends no more than four daily on-demand backups to ensure best performance.
+> The Azure Backup service supports up to three on-demand backups per day, and one additional scheduled backup.
 
 To trigger an on-demand backup:
 

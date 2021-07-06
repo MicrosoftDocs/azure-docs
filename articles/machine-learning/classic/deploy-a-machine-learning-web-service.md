@@ -1,9 +1,9 @@
 ---
 title: 'ML Studio (classic): Deploy a web service - Azure'
-description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning Studio (classic) web service.
+description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as a Machine Learning Studio (classic) web service.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -13,14 +13,14 @@ ms.date: 01/06/2017
 ---
 # Deploy an Azure Machine Learning Studio (classic) web service
 
-**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-Azure Machine Learning Studio (classic) enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
+Machine Learning Studio (classic) enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
 
 Machine Learning Studio (classic) web services provide an interface between an application and a Machine Learning Studio (classic) workflow scoring model. An external application can communicate with a Machine Learning Studio (classic) workflow scoring model in real time. A call to a Machine Learning Studio (classic) web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning Studio (classic) web service is based on REST, a popular architecture choice for web programming projects.
 
-Azure Machine Learning Studio (classic) has two types of web services:
+Machine Learning Studio (classic) has two types of web services:
 
 * Request-Response Service (RRS): A low latency, highly scalable service that scores a single data record.
 * Batch Execution Service (BES): An asynchronous service that scores a batch of data records.
@@ -39,10 +39,10 @@ To train a predictive analytics model, you use Azure Machine Learning Studio (cl
 
 The process of creating and managing training experiments is covered more thoroughly elsewhere. For more information, see these articles:
 
-* [Create a simple experiment in Azure Machine Learning Studio (classic)](create-experiment.md)
-* [Develop a predictive solution with Azure Machine Learning Studio (classic)](tutorial-part1-credit-risk.md)
-* [Import your training data into Azure Machine Learning Studio (classic)](import-data.md)
-* [Manage experiment iterations in Azure Machine Learning Studio (classic)](manage-experiment-iterations.md)
+* [Create a simple experiment in Machine Learning Studio (classic)](create-experiment.md)
+* [Develop a predictive solution with Machine Learning Studio (classic)](tutorial-part1-credit-risk.md)
+* [Import your training data into Machine Learning Studio (classic)](import-data.md)
+* [Manage experiment iterations in Machine Learning Studio (classic)](manage-experiment-iterations.md)
 
 ## Convert the training experiment to a predictive experiment
 
@@ -125,7 +125,7 @@ A common example is setting up an [Import Data][import-data] module so the user 
 
 You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service provides values for these parameters when the service is accessed, and the module actions are modified accordingly.
 
-For more information about what Web Service Parameters are and how to use them, see [Using Azure Machine Learning Web Service Parameters][webserviceparameters].
+For more information about what Web Service Parameters are and how to use them, see [Using Machine Learning Web Service Parameters][webserviceparameters].
 
 The following steps describe deploying a predictive experiment as a New web service. You can also deploy the experiment as Classic web service.
 
@@ -136,7 +136,7 @@ Now that the predictive experiment has been prepared, you can deploy it as a new
 To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas. Once the experiment has finished running, click **Deploy Web Service** and select **Deploy Web Service [New]**.  The deployment page of the Machine Learning Studio (classic) Web Service portal opens.
 
 > [!NOTE] 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Machine Learning Web Services portal](manage-new-webservice.md). 
 
 ### Web Service portal Deploy Experiment Page
 
@@ -185,7 +185,7 @@ Once you deploy your web service from Machine Learning Studio (classic), you can
 
 The **Consume** page provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service.
 
-For more information about accessing a Machine Learning Studio (classic) web service, see [How to consume an Azure Machine Learning Studio (classic) Web service](consume-web-services.md).
+For more information about accessing a Machine Learning Studio (classic) web service, see [How to consume a Machine Learning Studio (classic) Web service](consume-web-services.md).
 
 ### Manage your New web service
 
@@ -199,7 +199,7 @@ Pricing is region specific, so you need to define a billing plan for each region
 
 #### Create a plan in another region
 
-1. Sign in to [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/).
+1. Sign in to [Machine Learning Web Services](https://services.azureml.net/).
 2. Click the **Plans** menu option.
 3. On the Plans over view page, click **New**.
 4. From the **Subscription** dropdown, select the subscription in which the new plan will reside.
@@ -211,7 +211,7 @@ Pricing is region specific, so you need to define a billing plan for each region
 
 #### Deploy the web service to another region
 
-1. On the Microsoft Azure Machine Learning Web Services page, click the **Web Services** menu option.
+1. On the Machine Learning Web Services page, click the **Web Services** menu option.
 2. Select the Web Service you are deploying to a new region.
 3. Click **Copy**.
 4. In **Web Service Name**, type a new name for the web service.
@@ -237,7 +237,7 @@ You can test the web service in either the Machine Learning Studio (classic) Web
 
 To test the Request Response web service, click the **Test** button in the web service dashboard. A dialog pops up to ask you for the input data for the service. These are the columns expected by the scoring experiment. Enter a set of data and then click **OK**. The results generated by the web service are displayed at the bottom of the dashboard.
 
-You can click the **Test** preview link to test your service in the Azure Machine Learning Studio (classic) Web Services portal as shown previously in the New web service section.
+You can click the **Test** preview link to test your service in the Machine Learning Studio (classic) Web Services portal as shown previously in the New web service section.
 
 To test the Batch Execution Service, click **Test** preview link . On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using Machine Learning Studio (classic), you can download the data set for your predictive experiment and use it.
 
@@ -251,21 +251,21 @@ You can enable logging to diagnose any failures that you're seeing when your web
 
 ![Enable logging in the web services portal](./media/publish-a-machine-learning-web-service/figure-4.png)
 
-You can also configure the endpoints for the web service in the Azure Machine Learning Web Services portal similar to the procedure shown previously in the New web service section. The options are different, you can add or change the service description, enable logging, and enable sample data for testing.
+You can also configure the endpoints for the web service in the Machine Learning Web Services portal similar to the procedure shown previously in the New web service section. The options are different, you can add or change the service description, enable logging, and enable sample data for testing.
 
 ### Access your Classic web service
 
-Once you deploy your web service from Azure Machine Learning Studio (classic), you can send data to the service and receive responses programmatically.
+Once you deploy your web service from Machine Learning Studio (classic), you can send data to the service and receive responses programmatically.
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 
-For more information about accessing a Machine Learning Studio (classic) web service, see [How to consume an Azure Machine Learning Studio (classic) Web service](consume-web-services.md).
+For more information about accessing a Machine Learning Studio (classic) web service, see [How to consume a Machine Learning Studio (classic) Web service](consume-web-services.md).
 
 ### Manage your Classic web service
 
 There are various of actions you can perform to monitor a web service. You can update it, and delete it. You can also add additional endpoints to a Classic web service in addition to the default endpoint that is created when you deploy it.
 
-For more information, see [Manage an Azure Machine Learning Studio (classic) workspace](manage-workspace.md) and [Manage a web service using the Azure Machine Learning Studio (classic) Web Services portal](manage-new-webservice.md).
+For more information, see [Manage a Machine Learning Studio (classic) workspace](manage-workspace.md) and [Manage a web service using the Machine Learning Studio (classic) Web Services portal](manage-new-webservice.md).
 
 ## Update the web service
 You can make changes to your web service, such as updating the model with additional training data, and deploy it again, overwriting the original web service.
@@ -283,9 +283,9 @@ One option for updating your web service is to retrain the model programmaticall
 
 * For more technical details on how deployment works, see [How a Machine Learning Studio (classic) model progresses from an experiment to an operationalized Web service](model-progression-experiment-to-web-service.md).
 
-* For details on how to get your model ready to deploy, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
+* For details on how to get your model ready to deploy, see [How to prepare your model for deployment in Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
 
-* There are several ways to consume the REST API and access the web service. See [How to consume an Azure Machine Learning Studio (classic) web service](consume-web-services.md).
+* There are several ways to consume the REST API and access the web service. See [How to consume a Machine Learning Studio (classic) web service](consume-web-services.md).
 
 <!-- internal links -->
 [Create a training experiment]: #create-a-training-experiment

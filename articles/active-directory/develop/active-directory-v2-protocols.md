@@ -1,7 +1,7 @@
 ---
-title: OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform | Azure
+title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform | Azure
 titleSuffix: Microsoft identity platform
-description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform endpoint.
+description: A guide to OAuth 2.0 and OpenID Connect protocols that are supported by the Microsoft identity platform.
 services: active-directory
 author: hpsin
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ---
 
-# OAuth 2.0 and OpenID Connect protocols on Microsoft identity platform
+# OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
 
 The Microsoft identity platform endpoint for identity-as-a-service implements authentication and authorization with the industry standard protocols OpenID Connect (OIDC) and OAuth 2.0, respectively. While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols. The information here will be useful if you choose to write your code by directly sending and handling HTTP requests or use a third-party open-source library, rather than using one of our [open-source libraries](reference-v2-libraries.md).
 
@@ -26,7 +26,7 @@ In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involve
 
 ![Diagram showing the OAuth 2.0 roles](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* The **Authorization Server** is the Microsoft identity platform endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
+* The **Authorization Server** is the Microsoft identity platform and is responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server is also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow clients to access that data or resource.
 * The **OAuth Client** is your app, identified by its application ID. The OAuth client is usually the party that the end user interacts with, and it requests tokens from the authorization server. The client must be granted permission to access the resource by the resource owner.
 * The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access tokens to ensure that access to a resource can be granted.
@@ -43,7 +43,7 @@ For more details, learn how to [register an app](quickstart-register-app.md).
 
 ## Endpoints
 
-Once registered, the app communicates with Microsoft identity platform by sending requests to the endpoint:
+Once registered, the app communicates with the Microsoft identity platform by sending requests to the endpoint:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
@@ -62,11 +62,11 @@ Where the `{tenant}` can take one of four different values:
 To learn how to interact with these endpoints, choose a particular app type in the [Protocols](#protocols) section and follow the links for more info.
 
 > [!TIP]
-> Any app registered in Azure AD can use the Microsoft identity platform endpoint, even if they don't sign in personal accounts.  This way, you can migrate existing applications to Microsoft identity platform and [MSAL](reference-v2-libraries.md) without re-creating your application.
+> Any app registered in Azure AD can use the Microsoft identity platform, even if they don't sign in personal accounts.  This way, you can migrate existing applications to the Microsoft identity platform and [MSAL](reference-v2-libraries.md) without re-creating your application.
 
 ## Tokens
 
-OAuth 2.0 and OpenID Connect make extensive use of **bearer tokens**, generally represented as [JWTs (JSON Web Tokens)](https://tools.ietf.org/html/rfc7519). A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is anyone that gets a copy of the token. Though a party must first authenticate with Microsoft identity platform to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a malicious party can use a man-in-the-middle attack to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
+OAuth 2.0 and OpenID Connect make extensive use of **bearer tokens**, generally represented as [JWTs (JSON Web Tokens)](https://tools.ietf.org/html/rfc7519). A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is anyone that gets a copy of the token. Though a party must first authenticate with the Microsoft identity platform to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a malicious party can use a man-in-the-middle attack to acquire the token and use it for unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your app transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](https://tools.ietf.org/html/rfc6750).
 
 There are primarily 3 types of tokens used in OAuth 2.0 / OIDC:
 

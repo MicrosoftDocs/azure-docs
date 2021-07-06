@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceChannel | Microsoft Docs'
+title: "Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceChannel | Microsoft Docs"
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceChannel.
 services: active-directory
 author: jeevansd
@@ -17,23 +17,23 @@ ms.author: jeedes
 
 In this tutorial, you'll learn how to integrate ServiceChannel with Azure Active Directory (Azure AD). When you integrate ServiceChannel with Azure AD, you can:
 
-* Control in Azure AD who has access to ServiceChannel.
-* Enable your users to be automatically signed-in to ServiceChannel with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+- Control in Azure AD who has access to ServiceChannel.
+- Enable your users to be automatically signed-in to ServiceChannel with their Azure AD accounts.
+- Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* ServiceChannel single sign-on (SSO) enabled subscription.
+- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- ServiceChannel single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* ServiceChannel supports **IDP** initiated SSO
-* ServiceChannel supports **Just In Time** user provisioning
+- ServiceChannel supports **IDP** initiated SSO
+- ServiceChannel supports **Just In Time** user provisioning
 
 ## Adding ServiceChannel from the gallery
 
@@ -53,10 +53,10 @@ Configure and test Azure AD SSO with ServiceChannel using a test user called **B
 To configure and test Azure AD SSO with ServiceChannel, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+   1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+   1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure ServiceChannel SSO](#configure-servicechannel-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create ServiceChannel test user](#create-servicechannel-test-user)** - to have a counterpart of B.Simon in ServiceChannel that is linked to the Azure AD representation of user.
+   1. **[Create ServiceChannel test user](#create-servicechannel-test-user)** - to have a counterpart of B.Simon in ServiceChannel that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -71,24 +71,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
-	a. In the **Identifier** text box, type the value as:
-    `http://adfs.<domain>.com/adfs/service/trust`
+   a. In the **Identifier** text box, type the value as:
+   `http://adfs.<domain>.com/adfs/service/trust`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<customer domain>.servicechannel.com/saml/acs`
+   b. In the **Reply URL** text box, type a URL using the following pattern:
+   `https://<customer domain>.servicechannel.com/saml/acs`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel Client support team](https://servicechannel.zendesk.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > [!NOTE]
+   > These values are not real. Update these values with the actual Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Contact [ServiceChannel Client support team](https://servicechannel.zendesk.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
+1. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui). You can refer ServiceChannel guide [here](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) for more guidance on claims.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+   ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up ServiceChannel** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -97,7 +97,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **Name** field, enter `B.Simon`.
    1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
@@ -126,10 +126,9 @@ Application supports Just in time user provisioning and after authentication use
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the ServiceChannel for which you set up the SSO
+- Click on Test this application in Azure portal and you should be automatically signed in to the ServiceChannel for which you set up the SSO
 
-* You can use Microsoft My Apps. When you click the ServiceChannel tile in the My Apps, you should be automatically signed in to the ServiceChannel for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
+- You can use Microsoft My Apps. When you click the ServiceChannel tile in the My Apps, you should be automatically signed in to the ServiceChannel for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

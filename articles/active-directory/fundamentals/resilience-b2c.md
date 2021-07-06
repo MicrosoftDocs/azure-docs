@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Build resilience in your customer identity and access management with Azure Active Directory B2C
 
-[Azure Active Directory (AD) B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) is a Customer Identity and Access Management (CIAM) platform that is designed to help you launch your critical customer facing applications successfully. We have many built-in features for [resilience](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) that are designed to help our service scale to your needs and improve resilience in the face of potential outage situations. In addition, when launching a mission critical application, it’s important to consider various design and configuration elements in your application, as well as how the application is configured within Azure AD B2C to ensure that you get a resilient behavior in response to outage or failure scenarios. In this article, we'll discuss some of the best practices to help you increase resilience.
+[Azure Active Directory (AD) B2C](../../active-directory-b2c/overview.md) is a Customer Identity and Access Management (CIAM) platform that is designed to help you launch your critical customer facing applications successfully. We have many built-in features for [resilience](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) that are designed to help our service scale to your needs and improve resilience in the face of potential outage situations. In addition, when launching a mission critical application, it’s important to consider various design and configuration elements in your application, as well as how the application is configured within Azure AD B2C to ensure that you get a resilient behavior in response to outage or failure scenarios. In this article, we'll discuss some of the best practices to help you increase resilience.
 
 A resilient service is one that continues to function despite disruptions. You can help improve resilience in your service by:
 
@@ -45,3 +45,6 @@ In the subsequent sections, we’ll guide you to build resilience in the followi
 - [Build resilience in your authentication infrastructure](resilience-in-infrastructure.md)
 
 - [Increase resilience of authentication and authorization in your applications](resilience-app-development-overview.md)
+
+Watch this video to know how to build resilient and scalable flows using Azure AD B2C.
+>[!Video https://www.youtube.com/embed/8f_Ozpw9yTs]

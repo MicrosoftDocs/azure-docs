@@ -19,7 +19,7 @@ This article shows how to add users to a lab.
 
 You can now sync a lab user list to an existing Azure Active Directory (Azure AD) group so that you do not have to manually add or delete users. 
 
-An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory. 
+An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory. 
 
 ### Sync users with Azure AD group
 
@@ -151,6 +151,9 @@ In this section, you can get the registration link from the portal and send it b
     The **Users** pane displays a list of students who have registered with your lab.  
 
     ![List of registered users](./media/tutorial-track-usage/registered-users.png)
+
+    > [!NOTE] 
+    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [reset student VMs](how-to-set-virtual-machine-passwords.md#reset-vms), the students will remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
 ## Set quotas for users
 

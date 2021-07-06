@@ -10,13 +10,13 @@ ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 05/28/2021
 
 ---
 # Migrate to an Azure resource authoring key
 
 > [!IMPORTANT]
->  Starting December 3rd, existing LUIS users must complete the migration process to continue authoring LUIS applications.
+>  As of December 3rd 2020, existing LUIS users must have completed the migration process to continue authoring LUIS applications.
 
 Language Understanding (LUIS) authoring authentication has changed from an email account to an Azure resource. Use this article to learn how to migrate your account, if you haven't migrated yet.  
 
@@ -28,7 +28,7 @@ Migration is the process of changing authoring authentication from an email acco
 Migration has to be done from the [LUIS portal](https://www.luis.ai). If you create the authoring keys by using the LUIS CLI, for example, you'll need to complete the migration process in the LUIS portal. You can still have co-authors on your applications after migration, but these will be added on the Azure resource level instead of the application level. Migrating your account can't be reversed.
 
 > [!Note]
-> * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) to create it.
+> * If you need to create a prediction runtime resource, there's [a separate process](luis-how-to-azure-subscription.md#create-luis-resources) to create it.
 > * See the [migration notes](#migration-notes) section below for information on how your applications and contributors will be affected. 
 > * Authoring your LUIS app is free, as indicated by the F0 tier. Learn [more about pricing tiers](luis-limits.md#key-limits).
 
@@ -76,7 +76,7 @@ A `*` symbol will appear next to the application name if you have a prediction r
    > ![Export your applications.](./media/migrate-authoring-key/migration-export-apps.png)
 
 
-4. In the window for migrating regions, you will be asked to migrate your applications to an Azure resource in the same region they were authored in. LUIS has three authoring regions [and portals](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-authoring-regions). The window will show the regions where your owned applications were authored. The displayed migration regions may be different depending on the regional portal you use, and apps you've authored. 
+4. In the window for migrating regions, you will be asked to migrate your applications to an Azure resource in the same region they were authored in. LUIS has three authoring regions [and portals](./luis-reference-regions.md#luis-authoring-regions). The window will show the regions where your owned applications were authored. The displayed migration regions may be different depending on the regional portal you use, and apps you've authored. 
 
    > [!div class="mx-imgBorder"]
    > ![Multi region migration.](./media/migrate-authoring-key/migration-regional-flow.png)

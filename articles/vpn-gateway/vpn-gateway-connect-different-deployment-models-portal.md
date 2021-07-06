@@ -1,13 +1,16 @@
 ---
-title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal | Microsoft Docs'
-description: Steps to connect classic VNets to Resource Manager VNets using VPN Gateway and the portal
+title: 'Connect classic virtual networks to Azure Resource Manager VNets: Portal'
+titleSuffix: Azure VPN Gateway
+description: Learn how to to connect classic VNets to Resource Manager VNets using the portal.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/24/2019
-ms.author: cherylmc
+ms.date: 02/10/2021
+ms.author: cherylmc 
+ms.custom: devx-track-azurepowershell
+
 ---
 # Connect virtual networks from different deployment models using the portal
 

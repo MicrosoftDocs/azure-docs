@@ -8,9 +8,9 @@ ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database

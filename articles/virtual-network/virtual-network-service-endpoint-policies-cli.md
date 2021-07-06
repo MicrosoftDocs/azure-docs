@@ -7,7 +7,7 @@ author: rdhillon
 manager: ''
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
+# Customer intent: I want only specific Azure Storage account to be allowed access from a virtual network subnet.
 
 ms.assetid: 
 ms.service: virtual-network
@@ -110,7 +110,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+Each network security group contains several [default security rules](./network-security-groups-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
 
 ```azurecli-interactive
 az network nsg rule create \

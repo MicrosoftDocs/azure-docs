@@ -58,7 +58,7 @@ To verify the app creation and data simulation, go to the **Dashboard**. If you 
 After you successfully deploy the app template, it comes with sample smart meter device, device model, and a dashboard. 
 
 Adatum is a fictitious energy company, who monitors and manages smart meters. On the smart meter monitoring dashboard, you see smart meter properties, data, and sample commands. It enables operators and support teams to proactively perform the following activities before it turns into support incidents: 
-* Review the latest meter info and its installed location on the map
+* Review the latest meter info and its installed [location](../core/howto-use-location-data.md) on the map
 * Proactively check the meter network and connection status 
 * Monitor Min and Max voltage readings for network health 
 * Review the energy, power, and voltage trends to catch any anomalous patterns 
@@ -97,10 +97,7 @@ If you decide to not continue using this application, delete your application wi
 
 ## Next steps
 
-Learn about smart meter app architecture refer to 
+To learn about smart meter app architecture, see:
+
 > [!div class="nextstepaction"]
-> [the concept article](./concept-iot-central-smart-meter-app.md)
-* Create smart meter application templates for free: 
-[smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Learn more about IoT Central, see 
-[IoT Central overview](../index.yml)
+> [Smart meter application architecture](./concept-iot-central-smart-meter-app.md)

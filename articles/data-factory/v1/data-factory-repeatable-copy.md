@@ -1,20 +1,11 @@
 ---
 title: Repeatable copy in Azure Data Factory
 description: 'Learn how to avoid duplicates even though a slice that copies data is run more than once.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: 
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 
@@ -30,8 +21,8 @@ Usually, when reading from relational stores, you want to read only the data cor
 
 ```json
 "source": {
-	"type": "SqlSource",
-	"sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
+    "type": "SqlSource",
+    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
 This query reads data that falls in the slice duration range (WindowStart -> WindowEnd) from the table MyTable. Rerun of this slice would also always ensure that the same data is read. 
@@ -41,8 +32,8 @@ In other cases, you may wish to read the entire table and may define the sqlRead
 ```json
 "source": 
 {            
-	"type": "SqlSource",
-	"sqlReaderQuery": "select * from MyTable"
+    "type": "SqlSource",
+    "sqlReaderQuery": "select * from MyTable"
 },
 ```
 
@@ -58,7 +49,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4. If you rerun the data slice for that period manually, you’ll find two new records appended to Azure SQL/SQL Server Database. This example assumes that none of the columns in the table has the primary key constraint.
+Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4. If you rerun the data slice for that period manually, you'll find two new records appended to Azure SQL/SQL Server Database. This example assumes that none of the columns in the table has the primary key constraint.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -112,23 +103,23 @@ This column is used by Azure Data Factory for repeatability purposes and in the 
 1. Define a column of type **binary (32)** in the destination SQL Table. There should be no constraints on this column. Let's name this column as AdfSliceIdentifier for this example.
 
 
-	Source table:
+    Source table:
 
-	```sql
-	CREATE TABLE [dbo].[Student](
+    ```sql
+    CREATE TABLE [dbo].[Student](
        [Id] [varchar](32) NOT NULL,
        [Name] [nvarchar](256) NOT NULL
-	)
+    )
     ```
 
-	Destination table: 
+    Destination table: 
 
-	```sql
-	CREATE TABLE [dbo].[Student](
+    ```sql
+    CREATE TABLE [dbo].[Student](
        [Id] [varchar](32) NOT NULL,
        [Name] [nvarchar](256) NOT NULL,
        [AdfSliceIdentifier] [binary](32) NULL
-	)
+    )
     ```
 
 1. Use it in the copy activity as follows:

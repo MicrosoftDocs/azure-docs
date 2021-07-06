@@ -24,6 +24,7 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 
 Zimperium Mobile Threat Defense connector gives you the ability to connect the Zimperium threat log with Azure Sentinel to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization's mobile threat landscape and enhances your security operation capabilities.
@@ -56,7 +57,7 @@ To use the relevant schema in Log Analytics for the Zimperium Mobile Threat Defe
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics.
+It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 

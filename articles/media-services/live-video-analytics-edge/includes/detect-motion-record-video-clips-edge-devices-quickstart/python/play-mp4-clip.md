@@ -1,4 +1,4 @@
-The MP4 files are written to a directory on the edge device that you configured in the *.env* file by using the OUTPUT_VIDEO_FOLDER_ON_DEVICE key. If you used the default value, then the results should be in the */var/media/* folder.
+The MP4 files are written to a directory on the edge device that you configured in the *.env* file by using the VIDEO_OUTPUT_FOLDER_ON_DEVICE key. If you used the default value, then the results should be in the */var/media/* folder.
 
 To play the MP4 clip:
 

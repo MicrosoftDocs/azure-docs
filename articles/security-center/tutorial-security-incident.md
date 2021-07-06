@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
 ---
 
@@ -37,7 +37,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
 Triage your alerts from the **Security alerts** page:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Security alerts list page" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Azure Security Center's security alerts list":::
 
 Use this page to review the active security alerts in your environment to decide which alert to investigate first.
 
@@ -55,7 +55,7 @@ When you've decided which alert to investigate first:
 1. From the alert overview page, select the resource to investigate first.
 1. Begin your investigation from the left pane, which shows the high-level information about the security alert.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="The left pane of the alert details page highlighting the high-level information":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="The left pane of the alert details page highlighting the high-level information.":::
 
     This pane shows:
     - Alert severity, status, and activity time
@@ -75,7 +75,7 @@ After investigating an alert and understanding its scope, you can respond to sec
 
 1.	Open the **Take action** tab to see the recommended responses.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Security alerts take action tab" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Security alerts take action tab." lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.	Review the **Mitigate the threat** section for the manual investigation steps necessary to mitigate the issue.
 1.	To harden your resources and prevent future attacks of this kind, remediate the security recommendations in the **Prevent future attacks** section.
@@ -92,7 +92,7 @@ After investigating an alert and understanding its scope, you can respond to sec
     1. Marking the alert as **Useful** or **Not useful**.
     1. Select a reason and add a comment.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert.":::
 
     > [!TIP]
     > We review your feedback to improve our algorithms and provide better security alerts.
@@ -107,7 +107,7 @@ If you don't plan to continue, or you want to disable either of these features:
 1. Select the relevant subscription.
 1. To downgrade, select **Azure Defender off**.
 1. To disable automatic provisioning, open the **Data Collection** page and set **Auto provisioning** to **Off**.
-4. Select **Save**.
+1. Select **Save**.
 
 >[!NOTE]
 > Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.

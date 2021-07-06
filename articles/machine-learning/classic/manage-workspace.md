@@ -1,9 +1,9 @@
 ---
 title: 'ML Studio (classic): Manage workspaces - Azure'
-description: Manage access to Azure Machine Learning Studio (classic) workspaces, and deploy and manage Machine Learning API web services
+description: Manage access to Machine Learning Studio (classic) workspaces, and deploy and manage Machine Learning API web services
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
 ---
-# Manage an Azure Machine Learning Studio (classic) workspace
+# Manage a Machine Learning Studio (classic) workspace
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 > [!NOTE]
-> For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
+> For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Machine Learning Web Services portal](manage-new-webservice.md).
 > 
 > 
 
@@ -38,12 +38,12 @@ In addition to the standard resource management information and options availabl
 - View **Properties** - This page displays the workspace and resource information, and you can change the subscription and resource group that this workspace is connected with.
 - **Resync Storage Keys** - The workspace maintains keys to the storage account. If the storage account changes keys, then you can click **Resync keys** to synchronize the keys with the workspace.
 
-To manage the web services associated with this Studio (classic) workspace, use the Machine Learning Web Services portal. See [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) for complete information.
+To manage the web services associated with this Studio (classic) workspace, use the Machine Learning Web Services portal. See [Manage a Web service using the Machine Learning Web Services portal](manage-new-webservice.md) for complete information.
 
 > [!NOTE]
 > To deploy or manage New web services you must be assigned a contributor or administrator role on the subscription to which the web service is deployed. If you invite another user to a machine learning Studio (classic) workspace, you must assign them to a contributor or administrator role on the subscription before they can deploy or manage web services. 
 > 
->For more information on setting access permissions, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+>For more information on setting access permissions, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 * Learn more about [deploy Machine Learning with Azure Resource Manager Templates](deploy-with-resource-manager-template.md).

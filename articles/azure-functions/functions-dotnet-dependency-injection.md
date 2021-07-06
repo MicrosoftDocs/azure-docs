@@ -5,7 +5,7 @@ author: ggailey777
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 03/24/2021
 ms.author: glenga
 ms.reviewer: jehollan
 ---
@@ -16,6 +16,11 @@ Azure Functions supports the dependency injection (DI) software design pattern, 
 - Dependency injection in Azure Functions is built on the .NET Core Dependency Injection features. Familiarity with [.NET Core dependency injection](/aspnet/core/fundamentals/dependency-injection) is recommended. There are differences in how you override dependencies and how configuration values are read with Azure Functions on the Consumption plan.
 
 - Support for dependency injection begins with Azure Functions 2.x.
+
+- Dependency injection patterns differ depending on whether your C# functions run [in-process](functions-dotnet-class-library.md) or [out-of-process](dotnet-isolated-process-guide.md).  
+
+> [!IMPORTANT]
+> The guidance in this article applies only to [C# class library functions](functions-dotnet-class-library.md), which run in-process with the runtime. This custom dependency injection model doesn't apply to [.NET isolated functions](dotnet-isolated-process-guide.md), which lets you run .NET 5.0 functions out-of-process. The .NET isolated process model relies on regular ASP.NET Core dependency injection patterns. To learn more, see [Dependency injection](dotnet-isolated-process-guide.md#dependency-injection) in the .NET isolated process guide.
 
 ## Prerequisites
 
@@ -89,9 +94,9 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, IMyService service)
+        public MyHttpTrigger(IHttpClientFactory httpClientFactory, IMyService service)
         {
-            this._client = httpClient;
+            this._client = httpClientFactory.CreateClient();
             this._service = service;
         }
 
@@ -251,6 +256,24 @@ public class HttpTrigger
 ```
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+
+## Using ASP.NET Core user secrets
+
+When developing locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.3233 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
+
+To configure a .NET Azure Functions project to use user secrets, run the following command in the project root.
+
+```bash
+dotnet user-secrets init
+```
+
+Then use the `dotnet user-secrets set` command to create or update secrets.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+To access user secrets values in your function app code, use `IConfiguration` or `IOptions`.
 
 ## Customizing configuration sources
 

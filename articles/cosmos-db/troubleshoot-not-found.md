@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix not found exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 05/26/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -33,6 +33,12 @@ There are multiple SDK client instances and the read happened before the write.
 1. The default account consistency for Azure Cosmos DB is session consistency. When an item is created or updated, the response returns a session token that can be passed between SDK instances to guarantee that the read request is reading from a replica with that change.
 1. Change the [consistency level](./consistency-levels.md) to a [stronger level](./consistency-levels.md).
 
+### Reading throughput for a container or database resource
+Using PowerShell or Azure CLI and receive *not found* error message.
+
+#### Solution:
+Throughput can be provisioned at the database level, container level, or both. If getting  a *not found* error, try reading throughput the parent database resource, or child container resource.
+
 ### Invalid partition key and ID combination
 The partition key and ID combination aren't valid.
 
@@ -40,7 +46,7 @@ The partition key and ID combination aren't valid.
 Fix the application logic that's causing the incorrect combination. 
 
 ### Invalid character in an item ID
-An item is inserted into Azure Cosmos DB with an [invalid character](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) in the item ID.
+An item is inserted into Azure Cosmos DB with an [invalid character](/dotnet/api/microsoft.azure.documents.resource.id#remarks) in the item ID.
 
 #### Solution:
 Change the ID to a different value that doesn't contain the special characters. If changing the ID isn't an option, you can Base64 encode the ID to escape the special characters. Base64 can still produce a name with a invalid character '/' which needs to be replaced.
@@ -55,7 +61,7 @@ string containerRid = selfLinkSegments[3];
 Container containerByRid = this.cosmosClient.GetContainer(databaseRid, containerRid);
 
 // Invalid characters are listed here.
-//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks
+//https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id#remarks
 FeedIterator<JObject> invalidItemsIterator = this.Container.GetItemQueryIterator<JObject>(
     @"select * from t where CONTAINS(t.id, ""/"") or CONTAINS(t.id, ""#"") or CONTAINS(t.id, ""?"") or CONTAINS(t.id, ""\\"") ");
 while (invalidItemsIterator.HasMoreResults)
@@ -97,7 +103,7 @@ Wait for the indexing to catch up or change the indexing policy.
 The database or container that the item exists in was deleted.
 
 #### Solution:
-1. [Restore](./online-backup-and-restore.md#request-data-restore-from-a-backup) the parent resource, or re-create the resources.
+1. [Restore](./configure-periodic-backup-restore.md#request-restore) the parent resource, or re-create the resources.
 1. Create a new resource to replace the deleted resource.
 
 ### 7. Container/Collection names are case-sensitive

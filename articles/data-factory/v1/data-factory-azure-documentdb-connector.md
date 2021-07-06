@@ -1,21 +1,11 @@
 ---
 title: Move data to/from Azure Cosmos DB 
 description: Learn how move data to/from Azure Cosmos DB collection using Azure Data Factory
-services: data-factory, cosmosdb
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
-ms.service: multiple
-ms.workload: data-services
-
-
+ms.author: jingwang
+ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: jingwang
-
 robots: noindex
 ---
 # Move data to and from Azure Cosmos DB using Azure Data Factory
@@ -124,15 +114,15 @@ the following properties are available in **typeProperties** section:
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
 | query |Specify the query to read data. |Query string supported by Azure Cosmos DB. <br/><br/>Example: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>If not specified, the SQL statement that is executed: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Special character to indicate that the document is nested |Any character. <br/><br/>Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via nestingSeparator, which is “.” in the above examples. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition. |No |
+| nestingSeparator |Special character to indicate that the document is nested |Any character. <br/><br/>Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via nestingSeparator, which is "." in the above examples. With the separator, the copy activity will generate the "Name" object with three children elements First, Middle and Last, according to "Name.First", "Name.Middle" and "Name.Last" in the table definition. |No |
 
 **DocumentDbCollectionSink** supports the following properties:
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | --- | --- | --- | --- |
 | nestingSeparator |A special character in the source column name to indicate that nested document is needed. <br/><br/>For example above: `Name.First` in the output table produces the following JSON structure in the Cosmos DB document:<br/><br/>"Name": {<br/>    "First": "John"<br/>}, |Character that is used to separate nesting levels.<br/><br/>Default value is `.` (dot). |Character that is used to separate nesting levels. <br/><br/>Default value is `.` (dot). |
-| writeBatchSize |Number of parallel requests to Azure Cosmos DB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from Cosmos DB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to Cosmos DB are sent. However you’ll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
-| writeBatchTimeout |Wait time for the operation to complete before it times out. |timespan<br/><br/> Example: “00:30:00” (30 minutes). |No |
+| writeBatchSize |Number of parallel requests to Azure Cosmos DB service to create documents.<br/><br/>You can fine-tune the performance when copying data to/from Cosmos DB by using this property. You can expect a better performance when you increase writeBatchSize because more parallel requests to Cosmos DB are sent. However you'll need to avoid throttling that can throw the error message: "Request rate is large".<br/><br/>Throttling is decided by a number of factors, including size of documents, number of terms in documents, indexing policy of target collection, etc. For copy operations, you can use a better collection (e.g. S3) to have the most throughput available (2,500 request units/second). |Integer |No (default: 5) |
+| writeBatchTimeout |Wait time for the operation to complete before it times out. |timespan<br/><br/> Example: "00:30:00" (30 minutes). |No |
 
 ## Import/Export JSON documents
 Using this Cosmos DB connector, you can easily
@@ -189,7 +179,7 @@ The sample copies data in Azure Cosmos DB to Azure Blob. The JSON properties use
 
 The sample assumes you have a collection named **Person** in an Azure Cosmos DB database.
 
-Setting “external”: ”true” and specifying externalData policy information the Azure Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
+Setting "external": "true" and specifying externalData policy information the Azure Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
 
 ```JSON
 {
@@ -379,7 +369,7 @@ The sample copies data from Azure blob to Azure Cosmos DB. The JSON properties u
 ```
 **Azure Cosmos DB output dataset:**
 
-The sample copies data to a collection named “Person”.
+The sample copies data to a collection named "Person".
 
 ```JSON
 {
@@ -478,7 +468,7 @@ Then the output JSON in Cosmos DB will be as:
   "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
 }
 ```
-Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via **nestingSeparator**, which is “.” in this example. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition.
+Azure Cosmos DB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via **nestingSeparator**, which is "." in this example. With the separator, the copy activity will generate the "Name" object with three children elements First, Middle and Last, according to "Name.First", "Name.Middle" and "Name.Last" in the table definition.
 
 ## Appendix
 1. **Question:**

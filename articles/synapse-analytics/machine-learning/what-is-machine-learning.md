@@ -37,7 +37,7 @@ Most machine learning projects involve well-established steps, and one of these 
 
 #### Data source and pipelines
 
-Thanks to [Azure Data Factory](/azure/data-factory/introduction), a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in Synapse. 
+Thanks to [Azure Data Factory](../../data-factory/introduction.md), a natively integrated part of Azure Synapse, there is a powerful set of tools available for data ingestion and data orchestration pipelines. This allows you to easily build data pipelines to access and transform the data into a format that can be consumed for machine learning. [Learn more about data pipelines](../../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) in Synapse. 
 
 #### Data preparation and exploration/visualization
 
@@ -61,13 +61,13 @@ In addition to MLlib, popular libraries such as [Scikit Learn](https://scikit-le
 
 #### Train models with Azure Machine Learning automated ML
 
-Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](/azure/machine-learning/concept-automated-ml) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Azure Active Directory authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. Here is an [automated ML tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) that describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
+Another way to train machine learning models, that does not require much prior familiarity with machine learning, is to use automated ML. [Automated ML](../../machine-learning/concept-automated-ml.md) is a feature that automatically trains a set of machine learning models and allows the user to select the best model based on specific metrics. Thanks to a seamless integration with Azure Machine Learning from Azure Synapse Notebooks, users can easily leverage automated ML in Synapse with passthrough Azure Active Directory authentication.  This means that you only need to point to your Azure Machine Learning workspace and do not need to enter any credentials. Here is an [automated ML tutorial](../spark/apache-spark-azure-machine-learning-tutorial.md) that describes how to train models using Azure Machine Learning automated ML on Synapse Spark Pools.
 
 ### Model deployment and scoring
 
 Models that have been trained either in Azure Synapse or outside Azure Synapse can easily be used for batch scoring. Currently in Synapse, there are two ways in which you can run batch scoring.
 
-* You can use the [TSQL PREDICT function](../sql-data-warehouse/sql-data-warehouse-predict.md) in Synapse SQL pools to run your predictions right where your data lives. This powerful and scalable function allows you to enrich your data without moving any data out of your data warehouse. A new [guided machine learning model experience in Synapse Studio](https://aka.ms/synapse-ml-ui) was introduced where you can deploy an ONNX model from the Azure Machine Learning model registry in Synapse SQL Pools for batch scoring using PREDICT.
+* You can use the [TSQL PREDICT function](../sql-data-warehouse/sql-data-warehouse-predict.md) in Synapse SQL pools to run your predictions right where your data lives. This powerful and scalable function allows you to enrich your data without moving any data out of your data warehouse. A new [guided machine learning model experience in Synapse Studio](./tutorial-sql-pool-model-scoring-wizard.md) was introduced where you can deploy an ONNX model from the Azure Machine Learning model registry in Synapse SQL Pools for batch scoring using PREDICT.
 
 * Another option for batch scoring machine learning models in Azure Synapse is to leverage the Apache Spark Pools for Azure Synapse. Depending on the libraries used to train the models, you can use a code experience to run your batch scoring.
 

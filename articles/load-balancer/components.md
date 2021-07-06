@@ -45,7 +45,7 @@ Load balancer can have multiple frontend IPs. Learn more about [multiple fronten
 
 The group of virtual machines or instances in a virtual machine scale set that is serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool.
 
-Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations. The scope of the backend pool is any virtual machine in the virtual network.
+Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations. The scope of the backend pool is any virtual machine in a single virtual network.
 
 When considering how to design your backend pool, design for the least number of individual backend pool resources to optimize the length of management operations. There's no difference in data plane performance or scale.
 
@@ -124,8 +124,9 @@ Basic load balancer doesn't support outbound rules.
 - Learn about load balancer [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
 - Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
 - Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
-- A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
+- A load balancer rule cannot span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network.  
 - Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).
+- You can only have 1 Public Load Balancer and 1 internal Load Balancer per availability set
 
 ## Next steps
 

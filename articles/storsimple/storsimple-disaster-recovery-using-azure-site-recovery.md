@@ -40,7 +40,7 @@ Implementing a one-click disaster recovery solution that uses Azure Site Recover
    - StorSimple storage device on-premises registered with Azure StorSimple manager
    - StorSimple Cloud Appliance created in the Azure StorSimple manager. The appliance can be kept in a shut-down state.
    - File shares hosted on the volumes configured on the StorSimple storage device
-   - [Azure Site Recovery services vault](/azure/site-recovery/hyper-v-vmm-azure-tutorial) created in a Microsoft Azure subscription
+   - [Azure Site Recovery services vault](../site-recovery/hyper-v-vmm-azure-tutorial.md) created in a Microsoft Azure subscription
 
 In addition, if Azure is your recovery site, run the [Azure Virtual Machine Readiness Assessment tool](https://azure.microsoft.com/downloads/vm-readiness-assessment/) on VMs to ensure that they are compatible with Azure VMs and Azure Site Recovery services.
 
@@ -108,7 +108,7 @@ This step requires that you prepare the on-premises file server environment, cre
    1. Use the File and Storage Services role to create file shares on these volumes.
 
 #### To create and prepare an Azure Site Recovery vault
-Refer to the [Azure Site Recovery documentation](/azure/site-recovery/) to get started with Azure Site Recovery before protecting the file server VM.
+Refer to the [Azure Site Recovery documentation](../site-recovery/index.yml) to get started with Azure Site Recovery before protecting the file server VM.
 
 #### To enable protection
 1. Disconnect the iSCSI target(s) from the on-premises VMs that you want to protect through Azure Site Recovery:
@@ -120,7 +120,7 @@ Refer to the [Azure Site Recovery documentation](/azure/site-recovery/) to get s
    > [!NOTE]
    > This will cause the file shares to be temporarily unavailable.
    
-1. [Enable virtual machine protection](/azure/site-recovery/hyper-v-azure-tutorial) of the file server VM from the Azure Site Recovery portal.
+1. [Enable virtual machine protection](../site-recovery/hyper-v-azure-tutorial.md) of the file server VM from the Azure Site Recovery portal.
 1. When the initial synchronization begins, you can reconnect the target again. Go to the iSCSI initiator, select the StorSimple device, and click **Connect**.
 1. When the synchronization is complete and the status of the VM is **Protected**, select the VM, select the **Configure** tab, and update the network of the VM accordingly (this is the network that the failed over VM(s) will be a part of). If the network doesn’t show up, it means that the sync is still going on.
 

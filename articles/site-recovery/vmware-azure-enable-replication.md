@@ -1,11 +1,12 @@
 ---
 title: Enable VMware VMs for disaster recovery using Azure Site Recovery
 description: This article describes how to enable VMware VM replication for disaster recovery using the Azure Site Recovery service
-author: Rajeswari-Mamilla
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 12/07/2020
 ms.topic: conceptual
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Enable replication to Azure for VMware VMs
@@ -137,7 +138,7 @@ Next, verify the properties of the source virtual machine. Remember that the Azu
    :::image type="content" source="./media/vmware-azure-enable-replication/vmproperties.png" alt-text="Compute and network properties window":::
 
    - **Azure VM name**: Modify the name to meet Azure requirements, if necessary.
-   - **Target VM size or VM type**: The default VM size is chosen based on parameters that include disk count, NIC count, CPU core count, memory, and available VM role sizes in the target Azure region. Azure Site Recovery picks the first available VM size that satisfies all the criteria. You can select a different VM size based on your needs at any time before failover. The VM disk size is also based on source disk size, and it can only be changed after failover. Learn more about disk sizes and IOPS rates at [Scalability and performance targets for VM disks on Windows](../virtual-machines/windows/disk-scalability-targets.md).
+   - **Target VM size or VM type**: The default VM size is chosen based on parameters that include disk count, NIC count, CPU core count, memory, and available VM role sizes in the target Azure region. Azure Site Recovery picks the first available VM size that satisfies all the criteria. You can select a different VM size based on your needs at any time before failover. The VM disk size is also based on source disk size, and it can only be changed after failover. Learn more about disk sizes and IOPS rates at [Scalability and performance targets for VM disks](../virtual-machines/disks-scalability-targets.md).
    - **Resource group**: You can select a [resource group](../azure-resource-manager/management/overview.md#resource-groups), from which a virtual machine becomes a part of a post failover. You can change this setting at any time before failover. After failover, if you migrate the virtual machine to a different resource group, the protection settings for that virtual machine break.
    - **Availability set**: You can select an [availability set](../virtual-machines/windows/tutorial-availability-sets.md) if your virtual machine needs to be a part of a post failover. When you select an availability set, keep the following information in mind:
      - Only availability sets that belong to the specified resource group are listed.

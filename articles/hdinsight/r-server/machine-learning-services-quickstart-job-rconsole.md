@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: R script on ML Services & R console - Azure HDInsight'
 description: In the quickstart, you execute an R script on an ML Services cluster in Azure HDInsight using R console.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.author: hrasheed
-ms.custom: mvc
+ROBOTS: NOINDEX
 #Customer intent: I want to learn how to execute an R script using ML Services in Azure HDInsight for R console.
 ---
 
 # Quickstart: Execute an R script on an ML Services cluster in Azure HDInsight using R console
 
-ML Services on Azure HDInsight allows R scripts to use Apache Spark and Apache Hadoop MapReduce to run distributed computations. ML Services controls how calls are executed by setting the compute context. The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
+ML Services on Azure HDInsight allows R scripts to use Apache Spark and Apache Hadoop MapReduce to run distributed computations. ML Services controls how calls are executed by setting the compute context. The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR's Hadoop Map Reduce or Apache Spark compute contexts.
 
 In this quickstart, you learn how to run an R script with R console that demonstrates using Spark for distributed R computations. You will define a compute context to perform computations locally on an edge node, and again distributed across the nodes in the HDInsight cluster.
 
@@ -146,7 +145,7 @@ In this quickstart, you learn how to run an R script with R console that demonst
     
       ---
     
-      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

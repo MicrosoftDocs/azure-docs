@@ -1,11 +1,11 @@
 ---
 title: Immersive Reader Swift client library quickstart 
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: In this quickstart, you build a iOS app from scratch and add the Immersive Reader API functionality.
 services: cognitive-services
 author: nitinme
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
@@ -568,4 +568,5 @@ When you click on the **Immersive Reader** button, you'll see the Immersive Read
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)
+> [!div class="nextstepaction"]
+> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)

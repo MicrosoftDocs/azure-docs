@@ -9,8 +9,8 @@ metadata:
   services: service
   ms.service: stream-analytics
   ms.topic: landing-page
-  author: mamccrea
-  ms.author: mamccrea
+  author: sidram
+  ms.author: sidram
   ms.date: 09/16/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

@@ -1,6 +1,6 @@
 ---
-title: Create your first function in Azure with Kotlin and Maven
-description: Create and publish an HTTP triggered function to Azure with Kotlin and Maven.
+title: Create a Kotlin function in Azure Functions using Maven
+description: Create and publish an HTTP triggered function app to Azure Functions with Kotlin and Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
@@ -19,7 +19,7 @@ This article guides you through using the Maven command-line tool to build and p
 
 To develop functions using Kotlin, you must have the following installed:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
 - [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
@@ -153,7 +153,7 @@ Use `Ctrl-C` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
-The deploy process to Azure Functions uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+The deploy process to Azure Functions uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing.
 
 ```azurecli
 az login

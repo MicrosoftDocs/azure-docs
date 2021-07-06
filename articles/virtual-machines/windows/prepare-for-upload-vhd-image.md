@@ -3,7 +3,9 @@ title: Prepare a Windows VHD to upload to Azure
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 author: glimoli
 manager: dcscontentpm
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
@@ -119,6 +121,10 @@ After the SFC scan completes, install Windows Updates and restart the computer.
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TEMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name TMP -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
    ```
+1. For VMs with legacy operating systems (Windows Server 2012 R2 or Windows 8.1 and below), make sure the latest Hyper-V Integration Component Services are installed. For more information, see [Hyper-V integration components update for Windows VM](https://support.microsoft.com/topic/hyper-v-integration-components-update-for-windows-virtual-machines-8a74ffad-576e-d5a0-5a2f-d6fb2594f990).
+
+> [!NOTE]
+> In a scenario where VMs are to be set up with a disaster recovery solution between the on-premise VMware server and Azure, the Hyper-V Integration Component Services can't be used. If that’s the case, please contact the VMware support to migrate the VM to Azure and make it co-reside in VMware server.
 
 ## Check the Windows services
 
@@ -234,20 +240,20 @@ Make sure the following settings are configured correctly for remote access:
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -DisplayName 'Windows Remote Management (HTTP-In)' -Enabled True
+   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
 
 1. Enable the following firewall rules to allow the RDP traffic:
 
    ```powershell
-   Set-NetFirewallRule -DisplayGroup 'Remote Desktop' -Enabled True
+   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
    ```
 
 1. Enable the rule for file and printer sharing so the VM can respond to ping requests inside the
    virtual network:
 
    ```powershell
-   Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -Enabled True
+   Set-NetFirewallRule -Name FPS-ICMP4-ERQ-In -Enabled True
    ```
 
 1. Create a rule for the Azure platform network:
@@ -283,6 +289,8 @@ Make sure the VM is healthy, secure, and RDP accessible:
 1. Set the Boot Configuration Data (BCD) settings.
 
    ```powershell
+   cmd
+
    bcdedit.exe /set "{bootmgr}" integrityservices enable
    bcdedit.exe /set "{default}" device partition=C:
    bcdedit.exe /set "{default}" integrityservices enable
@@ -296,6 +304,8 @@ Make sure the VM is healthy, secure, and RDP accessible:
    bcdedit.exe /set "{bootmgr}" bootems yes
    bcdedit.exe /ems "{current}" ON
    bcdedit.exe /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+   exit
    ```
 
 1. The dump log can be helpful in troubleshooting Windows crash issues. Enable the dump log
@@ -324,11 +334,24 @@ Make sure the VM is healthy, secure, and RDP accessible:
 
    If the repository is corrupted, see [WMI: Repository corruption or not](https://techcommunity.microsoft.com/t5/ask-the-performance-team/wmi-repository-corruption-or-not/ba-p/375484).
 
-1. Make sure no other application is using port 3389. This port is used for the RDP service in
+1. Make sure no other applications than TermService are using port 3389. This port is used for the RDP service in
    Azure. To see which ports are used on the VM, run `netstat.exe -anob`:
 
    ```powershell
    netstat.exe -anob
+   ```
+   
+   The following is an example.
+
+   ```powershell
+   netstat.exe -anob | findstr 3389
+   TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       4056
+   TCP    [::]:3389              [::]:0                 LISTENING       4056
+   UDP    0.0.0.0:3389           *:*                                    4056
+   UDP    [::]:3389              *:*                                    4056
+
+   tasklist /svc | findstr 4056
+   svchost.exe                   4056 TermService
    ```
 
 1. To upload a Windows VHD that's a domain controller:
@@ -380,6 +403,10 @@ Make sure the VM is healthy, secure, and RDP accessible:
    other virtualization technology.
 
 ### Install Windows updates
+
+> [!NOTE]
+> To avoid an accidental reboot during the VM provisioning, we recommend completing all Windows update installations and to make sure there’s no pending restart. One way to do this is to install all Windows updates and to reboot the VM before performing the migration to Azure. </br><br>
+>If you also need to do a generalization of the OS (sysprep), you must update Windows and restart the VM before running the Sysprep command.
 
 Ideally, you should keep the machine updated to the *patch level*, if this isn't possible, make sure
 the following updates are installed. To get the latest updates, see the Windows update history
@@ -461,6 +488,10 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 ### Generalize a VHD
 
 >[!NOTE]
+> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions 
+> before running the sysprep.
+
+>[!NOTE]
 > After you run `sysprep.exe` in the following steps, turn off the VM. Don't turn it back on until
 > you create an image from it in Azure.
 
@@ -486,7 +517,7 @@ generalized disk, see
 > [microsoft-windows-shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup)
 > options into the *unattend.xml* file that the Azure provisioning agent uses. You can use, for
 > example,
-> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true)
+> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent)
 > to add FirstLogonCommands and LogonCommands. For more information, see
 > [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
@@ -504,6 +535,14 @@ Use one of the methods in this section to convert and resize your virtual disk t
 1. Resize the virtual disk to meet Azure requirements:
 
    1. Disks in Azure must have a virtual size aligned to 1 MiB. If your VHD is a fraction of 1 MiB, you'll need to resize the disk to  a multiple of 1 MiB. Disks that are fractions of a MiB cause errors when creating images from the uploaded VHD. To verify the size you can use the PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) cmdlet to show "Size", which must be a multiple of 1 MiB in Azure, and "FileSize", which will be equal to "Size" plus 512 bytes for the VHD footer.
+   
+      ```powershell
+      $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
+      $vhd.Size % 1MB
+      0
+      $vhd.FileSize - $vhd.Size
+      512
+      ```
    
    1. The maximum size allowed for the OS VHD with a generation 1 VM is 2,048 GiB (2 TiB), 
    1. The maximum size for a data disk is 32,767 GiB (32 TiB).
@@ -594,4 +633,4 @@ configured them.
 ## Next steps
 
 - [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
-- [Troubleshoot Azure Windows VM activation problems](../troubleshooting/troubleshoot-activation-problems.md)
+- [Troubleshoot Azure Windows VM activation problems](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems)

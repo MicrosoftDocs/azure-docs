@@ -1,7 +1,7 @@
 ---
-title: Migrate to Microsoft Authentication Library (MSAL)
+title: Migrate to the Microsoft Authentication Library (MSAL)
 titleSuffix: Microsoft identity platform
-description: Learn about the differences between Microsoft Authentication Library (MSAL) and Azure AD Authentication Library (ADAL) and how to migrate to MSAL.
+description: Learn about the differences between the Microsoft Authentication Library (MSAL) and Azure AD Authentication Library (ADAL) and how to migrate to MSAL.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -16,7 +16,7 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 # Customer intent: As an application developer, I want to learn about the differences between the ADAL and MSAL libraries so I can migrate my applications to MSAL.
 ---
-# Migrate applications to Microsoft Authentication Library (MSAL)
+# Migrate applications to the Microsoft Authentication Library (MSAL)
 
 Many developers have built and deployed applications using the Azure Active Directory Authentication Library (ADAL). We now recommend using the Microsoft Authentication Library (MSAL) for authentication and authorization of Azure AD entities.
 
@@ -69,7 +69,7 @@ __Q: How does MSAL work with AD FS?__
 A: MSAL.NET supports certain scenarios to authenticate against AD FS 2019. If your app needs to acquire tokens directly from earlier version of AD FS, you should remain on ADAL. [Learn more](msal-net-adfs-support.md).
 
 __Q: How do I get help migrating my application?__  
-A: See the [Migration guidance](#migration-guidance) section of this article. If, after reading the guide for your app's platform, you have additional questions, you can post on Stack Overflow with the tag `[adal-deprecation]` or open an issue in library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
+A: See the [Migration guidance](#migration-guidance) section of this article. If, after reading the guide for your app's platform, you have additional questions, you can post on [Microsoft Q&A](/answers/topics/azure-ad-adal-deprecation.html) with the tag `[azure-ad-adal-deprecation]` or open an issue in library's GitHub repository. See the [Languages and frameworks](msal-overview.md#languages-and-frameworks) section of the MSAL overview article for links to each library's repo.
 
 ## Next steps
 

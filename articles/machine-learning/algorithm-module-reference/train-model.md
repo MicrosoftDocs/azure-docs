@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
+ms.date: 05/10/2021
 ---
 # Train Model module
 
@@ -55,12 +55,41 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!TIP] 
     > If you have trouble using the Column Selector, see the article [Select Columns in Dataset](./select-columns-in-dataset.md) for tips. It describes some common scenarios and tips for using the **WITH RULES** and **BY NAME** options.
   
-1.  Submit the pipeline. If you have a lot of data, this can take a while.
+1.  Submit the pipeline. If you have a lot of data, it can take a while.
 
     > [!IMPORTANT] 
     > If you have an ID column which is the ID of each row, or a text column, which contains too many unique values, **Train Model** may hit an error like "Number of unique values in column: "{column_name}" is greater than allowed.
     >
     > This is because the column hit the threshold of unique values, and may cause out of memory. You can use [Edit Metadata](edit-metadata.md) to mark that column as **Clear feature** and it will not be used in training, or [Extract N-Gram Features from Text module](extract-n-gram-features-from-text.md) to preprocess text column. See [Designer error code](././designer-error-codes.md) for more error details.
+
+## Model Interpretability
+
+Model interpretability provides possibility to comprehend the ML model and to present the underlying basis for decision-making in a way that is understandable to humans.
+
+Currently **Train Model** module supports [using interpretability package to explain ML models](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Following built-in algorithms are supported:
+
+- Linear Regression
+- Neural Network Regression
+- Boosted Decistion Tree Regression
+- Decision Forest Regression
+- Poisson Regression
+- Two-Class Logistic Regression
+- Two-Class Support Vector Machine
+- Two-Class Boosted Decistion Tree
+- Two-Class Decision Forest
+- Multi-class Decision Forest
+- Multi-class Logistic Regression
+- Multi-class Neural Network
+
+To generate model explanations, you can select **True** in the drop-down list of **Model Explanation** in Train Model module. By default it is set to False in the **Train Model** module. Please note that generating explanation requires extra compute cost.
+
+![Screenshot showing model explanation checkbox](./media/module/train-model-explanation-checkbox.png)
+
+After the pipeline run completed, you can visit **Explanations** tab in the right pane of **Train Model** module, and explore the model performance, dataset and feature importance.
+
+![Screenshot showing model explanation charts](./media/module/train-model-explanations-tab.gif)
+
+To learn more about using model explanations in Azure Machine Learning, refer to the how-to article about [Interpret ML models](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs).
 
 ## Results
 
@@ -74,4 +103,4 @@ After the model is trained:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

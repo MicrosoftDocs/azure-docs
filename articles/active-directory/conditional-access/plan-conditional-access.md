@@ -69,6 +69,7 @@ The following resources may be useful as you learn about Conditional Access:
 * [What is Conditional Access?](https://youtu.be/ffMAw2IVO7A)
 * [How to deploy Conditional Access?](https://youtu.be/c_izIRNJNuk)
 * [How to roll out Conditional Access policies to end users?](https://youtu.be/0_Fze7Zpyvc)
+* [How to include or exclude users from Conditional Access policies](https://youtu.be/5DsW1hB3Jqs)
 * [Conditional Access with device controls](https://youtu.be/NcONUf-jeS4)
 * [Conditional Access with Azure AD MFA](https://youtu.be/Tbc-SU97G-w)
 * [Conditional Access in Enterprise Mobility + Security](https://youtu.be/A7IrxAH87wc)
@@ -220,14 +221,6 @@ Creating a policy for each app isn't efficient and leads to difficult administra
 If you misconfigure a policy, it can lock the organizations out of the Azure portal. Mitigate the impact of accidental administrator lock out by creating two or more [emergency access accounts](../roles/security-emergency-access.md) in your organization.
 
 * Create a user account dedicated to policy administration and excluded from all your policies.
-
-* Break glass scenario for hybrid environments:
-
-  * Create an on-premises security group and sync it to Azure AD. The security group should contain your dedicated policy administration account. 
-
-   * EXEMPT this security group form all Conditional Access policies.
-
-   * When a service outage occurs, add your other administrators to the on-premises group as appropriate, and force a sync. This animates their exemption to Conditional Access policies.
 
 ### Set up report-only mode
 
@@ -490,4 +483,4 @@ Once you have collected the information, See the following resources:
 
 [Learn more about Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Manage Conditional Access policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Manage Conditional Access policies with Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy)

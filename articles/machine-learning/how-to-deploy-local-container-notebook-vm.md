@@ -5,17 +5,15 @@ description: 'Learn how to deploy your Azure Machine Learning models as a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, deploy
-ms.author: mnark
-author: MrudulaN
+ms.topic: how-to
+ms.custom: deploy
+ms.author: gopalv
+author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 03/05/2020
+ms.date: 04/22/2021
 ---
 
-# Deploy a model to Azure Machine Learning compute instances
-
-
+# Deploy a model locally
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
 
@@ -27,17 +25,18 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace with a compute instance running. For more information, see [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+- An Azure Machine Learning workspace with a compute instance running. For more information, see [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).
 
 ## Deploy to the compute instances
 
 An example notebook that demonstrates local deployments is included on your compute instance. Use the following steps to load the notebook and deploy the model as a web service on the VM:
 
-1. From [Azure Machine Learning studio](https://ml.azure.com), select your Azure Machine Learning compute instances.
+1. From [Azure Machine Learning studio](https://ml.azure.com), select "Notebooks", and then select how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb under "Sample notebooks". Clone this notebook to your user folder.
 
-1. Open the `samples-*` subdirectory, and then open `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb`. Once open, run the notebook.
+1. Find the notebook cloned in step 1, choose or create a Compute Instance to run the notebook.
 
     ![Screenshot of the running local service on notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+
 
 1. The notebook displays the URL and port that the service is running on. For example, `https://localhost:6789`. You can also run the cell containing `print('Local service port: {}'.format(local_service.port))` to display the port.
 

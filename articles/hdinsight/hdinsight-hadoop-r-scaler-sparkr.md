@@ -1,16 +1,16 @@
 ---
 title: Use ScaleR and SparkR with Azure HDInsight
 description: Use ScaleR and SparkR for data manipulation and model development with ML Services on Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
+ROBOTS: NOINDEX
 ---
 
 # Combine ScaleR and SparkR in HDInsight
+
+[!INCLUDE [retirement banner](includes/ml-services-retirement.md)]
 
 This document shows how to predict flight arrival delays using a **ScaleR** logistic regression model. The example uses flight delay and weather data, joined using **SparkR**.
 
@@ -531,8 +531,6 @@ In this article, we've shown how it's possible to combine use of SparkR for data
 ## Next steps and more information
 
 - For more information on use of ML Server on Apache Spark, see the [Getting started guide](/machine-learning-server/r/how-to-revoscaler-spark).
-
-- For information on ML Services on HDInsight, see [Overview of ML Services on HDInsight](r-server/r-server-overview.md).
 
 For more information on use of SparkR, see:
 

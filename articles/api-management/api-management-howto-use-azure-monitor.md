@@ -34,7 +34,7 @@ You can also use API Management's built-in [analytics](howto-use-analytics.md) t
 
 ## View metrics of your APIs
 
-API Management emits [metrics](../azure-monitor/platform/data-platform-metrics.md) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the two most frequently used metrics. For a list of all available metrics, see [supported metrics](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
+API Management emits [metrics](../azure-monitor/essentials/data-platform-metrics.md) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the two most frequently used metrics. For a list of all available metrics, see [supported metrics](../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice).
 
 * **Capacity** - helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions including response codes, location, hostname, and errors. 
@@ -57,7 +57,7 @@ To access metrics:
 
 ## Set up an alert rule 
 
-You can receive [alerts](../azure-monitor/platform/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert](../azure-monitor/platform/alerts-metric.md) to do the following when it triggers:
+You can receive [alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert](../azure-monitor/alerts/alerts-metric.md) to do the following when it triggers:
 
 * Send an email notification
 * Call a webhook
@@ -135,7 +135,7 @@ To configure resource logs:
 
    You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to a Log Analytics workspace. 
 
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
+For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## View diagnostic data in Azure Monitor
 
@@ -146,7 +146,7 @@ If you enable collection of GatewayLogs or metrics in a Log Analytics workspace,
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu":::
 
-Run queries to view the data. Several [sample queries](../azure-monitor/log-query/example-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
+Run queries to view the data. Several [sample queries](../azure-monitor/logs/queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -155,9 +155,9 @@ ApiManagementGatewayLogs
 
 For more information about using resource logs for API Management, see:
 
-* [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md), or try the [Log Analytics Demo environment](https://portal.loganalytics.io/demo).
+* [Get started with Azure Monitor Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md), or try the [Log Analytics Demo environment](https://portal.loganalytics.io/demo).
 
-* [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+* [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 The following JSON indicates a sample entry in GatewayLogs for a successful API request. For details, see the [schema reference](gateway-log-schema-reference.md). 
 

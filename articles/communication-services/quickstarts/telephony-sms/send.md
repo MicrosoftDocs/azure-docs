@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
@@ -15,26 +15,26 @@ zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 > [!IMPORTANT]
 > SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
-> For more information, see **[Plan your telephony and SMS solution](../../concepts/telephony-sms/plan-solution.md)**.
+> For more information, see **[Phone number types](../../concepts/telephony-sms/plan-solution.md)**.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
+[!INCLUDE [Send SMS with .NET SDK](./includes/send-sms-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Send SMS with JavaScript client library](./includes/send-sms-js.md)]
+[!INCLUDE [Send SMS with JavaScript SDK](./includes/send-sms-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Send SMS with Python client library](./includes/send-sms-python.md)]
+[!INCLUDE [Send SMS with Python SDK](./includes/send-sms-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Send SMS with Java client library](./includes/send-sms-java.md)]
+[!INCLUDE [Send SMS with Java SDK](./includes/send-sms-java.md)]
 ::: zone-end
 
 ## Troubleshooting
@@ -50,10 +50,10 @@ If you want to clean up and remove a Communication Services subscription, you ca
 In this quickstart, you learned how to send SMS messages using Azure Communication Services.
 
 > [!div class="nextstepaction"]
-> [Subscribe to SMS Events](./handle-sms-events.md)
+> [Receive SMS and Delivery Report Events](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Plan your PSTN Solution](../../concepts/telephony-sms/plan-solution.md)
+> [Phone number types](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about SMS](../../concepts/telephony-sms/concepts.md)

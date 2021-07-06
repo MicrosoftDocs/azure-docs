@@ -4,19 +4,19 @@ description: Use Visual Studio to create a C# app that connects to a database in
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: "devx-track-csharp, sqldbrb=2"
 ms.devlang: dotnet
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 08/10/2020
 ---
 # Quickstart: Use .NET and C# in Visual Studio to connect to and query a database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This quickstart shows how to use the [.NET Framework](https://www.microsoft.com/net/) and C# code in Visual Studio to query a database in Azure SQL or Synapse SQL with Transact-SQL statements.
+This quickstart shows how to use the [.NET Framework](https://dotnet.microsoft.com) and C# code in Visual Studio to query a database in Azure SQL or Synapse SQL with Transact-SQL statements.
 
 ## Prerequisites
 

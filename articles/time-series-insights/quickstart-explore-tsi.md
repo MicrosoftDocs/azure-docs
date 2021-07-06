@@ -1,15 +1,16 @@
 ---
 title: 'Quickstart: Explore the Gen2 demo environment - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Explore key features of the Azure Time Series Insights Gen2 demo environment.
-ms.service: time-series-insights 
+ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/02/2020
+ms.date: 03/01/2021
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Gen2 demo environment
@@ -27,18 +28,33 @@ In this quickstart, you learn how to use Azure Time Series Insights Gen2 to find
 
 The Azure Time Series Insights Gen2 Explorer demonstrates historical data and root cause analysis. To get started:
 
-1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.  
+1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.
 
 1. If you're prompted, sign in to the Azure Time Series Insights Gen2 Explorer by using your Azure account credentials.
 
 ## Work with historical data
 
-1. In **Contoso Plant 1**, look at wind turbine **W7**.  
+1. Select **Contoso WindFarm Hierarchy**.
+
+   [![Contoso WindFarm Hierarchy](media/quickstart-explore/quick-start-contoso-1.png)](media/quickstart-explore/quick-start-contoso-1.png#lightbox)
+
+1. In **Contoso Plant 1**, look at wind turbine **W7**.
+
+   [![W7 in Contoso Plant 1](media/quickstart-explore/quick-start-contoso-2.png)](media/quickstart-explore/quick-start-contoso-2.png#lightbox)
 
    1. Change the view range to **1/1/17 20:00:00.00 to 3/10/17 20:00:00.00 (UTC)**.
+
+      [![Range view](media/quickstart-explore/range-setting-1.png)](media/quickstart-explore/range-setting-1.png#lightbox)
+
+      [![Range view setting](media/quickstart-explore/range-setting-2.png)](media/quickstart-explore/range-setting-2.png#lightbox)
+
+   1. Adjust the range view using the zoom in **(+)** and out **(-)** and moving the slide bar.
+
+      [![Adjust range view](media/quickstart-explore/view-range-setting.png)](media/quickstart-explore/view-range-setting.png#lightbox)
+
    1. To select a sensor, select **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Then, review the values that are shown.
 
-      [![W7 in Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
+      [![Generator speed](media/quickstart-explore/quick-start-generator-speed-1.png)](media/quickstart-explore/quick-start-generator-speed-1.png#lightbox)
 
 1. Recently, Contoso found a fire in wind turbine **W7**. Opinions vary about what caused the fire. In Azure Time Series Insights Gen2, the fire alert sensor that was activated during the fire is displayed.
 
@@ -104,18 +120,11 @@ By using Azure Time Series Insights Gen2 and sensor telemetry, we've discovered 
 
     Two of the voltage sensors are operating comparably and within normal parameters. It looks like the **GridVoltagePhase3** sensor is the culprit.
 
-1. With highly contextual data added, the phase 3 drop-off appears even more to be the problem. Now, we have a good lead on the cause of the warning. We're ready to refer the issue to our maintenance team.  
+1. With highly contextual data added, the phase 3 drop-off appears even more to be the problem. Now, we have a good lead on the cause of the warning. We're ready to refer the issue to our maintenance team.
 
     * Change the display to overlay all **Generator System** sensors on the same chart scale.
 
       [![Change the display to include everything](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
-
-## Clean up resources
-
-Now that you've completed the quickstart, clean up the resources that you created:
-
-1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, and locate your Azure Time Series Insights Gen2 resource group.
-1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 

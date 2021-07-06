@@ -17,7 +17,7 @@ This article describes how Role-Based Access Control (RBAC) is implemented in Az
 
 ## Azure Purview's pre-defined Data Plane roles
 
-Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what, in Azure Purview. These roles are:
+Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what in Azure Purview. These roles are:
 
 * **Purview Data Reader Role** - Has access to the Purview portal and can read all content in Azure Purview except for scan bindings
 * **Purview Data Curator Role** - Has access to the Purview portal and can read all content in Azure Purview except for scan bindings, can edit information about assets, can edit classification definitions and glossary terms, and can apply classifications and glossary terms to assets.
@@ -71,8 +71,8 @@ For users who have access to their company's [Azure portal](https://portal.azure
 |I need to enable a Service Principal or other programmatic identity to set up and monitor scans in Azure Purview without allowing the programmatic identity to access the catalog's information |Purview Data Source Administrator Role|
 |I need to put users into roles in Azure Purview | Owner or User Access Administrator |
 
-Advance to the next article to learn how to add a security principal to a role.
+For more information on how to add a security principal to a role, refer to [Quickstart: Create an Azure Purview account](create-catalog-portal.md) .
 
 ## Next steps
 
-* [Quickstart: Create an Azure Purview account](create-catalog-portal.md)
+* [Data insights](concept-insights.md)

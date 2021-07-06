@@ -81,7 +81,7 @@ This section describes the Data Box Gateway security features that protect in-tr
 
 To secure the virtual disks on your Data Box Gateway virtual machine, we recommend that you enable BitLocker. By default, BitLocker is not enabled. For more information, see:
 
-- [Encryption support settings in Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Encryption support settings in Hyper-V Manager](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
 - [BitLocker support in a virtual machine](https://kb.vmware.com/s/article/2036142)
 
 ## Manage personal information

@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ This video provides an overview of how to change an access package.
 
 If you need to add resources to an access package, you should check whether the resources your need are available in the catalog. If you are an access package manager, you cannot add resources to a catalog, even if you own them. You are restricted to using the resources available in the catalog.
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -141,6 +141,8 @@ Here are some considerations when selecting an application:
 Azure AD can automatically assign users access to a SharePoint Online site or SharePoint Online site collection when they are assigned an access package.
 
 1. On the **Add resource roles to access package** page, click **SharePoint sites** to open the Select SharePoint Online sites pane.
+
+    :::image type="content" source="media/entitlement-management-access-package-resources/resource-sharepoint-add.png" alt-text="Access package - Add resource roles - Select SharePoint sites - Portal view":::
 
 1. Select the SharePoint Online sites you want to include in the access package.
 

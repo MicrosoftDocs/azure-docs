@@ -11,13 +11,13 @@ ms.date: 10/20/2019
 
 # Tutorial: Deploy and walk through a digital distribution center application template
 
-
-
 This tutorial shows you how to get started by deploying an IoT Central **digital distribution center** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
 In this tutorial, you learn how to, 
-* Create digital distribution center application 
-* Walk through the application 
+
+> [!div class="checklist"]
+> * Create digital distribution center application 
+> * Walk through the application 
 
 ## Prerequisites
 * No specific pre-requisites required to deploy this app
@@ -106,10 +106,8 @@ If you're not going to continue to use this application, delete the application 
 > ![Screenshot showing how to delete the application when you're done with it](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## Next steps
-* Learn more about digital distribution center solution architecture 
+
+Learn more about digital distribution center solution architecture:
+
 > [!div class="nextstepaction"]
 > [digital distribution center concept](./architecture-digital-distribution-center.md)
-* Learn more about other 
-[IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about IoT Central refer to 
-[IoT Central overview](../core/overview-iot-central.md)

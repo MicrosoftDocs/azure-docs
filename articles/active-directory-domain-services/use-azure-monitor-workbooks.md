@@ -42,7 +42,7 @@ Azure AD DS includes the following two workbook templates:
 * Security overview report
 * Account activity report
 
-For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
+For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
 ## Use the security overview report workbook
 

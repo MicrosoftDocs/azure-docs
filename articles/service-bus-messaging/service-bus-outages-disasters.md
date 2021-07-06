@@ -2,7 +2,7 @@
 title: Insulate Azure Service Bus applications against outages and disasters
 description: This articles provides techniques to protect applications against a potential Azure Service Bus outage.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/10/2021
 ---
 
 # Best practices for insulating applications against Service Bus outages and disasters
@@ -18,11 +18,13 @@ High Availability and Disaster Recovery concepts are built right into the Azure 
 
 ### Geo-Disaster Recovery
 
-Service Bus Premium supports Geo-disaster recovery, at the namespace level. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). The disaster recovery feature, available for the [Premium SKU](service-bus-premium-messaging.md) only, implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces.
+Service Bus Premium supports Geo-disaster recovery, at the namespace level. For more information, see [Azure Service Bus Geo-disaster recovery](service-bus-geo-dr.md). The disaster recovery feature, available for the [Premium SKU](service-bus-premium-messaging.md) only, implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. With Geo-Disaster Recovery, only metadata for entities is replicated between primary and secondary namespaces.  
 
 ### Availability Zones
 
 The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of messaging store (1 primary and 2 secondary). Service Bus keeps all the three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
+
+When you use availability zones, both metadata and data (messages) are replicated across data centers in the availability zone. 
 
 > [!NOTE]
 > The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.

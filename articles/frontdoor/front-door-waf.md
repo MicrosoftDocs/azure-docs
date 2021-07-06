@@ -31,7 +31,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- The instructions in this tutorial use the Azure CLI. [View this guide](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) to get started with the Azure CLI.
+- The instructions in this tutorial use the Azure CLI. [View this guide](/cli/azure/get-started-with-azure-cli) to get started with the Azure CLI.
 
   > [!TIP] 
   > An easy and quick way to get started on the Azure CLI is with [Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
@@ -43,7 +43,7 @@ In this tutorial, you'll learn how to:
    ```
 
 > [!NOTE] 
-> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
+> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/).
 
 ## Create an Azure Front Door resource
 
@@ -135,11 +135,11 @@ Finally, if you're using a custom domain to reach your web application and want 
 
 ## Lock down your web application
 
-We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.yml#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-).
 
 ## Clean up resources
 
-When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command to remove the resource group, Front Door, and WAF policy:
+When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, Front Door, and WAF policy:
 
 ```azurecli-interactive
   az group delete \

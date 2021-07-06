@@ -17,23 +17,35 @@ If you've configured threat intelligence-based filtering, the associated rules a
 
 :::image type="content" source="media/threat-intelligence-settings/threat-intelligence-policy.png" alt-text="Threat intelligence policy":::
 
-## Threat intelligence Mode
+## Threat intelligence mode
 
-You can choose to log only an alert when a rule is triggered, or you can choose alert and deny mode.
+You can configure threat intelligence in one of the three modes that are described in the following table. By default, threat intelligence-based filtering is enabled in alert mode.
 
-By default, threat intelligence-based filtering is enabled in alert mode.
+|Mode |Description  |
+|---------|---------|
+|`Off`     | The threat intelligence feature is not enabled for your firewall. |
+|`Alert only`     | You will receive high-confidence alerts for traffic going through your firewall to or from known malicious IP addresses and domains. |
+|`Alert and deny`     | Traffic is blocked and you will receive high-confidence alerts when traffic is detected attempting to go through your firewall to or from known malicious IP addresses and domains. |
 
-## Allowed list addresses
+> [!NOTE]
+> Threat intelligence mode is inherited from parent policies to child policies. A child policy must be configured with the same or a stricter mode than the parent policy.
 
-You can configure a list of allowed IP addresses so that threat intelligence won't filter any of the addresses, ranges, or subnets that you specify.
+## Allowlist addresses
 
+Threat intelligence might trigger false positives and block traffic that actually is valid. You can configure a list of allowed IP addresses so that threat intelligence won't filter any of the addresses, ranges, or subnets that you specify.  
 
+![Allowlist addresses](media/threat-intelligence-settings/allow-list.png)
+
+You can update the allowlist with multiple entries at once by uploading a CSV file. The CSV file can only contain IP addresses and ranges. The file can't contain headings.
+
+> [!NOTE]
+> Threat intelligence allowlist addresses are inherited from parent policies to child policies. Any IP address or range added to a parent policy will apply for all child policies as well.
 
 ## Logs
 
-The following log excerpt shows a triggered rule:
+The following log excerpt shows a triggered rule for outbound traffic to a malicious site:
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",

@@ -10,7 +10,7 @@ ms.date: 07/30/2019
 
 Search is a feature of [Application Insights](./app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-(For more complex queries over your data, use [Analytics](../log-query/log-analytics-tutorial.md).)
+(For more complex queries over your data, use [Analytics](../logs/log-analytics-tutorial.md).)
 
 ## Where do you see Search?
 
@@ -77,7 +77,7 @@ To find all the items with the same property value, either type it into the sear
 ## Search the data
 
 > [!NOTE]
-> To write more complex queries, open [**Logs (Analytics)**](../log-query/log-analytics-tutorial.md) from the top of the Search blade.
+> To write more complex queries, open [**Logs (Analytics)**](../logs/log-analytics-tutorial.md) from the top of the Search blade.
 >
 
 You can search for terms in any of the property values. This is useful if you have written [custom events](./api-custom-events-metrics.md) with property values.
@@ -124,7 +124,7 @@ The first time you do this, you are asked to configure a link to your Azure DevO
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](./java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
+* Capture log traces from your favorite logging framework in [.NET](./asp-net-trace-logs.md) or [Java](java-2x-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events.
 * [Write code](./api-custom-events-metrics.md) to send custom events, page views, and exceptions.
 
 [Learn how to send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md).
@@ -141,7 +141,7 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 
 ## <a name="add"></a>Next steps
 
-* [Write complex queries in Analytics](../log-query/log-analytics-tutorial.md)
+* [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)
 * [Send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](./monitor-web-app-availability.md)
-* [Troubleshooting](../faq.md)
+* [Troubleshooting](../faq.yml)

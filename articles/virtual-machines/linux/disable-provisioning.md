@@ -2,7 +2,8 @@
 title: Disable or remove the provisioning agent
 description: Learn how to disable or remove the provisioning agent in Linux VMs and images.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
@@ -26,9 +27,9 @@ The Azure platform hosts many extensions that range from VM configuration, monit
 
 ## Disabling extension processing
 
-There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the AZ CLI, you can [list](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) and [delete](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+There are several ways to disable extension processing, depending on your needs, but before you continue, you **MUST** remove all extensions deployed to the VM, for example using the Azure CLI, you can [list](/cli/azure/vm/extension#az_vm_extension_list) and [delete](/cli/azure/vm/extension#az_vm_extension_delete):
 
-```bash
+```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
 > [!Note]
@@ -38,7 +39,7 @@ az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ### Disable at the control plane
 If you are not sure whether you will need extensions in the future, you can leave the Linux Agent installed on the VM, then disable extension processing capability from the platform. This is option is available in `Microsoft.Compute` api version `2018-06-01` or higher, and does not have a dependency on the Linux Agent version installed.
 
-```bash
+```azurecli
 az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
 ```
 You can easily reenable this extension processing from the platform, with the above command, but set it to 'true'.
@@ -127,7 +128,7 @@ Once you have completed the above, you can create the custom image using the Azu
 
 
 **Create a regular managed image**
-```bash
+```azurecli
 az vm deallocate -g <resource_group> -n <vm_name>
 az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
@@ -135,7 +136,7 @@ az image create -g <resource_group> -n <image_name> --source <vm_name>
 
 **Create an image version in a Shared Image Gallery**
 
-```bash
+```azurecli
 az sig image-version create \
     -g $sigResourceGroup 
     --gallery-name $sigName 
@@ -150,9 +151,9 @@ When you create the VM from the image with no Linux Agent, you need to ensure th
 > 
 > If you do not do the above, the platform will try to send the extension configuration and timeout after 40min.
 
-To deploy the VM with extensions disabled, you can use the Azure CLI with [--enable-agent](/cli/azure/vm#az-vm-create).
+To deploy the VM with extensions disabled, you can use the Azure CLI with [--enable-agent](/cli/azure/vm#az_vm_create).
 
-```bash
+```azurecli
 az vm create \
     --resource-group $resourceGroup \
     --name $prodVmName \

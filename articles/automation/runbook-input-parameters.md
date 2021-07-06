@@ -4,7 +4,8 @@ description: This article tells how to configure runbook input parameters, which
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Configure runbook input parameters
 
@@ -69,7 +70,7 @@ To illustrate the configuration of input parameters for a graphical runbook, let
 A graphical runbook uses these these major runbook activities:
 
 * Configuration of the Azure Run As account to authenticate with Azure. 
-* Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet to get VM properties.
+* Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to get VM properties.
 * Use of the [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) activity to output the VM names. 
 
 The `Get-AzVM` activity defines two inputs, the VM name and the resource group name. Since these names can be different each time the runbook starts, you must add input parameters to your runbook to accept these inputs. Refer to [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
@@ -135,7 +136,7 @@ In the label beneath the input box, you can see the properties that have been se
 
 #### Start a published runbook using PowerShell cmdlets and assign parameters
 
-* **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0).
+* **Azure Resource Manager cmdlets:** You can start an Automation runbook that was created in a resource group by using [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook).
 
    ```powershell
      $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
@@ -269,7 +270,7 @@ When you execute a runbook by using a webhook, the predefined input parameter `[
 It can be useful to store data that you want to pass to a runbook in a JSON file. For example, you might create a JSON file that contains all parameters that you want to pass to a runbook. To do this, you must convert the JSON code to a string and then convert the string to a PowerShell object before passing it to the runbook.
 
 This section uses an example in which a PowerShell script calls
-[Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) to start a PowerShell runbook, passing the contents of the JSON file to the runbook. The PowerShell runbook starts an Azure VM by retrieving the parameters for the VM from the JSON object.
+[Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) to start a PowerShell runbook, passing the contents of the JSON file to the runbook. The PowerShell runbook starts an Azure VM by retrieving the parameters for the VM from the JSON object.
 
 ### Create the JSON file
 

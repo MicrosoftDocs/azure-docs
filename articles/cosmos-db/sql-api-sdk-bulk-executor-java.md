@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/12/2020
+ms.date: 04/06/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
@@ -25,7 +25,8 @@ ms.custom: devx-track-java
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
 > * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark Connector](sql-api-sdk-java-spark.md)
+> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
+> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
@@ -33,16 +34,36 @@ ms.custom: devx-track-java
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| | Link/notes |
 |---|---|
 |**Description**|The bulk executor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. bulk executor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos containers as patches.|
 |**SDK download**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Bulk executor library in GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
 | **API documentation**| [Java API reference documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Get started**|[Get started with the bulk executor library Java SDK](bulk-executor-java.md)|
-|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](/java/azure/jdk/)|
 
 ## Release notes
+### <a name="2.12.3"></a>2.12.3
+
+* Fix retry policy when `GoneException` is wrapped in `IllegalStateException` - this change is necessary to make sure Gateway cache is refreshed on 410 so the Spark connector (for Spark 2.4) can use a custom retry policy to allow queries to succeed during partition splits
+
+### <a name="2.12.2"></a>2.12.2
+
+* Fix an issue resulting in documents not always being imported on transient errors.
+
+### <a name="2.12.1"></a>2.12.1
+
+* Upgrade to use latest Cosmos Core SDK version.
+
+### <a name="2.12.0"></a>2.12.0
+
+* Improve handling of RU budget provided through the Spark Connector for  bulk operation. An initial one-time bulk import is performed from spark connector with a baseBatchSize and the RU consumption for the above batch import is collected.
+  A miniBatchSizeAdjustmentFactor is calculated based on the above RU consumption, and the mini-batch size is adjusted based on this. Based on the Elapsed time and the consumed RU for each batch import, a sleep duration is calculated to limit the RU consumption per second and is used to pause the thread prior to the next batch import.
+
+### <a name="2.11.0"></a>2.11.0
+
+* Fix a bug preventing bulk updates when using a nested partition key
 
 ### <a name="2.10.0"></a>2.10.0
 

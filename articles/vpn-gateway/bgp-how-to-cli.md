@@ -1,6 +1,7 @@
 ---
-title: 'Configure BGP on Azure VPN Gateway:CLI'
-description: This article walks you through configuring BGP with an Azure VPN gateway by using Azure Resource Manager and CLI.
+title: 'Configure BGP for VPN Gateway using CLI'
+titleSuffix: Azure VPN Gateway
+description: Learn how to configure BGP for VPN gateways using CLI.
 services: vpn-gateway
 author: yushwang
 

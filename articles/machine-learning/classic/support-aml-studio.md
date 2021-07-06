@@ -1,23 +1,23 @@
 ---
 title: 'ML Studio (classic) tutorial support & training - Azure'
-description: Get support and training and provide feedback for Azure Machine Learning Studio (classic)
+description: Get support and training and provide feedback for Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: troubleshooting
 
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019 
 ---
-# Get support and training for Azure Machine Learning Studio (classic)
+# Get support and training for Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![Green check mark.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![X indicating no.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
-
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
-This article provides information on how to learn more about Azure Machine Learning Studio (classic) and get support for your issues and questions.
+
+
+This article provides information on how to learn more about Machine Learning Studio (classic) and get support for your issues and questions.
 
 ## Learn more about Studio (classic)
 
@@ -35,7 +35,7 @@ Check out these support resources:
 
 + **Technical support for Azure Customers**: [Submit and manage support requests](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal.
 
-+ **User forum**: Ask questions, answer questions, and connect with other users in the [Azure Machine Learning Studio (classic) support forum](/answers/topics/azure-machine-learning.html).
++ **User forum**: Ask questions, answer questions, and connect with other users in the [Machine Learning Studio (classic) support forum](/answers/topics/azure-machine-learning.html).
 
 + **Stack Overflow**: Visit the Azure Machine Learning community on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) tagged with "Azure-Machine-Learning".
 

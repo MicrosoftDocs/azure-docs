@@ -9,8 +9,8 @@ ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
-ms.topic: conceptual
-ms.custom: how-to, data4ml
+ms.topic: how-to
+ms.custom: data4ml
 
 ---
 # Collect data from models in production
@@ -53,7 +53,7 @@ The path to the output data in the blob follows this syntax:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a
- [free account](https://aka.ms/AMLFree) before you begin.
+ [free account](https://azure.microsoft.com/free/) before you begin.
 
 - An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
@@ -61,11 +61,11 @@ The path to the output data in the blob follows this syntax:
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](/python/api/overview/azure/ml/install).
 
 ## Enable data collection
 
-You can enable [data collection](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?preserve-view=true&view=azure-ml-py) regardless of the model you deploy through Azure Machine Learning or other tools.
+You can enable [data collection](/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector) regardless of the model you deploy through Azure Machine Learning or other tools.
 
 To enable data collection, you need to:
 

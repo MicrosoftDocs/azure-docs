@@ -1,21 +1,17 @@
 ---
 title: Load data into Azure Data Lake Storage Gen1
 description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage Gen1'
-services: data-factory
-ms.author: jingwang
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/17/2018
+ms.date: 06/04/2021
 ---
 
 # Load data into Azure Data Lake Storage Gen1 by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (previously known as Azure Data Lake Store) is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Storage Gen1 lets you capture data of any size, type, and ingestion speed. The data is captured in a single place for operational and exploratory analytics.
 
@@ -64,9 +60,9 @@ This article shows you how to use the Data Factory Copy Data tool to _load data 
 
 ## Load data into Data Lake Storage Gen1
 
-1. In the **Get started** page, select the **Copy Data** tile to launch the Copy Data tool: 
+1. In the home page, select the **Ingest** tile to launch the Copy Data tool: 
 
-   ![Copy Data tool tile](./media/load-data-into-azure-data-lake-store/copy-data-tool-tile.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 2. In the **Properties** page, specify **CopyFromAmazonS3ToADLS** for the **Task name** field, and select **Next**:
 
     ![Properties page](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)

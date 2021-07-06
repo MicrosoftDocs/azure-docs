@@ -3,7 +3,7 @@ title: Azure AD Connect Health - Diagnose duplicated attribute synchronization e
 description: This document describes the diagnosis process of duplicated attribute synchronization errors and a potential fix of the orphaned object scenarios directly from the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -135,6 +135,9 @@ The user with conflicting attribute in Azure AD should be cleaned before you can
 
 **Updating source anchor to cloud-based user in your tenant is not supported.**  
 Cloud-based user in Azure AD should not have source anchor. Updating source anchor is not supported in this case. Manual fix is required from on premises. 
+
+**The fix process failed to update the values.**
+The specific settings such as [UserWriteback in Azure AD Connect](./how-to-connect-preview.md#user-writeback) is not supported. Please disable in the settings. 
 
 ## FAQ
 **Q.** What happens if execution of the **Apply Fix** fails?  

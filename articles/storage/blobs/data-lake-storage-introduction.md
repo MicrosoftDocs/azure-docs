@@ -12,9 +12,9 @@ ms.subservice: data-lake-storage-gen2
 
 # Introduction to Azure Data Lake Storage Gen2
 
-‎Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob storage](storage-blobs-introduction.md). 
+‎Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on [Azure Blob Storage](storage-blobs-introduction.md). 
 
-Data Lake Storage Gen2 converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you'll also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+Data Lake Storage Gen2 converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob Storage. For example, Data Lake Storage Gen2 provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you'll also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
 ## Designed for enterprise big data analytics
 
@@ -30,15 +30,15 @@ Data Lake Storage Gen2 builds on Blob storage and enhances performance, manageme
 
 -   **Security** is enforceable because you can define POSIX permissions on directories or individual files.
 
-Also, Data Lake Storage Gen2 is very cost effective because it is built on top of the low-cost [Azure Blob storage](storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
+Also, Data Lake Storage Gen2 is very cost effective because it is built on top of the low-cost [Azure Blob Storage](storage-blobs-introduction.md). The additional features further lower the total cost of ownership for running big data analytics on Azure.
 
 ## Key features of Data Lake Storage Gen2
 
--   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) (used to access data) is available within all Apache Hadoop environments. These environments include [Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/), and [Azure Synapse Analytics](/azure/synapse-analytics).
+-   **Hadoop compatible access**: Data Lake Storage Gen2 allows you to manage and access data just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). The new [ABFS driver](data-lake-storage-abfs-driver.md) (used to access data) is available within all Apache Hadoop environments. These environments include [Azure HDInsight](../../hdinsight/index.yml)*,* [Azure Databricks](/azure/databricks/), and [Azure Synapse Analytics](../../synapse-analytics/index.yml).
 
 -   **A superset of POSIX permissions**: The security model for Data Lake Gen2 supports ACL and POSIX permissions along with some extra granularity specific to Data Lake Storage Gen2. Settings may be configured through Storage Explorer or through frameworks like Hive and Spark.
 
--   **Cost effective**: Data Lake Storage Gen2 offers low-cost storage capacity and transactions. Features such as [Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md) optimize costs as data transitions through its lifecycle.
+-   **Cost effective**: Data Lake Storage Gen2 offers low-cost storage capacity and transactions. Features such as [Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md) optimize costs as data transitions through its lifecycle.
 
 -   **Optimized driver**: The ABFS driver is [optimized specifically](data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the endpoint `dfs.core.windows.net`.
 
@@ -48,13 +48,13 @@ Azure Storage is scalable by design whether you access via Data Lake Storage Gen
 
 ### Cost effectiveness
 
-Because Data Lake Storage Gen2 is built on top of Azure Blob storage, storage capacity and transaction costs are lower. Unlike other cloud storage services, you don't have to move or transform your data before you can analyze it. For more information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
+Because Data Lake Storage Gen2 is built on top of Azure Blob Storage, storage capacity and transaction costs are lower. Unlike other cloud storage services, you don't have to move or transform your data before you can analyze it. For more information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
 Additionally, features such as the [hierarchical namespace](data-lake-storage-namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end-to-end analytics job.
 
 ### One service, multiple concepts
 
-Because Data Lake Storage Gen2 is built on top of Azure Blob storage, multiple concepts can describe the same, shared things.
+Because Data Lake Storage Gen2 is built on top of Azure Blob Storage, multiple concepts can describe the same, shared things.
 
 The following are the equivalent entities, as described by different concepts. Unless specified otherwise these entities are directly synonymous:
 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ---
 
@@ -19,7 +19,12 @@ ms.author: curtand
 The **Change password** page of the **My Account** portal helps you to update an existing password for your work or school account, assuming you remember the password and that you're not locked out of your account. If you don't remember your password, if you're locked out of your account, or if you never got a password from your organization, you can use your security info and your mobile device to reset your password.
 
 >[!Important]
->This article is intended for users trying to update a known password for an existing work or school account. If you're a user trying to get into a personal account, such as for Xbox, Hotmail, or Outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article. If you're an administrator trying to find more information about how to test up self-service password reset for your employees or other users, see [Self-service password reset](../authentication/tutorial-enable-sspr.md).
+>This article is intended for users trying to update a known password for an existing work or school account. If you're a user trying to get into a personal account, such as for Xbox, Hotmail, or Outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article. If you see an error while signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>If you're an administrator trying to find more information about how to test up self-service password reset for your employees or other users, see [Self-service password reset](../authentication/tutorial-enable-sspr.md).
 
 ## Update a password from the Change password page
 

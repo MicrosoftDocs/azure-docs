@@ -42,11 +42,16 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-windows-cluster-x509-security.md) to know how to acquire or to Create a self-signed X.509 certificate.
 
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .NET Core 2.0, application should be built using Service Fabric SDK version 3.1 or later.
-* Install Microsoft.ServiceFabric.PowerShell.Http Module [In Preview] for making configuration calls.
+* Install Microsoft.ServiceFabric.PowerShell.Http Module (Preview) for making configuration calls.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> If your PowerShellGet version is less than 1.6.0, you'll need to update to add support for the *-AllowPrerelease* flag:
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.PowerShell.Http Module.
 
@@ -93,6 +98,10 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
             "parameters":  [{
                 "name": "SecretEncryptionCertThumbprint",
                 "value": "[Thumbprint]"
+            },
+            {
+                "name": "SecretEncryptionCertX509StoreName",
+                "value": "My"
             }]
         }
         ...

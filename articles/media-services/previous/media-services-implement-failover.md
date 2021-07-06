@@ -3,19 +3,17 @@ title: Implement failover streaming with Azure Media Services | Microsoft Docs
 description: This article shows how to implement a failover streaming scenario with Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Implement failover streaming with Media Services v2
 
@@ -749,7 +747,7 @@ In this section, you create the ability to handle redundancy.
 
 The example in this topic shows clear streaming. If you want to do protected streaming, there are a few other things you need to setup, you need to use the same **AssetDeliveryPolicy**, the same **ContentKeyAuthorizationPolicy** or external key server URL, and you need to duplicate the content keys with the same identifier.
 
-For more information about content protection, see [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md).
+For more information about content protection, see [Use AES-128 dynamic encryption and the key delivery service](media-services-playready-license-template-overview.md).
 
 ## See also
 

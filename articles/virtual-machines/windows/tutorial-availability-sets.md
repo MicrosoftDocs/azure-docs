@@ -1,19 +1,18 @@
 ---
-title: Tutorial - High availability for Windows VMs in Azure 
-description: In this tutorial, you learn how to use Azure PowerShell to deploy highly available virtual machines in Availability Sets
-services: virtual-machines-windows
-author: cynthn
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.topic: tutorial
-ms.date: 11/30/2018
-ms.author: cynthn
-ms.custom: mvc
+title: Deploy VMs in an availability set using Azure PowerShell
+description: Learn how to use Azure PowerShell to deploy highly available virtual machines in Availability Sets
+services: virtual-machines
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: how-to
+ms.date: 3/8/2021
+ms.author: mimckitt
+ms.reviewer: cynthn
+ms.custom: mvc, devx-track-azurepowershell
 
-#Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
 
-# Tutorial: Create and deploy highly available virtual machines with Azure PowerShell
+# Create and deploy virtual machines in an availability set using Azure PowerShell
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machines (VMs) using Availability Sets. Availability Sets make sure the VMs you deploy on Azure are distributed across multiple, isolated hardware nodes, in a cluster. 
 
@@ -25,14 +24,6 @@ In this tutorial, you learn how to:
 > * Check available VM sizes
 > * Check Azure Advisor
 
-
-## Availability set overview
-
-An Availability Set is a logical grouping capability for isolating VM resources from each other when they're deployed. Azure makes sure that the VMs you place within an Availability Set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or software failure happens, only a subset of your VMs are impacted and your overall solution stays operational. Availability Sets are essential for building reliable cloud solutions.
-
-Let’s consider a typical VM-based solution where you might have four front-end web servers and 2 back-end VMs. With Azure, you’d want to define two availability sets before you deploy your VMs: one for the web tier and one for the back tier. When you create a new VM, you specify the availability set as a parameter. Azure makes sure the VMs are isolated across multiple physical hardware resources. If the physical hardware that one of your servers is running on has a problem, you know the other instances of your servers will keep running because they're on different hardware.
-
-Use Availability Sets when you want to deploy reliable VM-based solutions in Azure.
 
 ## Launch Azure Cloud Shell
 
@@ -72,7 +63,7 @@ VMs must be created within the availability set to make sure they're correctly d
 
 When you create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm), you use the `-AvailabilitySetName` parameter to specify the name of the availability set.
 
-First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+First, set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
@@ -101,6 +92,12 @@ It takes a few minutes to create and configure both VMs. When finished, you have
 If you look at the availability set in the portal by going to **Resource Groups** > **myResourceGroupAvailability** > **myAvailabilitySet**, you should see how the VMs are distributed across the two fault and update domains.
 
 ![Availability set in the portal](./media/tutorial-availability-sets/fd-ud.png)
+
+> [!NOTE]
+> Under certain circumstances, 2 VMs in the same AvailabilitySet could shared the same FaultDomain. This can be confirmed by going into your availability set and checking the Fault Domain column. This can be cause from the following sequence while deploying the VMs:
+> 1. Deploy the 1st VM
+> 1. Stop/Deallocate the 1st VM
+> 1. Deploy the 2nd VM Under these circumstances, the OS Disk of the 2nd VM might be created on the same Fault Domain as the 1st VM, and so the 2nd VM will also land on the same FaultDomain. To avoid this issue, it's recommended to not stop/deallocate the VMs between deployments.
 
 ## Check for available VM sizes 
 

@@ -1,14 +1,11 @@
 ---
 title: Azure Data Factory connector overview 
 description: Learn the supported connectors in Data Factory.
-services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
-ms.author: jingwang
-ms.reviewer: craigg
+ms.date: 05/26/2021
+ms.author: jianleishen
 ---
 
 # Azure Data Factory connector overview
@@ -19,7 +16,7 @@ Azure Data Factory supports the following data stores and formats via Copy, Data
 
 ## Supported data stores
 
-[!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+[!INCLUDE [Connector overview](includes/data-factory-v2-connector-overview.md)]
 
 ## Integrate with more data stores
 

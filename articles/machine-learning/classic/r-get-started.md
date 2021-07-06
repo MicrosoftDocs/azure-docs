@@ -1,9 +1,9 @@
 ---
 title: Use R with Machine Learning Studio (classic) - Azure
-description: Use this R programming tutorial to get started with Azure Machine Learning Studio (classic) in R to create a forecasting solution.
+description: Use this R programming tutorial to get started with Machine Learning Studio (classic) in R to create a forecasting solution.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -11,12 +11,12 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
 ---
-# Get started with Azure Machine Learning Studio (classic) in R
+# Get started with Machine Learning Studio (classic) in R
 
-**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 <!-- Stephen F Elston, Ph.D. -->
-In this tutorial, you learn how to use Azure Machine Learning Studio (classic) to create, test, and execute R code. In the end, you'll have a complete forecasting solution.
+In this tutorial, you learn how to use Machine Learning Studio (classic) to create, test, and execute R code. In the end, you'll have a complete forecasting solution.
 
 > [!div class="checklist"]
 > * Create code for data cleaning and transformation.
@@ -182,7 +182,7 @@ cadairydata <- maml.mapInputPort(1)
 str(cadairydata)
 pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
 ## The following line should be executed only when running in
-## Azure Machine Learning Studio (classic)
+## Machine Learning Studio (classic)
 maml.mapOutputPort('cadairydata')
 ```
 
@@ -221,7 +221,7 @@ We already discussed loading datasets in [Load the dataset](#loading). After you
    str(cadairydata)
    pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = cadairydata)
    ## The following line should be executed only when running in
-   ## Azure Machine Learning Studio (classic)
+   ## Machine Learning Studio (classic)
    maml.mapOutputPort('cadairydata')
    ```
 
@@ -364,7 +364,7 @@ cadairydata <- maml.mapInputPort(1)
 cadairydata$Month <- as.factor(cadairydata$Month)
 str(cadairydata) # Check the result
 ## The following line should be executed only when running in
-## Azure Machine Learning Studio (classic)
+## Machine Learning Studio (classic)
 maml.mapOutputPort('cadairydata')
 ```
 
@@ -899,7 +899,7 @@ outframe
 
 
 ## WARNING!
-## The following line works only in Azure Machine Learning Studio (classic)
+## The following line works only in Machine Learning Studio (classic)
 ## When running in RStudio, this code will result in an error
 #maml.mapOutputPort('outframe')
 ```
@@ -1256,7 +1256,7 @@ rowNames = c("Trend Model", "Seasonal Model"),
 RMS.df
 
 ## The following line should be executed only when running in
-## Azure Machine Learning Studio (classic)
+## Machine Learning Studio (classic)
 maml.mapOutputPort('RMS.df')
 ```
 

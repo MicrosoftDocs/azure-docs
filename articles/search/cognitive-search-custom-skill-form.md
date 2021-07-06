@@ -26,11 +26,11 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 
 ## Train your model
 
-You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
+You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](../cognitive-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
 
 ## Set up the custom skill
 
-This tutorial uses the [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. Clone this repository to your local machine and navigate to **Vision/AnalyzeForm/** to access the project. Then open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
+This tutorial uses the [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vision/AnalyzeForm) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. Clone this repository to your local machine and navigate to **Vision/AnalyzeForm/** to access the project. Then open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
 
 First, add project-level environment variables. Locate the **AnalyzeForm** project on the left pane, right-click it and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
 * `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
@@ -73,12 +73,12 @@ Start with the request body template below.
 }
 ```
 
-Here you'll need to provide the URL of a form that has the same type as the forms you trained with. For testing purposes, you can use one of your training forms. If you followed the cURL quickstart, your forms will be located in an Azure blob storage account. Open Azure Storage Explorer, locate a form file, right-click it, and select **Get Shared Access Signature**. The next dialog window will provide a URL and SAS token. Enter these strings in the `"formUrl"` and `"formSasToken"` fields of your request body, respectively.
+Here you'll need to provide the URL of a form that has the same type as the forms you trained with. For testing purposes, you can use one of your training forms. If you followed the cURL quickstart, your forms will be located in an Azure Blob Storage account. Open Azure Storage Explorer, locate a form file, right-click it, and select **Get Shared Access Signature**. The next dialog window will provide a URL and SAS token. Enter these strings in the `"formUrl"` and `"formSasToken"` fields of your request body, respectively.
 
 > [!div class="mx-imgBorder"]
 > ![Azure storage explorer; a pdf document is selected](media/cognitive-search-skill-form/form-sas.png)
 
-If you want to analyze a remote document that isn't in Azure blob storage, paste its URL in the `"formUrl"` field and leave the `"formSasToken"` field blank.
+If you want to analyze a remote document that isn't in Azure Blob Storage, paste its URL in the `"formUrl"` field and leave the `"formSasToken"` field blank.
 
 > [!NOTE]
 > When the skill is integrated in a skillset, the URL and token will be provided by Cognitive Search.

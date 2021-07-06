@@ -1,12 +1,12 @@
 ---
-title: Deploy a Service Fabric managed cluster (preview)
+title: Deploy a Service Fabric managed cluster
 description: In this tutorial, you will deploy a Service Fabric managed cluster for testing.
 ms.topic: tutorial
-ms.date: 08/27/2020
-ms.custom: references_regions
+ms.date: 5/10/2021
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Tutorial: Deploy a Service Fabric managed cluster (preview)
+# Tutorial: Deploy a Service Fabric managed cluster
 
 In this tutorial series we will discuss:
 
@@ -32,7 +32,7 @@ Before you begin this tutorial:
 
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md).
 
-* Install [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (or later).
+* Install [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) (or later).
 
 ## Connect to your Azure account
 

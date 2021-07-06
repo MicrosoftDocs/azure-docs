@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/04/2021
+ms.date: 06/04/2021
 ms.reviewer: sngun
 ---
 
@@ -15,9 +15,6 @@ ms.reviewer: sngun
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 With the change feed pull model, you can consume the Azure Cosmos DB change feed at your own pace. As you can already do with the [change feed processor](change-feed-processor.md), you can use the change feed pull model to parallelize the processing of changes across multiple change feed consumers.
-
-> [!NOTE]
-> The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) only. The preview is not yet available for other SDK versions.
 
 ## Comparing with change feed processor
 
@@ -42,9 +39,8 @@ Here's some key differences between the change feed processor and pull model:
 | Ability to replay past changes | Yes, with push model | Yes, with pull model|
 | Polling for future changes | Automatically checks for changes based on user-specified `WithPollInterval` | Manual |
 | Behavior where there are no new changes | Automatically wait `WithPollInterval` and recheck | Must catch exception and manually recheck |
-| Process changes from entire container | Yes, and automatically parallelized across multiple threads/machine consuming from the same container| Yes, and manually parallelized using FeedTokens |
+| Process changes from entire container | Yes, and automatically parallelized across multiple threads/machine consuming from the same container| Yes, and manually parallelized using FeedRange |
 | Process changes from just a single partition key | Not supported | Yes|
-| Support level | Generally available | Preview |
 
 > [!NOTE]
 > Unlike when reading using the change feed processor, you must explicitly handle cases where there are no new changes. 
@@ -60,33 +56,35 @@ The `FeedIterator` comes in two flavors. In addition to the examples below that 
 Here's an example for obtaining a `FeedIterator` that returns entity objects, in this case a `User` object:
 
 ```csharp
-FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
+FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
 Here's an example for obtaining a `FeedIterator` that returns a `Stream`:
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning());
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
 If you don't supply a `FeedRange` to a `FeedIterator`, you can process an entire container's change feed at your own pace. Here's an example which starts reading all changes starting at the current time:
 
 ```csharp
-FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now());
+FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
-    try {
-        FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
+    FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
 
-        foreach (User user in users)
-            {
-                Console.WriteLine($"Detected change for user with id {user.id}");
-            }
-    }
-    catch {
+    if (users.Status == HttpStatusCode.NotModified)
+    {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
+    }
+    else 
+    {
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
     }
 }
 ```
@@ -98,22 +96,24 @@ Because the change feed is effectively an infinite list of items encompassing al
 In some cases, you may only want to process a specific partition key's changes. You can obtain a `FeedIterator` for a specific partition key and process the changes the same way that you can for an entire container.
 
 ```csharp
-FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue"))));
+FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<User>(
+    ChangeFeedStartFrom.Beginning(FeedRange.FromPartitionKey(new PartitionKey("PartitionKeyValue")), ChangeFeedMode.Incremental));
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
-    try {
-        FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
+    FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
 
-        foreach (User user in users)
-            {
-                Console.WriteLine($"Detected change for user with id {user.id}");
-            }
-    }
-    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    if (users.Status == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
+    }
+    else
+    {
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
     }
 }
 ```
@@ -142,21 +142,22 @@ Here's a sample that shows how to read from the beginning of the container's cha
 Machine 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]));
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]), ChangeFeedMode.Incremental);
 while (iteratorA.HasMoreResults)
 {
-    try {
-        FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-        foreach (User user in users)
-            {
-                Console.WriteLine($"Detected change for user with id {user.id}");
-            }
-    }
-    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    if (users.Status == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
+    }
+    else
+    {
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
     }
 }
 ```
@@ -164,54 +165,57 @@ while (iteratorA.HasMoreResults)
 Machine 2:
 
 ```csharp
-FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]));
+FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]), ChangeFeedMode.Incremental);
 while (iteratorB.HasMoreResults)
 {
-    try {
-        FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    FeedResponse<User> users = await iteratorA.ReadNextAsync();
 
-        foreach (User user in users)
-            {
-                Console.WriteLine($"Detected change for user with id {user.id}");
-            }
-    }
-    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    if (users.Status == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
+    }
+    else
+    {
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
     }
 }
 ```
 
 ## Saving continuation tokens
 
-You can save the position of your `FeedIterator` by creating a continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes. This allows the `FeedIterator` to resume at this point later. The following code will read through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
+You can save the position of your `FeedIterator` by obtaining the continuation token. A continuation token is a string value that keeps of track of your FeedIterator's last processed changes. This allows the `FeedIterator` to resume at this point later. The following code will read through the change feed since container creation. After no more changes are available, it will persist a continuation token so that change feed consumption can be later resumed.
 
 ```csharp
-FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning());
+FeedIterator<User> iterator = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 
 string continuation = null;
 
 while (iterator.HasMoreResults)
 {
-   try { 
-        FeedResponse<User> users = await iterator.ReadNextAsync();
-        continuation = users.ContinuationToken;
+    FeedResponse<User> users = await iterator.ReadNextAsync();
 
-        foreach (User user in users)
-            {
-                Console.WriteLine($"Detected change for user with id {user.id}");
-            }
-   }
-    catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
+    if (users.Status == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
-    }   
+        continuation = users.ContinuationToken;
+        // Stop the consumption since there are no new changes
+        break;
+    }
+    else
+    {
+        foreach (User user in users)
+        {
+            Console.WriteLine($"Detected change for user with id {user.id}");
+        }
+    }
 }
 
-// Some time later
-FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation));
+// Some time later when I want to check changes again
+FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.ContinuationToken(continuation), ChangeFeedMode.Incremental);
 ```
 
 As long as the Cosmos container still exists, a FeedIterator's continuation token never expires.

@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: This article discusses how to sync your network configuration for Azure App Service hosting plan with your Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to

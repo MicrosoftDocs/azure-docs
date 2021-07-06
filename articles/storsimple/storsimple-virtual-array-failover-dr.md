@@ -151,7 +151,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
     1. Select and click the StorSimple device that was used as the target device for the failover process.
     2. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
         ![Screenshot of the Devices blade. The target device is listed with a status of Online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. You will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
+14. You will need to [create a DNS alias](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc772053(v=ws.11)?redirectedfrom=MSDN) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR
 

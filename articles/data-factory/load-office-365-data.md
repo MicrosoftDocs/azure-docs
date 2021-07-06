@@ -1,22 +1,16 @@
 ---
 title: Load data from Office 365 by using Azure Data Factory 
 description: 'Use Azure Data Factory to copy data from Office 365'
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.author: jingwang
-
+ms.date: 06/04/2021
+ms.author: jianleishen
 ---
+
 # Load data from Office 365 by using Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article shows you how to use the Data Factory _load data from Office 365 into Azure Blob storage_. You can follow similar steps to copy data to Azure Data Lake Gen1 or Gen2. Refer to [Office 365 connector article](connector-office-365.md) on copying data from Office 365 in general.
 
@@ -45,9 +39,9 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 ## Create a pipeline
 
-1. On the "Let's get started" page, select **Create pipeline**.
+1. On the home page, select **Orchestrate**.
  
-    ![Create pipeline](./media/load-office-365-data/create-pipeline-entry.png)
+    ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 2. In the **General tab** for the pipeline, enter "CopyPipeline" for **Name** of the pipeline.
 

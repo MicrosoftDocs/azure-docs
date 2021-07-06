@@ -4,15 +4,18 @@ description: Soft-delete in Azure Key Vault allows you to recover deleted key va
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 12/15/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ---
 
 # Azure Key Vault soft-delete overview
 
 > [!IMPORTANT]
 > You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated soon. See full details [here](soft-delete-change.md)
+
+> [!IMPORTANT]
+> Soft-deleted vault triggers delete settings for integrated with Key Vault services i.e. Azure RBAC roles assignments, Event Grid subscriptions. After recovery of soft-deleted Key Vault settings for integrated services will need to be manually recreated. 
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
@@ -22,7 +25,7 @@ Key Vault's soft-delete feature allows recovery of the deleted vaults and delete
 
 ## Supporting interfaces
 
-The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+The soft-delete feature is available through the [REST API](/rest/api/keyvault/), the [Azure CLI](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md), and [.NET/C#](/dotnet/api/microsoft.azure.keyvault) interfaces, as well as [ARM templates](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## Scenarios
 
@@ -94,5 +97,6 @@ In general, when an object (a key vault or a key or a secret) is in deleted stat
 
 The following two guides offer the primary usage scenarios for using soft-delete.
 
+- [How to use Key Vault soft-delete with Portal](./key-vault-recovery.md?tabs=azure-portal)
 - [How to use Key Vault soft-delete with PowerShell](./key-vault-recovery.md) 
 - [How to use Key Vault soft-delete with CLI](./key-vault-recovery.md)

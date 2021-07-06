@@ -66,7 +66,7 @@ landingContent:
           - text: NuGet package
             url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
           - text: NuGet reference documentation
-            url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+            url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&preserve-view=true
       - linkListType: get-started
         links:
           - text: Develop Personalizer loop with Node.js

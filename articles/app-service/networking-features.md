@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 10/18/2020
+ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -19,6 +19,9 @@ There are two main deployment types for Azure App Service:
 - The single-tenant App Service Environment (ASE) hosts Isolated SKU App Service plans directly in your Azure virtual network. 
 
 The features you use will depend on whether you're in the multitenant service or in an ASE. 
+
+> [!NOTE]
+> Networking features are not available for [apps deployed in Azure Arc](overview-arc-integration.md).
 
 ## Multitenant App Service networking features 
 
@@ -106,9 +109,12 @@ This feature allows you to build a list of allow and deny rules that are evaluat
 
 The IP-based access restrictions feature helps when you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Some use cases for this feature:
 * Restrict access to your app from a set of well-defined addresses. 
-* Restrict access to traffic coming through a load-balancing service, like Azure Front Door. If you want to lock down your inbound traffic to Azure Front Door, create rules to allow traffic from 147.243.0.0/16 and 2a01:111:2050::/44. 
+* Restrict access to traffic coming through an external load-balancing service or other network appliances with known egress IP addresses. 
 
 To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
+
+> [!NOTE]
+> IP-based access restriction rules only handle virtual network address ranges when your app is in an App Service Environment. If your app is in the multitenant service, you need to use [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) to restrict traffic to select subnets in your virtual network.
 
 #### Access restriction rules based on service endpoints 
 
@@ -122,6 +128,25 @@ Some use cases for this feature:
 ![Diagram that illustrates the use of service endpoints with Application Gateway.](media/networking-features/service-endpoints-appgw.png)
 
 To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions][serviceendpoints].
+
+#### Access restriction rules based on service tags
+
+[Azure service tags][servicetags] are well defined sets of IP addresses for Azure services. Service tags group the IP ranges used in various Azure services and is often also further scoped to specific regions. This allows you to filter *inbound* traffic from specific Azure services. 
+
+For a full list of tags and more information, visit the service tag link above. 
+To learn how to enable this feature, see [Configuring access restrictions][iprestrictions].
+
+#### Http header filtering for access restriction rules
+
+For each access restriction rule, you can add additional http header filtering. This allows you to further inspect the incoming request and filter based on specific http header values. Each header can have up to 8 values per rule. The following list of http headers is currently supported: 
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Some use cases for http header filtering are:
+* Restrict access to traffic from proxy servers forwarding the host name
+* Restrict access to a specific Azure Front Door instance with a service tag rule and X-Azure-FDID header restriction
 
 ### Private Endpoint
 
@@ -271,7 +296,7 @@ Line-of-business (LOB) applications are internal applications that aren't normal
 
 If neither of these needs apply, you're better off using private endpoints. With private endpoints available in App Service, you can expose your apps on private addresses in your virtual network. The private endpoint you place in your virtual network can be reached across ExpressRoute and VPN connections. 
 
-Configuring private endpoints will expose your apps on a private address, but you'll need to configure DNS to reach that address from on-premises. To make this configuration work, you'll need to forward the Azure DNS private zone that contains your private endpoints to your on-premises DNS servers. Azure DNS private zones don't support zone forwarding, but you can support zone forwarding by using a DNS server for that purpose. The [DNS Forwarder](https://azure.microsoft.com/resources/templates/301-dns-forwarder/) template makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
+Configuring private endpoints will expose your apps on a private address, but you'll need to configure DNS to reach that address from on-premises. To make this configuration work, you'll need to forward the Azure DNS private zone that contains your private endpoints to your on-premises DNS servers. Azure DNS private zones don't support zone forwarding, but you can support zone forwarding by using a DNS server for that purpose. The [DNS Forwarder](https://azure.microsoft.com/resources/templates/dns-forwarder/) template makes it easier to forward your Azure DNS private zone to your on-premises DNS servers.
 
 ## App Service ports
 
@@ -296,3 +321,4 @@ If you scan App Service, you'll find several ports that are exposed for inbound 
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
+[servicetags]: ../virtual-network/service-tags-overview.md

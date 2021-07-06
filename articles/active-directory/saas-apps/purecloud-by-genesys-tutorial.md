@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PureCloud by Genesys | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and PureCloud by Genesys.
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Genesys Cloud for Azure | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Genesys Cloud for Azure.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,109 +9,110 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 05/26/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with PureCloud by Genesys
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Genesys Cloud for Azure
 
-In this tutorial, you'll learn how to integrate PureCloud by Genesys with Azure Active Directory (Azure AD). After you do that, you can:
+In this tutorial, you'll learn how to integrate Genesys Cloud for Azure with Azure Active Directory (Azure AD). When you integrate Genesys Cloud for Azure with Azure AD, you can:
 
-* Use Azure AD to control which users can access PureCloud by Genesys.
-* Enable your users to be automatically signed-in to PureCloud by Genesys with their Azure AD accounts.
-* Manage your accounts in one central location: the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+* Control in Azure AD who has access to Genesys Cloud for Azure.
+* Enable your users to be automatically signed-in to Genesys Cloud for Azure with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have one, you can get a [free account](https://azure.microsoft.com/free/).
-* A PureCloud by Genesys single sign-on (SSO)–enabled subscription.
+* A Genesys Cloud for Azure single sign-on (SSO)–enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* PureCloud by Genesys supports **SP and IDP**–initiated SSO.
+* Genesys Cloud for Azure supports **SP and IDP**–initiated SSO.
 
 > [!NOTE]
-> Because the ID for this application is a fixed-string value, only one instance can be configured in one tenant.
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding PureCloud by Genesys from the gallery
+## Add Genesys Cloud for Azure from the gallery
 
-To configure integration of PureCloud by Genesys into Azure AD, you must add PureCloud by Genesys from the gallery to your list of managed SaaS apps. To do this, follow these steps:
+To configure integration of Genesys Cloud for Azure into Azure AD, you must add Genesys Cloud for Azure from the gallery to your list of managed SaaS apps. To do this, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account or by using a personal Microsoft account.
+1. Sign in to the Azure portal by using a work or school account or by using a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **PureCloud by Genesys** in the search box.
-1. Select **PureCloud by Genesys** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. In the **Add from the gallery** section, type **Genesys Cloud for Azure** in the search box.
+1. Select **Genesys Cloud for Azure** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for PureCloud by Genesys
+## Configure and test Azure AD SSO for Genesys Cloud for Azure
 
-Configure and test Azure AD SSO with PureCloud by Genesys using a test user named **B.Simon**. For SSO to work, you must establish a link relationship between an Azure AD user and the related user in PureCloud by Genesys.
+Configure and test Azure AD SSO with Genesys Cloud for Azure using a test user named **B.Simon**. For SSO to work, you must establish a link relationship between an Azure AD user and the related user in Genesys Cloud for Azure.
 
-To configure and test Azure AD SSO with PureCloud by Genesys, complete the following building blocks:
+To configure and test Azure AD SSO with Genesys Cloud for Azure, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure PureCloud by Genesys SSO](#configure-purecloud-by-genesys-sso)** to configure the single sign-on settings on application side.
-    1. **[Create a PureCloud by Genesys test user](#create-purecloud-by-genesys-test-user)** to have a counterpart of B.Simon in PureCloud by Genesys that's linked to the Azure AD representation of user.
+1. **[Configure Genesys Cloud for Azure SSO](#configure-genesys-cloud-for-azure-sso)** to configure the single sign-on settings on application side.
+    1. **[Create Genesys Cloud for Azure test user](#create-genesys-cloud-for-azure-test-user)** to have a counterpart of B.Simon in Genesys Cloud for Azure that's linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 To enable Azure AD SSO in the Azure portal, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **PureCloud by Genesys** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Genesys Cloud for Azure** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a Single Sign-On method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, select the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP**-initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP**-initiated mode, perform the following steps:
 
-    a. In the **Identifier** box, enter a URL that corresponds to your region:
+    a. In the **Identifier** box, enter the URLs that corresponds to your region:
+    
+    | Identifier URL |
+    |---|
+    | https://login.mypurecloud.com/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
+    | https://login.mypurecloud.com.au/saml |
+    |
 
-    ```http
-    https://login.mypurecloud.com/saml
-    https://login.mypurecloud.de/saml
-    https://login.mypurecloud.jp/saml
-    https://login.mypurecloud.ie/saml
-    https://login.mypurecloud.au/saml
-    ```
+    b. In the **Reply URL** box, enter the URLs that corresponds to your region:
 
-    b. In the **Reply URL** box, enter a URL that corresponds to your region:
-
-    ```http
-    https://login.mypurecloud.com/saml
-    https://login.mypurecloud.de/saml
-    https://login.mypurecloud.jp/saml
-    https://login.mypurecloud.ie/saml
-    https://login.mypurecloud.com.au/saml
-    ```
+    | Reply URL |
+    |---|
+    | https://login.mypurecloud.com/saml |
+    | https://login.mypurecloud.de/saml |
+    | https://login.mypurecloud.jp/saml |
+    | https://login.mypurecloud.ie/saml |
+    | https://login.mypurecloud.com.au/saml |
+    |
 
 1. Select **Set additional URLs** and take the following step if you want to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** box, enter a URL that corresponds to your region:
+    In the **Sign-on URL** box, enter the URLs that corresponds to your region:
 	
-    ```http
-    https://login.mypurecloud.com
-    https://login.mypurecloud.de
-    https://login.mypurecloud.jp
-    https://login.mypurecloud.ie
-    https://login.mypurecloud.com.au
-    ```
+    |Sign-on URL |
+    |---|
+    | https://login.mypurecloud.com |
+    | https://login.mypurecloud.de |
+    | https://login.mypurecloud.jp |
+    | https://login.mypurecloud.ie |
+    | https://login.mypurecloud.com.au |
+    |
 
-1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes:
+1. Genesys Cloud for Azure application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes:
 
 	![image](common/default-attributes.png)
 
-1. Additionally, PureCloud by Genesys application expects a few more attributes to be passed back in the SAML response, as shown in the following table. These attributes are also pre-populated, but you can review them as needed.
+1. Additionally, Genesys Cloud for Azure application expects a few more attributes to be passed back in the SAML response, as shown in the following table. These attributes are also pre-populated, but you can review them as needed.
 
 	| Name | Source attribute|
 	| ---------------| --------------- |
@@ -122,7 +123,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. In the **Set up PureCloud by Genesys** section, copy the appropriate URL (or URLs), based on your requirements.
+1. In the **Set up Genesys Cloud for Azure** section, copy the appropriate URL (or URLs), based on your requirements.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -140,33 +141,27 @@ In this section, you'll create a test user named B.Simon in the Azure portal:
 
 ### Assign the Azure AD test user
 
-In this section, you'll set up  B.Simon to use Azure single sign-on by granting access to PureCloud by Genesys.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Genesys Cloud for Azure.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **PureCloud by Genesys**.
+1. In the applications list, select **Genesys Cloud for Azure**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+## Configure Genesys Cloud for Azure SSO
 
-1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-
-	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog box, select **B.Simon** from the Users list, and then choose the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list, and then choose the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog box, select the **Assign** button.
-
-## Configure PureCloud by Genesys SSO
-
-1. In a different web browser window, sign in to PureCloud by Genesys as an administrator.
+1. In a different web browser window, sign in to Genesys Cloud for Azure as an administrator.
 
 1. Select **Admin** at the top and then go to **Single Sign-on** under **Integrations**.
 
-	![Screenshot shows the PureCloud Admin window where you can select Single Sign-on.](./media/purecloud-by-genesys-tutorial/configure01.png)
+	![Screenshot shows the PureCloud Admin window where you can select Single Sign-on.](./media/purecloud-by-genesys-tutorial/configure-1.png)
 
 1. Switch to the **ADFS/Azure AD(Premium)** tab, and then follow these steps:
 
-	![Screenshot shows the Integrations page where you can enter the values described.](./media/purecloud-by-genesys-tutorial/configure02.png)
+	![Screenshot shows the Integrations page where you can enter the values described.](./media/purecloud-by-genesys-tutorial/configure-2.png)
 
 	a. Select **Browse** to upload the base-64 encoded certificate that you downloaded from the Azure portal into the **ADFS Certificate**.
 
@@ -174,31 +169,31 @@ In this section, you'll set up  B.Simon to use Azure single sign-on by granting 
 
 	c. In the **Target URI** box, paste the value of **Login URL** that you copied from the Azure portal.
 
-	d. For the **Relying Party Identifier** value, go to the Azure portal, and then on the **PureCloud by Genesys** application integration page, select the **Properties** tab and copy the **Application ID** value. Paste it into the **Relying Party Identifier** box.
+	d. For the **Relying Party Identifier** value, go to the Azure portal, and then on the **Genesys Cloud for Azure** application integration page, select the **Properties** tab and copy the **Application ID** value. Paste it into the **Relying Party Identifier** box.
 
-	![Screenshot shows the Properties pane where you can find the Application I D value.](./media/purecloud-by-genesys-tutorial/configure06.png)
+	![Screenshot shows the Properties pane where you can find the Application ID value.](./media/purecloud-by-genesys-tutorial/configuration.png)
 
 	e. Select **Save**.
 
-### Create PureCloud by Genesys test user
+### Create Genesys Cloud for Azure test user
 
-To enable Azure AD users to sign in to PureCloud by Genesys, they must be provisioned into PureCloud by Genesys. In PureCloud by Genesys, provisioning is a manual task.
+To enable Azure AD users to sign in to Genesys Cloud for Azure, they must be provisioned into Genesys Cloud for Azure. In Genesys Cloud for Azure, provisioning is a manual task.
 
 **To provision a user account, follow these steps:**
 
-1. Log in to PureCloud by Genesys as an administrator.
+1. Log in to Genesys Cloud for Azure as an administrator.
 
 1. Select **Admin** at the top and go to **People** under **People & Permissions**.
 
-	![Screenshot shows the PureCloud Admin window where you can select People.](./media/purecloud-by-genesys-tutorial/configure03.png)
+	![Screenshot shows the PureCloud Admin window where you can select People.](./media/purecloud-by-genesys-tutorial/configure-3.png)
 
 1. On the **People** page, select **Add Person**.
 
-	![Screenshot shows the People page where you can add a person.](./media/purecloud-by-genesys-tutorial/configure04.png)
+	![Screenshot shows the People page where you can add a person.](./media/purecloud-by-genesys-tutorial/configure-4.png)
 
 1. In the **Add People to the Organization** dialog box, follow these steps:
 
-	![Screenshot shows the page where you can enter the values described.](./media/purecloud-by-genesys-tutorial/configure05.png)
+	![Screenshot shows the page where you can enter the values described.](./media/purecloud-by-genesys-tutorial/configure-5.png)
 
 	a. In the **Full Name** box, enter the name of a user. For example: **B.simon**.
 
@@ -208,16 +203,20 @@ To enable Azure AD users to sign in to PureCloud by Genesys, they must be provis
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you select the **PureCloud by Genesys** tile in the Access Panel, you should be automatically signed in to the PureCloud by Genesys account that you set up SSO for. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
 
-## Additional resources
+* Click on **Test this application** in Azure portal. This will redirect to Genesys Cloud for Azure Sign on URL where you can initiate the login flow.  
 
-- [ List of tutorials about how to integrate SaaS apps with Azure AD ](./tutorial-list.md)
+* Go to Genesys Cloud for Azure Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure AD?](../manage-apps/what-is-single-sign-on.md)
+#### IDP initiated:
 
-- [What is conditional access in Azure AD?](../conditional-access/overview.md)
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Genesys Cloud for Azure for which you set up the SSO. 
 
-- [Try PureCloud by Genesys with Azure AD](https://aad.portal.azure.com/)
+You can also use Microsoft My Apps to test the application in any mode. When you click the Genesys Cloud for Azure tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Genesys Cloud for Azure for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+
+## Next steps
+
+Once you configure Genesys Cloud for Azure you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

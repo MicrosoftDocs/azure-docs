@@ -12,7 +12,7 @@ ms.author: kgremban
 
 # Migrate your IoT Hub from operations monitoring to Azure Monitor resource logs
 
-Customers using [operations monitoring](iot-hub-operations-monitoring.md) to track the status of operations in IoT Hub can migrate that workflow to [Azure Monitor resource logs](../azure-monitor/platform/platform-logs-overview.md), a feature of Azure Monitor. Resource logs supply resource-level diagnostic information for many Azure services.
+Customers using [operations monitoring](iot-hub-operations-monitoring.md) to track the status of operations in IoT Hub can migrate that workflow to [Azure Monitor resource logs](../azure-monitor/essentials/platform-logs-overview.md), a feature of Azure Monitor. Resource logs supply resource-level diagnostic information for many Azure services.
 
 **The operations monitoring functionality of IoT Hub is deprecated**, and has been removed from the portal. This article provides steps to move your workloads from operations monitoring to Azure Monitor resource logs. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -44,9 +44,9 @@ To update your IoT Hub in the Azure portal, first create a diagnostic setting, t
 
 1. Select **Save** to save the settings.
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured destination. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../azure-monitor/platform/platform-logs-overview.md).
+New settings take effect in about 10 minutes. After that, logs appear in the configured destination. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
 
-For more detailed information about how to create diagnostic settings, including with PowerShell and the Azure CLI, see [Diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in the Azure Monitor documentation.
+For more detailed information about how to create diagnostic settings, including with PowerShell and the Azure CLI, see [Diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in the Azure Monitor documentation.
 
 ### Turn off operations monitoring
 

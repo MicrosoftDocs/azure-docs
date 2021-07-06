@@ -51,13 +51,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-autosuggest/
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
@@ -65,16 +65,12 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598198-bing-autosuggest
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+autosuggest
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!

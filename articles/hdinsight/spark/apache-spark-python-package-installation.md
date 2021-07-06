@@ -1,9 +1,6 @@
 ---
 title: Script action for Python packages with Jupyter on Azure HDInsight
 description: Step-by-step instructions on how to use script action to configure Jupyter Notebooks available with HDInsight Spark clusters to use external python packages.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
@@ -56,7 +53,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
     -   `anaconda` specifies the package_spec as anaconda to install Anaconda packages in the virtual environment.
     
     ```bash
-    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
+    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda=4.3 --yes
     ```
 
 2. Install external Python packages in the created virtual environment if needed. Run script actions on your cluster for all nodes with below script to install external Python packages. You need to have sudo privilege here to write files to the virtual environment folder.
@@ -102,7 +99,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     1. Open Ambari UI, go to Spark2 page, Configs tab.
 
-        ![Change Spark and Livy config through Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png" alt-text="Change Spark and Livy config through Ambari" border="true":::
 
     2. Expand Advanced livy2-env, add below statements at bottom. If you installed the virtual environment with a different prefix, change the path correspondingly.
 
@@ -111,7 +108,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Change Livy config through Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-livy-config.png" alt-text="Change Livy config through Ambari" border="true":::
 
     3. Expand Advanced spark2-env, replace the existing export PYSPARK_PYTHON statement at bottom. If you installed the virtual environment with a different prefix, change the path correspondingly.
 
@@ -119,11 +116,11 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Change Spark config through Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-config.png" alt-text="Change Spark config through Ambari" border="true":::
 
     4. Save the changes and restart affected services. These changes need a restart of Spark2 service. Ambari UI will prompt a required restart reminder, click Restart to restart all affected services.
 
-        ![Restart services](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="Restart services" border="true":::
 
     5. Set two properties to your Spark session to ensure that the job points to the updated spark configuration: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` and `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON`. 
 
@@ -151,7 +148,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     You could double confirm the Python environment in Jupyter Notebook by running below code:
 
-    ![Check Python version in Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Check Python version in Jupyter Notebook" border="true":::
 
 ## Known issue
 

@@ -122,7 +122,7 @@ When you add users, by default, the **Restrict access** option is turned on and,
 
 You can sync a lab user list to an existing Azure Active Directory (Azure AD) group so that you do not have to manually add or delete users. 
 
-An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory. 
+An Azure AD group can be created within your organization's Azure Active Directory to manage access to organizational resources and cloud-based apps. To learn more, see [Azure AD groups](../active-directory/fundamentals/active-directory-manage-groups.md). If your organization uses Microsoft Office 365 or Azure services, your organization will already have admins who manage your Azure Active Directory. 
 
 > [!IMPORTANT]
 > Make sure the user list is empty. If there are existing users inside a lab that you added manually or through importing a CSV file, the option to sync the lab to an existing group will not appear. 
@@ -199,4 +199,3 @@ In this tutorial, you created a lab for your class in Azure. To learn how a stud
 
 > [!div class="nextstepaction"]
 > [Connect to a VM in the classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)
-

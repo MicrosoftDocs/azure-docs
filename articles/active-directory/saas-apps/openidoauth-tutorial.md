@@ -154,4 +154,4 @@ Imagine that an application requires admin consent, and an admin signs in withou
 
 ## Next steps
 
-[Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+[Set up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant](../manage-apps/add-application-portal-setup-oidc-sso.md)

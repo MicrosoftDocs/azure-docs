@@ -4,7 +4,7 @@ description: Learn concepts for a connected waste management solution built with
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ---

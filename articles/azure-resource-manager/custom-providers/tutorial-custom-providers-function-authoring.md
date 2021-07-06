@@ -3,7 +3,7 @@ title: Author a RESTful endpoint
 description: This tutorial shows how to author a RESTful endpoint for custom providers. It details how to handle requests and responses for the supported RESTful HTTP methods.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 01/13/2021
 ms.author: jobreen
 ---
 
@@ -12,7 +12,7 @@ ms.author: jobreen
 A custom provider is a contract between Azure and an endpoint. With custom providers, you can customize workflows on Azure. This tutorial shows how to author a custom provider RESTful endpoint. If you're unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](overview.md).
 
 > [!NOTE]
-> This tutorial builds on the tutorial [Set up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md). Some of the steps in this tutorial work only if an Azure function app has been set up to work with custom providers.
+> This tutorial builds on the tutorial [Set up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md). Some of the steps in this tutorial work only if a function app has been set up in Azure Functions to work with custom providers.
 
 ## Work with custom actions and custom resources
 
@@ -254,7 +254,7 @@ After all the RESTful methods are added to the function app, update the main **R
 
 ```csharp
 /// <summary>
-/// Entry point for the Azure function app webhook that acts as the service behind a custom provider.
+/// Entry point for the function app webhook that acts as the service behind a custom provider.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="log">The logger.</param>
@@ -342,7 +342,7 @@ After you add the methods and classes, you need to update the **using** methods 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

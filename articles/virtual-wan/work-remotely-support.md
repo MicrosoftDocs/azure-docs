@@ -1,12 +1,12 @@
 ---
 title: 'Azure Virtual WAN and working remotely'
-description: This page describes how you can leverage Azure Virtual WAN to enable working remotely due to the COVID-19 pandemic.
+description: Learn how you can leverage Azure Virtual WAN to enable working remotely due to the COVID-19 pandemic.
 services: virtual-wan
 author: reyandap
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 
 

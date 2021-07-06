@@ -2,8 +2,9 @@
 title: Overview of creating Linux images for Azure
 description: How to bring your Linux VM images or create new images to use in Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 06/22/2020
@@ -21,11 +22,11 @@ This article will talk through the image decision points and requirements, expla
 ## Difference between managed disks and images
 
 
-Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](../faq-for-disks.md#managed-disks), or use as a source for an image. 
+Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](/azure/virtual-machines/faq-for-disks#managed-disks), or use as a source for an image. 
 
 Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
 
-Azure images can be made up of multiple OS disks and data disks. When you use a managed image to create a VM, the platform makes a copy of the image and uses that to create the VM, so managed image support reusing the same image for multiple VMs. Azure also provides advanced management capabilities for images, like global replication, and versioning through [Shared Image Gallery](shared-image-galleries.md). 
+Azure images can be made up of multiple OS disks and data disks. When you use a managed image to create a VM, the platform makes a copy of the image and uses that to create the VM, so managed image support reusing the same image for multiple VMs. Azure also provides advanced management capabilities for images, like global replication, and versioning through [Shared Image Gallery](../shared-image-galleries.md). 
 
 
 
@@ -61,7 +62,7 @@ Provisioning agents are not required for these images, however, you may want to 
 When bringing your Linux image you have two options:
 
 - Managed images for simple VM creation in a development and test environment.
-- [Shared Image Gallery](shared-image-galleries.md) for creating and sharing images at-scale.
+- [Shared Image Gallery](../shared-image-galleries.md) for creating and sharing images at-scale.
 
 
 ### Managed images
@@ -72,7 +73,7 @@ Managed images can be used for development and test environments, where you need
 
 ### Azure Shared Image Gallery (SIG)
 
-[Shared Image Galleries](shared-image-galleries.md) are recommended for creating, managing and sharing images at scale. Shared image galleries help you build structure and organization around your images.  
+[Shared Image Galleries](../shared-image-galleries.md) are recommended for creating, managing and sharing images at scale. Shared image galleries help you build structure and organization around your images.  
 
 - Support for both generalized and specialized images.
 - Support for image both generation 1 and 2 images.

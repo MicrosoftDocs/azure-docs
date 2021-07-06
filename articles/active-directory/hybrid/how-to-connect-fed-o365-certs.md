@@ -22,11 +22,18 @@ ms.collection: M365-identity-device-management
 ## Overview
 For successful federation between Azure Active Directory (Azure AD) and Active Directory Federation Services (AD FS), the certificates used by AD FS to sign security tokens to Azure AD should match what is configured in Azure AD. Any mismatch can lead to broken trust. Azure AD ensures that this information is kept in sync when you deploy AD FS and Web Application Proxy (for extranet access).
 
+> [!NOTE]
+> This article provides information on manging your federation cerficates.  For infromation on emergency rotation see [Emergency Rotation of the AD FS certificates](how-to-connect-emergency-ad-fs-certificate-rotation.md)
+
 This article provides you additional information to manage your token signing certificates and keep them in sync with Azure AD, in the following cases:
 
 * You are not deploying the Web Application Proxy, and therefore the federation metadata is not available in the extranet.
 * You are not using the default configuration of AD FS for token signing certificates.
 * You are using a third-party identity provider.
+
+> [!IMPORTANT]
+> Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
+> For more information see [Hardware Security Module](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
 ## Default configuration of AD FS for token signing certificates
 The token signing and token decrypting certificates are usually self-signed certificates, and are good for one year. By default, AD FS includes an auto-renewal process called **AutoCertificateRollover**. If you are using AD FS 2.0 or later, Microsoft 365 and Azure AD automatically update your certificate before it expires.
@@ -152,7 +159,7 @@ On the other hand, if **AutoCertificateRollover** is set to **True**, but your f
    >
 3. Look at the command output at any certificates listed. If AD FS has generated a new certificate, you should see two certificates in the output: one for which the **IsPrimary** value is **True** and the **NotAfter** date is within 5 days, and one for which **IsPrimary** is **False** and **NotAfter** is about a year in the future.
 4. If you only see one certificate, and the **NotAfter** date is within 5 days, you need to generate a new certificate.
-5. To generate a new certificate, execute the following command at a PowerShell command prompt: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+5. To generate a new certificate, execute the following command at a PowerShell command prompt: `PS C:\Update-ADFSCertificate –CertificateType token-signing`.
 6. Verify the update by running the following command again: PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
 Two certificates should be listed now, one of which has a **NotAfter** date of approximately one year in the future, and for which the **IsPrimary** value is **False**.

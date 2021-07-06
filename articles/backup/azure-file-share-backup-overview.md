@@ -56,4 +56,4 @@ To get detailed estimates for backing up Azure file shares, you can download the
 ## Next steps
 
 * Learn how to [Back up Azure file shares](backup-afs.md)
-* Find answers to [Questions about backing up Azure Files](backup-azure-files-faq.md)
+* Find answers to [Questions about backing up Azure Files](backup-azure-files-faq.yml)

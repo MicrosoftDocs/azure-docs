@@ -1,7 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Assets
-titleSuffix: Azure Media Services
+title: Assets in Azure Media Services
 description: Learn about what assets are and how they're used by Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -46,4 +45,4 @@ The names of files/blobs within an asset must follow both the [blob name require
 
 ## See also
 
-[Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)
+[Differences between Media Services v2 and v3](migrate-v-2-v-3-migration-introduction.md)

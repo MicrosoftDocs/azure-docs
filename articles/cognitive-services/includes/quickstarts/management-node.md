@@ -6,16 +6,17 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
-[Reference documentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Reference documentation](/javascript/api/@azure/arm-cognitiveservices/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## JavaScript prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [Node.js](https://nodejs.org/)
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -97,6 +98,8 @@ The following function deletes the specified resource from the given resource gr
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_delete)]
 
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
+
 ## Run the application
 
 Add the following code to the bottom of your script to call your main `quickstart` function with error handling.
@@ -111,7 +114,9 @@ node index.js
 
 ## See also
 
-* [Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
-* [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
-* [Authenticate requests to Azure Cognitive Services](../../authentication.md)
-* [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)
+* See **[Authenticate requests to Azure Cognitive Services](../../authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](../../what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/)** for more details on the management SDK.

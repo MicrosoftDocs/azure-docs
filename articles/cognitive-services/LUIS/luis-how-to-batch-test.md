@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/29/2020
+ms.date: 05/18/2021
 
 ---
 
@@ -84,7 +84,19 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
 5. Name the dataset `pizza test` and select **Done**.
 
-6. Select the **Run** button. After the batch test runs, select **See results**. 
+6. Select the **Run** button. 
+
+7. After the batch test completes, you can see the following columns:
+
+    | Column | Description |
+    | -------- | ------------- |
+    | State | Status of the test. **See results** is only visible after the test is completed. |
+    | Name | The name you have given to the test. |
+    | Size | Number of tests in this batch test file. |
+    | Last Run | Date of last run of this batch test file. |
+    | Last result | Number of successful predictions in the test. |
+
+8. To view detailed results of the test, select **See results**. 
 
     > [!TIP]
     > * Selecting **Download** will download the same file that you uploaded.
@@ -96,7 +108,7 @@ The example JSON includes one utterance with a labeled entity to illustrate what
 
 To review the batch test results, select **See results**. The test results show graphically how the test utterances were predicted against the active version.
 
-The batch chart displays four quadrants of results. To the right of the chart is a filter. The filter contains intents and entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart.
+The batch chart displays four quadrants of results. To the right of the chart is a filter. The filter contains intents and entities. When you select a [section of the chart](#review-batch-results-for-intents) or a point within the chart, the associated utterance(s) display below the chart.
 
 While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together.
 
@@ -163,7 +175,7 @@ The two sections of the chart in green did match the expected prediction.
 
 ## Batch testing using the REST API 
 
-LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](luis-tutorial-batch-testing.md). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
+LUIS lets you batch test using the LUIS portal and REST API. The endpoints for the REST API are listed below. For information on batch testing using the LUIS portal, see [Tutorial: batch test data sets](). Use the complete URLs below, replacing the placeholder values with your own LUIS Prediction key and endpoint. 
 
 Remember to add your LUIS key to `Ocp-Apim-Subscription-Key` in the header, and set `Content-Type` to `application/json`.
 
@@ -205,7 +217,7 @@ App version ID
 
 Submit a batch file of utterances, known as a *data set*, for batch testing. The data set is a JSON-formatted file containing a maximum of 1,000 labeled utterances. You can test up to 10 data sets in an app. If you need to test more, delete a data set and then add a new one. All custom entities in the model appear in the batch test entities filter even if there are no corresponding entities in the batch file data.
 
-The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learning entities](luis-concept-entity-types.md#types-of-entities) you expect to be detected.
+The batch file consists of utterances. Each utterance must have an expected intent prediction along with any [machine-learning entities](luis-concept-entity-types.md#machine-learned-ml-entity) you expect to be detected.
 
 ### Batch syntax template for intents with entities
 
@@ -262,5 +274,3 @@ If testing indicates that your LUIS app doesn't recognize the correct intents an
 
 * [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md)
-* [Understand batch testing with this tutorial](luis-tutorial-batch-testing.md)
-* [Learn batch testing concepts](luis-concept-batch-test.md).

@@ -3,13 +3,12 @@ title: Manage Spark application dependencies on Azure HDInsight
 description: This article provides an introduction of how to manage Spark dependencies in HDInsight Spark cluster for PySpark and Scala applications.
 author: yanancai
 ms.author: yanacai
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 09/09/2020
 
-#customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
+# Customer intent: As a developer for Apache Spark and Apache Spark in Azure HDInsight, I want to learn how to manage my Spark application dependencies and install packages on my HDInsight cluster.
 ---
 
 # Manage Spark application dependencies
@@ -29,7 +28,7 @@ Use quick links to jump to the section based on your user case:
 When a Spark session starts in Jupyter Notebook on Spark kernel for Scala, you can configure packages from:
 
 * [Maven Repository](https://search.maven.org/), or community-contributed packages at [Spark Packages](https://spark-packages.org/).
-* Jar files stored on your cluster’s primary storage.
+* Jar files stored on your cluster's primary storage.
 
 You'll use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
 
@@ -41,7 +40,7 @@ You'll use the `%%configure` magic to configure the notebook to use an external 
 
 After locating the package from Maven Repository, gather the values for **GroupId**, **ArtifactId**, and **Version**. Concatenate the three values, separated by a colon (**:**).
 
-   ![Concatenate package schema](./media/apache-spark-manage-dependencies/spark-package-schema.png "Concatenate package schema")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/spark-package-schema.png " alt-text="Concatenate package schema" border="true":::kage schema" border="true":::
 
 Make sure the values you gather match your cluster. In this case, we're using Spark Cosmos DB connector package for Scala 2.11 and Spark 2.3 for HDInsight 3.6 Spark cluster. If you are not sure, run `scala.util.Properties.versionString` in code cell on Spark kernel to get cluster Scala version. Run `sc.version` to get cluster Spark version.
 
@@ -68,7 +67,7 @@ import com.microsoft.azure.cosmosdb.spark._
 ### Use Azure Toolkit for IntelliJ
 [Azure Toolkit for IntelliJ plug-in](./apache-spark-intellij-tool-plugin.md) provides UI experience to submit Spark Scala application to an HDInsight cluster. It provides `Referenced Jars` and `Referenced Files` properties to configure jar libs paths when submitting the Spark application. See more details about [How to use Azure Toolkit for IntelliJ plug-in for HDInsight](./apache-spark-intellij-tool-plugin.md#run-a-spark-scala-application-on-an-hdinsight-spark-cluster).
 
-![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+:::image type="content" source="./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png" alt-text="The Spark Submission dialog box" border="true":::
 
 ## Jar libs for cluster
 In some cases, you may want to configure the jar dependencies at cluster level so that every application can be set up with same dependencies by default. The approach is to add your jar paths to Spark driver and executor class path.
@@ -87,11 +86,11 @@ In some cases, you may want to configure the jar dependencies at cluster level s
     spark.executor.extraClassPath=/usr/libs/sparklibs/*
     ```
 
-   ![Change Spark default config](./media/apache-spark-manage-dependencies/change-spark-default-config.png "Change Spark default config")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/change-spark-default-config.png " alt-text="Change Spark default config" border="true":::ult config" border="true":::
 
 3. Save the changed configurations and restart impacted services.
 
-   ![Restart impacted services](./media/apache-spark-manage-dependencies/restart-impacted-services.png "Restart impacted services")
+   :::image type="content" source="./media/apache-spark-manage-dependencies/restart-impacted-services.png " alt-text="Restart impacted services" border="true":::ted services" border="true":::
 
 You can automate the steps using [script actions](../hdinsight-hadoop-customize-cluster-linux.md). Script action for [adding Hive custom libraries](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh) is a good reference. When changing Spark service configs, make sure you use Ambari APIs instead of modifying the config files directly. 
 

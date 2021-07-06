@@ -7,14 +7,13 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
-ms.date: 12/03/2019
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
+ms.date: 03/03/2021
 ---
 # Enable automatic tuning in the Azure portal to monitor queries and improve workload performance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
-
 
 Azure SQL Database automatically manages data services that constantly monitor your queries and identifies the action that you can perform to improve performance of your workload. You can review recommendations and manually apply them, or let Azure SQL Database automatically apply corrective actions - this is known as **automatic tuning mode**.
 
@@ -25,7 +24,7 @@ Automatic tuning can be enabled at the server or the database level through:
 - [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true) commands
 
 > [!NOTE]
-> For Azure SQL Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can only be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) only. The Azure portal based configuration and automatic index tuning options described in this article do not apply to Azure SQL Managed Instance.
+> For Azure SQL Managed Instance, the supported option FORCE_LAST_GOOD_PLAN can only be configured through [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management). The Azure portal based configuration and automatic index tuning options described in this article do not apply to Azure SQL Managed Instance.
 
 > [!NOTE]
 > Configuring automatic tuning options through the ARM (Azure Resource Manager) template is not supported at this time.
@@ -105,11 +104,26 @@ Setting the individual tuning option to ON will override any setting that databa
 
 To find out more abut T-SQL options to configure automatic tuning, see [ALTER DATABASE SET Options (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
-## Disabled by the system
+## Troubleshooting
 
-Automatic tuning is monitoring all the actions it takes on the database and in some cases it can determine that automatic tuning can't properly work on the database. In this situation, the tuning option will be disabled by the system. In most cases this happens because Query Store is not enabled or it's in read-only state on a specific database.
+### Automated recommendation management is disabled
 
-## Permissions
+In case of error messages that automated recommendation management has been disabled, or simply disabled by system, the most common causes are:
+- Query Store is not enabled, or
+- Query Store is in read-only mode for a specified database, or
+- Query Store stopped running because it used the allocated storage space.
+
+The following steps can be considered to rectify this issue:
+- Clean up the Query Store, or modify the data retention period to "auto" by using T-SQL. See how to [configure recommended retention and capture policy for Query Store](./query-performance-insight-use.md#recommended-retention-and-capture-policy).
+- Use SQL Server Management Studio (SSMS) and follow these steps:
+  - Connect to the Azure SQL Database
+  - Right click on the database
+  - Go to Properties and click on Query Store
+  - Change the Operation Mode to Read-Write
+  - Change the Store Capture Mode to Auto
+  - Change the Size Based Cleanup Mode to Auto
+
+### Permissions
 
 As automatic tuning is an Azure feature, to use it you will need to use Azure's built-in roles. Using SQL Authentication only will not be sufficient to use the feature from the Azure portal.
 
@@ -117,7 +131,7 @@ To use automatic tuning, the minimum required permission to grant to the user is
 
 ## Configure automatic tuning e-mail notifications
 
-See the [automatic tuning e-mail notifications](automatic-tuning-email-notifications-configure.md) guide.
+To receive automated email notifications on recommendations made by the automatic tuning, see the [automatic tuning e-mail notifications](automatic-tuning-email-notifications-configure.md) guide.
 
 ## Next steps
 

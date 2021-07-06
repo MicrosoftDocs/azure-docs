@@ -1,12 +1,12 @@
 ---
 title: Working with VMs and NSGs in Azure Bastion
-description: You can use network security groups with Azure Bastion. Learn about the subnets required for this configuration.
+description: Learn about using network security groups with Azure Bastion.
 services: bastion
 author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 12/09/2020
+ms.date: 06/21/2021
 ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion
@@ -27,6 +27,10 @@ In this diagram:
 
 This section shows you the network traffic between the user and Azure Bastion, and through to target VMs in your virtual network:
 
+> [!IMPORTANT]
+> If you choose to use an NSG with your Azure Bastion resource, you **must** create all of the following ingress and egress traffic rules. Omitting any of the following rules in your NSG will block your Azure Bastion resource from receiving necessary updates in the future and therefore open up your resource to future security vulnerabilities.
+> 
+
 ### <a name="apply"></a>AzureBastionSubnet
 
 Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
@@ -39,7 +43,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
    * **Ingress Traffic from Azure Load Balancer:** For health probes, enable port 443 inbound from the **AzureLoadBalancer** service tag. This enables Azure Load Balancer to detect connectivity
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Screenshot shows inbound security rules for Azure Bastion connectivity.":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Screenshot shows inbound security rules for Azure Bastion connectivity." lightbox="./media/bastion-nsg/inbound.png":::
 
 * **Egress Traffic:**
 
@@ -49,7 +53,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
    * **Egress Traffic to Internet:** Azure Bastion needs to be able to communicate with the Internet for session and certificate validation. For this reason, we recommend enabling port 80 outbound to the **Internet.**
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot shows outbound security rules for Azure Bastion connectivity.":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot shows outbound security rules for Azure Bastion connectivity." lightbox="./media/bastion-nsg/outbound.png":::
 
 ### Target VM Subnet
 This is the subnet that contains the target virtual machine that you want to RDP/SSH to.

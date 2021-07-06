@@ -21,7 +21,7 @@ We recommend that you review the information carefully before you connect to the
 |     Feature                                             |     Azure Storage                                     |     Azure Stack Edge Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Azure File storage                                   |    Cloud-based SMB file shares supported              |    Not supported      |
-|    Storage account type                                 |    General-purpose and Azure blob storage accounts    |    General-purpose v1 only|
+|    Storage account type                                 |    General-purpose and Azure Blob storage accounts    |    General-purpose v1 only|
 |    Blob name                                            |    1,024 characters (2,048 bytes)                     |    880 characters (1,760 bytes)|
 |    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Stack Edge|
 |    Page blob maximum size                               |    8 TB                                               |    1 TB                   |
@@ -65,7 +65,7 @@ To install the PHP client via Composer:
 
 ## Endpoint declaration
 
-In the Azure Stack Edge Blob storage SDK, the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to [Transfer data via storage accounts with Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+In the Azure Stack Edge Blob storage SDK, the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to [Transfer data via storage accounts with Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-add-storage-accounts.md).
 
 
 ## Examples

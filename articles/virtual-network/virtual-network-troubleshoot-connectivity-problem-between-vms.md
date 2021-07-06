@@ -45,7 +45,7 @@ Follow these steps to troubleshoot the problem. After you complete each step, ch
 
 ### Step 1: Check whether NIC is misconfigured
 
-Follow the steps in [How to reset network interface for Azure Windows VM](../virtual-machines/windows/reset-network-interface.md). 
+Follow the steps in [How to reset network interface for Azure Windows VM](/troubleshoot/azure/virtual-machines/reset-network-interface). 
 
 If the problem occurs after you modify the network interface (NIC), follow these steps:
 
@@ -58,8 +58,8 @@ For more information, see [Add network interfaces to or remove from virtual mach
 
 **Single-NIC VM** 
 
-- [Redeploy Windows VM](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Redeploy Linux VM](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Redeploy Windows VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows)
+- [Redeploy Linux VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-linux)
 
 ### Step 2: Check whether network traffic is blocked by NSG or UDR
 
@@ -99,11 +99,11 @@ An  access control list (ACL) provides the ability to selectively permit or deny
 
 ### Step 7: Check whether the endpoint is created for the classic VM
 
-All VMs that you create in Azure by using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](../virtual-machines/windows/classic/setup-endpoints.md).
+All VMs that you create in Azure by using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on other virtual networks require endpoints to direct the inbound network traffic to a virtual machine. For more information, see [How to set up endpoints](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 
 ### Step 8: Try to connect to a VM network share
 
-If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
+If you cannot connect to a VM network share, the problem may be caused by unavailable NICs in the VM. To delete the unavailable NICs, see [How to delete the unavailable NICs](/troubleshoot/azure/virtual-machines/reset-network-interface#delete-the-unavailable-nics)
 
 ### Step 9: Check Inter-Vnet connectivity
 

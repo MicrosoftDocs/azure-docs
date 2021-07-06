@@ -1,13 +1,9 @@
 ---
 title: Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 description: Learn how to use a solution template to migrate data from Amazon S3 by using an external control table to store a partition list on AWS S3 with Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
@@ -115,7 +111,7 @@ The template contains two parameters:
 
     ![Screenshot that shows the two pipelines and three datasets that were created by using the template.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Select **Debug**, enter the **Parameters**, and then select **Finish**.
+6. Go to the "BulkCopyFromS3" pipeline and select **Debug**, enter the **Parameters**. Then, select **Finish**.
 
     ![Screenshot that shows where to select Debug and enter the parameters before you select Finish.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
@@ -178,7 +174,7 @@ The template contains two parameters:
 
     ![Review the pipeline](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Select **Debug**, enter the **Parameters**, and then select **Finish**.
+6.  Go the "DeltaCopyFromS3" pipeline and select **Debug**, and enter the **Parameters**. Then, select **Finish**.
 
     ![Click **Debug**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 

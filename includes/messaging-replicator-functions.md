@@ -22,24 +22,24 @@ the existing state of a stream.
 
 This makes replication tasks different from aggregation tasks, which are
 generally stateful, and are the domain of analytics frameworks and services like
-[Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction).
+[Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md).
 
 ## Replication applications and tasks in Azure Functions
 
-In Azure Functions, a replication task is implemented using a [trigger](/azure/azure-functions/functions-triggers-bindings) that acquires one or more input message from a configured source and an [output binding](/azure/azure-functions/functions-triggers-bindings#binding-direction) that forwards messages copied from the source to a configured target. 
+In Azure Functions, a replication task is implemented using a [trigger](../articles/azure-functions/functions-triggers-bindings.md) that acquires one or more input message from a configured source and an [output binding](../articles/azure-functions/functions-triggers-bindings.md#binding-direction) that forwards messages copied from the source to a configured target. 
 
 | Trigger  | Output |
 |----------|--------|
-| [Azure Event Hubs trigger](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp) | [Azure Event hubs output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs-output?tabs=csharp) |
-| [Azure Service Bus trigger](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus-trigger?tabs=csharp) | [Azure Service Bus output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus-output?tabs=csharp)
-| [Azure IoT Hub trigger](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-iot-trigger?tabs=csharp) | [Azure IoT Hub output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-iot-output?tabs=csharp)
-| [Azure Event Grid trigger](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=csharp) | [Azure Event Grid output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-output?tabs=csharp)
-| [Azure Queue Storage trigger](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp) | [Azure Queue Storage output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-queue-output?tabs=csharp)
+| [Azure Event Hubs trigger](../articles/azure-functions/functions-bindings-event-hubs-trigger.md?tabs=csharp) | [Azure Event hubs output binding](../articles/azure-functions/functions-bindings-event-hubs-output.md?tabs=csharp) |
+| [Azure Service Bus trigger](../articles/azure-functions/functions-bindings-service-bus-trigger.md?tabs=csharp) | [Azure Service Bus output binding](../articles/azure-functions/functions-bindings-service-bus-output.md?tabs=csharp)
+| [Azure IoT Hub trigger](../articles/azure-functions/functions-bindings-event-iot-trigger.md?tabs=csharp) | [Azure IoT Hub output binding](../articles/azure-functions/functions-bindings-event-iot-output.md?tabs=csharp)
+| [Azure Event Grid trigger](../articles/azure-functions/functions-bindings-event-grid-trigger.md?tabs=csharp) | [Azure Event Grid output binding](../articles/azure-functions/functions-bindings-event-grid-output.md?tabs=csharp)
+| [Azure Queue Storage trigger](../articles/azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp) | [Azure Queue Storage output binding](../articles/azure-functions/functions-bindings-storage-queue-output.md?tabs=csharp)
 | [Apache Kafka trigger](https://github.com/azure/azure-functions-kafka-extension) | [Apache Kafka output binding](https://github.com/azure/azure-functions-kafka-extension)
 | [RabbitMQ trigger](https://github.com/azure/azure-functions-rabbitmq-extension) | [RabbitMQ output binding](https://github.com/azure/azure-functions-rabbitmq-extension) 
-| | [Azure Notification Hubs output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-notification-hubs)
-||[Azure SignalR service output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service-output?tabs=csharp)
-||[Twilio SendGrid output binding](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid?tabs=csharp)
+| | [Azure Notification Hubs output binding](../articles/azure-functions/functions-bindings-notification-hubs.md)
+||[Azure SignalR service output binding](../articles/azure-functions/functions-bindings-signalr-service-output.md?tabs=csharp)
+||[Twilio SendGrid output binding](../articles/azure-functions/functions-bindings-sendgrid.md?tabs=csharp)
 
 Replication tasks are deployed as into the replication application through the
 same deployment methods as any other Azure Functions application. You can
@@ -57,7 +57,7 @@ replication tasks.
 Whenever available, you should prefer the batch-oriented triggers over triggers
 that deliver individual events or messages and you should always obtain the
 complete event or message structure rather than rely on Azure Function's
-[parameter binding expressions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns).
+[parameter binding expressions](../articles/azure-functions/functions-bindings-expressions-patterns.md).
 
 The name of the function should reflect the pair of source and target you are
 connecting, and you should prefix references to connection strings or other
@@ -78,7 +78,7 @@ that is provided](https://github.com/Azure-Samples/azure-messaging-replication-d
 To avoid data loss during availability event on either side of a replication
 function, you need to configure the retry policy to be robust. Refer to the
 [Azure Functions documentation on
-retries](/azure/azure-functions/functions-bindings-error-pages) to
+retries](../articles/azure-functions/functions-bindings-error-pages.md) to
 configure the retry policy. 
 
 The policy settings chosen for the example projects in the [sample repository](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) configure
@@ -86,7 +86,7 @@ an exponential backoff strategy with retry intervals from 5 seconds to 15 minute
 with infinite retries to avoid data loss. 
 
 For Service Bus, review the ["using retry support on top of trigger
-resilience"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience)
+resilience"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience)
 section to understand the interaction of triggers and the maximum delivery count
 defined for the queue.
 
@@ -94,7 +94,7 @@ defined for the queue.
 
 A replication application is an execution host for one or more replication tasks. 
 
-It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](/azure/app-service/overview-managed-identity). 
+It's an Azure Functions application that is configured to run either on the consumption plan or (recommended) on an Azure Functions Premium plan. All replication applications must run under a [system- or user-assigned managed identity](../articles/app-service/overview-managed-identity.md). 
 
 The linked Azure Resource Manager (ARM) templates create and configure a replication application with:
 
@@ -107,7 +107,7 @@ Replication applications that must access Event Hubs bound to an Azure virtual n
 
 |       | Deploy | Visualize  
 |-------|------------------|--------------|---------------|
-| **Azure Functions Consumption Plan** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2FAconsumption%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fconsumption%2Fazuredeploy.json)
+| **Azure Functions Consumption Plan** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fconsumption%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fconsumption%2Fazuredeploy.json)
 | **Azure Functions Premium Plan** |[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json) | [![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium%2Fazuredeploy.json)
 | **Azure Functions Premium Plan with VNet** | [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)|[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-messaging-replication-dotnet%2Fmain%2Ftemplates%2Fpremium-vnet%2Fazuredeploy.json)
 
@@ -157,15 +157,15 @@ The helper methods can make it easy to replicate between Event Hubs and Service 
 
 ### Monitoring
 
-To learn how you can monitor your replication app, please refer to the [monitoring section](https://docs.microsoft.com/azure/azure-functions/configure-monitoring) of the Azure Functions documentation.
+To learn how you can monitor your replication app, please refer to the [monitoring section](../articles/azure-functions/configure-monitoring.md) of the Azure Functions documentation.
 
-A particularly useful visual tool for monitoring replication tasks is the Application Insights [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map), which is automatically generated from the captured monitoring information and allows exploring the reliability and performance of the replication task source and target transfers.
+A particularly useful visual tool for monitoring replication tasks is the Application Insights [Application Map](../articles/azure-monitor/app/app-map.md), which is automatically generated from the captured monitoring information and allows exploring the reliability and performance of the replication task source and target transfers.
 
-For immediate diagnostic insights, you can work with the [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) portal tool, which provides low latency visualization of log details.
+For immediate diagnostic insights, you can work with the [Live Metrics](../articles/azure-monitor/app/live-stream.md) portal tool, which provides low latency visualization of log details.
 
 ## Next steps
 
-* [Azure Functions Deployments](/azure/azure-functions/functions-deployment-technologies)
-* [Azure Functions Diagnostics](/azure/azure-functions/functions-diagnostics)
-* [Azure Functions Networking Options](/azure/azure-functions/functions-networking-options)
-* [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)
+* [Azure Functions Deployments](../articles/azure-functions/functions-deployment-technologies.md)
+* [Azure Functions Diagnostics](../articles/azure-functions/functions-diagnostics.md)
+* [Azure Functions Networking Options](../articles/azure-functions/functions-networking-options.md)
+* [Azure Application Insights](../articles/azure-monitor/app/app-insights-overview.md)

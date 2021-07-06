@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -27,7 +27,7 @@ Adds a string claim to a new unique values stringCollection claim.
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | The ClaimType to be added to the output claim. |
-| InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the item to the end of the output collection claim. |
+| InputClaim | collection | stringCollection | The string collection to be added to the output claim. If the collection contains items, the claims transformation copies the items, and adds the item to the end of the output collection claim. |
 | OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input claim. |
 
 Use this claims transformation to add a string to a new or existing stringCollection. It's commonly used in a **AAD-UserWriteUsingAlternativeSecurityId** technical profile. Before a new social account is created, **CreateOtherMailsFromEmail** claims transformation reads the ClaimType and adds the value to the **otherMails** ClaimType.
@@ -60,7 +60,7 @@ Adds a string parameter to a new unique values stringCollection claim.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | collection | stringCollection | [Optional] If specified, the claims transformation copies the items from this collection, and adds the item to the end of the output collection claim. |
+| InputClaim | collection | stringCollection | The string collection to be added to the output claim. If the collection contains items, the claims transformation copies the items, and adds the item to the end of the output collection claim. |
 | InputParameter | item | string | The value to be added to the output claim. |
 | OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input parameter. |
 
@@ -121,7 +121,7 @@ The following example reads the **otherMails** claim and return the first item i
 
 ## StringCollectionContains
 
-Checks if a StringCollection claim type contains an element
+Checks if a StringCollection claim type contains an element.
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |

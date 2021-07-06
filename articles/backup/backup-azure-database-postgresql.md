@@ -2,8 +2,8 @@
 title: Backup Azure Database for PostgreSQL 
 description: Learn about Azure Database for PostgreSQL backup with long-term retention (preview)
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.custom: references_regions 
+ms.date: 04/12/2021
+ms.custom: references_regions , devx-track-azurecli
 ---
 
 # Azure Database for PostgreSQL backup with long-term retention (preview)
@@ -26,7 +26,7 @@ You may use this solution independently or in addition to the native backup solu
 
 |Support  |Details  |
 |---------|---------|
-|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
+|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Supported Azure regions |  East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, Brazil South, Canada Central, North Europe, West Europe, UK South, UK West, Germany West Central, Switzerland North, Switzerland West, East Asia, South East Asia, Japan East, Japan West, Korea Central, Korea South, India Central, Australia East, Australia Central, Australia Central 2, UAE North  |
 |Supported Azure PostgreSQL versions    |   9.5, 9.6, 10, 11      |
 
@@ -37,6 +37,12 @@ You may use this solution independently or in addition to the native backup solu
 - Cross-region backup isn't supported. This means you can't back up an Azure PostgreSQL server to a vault in another region. Similarly, you can only restore a backup to a server within the same region as the vault.
 - Only the data is recovered at the time of restore. "Roles" aren't restored.
 - In preview, we recommend that you run the solution only on your test environment.
+
+## Prerequisite permissions for configure backup and restore
+
+Azure Backup follows strict security guidelines. Even though it's a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
+
+[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
 ## Backup process
 
@@ -130,10 +136,9 @@ The following instructions are a step-by-step guide to configuring backup on the
 
 1. Define **Retention** settings. You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
 
-1. You can choose to store your backups in one of the two data stores (or tiers): **Backup data store** (hot tier) or **Archive data store** (in preview). You can choose between **two tiering options** to define when the backups are tiered across the two datastores:
+1. You can choose to store your backups in one of the two data stores (or tiers): **Backup data store** (standard tier) or **Archive data store** (in preview).
 
-    - Choose to copy **Immediately** if you prefer to have a backup copy in both backup and archive data stores simultaneously.
-    - Choose to move **On-expiry** if you prefer to move the backup to archive data store upon its expiry in the backup data store.
+   You can choose **On-expiry** to move the backup to archive data store upon its expiry in the backup data store.
 
 1. The **default retention rule** is applied in the absence of any other retention rule, and has a default value of three months.
 
@@ -192,13 +197,23 @@ Follow this step-by-step guide to trigger a restore:
 
     ![Restore as files](./media/backup-azure-database-postgresql/restore-as-files.png)
 
+1. If the recovery point is in the archive tier, you must rehydrate the recovery point before restoring.
+   
+   ![Rehydration settings](./media/backup-azure-database-postgresql/rehydration-settings.png)
+   
+   Provide the following additional parameters required for rehydration:
+   - **Rehydration priority:** Default is **Standard**.
+   - **Rehydration duration:** The maximum rehydration duration is 30 days, and the minimum rehydration duration is 10 days. Default value is **15**.
+   
+   The recovery point is stored in the **Backup data store** for the specified rehydration duration.
+
+
 1. Review the information and select **Restore**. This will trigger a corresponding Restore job that can be tracked under **Backup jobs**.
 
-## Prerequisite permissions for configure backup and restore
+>[!NOTE]
+>Archive support for Azure Database for PostgreSQL is in limited public preview.
 
-Azure Backup follows strict security guidelines. Even though it’s a native Azure service, permissions on the resource aren't assumed, and need to be explicitly given by the user.  Similarly, credentials to connect to the database aren't stored. This is important to safeguard your data. Instead, we use Azure Active Directory authentication.
 
-[Download this document](https://download.microsoft.com/download/7/4/d/74d689aa-909d-4d3e-9b18-f8e465a7ebf5/OSSbkpprep_automated.docx) to get an automated script and related instructions. It will grant an appropriate set of permissions to an Azure PostgreSQL server, for backup and restore.
 
 ## Manage the backed-up Azure PostgreSQL databases
 
@@ -215,7 +230,7 @@ Choose from the list of retention rules that were defined in the associated Back
 
 ### Stop protection
 
-You can stop protection on a backup item. This will also delete the associated recovery points for that backup item. We don't yet provide the option of stop protection while retaining the existing recovery points.
+You can stop protection on a backup item. This will also delete the associated recovery points for that backup item. If recovery points are not in the archive tier for a minimum of six months, deletion of those recovery points will incur early deletion cost. We don't yet provide the option of stop protection while retaining the existing recovery points.
 
 ![Stop protection](./media/backup-azure-database-postgresql/stop-protection.png)
 
@@ -237,7 +252,7 @@ This section provides troubleshooting information for backing up Azure PostgreSQ
 
 ### UserErrorMSIMissingPermissions
 
-Give Backup Vault MSI **Read** access on the PG server you want to back up or restore:
+Give Backup Vault MSI **Read** access on the PG server you want to back up or restore.
 
 To establish secure connection to the PostgreSQL database, Azure Backup uses the [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) authentication model. This means that the backup vault will have access to only those resources that have been explicitly granted permission by the user.
 
@@ -249,21 +264,17 @@ Steps:
 
     ![Access Control pane](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Select **Add a role assignment**.
+1. Select **Add role assignments**.
 
     ![Add role assignment](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
 1. In the right context pane that opens, enter the following:<br>
 
-    **Role:** Reader<br>
-    **Assign access to:** Choose **Backup vault**<br>
-    If you can’t find the **Backup vault** option in the drop-down list, choose the **Azure AD user, group, or service principal option**<br>
+   - **Role:** Choose the **Reader** role in the drop-down list.<br>
+   - **Assign access to:** Choose the **User, group, or service principal** option in the drop-down list.<br>
+   - **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
 
-    ![Select role](./media/backup-azure-database-postgresql/select-role.png)
-
-    **Select:** Enter the Backup vault name to which you want to back up this server and its databases.<br>
-
-    ![Enter Backup vault name](./media/backup-azure-database-postgresql/enter-backup-vault-name.png)
+    ![Select role](./media/backup-azure-database-postgresql/select-role-and-enter-backup-vault-name.png)
 
 ### UserErrorBackupUserAuthFailed
 
@@ -320,4 +331,4 @@ Establish network line of sight by enabling the **Allow access to Azure services
 
 ## Next steps
 
-- [Backup vaults overview](backup-vault-overview.md)
+[Backup vaults overview](backup-vault-overview.md)
