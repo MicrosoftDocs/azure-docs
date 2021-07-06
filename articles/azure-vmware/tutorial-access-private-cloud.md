@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
 
    The URLs and user credentials for private cloud vCenter and NSX-T Manager display.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials.." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 1. Navigate to the VM you created in the preceding step and connect to the virtual machine. 
 
@@ -85,5 +85,4 @@ Continue to the next tutorial to learn how to create a virtual network to set up
 
 > [!div class="nextstepaction"]
 > [Create a Virtual Network](tutorial-configure-networking.md)
-
 
