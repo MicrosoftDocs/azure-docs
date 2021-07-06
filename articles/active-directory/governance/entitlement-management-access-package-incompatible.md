@@ -26,6 +26,11 @@ In each of an access package's policies, you can specify who is able to request 
 
 With the separation of duties settings on an access package, you can configure that a user cannot request an access package, if they already have an assignment to another access package, or are a member of a group.
 
+For example, suppose you have an access package of **Marketing Campaign**, for people across your organization and in other organizations to be able to request access to work with your organization's marketing department on that marketing campaign.  The marketing campaign access package policies are time-limited, and access to marketing resources through that access package will be automatically removed after a certain date.  Since employees in the marketing department itself should already have access to that marketing campaign material, amongst other marketing material, you would not want employees in the marketing department from requesting that access package.  If you already have a dynamic group **Marketing department employees**, then you could indicate that the access package is incompatible with membership of that dynamic group.  Then, if a marketing department employee is looking for an access package to request, they would not be able to request **Marketing campaign**.
+
+Similarly, you may have an application with two roles - **Western Sales** and **Eastern Sales** - and want to ensure that a user can only have one sales territory at a time.  If you have two access packages, one access package **Western Territory** giving the **Western Sales** role and the other access package **Eastern Territory** giving the **Eastern Sales** role, then you can configure
+ - the **Western Territory** access package has the **Eastern Territory** package as incompatible, and
+ - the **Eastern Territory** access package has the **Western Territory** package as incompatible.
 
 ## Prerequisites
 
@@ -34,7 +39,7 @@ To use Azure AD entitlement management and assign users to access packages, you 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
 
-## Indicate another access package or group membership as incompatible for requesting access to an access package
+## Configure another access package or group membership as incompatible for requesting access to an access package
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
 
@@ -46,7 +51,27 @@ Follow these steps to change the list of incompatible groups or other access pac
 
 1.	In the left menu, click **Access packages** and then open the access package which users will request.
 
-1.	In the left menu, click **Separation of duties**.
+1.	In the left menu, click **Separation of duties (preview)**.
+
+1.  If you wish to prevent users who have another access package assignment already from requesting this access package, then click on **Add access package** and select the access package that the user would already be assigned.
+
+1.  If you wish to prevent users who have an existing group membership from requesting this access package, then click on **Add group** and select the group that the user would already be in.
+
+## View other access packages that are configured as incompatible with this one
+
+**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+
+Follow these steps to view the list of other access packages that have indicated that they are incompatible with an existing access package:
+
+1.	Sign in to the [Azure portal](https://portal.azure.com).
+
+1.  Click **Azure Active Directory**, and then click **Identity Governance**.
+
+1.	In the left menu, click **Access packages** and then open the access package.
+
+1.	In the left menu, click **Separation of duties (preview)**.
+
+1. Click on **Incompatible With**.
 
 ## Next steps
 
