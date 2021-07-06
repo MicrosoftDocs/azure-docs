@@ -17,7 +17,7 @@ ms.author: v-doeris
 
 # How to migrate a JavaScript app from ADAL.js to MSAL.js
 
-[Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js, also known as *msal-browser*) 2.x is the authentication library we recommend to use with the JavaScript applications on the Microsoft identity platform. This article highlights the changes you need to make to migrate an app that uses the ADAL.js to use MSAL.js 2.x
+[Microsoft Authentication Library for JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js) (MSAL.js, also known as *msal-browser*) 2.x is the authentication library we recommend using with JavaScript applications on the Microsoft identity platform. This article highlights the changes you need to make to migrate an app that uses the ADAL.js to use MSAL.js 2.x
 
 > [!NOTE]
 > We strongly recommend MSAL.js 2.x over MSAL.js 1.x. The auth code grant flow is more secure and allows single-page applications to maintain a good user experience despite the privacy measures browsers like Safari have implemented to block 3rd party cookies, among other benefits.
@@ -25,14 +25,14 @@ ms.author: v-doeris
 ## Prerequisites
 
 - You must set the **Platform** / **Reply URL Type** to **Single-page application** on App Registration portal (if you have other platforms added in your app registration, such as **Web**, you need to make sure the redirect URIs do not overlap. See: [Redirect URI restrictions](./reply-url.md))
-- You must provide [polyfills](./msal-js-use-ie-browser.md) for ES6 features that MSAL.js rely on (e.g. promises) in order to run your apps on **Internet Explorer**
+- You must provide [polyfills](./msal-js-use-ie-browser.md) for ES6 features that MSAL.js relies on (e.g. promises) in order to run your apps on **Internet Explorer**
 - Make sure you have migrated your Azure AD apps to [v2 endpoint](../azuread-dev/azure-ad-endpoint-comparison.md) if you haven't already
 
 ## Install and import MSAL
 
-There are 2 ways to install the MSAL.js 2.x library:
+There are two ways to install the MSAL.js 2.x library:
 
-1. Via NPM:
+### Via NPM:
 
 ```console
 npm install @azure/msal-browser
@@ -46,16 +46,16 @@ import * as msal from "@azure/msal-browser"; // ESM
 const msal = require('@azure/msal-browser'); // CommonJS
 ```
 
-1. Via CDN:
+### Via CDN:
 
 Load the script in the header section of your HTML document:
 
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js"></script>
-    </head>
+  <head>
+    <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js"></script>
+  </head>
 </html>
 ```
 
@@ -63,23 +63,23 @@ For alternative CDN links and best practices when using CDN, see: [CDN Usage](ht
 
 ## Initialize MSAL
 
-In ADAL.js, you instantiate the [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) class, which then exposes the methods you can use to achieve authentication (`login`, `acquireTokenPopup` etc.). This object serves as the representation of an instance of your application's connection to the authorization server or identity provider. When initializing, the only mandatory parameter is the **clientId**:
+In ADAL.js, you instantiate the [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) class, which then exposes the methods you can use to achieve authentication (`login`, `acquireTokenPopup` etc.). This object serves as the representation of your application's connection to the authorization server or identity provider. When initializing, the only mandatory parameter is the **clientId**:
 
 ```javascript
 window.config = {
-   clientId: "YOUR_CLIENT_ID"
+  clientId: "YOUR_CLIENT_ID"
 };
 
 var authContext = new AuthenticationContext(config);
 ```
 
-In MSAL.js, you instantiate the [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) class instead. Like ADAL.js, the constructor expects a [configuration object](#configure-msal) that contains the `clientId` parameter at the very least. See for more: [Initialize MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)
+In MSAL.js, you instantiate the [PublicClientApplication](https://azuread.github.io/microsoft-authentication-library-for-js/ref/classes/_azure_msal_browser.publicclientapplication.html) class instead. Like ADAL.js, the constructor expects a [configuration object](#configure-msal) that contains the `clientId` parameter at minimum. See for more: [Initialize MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/initialization.md)
 
 ```javascript
 const msalConfig = {
-    auth: {
-        clientId: 'YOUR_CLIENT_ID'
-    }
+  auth: {
+      clientId: 'YOUR_CLIENT_ID'
+  }
 };
 
 const msalInstance = new msal.PublicClientApplication(msalConfig);
@@ -92,7 +92,7 @@ In both ADAL.js and MSAL.js, the authority URI defaults to `https://login.micros
 
 ## Configure MSAL
 
-Some of the [configuration options in ADAL.js](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context) that are used when initializing [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) are deprecated in MSAL.js, while some new ones are introduced. See the [full list of available options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md). Importantly, many of these options, with the exception of `clientId`, can be overridden during token acquisition, allowing you to set these on a *per-request* basis. For instance, you can use a different **authority URI** or **redirect URI** than the one you set during initialization when acquiring tokens.
+Some of the [configuration options in ADAL.js](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context) that are used when initializing [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-js/wiki/Config-authentication-context#authenticationcontext) are deprecated in MSAL.js, while some new ones are introduced. See the [full list of available options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md). Importantly, many of these options, except for `clientId`, can be overridden during token acquisition, allowing you to set them on a *per-request* basis. For instance, you can use a different **authority URI** or **redirect URI** than the one you set during initialization when acquiring tokens.
 
 Additionally, you no longer need to specify the login experience (i.e. whether using popup windows or redirecting the page) via the configuration options. Instead, MSAL.js exposes `loginPopup` and `loginRedirect` methods through the `PublicClientApplication` instance.
 
@@ -102,7 +102,7 @@ In ADAL.js, you configure logging separately at any place in your code:
 
 ```javascript
 window.config = {
-   clientId: "YOUR_CLIENT_ID"
+  clientId: "YOUR_CLIENT_ID"
 };
 
 var authContext = new AuthenticationContext(config);
@@ -123,21 +123,21 @@ In MSAL.js, logging is part of the configuration options and is created during t
 
 ```javascript
 const msalConfig = {
-    auth: {
-        // authentication related parameters
-    },
-    cache: {
-        // cache related parameters
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false,
-            logLevel: msal.LogLevel.Verbose,
-        }
-    }
+  auth: {
+      // authentication related parameters
+  },
+  cache: {
+      // cache related parameters
+  },
+  system: {
+      loggerOptions: {
+          loggerCallback(loglevel, message, containsPii) {
+              console.log(message);
+          },
+          piiLoggingEnabled: false,
+          logLevel: msal.LogLevel.Verbose,
+      }
+  }
 }
 
 const msalInstance = new msal.PublicClientApplication(msalConfig);
@@ -165,8 +165,8 @@ Others were deprecated, while MSAL.js offers new methods:
 | N/A                               | `loginRedirect`                 |                                                  |
 | N/A                               | `logoutPopup`                   |                                                  |
 | N/A                               | `logoutRedirect`                |                                                  |
-| N/A                               | `getAccountByHomeId`            | Filters accounts by home Id (oid + tenant Id)    |
-| N/A                               | `getAccountLocalId`             | Filters accounts by local Id (useful for ADFS)   |
+| N/A                               | `getAccountByHomeId`            | Filters accounts by home ID (oid + tenant ID)    |
+| N/A                               | `getAccountLocalId`             | Filters accounts by local ID (useful for ADFS)   |
 | N/A                               | `getAccountUsername`            | Filters accounts by username (if exists)         |
 
 In addition, as MSAL.js is implemented in TypeScript unlike ADAL.js, it exposes various types and interfaces that you can make use of in your projects. See the [MSAL.js API reference](https://azuread.github.io/microsoft-authentication-library-for-js/ref/) for more.
@@ -177,7 +177,7 @@ An important difference between the Azure AD **v1.0** vs. **v2.0** endpoints is 
 
 ```javascript
 authContext.acquireTokenRedirect("https://graph.microsoft.com", function (error, token) {
-    // do something with the access token
+  // do something with the access token
 });
 ```
 
@@ -185,7 +185,7 @@ MSAL.js supports both **v1.0** and **v2.0** endpoints. The **v2.0** endpoint emp
 
 ```javascript
 msalInstance.acquireTokenRedirect({
-    scopes: ["https://graph.microsoft.com/User.Read"]
+  scopes: ["https://graph.microsoft.com/User.Read"]
 });
 ```
 
@@ -197,7 +197,7 @@ In ADAL.js, callbacks are used for any operation after the authentication succee
 
 ```javascript
 authContext.acquireTokenPopup(resource, extraQueryParameter, claims, function (error, token) {
-    // do something with the access token
+  // do something with the access token
 });
 ```
 
@@ -205,25 +205,25 @@ In MSAL.js, promises are used instead:
 
 ```javascript
 msalInstance.acquireTokenPopup({
-        scopes: ["User.Read"] // shorthand for https://graph.microsoft.com/User.Read
-    }).then((response) => {
-        // do something with the auth response
-    }).catch((error) => {
-        // handle errors
-    });
+      scopes: ["User.Read"] // shorthand for https://graph.microsoft.com/User.Read
+  }).then((response) => {
+      // do something with the auth response
+  }).catch((error) => {
+      // handle errors
+  });
 ```
 
 You can also use the **async/await** syntax that comes with ES8:
 
 ```javascript
 const getAccessToken = async() => {
-    try {
-        const authResponse = await msalInstance.acquireTokenPopup({
-            scopes: ["User.Read"]
-        });
-    } catch (error) {
-        // handle errors
-    }
+  try {
+      const authResponse = await msalInstance.acquireTokenPopup({
+          scopes: ["User.Read"]
+      });
+  } catch (error) {
+      // handle errors
+  }
 }
 ```
 
@@ -235,15 +235,15 @@ Importantly, you are not supposed to access the cache directly. Instead, you sho
 
 ## Renew tokens with refresh tokens
 
-ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md) which does not return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden Iframe so that the user is not repeatedly prompted to authenticate.
+ADAL.js uses the [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md), which does not return refresh tokens for security reasons (refresh tokens have longer lifetime than access tokens and are therefore more dangerous in the hands of malicious actors). Hence, ADAL.js performs token renewal using a hidden Iframe so that the user is not repeatedly prompted to authenticate.
 
-With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh tokens along with id and access tokens, which can be used to renew them. The usage of refresh tokens is abstracted away, and the developers are not supposed to build logic around them. Instead, MSAL manages token renewal using refresh tokens by itself. Your previous token cache with ADAL.js will not be transferable to MSAL.js, as the token cache schema has changed and incompatible with the schema used in ADAL.js.
+With the auth code flow with PKCE support, apps using MSAL.js 2.x obtain refresh tokens along with ID and access tokens, which can be used to renew them. The usage of refresh tokens is abstracted away, and the developers are not supposed to build logic around them. Instead, MSAL manages token renewal using refresh tokens by itself. Your previous token cache with ADAL.js will not be transferable to MSAL.js, as the token cache schema has changed and incompatible with the schema used in ADAL.js.
 
 ## Handle errors and exceptions
 
 When using MSAL.js, the most common type of error you might face is the `interaction_in_progress` error. This error is thrown when an interactive API (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`) is invoked while another interactive API is still in progress. The `login*` and `acquireToken*` APIs are *async* so you will need to ensure that the resulting promises have resolved before invoking another one.
 
-Another common error is `interaction_required`. This error is often resolved by simply initiating an interactive token acquisition prompt. For instance, the web API you are trying to access might have a [conditional access](../conditional-access/overview.md) policy in place, requiring the user to perform [multi-factor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
+Another common error is `interaction_required`. This error is often resolved by simply initiating an interactive token acquisition prompt. For instance, the web API you are trying to access might have a [conditional access](../conditional-access/overview.md) policy in place, requiring the user to perform [multifactor authentication](../authentication/concept-mfa-howitworks.md) (MFA). In that case, handling `interaction_required` error by triggering `acquireTokenPopup` or `acquireTokenRedirect` will prompt the user for MFA, allowing them to fullfil it.
 
 Yet another common error you might face is `consent_required`, which occurs when permissions required for obtaining an access token for a protected resource are not consented by the user. As in `interaction_required`, the solution for `consent_required` error is often initiating an interactive token acquisition prompt, using either `acquireTokenPopup` or `acquireTokenRedirect`.
 
@@ -255,12 +255,12 @@ MSAL.js (>=v2.4) introduces an events API that you can make use of in your apps.
 
 ```javascript
 const callbackId = msalInstance.addEventCallback((message) => {
-    // Update UI or interact with EventMessage here
-    if (message.eventType === EventType.LOGIN_FAILURE) {
-        if (message.error instanceof AuthError) {
-            // Do something with the error
-        }
-     }
+  // Update UI or interact with EventMessage here
+  if (message.eventType === EventType.LOGIN_FAILURE) {
+      if (message.error instanceof AuthError) {
+          // Do something with the error
+      }
+    }
 });
 ```
 
@@ -275,18 +275,18 @@ let homeAccountId = null; // Initialize global accountId (can also be localAccou
 
 // This callback is passed into `acquireTokenPopup` and `acquireTokenRedirect` to handle the interactive auth response
 function handleResponse(resp) {
-    if (resp !== null) {
-        homeAccountId = resp.account.homeAccountId; // alternatively: resp.account.homeAccountId or resp.account.username
-    } else {
-        const currentAccounts = myMSALObj.getAllAccounts();
-        if (currentAccounts.length < 1) { // No cached accounts
-            return;
-        } else if (currentAccounts.length > 1) { // Multiple account scenario
-            // Add account selection logic here
-        } else if (currentAccounts.length === 1) {
-            homeAccountId = currentAccounts[0].homeAccountId; // Single account scenario
-        }
-    }
+  if (resp !== null) {
+      homeAccountId = resp.account.homeAccountId; // alternatively: resp.account.homeAccountId or resp.account.username
+  } else {
+      const currentAccounts = myMSALObj.getAllAccounts();
+      if (currentAccounts.length < 1) { // No cached accounts
+          return;
+      } else if (currentAccounts.length > 1) { // Multiple account scenario
+          // Add account selection logic here
+      } else if (currentAccounts.length === 1) {
+          homeAccountId = currentAccounts[0].homeAccountId; // Single account scenario
+      }
+  }
 }
 ```
 
@@ -316,71 +316,71 @@ The snippets below demonstrates the minimal code required for a single-page appl
 ```html
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script 
-        type="text/javascript"
-        src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js">
-    </script>
+  <script 
+    type="text/javascript"
+    src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.18/js/adal.min.js">
+  </script>
 </head>
 
 <div>
-    <button id="loginButton">Login</button>
-    <button id="logoutButton" style="visibility: hidden;">Logout</button>
-    <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+  <button id="loginButton">Login</button>
+  <button id="logoutButton" style="visibility: hidden;">Logout</button>
+  <button id="tokenButton" style="visibility: hidden;">Get Token</button>
 </div>
 
 <body>
-    <script>
+  <script>
 
-        const loginButton = document.getElementById("loginButton");
-        const logoutButton = document.getElementById("logoutButton");
-        const tokenButton = document.getElementById("tokenButton");
+    const loginButton = document.getElementById("loginButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const tokenButton = document.getElementById("tokenButton");
 
-        var authContext = new AuthenticationContext({
-            instance: 'https://login.microsoftonline.com/',
-            clientId: "ENTER_CLIENT_ID",
-            tenant: "ENTER_TENANT_ID",
-            cacheLocation: "sessionStorage",
-            redirectUri: "http://localhost:3000",
-            popUp: true,
-            callback: function (errorDesc, token, error, tokenType) {
-                console.log('Hello ' + authContext.getCachedUser().profile.upn)
+    var authContext = new AuthenticationContext({
+        instance: 'https://login.microsoftonline.com/',
+        clientId: "ENTER_CLIENT_ID",
+        tenant: "ENTER_TENANT_ID",
+        cacheLocation: "sessionStorage",
+        redirectUri: "http://localhost:3000",
+        popUp: true,
+        callback: function (errorDesc, token, error, tokenType) {
+            console.log('Hello ' + authContext.getCachedUser().profile.upn)
 
-                loginButton.style.visibility = "hidden";
-                logoutButton.style.visibility = "visible";
-                tokenButton.style.visibility = "visible";
+            loginButton.style.visibility = "hidden";
+            logoutButton.style.visibility = "visible";
+            tokenButton.style.visibility = "visible";
+        }
+    });
+
+    authContext.log({
+        level: 3,
+        log: function (message) {
+            console.log(message);
+        },
+        piiLoggingEnabled: false
+    });
+
+    loginButton.addEventListener('click', function () {
+        authContext.login();
+    });
+
+    logoutButton.addEventListener('click', function () {
+        authContext.logOut();
+    });
+
+    tokenButton.addEventListener('click', () => {
+        authContext.acquireTokenPopup(
+            "https://graph.microsoft.com", 
+            null, null, 
+            function (error, token) {
+                console.log(error, token);
             }
-        });
-
-        authContext.log({
-            level: 3,
-            log: function (message) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false
-        });
-
-        loginButton.addEventListener('click', function () {
-            authContext.login();
-        });
-
-        logoutButton.addEventListener('click', function () {
-            authContext.logOut();
-        });
-
-        tokenButton.addEventListener('click', () => {
-            authContext.acquireTokenPopup(
-                "https://graph.microsoft.com", 
-                null, null, 
-                function (error, token) {
-                    console.log(error, token);
-                }
-            )
-        });
-    </script>
+        )
+    });
+  </script>
 </body>
 
 </html>
@@ -393,72 +393,72 @@ The snippets below demonstrates the minimal code required for a single-page appl
 ```html
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script 
-        type="text/javascript" 
-        src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js">
-    </script>
+  <script 
+    type="text/javascript" 
+    src="https://alcdn.msauth.net/browser/2.14.2/js/msal-browser.min.js">
+  </script>
 </head>
 
 <div>
-    <button id="loginButton">Login</button>
-    <button id="logoutButton" style="visibility: hidden;">Logout</button>
-    <button id="tokenButton" style="visibility: hidden;">Get Token</button>
+  <button id="loginButton">Login</button>
+  <button id="logoutButton" style="visibility: hidden;">Logout</button>
+  <button id="tokenButton" style="visibility: hidden;">Get Token</button>
 </div>
 
 <body>
-    <script>
-        const loginButton = document.getElementById("loginButton");
-        const logoutButton = document.getElementById("logoutButton");
-        const tokenButton = document.getElementById("tokenButton");
+  <script>
+    const loginButton = document.getElementById("loginButton");
+    const logoutButton = document.getElementById("logoutButton");
+    const tokenButton = document.getElementById("tokenButton");
 
-        const pca = new msal.PublicClientApplication({
-            auth: {
-                clientId: "ENTER_CLIENT_ID",
-                authority: "https://login.microsoftonline.com/ENTER_TENANT_ID",
-                redirectUri: "http://localhost:3000",
-            },
-            cache: {
-                cacheLocation: "sessionStorage"
-            },
-            system: {
-                loggerOptions: {
-                    loggerCallback(loglevel, message, containsPii) {
-                        console.log(message);
-                    },
-                    piiLoggingEnabled: false,
-                    logLevel: msal.LogLevel.Verbose,
-                }
+    const pca = new msal.PublicClientApplication({
+        auth: {
+            clientId: "ENTER_CLIENT_ID",
+            authority: "https://login.microsoftonline.com/ENTER_TENANT_ID",
+            redirectUri: "http://localhost:3000",
+        },
+        cache: {
+            cacheLocation: "sessionStorage"
+        },
+        system: {
+            loggerOptions: {
+                loggerCallback(loglevel, message, containsPii) {
+                    console.log(message);
+                },
+                piiLoggingEnabled: false,
+                logLevel: msal.LogLevel.Verbose,
             }
-        });
+        }
+    });
 
-        loginButton.addEventListener('click', () => {
-            pca.loginPopup().then((response) => {
-                console.log(`Hello ${response.account.username}!`);
+    loginButton.addEventListener('click', () => {
+        pca.loginPopup().then((response) => {
+            console.log(`Hello ${response.account.username}!`);
 
-                loginButton.style.visibility = "hidden";
-                logoutButton.style.visibility = "visible";
-                tokenButton.style.visibility = "visible";
-            })
-        });
+            loginButton.style.visibility = "hidden";
+            logoutButton.style.visibility = "visible";
+            tokenButton.style.visibility = "visible";
+        })
+    });
 
-        logoutButton.addEventListener('click', () => {
-            pca.logoutPopup().then((response) => {
-                window.location.reload();
-            })
-        });
+    logoutButton.addEventListener('click', () => {
+        pca.logoutPopup().then((response) => {
+            window.location.reload();
+        })
+    });
 
-        tokenButton.addEventListener('click', () => {
-            pca.acquireTokenPopup({
-                scopes: ["User.Read"]
-            }).then((response) => {
-                console.log(response);
-            })
-        });
-    </script>
+    tokenButton.addEventListener('click', () => {
+        pca.acquireTokenPopup({
+            scopes: ["User.Read"]
+        }).then((response) => {
+            console.log(response);
+        })
+    });
+  </script>
 </body>
 
 </html>
