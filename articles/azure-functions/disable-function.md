@@ -15,6 +15,9 @@ The recommended way to disable a function is with an app setting in the format `
 > [!NOTE]  
 > When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
 
+> [!NOTE]
+> At the present, Function names with hyphens (`-`) in them cannot be disabled in Linux-based App Service Plans. If you need to disable your Functions in Linux plans, avoid using hyphens in your Function names.
+
 ## Disable a function
 
 # [Portal](#tab/portal)
