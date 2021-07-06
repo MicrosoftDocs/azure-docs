@@ -35,7 +35,7 @@ While private endpoints are enabled for the vault, they're used for backup and r
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
 
 >[!Note]
->Private endpoints are not support with DPM and MABS servers. 
+>Private endpoints aren't supported with DPM and MABS servers. 
 
 ## Get started with creating private endpoints for Backup
 
