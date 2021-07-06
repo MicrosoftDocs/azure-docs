@@ -38,7 +38,6 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 
 <!--Website links -->
 [snp_website]:https://www.snp.com//
-dbbest_website :
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
 [credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
@@ -52,14 +51,12 @@ dbbest_website :
 <!--Press links-->
 
 <!--YouTube links-->
-[dbbest_youtube]:https://www.youtube.com/user/DBBestTech
 [pragmatic-works_youtube]:https://www.youtube.com/user/PragmaticWorks
 [infosys_youtube]:https://www.youtube.com/user/Infosys
 [credativ_youtube]:https://www.youtube.com/channel/UCnSnr6_TcILUQQvAwlYFc8A
 
 <!--Twitter links-->
 [snp_twitter]:https://twitter.com/snptechnologies
-[dbbest_twitter]:https://twitter.com/dbbest_tech
 [pragmatic-works_twitter]:https://twitter.com/PragmaticWorks
 [infosys_twitter]:https://twitter.com/infosys
 [credative_twitter]:https://twitter.com/credativ
@@ -67,7 +64,6 @@ dbbest_website :
 
 <!--Contact links-->
 [snp_contact]:mailto:sachin@snp.com
-[dbbest_contact]:mailto:dmitry@dbbest.com
 [pragmatic-works_contact]:mailto:marketing@pragmaticworks.com
 [infosys_contact]:https://www.infosys.com/contact/
 [credativ_contact]:mailto:info@credativ.com
