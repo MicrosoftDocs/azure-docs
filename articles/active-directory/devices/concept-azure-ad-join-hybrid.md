@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Hybrid Azure AD joined devices
 
-Organizations with existing Active Directory implementations, can benefit from some of the functionality provided by Azure Active Directory (Azure AD), by implementing hybrid Azure AD joined devices. These devices, are joined to your on-premises Active Directory and registered with Azure Active Directory.
+Organizations with existing Active Directory implementations can benefit from some of the functionality provided by Azure Active Directory (Azure AD) by implementing hybrid Azure AD joined devices. These devices are joined to your on-premises Active Directory and registered with Azure Active Directory.
 
 Hybrid Azure AD joined devices require network line of sight to your on-premises domain controllers periodically. Without this connection, devices become unusable. If this requirement is a concern, consider [Azure AD joining](concept-azure-ad-join.md) your devices.
 
