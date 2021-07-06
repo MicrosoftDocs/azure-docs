@@ -89,7 +89,7 @@ If the application that you're using is single-threaded, this setup can result i
 
 ### Cause 4: Number of SMB channels exceeds four
 
-If you're using SMB MultiChannel and the number of channels you have exceeds four, this will result in poor performance. To determine if your connection count exceeds four, use the cmdlet `get-SmbClientConfiguration` to view the current connection count settings.
+If you're using SMB MultiChannel and the number of channels you have exceeds four, this will result in poor performance. To determine if your connection count exceeds four, use the PowerShell cmdlet `get-SmbClientConfiguration` to view the current connection count settings.
 
 #### Solution
 
