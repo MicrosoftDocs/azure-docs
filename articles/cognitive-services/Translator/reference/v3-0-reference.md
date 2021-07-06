@@ -38,10 +38,10 @@ To force the request to be handled by a specific geography, change the Global en
 
 |Geography|Base URL (geographical endpoint)|
 |:--|:--|
-|Global (non-regional)|	api.cognitive.microsofttranslator.com|
-|United States|	api-nam.cognitive.microsofttranslator.com|
-|Europe|	api-eur.cognitive.microsofttranslator.com|
-|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
+|Global (non-regional)|    api.cognitive.microsofttranslator.com|
+|United States|    api-nam.cognitive.microsofttranslator.com|
+|Europe|    api-eur.cognitive.microsofttranslator.com|
+|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|
 
 <sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’ then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
 ```curl
