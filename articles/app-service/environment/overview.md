@@ -6,6 +6,7 @@ ms.assetid: 3d37f007-d6f2-4e47-8e26-b844e47ee919
 ms.topic: article
 ms.date: 07/05/2021
 ms.author: ccompy
+ms.custom: references_regions
 ms.custom: seodec18
 ---
 # App Service Environment overview 
