@@ -118,6 +118,14 @@ When you select a standard from the overview area of the report, the lower pane 
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Detailed breakdown of the changes regarding a specific standard.":::
 
+You can keep drilling down - right down to the recommendation level - to view the resources that have passed or failed each control. 
+
+> [!TIP]
+> For each panel of the report, you can export the data to Excel with the "Export to Excel" option.
+>
+> :::image type="content" source="media/custom-dashboards-azure-workbooks/export-workbook-data.png" alt-text="Detailed breakdown of the changes regarding a specific standard.":::
+
+
 ## Import workbooks from other workbook galleries
 
 If you've built workbooks in other Azure services and want to move them into your Azure Security Center workbooks gallery:
