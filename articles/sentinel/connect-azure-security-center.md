@@ -26,7 +26,7 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 
 - When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well.
 
-- Changing the status of an alert in Azure Defender will *not* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+- Changing the status of an alert in Azure Defender will *not* affect the status of any Azure Sentinel **incidents** that contain the Azure Sentinel alert, only that of the alert itself.
 
 ### Bi-directional alert synchronization
 
@@ -34,7 +34,7 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 >
 > - The **bi-directional alert synchronization** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-- Enabling **bi-directional sync** will automatically sync the status of original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, the corresponding original alert will be closed in Azure Defender automatically.
+- Enabling **bi-directional sync** will automatically sync the status of original Azure Defender alerts with that of the Azure Sentinel incidents that contain those alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, the corresponding original alert will be closed in Azure Defender automatically.
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 
 - You must have the Security Reader role in the subscriptions of the logs you stream.
 
-- You will need to enable Azure Defender within Azure Security Center. To do so, you must have the Security Admin role in each subscription for which you want to enable it.
+- You will need to enable at least one **Azure Defender** plan within Azure Security Center for each subscription for which you want to enable the connector. To enable Azure Defender plans on a subscription, you must have the **Security Admin** role for that subscription.
 
--  To enable bi-directional sync, you must have the Contributor role on your subscription.
+-  To enable bi-directional sync, you must have the **Contributor** or **Security Admin** role on the relevant subscription.
 
 ## Connect to Azure Defender
 
@@ -52,7 +52,7 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 
 1. From the data connectors gallery, select **Azure Defender**, and click **Open connector page** in the details pane.
 
-1. Under **Configuration**, you will see a list of the subscriptions in your tenant, and the status of their connection to Azure Defender. Select the **Connect** toggle next to each subscription whose alerts you want to stream into Azure Sentinel. If you want to connect several subscriptions at once, you can do this by marking the check boxes next to the relevant subscriptions and then selecting the **Connect** button on the bar above the list.
+1. Under **Configuration**, you will see a list of the subscriptions in your tenant, and the status of their connection to Azure Defender. Select the **Status** toggle next to each subscription whose alerts you want to stream into Azure Sentinel. If you want to connect several subscriptions at once, you can do this by marking the check boxes next to the relevant subscriptions and then selecting the **Connect** button on the bar above the list.
 
     > [!NOTE]
     > - The check boxes and **Connect** toggles will be active only on the subscriptions for which you have the required permissions.
@@ -61,14 +61,19 @@ As Azure Defender itself is enabled per subscription, the Azure Defender connect
 1. To enable bi-directional sync on a subscription, locate the subscription in the list, and choose **Enabled** from the drop-down list in the **Bi-directional sync (Preview)** column. To enable bi-directional sync on several subsriptions at once, mark their check boxes and select the **Enable bi-directional sync** button on the bar above the list.
 
     > [!NOTE]
-    > - The check boxes and drop-down lists will be active only on the subscriptions for which you have the required permissions.
+    > - The check boxes and drop-down lists will be active only on the subscriptions for which you have the [required permissions](#prerequisites).
     > - The **Enable bi-directional sync** button will be active only if at least one subscription's check box has been marked.
 
-1. In the **Azure Defender plans** column of the list, you can see if Azure Defender plans are enabled on your subscription (a prerequisite for enabling the connector). The value for each subscription in this column will either be blank (meaning no Defender plans are enabled) or say "All enabled" or "Some enabled." Those that say "Some enabled" will also have an **Enable all** link you can select, that will take you to your Azure Defender configuration dashboard for that subscription, where you can choose Defender plans to enable. The **Enable Azure Defender for all subscriptions** link button on the bar above the list will take you to your Azure Defender Getting Started page, where you can choose on which subscriptions to enable Azure Defender altogether.
+1. In the **Azure Defender plans** column of the list, you can see if Azure Defender plans are enabled on your subscription (a prerequisite for enabling the connector). The value for each subscription in this column will either be blank (meaning no Defender plans are enabled), "All enabled," or "Some enabled." Those that say "Some enabled" will also have an **Enable all** link you can select, that will take you to your Azure Defender configuration dashboard for that subscription, where you can choose Defender plans to enable. The **Enable Azure Defender for all subscriptions** link button on the bar above the list will take you to your Azure Defender Getting Started page, where you can choose on which subscriptions to enable Azure Defender altogether.
 
-1. You can select whether you want the alerts from Azure Defender to automatically generate incidents in Azure Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically creates incidents from alerts. You can then edit this rule under **Analytics**, in the  **Active rules** tab.
+    :::image type="content" source="./media/connect-azure-security-center/azure-defender-config.png" alt-text="Screen shot of Azure Defender connector configuration":::
+
+1. You can select whether you want the alerts from Azure Defender to automatically generate incidents in Azure Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically [creates incidents from alerts](create-incidents-from-alerts.md). You can then edit this rule under **Analytics**, in the  **Active rules** tab.
 
 ## Find and analyze your data
+
+> [!NOTE]
+> Alert synchronization *in both directions* can take a few minutes. Changes in the status of alerts might not be displayed immediately.
 
 - Azure Defender alerts are stored in the *SecurityAlert* table in your Log Analytics workspace.
 
