@@ -26,7 +26,7 @@ Within Azure Security Center, you can access the built-in reports to track your 
 | Release state:                  | General Availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | To save workbooks, you must have at least Workbook Contributor permissions on the target resource group                                      |
-| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov) |
+| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, Azure China) |
 |                                 |                                                                                                                                              |
 
 ## Workbooks gallery in Azure Security Center

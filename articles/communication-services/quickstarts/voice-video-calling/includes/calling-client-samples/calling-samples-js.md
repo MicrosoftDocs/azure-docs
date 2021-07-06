@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
 ---
 ## Prerequisites
@@ -128,10 +128,9 @@ const camera = cameras[0]
 localVideoStream = new LocalVideoStream(camera);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
 const call = callAgent.startCall(['acsUserId'], placeCallOptions);
-
 ```
 
-When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
+- When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
 
 ### Join a group call
 
@@ -210,6 +209,9 @@ callAgentInstance.on('incomingCall', incomingCallHander);
 ```
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
+
+When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if its disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
+See Call Diagnostics section to see how to handle this call diagnostic.
 
 ## Manage calls
 
@@ -344,6 +346,11 @@ const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
 
+If the specified video device is being used by another process, or if its disabled in the system:
+- While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError and a cameraStartFiled: true call diagnostic will be raised.
+- A call to the localVideoStream.switchSource() api will cause a cameraStartFailed: true call diagnostic to be raised be raised.
+See Call Diagnostics section to see how to handle call diagnostics.
+
 ## Manage remote participants
 
 All remote participants are represented by `RemoteParticipant` type and available through `remoteParticipants` collection on a call instance.
@@ -371,7 +378,7 @@ Remote participants have a set of associated properties and collections:
   - `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
   - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
   - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
-  - `{ id: string }`: object repredenting identifier that doesn't fit any of the other identifier types
+  - `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
 
 - `state`: Get the state of a remote participant.
 
@@ -447,33 +454,48 @@ await call.removeParticipant(pstnIdentifier);
 
 To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
 
+E.g. to pick first stream of a first participant:
 ```js
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
+To check the stream type, inspect the `mediaStreamType` property of a given stream. It will return 'Video' or 'ScreenSharing';
 
-To render `RemoteVideoStream`, you have to subscribe to it's `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
+To render `RemoteVideoStream`, your application should do the following:
+- create a new instance of `VideoStreamRenderer` and supply `RemoteVideoStream` instance as an argument.
+- check and subscribe to the stream's `isAvailableChanged` event.
+- once the `isAvailable` property changes to `true`, a remote participant is sending data. Your application can then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.
+- `createView` resolves after a local endpoint subscribes to the video and receives the first video frame. At this point the application can attach the `view` instance returned from `createView` to the DOM.
+- once a stream becomes unavailable, your application should `dispose` all views associated with the VideoStreamRenderer instance used to render the given stream. It may also choose to `dispose` a `VideoStreamRenderer` instance itself.
 
-Whenever availability of a remote stream changes you can choose to destroy the whole `VideoStreamRenderer`, a specific `VideoStreamRendererView`
-or keep them, but this will result in displaying blank video frame.
-
+Some important considerations:
+- If a stream becomes unavailable (e.g. sender stopped video, or there's a network connectivity issue) before `createView` resolves, `createView` will be rejected information that the stream became unavailable.
+- After the `VideoStreamRendererView` instance is disposed, it can not be reused. Your application must create a new `VideoStreamRendererView` instance using the `createView` method.
+- Both `createView` and `dispose` can throw exceptions. Your application should handle these scenarios accordingly.
+Full flow:
 ```js
-function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
-	let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
-	const displayVideo = () => {
-		const view = await videoStreamRenderer.createView();
+let videoStreamRenderer: VideoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
+let view: VideoStreamRendererView;
+const renderVideo = async () => {
+        try {
+		view = await videoStreamRenderer.createView();
 		htmlElement.appendChild(view.target);
-	}
-	remoteVideoStream.on('isAvailableChanged', async () => {
-		if (remoteVideoStream.isAvailable) {
-			displayVideo();
-		} else {
-			videoStreamRenderer.dispose();
-		}
-	});
+	} catch (e) {
+		console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
+	}	
+}
+remoteVideoStream.on('isAvailableChanged', async () => {
 	if (remoteVideoStream.isAvailable) {
-		displayVideo();
+		await renderVideo();
+	} else {
+		if (view) {
+			view.dispose();
+			view = undefined;
+		}
 	}
+});
+if (remoteVideoStream.isAvailable) {
+	await renderVideo();
 }
 ```
 
@@ -608,7 +630,7 @@ console.log(result.video);
 - The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
 - The 'audioDevicesUpdated' event fires when audio devices are plugged
 - When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
-- Speaker enumeration/selection is not suppported on Android nor iOS. This is already in 'known issues' documentation.
+- Speaker enumeration/selection is not supported on Android nor iOS. This is already in 'known issues' documentation.
 
 ## Record calls
 > [!NOTE]
@@ -994,7 +1016,7 @@ function subscribeToRemoteParticipant(p) {
 
 ## Releasing resources
 1. How to properly release resources when a call is finished:
-    - When call is finished our SDK will terminate signaling&media sessions leaving you with an instance of the call that holds the last state of it, so you can check callEndReason etc.., if your app won't hold the reference to the Call instance - JavaScript GC will clean up everything so in terms of memory consumption your app should go back to initial state from before the call.
+    - When call is finished our SDK will terminate signaling&media sessions leaving you with an instance of the call that holds the last state of it, so you can check callEndReason etc., if your app won't hold the reference to the Call instance - JavaScript GC will clean up everything so in terms of memory consumption your app should go back to initial state from before the call.
 
 2. Which resource types are long-lived (app lifetime) vs. short-lived (call lifetime):
     - The following are considered to be "long-lived" resources - you can create them and keep referenced for a long time, they are very light in terms of resource(memory) consumption so won't impact perf:
