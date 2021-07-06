@@ -99,15 +99,15 @@ The ASEv3 is available in the following regions.
 |Brazil South	|Brazil South	|Central US|
 |Canada Central|	Canada Central|	East US|
 |Central India	|Central India|	East US 2|
-|Central US	|Central US	|East US 2 EUAP|
-|East Asia	|East Asia|	France Central|
-|East US	|East US	|Germany West Central|
-|East US 2|	East US 2|	North Europe|
-|France Central	|France Central	|South Central US|
-|Germany West Central	|Germany West Central|	Southeast Asia|
-|Korea Central	|Korea Central	|UK South|
-|North Europe	|North Europe|	West Europe|
-|Norway East	|Norway East|	West US 2|
+|Central US	|Central US	|France Central|
+|East Asia	|East Asia| Germany West Central|
+|East US	|East US	| North Europe|
+|East US 2|	East US 2|	South Central US|
+|France Central	|France Central	| Southeast Asia|
+|Germany West Central	|Germany West Central|	UK South|
+|Korea Central	|Korea Central	| West Europe|
+|North Europe	|North Europe|	West US 2|
+|Norway East	|Norway East|	|
 |South Africa North|	South Africa North| |	
 |South Central US	|South Central US	| |
 |Southeast Asia|	Southeast Asia	| |
