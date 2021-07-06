@@ -62,7 +62,7 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | Variable Name | Description |
 | --- | --- |
 | @triggerBody().fileName  |Name of the file whose creation or deletion caused the trigger to fire.   |
-| @triggerBody().folderName  |Path to the folder that contains the file specified by `@triggerBody().fileName`. The first segment of the folder path is the name of the Azure Blob Storage container.  |
+| @triggerBody().folderPath  |Path to the folder that contains the file specified by `@triggerBody().fileName`. The first segment of the folder path is the name of the Azure Blob Storage container.  |
 | @trigger().startTime |Time at which the trigger fired to invoke the pipeline run. |
 
 ## Custom event trigger scope

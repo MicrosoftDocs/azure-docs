@@ -121,6 +121,12 @@ You can also use the built-in direct method call [UploadSupportBundle](how-to-re
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
 
+## Review metrics collected from the runtime
+
+The IoT Edge runtime modules produce metrics to help you monitor and understand the health of your IoT Edge devices. Add the **metrics-collector** module to your deployments to handle collecting these metrics and sending them to the cloud for easier monitoring.
+
+For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
+
 ## Check your IoT Edge version
 
 If you're running an older version of IoT Edge, then upgrading may resolve your issue. The `iotedge check` tool checks that the IoT Edge security daemon is the latest version, but does not check the versions of the IoT Edge hub and agent modules. To check the version of the runtime modules on your device, use the commands `iotedge logs edgeAgent` and `iotedge logs edgeHub`. The version number is declared in the logs when the module starts up.
