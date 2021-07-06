@@ -18,9 +18,8 @@ This article uses Health check in the Azure portal to monitor App Service instan
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, the system determines it's unhealthy and removes it.
-- After removal, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
-- If an instance remains unhealthy for one hour, it will be replaced with new instance.
+- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, it will be deemed unhealthy and requests will not be routed to that instance.
+- Health check will continue to ping the unhealthy instance after it has been removed from the load balancer. If the instance continues to respond unseccessfully for one hour, it will be replaced with new VM.
 - Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]

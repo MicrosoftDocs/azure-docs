@@ -10,7 +10,7 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
-  - name: What's new 
+  - name: Release notes
     href: whats-new.md
 - name: Quickstarts
   expanded: true
@@ -286,6 +286,8 @@
         href: add-identity-roles.md
       - name: Create an event subscription that uses the managed identity
         href: managed-service-identity.md
+    - name: Enforce security controls with custom Azure policies
+      href: custom-azure-policies-for-security-control.md
     - name: Deliver events securely over a private link
       href: consume-private-endpoints.md      
     - name: Configure IP firewall
