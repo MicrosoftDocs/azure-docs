@@ -833,28 +833,24 @@ def analyze_batch_example(client):
         )
 
         result = poller.result()
-        action_results = [action_result for action_result in list(result) if not action_result.is_error]
-        first_action_result = action_results[0]
+        action_results = [action_result for action_result in list(result)]
+        first_action_result = action_results[0][0]
         print("Results of Entities Recognition action:")
-        docs = [doc for doc in first_action_result.document_results if not doc.is_error]
-        for idx, doc in enumerate(docs):
-            print("\nDocument text: {}".format(documents[idx]))
-            for entity in doc.entities:
-                print("Entity: {}".format(entity.text))
-                print("...Category: {}".format(entity.category))
-                print("...Confidence Score: {}".format(entity.confidence_score))
-                print("...Offset: {}".format(entity.offset))
-                print("...Length: {}".format(entity.length))
-            print("------------------------------------------")
 
-        second_action_result = action_results[1]
+        for entity in first_action_result.entities:
+            print("Entity: {}".format(entity.text))
+            print("...Category: {}".format(entity.category))
+            print("...Confidence Score: {}".format(entity.confidence_score))
+            print("...Offset: {}".format(entity.offset))
+            print("...Length: {}".format(entity.length))
+        print("------------------------------------------")
+
+        second_action_result = action_results[0][1]
         print("Results of Key Phrase Extraction action:")
-        docs = [doc for doc in second_action_result.document_results if not doc.is_error]
-
-        for idx, doc in enumerate(docs):
-            print("Document text: {}\n".format(documents[idx]))
-            print("Key Phrases: {}\n".format(doc.key_phrases))
-            print("------------------------------------------")
+        
+        for key_phrase in second_action_result.key_phrases:
+            print("Key Phrase: {}\n".format(key_phrase))
+        print("------------------------------------------")
 
 analyze_batch_example(client)
 ```
@@ -863,8 +859,6 @@ analyze_batch_example(client)
 
 ```console
 Results of Entities Recognition action:
-
-Document text: Microsoft was founded by Bill Gates and Paul Allen.
 Entity: Microsoft
 ...Category: Organization
 ...Confidence Score: 1.0
@@ -882,9 +876,13 @@ Entity: Paul Allen
 ...Length: 10
 ------------------------------------------
 Results of Key Phrase Extraction action:
-Document text: Microsoft was founded by Bill Gates and Paul Allen.
+Key Phrase: Bill Gates
 
-Key Phrases: ['Bill Gates', 'Paul Allen', 'Microsoft']
+Key Phrase: Paul Allen
+
+Key Phrase: Microsoft
+
+------------------------------------------
 ```
 
 # [Version 3.0](#tab/version-3)
