@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 06/29/2021
 ms.author: normesta
 ---
 
@@ -40,7 +40,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
 |Custom domains|Preview<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
-|Blob soft delete|Not yet supported|Not yet supported|[Soft delete for blobs](./soft-delete-blob-overview.md)|
+|Blob soft delete|Preview|Preview|[Soft delete for blobs](./soft-delete-blob-overview.md)|
 |Blobfuse|Generally available|Generally available|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
 |Anonymous public access |Generally available|Generally available| See [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).|
 |Customer-managed account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

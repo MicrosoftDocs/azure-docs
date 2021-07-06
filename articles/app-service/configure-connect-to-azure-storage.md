@@ -125,13 +125,13 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://porta.azure.com), navigate to the app.
+1. In the [Azure portal](https://portal.azure.com), navigate to the app.
 1. From the left navigation, click **Configuration** > **Path Mappings** > **New Azure Storage Mount**. 
 1. Configure the storage mount according to the following table. When finished, click **OK**.
 
     | Setting | Description |
     |-|-|
-    | **Name** | Name of the mount configuration. |
+    | **Name** | Name of the mount configuration. Spaces are not allowed. |
     | **Configuration options** | Select **Basic** if the storage account is not using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) or [private endpoints](../storage/common/storage-private-endpoints.md). Otherwise, select **Advanced**. |
     | **Storage accounts** | Azure Storage account. |
     | **Storage type** | Select the type based on the storage you want to mount. Azure Blobs only supports read-only access. |

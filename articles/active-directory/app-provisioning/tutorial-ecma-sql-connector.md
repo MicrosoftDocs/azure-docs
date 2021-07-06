@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/04/2021
+ms.date: 07/01/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
@@ -195,8 +195,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 2. In the portal, navigate to Azure Active Directory, **Enterprise Applications**.
 3. Click on **New Application**.
  ![Add new application](.\media\on-premises-ecma-configure\configure-4.png)
-4. Search the gallery for the test application **on-premises provisioning** and click **Create**.
- ![Create new application](.\media\tutorial-ecma-sql-connector\app-1.png)
+4. Search the gallery for **On-premises ECMA app** and click **Create**.
 
 ## Step 8 - Configure the application and test
 1. Once it has been created, click he **Provisioning page**.

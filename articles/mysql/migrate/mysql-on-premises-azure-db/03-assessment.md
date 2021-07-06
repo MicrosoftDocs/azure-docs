@@ -13,6 +13,8 @@ ms.date: 06/21/2021
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Assessment
 
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+
 ## Prerequisites
 
 [Representative Use Case](02-representative-use-case.md)
@@ -202,7 +204,7 @@ Typically, the decision-making focuses on the storage and IOPS, or Input/output 
 |---------|------|
 | **Basic** | Development machine, no need for high performance with less than 1 TB storage. |
 | **General Purpose** | Needs for IOPS more than what basic tier can provide, but for storage less than 16 TB, and less than 4 GB of memory. |
-| **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many slaves for replication. |
+| **Memory Optimized** | Data workloads that utilize high memory or high cache and buffer-related server configuration such as high concurrency innodb_buffer_pool_instances, large BLOB sizes, systems with many replication copies. |
 
 ### Costs
 

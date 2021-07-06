@@ -26,6 +26,9 @@ Read more details at:
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+To learn more about these capabilities, you can also refer to this Data Exposed episode.
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
+
 ## Compare solutions
 
 This section describes how Azure Arc enabled PostgreSQL Hyperscale differs from Azure Database for PostgreSQL Hyperscale (Citus)?

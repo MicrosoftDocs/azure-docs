@@ -49,7 +49,7 @@ You'll also need to install some additional, language-specific tools to develop 
 
 - Node.js: [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 
 To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
