@@ -21,7 +21,7 @@ Meanwhile, Azure Virtual Desktop manages portions of the services on the custome
 
 To keep the service flexible, the session hosts are hosted in the partner or customers' Azure subscription. This lets customers integrate the service with other Azure services and lets them connect on-premises network infrastructure with ExpressRoute or a virtual private network (VPN).
 
-Like many cloud services, there's a shared set of security responsibilities between you and Microsoft. When you use Azure Virtual Desktop, it's important to understand that while some parts of the service are secured for you, there are others you'll need to configure yourself according to your organization's security needs.
+Like many cloud services, there's a [shared set of security responsibilities](/azure/security/fundamentals/shared-responsibility) between you and Microsoft. When you use Azure Virtual Desktop, it's important to understand that while some parts of the service are secured for you, there are others you'll need to configure yourself according to your organization's security needs.
 
 You'll need to configure security in the following areas:
 
@@ -33,9 +33,9 @@ You'll need to configure security in the following areas:
 
 ## Combined Microsoft security platform
 
-You can protect workloads by using security features and controls from Microsoft 365, Azure, and Azure virtual Desktop.
+You can protect workloads by using security features and controls from Microsoft 365, Azure, and Azure Virtual Desktop.
 
-When the service connects to the internet, Azure Active Directory (Azure AD) authenticates its credentials, enabling protective features like conditional access and multi-factor authentication. These features greatly reduce the risk of user identities being compromised.
+When the service connects to the internet, Azure Active Directory (Azure AD) authenticates its credentials, enabling protective features like [Conditional Access](/azure/active-directory/conditional-access/overview) and [multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks). These features greatly reduce the risk of user identities being compromised.
 
 Azure Virtual Desktop has features like Reverse Connect that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs.
 
@@ -52,7 +52,7 @@ Azure Virtual Desktop supports the following operating systems:
 - Windows Server 2012 R2, 2016, and 2019
 - Windows 10 Enterprise multi-session
 
-Windows 10 Enterprise multi-session is an Azure-exclusive OS that functions as a Remote Desktop session host (RDSH) that allows multiple concurrent interactive sessions, much like Windows Server. This similarity to Windows Servers gives users a familiar and consistent WIndows 10 experience. The service's per-user Windows licensing also lowers costs for the organization as a whole because IT doesn't have to keep purchasing RDS Client Access Licenses (CALs). Because of these benefits, Windows 10 Enterprise multi-session is the most widely deployed OS for session hosts in Azure Virtual Desktop.
+Windows 10 Enterprise multi-session is an Azure-exclusive OS that functions as a Remote Desktop session host (RDSH) that allows multiple concurrent interactive sessions, much like Windows Server. The Windows 10 environment gives users a familiar and consistent experience. The service's per-user Windows licensing also lowers costs for the organization as a whole because IT doesn't have to keep purchasing RDS Client Access Licenses (CALs). Because of these benefits, Windows 10 Enterprise multi-session is the most widely deployed OS for session hosts in Azure Virtual Desktop.
 
 ## Security boundaries
 
