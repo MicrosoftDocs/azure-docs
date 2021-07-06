@@ -48,7 +48,7 @@ Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more 
 
 ## Choose the correct storage target type
 
-You can select from three storage target types: **NFS**, **Blob**, and **ADLS-NFS**. Choose the type that matches the storage system you will use to store your working set files for the length of the job.
+You can select from three storage target types: **NFS**, **Blob**, and **ADLS-NFS**. Choose the type that matches the kind of storage system you will use to store your files during this HPC Cache project.
 
 * **NFS** - Create an NFS storage target to access data on an on-premises NAS system.
 
@@ -60,7 +60,7 @@ You can select from three storage target types: **NFS**, **Blob**, and **ADLS-NF
   * Prerequisites: [Blob storage requirements](hpc-cache-prerequisites.md#blob-storage-requirements)
   * Instructions: [Add a new Azure Blob storage target](#add-a-new-azure-blob-storage-target)
 
-* **ADLS-NFS** - The ADLS-NFS storage target accesses data from an [NFS-enabled Blob](../storage/blobs/network-file-system-protocol-support.md) container. You can pre-load the container by using standard NFS commands, and the files can be read later over NFS.
+* **ADLS-NFS** - The ADLS-NFS storage target accesses data from an [NFS-enabled Blob](../storage/blobs/network-file-system-protocol-support.md) container. You can pre-load the container by using standard NFS commands, and the files can be read later with NFS.
 
   * Prerequisites: [ADLS-NFS storage requirements](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements)
   * Instructions: [Add a new ADLS-NFS storage target](#add-a-new-adls-nfs-storage-target)
