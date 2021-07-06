@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/30/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -23,6 +23,8 @@ The OAuth 2.0 authorization code grant can be used in apps that are installed on
 This article describes how to program directly against the protocol in your application using any language.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It's used to perform authentication and authorization in the majority of app types, including [single page apps](v2-app-types.md#single-page-apps-javascript), [web apps](v2-app-types.md#web-apps), and [natively installed apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the Microsoft identity platform, as well as refresh tokens to get additional access_tokens, and ID tokens for the signed in user.
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram
 
@@ -205,10 +207,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
 
-> [!TIP]
-> Try executing this request in Postman! (Don't forget to replace the `code`)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://www.getpostman.com/collections/dba7e9c2e0870702dfc6)
-
 | Parameter  | Required/optional | Description     |
 |------------|-------------------|----------------|
 | `tenant`   | required   | The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints).  |
@@ -323,10 +321,6 @@ Error responses will look like:
 
 Now that you've successfully acquired an `access_token`, you can use the token in requests to web APIs by including it in the `Authorization` header:
 
-> [!TIP]
-> Execute this request in Postman! (Replace the `Authorization` header first)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ```HTTP
 GET /v1.0/me/messages
 Host: https://graph.microsoft.com
@@ -358,11 +352,6 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=refresh_token
 &client_secret=sampleCredentia1s    // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
-
-> [!TIP]
-> Try executing this request in Postman! (Don't forget to replace the `refresh_token`)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
->
 
 | Parameter     | Type           | Description        |
 |---------------|----------------|--------------------|
@@ -396,6 +385,8 @@ A successful token response will look like:
 | `scope`         | The scopes that the access_token is valid for.    |
 | `refresh_token` | A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible. <br> **Note:** Only provided if `offline_access` scope was requested.|
 | `id_token`      | An unsigned JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 #### Error response
 
