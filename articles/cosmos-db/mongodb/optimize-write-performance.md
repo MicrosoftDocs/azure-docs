@@ -20,9 +20,7 @@ The way you write data needs to be mindful of this by parallelizing and spreadin
 ## Spread the load across your shards (sharded collections only)
 When writing data to a sharded API for MongoDB collection, your data is split up (sharded) into tiny slices and it is written to each shard based on the value of your shard key field. You can think of each slice as a small portion of a virtual machine that only stores the documents containing one unique shard key value. 
 
-If your application writes a massive amount of data to a single shard, this won't be efficient because the app would be maxing out the throughput of only one shard instead of spreading the load across all of your shards. Your write load will be evenly spread across your collection by writing in parallel to many documents with unique shard key values,
-``
-
+If your application writes a massive amount of data to a single shard, this won't be efficient because the app would be maxing out the throughput of only one shard instead of spreading the load across all of your shards. Your write load will be evenly spread across your collection by writing in parallel to many documents with unique shard key values.
 
 One example of doing this would be to write to a collection that is sharded on the _id field. Because the _id value is generated randomly, writes will be randomly distributed across database shards. However, one caveat of this is that if your collection is sharded on the _id field, queries will only be efficient if they include the _id value in them. In most use cases, it's better to choose a shard key that fits your query model and evenly distributes your data across your sharded collection. 
 
@@ -37,10 +35,12 @@ Reducing the number of indexes to only the indexes you need to support your quer
 ## Set ordered to false in the MongoDB drivers
 By default, the MongoDB drivers set the ordered option to "true" when writing data, which writes each document in order one by one. This option reduces write performance since each write request has to wait for the previous one to complete. When writing data, set this option to false to improve performance. 
 
-## Tune for the optimal batch size
-Azure Cosmos DB accepts writes in batches of up to 1,000 documents. If you are writing more than 1,000 documents at a time, client functions such as `insertMany()` should not be called with more than 1,000 documents. Otherwise, the client will wait for each batch to commit before moving on to the next batch. 
 
-Instead, make multiple calls on separate processes/threads to `insertMany()` with batches of 1,000 or less. In some cases, splitting up the batches with fewer than 1,000 documents will be faster.
+
+## Tune for the optimal batch size and thread count
+Parallelization of write operations across many threads/processes is key to scaling writes. The API for MongoDB accepts writes in batches of up to 1,000 documents for each process/thread. If you are writing more than 1,000 documents at a time per process/thread, client functions such as `insertMany()` should be limited to roughly 1,000 documents. Otherwise, the client will wait for each batch to commit before moving on to the next batch. 
+
+Instead, make multiple calls on separate processes/threads to `insertMany()` with batches of 1,000 or less. In some cases, splitting up the batches with fewer or slightly more than 1,000 documents will be faster.
 
 
 
