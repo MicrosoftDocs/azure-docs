@@ -18,7 +18,7 @@ ms.author: alkohli
 
 After you activate an Azure Stack Edge Pro GPU device, you can manage the local (Edge) resource groups in the Azure portal. 
 
-Edge resource groups contain resources that you create while creating and deploying virtual machines on your device. The default Edge resource group, ASERG, contains the default local network configuration, ASENET.
+Edge resource groups contain resources that you create while creating and deploying virtual machines on your device. The default Edge resource group, ASERG, contains the default local network interface, ASENET.
 
 The Resources pane is available in the portal after you activate your device.
 
@@ -30,7 +30,7 @@ To view the Edge resource groups on your Azure Stack Edge Pro GPU device, do the
 
     ![Screenshot showing Edge resource groups tab in Resources for a virtual machine in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-01-edge-resource-groups.png)
 
-You can also use [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0) in [Azure Az Powershell](/powershell/azure/new-azureps-module-az?view=azps-6.1.0) to list the Edge resource groups on a device. Get-AzResource by default returns all local resource groups for the current subscription. 
+You can also use [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0&preserve-view=true) in [Azure Az Powershell](/powershell/azure/new-azureps-module-az?view=azps-6.1.0&preserve-view=true) to list the Edge resource groups on a device. Get-AzResource by default returns all local resource groups for the current subscription. 
 
 ADD SAMPLE RETURNED LIST.
 
