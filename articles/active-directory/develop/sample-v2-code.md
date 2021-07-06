@@ -1,6 +1,6 @@
 ---
-title: Code samples for Microsoft identity platform
-description: Provides an index of available Microsoft identity platform code samples, organized by scenario.
+title: Code samples for Microsoft identity platform authentication and authorization
+description: An index of Microsoft-maintained code samples demonstrating authentication and authorization in several application types, development languages, and frameworks.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -9,24 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 07/06/2021
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# Microsoft identity platform code samples (v2.0 endpoint)
+# Microsoft identity platform code samples
 
-You can use the Microsoft identity platform to:
+These code samples, built and maintained by Microsoft, demonstrate authentication and authorization by using Azure AD and the Microsoft identity platform in several [application types](v2-app-types.md), development languages, and frameworks.
 
-- Add authentication and authorization to your web applications and web APIs.
-- Require an access token to access a protected web API.
+- Sign in users to web applications and provide authorized access to protected web APIs.
+- Protect a web API by requiring an access token to perform API operations.
 
-This article briefly describes and provides you with links to samples for the Microsoft identity platform. These samples show you how it's done, and also provide code snippets that you can use in your applications. On the code sample page, you'll find detailed readme topics that help with requirements, installation, and setup. Comments within the code help you understand the critical sections.
-
-To understand the basic scenario for each sample type, see [App types for the Microsoft identity platform](v2-app-types.md).
-
-You can also contribute to the samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
+Each code sample includes a _README.md_ file that describes how to build the project (if applicable) and run the sample application. Comments in the code help you understand critical sections that implementing authentication and authorization using authentication libraries and the identity platform.
 
 ## Single-page applications
 
