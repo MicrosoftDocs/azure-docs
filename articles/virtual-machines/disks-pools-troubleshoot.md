@@ -4,7 +4,7 @@ description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ---

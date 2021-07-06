@@ -4,7 +4,7 @@ description: Learn how to get the most performance out of an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 07/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -24,16 +24,16 @@ If you're prioritizing throughput, begin by evaluating the number of disk pools 
 
 ## Use cases
 
-The following table lists some typical use cases for disk pools with Azure VMware Solution (AVS) and a recommended configuration.
+The following table lists some typical use cases for disk pools with Azure VMware Solution and a recommended configuration.
 
 
-|AVS use cases  |Suggested disk type  |Suggested network configuration  |
+|Azure VMware Solution use cases  |Suggested disk type  |Suggested network configuration  |
 |---------|---------|---------|
-|Block storage for active working sets, like an extension of AVS vSAN.     |Ultra disks         |Use Express Route virtual network gateway: Ultra Performance or ErGw3AZ (10 Gbps) to connect the disk pool virtual network to the AVS cloud and enable FastPath to minimize network latency.         |
-|Tiering - tier infrequently accessed data from the AVS vSAN to the disk pool.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the AVS cloud.         |
-|Data storage for disaster recovery site on AVS: replicate data from on-premises or primary VMware environment to the disk pool as a secondary site.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the AVS cloud.         |
+|Block storage for active working sets, like an extension of Azure VMware Solution vSAN.     |Ultra disks         |Use Express Route virtual network gateway: Ultra Performance or ErGw3AZ (10 Gbps) to connect the disk pool virtual network to the Azure VMware Solution cloud and enable FastPath to minimize network latency.         |
+|Tiering - tier infrequently accessed data from the Azure VMware Solution vSAN to the disk pool.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the Azure VMware Solution cloud.         |
+|Data storage for disaster recovery site on Azure VMware Solution: replicate data from on-premises or primary VMware environment to the disk pool as a secondary site.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the Azure VMware Solution cloud.         |
 
-Refer to the [Networking planning checklist for Azure VMware Solution](../azure-vmware/tutorial-network-checklist.md) to plan for your networking setup, along with other AVS considerations.
+Refer to the [Networking planning checklist for Azure VMware Solution](../azure-vmware/tutorial-network-checklist.md) to plan for your networking setup, along with other Azure VMware Solution considerations.
 
 ## Disk pool scalability and performance targets
 

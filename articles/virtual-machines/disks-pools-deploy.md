@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure disk pool.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 07/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -73,7 +73,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
 ### Create a disk pool
-For the optimal performance, we suggest you to deploy the disk pool in the same Availability Zone of your clients. If you are deploying a disk pool for AVS and need guidance on identifying the Availability Zone of your Azure VMware Solution (AVS), fill in this [form](https://aka.ms/DiskPoolCollocate).
+For the optimal performance, we suggest you to deploy the disk pool in the same Availability Zone of your clients. If you are deploying a disk pool for an Azure VMware Solution cloud and need guidance on identifying the Availability Zone, fill in this [form](https://aka.ms/DiskPoolCollocate).
 
 # [Portal](#tab/azure-portal)
 
@@ -107,7 +107,7 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
 1. Select **Enable iSCSI**.
 1. Enter the name of the iSCSI target, the iSCSI target IQN will generate based on this name.
     - If you want to disable the iSCSI target for an individual disk, you can do this by selecting **Disable** under **Status** for an individual disk.
-    - The ACL mode is set to **Dynamic** by default. To use your disk pool as a storage solution for AVS, the ACL mode must be set to **Dynamic**.
+    - The ACL mode is set to **Dynamic** by default. To use your disk pool as a storage solution for Azure VMware Solution, the ACL mode must be set to **Dynamic**.
 1. Select **Review + create**.
 
     :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-iscsi-blade.png" alt-text="Screenshot of the iscsi blade for create a disk pool.":::
