@@ -144,38 +144,7 @@ Follow your source system's instructions to get its API credentials / authorizat
 
     1. In the **Application settings** tab, select **+ New application setting**.
 
-    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values.
-
-        | Application setting name | Application setting value |
-        |-|-|
-        | **clientID** | Your API Client ID |
-        | **clientSecret** | Your API Client Secret |
-        | **workspaceID** | Your Azure Sentinel workspace ID |
-        | **workspaceKey** | Your Azure Sentinel workspace primary key |
-        | **\<various API connections>** | *True* for each of these you want to enable, and *False* for the others | 
-        | **resGroup** | The resource group where you are deploying the Function App |
-        | **functionName** | The name you gave to the Function App |
-        | **subId** | The subscription ID where you are deploying the Function App |
-        | **enableSecurityGraphSharing** | *True* if you are sharing information using the Security Graph API |
-        | **If *enableSecurityGraphSharing* is set to *true***: |
-        | GraphTenantId | Your Security Graph Tenant ID |
-        | GraphClientId | Your Security Graph Client ID
-        | GraphClientSecret | Your Security Graph Client Secret
-        | logAnalyticsUri (optional) | Override the Log Analytics API endpoint for dedicated cloud.\* |
-        | 
-
-        - \* For example, for public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: https://`<CustomerId>`.ods.opinsights.azure.us.
-
-1. **Set Permissions for the App**
-    1. In your Function App's page, select **Identity** under **Settings** in the navigation menu.
-
-    1. In the **System assigned** tab, toggle the **Status** to *On* and select **Save**.
-
-    1. After your managed identity is created (this may take a few minutes), more options will appear. Select **Azure role assignments**.
-
-    1. In the **Azure role assignments** screen, select **Add role assignment**. Set **Scope** to **Subscription**, select your subscription from the **Subscription** drop-down, and set **Role** to **App Configuration Data Owner**.
-
-    1. Select **Save**.
+    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See your product's section of the [Partner data connectors](partner-data-connectors.md) page for the application settings to add.
 
 1. Complete Setup. ***WHAT'S LEFT TO DO???***
 
@@ -185,19 +154,49 @@ Follow your source system's instructions to get its API credentials / authorizat
 
 1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
 
+1. **Deploy a Function App**
 
+    > [!NOTE]
+    > You will need to [prepare Visual Studio Code](../azure-functions/create-first-function-vs-code-python.md) (VS Code) for Azure Function development.
+
+    1. Download the Azure Function App file using the link supplied in your product's section of the [Partner data connectors](partner-data-connectors.md) page. Extract the archive to your local development computer.
+
+    1. Start VS Code. From the menu bar, select **File > Open Folder...**.
+
+    1. Select the top-level folder from the files extracted from the archive.
+
+    1. Choose the Azure icon in the VS Code Activity bar (on the left). Then, in the **Azure: Functions** area, choose the **Deploy to function app** button. 
+
+        > [!NOTE]
+        > If you aren't already signed in, choose the Azure icon in the Activity bar. Then, in the **Azure: Functions** area, choose **Sign in to Azure**.  
+        > If you're already signed in, go to the next step.
+
+
+    1. Provide the following information at the prompts:
+        - **Select folder**: Choose a folder from your workspace, or browse to a folder that contains your function app.
+        - **Select subscription**: Choose the subscription to use.
+        - Select **Create new Function App in Azure**. (Don't choose the **Advanced** option.)
+        - **Enter a globally unique name for the function app**: Give your function app a name that would be valid in a URL path. The name you choose will be validated to make sure that it's unique throughout Azure Functions. (e.g. ConflAuditXXXXX).
+        - **Select a runtime**: Choose *Python 3.8*.
+
+    1. Deployment will begin. A notification is displayed after your function app is created and the deployment package is applied.
+
+    1. Return to your Function App's page for configuration.
+
+1. **Configure the Function App**
+    1. In your Function App's page, select **Configuration** under **Settings** in the navigation menu.
+
+    1. In the **Application settings** tab, select **+ New application setting**.
+
+    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See your product's section of the [Partner data connectors](partner-data-connectors.md) page for the application settings to add.
 
 ---
 
 ## Find your data
 
-After a successful connection is established, the data appears in **Logs** under *CustomLogs*, in the following tables: 
+After a successful connection is established, the data appears in **Logs** under *CustomLogs*, in the tables listed in your product's section of the [Partner data connectors](partner-data-connectors.md) page.
 
-- table
-- table
-- table
-
-To query data, enter one of the above table names in the query window.
+To query data, enter one of those table names - or the relevant Kusto function alias - in the query window.
 
 See the **Next steps** tab in the connector page for some useful sample queries.
 
