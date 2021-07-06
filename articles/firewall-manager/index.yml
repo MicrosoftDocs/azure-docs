@@ -27,7 +27,7 @@ landingContent:
             url: overview.md
           - text: Deployment overview
             url: deployment-overview.md
-      - linkListType: overview
+      - linkListType: learn
         links:
           - text: Introduction to Azure Firewall Manager
             url: /learn/modules/intro-to-azure-firewall-manager/
