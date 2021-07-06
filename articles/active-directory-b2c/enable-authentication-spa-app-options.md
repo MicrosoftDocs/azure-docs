@@ -7,13 +7,13 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication in a sample Single Page application using Azure Active Directory B2C options
+# Configure authentication options in a Single Page application using Azure Active Directory B2C
 
 This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Single Page Application. Before you start, familiarize yourself with the following article: [Configure authentication in a sample web application](configure-authentication-sample-spa-app.md).
 

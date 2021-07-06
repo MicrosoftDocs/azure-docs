@@ -388,6 +388,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "media-services-v3-python",
+      "url": "https://github.com/Azure-Samples/media-services-v3-python",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
       "branch": "master",
@@ -631,6 +637,12 @@
       "path_to_root": "active-directory-aspnetcore-webapp-openidconnect-v2",
       "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "sample-active-directory-aspnetcore-webapp-openidconnect-v2",
+      "url": "https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2",
+      "branch": "aspnetcore3-1",
       "branch_mapping": {}
     },
     {

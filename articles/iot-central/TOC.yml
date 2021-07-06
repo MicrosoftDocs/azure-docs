@@ -288,8 +288,6 @@
           href: core/howto-monitor-application-health.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
-        - name: Roll X.509 certificates
-          href: core/how-to-roll-x509-certificates.md
         - name: Manage from the Azure portal
           href: core/howto-manage-iot-central-from-portal.md
         - name: Manage from Azure CLI

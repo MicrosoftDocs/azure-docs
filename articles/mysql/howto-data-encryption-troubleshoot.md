@@ -10,7 +10,7 @@ ms.date: 02/13/2020
 
 # Troubleshoot data encryption in Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article describes how to identify and resolve common issues that can occur in Azure Database for MySQL when configured with data encryption using a customer-managed key.
 
