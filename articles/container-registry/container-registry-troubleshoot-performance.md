@@ -16,6 +16,7 @@ May include one or more of the following:
 * Pull or push images with the Docker CLI takes longer than expected
 * Deployment of images to a service such as Azure Kubernetes Service takes longer than expected
 * You're not able to complete a large number of concurrent pull or push operations in the expected time
+* You see an HTTP 429 error similar to `Too many requests`
 * Pull or push operations in a geo-replicated registry take longer than expected, or push fails with error `Error writing blob` or `Error writing manifest`
 
 ## Causes
