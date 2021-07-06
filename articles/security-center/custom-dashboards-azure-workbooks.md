@@ -123,7 +123,7 @@ You can keep drilling down - right down to the recommendation level - to view th
 > [!TIP]
 > For each panel of the report, you can export the data to Excel with the "Export to Excel" option.
 >
-> :::image type="content" source="media/custom-dashboards-azure-workbooks/export-workbook-data.png" alt-text="Detailed breakdown of the changes regarding a specific standard.":::
+> :::image type="content" source="media/custom-dashboards-azure-workbooks/export-workbook-data.png" alt-text="Exporting compliance workbook data to Excel.":::
 
 
 ## Import workbooks from other workbook galleries
