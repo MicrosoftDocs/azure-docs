@@ -3,7 +3,7 @@ title: Enable diagnostics logging
 description: Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 07/06/2021
 ms.custom: "devx-track-csharp, seodec18"
 
 ---
@@ -190,9 +190,9 @@ The following table shows the supported log types and descriptions:
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
 | AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
 
-<sup>1</sup> For Tomcat apps, add "TOMCAT_USE_STARTUP_BAT" to the app settings and set it to false or 0. Need to be on the *latest* Tomcat version and use *java.util.logging*.
+<sup>1</sup> For Tomcat apps, add `TOMCAT_USE_STARTUP_BAT` to the app settings and set it to `false` or `0`. Need to be on the *latest* Tomcat version and use *java.util.logging*.
 
-<sup>2</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to true or to 1.
+<sup>2</sup> For Java SE apps, add `WEBSITE_AZMON_PREVIEW_ENABLED` to the app settings and set it to `true` or to `1`.
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
