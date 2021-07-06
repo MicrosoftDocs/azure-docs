@@ -26,11 +26,46 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+
+## June 2021
+
+### New US West 3 region is GA
+
+The US West 3 region is now GA and available for customers to use when creating new Media Services accounts.
+
+### Key delivery supports IP allowlist restrictions
+
+Media Services accounts can now be configured with IP allowlist restrictions on key delivery. The new allowlist setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
+This allows operators to restrict delivery of DRM licenses and AES-128 content keys to specific IPv4 ranges.
+
+This feature can also be used to shut off all public internet delivery of DRM licenses or AES-128 keys and restrict delivery to a private network endpoint.
+
+See the article [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md) for details.
+
+### New Samples for Python and Node.js (with Typescript)
+Updated samples for **Node.js** that use the latest Typescript support in the Azure SDK.
+
+|Sample|Description|
+|---|---|
+|[Live streaming](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| Basic live streaming example. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live|
+|[Upload and stream HLS and DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| Basic example for uploading a local file or encoding from a source URL. Sample shows how to use storage SDK to download content, and shows how to stream to a player |
+|[Upload and stream HLS and DASH with Playready and Widevine DRM](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Demonstrates how to encode and stream using Widevine and PlayReady DRM |
+|[Upload and use AI to index videos and audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| Example of using the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file |
+
+
+New **Python** sample demonstrating how to use Azure Functions, and Event Grid to trigger Face redaction preset.
+
+|Sample|Description|
+|---|---|
+|[Face Redaction using events and functions](https://github.com/Azure-Samples/media-services-v3-python/tree/main/VideoAnalytics/FaceRedactorEventBased) | This is an example of an event-based approach that triggers an Azure Media Services Face Redactor job on a video as soon as it lands on an Azure Storage Account. It leverages Azure Media Services, Azure Function, Event Grid and Azure Storage for the solution. For the full description of the solution, see the [README.md](https://github.com/Azure-Samples/media-services-v3-python/blob/main/VideoAnalytics/FaceRedactorEventBased/README.md) |
+
+
 ## May 2021
 
 ### Availability Zones default support in Media Services
 
 Media Services now supports [Availability Zones](concept-availability-zones.md), providing fault-isolated locations within the same Azure region.  Media Services accounts are zone redundant by default now and there is no additional configuration or settings required. This only applies to regions that have [Availability Zones support](../../availability-zones/az-region.md#azure-regions-with-availability-zones)
+
 
 ## March 2021
 

@@ -316,6 +316,6 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
 For more information, see the following articles:
 
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)

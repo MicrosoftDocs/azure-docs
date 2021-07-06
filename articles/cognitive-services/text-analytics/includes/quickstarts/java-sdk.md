@@ -72,12 +72,35 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 
 Create a Java file named `TextAnalyticsSamples.java`. Open the file and add the following `import` statements:
 
+# [Version 3.1 preview](#tab/version-3-1)
+
+
+```java
+
+import com.azure.ai.textanalytics.TextAnalyticsAsyncClient;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.ai.textanalytics.models.*;
+import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
+import com.azure.ai.textanalytics.TextAnalyticsClient;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+```
+
+# [Version 3.0](#tab/version-3)
+
 ```java
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.ai.textanalytics.models.*;
 import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
 import com.azure.ai.textanalytics.TextAnalyticsClient;
 ```
+
+---
+
+
+
 
 In the java file, add a new class and add your Azure resource's key and endpoint as shown below.
 
@@ -583,62 +606,80 @@ Create a new function called `analyzeBatchActionsExample()`, which calls the `be
 ```java
 static void analyzeBatchActionsExample(TextAnalyticsClient client)
 {
-        List<TextDocumentInput> documents = Arrays.asList(
-                        new TextDocumentInput("0", "Microsoft was founded by Bill Gates and Paul Allen.")
-                        );
+        List<TextDocumentInput> documents = new ArrayList<>();
+        documents.add(new TextDocumentInput("1","Microsoft was founded by Bill Gates and Paul Allen."));
 
-        
-        SyncPoller<AnalyzeActionsOperationDetail, PagedIterable<AnalyzeActionsResult>> syncPoller =
-                client.beginAnalyzeActions(documents,
-                        new TextAnalyticsActions().setDisplayName("Analyze Batch Actions Quickstart")
-                                .setRecognizeEntitiesOptions(new RecognizeEntitiesOptions()),
-                        new AnalyzeActionsOptions().setIncludeStatistics(false),
-                        Context.NONE);
+        client.beginAnalyzeActions(documents,
+                new TextAnalyticsActions().setDisplayName("text analytics sample")
+                        .setRecognizeEntitiesOptions(new RecognizeEntitiesOptions())
+                        .setExtractKeyPhrasesOptions(
+                                new ExtractKeyPhrasesOptions().setModelVersion("latest")),
+                new AnalyzeActionsOptions().setIncludeStatistics(false))
+                .flatMap(result -> {
+                    AnalyzeActionsOperationDetail operationDetail = result.getValue();
+                    System.out.printf("Action display name: %s, Successfully completed actions: %d, in-process actions: %d,"
+                                    + " failed actions: %d, total actions: %d%n",
+                            operationDetail.getDisplayName(), operationDetail.getActionsSucceeded(),
+                            operationDetail.getActionsInProgress(), operationDetail.getActionsFailed(),
+                            operationDetail.getActionsInTotal());
+                    return result.getFinalResult();
+                })
+                .subscribe(analyzeActionsResultPagedFlux -> analyzeActionsResultPagedFlux.byPage().subscribe(
+                        perPage -> {
+                            System.out.printf("Response code: %d, Continuation Token: %s.%n",
+                                    perPage.getStatusCode(), perPage.getContinuationToken());
 
-        // Task operation statistics
-        while (syncPoller.poll().getStatus() == LongRunningOperationStatus.IN_PROGRESS) {
-            final AnalyzeActionsOperationDetail operationResult = syncPoller.poll().getValue();
-            System.out.printf("Action display name: %s, Successfully completed actions: %d, in-process actions: %d, failed actions: %d, total actions: %d%n",
-                    operationResult.getDisplayName(), operationResult.getActionsSucceeded(),
-                    operationResult.getActionsInProgress(), operationResult.getActionsFailed(),
-                    operationResult.getActionsInTotal());
-        }
-
-        syncPoller.waitForCompletion();
-
-        Iterable<PagedResponse<AnalyzeActionsResult>> pagedResults = syncPoller.getFinalResult().iterableByPage();
-        for (PagedResponse<AnalyzeActionsResult> page : pagedResults) {
-            System.out.printf("Response code: %d, Continuation Token: %s.%n", page.getStatusCode(), page.getContinuationToken());
-            page.getElements().forEach(analyzeActionsResult -> {
-                System.out.println("Entities recognition action results:");
-                IterableStream<RecognizeEntitiesActionResult> recognizeEntitiesActionResults =
-                        analyzeActionsResult.getRecognizeEntitiesActionResults();
-                if (recognizeEntitiesActionResults != null) {
-                    recognizeEntitiesActionResults.forEach(actionResult -> {
-                        if (!actionResult.isError()) {
-                            // Recognized entities for each of documents from a batch of documents
-                            AtomicInteger counter = new AtomicInteger();
-                            for (RecognizeEntitiesResult documentResult : actionResult.getResult()) {
-                                System.out.printf("%n%s%n", documents.get(counter.getAndIncrement()));
-                                if (documentResult.isError()) {
-                                    // Erroneous document
-                                    System.out.printf("Cannot recognize entities. Error: %s%n",
-                                            documentResult.getError().getMessage());
-                                } else {
-                                    // Valid document
-                                    documentResult.getEntities().forEach(entity -> System.out.printf(
-                                            "Recognized entity: %s, entity category: %s, entity subcategory: %s, confidence score: %f.%n",
-                                            entity.getText(), entity.getCategory(), entity.getSubcategory(), entity.getConfidenceScore()));
+                            for (AnalyzeActionsResult actionsResult : perPage.getElements()) {
+                                System.out.println("Entities recognition action results:");
+                                for (RecognizeEntitiesActionResult actionResult : actionsResult.getRecognizeEntitiesActionResults()) {
+                                    if (!actionResult.isError()) {
+                                        for (RecognizeEntitiesResult documentResult : actionResult.getResult()) {
+                                            if (!documentResult.isError()) {
+                                                for (CategorizedEntity entity : documentResult.getEntities()) {
+                                                    System.out.printf("\tText: %s, category: %s, confidence score: %f.%n",
+                                                            entity.getText(), entity.getCategory(), entity.getConfidenceScore());
+                                                }
+                                            } else {
+                                                System.out.printf("\tCannot recognize entities. Error: %s%n",
+                                                        documentResult.getError().getMessage());
+                                            }
+                                        }
+                                    } else {
+                                        System.out.printf("\tCannot execute Entities Recognition action. Error: %s%n",
+                                                actionResult.getError().getMessage());
+                                    }
                                 }
-                            }
-                        } else {
-                            TextAnalyticsError actionError = actionResult.getError();
-                            // Erroneous action
-                            System.out.printf("Cannot execute Entities Recognition action. Error: %s%n", actionError.getMessage());
-                        }
-                    });
-                }
-            });
+
+                                System.out.println("Key phrases extraction action results:");
+                                for (ExtractKeyPhrasesActionResult actionResult : actionsResult.getExtractKeyPhrasesActionResults()) {
+                                    if (!actionResult.isError()) {
+                                        for (ExtractKeyPhraseResult documentResult : actionResult.getResult()) {
+                                            if (!documentResult.isError()) {
+                                                System.out.println("\tExtracted phrases:");
+                                                for (String keyPhrases : documentResult.getKeyPhrases()) {
+                                                    System.out.printf("\t\t%s.%n", keyPhrases);
+                                                }
+                                            } else {
+                                                System.out.printf("\tCannot extract key phrases. Error: %s%n",
+                                                        documentResult.getError().getMessage());
+                                            }
+                                        }
+                                    } else {
+                                        System.out.printf("\tCannot execute Key Phrases Extraction action. Error: %s%n",
+                                                actionResult.getError().getMessage());
+                                    }
+                                }
+                            } },
+                        ex -> System.out.println("Error listing pages: " + ex.getMessage()),
+                        () -> System.out.println("Successfully listed all pages")));
+
+        // The .subscribe() creation and assignment is not a blocking call. For the purpose of this example, we sleep
+        // the thread so the program does not end before the send operation is complete. Using .block() instead of
+        // .subscribe() will turn this into a synchronous call.
+        try {
+            TimeUnit.MINUTES.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 ```
@@ -652,14 +693,18 @@ analyzeBatchActionsExample(client);
 ### Output
 
 ```console
-Action display name: Analyze Batch Actions Quickstart, Successfully completed actions: 0, in-process actions: 1, failed actions: 0, total actions: 1
+Action display name: text analytics sample, Successfully completed actions: 2, in-process actions: 0, failed actions: 0, total actions: 2
 Response code: 200, Continuation Token: null.
 Entities recognition action results:
-
-Text = Microsoft was founded by Bill Gates and Paul Allen., Id = 0, Language = null
-Recognized entity: Microsoft, entity category: Organization, entity subcategory: null, confidence score: 0.970000.
-Recognized entity: Bill Gates, entity category: Person, entity subcategory: null, confidence score: 1.000000.
-Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
+	Text: Microsoft, category: Organization, confidence score: 1.000000.
+	Text: Bill Gates, category: Person, confidence score: 1.000000.
+	Text: Paul Allen, category: Person, confidence score: 1.000000.
+Key phrases extraction action results:
+	Extracted phrases:
+		Bill Gates.
+		Paul Allen.
+		Microsoft.
+Successfully listed all pages
 ```
 
 You can also use the Analyze operation to perform NER, key phrase extraction, sentiment analysis and detect PII. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeActionsAsync.java) on GitHub.

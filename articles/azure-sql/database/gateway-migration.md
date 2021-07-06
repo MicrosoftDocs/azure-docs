@@ -23,13 +23,26 @@ The most up-to-date information will be maintained in the [Azure SQL Database ga
 ## Status updates
 
 # [In progress](#tab/in-progress-ip)
+## August 2021
+New SQL Gateways are being added to the following regions:
+
+- Norway East: 51.120.104.32, 51.120.208.32
+- Japan East: 40.79.184.32
+- Central India: 40.80.48.32, 20.192.96.32
+
+These SQL Gateway shall start accepting customer traffic on 2 August 2021.
+
 ## June 2021
 New SQL Gateways are being added to the following regions:
+
 - UK West: 51.140.208.96, 51.140.208.97
 - Korea Central: 20.44.24.32, 20.194.64.33
 - Japan East: 13.78.104.32
 
-This SQL Gateway shall start accepting customer traffic on 1 June 2021.
+These SQL Gateway shall start accepting customer traffic on 1 June 2021.
+
+# [Completed](#tab/completed-ip)
+The following gateway migrations are complete: 
 
 ## May 2021
 New SQL Gateways are being added to the following regions:
@@ -68,9 +81,6 @@ The following SQL Gateways in multiple regions are in the process of being deact
 - West US: 23.99.34.75
 
 No customer impact is anticipated since these Gateways (running on older hardware) are not routing any customer traffic. The IP addresses for these Gateways shall be deactivated on 15th March 2021.
-
-# [Completed](#tab/completed-ip)
-The following gateway migrations are complete: 
 
 ## February 2021
 New SQL Gateways are being added to the following regions:

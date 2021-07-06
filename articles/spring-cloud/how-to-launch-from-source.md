@@ -73,8 +73,8 @@ The service instance will take about five minutes to deploy.
 Set your default resource group name and Azure Spring Cloud instance name using the following commands:
 
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
 
 ## Create the Azure Spring Cloud application

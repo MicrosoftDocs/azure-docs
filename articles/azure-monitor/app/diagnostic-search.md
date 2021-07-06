@@ -144,4 +144,4 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 * [Write complex queries in Analytics](../logs/log-analytics-tutorial.md)
 * [Send logs and custom telemetry to Application Insights](./asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](./monitor-web-app-availability.md)
-* [Troubleshooting](../faq.md)
+* [Troubleshooting](../faq.yml)

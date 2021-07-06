@@ -45,7 +45,7 @@ The administrator can configure the behavior and appearance of an IoT Central ap
 
 - [Change application name and URL](howto-administer.md#change-application-name-and-url)
 - [Customize the UI](howto-customize-ui.md)
-- [Move an application to a different pricing plans](howto-view-bill.md)
+- [Move an application to a different pricing plans](howto-faq.md#how-do-i-move-from-a-free-to-a-standard-pricing-plan)
 - [Configure file uploads](howto-configure-file-uploads.md)
 
 ## Export an application
@@ -75,8 +75,7 @@ To learn more, see [Monitor the overall health of an IoT Central application](ho
 
 Many of the tools you use as an administrator are available in the **Administration** section of each IoT Central application. You can also use the following tools to complete some administrative tasks:
 
-- [Azure CLI](howto-manage-iot-central-from-cli.md)
-- [Azure PowerShell](howto-manage-iot-central-from-powershell.md)
+- [Azure command line](howto-manage-iot-central-from-cli.md)
 - [Azure portal](howto-manage-iot-central-from-portal.md)
 
 ## Next steps

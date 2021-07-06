@@ -18,7 +18,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
 
 - [Review the requirements](/azure/migrate/tutorial-discover-vmware#prerequisites) to discover servers running in VMware environment with Azure Migrate: Discovery and assessment tool.  
 - Prepare [VMware vCenter](/azure/migrate/tutorial-discover-vmware#prepare-vmware) for usage and review the [VMware requirements](migrate-support-matrix-vmware.md#vmware-requirements) to perform software inventory. Software inventory must be complete to start onboarding discovered servers to Azure Arc.   
-- Review [application discovery requirements](migrate-support-matrix-vmware.md#application-discovery-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed. 
+- Review [application discovery requirements](migrate-support-matrix-vmware.md#software-inventory-requirements) before initiating software inventory on servers. Windows servers must have PowerShell version 3.0 or later installed. 
 - Verify the port access requirements to allow remote connections to the inventory of discovered servers. 
     - **Windows:** Inbound connection on WinRM port 5985 (HTTP). <br/>
     - **Linux:**  Inbound connections on port 22 (TCP). 
@@ -152,7 +152,7 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 **Recommended actions**  
 - Ensure that the impacted server has the latest kernel and OS updates installed.
 - Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.
-- Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance-discovery.md) to check if they return null or empty data.
+- Connect to the impacted server from the appliance and run the commands [documented here](./troubleshoot-appliance.md) to check if they return null or empty data.
 - If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager).  
 
 ### Error 60108 - SoftwareInventoryCredentialNotAssociated  

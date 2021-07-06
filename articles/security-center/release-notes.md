@@ -196,7 +196,7 @@ Security Center includes built-in vulnerability scanners to scan your VMs, SQL s
 
 With this change, you can use the **Open query** button to also open the query showing the security findings.
 
-:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings for vulnerability scanner related recommendations":::
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="The open query button now offers options for a deeper query showing the security findings for vulnerability scanner related recommendations.":::
 
 The **Open query** button offers additional options for some other recommendations too where relevant.
 
@@ -536,7 +536,7 @@ Three templates reports are provided:
 
 Learn about using these reports or building your own [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Secure score over time report":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Secure score over time report.":::
 
 
 ### Regulatory compliance dashboard now includes Azure Audit reports (preview)
@@ -549,7 +549,7 @@ You can select the tab for the relevant reports types (PCI, SOC, ISO, and others
 
 Learn more about [Managing the standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
 
-:::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="Filtering the list of available Azure Audit reports":::
+:::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard.png" alt-text="Filtering the list of available Azure Audit reports.":::
 
 
 
@@ -677,13 +677,13 @@ Support has now been expanded to include Windows Server 2019 and [Windows Virtua
 
 When you're reviewing the details of a recommendation, it's often helpful to be able to see the underlying policy. For every recommendation supported by a policy, there's a new link from the recommendation details page:
 
-:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link to Azure Policy page for the specific policy supporting a recommendation":::
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link to Azure Policy page for the specific policy supporting a recommendation.":::
 
 Use this link to view the policy definition and review the evaluation logic. 
 
 If you're reviewing the list of recommendations on our [Security recommendations reference guide](recommendations-reference.md), you'll also see links to the policy definition pages:
 
-:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accessing the Azure Policy page for a specific policy directly from the Azure Security Center recommendations reference page" lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Accessing the Azure Policy page for a specific policy directly from the Azure Security Center recommendations reference page." lightbox="media/release-notes/view-policy-definition-from-documentation.png":::
 
 
 ### SQL data classification recommendation no longer affects your secure score
@@ -696,7 +696,7 @@ We've added a third data type to the trigger options for your workflow automatio
 
 Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
 
-:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
+:::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
 
 ### Asset inventory page enhancements
@@ -704,12 +704,12 @@ Security Center's asset inventory page has been improved in the following ways:
 
 - Summaries at the top of the page now include **Unregistered subscriptions**, showing the number of subscriptions without Security Center enabled.
 
-    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Count of unregistered subscriptions in the summaries at the top of the asset inventory page":::
+    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Count of unregistered subscriptions in the summaries at the top of the asset inventory page.":::
 
 - Filters have been expanded and enhanced to include:
     - **Counts** - Each filter presents the number of resources that meet the criteria of each category
 
-        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Counts in the filters in the asset inventory page of Azure Security Center":::
+        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Counts in the filters in the asset inventory page of Azure Security Center.":::
 
     - **Contains exemptions filter** (Optional) - narrow the results to resources that have/haven't got exemptions. This filter isn't shown by default, but is accessible from the **Add filter** button.
 
@@ -902,7 +902,7 @@ With this announcement, we're changing the behavior of the **Download to CSV** b
 
 For example, in the image below you can see that the list has been filtered to two recommendations. The CSV file that is generated includes the status details for every resource affected by those two recommendations.   
 
-:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/export-to-csv-with-filters.png" alt-text="Exporting filtered recommendations to a CSV file.":::
 
 Learn more in [Security recommendations in Azure Security Center](security-center-recommendations.md).
 
@@ -920,7 +920,7 @@ We've added a new preview feature to the [continuous export](continuous-export.m
 
 When you define a continuous export, set the export frequency:
 
-:::image type="content" source="media/release-notes/export-frequency.png" alt-text="Choosing the frequency of your continuous export":::
+:::image type="content" source="media/release-notes/export-frequency.png" alt-text="Choosing the frequency of your continuous export.":::
 
 - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
 - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
