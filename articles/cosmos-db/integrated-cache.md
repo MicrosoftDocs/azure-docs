@@ -90,7 +90,7 @@ The easiest way to configure eventual consistency for all reads is to [set it at
 
 ## MaxIntegratedCacheStaleness
 
-The `MaxIntegratedCacheStaleness` is the maximum acceptable staleness for cached point reads and queries. The `MaxIntegratedCacheStaleness` is configurble at the request-level. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if the data is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
+The `MaxIntegratedCacheStaleness` is the maximum acceptable staleness for cached point reads and queries. The `MaxIntegratedCacheStaleness` is configurable at the request-level. For example, if you set a `MaxIntegratedCacheStaleness` of 2 hours, your request will only return cached data if the data is less than 2 hours old. To increase the likelihood of repeated reads utilizing the integrated cache, you should set the `MaxIntegratedCacheStaleness` as high as your business requirements allow.
 
 It's important to understand that the `MaxIntegratedCacheStaleness`, when configured on a request that ends up populating the cache, doesn't impact how long that request will be cached. `MaxIntegratedCacheStaleness` enforces consistency when you try to use cached data. There's no global TTL or cache retention setting, so data will only be evicted from the cache if either the integrated cache is full or a new read is run with a lower `MaxIntegratedCacheStaleness` than the age of the current cached entry.
 
