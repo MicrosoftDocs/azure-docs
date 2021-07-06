@@ -24,7 +24,7 @@ ms.date: 03/13/2021
    >[!IMPORTANT]
    >The IP address needs to be on a non-overlapping RFC1918 address block, which ensures connection to the VMs on the new segment.
 
-   :::image type="content" source="../media/nsxt/nsxt-create-segment-gateway.png" alt-text="Screenshot showing the IP address of the gateway for the new segment..":::
+   :::image type="content" source="../media/nsxt/nsxt-create-segment-gateway.png" alt-text="Screenshot showing the IP address of the gateway for the new segment.":::
 
 1. Select **Apply** and then **Save**.
 
