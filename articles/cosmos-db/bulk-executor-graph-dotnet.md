@@ -5,7 +5,6 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: chrande
 author: manishmsfte
 ms.author: mansha
 ms.custom: devx-track-csharp
