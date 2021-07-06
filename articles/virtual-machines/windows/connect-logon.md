@@ -57,6 +57,15 @@ You may also save the RDP file for future use.
 ```powershell
 Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
+If you want to automate the login process, you can save the below script with the extension.ps1 and run it in PowerShell.
+
+```powershell
+echo "Connecting to your VM's public IP"
+$Server="your VM's public IP"
+$User="VM's username"
+$Password="VM's password"
+cmdkey /generic:TERMSRV/$Server /user:$User /pass:$Password
+mstsc /v:$Server```
 
 ## Next steps
 If you have difficulty connecting, see [Troubleshoot Remote Desktop connections](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
