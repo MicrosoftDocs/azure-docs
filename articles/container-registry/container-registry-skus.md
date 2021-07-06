@@ -23,11 +23,11 @@ The following table details the features and registry limits of the Basic, Stand
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## Registry performance
+## Registry throughput and throttling
 
 ### Throughput 
 
-When generating a high rate of registry operations, use the service tier's limits for read and write operations and bandwidth as a guide for expected performance. These limits affect data-plane operations including listing, deleting, pushing, and pulling images and other artifacts.
+When generating a high rate of registry operations, use the service tier's limits for read and write operations and bandwidth as a guide for expected maximum throughput. These limits affect data-plane operations including listing, deleting, pushing, and pulling images and other artifacts.
 
 To estimate the throughput of image pulls and pushes specifically, consider the registry limits and these factors: 
 
@@ -40,11 +40,11 @@ For details, see documentation for the [Docker HTTP API V2](https://docs.docker.
 When evaluating or troubleshooting registry throughput, also consider the configuration of your client environment:
 
 * your Docker daemon configuration for concurrent operations
-* your network connection to the registry's data endpoint or endpoints
+* your network connection to the registry's data endpoint (or endpoints, if your registry is [geo-replicated](container-registry-geo-replication.md).
 
 If you experience issues with throughput to your registry, see [Troubleshoot registry performance](container-registry-troubleshoot-performance.md). 
 
-### Example
+#### Example
 
 Pushing a single 133 MB `nginx:latest` image to an Azure container registry requires multiple read and write operations for the image's 5 layers: 
 
