@@ -63,7 +63,7 @@ This dashboard is pre-configured to show the critical logistics device operation
 
 The dashboard enables two different gateway device management operations:
 
-* View the logistics routes for truck shipments and the location details of ocean shipments.
+* View the logistics routes for truck shipments and the [location](../core/howto-use-location-data.md) details of ocean shipments.
 * View the gateway status and other relevant information.
 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard-1.png" alt-text="Connected logistics dashboard":::

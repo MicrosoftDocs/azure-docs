@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: tchladek
-ms.date: 05/31/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -42,6 +42,8 @@ The Administrator role has extended permissions in AAD. Members of this role can
 
 1. Contoso's Admin creates or selects existing *Application* in Azure Active Directory. Property *Supported account types* defines whether users from different tenant can authenticate to the *Application*. Property *Redirect URI* redirects successful authentication request to Contoso's *Server*.
 1. Contoso's Admin extends *Application*'s manifest with Azure Communication Services' VoIP permission. 
+1. Contoso's Admin allows public client flow for the *Application*
+1. Contoso's Admin can optionality update
 1. Contoso's Admin enables experience via [this form](https://forms.office.com/r/B8p5KqCH19)
 1. Contoso's Admin creates or selects existing Communication Services, that will be used for authentication of the exchanging requests. AAD user tokens will be exchanged for Teams access tokens. You can read more about creation of [new Azure Communication Services resources here](./create-communication-resource.md).
 1. Fabrikam's Admin provisions new service principal for Azure Communication Services in the Fabrikam's tenant
@@ -63,8 +65,8 @@ When the *Application* is registered, you'll see an identifier in the overview. 
 
 In the *Authentication* pane of your *Application*, you can see Configured platform for *Public client/native(mobile & desktop)* with Redirect URI pointing to *localhost*. In the bottom of the screen, you can find toggle *Allow public client flows*, which for this quickstart will be set to **Yes**.
 
-### 3. Verify application (Optional)
-In the *Branding* pane, you can verify your platform within Microsoft identity platform. This one time process will remove requirement for Fabrikam's admin to give admin consent to this application. You can find details on how to verify your application [here](/azure/active-directory/develop/howto-configure-publisher-domain).
+### 3. Update publisher domain (Optional)
+In the *Branding* pane, you can update your publisher domain for the *Application*. This is useful for multitenant applications, where the application will be marked as verified by Azure. You can find details on how to verify publisher and how to update domain of your application [here](/azure/active-directory/develop/howto-configure-publisher-domain).
 
 ### 4. Define Azure Communication Services' VoIP permission in application
 

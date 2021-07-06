@@ -2,7 +2,7 @@
 title: Configure NSX network components using Azure VMware Solution 
 description: Learn how to use the Azure VMware Solution to configure NSX-T network segments.
 ms.topic: how-to
-ms.date: 06/17/2021
+ms.date: 06/28/2021
 
 # Customer intent: As an Azure service administrator, I want to configure NSX network components using a simplified view of NSX-T operations a VMware administrator needs daily. The simplified view is targeted at users unfamiliar with NSX-T Manager.
 
@@ -40,7 +40,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 
 2. Provide the details for the new logical segment and select **OK**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new segment.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new NSX-T segment in the Azure portal.":::
 
    - **Segment name** - Name of the logical switch that is visible in vCenter.
 
@@ -73,36 +73,27 @@ You can create a DHCP server or relay directly from Azure VMware Solution in the
 
 ## Configure port mirroring in the Azure portal
 
-You can configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. This option places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a VM, or a group of VMs, and then sent to a defined destination. 
+In this step, you'll configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. This option places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a VM, or a group of VMs, and then sent to a defined destination. 
 
 To set up port mirroring in the Azure VMware Solution console, you'll:
 
-* [Step 1. Create the source and destination VMs or VM groups](#step-1-create-source-and-destination-vms-or-vm-groups) – The source group has a single VM or multiple VMs where the traffic is mirrored.
+* Create the source and destination VMs or VM groups – The source group has a single VM or multiple VMs where the traffic is mirrored.
 
-* [Step 2. Create a port mirroring profile](#step-2-create-a-port-mirroring-profile) – You'll define the traffic direction for the source and destination VM groups.
+* Create a port mirroring profile – You'll define the traffic direction for the source and destination VM groups.
 
-### Step 1. Create source and destination VMs or VM groups
-
-In this step, you'll create a source VM group and a destination VM group.
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Port mirroring** > **VM groups** > **Add**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-vm-groups.png" alt-text="Screenshot showing how to create a VM group for port mirroring.":::
 
-1. Provide a name for the new VM group, select the desired VMs from the list, and then **Ok**.
-
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-vm-group.png" alt-text="Screenshot showing the list of VMs to add to the VM group.":::
+1. Provide a name for the new VM group, select the desired VMs from the list, and then **OK**.
 
 1. Repeat these steps to create the destination VM group.
 
-### Step 2. Create a port mirroring profile
+   >[!NOTE]
+   >Before creating a port mirroring profile, make sure that you've created both the source and destination VM groups.
 
-In this step, you'll define a profile for the source and destination VM groups' traffic direction.
-
->[!NOTE]
->Make sure you have both the source and destination VM groups created.
-
-1. Select **Port mirroring** > **Add** and then provide:
+1. Select **Port mirroring** > **Port mirroring** > **Add** and then provide:
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-profile.png" alt-text="Screenshot showing the information required for the port mirroring profile.":::
 
@@ -122,58 +113,38 @@ In this step, you'll define a profile for the source and destination VM groups' 
 
 ## Configure a DNS forwarder in the Azure portal
 
-You'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
+In this step, you'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
+
+When a DNS query is received, a DNS forwarder compares the domain name with the domain names in the FQDN DNS zone. The query gets forwarded to the DNS servers specified in the FQDN DNS zone if a match is found.  Otherwise, the query gets forwarded to the DNS servers specified in the default DNS zone. 
+
+>[!NOTE]
+>To send DNS queries to the upstream server, a default DNS zone must be defined before configuring an FQDN zone.
 
 >[!TIP]
 >You can also use the [NSX-T Manager console to configure a DNS forwarder](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/administration/GUID-A0172881-BB25-4992-A499-14F9BE3BE7F2.html).
 
-To set up a DNS forwarder in the Azure VMware Solution console, you'll:
-
-* [Step 1. Configure a default DNS zone and FQDN zone](#step-1-configure-a-default-dns-zone-and-fqdn-zone) –  When a DNS query is received, a DNS forwarder compares the domain name with the domain names in the FQDN DNS zone. 
-
-* [Step 2. Configure DNS service](#step-2-configure-dns-service) - You'll configure the DNS forwarder service.
-
-### Step 1. Configure a default DNS zone and FQDN zone
-
-You'll configure a default DNS zone and FQDN zone to send DNS queries to the upstream server.  When a DNS query is received, the DNS forwarder compares the domain name in the query with the FQDN DNS zones' domain names. If a match is found, the query is forwarded to the DNS servers specified in the FQDN DNS zone. If no match is found, the query is forwarded to the DNS servers specified in the default DNS zone.
-
->[!NOTE]
->A default DNS zone must be defined before you configure an FQDN zone. 
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > **Add**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones and a DNS service.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
-1. Select **Default DNS zone** and provide:
+1. Select **Default DNS zone** and provide a name and up to three DNS server IP addresses in the format of **8.8.8.8**. 
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-zones.png" alt-text="Screenshot showing how to add a default DNS zone.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-zones.png" alt-text="Screenshot showing the required information needed to add a default DNS zone.":::
 
-   1. A name for the DNS zone.
+1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **8.8.8.8**.
 
-   1. Up to three DNS server IP addresses in the format of **8.8.8.8**.
-
-1. Select **FQDN zone** and provide:
-
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing how to add an FQDN zone. ":::
-
-   1. A name for the DNS zone.
-
-   1. The FQDN domain.
-
-   1. Up to three DNS server IP addresses in the format of **8.8.8.8**.
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing showing the required information needed to add an FQDN zone.":::
 
 1. Select **OK** to finish adding the default DNS zone and DNS service.
 
-### Step 2. Configure DNS service
+1. Select the **DNS service** tab, select **Add**. Provide the details and select **OK**.
 
-Select the **DNS service** tab, select **Add**. Provide the details and select **OK**.
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service.png" alt-text="Screenshot showing the information required for the DNS service.":::
 
-:::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service.png" alt-text="Screenshot showing the information required for the DNS service.":::
+   >[!TIP]
+   >**Tier-1 Gateway** is selected by default and reflects the gateway created when deploying Azure VMware Solution.
 
->[!TIP]
->**Tier-1 Gateway** is selected by default and reflects the gateway created when deploying Azure VMware Solution.
+   The DNS service was added successfully.
 
-The DNS service was added successfully.
-
-:::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service-success.png" alt-text="Screenshot showing the DNS service added successfully.":::
-
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service-success.png" alt-text="Screenshot showing the DNS service added successfully.":::

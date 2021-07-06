@@ -13,6 +13,8 @@ ms.date: 06/21/2021
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Performance Baselines
 
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
+
 ## Prerequisites
 
 [Test plans](06-test-plans.md)
