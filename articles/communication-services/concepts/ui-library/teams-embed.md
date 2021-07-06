@@ -101,6 +101,6 @@ You can use an Azure Communication Service access token, more information [how g
 | Joining can configure display name, enable photo sharing            | Yes          |
 | Joining can configure to show call staging view (pre call screen)   | Yes          |
 | Joining can configure to show name plate on call screen             | Yes          |
-| Customize the looby screen                                          | Partially    |
+| Customize the lobby screen                                          | Partially    |
 
 For more information about how to start with the Teams Embed SDK, please follow [Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md). If you want to learn more about the SDK capabilities see the [samples guide.](../../quickstarts/meeting/samples-for-teams-embed.md)
