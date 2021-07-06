@@ -84,7 +84,7 @@ Required changes are summarized in the table.
 **Enable Azure Serial Console**.<br/><br/>[Enable the console](/troubleshoot/azure/virtual-machines/serial-console-windows) on Azure VMs to help with troubleshooting. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM. | Enable manually | Enable manually | Enable manually
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
- [Learn more](./prepare-for-agentless-migration.md###Changes-performed-on-Windows-servers) on changes performed on Windows servers.
+ [Learn more](./prepare-for-agentless-migration.md#Changes-performed-on-Windows-servers) on changes performed on Windows servers.
 
 #### Configure SAN policy
 
@@ -127,7 +127,7 @@ For other versions, prepare machines as summarized in the table.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
 
-[Learn more](./prepare-for-agentless-migration.md###Changes-performed-on-Linux-servers) on changes performed on Linux servers
+[Learn more](./prepare-for-agentless-migration.md#Changes-performed-on-Linux-servers) on changes performed on Linux servers
 
 The following table summarizes the steps performed automatically for the operating systems listed above.
 
