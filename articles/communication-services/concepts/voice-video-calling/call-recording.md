@@ -76,7 +76,7 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
     "eventTime": string // ISO 8601 date time for when the event was created
 }
 ```
-## Regulatory and Privacy Concerns
+## Regulatory and privacy concerns
 
 Many countries and states have laws and regulations that apply to the recording of PSTN, voice, and video calls, which often require that users consent to the recording of their communications. It is your responsibility to use the call recording capabilities in compliance with the law. You must obtain consent from the parties of recorded communications in a manner that complies with the laws applicable to each participant.
 
