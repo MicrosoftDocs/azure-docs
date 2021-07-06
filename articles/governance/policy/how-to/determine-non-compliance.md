@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 09/30/2020
+ms.date: 03/31/2021
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -38,9 +38,9 @@ To view the compliance details, follow these steps:
 1. On the **Overview** or **Compliance** page, select a policy in a **compliance state** that is
    _Non-compliant_.
 
-1. Under the **Resource compliance** tab of the **Policy compliance** page, right-click or select
-   the ellipsis of a resource in a **compliance state** that is _Non-compliant_. Then select **View
-   compliance details**.
+1. Under the **Resource compliance** tab of the **Policy compliance** page, select and hold (or
+   right-click) or select the ellipsis of a resource in a **compliance state** that is
+   _Non-compliant_. Then select **View compliance details**.
 
    :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot of the 'View compliance details' link on the Resource compliance tab." border="false":::
 
@@ -156,80 +156,11 @@ setting.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot of the Guest Assignment compliance details." border="false":::
 
-### Azure PowerShell
-
-You can also view compliance details from Azure PowerShell. First, make sure you have the Guest
-Configuration module installed.
-
-```azurepowershell-interactive
-Install-Module Az.GuestConfiguration
-```
-
-You can view the current status of all Guest Assignments for a VM using the following command:
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname>
-```
-
-```output
-PolicyDisplayName                                                         ComplianceReasons
------------------                                                         -----------------
-Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
-Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
-```
-
-To view only the _reason_ phrase that describes why the VM is _Non-compliant_, return only the
-Reason child property.
-
-```azurepowershell-interactive
-Get-AzVMGuestPolicyStatus -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
-```
-
-```output
-The following applications are not installed: '<name>'.
-```
-
-You can also output a compliance history for Guest Assignments in scope for the machine. The output
-from this command includes the details of each report for the VM.
-
-> [!NOTE]
-> The output may return a large volume of data. It's recommended to store the output in a variable.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
-<truncated>
-```
-
-To simplify this view, use the **ShowChanged** parameter. The output from this command only includes
-the reports that followed a change in compliance status.
-
-```azurepowershell-interactive
-$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
-$guestHistory
-```
-
-```output
-PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
-                                                                                                                                                                  tId
------------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
-Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
-Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
-```
-
 ## <a name="change-history"></a>Change history (Preview)
 
 As part of a new **public preview**, the last 14 days of change history are available for all Azure
 resources that support [complete mode
-deletion](../../../azure-resource-manager/templates/complete-mode-deletion.md). Change history
+deletion](../../../azure-resource-manager/templates/deployment-complete-mode-deletion.md). Change history
 provides details about when a change was detected and a _visual diff_ for each change. A change
 detection is triggered when the Azure Resource Manager properties are added, removed, or altered.
 

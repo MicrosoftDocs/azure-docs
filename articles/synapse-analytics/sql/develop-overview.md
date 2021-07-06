@@ -41,7 +41,7 @@ Below you'll find essential articles that emphasize specific coding techniques, 
 
 | Article | dedicated SQL pool | serverless SQL pool |
 | ------- | -------- | ------------- |
-| [Stored procedures](develop-stored-procedures.md)  | Yes                | No                      |
+| [Stored procedures](develop-stored-procedures.md)  | Yes                | Yes                      |
 | [Labels](develop-label.md)                           | Yes                | No                      |
 | [Views](develop-views.md)                             | Yes                | Yes                     |
 | [Temporary tables](develop-tables-temporary.md)       | Yes                | Yes                     |

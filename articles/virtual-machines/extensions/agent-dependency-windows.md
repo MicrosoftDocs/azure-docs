@@ -1,20 +1,15 @@
 ---
 title: Azure Monitor Dependency virtual machine extension for Windows 
 description: Deploy the Azure Monitor Dependency agent on Windows virtual machine by using a virtual machine extension.
-services: virtual-machines-windows
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
 ms.author: magoedte
+ms.collection: windows
+ms.date: 06/01/2021
+ms.custom: devx-track-azurepowershell
+
 
 ---
 # Azure Monitor Dependency virtual machine extension for Windows
@@ -135,6 +130,29 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -TypeHandlerVersion 9.5 `
     -Location WestUS 
 ```
+
+## Automatic upgrade (preview)
+A new feature to automatically upgrade minor versions of Dependency extension is now available in public preview. You must perform the following configuration changes to enable this feature.
+
+-	Use one of the methods at [Enabling preview access](../automatic-extension-upgrade.md#enabling-preview-access) to enable the feature for your subscription.
+- Add the `enableAutomaticUpgrade` attribute to the template.
+
+Dependency Agent extension versioning scheme follows the following format:
+
+```
+<MM.mm.bb.rr> where M = Major version number, m = minor version number, b = bug number, r = revision number.
+```
+
+The `enableAutomaticUpgrade` and `autoUpgradeMinorVersion` attributes work together to determine how upgrades will be handled for virtual machines in the subscription.
+
+| enableAutomaticUpgrade | autoUpgradeMinorVersion | Effect |
+|:---|:---|:---|
+| true | false | Upgrade dependency agent if a newer version of bb.rr exists. For example if you are running 9.6.0.1355 and the newer version is 9.6.2.1366, then your virtual machines in enabled subscriptions will be upgraded to 9.6.2.1366. |
+| true | true |  This will upgrade dependency agent if a newer version of mm.bb.rr or bb.rr exists. For example if you are running 9.6.0.1355 and the newer version is 9.7.1.1416, then your virtual machines in enabled subscriptions will be upgraded to 9.7.1.1416. Also if you are running 9.6.0.1355 and the newer version is 9.6.2.1366, then your virtual machines in enabled subscriptions will be upgraded to 9.6.2.1366. |
+| false | true or false | Automatic upgrade is disabled.
+
+> [!IMPORTANT]
+> If you add the `enableAutomaticUpgrade` to your template, make sure that you use at least API version 2019-12-01.
 
 ## Troubleshoot and support
 

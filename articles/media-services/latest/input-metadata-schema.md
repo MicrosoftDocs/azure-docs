@@ -35,9 +35,7 @@ You can find the JSON schema example at the end of this article.
 Contains a collection of AssetFile elements for the encoding job.  
 
 > [!NOTE]
-> The following four child elements must appear in a sequence.  
-> 
-> 
+> The following four child elements must appear in a sequence.
 
 | Name  | Description |
 | --- | --- | 
@@ -63,7 +61,7 @@ Contains a collection of AssetFile elements for the encoding job.
 
 | Name | Description |
 | --- | --- |
-| **FourCC**<br />Required |Video codec FourCC code that is reported by ffmpeg.<br /><br />Example: `"FourCC": "avc1"` |
+| **FourCC**<br />Required |Video codec FourCC code that is reported by ffmpeg.<br /><br />Example: `"FourCC": "avc1" | "hev1" | "hvc1"` |
 | **Profile** |Video track's profile. <br /><br />Example: `"Profile": "Main"`|
 | **Level** |Video track's level. <br /><br />Example: `"Level": "3.2"`|
 | **PixelFormat** |Video track's pixel format. <br /><br />Example: `"PixelFormat": "yuv420p"`|
@@ -78,9 +76,9 @@ Contains a collection of AssetFile elements for the encoding job.
 | **HasBFrames** |Video track number of B frames. <br /><br />Example: `"HasBFrames": 2`|
 | **Metadata** |Generic key/value strings that can be used to hold a variety of information. <br />See the full example at the end of the article. |
 | **Id**<br />Required |Zero-based index of this audio or video track.<br /><br /> This **Id** is not necessarily the TrackID as used in an MP4 file. <br /><br />Example: `"Id": 2`|
-| **Codec** |Video track codec string. <br /><br />Example: `"Codec": "h264"`|
+| **Codec** |Video track codec string. <br /><br />Example: `"Codec": "h264 | hev1"`|
 | **CodecLongName** |Audio or video track codec long name. <br /><br />Example: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
-| **Codec** |Video track codec string. <br /><br />Example: `"Codec": "h264"`|
+| **Codec** |Video track codec string. <br /><br />Example: `"Codec": "h264 | hev1"`|
 | **TimeBase**<br />Required |Time base.<br /><br />Example: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |Number of frames (present for video tracks). <br /><br />Example: `"NumberOfFrames": 2107`|
 | **StartTime** |Track start time.<br /><br />Example: `"StartTime": "PT0.033S"` |

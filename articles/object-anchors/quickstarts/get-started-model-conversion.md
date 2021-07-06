@@ -5,19 +5,21 @@ author: craigktreasure
 manager: virivera
 
 ms.author: crtreasu
-ms.date: 02/22/2021
+ms.date: 06/10/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
 ---
 # Quickstart: Create an Object Anchors model from a 3D model
 
-Azure Object Anchors is a managed cloud service that converts 3D models into AI models that enable object-aware mixed reality experiences for the HoloLens. This quickstart covers how to create an Object Anchors model from a 3D model using the C#/.NET Core SDK.
+Azure Object Anchors is a managed cloud service that converts 3D models into AI models that enable object-aware mixed
+reality experiences for the HoloLens. This quickstart covers how to create an Object Anchors model from a 3D model using
+the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre).
 
 You'll learn how to:
 
 > [!div class="checklist"]
-> * Create an Object Anchors account
-> * Convert a 3D model to create an Object Anchors model
+> * Create an Object Anchors account.
+> * Convert a 3D model to create an Object Anchors model using the [Azure Object Anchors Conversion SDK for .NET](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre) ([NuGet](https://www.nuget.org/packages/Azure.MixedReality.ObjectAnchors.Conversion/)).
 
 ## Prerequisites
 
@@ -97,7 +99,7 @@ Now, you can go ahead and convert your 3D model.
 
     | Field                    | Description                       |
     | ---                      | ---                               |
-    | InputAssetPath           | Absolute path to a 3D model on your local machine (there's a sample model in `assets/models` folder you can use). Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
+    | InputAssetPath           | The absolute path to a 3D model on your local machine. Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
     | AssetDimensionUnit       | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
 
@@ -121,6 +123,9 @@ Now, you can go ahead and convert your 3D model.
 
 4. Once the job is completed successfully, you should see a file with the format `<Model-Filename-Without-Extension>_<JobID>.ou` in the specified output location. For example, if your 3D model filename is `chair.ply` and your job ID is `00000000-0000-0000-0000-000000000000` then the filename the service outputs will be `chair_00000000-0000-0000-0000-000000000000.ou`.
 
+## Error Codes
+For details on the different error codes that can result from a failed asset conversion job and how to handle each, refer to the [conversion error codes page](..\model-conversion-error-codes.md).
+
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
@@ -135,3 +140,6 @@ In this quickstart, you created an Object Anchors account and converted a 3D mod
 
 > [!div class="nextstepaction"]
 > [HoloLens DirectX](get-started-hololens-directx.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

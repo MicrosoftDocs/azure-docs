@@ -6,7 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 06/04/2021
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -50,7 +50,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
    The name for your data factory must be globally unique. You might receive this error message:
 
-   ![Name not available error message](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 3. Under **Subscription**, select the Azure subscription in which you'll create the new data factory.
@@ -68,13 +68,13 @@ Prepare your Blob storage for the tutorial by completing these steps:
 9. After the data factory is created, the data factory home page appears.
 10. To open the Azure Data Factory user interface (UI) on a separate tab, select the **Author & Monitor** tile:
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 
 ## Use the Copy Data tool to create a pipeline
 
-1. On the **Let's get started** page, select the **Copy Data** tile to open the Copy Data tool:
+1. On the Azure Data Factory home page, select the **Ingest** tile to open the Copy Data tool:
 
-   ![Copy Data tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 2. On the **Properties** page, take the following steps:
 

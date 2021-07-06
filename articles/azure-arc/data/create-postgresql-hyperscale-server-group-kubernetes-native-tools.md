@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -43,16 +43,16 @@ metadata:
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
-kind: postgresql-12
+kind: postgresql
 metadata:
-  generation: 1
   name: pg1
 spec:
   engine:
+    version: 12
     extensions:
     - name: citus
   scale:
-    shards: 3
+    workers: 3
   scheduling:
     default:
       resources:
@@ -62,18 +62,22 @@ spec:
         requests:
           cpu: "1"
           memory: 2Gi
-  service:
-    type: LoadBalancer
+  services:
+    primary:
+      type: LoadBalancer # Modify service type based on your Kubernetes environment
   storage:
     backups:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     data:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     logs:
-      className: default
-      size: 1Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
 ```
 
 ### Customizing the login and password.
@@ -94,10 +98,10 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### Customizing the name
@@ -150,7 +154,7 @@ Creating the PostgreSQL Hyperscale server group will take a few minutes to compl
 >  The example commands below assume that you created a PostgreSQL Hyperscale server group named 'pg1' and Kubernetes namespace with the name 'arc'.  If you used a different namespace/PostgreSQL Hyperscale server group name, you can replace 'arc' and 'pg1' with your names.
 
 ```console
-kubectl get postgresql-12/pg1 --namespace arc
+kubectl get postgresqls/pg1 --namespace arc
 ```
 
 ```console
@@ -160,10 +164,10 @@ kubectl get pods --namespace arc
 You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/pg1-0 --namespace arc
+#kubectl describe pod/pg1-0 --namespace arc
 ```
 
 ## Troubleshooting creation problems

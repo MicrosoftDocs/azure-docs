@@ -4,7 +4,8 @@ description: You can manage access to data stored in a Log Analytics workspace i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/10/2019
+ms.date: 04/10/2019 
+ms.custom: devx-track-azurepowershell
 
 ---
 

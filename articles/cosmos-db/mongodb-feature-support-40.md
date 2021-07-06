@@ -20,6 +20,9 @@ By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of th
 
 The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. When using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
+> [!NOTE]
+> This article only lists the supported server commands and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with Azure Cosmos DB's API for MongoDB.
+
 ## Query language support
 
 Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
@@ -135,7 +138,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $limit | Yes |
 | $listLocalSessions | No |
 | $listSessions | No |
-| $lookup | Yes |
+| $lookup | Partial |
 | $match | Yes |
 | $out | Yes |
 | $project | Yes |
@@ -147,6 +150,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $sort | Yes |
 | $sortByCount | Yes |
 | $unwind | Yes |
+
+> [!NOTE]
+> `$lookup` does not yet support the [uncorrelated subqueries](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) feature introduced in server version 3.6. You will receive an error with a message containing `let is not supported` if you attempt to use the `$lookup` operator with `let` and `pipeline` fields.
 
 ### Boolean expressions
 

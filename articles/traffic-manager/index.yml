@@ -98,6 +98,6 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: /powershell/module/az.trafficmanager/?view=azps-2.5.0
+            url: /powershell/module/az.trafficmanager/
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/network/traffic-manager

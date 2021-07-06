@@ -35,7 +35,7 @@ Complete the following prerequisites to successfully walk through this guide.
 
    If you plan to run memory-intensive applications on the cluster, specify the proper virtual machine size for the worker nodes using the `--worker-vm-size` parameter. For example, `Standard_E4s_v3` is the minimum virtual machine size to install the Elasticsearch Operator on a cluster. For more information, see:
 
-   * [Azure CLI to create a cluster](/cli/azure/aro#az-aro-create)
+   * [Azure CLI to create a cluster](/cli/azure/aro#az_aro_create)
    * [Supported virtual machine sizes for memory optimized](./support-policies-v4.md#memory-optimized)
    * [Prerequisites to install the Elasticsearch Operator](https://docs.openshift.com/container-platform/4.3/logging/cluster-logging-deploying.html#cluster-logging-deploy-eo-cli_cluster-logging-deploying)
 

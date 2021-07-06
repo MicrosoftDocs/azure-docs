@@ -1,0 +1,21 @@
+### YamlMime:Landing
+
+title: Azure Certified Device Documentation
+summary: This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. 
+
+metadata:
+  title: Azure Certified Device program
+  description: This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. 
+  ms.service: certification
+  ms.topic: landing-page
+  author: cbroad
+  ms.author: cbroad
+  ms.date: 03/18/2021
+
+landingContent:
+  - title: About the Azure Certified Device program
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: What is the Azure Certified Device program?
+          url: ./overview.md

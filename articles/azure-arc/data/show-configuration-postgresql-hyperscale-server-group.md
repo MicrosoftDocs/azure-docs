@@ -8,7 +8,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -358,7 +358,7 @@ Returns the below output in a format and content very similar to the one returne
 
 ## Next steps
 - [Read about the concepts of Azure Arc enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md)
-- [Read about how to scale out (add worker nodes) a server group](scale-out-postgresql-hyperscale-server-group.md)
+- [Read about how to scale out (add worker nodes) a server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)
 - [Read how to monitor a database instance](monitor-grafana-kibana.md)

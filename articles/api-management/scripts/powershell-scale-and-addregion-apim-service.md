@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
 ms.author: apimpm
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Scale the service instance

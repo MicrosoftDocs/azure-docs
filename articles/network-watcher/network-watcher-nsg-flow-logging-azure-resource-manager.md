@@ -1,4 +1,4 @@
-﻿---
+---
 title: Network Watcher - Create NSG flow logs using an Azure Resource Manager template
 description: Use an Azure Resource Manager template and PowerShell to easily set up NSG Flow Logs.
 services: network-watcher
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
+ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 ---
 
@@ -28,7 +29,7 @@ ms.author: damendo
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) is Azure’s native and powerful way to manage your [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) is Azure's native and powerful way to manage your [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code).
 
 This article shows how you to enable [NSG Flow Logs](./network-watcher-nsg-flow-logging-overview.md) programmatically using an Azure Resource Manager template and Azure PowerShell. We start by providing an overview of the properties of the NSG Flow Log object, followed by a few sample templates. Then we the deploy template using a local PowerShell instance.
 
@@ -141,7 +142,7 @@ Below are two examples of complete templates to set up NSG Flow Logs.
         },
         "format": {
           "type": "JSON",
-          "version": 2			
+          "version": 2
         }
       }
     }
@@ -156,7 +157,7 @@ You can save any of the above example templates locally as `azuredeploy.json`. U
 
 To deploy the template, run the following command in PowerShell.
 ```azurepowershell
-$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+$context = Get-AzSubscription -SubscriptionId <SubscriptionId>
 Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"

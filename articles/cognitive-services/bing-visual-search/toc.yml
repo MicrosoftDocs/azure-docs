@@ -72,7 +72,7 @@
       - name: Java
         href:  /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-visualsearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-visualsearch/
       - name: Node.js
         href: /javascript/api/@azure/cognitiveservices-visualsearch/
   - name: Use and display requirements
@@ -88,7 +88,5 @@
     href: https://aka.ms/bingvisualsearchtryforfree
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-search
-  - name: User Voice
-    href: https://cognitive.uservoice.com/forums/555907-bing-search
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

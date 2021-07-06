@@ -7,10 +7,10 @@ ms.subservice: migration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: bonova
-ms.author: bonova
-ms.reviewer:
-ms.date: 07/11/2019
+author: danimir
+ms.author: danil
+ms.reviewer: cawrites
+ms.date: 06/23/2021
 ---
 # SQL Server instance migration to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -54,6 +54,26 @@ If you have resolved all identified migration blockers and are continuing the mi
 
 SQL Managed Instance guarantees 99.99% availability even in critical scenarios, so overhead caused by these features cannot be disabled. For more information, see [the root causes that might cause different performance on SQL Server and Azure SQL Managed Instance](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/).
 
+#### In-Memory OLTP (Memory-optimized tables)
+
+SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, memory-optimized table types and natively compiled SQL modules to run workloads that have high throughput and low latency transactional processing requirements. 
+
+> [!IMPORTANT]
+> In-Memory OLTP is only supported in the Business Critical tier in Azure SQL Managed Instance (and not supported in the General Purpose tier).
+
+If you have memory-optimized tables or memory-optimized table types in your on-premises SQL Server and you are looking to migrate to Azure SQL Managed Instance, you should either:
+
+- Choose Business Critical tier for your target Azure SQL Managed Instance that supports In-Memory OLTP, Or
+- If you want to migrate to General Purpose tier in Azure SQL Managed Instance, remove memory-optimized tables, memory-optimized table types and natively compiled SQL modules that interact with memory-optimized objects before migrating your database(s). The following T-SQL query can be used to identify all objects that need to be removed before migration to General Purpose tier:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](../in-memory-oltp-overview.md)
+
 ### Create a performance baseline
 
 If you need to compare the performance of your workload on a managed instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison.
@@ -63,7 +83,7 @@ Performance baseline is a set of parameters such as average/max CPU usage, avera
 Some of the parameters that you would need to measure on your SQL Server instance are:
 
 - [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) and record the average and peak CPU usage.
-- [Monitor memory usage on your SQL Server instance](/sql/relational-databases/performance-monitor/monitor-memory-usage) and determine the amount of memory used by different components such as buffer pool, plan cache, column-store pool, [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. In addition, you should find average and peak values of the Page Life Expectancy memory performance counter.
+- [Monitor memory usage on your SQL Server instance](/sql/relational-databases/performance-monitor/monitor-memory-usage) and determine the amount of memory used by different components such as buffer pool, plan cache, column-store pool, [In-Memory OLTP](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage), etc. In addition, you should find average and peak values of the Page Life Expectancy memory performance counter.
 - Monitor disk IO usage on the source SQL Server instance using [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) view or [performance counters](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitor workload and query performance or your SQL Server instance by examining Dynamic Management Views or Query Store if you are migrating from a SQL Server 2016+ version. Identify average duration and CPU usage of the most important queries in your workload to compare them with the queries that are running on the managed instance.
 
@@ -74,7 +94,7 @@ As an outcome of this activity, you should have documented average and peak valu
 
 ## Deploy to an optimally sized managed instance
 
-SQL Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](../database/service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
+SQL Managed Instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](../database/service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or "vCores," with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
 
 - Based on the baseline CPU usage, you can provision a managed instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where the managed instance is installed](resource-limits.md#hardware-generation-characteristics).
 - Based on the baseline memory usage, choose [the service tier that has matching memory](resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen, so you would need to select the managed instance with the amount of vCores that has matching memory (for example, 5.1 GB/vCore in Gen5).
@@ -163,7 +183,7 @@ Once you have prepared the environment that is comparable as much as possible wi
 As a result, you should compare performance parameters with the baseline and identify critical differences.
 
 > [!NOTE]
-> In many cases, you would not be able to get exactly matching performance on the managed instance and SQL Server. Azure SQL Managed Instance is a SQL Server database engine, but infrastructure and high-availability configuration on a managed instance may introduce some differences. You might expect that some queries would be faster while some others might be slower. The goal of comparison is to verify that workload performance in the managed instance matches the performance on SQL Server (on average), and identify any critical queries with the performance that don’t match your original performance.
+> In many cases, you would not be able to get exactly matching performance on the managed instance and SQL Server. Azure SQL Managed Instance is a SQL Server database engine, but infrastructure and high-availability configuration on a managed instance may introduce some differences. You might expect that some queries would be faster while some others might be slower. The goal of comparison is to verify that workload performance in the managed instance matches the performance on SQL Server (on average), and identify any critical queries with the performance that don't match your original performance.
 
 The outcome of the performance comparison might be:
 
@@ -190,7 +210,7 @@ Once you are on a fully managed platform and you have verified that workload per
 
 Even if you don't make some changes in managed instance during the migration, there are high chances that you would turn on some of the new features while you are operating your instance to take advantage of the latest database engine improvements. Some changes are only enabled once the [database compatibility level has been changed](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
-For instance, you don’t have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. SQL Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability, as [high availability](../database/high-availability-sla.md) is built in.
+For instance, you don't have to create backups on managed instance - the service performs backups for you automatically. You no longer must worry about scheduling, taking, and managing backups. SQL Managed Instance provides you the ability to restore to any point in time within this retention period using [Point in Time Recovery (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Additionally, you do not need to worry about setting up high availability, as [high availability](../database/high-availability-sla.md) is built in.
 
 To strengthen security, consider using [Azure Active Directory Authentication](../database/security-overview.md), [auditing](auditing-configure.md), [threat detection](../database/azure-defender-for-sql.md), [row-level security](/sql/relational-databases/security/row-level-security), and [dynamic data masking](/sql/relational-databases/security/dynamic-data-masking).
 

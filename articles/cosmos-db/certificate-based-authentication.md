@@ -7,7 +7,8 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
-ms.reviewer: sngun
+ms.reviewer: sngun 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -61,7 +62,7 @@ In this step, you will install the Azure AD PowerShell module. This module is re
    Set-AzContext $context 
    ```
 
-1. Install and import the [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module
+1. Install and import the [AzureAD](/powershell/module/azuread/) module
 
    ```powershell
    Install-Module AzureAD

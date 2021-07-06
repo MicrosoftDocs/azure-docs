@@ -9,7 +9,8 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 02/09/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage your Azure Cognitive Search service with PowerShell
@@ -183,7 +184,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 
 ## Create or delete a service
 
-[**New-AzSearchService**](/powershell/module/az.search/new-azsearchadminkey) is used to [create a new search service](search-create-service-portal.md).
+[**New-AzSearchService**](/powershell/module/az.search/new-azsearchservice) is used to [create a new search service](search-create-service-portal.md).
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3 -HostingMode Default

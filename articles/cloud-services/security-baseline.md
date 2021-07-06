@@ -40,7 +40,7 @@ Microsoft Azure Cloud Services (Classic) cannot be placed in Azure Resource Mana
 
 - [Network Security Group overview](../virtual-network/network-security-groups-overview.md)
 
-- [Virtual Network peering](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
+- [Virtual Network peering](./cloud-services-connectivity-and-networking-faq.yml#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services-)
 
 **Responsibility**: Customer
 
@@ -93,11 +93,11 @@ Prevent incoming traffic to the default URL or name of your Cloud Services, for 
 
 Configure a Deny Apply rule to classic subscription administrator assignments. By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a NetworkTrafficRules element to the ServiceDefinition element in the service definition file.
 
-- [How can I block/disable incoming traffic to the default URL of my cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
+- [How can I block/disable incoming traffic to the default URL of my cloud service](./cloud-services-connectivity-and-networking-faq.yml#how-can-i-block-disable-incoming-traffic-to-the-default-url-of-my-cloud-service-)
 
-- [Azure DDOS protection](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
+- [Azure DDOS protection](./cloud-services-connectivity-and-networking-faq.yml#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service-)
 
-- [Block a specific IP address](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common#block-a-specific-ip-address)
+- [Block a specific IP address](./cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
 **Responsibility**: Customer
 
@@ -181,9 +181,9 @@ Gather insight from Activity log, a platform log in Azure, into subscription-lev
 
 Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Event Hubs to forward outside of Azure, or to Azure Storage for archival. Configure Azure Monitor for notification alerts when critical resources in your Azure Cloud Services are changed. 
 
-- [Azure Activity log](/azure/azure-monitor/platform/activity-log)
+- [Azure Activity log](../azure-monitor/essentials/activity-log.md)
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Traffic Manager Monitoring](../traffic-manager/traffic-manager-monitoring.md)
 
@@ -199,7 +199,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 **Guidance**: Microsoft maintains time sources for Azure resources for Azure Cloud Services. Customers might need to create a network rule to allow access to a time server used in their environment, over port 123 with UDP protocol.
 
-- [NTP server access](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [NTP server access](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
 **Responsibility**: Shared
 
@@ -239,7 +239,7 @@ Azure Cloud Services can be monitored by Application Insights for availability, 
 
 - [Turn on diagnostics in Visual Studio before deployment](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [View change history](/azure/azure-monitor/platform/activity-log#view-change-history)
+- [View change history](../azure-monitor/essentials/activity-log.md#view-change-history)
 
 - [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 
@@ -275,7 +275,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 - [Enable diagnostics in Azure Cloud Services using PowerShell](cloud-services-diagnostics-powershell.md)
 
-- [Store and view diagnostic data in Azure Storage](https://docs.microsoft.com/azure/cloud-services/diagnostics-extension-to-storage?&amp;preserve-view=true)
+- [Store and view diagnostic data in Azure Storage](./diagnostics-extension-to-storage.md?preserve-view=)
 
 **Responsibility**: Customer
 
@@ -295,7 +295,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Guidance**: Microsoft Antimalware for Azure, protects Azure Cloud Services and virtual machines. You have the option to deploy third-party security solutions in addition, such as web application fire walls, network firewalls, antimalware, intrusion detection and prevention systems (IDS or IPS), and more.
 
-- [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
+- [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides](./cloud-services-configuration-and-management-faq.yml#what-are-the-features-and-capabilities-that-azure-basic-ips-ids-and-ddos-provides-)
 
 **Responsibility**: Customer
 
@@ -321,7 +321,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 Review the differences between classic subscription administrative roles. 
 
-- [Differences between three classic subscription administrative roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [Differences between three classic subscription administrative roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **Responsibility**: Customer
 
@@ -331,7 +331,7 @@ Review the differences between classic subscription administrative roles.
 
 **Guidance**: It is recommended to create standard operating procedures around the use of dedicated administrative accounts, based on available roles and the permissions required to operate and manage the Azure Cloud Services resources.
 
-- [Differences between the classic subscription administrative roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [Differences between the classic subscription administrative roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **Responsibility**: Customer
 
@@ -395,7 +395,7 @@ You can also edit the "permissionLevel" in Azure Cloud Service's Certificate ele
 
 - [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-- [WebRole Schema](https://docs.microsoft.com/azure/cloud-services/schema-csdef-webrole#Certificate)
+- [WebRole Schema](./schema-csdef-webrole.md#Certificate)
 
 **Responsibility**: Customer
 
@@ -471,9 +471,9 @@ The application data stored in temporary disks is not encrypted. The customer is
 
 Additionally, Application Insights can monitor Azure Cloud Services apps for availability, performance, failures, and usage. This uses combined data from Application Insights SDKs with Azure Diagnostics data from your Azure Cloud Services.
 
-- [Create, view, and manage classic metric alerts using Azure Monitor](/azure/azure-monitor/platform/alerts-classic-portal)
+- [Create, view, and manage classic metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-classic-portal.md)
 
-- [Metric Alerts Overview](/azure/azure-monitor/platform/alerts-metric-overview) 
+- [Metric Alerts Overview](../azure-monitor/alerts/alerts-metric-overview.md) 
 
 - [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 
@@ -499,7 +499,7 @@ When a customer chooses a specific operating system version for their Azure Clou
 
 - [How to Configure Cloud service (Classic)](cloud-services-how-to-configure-portal.md)
 
-- [Manage Guest OS version](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal#manage-guest-os-version)
+- [Manage Guest OS version](./cloud-services-how-to-configure-portal.md#manage-guest-os-version)
 
 **Responsibility**: Shared
 
@@ -529,7 +529,7 @@ We suggest thinking through these scenarios:
 
 Supporting documentation:
 
-- [Risk evaluation of your Azure resources](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices#risk-evaluation-of-your-azure-resources)
+- [Risk evaluation of your Azure resources](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
 **Responsibility**: Customer
 
@@ -812,7 +812,7 @@ To begin with, specify a plain text password, convert it to a secure string usin
 
 Additionally, it is recommended to store the private keys for certificates used in Azure Cloud Services to a secured storage.
 
-- [Configure Remote Desktop from PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configure Remote Desktop from PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **Responsibility**: Customer
 
@@ -827,7 +827,7 @@ To begin, specify a plain text password, change it to a secure string using Conv
 
 Store the private keys for certificates used in Azure Cloud Services to a secured storage location.
 
-- [Configure Remote Desktop from PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configure Remote Desktop from PowerShell](./cloud-services-role-enable-remote-desktop-powershell.md#configure-remote-desktop-from-powershell)
 
 **Responsibility**: Customer
 
@@ -847,9 +847,9 @@ Enable the Antimalware extension with a PowerShell script in the Startup Task in
 
 Choose the Adaptive application control feature in Azure Security Center, an intelligent, automated, end-to-end solution. It helps harden your machines against malware and enables you to block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
-- [How can I add an Antimalware extension for my Azure Cloud Services in an automated way](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
+- [How can I add an Antimalware extension for my Azure Cloud Services in an automated way](./cloud-services-configuration-and-management-faq.yml#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way-)
 
-- [Antimalware Deployment Scenarios](https://docs.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios)
+- [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
 - [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
@@ -947,5 +947,5 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

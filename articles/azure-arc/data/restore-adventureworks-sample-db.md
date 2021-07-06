@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Restore the AdventureWorks sample database into SQL Managed Instance - Azure Arc
 
-[AdventureWorks](/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=tsql&preserve-view=true) is a sample database containing an OLTP database that is often used in tutorials, and examples. It is provided and maintained by Microsoft as part of the [SQL Server samples GitHub repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
+[AdventureWorks](/sql/samples/adventureworks-install-configure) is a sample database containing an OLTP database that is often used in tutorials, and examples. It is provided and maintained by Microsoft as part of the [SQL Server samples GitHub repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
 This document describes a simple process to get the AdventureWorks sample database restored into your SQL Managed Instance - Azure Arc.
 

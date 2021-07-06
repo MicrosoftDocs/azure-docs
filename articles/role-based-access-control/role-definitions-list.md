@@ -2,19 +2,14 @@
 title: List Azure role definitions - Azure RBAC
 description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
-ms.author: rolyon
-ms.reviewer: bagovind
+ms.date: 05/06/2021
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 ---
 
 # List Azure role definitions
@@ -29,6 +24,10 @@ To see the list of administrator roles for Azure Active Directory, see [Administ
 
 Follow these steps to list all roles in the Azure portal.
 
+The **Roles** tab was recently updated with some additional features. If you want to view the previous experience, see the **Roles (Classic)** tab. You can use either roles tab to work with your roles, however, if you create or delete custom roles, you might need to manually refresh the page to see the latest changes.
+
+#### [Roles](#tab/roles/)
+
 1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
 1. Click the specific resource.
@@ -37,9 +36,31 @@ Follow these steps to list all roles in the Azure portal.
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
+   ![Screenshot showing Roles list using new experience.](./media/shared/roles-list.png)
+
+1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
+
+    A permissions pane appears.
+
+1. Click the **Permissions** tab to view and search the permissions for the selected role.
+
+   ![Screenshot showing role permissions using new experience.](./media/role-definitions-list/role-permissions.png)
+
+#### [Roles (Classic)](#tab/roles-classic/)
+
+1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+
+1. Click the specific resource.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Roles (Classic)** tab to see a list of all the built-in and custom roles.
+
    You can see the number of users and groups that are assigned to each role at the current scope.
 
-   ![Roles list](./media/role-definitions-list/roles-list.png)
+   ![Roles list](./media/role-definitions-list/roles-list-classic.png)
+
+---
 
 ## Azure PowerShell
 
@@ -162,7 +183,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ### List all roles
 
-To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
 az role definition list
@@ -225,7 +246,7 @@ az role definition list --custom-role-only false --output json --query '[].{role
 
 ### List a role definition
 
-To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+To list details of a role, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
 az role definition list --name {roleName}

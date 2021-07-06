@@ -26,12 +26,12 @@ There are two types of traffic data available in Azure Maps:
 - Incident data - consists of point and line-based data for things such as construction, road closures, and accidents.
 - Flow data - provides metrics on the flow of traffic on the roads. Often, traffic flow data is used to color the roads. The colors are based on how much traffic is slowing down the flow, relative to the speed limit, or another metric. There are four values that can be passed into the traffic `flow` option of the map.
 
-    |Flow Value | Description|
+    |Flow enum | Description|
     | :-- | :-- |
-    | TrafficFlow.NONE | Doesn't display traffic data on the map |
-    | TrafficFlow.RELATIVE | Shows traffic data that's relative to the free-flow speed of the road |
-    | TrafficFlow.RELATIVE_DELAY | Displays areas that are slower than the average expected delay |
-    | TrafficFlow.ABSOLUTE | Shows the absolute speed of all vehicles on the road |
+    | `TrafficFlow.NONE` | Doesn't display traffic data on the map |
+    | `TrafficFlow.RELATIVE` | Shows traffic data that's relative to the free-flow speed of the road |
+    | `TrafficFlow.RELATIVE_DELAY` | Displays areas that are slower than the average expected delay |
+    | `TrafficFlow.ABSOLUTE` | Shows the absolute speed of all vehicles on the road |
 
 The following code shows how to display traffic data on the map.
 
@@ -58,7 +58,7 @@ map.setTraffic(
 
 ::: zone-end
 
-The following screenshot shows the above code rending real-time traffic information on the map.
+The following screenshot shows the above code rendering real-time traffic information on the map.
 
 ![Map showing real-time traffic information](media/how-to-show-traffic-android/android-show-traffic.png)
 
@@ -174,9 +174,80 @@ map.events.add(OnFeatureClick { features: List<Feature>? ->
 
 ::: zone-end
 
-The following screenshot shows the above code rending real-time traffic information on the map with a toast message displaying incident details.
+The following screenshot shows the above code rendering real-time traffic information on the map with a toast message displaying incident details.
 
 ![Map showing real-time traffic information with a toast message displaying incident details](media/how-to-show-traffic-android/android-traffic-details.png)
+
+## Filter traffic incidents
+
+On a typical day in most major cities, there can be an overwhelming number of traffic incidents, however, depending on your scenario, it may be desirable to filter and display a subset of these incidents. When setting traffic options, there are `incidentCategoryFilter` and `incidentMagnitudeFilter` options that take in an array of incident categories or magnitude enumerators or string values.
+
+The following table shows all the traffic incident categories that can be used within the `incidentCategoryFilter` option.
+
+| Category enum | String value | Description |
+|--------------------|--------------|-------------|
+| `IncidentCategory.UNKNOWN` | `"unknown"` | An incident that either doesn't fit any of the defined categories or hasn't yet been classified. |
+| `IncidentCategory.ACCIDENT` | `"accident"` | Traffic accident. |
+| `IncidentCategory.FOG` | `"fog"` | Fog that reduces visibility, likely reducing traffic flow, and possibly increasing the risk of an accident. |
+| `IncidentCategory.DANGEROUS_CONDITIONS` | `"dangerousConditions"` | Dangerous situation on the road, such as an object on the road. |
+| `IncidentCategory.RAIN` | `"rain"` | Heavy rain that may be reducing visibility, making driving conditions difficult, and possibly increasing the risk of an accident. |
+| `IncidentCategory.ICE` | `"ice"` | Icy road conditions that may make driving difficult or dangerous. |
+| `IncidentCategory.JAM` | `"jam"` | Traffic jam resulting in slower moving traffic. |
+| `IncidentCategory.LANE_CLOSED` | `"laneClosed"` | A road lane is closed. |
+| `IncidentCategory.ROAD_CLOSED` | `"roadClosed"` | A road is closed. |
+| `IncidentCategory.ROAD_WORKS` | `"roadWorks"` | Road works/construction in this area. |
+| `IncidentCategory.WIND` | `"wind"` | High winds that may make driving difficult for vehicles with a large side profile or high center of gravity. |
+| `IncidentCategory.FLOODING` | `"flooding"` | Flooding occurring on road. |
+| `IncidentCategory.DETOUR` | `"detour"` | Traffic being directed to take a detour. |
+| `IncidentCategory.CLUSTER` | `"cluster"` | A cluster of traffic incidents of different categories. Zooming in the map will result in the cluster breaking apart into its individual incidents. |
+| `IncidentCategory.BROKEN_DOWN_VEHICLE` | `"brokenDownVehicle"` | Broken down vehicle on or beside road. |
+
+The following table shows all the traffic incident magnitudes that can be used within the `incidentMagnitudeFilter` option.
+
+| Magnitude enum | String value | Description |
+|--------------------|--------------|-------------|
+| `IncidentMagnitude.UNKNOWN` | `"unknown"` | An incident who's magnitude hasn't yet been classified. |
+| `IncidentMagnitude.MINOR` | `"minor"` | A minor traffic issue that is often just for information and has minimal impact to traffic flow. |
+| `IncidentMagnitude.MODERATE` | `"moderate"` | A moderate traffic issue that has some impact on traffic flow. |
+| `IncidentMagnitude.MAJOR` | `"major"` |  A major traffic issue that has a significant impact to traffic flow. |
+
+The following filters traffic incidents such that only moderate traffic jams and incidents with dangerous conditions are displayed on the map.
+
+::: zone pivot="programming-language-java-android"
+
+``` java
+map.setTraffic(
+    incidents(true),
+    incidentMagnitudeFilter(new String[] { IncidentMagnitude.MODERATE }),
+    incidentCategoryFilter(new String[] { IncidentCategory.DANGEROUS_CONDITIONS, IncidentCategory.JAM })              
+);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.setTraffic(
+    incidents(true),
+    incidentMagnitudeFilter(*arrayOf(IncidentMagnitude.MODERATE)),
+    incidentCategoryFilter(
+        *arrayOf(
+            IncidentCategory.DANGEROUS_CONDITIONS,
+            IncidentCategory.JAM
+        )
+    )
+)
+```
+
+::: zone-end
+
+The following screenshot shows a map of moderate traffic jams and incidents with dangerous conditions.
+
+![Map of moderate traffic jams and incidents with dangerous conditions.](media/how-to-show-traffic-android/android-traffic-incident-filters.jpg)
+
+> [!NOTE]
+> Some traffic incidents may have multiple categories assigned to them. If an incident has any category that matches any option passed into `incidentCategoryFilter`, it will be displayed. The primary incident category may be different from the categories specified in the filter and thus display a different icon.
 
 ## Next steps
 

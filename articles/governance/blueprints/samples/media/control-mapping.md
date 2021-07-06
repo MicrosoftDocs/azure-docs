@@ -1,14 +1,14 @@
 ---
 title: Media blueprint sample controls
 description: Control mapping of the Media blueprint samples. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 01/08/2021
+ms.date: 04/13/2021
 ms.topic: sample
 ---
 # Control mapping of the Media blueprint sample
 
 The following article details how the Azure Blueprints Media blueprint sample maps to the Media
 controls. For more information about the controls, see
-[Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
+[Media](https://www.motionpictures.org/best-practices).
 
 The following mappings are to the **Media** controls. Use the navigation on the right to jump
 directly to a specific control mapping. Many of the mapped controls are implemented with an
@@ -263,15 +263,15 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 - Audit the OS vulnerabilities on your virtual machine scale sets to protect them from attacks.
 
 > [!NOTE]
-> Availability of specific Azure Policy definitions may vary in Azure Government and other national 
-> clouds. 
+> Availability of specific Azure Policy definitions may vary in Azure Government and other national
+> clouds.
 
 ## Next steps
 
 You've reviewed the control mapping of the Media blueprint sample. Next, visit the following
 articles to learn about the overview and how to deploy this sample:
 
-> [!div class="next step action"]
+> [!div class="nextstepaction"]
 > [Media blueprint - Overview](./control-mapping.md)
 > [Media blueprint - Deploy steps](./deploy.md)
 

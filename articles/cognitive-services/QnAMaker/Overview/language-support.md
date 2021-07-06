@@ -19,11 +19,11 @@ Language for the service is selected when you create the first knowledge base in
 
 The language determines the relevance of the results QnA Maker provides in response to user queries. The QnA Maker resource, and all the knowledge bases inside that resource, support a single language. The single language is necessary to provide the best answer results for a query.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-In QnA Maker managed, you get the choice to make language settings at the individual knowledge-base level. This setting can be enabled only with the knowledge-base of the service. Once set, language settings cannot be changed for the service. 
+In Custom question answering, you have the option to add knowledge bases in different languages within the same service. Once you choose to enable the language setting per knowledge base you cannot disable this setting. You will need to choose a language for every knowledgebase that you create within the service.
 
-If you select language settings to be knowledge-base specific, then you are allowed to create knowledge-bases of different languages in the service itself. 
+This setting gives the flexibility to users to have multiple knowledge bases with a different language setting per knowledge base within the same service.
 
 ---
 
@@ -39,15 +39,16 @@ Consider the following:
 * The language can't be changed for any other knowledge bases in the service.
 * The language is used by the Cognitive Search service (ranker #1) and the QnA Maker service (ranker #2) to generate the best answer to a query.
 
-# [QnAMaker managed (Preview)](#tab/v2)
-![Language Setting in QnA Maker managed](../media/language-support/language-setting-managed.png)
+# [Custom question answering (preview release)](#tab/v2)
+> [!div class="mx-imgBorder"]
+> ![Multi-lingual knowledge base selection](../media/language-support/language-support-custom-qna.png)
 
-If you **don't select the checkbox to enable language setting per knowledge-base**, consider the following: 
-* A QnA Maker service, and all its knowledge bases, will support one language only.
+If you **don't select the checkbox to enable knowledge-bases in multiple languages**, consider the following: 
+* A Text Analytics service, and all its knowledge bases, will support one language only.
 * The language is explicitly set when the first knowledge base of the service is created
 * The language is determined from the files and URLs added when the knowledge base is created
 * The language can't be changed for any other knowledge bases in the service
-* The language is used by the Cognitive Search service (ranker #1) and the QnA Maker service (ranker #2) to generate the best answer to a query
+* The language is used by the Cognitive Search service (ranker #1) and Custom question answering (ranker #2) to generate the best answer to a query
 
 ---
 
@@ -56,12 +57,13 @@ If you **don't select the checkbox to enable language setting per knowledge-base
 # [QnA Maker GA (stable release)](#tab/v1)
 This functionality is not supported in our current Generally Available (GA) stable release. Check out QnA Maker managed to test out this functionality. 
 
-# [QnA Maker managed (preview release)](#tab/v2)
-* When you are creating the first knowledge base in your service, you get a choice to enable the language setting per knowledge base. Select the checkbox, to create knowledge bases belonging to different languages within one service.
+# [Custom question answering (preview release)](#tab/v2)
+* When you are creating the first knowledge base in your service, you get a choice to enable multiple languages per service. Select the checkbox, to create knowledge bases belonging to different languages within one service.
 * Language setting option cannot be modified for the service, once the first knowledge base is created.
-* If you enable language settings specific to every knowledge base, then instead of having one test index for the service you will have one test index per knowledge base. 
+* If you enable multiple languages for the knowledge base, then instead of having one test index for the service you will have one test index per knowledge base. 
 
-![Language Setting in QnA Maker managed](../media/language-support/language-setting-managed.png)
+> [!div class="mx-imgBorder"]
+> ![Multi-lingual knowledge base setting](../media/language-support/language-support-custom-qna-chkd.png)
 
 ---
 

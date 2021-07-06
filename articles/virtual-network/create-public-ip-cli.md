@@ -25,7 +25,7 @@ This article shows you how to create a public IP address resource using Azure CL
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **myResourceGroup** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az_group_create) named **myResourceGroup** in the **eastus2** location.
 
 ```azurecli-interactive
   az group create \
@@ -41,7 +41,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard zone-redundant public IP address named **myStandardZRPublicIP** in **myResourceGroup**.
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard zone-redundant public IP address named **myStandardZRPublicIP** in **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -71,7 +71,7 @@ Note that the above options for zones are only valid selections in regions with 
 >[!NOTE]
 >The following command works for API version 2020-08-01 or later.  For more information about the API version currently being used, please refer to [Resource Providers and Types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a standard public IP address as a non-zonal resource named **myStandardPublicIP** in **myResourceGroup**.
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a standard public IP address as a non-zonal resource named **myStandardPublicIP** in **myResourceGroup**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -83,7 +83,7 @@ This selection is valid in all regions and is the default selection for Standard
 
 # [**Basic SKU**](#tab/option-create-public-ip-basic)
 
-Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a basic static public IP address named **myBasicPublicIP** in **myResourceGroup**.  Basic Public IPs do not have the concept of availability zones.
+Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) to create a basic static public IP address named **myBasicPublicIP** in **myResourceGroup**.  Basic Public IPs do not have the concept of availability zones.
 
 ```azurecli-interactive
   az network public-ip create \

@@ -1,11 +1,13 @@
 ---
-title: What is media graph extension - Azure
-description: Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a graph extension node.
+title: What is Live Video Analytics media graph extension - Azure
+description: Azure Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a graph extension node.
 ms.topic: overview
 ms.date: 09/14/2020
 
 ---
-# Media graph extension
+# Live Video Analytics media graph extension
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a graph extension node. Your analytics extension plugin can make use of traditional image-processing techniques or computer vision AI models. Graph extensions are enabled by including an extension processor node in a media graph. The extension processor node relays video frames to the configured  endpoint and acts as the interface to your extension. The connection can be made to a local or remote endpoint and it can be secured by authentication and TLS encryption, if required. Additionally, the graph extension processor node allows for optional scaling and encoding of the video frames before they are submitted to your custom extension. 
 
@@ -14,11 +16,11 @@ Live Video Analytics supports two kinds of media graph extension processors:
 * [HTTP extension processor](media-graph-concept.md#http-extension-processor)
 * [gRPC extension processor](media-graph-concept.md#grpc-extension-processor)
 
-The graph extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update).
+The graph extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](./inference-metadata-schema.md).
 
 ## HTTP extension processor
 
-HTTP extension processor enables extensibility scenarios using the [HTTP protocol](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/http-extension-protocol?branch=release-lva-dec-update), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a media graph via an HTTP REST endpoint. 
+HTTP extension processor enables extensibility scenarios using the [HTTP protocol](./http-extension-protocol.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a media graph via an HTTP REST endpoint. 
 
 Use HTTP extension processor node when:
 
@@ -28,7 +30,7 @@ Use HTTP extension processor node when:
 
 ## gRPC extension processor
 
-gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/grpc-extension-protocol?branch=release-lva-dec-update). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
+gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](./grpc-extension-protocol.md). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
 
 * [in-box shared memory](https://en.wikipedia.org/wiki/Shared_memory) or 
 * directly embedding the content into the body of gRPC messages. 
@@ -52,7 +54,7 @@ The diagram below depicts the high-level data flow:
 
 ## Samples
 
-You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp) or at high frame rates with [gRPC extension processor](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp)
+You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor](./use-your-model-quickstart.md?pivots=programming-language-csharp) or at high frame rates with [gRPC extension processor](./analyze-live-video-use-your-grpc-model-quickstart.md?pivots=programming-language-csharp)
 
 For advanced users, you can checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions for **the media graph extensions** on:
 

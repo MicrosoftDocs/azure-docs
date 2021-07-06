@@ -4,11 +4,12 @@ description: Learn how to Create an image from a snapshot or Managed Disk in a S
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an image from a Managed Disk or snapshot in a Shared Image Gallery using PowerShell

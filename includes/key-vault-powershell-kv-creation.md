@@ -20,7 +20,7 @@ Use the Azure PowerShell [New-AzKeyVault](/powershell/module/az.keyvault/new-azk
 - The location: **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "ContosoResourceGroup" -Location "East US"
+New-AzKeyVault -Name "<your-unique-keyvault-name>" -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:

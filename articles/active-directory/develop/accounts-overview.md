@@ -113,7 +113,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> To see a list of claims available from the account object, refer to [claims in an id_token](./id-tokens.md#claims-in-an-id_token)
+> To see a list of claims available from the account object, refer to [claims in an id_token](./id-tokens.md#claims-in-an-id-token)
 
 > [!TIP]
 > To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](./active-directory-optional-claims.md)

@@ -3,27 +3,25 @@ title: Use AES-128 dynamic encryption and the key delivery service | Microsoft D
 description: This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Use AES-128 dynamic encryption and the key delivery service
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-aes128.md)
+> * [.NET](media-services-playready-license-template-overview.md)
 > * [Java](https://github.com/rnrneverdies/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 >  
@@ -51,7 +49,7 @@ Perform the following general steps when you encrypt your assets with AES by usi
 
 2. [Encode the asset that contains the file to the adaptive bitrate MP4 set](media-services-protect-with-aes128.md#encode_asset).
 
-3. [Create a content key, and associate it with the encoded asset](media-services-protect-with-aes128.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
+3. [Create a content key, and associate it with the encoded asset]media-services-protect-with-aes128.md#create_contentkey). In Media Services, the content key contains the asset's encryption key.
 
 4. [Configure the content key's authorization policy](media-services-protect-with-aes128.md#configure_key_auth_policy). You must configure the content key authorization policy. The client must meet the policy before the content key is delivered to the client.
 

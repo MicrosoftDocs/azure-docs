@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: duau
-# customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
+# Customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 
 # Azure Front Door Rules Engine match conditions

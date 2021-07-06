@@ -6,7 +6,8 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 2/4/2021
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Manage server administrators

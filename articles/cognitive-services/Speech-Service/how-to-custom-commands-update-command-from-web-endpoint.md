@@ -115,7 +115,7 @@ Let's hook up the Azure function with the existing Custom Commands app:
 1. Select **Test**.
 1. Send `increment` a few times (which is the example sentence for the `IncrementCounter` command).
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="Screenshot that shows an increment counter example.":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example-no-mic.png" alt-text="Screenshot that shows an increment counter example.":::
 
 Notice how the Azure function increments the value of the `Counter` parameter on each turn.
 

@@ -6,7 +6,7 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: erhopf
 ---

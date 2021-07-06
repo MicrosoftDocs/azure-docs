@@ -2,8 +2,8 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.custom: references_regions , devx-track-azurecli
+ms.date: 05/13/2021
+ms.custom: references_regions , devx-track-azurecli, devx-track-azurepowershell
 ---
  
 # Selective disk backup and restore for Azure virtual machines
@@ -17,7 +17,7 @@ This solution is useful particularly in the following scenarios:
 1. If you have critical data to be backed up in only one disk, or a subset of the disks and don’t want to back up the rest of the disks attached to a VM to minimize the backup storage costs.
 2. If you have other backup solutions for part of your VM or data. For example, if you back up your databases or data using a different workload backup solution and you want to use Azure VM level backup for the rest of the data or disks to build an efficient and  robust system using the best capabilities available.
 
-Using PowerShell or Azure CLI, you can configure selective disk backup of the Azure VM.  Using a script, you can include or exclude data disks using their LUN numbers.  Currently, the ability to configure selective disks backup through the Azure portal is limited to the **Backup OS Disk only** option. So you can configure backup of your Azure VM with OS disk, and exclude all the data disks attached to it.
+Using PowerShell or Azure CLI, you can configure selective disk backup of the Azure VM. Using a script, you can include or exclude data disks using their LUN numbers. Currently, the ability to configure selective disks backup through the Azure portal is limited to the **Backup OS Disk only** option. So you can configure backup of your Azure VM with OS disk, and exclude all the data disks attached to it.
 
 >[!NOTE]
 > The OS disk is by default added to the VM backup and can't be excluded.
@@ -30,7 +30,7 @@ Ensure you're using Az CLI version 2.0.80 or higher. You can get the CLI version
 az --version
 ```
 
-Sign in to the subscription ID where the Recovery Services vault and the VM exist:
+Sign in to the subscription ID, where the Recovery Services vault and the VM exist:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -42,6 +42,9 @@ az account set -s {subscriptionID}
 ### Configure backup with Azure CLI
 
 During the configure protection operation, you need to specify the disk list setting with an **inclusion** / **exclusion** parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
+
+>[!NOTE]
+>The configure protection operation overrides the previous settings, they will not be cumulative.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -119,6 +122,11 @@ This command helps get the details of the backed-up disks and excluded disks as 
    "Excluded disk(s)": "diskextest_DataDisk_2",
 ```
 
+_BackupJobID_ is the Backup Job name. To fetch the job name, run the following command:
+
+```azurecli
+az backup job list --resource-group {resourcegroup} --vault-name {vaultname}
+```
 ### List recovery points with Azure CLI
 
 ```azurecli
@@ -186,6 +194,9 @@ Ensure you're using Azure PowerShell version 3.7.0 or higher.
 
 During the configure protection operation, you need to specify the disk list setting with an inclusion / exclusion parameter, giving the LUN numbers of the disks to be included or excluded in the backup.
 
+>[!NOTE]
+>The configure protection operation overrides the previous settings, they will not be cumulative.
+
 ### Enable backup with PowerShell
 
 For example:
@@ -193,6 +204,7 @@ For example:
 ```azurepowershell
 $disks = ("0","1")
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "rg-p-recovery_vaults" -Name "rsv-p-servers"
+Set-AzRecoveryServicesVaultContext -Vault $targetVault
 Get-AzRecoveryServicesBackupProtectionPolicy
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "P-Servers"
 ```
@@ -214,7 +226,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ### Get backup item object to be passed in modify protection with PowerShell
 
 ```azurepowershell
-$item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $Vault.ID -FriendlyName "V2VM"
+$item= Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -VaultId $targetVault.ID -FriendlyName "V2VM"
 ```
 
 You need to pass the above obtained **$item** object to the **–Item** parameter in the following cmdlets.
@@ -244,7 +256,10 @@ Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -V
 ### Restore selective disks with PowerShell
 
 ```azurepowershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreDiskList [Strings]
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $item -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $targetVault.ID
+Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -RestoreDiskList [$disks]
 ```
 
 ### Restore only OS disk with PowerShell
@@ -303,6 +318,8 @@ Selective disks backup functionality isn't supported for classic virtual machine
 The restore options to **Create new VM** and **Replace existing** aren't supported for the VM for which selective disks backup functionality is enabled.
 
 Currently, Azure VM backup doesn't support VMs with ultra-disks or shared disks attached to them. Selective disk backup can't be used to in such cases, which exclude the disk and backup the VM.
+
+If you use disk exclusion or selective disks while backing up Azure VM, _[stop protection and retain backup data](backup-azure-manage-vms.md#stop-protection-and-retain-backup-data)_. When resuming backup for this resource, you need to set up disk exclusion settings again.
 
 ## Billing
 

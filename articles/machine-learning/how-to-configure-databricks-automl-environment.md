@@ -9,8 +9,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 10/21/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 
 # Set up a development environment with Azure Databricks and AutoML in Azure Machine Learning 
@@ -168,4 +168,4 @@ Try it out:
 ## Next steps
 
 - [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset.
-- See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- See the [Azure Machine Learning SDK for Python reference](/python/api/overview/azure/ml/intro).

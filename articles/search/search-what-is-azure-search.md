@@ -8,20 +8,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/22/2021
+ms.date: 05/26/2021
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
 
-Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers APIs and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. 
+Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a cloud search service that gives developers an architecture, APIs, and tools for building a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. 
 
-A search service has the following components:
+Search is foundational to any app that surfaces content to users, with common scenarios including catalog or document search, e-commerce site search, or knowledge mining for data science.
 
-+ Search engine for full text search
-+ Persistent storage of user-owned indexed content
-+ APIs for indexing and querying
-+ Optional [AI-based enrichments](cognitive-search-concept-intro.md), creating searchable content out of images, raw text, application files
-+ Optional integration with other Azure services for data, machine learning/AI, and security
+When you create a search service, you'll work with the following capabilities:
+
++ A search engine for full text search
++ Persistent storage of user-owned content in a search index
++ Rich indexing, with text analysis and optional [AI enrichment](cognitive-search-concept-intro.md) for content extraction and transformation
++ Rich query capabilities, including simple syntax, full Lucene syntax, and typeahead search
++ Programmability through REST APIs and client libraries in Azure SDKs for .NET, Python, Java, and JavaScript
++ Azure integration at the data layer, machine learning layer, and AI (Cognitive Services)
++ State-of-art ranking algorithms through [semantic search (preview)](semantic-search-overview.md)
 
 Architecturally, a search service sits in between the external data stores that contain your un-indexed data, and your client app that sends query requests to a search index and handles the response.
 
@@ -51,7 +55,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Easily implement search-related features: relevance tuning, faceted navigation, filters (including geo-spatial search), synonym mapping, and autocomplete.
 
-+ Transform large undifferentiated text or image files, or application files stored in Azure Blob storage or Cosmos DB, into searchable JSON documents. This is achieved during index through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
++ Transform large undifferentiated text or image files, or application files stored in Azure Blob Storage or Cosmos DB, into searchable JSON documents. This is achieved during index through [cognitive skills](cognitive-search-concept-intro.md) that add external processing.
 
 + Add linguistic or custom text analysis. If you have non-English content, Azure Cognitive Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics, or recognizing and preserving patterns in strings.
 
@@ -69,8 +73,9 @@ An end-to-end exploration of core search features can be achieved in four steps:
 
 1. [**Query an index**](search-query-overview.md) using [Search explorer](search-explorer.md) in the portal, [REST API](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search), or another SDK.
 
-> [!TIP]
-> Minimize steps by starting with the [**Import data wizard**](search-get-started-portal.md) and an Azure data source to create, load, and query an index in minutes.
+For initial exploration, start with the [**Import data wizard**](search-get-started-portal.md) and a built-in Azure data source to create, load, and query an index in minutes.
+
+For help with complex or custom solutions, [**contact a partner**](resource-partners-knowledge-mining.md) with deep expertise in Cognitive Search technology.
 
 ## Compare search options
 

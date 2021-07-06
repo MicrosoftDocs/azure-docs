@@ -86,8 +86,8 @@ JDBC Connection Pooling.
 
 HTTP Connection Pooling
 
-* [Apache Connection Management](https://hc.apache.org/httpcomponents-client-ga/tutorial/html/connmgmt.html)
-* [Class PoolingHttpClientConnectionManager](http://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/conn/PoolingHttpClientConnectionManager.html)
+* [Apache Connection Management](https://hc.apache.org/httpcomponents-client-5.0.x/)
+* [Class PoolingHttpClientConnectionManager](https://hc.apache.org/httpcomponents-client-5.0.x/)
 
 #### PHP
 
