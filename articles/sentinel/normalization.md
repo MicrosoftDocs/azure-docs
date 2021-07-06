@@ -132,8 +132,8 @@ The descriptors used for a user are **Actor**, **Target User**, and **Updated Us
 
 |Activity  |Full scenario  |Single entity scenario used for aliasing  |
 |---------|---------|---------|
-|**Create User**     |  An Actor created or modified a **Target User**       |  The (Target) **User** was created.       |
-|**Modify user**     |   An Actor renamed **Target User** to **Updated User**. The **Updated User** usually does not have all the information associated with a user and has some overlap with the **Target User**.      |         |
+|**Create User**     |  An **Actor** created or modified a **Target User**       |  The (Target) **User** was created.       |
+|**Modify user**     |   An **Actor** renamed **Target User** to **Updated User**. The **Updated User** usually does not have all the information associated with a user and has some overlap with the **Target User**.      |         |
 |**Network connection**     |    A process running as **Actor** on the source host, communicating with a process running as **Target User** on the destination host     |         |
 |**DNS request**     | An **Actor** initiated a DNS query        |         |
 |**Sign-in**     |    An **Actor** signed in to a system as a **Target User**.     |A (Target) User signed in         |
