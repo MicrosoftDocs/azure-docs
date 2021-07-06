@@ -45,9 +45,9 @@ db.collection.insertMany(
 ```
 
 ## Tune for the optimal batch size and thread count
-Parallelization of write operations across many threads/processes is key to scaling writes. The API for MongoDB accepts writes in batches of up to 1,000 documents for each process/thread. If you are writing more than 1,000 documents at a time per process/thread, client functions such as `insertMany()` should be limited to roughly 1,000 documents. Otherwise, the client will wait for each batch to commit before moving on to the next batch. 
+Parallelization of write operations across many threads/processes is key to scaling writes. The API for MongoDB accepts writes in batches of up to 1,000 documents for each process/thread. 
 
-Instead, make multiple calls on separate processes/threads to `insertMany()` with batches of 1,000 or less. In some cases, splitting up the batches with fewer or slightly more than 1,000 documents will be faster.
+If you are writing more than 1,000 documents at a time per process/thread, client functions such as `insertMany()` should be limited to roughly 1,000 documents. Otherwise, the client will wait for each batch to commit before moving on to the next batch. In some cases, splitting up the batches with fewer or slightly more than 1,000 documents will be faster.
 
 
 
