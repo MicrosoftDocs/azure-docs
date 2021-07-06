@@ -1,7 +1,10 @@
 ---
 title: Send events from Azure API Management to Event Grid
 description: In this quickstart, you enable Event Grid events for your API Management instance, then send  events to a sample application.
+author: dlepow
 ms.topic: how-to
+ms.service: api-management
+ms.author: danlep
 ms.date: 07/02/2021
 ms.custom:
 ---
@@ -17,8 +20,8 @@ In this article, you subscribe to Event Grid events in your API Management insta
 :::image type="content" source="media/how-to-event-grid/event-grid-viewer-intro.png" alt-text="API Management events in Event Grid viewer":::
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
-- If you don't already have an API Management service, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md),
-- Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity#create-a-system-assigned-managed-identity) in your API Management instance.
+- If you don't already have an API Management service, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
+- Enable a [system-assigned managed identity](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity) in your API Management instance.
 - Create a [resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) if you don't have one in which to deploy the sample endpoint.
 
 ## Create an event endpoint

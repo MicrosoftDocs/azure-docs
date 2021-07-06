@@ -2,8 +2,8 @@
 title: API Management as an Event Grid source
 description: This article describes how to use Azure API Management as an Event Grid event source. It provides the schema and links to how-to articles. 
 ms.topic: conceptual
-author: spelluru
-ms.author: dlepow
+author: dlepow
+ms.author: danlep
 ms.date: 07/02/2021
 ---
 
@@ -36,7 +36,7 @@ API Management emits the following event types:
 ## Example event
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
-The following example shows the schema of an product created event. The schema of other API Management resource created events is similar.
+The following example shows the schema of a product created event. The schema of other API Management resource created events is similar.
 
 ```json
 [{
@@ -131,7 +131,7 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `resourceUri` | string | The URI of the API Management resource that triggered the event. |
-| `updatedProperties` | string[] | List of properties updated in the API Management resouce that triggered an update event. |
+| `updatedProperties` | string[] | List of properties updated in the API Management resource that triggered an update event. |
 
 ## Tutorials and how-tos
 |Title  |Description  |
