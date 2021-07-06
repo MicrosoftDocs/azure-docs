@@ -18,7 +18,7 @@ Azure Security Center offers many features, including:
 
 The diagram shows the integrated monitoring architecture of integrated security for Azure VMware Solution VMs.
  
-:::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure-Integrated Security." border="false":::
+:::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure Integrated Security." border="false":::
 
 
 ## Prerequisites
