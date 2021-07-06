@@ -63,7 +63,7 @@ The following sections guide you through establishing connectivity with the on-p
 
    ![Screenshot that shows that the service is running.](.\media\on-premises-ecma-configure\configure-2.png)
 
-### Add an Enterprise application
+### Add an enterprise application
 1. Sign in to the Azure portal as an application administrator.
 1. In the portal, go to **Azure Active Directory** > **Enterprise applications**.
 1. Select **New application**.
