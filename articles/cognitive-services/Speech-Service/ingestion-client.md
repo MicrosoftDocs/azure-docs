@@ -23,7 +23,7 @@ The tool helps those customers that want to get an idea of the quality of the tr
 
 Internally, the tool uses our V3.0 Batch API or SDK, and follows best practices to handle scale-up, retries and failover. The following schematic describes the resources and connections.
 
-:::image type="content" source="media/ingestion-client/architecture1.png" alt-text="Ingestion Client Architecture.":::
+:::image type="content" source="media/ingestion-client/architecture-1.png" alt-text="Ingestion Client Architecture.":::
 
 The [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) describes how to setup and use the tool.
 
