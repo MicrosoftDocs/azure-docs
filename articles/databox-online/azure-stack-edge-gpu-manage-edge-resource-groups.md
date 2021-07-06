@@ -62,8 +62,6 @@ The following is example output from Get-AzResource.<!--Taken from azure-stack-e
     PS C:\WINDOWS\system32>  
     ```
 
-
-
 ## Delete a resource group
 
 When a resource group is no longer in use, it's a good idea to delete it.
@@ -72,13 +70,13 @@ A resource group must be empty to be deleted. You can't delete the default Edge 
 
 To delete an Edge resource group, do these steps:
 
-1. Open the Azure Stack Edge resource in the Azure portal. Choose **Resources**, and then ****Edge resource groups**.
+1. Open the Azure Stack Edge resource in the Azure portal. Choose **Resources**, and then **Edge resource groups**.
 
    ![Screenshot showing Edge resource groups tab in Resources, with empty resource group and Delete icon identified.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-01-edge-resource-groups.png)
 
 1. Select the Delete button by the resource you want to delete.
 
-   The Delete icon is displayed when a resource group doesn't contain any resources.
+   The Delete button is only displayed when a resource group doesn't contain any resources.
 
     ![Screenshot showing Edge resource groups for an Azure Stack Edge VM, with Delete button identified.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-02-edge-resource-groups-ready-to-delete.png)
 
@@ -86,4 +84,4 @@ To delete an Edge resource group, do these steps:
 
 - To learn how to administer your Azure Stack Edge Pro GPU device, see [Use local web UI to administer an Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
 
-- [Connect to Azure Resource Manager on your device](azure-stack-edge-gpu-connect-resource-manager.md).
+- [Connect to Azure Resource Manager on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-connect-resource-manager.md).
