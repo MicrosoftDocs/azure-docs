@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 07/06/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
@@ -45,6 +45,25 @@ The number of supported storage targets depends on the cache size, which is set 
   * Standard caches can support up to 20 storage targets if you choose the highest available cache size for your selected throughput value. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
 
 Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more about throughput and cache size settings.
+
+## Choose the correct storage target type
+
+You can select from three storage target types: **NFS**, **Blob**, and **ADLS-NFS**. Choose the type that matches the kind of storage system you will use to store your files during this HPC Cache project.
+
+* **NFS** - Create an NFS storage target to access data on an on-premises NAS system.
+
+  * Requirements: [NFS storage requirements](hpc-cache-prerequisites.md#nfs-storage-requirements)
+  * Instructions: [Add a new NFS storage target](#add-a-new-nfs-storage-target)
+
+* **Blob** - Use a blob storage target to store your working files in a new Azure Blob container. This container can only be read or written to from the Azure HPC Cache.
+
+  * Prerequisites: [Blob storage requirements](hpc-cache-prerequisites.md#blob-storage-requirements)
+  * Instructions: [Add a new Azure Blob storage target](#add-a-new-azure-blob-storage-target)
+
+* **ADLS-NFS** - The ADLS-NFS storage target accesses data from an [NFS-enabled Blob](../storage/blobs/network-file-system-protocol-support.md) container. You can pre-load the container by using standard NFS commands, and the files can be read later with NFS.
+
+  * Prerequisites: [ADLS-NFS storage requirements](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements)
+  * Instructions: [Add a new ADLS-NFS storage target](#add-a-new-adls-nfs-storage-target)
 
 ## Add a new Azure Blob storage target
 
