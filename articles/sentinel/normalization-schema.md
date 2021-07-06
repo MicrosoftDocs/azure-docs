@@ -190,6 +190,8 @@ Below is the schema of the network sessions table, versioned 1.0.0
 For more information, see:
 
 - [Normalization in Azure Sentinel](normalization.md)
+- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+
