@@ -42,18 +42,18 @@ For samples, we recommend that you always create and activate a Python virtual e
 1. Open the sample folder in VSCode or other editor
 2. Create the virtual environment
 
-  ``` bash
-  # py -3 uses the global python interpreter. You can also use python -m venv .venv.
-  py -3 -m venv .venv
-  ```
+    ``` bash
+      # py -3 uses the global python interpreter. You can also use python -m venv .venv.
+      py -3 -m venv .venv
+    ```
 
   This command runs the Python venv module and creates a virtual environment in a folder named .venv.
 
 3. Activate the virtual environment:
 
-  ``` bash
-  .venv\scripts\activate
-  ```
+    ``` bash
+      .venv\scripts\activate
+    ```
 
   A virtual environment is a folder within a project that isolates a copy of a specific Python interpreter. Once you activate that environment (which Visual Studio Code does automatically), running pip install installs a library into that environment only. When you then run your Python code, it runs in the environment's exact context with specific versions of every library. And when you run pip freeze, you get the exact list of the those libraries. (In many of the samples, you create a requirements.txt file for the libraries you need, then use pip install -r requirements.txt. A requirements file is generally needed when you deploy code to Azure.)
 
