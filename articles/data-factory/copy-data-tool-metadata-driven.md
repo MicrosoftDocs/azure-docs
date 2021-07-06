@@ -196,8 +196,8 @@ This pipeline will copy objects from one group. The objects belonging to this gr
 | UpdateWatermarkColumnValue | StoreProcedure | Write back the new watermark value to control table to be used next time. |
 
 ### Known limitations
-1. Copy data tool does not support metadata driven ingestion for incrementally copying new files only currently. But you can bring your own parameterized pipelines to achieve that.
-2. IR name, database type, file format type cannot be parameterized in ADF. For example, if you want to ingest data from both Oracle Server and SQL Server, you will need two different parameterized pipelines. But the single control table can be shared by two sets of pipelines. 
+- Copy data tool does not support metadata driven ingestion for incrementally copying new files only currently. But you can bring your own parameterized pipelines to achieve that.
+- IR name, database type, file format type cannot be parameterized in ADF. For example, if you want to ingest data from both Oracle Server and SQL Server, you will need two different parameterized pipelines. But the single control table can be shared by two sets of pipelines. 
 
 
 
