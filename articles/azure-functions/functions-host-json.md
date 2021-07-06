@@ -353,7 +353,8 @@ This setting is a child of [logging](#logging). It controls the console logging 
     "logging": {
     ...
         "console": {
-          "isEnabled": "false"
+          "isEnabled": false,
+          "DisableColors": true
         },
     ...
     }
@@ -362,6 +363,7 @@ This setting is a child of [logging](#logging). It controls the console logging 
 
 |Property  |Default | Description |
 |---------|---------|---------| 
+|DisableColors|false| Supresses format characters in Linux container logs. Set to true if you are seeing unwanted characters in the container logs when your function runs in a Linux container. |
 |isEnabled|false|Enables or disables console logging.| 
 
 ## managedDependency
