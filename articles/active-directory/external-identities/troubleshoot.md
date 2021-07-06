@@ -82,6 +82,7 @@ The invitee should check with their ISP or spam filter to ensure that the follow
 
 > [!NOTE]
 > For the Azure service operated by 21Vianet in China, the sender address is Invites@oe.21vianet.com.
+> For the Azure AD Government, the sender address is invites@azuread.us.
 
 ## I notice that the custom message does not get included with invitation messages at times
 
