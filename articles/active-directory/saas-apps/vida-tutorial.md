@@ -125,6 +125,104 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## Configure Role-Based Single Sign-On in VIDA
+
+1. To associate a VIDA role with the Azure AD user, you must create a role in Azure AD by following these steps:
+
+    a. Sign on to the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+    b. Click **modify permissions** to obtain required permissions for creating a role.
+
+    ![Graph config1](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
+
+    c. Select the following permissions from the list and click **Modify Permissions**, as shown in the following figure.
+
+    ![Graph config2](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
+
+    >[!NOTE]
+    >After permissions are granted, log on to the Graph Explorer again.
+
+    d. On the Graph Explorer page, select **GET** from the first drop-down list and **beta** from the second drop-down list. Then enter `https://graph.microsoft.com/beta/servicePrincipals` in the field next to the drop-down lists, and click **Run Query**.
+
+    ![Graph config3](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
+
+    >[!NOTE]
+    >If you are using multiple directories, you can enter `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` in the field of the query.
+
+    e. In the **Response Preview** section, extract the appRoles property from the 'Service Principal' for subsequent use.
+
+    ![Graph config4](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
+
+    >[!NOTE]
+    >You can locate the appRoles property by entering `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` in the field of the query. Note that the `objectID` is the object ID you have copied from the Azure AD **Properties** page.
+
+    f. Go back to the Graph Explorer, change the method from **GET** to **PATCH**, paste the following content into the **Request Body** section, and click **Run Query**:
+```
+{ 
+"appRoles": [
+	{
+	    "allowedMemberTypes": [
+		"User"
+	    ],
+	    "description": "User",
+	    "displayName": "User",
+	    "id": "18d14569-c3bd-439b-9a66-3a2aee01****",
+	    "isEnabled": true,
+	    "origin": "Application",
+	    "value": null
+	},
+	{
+	    "allowedMemberTypes": [
+		"User"
+	    ],
+	    "description": "msiam_access",
+	    "displayName": "msiam_access",
+	    "id": "b9632174-c057-4f7e-951b-be3adc52****",
+	    "isEnabled": true,
+	    "origin": "Application",
+	    "value": null
+	},
+	{
+	  "allowedMemberTypes": [
+	      "User"
+	  ],
+	  "description": "VIDACompanyAdmin",
+	  "displayName": "VIDACompanyAdmin",
+	  "id": "293414bb-2215-48b4-9864-64520937d437",
+	  "isEnabled": true,
+	  "origin": "ServicePrincipal",
+	  "value": "VIDACompanyAdmin"
+	},
+	{
+	  "allowedMemberTypes": [
+	      "User"
+	  ],
+	  "description": "VIDATeamAdmin",
+	  "displayName": "VIDATeamAdmin",
+	  "id": "2884f1ae-5c0d-4afd-bf28-d7d11a3d7b2c",
+	  "isEnabled": true,
+	  "origin": "ServicePrincipal",
+	  "value": "VIDATeamAdmin"
+	},
+	{
+	  "allowedMemberTypes": [
+	      "User"
+	  ],
+	  "description": "VIDAUser",
+	  "displayName": "VIDAUser",
+	  "id": "37b3218c-0c06-484f-90e6-4390ce5a8787",
+	  "isEnabled": true,
+	  "origin": "ServicePrincipal",
+	  "value": "VIDAUser"
+	}
+]
+}
+```
+    > [!NOTE]
+    > Azure AD will send the value of these roles as the claim value in SAML response. However, you can only add new roles after the `msiam_access` part for the patch operation. To smooth the creation process, we recommend that you use an ID generator, such as GUID Generator, to generate IDs in real time.
+
+g. After the 'Service Principal' is patched with the required role, attach the role with the Azure AD user (B.Simon) by following the steps of **Assign the Azure AD test user** section of the tutorial.
+
 ## Configure VIDA SSO
 
 To configure single sign-on on **VIDA** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [VIDA support team](mailto:support@vitruehealth.com). They set this setting to have the SAML SSO connection set properly on both sides.
