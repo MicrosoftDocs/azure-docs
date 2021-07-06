@@ -4,7 +4,7 @@ description: Learn how to prepare an application for deployment to Azure Spring 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 07/06/2021
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
@@ -146,7 +146,8 @@ Spring Boot version | Spring Cloud version
 2.4.1+ | 2020.0.1+
 
 > [!NOTE]
-> We've identified an issue with Spring Boot 2.4.0 on TLS authentication between your apps and Eureka, please use 2.4.1 or above. Please refer to our [FAQ](./faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
+> 1. Please upgrade Spring Boot to 2.5.2 or 2.4.8, and Spring Security to 5.5.1, 5.4.7, 5.3.10 and 5.2.11 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). 
+> 2. An issue was identified with Spring Boot 2.4.0 on TLS authentication between apps and Spring Cloud Service Registry, please use 2.4.1 or above. Please refer to [FAQ](./faq.md?pivots=programming-language-java#development) for the workaround if you insist on using 2.4.0.
 
 ### Dependencies for Spring Boot version 2.2/2.3
 
