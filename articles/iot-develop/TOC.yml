@@ -31,7 +31,7 @@
         href: quickstart-devkit-renesas-rx65n-2mb.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-      - name: ST Microelectronics B-L475E/L4S5I-IOT01A
+      - name: STMicroelectronics B-L475E/L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l475e.md
 - name: Tutorials
   items:
