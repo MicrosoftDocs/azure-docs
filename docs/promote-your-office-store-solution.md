@@ -12,7 +12,7 @@ After you submit your solution and it's approved for addition to Microsoft AppSo
 
     ![Screenshot of the Get it from Microsoft AppSource badge](images/MS_AppSource.png)
 
-3. Add the badge to the webpage for your solution and add a link to your associated product listing landing page. This makes it clear to your users that they can download your solution from Microsoft AppSource, and simplifies the user experience by providing a direct link to your solution.
+1. Add the badge to the webpage for your solution and add a link to your associated product listing landing page. This makes it clear to your users that they can download your solution from Microsoft AppSource, and simplifies the user experience by providing a direct link to your solution.
 
 ## Guidelines for using the Microsoft AppSource badge
 
@@ -54,7 +54,6 @@ if (Office.context.document.settings) {
 The value that is sent to the document is the value of the  _mktcmpid_ parameter.
 
 ## See also
-<a name="bk_addresources"> </a>
 
 - [Make your solutions available in AppSource and within Office](submit-to-appsource-via-partner-center.md)
 - [Office Add-ins](/office/dev/add-ins/overview/office-add-ins)  
