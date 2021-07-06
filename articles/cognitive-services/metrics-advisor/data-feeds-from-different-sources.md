@@ -38,6 +38,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault |
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>Data Lake Gen2 Shared Key<br>Service principal<br>Service principal from key vault |
+|[**Azure Event Hubs**](#eventhubs) | Basic |
 |[**Azure Log Analytics**](#log) | Basic<br>Service principal<br>Service principal from key vault |
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String |
 |[**Azure Table Storage**](#table) | Basic | 
@@ -275,17 +276,67 @@ The following sections specify the parameters required for all authentication ty
      {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
    ]
    ```
-<!--
+
 ## <span id="eventhubs">Azure Event Hubs</span>
-* **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
+
+* **Limitations**: There are some limitations in Event Hubs.
+    1. Event Hubs doesn't support more than 3 active data feeds in one MA instance in public preview.
+    2. MA will always start consuming messages from the latest offset, including when re-activate a pause data deed.
+        * Messages during the data feed pause period will be lost.
+        * The data feed ‘ingestion start time’ is set to the current UTC timestamp automatically when
+created, and for reference only.
+
+    3. One consumer group can be used by only one data feed. If to reuse one from another deleted
+data feed, it needs to wait at least 10 minutes after deletion.
+    4. The connection string and consumer group cannot be modified after data feed created.
+    5. About messages in Event Hubs: OnlyJ SON is supported, and the JSON values cannot be nested JSON object. The top-level element can be a JSON object or JSON array.
+    
+    Valid messages are like:
+
+    ``` JSON
+    Single JSON object 
+    {
+    "metric_1": 234, 
+    "metric_2": 344, 
+    "dimension_1": "name_1", 
+    "dimension_2": "name_2"
+    }
+    ```
+        
+    ``` JSON
+    JSON array 
+    [
+        {
+            "timestamp": "2020-12-12T12:00:00", "temperature": 12.4,
+            "location": "outdoor"
+        },
+        {
+            "timestamp": "2020-12-12T12:00:00", "temperature": 24.8,
+            "location": "indoor"
+        }
+    ]
+    ```
+
+
+* **Connection String**: Navigate to the **Event Hubs Instance** first. Then add a new or choose an existing Shared access policy. Copy the connection string in the pop-up panel.
+    ![eventhubs](media/datafeeds/entities-eventhubs.jpg)
+    
+    ![shared access policies](media/datafeeds/shared-access-policies.jpg)
+
+    Here's an example of connection string: 
+    ```
+    Endpoint=<Server>;SharedAccessKeyName=<SharedAccessKeyName>;SharedAccessKey=<SharedAccess Key>;EntityPath=<EntityPath>
+    ```
+
 * **Consumer Group**: A [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups) is a view (state, position, or offset) of an entire event hub.
-Event Hubs use the latest offset of a consumer group to consume (subscribe from) the data from data source. Therefore a dedicated consumer group should be created for one data feed in your Metrics Advisor instance.
-* **Timestamp**: Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field.
-The timestamp field must match one of these two formats:
-* "YYYY-MM-DDTHH:MM:SSZ" format;
-* * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
-    No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
--->
+This can be found on "Consumer Groups" menu of an Azure Event Hubs instance. A consumer group can only serve one data feed, otherwise, onboard and ingestion will be failed. It is recommended that you create a new consumer group for each data feed.
+* **Timestamp**(optional): Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field. Timestamp field is optional. If no timestamp column is chosen, we will use the enqueued time as timestamp.
+
+    The timestamp field must match one of these two formats:
+    1. "YYYY-MM-DDTHH:MM:SSZ" format;
+    2. Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
+    No matter which timestamp field it left aligns to granularity. For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
+
 
 ## <span id="log">Azure Log Analytics</span>
 
