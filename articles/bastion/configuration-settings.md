@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/06/2021
 ms.author: cherylmc
 
 ---
@@ -32,15 +32,17 @@ The following table shows features and corresponding SKUs.
 
 During Preview, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or PowerShell to configure Bastion, the SKU is not specified and defaults to the Basic SKU.
 
-| Method | Value | Link |
+| Method | Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier | [Configuration article](https://portal.azure.com) |
+| Azure portal | Tier | [Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md) |
 
 ### Upgrade a SKU
 
 Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, you must delete and recreate Azure Bastion.
 
-[//]: # (Add link to How-to when available)
+1. Navigate to the bastion host.
+1. On the **Configuration** page, for **Tier**, select **Standard** from the dropdown. 
+1. Click **Apply**.
 
 ## <a name="instance"></a>Host scaling
 
@@ -48,15 +50,23 @@ Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgr
 
 If you want to configure host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the amount of scale units. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
-[//]: # (Add link to How-to when it is available.)
+See the [Quickstart -create from VM settings][quickstart-host-portal.md] or the [Tutorial-create a bastion host](tutorial-create-host-portal.md) for steps.
 
 ### Configuration methods
 
 You can configure this setting using the following methods:
 
-| Method | Value | Link |
+| Method | Value | Links |
 | --- | --- | --- |
-| Azure portal |Instance count  | [Configuration article](https://portal.azure.com)|
+| Azure portal |Instance count  | [Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md)|
+
+### To change the instance count
+
+You can change the instance count using the Azure portal.
+
+1. Navigate to the bastion host.
+1. On the **Configuration** page, adjust the slider to reflect the instance count. 
+1. Click **Apply**.
 
 ## <a name="subnet"></a>Azure Bastion subnet
 
@@ -72,9 +82,9 @@ Azure Bastion requires a dedicated subnet: **AzureBastionSubnet**. This subnet n
 
 You can configure this setting using the following methods:
 
-| Method | Value | Link |
+| Method | Value | Links |
 | --- | --- |--- |
-| Azure portal | Subnet  |[Configuration article](https://portal.azure.com)|
+| Azure portal | Subnet  |[Quickstart - create from VM settings](quickstart-host-portal.md)<br>[Tutorial - create a bastion host](tutorial-create-host-portal.md)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
 | Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az_network_vnet_create) |
 
@@ -91,7 +101,7 @@ Azure Bastion requires a Public IP address. The Public IP must have the followin
 
 You can configure this setting using the following methods:
 
-| Method | Value | Link |
+| Method | Value | Links |
 | --- | --- |--- |
 | Azure portal | Public IP address |[Azure portal](https://portal.azure.com)|
 | Azure PowerShell | -PublicIpAddress| [cmdlet](/powershell/module/az.network/new-azbastion#parameters)  |
