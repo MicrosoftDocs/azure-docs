@@ -63,7 +63,7 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Linux computer:
 
 ```json
-SoftwareUpdateConfigurationRunContext": {
+"SoftwareUpdateConfigurationRunContext": {
     "SoftwareUpdateConfigurationName": "sampleConfiguration",
     "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
     "SoftwareUpdateConfigurationSettings": {
