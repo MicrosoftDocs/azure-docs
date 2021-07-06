@@ -30,7 +30,7 @@ Local storage in cluster hosts is used in cluster-wide vSAN datastore. All datas
 
 That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provisioning.  Unless you adjust the storage policy or you apply a new policy, the cluster continues to grow with this configuration. In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft governs failures regularly and replaces the hardware when events are detected from an architecture perspective.
 
-:::image type="content" source="media/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::
+:::image type="content" source="media/concepts/vsphere-vm-storage-policies.png" alt-text="Screenshot that shows the vSphere Client VM Storage Policies.":::
 
 
 |Provisioning type  |Description  |
@@ -41,7 +41,7 @@ That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provi
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend to deploy the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. 
 >
->:::image type="content" source="media/vsphere-vm-storage-policies-2.png" alt-text="Screenshot ":::
+>:::image type="content" source="media/concepts/vsphere-vm-storage-policies-2.png" alt-text="Screenshot ":::
 
 
 ## Data-at-rest encryption

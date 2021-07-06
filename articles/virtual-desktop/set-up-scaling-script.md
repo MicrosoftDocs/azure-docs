@@ -57,7 +57,7 @@ However, the tool also has the following limitations:
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- A [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
+- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
 - Session host pool VMs configured and registered with the Azure Virtual Desktop service
 - A user with [Contributor access](../role-based-access-control/role-assignments-portal.md) on Azure subscription
 

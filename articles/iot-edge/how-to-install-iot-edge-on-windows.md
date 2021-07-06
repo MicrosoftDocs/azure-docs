@@ -336,6 +336,9 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
 
 # [Windows Admin Center](#tab/windowsadmincenter)
 
+> [!NOTE]
+> If you're using IoT Edge for Linux on Windows PowerShell public functions, be sure to set the execution policy on the target device to `AllSigned`. Ensure that all prerequisites for [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md) are met.
+
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
 
 1. The device overview page displays some information about the device:
