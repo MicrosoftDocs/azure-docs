@@ -13,7 +13,7 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
 
-Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience and audio redirection, lets you deliver an optimal experience for your users based on their needs. You can customize RDP properties in Azure Virtual Desktop by either using the Azure portal or by using the *-CustomRdpProperty* parameter in the **Update-AzWvdHostPool** cmdlet.
+Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience and audio redirection, lets you deliver an optimal experience for your users based on their needs. If you'd like to change the default RDP file properties, you can customize RDP properties in Azure Virtual Desktop by either using the Azure portal or by using the *-CustomRdpProperty* parameter in the **Update-AzWvdHostPool** cmdlet.
 
 See [supported RDP file settings](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext) for a full list of supported properties and their default values.
 
@@ -23,14 +23,15 @@ RDP files have the following properties by default:
 
 |RDP property|For both Desktop and RemoteApp|
 |---|---|
-|Multi-monitor mode|Disabled|
+|Multi-monitor mode|Enabled|
 |Drive redirections enabled|Drives, clipboard, printers, COM ports, smart cards, devices, and usbdevicestore|
 |Remote audio mode|Play locally|
 |VideoPlayback|Enabled|
 |EnableCredssp|Enabled|
 
 >[!NOTE]
->Multi-monitor mode is only applicable for desktop app groups and will be ignored for RemoteApp app groups.
+>- Multi-monitor mode is only enabled for Desktop app groups and will be ignored for RemoteApp app groups.
+>- All default RDP file properties are exposed in the Azure Portal.
 
 ## Prerequisites
 
