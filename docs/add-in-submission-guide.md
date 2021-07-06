@@ -1,54 +1,54 @@
 ---
-title: Store step-by-step submission guide
+title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step by step submission guide to submitting your app to the Microsoft stores. 
 localization_priority: Normal
 ---
 
 # Store step-by-step submission guide
 
-This article is a step-by-step guide that will detail how to submit your app to the Microsoft 365 Stores.
+This article is a step-by-step guide that will detail how to submit your app to Microsoft 365 Stores.
 
 >[!TIP]
 >We recommend reading our [pre-submission checklist](./checklist.md) before reading this store submission guide, so you have all information ready to go for submission.
 
 ## Step 1: Select the type of app you are submitting
 
-For this guide, we will create an Office Add-in as our app. From the Overview tab in the Microsoft Partner Center, select **Create a new** and select the Office Add-in option.
+From the Overview tab in the Microsoft Partner Center, select **Create a new** and select the type of app you're submitting. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, etc.
 
-![Overview tab selected in the Microsoft Partner Center menu](./images/new/step-select-type-of-add-in.png)
+![Overview tab selected in the Microsoft Partner Center menu.](./images/new/step-select-type-of-add-in.png)
 
 ## Step 2: Name your app
 
 You’ll be prompted to enter a name for your app.
 
-![Create a new Office Add-in menu with name submission box](./images/new/step-2-name-addin.png)
+![Create a new Office Add-in menu with name submission box.](./images/new/step-2-name-addin.png)
 
 ## Step 3: Tell us about your Product Setup
 
-- **Will your app be listed in the Apple Store?** 
-    If so, include your Apple ID. You'll see a warning that reminds you to enter this information on screen. 
-- **Does your app use Azure Active Directory or SSO (AAD/SSO)?** 
+- **Will your app be listed in the Apple Store?**
+    If so, include your Apple ID. You'll see a warning that reminds you to enter this information on screen.
+- **Does your app use Azure Active Directory or SSO (Azure AD/SSO)?**
     If so, select the box that asks about this.
-- **Does your app require additional purchases?** 
+- **Does your app require additional purchases?**
     If so, select the box that asks about this. You will see a warning that reminds you to fill in the notes box on the review and publish page in a later step with your test credentials so a tester can verify this.
-- **Do you want to connect with your lead management CRM system?** 
+- **Do you want to connect with your lead management CRM system?**
     If so, connect this system using the Connect link.
 
-The following screenshot shows the two yellow warning boxes appear, reminding you to fill in your Apple ID and about providing your test credentials in a separate step. 
+The following screenshot shows the two yellow warning boxes appear, reminding you to fill in your Apple ID and about providing your test credentials in a separate step.
 
-![Yellow warning boxes remind you to fill in your Apple ID and to provide your test credentials](./images/new/step-3-yellow-warnings.jpg)
+![Yellow warning boxes remind you to fill in your Apple ID and to provide your test credentials.](./images/new/step-3-yellow-warnings.jpg)
 
 ## Step 4: Upload your manifest for package testing
 
 You will need to upload your manifest file to the grey box on this page, as shown in the following screenshot.
 
-![Your manifest needs to be updated in the shown grey box](./images/new/step-4-packages-incomplete-upload.jpg)
+![Your manifest needs to be updated in the shown grey box.](./images/new/step-4-packages-incomplete-upload.jpg)
 
 Remember to pre-test your package to prevent any unexpected failures in this step. Get information on all [the pre-testing manifest tools](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20).
 
 When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed, as shown in the following screenshot.
 
-![A completed manifest upload](./images/new/step-4-packages-complete-upload.jpg)
+![A completed manifest upload.](./images/new/step-4-packages-complete-upload.jpg)
 
 ## Step 5: Define the metadata that will categorize your app in the store
 
@@ -60,10 +60,10 @@ You can see in the following screenshots that there is a yellow warning to remin
 
 The following image shows that to pass certification, your privacy policy must include:
 
-* Information on your policies regarding user's personal information.
-* Refer to the app or your service overall and NOT your website.
-* Your service description must include the name of app submitted.
-* A valid URL link that does not generate a 404 error.
+- Information on your policies regarding user's personal information.
+- Refer to the app or your service overall and NOT your website.
+- Your service description must include the name of app submitted.
+- A valid URL link that does not generate a 404 error.
 
 Note that a Terms of Use Policy is not considered a privacy policy. You must include a privacy policy that is separate from your Terms of Use policy.
 
@@ -97,7 +97,7 @@ You can schedule when your app will be available. Note it typically takes 4 to 6
 
 ![Make my product available in a future market is selected in the Availability step](./images/new/step-8-set-availability-time-date.png)
 
-## Step 9:  Make sure you add your critical testing instructions
+## Step 9: Make sure you add your critical testing instructions
 
 This final critical step requires you include notes for certification. Provide any instructions for the reviewer who will be testing your app, including test accounts, license keys, and testing credentials.
 
@@ -110,7 +110,7 @@ The following image shows the Notes for certification box where you must provide
 >[!TIP]
 > Do not include an email address of a company employee who can provide log-in information. Our reviewers will **not be able to email you for log-in information**. Applications that do not list clear instructions in the certification notes will fail the submission process automatically.
 
-## Step 10:  Use the following checklist to avoid the top 5 common errors that produce 80% of review rejections
+## Step 10: Use the following checklist to avoid the top 5 common errors that produce 80% of review rejections
 
 You can use our **[pre-submission checklist](./checklist.md)** to address all the things on this list.
 

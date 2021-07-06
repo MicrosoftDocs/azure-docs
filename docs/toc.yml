@@ -19,7 +19,7 @@
     - name: Store step-by-step submission guide
       href: add-in-submission-guide.md
     - name: App submission FAQ
-      href: appsource-submission-faq.md
+      href: appsource-submission-faq.yml
     - name: Reserve app name
       href: reserve-solution-name.md
     - name: App validation policies

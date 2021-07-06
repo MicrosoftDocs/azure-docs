@@ -30,8 +30,9 @@ When you select the check box, you must select one of the following target plans
 > [!Note]
 > Apps that require Azure AD might be subject to additional validation requirements during the certification process.
 
-### Associated service purchase 
-If your app requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **My product requires purchase of a service or offers additional in-app purchases** check box. 
+### Associated service purchase
+
+If your app requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **My product requires purchase of a service or offers additional in-app purchases** check box.
 
 If your product offers in-app purchases, select the **My product requires purchase of a service or offers additional in-app purchases** check box.
 
@@ -39,6 +40,7 @@ If your product offers in-app purchases, select the **My product requires purcha
 > If your Power BI visual includes in-app purchases, be sure to provide a license key or token in the **Notes for certification** box on the **Review and publish** page, so that the validation team can validate the in-app purchase features. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
 
 ### Power BI certification
+
 Certified Power BI visuals are visuals in the Marketplace that [meet certain specified code requirements that the Microsoft Power BI team has tested and approved](/legal/marketplace/certification-policies#1180-power-bi-visuals). To request certification, select the Request Power BI certification check box.
 
 We recommend that you submit and publish your Power BI visual before you request certification, because the certification process can take time. When you request certification, be sure to provide all required certification information in the Notes for certification box on the Review and publish page.
@@ -106,11 +108,8 @@ Select **Azure Table** to output lead information into a Microsoft Azure-hosted 
 You must submit a **Connection String** value to submit your lead management details. To find or generate this value:
 
  1. In the [Azure portal](https://ms.portal.azure.com/), select the storage account the lead should be sent to. To create a new storage account, select **Storage accounts** in the left navigation, and then select **Add** in the top-left corner of the header.
- 
  2. Under **Settings**, select **Access Keys**.
- 
  3. Copy the storage account key shown under **Primary Connection String**.
- 
  4. Paste this string into the **Storage account connection string** field in Partner Center.
 
 #### Dynamics CRM Online
@@ -134,7 +133,7 @@ Provide the **HTTPS endpoint URL**.
 
 To direct your lead information to a Marketo CRM system, you need to provide the following values:
 
-- Server ID 
+- Server ID
 - Munchkin account ID
 - Form ID
 
@@ -154,9 +153,9 @@ To find these values:
 
 	 `<script>MktoFormsExample.loadForm("//app-ys11.marketo.com", "123-PQR-789", 1169);</script>`
 
-7. Extract the applicable values. 
+7. Extract the applicable values.
 
-   In this example, the following are the values to extract.
+   In this example, the following are the values to extract:
 
    |**Parameter name**|**Example value**|
    |:-----|:-----|
@@ -164,24 +163,21 @@ To find these values:
    |Munchkin account ID|123-PQR-789|
    |Form ID|ys11|
 
-8. Submit these values in Partner Center. 
+8. Submit these values in Partner Center.
 
 #### Salesforce
 
 To direct your lead information to a Salesforce CRM system, you need to provide an **Organization ID** value. To find this value:
 
  1. In your Salesforce CRM system, go to **Setup** > **Administration** > **Company** > **Company information**.
- 
  2. Copy the field that starts with **00D**. This is the unique identifier for your Salesforce identity.
-
  3. Paste the value into the **Organization ID** field in Partner Center.
-
 
 ### Submit your lead management details
 
-After you have enter the connection details in Partner Center, select **Save**. 
+After you have enter the connection details in Partner Center, select **Save**.
 
-If you get an error message, make sure that your details are correct or try again later. 
+If you get an error message, make sure that your details are correct or try again later.
 
 > [!NOTE]
 > If your app is already in Microsoft AppSource, your lead management details are saved regardless of whether your submission passes validation. You don't have to resubmit lead management details unless you want to update the CRM or storage service that your leads are sent to.
@@ -195,4 +191,4 @@ Make sure that any correspondence you send to customers includes an option to un
 ## See also
 
 - [Create your Microsoft AppSource listing](appsource-listing.md)
-- [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
+- [Microsoft AppSource submission FAQ](appsource-submission-faq.yml)

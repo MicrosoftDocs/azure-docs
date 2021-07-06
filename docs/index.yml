@@ -44,7 +44,7 @@ landingContent:
           - text: App validation policies
             url: /legal/marketplace/certification-policies
           - text: Submission process FAQ
-            url: appsource-submission-faq.md
+            url: appsource-submission-faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage account settings and promote your application
