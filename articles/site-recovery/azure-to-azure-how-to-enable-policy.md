@@ -79,8 +79,8 @@ You are on the way to create a Policy to enable Azure Site Recovery. Let us now 
     - **Target Region**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
     - **Target Resource Group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region.
     - **Vault Resource Group**: The resource group in which Recovery Services Vault exists.
-    - **Recovery Services Vault**: The Vault against which all the VMs of the Scope will get protected.
-    - **Recovery Virtual Network**: Pick an existing virtual network in the target region to be used for recovery virtual machine.
+    - **Recovery Services Vault**: The Vault against which all the VMs of the Scope will get protected. Policy can create a new vault on your behalf if required.
+    - **Recovery Virtual Network**: Pick an existing virtual network in the target region to be used for recovery virtual machine. Policy can create a new virtual network for you as well, if required.
     - **Target Availability Zone**: Enter the Availability Zone of the Target Region where the Virtual Machine will failover.
     >[!NOTE]
     >For Zone to Zone Scenario, you need to choose the Same Target Region as the Source Region, and opt for a different Availability Zone in _Target Availability Zone_.     

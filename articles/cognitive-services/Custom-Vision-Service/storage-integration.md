@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 06/25/2021
 ms.author: pafarley
 ---
 
@@ -30,12 +30,11 @@ This guide shows you how to use these REST APIs with cURL. You can also use an H
 
 Go to your Custom Vision training resource on the Azure portal, select the **Identity** page, and enable system assigned managed identity.
 
-Next, go to your storage resource in the Azure portal. Go to the **Access control (IAM)** page and add a role assignment for each integration feature:
-* Select your Custom Vision training resource and assign the **Storage Blob Data Contributor** role if you plan to use the model backup feature. 
-* Then select your Custom Vision training resource and assign the **Storage Queue Data Contributor** if you plan to use the notification queue feature.
+Next, go to your storage resource in the Azure portal. Go to the **Access control (IAM)** page and select **Add role assignment (Preview)**. Then add a role assignment for either integration feature, or both:
+* If you plan to use the model backup feature, select the **Storage Blob Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
+* If you plan to use the notification queue feature, then select the **Storage Queue Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
 
-> [!div class="mx-imgBorder"]
-> ![Storage account add role assignment page](./media/storage-integration/storage-access.png)
+For help with role assignments, see [Assign Azure roles using the Azure portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ### Get integration URLs
 

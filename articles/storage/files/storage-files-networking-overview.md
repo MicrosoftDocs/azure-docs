@@ -4,7 +4,7 @@ description: An overview of networking options for Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 02/22/2020
+ms.date: 07/02/2021
 ms.author: rogarana
 ms.subservice: files
 ---
