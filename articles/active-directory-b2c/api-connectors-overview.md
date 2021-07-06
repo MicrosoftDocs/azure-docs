@@ -20,9 +20,6 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-user-flow"
 
-> [!IMPORTANT]
-> API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Overview 
 
 As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. For example, with API connectors, you can:

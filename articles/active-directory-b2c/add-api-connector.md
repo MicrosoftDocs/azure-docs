@@ -46,13 +46,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **API connectors**, and then select **New API connector**.
 
-   ![Add a new API connector](./media/add-api-connector/api-connector-new.png)
+   :::image type="content" source="media/add-api-connector/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
 
 5. Provide a display name for the call. For example, **Validate user information**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. See [Secure your API Connector](secure-rest-api.md) for more on the authentication options.
 
-    ![Configure an API connector](./media/add-api-connector/api-connector-config.png)
+    :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
 
 8. Select **Save**.
 
@@ -117,7 +117,7 @@ Follow these steps to add an API connector to a sign-up user flow.
    - **After signing in with an identity provider**
    - **Before creating the user**
 
-   ![Add APIs to the user flow](./media/add-api-connector/api-connectors-user-flow-select.png)
+    :::image type="content" source="media/add-api-connector/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
 
 6. Select **Save**.
 
@@ -283,7 +283,7 @@ Content-type: application/json
 
 **End-user experience with a blocking response**
 
-![Example  block page](./media/add-api-connector/blocking-page-response.png)
+    :::image type="content" source="media/add-api-connector/blocking-page-response.png" alt-text="An example image of what the end-user experience looks like after an API returns a blocking response.":::
 
 ### Example of a validation-error response
 
@@ -311,8 +311,7 @@ Content-type: application/json
 
 **End-user experience with a validation-error response**
 
-![Example  validation page](./media/add-api-connector/validation-error-postal-code.png)
-
+  :::image type="content" source="media/add-api-connector/validation-error-postal-code.png" alt-text="An example image of what the end-user experience looks like after an API returns a validation-error response.":::
 
 ::: zone-end
 
