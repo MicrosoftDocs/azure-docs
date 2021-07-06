@@ -30,13 +30,13 @@ By combining these two tools, Security Center becomes your single pane of glass 
 
 1. From Windows Admin Center, select one of your servers, and in the **Tools** pane, select the Azure Security Center extension:
 
-    ![Azure Security Center extension in Windows Admin Center](./media/windows-admin-center-integration/onboarding-from-wac.png)
+    ![Azure Security Center extension in Windows Admin Center.](./media/windows-admin-center-integration/onboarding-from-wac.png)
 
     > [!NOTE]
     > If the server is already onboarded to Security Center, the set-up window will not appear.
 
 1. Click **Sign in to Azure and set up**.
-    ![Onboarding Windows Admin Center extension to Azure Security Center](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
+    ![Onboarding Windows Admin Center extension to Azure Security Center.](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
 
 1. Follow the instructions to connect your server to Security Center. After you've entered the necessary details and confirmed, Security Center makes the necessary configuration changes to ensure that all of the following are true:
     * An Azure Gateway is registered.
@@ -53,7 +53,7 @@ By combining these two tools, Security Center becomes your single pane of glass 
 
 Once onboarded, you can view your alerts and recommendations directly in the Azure Security Center area of Windows Admin Center. Click a recommendation or an alert to view them in the Azure portal. There, you'll get additional information and learn how to remediate issues.
 
-[![Security Center recommendations and alerts as seen in Windows Admin Center](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
+[![Security Center recommendations and alerts as seen in Windows Admin Center.](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
 ## View security recommendations and alerts for Windows Admin Center managed servers in Security Center
 From Azure Security Center:
@@ -62,4 +62,4 @@ From Azure Security Center:
 
 * To view security alerts for all your Windows Admin Center servers, open **Security alerts**. Click **Filter** and ensure **only** "Non-Azure" is selected:
 
-    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filter security alerts for Windows Admin Center managed servers" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filter security alerts for Windows Admin Center managed servers." lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

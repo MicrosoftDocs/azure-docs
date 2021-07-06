@@ -11,7 +11,6 @@ ms.author: robinsh
 > * [Simulated device with Java](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Simulated device with Node.js](../articles/iot-hub/quickstart-send-telemetry-node.md)
 > * [Simulated device with Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
-> * [IoT DevKit AZ3166 with VS Code](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi with Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi with C](../articles/iot-hub/iot-hub-raspberry-pi-kit-c-get-started.md)
 > * [iOS with Swift](../articles/iot-hub/quickstart-send-telemetry-ios.md)

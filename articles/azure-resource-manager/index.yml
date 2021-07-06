@@ -46,7 +46,7 @@ conceptualContent:
         - url: templates/template-tutorial-create-first-template.md
           itemType: tutorial
           text: Beginner tutorial series
-        - url: templates/template-syntax.md
+        - url: ./templates/syntax.md
           itemType: reference
           text: Template syntax
         - url: templates/template-functions.md
@@ -58,7 +58,7 @@ conceptualContent:
         - url: templates/deploy-powershell.md
           itemType: how-to-guide
           text: Deploy
-        - url: templates/template-best-practices.md
+        - url: ./templates/best-practices.md
           itemType: concept
           text: Best practices
       # footerLink (optional)
@@ -130,7 +130,7 @@ conceptualContent:
         - url: managed-applications/create-uidefinition-overview.md
           itemType: how-to-guide
           text: Define portal pane for creating app
-        - url: ../marketplace/create-new-azure-apps-offer.md
+        - url: ../marketplace/azure-app-offer-setup.md
           itemType: tutorial
           text: Add app to Marketplace
       # footerLink (optional)

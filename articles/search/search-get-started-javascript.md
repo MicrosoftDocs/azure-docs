@@ -9,7 +9,7 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/02/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-js
 ---
 
@@ -603,9 +603,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. 
+In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. To continue learning, try the following tutorial and sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. 
 
-If you already have some background in Azure Cognitive Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. If you're new to Azure Cognitive Search, we recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
++ [Tutorial: Add search to web apps](tutorial-csharp-overview.md)
 
-> [!div class="nextstepaction"]
-> [Build a React front-end for Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)
++ [Sample: Build a React front-end for Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)

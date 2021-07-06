@@ -1,6 +1,6 @@
 ---
 author: laujan
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 03/15/2021

@@ -5,8 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/01/2021
+ms.date: 05/10/2021
 ---
 
 # Data transformation expressions in mapping data flow

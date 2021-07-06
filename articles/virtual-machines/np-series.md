@@ -36,7 +36,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** How to request quota for NP VMs?
 
-**A:** Please follow this page [Increase limits by VM series](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
+**A:** Please follow this page [Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
 
 **Q:** What version of Vitis should I use? 
 
@@ -44,7 +44,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) to deploy on NP VMs. 
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 

@@ -65,6 +65,7 @@ The user should have permission to create a session as well as role SELECT\_CATA
         grant select on dba\_arguments to \[user\];\
         grant select on dba\_sequences to \[user\];\
         grant select on dba\_dependencies to \[user\];\
+        grant select on dba\_type\_attrs to \[user\];\
         grant select on V\_\$INSTANCE to \[user\];\
         grant select on v\_\$database to \[user\];
     
@@ -153,6 +154,9 @@ To create and run a new scan, do the following:
 7.  **Maximum memory available**: Maximum memory (in GB) available on
     customer's VM to be used by scanning processes. This is dependent on
     the size of SAP S/4HANA source to be scanned.
+
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 

@@ -334,6 +334,6 @@ Add more telemetry:
 [client]: ./javascript.md
 [diagnostic]: ./diagnostic-search.md
 [greenbrown]: ./asp-net.md
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [roles]: ./resources-roles-access-control.md
 [usage]: ./javascript.md

@@ -11,9 +11,9 @@ ms.date: 03/16/2020
 
 # Set up an Azure Marketplace subscription for hosted test drives
 
-This article explains how to set up an Azure Marketplace subscription and **Dynamics 365 for Customer Engagement** or **Dynamics 365 for Operations** environment for test drives.
+This article explains how to set up an Azure Marketplace subscription and **Dynamics 365 for Customer Engagement & Power Apps** or **Dynamics 365 for Operations** environment for test drives.
 
-## Set up for Dynamics 365 for Customer Engagement
+## Set up for Dynamics 365 for Customer Engagement & Power Apps
 
 1. Sign into the [Azure portal](https://portal.azure.com/) with an Admin account.
 2. Verify you are in the tenant associated with your Dynamics 365 test drive instance by hovering over your account icon in the upper right corner. If you are not in the correct tenant, select the account icon to switch into the correct tenant.

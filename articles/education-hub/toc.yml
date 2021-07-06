@@ -51,6 +51,6 @@
 - name: Resources
   items:
   - name: FAQ
-    href: azure-dev-tools-teaching/program-faq.md
+    href: azure-dev-tools-teaching/program-faq.yml
   - name: Support
     href: azure-dev-tools-teaching/program-support.md

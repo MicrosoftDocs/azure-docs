@@ -123,17 +123,17 @@ Apply ARM template with the CLI command:
 * For an existing Azure Spring Cloud instance:
 
 ```azurecli
-az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" â€“name "assignedName" â€“resource-group "resourceGroupName"
+az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" --name "assignedName" --resource-group "resourceGroupName"
 ```
 * For a newly created Azure Spring Cloud instance:
 
 ```azurecli
-az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" â€“resource-group "resourceGroupName"
+az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" --resource-group "resourceGroupName"
 ```
 * To disable app-insight:
 
 ```azurecli
-az spring-cloud app-insights update --disable â€“name "assignedName" â€“resource-group "resourceGroupName"
+az spring-cloud app-insights update --disable --name "assignedName" --resource-group "resourceGroupName"
 
 ```
 

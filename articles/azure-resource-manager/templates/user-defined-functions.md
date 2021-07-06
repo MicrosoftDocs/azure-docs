@@ -107,5 +107,5 @@ When defining a user function, there are some restrictions:
 
 ## Next steps
 
-* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn about the available properties for user-defined functions, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * For a list of the available template functions, see [ARM template functions](template-functions.md).

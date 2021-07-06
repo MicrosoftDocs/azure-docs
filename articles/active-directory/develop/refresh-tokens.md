@@ -29,7 +29,7 @@ Before reading through this article, it's recommended that you go through the fo
 
 ## Refresh token lifetime
 
-Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. The Microsoft identity platform doesn't revoke refresh tokens when used to fetch new access tokens. Securely delete the old refresh token after acquiring a new one. Refresh tokens need to be stored safely like access tokens or application credentials. 
+Refresh tokens have a significantly longer lifetime than access tokens. The default lifetime for the tokens is 90 days and they replace themselves with a fresh token upon every use. This means that whenever a refresh token is used to acquire a new access token, a new refresh token is also issued. The Microsoft identity platform doesn't revoke old refresh tokens when used to fetch new access tokens. Securely delete the old refresh token after acquiring a new one. Refresh tokens need to be stored safely like access tokens or application credentials. 
 
 ## Refresh token expiration
 

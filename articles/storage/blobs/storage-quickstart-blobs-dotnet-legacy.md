@@ -32,7 +32,7 @@ Additional resources:
 * [API reference documentation](/dotnet/api/overview/azure/storage)
 * [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-* [Samples](https://docs.microsoft.com/samples/browse/?products=azure-blob-storage)
+* [Samples](/samples/browse/?products=azure-blob-storage)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

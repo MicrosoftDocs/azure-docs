@@ -172,7 +172,7 @@ Depending on the decisions you have made earlier using the design guidance above
 
 [Analyze Azure AD activity logs with Azure Monitor logs](./howto-analyze-activity-logs-log-analytics.md)
 
-* [Interpret audit logs schema in Azure Monitor](./reference-azure-monitor-audit-log-schema.md)
+* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 
 * [Interpret sign in logs schema in Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
 

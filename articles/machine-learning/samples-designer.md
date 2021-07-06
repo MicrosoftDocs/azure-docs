@@ -18,7 +18,7 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree)
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
 * An Azure Machine Learning workspace 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]

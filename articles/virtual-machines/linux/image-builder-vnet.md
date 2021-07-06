@@ -17,14 +17,6 @@ This article shows you how you can use the Azure Image Builder to create a basic
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
 ## Set variables and permissions 
 
 You will be using some pieces of information repeatedly. Create some variables to store that information.

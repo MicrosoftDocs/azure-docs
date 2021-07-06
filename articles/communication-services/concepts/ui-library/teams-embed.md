@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this document, you'll learn how the Azure Communication Services UI Library Teams Embed capability can be used to build turnkey calling experiences.
 author: tophpalmer
 ms.author: chpalm
-ms.date: 11/16/2020
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 
