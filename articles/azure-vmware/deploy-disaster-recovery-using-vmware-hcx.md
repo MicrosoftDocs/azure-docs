@@ -46,7 +46,7 @@ This guide covers the following replication scenarios:
 
 1. Select the Source and the Remote sites. The Remote site in this case should be the Azure VMware Solution private cloud.
 
-   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Screenshot shoing the HCX: Protected Virtual Machines window." border="true":::
+   :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machines.png" alt-text="Screenshot showing the HCX: Protected Virtual Machines window." border="true":::
 
 1. If needed, select the **Default replication** options:
 
