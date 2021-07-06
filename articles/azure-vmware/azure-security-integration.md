@@ -71,7 +71,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 ## View recommendations and passed assessments
 
-Recommendations and passed assessments provides you with the security health details of your resource. 
+Recommendations and assessments provide you with the security health details of your resource. 
 
 1. In Azure Security Center, select **Inventory** from the left pane.
 
