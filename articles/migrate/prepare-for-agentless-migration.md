@@ -81,7 +81,7 @@ The preparation script executes the following changes based on the OS type of th
       - Storvsc
       - VMbus
 
-   1. **Set storage area network (SAN) policy to ONLINE ALL**.
+   1. **Set storage area network (SAN) policy to Online All**.
      This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to Online All:
 
       To manually configure this setting:
@@ -94,7 +94,7 @@ The preparation script executes the following changes based on the OS type of th
 
       - At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and that you can read and write to both disks.
 
-       ![Administrator Command Prompt diskpart online policy](./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png)
+        ![Administrator Command Prompt diskpart online policy](./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png)
 
 1. **Set the DHCP start type**
 
@@ -217,37 +217,37 @@ After the aforementioned changes are performed, the system partition will be unl
 
    1. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It is recommended to make these changes for servers running RedHat and Ubuntu distributions.
 
-     Uninstall this package by running the following command:
+   1. Uninstall this package by running the following command:
     Illustrative example for RedHat servers
 
-     ```console
-      # sudo rpm -e --nodeps NetworkManager
-     ```
+      ```console
+         # sudo rpm -e --nodeps NetworkManager
+      ```
 
    1. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
 
-   Illustrative example for RedHat servers:
+      Illustrative example for RedHat servers:
 
-   ```config
-      DEVICE=eth0
-      ONBOOT=yes
-      BOOTPROTO=dhcp
-      TYPE=Ethernet
-      USERCTL=no
-      PEERDNS=yes
-      IPV6INIT=no
-      PERSISTENT_DHCLIENT=yes
-      NM_CONTROLLED=yes
-   ```
+      ```config
+         DEVICE=eth0
+         ONBOOT=yes
+         BOOTPROTO=dhcp
+         TYPE=Ethernet
+         USERCTL=no
+         PEERDNS=yes
+         IPV6INIT=no
+         PERSISTENT_DHCLIENT=yes
+         NM_CONTROLLED=yes
+      ```
 
    1. Reset etc/sysconfig/network file as follows.
 
-   Illustrative example for RedHat servers:
+      Illustrative example for RedHat servers:
 
-   ```config
-        NETWORKING=yes
-        HOSTNAME=localhost.localdomain
-   ```
+      ```config
+         NETWORKING=yes
+         HOSTNAME=localhost.localdomain
+      ```
 
 1. **Fstab validation**
 
