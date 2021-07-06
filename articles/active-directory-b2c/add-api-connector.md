@@ -85,7 +85,7 @@ Content-type: application/json
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "step": "<step-name>",
- "client_id":"<guid>",
+ "client_id":"93fd07aa-333c-409d-955d-96008fd08dd9",
  "ui_locales":"en-US"
 }
 ```
@@ -99,8 +99,8 @@ Additionally, the claims are typically sent in all request:
 - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Values include:
   - `postFederationSignup` - corresponds to "After signing in with an identity provider"
   - `postAttributeCollection` - corresponds to "Before creating the user"
-- **Client ID ('client_id')** - The `appid` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appid` in access tokens.
-- [**identities ('identities')**](/graph/api/resources/objectidentity) or the **Email Address ('email')** - these claims can be used by your API to identify the end-user that is authenticating to the application.
+- **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens.
+- **Email Address ('email')** or [**identities ('identities')**](/graph/api/resources/objectidentity) - these claims can be used by your API to identify the end-user that is authenticating to the application.
   
 > [!IMPORTANT]
 > If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
@@ -121,7 +121,7 @@ Follow these steps to add an API connector to a sign-up user flow.
 
 6. Select **Save**.
 
-## After signing in with an identity provider
+## After federating with an identity provider 
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account.
 
@@ -142,6 +142,8 @@ Content-type: application/json
  "displayName": "John Smith",
  "givenName":"John",
  "lastName":"Smith",
+ "step": "postFederationSignup",
+ "client_id":"<guid>",
  "ui_locales":"en-US"
 }
 ```
@@ -201,6 +203,8 @@ Content-type: application/json
  "country":"United States",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+ "step": "postAttributeCollection",
+ "client_id":"93fd07aa-333c-409d-955d-96008fd08dd9",
  "ui_locales":"en-US"
 }
 ```
