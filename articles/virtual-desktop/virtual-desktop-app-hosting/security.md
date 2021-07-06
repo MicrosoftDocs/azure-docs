@@ -37,7 +37,7 @@ You can protect workloads by using security features and controls from Microsoft
 
 When the service connects to the internet, Azure Active Directory (Azure AD) authenticates its credentials, enabling protective features like [Conditional Access](/azure/active-directory/conditional-access/overview) and [multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks). These features greatly reduce the risk of user identities being compromised.
 
-Azure Virtual Desktop has features like Reverse Connect that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs.
+Azure Virtual Desktop has features like [Reverse Connect](network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ## Defense in depth
 
@@ -82,7 +82,7 @@ To learn more about security feature support and servicing, see our [Microsoft S
 
 You'll also need to make certain choices about security boundaries on a case-by-case basis. For example, if a user in your organization needs local administrative privileges to install apps, you'll need to give them a personal desktop instead of a shared RDSH. We don't typically recommend giving users local admin privileges in RDSH because these users can cross security boundaries for sessions or NTFS data permissions, shut down shared RDSH VMs, or do other things that could interrupt service or cause data losses.
 
-Users from the same organization, like knowledge workers with apps that don't require admin privileges, are great candidates for multi-session Remote Desktop session hosts like Windows 10 Enterprise multi-session. These session hosts reduce costs for your organization because multiple users can share a single VM, diving overhead costs of a single OS. With profile technology like FSLogix, users can be assigned any VM in a host pool without noticing any service interruptions. This feature also lets you optimize costs by doing things like shutting down VMs during off-peak hours.
+Users from the same organization, like knowledge workers with apps that don't require admin privileges, are great candidates for multi-session Remote Desktop session hosts like Windows 10 Enterprise multi-session. These session hosts reduce costs for your organization because multiple users can share a single VM, with only the overhead costs of a single OS. With profile technology like FSLogix, users can be assigned any VM in a host pool without noticing any service interruptions. This feature also lets you optimize costs by doing things like shutting down VMs during off-peak hours.
 
 If your situation requires users from different organizations to connect to your deployment, we recommend you have a separate tenant for identity services like Active Directory and Azure AD. We also recommend you have a separate subscription for hosting Azure resources like VMs.
 
@@ -100,11 +100,9 @@ Let's take a look at our recommendations for some example scenarios.
 
 We don't currently recommend using a shared identity system in Azure Virtual Desktop. We recommend that you have separate Identity resources that you deploy in a separate Azure subscription. These resources include Active Directories, Azure AD, and VM workloads. Every user working for an individual organization will need additional infrastructure and associated maintenance costs, but this is currently the most feasible solution for security purposes. 
 
-### Should I share a multi-session RDSH VM to reduce costs?
+### Should I share a multi-session Remote Desktop (RD) session host VM to reduce costs?
 
-RDSH saves costs by sharing hardware resources like CPU and memory among users. This resource sharing lets you design for peak capacity, even if it’s unlikely all users will need maximum resources at the same time. For example, most workers let their devices idle for most of the day, which means they don't use most of their paid-for compute and memory resources for much of the time.
-
-In a shared multi-session environment, hardware resources are shared and allocated so that they consume most of the CPU and memory, reducing the gap between usage and costs.
+Multi-session RD session hosts save costs by sharing hardware resources like CPU and memory among users. This resource sharing lets you design for peak capacity, even if it’s unlikely all users will need maximum resources at the same time. In a shared multi-session environment, hardware resources are shared and allocated so that they reduce the gap between usage and costs.
 
 In many cases, using multi-session is an acceptable way to reduce costs, but whether we recommend it depends on the trust level between users with simultaneous access to a shared multi-session instance. Typically, users that belong to the same organization have a sufficient and agreed-upon trust relationship. For example, a department or workgroup where people collaborate and can access each other’s personal information is an organization with a high trust level.
 
