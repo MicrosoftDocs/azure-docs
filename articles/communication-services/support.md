@@ -32,10 +32,10 @@ You can also try asking your question on Stack Overflow, which has a large commu
 
 To provide feedback on specific funtionalities Azure Communication Services provide on Azure Portal, submit your feedback via buttons or links that has this icon :::image type="content" source="./media/give-feedback-icon.png" alt-text="Image of Give Feedback Icon.":::. 
 
-For example:
-- To give feedback about phone numbers, you can click on the “Give feedback” button on the command bar of the Phone Numbers blade
+Here are some examples: 
+- To give feedback about phone numbers, click on the “Give feedback” button in the command bar of the Phone Numbers blade.
 :::image type="content" source="./media/give-feedback-in-command-bar.png" alt-text="Image of Give Feedback Button in the Command Bar of Phone Numbers Blade.":::
-- To give feedback about the connection experience to a notification hub, you can click on the following link  
+- To give feedback about the connection experience to a notification hub, click on the following link as shown below.  
 :::image type="content" source="./media/give-feedback-in-page.png" alt-text="Image of Give Feedback Link in the Notification Hub Blade.":::
 
 We appreciate your feedback and energy helping us improve our services. Please let us know if you are satisfied with Azure Communication Services through this [survey](https://aka.ms/ACS_CAT_Survey). 
