@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
-ms.date: 06/29/2021
+ms.date: 07/06/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
@@ -19,7 +19,7 @@ ms.custom: devx-track-csharp
 
 In this tutorial, you'll learn how to integrate the Azure Computer Vision service into a web app to generate metadata for uploaded images. This is useful for [digital asset management (DAM)](../overview.md#computer-vision-for-digital-asset-management) scenarios, such as if a company wants to quickly generate descriptive captions or searchable keywords for all of its images.
 
-You'll use Visual Studio to write an MVC Web app that accepts images uploaded by users and stores the images in Azure blob storage. You will learn how to read and write blobs in C# and how to use blob metadata to attach additional information to the blobs you create. Then you'll submit each image uploaded by the user to the Computer Vision API to generate a caption and search metadata for the image. Finally, you can deploy the app to the cloud using Visual Studio.
+You'll use Visual Studio to write an MVC Web app that accepts images uploaded by users and stores the images in Azure blob storage. You'll learn how to read and write blobs in C# and use blob metadata to attach additional information to the blobs you create. Then you'll submit each image uploaded by the user to the Computer Vision API to generate a caption and search metadata for the image. Finally, you can deploy the app to the cloud using Visual Studio.
 
 This tutorial shows you how to:
 
@@ -43,13 +43,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 <a name="Exercise1"></a>
 ## Create a storage account
 
-In this section, you will use the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
+In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) to create a storage account. Then you'll create a pair of containers: one to store images uploaded by the user, and another to store image thumbnails generated from the uploaded images.
 
-1. Open the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you are asked to log in, do so using your Microsoft account.
+1. Open the [Azure portal](https://portal.azure.com?WT.mc_id=academiccontent-github-cxa) in your browser. If you're asked to sign in, do so using your Microsoft account.
 1. To create a storage account, click **+ Create a resource** in the ribbon on the left. Then click **Storage**, followed by **Storage account**.
 
     ![Creating a storage account](Images/new-storage-account.png)
-1. Enter a unique name for the storage account in **Name** field and make sure a green check mark appears next to it. The name is important, because it forms one part of the URL through which blobs created under this account are accessed. Place the storage account in a new resource group named "IntellipixResources," and select the region nearest you. Finish by clicking the **Review + create** button at the bottom of the blade to create the new storage account.
+1. Enter a unique name for the storage account in **Name** field and make sure a green check mark appears next to it. The name is important, because it forms one part of the URL through which blobs created under this account are accessed. Place the storage account in a new resource group named "IntellipixResources," and select the region nearest you. Finish by clicking the **Review + create** button at the bottom of the screen to create the new storage account.
     > [!NOTE]
     > Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
    
@@ -57,10 +57,10 @@ In this section, you will use the [Azure portal](https://portal.azure.com?WT.mc_
 1. Click **Resource groups** in the ribbon on the left. Then click the "IntellipixResources" resource group.
 
     ![Opening the resource group](Images/open-resource-group.png)
-1. In the blade that opens for the resource group, click the storage account you just created. If the storage account isn't there yet, you can click **Refresh** at the top of the blade until it appears.
+1. In the tab that opens for the resource group, click the storage account you created. If the storage account isn't there yet, you can click **Refresh** at the top of the tab until it appears.
 
     ![Opening the new storage account](Images/open-storage-account.png)
-1. In the blade for the storage account, click **Blobs** to view a list of containers associated with this account.
+1. In the tab for the storage account, click **Blobs** to view a list of containers associated with this account.
 
     ![Viewing blobs button](Images/view-containers.png)
 
@@ -75,19 +75,19 @@ In this section, you will use the [Azure portal](https://portal.azure.com?WT.mc_
 
     ![The new containers](Images/new-containers.png)
 
-1. Close the "Blob service" blade. Click **Access keys** in the menu on the left side of the storage-account blade, and then click the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
+1. Close the "Blob service" screen. Click **Access keys** in the menu on the left side of the storage-account screen, and then click the **Copy** button next to **KEY** for **key1**. Paste this access key into your favorite text editor for later use.
 
     ![Copying the access key](Images/copy-storage-account-access-key.png)
 
-You have now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. 
+You've now created a storage account to hold images uploaded to the app you're going to build, and containers to store the images in. 
 
 <a name="Exercise2"></a>
 ## Run Azure Storage Explorer
 
-[Azure Storage Explorer](http://storageexplorer.com/) is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure portal. It also offers additional features like the ability to view blob metadata. In this section, you will use the Microsoft Azure Storage Explorer to view the containers you created in the previous section.
+[Azure Storage Explorer](http://storageexplorer.com/) is a free tool that provides a graphical interface for working with Azure Storage on PCs running Windows, macOS, and Linux. It provides most of the same functionality as the Azure portal and offers other features like the ability to view blob metadata. In this section, you'll use the Microsoft Azure Storage Explorer to view the containers you created in the previous section.
 
 1. If you haven't installed Storage Explorer or would like to make sure you're running the latest version, go to http://storageexplorer.com/ and download and install it.
-1. Start Storage Explorer. If you are asked to log in, do so using your Microsoft account&mdash;the same one that you used to log in to the Azure portal. If you don't see the storage account in Storage Explorer's left pane, click the **Manage Accounts** button highlighted below and make sure both your Microsoft account and the subscription used to create the storage account have been added to Storage Explorer.
+1. Start Storage Explorer. If you're asked to sign in, do so using your Microsoft account&mdash;the same one that you used to sign in to the Azure portal. If you don't see the storage account in Storage Explorer's left pane, click the **Manage Accounts** button highlighted below and make sure both your Microsoft account and the subscription used to create the storage account have been added to Storage Explorer.
 
     ![Managing accounts in Storage Explorer](Images/add-account.png)
 
@@ -100,7 +100,7 @@ The containers are currently empty, but that will change once your app is deploy
 <a name="Exercise3"></a>
 ## Create a new Web app in Visual Studio
 
-In this section, you will create a new Web app in Visual Studio and add code to implement the basic functionality required to upload images, write them to blob storage, and display them in a Web page.
+In this section, you'll create a new Web app in Visual Studio and add code to implement the basic functionality required to upload images, write them to blob storage, and display them in a Web page.
 
 1. Start Visual Studio and use the **File -> New -> Project** command to create a new Visual C# **ASP.NET Web Application** project named "Intellipix" (short for "Intelligent Pictures").
 
@@ -110,15 +110,15 @@ In this section, you will create a new Web app in Visual Studio and add code to 
 
     ![Creating a new ASP.NET MVC project](Images/new-mvc-project.png)
 
-1. Take a moment to review the project structure in Solution Explorer. Among other things, there's a folder named "Controllers" that holds the project's MVC controllers, and a folder named "Views" that holds the project's views. You'll be working with assets in these folders and others as you implement the application.
+1. Take a moment to review the project structure in Solution Explorer. Among other things, there's a folder named **Controllers** that holds the project's MVC controllers, and a folder named **Views** that holds the project's views. You'll be working with assets in these folders and others as you implement the application.
 
 	![The project shown in Solution Explorer](Images/project-structure.png)
 
-1. Use Visual Studio's **Debug -> Start Without Debugging** command (or simply press **Ctrl+F5**) to launch the application in your browser. Here's how the application looks in its present state:
+1. Use Visual Studio's **Debug -> Start Without Debugging** command (or press **Ctrl+F5**) to launch the application in your browser. Here's how the application looks in its present state:
 
     ![The initial application](Images/initial-application.png)
 
-1. Close the browser and return to Visual Studio. In Solution Explorer, right-click the **Intellipix** project and select **Manage NuGet Packages...**. Click **Browse**. Then type "imageresizer" (without quotation marks) into the search box and select the NuGet package named **ImageResizer**. Finally, click **Install** to install the latest stable version of the package. ImageResizer contains APIs that you will use to create image thumbnails from the images uploaded to the app. OK any changes and accept any licenses presented to you.
+1. Close the browser and return to Visual Studio. In Solution Explorer, right-click the **Intellipix** project and select **Manage NuGet Packages...**. Click **Browse**. Then type "imageresizer" (without quotation marks) into the search box and select the NuGet package named **ImageResizer**. Finally, click **Install** to install the latest stable version of the package. ImageResizer contains APIs that you'll use to create image thumbnails from the images uploaded to the app. OK any changes and accept any licenses presented to you.
 
     ![Installing ImageResizer](Images/install-image-resizer.png)
 
@@ -132,7 +132,7 @@ In this section, you will create a new Web app in Visual Studio and add code to 
 	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY" />
 	```
 
-1. Open the file named *_Layout.cshtml* in the project's "Views/Shared" folder. On line 19, change "Application name" to "Intellipix." Here is the edited line of code:
+1. Open the file named *_Layout.cshtml* in the project's "Views/Shared" folder. On line 19, change "Application name" to "Intellipix." The line should look like this:
 
 	```C#
 	@Html.ActionLink("Intellipix", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -193,7 +193,7 @@ In this section, you will create a new Web app in Visual Studio and add code to 
 	}
 	```
 
-	The new **Index** method enumerates the blobs in the "photos" container and passes an array of **BlobInfo** objects representing those blobs to the view through ASP.NET MVC's **ViewBag** property. In a moment, you will modify the view to enumerate these objects and display a collection of photo thumbnails. The classes used to access your storage account and enumerate the blobs — **[CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?WT.mc_id=academiccontent-github-cxa)**, **[CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?WT.mc_id=academiccontent-github-cxa)**, and **[CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?WT.mc_id=academiccontent-github-cxa)** — come from the WindowsAzure.Storage package you installed through NuGet.
+	The new **Index** method enumerates the blobs in the "photos" container and passes an array of **BlobInfo** objects representing those blobs to the view through ASP.NET MVC's **ViewBag** property. In a moment, you'll modify the view to enumerate these objects and display a collection of photo thumbnails. The classes used to access your storage account and enumerate the blobs&mdash;**[CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?WT.mc_id=academiccontent-github-cxa)**, **[CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?WT.mc_id=academiccontent-github-cxa)**, and **[CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?WT.mc_id=academiccontent-github-cxa)**&mdash;come from the WindowsAzure.Storage package you installed through NuGet.
 
 1. Add the following method to the **HomeController** class in *HomeController.cs*:
 
@@ -302,9 +302,9 @@ In this section, you will create a new Web app in Visual Studio and add code to 
 
     ![Intellipix with three photos uploaded](Images/three-photos-uploaded.png)
 
-1. Right-click in your browser and select **View page source** to view the source code for the page. Find the ```<img>``` elements representing the image thumbnails. Observe that the URLs assigned to the images refer directly to blobs in blob storage. This is possible because you set the containers' **Public access level** to **Blob**, which makes the blobs inside them publicly accessible.
+1. Right-click in your browser and select **View page source** to view the source code for the page. Find the ```<img>``` elements representing the image thumbnails. Observe that the URLs assigned to the images refer directly to blobs in blob storage. This is because you set the containers' **Public access level** to **Blob**, which makes the blobs inside them publicly accessible.
 
-1. Return to the Azure Storage Explorer (or restart if it you didn't leave it running) and click the "photos" container under your storage account. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.
+1. Return to the Azure Storage Explorer (or restart it if you didn't leave it running) and click the "photos" container under your storage account. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.
 
     ![Contents of the "photos" container](Images/photos-container.png)
 
@@ -315,7 +315,7 @@ The app doesn't yet offer a way to view the original images that you uploaded. I
 <a name="Exercise4"></a>
 ## Add a lightbox for viewing photos
 
-In this section, you will use a free, open-source JavaScript library to add a lightbox viewer that enables users to see the original images they've uploaded (rather than just the image thumbnails). The files are provided for you. All you have to do is integrate them into the project and make a minor modification to *Index.cshtml*.
+In this section, you'll use a free, open-source JavaScript library to add a lightbox viewer that enables users to see the original images they've uploaded (rather than just the image thumbnails). The files are provided for you. All you have to do is integrate them into the project and make a minor modification to *Index.cshtml*.
 
 1. Download the _lightbox.css_ and _lightbox.js_ files from the GitHub code repository: https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/storage-lab-tutorial
 1. In Solution Explorer, right-click your project's "Scripts" folder and use the **Add -> Existing Item...** command to import *lightbox.js*.
@@ -360,7 +360,7 @@ In this section, you will use a free, open-source JavaScript library to add a li
 	}
 	```
 
-1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click one of the images you uploaded earlier. Confirm that a lightbox appears showing an enlarged view of the image.
+1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click one of the images you uploaded earlier. Confirm that a lightbox appears and shows an enlarged view of the image.
 
     ![An enlarged image](Images/lightbox-image.png)
 
@@ -377,7 +377,7 @@ You'll need to create a Computer Vision resource for your Azure account; this re
 
 1. Follow the instructions in [Create an Azure Cognitive Services resource](../../cognitive-services-apis-create-account.md) to create a Computer Vision resource.
 
-1. Then go to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
+1. Then go to the menu for your resource group and click the Computer Vision API subscription that you created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
     ![Azure portal page with the endpoint URL and access keys link outlined](Images/copy-vision-endpoint.png)
     
@@ -403,7 +403,7 @@ Then in the Solution Explorer, right-click the project and use the **Manage NuGe
 
 ### Add metadata generation code
 
-Next, you'll add the code that actually leverages the Computer Vision service to create metadata for images. These steps will apply to the ASP.NET app in the lab, but you can adapt them to your own app. What's important is that at this point you have an ASP.NET web application that can upload images to an Azure Storage container, read images from it, and display them in the view.
+Next, you'll add the code that actually uses the Computer Vision service to create metadata for images. These steps will apply to the ASP.NET app in the lab, but you can adapt them to your own app. What's important is that at this point you have an ASP.NET web application that can upload images to an Azure Storage container, read images from it, and display them in the view.
 
 1. Open the *HomeController.cs* file in the project's **Controllers** folder and add the following `using` statements at the top of the file:
 
@@ -542,7 +542,7 @@ In this section, you will add a search box to the home page, enabling users to d
     }
 	```
 
-	Observe that the **Index** method now accepts a parameter ("id") that contains the value the user typed into the search box. An empty or missing "id" parameter indicates that all the photos should be displayed.
+	Observe that the **Index** method now accepts a parameter _id_ that contains the value the user typed into the search box. An empty or missing _id_ parameter indicates that all the photos should be displayed.
 
 1. Add the following helper method to the **HomeController** class:
 
@@ -567,13 +567,13 @@ In this section, you will add a search box to the home page, enabling users to d
 
     ![Performing a search](Images/enter-search-term.png)
 
-1. Search results will vary depending on what you typed and what images you uploaded. But the result should be a filtered list of images — images whose metadata keywords include all or part of the keyword that you typed.
+1. Search results will vary depending on what you typed and what images you uploaded. But the result should be a filtered list of images whose metadata keywords include all or part of the keyword that you typed.
 
     ![Search results](Images/search-results.png)
 
 1. Click the browser's back button to display all of the images again.
 
-You're almost finished, but the final and most important step remains. It is time to deploy the app to the cloud.
+You're almost finished. It's time to deploy the app to the cloud.
 
 <a name="Exercise7"></a>
 ## Deploy the app to Azure
@@ -592,7 +592,7 @@ In this section, you'll deploy the app to Azure from Visual Studio. You will all
 
     ![The finished product!](Images/vs-intellipix.png)
 
-If you make changes to the app and want to push the changes out to the Web, simply go through the publish process again. You can still test your changes locally before publishing to the Web.
+If you make changes to the app and want to push the changes out to the Web, go through the publish process again. You can still test your changes locally before publishing to the Web.
 
 ## Clean up resources
 
@@ -602,7 +602,7 @@ To delete the resource group, open the **Resource groups** tab in the portal, na
 
 ## Next steps
 
-There is much more that you could do to develop your Intellipix app and leverage Azure even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=academiccontent-github-cxa) to call the Computer Vision API asynchronously each time an image is added to blob storage. You could also do any number of other Image Analysis operations on the image, outlined in the overview.
+There's much more that you could do to use Azure and develop your Intellipix app even further. For example, you could add support for authenticating users and deleting photos, and rather than force the user to wait for Cognitive Services to process a photo following an upload, you could use [Azure Functions](https://azure.microsoft.com/services/functions/?WT.mc_id=academiccontent-github-cxa) to call the Computer Vision API asynchronously each time an image is added to blob storage. You could also do any number of other Image Analysis operations on the image, outlined in the overview.
 
 > [!div class="nextstepaction"]
 > [Image Analysis overview](../overview-image-analysis.md)
