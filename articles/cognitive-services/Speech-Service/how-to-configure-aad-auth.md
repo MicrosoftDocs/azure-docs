@@ -82,9 +82,14 @@ To get an AAD token in Java, use the [Azure Identy Client Library](/java/api/ove
 
 An example of using Azure.Identity to get an AAD Token from an interactive browser:
 ```java
-TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
-InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
-var browserToekn = browserCredential.GetToken(context);
+TokenRequestContext context = new TokenRequestContext();
+context.addScopes("https://cognitiveservices.azure.com/.default");
+
+InteractiveBrowserCredentialBuilder builder = new InteractiveBrowserCredentialBuilder();
+InteractiveBrowserCredential browserCredential = builder.build();
+
+AccessToken browserToken = browserCredential.getToken(context).block();
+String token = browserToken.getToken();
 ```
 The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
@@ -96,7 +101,7 @@ An example of using Azure.Identity to get an AAD Token from an interactive brows
 ```Python
 from azure.identity import  InteractiveBrowserCredential
 ibc = InteractiveBrowserCredential()
-token = ibc.get_token("https://cognitiveservices.azure.com/.default")
+aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ```
 ::: zone-end
 
@@ -150,7 +155,6 @@ $resource = Get-AzCognitiveServicesAccount -Name $speechResourceName -ResourceGr
 # Get the resource ID:
 $resourceId = resource.Id
 ```
-
 ***
 
 ## Call the Speech SDK
@@ -182,9 +186,19 @@ auto speechConfig = SpeechConfig::FromAuthorizationToken(speechToken, region);
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+String resourceId = "Your Resource ID";
+String region = "Your Region";
+
+String speechToken = "aad#" + resourceId + "#" + token;
+
+SpeechConfig speechConfig = SpeechConfig.fromAuthorizationToken(speechToken, region);
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+resourceId = "Your Resource ID"
+region = "Your Region"
+speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
+speechConfig = SpeechConfig(auth_token=speechToken, region=region)
 ::: zone-end
 
 ### TranslationRecognizer
@@ -210,10 +224,19 @@ auto speechToken = "aad#" + resourceId + "#" + aadToken;
 auto speechConfig = SpeechTranslationConfig::FromAuthorizationToken(speechToken, region);
 ::: zone-end
 
-::: zone pivot="programming-language-java"
+::: zone pivot="programming-language-java"String resourceId = "Your Resource ID";
+String region = "Your Region";
+
+String speechToken = "aad#" + resourceId + "#" + token;
+
+SpeechTranslationConfig translationConfig = SpeechTranslationConfig.fromAuthorizationToken(speechToken, region);
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+resourceId = "Your Resource ID"
+region = "Your Region"
+speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
+translationConfig = SpeechTranslationConfig(auth_token=speechToken, region=region)
 ::: zone-end
 
 ### DialogServiceConnector
@@ -242,9 +265,22 @@ auto customCommandsConfig = CustomCommandsConfig::FromAuthorizationToken(appId, 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+String resourceId = "Your Resource ID";
+String region = "Your Region";
+String appId = "Your AppId";
+
+String speechToken = "aad#" + resourceId + "#" + token;
+
+CustomCommandsConfig dialogServiceConfig = CustomCommandsConfig.fromAuthorizationToken(appId, speechToken, region);
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+resourceId = "Your Resource ID"
+region = "Your Region"
+appID = "Your App ID"
+
+speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
+customCommandsConfig = CustomCommandsConfig(auth_token=speechToken, region=region)
 ::: zone-end
 
 ### VoiceProfileClient
