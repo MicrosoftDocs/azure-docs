@@ -54,52 +54,47 @@ The Teams Embed SDK is built under Teams Quality standards so for video quality 
 
 You can use an Azure Communication Service access token, more information [how generate and manage access tokens.](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
 
-## Features list
+## Capabilities
 
-| API Features                                                             | Availability |
+| SDK Capabilities                                                        | Availability |
 |---------------------------------------------------------------------|--------------|
 | *Meeting actions*                                                   |              |
-| Call state (includes connection states, participants count, and modalities like microphone or camera state)                                                                | Yes          |
 | Join a call                                                         | Yes          |
-| isHandRaised event                                                  | Yes          |
-| isMuted event                                                       | Yes          |
-| isSendingVideo event                                                | Yes          |
-| Flaky Network Handling                                              | Yes          |
-| Remove from meeting                                                 | Yes          |
+| Handle the *call state* (includes connection states, participants count, and modalities like microphone or camera state)                                           | Yes          |
+| Rise user events Hand Raised, Muted and sending video event                                                                 | Yes          |
+| Flaky Network Handling support                                      | Yes          |
+| Remove participants from meeting                                    | Yes          |
 | Supports 56 languages                                               | Yes          |
-| Chat                                                                | No           |
-| Call PSTN                                                           | No           |
+| Chat during meeting and 1n1 Chat                                    | No           |
+| PSTN Calling                                                        | No           |
 | Recording and transcript                                            | No           |
 | Whiteboard sharing                                                  | No           |
 | Breaking into rooms                                                 | No           |
-| *Joining meeting experience*                                            |              |
+| *Joining meeting experience*                                        |              |
 | Join group call with GUID and ACS token                             | Yes          |
 | Join meeting with Live meeting URL and ACS token                    | Yes          |
 | Join meeting with meeting URL and ACS token                         | Yes          |
 | Join via waiting in lobby                                           | Yes          |
 
-| UI Features                                                             | Availability |
+| User Experience Customization                                       | Availability |
 |---------------------------------------------------------------------|--------------|
 | *Meeting actions*                                                   |              |
-| Display the call roster                                                         | Yes          |
+| Display the call roster                                             | Yes          |
 | Background blur                                                     | Yes          |
 | Background video image                                              | Yes          |
-| Call roster                                                         | Yes          |
 | Customize the layout: colors, icons, buttons                        | Partially    |
 | Customize the call screen icons                                     | Yes          |
-| Change meeting views                                                | Yes          |
+| Change meeting views layout                                         | Yes          |
 | Dynamic call NxN layout changing                                    | Yes          |
 | Rise/Lower hand                                                     | Yes          |
 | Mute/Un-mute                                                        | Yes          |
 | Put on hold                                                         | Yes          |
 | Select audio routing                                                | Yes          |
 | Select camera                                                       | Yes          |
-| Share photo                                                         | Yes          |
-| Share screen                                                        | Yes          |
-| Share video                                                         | Yes          |
+| Share photo, screen and video                                       | Yes          |
 | Start/Stop video                                                    | Yes          |
-| UI Event: in call user tile touch                                   | Yes          |
-| UI Event: name plate touch                                          | Yes          |
+| User tile press event                                               | Yes          |
+| Name plate press event                                              | Yes          |
 | Customize the screen background color​                               | No           |
 | Customize the top/bottom bar color​                                  | No           |
 | Whiteboard sharing                                                  | No           |
@@ -107,7 +102,6 @@ You can use an Azure Communication Service access token, more information [how g
 | Joining can configure display name, enable photo sharing            | Yes          |
 | Joining can configure to show call staging view (pre call screen)   | Yes          |
 | Joining can configure to show name plate on call screen             | Yes          |
-| Customize the looby, join button background color​                   | No           |
-| Customize the looby, screen background color​                        | No           |
+| Customize the looby screen                                          | Partially    |
 
-For more information about how to start into the Embed SDK,[Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md) or if you want to learn more about the SDK capabilities see the [samples guide](../../quickstarts/meeting/samples-for-teams-embed.md)
+For more information about how to start into the Embed SDK,[Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md) or if you want to learn more about the SDK capabilities see the [samples guide](../../quickstarts/meeting/samples-for-teams-embed.md
