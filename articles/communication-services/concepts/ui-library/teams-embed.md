@@ -56,54 +56,58 @@ You can use an Azure Communication Service access token, more information [how g
 
 ## Features list
 
-| Feature                                                             | Availability |
+| API Features                                                             | Availability |
 |---------------------------------------------------------------------|--------------|
 | *Meeting actions*                                                   |              |
-| Background blur                                                     | Yes          |
-| Background video image                                              | Yes          |
-| Call roster                                                         | Yes          |
-| Call state                                                          | Yes          |
-| Customize the layout: colors, icons, buttons                         | Partially          |
+| Call state (includes connection states, participants count, and modalities like microphone or camera state)                                                                | Yes          |
+| Join a call                                                         | Yes          |
 | isHandRaised event                                                  | Yes          |
 | isMuted event                                                       | Yes          |
 | isSendingVideo event                                                | Yes          |
-| Participants count                                                  | Yes          |
-| Change audio routing                                                | Yes          |
-| Change camera                                                       | Yes          |
-| Change meeting views                                                | Yes          |
-| Call screen icons                                                   | Yes          |
-| Dynamic call NxN layout changing                                    | Yes          |
 | Flaky Network Handling                                              | Yes          |
-| Hang up                                                             | Yes          |
-| Local pinning   of participant                                      | Yes          |
+| Remove from meeting                                                 | Yes          |
+| Supports 56 languages                                               | Yes          |
+| Chat                                                                | No           |
+| Call PSTN                                                           | No           |
+| Recording and transcript                                            | No           |
+| Whiteboard sharing                                                  | No           |
+| Breaking into rooms                                                 | No           |
+| *Joining meeting experience*                                            |              |
+| Join group call with GUID and ACS token                             | Yes          |
+| Join meeting with Live meeting URL and ACS token                    | Yes          |
+| Join meeting with meeting URL and ACS token                         | Yes          |
+| Join via waiting in lobby                                           | Yes          |
+
+| UI Features                                                             | Availability |
+|---------------------------------------------------------------------|--------------|
+| *Meeting actions*                                                   |              |
+| Display the call roster                                                         | Yes          |
+| Background blur                                                     | Yes          |
+| Background video image                                              | Yes          |
+| Call roster                                                         | Yes          |
+| Customize the layout: colors, icons, buttons                        | Partially    |
+| Customize the call screen icons                                     | Yes          |
+| Change meeting views                                                | Yes          |
+| Dynamic call NxN layout changing                                    | Yes          |
 | Rise/Lower hand                                                     | Yes          |
 | Mute/Un-mute                                                        | Yes          |
 | Put on hold                                                         | Yes          |
-| Remove from meeting                                                 | Yes          |
+| Select audio routing                                                | Yes          |
+| Select camera                                                       | Yes          |
 | Share photo                                                         | Yes          |
 | Share screen                                                        | Yes          |
 | Share video                                                         | Yes          |
 | Start/Stop video                                                    | Yes          |
 | UI Event: in call user tile touch                                   | Yes          |
 | UI Event: name plate touch                                          | Yes          |
-| View sharing                                                        | Yes          |
-| Supports 56 languages                                               | Yes          |
-| Chat                                                                | No           |
-| Customize the screen background color​                               | No          |
-| Customize the top/bottom bar color​                                  | No          |
-| Call PSTN                                                           | No           |
-| Recording and transcript                                            | No           |
+| Customize the screen background color​                               | No           |
+| Customize the top/bottom bar color​                                  | No           |
 | Whiteboard sharing                                                  | No           |
-| Breaking into rooms                                                 | No           |
 | *Pre-meeting experience*                                            |              |
-| Join group call with GUID and ACS token                             | Yes          |
-| Join meeting with Live meeting URL and ACS token                    | Yes          |
-| Join meeting with meeting URL and ACS token                         | Yes          |
-| Join via waiting in lobby                                           | Yes          |
-| Joining can configure display name, enable photo   sharing          | Yes          |
+| Joining can configure display name, enable photo sharing            | Yes          |
 | Joining can configure to show call staging view (pre call screen)   | Yes          |
 | Joining can configure to show name plate on call screen             | Yes          |
-| Customize the looby, join button background color​                   | No          |
-| Customize the looby, screen background color​                        | No          |
+| Customize the looby, join button background color​                   | No           |
+| Customize the looby, screen background color​                        | No           |
 
 For more information about how to start into the Embed SDK,[Getting Started guide.](../../quickstarts/meeting/getting-started-with-teams-embed.md) or if you want to learn more about the SDK capabilities see the [samples guide](../../quickstarts/meeting/samples-for-teams-embed.md)
