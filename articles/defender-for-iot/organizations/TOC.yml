@@ -36,6 +36,9 @@
       - name: Install software
         displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
         href: how-to-install-software.md
+      - name: Connect sensors with a proxy
+        displayName: Squid, proxy, connect, direct internet access, access, internet
+        href: how-to-connect-sensor-by-proxy.md
   - name: Prepare your on-premises management console
     items:
     - name: Manage subscriptions
