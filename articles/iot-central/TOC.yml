@@ -232,10 +232,6 @@
           href: core/howto-use-location-data.md
         - name: Configure rules
           href: core/howto-configure-rules.md
-        - name: Create webhooks on rules
-          href: core/howto-create-webhooks.md
-        - name: Connect Azure Monitor action groups on rules
-          href: core/howto-use-action-groups.md
         - name: Analyze your device data
           href: core/howto-create-analytics.md
         - name: Export data to cloud destinations
