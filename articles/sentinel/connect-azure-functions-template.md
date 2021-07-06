@@ -32,13 +32,13 @@ The <PRODUCT NAME> connector allows you to easily connect your <PRODUCT NAME>'s 
 
 The following are required to connect <PRODUCT NAME> to Azure Sentinel:
 
-- Read and write permissions on the Azure Sentinel workspace.
+- You must have read and write permissions on the Azure Sentinel workspace.
 
-- Read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
-- Read and write permissions on Azure Functions, to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
+- You must have read and write permissions on Azure Functions, to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 
-- Optional - data / credentials requirements
+- You will also need credentials for accessing the product's API - either a username and password, a token, a key, or some other combination. You may also need other API information such as an endpoint URI. This information can be found in each product's documentation. You can find the relevant links in your product's section on the [Partner data connectors](partner-data-connectors.md) page.
 
 ## Configure and connect your data source
 
