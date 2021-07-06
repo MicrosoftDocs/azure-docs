@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Ingestion Client for the Speech service
 
-The Ingestion Client is a tool released on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/ingestion) that enables customers to transcribe audio files through Speech services quickly with little or no development effort. It works by wiring up a dedicated [Azure storage](https://azure.microsoft.com/en-us/product-categories/storage/) account to custom [Azure Functions](https://azure.microsoft.com/en-gb/services/functions/) that use either the [REST API](rest-speech-to-text.md) or the [SDK](speech-sdk.md) in a serverless fashion to pass transcription requests to the service.  
+The Ingestion Client is a tool released on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/ingestion) that enables customers to transcribe audio files through Speech services quickly with little or no development effort. It works by wiring up a dedicated [Azure storage](https://azure.microsoft.com/product-categories/storage/) account to custom [Azure Functions](https://azure.microsoft.com/services/functions/) that use either the [REST API](rest-speech-to-text.md) or the [SDK](speech-sdk.md) in a serverless fashion to pass transcription requests to the service.  
 
 ## Architecture
 
@@ -28,16 +28,16 @@ Internally, the tool uses our V3.0 Batch API or SDK, and follows best practices 
 The [Getting Started Guide for the Ingestion Client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/ingestion/ingestion-client/Setup/guide.md) describes how to setup and use the tool.
 
 > [!IMPORTANT]
-> Pricing varies depending on the mode of operation (batch vs real time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Visit the [Pricing](https://azure.microsoft.com/en-gb/pricing/details/functions/) page for more information.
+> Pricing varies depending on the mode of operation (batch vs real time) as well as the Azure Function SKU selected. By default the tool will create a Premium Azure Function SKU to handle large volume. Visit the [Pricing](https://azure.microsoft.com/pricing/details/functions/) page for more information.
 
 Both, the Microsoft [Speech SDK](speech-sdk.md) and the [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), can be used to obtain transcripts. The decision does impact overall costs as it is explained in the guide. 
 
 > [!TIP]
 > You can use the tool and resulting solution in production to process a high volume of audio.
 
-## Tool Customization
+## Tool customization
 
-The tool is built to show customers results quickly. You can customize the tool to your preferred SKUs and setup. The SKUs can be edited from the [Azure Portal](https://portal.azure.com) and [the code itself is available on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
+The tool is built to show customers results quickly. You can customize the tool to your preferred SKUs and setup. The SKUs can be edited from the [Azure portal](https://portal.azure.com) and [the code itself is available on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch).
 
 > [!NOTE]
 > We suggest creating the resources in the same dedicated resource group to understand and track costs more easily.
