@@ -29,6 +29,9 @@ Azure Bastion needs to be able to communicate with certain internal endpoints to
 
 Note that if you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion is *not* supported with these setups.
 
+The use of Azure Bastion is also not supported with Azure Private DNS Zones in national clouds.
+
+
 ### <a name="rdpssh"></a>Do I need an RDP or SSH client?
 
 No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virtual machine in your Azure portal. Use the [Azure portal](https://portal.azure.com) to let you get RDP/SSH access to your virtual machine directly in the browser.
