@@ -36,7 +36,7 @@ The following table shows features and corresponding SKUs.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-For more information about SKUs, including how to upgrade a SKU, see the [Azure Bastion configuration settings](configuration-settings.md) article. 
+For more information about SKUs, including how to upgrade a SKU, see the [Configuration settings - SKU](configuration-settings.md#skus) article. 
 
 ## <a name="architecture"></a>Architecture
 
@@ -57,6 +57,8 @@ This figure shows the architecture of an Azure Bastion deployment. In this diagr
 ## <a name="host-scaling"></a>Host scaling
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
+
+For more information, see [Configuration settings - host scaling](configuration-settings.md#instance).
 
 ## <a name="new"></a>What's new?
 
