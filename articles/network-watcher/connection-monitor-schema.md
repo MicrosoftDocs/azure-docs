@@ -1,6 +1,6 @@
 ---
-title: Connection Monitor schema | Microsoft Docs
-description: Understand schema of Connection Monitor.
+title: Azure Network Watcher Connection Monitor schema | Microsoft Docs
+description: Understand schema of Azure Network Watcher Connection Monitor.
 services: network-watcher
 documentationcenter: na
 author: mjha
@@ -16,7 +16,7 @@ ms.date: 07/05/2021
 ms.author: mjha
 ---
 
-# Azure Connection Monitor schema
+# Azure Network Watcher Connection Monitor schema
 
 Connection Monitor provides unified end-to-end connection monitoring in Azure Network Watcher. The Connection Monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
