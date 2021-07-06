@@ -39,15 +39,12 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 8. Select **Save**.
 
 ## Securing the API endpoint
-You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication (preview). In either case, you provide the credentials that Azure Active Directory will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
+You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure Active Directory will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
 
 ### HTTP basic authentication
 HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure Active Directory sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string `username:password`. Your API then checks these values to determine whether to reject an API call or not.
 
-### HTTPS client certificate authentication (preview)
-
-> [!IMPORTANT]
-> This functionality is in preview and is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### HTTPS client certificate authentication 
 
 Client certificate authentication is a mutual certificate-based authentication method where the client provides a client certificate to the server to prove its identity. In this case, Azure Active Directory will use the certificate that you upload as part of the API connector configuration. This happens as a part of the SSL handshake. Your API service can then limit access to only services that have proper certificates. The client certificate is an PKCS12 (PFX) X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
 
@@ -59,7 +56,7 @@ To create a certificate, you can use [Azure Key Vault](../../key-vault/certifica
 - **Key Size**: `2048`
 - **Exportable Private Key**: `Yes` (in order to be able to export pfx file)
 
-You can then [export the certificate](../../key-vault/certificates/how-to-export-certificate.md). You can alternatively use PowerShell's [New-SelfSignedCertificate cmdlet](../../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) to generate a self-signed certificate.
+You can then [export the certificate](../../key-vault/certificates/how-to-export-certificate.md). 
 
 After you have a certificate, you can then upload it as part of the API connector configuration. Note that password is only required for certificate files protected by a password.
 
