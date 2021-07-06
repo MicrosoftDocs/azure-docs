@@ -113,7 +113,7 @@ Entity behavior in Azure Sentinel allows users to review and investigate actions
 To maximize threat intelligence-based detections, make sure to use threat intelligence data connectors to ingest indicators of compromise:
 
 - Connect data sources required by the [Fusion](fusion.md) and [TI Map alerts](import-threat-intelligence.md)
-- Ingest indicators from [TAXII or MISP platforms](connect-threat-intelligence.md)
+- Ingest indicators from [TAXII and TIP platforms](connect-threat-intelligence.md)
 
 Use indicators of compromise in analytics rules, when threat hunting, investigating logs, or generating additional incidents.
 
