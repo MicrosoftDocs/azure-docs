@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: overview
-ms.date: 06/22/2021
+ms.date: 07/06/2021
 ms.author: cherylmc
 
 ---
@@ -30,13 +30,11 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion has two available SKUs, Basic and Standard. The Standard SKU is in Preview.
-
-The following table shows features and corresponding SKUs.
+Azure Bastion has two available SKUs, Basic and Standard. The following table shows features and corresponding SKUs.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
-For more information about SKUs, including how to upgrade a SKU, see the [Azure Bastion configuration settings](configuration-settings.md) article. 
+The Standard SKU is currently in Preview. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article. 
 
 ## <a name="architecture"></a>Architecture
 
@@ -57,6 +55,8 @@ This figure shows the architecture of an Azure Bastion deployment. In this diagr
 ## <a name="host-scaling"></a>Host scaling
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
+
+For more information, see the [Configuration settings](configuration-settings.md#instance) article.
 
 ## <a name="new"></a>What's new?
 
