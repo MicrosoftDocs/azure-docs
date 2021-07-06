@@ -131,6 +131,8 @@
       href: signalr-howto-troubleshoot-guide.md
     - name: Troubleshooting methods
       href: signalr-howto-troubleshoot-method.md
+    - name: Troubleshooting with live trace tool
+      href: signalr-howto-troubleshoot-live-trace.md
 
 - name: References
   items:

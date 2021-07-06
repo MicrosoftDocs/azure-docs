@@ -1,8 +1,8 @@
 ---
 title: Access Azure Cosmos DB Cassandra API from Azure Databricks
 description: This article covers how to work with Azure Cosmos DB Cassandra API from Azure Databricks.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
