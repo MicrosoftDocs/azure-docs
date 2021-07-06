@@ -31,7 +31,7 @@ Typically, Availability Zones are used to deploy VMs in a High Availability conf
 
 However, in some scenarios, Availability Zones can be leveraged for Disaster Recovery:
 
-- Many customers who had a metro Disaster Recovery strategy while hosting applications on premise sometimes look to mimic this strategy once they migrate applications over to Azure. These customers acknowledge the fact that metro Disaster Recovery strategy may not work in case of a large-scale physical disaster and accept this risk. For such customers, Zone to Zone Disaster Recovery can be used as a Disaster Recovery option.
+- Many customers who had a metro Disaster Recovery strategy while hosting applications on-premises sometimes look to mimic this strategy once they migrate applications over to Azure. These customers acknowledge the fact that metro Disaster Recovery strategy may not work in case of a large-scale physical disaster and accept this risk. For such customers, Zone to Zone Disaster Recovery can be used as a Disaster Recovery option.
 
 - Many other customers have complicated networking infrastructure and do not wish to recreate it in a secondary region due to the associated cost and complexity. Zone to Zone Disaster Recovery reduces complexity as it leverages redundant networking concepts across Availability Zones making configuration much simpler. Such customers prefer simplicity and can also use Availability Zones for Disaster Recovery.
 
@@ -73,7 +73,7 @@ Before deploying Zone to Zone Disaster Recovery for your VMs, it is important to
 |Managed disks    |    Supported    |
 |Customer-managed keys    |    Supported    |
 |Proximity placement groups    |    Supported    |
-|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore and not supported.    |
+|Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore are not supported.    |
 |Hot add/remove    |    Disks can be added after enabling zone to zone replication. Removal of disks after enabling zone to zone replication is not supported.    |	
 
 ## Set up Site Recovery Zone to Zone Disaster Recovery

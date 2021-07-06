@@ -52,11 +52,11 @@ Azure Machine Learning uses the concept of endpoints and deployments to implemen
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
-- CLI
+- the Azure CLI
 - ARM/REST API
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
-- Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
+- Support for CI/CD MLOps pipelines using the Azure CLI interface & REST/ARM interfaces
 
 ## What are online endpoints (preview)?
 
