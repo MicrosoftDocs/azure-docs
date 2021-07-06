@@ -43,7 +43,7 @@ A virtual hub is a virtual network that is created and used by Virtual WAN. It's
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot shows Create VPN site page with the Basics tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot showing the Create VPN site page with the Basics tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png":::
 
    * **Region** - Previously referred to as location. It's the location you want to create this site resource in.
    

@@ -41,7 +41,7 @@ Azure VMware Solution provides native support for virtualized WSFC. It supports 
 
 The following diagram illustrates the architecture of WSFC virtual nodes on an Azure VMware Solution private cloud. It shows where Azure VMware Solution resides, including the WSFC virtual servers (red box), in relation to the broader Azure platform. This diagram illustrates a typical hub-spoke architecture, but a similar setup is possible with the use of Azure Virtual WAN. Both offer all the value other Azure services can bring you.
 
-:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Architecture diagram of Windows Server Failover Cluster virtual nodes on an Azure VMware Solution private cloud." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
+:::image type="content" source="media/windows-server-failover-cluster/windows-server-failover-architecture.svg" alt-text="Diagram of Windows Server Failover Cluster virtual nodes on an Azure VMware Solution private cloud." border="false" lightbox="media/windows-server-failover-cluster/windows-server-failover-architecture.svg":::
 
 ## Supported configurations
 
@@ -89,7 +89,7 @@ Currently, the configurations supported are:
 | Multi-writer flag | Not used |
 | Disk format | Thick provisioned. (Eager Zeroed Thick (EZT) isn't required with vSAN.) |
 
-:::image type="content" source="media/windows-server-failover-cluster/edit-settings-virtual-hardware.png" alt-text="A screenshot showing the Edit Settings page for virtual hardware.":::
+:::image type="content" source="media/windows-server-failover-cluster/edit-settings-virtual-hardware.png" alt-text="Screenshot showing the Edit Settings page for virtual hardware.":::
 
 ## Non-supported scenarios
 
