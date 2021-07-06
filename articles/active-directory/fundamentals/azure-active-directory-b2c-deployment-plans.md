@@ -190,11 +190,11 @@ To address basic compliance requirements, consider:
 
 - Check if it's required to store data into a separate database store. If so, check if this information must never be written into the directory.
 
-### User experience/UX
+### User experience
 
-Consider the sample checklist to define the UX requirements:
+Consider the sample checklist to define the requirements:
 
-- Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots of sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
+- Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
 
 - Look for existing hints passed through using queryString parameters in your current CIAM solution.
 
