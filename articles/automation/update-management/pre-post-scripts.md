@@ -60,7 +60,42 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 |SoftwareUpdateConfiguationSettings.AzureVirtualMachines     |String array | A list of resourceIds for the Azure VMs in the update deployment.        |
 |SoftwareUpdateConfigurationSettings.NonAzureComputerNames|String array |A list of the non-Azure computers FQDNs in the update deployment.|
 
-The following example is a JSON string passed in to the **SoftwareUpdateConfigurationRunContext** parameter:
+The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Linux computer:
+
+```json
+SoftwareUpdateConfigurationRunContext": {
+    "SoftwareUpdateConfigurationName": "sampleConfiguration",
+    "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
+    "SoftwareUpdateConfigurationSettings": {
+      "OperatingSystem": 2,
+      "WindowsConfiguration": null,
+      "LinuxConfiguration": {
+       "IncludedPackageClassifications": 7,
+       "ExcludedPackageNameMasks": "fgh xyz",
+       "IncludedPackageNameMasks": "abc bin*",
+       "RebootSetting": "IfRequired"
+      },
+      "Targets": {
+      "azureQueries": null,
+      "nonAzureQueries": ""
+      },
+      "NonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+      ],
+      "AzureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02"
+      ],
+      "Duration": "02:00:00",
+      "PSComputerName": "localhost",
+      "PSShowComputerName": true,
+      "PSSourceJobInstanceId": "00000000-0000-0000-0000-000000000000"
+    }
+  }
+```
+
+The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Windows computer:
 
 ```json
 "SoftwareUpdateConfigurationRunContext": {
@@ -78,9 +113,9 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
         "rebootSetting": "IfRequired"
       },
       "azureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
       ],
       "nonAzureComputerNames": [
         "box1.contoso.com",
