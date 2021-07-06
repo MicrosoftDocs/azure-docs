@@ -132,19 +132,6 @@ You can create IoT Central application using a 7-day free trial, or use a standa
 - Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.
 - Applications you create using the *standard* plan are billed on a per device basis, you can choose either **Standard 0**, **Standard 1**, or **Standard 2** pricing plan with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing).
 
-## Quotas
-
-Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
-
-## Known issues
-
-- Continuous data export doesn't support the Avro format (incompatibility).
-- GeoJSON isn't currently supported.
-- Map tile isn't currently supported.
-- Array schema types aren't supported.
-- Only the C device SDK and the Node.js device and service SDKs are supported.
-- IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
-
 ## Next steps
 
 Now that you have an overview of IoT Central, here are some suggested next steps:
