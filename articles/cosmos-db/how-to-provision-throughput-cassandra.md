@@ -1,12 +1,12 @@
 ---
 title: Provision throughput on Azure Cosmos DB Cassandra API resources
 description: Learn how to provision container, database, and autoscale throughput in Azure Cosmos DB Cassandra API resources. You will use Azure portal, CLI, PowerShell and various other SDKs. 
-author: markjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
