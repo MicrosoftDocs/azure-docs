@@ -131,7 +131,7 @@
       href: Tutorials/guided-conversations.md
     - name: Add multiple domains to bot
       href: Tutorials/create-faq-bot-for-multiple-domains.md
-    - name: Enhance knowledge base with Active Learning
+    - name: Enhance knowledge bases with active learning
       href: Tutorials/active-learning.md
     - name: Add knowledge bases in multiple languages
       href: Tutorials/multiple-languages.md
