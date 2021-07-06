@@ -125,13 +125,13 @@
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
   - name: Integrate with Power Virtual Agent
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
-  - name: Customize your bot
+  - name: Customize your FAQ bot
     items:
     - name: Create Guided conversations with multi-turn prompts
       href: Tutorials/guided-conversations.md
-    - name: Add multiple domains to FAQ Bot
+    - name: Add multiple domains to bot
       href: Tutorials/create-faq-bot-for-multiple-domains.md
-    - name: Improve knowledge bases with Active Learning
+    - name: Enhance knowledge base with Active Learning
       href: Tutorials/active-learning.md
     - name: Add knowledge bases in multiple languages
       href: Tutorials/multiple-languages.md
