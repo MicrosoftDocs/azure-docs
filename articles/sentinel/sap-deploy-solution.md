@@ -198,8 +198,7 @@ To run the SAP data connector deployment script, you'll need the following detai
 - The SAP user you created in [Configure your SAP system](#configure-your-sap-system), with the **/MSFTSEN/SENTINEL_CONNECTOR** role applied.
 - The help of your SAP team.
 
-
-**To run the SAP solution deployment script**:
+### Run the SAP solution deployment script
 
 1. Run the following command to deploy the SAP solution on your VM:
 
@@ -221,9 +220,9 @@ To run the SAP data connector deployment script, you'll need the following detai
     docker logs -f sapcon-[SID]
     ```
 
-## Collect SAP HANA audit logs
+### Collect SAP HANA audit logs
 
-When your SAP HANA audit log trail is configured to use Syslog, you'll need to configure the Log Analytics agent to get the operating system Syslog files from your system.
+Make sure to configure your Log Analytics agent in order to collect operating system Syslog files from your system.
 
 1. Make sure that the SAP HANA audit log trail is configured to use Syslog as described in *SAP Note 0002624117*, accessible from the [SAP Launchpad support site](https://launchpad.support.sap.com/#/notes/0002624117). For more information, see:
 
