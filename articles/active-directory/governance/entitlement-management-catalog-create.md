@@ -29,6 +29,9 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 
+> [!NOTE]
+> The ability for a user in the user administrator to create catalogs or manage access packages in a catalog they do not own will be removed. If users in your organization have been using membership of this role for configuring catalogs, access packages or policies in entitlement management, please assign the **Identity Governance administrator** role to those users.
+
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs**.
