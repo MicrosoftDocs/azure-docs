@@ -232,10 +232,6 @@
           href: core/howto-use-location-data.md
         - name: Configure rules
           href: core/howto-configure-rules.md
-        - name: Create webhooks on rules
-          href: core/howto-create-webhooks.md
-        - name: Connect Azure Monitor action groups on rules
-          href: core/howto-use-action-groups.md
         - name: Analyze your device data
           href: core/howto-create-analytics.md
         - name: Export data to cloud destinations
@@ -288,8 +284,6 @@
           href: core/howto-monitor-application-health.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
-        - name: Roll X.509 certificates
-          href: core/how-to-roll-x509-certificates.md
         - name: Manage from the Azure portal
           href: core/howto-manage-iot-central-from-portal.md
         - name: Manage from Azure CLI
