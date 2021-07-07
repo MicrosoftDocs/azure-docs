@@ -55,7 +55,7 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
 1. Return to the browser tab for your Azure Active Directory B2C tenant in the Azure portal. Select **App registrations** >  **+ New registration**.
 1. In the **Register an application** page, enter your application's registration information.
     * In the **Name** section, enter an application name of your choosing.
-    * In the **Supported account types** section, choose the type of accounts that is appropriate for your scenario. For example, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. For more information, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
+    * In the **Supported account types** section, choose the type of accounts that are appropriate for your scenario. To target a wide set of customers, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. For more information, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
     * In **Redirect URI**, enter the Redirect URL your copied from your API Management instance.
     * In **Permissions**, select **Grant admin consent to openid and offline_access permissions.**
     * Select **Register** to create the application.
@@ -79,6 +79,7 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
     * The **Authority** field lets you control the Azure AD B2C login URL to use. Set the value to **<your_b2c_tenant_name>.b2clogin.com**.
     * Specify the **Signup Policy** and **Signin Policy** from the B2C tenant policies.
     * Optionally provide the **Profile Editing Policy** and **Password Reset Policy**.
+
          :::image type="content" source="media/api-management-howto-aad-b2c/add-identity-provider.png" alt-text="Active Directory B2c identity provider configuration":::
 1. After you've specified the desired configuration, select **Add**.
 
@@ -93,7 +94,8 @@ In the developer portal, sign-in with Azure AD B2C is possible with the **Sign-i
 
 1. To sign in by using Azure Active Directory B2C, open a new browser window and go to the developer portal. Select **Sign in**.
 
-1. Select **Azure Active Directory B2C**.
+1. On the **Sign in** page, select **Azure Active Directory B2C**.
+
     :::image type="content" source="media/api-management-howto-aad-b2c/developer-portal-sign-in.png" alt-text="Sign in to developer portal":::
 1. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address in the Active Directory B2C tenant
 
