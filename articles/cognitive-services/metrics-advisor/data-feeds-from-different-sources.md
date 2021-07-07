@@ -318,7 +318,7 @@ data feed, it needs to wait at least 10 minutes after deletion.
     ```
 
 
-* **Connection String**: Navigate to the **Event Hubs Instance** first. Then add a new or choose an existing Shared access policy. Copy the connection string in the pop-up panel.
+* **Connection String**: Navigate to the **Event Hubs Instance** first. Then add a new policy or choose an existing Shared access policy. Copy the connection string in the pop-up panel.
     ![eventhubs](media/datafeeds/entities-eventhubs.jpg)
     
     ![shared access policies](media/datafeeds/shared-access-policies.jpg)
