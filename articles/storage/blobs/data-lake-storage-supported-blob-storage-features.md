@@ -29,6 +29,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Blob storage PowerShell commands|Generally available|Generally available|[Quickstart: Upload, download, and list blobs with PowerShell](storage-quickstart-blobs-powershell.md)|
 |Blob storage Azure CLI commands|Generally available|Generally available|[Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)|
 |Blob storage APIs|Generally available|Generally available|[Quickstart: Azure Blob storage client library v12 for .NET](storage-quickstart-blobs-dotnet.md)<br>[Quickstart: Manage blobs with Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Quickstart: Manage blobs with Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|
+|Customer-managed keys|Generally available|Generally available|[Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json)|
 |Diagnostic logs|Generally available|Preview |[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Archive Access Tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Lifecycle management policies (tiering)|Generally available|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
