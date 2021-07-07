@@ -55,10 +55,11 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
 1. Return to the browser tab for your Azure Active Directory B2C tenant in the Azure portal. Select **App registrations** >  **+ New registration**.
 1. In the **Register an application** page, enter your application's registration information.
     * In the **Name** section, enter an application name of your choosing.
-    * In the **Supported account types** section, you must select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
+    * In the **Supported account types** section, choose the type of accounts that is appropriate for your scenario. For example, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. For more information, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
     * In **Redirect URI**, enter the Redirect URL your copied from your API Management instance.
     * In **Permissions**, select **Grant admin consent to openid and offline_access permissions.**
     * Select **Register** to create the application.
+
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-app-registration.png" alt-text="Register a new application":::
 
 1. On the app **Overview** page, find the **Application (client) ID** and copy the value to the clipboard.
@@ -76,9 +77,9 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
 1. Switch back in the API Management **Add identity provider** page.
     * In **Signin tenant**, specify the domain name of the Azure Active Directory B2C tenant.
     * The **Authority** field lets you control the Azure AD B2C login URL to use. Set the value to **<your_b2c_tenant_name>.b2clogin.com**.
-    * Specify the **Signup Policy** and **Signin Policy** from the B2C tenant policies
+    * Specify the **Signup Policy** and **Signin Policy** from the B2C tenant policies.
     * Optionally provide the **Profile Editing Policy** and **Password Reset Policy**.
-     :::image type="content" source="media/api-management-howto-aad-b2c/add-identity-provider.png" alt-text="Active Directory B2c identity provider configuration":::
+         :::image type="content" source="media/api-management-howto-aad-b2c/add-identity-provider.png" alt-text="Active Directory B2c identity provider configuration":::
 1. After you've specified the desired configuration, select **Add**.
 
 After the changes are saved, developers will be able to create new accounts and sign in to the developer portal by using Azure Active Directory B2C.
