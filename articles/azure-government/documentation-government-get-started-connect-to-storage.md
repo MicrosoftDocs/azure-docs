@@ -80,16 +80,15 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### Java
-1. Download the [Azure Data Tables SDK for Java](https://search.maven.org/artifact/com.azure/azure-data-tables) and configure your project correctly.
+1. Download the [Azure Data Tables SDK for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
 2. Create a "test" class where we'll access Azure Table Storage using the Azure Data Tables API. 
  Copy and paste the code below, and **paste** your Storage Account connection string into the storageConnectionString variable. 
- 
     ```java
     import com.azure.data.tables.implementation.ModelHelper;
     import com.azure.data.tables.models.*;
     import java.util.HashMap;
     public class test {
-        public static final String storageConnectionString = //Paste in your Storage Account connection string
+        public static final String storageConnectionString = '#your storage connection string';
         public static void main(String[] args) {
         try
         {
@@ -119,25 +118,25 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### Node.js
-1. Download the [Azure Storage SDK for Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md#configure-your-storage-connection-string) and configure your application correctly.
+1. Download the [Azure Storage Blob SDK for Node.js](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) and configure your application correctly.
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
     **Paste** your Azure Storage account connection string into the storageConnectionString variable below. 
 
     ```javascript
     var { BlobServiceClient } = require("@azure/storage-blob");
-    var storageConnectionString = //Paste Azure Storage connection string here
+    var storageConnectionString = '#your storage connection string';
     var blobServiceClient = BlobServiceClient.fromConnectionString(storageConnectionString);
     var containerClient = blobServiceClient.getContainerClient('testing');
     containerClient.createIfNotExists();
     ```
 
 #### Python
-1. Download the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
+1. Download the [Azure Storage Blob SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob).
 2. When using the Storage SDK for Python to connect to Azure Government, **Paste** in your Azure storage connection string in the placeholders below.
     
     ```python
     # Create the BlobServiceClient that is used to call the Blob service for the storage account
-    blob_service_client = BlobServiceClient.from_connection_string(conn_str='#your connection string')
+    blob_service_client = BlobServiceClient.from_connection_string(conn_str='#your storage connection string')
     container_name ='ml-gov-demo'
     container = blob_service_client.get_container_client(container=container_name)
     generator = container.list_blobs()
