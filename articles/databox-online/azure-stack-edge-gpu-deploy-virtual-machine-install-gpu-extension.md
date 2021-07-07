@@ -18,6 +18,9 @@ ms.author: alkohli
 
 This article describes how to install GPU driver extension to install appropriate Nvidia drivers on the GPU VMs running on your Azure Stack Edge device. The article covers installation steps for GPU extension on both Windows and Linux VMs.
 
+> [!NOTE]
+> In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Install a GPU virtual machine](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
+
 
 ## Prerequisites
 
