@@ -23,19 +23,19 @@ An Azure Compute Gallery helps you build structure and organization around your 
 - Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
-Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
+With a gallery, you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
 If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use a Shared Image Gallery as a repository. 
 
-The Shared Image Gallery feature has multiple resource types:
+The there are multiple resource types that are created when you use a gallery for storing images:
 
 | Resource | Description|
 |----------|------------|
-| **Image source** | This is a resource that can be used to create an **image version** in an image gallery. An image source can be an existing Azure VM that is either [generalized or specialized](#generalized-and-specialized-images), a managed image, a snapshot, a VHD or an image version in another image gallery. |
-| **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Image definitions are created within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
+| **Image source** | This is a resource that can be used to create an **image version** in a gallery. An image source can be an existing Azure VM that is either [generalized or specialized](#generalized-and-specialized-images), a managed image, a snapshot, a VHD or an image version in another gallery. |
+| **Gallery** | Like the Azure Marketplace, a **gallery** is a repository for managing and sharing images and other resources, but you control who has access. |
+| **Image definition** | Image definitions are created within a gallery and they carry information about the image and any requirements for using it to create VMs. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 <br>
@@ -201,33 +201,33 @@ You can create Shared Image Gallery resource using templates. There are several 
 
 ## Frequently asked questions 
 
-* [How can I list all the Shared Image Gallery resources across subscriptions?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
-* [Can I move my existing image to the shared image gallery?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
+* [How can I list all the Azure Compute Gallery resources across subscriptions?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
+* [Can I move my existing image to an Azure Compute Gallery?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
 * [Can I create an image version from a specialized disk?](#can-i-create-an-image-version-from-a-specialized-disk)
-* [Can I move the Shared Image Gallery resource to a different subscription after it has been created?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
-* [Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [Can I move the Azure Compute Gallery resource to a different subscription after it has been created?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
+* [Can I replicate my image versions across clouds such as Azure China 21Vianet, Azure Germany, or Azure Government Cloud?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
 * [Can I replicate my image versions across subscriptions?](#can-i-replicate-my-image-versions-across-subscriptions)
 * [Can I share image versions across Azure AD tenants?](#can-i-share-image-versions-across-azure-ad-tenants)
 * [How long does it take to replicate image versions across the target regions?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
 * [What is the difference between source region and target region?](#what-is-the-difference-between-source-region-and-target-region)
 * [How do I specify the source region while creating the image version?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
 * [How do I specify the number of image version replicas to be created in each region?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
-* [Can I create the shared image gallery in a different location than the one for the image definition and image version?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
-* [What are the charges for using the Shared Image Gallery?](#what-are-the-charges-for-using-the-shared-image-gallery)
-* [What API version should I use to create Shared Image Gallery and Image Definition and Image Version?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
-* [What API version should I use to create Shared VM or Virtual Machine Scale Set out of the Image Version?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+* [Can I create the gallery in a different location than the one for the image definition and image version?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
+* [What are the charges for using the Azure Compute Gallery?](#what-are-the-charges-for-using-the-shared-image-gallery)
+* [What API version should I use to create image resources?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
+* [What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
 * [Can I update my Virtual Machine Scale Set created using managed image to use Shared Image Gallery images?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
-### How can I list all the Shared Image Gallery resources across subscriptions?
+### How can I list all the Azure Compute Gallery resources across subscriptions?
 
-To list all the Shared Image Gallery resources across subscriptions that you have access to on the Azure portal, follow the steps below:
+To list all the Azure Compute Gallery resources across subscriptions that you have access to on the Azure portal, follow the steps below:
 
 1. Open the [Azure portal](https://portal.azure.com).
 1. Scroll down the page and select **All resources**.
 1. Select all the subscriptions under which you'd like to list all the resources.
-1. Look for resources of type **Shared image gallery**, .
+1. Look for resources of type **Azure Compute Gallery**, .
   
-To list all the Shared Image Gallery resources across subscriptions that you have permissions to, use the following command in the Azure CLI:
+To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
 ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
@@ -235,7 +235,7 @@ To list all the Shared Image Gallery resources across subscriptions that you hav
 
 For more information, see **Manage gallery resources** using the [Azure CLI](update-image-resources-cli.md) or [PowerShell](update-image-resources-powershell.md).
 
-### Can I move my existing image to the shared image gallery?
+### Can I move my existing image to an Azure Compute Gallery?
  
 Yes. There are 3 scenarios based on the types of images you may have.
 
@@ -252,9 +252,9 @@ Yes. There are 3 scenarios based on the types of images you may have.
 
 Yes, can create a VM from a specialized image using the [CLI](vm-specialized-image-version-cli.md), [PowerShell](vm-specialized-image-version-powershell.md), or API. 
 
-### Can I move the Shared Image Gallery resource to a different subscription after it has been created?
+### Can I move the Azure Compute Gallery resource to a different subscription after it has been created?
 
-No, you can't move the shared image gallery resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an image from another gallery using the [Azure CLI](image-version-another-gallery-cli.md) or [PowerShell](image-version-another-gallery-powershell.md).
+No, you can't move the gallery resource to a different subscription. You can replicate the image versions in the gallery to other regions or copy an image from another gallery using the [Azure CLI](image-version-another-gallery-cli.md) or [PowerShell](image-version-another-gallery-powershell.md).
 
 ### Can I replicate my image versions across clouds such as Azure China 21Vianet or Azure Germany or Azure Government Cloud?
 
@@ -293,19 +293,19 @@ If regional replica count is not specified with each location, then the default 
 
 To specify the common replica count in CLI, use the **--replica-count** argument in the `az sig image-version create` command.
 
-### Can I create the shared image gallery in a different location than the one for the image definition and image version?
+### Can I create the gallery in a different location than the one for the image definition and image version?
 
-Yes, it is possible. But, as a best practice, we encourage you to keep the resource group, shared image gallery, image definition, and image version in the same location.
+Yes, it is possible. But, as a best practice, we encourage you to keep the resource group, gallery, image definition, and image version in the same location.
 
-### What are the charges for using the Shared Image Gallery?
+### What are the charges for using an Azure Compute Gallery?
 
-There are no charges for using the Shared Image Gallery service, except the storage charges for storing the image versions and network egress charges for replicating the image versions from source region to target regions.
+There are no charges for using an Azure Compute Gallery, except the storage charges for storing the image versions and network egress charges for replicating the image versions from source region to target regions.
 
-### What API version should I use to create Shared Image Gallery and Image Definition and Image Version?
+### What API version should I use when creating images?
 
 To work with shared image galleries, image definitions, and image versions, we recommend you use API version 2018-06-01. Zone Redundant Storage (ZRS) requires version 2019-03-01 or later.
 
-### What API version should I use to create Shared VM or Virtual Machine Scale Set out of the Image Version?
+### What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?
 
 For VM and Virtual Machine Scale Set deployments using an image version, we recommend you use API version 2018-04-01 or higher.
 
@@ -313,8 +313,8 @@ For VM and Virtual Machine Scale Set deployments using an image version, we reco
 
 Yes, you can update the scale set image reference from a managed image to a shared image gallery image, as long as the OS type, Hyper-V generation, and the data disk layout matches between the images.
 
-## Troubleshoot Shared Image Gallery issues
-If you have issues with performing any operations on the shared image gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
+## Troubleshoot
+If you have issues with performing any operations on the gallery resources, consult the list of common errors in the [troubleshooting guide](troubleshooting-shared-images.md).
 
 In addition, you can post and tag your question with `azure-virtual-machines-images` at [Q&A](/answers/topics/azure-virtual-machines-images.html).
 
