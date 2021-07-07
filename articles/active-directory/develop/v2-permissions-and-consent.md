@@ -104,11 +104,11 @@ For more information about how to get and use refresh tokens, see the [Microsoft
 
 ## Consent types
 
-Applications in Azure AD rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.
+Applications in Microsoft identity platform rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.
 
 ### Static user consent 
 
-Occurs automatically during the [OAuth 2.0 authorize flow](v2-oauth2-auth-code-flow.md) when you specify the resource that your app wants to interact with. In the static user consent scenario, you must specify all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Azure AD will prompt the user to provide consent at this time.
+In the static user consent scenario, you must specify all the permissions it needs in the app's configuration in the Azure portal. If the user (or administrator, as appropriate) has not granted consent for this app, then Microsoft identity platform will prompt the user to provide consent at this time.
 
 Static permissions also enables administrators to consent on behalf of all users in the organization.
 
