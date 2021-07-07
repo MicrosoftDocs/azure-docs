@@ -9,9 +9,6 @@ ms.topic: include
 
 | Feature | Basic SKU | Standard SKU (Preview) |
 |---|---|---|
-| RDP/SSH sessions directly in portal/browser | Available | Available |
-| Public IP address not required on VM | Available |Available| 
-| Copy & Paste | Available | Available |
 | Access Linux VM Private Keys in Azure Key Vault (AKV) | Available | Available |
 | Custom port & protocol support | Available | Available |
 | Host scaling | N/A | Available |
