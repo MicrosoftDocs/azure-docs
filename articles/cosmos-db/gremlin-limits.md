@@ -1,12 +1,12 @@
 ---
 title: Limits of Azure Cosmos DB Gremlin
 description: Reference documentation for runtime limitations of Graph engine
-author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: sngun
+author: manishmsfte
+ms.author: mansha
 ---
 
 # Azure Cosmos DB Gremlin limits
