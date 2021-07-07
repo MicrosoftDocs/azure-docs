@@ -159,7 +159,7 @@ For bounding boxes, important questions include:
 
 ## Use ML-assisted data labeling
 
-The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. It is only available for image labeling. However, medical images (".dcm") are not included in assisted labeling.
+The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. It is only available for image labeling. Medical images (".dcm") are not included in assisted labeling.
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
