@@ -64,7 +64,7 @@ Building an Azure Communication Services app that Microsoft 365 resources requir
 3. Publishing the application in the Azure Active Directory app gallery
 4. Application authorization from the end user's Azure Active Directory tenant
 
-Authentication and authorization of the end user is through [Microsoft Authentication library flows (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview), while publishing your application to the Azure Directory app gallery is documented [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/publisher-verification-overview).
+Authentication and authorization of the end user is through [Microsoft Authentication library flows (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), while publishing your application to the Azure Directory app gallery is documented [here](https://docs.microsoft.com/azure/active-directory/develop/publisher-verification-overview).
 
 The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
 
