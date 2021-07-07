@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurepowershell

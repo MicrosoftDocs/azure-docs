@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/10/2021
+ms.date: 07/06/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -36,7 +36,7 @@ To enable container soft delete for your storage account by using Azure portal, 
 
 # [PowerShell](#tab/powershell)
 
-To enable container soft delete with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version ??? or later. Next, call the **Enable-AzStorageContainerDeleteRetentionPolicy** command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
+To enable container soft delete with PowerShell, first install the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module, version 3.9.0 or later. Next, call the **Enable-AzStorageContainerDeleteRetentionPolicy** command and specify the number of days for the retention period. Remember to replace the values in angle brackets with your own values:
 
 ```azurepowershell-interactive
 Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-group> `
