@@ -28,15 +28,7 @@ Combining data from a twin graph in Azure Digital Twins with time series data in
 
 ## Using the plugin
 
-In order to get the plugin running on your own Azure Data Explorer cluster that contains time series data, start by running the following command in Azure Data Explorer in order to enable the plugin:
-
-```kusto
-.enable plugin azure_digital_twins_query_request
-```
-
-This command requires **All Databases admin** permission. For more information on the command, see the [`.enable` plugin documentation](/azure/data-explorer/kusto/management/enable-plugin). 
-
-Once the plugin is enabled, you can invoke it within a Kusto query with the following command. There are two placeholders, `<Azure-Digital-Twins-endpoint>` and `<Azure-Digital-Twins-query>`, which are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
+You can invoke the plugin in a Kusto query with the following command. There are two placeholders, `<Azure-Digital-Twins-endpoint>` and `<Azure-Digital-Twins-query>`, which are strings representing the Azure Digital Twins instance endpoint and Azure Digital Twins query, respectively. 
 
 ```kusto
 evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
