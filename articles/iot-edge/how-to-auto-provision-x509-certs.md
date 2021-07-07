@@ -365,7 +365,7 @@ You can use either PowerShell or Windows Admin Center to provision your IoT Edge
 For PowerShell, run the following command with the placeholder values updated with your own values:
 
 ```powershell
-Provision-EflowVm -provisioningType DPSX509 -​scopeId <ID_SCOPE_HERE> -identityCertPath <ABSOLUTE_CERT_DEST_PATH_ON_LINUX_VM> -identityPrivKeyPath <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_LINUX_VM>
+Provision-EflowVm -provisioningType DPSX509 -​scopeId <ID_SCOPE_HERE> -identityCertPath <ABSOLUTE_CERT_DEST_PATH_ON_WINDOWS_HOST> -identityPrivKeyPath <ABSOLUTE_PRIVATE_KEY_DEST_PATH_ON_WINDOWS_HOST>
 ```
 
 ### Windows Admin Center

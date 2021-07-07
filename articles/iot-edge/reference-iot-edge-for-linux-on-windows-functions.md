@@ -161,8 +161,8 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**DpsTPM**, **DpsX509**, or **DpsSymmetricKey**). |
 | symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**DpsSymmetricKey**). |
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
-| identityCertPath | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**ManualX509**, **DpsX509**). |
-| identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your virtual machine for provisioning an IoT Edge device (**ManualX509**, **DpsX509**). |
+| identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
+| identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
 
 For more information, use the command `Get-Help Provision-EflowVm -full`.
 
