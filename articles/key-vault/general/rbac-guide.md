@@ -112,8 +112,8 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
     | Setting | Value |
     | --- | --- |
     | Role | "Key Vault Reader" |
-    | Assign access to | "User, group, or service principal" |
-    | Members | Current user (search my email address) |
+    | Assign access to | Current user |
+    | Members | Search by email address |
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -150,8 +150,8 @@ Above role assignment provides ability to list key vault objects in key vault.
     | Setting | Value |
     | --- | --- |
     | Role | "Key Vault Secrets Officer" |
-    | Assign access to | "User, group, or service principal" |
-    | Members | Current user (search my email address) |
+    | Assign access to | Current user |
+    | Members | Search by email address |
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -192,8 +192,8 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
     | Setting | Value |
     | --- | --- |
     | Role | "Key Vault Secrets Officer" |
-    | Assign access to | "User, group, or service principal" |
-    | Members | Current user (search my email address) |
+    | Assign access to | Current user |
+    | Members | Search by email address |
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
