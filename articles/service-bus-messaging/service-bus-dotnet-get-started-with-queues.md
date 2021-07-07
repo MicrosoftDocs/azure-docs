@@ -53,7 +53,7 @@ This section shows you how to create a .NET Core console application to send mes
 
 1. Replace code in the **Program.cs** with the following code. Here are the important steps from the code.  
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
-    1. Invokes the `CreateSender` method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.     
+    1. Invokes the `CreateSender` method on the `ServiceBusClient` object to create a `ServiceBusSender` object for the specific Service Bus queue.     
     1. Creates a `ServiceBusMessageBatch` object by using the `ServiceBusSender.CreateMessageBatchAsync` method.
     1. Add messages to the batch using the `ServiceBusMessageBatch.TryAddMessage`. 
     1. Sends the batch of messages to the Service Bus queue using the `ServiceBusSender.SendMessagesAsync` method.
