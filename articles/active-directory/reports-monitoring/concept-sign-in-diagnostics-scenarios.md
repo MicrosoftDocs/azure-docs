@@ -81,7 +81,7 @@ If your scenario is not covered in this list, provide feedback by contacting us 
 
 
 
-## Conditional Access  
+## Conditional access  
 
 
 ### Blocked by conditional access 
@@ -127,7 +127,7 @@ The diagnostic section for this scenario shows details about the user sign-in at
 
  
 
-## Multifactor Authentication (MFA)  
+## Multifactor authentication  
 
 ### MFA from other requirements 
 
@@ -175,7 +175,7 @@ An example of this scenario is when policy requires that the user setup MFA only
 
  
 
-## Correct & Incorrect Credential
+## Correct & incorrect credential
 
 ### Successful sign-in 
 
@@ -213,7 +213,7 @@ This diagnostic scenario provides details about the apps, the number of attempts
 
  
 
-## Enterprise App 
+## Enterprise app 
 
 In enterprise applications, there are two points where problems may occur: 
 
@@ -270,7 +270,7 @@ This diagnostic scenario detects a blocked or interrupted sign-in due to the use
 
 For more information, see [Conditional Access for B2B collaboration users](../external-identities/conditional-access.md). 
 
-### Blocked by Risk Policy 
+### Blocked by risk policy 
 
 This scenario is where Identity Protection Policy blocks a sign-in attempt due to the sign-in attempt having been identified as risky. 
 
