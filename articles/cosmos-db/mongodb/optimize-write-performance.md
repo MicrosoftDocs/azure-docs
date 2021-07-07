@@ -22,10 +22,10 @@ When writing data to a sharded API for MongoDB collection, your data is split up
 
 If your application writes a massive amount of data to a single shard, this won't be efficient because the app would be maxing out the throughput of only one shard instead of spreading the load across all of your shards. Your write load will be evenly spread across your collection by writing in parallel to many documents with unique shard key values.
 
-One example of doing this would be to write to a collection that is sharded on the _id field. Because the _id value is generated randomly, writes will be randomly distributed across database shards. However, one caveat of this is that if your collection is sharded on the _id field, queries will only be efficient if they include the _id value in them. In most use cases, it's better to choose a shard key that fits your query model and evenly distributes your data across your sharded collection. 
+One example of doing this would be a product catalog application that is sharded on the category field. Instead of writing to one category (shard) at a time, it's better write to all categories simultaneously to achieve the maximum write throughput. 
 
 ## Reduce the number of indexes
-[Indexing](../mongodb-indexing.md) is a great feature to drastically reduce the time it takes to query your data. For the best query experience, the API for MongoDB enables a wildcard index on your data by default to make queries blazing-fast. However, all indexes, which include wildcard indexes introduce additional load when writing data because writes change the collection and indexes. 
+[Indexing](../mongodb-indexing.md) is a great feature to drastically reduce the time it takes to query your data. For the most flexible query experience, the API for MongoDB enables a wildcard index on your data by default to make queries against all fields blazing-fast. However, all indexes, which include wildcard indexes introduce additional load when writing data because writes change the collection and indexes. 
 
 Reducing the number of indexes to only the indexes you need to support your queries will make your writes faster and cheaper. As a general rule, we recommend the following:
 
@@ -56,4 +56,3 @@ If you are writing more than 1,000 documents at a time per process/thread, clien
 * Learn more about [indexing in the API for MongoDB](../mongodb-indexing.md).
 * Learn more about [Azure Cosmos DB's sharding/partitioning](../partitioning-overview.md).
 * Learn more about [troubleshooting common issues](../mongodb-troubleshoot.md).
-
