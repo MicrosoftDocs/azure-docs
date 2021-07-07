@@ -58,27 +58,25 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Configure your Azure AD B2C tenant
 
-1. [Register](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga) your web application in Azure AD B2C tenant.
+1. [Register](https://docs.datawiza.com/idp/azureb2c.html#microsoft-azure-ad-b2c-configuration) your web application in Azure AD B2C tenant.
 
-2. Configure a Sign-up and sign-in user flow in Azure management portal.
+2. [Configure a Sign-up and sign-in user flow](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow) in Azure management portal.
 
   >[!Note]
   >You'll need the tenant name, user flow name, client ID, and client secret later when you set up DAB in the DCMC.
 
 ## Create an application on DCMC
 
-1. Create an application and generate a key pair of `PROVISIONING_KEY`and `PROVISIONING_SECRET` for this application on the DCMC.
+1. [Create an application](https://docs.datawiza.com/step-by-step/step2.html) and generate a key pair of `PROVISIONING_KEY`and `PROVISIONING_SECRET` for this application on the DCMC.
 
-2. [Configure the DCMC](https://docs.datawiza.com/step-by-step/step2.html).
-
-3. Configure Azure AD B2C as the Identity Provider (Idp)
+2. [Configure Azure AD B2C](https://docs.datawiza.com/tutorial/web-app-azure-b2c.html#part-i-azure-ad-b2c-configuration) as the Identity Provider (Idp)
 
 ![Image show values to configure Idp](./media/partner-datawiza/configure-idp.png)
 
 ## Run DAB with a header-based application
 
-1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided for you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Contact [Datawiza](https://contact@datawiza.com) for access.
-
+1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided for you to download and use. 
+ 
    ```YML
    version: '3'
 
@@ -109,7 +107,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Pass user attributes to the header-based application
 
-1. DAB gets user attributes from IdP and can pass the user attributes to the application via header or cookie. See the instructions on how to [pass user attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application.
+1. DAB gets user attributes from IdP and can pass the user attributes to the application via header or cookie. See the instructions on how to [pass user attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application. Log in to the container registry to download the images of DAB and the header-based application. Follow [these instructions](https://docs.datawiza.com/step-by-step/step3.html#important-step).
 
 2. After successfully configuring the user attributes, you should see the green check sign for each of the user attributes.
 
