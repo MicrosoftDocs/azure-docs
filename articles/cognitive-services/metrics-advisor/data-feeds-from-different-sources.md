@@ -291,7 +291,7 @@ data feed, it needs to wait at least 10 minutes after deletion.
     4. The connection string and consumer group cannot be modified after the data feed is created.
     5. About messages in Event Hubs: Only JSON is supported, and the JSON values cannot be a nested JSON object. The top-level element can be a JSON object or a JSON array.
     
-    Valid messages are like:
+    Valid messages as follows:
 
     ``` JSON
     Single JSON object 
