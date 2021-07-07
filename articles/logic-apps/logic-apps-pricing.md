@@ -135,6 +135,7 @@ This example tries to show how pricing tiers work by providing sample estimates 
   ||||
 
 <a name="integration-service-environment-pricing"></a>
+<a name="fixed-pricing"></a>
 
 ## Integration service environment (ISE)
 
@@ -166,7 +167,7 @@ The following table summarizes how the ISE model handles the following operation
 | Operation type | Description | Metering and billing |
 |----------------|-------------|----------------------|
 | [*Built-in*](../connectors/built-in.md) | These operations run directly and natively with the Azure Logic Apps runtime and in the same ISE as your logic app workflow. In the designer, you can find these operations under the **Built-in** label, but each operation also displays the **CORE** label. <p><p>For example, the HTTP trigger and Request trigger are built-in triggers. The HTTP action and Response action are built-in actions. Other built-in operations include workflow control actions such as loops and conditions, data operations, batch operations, and others. | The ISE model includes built-in operations *for free*. |
-| [*Managed connector*](../connectors/managed.md) | Based on whether a managed connector displays the **ISE** label, *Standard* and *Enterprise* connector operations run in either your ISE or multi-tenant Azure. <p><p>- **ISE** label: These operations run in the same ISE as your logic app and work without requiring the on-premises data gateway. <p><p>- No **ISE** label: These operations run in multi-tenant Azure. | - **ISE** label: The ISE model includes these operations *for free*. <p><p>- No **ISE** label: The ISE model includes these operations *for free*. |
+| [*Managed connector*](../connectors/managed.md) | Based on whether a managed connector displays the **ISE** label, *Standard* and *Enterprise* connector operations run in either your ISE or multi-tenant Azure. <p><p>- **ISE** label: These operations run in the same ISE as your logic app and work without requiring the [on-premises data gateway](#data-gateway). <p><p>- No **ISE** label: These operations run in multi-tenant Azure. | - **ISE** label: The ISE model includes these operations *for free*. <p><p>- No **ISE** label: The ISE model includes these operations *for free*. |
 | [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | In the designer, you can find these operations under the **Custom** label. | The ISE model includes these operations *for free*, but are subject to [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md##custom-connector-limits). |
 ||||
 
@@ -196,11 +197,26 @@ The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) is a
 
 An [integration account](logic-apps-enterprise-integration-create-integration-account.md) is a separate Azure resource that you create as a container to store business-to-business (B2B) artifacts that you create, for example, trading partners, agreements, schemas, maps, and so on. You can then use these artifacts and various B2B operations in workflows to explore, build, and test integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
 
-> [!NOTE]
-> Before you can use an integration account and related artifacts in your workflow, you have to link the integration account to your logic app. 
-> For more information, review [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md).
+### Integration accounts for multi-tenant or single-tenant based logic apps
 
-Azure Logic Apps offers these integration account levels or tiers that [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/) and [billing model](logic-apps-pricing.md#integration-accounts), based on whether your logic app runs in Azure Logic Apps (multi-tenant or single-tenant) or an ISE.
+| | | Multi-tenant
+
+For multi-tenant and single-tenant hosted logic apps, metering and billing for integration accounts use a fixed [integration account price](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use.
+
+### Integration accounts for ISE based logic apps
+
+For ISE hosted logic apps, usage includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Learn more about the [ISE pricing model](#integration-service-environment-pricing) earlier in this topic.
+
+| ISE SKU | Included integration account | Extra cost |
+|---------|------------------------------|-----------------|
+| **Premium** | A single [Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts. No Free or Basic accounts are permitted. |
+| **Developer** | A single [Free](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted. |
+||||
+
+
+, based on whether logic apps are hosted in multi-tenant, single-tenant, or Azure Logic Apps (multi-tenant or single-tenant) or an ISE.
+
+Azure Logic Apps offers the following integration account levels or tiers, which [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/):
 
 | Tier | Description |
 |------|-------------|
@@ -209,29 +225,16 @@ Azure Logic Apps offers these integration account levels or tiers that [vary in 
 | **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md). <p><p>**Note**: Not supported by the Logic Apps SLA. |
 |||
 
-For information about integration account limits, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits), such as:
+For information about integration account limits, review [Integration account limits in Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits), such as:
 
-* [Limits on integration accounts per Azure subscription](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
+> [!NOTE]
+> Before you can use an integration account and related artifacts in your workflow, you have to link the integration account to your logic app. 
+> For more information, review [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md).
 
-* [Limits on various artifacts per integration account](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). Artifacts include trading partners, agreements, maps, schemas, assemblies, certificates, batch configurations, and so on.
 
-### Integration accounts for multi-tenant or single-tenant based logic apps
+<a name="storage-operations"></a>
 
-For multi-tenant and single-tenant hosted logic apps, metering and billing for integration accounts use a fixed [integration account price](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use.
-
-### Integration accounts for ISE based logic apps
-
-For ISE hosted logic apps, usage includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Learn more about the [ISE pricing model](#fixed-pricing) earlier in this topic.
-
-| ISE SKU | Included integration account | Extra cost |
-|---------|------------------------------|-----------------|
-| **Premium** | A single [Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts. No Free or Basic accounts are permitted. |
-| **Developer** | A single [Free](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted. |
-||||
-
-<a name="data-retention"></a>
-
-## Data retention and storage usage
+## Storage operations
 
 Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. The inputs and outputs from your workflow's run history are stored and metered, based on your logic app's [run history retention limit](logic-apps-limits-and-config.md#run-duration-retention-limits).
 You manage storage usage and data retention at the logic app level, not the workflow level. 
@@ -243,13 +246,13 @@ For more information, review the following documentation:
 
 <a name="standard-storage-transactions-billing"></a>
 
-## Storage operations in the Standard model
+### Storage operations in the Standard model
 
 Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. With multi-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
 
 When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice.
 
-### Tips for estimating storage needs and costs
+#### Tips for estimating storage needs and costs
 
 To help you get some idea about the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -258,39 +261,20 @@ For more information, review the following documentation:
 * [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md)
 * [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
 
-
-
 | Environment | Notes |
 |-------------|-------|
 | **Multi-tenant** | Storage usage and retention are billed using a fixed rate, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps), under the **Pricing details** table. |
 | **Single-tenant** | Storage usage and retention are billed using the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice. For more information, review [Storage transactions (single-tenant)](#standard-storage-transactions-billing). |
-| **ISE** | Storage usage and retention don't incur charges. |
+| **ISE** | Storage operations and usage aren't metered or billed. |
 |||
 
 ## Not metered or billed
 
-### Consumption plan - Not metered or billed
+Across all pricing models, the following components that aren't metered or billed:
 
-These items are not metered or billed:
-
-* The initial included number of built-in operation executions, specified by [Consumption plan pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 * Triggers that are skipped due to unmet conditions
 * Actions that didn't run because the workflow stopped before completion
-* [Disabled logic apps](#disabled-apps)
-
-### Standard plan - Not metered or billed
-
-* All built-in operation executions
-* Triggers that are skipped due to unmet conditions
-* Actions that didn't run because the workflow stopped before completion
-* [Disabled logic apps](#disabled-apps)
-
-
-<a name="disabled-apps"></a>
-
-## Disabled logic apps or workflows
-
-Disabled logic apps (multi-tenant) and workflows (single-tenant) don't incur charges because they can't create new instances while they're disabled.
+* Disabled logic apps or workflows because they can't create new instances while they're inactive.
 
 ## Next steps
 
