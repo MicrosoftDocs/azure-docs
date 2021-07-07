@@ -1,13 +1,13 @@
 ---
 title: Micro agent configurations (Preview)
-description: 
+description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
 ms.date: 07/07/2021
 ms.topic: conceptual
 ---
 
 # Configurations
 
-The collector sends all current data immediately after any configuration change is made. The changes are then applied.
+The collector sends all collected data immediately after a configuration change is made. The configuration change is applied after the data transfer is complete.
 
 ## Event based collectors configurations 
 
@@ -33,10 +33,56 @@ These configurations include system information, and baseline collectors.
 
 Define the frequency in which messages are sent for each priority level. The default values are listed below:
 
-| Frequency | Number of messages | Time period |
-| -- | -- | -- |
-| Low | 1440 | 24 hour |
-| Medium | 120 | 2 hours |
-| High | 30 | .5 hours |
+| Frequency | Time period (in minutes) |
+| -- | -- | 
+| Low | 1440 (24 hour) |
+| Medium | 120 (2 hours) |
+| High | 30 (.5 hours) |
 
-To reduce the amount of messages sent to cloud, each priority should be set as a multiple of the one below it. 
+To reduce the amount of messages sent to cloud, each priority should be set as a multiple of the one below it. For example, High: 60 minutes, Medium: 120 minutes, Low: 480 minutes.
+
+## Default module twin 
+
+
+
+```bash
+{ 
+
+   "reported":{ 
+
+      "Process_MessageFrequency":{ 
+
+         "value":"Medium", 
+
+         "status":"success" 
+
+      }, 
+
+      "NetworkActivity_MessageFrequency":{ 
+
+         "value":"Medium", 
+
+         "status":"success" 
+
+      }, 
+
+      "Baseline_MessageFrequency":{ 
+
+         "value":"Low", 
+
+         "status":"success" 
+
+      }, 
+
+      "SystemInformation_MessageFrequency":{ 
+
+         "value":"Low", 
+
+         "status":"success" 
+
+      }, 
+
+   } 
+
+} 
+```
