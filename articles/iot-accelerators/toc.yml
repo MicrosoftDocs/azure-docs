@@ -110,6 +110,6 @@
     - name: Solution Accelerators FAQ
       href: iot-accelerators-faq.md
     - name: Connected Factory FAQ
-      href: iot-accelerators-faq-cf.md
+      href: iot-accelerators-faq-cf.yml
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite

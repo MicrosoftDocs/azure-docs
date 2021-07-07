@@ -299,7 +299,7 @@
       - name: Device connections
         href: core/troubleshoot-connection.md
     - name: FAQ
-      href: core/howto-faq.md
+      href: core/howto-faq.yml
 
 - name: Reference
   items:
