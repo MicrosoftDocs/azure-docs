@@ -183,7 +183,7 @@ Scaling time depends on a few factors. Here are some factors that can affect how
 
 * Amount of data: Larger amounts of data take a longer time to be replicated
 * High write requests: Higher number of writes mean more data replicates across nodes or shards
-* High server load: Higher server load means Azure Cache for Redis is busy and has limited CPU cycles to complete data redistribution
+* High server load: Higher server load means Redis server is busy and has limited CPU cycles to complete data redistribution
 
 Generally, when you scale a cache with no data, it takes approximately 20 minutes. For clustered caches, scaling takes approximately 20 minutes per shard with minimal data.
 
