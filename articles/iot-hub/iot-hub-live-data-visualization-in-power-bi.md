@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 6/08/2020
+ms.date: 7/07/2021
 ms.author: robinsh
 ---
 
