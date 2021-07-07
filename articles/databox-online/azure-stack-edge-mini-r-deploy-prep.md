@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/29/2021
+ms.date: 07/07/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure. 
 ---
@@ -82,7 +82,7 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ---
 
-### [Azure Edge Hardware Center](#tab/azure-edge-hardware-center)
+### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
 
 Azure Edge Hardware Center (Preview) is a new service that lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
 

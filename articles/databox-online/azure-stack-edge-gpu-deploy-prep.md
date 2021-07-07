@@ -102,7 +102,7 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ---
 
-### [Azure Edge Hardware Center](#tab/azure-edge-hardware-center)
+### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
 
 Azure Edge Hardware Center (Preview) is a new service that lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
 
