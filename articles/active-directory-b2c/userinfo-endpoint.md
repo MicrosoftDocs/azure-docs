@@ -268,7 +268,7 @@ A successful response would look like:
 To provide more claims to your app, follow these steps:
 
 1. [Add user attributes and customize user input](configure-user-input.md).
-1. Modify the [Relying party policy technical profile](relyingparty.md#technicalprofile) OutputClaims element with the claims you want to provide. Use the `DefaultValue` attribute to set a default value. You can also set the default value to a [claim resolver](claim-resolver-overview), such as `{Context:CorrelationId}`. To force the use of the default value, set the `AlwaysUseDefaultValue` attribute to `true`. The following example adds the city claim with a default value.
+1. Modify the [Relying party policy technical profile](relyingparty.md#technicalprofile) OutputClaims element with the claims you want to provide. Use the `DefaultValue` attribute to set a default value. You can also set the default value to a [claim resolver](claim-resolver-overview.md), such as `{Context:CorrelationId}`. To force the use of the default value, set the `AlwaysUseDefaultValue` attribute to `true`. The following example adds the city claim with a default value.
     
     ```xml
     <RelyingParty>
