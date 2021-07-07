@@ -95,7 +95,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 ---
 
-To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
+To assign roles using the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  In the Azure portal, the Azure role assignments screen is available for all resources on the Access control (IAM) tab.
 
 ### Resource group scope role assignment
 
@@ -107,7 +107,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
     | --- | --- |
@@ -115,7 +115,7 @@ To assign roles using the Azure portal, see [Assign Azure roles using the Azure 
     | Assign access to | "User, group, or service principal" |
     | Members | Current user (search my email address) |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -145,7 +145,7 @@ Above role assignment provides ability to list key vault objects in key vault.
 1. Go to Key Vault \> Access control (IAM) tab
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
     | --- | --- |
@@ -153,7 +153,7 @@ Above role assignment provides ability to list key vault objects in key vault.
     | Assign access to | "User, group, or service principal" |
     | Members | Current user (search my email address) |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -187,7 +187,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
     
     | Setting | Value |
     | --- | --- |
@@ -195,7 +195,7 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
     | Assign access to | "User, group, or service principal" |
     | Members | Current user (search my email address) |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -319,6 +319,6 @@ For more Information about how to create custom roles, see:
 
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
-- [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 - [Custom Roles Tutorial](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Azure Key Vault best practices](best-practices.md)
