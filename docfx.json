@@ -14,13 +14,28 @@
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
-          "**/*.graffle"
+          "**/*.graffle",
+          "healthcare-apis/**"
         ]
       },
       {
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "healthcare-apis",
+        "src": "articles/healthcare-apis",
+        "dest": "./healthcare-apis/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -59,13 +74,30 @@
         "exclude": [
           "iot-edge/**",
           "**/_themes/**",
-          "**/obj/**"
+          "**/obj/**",
+          "healthcare-apis/**"
         ]
       },
       {
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "healthcare-apis",
+        "src": "articles/healthcare-apis",
+        "dest": "./healthcare-apis/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -98,6 +130,10 @@
       "grp-iot-edge": {
         "dest": "destiotedge",
         "moniker_range": ">=iotedge-2018-06"
+      },
+      "healthcare-apis": {
+        "dest": "desthealthcareapis",
+        "moniker_range": "azureapiforfhir || healthcareapi-1.0.0"
       }
     },
     "overwrite": [],
@@ -275,8 +311,7 @@
         "articles/media-services/**/*.md": "Juliako",
         "articles/notebooks/*.md": "JoshuaPartlow",
         "articles/service-bus-messaging/*.md": "spelluru",
-        "articles/service-fabric/*.md": "erikadoyle",
-        "articles/service-fabric-mesh/*.md": "erikadoyle",
+        "articles/service-fabric/*.md": "sukanyamsft",
         "articles/service-health/*.md": "stephbaron",
         "articles/site-recovery/*.md": "JYOTHIRMAISURI",
         "articles/stream-analytics/*.md": "jasonwhowell",
@@ -624,8 +659,7 @@
         "articles/migrate/*.md": "raynew",
         "articles/notebooks/*.md": "joshuapa",
         "articles/service-bus-messaging/*.md": "spelluru",
-        "articles/service-fabric/*.md": "edoyle",
-        "articles/service-fabric-mesh/*md": "edoyle",
+        "articles/service-fabric/*.md": "sukanyas",
         "articles/service-health/*.md": "stbaron",
         "articles/site-recovery/*.md": "v-jysur",
         "articles/stream-analytics/*.md": "jasonh",
@@ -733,7 +767,6 @@
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/service-bus-messaging/*.md": "service-bus-messaging",
         "articles/service-fabric/*.md": "service-fabric",
-        "articles/service-fabric-mesh/*.md": "service-fabric-mesh",
         "articles/service-health/**/*.md": "service-health",
         "articles/site-recovery/*.md": "site-recovery",
         "articles/terraform/**/*.md": "terraform",
@@ -793,7 +826,14 @@
         "articles/media-services/video-indexer/*.md": "video-indexer"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+
+        "articles/healthcare-apis/azure-api-for-fhir/**": "azureapiforfhir",
+        "articles/healthcare-apis/*.yml": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/*.md": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/fhir/**": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/dicom/**": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/data-transformation/**": "healthcareapi-1.0.0"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
@@ -977,7 +1017,6 @@
         "articles/scheduler/*.md": "Azure Scheduler",
         "articles/service-bus-messaging/*.md": "Azure Service Bus",
         "articles/service-fabric/*.md": "Azure Service Fabric",
-        "articles/service-fabric-mesh/*.md": "Azure Service Fabric Mesh",
         "articles/service-health/**/*.md": "Azure Service Health",
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/site-recovery/**/*.md": "Azure Site Recovery",

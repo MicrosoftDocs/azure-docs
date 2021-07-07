@@ -19,9 +19,41 @@ metadata:
 
 landingContent:
 
-  - title: Start with Data Transformation
+  - title: Export Data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure settings for data export
+            url: configure-export-data.md
+          - text: Exporting your data
+            url: export-data.md
+          - text: De-identified export
+            url: de-identified-export.md
+          - text: Export data to Synapse
+            url: move-to-synapse.md
+
+  - title: Convert Data
     linkLists:
       - linkListType: concept
         links:
-          - text: C-CDA to FHIR Conversion
-            url: ccda-to-fhir-conversion.md
+          - text: $convert-data and FHIR Converter Extension Templates
+            url: convert-data.md
+
+  - title: IoT Connector
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Deploy IoT Connector Using Portal
+            url: iot-fhir-portal-quickstart.md
+          - text: Deploy IoT Connector Using ARM template
+            url: iot-fhir-arm-template-quickstart.md
+      - linkListType: concept
+        links:
+          - text: IoT Connector Data Flow
+            url: iot-data-flow.md
+          - text: Mapping templates for IoT Connector
+            url: iot-mapping-templates.md
+      - linkListType: how-to-guide
+        links:
+          - text: Receive device data through Azure IoT Hub
+            url: device-data-through-iot-hub.md 

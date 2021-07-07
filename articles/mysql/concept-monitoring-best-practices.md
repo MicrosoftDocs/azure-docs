@@ -11,7 +11,7 @@ ms.date: 11/23/2020
 
 # Best practices for monitoring Azure Database for MySQL - Single server
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Learn about the best practices that can be used to monitor your database operations and ensure that the performance is not compromised as data size grows. As we add new capabilities to the platform, we will continue refine the best practices detailed in this section.
 

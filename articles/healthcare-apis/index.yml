@@ -22,31 +22,74 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Healthcare APIs?
+          - text: About Healthcare APIs
             url: healthcare-apis-overview.md
-      - linkListType: quickstart
+  - title: What is a workspace?
+    linkLists:
+      - linkListType: concept
         links:
-          - text: How to get started with Healthcare APIs
+          - text: About workspace
+            url: workspace-overview.md
+  - title: Deploy Healthcare APIs
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Getting started with Healthcare APIs
             url: healthcare-apis-quickstart.md
 
   - title: FHIR
     linkLists:
+      - linkListType: overview
+        links:
+          - text: About FHIR service
+            url: ./fhir/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy FHIR service using Portal
+            url: ./fhir/fhir-paas-portal-quickstart.md
+          - text: Deploy FHIR service using ARM templates
+            url: ./fhir/fhir-paas-arm-template-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Deploy javascript app to read data from FHIR service
+          - text: Deploy JavaScript application
             url: ./fhir/tutorial-web-app-fhir-server.md
-          
-  - title: DICOM
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Overview of DICOM
-            url: ./dicom/dicom-services-overview.md
+          - text: Interoperability and Patient Access
+            url: ./fhir/cms-tutorial-introduction.md
+          - text: Access FHIR API with Postman
+            url: ./fhir/access-fhir-postman-tutorial.md
 
   - title: Data Transformation
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Deploy IoT Connector Using Portal
+            url: ./data-transformation/iot-fhir-portal-quickstart.md
+          - text: Deploy IoT Connector Using ARM template
+            url: ./data-transformation/iot-fhir-arm-template-quickstart.md
+      - linkListType: how-to-guide
+        links:
+          - text: Exporting your data
+            url: ./data-transformation/export-data.md
+          - text: Export data to Synapse
+            url: ./data-transformation/move-to-synapse.md
       - linkListType: concept
         links:
-          - text: C-CDA to FHIR conversion
-            url: ./data-transformation/ccda-to-fhir-conversion.md
-          
+          - text: $convert-data and FHIR Converter Extension Templates
+            url: ./data-transformation/convert-data.md
+
+  - title: DICOM
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About DICOM service 
+            url: ./dicom/dicom-services-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy DICOM Services using the Azure portal
+            url: ./dicom/deploy-dicom-services-in-azure.md
+      - linkListType: tutorial
+        links:
+          - text: Using DICOMweb Standard APIs with Python
+            url: ./dicom/dicomweb-standard-apis-python.md
+
+            

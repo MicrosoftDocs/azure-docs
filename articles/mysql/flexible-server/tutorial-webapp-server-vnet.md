@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Create an Azure Database for MySQL - Flexible Server (Preview) with App Services Web App in virtual network
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 > [!IMPORTANT]

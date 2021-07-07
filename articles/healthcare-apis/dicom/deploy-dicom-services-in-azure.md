@@ -37,7 +37,7 @@ To deploy the DICOM Service, you must have a workspace created in the Azure port
 
    (**Optional**) Select **Next: Tags >**.
 
-    Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources).
+    Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
 5. When you notice the green validation checkmark, select **Create** to deploy the DICOM Service.
 

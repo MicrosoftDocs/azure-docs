@@ -21,7 +21,7 @@ DICOM (Digital Imaging and Communications in Medicine) is the international stan
 
 ## DICOM Service
 
-The DICOM Service is a managed service of the DICOM server that is easily deployed on Azure. DICOM Service injects DICOM metadata into the [Azure API for FHIR service](https://docs.microsoft.com/azure/healthcare-apis/), allowing a single source of truth for both clinical data and imaging metadata. It allows standards-based communication with any DICOMweb&trade; enabled systems.
+The DICOM Service is a managed service of the DICOM server that is easily deployed on Azure. DICOM Service injects DICOM metadata into Azure API for FHIR, allowing a single source of truth for both clinical data and imaging metadata. It allows standards-based communication with any DICOMweb&trade; enabled systems.
 
 The need to effectively integrate non-clinical data has become acute. In order to effectively treat patients, research new treatments, diagnose solutions, or provide an effective overview of the health history of a single patient, organizations must integrate data across several sources. One of the most pressing integrations is between clinical and imaging data.
 
