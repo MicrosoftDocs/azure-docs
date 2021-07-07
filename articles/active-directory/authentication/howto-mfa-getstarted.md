@@ -76,7 +76,7 @@ Authentication methods policy | Authenticator passwordless phone sign-in can be 
 
 Azure AD MFA is enforced with Conditional Access policies. These policies allow you to prompt users for multifactor authentication when needed for security and stay out of users’ way when not needed.
 
-![Conceptual Conditional Access process flow](media/concept-mfa-planhowto-mfa-getstarted/conditional-access-overview-how-it-works.png)
+![Conceptual Conditional Access process flow](media/howto-mfa-getstarted/conditional-access-overview-how-it-works.png)
 
 In the Azure portal, you configure Conditional Access policies under **Azure Active Directory** > **Security** > **Conditional Access**.
 
@@ -110,6 +110,46 @@ Risk policies include:
 - [Require all users to register for Azure AD MFA](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
 - [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
 - [Require MFA for users with medium or high sign-in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
+
+### Convert users from per-user MFA to Conditional Access based MFA
+
+If your users were enabled using per-user enabled and enforced Azure AD Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure AD Multi-Factor Authentication.
+
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally.
+
+```PowerShell
+# Sets the MFA requirement state
+function Set-MfaState {
+
+    [CmdletBinding()]
+    param(
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $ObjectId,
+        [Parameter(ValueFromPipelineByPropertyName=$True)]
+        $UserPrincipalName,
+        [ValidateSet("Disabled","Enabled","Enforced")]
+        $State
+    )
+
+    Process {
+        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
+        $Requirements = @()
+        if ($State -ne "Disabled") {
+            $Requirement =
+                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
+            $Requirement.RelyingParty = "*"
+            $Requirement.State = $State
+            $Requirements += $Requirement
+        }
+
+        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
+                     -StrongAuthenticationRequirements $Requirements
+    }
+}
+
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
+```
 
 ## Plan user session lifetime
 
