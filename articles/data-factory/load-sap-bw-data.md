@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
+ms.date: 07/05/2021
 ---
 
 # Copy data from SAP Business Warehouse by using Azure Data Factory
@@ -38,7 +38,7 @@ This article shows how to use Azure Data Factory to copy data from SAP Business 
 
 ## Do a full copy from SAP BW Open Hub
 
-In the Azure portal, go to your data factory. Select **Author & Monitor** to open the Data Factory UI in a separate tab.
+In the Azure portal, go to your data factory. Select **Open** on the **Open Azure Data Factory Studio** tile to open the Data Factory UI in a separate tab.
 
 1. On the home page, select **Ingest** to open the Copy Data tool.
 
