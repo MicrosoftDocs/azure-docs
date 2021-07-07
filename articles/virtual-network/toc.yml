@@ -79,6 +79,10 @@
       href: private-ip-addresses.md
     - name: Public IP prefix
       href: public-ip-address-prefix.md
+    - name: Manage public IP addresses
+      href: virtual-network-public-ip-address.md
+    - name: Manage public IP prefix
+      href: manage-public-ip-address-prefix.md
     - name: IPv6 for Azure VNet
       href: ipv6-overview.md
     - name: Public IPv6 address prefix
