@@ -39,7 +39,7 @@ The Azure API for FHIR has the following capabilities to help you configure your
 * [Support for RESTful interactions](fhir-features-supported.md)
 * [Storing and validating profiles](validation-against-profiles.md)
 * [Defining and indexing custom search parameters](how-to-do-custom-search.md)
-* [Converting data](convert-data.md)
+* [Converting data](../data-transformation/convert-data.md)
 
 ## Patient Access API Implementation Guides
 

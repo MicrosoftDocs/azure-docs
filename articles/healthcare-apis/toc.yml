@@ -6,3 +6,22 @@ items:
   items:
     - name: About Healthcare APIs
       href: healthcare-apis-overview.md
+    - name: About workspace
+      href: workspace-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Deploy Healthcare APIs
+      href: healthcare-apis-quickstart.md
+- name: FHIR service
+  href: ./fhir/index.yml
+- name: DICOM service
+  href: ./dicom/index.yml
+- name: Data Transformation
+  href: ./data-transformation/index.yml
+- name: FAQ
+  href: healthcare-apis-faqs.yml
+- name: Reference
+
+
+
