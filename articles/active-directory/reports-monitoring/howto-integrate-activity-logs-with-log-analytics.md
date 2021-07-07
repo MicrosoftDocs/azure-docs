@@ -31,7 +31,7 @@ Use the integration of Azure AD activity logs in Azure Monitor logs to perform t
   
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
  
- * Identify sign-ins from applications that use the Active Directory Authentication Library (ADAL) for authentication; [ADAL is nearing end-of-support](../develop/msal-migration.md)).
+ * Identify sign-ins from applications that use the Active Directory Authentication Library (ADAL) for authentication. [ADAL is nearing end-of-support](../develop/msal-migration.md).
 
 This Microsft Ignite session video show the benefits of using Azure Monitor logs for Azure AD logs in practical scenarios:
 
