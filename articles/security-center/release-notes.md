@@ -220,8 +220,7 @@ Learn more about Security Center's vulnerability scanners:
 
 The severity of the recommendation **Sensitive data in your SQL databases should be classified** has been changed from **High** to **Low**.
 
-This is part of the ongoing changes to this recommendation announced in [Enhancements to SQL data classification recommendation](upcoming-changes.md#enhancements-to-sql-data-classification-recommendation). 
-
+This is part of the ongoing changes to this recommendation announced in [Enhancements to recommendation to classify sensitive data in SQL databases](upcoming-changes.md#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases).
 
 ### New recommendations to enable trusted launch capabilities (in preview)
 
