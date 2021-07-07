@@ -5,9 +5,19 @@ ms.date: 1/4/2021
 ms.topic: article
 ---
 
-# Configure QRadar with Defender for IoT
+# About the QRadar integration
 
-This article describes how to configure the Defender for IoT solution integration with QRadar.
+Defender for IoT delivers the only ICS and IoT cybersecurity platform built by blue-team experts with a track record defending critical national infrastructure, and the only platform with patented ICS-aware threat analytics and machine learning.
+
+Defender for IoT has integrated its continuous ICS threat monitoring platform with IBM QRadar. 
+
+Some of the benefits of the integration include:
+
+- The ability to forward Azure Defender for IoT alerts to IBM QRadar for unified IT, and OT security monitoring, and governance.
+
+- The ability to gain a bird's eye view across both IT, and OT environments. This allows you to detect, and respond to multi-stage attacks that often cross IT, and OT boundaries.
+
+- Integrate with existing SOC workflows.
 
 ## Defining Defender for IoT appliance name
 
