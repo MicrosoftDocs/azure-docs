@@ -145,3 +145,13 @@ If you're not going to continue to use this app, delete all resources created by
 1. In the window that opens, select the resource group, and then select **Delete resource group**.
 
 1. In the new window, type the name of the resource group to delete, and then select **Delete**.
+
+## Next steps
+
+In this quickstart, you learned how to run a serverless simple chat application. Now, you could start to build your own application. 
+
+> [!div class="nextstepaction"]
+> [Quickstart: Create a serverless simple chat application with Azure Functions and Azure Web PubSub service](./quickstart-serverless.md)
+
+> [!div class="nextstepaction"]
+> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
