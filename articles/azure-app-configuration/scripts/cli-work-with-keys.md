@@ -56,7 +56,7 @@ az appconfig kv set-keyvault  --name $appConfigName --key $refKey --secret-ident
 az appconfig kv list --name $appConfigName
 
 # Update Key Vault reference
-az appconfig kv set --name $appConfigName --key $refKey --secret-identifier $uri
+az appconfig kv set-keyvault --name $appConfigName --key $refKey --secret-identifier $uri2
 
 # List current key-values
 az appconfig kv list --name $appConfigName
