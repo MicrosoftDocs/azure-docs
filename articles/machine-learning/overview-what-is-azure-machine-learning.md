@@ -25,9 +25,10 @@ You can create a model in Azure Machine Learning or use a model built from an op
 ## Who is Azure Machine Learning for?
 
 A full-featured machine learning platform, Azure Machine Learning provides tools for:
-Data scientists
-Machine learning engineers
+- Data scientists
+- Machine learning engineers
 
+Train and deploy models, and manage your machine learning project lifecycle
 
 Secure workspaces
 Confidential data
@@ -115,7 +116,7 @@ key points to hit:
 - CLI to CI/CD
 - Python SDK for full solutions
 
-## Capabilities for machine learning teams
+### Capabilities for machine learning teams
 
 [technical details tone]
 
