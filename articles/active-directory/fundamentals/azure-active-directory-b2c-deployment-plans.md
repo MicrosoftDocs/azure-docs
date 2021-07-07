@@ -17,15 +17,15 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory B2C deployment plans
 
-Azure Active Directory B2C is a scalable identity and access management solution. Its high flexibility to meet your business expectations and smooth integration with existing infrastructure, enables further digitalization.
+Azure Active Directory B2C is a scalable identity and access management solution. Its high flexibility to meet your business expectations and smooth integration with existing infrastructure enables further digitalization.
 
 To understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment. 
 
 | Capability | Description |
 |:-----|:------|
 | [Plan](#plan-an-azure-ad-b2c-deployment) | Prepare Azure AD B2C projects for deployment. Start by identifying the stakeholders and later defining a project timeline. |
-| [Implement](#implement-an-azure-ad-b2c-deployment) | Start with enabling authentication and authorization, and later perform full application onboarding. |
-| [Monitor](#monitor-an-azure-ad-b2c-solution) | Enable logging, auditing, and reporting once an Azure AD B2C solution is in place. |
+| [Implement](#implement-an-azure-ad-b2c-deployment) | Start with enabling authentication and authorization and later perform full application onboarding. |
+| [Monitor](#monitor-an-azure-ad-b2c-solution) | Enable logging, auditing and reporting once an Azure AD B2C solution is in place. |
 
 ## Plan an Azure AD B2C deployment
 
