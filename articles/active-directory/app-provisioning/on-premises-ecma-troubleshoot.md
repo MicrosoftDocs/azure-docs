@@ -122,7 +122,7 @@ After the ECMA Connector Host schema mapping has been configured, start the serv
 
 ## Understand incoming SCIM requests
 
-Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app supports. The requests from the host to the agent to Azure AD rely on SCIM. You can learn more about the SCIM implementation in [Tutorial - Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](use-scim-to-provision-users-and-groups.md).
+Requests made by Azure AD to the provisioning agent and connector host use the SCIM protocol. Requests made from the host to apps use the protocol the app supports. The requests from the host to the agent to Azure AD rely on SCIM. You can learn more about the SCIM implementation in [Tutorial: Develop and plan provisioning for a SCIM endpoint in Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
 At the beginning of each provisioning cycle, before performing on-demand provisioning and when doing the test connection, the Azure AD provisioning service generally makes a get-user call for a [dummy user](use-scim-to-provision-users-and-groups.md#request-3) to ensure the target endpoint is available and returning SCIM-compliant responses. 
 
@@ -213,4 +213,4 @@ By using Azure AD, you can monitor the provisioning service in the cloud and col
 - [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
 - [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
 - [Generic SQL connector](on-premises-sql-connector-configure.md)
-- [Tutorial - ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)
+- [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)
