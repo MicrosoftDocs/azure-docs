@@ -17,7 +17,7 @@ Optimizing write performance helps you get the most out of Azure Cosmos DB API f
 
 The way you write data needs to be mindful of this by parallelizing and spreading data across shards to get the most writes out of your databases and collections. This article explains best practices to optimize write performance.
 
-## Spread the load across your shards (sharded collections only)
+## Spread the load across your shards
 When writing data to a sharded API for MongoDB collection, your data is split up (sharded) into tiny slices and it is written to each shard based on the value of your shard key field. You can think of each slice as a small portion of a virtual machine that only stores the documents containing one unique shard key value. 
 
 If your application writes a massive amount of data to a single shard, this won't be efficient because the app would be maxing out the throughput of only one shard instead of spreading the load across all of your shards. Your write load will be evenly spread across your collection by writing in parallel to many documents with unique shard key values.
