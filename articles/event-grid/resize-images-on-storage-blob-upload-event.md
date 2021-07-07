@@ -109,12 +109,7 @@ Create a function app by using the [New-AzFunctionApp](/powershell/module/az.fun
 ```powershell
 $functionapp="<name of the function app>"
 
-New-AzFunctionApp
-   -Location $location
-   -Name $functionapp
-   -ResourceGroupName $resourceGroupName
-   -Runtime PowerShell
-   -StorageAccountName $functionstorage
+New-AzFunctionApp -Location $location -Name $functionapp -ResourceGroupName $resourceGroupName -Runtime PowerShell -StorageAccountName $functionstorage
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -124,9 +119,7 @@ Create a function app by using the [az functionapp create](/cli/azure/functionap
 ```azurecli
 functionapp="<name of the function app>"
 
-az functionapp create --name $functionapp --storage-account $functionstorage \
-  --resource-group $resourceGroupName --consumption-plan-location $location \
-  --functions-version 2
+az functionapp create --name $functionapp --storage-account $functionstorage --resource-group $resourceGroupName --consumption-plan-location $location --functions-version 2
 ```
 
 ---
@@ -140,17 +133,13 @@ The function needs credentials for the Blob storage account, which are added to 
 # [\.NET v12 SDK](#tab/dotnet)
 
 ```azurecli
-storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
-  --name $blobStorageAccount --query connectionString --output tsv)
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
-  --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails \
-  THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
 ```powershell
-$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
-  --name $blobStorageAccount --query connectionString --output tsv)
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
 Update-AzFunctionAppSetting -Name $functionapp -ResourceGroupName $resourceGroupName -AppSetting AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
@@ -158,17 +147,11 @@ Update-AzFunctionAppSetting -Name $functionapp -ResourceGroupName $resourceGroup
 # [Node.js v10 SDK](#tab/nodejsv10)
 
 ```azurecli
-blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
-  -n $blobStorageAccount --query [0].value --output tsv)
+blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName -n $blobStorageAccount --query [0].value --output tsv)
 
-storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
-  --name $blobStorageAccount --query connectionString --output tsv)
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
-  --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
-  AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
-  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
-  AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 ```
 
 ---
@@ -184,15 +167,7 @@ You can now deploy a function code project to this function app.
 The sample C# resize function is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
 ```azurecli
-az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName \
-  --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
-```
-
-```powershell
-az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName `
-  --branch master --manual-integration `
-  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # [Node.js v10 SDK](#tab/nodejsv10)
@@ -200,15 +175,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
 ```azurecli
-az functionapp deployment source config --name $functionapp \
-  --resource-group $resourceGroupName --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
-```
-
-```powershell
-az functionapp deployment source config --name $functionapp `
-  --resource-group $resourceGroupName --branch master --manual-integration `
-  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 
 ---
