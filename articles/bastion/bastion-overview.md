@@ -60,7 +60,7 @@ For more information, see the [Configuration settings](configuration-settings.md
 
 ## <a name="pricing"></a>Pricing
 
-Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
+Azure Bastion pricing involves a combination of hourly pricing based on SKU, scale units, and data transfer rates. Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
 
 ## <a name="new"></a>What's new?
 
