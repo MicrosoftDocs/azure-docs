@@ -224,7 +224,7 @@ Go to the Azure portal. In your resource's menu, there's a menu item called **Ne
 > [!NOTE]
 > Starting August 16, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't associated with an AMPLS, will stop accepting queries from any network.
 
-![LA Network Isolation](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
+![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
 
 ### Connected Azure Monitor Private Link scopes
 Here you can review and configure the resource's connections to Azure Monitor Private Links scopes. Connecting to scopes (AMPLSs) allows traffic from the virtual network connected to each AMPLS to reach this resource, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Your resource can connect to 5 AMPLS objects, as mentioned in [Restrictions and limitations](#restrictions-and-limitations).
