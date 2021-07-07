@@ -1,7 +1,7 @@
 ---
 
 title: Sign in diagnostics for Azure AD scenarios
-description: Lists the scenarios that are supported by the sign in diagnostics for Azure AD.
+description: Lists the scenarios that are supported by the sign-in diagnostics for Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
