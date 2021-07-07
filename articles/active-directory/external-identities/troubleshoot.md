@@ -63,7 +63,7 @@ To resolve this issue, the external user’s admin must synchronize the user’s
 
 ### External user has a proxyAddress that conflicts with a proxyAddress of an existing local user
 
-When we check if a user is able to be invited to your tenant, one of the things we check for is for a collision in the proxyAddress. This includes any proxyAddresses for the user in their home tenant and any proxyAddress for local users in your tenant. For external users, we will add the email to the proxyAddress of the existing B2B user. For local  users, you can ask them to sign in using the account they already have.
+When we check whether a user is able to be invited to your tenant, one of the things we check for is for a collision in the proxyAddress. This includes any proxyAddresses for the user in their home tenant and any proxyAddress for local users in your tenant. For external users, we will add the email to the proxyAddress of the existing B2B user. For local users, you can ask them to sign in using the account they already have.
 
 ## I can't invite an email address because of a conflict in proxyAddresses
 
