@@ -95,7 +95,7 @@ For the selected sign-in event, you get a diagnostic results. Read through the r
 
 ## How to access it
 
-To use the diagnostic, you must be signed into the tenant as a global admin or a global reader. If you do not have this level of access, use [Privileged Identity Management, PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles), to elevate your access to global admin/reader within the tenant. This will allow you to have temporary access to the diagnostic.  
+To use the diagnostic, you must be signed into the tenant as a global admin or a global reader. If you do not have this level of access, use [Privileged Identity Management, PIM](../privileged-identity-management/pim-resource-roles-activate-your-roles.md), to elevate your access to global admin/reader within the tenant. This will allow you to have temporary access to the diagnostic.  
 
 With the correct access level, you can find the diagnostic in various places: 
 
