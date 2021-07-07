@@ -81,7 +81,7 @@ In this step, you'll download the VMware HCX Connector OVA file and then you'll 
 
 After you deploy the VMware HCX Connector OVA on-premises and start the appliance, you're ready to activate it. First, you'll need to get a license key from the Azure VMware Solution portal and then you'll activate it in VMware HCX Manager.
 
-1. [this doesn't make any sense with the new workflow] In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
+1. In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
 
 1. Use the **admin** credentials to sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443`.  Make sure to include the `9443` port number with the VMware HCX Manager IP address.
 
@@ -117,7 +117,6 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
 After the services restart, you'll see vCenter showing as green on the screen that appears. Both vCenter and SSO must have the appropriate configuration parameters, which should be the same as the previous screen.
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::
-
 
 
 ## Uninstall HCX Advanced
