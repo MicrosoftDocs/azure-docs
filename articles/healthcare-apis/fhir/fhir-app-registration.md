@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.reviewer: dseven
-ms.author: matjazl
+ms.author: cavoeg
 author: matjazl
 ms.date: 10/13/2019
 ---

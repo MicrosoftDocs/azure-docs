@@ -263,7 +263,7 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 
 [twilio_libraries]: https://www.twilio.com/docs/libraries
 [twiml]: https://www.twilio.com/docs/api/twiml
-[twilio_api]: https://www.twilio.com/api
+[twilio_api]: https://www.twilio.com/docs/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]:  https://www.twilio.com/console
 [twilio_security_guidelines]: https://www.twilio.com/docs/security

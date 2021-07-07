@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2020
+ms.date: 06/23/2021
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
-ms.custom: aaddev
+ms.custom: contperf-fy21q4, aaddev
 ---
 
 # Microsoft identity platform application authentication certificate credentials
@@ -24,7 +24,7 @@ One form of credential that an application can use for authentication is a [JSON
 
 ## Assertion format
 
-To compute the assertion, you can use one of the many JWT libraries in the language of your choice - [MSAL supports this using `.WithCertificate()`](msal-net-client-assertions.md). The information is carried by the token in its [Header](#header), [Claims](#claims-payload), and [Signature](#signature).
+To compute the assertion, you can use one of the many JWT libraries in the language of your choice - [MSAL supports this using `.WithCertificate()`](msal-net-client-assertions.md). The information is carried by the token in its Header, Claims, and Signature.
 
 ### Header
 

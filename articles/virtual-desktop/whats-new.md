@@ -36,20 +36,25 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
-- Version 1.0.2944.1400 for production and version 1.0.2990.800 for all validation host pools: This update was released April 27, 2021.
-- Version 1.0.2990.800: This update was released April 13, 2021 and has the following changes:
+- Version 1.0.3130.1200: This update was released May 2021 for validation pools and has the following changes:
+    - General improvements and bug fixes.
+    - Fixes an issue with getting the host pool path for Intune registration.
+    - Added logging to better diagnose agent issues.
+- Version 1.0.3050.1200: This update was released May 2021 for validation pools and has the following changes:
+    - Updated internal monitors for agent health.
+    - Updated retry logic for stack health.
+- Version 1.0.2990.1500: This update was released April 2021 and has the following changes:
     - Updated agent error messages.
-    - Adds an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
+    - Added an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
     - Has updated heartbeat service logic.
-- Version 1.0.2944.1400: This update was released April 7, 2021 and has the following changes:
-    - Placed links to the Azure Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
+- Version 1.0.2944.1400: This update was released April 2021 and has the following changes:
+    - Placed links to the Windows Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
     - Added an additional exception for better error handling.
     - Added the WVDAgentUrlTool.exe that allows customers to check which required URLs they can access.
-- Version 1.0.2866.1500: This update was released March 26, 2021 and it fixes an issue with the stack health check.
-- Version 1.0.2800.2802: This update was released March 10, 2021 and it has general improvements and bug fixes.
-- Version 1.0.2800.2800: This update was released March 2, 2021 and it fixes a reverse connection issue.
-- Version 1.0.2800.2700: This update was released February 10, 2021 and it has general improvements and bug fixes.
-- Version 1.0.2800.2700: This update was released February 4, 2021 and it fixes an access denied orchestration issue.
+-	Version 1.0.2866.1500: This update was released March 2021 and it fixes an issue with the stack health check.
+-	Version 1.0.2800.2802: This update was released March 2021 and it has general improvements and bug fixes.
+-	Version 1.0.2800.2800: This update was released March 2021 and it fixes a reverse connection issue.
+-	Version 1.0.2800.2700: This update was released February 2021 and it fixes an access denied orchestration issue.
 
 ## FSLogix updates
 

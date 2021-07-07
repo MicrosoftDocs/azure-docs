@@ -151,7 +151,7 @@ Using `AADClientCertificate`:
 
 For an example of template deployment based on schema v2.2, see Azure QuickStart Template [encrypt-running-windows-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm-without-aad).
 
-For an example of template deployment based on schema v1.1, see Azure QuickStart Template [201-encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
+For an example of template deployment based on schema v1.1, see Azure QuickStart Template [encrypt-running-windows-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-windows-vm).
 
 >[!NOTE]
 > Also if `VolumeType` parameter is set to All, data disks will be encrypted only if they are properly formatted.

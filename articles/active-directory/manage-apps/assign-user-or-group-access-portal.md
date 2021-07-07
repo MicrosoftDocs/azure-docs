@@ -39,6 +39,9 @@ When assignment is *not required*, either because you've set this option to **No
 
 This setting doesn't affect whether or not an application appears on My Apps. Applications appear on users' My Apps access panels once you've assigned a user or group to the application. For background, see [Managing access to apps](what-is-access-management.md).
 
+> [!NOTE]
+> When an application requires assignment, user consent for that application is not allowed. This is true even if users consent for that app would have otherwise been allowed. Be sure to [grant tenant-wide admin consent](../manage-apps/grant-admin-consent.md) to apps that require assignment. 
+
 To require user assignment for an application:
 1. Sign in to the [Azure portal](https://portal.azure.com) with an administrator account or as an owner of the application.
 2. Select **Azure Active Directory**. In the left navigation menu, select **Enterprise applications**.

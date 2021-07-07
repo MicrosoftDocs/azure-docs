@@ -113,7 +113,7 @@ sections:
       - question: |
           Why can’t I see an added database for an autoprotected instance?
         answer: |
-          A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
+          A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours, and the actual protection of the system can take additional time as it depends on the size of the VM. However, you can discover new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
           
             ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
           
