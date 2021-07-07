@@ -81,7 +81,7 @@ Before testing to see if the DNS forwarders have successfully been applied, we r
 
 ```powershell
 # Replace storageaccount.file.core.windows.net with the appropriate FQDN for your storage account.
-# Note the proper suffix (core.windows.net) depends on the cloud you're deployed in.
+# Note the proper suffix (core.windows.net) depends on the cloud you are deployed in.
 Resolve-DnsName -Name storageaccount.file.core.windows.net
 ```
 

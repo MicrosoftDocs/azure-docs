@@ -89,4 +89,4 @@ To update your application template, change the template name or description on 
 
 ## Next steps
 
-Now that you've learned how to use application templates, the suggested next step is to learn how to [Monitor the overall health of the devices connected to an IoT Central application](howto-monitor-application-health.md)
+Now that you've learned how to use application templates, the suggested next step is to learn how to [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
