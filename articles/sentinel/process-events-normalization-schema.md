@@ -21,7 +21,7 @@ ms.author: bagol
 
 # Azure Sentinel Process Event normalization schema reference (Public preview)
 
-The Process Event normalization schema is used to describe the operating system activity of executing and terminating a process. Such events are reported by operating systems as well as by security systems such as EDR (End Point Detection and Response) systems. Process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. Processes do not run, processes manage. Threads are the ones that execute code and technically run.
+The Process Event normalization schema is used to describe the operating system activity of executing and terminating a process. Such events are reported by operating systems as well as by security systems such as EDR (End Point Detection and Response) systems. A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. Note that processes do not run. Instead, processes manage threads that run and execute code.
 
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
