@@ -108,7 +108,7 @@
   - name: FAQ
     items:
     - name: Solution Accelerators FAQ
-      href: iot-accelerators-faq.md
+      href: iot-accelerators-faq.yml
     - name: Connected Factory FAQ
       href: iot-accelerators-faq-cf.yml
   - name: Stack Overflow

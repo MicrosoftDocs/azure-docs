@@ -68,7 +68,7 @@ sections:
           
           If you deployed the solution from www.azureiotsolutions.com, you cannot sign in to the VM. You cannot sign in, because the password is generated randomly and you cannot reset it.
           
-          1. Add a public IP address to the VM. See [How do I add a public IP address to the simulation VM?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
+          1. Add a public IP address to the VM. See [How do I add a public IP address to the simulation VM?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm-)
           1. Create an SSH session to your VM using the IP address of the VM.
           1. The username to use is: `docker`.
           1. The password to use depends on the version you used to deploy:
@@ -78,7 +78,7 @@ sections:
       - question: |
           How do I stop and start all docker processes in the simulation VM?
         answer: |
-          1. Sign in to the simulation VM. See [How do I sign in to the simulation VM?](#how-do-i-sign-in-to-the-simulation-vm)
+          1. Sign in to the simulation VM. See [How do I sign in to the simulation VM?](#how-do-i-sign-in-to-the-simulation-vm-)
           1. To check which containers are active, run: `docker ps`.
           1. To stop all simulation containers, run: `./stopsimulation`.
           1. To start all simulation containers:
@@ -127,7 +127,7 @@ sections:
         answer: |
           All components in the simulation log information in to log files. These files can be found in the VM in the folder `home/docker/Logs`. To retrieve the logs, you can use the PowerShell script `Simulation/Factory/Get-SimulationLogs.ps1` in the [repository](https://github.com/Azure/azure-iot-connected-factory).
           
-          This script needs to sign in to the VM. You may need to provide credentials for the sign-in. See [How do I sign in to the simulation VM?](#how-do-i-sign-in-to-the-simulation-vm) to find the credentials.
+          This script needs to sign in to the VM. You may need to provide credentials for the sign-in. See [How do I sign in to the simulation VM?](#how-do-i-sign-in-to-the-simulation-vm-) to find the credentials.
           
           The script adds/removes a public IP address to the VM, if it does not yet have one and removes it. The script puts all log files in an archive and downloads the archive to your development workstation.
           
@@ -136,7 +136,7 @@ sections:
       - question: |
           How can I check if the simulation is sending data to the cloud?
         answer: |
-          With the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) or the [Azure IoT CLI Extension monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+          With the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) or the [Azure IoT CLI Extension monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command, you can inspect the data sent to IoT Hub from certain devices. To use these tools, you need to know the connection string for the IoT hub in your deployment. See [How do I find out the connection string of the IoT hub used by my solution?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution-)
           
           Inspect the data sent by one of the publisher devices:
           
@@ -147,7 +147,7 @@ sections:
           * publisher.rio.corp.contoso
           * publisher.seattle.corp.contoso
           
-          If you see no data sent to IoT Hub, then there is an issue with the simulation. As a first analysis step you should analyze the log files of the simulation components. See [How can I get log data from the simulation components?](#how-can-i-get-log-data-from-the-simulation-components) Next, try to stop and start the simulation and if there's still no data sent, update the simulation completely. See [How do I update the simulation in the VM?](#how-do-i-update-the-simulation-in-the-vm)
+          If you see no data sent to IoT Hub, then there is an issue with the simulation. As a first analysis step you should analyze the log files of the simulation components. See [How can I get log data from the simulation components?](#how-can-i-get-log-data-from-the-simulation-components-) Next, try to stop and start the simulation and if there's still no data sent, update the simulation completely. See [How do I update the simulation in the VM?](#how-do-i-update-the-simulation-in-the-vm-)
           
       - question: |
           How do I enable an interactive map in my Connected Factory solution?
