@@ -99,7 +99,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
 
@@ -172,7 +172,7 @@ Here are details of the application's actions and arguments:
 
 1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
 2. Select **Download**, select the 64-bit version, and select **Next**. The 32-bit version isn't supported.
-3. Run the Managed Identity file directly, or save it to your hard drive and run it.
+3. Run the MSI file directly, or save it to your hard drive and run it.
 4. On the **Welcome** window, select a language and select **Next**.
 5. Accept the Microsoft Software License Terms and select **Next**.
 6. Select **folder** to install the self-hosted integration runtime, and select **Next**.
