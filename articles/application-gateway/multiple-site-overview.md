@@ -18,7 +18,7 @@ You can also define wildcard host names in a multi-site listener and up to 5 hos
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Multi-site Application Gateway":::
 
 > [!IMPORTANT]
-> Rules are processed in the order they are listed in the portal for the v1 SKU. For v2 SKU use [rule priority] (Ordering your Request Routing rules) to specify the processing order. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
+> Rules are processed in the order they are listed in the portal for the v1 SKU. For v2 SKU use [rule priority](#request-routing-rules-evaluation-order) to specify the processing order. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
 
 Requests for `http://contoso.com` are routed to ContosoServerPool, and `http://fabrikam.com` are routed to FabrikamServerPool.
 
@@ -71,15 +71,15 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
-## Ordering your Request Routing rules
+## Request Routing rules evaluation order
 
 While utilizing multi-site listeners, to ensure that the client traffic is routed to the accurate backend, it is important to have the request routing rules be present in the correct order.
-For example, if you have 2 listeners with associated Host name as "*.contoso.com" and "shop.contoso.com" respectively, the listener with the "shop.contoso.com" Host name would have to be processed before the listener with "*.contoso.com". If the listener with "*.contoso.com" is processed first, then no client traffic would be received by the more specific "shop.contoso.com" listener.
+For example, if you have 2 listeners with associated Host name as `*.contoso.com` and `shop.contoso.com` respectively, the listener with the `shop.contoso.com` Host name would have to be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic would be received by the more specific `shop.contoso.com` listener.
 
-This ordering can be established by providing a 'Rule Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority.  
+This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 2000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request.
 
 >[!NOTE]
->This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md) and [Azure CLI](tutorial-multiple-sites-cli.md). Portal support is coming soon.
+>This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md#add-priority-to-routing-rules) and [Azure CLI](tutorial-multiple-sites-cli.md#add-rule-priority-to-routing-rules). Portal support is coming soon.
 
 >[!NOTE]
 >If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
