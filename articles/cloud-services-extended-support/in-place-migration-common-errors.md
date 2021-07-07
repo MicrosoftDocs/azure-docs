@@ -4,8 +4,8 @@ description: Overview of common errors when migrating from Cloud Services (class
 ms.topic: how-to
 ms.service: cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
-author: tanmaygore
-ms.author: tagore
+author: hirenshah1
+ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: 
