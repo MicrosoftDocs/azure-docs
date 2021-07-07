@@ -38,7 +38,7 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 
 Azure Sentinel provides the following built-in, product-specific authentication event parsers: 
 
-- **Windows sign-ins** reprted by Security Events 4624, 4625, 4634, and 4647), collected using the Log Analytics Agent or Azure Monitor Agent
+- **Windows sign-ins** reported as Security Events (4624, 4625, 4634, and 4647), collected using the Log Analytics Agent or Azure Monitor Agent
 - **Windows sign-ins** reported by Microsoft 365 Defender for Endpoints, collected using the Microsoft 365 Defender connector.
 - **Azure Active Directory sign-ins**, collected using the Azure Active Directory connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
