@@ -54,10 +54,9 @@ The Windows server must have TLS 1.2 enabled before you install the Azure AD Con
        $globalAdminPassword = ConvertTo-SecureString -String "Global admin password" -AsPlainText -Force 
     
        $globalAdminCreds = New-Object System.Management.Automation.PSCredential -ArgumentList ("GlobalAdmin@contoso.onmicrosoft.com", $globalAdminPassword) 
+       
+       Connect-AADCloudSyncAzureAD -Credential $globalAdminCreds 
        ```
-
-      Connect-AADCloudSyncAzureAD -Credential $globalAdminCreds 
-
  1. Add the gMSA account, and provide credentials of the domain admin to create the default gMSA account.
  
        ```
