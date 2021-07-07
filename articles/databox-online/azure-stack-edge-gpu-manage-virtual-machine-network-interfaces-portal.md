@@ -118,9 +118,9 @@ Follow these steps to detach or remove a network interface associated with a vir
 
 Follow these steps to delete a network interface that isn't attached to a virtual machine. The default network interface, ASENET, can't be deleted.
 
-1. Go to **Virtual machines** and then **Resources** page. Select **Networking**.
+1. Go to **Virtual machines** and then the **Resources** page. Select **Networking**.
     
-    ![Select Networking on Resources page for virtual machines](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
+    ![Select Networking on the Resources page for virtual machines](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
 
 2. In the **Networking** blade, select the delete icon by the network interface you want to delete. The delete icon is only displayed for network interfaces not attached to a VM.
 

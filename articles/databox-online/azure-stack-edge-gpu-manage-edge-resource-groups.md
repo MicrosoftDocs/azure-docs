@@ -18,22 +18,21 @@ ms.author: alkohli
 
 After you activate an Azure Stack Edge Pro GPU device, you can manage the local (Edge) resource groups in the Azure portal. 
 
-Edge resource groups contain resources that you create while creating and deploying virtual machines on your device. The default Edge resource group, ASERG, contains the default local network interface, ASENET.
+Edge resource groups contain resources for VM creation and deployment from creating and deploying virtual machines on your device. The default Edge resource group, ASERG, contains the default local network interface, ASENET.
 
 The **Resources** pane is available in the portal after you activate your device.
 
-## View Edge resource groups
+## View Edge resource groups in portal
 
-To view the Edge resource groups on your Azure Stack Edge Pro GPU device, do these steps:
+To view the Edge resource groups on your Azure Stack Edge Pro GPU device in the Azure portal, do these steps.
 
-1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Virtual machines**, open **Resources**, and select **Edge resource groups**.<!--To get to Resources, the device must have been activated. First order of business Tue a.m.: Create and activate a device (maybe - delivery issue may be a barrier). Use screenshots from the demo to write the procedures.-->
+1. Go to **Virtual machines** on your device, and go to the **Resources** pane. Select **Edge resource groups**.
 
-    ![Screenshot showing Edge resource groups tab in Resources for a virtual machine in Azure Stack Edge.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-01-edge-resource-groups.png)
+    ![Screenshot showing Edge resource groups for virtual machines deployed on an Azure Stack Edge device.-1](media/azure-stack-edge-gpu-manage-edge-resource-groups/edge-resource-groups-01.png)
 
 You can also use [Get-AzResource](/powershell/module/az.resources/get-azresource?view=azps-6.1.0&preserve-view=true) in [Azure Az Powershell](/powershell/azure/new-azureps-module-az?view=azps-6.1.0&preserve-view=true) to list Edge resource groups. Get-AzResource by default returns all local resource groups for the current subscription.
 
 The following is example output from Get-AzResource.
-
 
 ```output
 PS C:\WINDOWS\system32> Get-AzResource
@@ -63,23 +62,25 @@ Tags              :
 PS C:\WINDOWS\system32>  
 ```
 
-## Delete a resource group
+## Delete an Edge resource group
 
-When a resource group is no longer in use, it's a good idea to delete it.
+Follow these steps to delete an Edge resource group that's no longer in use.
 
-A resource group must be empty to be deleted. You can't delete the default Edge resource group, ASERG.
+> [!NOTE]
+> - A resource group must be empty to be deleted. 
+> - The resource group ASERG, which is created XXXXX, can't be deleted.
 
-To delete an Edge resource group, do these steps:
+1. Go to **Virtual machines** on your device, and go to the **Resources** pane. Select **Edge resource groups**.
 
-1. Open the Azure Stack Edge resource in the Azure portal. Choose **Resources**, and then **Edge resource groups**.
+    ![Screenshot showing Edge resource groups for virtual machines deployed on an Azure Stack Edge device.-2](media/azure-stack-edge-gpu-manage-edge-resource-groups/edge-resource-groups-01.png)
 
-   ![Screenshot showing Edge resource groups tab in Resources, with empty resource group and Delete icon identified.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-01-edge-resource-groups.png)
+1. Select the resource group that you want to delete. In the far right of the resource group, select the delete icon (trashcan).
 
-1. Select the Delete button by the resource you want to delete.
+   The delete icon is only displayed when a resource group doesn't contain any resources.
 
-   The Delete button is only displayed when a resource group doesn't contain any resources.
+    ![Screenshot showing an Edge resource group with the delete icon selected.](media/azure-stack-edge-gpu-manage-edge-resource-groups/edge-resource-groups-02.png)
 
-    ![Screenshot showing Edge resource groups for an Azure Stack Edge VM, with Delete button identified.](media/azure-stack-edge-gpu-manage-edge-resource-groups/resources-02-edge-resource-groups-ready-to-delete.png)
+    When the resource group deletion is complete, the resource group is removed from the list.
 
 ## Next steps
 
