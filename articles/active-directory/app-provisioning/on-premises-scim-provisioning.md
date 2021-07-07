@@ -55,7 +55,7 @@ To provision users to SCIM-enabled apps:
  1. Go to the **Provisioning** pane, and select **Start provisioning**.
  1. Monitor using the [provisioning logs](../../active-directory/reports-monitoring/concept-provisioning-logs.md).
 
-## Things to be aware of
+## Additional requirements
 * Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
   * Azure AD offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation. The code is as is.
 * Support the /schemaDiscovery endpoint to reduce configuration required in the Azure portal. 

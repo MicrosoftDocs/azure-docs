@@ -169,4 +169,4 @@ To create a generic SQL connector:
 - [App provisioning](user-provisioning.md)
 - [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
 - [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
-- [Tutorial: ECMA Connector Host Generic SQL Connector](tutorial-ecma-sql-connector.md)
+- [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)

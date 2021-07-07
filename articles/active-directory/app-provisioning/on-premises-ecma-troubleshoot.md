@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ## Troubleshoot test connection issues
 After you configure the ECMA host and provisioning agent, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. When the test connection fails, try the following troubleshooting steps:
 
- 1. Verify that the agent and ECMA host are running:
+ 1. Check that the agent and ECMA host are running:
      1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
      1. Under **Services**, make sure the **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*.
     
@@ -104,9 +104,9 @@ The file location for verbose wizard logging is C:\Program Files\Microsoft ECMA2
 ## Target attribute is missing 
 The provisioning service automatically discovers attributes in your target application. If you see that a target attribute is missing in the target attribute list in the Azure portal, perform the following troubleshooting step:
 
- 1. Review the **Select Attributes** page of your ECMA host configuration to verify that the attribute has been selected to be exposed to the Azure portal.
+ 1. Review the **Select Attributes** page of your ECMA host configuration to check that the attribute has been selected to be exposed to the Azure portal.
  1. Ensure that the ECMA host service is turned on. 
- 1. Review the ECMA host logs to verify that a /schemas request was made, and review the attributes in the response. This information will be valuable for support to troubleshoot the issue.
+ 1. Review the ECMA host logs to check that a /schemas request was made, and review the attributes in the response. This information will be valuable for support to troubleshoot the issue.
 
 ## Collect logs from Event Viewer as a zip file
 
@@ -134,7 +134,7 @@ You might experience the following error scenarios.
 
 You might receive an error message that states:
 
-"Service 'Microsoft Azure AD Connect Provisioning Agent' failed to start. Verify that you have sufficient privileges to start the system services." 
+"Service 'Microsoft Azure AD Connect Provisioning Agent' failed to start. Check that you have sufficient privileges to start the system services." 
 
 This problem is typically caused by a group policy that prevented permissions from being applied to the local NT Service sign-in account created by the installer (NT SERVICE\AADConnectProvisioningAgent). These permissions are required to start the service.
 
