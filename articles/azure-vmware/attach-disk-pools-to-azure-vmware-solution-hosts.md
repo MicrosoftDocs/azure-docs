@@ -117,7 +117,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
    ```
 
    >[!TIP]
-   >Display help on the datastores cmdlets:
+   >You can display the help on the datastores:
    >
    >   ```azurecli
    >   az vmware datastore -h
