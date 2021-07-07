@@ -96,7 +96,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
 2. Select **Manage** > **Connectivity** > **ExpressRoute**.
 
-3. Copy the source’s **ExpressRoute ID**.  You’ll need this to peer between the private clouds.
+3. Copy the source’s **ExpressRoute ID**.  You’ll need it to peer between the private clouds.
 
 
 ### Create the target’s authorization key

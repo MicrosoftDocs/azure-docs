@@ -56,7 +56,7 @@ You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution wi
 
    You'll see a screen showing that your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector are connected (paired).
 
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot that shows the pairing of the HCX Manager in Azure VMware Solution and the VMware HCX Connector.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot showing the site pairing of the HCX Manager in Azure VMware Solution and the VMware HCX Connector.":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Site Pairing](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720) video.
 
@@ -71,11 +71,11 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
 
 1. Under **Infrastructure**, select **Interconnect** > **Multi-Site Service Mesh** > **Network Profiles** > **Create Network Profile**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Screenshot of selections for starting to create a network profile." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Screenshot showing where to create a network profile in the vSphere Client." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
 1. For each network profile, select the network and port group, provide a name, and create the segment's IP pool. Then select **Create**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot of details for a new network profile.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot showing the details for a new network profile.":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Network Profile](https://www.youtube.com/embed/O0rU4jtXUxc) video.
 
