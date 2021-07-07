@@ -14,7 +14,7 @@ ms.date: 06/17/2021
 ---
 # T-SQL differences between SQL Server and Azure SQL Database
 
-When [migrating your database](migrate-to-database-from-sql-server.md) from SQL Server to Azure SQL Database, you may discover that your SQL Server databases require some re-engineering before they can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities and migrate databases to Azure SQL Database, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview.md).
+When [migrating your database](migrate-to-database-from-sql-server.md) from SQL Server to Azure SQL Database, you may discover that your SQL Server databases require some re-engineering before they can be migrated. This article provides guidance to assist you in both performing this re-engineering and understanding the underlying reasons why the re-engineering is necessary. To detect incompatibilities and migrate databases to Azure SQL Database, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview).
 
 ## Overview
 
@@ -54,12 +54,12 @@ In addition to T-SQL statements related to the unsupported features described in
 - `OPENQUERY`, `OPENDATASOURCE`, and four-part names.
 - .NET Framework: CLR integration
 - Semantic search
-- Server credentials: Use [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-T-SQL) instead.
+- Server credentials: Use [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-transact-SQL) instead.
 - Server-level permissions: `GRANT`, `REVOKE`, and `DENY` of server level permissions are not supported. Some server-level permissions are replaced by database-level permissions, or granted implicitly by built-in server roles. Some server-level DMVs and catalog views have similar database-level views.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
-- `sp_configure` and `RECONFIGURE`. [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-T-SQL) is supported.
+- `sp_configure` and `RECONFIGURE`. [ALTER DATABASE SCOPED CONFIGURATION](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) is supported.
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
 - SQL Server Agent: Syntax that relies upon the SQL Server Agent or the MSDB database: alerts, operators, central management servers. Use scripting, such as PowerShell, instead.
@@ -76,7 +76,7 @@ For more information about T-SQL grammar, usage, and examples, see [T-SQL Refer
 
 ### About the "Applies to" tags
 
-The T-SQL reference includes articles related to all recent SQL Server versions. Below the article title there's an icon bar, listing MSSQL platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-T-SQL) article indicates that the statement applies to **SQL Server (starting with 2012)**. The statement doesn't apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics, or Parallel Data Warehouse.
+The T-SQL reference includes articles related to all recent SQL Server versions. Below the article title there's an icon bar, listing MSSQL platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILITY GROUP](/sql/t-sql/statements/create-availability-group-transact-sql) article indicates that the statement applies to **SQL Server (starting with 2012)**. The statement doesn't apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics, or Parallel Data Warehouse.
 
 In some cases, the general subject of an article can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the article as appropriate. For example, the `CREATE TRIGGER` article is available in SQL Database. But the `ALL SERVER` option for server-level triggers, indicates that server-level triggers can't be used in SQL Database. Use database-level triggers instead.
 
@@ -84,4 +84,4 @@ In some cases, the general subject of an article can be used in a product, but t
 
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database feature comparison](features-comparison.md).
 
-To detect compatibility issues in your SQL Server databases before migrating to Azure SQL Database, and to migrate your databases, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview.md).
+To detect compatibility issues in your SQL Server databases before migrating to Azure SQL Database, and to migrate your databases, use [Data Migration Assistant (DMA)](/sql/dma/dma-overview).

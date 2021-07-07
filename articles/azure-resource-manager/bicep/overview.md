@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 07/02/2021
 ---
 
 # What is Bicep?
@@ -102,6 +102,29 @@ Meeting that goal requires working with some APIs that are outside of Azure. We 
 They continue to function exactly as they always have. You don't need to make any changes. We'll continue to support the underlying ARM template JSON language. Bicep files compile to JSON, and that JSON is sent to Azure for deployment.
 
 When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
+
+## Known limitations
+
+- No support for single-line object and arrays. For example, `['a', 'b', 'c']` is not supported. For more information, see [Arrays](/data-types#arrays), [Objects](/data-types#objects).
+- No support for breaking long lines into multiple lines.  For example:
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+      ...
+    }
+    ```
+
+    Can't be written as:
+
+    ```bicep
+    resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+        if (newOrExisting == 'new') {
+          ...
+        }
+    ```
+
+- No support for the concept of apiProfile which is used to map a single apiProfile to a set apiVersion for each resource type.
+- No support for user-defined functions (UDFs).
 
 ## Next steps
 

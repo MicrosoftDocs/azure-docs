@@ -17,7 +17,7 @@ The Run Command feature uses the virtual machine (VM) agent to run shell scripts
 
 ## Benefits
 
-You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), or [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) for Linux VMs.
+You can access your virtual machines in multiple ways. Run Command can run scripts on your virtual machines remotely by using the VM agent. You use Run Command through the Azure portal, [REST API](/rest/api/compute/virtual-machines-run-commands/run-command), or [Azure CLI](/cli/azure/vm/run-command#az_vm_run_command_invoke) for Linux VMs.
 
 This capability is useful in all scenarios where you want to run a script within a virtual machine. It's one of the only ways to troubleshoot and remediate a virtual machine that doesn't have the RDP or SSH port open because of improper network or administrative user configuration.
 
@@ -63,7 +63,7 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 ## Azure portal
 
-Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** under **OPERATIONS**. You see a list of the available commands to run on the VM.
+Go to a VM in the [Azure portal](https://portal.azure.com) and select **Run command** in the left menu, under **Operations**. You see a list of the available commands to run on the VM.
 
 ![List of commands](./media/run-command/run-command-list.png)
 

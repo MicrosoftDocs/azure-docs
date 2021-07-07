@@ -129,7 +129,7 @@ Here's a basic layered deployment manifest with one module as an example:
         "properties.desired.modules.SimulatedTemperatureSensor": {
           "settings": {
             "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-              "createOptions": ""
+              "createOptions": "{}"
           },
           "type": "docker",
           "status": "running",

@@ -9,7 +9,7 @@ ms.date: 03/02/2021
 
 ms.author: mimart
 author: msmimart
-manager: celestedg
+manager: CelesteDG
 ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
@@ -28,7 +28,7 @@ For applications you build, you can create user flows that allow a user to sign 
 
 ### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account (Preview), and Email One-time Passcode (Preview).
+Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account (Preview), and Email One-time Passcode (Preview). For more information, see these articles:
 
 - [Microsoft Account (Preview) identity provider](microsoft-account.md)
 - [Email one-time passcode authentication](one-time-passcode.md)

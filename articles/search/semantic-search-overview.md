@@ -76,7 +76,7 @@ Semantic search is a newer technology so it's important to set expectations abou
 
 * First, it promotes matches that are semantically closer to the intent of original query.
 
-* Second, it makes results more easily consumable when captions, and potentially answers, are present on the page.
+* Second, it makes results easier to use when captions, and potentially answers, are present on the page.
 
 At all times, the engine is working with existing content, and the language models work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
 

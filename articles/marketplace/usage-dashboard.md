@@ -20,7 +20,7 @@ To access the Usage dashboard in Partner Center, under **Commercial Marketplace*
 
 ## Usage dashboard
 
-The **Usage** dashboard in the **Analyze** menu displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
+The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
 
 - Usage trend
 - Normalized usage by offers
