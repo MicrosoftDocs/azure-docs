@@ -66,16 +66,13 @@ kubectl config current-context
     - [Create on AKS engine on Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
     - [Create on AKS on Azure Stack HCI](#create-on-aks-on-azure-stack-hci)
     - [Create on Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
-      - [Apply the security context](#apply-the-security-context)
       - [Create custom deployment profile](#create-custom-deployment-profile)
       - [Create data controller](#create-data-controller)
     - [Create on Red Hat OpenShift Container Platform (OCP)](#create-on-red-hat-openshift-container-platform-ocp)
-      - [Apply the security context constraint](#apply-the-security-context-constraint)
       - [Determine storage class](#determine-storage-class)
       - [Create custom deployment profile](#create-custom-deployment-profile-1)
       - [Set storage class](#set-storage-class)
       - [Set LoadBalancer (optional)](#set-loadbalancer-optional)
-      - [Verify security policies](#verify-security-policies)
       - [Create data controller](#create-data-controller-1)
     - [Create on open source, upstream Kubernetes (kubeadm)](#create-on-open-source-upstream-kubernetes-kubeadm)
     - [Create on AWS Elastic Kubernetes Service (EKS)](#create-on-aws-elastic-kubernetes-service-eks)
@@ -153,14 +150,6 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 ### Create on Azure Red Hat OpenShift (ARO)
 
-Azure Red Hat OpenShift requires a security context constraint.
-
-#### Apply the security context
-
-Before you create the data controller on Azure Red Hat OpenShift, you will need to apply specific security context constraints (SCC). For the preview release, these relax the security constraints. Future releases will provide updated SCC.
-
-[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
-
 #### Create custom deployment profile
 
 Use the profile `azure-arc-azure-openshift` for Azure RedHat Open Shift.
@@ -172,9 +161,6 @@ azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
 #### Create data controller
 
 You can run the following command to create the data controller:
-
-> [!NOTE]
-> Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is `arc`.
 
 ```console
 azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
@@ -189,12 +175,6 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 > [!NOTE]
 > If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
-
-Before you create the data controller on Red Hat OCP, you will need to apply specific security context constraints. 
-
-#### Apply the security context constraint
-
-[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### Determine storage class
 
@@ -235,33 +215,9 @@ By default, the `azure-arc-openshift` deployment profile uses `NodePort` as the 
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
-#### Verify security policies
-
-When using OpenShift, you might want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical. You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time by running the following commands.
-
-This command disables metrics collections about pods. You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature. Default is true.
-
-```console
-azdata arc dc config replace -p ./custom/control.json --json-values spec.security.allowPodMetricsCollection=false
-```
-
-This command disables metrics collections about nodes. You will not be able to see metrics about nodes in the Grafana dashboards if you disable this feature. Default is true.
-
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowNodeMetricsCollection=false
-```
-
-This command disables the ability to take memory dumps for troubleshooting purposes.
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowDumps=false
-```
-
 #### Create data controller
 
 Now you are ready to create the data controller using the following command.
-
-> [!NOTE]
->   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is `arc`.
 
 > [!NOTE]
 >   The `--path` parameter should point to the _directory_ containing the control.json file not to the control.json file itself.
