@@ -87,9 +87,15 @@ This phase includes the following capabilities.
 
 ### Deploy authentication and authorization
 
-Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements) and try [Open  policy agent](https://www.openpolicyagent.org/). Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c).
+In this section, we provide you guidance on authentication and authorization scenarios and further information about the setup. 
 
-Follow this sample checklist for more guidance:
+- Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 
+
+- For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements)
+
+- Try [Open  policy agent](https://www.openpolicyagent.org/). Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c)
+
+Consider this sample checklist:
 
 - Identify the different personas that need access to your application.  
 
@@ -103,15 +109,15 @@ Follow this sample checklist for more guidance:
 
 ### Deploy applications and user identities
 
-All Azure AD B2C projects start with one or more client applications, which may have different business goals.
+All Azure AD B2C projects start with one or more client applications, which may have different business goals. In this section, we provide you guidance about the client application and user deployments.
 
 1. [Create or configure client applications](https://docs.microsoft.com/azure/active-directory-b2c/app-registrations-training-guide). Refer to these [code samples](https://docs.microsoft.com/azure/active-directory-b2c/code-samples) for implementation.
 
-2. Next, setup your user journey based on built-in or custom user flows. [Learn when to use user flows vs. custom policies](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview#comparing-user-flows-and-custom-policies).
+2. Next, setup your user journey based on built-in or custom user flows. Learn [when to use user flows vs. custom policies](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview#comparing-user-flows-and-custom-policies).
 
-3. Setup IdPs based on your business need. [Learn how to add Azure Active Directory B2C as an IdP](https://docs.microsoft.com/azure/active-directory-b2c/add-identity-provider).
+3. Setup IdPs based on your business need. Learn [how to add Azure Active Directory B2C as an IdP](https://docs.microsoft.com/azure/active-directory-b2c/add-identity-provider).
 
-4. Migrate your users. [Learn about user migration approaches](https://docs.microsoft.com/azure/active-directory-b2c/user-migration). Refer to [Azure AD B2C IEF sample user journeys](https://github.com/azure-ad-b2c/samples) for advanced scenarios.  
+4. Migrate your users. Learn about [user migration approaches](https://docs.microsoft.com/azure/active-directory-b2c/user-migration). Refer to [Azure AD B2C IEF sample user journeys](https://github.com/azure-ad-b2c/samples) for advanced scenarios.  
 
 Consider this sample checklist as you **deploy your applications**:
 
@@ -182,7 +188,7 @@ For more information, see [Identity Protection and Conditional Access in Azure A
 
 ### Compliance
 
-To satisfy certain regulatory requirements you may consider using vNets, IP restrictions, Web Application Firewall (WAF), and similar services to enhance the security of your backend systems.
+To address certain regulatory requirements you may consider using vNets, IP restrictions, Web Application Firewall (WAF), and similar services to enhance the security of your backend systems.
 
 To address basic compliance requirements, consider:
 
@@ -192,7 +198,7 @@ To address basic compliance requirements, consider:
 
 ### User experience
 
-Consider the sample checklist to define the user experience (UX) requirements:
+To enable a user friendly service, consider this sample checklist to define the user experience (UX) requirements:
 
 - Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
 
