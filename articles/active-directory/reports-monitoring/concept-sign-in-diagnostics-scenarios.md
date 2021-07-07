@@ -31,7 +31,7 @@ This article gives you an overview of the types of scenarios you can identify an
 
 ## Supported scenarios
 
-The sign-in diagnostic for Azure AD provides you with support for the follwowing scenarios:
+The sign-in diagnostic for Azure AD provides you with support for the following scenarios:
 
 - **Conditional Access**
 
