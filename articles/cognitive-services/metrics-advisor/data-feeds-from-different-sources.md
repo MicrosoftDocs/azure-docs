@@ -283,7 +283,7 @@ The following sections specify the parameters required for all authentication ty
     1. Metrics Advisor Event Hubs integration doesn't currently support more than 3 active data feeds in one Metrics Advisor instance in public preview.
     2. Metrics Advisor will always start consuming messages from the latest offset, including when re-activating a paused data feed.
         * Messages during the data feed pause period will be lost.
-        * The data feed ‘ingestion start time’ is set to the current UTC timestamp automatically when
+        * The data feed ‘ingestion start time’ is set to the current UTC timestamp automatically when created and is for reference purposes only.
 created, and for reference only.
 
     3.Only one data feed can be used per consumer group . To reuse a consumer group from another deleted data feed, you need to wait at least 10 minutes after deletion.
