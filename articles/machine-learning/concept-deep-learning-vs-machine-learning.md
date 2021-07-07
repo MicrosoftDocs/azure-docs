@@ -58,7 +58,7 @@ Training deep learning models often requires large amounts of training data, hig
 
 Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem.
 
-Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
+Due to the structure of neural networks, the first set of layers usually contains lower-level features, whereas the final set of layers contains higher-level features that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
 
 Learn how to apply transfer learning for image classification using an open-source framework in Azure Machine Learning : [Train a deep learning PyTorch model using transfer learning](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
@@ -128,7 +128,7 @@ Transformers are a model architecture that is suited for solving problems contai
 
 Transformers have been used to solve natural language processing problems such as translation, text generation, question answering, and text summarization.
 
-Some well known implementations of transformers are:
+Some well-known implementations of transformers are:
 
 - Bidirectional Encoder Representations from Transformers (BERT)
 - Generative Pre-trained Transformer 2 (GPT-2)
