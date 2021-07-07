@@ -147,7 +147,7 @@ In the [ASP.NET Core and SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md
 ```
 
 > [!NOTE]
-> We use the `Active Directory Device Code Flow` authentication type because this is the closest we can get to a custom option. Ideally, a `Custom Authentication` authentication type would be available. Due to the absence of a better term at this time, we're using `Device Code Flow`.
+> We use the `Active Directory Device Code Flow` authentication type because this is the closest we can get to a custom option. Ideally, a `Custom Authentication` type would be available. Without a better term to use at this time, we're using `Device Code Flow`.
 >
 
 Next, you need to create a custom authentication provider class to acquire and supply the Entity Framework database context with the access token for the SQL Database. In the *Data\\* directory, add a new class `CustomAzureSQLAuthProvider.cs` with the following code inside:
