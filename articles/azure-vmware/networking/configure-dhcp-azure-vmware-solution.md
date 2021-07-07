@@ -11,9 +11,9 @@ ms.date: 05/28/2021
 
 # Configure DHCP for Azure VMware Solution
 
-[!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
+[!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](../includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
-In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMware Solution in one of the following two ways: 
+In this how-to article, you'll use either NSX-T Manager or the Azure portal to configure DHCP for Azure VMware Solution.  in one of the following two ways: 
 
 - [NSX-T to host your DHCP server](#use-nsx-t-to-host-your-dhcp-server)
 
@@ -134,6 +134,21 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
       
    :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true":::
 
+
+## Create a DHCP server or DHCP relay using the Azure portal
+
+You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP. After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
+
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
+
+2. Select either **DHCP Server** or **DHCP Relay** and then provide a name for the server or relay and three IP addresses. 
+
+   >[!NOTE]
+   >For DHCP relay, you only require one IP address for a successful configuration.
+
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-dhcp-server-relay.png" alt-text="Screenshot showing how to add a DHCP server or DHCP relay in Azure VMware Solutions.":::
+
+4. Complete the DHCP configuration by [providing DHCP ranges on the logical segments](tutorial-nsx-t-network-segment.md#create-an-nsx-t-segment-in-the-azure-portal) and then select **OK**. 
 
 ## Next steps
 

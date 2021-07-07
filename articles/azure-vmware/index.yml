@@ -90,7 +90,7 @@ landingContent:
           - text: Configure networking
             url: tutorial-configure-networking.md
           - text: Create an NSX-T network segment 
-            url: tutorial-nsx-t-network-segment.md
+            url: networking/tutorial-nsx-t-network-segment.md
           - text: Peer on-premises to private cloud 
             url: tutorial-expressroute-global-reach-private-cloud.md
           - text: Expand or shrink clusters in a private cloud 

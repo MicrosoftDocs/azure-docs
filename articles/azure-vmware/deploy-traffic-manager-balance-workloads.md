@@ -33,7 +33,7 @@ Before you begin, first review the [Prerequisites](#prerequisites) and then we'l
 
 - Host with internet connectivity for verification. 
 
-- An [NSX-T network segment created in Azure VMware Solution](tutorial-nsx-t-network-segment.md).
+- An [NSX-T network segment created in Azure VMware Solution](networking/tutorial-nsx-t-network-segment.md).
 
 ## Verify your application gateways configuration
 

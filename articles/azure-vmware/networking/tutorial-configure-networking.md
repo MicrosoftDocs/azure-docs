@@ -94,4 +94,4 @@ In this tutorial, you learned how to:
 Continue to the next tutorial to learn how to create the NSX-T network segments that are used for VMs in vCenter.
 
 > [!div class="nextstepaction"]
-> [Create an NSX-T network segment](tutorial-nsx-t-network-segment.md)
+> [Create an NSX-T network segment](./tutorial-nsx-t-network-segment.md)
