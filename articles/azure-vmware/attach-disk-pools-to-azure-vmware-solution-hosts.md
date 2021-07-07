@@ -68,17 +68,11 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az extension update --name vmware
       ```
 
-   - If the extension is not installed:
+   - If the extension is not installed, install it:
 
       ```azurecli
       az extension add --name vmware
       ```
-
-2. Display help on the datastores cmdlets:
-
-   ```azurecli
-   az vmware datastore -h
-   ```
 
 3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using Microsoft.StoragePool provided iSCSI target.
 
