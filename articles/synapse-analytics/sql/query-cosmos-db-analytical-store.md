@@ -436,22 +436,9 @@ GROUP BY geo_id
 
 In this example, the number of cases is stored either as `int32`, `int64`, or `float64` values. All values must be extracted to calculate the number of cases per country.
 
-## Known issues
+## Troubleshooting
 
-- A serverless SQL pool will return a compile-time warning if the `OPENROWSET` column collation doesn't have UTF-8 encoding. You can easily change the default collation for all `OPENROWSET` functions running in the current database by using the T-SQL statement `alter database current collate Latin1_General_100_CI_AS_SC_UTF8`.
-
-Possible errors and troubleshooting actions are listed in the following table.
-
-| Error | Root cause |
-| --- | --- |
-| Syntax errors:<br/> - Incorrect syntax near `Openrowset`<br/> - `...` is not a recognized `BULK OPENROWSET` provider option.<br/> - Incorrect syntax near `...` | Possible root causes:<br/> - Not using CosmosDB as the first parameter.<br/> - Using a string literal instead of an identifier in the third parameter.<br/> - Not specifying the third parameter (container name). |
-| There was an error in the CosmosDB connection string. | - The account, database, or key isn't specified. <br/> - There's some option in a connection string that isn't recognized.<br/> - A semicolon (`;`) is placed at the end of a connection string. |
-| Resolving CosmosDB path has failed with the error "Incorrect account name" or "Incorrect database name." | The specified account name, database name, or container can't be found, or analytical storage hasn't been enabled to the specified collection.|
-| Resolving CosmosDB path has failed with the error "Incorrect secret value" or "Secret is null or empty." | The account key isn't valid or is missing. |
-| Column `column name` of the type `type name` isn't compatible with the external data type `type name`. | The specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type. |
-| Column contains `NULL` values in all cells. | Possibly a wrong column name or path expression in the `WITH` clause. The column name (or path expression after the column type) in the `WITH` clause must match some property name in the Azure Cosmos DB collection. Comparison is *case-sensitive*. For example, `productCode` and `ProductCode` are different properties. |
-
-You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+Review the [self-help page](resources-self-help-sql-on-demand.md#cosmos-db) to find the known issues or troubleshooting steps that can help you to resolve potential problems with Cosmos DB queries.
 
 ## Next steps
 
