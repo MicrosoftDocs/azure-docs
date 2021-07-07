@@ -60,7 +60,7 @@ Currently, the validated list of Kubernetes services and distributions includes:
 - OpenShift Container Platform (OCP)
 
 > [!IMPORTANT]
-> * The minimum supported version of Kubernetes is v1.10. See [Known issues](./release-notes.md#known-issues) for additional information. 
+> * The minimum supported version of Kubernetes is v1.18. See [Known issues](./release-notes.md#known-issues) for additional information. 
 > * The minimum supported version of OCP is 4.7.
 > * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. See [Known issues](./release-notes.md#known-issues) for additional information. 
 
