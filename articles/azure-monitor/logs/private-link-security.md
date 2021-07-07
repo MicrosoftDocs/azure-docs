@@ -100,8 +100,9 @@ As a local bypass to the All or Nothing behavior, you can select not to update y
 
 That approach isn't recommended for production environments.
 
+## Limits and additional considerations
 
-### Consider limits
+### AMPLS limits
 
 The AMPLS object has the following limits:
 * A VNet can only connect to **one** AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
@@ -375,7 +376,8 @@ For more information on bringing your own storage account, see [Customer-owned s
 ## Restrictions and limitations
 
 ### AMPLS
-The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [Consider limits](#consider-limits) for a deeper review of these limits.
+
+The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](#ampls-limits) for a deeper review of these limits.
 
 ### Agents
 
