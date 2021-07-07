@@ -20,9 +20,6 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory Pass-through Authentication: Current limitations
 
->[!IMPORTANT]
->Azure Active Directory (Azure AD) Pass-through Authentication is a free feature, and you don't need any paid editions of Azure AD to use it. Pass-through Authentication is only available in the world-wide instance of Azure AD, and not on the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) or the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/).
-
 ## Supported scenarios
 
 The following scenarios are supported:

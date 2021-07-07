@@ -163,6 +163,8 @@ In this section, you'll create a .NET Core console application that receives mes
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
 1. In the **Package Manager Console** window, confirm that **QueueReceiver** is selected for the **Default project**. If not, use the drop-down list to select **QueueReceiver**.
+
+    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
 1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
 
     ```cmd
