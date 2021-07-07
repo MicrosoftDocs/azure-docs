@@ -280,7 +280,7 @@ The following sections specify the parameters required for all authentication ty
 ## <span id="eventhubs">Azure Event Hubs</span>
 
 * **Limitations**: There are some limitations with Metrics Advisor Event Hub integration.
-    1. Event Hubs doesn't support more than 3 active data feeds in one MA instance in public preview.
+    1. Metrics Advisor Event Hubs integration doesn't currently support more than 3 active data feeds in one Metrics Advisor instance in public preview.
     2. Metrics Advisor will always start consuming messages from the latest offset, including when re-activating a paused data feed.
         * Messages during the data feed pause period will be lost.
         * The data feed ‘ingestion start time’ is set to the current UTC timestamp automatically when
