@@ -24,13 +24,7 @@ You can get your subscription key from the [Azure portal](cognitive-services-api
 There are two parts to enable data loss prevention. First the property restrictOutboundNetworkAccess must be set to true. When this is set to true, you also need to provide the list of approved URLs. The list of URLs is added to the allowedFqdnList property. The allowedFqdnList property contains an array of comma-separated URLs.
 
 >[!Note]
->The allowedFqdnList supports both IP addresses and wildcard domains, i.e. *.microsoft.com.
-
->[!Note]
->The allowedFqdnList can only contain up to 1000 URLs.
-
->[!Note]
->It can take up to 15 minutes for the updated list to take affect.
+>The allowedFqdnList can only contain up to 1000 URLs and supports both IP addresses and wildcard domains, i.e. *.microsoft.com. It can take up to 15 minutes for the updated list to take affect.  
 
 # [Azure CLI](#tab/azure-cli)
 
