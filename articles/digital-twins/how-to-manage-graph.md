@@ -82,7 +82,7 @@ You can always deserialize relationship data to a type of your choice. For basic
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
 
-### Find outgoing relationships from a digital twin
+### List outgoing relationships from a digital twin
 
 To access the list of **outgoing** relationships for a given twin in the graph, you can use the `GetRelationships()` method like this: 
 
@@ -100,7 +100,7 @@ You can now call this custom method to see the outgoing relationships of the twi
 
 You can use the retrieved relationships to navigate to other twins in your graph by reading the `target` field from the relationship that is returned, and using it as the ID for your next call to `GetDigitalTwin()`.
 
-### Find incoming relationships to a digital twin
+### List incoming relationships to a digital twin
 
 Azure Digital Twins also has an SDK call to find all **incoming** relationships to a given twin. This SDK is often useful for reverse navigation, or when deleting a twin.
 
