@@ -39,7 +39,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [!IMPORTANT]
   > Logic apps, built-in triggers, built-in actions, and connectors that run in your ISE use a pricing plan 
   > different from the consumption-based pricing plan. To learn how pricing and billing work for ISEs, see the 
-  > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
+  > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md) that has four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by these internal and hidden components:
