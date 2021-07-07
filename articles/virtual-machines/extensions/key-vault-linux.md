@@ -276,7 +276,9 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 ### Logs and configuration
-The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting
+
+The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting.
+
 |Location|Description|
 |--|--|
 | /var/log/waagent.log	| Shows when an update to the extension occurred. |
