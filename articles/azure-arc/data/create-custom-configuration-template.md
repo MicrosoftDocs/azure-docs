@@ -52,6 +52,6 @@ After ensuring the values are correct, click Apply to proceed with the Azure Arc
 
 ## Next steps
 
-[Deploy data controller - direct connect mode (prerequisites)](deploy-data-controller-direct-mode-prerequisites.md)
+[Deploy data controller - direct connect mode (prerequisites)](create-data-controller-direct-prerequisites.md)
 
-[Create Azure Arc data controller (CLI)](create-data-controller-using-cli.md)
+[Create Azure Arc data controller (CLI)](create-data-controller-direct-cli.md)

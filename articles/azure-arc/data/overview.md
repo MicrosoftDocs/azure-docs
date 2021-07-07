@@ -72,7 +72,7 @@ The following table describes the scenarios that are currently supported for Arc
 
 [Install the client tools](install-client-tools.md)
 
-[Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
+[Plan your Azure Arc data services deployment](plan-azure-arc-data-services.md) (requires installing the client tools first)
 
 [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 

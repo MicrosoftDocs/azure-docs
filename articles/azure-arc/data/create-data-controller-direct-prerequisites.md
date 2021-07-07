@@ -11,15 +11,11 @@ ms.date: 03/31/2021
 ms.topic: overview
 ---
 
-# Prerequisites to deploy the data controller in direct connect mode
+# Prerequisites to deploy the data controller in direct connectivity mode
 
-This article describes how to prepare to deploy a data controller for Azure Arc enabled data services in direct connect mode.
+This article describes how to prepare to deploy a data controller for Azure Arc enabled data services in direct connect mode. Deploying Azure Arc data controller requires additional understanding and concepts as described in [Plan to deploy Azure Arc enabled data services](plan-azure-arc-data-services.md).
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-
-plan-azure-arc-data-services.md
-
 
 At a high level, the prerequisites for creating Azure Arc data controller in **direct** connectivity mode include:
 
@@ -69,11 +65,11 @@ In order to deploy the Azure Arc data controller in **direct** connectivity mode
 
 Follow the steps detailed in the [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) article and create a Service Principal and grant the roles as described the article. 
 
-The SPN ClientID, TenantID, and Client Secret information will be required when you [deploy Azure Arc data controller](deploy-data-controller-direct-mode.md). 
+The SPN ClientID, TenantID, and Client Secret information will be required when you [deploy Azure Arc data controller](create-data-controller-direct-azure-portal.md). 
 
 
 
 
 ## Next steps
 
-After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md).
+After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](create-data-controller-direct-azure-portal.md).

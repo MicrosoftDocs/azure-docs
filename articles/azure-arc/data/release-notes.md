@@ -65,7 +65,7 @@ You can delete Azure Arc enabled SQL Managed Instances or Arc enabled PostgreSQL
    - Azure Data CLI (`azdata`)
    - Kubernetes native tools (`kubectl`)
 
-   [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md) explains how to create the data controller in the portal. 
+   [Create Azure Arc data controller in Direct connectivity mode from Azure portal](create-data-controller-direct-azure-portal.md) explains how to create the data controller in the portal. 
 
 - You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal.
 
@@ -187,7 +187,7 @@ Azure Data CLI (`azdata`) version number: 20.3.2. You can install `azdata` from 
 
 ### Data controller
 
-- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+- Deploy Azure Arc enabled data services data controller in direct connect mode from the portal. Start from [Prerequisites to deploy the data controller in direct connectivity mode](create-data-controller-direct-prerequisites.md).
 
 ### Azure Arc enabled PostgreSQL Hyperscale
 

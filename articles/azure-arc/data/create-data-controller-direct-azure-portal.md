@@ -19,7 +19,7 @@ This article describes how to deploy the Azure Arc data controller in direct con
 
 ## Complete prerequisites
 
-Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
 ## Deploy Azure Arc data controller
 
@@ -37,7 +37,7 @@ Either of these actions should bring you to the Azure Arc data controller prereq
 - In the **Data controller details** page:
   - Select the Azure Subscription and Resource group where the Azure Arc data controller will be projected to.
   - Enter a **name** for the Data controller
-  - Select a pre-created **Custom location** or select "Create new" to create a new Custom location. If you choose to create a new Custom location, enter a name for the new Custom location, select the Azure Arc enabled kubernetes cluster from the dropdown, and then enter a namespace to be associated with the new Custom location, and finally select Create in the Create new Custom location window. Learn more about [Custom locations](https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/conceptual-custom-locations)
+  - Select a pre-created **Custom location** or select "Create new" to create a new Custom location. If you choose to create a new Custom location, enter a name for the new Custom location, select the Azure Arc enabled kubernetes cluster from the dropdown, and then enter a namespace to be associated with the new Custom location, and finally select Create in the Create new Custom location window. Learn more about [Custom locations](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-custom-locations)
   - **Kubernetes configuration** - Select a kubernetes configuration template that best matches your kubernetes distribution from the dropdown. If you choose to use your own settings or have a custom profile you want to use, select the Custom template option from the dropdown. In the blade that opens on the right side, enter the details for Docker credentials, repository information, Image tag, Image pull policy, infrastructure type, storage settings for data, logs and their sizes, Service type, and ports for controller and management proxy. Select Apply when all the required information is provided. You can also choose to upload your own template file by selecting the "Upload a template (JSON) from the top  of the blade. If you use custom settings and would like to download a copy of those settings, use the "Download this template (JSON)" to do so. Learn more about [custom configuration profiles](create-custom-configuration-template.md).
   - Select the appropriate **Service Type** for your environment
   - **Administrator account** - Enter the credentials for the Data controller login and password
