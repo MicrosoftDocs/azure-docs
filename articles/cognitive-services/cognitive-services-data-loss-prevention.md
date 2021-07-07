@@ -91,6 +91,8 @@ There are two parts to enable data loss prevention. First the property restrictO
     Invoke-AzRestMethod @patchParams
     ```
 
+---
+
 ## Supported services
 
 The following services support data loss prevention configuration:
