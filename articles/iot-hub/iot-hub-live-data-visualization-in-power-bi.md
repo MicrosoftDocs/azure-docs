@@ -13,7 +13,8 @@ ms.author: robinsh
 
 # Visualize real-time sensor data from Azure IoT Hub using Power BI
 
-![End-to-end diagram](./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="End-to-end diagram" border="false":::
+
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -37,7 +38,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 ### Create a Stream Analytics job
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Internet of Things** > **Stream Analytics job**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**. Type *Stream Analytics Job* in the search box and select it from the drop-down list. On the **Stream Analytics job** overview page, select **Create**
 
 2. Enter the following information for the job.
 
@@ -47,7 +48,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Location**: Use the same location as your resource group.
 
-   ![Create a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png)
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/create-stream-analytics-job.png" alt-text="Create a Stream Analytics job in Azure":::
 
 3. Select **Create**.
 
@@ -77,7 +78,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    Leave all other fields at their defaults.
 
-   ![Add an input to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png)
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-input-to-stream-analytics-job.png" alt-text="Add an input to a Stream Analytics job in Azure":::
 
 4. Select **Save**.
 
@@ -85,7 +86,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 1. Under **Job topology**, select **Outputs**.
 
-2. In the **Outputs** pane, select **Add** and **Power BI**.
+2. In the **Outputs** pane, select **Add**, and then select **Power BI** from the drop-down list.
 
 3. On the **Power BI - New output** pane, select **Authorize** and follow the prompts to sign in to your Power BI account.
 
@@ -101,7 +102,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Authentication mode**: Leave at the default.
 
-   ![Add an output to a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png)
+   :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/add-output-to-stream-analytics-job.png" alt-text="Add an output to a Stream Analytics job in Azure":::
 
 5. Select **Save**.
 
@@ -126,7 +127,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 In the Stream Analytics job, select **Overview**, then select **Start** > **Now** > **Start**. Once the job successfully starts, the job status changes from **Stopped** to **Running**.
 
-![Run a Stream Analytics job in Azure](./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/run-stream-analytics-job.png" alt-text="Run a Stream Analytics job in Azure":::
 
 ## Create and publish a Power BI report to visualize the data
 
@@ -134,21 +135,19 @@ The following steps show you how to create and publish a report using the Power 
 
 1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](./iot-hub-raspberry-pi-kit-node-get-started.md).
 
-2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
+2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account and select **Power BI service** from the top menu.
 
-3. Select the workspace you used, **My Workspace**.
+3. Select the workspace you used from the side menu, **My Workspace**.
 
-4. Select **Datasets**.
+4. Under the **All** tab or the **Datasets + dataflows** tab, you should see the dataset that you specified when you created the output for the Stream Analytics job.
 
-   You should see the dataset that you specified when you created the output for the Stream Analytics job.
+5. Hover over the dataset you created, select **More options** menu (the three dots to the right of the dataset name), and then select **Create report**.
 
-5. For the dataset you created, select **Add Report** (the first icon to the right of the dataset name).
-
-   ![Create a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-create-report.png)
+    :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-create-report.png" alt-text="Create a Microsoft Power BI report":::
 
 6. Create a line chart to show real-time temperature over time.
 
-   1. On the **Visualizations** pane of the report creation page, select the line chart icon to add a line chart.
+   1. On the **Visualizations** pane of the report creation page, select the line chart icon to add a line chart. Use the guides located on the sides and corners of the chart to adjust its size and position.
 
    2. On the **Fields** pane, expand the table that you specified when you created the output for the Stream Analytics job.
 
@@ -158,9 +157,9 @@ The following steps show you how to create and publish a report using the Power 
 
       A line chart is created. The x-axis displays date and time in the UTC time zone. The y-axis displays temperature from the sensor.
 
-      ![Add a line chart for temperature to a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png)
+      :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png" alt-text="Add a line chart for temperature to a Microsoft Power BI report":::
 
-8. Select **Save** to save the report.
+8. Select **Save** to save the report. When prompted, enter a name for your report. When prompted for a sensitivity label, you can select **Public** and then select **Save**.
 
 9. Select **Reports** on the left pane, and then select the report that you just created.
 
@@ -171,7 +170,8 @@ The following steps show you how to create and publish a report using the Power 
     > [!NOTE]
     > If you get a notification to contact your administrator to enable embed code creation, you may need to contact them. Embed code creation must be enabled before you can complete this step.
     >
-    > ![Contact your administrator notification](./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png)
+    > :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png" alt-text="Contact your administrator notification":::
+
 
 11. You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into your blog or website. Copy the link in the **Secure embed code** window and then close the window.
 
