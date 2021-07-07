@@ -269,6 +269,9 @@ az storage share-rm create \
 > [!Note]  
 > The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
+> [!Important]  
+> Creating a large file share is almost identical to creating a standard file share. The main difference is when you set a quota. The performance(IOPs/Mbps) depends on the Quota you have chosen.
+
 ### Change the tier of an Azure file share
 File shares deployed in **general purpose v2 (GPv2) storage account** can be in the transaction optimized, hot, or cool tiers. You can change the tier of the Azure file share at any time, subject to transaction costs as described above.
 
