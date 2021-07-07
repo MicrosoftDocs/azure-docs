@@ -74,7 +74,7 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
 Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application’s user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
 
 ## Pricing
-VoIP and Chat usage is billed to your Azure resource when using Azure APIs and SDKs, but there is no additional fee for using Teams interoperability, or no price difference between the BYOI or Microsoft 365 authenticated authentication options.
+VoIP and Chat usage is billed to your Azure resource when using Azure APIs and SDKs, but there is no additional fee for using Teams interoperability, or price difference between the BYOI and Microsoft 365 authentication options.
 
 If your application has an end user spend 60 minutes in a voice call with a user of Microsoft Teams, your Azure resource will be metered for 60 minutes. The 60 minutes of communication consumed by the end user in the native Teams application is covered by the applicable Teams license and not metered to your Azure resource.
 
