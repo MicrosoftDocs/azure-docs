@@ -70,7 +70,7 @@ This /22 CIDR network address block shouldn't overlap with any existing network 
 
 For a detailed breakdown of how the /22 CIDR network is broken down per private cloud [Network planning checklist](tutorial-network-checklist.md#routing-and-subnet-considerations).
 
-:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Identify - IP address segment" border="false":::  
+:::image type="content" source="media/pre-deployment/management-vmotion-vsan-network-ip-diagram.png" alt-text="Diagram showing the IP IP address segment for the Azure VMware Solution deployment." border="false":::  
 
 ## Define the IP address segment for VM workloads
 
@@ -83,7 +83,7 @@ This network segment is used primarily for testing purposes during the initial d
   
 **Example:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identify - IP address segment for virtual machine workloads" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Diagram showing the address segment for virtual machine workloads." border="false":::     
 
 ## Define the virtual network gateway
 
