@@ -128,7 +128,7 @@ The user info UserJourney specifies:
         }
         ```
     
-1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the of the claim defined in the access token.
+1.  The OutputClaims element of the **UserInfoAuthorization** technical profile specifies the attributes you want to read from the access token. The **ClaimTypeReferenceId** is the reference to a claim type. The optional **PartnerClaimType** is the name of the claim defined in the access token.
 
 
 
@@ -263,13 +263,27 @@ A successful response would look like:
 }
 ```
 
-## Provide optional claims to your app
+## Provide optional claims
 
-The [Relying party policy technical profile](relyingparty.md#technicalprofile) OutputClaims element is a collection of claims that are returned back to your application. The InputClaims element within the UserInfoIssuer technical profile specifies the claims values. To provide more claims to your app follow these steps:
+To provide more claims to your app, follow these steps:
 
 1. [Add user attributes and customize user input](configure-user-input.md).
-1. Modify the Relying party policy technical profile OutputClaims element to include the claims you want to add.
-1. Modify the UserInfoIssuer technical profile  InputClaims element to include the claims you want to add. Use the `PartnerClaimType` attribute to change the name of the claim return to your app. The following example adds the city claim, and change the name of some of the claims.
+1. Modify the [Relying party policy technical profile](relyingparty.md#technicalprofile) OutputClaims element with the claims you want to provide. Use the `DefaultValue` attribute to set a default value. You can also set the default value to a [claim resolver](claim-resolver-overview), such as `{Context:CorrelationId}`. To force the use of the default value, set the `AlwaysUseDefaultValue` attribute to `true`. The following example adds the city claim with a default value.
+    
+    ```xml
+    <RelyingParty>
+      ...
+      <TechnicalProfile Id="PolicyProfile">
+        ...
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="city" DefaultValue="Berlin" />
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+  
+1. Modify the UserInfoIssuer technical profile  InputClaims element with the claims you want to provide. Use the `PartnerClaimType` attribute to change the name of the claim return to your app. The following example adds the city claim and change the name of some of the claims.
 
     ```xml
     <TechnicalProfile Id="UserInfoIssuer">
