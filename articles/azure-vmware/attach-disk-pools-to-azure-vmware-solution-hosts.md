@@ -41,7 +41,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
    - If you select Ultra Disks, use Ultra Performance for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
 
-   - If you select Premium SSD-Managed Disks, use Standard (1 Gbps) for the Azure VMware Solution private cloud.
+   - If you select premium SSDs, use Standard (1 Gbps) for the Azure VMware Solution private cloud.
 
 - Disk pool as the backing storage deployed and exposed as an iSCSI target with each disk as an individual LUN. For details, see [Deploy an Azure disk pool](../virtual-machines/disks-pools-deploy.md).
 
