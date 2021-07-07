@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 07/07/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.<!--Does "it" refer to the device or to the virtual NICs?-->
 ---
@@ -20,7 +20,7 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge device u
 
 When you create a VM, you specify one virtual network interface to be created. You may want to add one or more network interfaces to the virtual machine after it is created. You may also want to change the default network interface settings for an existing network interface.
 
-This article explains how to add a network interface to an existing VM, change existing settings such as IP type (static vs. dynamic), and finally detach or delete an existing interface. 
+This article explains how to add a network interface to an existing VM, change existing settings such as IP type (static vs. dynamic), and detach or delete an existing interface.
 
         
 ## About network interfaces on VMs
@@ -113,15 +113,16 @@ Follow these steps to detach or remove a network interface associated with a vir
 
 1. After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
+
 ## Delete a network interface
 
 Follow these steps to delete a network interface that isn't attached to a virtual machine. The default network interface, ASENET, can't be deleted.
 
-1. Go to **Virtual machines** and then go to the **Resources** page. Select **Networking**.
+1. Go to **Virtual machines** and then **Resources** page. Select **Networking**.
     
     ![Select Networking on Resources page for virtual machines](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
 
-2. In the **Networking** blade, select the trashcan icon by the network interface you want to delete. The icon is only displayed for network interfaces that aren't attached to a VM.
+2. In the **Networking** blade, select the delete icon by the network interface you want to delete. The delete icon is only displayed for network interfaces not attached to a VM.
 
     ![Select the trashcan icon to Delete an unattached network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-2.png)
 
