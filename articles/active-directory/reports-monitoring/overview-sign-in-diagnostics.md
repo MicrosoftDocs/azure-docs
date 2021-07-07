@@ -62,7 +62,15 @@ To start and complete the diagnostic process, you need to:
 
 ### Define scope 
 
-Sharing information about the sign-in event allows the diagnostic to identify the right events for you. Your description can consist of the name of the user, an identifier (correlationId, requestId) and / or a time range. To narrow down further, you can specify an app name. 
+To locate the right events for you, you can set a filter that with the following options:
+
+- Name of the user
+- Application 
+- Correlation ID or request ID 
+- Date and time
+
+![Screenshot showing the filter.](./media/overview-sign-in-diagnostics/sign-in-diagnostics.png)
+
 
 
 ### Select event  
