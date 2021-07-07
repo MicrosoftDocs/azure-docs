@@ -105,7 +105,7 @@ aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ```
 ::: zone-end
 
-::: zone pivot="programming-language-more
+::: zone pivot="programming-language-more"
 More samples for acquring an AAD token can be found [here](/azure/active-directory/develop/sample-v2-code).
 
 For programming languates where an Azure Identity client is not available, you can directly [request an OAuth token](/azure/active-directory/develop/v2-oauth-ropc).
