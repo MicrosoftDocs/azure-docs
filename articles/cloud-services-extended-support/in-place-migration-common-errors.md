@@ -20,6 +20,7 @@ Following issues are known and being addressed.
 
 | Known issues | Mitigation | 
 |---|---|
+| Unable to delete or stop service deployment post migration. | Solution not yet available. |
 | Role Instances restarting UD by UD after successful commit. | Restart operation follows the same method as monthly guest OS rollouts. Do not commit migration of cloud services with single role instance or impacted by restart.| 
 | Azure portal cannot read migration state after browser refresh. | Rerun validate and prepare operation to get back to the original migration state. | 
 | Certificate displayed as secret resource in key vault. | After migration, reupload the certificate as a certificate resource to simplify update operation on Cloud Services (extended support). | 
