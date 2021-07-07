@@ -48,6 +48,7 @@ Azure Stack Edge Pro GPU has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
+|Specialized network functions|Network Function Manager (Preview) helps deploy marketplace network functions on Azure Stack Edge. You can run on-premises, secure private 5G/LTE mobile networks that enable low latency, high throughput applications at the edge. For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md)|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
@@ -84,4 +85,5 @@ Azure Stack Edge service is a non-regional service. For more information, see [R
 - Review the [Azure Stack Edge Pro GPU system requirements](azure-stack-edge-gpu-system-requirements.md).
 
 - Understand the [Azure Stack Edge Pro GPU limits](azure-stack-edge-limits.md).
+
 - Deploy [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.
