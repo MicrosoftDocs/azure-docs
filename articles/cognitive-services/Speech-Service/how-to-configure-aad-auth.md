@@ -38,7 +38,7 @@ To configure the Speech Resource to be usable for AAD Authentication there are t
 ### Assign Roles
 AAD Authentication requires that the correct roles be assigned to the AAD user or application, for Speech Resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
 
-You can assign roles to the user or application using the [Azure Portal](/azure/role-based-access-control/role-assignments-portal) or [Powershell](/azure/role-based-access-control/role-assignments-powershell) 
+You can assign roles to the user or application using the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or [PowerShell](/azure/role-based-access-control/role-assignments-powershell) 
 
 ## Get an AAD token
 ::: zone pivot="programming-language-csharp"
@@ -106,20 +106,20 @@ aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-More samples for acquring an AAD token can be found [here](/azure/active-directory/develop/sample-v2-code).
+More samples for acquiring an AAD token can be found [here](/azure/active-directory/develop/sample-v2-code).
 
-For programming languates where an Azure Identity client is not available, you can directly [request an OAuth token](/azure/active-directory/develop/v2-oauth-ropc).
+For programming languages where an Azure Identity client is not available, you can directly [request an OAuth token](/azure/active-directory/develop/v2-oauth-ropc).
 ::: zone-end
-## Get the Speech Resoruce ID
+## Get the Speech Resource ID
 
-You'll need the Speech Resource's ID to make SDK calls using AAD Authtentication.
+You'll need the Speech Resource's ID to make SDK calls using AAD Authentication.
 
 > [!NOTE]
 > For Intent Recognition use the ID for the LUIS Prediction Resource.
 
 # [Azure portal](#tab/portal)
 
-To get the resoruce ID in the Azure Portal:
+To get the resource ID in the Azure portal:
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the required Speech resource.
