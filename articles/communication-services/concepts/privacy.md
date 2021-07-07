@@ -6,7 +6,7 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -72,6 +72,10 @@ Audio and video communication is ephemerally processed by the service and no dat
 ### Internet voice and video calling
 
 Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+
+### Call Recording
+
+Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 48 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
 
 ## Azure Monitor and Log Analytics
 

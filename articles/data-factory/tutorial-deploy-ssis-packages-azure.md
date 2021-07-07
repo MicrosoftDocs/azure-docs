@@ -4,7 +4,7 @@ description: Learn how to provision the Azure-SSIS integration runtime in Azure 
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/02/2021
+ms.date: 06/04/2021
 author: swinarko
 ms.author: sawinark
 ---
@@ -65,9 +65,9 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 ### From the Data Factory overview
 
-1. On the **Let's get started** page, select the **Configure SSIS Integration** tile. 
+1. On the home page, select the **Configure SSIS** tile. 
 
-   !["Configure SSIS Integration Runtime" tile](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure-SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section. 
 

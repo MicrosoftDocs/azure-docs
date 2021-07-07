@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.author: mikben
 ---
 ## Prerequisites
@@ -35,11 +35,11 @@ The ACS Web Calling sdk must be used through https. For local development, use l
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
 
-| Name                             | Description                                                                                                                                 |
-| ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                      | The main entry point to the Calling SDK.                                                                       |
-| `CallAgent`                        | Used to start and manage calls.                                                                                            |
-| `DeviceManager`                    | Used to manage media devices.                                                                                           |
+| Name                                | Description                                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `CallClient`                        | The main entry point to the Calling SDK.                                                           |
+| `CallAgent`                         | Used to start and manage calls.                                                                    |
+| `DeviceManager`                     | Used to manage media devices.                                                                      |
 | `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`. |
 
 Note: The Calling SDK's objects are not POJO.
@@ -378,7 +378,7 @@ Remote participants have a set of associated properties and collections:
   - `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
   - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
   - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
-  - `{ id: string }`: object repredenting identifier that doesn't fit any of the other identifier types
+  - `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
 
 - `state`: Get the state of a remote participant.
 
@@ -863,8 +863,26 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 ```js
 	const callQualityApi = call.api(Features.CallQuality);
 ```
+The following users facing diagnostics are available:
+| Type    | Name                           | Description                                                          | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Use cases                                                        |
+| ------- | ------------------------------ | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| Network | noNetwork                      | There is no network available.                                        | * Set to `True` when a call fails to start because there is no network available. <br/> * Set to `False` when there are ICE candidates present.                                                                                                                                                                                                                                                                                                                            | Device is not connected to a network.                               |
+| Network | networkRelaysNotReachable      | Problems with a network.                                              | * Set to `True` when the network has some constraint that is not allowing you to reach ACS relays. <br/> * Set to `False` upon making a new call.                                                                                                                                                                                                                                                                                                                  | During a call when the WiFi signal goes on and off.                       |  |
+| Network | networkReconnect               | The connection was lost and we are reconnecting to the network.                         | * Set to `Poor` when the media transport connectivity is lost                                                                                                                                 <br/> * Set to `Bad` when the network is disconnected <br/> * Set to `Good` when a new session is connected.                                                                                                                                                          | Low bandwidth, no internet                                       |
+| Network | networkReceiveQuality          | An indicator regarding incoming stream quality.              | * Set to `Bad` when there is a severe problem with receiving the stream. quality                                                                                                                           <br/> * Set to `Poor` when there is a mild problem with receiving the stream. quality                                                                                                                           <br/> * Set to `Good` when there is no problem with receiving the stream. | Low bandwidth                                                    |
+| Media   | noSpeakerDevicesEnumerated     | There is no audio output device (speaker) on the user's system.       | * Set to `True` when there are no speaker devices on the system, and speaker selection is supported. <br/> * Set to `False` when there is a least 1 speaker device on the system, and speaker selection is supported.                                                                                                                                                                                                                                          | All speakers are unplugged                                       |
+| Media   | speakingWhileMicrophoneIsMuted | Speaking while being on mute.                                         | * Set to `True` when local microphone is muted and the local user is speaking. <br/> * Set to `False` when local user either stops speaking, or un-mutes the microphone. <br/> * Note: as of today, this isn't supported on safari yet, as the audio level samples are taken from webrtc. stats.                                                                                                                                                                 | During a call, mute your microphone and speak into it.           |
+| Media   | noMicrophoneDevicesEnumerated  | No audio capture devices (microphone)           on the user's system | * Set to `True` when there are no microphone devices on the system. <br/> * Set to `False` when there is at least 1 microphone device on the system.                                                                                                                                                                                                                                                                                                           | All microphones are unplugged during the call.                    |
+| Media   | cameraFreeze                   | Camera stops producing frames for more than 5 seconds.                | * Set to `True` when the local video stream is frozen. This means the remote side is seeing your video frozen on their screen or it means that the remote participants are not rendering your video on their screen. <br/> * Set to `False` when the freeze ends and users can see your video as per normal.                                                                                                                                                                                              | The Camera was lost during the call or bad network caused the camera to freeze.                     |
+| Media   | cameraStartFailed              | Generic camera failure.                                               | * Set to `True` when we fail to start sending local video because the camera device may have been disabled in the system or it is being used by another process. <br/> * Set to `False` when selected camera device successfully sends local video. again.                                                                                                                                                                                                      | Camera failures                                                  |
+| Media   | cameraStartTimedOut            | Common scenario where camera is in bad state.                         | * Set to `True` when camera device times out to start sending video stream. <br/> * Set to `False` when selected camera device successfully sends local video again.                                                                                                                                                                                                                                                                                            | Camera failures                                                  |
+| Media   | microphoneNotFunctioning       | Microphone is not functioning.                                        | * Set to `True` when we fail to start sending local audio stream because the microphone device may have been disabled in the system or it is being used by another process. This UFD takes about 10 seconds to get raised. <br/> * Set to `False` when microphone starts to successfully send audio stream again.                                                                                                                                              | No microphones available, microphone access disabled in a system |
+| Media   | microphoneMuteUnexpectedly     | Microphone is muted                                                  | * Set to `True` when microphone enters muted state unexpectedly. <br/> * Set to `False` when microphone starts to successfully send audio stream                                                                                                                                                                                                                                                                                                               | Microphone is muted from the system.                              |
+| Media   | screenshareRecordingDisabled   | System screensharing was denied by preferences in Settings.           | * Set to `True` when screensharing permission is denied by system settings (sharing). <br/> * Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.Chrome.                                                                                                                                                                                                                                                         | Screen recording is disabled in Settings.                         |
+| Media   | microphonePermissionDenied     | There is low volume from device or it’s almost silent on macOS.   | * Set to `True` when audio permission is denied by system settings (audio). <br/> * Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.                                                                                                                                                                                                                                                                   | Microphone permissions are disabled in the Settings.              |
+| Media   | cameraPermissionDenied         | Camera permissions were denied in settings.                           | * Set to `True` when camera permission is denied by system settings (video). <br/> * Set to `False` on successful stream acquisition. <br> Note: This diagnostic only works on macOS Chrome                                                                                                                                                                                                                                                                    | Camera permissions are disabled in the settings.                  |
 
-- Subscribe to `diagnosticChanged` event to monitor when any call diagnostic changes.
+- Subscribe to the `diagnosticChanged` event to monitor when any call diagnostic changes.
 ```js
 	/**
 	 *  Each diagnostic has the following data:
@@ -925,8 +943,6 @@ Call diagnostics is an extended feature of the core `Call` API and allows you to
 			
 	console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
 			`value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`);
-
-	
 ```
 
 ## Learn about eventing models
@@ -947,8 +963,6 @@ object.on('propertyChanged', () => {
 
 // Unsubscribe from updates:
 object.off('propertyChanged', () => {});
-
-
 
 // Example for inspecting a call state
 console.log(call.state);
@@ -1001,8 +1015,7 @@ function subscribeToRemoteParticipant(p) {
 
 ## Releasing resources
 1. How to properly release resources when a call is finished:
-    - When call is finished our SDK will terminate signaling&media sessions leaving you with an instance of the call that holds the last state of it, so you can check callEndReason etc.., if your app won't hold the reference to the Call instance - JavaScript GC will clean up everything so in terms of memory consumption your app should go back to initial state from before the call.
-
+    - When the call is finished our SDK will terminate the signaling & media sessions leaving you with an instance of the call that holds the last state of it. You can still check callEndReason etc... If your app won't hold the reference to the Call instance then the JavaScript garbage collector will clean up everything so in terms of memory consumption your app should go back to initial state from before the call.
 2. Which resource types are long-lived (app lifetime) vs. short-lived (call lifetime):
     - The following are considered to be "long-lived" resources - you can create them and keep referenced for a long time, they are very light in terms of resource(memory) consumption so won't impact perf:
         - CallClient
