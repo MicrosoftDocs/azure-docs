@@ -96,7 +96,7 @@ Spatial support is a core feature of the SQL Server database engine.
 
 XML features enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL products have a specialized, built-in XML query engine that processes XML data.
 
-The SQL Server database engine provides a powerful platform for developing rich applications for semistructured data management. Support for XML is integrated into all the components of the database engine and includes the following:
+The SQL Server database engine provides a powerful platform for developing applications to manage semistructured data. Support for XML is integrated into all the components of the database engine and includes:
 
 - The ability to store XML values natively in an XML data-type column that can be typed according to a collection of XML schemas or left untyped. You can index the XML column.
 - The ability to specify an XQuery query against XML data stored in columns and variables of the XML type. You can use XQuery functionalities in any Transact-SQL query that accesses a data model that you use in your database.
