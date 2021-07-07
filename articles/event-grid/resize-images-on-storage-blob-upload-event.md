@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 - You need an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
-- You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial]. Keep the Cloud Shell window open after you complete this prerequisite tutorial. In the Cloud Shell window, you can switch between **PowerShell** and **Bash** sessions by using the drop-down list at the top-left corner of the window. 
+- You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].  
 
 ## Create an Azure Storage account
 Azure Functions requires a general storage account. In addition to the Blob storage account you created in the previous tutorial, create a separate general storage account in the resource group. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
