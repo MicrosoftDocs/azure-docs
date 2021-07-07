@@ -18,9 +18,9 @@ ms.author: yelevin
 ---
 # Use Azure Functions to connect your data source to Azure Sentinel
 
-You can use Azure Functions, in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md), to create a serverless connector to REST API endpoints of your compatible data sources.
+You can use Azure Functions, in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to REST API endpoints of your compatible data sources.
 
-Azure Function Apps allow you to easily connect Azure Sentinel to your data source's REST API and pull in logs. This document will show you how to configure Azure Sentinel for this purpose. You may also need to configure your source system as well. You can find vendor- and product-specific information links on the [Partner data connectors](partner-data-connectors.md) page.
+Azure Function Apps allow you to easily connect Azure Sentinel to your data source's REST API and pull in logs. This document will show you how to configure Azure Sentinel for this purpose. You may also need to configure your source system as well. You can find vendor- and product-specific information links in each data connector's page in the portal, or on the [Partner data connectors](partner-data-connectors.md) documentation page.
 
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -29,7 +29,7 @@ Azure Function Apps allow you to easily connect Azure Sentinel to your data sour
 
 ## Prerequisites
 
-The following are required to connect <PRODUCT NAME> to Azure Sentinel:
+The following are required to use Azure Functions to connect Azure Sentinel to your product or service and pull its logs into Azure Sentinel:
 
 - You must have read and write permissions on the Azure Sentinel workspace.
 
@@ -37,7 +37,7 @@ The following are required to connect <PRODUCT NAME> to Azure Sentinel:
 
 - You must have read and write permissions on Azure Functions, to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 
-- You will also need credentials for accessing the product's API - either a username and password, a token, a key, or some other combination. You may also need other API information such as an endpoint URI. This information can be found in each product's documentation. You can find the relevant links in your product's section on the [Partner data connectors](partner-data-connectors.md) page.
+- You will also need credentials for accessing the product's API - either a username and password, a token, a key, or some other combination. You may also need other API information such as an endpoint URI. This information can be found in each product's documentation. You can find the relevant links in each data connector's page in the portal, or in your product's section on the [Partner data connectors](partner-data-connectors.md) page.
 
 ## Configure and connect your data source
 
@@ -48,20 +48,15 @@ The following are required to connect <PRODUCT NAME> to Azure Sentinel:
 
 ### STEP 1 - Get your source system's API credentials
 
-Follow your source system's instructions to get its API credentials / authorization keys / tokens, possibly in the form of a **Client ID** and a **Client Secret**, and copy/paste them into a text file for later.
-
-> [!NOTE]
-> **(Optional) Enable the Security Graph API**
->
-> To take advantage of sharing data with Azure Sentinel using the Security Graph API, you'll need to [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
->
-> This process will give you three pieces of information for use when deploying the Function App below: the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret**.
+Follow your source system's instructions to get its API credentials / authorization keys / tokens, as specified on the data connector page in the portal and in your product's section on the [Partner data connectors](partner-data-connectors.md) page, and copy/paste them into a text file for later.
 
 ### STEP 2 - Deploy the connector and the associated Azure Function App
 
 #### Choose a deployment option
 
 # [Azure Resource Manager (ARM) template](#tab/ARM)
+
+This method provides an automated deployment of the Okta SSO connector using an ARM template.
 
 1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
 
@@ -70,17 +65,15 @@ Follow your source system's instructions to get its API credentials / authorizat
 1. Select **Deploy to Azure**. (You may have to scroll down to find the button.)
 
 1. The **Custom deployment** screen will appear.
-    1. Select a **subscription**, **resource group**, and **region** in which to deploy your Function App.
+    - Select a **subscription**, **resource group**, and **region** in which to deploy your Function App.
 
-    1. Enter your **Client ID** and **Client Secret** that you saved in [Step 1](#step-1---get-your-source-systems-api-credentials) above.
+    - Enter your API credentials / authorization keys / tokens that you saved in [Step 1](#step-1---get-your-source-systems-api-credentials) above.
 
-    1. Enter your Azure Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
+    - Enter your Azure Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
 
-    1. Select **True** or **False** for the APIs through which you want to collect data.
+    - Complete any other fields in the form on the **Custom deployment** screen. See your data connector page in the portal or your product's section on the [Partner data connectors](partner-data-connectors.md) page for assistance.
 
-    1. If you have created an Azure Application to share information with Azure Sentinel using the Security Graph API, select **True** for **Enable Security Graph Sharing** and enter the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret**.
-
-    1. Select **Review + create**. When the validation completes, click **Create**.
+    - Select **Review + create**. When the validation completes, click **Create**.
 
 1. **Assign the necessary permissions to your Function App:**
 
@@ -131,11 +124,13 @@ Follow your source system's instructions to get its API credentials / authorizat
 
     1. In the **Functions** page, select **+ Add**.
     
-    1. Select the **Timer** trigger and enter the appropriate parameters.
+    1. In the **Add function** panel, select the **Timer** trigger.
 
-    1. Click on **Code + Test** on the left pane.
+    1. Enter a unique name for your function and enter a *cron* expression to specify the schedule. The default interval is every 5 minutes.
 
-    1. Download the Function App Code supplied by your source system's vendor and copy and paste it into the **Function App** *run.ps1* editor.
+    1. When the function has been created, click on **Code + Test** on the left pane.
+
+    1. Download the Function App Code supplied by your source system's vendor and copy and paste it into the **Function App** *run.ps1* editor, replacing what's there by default. You can find the download link on the connector page or in your product's section on the [Partner data connectors](partner-data-connectors.md) page.
 
     1. Click **Save**.
 
@@ -159,7 +154,7 @@ Follow your source system's instructions to get its API credentials / authorizat
     > [!NOTE]
     > You will need to [prepare Visual Studio Code](../azure-functions/create-first-function-vs-code-python.md) (VS Code) for Azure Function development.
 
-    1. Download the Azure Function App file using the link supplied in your product's section of the [Partner data connectors](partner-data-connectors.md) page. Extract the archive to your local development computer.
+    1. Download the Azure Function App file using the link supplied on the data connector page and in your product's section of the [Partner data connectors](partner-data-connectors.md) page. Extract the archive to your local development computer.
 
     1. Start VS Code. From the menu bar, select **File > Open Folder...**.
 
