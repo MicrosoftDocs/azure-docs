@@ -103,7 +103,7 @@ For instance if, in the appsettings.json you have the following configuration:
 }
 ```
 
-then, you can reference it in the `[RequiredScope]` attribute:
+Then, reference it in the `[RequiredScope]` attribute:
 
 ```csharp
 using Microsoft.Identity.Web
@@ -123,7 +123,7 @@ public class TodoListController : Controller
 }
 ```
 
-##### Other way of verifying the scopes on a controller action 
+##### Verify scopes conditionally
 
 There are cases where you want to verify scopes conditionally. You can do this using the `VerifyUserHasAnyAcceptedScope` extension method on the `HttpContext`.
 
@@ -163,7 +163,7 @@ The following code snippet shows the usage of the `[RequiredScope]` attribute wi
 using Microsoft.Identity.Web
 
 [Authorize]
-[RequiredScope(scopeRequiredByApi)
+[RequiredScope(scopeRequiredByApi)]
 public class TodoListController : Controller
 {
     /// <summary>
