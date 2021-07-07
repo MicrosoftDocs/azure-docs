@@ -44,11 +44,15 @@ Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgr
 1. On the **Configuration** page, for **Tier**, select **Standard** from the dropdown. 
 1. Click **Apply**.
 
-## <a name="instance"></a>Host scaling
+## <a name="instance"></a>Instances and host scaling
+
+An instance is an optimized Azure VM that runs all of the processes needed for Azure Bastion. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, 2 instances are created. If you use the Standard SKU, you can specify the number of instances. This is called **host scaling**. 
+
+Each instance can support 20-40 connections to client VMs. The number of connections per instances depends on what actions you are taking when connected to the client VM. For example, if you are doing something data intensive, it creates a larger load for the instance to process. You can always upgrade a Basic SKU to a Standard SKU to configure host scaling if you require more instances. Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
+
+Instances are created in the AzureBastionSubnet. For host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
 [!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
-
-The AzureBastionSubnet contains the instances. For host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
 ### Configuration methods
 
