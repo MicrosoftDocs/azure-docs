@@ -79,6 +79,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-bastion
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
   - name: Preview SLA
