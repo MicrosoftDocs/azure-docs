@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 
 ---
@@ -21,7 +21,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ### Form Recognizer containers v2.1 released in gated preview
 
-Form Recognizer features are now supported by seven containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
+Form Recognizer features are now supported by six feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom**. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval.
 
 *See* [**Install and run Docker containers for Form Recognizer**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout) and [**Configure Form Recognizer containers**](containers/form-recognizer-container-configuration.md?branch=main)
 

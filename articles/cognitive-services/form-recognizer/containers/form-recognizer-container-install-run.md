@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
 ---
@@ -20,7 +20,7 @@ keywords: on-premises, Docker, container, identify
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by seven Form Recognizer containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, **Custom API**, and **Custom Supervised** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container). 
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container). 
 
 ## Prerequisites
 
