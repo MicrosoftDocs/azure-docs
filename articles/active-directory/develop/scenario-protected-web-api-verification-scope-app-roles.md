@@ -103,7 +103,7 @@ For instance if, in the appsettings.json you have the following configuration:
 }
 ```
 
-then, you can reference it in the `[RequiredScope]` attribute:
+Then, reference it in the `[RequiredScope]` attribute:
 
 ```csharp
 using Microsoft.Identity.Web
