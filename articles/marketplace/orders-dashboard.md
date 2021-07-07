@@ -20,7 +20,7 @@ To access the Orders dashboard in the Partner Center, under **Commercial Marketp
 
 ## Orders dashboard
 
-The Orders dashboard displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
+The [Orders dashboard](https://go.microsoft.com/fwlink/?linkid=2165914) displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
 
 - Orders trend
 - Orders per seat and site trend

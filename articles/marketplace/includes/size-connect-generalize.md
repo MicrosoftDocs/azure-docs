@@ -18,11 +18,9 @@ All images in the Azure Marketplace must be reusable in a generic fashion. To ac
 Windows OS disks are generalized with the [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) tool. If you later update or reconfigure the OS, you must run sysprep again.
 
 > [!WARNING]
-> After you run sysprep, turn the VM off until it's deployed because updates may run automatically. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Steps to generalize a VHD](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
+> After you run sysprep, turn the VM off until it's deployed because updates may run automatically. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Generalize a Windows VM](../../virtual-machines/generalize.md#windows).
 
 ### For Linux
-
-The following process generalizes a Linux VM and redeploys it as a separate VM. For details, see [How to create an image of a virtual machine or VHD](../../virtual-machines/linux/capture-image.md). You can stop when you reach the section called "Create a VM from the captured image".
 
 1. Remove the Azure Linux agent.
     1. Connect to your Linux VM using an SSH client.

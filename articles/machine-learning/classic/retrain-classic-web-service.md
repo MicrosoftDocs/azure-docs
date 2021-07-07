@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): retrain classic web service - Azure'
-description: Learn how to retrain a model and update a classic web service to use the newly trained model in Azure Machine Learning Studio (classic).
+description: Learn how to retrain a model and update a classic web service to use the newly trained model in Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -13,7 +13,7 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a classic Studio (classic) web service
 
-**APPLIES TO:**  ![Green check mark.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![X indicating no.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![X indicating no.](../../../includes/media/aml-applies-to-skus/no.png)[Does not apply to.](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain a classic Studio (classic) web service. For a guide on how to retrain a new Studio (classic) web service, [view this how-to article.](retrain-machine-learning-model.md)

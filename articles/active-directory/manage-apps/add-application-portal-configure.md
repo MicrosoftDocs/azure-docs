@@ -49,7 +49,7 @@ To edit the application properties:
     | Enabled for users to sign in? | User assignment required? | Visible to users? | Behavior for users who have either been assigned to the app or not. |
     |---|---|---|---|
     | Yes | Yes | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app and cannot sign in. |
-    | Yes | Yes | No  | Assigned uses cannot see the app but they can sign in.<br>Unassigned users cannot see the app and cannot sign in. |
+    | Yes | Yes | No  | Assigned users cannot see the app but they can sign in.<br>Unassigned users cannot see the app and cannot sign in. |
     | Yes | No  | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app but can sign in. |
     | Yes | No  | No  | Assigned users cannot see the app but can sign in.<br>Unassigned users cannot see the app but can sign in. |
     | No  | Yes | Yes | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
