@@ -1023,7 +1023,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |apiserver_current_inflight_requests|No|Inflight Requests|Count|Average|Maximum number of currently used inflight requests on the apiserver per request kind in the last second|requestKind|
 |cluster_autoscaler_cluster_safe_to_autoscale|No|Cluster Health|Count|Average|Determines whether or not cluster autoscaler will take action on the cluster|No Dimensions|
 |cluster_autoscaler_scale_down_in_cooldown|No|Scale Down Cooldown|Count|Average|Determines if the scale down is in cooldown - No nodes will be removed during this timeframe|No Dimensions|
-|cluster_autoscaler_unneeded_nodes_count|No|Unneeded Nodes|Count|Average|Cluster auotscaler marks those nodes as candidates for deletion and are eventually deleted|No Dimensions|
+|cluster_autoscaler_unneeded_nodes_count|No|Unneeded Nodes|Count|Average|Cluster autoscaler marks those nodes as candidates for deletion and are eventually deleted|No Dimensions|
 |cluster_autoscaler_unschedulable_pods_count|No|Unschedulable Pods|Count|Average|Number of pods that are currently unschedulable in the cluster|No Dimensions|
 |kube_node_status_allocatable_cpu_cores|No|Total number of available cpu cores in a managed cluster|Count|Average|Total number of available cpu cores in a managed cluster|No Dimensions|
 |kube_node_status_allocatable_memory_bytes|No|Total amount of available memory in a managed cluster|Bytes|Average|Total amount of available memory in a managed cluster|No Dimensions|

@@ -105,6 +105,8 @@ There are four items within the solution:
 
 - An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it.
 
+  In production scenarios, we recommend using service principals to provide access to your container registry instead of the .env file. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+
   > [!NOTE]
   > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
 
