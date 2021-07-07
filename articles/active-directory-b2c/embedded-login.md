@@ -36,7 +36,7 @@ For a simpler sign-in experience, you can avoid redirecting users to a separate 
 
 The inline frame element `<iframe>` is used to embed a document in an HTML5 web page. You can use the iframe element to embed the Azure AD B2C sign-in user interface directly into your web application, as show in the following example:
 
-![Login with hovering DIV experience](media/embedded-login/login-hovering.png)
+![Login with hovering DIV experience](https://user-images.githubusercontent.com/41090488/124792239-addf8380-df01-11eb-8029-7f8ed3beafbc.png)
 
 When using iframe, consider the following:
 
