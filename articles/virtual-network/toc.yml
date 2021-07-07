@@ -263,11 +263,7 @@
         - name: Basic Public Load Balancer with IPv6 - PowerShell
           href: ipv6-add-to-existing-vnet-powershell.md
         - name: Basic Public Load Balancer with IPv6 - Azure CLI
-          href: ipv6-add-to-existing-vnet-cli.md
-      - name: Virtual machine scale set with IPv6
-        href: ipv6-virtual-machine-scale-set.md
-      - name: Public IPv6 address prefix
-        href: ipv6-reserve-public-ip-address-prefix.md       
+          href: ipv6-add-to-existing-vnet-cli.md    
     - name: Routing preference
       items:
       - name: Create public IP address
@@ -395,6 +391,8 @@
       href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
       href: virtual-machine-network-throughput.md
+    - name: Virtual machine scale set with IPv6
+      href: ipv6-virtual-machine-scale-set.md 
   - name: Move across regions
     items:
     - name: Network security groups (NSG)
