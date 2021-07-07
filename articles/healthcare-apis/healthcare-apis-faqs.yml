@@ -47,6 +47,12 @@ sections:
         answer: |
           During the Private Preview phase, Healthcare APIs are available in the South Central US and North Europe regions. [UPDATE THIS LIST BEFORE GA]
           
+      - question: Can you use IoT Central with IoT Connector for FHIR?
+        answer: |
+          Health data can be sent to Event Hubs, Azure IoT Hub or Azure IoT Central, and is converted to FHIR resources, which enables care teams to view patient data captured from IoT devices in context with clinical records in FHIR.
+          
+          
+          
           
           
           
