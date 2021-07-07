@@ -23,7 +23,7 @@ The following table lists partner solutions that are currently supported. Make s
 | Partner | Solution name |
 | ------- | ------------- |
 | ![Incorta](./media/sql-data-warehouse-partner-data-integration/incorta-logo.png) | Incorta Intelligent Ingest for Azure Synapse |
-| ![Informatica](./media/sql-data-warehouse-partner-data-integration/informatica_logo.png) | Informatica IICS |
+| ![Informatica](./media/sql-data-warehouse-partner-data-integration/informatica_logo.png) | Informatica Intelligent Data Management Cloud |
 | ![Qlik Data Integration (formerly Attunity)](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) | Qlik Data Integration (formerly Attunity) |
 
 ## Requirements
@@ -31,8 +31,8 @@ When you chose a partner application, Azure Synapse Studio provisions a sandbox 
 
 |  Object  |    Details    |
 | -------- | ------------- |
-| A [dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) named **PartnerCenter_[PartnerName]_pool** | DW100c performance level. |
-| A [SQL login](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) named **PartnerCenter_[PartnerName]_login** | Created on your `master` database. The password for this SQL login is specified by you at the creation of your trial.  |
+| A [dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) named **Partner_[PartnerName]_pool** | DW100c performance level. |
+| A [SQL login](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) named **Partner_[PartnerName]_login** | Created on your `master` database. The password for this SQL login is specified by you at the creation of your trial.|
 | A [database user](/azure/azure-sql/database/logins-create-manage?bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
 
 In all cases, **[PartnerName]** is the name of the third-party ISV who offers the trial. 
