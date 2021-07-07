@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 # What is the sign-in diagnostic in Azure AD?
 
-Determining the reason for a failed sign-in can quickly become a challenging task. You need to analyze what happened during the sign-in attempt, and research the available recommendations to resolve the issue. Ideally, you want to resolve the issue without involving others such as Microsoft support. If you are in a situation like this, you can use the sign-in diagnostic in Azure AD, a virtual assistant that helps you investigating sign-ins in Azure AD. 
+Determining the reason for a failed sign-in can quickly become a challenging task. You need to analyze what happened during the sign-in attempt, and research the available recommendations to resolve the issue. Ideally, you want to resolve the issue without involving others such as Microsoft support. If you are in a situation like this, you can use the sign-in diagnostic in Azure AD, a tool that helps you investigating sign-ins in Azure AD. 
 
 This article gives you an overview of what the diagnostic is and how you can use it to troubleshoot sign-in related errors. 
 
@@ -39,7 +39,7 @@ In Azure AD, sign-in attempts are controlled by:
 
 For example, you can configure conditional access policies that enable administrators to configure all aspects of the tenant when they sign in from the corporate network. But the same user might be blocked when they sign into the same account from an untrusted network. 
 
-Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that is designed to enable self-diagnosis of sign-in issues by:  
+Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a tool that is designed to enable self-diagnosis of sign-in issues by:  
 
 - Analyzing data from sign-in events.  
 
@@ -49,16 +49,16 @@ Due to the greater flexibility of the system to respond to a sign-in attempt, yo
 
 To start and complete the diagnostic process, you need to:   
 
-1. **Define scope** - Enter information about the sign-in event 
+1. **Identify event** - Enter information about the sign-in event 
 
 2. **Select event** - Select an event based on the information shared. 
 
 3. **Take action** - Review diagnostic results and perform steps.
 
 
-### Define scope 
+### Identify event 
 
-To locate the right events for you, you can set a filter that with the following options:
+To identify the right events for you, you can filter based on the following options:
 
 - Name of the user
 - Application 
@@ -86,7 +86,7 @@ You can change the content displayed in the columns based on your preference. Ex
 
 ### Take action
 
-For the selected sign-in event, you get a diagnostic results. Read through the results to identify action that you can take to fix the problem. These results ad recommended steps shed light on relevant information such as the related policies, sign-in details and supportive documentation. Since it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket. 
+For the selected sign-in event, you get a diagnostic results. Read through the results to identify action that you can take to fix the problem. These results add recommended steps and shed light on relevant information such as the related policies, sign-in details, and supportive documentation. Because it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket. 
 
 
 ![Screenshot showing the diagnostic results.](./media/overview-sign-in-diagnostics/diagnostic-results.png)
