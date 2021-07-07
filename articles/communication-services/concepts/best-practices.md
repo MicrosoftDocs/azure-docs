@@ -6,7 +6,7 @@ manager: akania
 services: azure-communication-services
 
 ms.author: srahaman
-ms.date: 06/18/2021
+ms.date: 06/30/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---

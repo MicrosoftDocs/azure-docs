@@ -9,7 +9,7 @@ ms.date: 03/03/2021
 ---
 # Migrate data to Azure Database for MySQL with dbForge Studio for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Looking to move your MySQL databases to Azure Database for MySQL? Consider using the migration tools in dbForge Studio for MySQL. With it, database transfer can be configured, saved, edited, automated, and scheduled.
 

@@ -74,13 +74,13 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
 Clone the Pet Store demo application.
 
 ```azurecli-interactive
-git clone https://github.com/andxu/migrate-javaee-app-to-azure-training.git
+git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
 ```
 
 Change directory to the cloned project.
 
 ```azurecli-interactive
-cd migrate-javaee-app-to-azure-training
+cd agoncal-application-petstore-ee7
 ```
 
 ::: zone-end
