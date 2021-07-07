@@ -19,7 +19,7 @@ ms.date: 07/07/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
-# Customer intent: As an Azure AD administrator, I want a tool that gives me the right level of insights into the sign-in activities in my system so that I can easily diagnose and solve problems when they occur.
+# Customer intent: As an Azure AD administrator, I want to know the scenarios that are supported by the sign in diagnostics for Azure AD so that I can determine whether the tool can help me with a sign-in issue.
 ms.collection: M365-identity-device-management
 ---
 
