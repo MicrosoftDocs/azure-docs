@@ -5,6 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
+monikerRange: 'healthcareapi-1.0.0'
 ms.date: 06/14/2021
 ms.author: ginle
 ---

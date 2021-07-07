@@ -5,6 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
+monikerRange: 'healthcareapi-1.0.0'
 ms.date: 06/21/2021
 ms.author: aersoy
 ---

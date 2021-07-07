@@ -827,7 +827,6 @@
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
-
         "articles/healthcare-apis/azure-api-for-fhir/**": "azureapiforfhir",
         "articles/healthcare-apis/*.yml": "healthcareapi-1.0.0",
         "articles/healthcare-apis/*.md": "healthcareapi-1.0.0",
