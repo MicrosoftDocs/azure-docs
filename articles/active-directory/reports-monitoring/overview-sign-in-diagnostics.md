@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/18/2021
+ms.date: 07/07/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
