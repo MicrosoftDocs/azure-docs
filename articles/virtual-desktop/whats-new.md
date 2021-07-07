@@ -81,7 +81,7 @@ We created the Azure Virtual Desktop Getting Started tool to make the deployment
 We've made some significant updates to improve the Azure Virtual Desktop pricing experience on the Azure pricing calculator, including the following:  
   
 - We've updated the service name to Azure Virtual Desktop  
-- We also updated updated the layout with the following new items:  
+- We also updated the layout with the following new items:  
    - A Storage section with both managed disk and file storage bandwidth  
    - A custom section that shows cost-per-user
 
