@@ -39,11 +39,17 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 #### Regional availability
 
-Shared premium SSDs are available in all regions that managed disks are available. For P1-P15 sizes, they are currently only available in Central US, East US, East US 2, West US, West US 2, Japan East, and Canada Central.
+For P1-P15 sizes, they are currently only available in Central US, East US, East US 2, West US, West US 2, Japan East, and Canada Central. All other sizes are available in all regions that managed disks are available. 
 
 
 ### Standard SSDs
 
-
-
-
+- Must email SharedDiskFeedback@microsoft .com for your subscription to be able to deploy shared standard SSDs.
+- Currently limited to Azure Resource Manager or SDK support. 
+- Can only be enabled on data disks, not OS disks.
+- When using Availability sets and virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain is not enforced for the shared data disk.
+- When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
+- Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
+- Azure Site Recovery support is not yet available.
+- Azure Backup is available through [Azure Disk Backup](../articles/backup/disk-backup-overview.md).
+- Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
