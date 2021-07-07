@@ -60,7 +60,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
    az provider show -n "Microsoft.AVS" --query registrationState
    ```
 
-   If the subscription is not registered, then register it:
+   If it's not already registered, then register it:
 
    ```azurecli
    az provider register -n "Microsoft.AVS"
