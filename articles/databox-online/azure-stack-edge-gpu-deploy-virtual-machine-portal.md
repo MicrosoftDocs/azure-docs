@@ -122,7 +122,6 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
 1. On the **Basics** tab, input the following parameters.
 
-
     |Parameter |Description  |
     |---------|---------|
     |Virtual machine name     | Enter a name for the new virtual machine.        |
@@ -135,8 +134,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
     |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-). |
     |Confirm password    | Enter the password again.        |
 
-
-    ![Screenshot showing the Basics tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)<!--OK as is.-->
+    ![Screenshot showing the Basics tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)
 
     Select **Next: Disks**.
 
@@ -144,7 +142,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
     
     1. You can choose to **Create and attach a new disk** or **Attach an existing disk**.
 
-        ![Screenshot that shows the Disks tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-1.png)<!--OK as is.-->
+        ![Screenshot that shows the Disks tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-disks-1.png)
 
     1. Select **Create and attach a new disk**. On the **Create new disk** pane, provide a name for the disk and the size in GiB.
 
@@ -161,7 +159,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
     |Subnet     | This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
     |IP address     | Provide a static or a dynamic IP for your VM. The static IP should be an available, free IP from the specified subnet range.        |
 
-    ![Screenshot that shows the Networking tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)<!--OK as is.-->
+    ![Screenshot that shows the Networking tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-networking-1.png)
 
     Select **Next: Advanced**. On the **Advanced** tab, you can select an extension to install during VM deployment, and you can specify a `cloud-init` script to customize your VM.
 
@@ -186,7 +184,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
 1. On the **Review + Create** tab, review the specifications for the VM. Then select **Create**.
 
-    ![Screenshot that shows the Review + create tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)<!--STOPPED HERE. Find a cloud-init script, and re-test, to get to the end of the procedure.-->
+    ![Screenshot that shows the Review + create tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-review-create-1.png)
 
 1. The VM creation starts and can take up to 20 minutes. You can go to **Deployments** to monitor the VM creation.
 

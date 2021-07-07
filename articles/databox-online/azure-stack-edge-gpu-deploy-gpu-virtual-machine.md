@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 07/07/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
 ---
@@ -64,13 +64,23 @@ Follow these steps when deploying GPU VMs on your device via the Azure portal:
 
 1. Select the VM, and drill down to the details. On the **Basics** tab, under **Installed extensions**, make sure the GPU extension has **Succeeded** status. <!--NOT NEEDED? Copy the IP address allocated to the VM.-->
 
-    If you didn't install the GPU extension during VM creation, you can install it at any time by choosing **+ Add extension**. The steps are the same.
-
     ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/vm-details-01-extension-settings.png)
 
 1. If needed, you can switch the compute network back to whatever you need.
 
-1. If you didn't install the GPU extension when you created the virtual machine, install it from the portal or using templates. ADD LINKS.
+#### Install GPU extension on a deployed VM
+
+To install a GPU extension after you deploy a virtual machine, do these steps in the Azure portal:
+
+1. In the Azure portal, go to the Azure Stack Edge resource for your device. View **Virtual machines**, and select the VM to add the GPU extension to.
+
+    ![Screenshot that shows how to select a virtual machines from the Virtual machines Overview.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-virtual-machine-extension-01.png)
+  
+1. In the VM **Details**, select **+ Add extension**. Then select a GPU extension to install.
+
+    GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+
+    ![Screenshot that shows the + Add virtual machine button on the dashboard for a VM.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-virtual-machine-extension-02.png)
 
 ### [Templates](#tab/templates)
 
