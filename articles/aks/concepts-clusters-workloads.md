@@ -257,7 +257,7 @@ Replicas in a StatefulSet are scheduled and run across any available node in an 
 
 ### DaemonSets
 
-For specific log collection or monitoring, you may need to run a pod on all, or selected, nodes. You can use *DaemonSet* deploy one or more identical pods, but the DaemonSet Controller ensures that each node specified runs an instance of the pod.
+For specific log collection or monitoring, you may need to run a pod on all, or selected, nodes. You can use *DaemonSet* deploy on one or more identical pods, but the DaemonSet Controller ensures that each node specified runs an instance of the pod.
 
 The DaemonSet Controller can schedule pods on nodes early in the cluster boot process, before the default Kubernetes scheduler has started. This ability ensures that the pods in a DaemonSet are started before traditional pods in a Deployment or StatefulSet are scheduled.
 
