@@ -1,11 +1,11 @@
 ---
 
-title: What is the sign-in diagnostic for Azure Active Directory?
-description: Provides a general overview of the sign-in diagnostic in Azure Active Directory.
+title: Sign-in diagnostics for Azure AD scenarios
+description: Lists the scenarios that are supported by the sign-in diagnostics for Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
@@ -43,7 +43,7 @@ The sign-in diagnostic for Azure AD provides you with support for the follwowing
 
     - B2B Blocked Sign-In Due to Conditional Access 
 
-- **Multi-Factor Authentication (MFA)**  
+- **Multifactor Authentication (MFA)**  
 
     - MFA from other requirements  
 
@@ -127,7 +127,7 @@ The diagnostic section for this scenario shows details about the user sign-in at
 
  
 
-## Multi-Factor Authentication (MFA)  
+## Multifactor Authentication (MFA)  
 
 ### MFA from other requirements 
 
@@ -248,9 +248,9 @@ Resolution for this scenario requires reviewing and updating the configuration o
 
 ### Security defaults 
 
-This scenario covers sign-in events where the user’s sign-in was interrupted due to security defaults settings. Security defaults enforce best practice security for your organization and requires multi-factor authentication (MFA) to be configured and used in many scenarios to prevent password sprays, replay attacks and phishing attempts from being successful. 
+This scenario covers sign-in events where the user’s sign-in was interrupted due to security defaults settings. Security defaults enforce best practice security for your organization and requires multifactor authentication (MFA) to be configured and used in many scenarios to prevent password sprays, replay attacks and phishing attempts from being successful. 
 
-For more information, see [Fundamentals](../fundamentals/concept-fundamentals-security-defaults.md). 
+For more information, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md) 
 
 ### Error code insights 
 
@@ -260,21 +260,21 @@ When an event does not have a contextual analysis in the sign-in diagnostic an u
 
 This diagnostics scenario diagnosis a sign-in event which was blocked or interrupted since the client was attempting to use Basic (also known as Legacy) Authentication. 
 
-Preventing legacy authentication sign-in is recommended as the best practice for security. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI cannot enforce Multi-Factor Authentication (MFA) which makes them preferred entry points for adversaries to attack your organization. 
+Preventing legacy authentication sign-in is recommended as the best practice for security. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI cannot enforce multifactor Authentication (MFA) which makes them preferred entry points for adversaries to attack your organization. 
 
-For more information, see [Bla](../conditional-access/block-legacy-authentication.md). 
+For more information, see [How to block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md). 
 
 ### B2B blocked sign-in due to conditional access 
 
 This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization-a B2B sign-in-where a Conditional Access policy requires that the client's device is joined to the resource tenant. 
 
-For more information, see [Bla](../external-identities/conditional-access.md). 
+For more information, see [Conditional Access for B2B collaboration users](../external-identities/conditional-access.md). 
 
 ### Blocked by Risk Policy 
 
 This scenario is where Identity Protection Policy blocks a sign-in attempt due to the sign-in attempt having been identified as risky. 
 
-For more information, see [Bla](../identity-protection/howto-identity-protection-configure-risk-policies.md). 
+For more information, see [How to configure and enable risk policies](../identity-protection/howto-identity-protection-configure-risk-policies.md). 
 
 
 
