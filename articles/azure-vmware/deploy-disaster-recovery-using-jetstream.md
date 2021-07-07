@@ -10,21 +10,39 @@ ms.date: 07/07/2021
 
 # Deploy disaster recovery using JetStream DR
 
-In this article, you'll deploy [JetStream DR](https://www.jetstreamsoft.com/solutions/disaster-recovery-for-azure-vmware-solution/#) for your Azure VMware Solution private cloud and on-premises VMware workloads. It provides a foundation for real-time replication to a ready failover environment. For example, VMware workloads instantly fail over from on-premises to the Azure VMware Solution environment. For virtual machines (VMs) that run in Azure VMware Solution, they fail over to a different Azure region.
+[JetStream Disaster Recovery (DR)](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is installed in a VMware vSphere environment and managed through a vCenter plug-in appliance. It provides cloud-native Continuous Data Protection (CDP), which constantly replicates virtual machine (VM) I/O operations. Instead of capturing snapshots at regular intervals, it continuously captures and replicates data as it's written to the primary storage with minimal impact on running applications.  It allows you to quickly recover VMs and their data, reaching a lower recovery point objective (RPO).  
 
-The key advantages of using JetStream DR on Azure VMware Solution are:
+With Azure VMware Solution, you can store data directly to a recovery cluster in vSAN or attached file systems like Azure NetApp Files. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform. 
 
-- **Data replication to cost‐efficient Microsoft Azure Blob Storage:** Storing VMs and their data in an object store reduces storage costs; also, JetStream DR provides inline data compression and embedded garbage collection to minimize the amount of storage capacity required. 
 
-- **Datastore agnostic in both the protected site and the recovery site:** JetStream DR captures data through IO Filters that run within vSphere; the underlying datastore can be VMFS, VSAN, vVol, or any HCI platform. Similarly, the recovery site can run any datastore. 
+[diagram]
 
-- **Lightweight deployment and simple operation:** JetStream DR is deployed to the protected environment from a VMware certified VIB, and managed through a vCenter plug‐in appliance.  
+
+
+In this article, you'll deploy and learn how to use JetStream DR in your Azure VMware Solution private cloud and on-premises VMware workloads.
 
 
 ## Supported scenarios
 
 
+### On-premises to cloud deployment
+
+
+### Cloud to cloud deployment
+
+
+
 ## Prerequisites
+
+[put the AVS-specific prereqs here]
+
+### Protected site
+
+
+### Recovery site
+
+
+### Network 
 
 
 ## Activate JetStream DR in your subscription
