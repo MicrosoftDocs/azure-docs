@@ -36,37 +36,22 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].
+- You need an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
+- You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial]. Keep the Cloud Shell window open after you complete this prerequisite tutorial. 
 
-You need an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
+    In the Cloud Shell window, you can switch between **PowerShell** and **Bash** sessions. 
 
-If you've not previously registered the Event Grid resource provider in your subscription, make sure it's registered.
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/switch-powershell-bash.png" alt-text="Screenshot showing Cloud Shell window":::
 
-# [PowerShell](#tab/azure-powershell)
 
-```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.EventGrid
-```
 
-# [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-If you are not using Cloud Shell, you must first sign in using `az login`.
-
-```azurecli
-az provider register --namespace Microsoft.EventGrid
-```
-
----
 
 ## Create an Azure Storage account
-
 Azure Functions requires a general storage account. In addition to the Blob storage account you created in the previous tutorial, create a separate general storage account in the resource group. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 Set variables to hold the name of the resource group that you created in the previous tutorial, the location for resources to be created, and the name of the new storage account that Azure Functions requires. Then, create the storage account for the Azure function.
+
+
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -151,7 +136,7 @@ blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName -n $b
 
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 ```
 
 ---
@@ -170,12 +155,29 @@ The sample C# resize function is available on [GitHub](https://github.com/Azure-
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
+**if you are using the PowerShell of Azure Cloud Shell**
+```powershell
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName `
+  --branch master --manual-integration `
+  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
+```
+
 # [Node.js v10 SDK](#tab/nodejsv10)
 
 The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
 ```azurecli
-az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
+az functionapp deployment source config --name $functionapp \
+  --resource-group $resourceGroupName --branch master --manual-integration \
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
+```
+
+**if you are using the PowerShell of Azure Cloud Shell**
+
+```powershell
+az functionapp deployment source config --name $functionapp `
+  --resource-group $resourceGroupName --branch master --manual-integration `
+  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 
 ---
