@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/21/2021
+ms.date: 07/07/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -162,12 +162,6 @@ From now on, any users added to this group consume one license of the E3 product
 Depending on what steps you've taken to resolve the errors, it might be necessary to manually trigger the processing of a group to update the user state.
 
 For example, if you free up some licenses by removing direct license assignments from users, you need to trigger the processing of groups that previously failed to fully license all user members. To reprocess a group, go to the group pane, open **Licenses**, and then select the **Reprocess** button on the toolbar.
-
-## Force user license processing to resolve errors
-
-Depending on what steps you've taken to resolve the errors, it might be necessary to manually trigger the processing of a user to update the users state.
-
-For example, after you resolve duplicate proxy address problem for an affected user, you need to trigger the processing of the user. To reprocess a user, go to the user pane, open **Licenses**, and then select the **Reprocess** button on the toolbar.
 
 ## Next steps
 
