@@ -48,15 +48,15 @@ Before enabling customer-managed keys for an Automation account, you must ensure
 - An [Azure Key Vault](../key-vault/general/basic-concepts.md) with the **Soft Delete** and **Do Not Purge** properties enabled. These properties are required to allow for recovery of keys if there is accidental deletion.
 - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 - The Automation account and the key vault can be in different subscriptions but need to be in the same Azure Active Directory tenant.
-- When using PowerShell, ensure the [Az Module](/powershell/azure/new-azureps-module-az) installed. If necessary, run `Update-Module -Name Az`.
+- When using PowerShell, verify the [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) is installed. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
-## Generate and assign a new System Identity for an Automation Account
+## Generate and assign a new system-assigned identity for an Automation account
 
 To use customer-managed keys with an Automation account, your Automation account needs to authenticate against the key vault storing customer-managed keys. Azure Automation uses system assigned managed identities to authenticate the account with Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 ### Using PowerShell
 
-Use the PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter will generate and assign a new System Identity for the Automation Account for use with other services like Azure KeyVault. Execute the following code:
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter generates and assigns a new system-assigned identity for the Automation account to use with other services like Azure Key Vault. FOr more information, see [What are managed identities for Azure resources?](/active-directory/managed-identities-azure-resources/overview) and [About Azure Key Vault](/key-vault/general/overview). Execute the following code:
 
 ```powershell
 # Revise variables with your actual values.
@@ -71,7 +71,7 @@ Set-AzAutomationAccount `
     -AssignSystemIdentity
 ```
 
-The output should look similar as follows:
+The output should look similar to the following:
 
 :::image type="content" source="./media/automation-secure-asset-encryption/set-azautomationaccount.png" alt-text="Output from Set-AzAutomationAccount cmdlet.":::
 
@@ -87,7 +87,7 @@ $principalID
 
 ### Using REST
 
-Configure a system assigned managed identity to the Automation account using the following REST API call:
+Configure a system-assigned managed identity to the Automation account using the following REST API call:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -122,11 +122,11 @@ System-assigned identity for the Automation account is returned in a response si
 
 ## Configuration of the Key Vault access policy
 
-Once a system assigned managed identity is assigned to the Automation account, you configure access to the key vault storing customer-managed keys. Azure Automation requires the **get**, **recover**, **wrapKey**, and **UnwrapKey** permissions on the customer-managed keys.
+Once a system assigned managed identity is assigned to the Automation account, you configure access to the key vault storing customer-managed keys. Azure Automation requires the **Get**, **Recover**, **WrapKey**, and **UnwrapKey** operation permissions for the identity to access the customer-managed keys.
 
 ### Using PowerShell
 
-Use the PowerShell cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) to grant the necessary permissions. Then use [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) to create a key in the key vault. Execute the following code:
+Use PowerShell cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) to grant the necessary permissions. Then use [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) to create a key in the key vault. Execute the following code:
 
 ```powershell
 Set-AzKeyVaultAccessPolicy `
@@ -140,7 +140,7 @@ Add-AzKeyVaultKey `
     -Destination 'Software'
 ```
 
-The output should look similar as follows:
+The output should look similar to the following:
 
 :::image type="content" source="./media/automation-secure-asset-encryption/add-azkeyvaultkey.png" alt-text="Output from Add-AzKeyVaultKey cmdlet.":::
 
@@ -180,13 +180,13 @@ Request body:
 > [!NOTE]
 > The **tenantId** and **objectId** fields must be provided with values of **identity.tenantId** and **identity.principalId** respectively from the response of managed identity for the Automation account.
 
-## Change the configuration of Automation account to use customer-managed key
+## Reconfigure Automation account to use customer-managed key
 
-Finally, you can switch your Automation account from Microsoft-managed keys to customer-managed keys.
+If you want to switch your Automation account from Microsoft-managed keys to customer-managed keys, you can perform this change using Azure PowerShell or with an Azure Resource Manager template.
 
 ### Using PowerShell
 
-Use the PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to perform the  modification. Execute the following code:
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to reconfigure the Automation account to use customer-managed keys.
 
 ```powershell
 $vaultURI = (Get-AzKeyVault -VaultName $vaultName).VaultUri
@@ -202,7 +202,7 @@ Set-AzAutomationAccount `
     -KeyVaultEncryption 
 ```
 
-Then verify and review with the following code:
+You can verify the change by running the following command:
 
 ```powershell
 (Get-AzAutomationAccount `
@@ -211,7 +211,7 @@ Then verify and review with the following code:
     |  ConvertTo-Json 
 ```
 
-The output should look similar as follows:
+The output should look similar to the following:
 
 :::image type="content" source="./media/automation-secure-asset-encryption/get-azautomationaccount.png" alt-text="Output from Get-AzAutomationAccount cmdlet.":::
 
