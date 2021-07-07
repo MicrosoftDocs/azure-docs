@@ -36,7 +36,7 @@ When you use encryption with customer-managed keys for an Automation account, Az
 
 A new Automation account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the Automation account. The managed identity is available only after the storage account is created.
 
-When you modify the key being used for Azure Automation secure asset encryption, by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, the encryption of the account encryption key changes but the secure assets in your Azure Automation account do not need to be re-encrypted.
+When you modify the key being used for Azure Automation secure asset encryption, by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, the encryption of the account encryption key changes but the secure assets in your Azure Automation account don't need to be re-encrypted.
 
 > [!NOTE]
 > To enable customer-managed key using Azure Automation REST API calls, you need to use api version 2020-01-13-preview.
@@ -45,7 +45,7 @@ When you modify the key being used for Azure Automation secure asset encryption,
 
 Before enabling customer-managed keys for an Automation account, you must ensure the following prerequisites are met:
 
-- An [Azure Key Vault](../key-vault/general/basic-concepts.md) with the **Soft Delete** and **Do Not Purge** properties enabled. These properties are required to allow for recovery of keys if there is accidental deletion.
+- An [Azure Key Vault](../key-vault/general/basic-concepts.md) with the **Soft Delete** and **Do Not Purge** properties enabled. These properties are required to allow for recovery of keys if there's accidental deletion.
 - Only RSA keys are supported with Azure Automation encryption. For more information about keys, see [About Azure Key Vault keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 - The Automation account and the key vault can be in different subscriptions but need to be in the same Azure Active Directory tenant.
 - When using PowerShell, verify the [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) is installed. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
@@ -56,7 +56,7 @@ To use customer-managed keys with an Automation account, your Automation account
 
 ### Using PowerShell
 
-Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter generates and assigns a new system-assigned identity for the Automation account to use with other services like Azure Key Vault. FOr more information, see [What are managed identities for Azure resources?](/active-directory/managed-identities-azure-resources/overview) and [About Azure Key Vault](/key-vault/general/overview). Execute the following code:
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to modify an existing Azure Automation account. The `-AssignSystemIdentity` parameter generates and assigns a new system-assigned identity for the Automation account to use with other services like Azure Key Vault. For more information, see [What are managed identities for Azure resources?](/active-directory/managed-identities-azure-resources/overview) and [About Azure Key Vault](/key-vault/general/overview). Execute the following code:
 
 ```powershell
 # Revise variables with your actual values.
