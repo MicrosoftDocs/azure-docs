@@ -65,6 +65,7 @@ PowerShell runbooks are based on Windows PowerShell. You directly edit the code 
 * Runbooks can't use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to execute multiple actions in parallel.
 * Runbooks can't use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume runbook if there's an error.
 * You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet, which creates a new job.
+* PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement is not supported in Azure Automation cloud and hybrid jobs.
 
 ### Known issues
 
