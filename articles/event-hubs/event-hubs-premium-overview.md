@@ -63,7 +63,7 @@ For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas
 
 ## FAQs
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-premium-faq.md)]
+[!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-premium-faq.md)]
 
 ## Next steps
 

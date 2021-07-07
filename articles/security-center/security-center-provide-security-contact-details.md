@@ -33,7 +33,7 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 

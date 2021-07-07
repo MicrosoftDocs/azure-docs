@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
 ---
 
@@ -144,6 +144,11 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 When you schedule an update to run on a Linux machine, that for example is configured to install only updates matching the **Security** classification, the updates installed might be different from, or are a subset of, the updates matching this classification. When an assessment of OS updates pending for your Linux machine is performed, [Open Vulnerability and Assessment Language](https://oval.mitre.org/) (OVAL) files provided by the Linux distro vendor is used by Update Management for classification.
 
 Categorization is done for Linux updates as **Security** or **Others** based on the OVAL files, which includes updates addressing security issues or vulnerabilities. But when the update schedule is run, it executes on the Linux machine using the appropriate package manager like YUM, APT, or ZYPPER to install them. The package manager for the Linux distro may have a different mechanism to classify updates, where the results may differ from the ones obtained from OVAL files by Update Management. To manually check the machine and understand which updates are security relevant by your package manager, see [Troubleshoot Linux update deployment](../troubleshoot/update-management.md#updates-linux-installed-different).
+
+>[!NOTE]
+> Deploying updates by update classification may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessments, results may differ from the security updates applied during deployment. If you have classification set as **Critical** and **Security**, the update deployment will work as expected. Only the *classification of updates* during an assessment is affected.
+>
+> Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged.
 
 ## Integrate Update Management with Configuration Manager
 

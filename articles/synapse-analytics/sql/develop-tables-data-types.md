@@ -19,7 +19,7 @@ In this article, you'll find recommendations for defining table data types in Sy
 
 ## Data types
 
-Synapse SQL Dedicated Pool supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) in the CREATE TABLE statement. For Synapse SQL Serverless please refer to article [Query storage files with serverless SQL pool in Azure Synapse Analytics](/sql/query-data-storage) and [How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics](/sql/develop-openrowset)
+Synapse SQL Dedicated Pool supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) in the CREATE TABLE statement. For Synapse SQL Serverless please refer to article [Query storage files with serverless SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql/query-data-storage) and [How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql/develop-openrowset)
 
 ## Minimize row length
 

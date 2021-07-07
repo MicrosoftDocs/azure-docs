@@ -23,7 +23,7 @@
     - name: Confidential nodes with Azure CLI
       href: confidential-nodes-aks-get-started.md
     - name: Confidential nodes on AKS FAQ
-      href: confidential-nodes-aks-faq.md
+      href: confidential-nodes-aks-faq.yml
   
 - name: Concepts
   expanded: true

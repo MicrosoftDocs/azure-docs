@@ -1,44 +1,40 @@
 ---
-title: Search over Azure Cosmos DB data using SQL, MongoDB, or Cassandra API
+title: Index data from Azure Cosmos DB
 titleSuffix: Azure Cognitive Search
-description: Import data from Azure Cosmos DB into a searchable index in Azure Cognitive Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
+description: Set up a search indexer to index data stored in Azure Cosmos DB for full text search in Azure Cognitive Search. This article explains how index data using SQL, MongoDB, or Cassandra API protocols.
 
 author: mgottein 
-manager: nitinme
 ms.author: magottei
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ---
 
-# How to index data available through Cosmos DB SQL, MongoDB, or Cassandra API using an indexer in Azure Cognitive Search
+# Index data from Azure Cosmos DB using SQL, MongoDB, or Cassandra APIs
 
 > [!IMPORTANT] 
 > SQL API is generally available.
-> MongoDB API and Cassandra API support are currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  
-> You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-> [REST API preview versions](search-api-preview.md) provide these features. There is currently limited portal support, and no .NET SDK support.
-
-> [!WARNING]
-> Only Cosmos DB collections with an [indexing policy](../cosmos-db/index-policy.md) set to [Consistent](../cosmos-db/index-policy.md#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
+> MongoDB API and Cassandra API support are currently in public preview under [supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Request access](https://aka.ms/azure-cognitive-search/indexer-preview), and after access is enabled, use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to access your data. There is currently limited portal support, and no .NET SDK support.
 
 This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Cognitive Search. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from Azure Cosmos DB.
 
 Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) accessed through different protocols. 
+The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) accessed through the following protocols.
 
-+ For [SQL API](../cosmos-db/sql-query-getting-started.md), which is generally available, you can use the [portal](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations), or [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer) to create the data source and indexer.
++ For [SQL API](../cosmos-db/sql-query-getting-started.md), which is generally available, you can use the [portal](#cosmos-indexer-portal), [REST API](/rest/api/searchservice/indexer-operations), [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer), or another Azure SDK to create the data source and indexer.
 
 + For [MongoDB API (preview)](../cosmos-db/mongodb-introduction.md), you can use either the [portal](#cosmos-indexer-portal) or the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source and indexer.
 
 + For [Cassandra API (preview)](../cosmos-db/cassandra-introduction.md), you can only use the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source and indexer.
 
-
 > [!Note]
 > You can cast a vote on User Voice for the [Table API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab) if you'd like to see it supported in Azure Cognitive Search.
 >
+
+## Prerequisites
+
+Only Cosmos DB collections with an [indexing policy](../cosmos-db/index-policy.md) set to [Consistent](../cosmos-db/index-policy.md#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
 
 <a name="cosmos-indexer-portal"></a>
 
@@ -229,6 +225,21 @@ Array flattening query:
 
 ```sql
 SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
+
+<a name="SelectDistinctQuery"></a>
+
+#### DISTINCT and GROUP BY
+
+Queries using the [DISTINCT keyword](https://docs.microsoft.com/azure/cosmos-db/sql-query-keywords#distinct) or [GROUP BY clause](https://docs.microsoft.com/azure/cosmos-db/sql-query-group-by) are not supported. Azure Cognitive Search relies on [SQL query pagination](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination) to fully enumerate the results of the query. Neither the DISTINCT keyword or GROUP BY clause are compatible with the [continuation tokens](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination#continuation-tokens) used to paginate results.
+
+Examples of unsupported queries:
+```sql
+SELECT DISTINCT c.id, c.userId, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+
+SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
+
+SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup FROM Food f GROUP BY f.foodGroup
 ```
 
 ### Step 3 - Create a target search index 

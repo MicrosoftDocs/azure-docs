@@ -6,7 +6,7 @@ manager: soricos
 services: azure-communication-services
 
 ms.author: apistrak
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -23,14 +23,14 @@ Before you get started, make sure to:
 Access key authentication uses a shared secret key to generate an HMAC signature for each HTTP request. This signature is generated with the SHA256 algorithm and is sent in the `Authorization` header by using the `HMAC-SHA256` scheme. For example:
 
 ```
-Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
+Authorization: "HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
 ```
 
 The `hmac-sha256-signature` consists of:
 
 - HTTP verb (for example, `GET` or `PUT`)
 - HTTP request path
-- Date
+- x-ms-date
 - Host
 - x-ms-content-sha256
 
@@ -162,7 +162,7 @@ var stringToSign = $"POST\n{requestUri.PathAndQuery}\n{date};{requestUri.Authori
 //Compute the signature.
 var signature = ComputeSignature(stringToSign);
 //Concatenate the string, which will be used in the authorization header.
-var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature={signature}";
+var authorizationHeader = $"HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-content-sha256&Signature={signature}";
 ```
 
 ## Add headers to requestMessage
@@ -173,7 +173,7 @@ Use the following code to add the required headers to your `requestMessage`.
 //Add a content hash header.
 requestMessage.Headers.Add("x-ms-content-sha256", contentHash);
 //Add a date header.
-requestMessage.Headers.Add("Date", date);
+requestMessage.Headers.Add("x-ms-date", date);
 //Add an authorization header.
 requestMessage.Headers.Add("Authorization", authorizationHeader);
 ```

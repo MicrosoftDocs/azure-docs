@@ -16,7 +16,7 @@ ms.date: 04/07/2021
 - Owner
 - Manager
 
-Once you've [created a Partner Center account](./create-account.md), you can use the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2165290) to manage your account and offers.
+Once you've [created a Partner Center account](./create-account.md), you can use the [commercial marketplace dashboard](https://go.microsoft.com/fwlink/?linkid=2166002) to manage your account and offers.
 
 ## Access your account settings
 
@@ -117,7 +117,7 @@ A payout profile is the bank account to which proceeds are sent from your sales.
 
 To set up your payout profile:
 
-1. Go to the [commercial marketplace overview page](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+1. Go to the [commercial marketplace overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) page in Partner Center.
 2. In the **Profile** section, next to **Payout Profile**, select **Update**.
 3. **Choose a payment method**: Bank account or PayPal.
 4. **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. For more information about using PayPal as your account payment method and to find out whether it is supported in your market or region, see [PayPal info](/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).

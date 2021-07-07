@@ -38,7 +38,7 @@ Restarting Apache HBase Region Servers during heavy workload activity. Below is 
 
 ## Resolution
 
-Reduce the load on the HBase region servers before initiating a restart. Also, it's a good idea to first flush all the tables. For a reference on how to flush tables, see [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+Reduce the load on the HBase region servers before initiating a restart. Also, it's a good idea to first flush all the tables. For a reference on how to flush tables, see [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](/archive/blogs/azuredatalake/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables).
 
 Alternatively, try to manually restart region servers on the worker nodes using following commands:
 
