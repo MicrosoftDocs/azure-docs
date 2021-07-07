@@ -85,7 +85,7 @@ FeedIterator<Food> myQuery = container.GetItemQueryIterator<Food>(new QueryDefin
 ```
 
 > [!NOTE]
-> Currently, you can only adjust the MaxIntegratedCacheStaleness using the latest [.NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) and [Java](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.16.0-beta.1&preserve-view=true) preview SDK's.
+> Currently, you can only adjust the MaxIntegratedCacheStaleness using the latest [.NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.17.0-preview) and [Java](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.16.0-beta.1) preview SDK's.
 
 ## Verify cache hits
 
