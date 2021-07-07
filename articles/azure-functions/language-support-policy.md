@@ -11,7 +11,7 @@ This article explains Azure functions language runtime support policy.
 
 ## Retirement process
 
-Azure Functions runtime is built around various components, including operating systems, Azure Functions Host and language-specific workers. To ensure full support coverages for function apps, Azure Functions will retire its support for programming language versions that reach their End-Of-Life dates in phases. For most language versions, retirement date will coincide with the community End-Of-Life date. 
+Azure Functions runtime is built around various components, including operating systems, the Azure Functions host, and language-specific workers. To maintain full support coverages for function apps, Azure Functions uses a phased reduction in support as programming language versions reach their end-of-life dates. For most language versions, the retirement date coincides with the community end-of-life date. 
 
 ### Notification phase
 
@@ -19,14 +19,14 @@ We'll send notification emails to function app users about upcoming language ver
 
 ### Retirement phase
 
-* __Phase 1:__ On the date of EOL of a language, users will no longer be able to create new functions app using the language. For at least the next 60 days after EOL date, existing function apps that are affected could still run on the platform and be updated. During this phase, you're highly encouraged to upgrade the language version of your affected function apps to a supported version.
+* __Phase 1:__ On the end-of-life date for a language version, you can no longer create new function apps targeting that language version. For at least 60 days after this date, existing function apps can continue to run on that language version and and are updated. During this phase, you're highly encouraged to upgrade the language version of your affected function apps to a supported version.
 
-* __Phase 2:__ After the first phase, it is not guaranteed that function apps using retired languages will be able to run on the platform. 
+* __Phase 2:__ At a minimum of 60 days after the language end-of-life date, we no longer can guaranteed that function apps targeting this language version will continue to run on the platform. 
 
 
 ## Retirement policy exceptions
 
-There are few exceptions to the retirement policy outlined above. Here is a list of languages that have reached or are approaching their EOL dates but still supported on the platform until further notice. When these languages reach their EOL dates, there will be no update or security patch. So, developing and running your function apps with these languages are highly discouraged.
+There are few exceptions to the retirement policy outlined above. Here is a list of languages that are approaching or have reached their end-of-life dates but continue to be supported on the platform until further notice. When these languages versions reach their end-of-life dates, they are no longer updated or patched. Because of this, we discourage you from developing and running your function apps on these language versions.
 
 |Language Versions                        |EOL Date         |Expected Retirement Date|
 |-----------------------------------------|-----------------|----------------|
@@ -43,7 +43,7 @@ To learn more about specific language version support policy timeline, visit the
 * .NET - [dotnet.microsoft.com](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 * Node - [github.com](https://github.com/nodejs/Release#release-schedule)
 * Java - [azul.com](https://www.azul.com/products/azul-support-roadmap/)
-* PowerShell - [dotnet.microsoft.com](https://docs.microsoft.com/powershell/scripting/powershell-support-lifecycle?view=powershell-7.1#powershell-releases-end-of-life)
+* PowerShell - [dotnet.microsoft.com](/powershell/scripting/powershell-support-lifecycle?view=powershell-7.1&preserve-view=true#powershell-releases-end-of-life)
 * Python - [devguide.python.org](https://devguide.python.org/#status-of-python-branches)
 
 ## Configuring language versions
@@ -62,4 +62,3 @@ To learn more about how to upgrade your functions apps language versions, see th
 
 
 + [Currently supported language versions](./supported-languages.md#languages-by-runtime-version)
-
