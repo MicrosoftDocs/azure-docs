@@ -642,17 +642,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-use-app-templates-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-use-app-templates.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-use-app-templates.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-use-app-templates.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
@@ -1158,6 +1163,11 @@
     {
       "source_path_from_root": "/articles/iot-central/core/how-to-manage-iot-central-programmatically.md",
       "redirect_url": "/samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-monitor-application-health.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal",
       "redirect_document_id": false
     }
   ]

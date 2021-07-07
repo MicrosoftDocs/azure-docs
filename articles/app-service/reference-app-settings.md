@@ -557,7 +557,7 @@ The following environment variables are related to [health checks](monitor-insta
 
 ## Push notifications
 
-The following environment variables are related to the [push notifications](/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-push.md#configure-hub) feature.
+The following environment variables are related to the [push notifications](/previous-versions/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started-push#configure-hub) feature.
 
 | Setting name | Description |
 |-|-|
