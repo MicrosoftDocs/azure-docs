@@ -17,6 +17,7 @@
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
 - name: Tutorials
+  expanded: true
   items: 
     - name: "Python get started (Day 1)"
       expanded: true
