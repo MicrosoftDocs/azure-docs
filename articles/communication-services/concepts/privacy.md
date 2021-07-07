@@ -73,6 +73,10 @@ Audio and video communication is ephemerally processed by the service and no dat
 
 Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
 
+### Call Recording
+
+Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 48 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
+
 ## Azure Monitor and Log Analytics
 
 Azure Communication Services will feed into Azure Monitor logging data for understanding operational health and utilization of the service. Some of these logs include Communication Service identities and phone numbers as field data. To delete any potentially personal data [use these procedures for Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). You may also want to configure [the default retention period for Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
