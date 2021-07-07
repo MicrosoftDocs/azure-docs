@@ -1,7 +1,7 @@
 ---
 
-title: Sign-in diagnostics for Azure AD scenarios
-description: Lists the scenarios that are supported by the sign-in diagnostics for Azure AD.
+title: Sign in diagnostics for Azure AD scenarios
+description: Lists the scenarios that are supported by the sign in diagnostics for Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -23,7 +23,7 @@ ms.reviewer: tspring
 ms.collection: M365-identity-device-management
 ---
 
-# Sign-in diagnostics for Azure AD scenarios
+# Sign in diagnostics for Azure AD scenarios
 
 You can use the sign-in diagnostic for Azure AD to analyze what happened during a sign-in attempt and get recommendations for resolving problems without needing to involve Microsoft support.  
 
@@ -205,7 +205,7 @@ More information about this topic can be found in the Azure AD Smart Lockout doc
 
 ### Invalid username or password 
 
-In this scenario, a user tried to sign-in using an invalid username or password. The diagnostic is intended to allow an administrator to determine if the problem is with a user entering incorrect credentials, or a client and/or application(s) which have cached an old password and are resubmitting it. 
+In this scenario, a user tried to sign in using an invalid username or password. The diagnostic is intended to allow an administrator to determine if the problem is with a user entering incorrect credentials, or a client and/or application(s) which have cached an old password and are resubmitting it. 
 
  
 
@@ -228,7 +228,7 @@ Diagnostics for these problems address which side of the problem should be looke
 
 ### Enterprise apps service provider 
 
-In this scenario, a user tried to sign-in to an application. The sign-in failed due to a problem with the application (also known as service provider) side of the sign-in flow. Problems detected by this diagnosis typically must be resolved by changing the configuration or fixing problems on the application service.  
+In this scenario, a user tried to sign in to an application. The sign-in failed due to a problem with the application (also known as service provider) side of the sign-in flow. Problems detected by this diagnosis typically must be resolved by changing the configuration or fixing problems on the application service.  
 
 Resolution for this scenario means signing into the other service and changing some configuration per the diagnostic guidance. 
 
@@ -248,13 +248,13 @@ Resolution for this scenario requires reviewing and updating the configuration o
 
 ### Security defaults 
 
-This scenario covers sign-in events where the user’s sign-in was interrupted due to security defaults settings. Security defaults enforce best practice security for your organization and requires multifactor authentication (MFA) to be configured and used in many scenarios to prevent password sprays, replay attacks and phishing attempts from being successful. 
+This scenario covers sign-in events where the user’s sign-in was interrupted due to security defaults settings. Security defaults enforce best practice security for your organization and require multifactor authentication (MFA) to be configured and used in many scenarios to prevent password sprays, replay attacks and phishing attempts from being successful. 
 
 For more information, see [What are security defaults?](../fundamentals/concept-fundamentals-security-defaults.md) 
 
 ### Error code insights 
 
-When an event does not have a contextual analysis in the sign-in diagnostic an updated error code explanation and relevant content may be shown. The error code insights contains detailed text about the scenario, how to remediate the problem, and any content to read regarding the problem. 
+When an event does not have a contextual analysis in the sign-in diagnostic an updated error code explanation and relevant content may be shown. The error code insights contain detailed text about the scenario, how to remediate the problem, and any content to read regarding the problem. 
 
 ### Legacy authentication 
 
