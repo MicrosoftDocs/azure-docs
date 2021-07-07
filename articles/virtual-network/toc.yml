@@ -214,9 +214,63 @@
       href: deploy-container-networking.md
   - name: IP services
     items:
-    - name: IPv6 for VNet
+    - name: Resource management
       items:
-      - name: Add IPv6 to IPv4 application
+      - name: Load balancer
+        href: configure-public-ip-load-balancer.md
+      - name: NAT gateway
+        href: configure-public-ip-nat-gateway.md
+      - name: Firewall
+        href: configure-public-ip-firewall.md
+      - name: VPN gateway
+        href: configure-public-ip-vpn-gateway.md
+      - name: Application gateway
+        href: configure-public-ip-application-gateway.md
+      - name: Virtual machine
+        href: configure-public-ip-vm.md
+      - name: Bastion
+        href: configure-public-ip-bastion.md
+    - name: Create public IP address
+      items:
+      - name: Create public IP addresses - Portal
+        href: create-public-ip-portal.md
+      - name: Create public IP addresses - PowerShell
+        href: create-public-ip-powershell.md
+      - name: Create public IP addresses - Azure CLI
+        href: create-public-ip-cli.md
+      - name: Create public IP address - ARM template
+        href: create-public-ip-template.md
+    - name: Create public IP prefix
+      items:
+      - name: Create public IP prefix - Portal
+        href: create-public-ip-prefix-portal.md
+      - name: Create public IPv6 prefix
+        href: ipv6-reserve-public-ip-address-prefix.md
+    - name: Upgrade a public IP address
+      items:
+      - name: Upgrade a public IP address - Portal
+        href: public-ip-upgrade-portal.md
+      - name: Upgrade a public IP address - PowerShell
+        href: public-ip-upgrade-powershell.md
+      - name: Upgrade a public IP address - Azure CLI
+        href: public-ip-upgrade-cli.md
+      - name: Migrate a classic reserved IP
+        href: public-ip-upgrade-classic.md
+    - name: Load balancer
+      items:
+      - name: Standard public
+        items: 
+        - name: Standard Public Load Balancer with IPv6 - PowerShell
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+        - name: Standard Public Load Balancer with IPv6 - Azure CLI
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+        - name: Standard Public Load Balancer with IPv6 - ARM template
+          href: ipv6-configure-standard-load-balancer-template-json.md
+      - name: Standard internal
+        items:
+        - name: Standard Internal Load Balancer with IPv6 - PowerShell
+          href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+      - name: Basic public
         items:
         - name: Azure PowerShell
           href: ipv6-add-to-existing-vnet-powershell.md
