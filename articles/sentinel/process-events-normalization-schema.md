@@ -159,7 +159,7 @@ The process event schema references the following entities, which are central to
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.   |
 | **ActingProcessCommandLine**       | Optional     | String     |   The command line used to run the acting process. <br><br>Example: `"choco.exe" -v`    |
 | **ActingProcessName**              | Optional     | string     |   The file name of the acting process image file. This is usually considered the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
-| **ActingProcessCompany**       | Optional     | String     |           The company that created the acting process image file.  <br><br> Example: `Microsoft`    |
+| **ActingProcessFileCompany**       | Optional     | String     |           The company that created the acting process image file.  <br><br> Example: `Microsoft`    |
 | **ActingProcessFileDescription**   | Optional     | String     |  The description embedded in the version information of the acting process image file. <br><br>Example:  `Notepad++ : a free (GPL) source code editor` |
 | **ActingProcessFileProduct**       | Optional     | String     |The product name from the version information in the acting process image file. <br><br> Example: `Notepad++`           |
 | **ActingProcessFileVersion**       | Optional     | String     |               The product version from the version information of the acting process image file. <br><br>Example: `7.9.5.0`   |
@@ -179,7 +179,7 @@ The process event schema references the following entities, which are central to
 | **ActingProcessTokenElevation**    | Optional     | String     | A token indicating the presence or absence of User Access Control (UAC) privilege elevation applied to the acting process.   <br><br>Example:  `None`|
 | **ActingProcessFileSize**          | Optional     | Long       |      The size of the file that ran the acting process.   |
 | **ParentProcessName**              | Optional     | string     |  The file name of the parent process image file. This is considered the process name.    <br><br>Example: `C:\Windows\explorer.exe` |
-| **ParentProcessCompany**       | Optional     | String     |The name of the company that created the parent process image file.            <br><br>    Example:  `Microsoft`   |
+| **ParentProcessFileCompany**       | Optional     | String     |The name of the company that created the parent process image file.            <br><br>    Example:  `Microsoft`   |
 | **ParentProcessFileDescription**   | Optional     | String     |  The description from the version information in the parent process image file.    <br><br>Example: `Notepad++ : a free (GPL) source code editor`|
 | **ParentProcessFileProduct**       | Optional     | String     |The product name from the version information in parent process image file.    <br><br>  Example:  `Notepad++`  |
 | **ParentProcessFileVersion**       | Optional     | String     | The product version from the version information in parent process image file.    <br><br> Example:  `7.9.5.0` |
@@ -201,7 +201,7 @@ The process event schema references the following entities, which are central to
 | **TargetUserIdType**               | Recommended | String     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example:  `SID`  |
 | **TargetUserSessionId**            | Optional     | String     |The unique ID of the target user's login session. <br><br>Example: `999`          <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.     |
 | <a name="targetprocessname"></a>**TargetProcessName**              | Mandatory    | string     |The file name of the target process image file.   <br><br>     Example:  `C:\Windows\explorer.exe`     |
-| **TargetProcessCompany**       | Optional     | String     |The name of the company that created the target process image file.   <br><br>   Example:  `Microsoft` |
+| **TargetProcessFileCompany**       | Optional     | String     |The name of the company that created the target process image file.   <br><br>   Example:  `Microsoft` |
 | **TargetProcessFileDescription**   | Optional     | String     | The description from the version information in the target process image file.   <br><br>Example:  `Notepad++ : a free (GPL) source code editor` |
 | **TargetProcessFileProduct**       | Optional     | String     |The product name from the version information in target process image file.  <br><br>  Example: `Notepad++`  |
 | **TargetProcessFileSize**          | Optional     | String     |    Size of the file that ran the process responsible for the event. |
