@@ -23,19 +23,19 @@ ms.collection: M365-identity-device-management
 
 # Integrate Azure AD logs with Azure Monitor logs
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+Follow the steps in this article to integrate Azure Active Directory (Azure AD) logs with Azure Monitor.
 
-Azure Monitor logs allows you to query data to find particular events, analyze trends, and perform correlation across various data sources. With the integration of Azure AD activity logs in Azure Monitor logs, you can now perform tasks like:
+Use the integration of Azure AD activity logs in Azure Monitor logs to perform tasks like:
 
- * Compare your Azure AD sign-in logs against security logs published by Azure Security Center
+ * Compare your Azure AD sign-in logs against security logs published by Azure Security Center.
+  
+ * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
+ 
+ * Identify sign-ins from applications that use the Active Directory Authentication Library (ADAL) for authentication. [ADAL is nearing end-of-support](../develop/msal-migration.md).
 
- * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.  
-
-The following video from an Ignite session demonstrates the benefits of using Azure Monitor logs for Azure AD logs in practical user scenarios.
+This Microsoft Ignite session video shows the benefits of using Azure Monitor logs for Azure AD logs in practical scenarios:
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
-
-In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Azure Monitor.
 
 ## Supported reports
 
@@ -46,8 +46,7 @@ You can route audit activity logs and sign-in activity logs to Azure Monitor log
 * **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
 
 > [!NOTE]
-> B2C-related audit and sign-in activity logs are not supported at this time.
->
+> Azure AD B2C audit and sign-in activity logs are currently unsupported.
 
 ## Prerequisites 
 
