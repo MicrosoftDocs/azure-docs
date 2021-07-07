@@ -74,19 +74,27 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az extension add --name vmware
       ```
 
-3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using Microsoft.StoragePool provided iSCSI target.
+3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target:
 
    ```azurecli
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 
-4. Show the details of an iSCSI datastore in a private cloud cluster.
+   >[!TIP]
+   >Display help on the datastores cmdlets:
+   >
+   >   ```azurecli
+   >   az vmware datastore -h
+   >   ```
+   
+
+4. Show the details of an iSCSI datastore in a private cloud cluster:
    
    ```azurecli
    az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
    ```
 
-5. List all the datastores in a private cloud cluster.
+5. List all the datastores in a private cloud cluster:
 
    ```azurecli
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -97,16 +105,18 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 When you delete a private cloud datastore, the disk pool resources don't get deleted. There's no maintenance window required for this operation.
 
 1. Power off the VMs and remove all objects associated with the iSCSI datastores, which include:
+
    - VMs (remove from inventory)
+
    - Templates
+
    - Snapshots
 
-2. Delete the private cloud datastore.
+2. Delete the private cloud datastore:
 
    ```azurecli
    az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
    ```
-
 
 ## Next steps
 
