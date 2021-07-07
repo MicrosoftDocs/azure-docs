@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-route-server).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/route-server).
 
 In this quickstart, you'll deploy an Azure Route Server into a new or existing virtual network. A dedicated subnet named `RouteServerSubnet` will be created to host the Route Server. The Route Server will also be configured with the Peer ASN and Peer IP to establish a BGP peering.
 
