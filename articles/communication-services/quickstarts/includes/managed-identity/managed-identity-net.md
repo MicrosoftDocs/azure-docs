@@ -5,16 +5,16 @@
 
 ### Create a new C# application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `ManagedIdentitiesQuickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `ActiveDirectoryQuickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
 
 ```console
-dotnet new console -o ManagedIdentitiesQuickstart
+dotnet new console -o ActiveDirectoryQuickstart
 ```
 
 Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
 
 ```console
-cd ManagedIdentitiesQuickstart
+cd ActiveDirectoryQuickstart
 dotnet build
 ```
 
@@ -46,7 +46,7 @@ We'll be using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultaz
 private DefaultAzureCredential credential = new DefaultAzureCredential();
 ```
 
-## Issue a token with managed identities
+## Issue a token with service principals
 
 Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on.
 
@@ -63,9 +63,9 @@ public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint
 }
 ```
 
-## Send an SMS with managed identities
+## Send an SMS with service principals
 
-As another example of using managed identities, we'll add this code which uses the same credential to send an SMS:
+As another example of using service principals, we'll add this code which uses the same credential to send an SMS:
 
 ```csharp
 public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
@@ -84,7 +84,7 @@ public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, strin
 
 ## Write the Main method
 
-Your `Program.cs` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of managed identities:
+Your `Program.cs` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of service principals:
 
 ```csharp
 static void Main(string[] args)
@@ -96,14 +96,14 @@ static void Main(string[] args)
     // We need an instance of the program class to use within this method.
     Program instance = new();
 
-    Console.WriteLine("Retrieving new Access Token, using Managed Identities");
+    Console.WriteLine("Retrieving new Access Token, using Service Principals");
     Response<AccessToken> response = instance.CreateIdentityAndGetTokenAsync(endpoint);
     Console.WriteLine($"Retrieved Access Token: {response.Value.Token}");
 
-    Console.WriteLine("Sending SMS using Managed Identities");
+    Console.WriteLine("Sending SMS using Service Principals");
 
     // You will need a phone number from your resource to send an SMS.
-    SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Managed Identities");
+    SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from using Service Principals");
     Console.WriteLine($"Sms id: {result.MessageId}");
     Console.WriteLine($"Send Result Successful: {result.Successful}");
 }
@@ -124,14 +124,14 @@ class Program
                // We need an instance of the program class to use within this method.
                Program instance = new();
 
-               Console.WriteLine("Retrieving new Access Token, using Managed Identities");
+               Console.WriteLine("Retrieving new Access Token, using Service Principals");
                Response<AccessToken> response = instance.CreateIdentityAndGetTokenAsync(endpoint);
                Console.WriteLine($"Retrieved Access Token: {response.Value.Token}");
 
-               Console.WriteLine("Sending SMS using Managed Identities");
+               Console.WriteLine("Sending SMS using Service Principals");
 
                // You will need a phone number from your resource to send an SMS.
-               SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Managed Identities");
+               SmsSendResult result = instance.SendSms(endpoint, "<Your ACS Phone Number>", "<The Phone Number you'd like to send the SMS to.>", "Hello from Service Principals");
                Console.WriteLine($"Sms id: {result.MessageId}");
                Console.WriteLine($"Send Result Successful: {result.Successful}");
           }
@@ -164,9 +164,9 @@ class Program
 
 You should now be able to run your application, using `dotnet run` from your application folder. The output should resemble the following:
 ```
-Retrieving new Access Token, using Managed Identities
+Retrieving new Access Token, using Service Principals
 Retrieved Access Token: ey....
-Sending SMS using Managed Identities
+Sending SMS using Service Principals
 Sms id: Outgoing_..._noam
 Send Result Successful: True
 ```

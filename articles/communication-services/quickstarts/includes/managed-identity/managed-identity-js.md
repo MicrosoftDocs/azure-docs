@@ -8,7 +8,7 @@
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir managed-identity-quickstart && cd managed-identity-quickstart
+mkdir active-direct-quickstart && cd active-directory-quickstart
 ```
 
 Run `npm init -y` to create a **package.json** file with default settings.
@@ -47,9 +47,9 @@ We'll be using the [DefaultAzureCredential](/javascript/api/@azure/identity/defa
     const credential = new DefaultAzureCredential();
 ```
 
-## Create an identity and issue a token with managed identities
+## Create an identity and issue a token with service principals
 
-Next, we'll write a function which creates a new identity and issues a token for this identity, we'll use this later to test our managed identity setup.
+Next, we'll write a function which creates a new identity and issues a token for this identity, we'll use this later to test our service principal setup.
 
 ```JavaScript
 async function createIdentityAndIssueToken(resourceEndpoint) {
@@ -58,9 +58,9 @@ async function createIdentityAndIssueToken(resourceEndpoint) {
 }
 ```
 
-## Send an SMS with managed identity
+## Send an SMS with service principals
 
-Now, lets write a function which uses managed identities to send an SMS:
+Now, lets write a function which uses service principals to send an SMS:
 
 ```JavaScript
 async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
@@ -79,7 +79,7 @@ async function sendSms(resourceEndpoint, fromNumber, toNumber, message) {
 
 ## Write the main function
 
-With our functions created we can now write a main function to call them and demonstrate the use of Managed Identities:
+With our functions created we can now write a main function to call them and demonstrate the use of Service Principals:
 ```JavaScript
 async function main() {
     // You can find your endpoint and access key from your resource in the Azure portal
@@ -87,14 +87,14 @@ async function main() {
     const endpoint = "https://<RESOURCE_NAME>.communication.azure.com/"
 
     
-    console.log("Retrieving new Access Token, using Managed Identities");
+    console.log("Retrieving new Access Token, using Service Principals");
     const result = await createIdentityAndIssueToken(endpoint);
     console.log(`Retrieved Access Token: ${result.token}`);
 
-    console.log("Sending SMS using Managed Identities");
+    console.log("Sending SMS using Service Principals");
 
     // You will need a phone number from your resource to send an SMS.
-    const smsResult = await sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Managed Identities");
+    const smsResult = await sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Service Principals");
     console.log(`SMS ID: ${smsResult[0].messageId}`);
     console.log(`Send Result Successful: ${smsResult[0].successful}`);
 }
@@ -134,14 +134,14 @@ async function main() {
     const endpoint = "https://<RESOURCE_NAME>.communication.azure.com/"
 
     
-    console.log("Retrieving new Access Token, using Managed Identities");
+    console.log("Retrieving new Access Token, using Service Principals");
     const result = await createIdentityAndIssueToken(endpoint);
     console.log(`Retrieved Access Token: ${result.token}`);
 
-    console.log("Sending SMS using Managed Identities");
+    console.log("Sending SMS using Service Principals");
 
     // You will need a phone number from your resource to send an SMS.
-    const smsResult = await sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Managed Identities");
+    const smsResult = await sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Service Principals");
     console.log(`SMS ID: ${smsResult[0].messageId}`);
     console.log(`Send Result Successful: ${smsResult[0].successful}`);
 }
@@ -155,9 +155,9 @@ With everything complete, you can run the file by entering `node index.js` from 
 
 ```Bash
     $ node index.js
-    Retrieving new Access Token, using Managed Identities
+    Retrieving new Access Token, using Service Principals
     Retrieved Access Token: ey...Q
-    Sending SMS using Managed Identities
+    Sending SMS using Service Principals
     SMS ID: Outgoing_2021040602194...._noam
     Send Result Successful: true
 ```
