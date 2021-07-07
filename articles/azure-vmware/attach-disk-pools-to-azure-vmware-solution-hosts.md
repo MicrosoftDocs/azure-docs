@@ -78,19 +78,19 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       ```
 
-      >[!NOTE]
-      >The registration may take approximately 15 minutes to complete. You can check the current status of registration:
+      The registration may take approximately 15 minutes to complete and you can check the current status it:
+      
+      ```azurecli
+      az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
+      ```
+
+      >[!TIP]
+      >If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister and then re-register the flag:
       >
       >```azurecli
-      >az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
+      >az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
+      >az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       >```
-
-   - If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister and then re-register the flag:
-
-      ```azurecli
-      az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
-      az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
-      ```
 
 1. Check if the `vmware `extension is installed: 
 
