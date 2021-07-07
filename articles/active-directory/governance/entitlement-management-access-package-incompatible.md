@@ -53,7 +53,7 @@ Follow these steps to change the list of incompatible groups or other access pac
 
 1.	In the left menu, click **Separation of duties (preview)**.
 
-1.  If you wish to prevent users who have another access package assignment already from requesting this access package, then click on **Add access package** and select the access package that the user would already be assigned.
+1.  If you wish to prevent users who have another access package assignment already from requesting this access package, click on **Add access package** and select the access package that the user would already be assigned.
 
 1.  If you wish to prevent users who have an existing group membership from requesting this access package, then click on **Add group** and select the group that the user would already be in.
 
