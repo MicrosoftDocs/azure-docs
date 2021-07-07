@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 07/20/2020
-ms.author: surmb
+ms.author: azhussai
 ms.topic: conceptual
 ---
 
@@ -18,7 +18,7 @@ You can also define wildcard host names in a multi-site listener and up to 5 hos
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Multi-site Application Gateway":::
 
 > [!IMPORTANT]
-> Rules are processed in the order they are listed in the portal for the v1 SKU. For the v2 SKU, exact matches have higher precedence. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
+> Rules are processed in the order they are listed in the portal for the v1 SKU. For v2 SKU use [rule priority] (Ordering your Request Routing rules) to specify the processing order. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
 
 Requests for `http://contoso.com` are routed to ContosoServerPool, and `http://fabrikam.com` are routed to FabrikamServerPool.
 
@@ -43,7 +43,7 @@ In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-Hos
 
 In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
 
-### Allowed characters in the host names field:
+### Allowed characters in the host names field
 
 * `(A-Z,a-z,0-9)` - alphanumeric characters
 * `-` - hyphen or minus
@@ -51,7 +51,7 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 * `*` - can match with multiple characters in the allowed range
 * `?` - can match with a single character in the allowed range
 
-### Conditions for using wildcard characters and multiple host names in a listener:
+### Conditions for using wildcard characters and multiple host names in a listener
 
 * You can only mention up to 5 host names in a single listener
 * Asterisk `*` can be mentioned only once in a component of a domain style name or host name. For example, component1*.component2*.component3. `(*.contoso-*.com)` is valid.
@@ -59,7 +59,7 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 * There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
 * Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
 
-### Considerations and limitations of using wildcard or multiple host names in a listener:
+### Considerations and limitations of using wildcard or multiple host names in a listener
 
 * [SSL termination and End-to-End SSL](ssl-overview.md) requires you to configure the protocol as HTTPS and upload a certificate to be used in the listener configuration. If it is a multi-site listener, you can input the host name as well, usually this is the CN of the SSL certificate. When you are specifying multiple host names in the listener or use wildcard characters, you must consider the following:
     * If it is a wildcard hostname like *.contoso.com, you must upload a wildcard certificate with CN like *.contoso.com
@@ -71,6 +71,19 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 
 See [create multi-site using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
+## Ordering your Request Routing rules
+
+While utilizing multi-site listeners, to ensure that the client traffic is routed to the accurate backend, it is important to have the request routing rules be present in the correct order.
+For example, if you have 2 listeners with associated Host name as "*.contoso.com" and "shop.contoso.com" respectively, the listener with the "shop.contoso.com" Host name would have to be processed before the listener with "*.contoso.com". If the listener with "*.contoso.com" is processed first, then no client traffic would be received by the more specific "shop.contoso.com" listener.
+
+This ordering can be established by providing a 'Rule Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority.  
+
+>[!NOTE]
+>This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md) and [Azure CLI](tutorial-multiple-sites-cli.md). Portal support is coming soon.
+
+>[!NOTE]
+>If you wish to use rule priority, you will have to specify rule-priority field values for all the existing request routing rules. Once the rule priority field is in use, any new routing rule that is created would also need to have a rule priority field value as part of its config.
+
 ## Host headers and Server Name Indication (SNI)
 
 There are three common mechanisms for enabling multiple site hosting on the same infrastructure.
@@ -79,7 +92,7 @@ There are three common mechanisms for enabling multiple site hosting on the same
 2. Use host name to host multiple web applications on the same IP address.
 3. Use different ports to host multiple web applications on the same IP address.
 
-Currently Application Gateway supports a single public IP address where it listens for traffic. So multiple applications, each with its own IP address is currently not supported. 
+Currently Application Gateway supports a single public IP address where it listens for traffic. So multiple applications, each with its own IP address is currently not supported.
 
 Application Gateway supports multiple applications each listening on different ports, but this scenario requires the applications to accept traffic on non-standard ports. This is often not a configuration that you want.
 
@@ -89,7 +102,7 @@ Application Gateway relies on HTTP 1.1 host headers to host more than one websit
 
 Learn how to configure multiple site hosting in Application Gateway
 * [Using Azure portal](create-multiple-sites-portal.md)
-* [Using Azure PowerShell](tutorial-multiple-sites-powershell.md) 
+* [Using Azure PowerShell](tutorial-multiple-sites-powershell.md)
 * [Using Azure CLI](tutorial-multiple-sites-cli.md)
 
 You can visit [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/application-gateway-multihosting) for an end to end template-based deployment.
