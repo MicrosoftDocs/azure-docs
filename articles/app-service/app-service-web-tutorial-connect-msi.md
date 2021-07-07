@@ -145,9 +145,12 @@ In the [ASP.NET Core and SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md
 ```json
 "Server=tcp:<server-name>.database.windows.net;Authentication=Active Directory Device Code Flow; Database=<database-name>;"
 ```
-> Note: We are using the `Active Directory Device Code Flow` Authentication type because this is the closest we can get to a custom option. Ideally there would be a `Custom Authentication` type but due to absess of a better term, we are using Device Code Flow
-> 
-Next, you need to create a custom authentication provider class to acquire and supply the Entity Framework database context with the access token for the SQL Database. In the *Data\* directory, add a new class `CustomAzureSQLAuthProvider.cs` with the following code inside :
+
+> [!NOTE]
+> We use the `Active Directory Device Code Flow` authentication type because this is the closest we can get to a custom option. Ideally, a `Custom Authentication` authentication type would be available. Due to the absence of a better term at this time, we're using `Device Code Flow`.
+>
+
+Next, you need to create a custom authentication provider class to acquire and supply the Entity Framework database context with the access token for the SQL Database. In the *Data\\* directory, add a new class `CustomAzureSQLAuthProvider.cs` with the following code inside:
 
 ```csharp
 public class CustomAzureSQLAuthProvider : SqlAuthenticationProvider
@@ -169,7 +172,8 @@ public class CustomAzureSQLAuthProvider : SqlAuthenticationProvider
     public override bool IsSupported(SqlAuthenticationMethod authenticationMethod) => authenticationMethod.Equals(SqlAuthenticationMethod.ActiveDirectoryDeviceCodeFlow);
 }
 ```
-In `Startup.cs` update the `ConfigureServices()` method with the following code:
+
+In *Startup.cs*, update the `ConfigureServices()` method with the following code:
 
 ```csharp
 services.AddControllersWithViews();
@@ -186,9 +190,7 @@ services.AddDbContext<MyDatabaseContext>(options =>
 > [!NOTE]
 > This demonstration code is synchronous for clarity and simplicity.
 
-The above code makes use of the `Azure.Identity` library so that it can authenticate and retrieve an access token for the database, no matter
-where the code is running. If you're running on your local machine, the `DefaultAzureCredential()` will loop through a number of options to 
-find a valid, logged in account. You can read more about the `DefaultAzureCredential` class [in the docs](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet)
+The preceding code uses the `Azure.Identity` library so that it can authenticate and retrieve an access token for the database, no matter where the code is running. If you're running on your local machine, `DefaultAzureCredential()` loops through a number of options to find a valid account that is logged in. You can read more about the [DefaultAzureCredential class](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet).
 
 That's everything you need to connect to SQL Database. When debugging in Visual Studio, your code uses the Azure AD user you configured in [Set up Visual Studio](#set-up-visual-studio). You'll set up SQL Database later to allow connection from the managed identity of your App Service app. The `DefaultAzureCredential` class caches the token in memory and retrieves it from Azure AD just before expiration. You don't need any custom code to refresh the token.
 
