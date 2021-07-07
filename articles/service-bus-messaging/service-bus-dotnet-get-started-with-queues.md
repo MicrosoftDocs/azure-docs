@@ -4,7 +4,7 @@ description: In this tutorial, you create a .NET Core C# application to send mes
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 06/29/2021
-ms.custom: contperf-fy21q3
+ms.custom: contperf-fy21q4
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (.NET)
