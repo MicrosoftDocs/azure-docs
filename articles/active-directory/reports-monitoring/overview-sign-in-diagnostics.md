@@ -93,7 +93,7 @@ You can change the content displayed in the columns based on your preference. Ex
 For the selected sign-in event, you get a diagnostic results. Read through the results to identify action that you can take to fix the problem. These results ad recommended steps shed light on relevant information such as the related policies, sign-in details and supportive documentation. Since it's not always possible to resolve issues without more help, a recommended step might be to open a support ticket. 
 
 
-![Screenshot showing the authentication summary list.](./media/overview-sign-in-diagnostics/diagnostic-results.png)
+![Screenshot showing the diagnostic results.](./media/overview-sign-in-diagnostics/diagnostic-results.png)
 
 
 
