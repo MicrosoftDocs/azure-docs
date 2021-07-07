@@ -60,6 +60,10 @@ If you are using federation authentication and the user does not already exist i
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
 
+### External user has a proxyAddress that conflicts with a proxyAddress of an existing local user
+
+When we check whether a user is able to be invited to your tenant, one of the things we check for is for a collision in the proxyAddress. This includes any proxyAddresses for the user in their home tenant and any proxyAddress for local users in your tenant. For external users, we will add the email to the proxyAddress of the existing B2B user. For local users, you can ask them to sign in using the account they already have.
+
 ## I can't invite an email address because of a conflict in proxyAddresses
 
 This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) object, and also delete the associated [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) object before trying to invite this email again.
