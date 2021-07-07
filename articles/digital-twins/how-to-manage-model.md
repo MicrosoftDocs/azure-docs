@@ -180,7 +180,7 @@ Now that your new model has been uploaded in place of the old one, the twins in 
 
 Next, update the **twins and relationships** in your instance so their properties match the properties defined by the new model. There are two ways to achieve this purpose:
 * Patch the twins and relationships as needed so they fit the new model. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships).
-    - **If you've added properties**: Updating twins and relationships to have the new values isn't required, since twins missing the new values will still be valid twins. You can patch them as wanted to add values for the new properties.
+    - **If you've added properties**: Updating twins and relationships to have the new values isn't required, since twins missing the new values will still be valid twins. You can patch them however you want to add values for the new properties.
     - **If you've removed properties**: It's required to patch twins to remove the properties that are now invalid with the new model.
     - **If you've updated properties**: It's required to patch twins to update the values of changed properties to be valid with the new model.
 * Delete twins and relationships that use the model, and recreate them. You can use the following instructions to [delete twins](how-to-manage-twin.md#delete-a-digital-twin) and [recreate twins](how-to-manage-twin.md#create-a-digital-twin), and [delete relationships](how-to-manage-graph.md#delete-relationships) and [recreate relationships](how-to-manage-graph.md#create-relationships).

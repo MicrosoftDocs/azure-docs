@@ -149,7 +149,7 @@ To assign a role to the identity, start by opening the [Azure portal](https://po
 
 # [CLI](#tab/cli)
 
-You can add the `--scopes` parameter onto the `az dt create` command to assign the identity to one or more scopes with a specified role. Adding the parameter can be used when first creating the instance, or later by passing in the name of an instance that already exists.
+You can add the `--scopes` parameter onto the `az dt create` command to assign the identity to one or more scopes with a specified role. The command with this parameter can be used when first creating the instance, or later by passing in the name of an instance that already exists.
 
 Here's an example that creates an instance with a system managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
 

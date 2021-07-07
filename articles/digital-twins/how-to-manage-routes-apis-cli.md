@@ -115,7 +115,7 @@ Follow the steps below to set up these storage resources in your Azure account, 
     az storage account generate-sas --account-name <storage-account-name> --account-key <storage-account-key> --expiry <expiration-date> --services bfqt --resource-types o --permissions w
     ```
 
-    The output of this command is the SAS token.
+    The output of this command is the SAS token. Copy the SAS token value to use later.
 
     > [!NOTE]
     > This command includes "**b**lob", "**f**ile", "**q**ueue", and "**t**able" *services*; an "**o**bject" *resource type*; and allows "**w**rite" *permissions*.
