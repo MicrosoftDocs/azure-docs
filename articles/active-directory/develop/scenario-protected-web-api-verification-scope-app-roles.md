@@ -123,7 +123,7 @@ public class TodoListController : Controller
 }
 ```
 
-##### Other way of verifying the scopes on a controller action 
+##### Verify scopes conditionally
 
 There are cases where you want to verify scopes conditionally. You can do this using the `VerifyUserHasAnyAcceptedScope` extension method on the `HttpContext`.
 
