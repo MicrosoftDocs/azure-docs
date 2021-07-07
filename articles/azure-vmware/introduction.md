@@ -13,7 +13,7 @@ Azure VMware Solution is a VMware validated solution with on-going validation an
 
 The diagram shows the adjacency between private clouds and VNets in Azure, Azure services, and on-premises environments. Network access from private clouds to Azure services or VNets provides SLA-driven integration of Azure service endpoints. ExpressRoute Global Reach connects your on-premises environment to your Azure VMware Solution private cloud. 
 
-![Image of Azure VMware Solution private cloud adjacency to Azure and on-premises](./media/adjacency-overview-drawing-final.png)
+:::image type="content" source="media/adjacency-overview-drawing-final.png" alt-text="Diagram of Azure VMware Solution private cloud adjacency to Azure and on-premises." border="false":::
 
 ## Hosts, clusters, and private clouds
 
@@ -61,5 +61,4 @@ The next step is to learn key [private cloud and cluster concepts](concepts-priv
 
 <!-- LINKS - internal -->
 [concepts-private-clouds-clusters]: ./concepts-private-clouds-clusters.md
-
 

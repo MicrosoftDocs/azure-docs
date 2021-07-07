@@ -1,6 +1,91 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cost-management-billing/cloudyn/activate-subs-accounts.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/activate-subs-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/azure-vm-extended-metrics.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/azure-vm-extended-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/connect-aws-account.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/connect-aws-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/cost-mgt-faq.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/cost-mgt-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/dashboards.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/dashboards",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/manage-budgets.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/manage-budgets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/overview.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/quick-register-csp.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/quick-register-csp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/ref-videos.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/ref-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/storage-accounts.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/storage-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/tutorial-forecast-spending.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/tutorial-forecast-spending",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/tutorial-manage-costs.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/tutorial-manage-costs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/tutorial-optimize-reserved-instances.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/tutorial-optimize-reserved-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/tutorial-review-usage.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/tutorial-review-usage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/tutorial-user-access.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/tutorial-user-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/understanding-cost-reports.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/understanding-cost-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cost-management-billing/cloudyn/use-reports.md",
+      "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/use-reports",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/freebsd-pf-nat.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/freebsd-pf-nat",
       "redirect_document_id": false
@@ -61154,6 +61239,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway-resource.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/nat-gateway-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-metrics.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/nat-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-overview.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/nat-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/quickstart-create-nat-gateway-template.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/troubleshoot-nat.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/troubleshoot-nat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/quickstart-dotnet-framework.md",
       "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48",
       "redirect_document_id": false
@@ -61971,6 +62106,16 @@
     {
       "source_path_from_root": "/articles/cognitive-services/anomaly-detector/user-generated-content.md",
       "redirect_url": "/azure/cognitive-services/anomaly-detector/whats-new",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-public-ip-address-prefix.md",
+      "redirect_url": "/azure/virtual-network/public-ip-address-prefix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-public-ip-address-upgrade.md",
+      "redirect_url": "/azure/virtual-network/public-ip-upgrade-portal",
       "redirect_document_id": false
     }
   ]
