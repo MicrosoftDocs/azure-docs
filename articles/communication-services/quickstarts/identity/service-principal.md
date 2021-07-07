@@ -20,30 +20,30 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-- An active Azure Communication Services resource, see [create a Communication Services resource](./create-communication-resource.md) if you do not have one.
-- To send an SMS you will need a [Phone Number](./telephony-sms/get-phone-number.md).
-- A setup Service Principal for a development environment, see [Authorize access with managed identity](./managed-identity-from-cli.md)
+- An active Azure Communication Services resource, see [create a Communication Services resource](../create-communication-resource.md) if you do not have one.
+- To send an SMS you will need a [Phone Number](../telephony-sms/get-phone-number.md).
+- A setup Service Principal for a development environment, see [Authorize access with managed identity](./service-principal-from-cli.md)
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/managed-identity/managed-identity-net.md)]
+[!INCLUDE [.NET](./includes/active-directory/service-principal-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/managed-identity/managed-identity-js.md)]
+[!INCLUDE [JavaScript](./includes/active-directory/service-principal-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/managed-identity/managed-identity-java.md)]
+[!INCLUDE [Java](./includes/active-directory/service-principal-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/managed-identity/managed-identity-python.md)]
+[!INCLUDE [Python](./includes/active-directory/service-principal-python.md)]
 ::: zone-end
 
 ## Next steps
 
-- [Learn more about Azure role-based access control](../../../articles/role-based-access-control/index.yml)
+- [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
 - [Learn more about Azure identity library for .NET](/dotnet/api/overview/azure/identity-readme)
-- [Creating user access tokens](../quickstarts/access-tokens.md)
-- [Send an SMS message](../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../concepts/telephony-sms/concepts.md)
+- [Creating user access tokens](../../quickstarts/access-tokens.md)
+- [Send an SMS message](../../quickstarts/telephony-sms/send.md)
+- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)

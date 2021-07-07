@@ -1,7 +1,7 @@
 ---
-title: Create an Azure Active Directory managed identity application from the Azure CLI
+title: Create an Azure Active Directory Service Principal from the Azure CLI
 titleSuffix: An Azure Communication Services quickstart
-description: Managed identities let you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources. This quickstart is focused on managing identity using the Azure CLI.
+description: Azure Active Directory lets you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
@@ -17,7 +17,7 @@ The Azure Identity SDK provides Azure Active Directory (Azure AD) token authenti
 
 An advantage of the Azure Identity SDK is that it enables you to use the same code to authenticate across multiple services whether your application is running in the development environment or in Azure. 
 
-The Azure Identity SDK authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources. In the development environment, the managed identity does not exist, so the SDK authenticates either the user or a registered application for testing purposes.
+The Azure Identity SDK can authenticate with many methods. In Development we'll be using a service principal tied to a registered application, with credentials stored in Environnement Variables this is suitable for testing and development.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ The Azure Identity SDK authenticates a security principal. When your code is run
 
 ## Setting Up
 
-Managed identities should be enabled on the Azure resources that you're authorizing. To learn how to enable managed identities for Azure Resources, see one of these articles:
+When using Active Directory for other Azure Resources, you should be using Managed identities. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
 - [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -41,7 +41,7 @@ If your development environment does not support single sign-on or login via a w
 
 ### Creating an Azure Active Directory Registered Application
 
-To create a registered application from the Azure CLI, you need to be logged in to the Azure account where you want the operations to take place. To do this, you can use the `az login` command and enter your credentials in the browser. Once you are logged in to your Azure account from the CLI, we can call the `az ad sp create-for-rbac` command to create the registered application.
+To create a registered application from the Azure CLI, you need to be logged in to the Azure account where you want the operations to take place. To do this, you can use the `az login` command and enter your credentials in the browser. Once you are logged in to your Azure account from the CLI, we can call the `az ad sp create-for-rbac` command to create the registered application and service principal.
 
 The following examples uses the Azure CLI to create a new registered application
 
@@ -67,11 +67,11 @@ The `az ad sp create-for-rbac` command will return a list of service principal p
 
 The Azure Identity SDK reads values from three environment variables at runtime to authenticate the application. The following table describes the value to set for each environment variable.
 
-|Environment variable|Value
-|-|-
-|`AZURE_CLIENT_ID`|`appId` value from the generated JSON 
-|`AZURE_TENANT_ID`|`tenant` value from the generated JSON
-|`AZURE_CLIENT_SECRET`|`password` value from the generated JSON
+| Environment variable  | Value                                    |
+| --------------------- | ---------------------------------------- |
+| `AZURE_CLIENT_ID`     | `appId` value from the generated JSON    |
+| `AZURE_TENANT_ID`     | `tenant` value from the generated JSON   |
+| `AZURE_CLIENT_SECRET` | `password` value from the generated JSON |
 
 > [!IMPORTANT]
 > After you set the environment variables, close and re-open your console window. If you are using Visual Studio or another development environment, you may need to restart it in order for it to register the new environment variables.
@@ -81,7 +81,7 @@ Once these variables have been set, you should be able to use the DefaultAzureCr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about authentication](../concepts/authentication.md)
+> [Learn about authentication](../../concepts/authentication.md)
 
 You may also want to:
 
