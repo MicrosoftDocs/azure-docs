@@ -91,10 +91,41 @@ For the selected sign-in event, you get a diagnostic results. Read through the r
 
 ## How to access it
 
+To use the diagnostic, you must be signed into the tenant as a global admin or a global reader. If you do not have this level of access, use [Privileged Identity Management, PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-activate-your-roles), to elevate your access to global admin/reader within the tenant. This will allow you to have temporary access to the diagnostic.  
 
+With the correct access level, you can find the diagnostic in various places: 
 
+**Option A**: Diagnose and Solve Problems  
 
-To use the diagnostic, you must be signed into the tenant as a global admin or a global reader. If you do not have this level of access, use Privileged Identity Management, PIM, to elevate your access to global admin/reader within the tenant. This will allow you to have temporary access to the diagnostic.  
+1. Open **Azure Active Directory AAD or Azure AD Conditional Access**. 
+
+2. From the main menu, click **Diagnose & Solve Problems**.  
+
+3. Under the **Troubleshooters**, there is a sign-in diagnostic tile. 
+
+4. Click **Troubleshoot** button.  
+
+ 
+
+ 
+
+**Option B**: Sign-in Events 
+
+1. Open Azure Active Directory. 
+
+2. On the main menu, in the **Monitoring** section, select **Sign-ins**. 
+
+3. From the list of sign-ins, select a sign in with a **Failure** status. You can filter your list by Status to make it easier to find failed sign-ins. 
+
+4. The **Activity Details: Sign-ins** tab will open for the selected sign-in. Click on dotted icon to view more menu icons. Select the **Troubleshooting and support** tab. 
+
+5. Click the link to **Launch the Sign-in Diagnostic**. 
+
+ 
+
+**Option C**: Support Case 
+
+The diagnostic can also be found when creating a support case to give you the opportunity to self-diagnose before resorting to submitting a case. 
 
 
 
