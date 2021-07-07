@@ -54,13 +54,49 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 >[!IMPORTANT]
 >While in **Public Preview**, only attach a disk pool to a test or non-production cluster.
 
-1. Install the `vmware `extension.
+1. Check if the subscription is registered to `Microsoft.AVS`:
 
-   - Check if the extension is installed: 
+   ```azurecli
+   az provider show -n "Microsoft.AVS" --query registrationState
+   ```
+
+   If it's not already registered, then register it:
+
+   ```azurecli
+   az provider register -n "Microsoft.AVS"
+   ```
+
+1. Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS:
+
+   ```azurecli
+   az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
+   ```
+
+   - If it's not already registered, then register it:
 
       ```azurecli
-      az extension show --name vmware
+      az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       ```
+
+      The registration may take approximately 15 minutes to complete and you can check the current status it:
+      
+      ```azurecli
+      az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
+      ```
+
+      >[!TIP]
+      >If the registration is stuck in an intermediate state for longer than 15 minutes to complete, unregister and then re-register the flag:
+      >
+      >```azurecli
+      >az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
+      >az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
+      >```
+
+1. Check if the `vmware `extension is installed: 
+
+   ```azurecli
+   az extension show --name vmware
+   ```
 
    - If the extension is already installed, check if the version is **3.0.0**. If an older version is installed, update the extension:
 
@@ -68,31 +104,33 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az extension update --name vmware
       ```
 
-   - If the extension is not installed:
+   - If it's not already installed, install it:
 
       ```azurecli
       az extension add --name vmware
       ```
 
-2. Display help on the datastores cmdlets:
-
-   ```azurecli
-   az vmware datastore -h
-   ```
-
-3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using Microsoft.StoragePool provided iSCSI target.
+3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target:
 
    ```azurecli
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 
-4. Show the details of an iSCSI datastore in a private cloud cluster.
+   >[!TIP]
+   >You can display the help on the datastores:
+   >
+   >   ```azurecli
+   >   az vmware datastore -h
+   >   ```
+   
+
+4. Show the details of an iSCSI datastore in a private cloud cluster:
    
    ```azurecli
    az vmware datastore show --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster -Cluster-1 --private-cloud MyPrivateCloud
    ```
 
-5. List all the datastores in a private cloud cluster.
+5. List all the datastores in a private cloud cluster:
 
    ```azurecli
    az vmware datastore list --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
@@ -103,16 +141,18 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 When you delete a private cloud datastore, the disk pool resources don't get deleted. There's no maintenance window required for this operation.
 
 1. Power off the VMs and remove all objects associated with the iSCSI datastores, which include:
+
    - VMs (remove from inventory)
+
    - Templates
+
    - Snapshots
 
-2. Delete the private cloud datastore.
+2. Delete the private cloud datastore:
 
    ```azurecli
    az vmware datastore delete --name MyCloudSANDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud
    ```
-
 
 ## Next steps
 
