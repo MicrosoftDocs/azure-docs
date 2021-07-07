@@ -10,7 +10,7 @@ manager: femila
 
 # Deploy Azure Virtual Desktop with the getting started feature
 
-The Azure portal's new getting started feature is a quick, easy way to install and configure Azure Virtual Desktop on your deployment
+The Azure portal's new getting started feature is a quick, easy way to install and configure Azure Virtual Desktop on your deployment.
 
 ## Requirements
 
@@ -37,7 +37,7 @@ If you're using the getting started feature in an environment with Active Direct
 
 If you're using the getting started feature in an environment without an identity provider, these are the extra requirements you should follow:
 
-- Your AD domain join UPN must not include reserved keywords, and you must use a unique user name that's not already in your Azure AD subscription.
+- Your AD domain join UPN must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm), and you must use a unique user name that's not already in your Azure AD subscription.
 - You must create a new host pool to add session hosts you create with the getting started feature. If you try to make a session host in an existing host pool, it won't work.
 
 ## For subscriptions with Azure AD DS or AD DS
@@ -54,7 +54,7 @@ Here's how to use the getting started feature in a subscription that already has
 
     - For **Subscription**, go to **How is your subscription configured**, then select **Existing setup**.
 
-    - In the **Location**, select your resource location.
+    - In the **Location**, select the location where you'll deploy your resources.
 
     - For **Azure admin UPN**, enter the full user principal name (UPN) of the account with admin permissions in Azure AD and owner permissions in the subscription that you plan to use.
 
@@ -65,8 +65,8 @@ Here's how to use the getting started feature in a subscription that already has
 5. In the **Virtual machines** tab, select the following values:
 
     - For **Do you want the users to share this machine?**, select one of the following options depending on your needs:
-      - If you want to create a single=session or personal host pool, select **No**.
-      - If you want to create a multi-session or pooled host pool, select **Yes (multi session)**. This will also create an Azure Files storage account  joined to either Azure AD DS or AD DS.
+      - If you want to create a single-session or personal host pool, select **No**.
+      - If you want to create a multi-session or pooled host pool, select **Yes (multi-session)**. This will also create an Azure Files storage account  joined to either Azure AD DS or AD DS.
 
     - For **Image type**, select an image from the Azure image gallery, a custom image, or a VHD from a storage blob.
 
@@ -87,7 +87,7 @@ Here's how to use the getting started feature in a subscription that already has
     - If you want to create a validation user account to test your deployment, select the **Create validation user** check box, then enter a username and password in the prompt that appears.
 
        >[!NOTE]
-       >The feature will create the validation user group in the USERS container. You must make sure your validation group is synced to Azure AD. If the sync doesn't work, then pre-create the AVDValidationUsers group in an organization unit that is being synced to Azure AD.
+       >Getting started will create the validation user group in the "USERS" container. You must make sure your validation group is synced to Azure AD. If the sync doesn't work, then pre-create the AVDValidationUsers group in an organization unit that is being synced to Azure AD.
 
 ## For subscriptions without Azure AD DS or AD DS
 
@@ -105,7 +105,7 @@ To deploy Azure Virtual Desktop on a subscription without Azure AD DS or AD DS:
 
     - For **How is your subscription configured**, select **Empty subscription**. An "empty" subscription is a subscription that doesn't require an identity provider like Azure AD or AD DS.
 
-    - For **Resource group prefix**, enter the prefixes *-prerequisite*, *-deployment*, and *-avd*.
+    - For **Resource group prefix**, enter the prefixes for the resource group you're going to create: *-prerequisite*, *-deployment*, and *-avd*.
 
     - In **Location**, enter the resource location you want to use for your deployment.
 
@@ -113,8 +113,8 @@ To deploy Azure Virtual Desktop on a subscription without Azure AD DS or AD DS:
 
     - For **AD Domain join UPN**, enter the full UPN for an account that will be added to **AAD DC Administrators** group.
 
->[!NOTE]
-The user name for AD Domain join UPN should be a unique one that doesn't already exist in Azure AD. The getting started feature doesn't currently support using existing Azure AD user names for accounts without Azure AD or AD DS.
+    >[!NOTE]
+    >The user name for AD Domain join UPN should be a unique one that doesn't already exist in Azure AD. The getting started feature doesn't currently support using existing Azure AD user names for accounts without Azure AD or AD DS.
 
 4. In the **Virtual machines** tab, select the following values:
 
