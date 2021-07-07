@@ -1564,3 +1564,46 @@ Assigns a sequential row numbering for rows in a window starting with 1.
 ## Next steps
 
 [Learn how to use Expression Builder](concepts-data-flow-expression-builder.md).
+
+  
+  intersect
+
+Returns an intersection set of distinct items from 2 arrays.
+•	intersect([10, 20, 30], [20, 40]) => [20]
+
+intersect(<value1>: array, <value2>: array) => array
+
+isNan
+
+Check if this is not a number.
+•	isNan(10.2) => false
+
+isNan(<value1>: integral) => boolean
+
+jaroWinkler
+
+Gets the JaroWinkler distance between two strings.
+•	jaroWinkler('frog', 'frog') => 1.0
+
+jaroWinkler(<value1>: string, <value2>: string) => double
+
+keyValues
+
+Creates a map of key/values. The first parameter is an array of keys and second is the array of values. Both arrays should have equal length.
+•	keyValues(['bojjus', 'appa'], ['gunchus', 'ammi']) => ['bojjus' -> 'gunchus', 'appa' -> 'ammi']
+
+keyValues(<value1>: array, <value2>: array) => map
+
+mapAssociation
+
+Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. 
+•	mapAssociation(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], @(key = #key, value = #value)) => [@(key = 'bojjus', value = 'gunchus'), @(key = 'appa', value = 'ammi')]
+
+mapAssociation(<value1>: map, <value2>: binaryFunction) => array
+
+originColumns
+
+Gets all output columns for a origin stream where columns were created. Must be enclosed in another function.
+•	array(toString(originColumns('source1')))
+
+originColumns(<streamName>: string) => any
