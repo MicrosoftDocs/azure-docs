@@ -21,7 +21,7 @@ ms.author: bagol
 
 # Azure Sentinel Process Event normalization schema reference (Public preview)
 
-The Process Event normalization schema is used to describe the operating system activity of executing and terminating a process. Such events are reported by operating systems as well as by security systems such as EDR (End Point Detection and Response) systems.
+The Process Event normalization schema is used to describe the operating system activity of executing and terminating a process. Such events are reported by operating systems as well as by security systems such as EDR (End Point Detection and Response) systems. Process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. Processes do not run, processes manage. Threads are the ones that execute code and technically run.
 
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
@@ -164,7 +164,7 @@ The process event schema references the following entities, which are central to
 | **ActingProcessFileProduct**       | Optional     | String     |The product name from the version information in the acting process image file. <br><br> Example: `Notepad++`           |
 | **ActingProcessFileVersion**       | Optional     | String     |               The product version from the version information of the acting process image file. <br><br>Example: `7.9.5.0`   |
 | **ActingProcessFileInternalName**  | Optional     | String     |      The product internal file name from the version information of the acting process image file. |
-| **ActingProcessFileOriginallName** | Optional     | String     |The product original file name from the version information of the acting process image file.       <br><br> Example:  `Notepad++.exe` |
+| **ActingProcessFileOriginalName** | Optional     | String     |The product original file name from the version information of the acting process image file.       <br><br> Example:  `Notepad++.exe` |
 | **ActingProcessIsHidden**          | Optional     | Boolean    |      An indication of whether the acting process is in hidden mode.  |
 | **ActingProcessInjectedAddress**   | Optional     | String     |      The memory address in which the responsible acting process is stored.           |
 | **ActingProcessId**| Mandatory    | int        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
