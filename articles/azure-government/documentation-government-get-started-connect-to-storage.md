@@ -66,7 +66,7 @@ These endpoint differences must be taken into account when you connect to storag
 2. Add these two lines of C# code to connect:
     ```cs
     var credentials = new TableSharedKeyCredential(storageAccountName, storageAccountKey);
-    var storageTableUri = //Paste Azure Storage Table Uri here
+    var storageTableUri = '#your storage table uri';
     var storageAccount = new TableServiceClient(new Uri(storageTableUri), credentials);   
     ```
 
