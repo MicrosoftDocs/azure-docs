@@ -4,7 +4,7 @@ description: You can simplify the task of migrating between Azure Data Lake Stor
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 07/06/2021
+ms.date: 07/07/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -87,15 +87,24 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
 3. Select the **Migrate data** button.  
 
    > [!div class="mx-imgBorder"]
-   > ![Image Hint2](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+   > ![Button to migrate](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
-4. Select **Copy data to a new ADLS Gen2 account**.
+4. Select **Copy data to a new Gen2 account**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Copy data option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-data-option.png)
 
 5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, click the **Apply** button.
+
+   > [!div class="mx-imgBorder"]
+   > ![Checkbox to provide consent](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
    While your data is being migrated, your Gen1 account becomes read-only, and your Gen2-enabled account is disabled. After the migration completes, You can read and write to both accounts.
 
    You can stop the migration at any time by selecting the **Stop migration** button.
+
+   > [!div class="mx-imgBorder"]
+   > ![Stop migration option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
 
 ### Option 2: Perform a complete migration
 
@@ -106,17 +115,26 @@ If you perform a complete migration, data is copied from Gen1 to Gen2. Then, you
 3. Select the **Migrate data** button.  
 
    > [!div class="mx-imgBorder"]
-   > ![Image Hint2](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
+   > ![Migrate button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-tool.png)
 
-4. Select **Complete migration to a new ADLS gen 2 account**.
+4. Select **Complete migration to a new gen 2 account**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Complete migration option](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-complete-option.png)
 
 5. Give Microsoft consent to perform the data migration by selecting the checkbox. Then, click the **Apply** button.
+
+   > [!div class="mx-imgBorder"]
+   > ![Consent checkbox](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-consent.png)
 
    - While your data is being migrated, your Gen1 account becomes read-only, and the Gen2-enabled account is disabled. 
    - While the Gen1 URI is being redirected, both accounts are disabled. 
    - After the migration completes, your Gen1 account is disabled, and you can read and write to your Gen2-enabled account.
 
    You can stop the migration at any time before the URI is redirected by selecting the **Stop migration** button.
+
+   > [!div class="mx-imgBorder"]
+   > ![Migration stop button](./media/data-lake-storage-migrate-gen1-to-gen2-azure-portal/migration-stop.png)
 
 ## Migrate workloads and applications
 
