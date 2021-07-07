@@ -107,6 +107,8 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
