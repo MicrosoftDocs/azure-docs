@@ -25,10 +25,15 @@
         href: quickstart-logs-metrics-tracing.md
       - name: Integrate with Azure Database for MySQL
         href: quickstart-integrate-azure-database-mysql.md
-      - name: Provisioning
-        items:
-        - name: Provision using an ARM template
-          href: quickstart-deploy-infrastructure-vnet.md
+    - name: Provisioning
+      expanded: true
+      items:
+      - name: Provision using an ARM template
+        href: quickstart-deploy-infrastructure-vnet.md
+      - name: Provision using Azure CLI
+        href: quickstart-deploy-infrastructure-vnet-azure-cli.md
+      - name: Provision using Terraform
+        href: quickstart-deploy-infrastructure-vnet-terraform.md          
 - name: Tutorials
   items:
     - name: Alerts and action groups
@@ -125,6 +130,8 @@
           href: how-to-circuit-breaker-metrics.md
         - name: Structured application log
           href: structured-app-log.md
+        - name: New Relic Java in-process agent
+          href: how-to-new-relic-monitor.md          
     - name: Network
       items: 
         - name: Deploy Azure Spring Cloud in a virtual network
@@ -147,16 +154,6 @@
           href: how-to-enable-end-to-end-tls.md
         - name: Access Config Server and Service Registry
           href: how-to-access-data-plane-azure-ad-rbac.md
-    - name: Integrate
-      items:
-        - name: Bind an app to Azure CosmosDB
-          href: how-to-bind-cosmos.md
-        - name: Bind an app to Azure Cache for Redis
-          href: how-to-bind-redis.md
-        - name: Bind an app to Azure MySQL
-          href: how-to-bind-mysql.md
-        - name: Integrate with Azure Load Balance Solutions
-          href: how-to-integrate-azure-load-balancers.md
     - name: Automate
       items:
         - name: CI/CD with Azure DevOps

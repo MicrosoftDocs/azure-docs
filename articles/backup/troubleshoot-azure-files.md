@@ -37,6 +37,7 @@ Retry the registration. If the problem persists, contact support.
 - Ensure that the file share you're looking to protect hasn't been deleted.
 - Ensure that the Storage Account is a supported storage account for file share backup. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 - Check if the file share is already protected in the same Recovery Services vault.
+- Check the Network Routing setting of storage account to ensure that routing preference is set as Microsoft network routing .
 
 ### Backup file share configuration (or the protection policy configuration) is failing
 
@@ -121,6 +122,14 @@ Error Message: A backup job is already in progress for this file share.
 - File share backup doesn't support parallel snapshot requests against the same file share.
 
 - Wait for the existing backup job to finish and then try again. If you can’t find a backup job in the Recovery Services vault, check other Recovery Services vaults in the same subscription.
+
+### UserErrorStorageAccountInternetRoutingNotSupported- Storage accounts with Internet routing configuration are not supported by Azure Backup
+
+Error Code: UserErrorStorageAccountInternetRoutingNotSupported
+
+Error Message: Storage accounts with Internet routing configuration are not supported by Azure Backup
+
+Ensure that the routing preference set for the storage account hosting backed up file share is Microsoft network routing.
 
 ### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
 

@@ -5,11 +5,13 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-
+ROBOTS: NOINDEX
 #Customer intent: As a developer new to ML Services on Azure, I need to see how to create an ML Services cluster.
 ---
 
 # Quickstart: Create ML Services cluster in Azure HDInsight using ARM template
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create an [ML Services](./r-server-overview.md) cluster in Azure HDInsight. Microsoft Machine Learning Server is available as a deployment option when you create HDInsight clusters in Azure. The cluster type that provides this option is called ML Services. This capability provides data scientists, statisticians, and R programmers with on-demand access to scalable, distributed methods of analytics on HDInsight.
 
@@ -25,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/hdinsight-rserver/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-rserver/azuredeploy.json":::
 

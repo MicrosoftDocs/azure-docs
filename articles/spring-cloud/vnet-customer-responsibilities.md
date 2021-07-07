@@ -21,6 +21,7 @@ By default, Azure Spring Cloud has unrestricted outbound (egress) internet acces
 The following is a list of resource requirements for Azure Spring Cloud services. As a general requirement you should not modify resource groups created by Azure Spring Cloud and the underlying network resources.
 - Do not modify resource groups created and owned by Azure Spring Cloud.
   - By default, these resource groups are named as ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]* and ap_[SERVICE-INSTANCE-NAME]_[REGION]*.
+  - Do not block Azure Spring Cloud from updating reseources in these resource groups.
 - Do not modify subnets used by Azure Spring Cloud.
 - Do not create more than one Azure Spring Cloud service instance in the same subnet.
 - When using a firewall to control traffic, *do not* block the following egress traffic to Azure Spring Cloud components that operate, maintain, and support the service instance.
@@ -38,9 +39,9 @@ The following is a list of resource requirements for Azure Spring Cloud services
   | *.servicebus.windows.net:443 *Or* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - EventHub:443 | TCP:443 | Azure Event Hub. | Can be replaced by enabling *Azure Event Hubs* [service endpoint in virtual network](../virtual-network/virtual-network-service-endpoints-overview.md). |
   
 
-## Azure Spring Cloud FQDN requirements / application rules
+## Azure Spring Cloud FQDN requirements/application rules
 
-Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernetesService** to simplify the following configurations.
+Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
 
   | Destination FQDN | Port | Use |
   |------|------|------|
@@ -48,14 +49,23 @@ Azure Firewall provides a fully qualified domain name (FQDN) tag **AzureKubernet
   | <i>mcr.microsoft.com</i> | HTTPS:443 | Microsoft Container Registry (MCR). |
   | *.cdn.mscr.io | HTTPS:443 | MCR storage backed by the Azure CDN. |
   | *.data.mcr.microsoft.com | HTTPS:443 | MCR storage backed by the Azure CDN. |
-  | <i>management.azure.com</i> | HTTPS:443 | Underlying Kubernetes Cluster management. ​|
-  | <i>*login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication.​ |
-  | <i>*login.microsoft.com</i> | HTTPS:443 | Azure Active Directory authentication.​ |
+  | <i>management.azure.com</i> | HTTPS:443 | Underlying Kubernetes Cluster management. |
+  | <i>*login.microsoftonline.com</i> | HTTPS:443 | Azure Active Directory authentication. |
+  | <i>*login.microsoft.com</i> | HTTPS:443 | Azure Active Directory authentication. |
   |<i>packages.microsoft.com</i>    | HTTPS:443 | Microsoft packages repository. |
   | <i>acs-mirror.azureedge.net</i> | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI.​ |
   | *mscrl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
   | *crl.microsoft.com* | HTTPS:80 | Required Microsoft Certificate Chain Paths. |
   | *crl3.digicert.com* | HTTPS:80 | 3rd Party SSL Certificate Chain Paths. |
+  
+## Azure Spring Cloud optional FQDN for third-party application performance management
+
+Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
+
+  | Destination FQDN | Port | Use                                                          |
+  | ---------------- | ---- | ------------------------------------------------------------ |
+  | collector*.newrelic.com | TCP:443/80 | Required networks of New Relic APM agents from US region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
+  | collector*.eu01.nr-data.net | TCP:443/80 | Required networks of New Relic APM agents from EU region, also see [APM Agents Networks](https://docs.newrelic.com/docs/using-new-relic/cross-product-functions/install-configure/networks/#agents). |
 
 ## See also
 * [Access your application in a private network](access-app-virtual-network.md)

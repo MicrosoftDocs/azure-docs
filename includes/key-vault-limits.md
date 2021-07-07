@@ -57,6 +57,12 @@ When you back up a key vault object, such as a secret, key, or certificate, the 
 > [!NOTE]
 > Attempting to backup a key, secret, or certificate object with more versions than above limit will result in an error. It is not possible to delete previous versions of a key, secret, or certificate. 
 
+### Limits on count of keys, secrets and certificates:
+
+Key Vault does not restrict the number of keys, secrets or certificates that can be stored in a vault. The transaction limits on the vault should be taken into account to ensure that operations are not throttled.
+
+Key Vault does not restrict the number of versions on a secret, key or certificate, but storing a large number of versions (500+) can impact the performance of backup operations. See [Azure Key Vault Backup](../articles/key-vault/general/backup.md).
+
 #### Azure Private Link integration
 
 > [!NOTE]

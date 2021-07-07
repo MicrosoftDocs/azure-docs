@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma, wiassaf
 ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Managed Instance using the Azure portal

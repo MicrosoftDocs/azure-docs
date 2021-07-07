@@ -30,9 +30,9 @@ For common issues and and workarounds, see [Troubleshoot Azure Cloud Services (e
 
 Get answers to Service Fabric questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
-[Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) is Azure's recommended source of community support.
+[Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the [**azure-cloud-services-extended-support**](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html) tag. Here are some Microsoft Q&A tips for writing [high-quality questions](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html).
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Be sure to post your question using the [**azure-cloud-services-extended-support**](/answers/topics/azure-cloud-services-extended-support.html) tag. Here are some Microsoft Q&A tips for writing [high-quality questions](/answers/articles/24951/how-to-write-a-quality-question.html).
 
 ## Create an Azure support request
 

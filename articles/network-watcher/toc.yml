@@ -30,6 +30,8 @@
   items:
   - name: Connection Monitor
     href: connection-monitor-overview.md
+  - name: Connection Monitor schema
+    href: connection-monitor-schema.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
   - name: Diagnose NSG rules and Traffic filtering
@@ -142,7 +144,7 @@
         href: traffic-analytics.md
         items:
         - name: Frequently asked questions
-          href: traffic-analytics-faq.md
+          href: traffic-analytics-faq.yml
         - name: Schema and Data Aggregation
           href: traffic-analytics-schema.md
         - name: Schema update (August 2019)
@@ -210,7 +212,7 @@
 - name: Resources
   items:
   - name: Network Watcher FAQs
-    href: frequently-asked-questions.md
+    href: frequently-asked-questions.yml
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page

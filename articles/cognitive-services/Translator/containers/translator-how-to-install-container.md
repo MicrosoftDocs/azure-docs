@@ -14,9 +14,9 @@ recommendations: false
 keywords: on-premises, Docker, container, identify
 ---
 
-# Install and run Translator containers (Preview)
+# Install and run Translator containers (preview)
 
-  Containers enable you to run some features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
+  Containers enable you to run several features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
 
 Translator container enables you to build a translator application architecture that is optimized for both robust cloud capabilities and edge locality.
 
@@ -161,7 +161,7 @@ There are several ways to validate that the container is running:
 
 #### English &leftrightarrow; German
 
-Navigate to the swagger page: <http://localhost:5000/swagger/index.html>
+Navigate to the swagger page: `<http://localhost:5000/swagger/index.html>`
 
 1. Select **POST /translate**
 1. Select **Try it out**
@@ -273,4 +273,4 @@ In this article, you learned concepts and workflows for downloading, installing,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure Cognitive Services containers](/azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context)
+> [Learn more about Azure Cognitive Services containers](../../containers/index.yml?context=%2fazure%2fcognitive-services%2ftranslator%2fcontext%2fcontext)

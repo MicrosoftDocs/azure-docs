@@ -43,7 +43,7 @@ Before you begin, have the following prerequisites in place:
 
 ## Set up your data
 
-This section creates the sample data set in Azure blob storage so that the indexer and skillset have content to work with.
+This section creates the sample data set in Azure Blob Storage so that the indexer and skillset have content to work with.
 
 1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19), consisting of 19 files.
 

@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2021
 ms.author: rolyon
+ms.custom: subject-rbac-steps
 ---
 
 # Add or edit Azure role assignment conditions using the Azure portal (preview)

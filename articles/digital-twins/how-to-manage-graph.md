@@ -76,7 +76,15 @@ You can even create multiple instances of the same type of relationship between 
 
 ## List relationships
 
-To access the list of **outgoing** relationships for a given twin in the graph, you can use the `GetRelationships()` method like this:
+### List properties of a single relationship
+
+You can always deserialize relationship data to a type of your choice. For basic access to a relationship, use the type `BasicRelationship`. The `BasicRelationship` helper class also gives you access to properties defined on the relationship, through an `IDictionary<string, object>`. To list properties, you can use:
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="ListRelationshipProperties":::
+
+### List outgoing relationships from a digital twin
+
+To access the list of **outgoing** relationships for a given twin in the graph, you can use the `GetRelationships()` method like this: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="GetRelationshipsCall":::
 
@@ -92,7 +100,7 @@ You can now call this custom method to see the outgoing relationships of the twi
 
 You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin()`.
 
-### Find incoming relationships to a digital twin
+### List incoming relationships to a digital twin
 
 Azure Digital Twins also has an API to find all **incoming** relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
 

@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: mtillman
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,28 +14,28 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 06/11/2021
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
 
 # Integrate Azure AD logs with Azure Monitor logs
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+Follow the steps in this article to integrate Azure Active Directory (Azure AD) logs with Azure Monitor.
 
-Azure Monitor logs allows you to query data to find particular events, analyze trends, and perform correlation across various data sources. With the integration of Azure AD activity logs in Azure Monitor logs, you can now perform tasks like:
+Use the integration of Azure AD activity logs in Azure Monitor logs to perform tasks like:
 
- * Compare your Azure AD sign-in logs against security logs published by Azure Security Center
+ * Compare your Azure AD sign-in logs against security logs published by Azure Security Center.
+  
+ * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
+ 
+ * Identify sign-ins from applications that use the Active Directory Authentication Library (ADAL) for authentication. [ADAL is nearing end-of-support](../develop/msal-migration.md).
 
- * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.  
-
-The following video from an Ignite session demonstrates the benefits of using Azure Monitor logs for Azure AD logs in practical user scenarios.
+This Microsoft Ignite session video shows the benefits of using Azure Monitor logs for Azure AD logs in practical scenarios:
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
-
-In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Azure Monitor.
 
 ## Supported reports
 
@@ -46,8 +46,7 @@ You can route audit activity logs and sign-in activity logs to Azure Monitor log
 * **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
 
 > [!NOTE]
-> B2C-related audit and sign-in activity logs are not supported at this time.
->
+> Azure AD B2C audit and sign-in activity logs are currently unsupported.
 
 ## Prerequisites 
 
@@ -60,7 +59,12 @@ To use this feature, you need:
 
 ## Licensing requirements
 
-Using this feature requires an Azure AD Premium P1 or P2 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using this feature requires an Azure AD Premium P1 or P2 tenant. 
+You can find the license type of your tenant on the **[Overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)** page in **Azure Active Directory**.
+
+![Tenant information](./media/howto-integrate-activity-logs-with-log-analytics/tenant-information.png)
+ 
+If you want to know for how long the activity data is stored in a Premium tenant, see: [How long does Azure AD store the data?](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)
 
 ## Send logs to Azure Monitor
 

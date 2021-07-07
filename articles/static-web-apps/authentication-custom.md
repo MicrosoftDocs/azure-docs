@@ -219,7 +219,7 @@ Once you have the registration credentials, use the following steps to create a 
              "registration": {
                "clientIdSettingName": "<MY_PROVIDER_CLIENT_ID_SETTING_NAME>",
                "clientCredential": {
-                 "secretSettingName": "<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>"
+                 "clientSecretSettingName": "<MY_PROVIDER_CLIENT_SECRET_SETTING_NAME>"
                },
                "openIdConnectConfiguration": {
                  "wellKnownOpenIdConfiguration": "https://<PROVIDER_ISSUER_URL>/.well-known/openid-configuration"

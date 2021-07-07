@@ -28,4 +28,4 @@ X-Cache: TCP_HIT | This header is returned when the content is served from the C
 X-Cache: TCP_REMOTE_HIT | This header is returned when the content is served from the CDN regional cache (Origin shield layer)
 X-Cache: TCP_MISS | This header is returned when there is a cache miss, and the content is served from the Origin. 
 
-For additional information on HTTP headers supported in Azure CDN, see [Front Door to backend](/azure/frontdoor/front-door-http-headers-protocol#front-door-to-backend).
+For additional information on HTTP headers supported in Azure CDN, see [Front Door to backend](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend).

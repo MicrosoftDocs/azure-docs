@@ -20,7 +20,7 @@ To access the Summary dashboard in Partner Center, under **Commercial Marketplac
 
 ## Summary dashboard
 
-The Summary dashboard presents an overview of Azure Marketplace and Microsoft AppSource offers’ business performance. The dashboard provides a broad overview of the following:
+The [Summary dashboard](https://go.microsoft.com/fwlink/?linkid=2165765) presents an overview of Azure Marketplace and Microsoft AppSource offers’ business performance. The dashboard provides a broad overview of the following:
 
 - Customers' orders
 - Customers
