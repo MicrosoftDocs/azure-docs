@@ -304,7 +304,6 @@
         href: routing-preference-mixed-network-adapter-portal.md
       - name: Configure Routing Preference for an AKS cluster
         href: routing-preference-azure-kubernetes-service-cli.md
-
   - name: Security
     items:
     - name: Filter network traffic
