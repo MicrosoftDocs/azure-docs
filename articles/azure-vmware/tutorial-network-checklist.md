@@ -18,7 +18,7 @@ In this tutorial, you'll learn about:
 > * DHCP and DNS considerations in Azure VMware Solution
 
 ## Prerequisite
-Ensure that all gateways, including the ExpressRoute provider's service, support 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
+Ensure that all gateways, including the ExpressRoute provider's service, supports 4-byte Autonomous System Number (ASN). Azure VMware Solution uses 4-byte public ASNs for advertising routes.
 
 ## Virtual network and ExpressRoute circuit considerations
 When you create a virtual network connection in your subscription, the ExpressRoute circuit gets established through peering, uses an authorization key and a peering ID you request in the Azure portal. The peering is a private, one-to-one connection between your private cloud and the virtual network.
