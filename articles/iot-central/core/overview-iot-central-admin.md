@@ -55,7 +55,7 @@ An administrator can:
 - Create a copy of an application if you just need a duplicate copy of your application. For example, you may need a duplicate copy for testing.
 - Create an application template from an existing application if you plan to create multiple copies.
 
-To learn more, see [Export your Azure IoT application](howto-use-app-templates.md).
+To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) .
 
 ## Migrate to a new version
 

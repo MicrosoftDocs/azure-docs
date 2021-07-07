@@ -642,17 +642,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-use-app-templates-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-use-app-templates.md",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-use-app-templates.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-use-app-templates.md",
-      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_url": "/azure/iot-central/core/howto-create-iot-central-application/",
       "redirect_document_id": false
     },
     {

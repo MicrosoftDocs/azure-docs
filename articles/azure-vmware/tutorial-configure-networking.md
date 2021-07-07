@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 1. Select **Review + create**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Select Review + create." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Screenshot showing the settings for the new virtual network." border="true":::
 
 1. Verify the information and select **Create**. Once the deployment is complete, you'll see your virtual network in the resource group.
 
@@ -69,7 +69,7 @@ Now that you've created a virtual network, you'll create a virtual network gatew
    | **Gateway subnet address range** | This value is populated when you select the virtual network. Don't change the default value. |
    | **Public IP address** | Select **Create new**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Provide values for the fields and then select Review + create." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Screenshot showing the details for the virtual network gateway." border="true":::
 
 1. Verify that the details are correct, and select **Create** to start the deployment of your virtual network gateway. 
 1. Once the deployment completes, move to the next section to connect your ExpressRoute connection to the virtual network gateway containing your Azure VMware Solution private cloud.
