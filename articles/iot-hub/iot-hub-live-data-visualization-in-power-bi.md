@@ -159,11 +159,13 @@ The following steps show you how to create and publish a report using the Power 
 
       :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-add-temperature.png" alt-text="Add a line chart for temperature to a Microsoft Power BI report":::
 
+     > [!NOTE]
+     > Depending on the device or simulated device that you use to send telemetry data, you may have a slightly different list of fields.
+     >
+
 8. Select **Save** to save the report. When prompted, enter a name for your report. When prompted for a sensitivity label, you can select **Public** and then select **Save**.
 
-9. Select **Reports** on the left pane, and then select the report that you just created.
-
-10. Select **File** > **Embed report** > **Website or portal**.
+10. Still on the report pane, select **File** > **Embed report** > **Website or portal**.
 
     :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-select-embed-report.png" alt-text="Select embed report website for the Microsoft Power BI report":::
 
