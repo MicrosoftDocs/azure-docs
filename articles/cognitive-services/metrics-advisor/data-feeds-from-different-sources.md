@@ -281,7 +281,7 @@ The following sections specify the parameters required for all authentication ty
 
 * **Limitations**: There are some limitations with Metrics Advisor Event Hub integration.
     1. Event Hubs doesn't support more than 3 active data feeds in one MA instance in public preview.
-    2. MA will always start consuming messages from the latest offset, including when re-activate a pause data deed.
+    2. Metrics Advisor will always start consuming messages from the latest offset, including when re-activating a paused data feed.
         * Messages during the data feed pause period will be lost.
         * The data feed ‘ingestion start time’ is set to the current UTC timestamp automatically when
 created, and for reference only.
