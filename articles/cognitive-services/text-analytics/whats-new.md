@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 07/07/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -24,8 +24,8 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 * General availability for Text Analytics for health for both containers and hosted API (/health).
 * General availability for Opinion Mining.
 * General availability for PII extraction and redaction.
-* General availability for Asynchronous (/analyze) endpoint.
-
+* General availability for Asynchronous (`/analyze`) endpoint.
+* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples. 
 
 ## June 2021
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 06/10/2021
+ms.date: 07/07/2021
 ms.author: aahi
 ---
 
@@ -20,7 +20,7 @@ The AI models used by the API are provided by the service, you just have to send
 
 ## Sentiment Analysis versions and features
 
-| Feature                                   | Sentiment Analysis v3 | Sentiment Analysis v3.1 |
+| Feature                                   | Sentiment Analysis v3.0 | Sentiment Analysis v3.1 |
 |-------------------------------------------|-----------------------|-----------------------------------|
 | Methods for single, and batch requests    | X                     | X                                 |
 | Sentiment Analysis scores and labeling             | X                     | X                                 |

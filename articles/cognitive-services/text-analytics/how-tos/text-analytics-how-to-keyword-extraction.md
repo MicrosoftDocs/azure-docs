@@ -193,51 +193,46 @@ If you use the `/analyze` endpoint for asynchronous operation, you will get a re
 
 ```json
 {
-  "displayName": "My Analyze Job",
-  "jobId": "dbec96a8-ea22-4ad1-8c99-280b211eb59e_637408224000000000",
-  "lastUpdateDateTime": "2020-11-13T04:01:14Z",
-  "createdDateTime": "2020-11-13T04:01:13Z",
-  "expirationDateTime": "2020-11-14T04:01:13Z",
-  "status": "running",
-  "errors": [],
-  "tasks": {
-      "details": {
-          "name": "My Analyze Job",
-          "lastUpdateDateTime": "2020-11-13T04:01:14Z"
-      },
-      "completed": 1,
-      "failed": 0,
-      "inProgress": 2,
-      "total": 3,
-      "keyPhraseExtractionTasks": [
-          {
-              "name": "My Analyze Job",
-              "lastUpdateDateTime": "2020-11-13T04:01:14.3763516Z",
-              "results": {
-                  "inTerminalState": true,
-                  "documents": [
-                      {
-                          "id": "doc1",
-                          "keyPhrases": [
-                              "sunny outside"
-                          ],
-                          "warnings": []
-                      },
-                      {
-                          "id": "doc2",
-                          "keyPhrases": [
-                              "favorite Seattle attraction",
-                              "Pike place market"
-                          ],
-                          "warnings": []
-                      }
-                  ],
-                  "errors": [],
-                  "modelVersion": "2020-07-01"
-              }
-          }
-      ]
-  }
+    "jobId": "fa813c9a-0d96-4a34-8e4f-a2a6824f9190",
+    "lastUpdateDateTime": "2021-07-07T18:16:45Z",
+    "createdDateTime": "2021-07-07T18:16:15Z",
+    "expirationDateTime": "2021-07-08T18:16:15Z",
+    "status": "succeeded",
+    "errors": [],
+    "displayName": "My Job",
+    "tasks": {
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "keyPhraseExtractionTasks": [
+            {
+                "lastUpdateDateTime": "2021-07-07T18:16:45.0623454Z",
+                "taskName": "KeyPhraseExtraction_latest",
+                "state": "succeeded",
+                "results": {
+                    "documents": [
+                        {
+                            "id": "doc1",
+                            "keyPhrases": [],
+                            "warnings": []
+                        },
+                        {
+                            "id": "doc2",
+                            "keyPhrases": [
+                                "Pike place market",
+                                "Seattle attraction",
+                                "favorite"
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2021-06-01"
+                }
+            }
+        ]
+    }
 }
 ```
 

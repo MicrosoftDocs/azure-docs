@@ -113,7 +113,7 @@ See [How to call the Text Analytics API](text-analytics-how-to-call-api.md) for 
 Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
 
 **Entity linking**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
 [Named Entity Recognition version 3.1 reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/EntitiesRecognitionGeneral)
 
