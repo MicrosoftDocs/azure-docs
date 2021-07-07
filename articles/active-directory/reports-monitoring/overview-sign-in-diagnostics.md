@@ -25,9 +25,7 @@ ms.collection: M365-identity-device-management
 
 # What is the sign-in diagnostic in Azure AD?
 
-Determining the reason for a failed sign-in can quickly become a challenging task. You need to analyze what happened during the sign-in attempt, and research the available recommendations to resolve the issue. Ideally, you want to resolve the issue without involving others such as Microsoft support.
-
-If you are in a situation like this, you can use the sign-in diagnostic in Azure AD, a virtual assistant that helps you investigating sign-ins in Azure AD. 
+Determining the reason for a failed sign-in can quickly become a challenging task. You need to analyze what happened during the sign-in attempt, and research the available recommendations to resolve the issue. Ideally, you want to resolve the issue without involving others such as Microsoft support. If you are in a situation like this, you can use the sign-in diagnostic in Azure AD, a virtual assistant that helps you investigating sign-ins in Azure AD. 
 
 This article gives you an overview of what the diagnostic is and how you can use it to troubleshoot sign-in related errors. 
 
@@ -41,9 +39,7 @@ In Azure AD, sign-in attempts are controlled by:
 
 For example, you can configure conditional access policies that enable administrators to configure all aspects of the tenant when they sign in from the corporate network. But the same user might be blocked when they sign into the same account from an untrusted network. 
 
-Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that: 
-
-The sign-in diagnostic is a feature that is designed to enable self-diagnosis of sign-in issues by:  
+Due to the greater flexibility of the system to respond to a sign-in attempt, you might end-up in scenarios where you need to troubleshoot sign-ins. The sign-in diagnostic is a feature that is designed to enable self-diagnosis of sign-in issues by:  
 
 - Analyzing data from sign-in events.  
 
