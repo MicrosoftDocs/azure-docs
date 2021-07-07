@@ -92,7 +92,7 @@ sections:
   - name: Migrate
     questions:
       - question: Why can't I see my Sentinel Management tab in the HCX Manager when using the Sentinel Appliance service?
-        answer: The Sentinel Management tab provides you access to download the Sentinal software.  It appears in the HCX Interconnect interface when an HCX Enterprise license is activated, and you have deployed a service mesh with an Sentinel Gateway (SGW) and Sentinel Data Receiver (SDR) pair deployed. Also, in traditional on-premises to cloud deployments the Sentinel tab is only visible in the Connector not cloud manager.
+        answer: The Sentinel Management tab provides you access to download the Sentinel software.  It appears in the HCX Interconnect interface when an HCX Enterprise license is activated, and you have deployed a service mesh with an Sentinel Gateway (SGW) and Sentinel Data Receiver (SDR) pair deployed. Also, in traditional on-premises to cloud deployments the Sentinel tab is only visible in the Connector not cloud manager.
 
       - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
         answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.  
@@ -336,3 +336,9 @@ sections:
 
       - question: When does metering begin and end for trial Azure VMware Solution clusters?
         answer: Trial clusters are limited to three hosts used for 30-day evaluations of Azure VMware Solution private clouds. After 30 days, clusters are automatically metered per their respective rates. If the trial clusters are deleted before the 30-day end date, the Azure VMware Solution trial will end at the time of deletion.
+
+      - question: How will I be charged for ExpressRoute?
+        answer: |
+          Any ExpressRoute Global Reach circuit where one end terminates on an Azure VMware Solution ExpressRoute circuit is suppressed. The following items are charged as regular ExpressRoute pricing:
+          - **ExpressRoute circuit** and **Data Transfer pricing:**  only the on-premises to Azure ExpressRoute circuit (not the Azure VMware Solution ExpressRoute circuit)
+          - **ExpressRoute Gateway:** each virtual network that needs to attach to Azure VMware Solution needs a local or remote ExpressRoute Gateway
