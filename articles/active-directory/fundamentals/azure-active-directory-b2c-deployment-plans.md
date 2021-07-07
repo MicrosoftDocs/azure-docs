@@ -87,15 +87,9 @@ This phase includes the following capabilities.
 
 ### Deploy authentication and authorization
 
-In this section, we provide you guidance on authentication and authorization scenarios and further information about the setup. 
+Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements) and try [Open  policy agent](https://www.openpolicyagent.org/). Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c).
 
-- Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) 
-
-- For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements)
-
-- Try [Open  policy agent](https://www.openpolicyagent.org/). Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c)
-
-Consider this sample checklist:
+Follow this sample checklist for more guidance:
 
 - Identify the different personas that need access to your application.  
 
@@ -109,15 +103,15 @@ Consider this sample checklist:
 
 ### Deploy applications and user identities
 
-All Azure AD B2C projects start with one or more client applications, which may have different business goals. In this section, we provide you guidance about the client application and user deployments.
+All Azure AD B2C projects start with one or more client applications, which may have different business goals.
 
 1. [Create or configure client applications](https://docs.microsoft.com/azure/active-directory-b2c/app-registrations-training-guide). Refer to these [code samples](https://docs.microsoft.com/azure/active-directory-b2c/code-samples) for implementation.
 
-2. Next, setup your user journey based on built-in or custom user flows. Learn [when to use user flows vs. custom policies](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview#comparing-user-flows-and-custom-policies).
+2. Next, setup your user journey based on built-in or custom user flows. [Learn when to use user flows vs. custom policies](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview#comparing-user-flows-and-custom-policies).
 
-3. Setup IdPs based on your business need. Learn [how to add Azure Active Directory B2C as an IdP](https://docs.microsoft.com/azure/active-directory-b2c/add-identity-provider).
+3. Setup IdPs based on your business need. [Learn how to add Azure Active Directory B2C as an IdP](https://docs.microsoft.com/azure/active-directory-b2c/add-identity-provider).
 
-4. Migrate your users. Learn about [user migration approaches](https://docs.microsoft.com/azure/active-directory-b2c/user-migration). Refer to [Azure AD B2C IEF sample user journeys](https://github.com/azure-ad-b2c/samples) for advanced scenarios.  
+4. Migrate your users. [Learn about user migration approaches](https://docs.microsoft.com/azure/active-directory-b2c/user-migration). Refer to [Azure AD B2C IEF sample user journeys](https://github.com/azure-ad-b2c/samples) for advanced scenarios.  
 
 Consider this sample checklist as you **deploy your applications**:
 
@@ -152,11 +146,11 @@ Consider this sample checklist while you **onboard an application**:
 |:--------------------|:----------------------|
 | Define the target group of the application | Check if this application is an end customer application, business customer application, or a digital service. Check if there is a need for employee login. |
 | Identify the business value behind an application | Understand the full business case behind an application to find the best fit of Azure AD B2C solution and integration with further client applications.|
-| Check the identity groups you have | Cluster identities in different types of groups with different types of requirements, such as **Business to Customer** (B2C) for end customers and business customers, **Business to Business** (B2B) for partners and suppliers, **Business to Employee** (B2E) for your employees and external employees, **Business to Machine** (B2E) for IoT device logins and service accounts.|
-| Check the IdP you need for your business needs and processes | Azure AD B2C [supports several types of IdPs](https://docs.microsoft.com/azure/active-directory-b2c/add-identity-provider#select-an-identity-provider) and depending on the use case the right IdP should be chosen. For example, for a Customer to Customer mobile application a fast and easy user login is required. In another use case, for a Business to Customer with a digital service it's necessary to be compliant and often the user company takes the responsibility to remain so. The user can log in with their business identity such as E-mail login. |
+| Check the identity groups you have | Cluster identities in different types of groups with different types of requirements, such as **Business to Customer** (B2C) for end customers and business customers, **Business to Business** (B2B) for partners and suppliers, **Business to Employee** (B2E) for your employees and external employees, **Business to Machine** (B2M) for IoT device logins and service accounts.|
+| Check the IdP you need for your business needs and processes | Azure AD B2C [supports several types of IdPs](https://docs.microsoft.com/azure/active-directory-b2c/add-identity-provider#select-an-identity-provider) and depending on the use case the right IdP should be chosen. For example, for a Customer to Customer mobile application a fast and easy user login is required. In another use case, for a Business to Customer with digital services additional compliance requirements are necessary. The user may need to log in with their business identity such as E-mail login. |
 | Check the regulatory constraints | Check if there is any reason to have remote profiles or specific privacy policies.  |
 | Design the sign-in and sign-up flow | Decide whether an email verification or email verification inside sign-ups will be needed. First check-out process such as Shop systems or [Multifactor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) is needed or not. Watch [this video](https://www.youtube.com/watch?v=c8rN1ZaR7wk&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=4). |
-| Check the type of application and authentication protocol used or will be implemented | Information exchange about the implementation of client application such as Web application, SPA, or Native application. Authentication protocols for client application and Azure AD B2C could be oAuth, OIDC, and SAML. Watch [this video](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9)|
+| Check the type of application and authentication protocol used or that will be implemented | Information exchange about the implementation of client application such as Web application, SPA, or Native application. Authentication protocols for client application and Azure AD B2C could be oAuth, OIDC, and SAML. Watch [this video](https://www.youtube.com/watch?v=r2TIVBCm7v4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=9)|
 | Plan user migration | Discuss the possibilities of [user migration with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/user-migration#:~:text=Pre%20Migration%20Flow%20in%20Azure%20AD%20B2C%20In,B2C%20directory%20with%20the%20current%20credentials.%20See%20More.). There are several scenarios possible such as Just In Times (JIT) migration, and bulk import/export. Watch [this video](https://www.youtube.com/watch?v=lCWR6PGUgz0&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=2). You can also consider using [Microsoft Graph API](https://www.youtube.com/watch?v=9BRXBtkBzL4&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=3) for user migration.|
 
 Consider this sample checklist while you **deliver**.
@@ -165,7 +159,7 @@ Consider this sample checklist while you **deliver**.
 |:-----|:-------|
 |Protocol information| Gather the base path, policies, metadata URL of both variants. Depending on the client application, specify the attributes such as sample login, client application ID, secrets, and redirects.|
 | Application samples | Refer to the provided [sample codes](https://docs.microsoft.com/azure/active-directory-b2c/code-samples). |
-|Pen testing | Before the test, inform your operations team about the pen tests and then test all user flows including the oAuth implementation. Learn more about [Penetration testing](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) and the [Microsoft Cloud unified penetration testing rules of engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
+|Pen testing | Before the tests, inform your operations team about the pen tests and then test all user flows including the oAuth implementation. Learn more about [Penetration testing](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) and the [Microsoft Cloud unified penetration testing rules of engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement).
 | Unit testing  | Perform unit testing and generate tokens [using Resource owner password credential (ROPC) flows](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). If you hit the Azure AD B2C token limit, [contact the support team](https://docs.microsoft.com/azure/active-directory-b2c/support-options). Reuse tokens to reduce investigation efforts on your infrastructure. [Setup a ROPC flow](https://docs.microsoft.com/azure/active-directory-b2c/add-ropc-policy?tabs=app-reg-ga&pivots=b2c-user-flow).|
 | Load testing | Expect reaching Azure AD B2C [service limits](https://docs.microsoft.com/azure/active-directory-b2c/service-limits). Evaluate the expected number of authentications per month your service will have. Evaluate the expected number of average user logins per month. Assess the expected high load traffic durations and business reason such as holidays, migrations, and events. Evaluate the expected peak sign-up rate, for example, number of requests per second. Evaluate the expected peak traffic rate with MFA, for example, requests per second. Evaluate the expected traffic geographic distribution and their peak rates.
 
@@ -175,7 +169,7 @@ Consider this sample checklist to enhance the security of your application depen
 
 - Check if strong authentication method such as [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) is required. For users who trigger high value transactions or other risk events it is suggested to use MFA. For example, for banking and finance applications, online shops - first checkout process.
 
-- If MFA is required, [check the methods available to do MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods#:~:text=How%20each%20authentication%20method%20works%20%20%20,%20%20MFA%20%204%20more%20rows%20) such as  SMS/Phone, email, and third-party services.
+- Check if MFA is required, [check the methods available to do MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods#:~:text=How%20each%20authentication%20method%20works%20%20%20,%20%20MFA%20%204%20more%20rows%20) such as  SMS/Phone, email, and third-party services.
 
 - Check if any anti-bot mechanism is in use today with your applications.  
 
@@ -188,7 +182,7 @@ For more information, see [Identity Protection and Conditional Access in Azure A
 
 ### Compliance
 
-To address certain regulatory requirements you may consider using vNets, IP restrictions, Web Application Firewall (WAF), and similar services to enhance the security of your backend systems.
+To satisfy certain regulatory requirements you may consider using vNets, IP restrictions, Web Application Firewall (WAF), and similar services to enhance the security of your backend systems.
 
 To address basic compliance requirements, consider:
 
@@ -198,7 +192,7 @@ To address basic compliance requirements, consider:
 
 ### User experience
 
-To enable a user friendly service, consider this sample checklist to define the user experience (UX) requirements:
+Consider the sample checklist to define the user experience (UX) requirements:
 
 - Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
 
