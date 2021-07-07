@@ -206,8 +206,8 @@ The process event schema references the following entities, which are central to
 | **TargetProcessFileProduct**       | Optional     | String     |The product name from the version information in target process image file.  <br><br>  Example: `Notepad++`  |
 | **TargetProcessFileSize**          | Optional     | String     |    Size of the file that ran the process responsible for the event. |
 | **TargetProcessFileVersion**       | Optional     | String     |The product version from the version information in the target process image file.   <br><br>  Example: `7.9.5.0` |
-| **TargetProcessFileInternalName**  |    Optional          |         |   The product internal file name from the version information of the image file of the target process. |
-| **TargetProcessFileOriginallName** |       Optional       |            |   The product original file name from the version information of the image file of the target process. |
+| **TargetProcessFileInternalName**  |    Optional          | String  |   The product internal file name from the version information of the image file of the target process. |
+| **TargetProcessFileOriginallName** |       Optional       | String   |   The product original file name from the version information of the image file of the target process. |
 | **TargetProcessIsHidden**          | Optional     | Boolean    |   An indication of whether the target process is in hidden mode.  |
 | **TargetProcessInjectedAddress**   | Optional     | String     |    The memory address in which the responsible target process is stored.           |
 | **TargetProcessMD5**               | Optional     | MD5        | The MD5 hash of the target process image file.   <br><br> Example:  `75a599802f1fa166cdadb360960b1dd0`|
