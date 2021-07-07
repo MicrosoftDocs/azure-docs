@@ -95,7 +95,7 @@ As with any IoT solution designed to operate at scale, a structured approach to 
 
 ### Dashboards
 
-Built-in [dashboards](./howto-set-up-template.md#generate-default-views) provide a customizable UI to monitor device health and telemetry. Start with a pre-built dashboard in an [application template](howto-use-app-templates.md) or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
+Built-in [dashboards](./howto-set-up-template.md#generate-default-views) provide a customizable UI to monitor device health and telemetry. Start with a pre-built dashboard in an application template or create your own dashboards tailored to the needs of your operators. You can share dashboards with all users in your application, or keep them private.
 
 ### Rules and actions
 

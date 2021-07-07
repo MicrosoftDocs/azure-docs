@@ -5,7 +5,7 @@ ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)
@@ -122,8 +122,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
    ![Screenshot shows a message that your deployment is complete and an option to go to resource.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-   ![Screenshot shows the data factory that you deployed.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+      :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
 
     ![Screenshot that shows the Manage button.](media/doc-common-process/get-started-page-manage-button.png)
