@@ -5,7 +5,7 @@ ms.date: 07/07/2021
 ms.topic: conceptual
 ---
 
-# Configurations
+# Micro agent configurations (Preview)
 
 The collector sends all collected data immediately after a configuration change is made. The configuration change is applied after the data transfer is complete.
 
