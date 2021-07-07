@@ -76,6 +76,24 @@ For more information about regular expressions, see [.NET regular expressions ov
 
 You can select multiple SBCs for a single pattern. In such a case, the routing algorithm will choose them in random order. You may also specify the exact number pattern more than once. The higher row will have higher priority, and if all SBCs associated with that row are not available next row will be selected. This way, you create complex routing scenarios.
 
+## Delete direct routing configuration
+
+### Delete using Azure portal
+
+#### To delete a Voice Route:
+1. In the left navigation, go to Direct routing under Voice Calling - PSTN and then select the Voice Routes tab.
+1. Select route or routes you want to delete using a checkbox.
+1. Select Remove.
+
+#### To delete an SBC:
+1. In the left navigation, go to Direct routing under Voice Calling - PSTN.
+1. On a Session Border Controllers tab, select Configure.
+1. Clear the FQDN and port fields for the SBC that you want to remove, select Next.
+1. On a Voice Routes tab, review voice routing configuration, make changes if needed. select Save.
+
+> [!NOTE]
+> When you remove SBC associated with a voice route, you can choose a different SBC for the route on the Voice Routes tab. The voice route without an SBC will be deleted.
+
 ## Next steps
 
 ### Conceptual documentation
