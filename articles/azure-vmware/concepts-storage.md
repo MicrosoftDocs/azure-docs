@@ -41,7 +41,7 @@ That default storage policy is set to RAID-1 (Mirroring), FTT-1, and thick provi
 >[!TIP]
 >If you're unsure if the cluster will grow to four or more, then deploy using the default policy.  If you're sure your cluster will grow, then instead of expanding the cluster after your initial deployment, we recommend to deploy the extra hosts during deployment. As the VMs are deployed to the cluster, change the disk's storage policy in the VM settings to either RAID-5 FTT-1 or RAID-6 FTT-2. 
 >
->:::image type="content" source="media/concepts/vsphere-vm-storage-policies-2.png" alt-text="Screenshot ":::
+>:::image type="content" source="media/concepts/vsphere-vm-storage-policies-2.png" alt-text="Screenshot showing the RAID-5 FTT-1 and RAID-6 Ftt-2 options highlighed.":::
 
 
 ## Data-at-rest encryption
