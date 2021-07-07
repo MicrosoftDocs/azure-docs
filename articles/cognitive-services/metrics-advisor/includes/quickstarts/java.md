@@ -180,8 +180,7 @@ System.out.printf("Data feed granularity type : %s%n",
 System.out.printf("Data feed granularity value : %d%n",
     createdSqlDataFeed.getGranularity().getCustomGranularityValue());
 System.out.println("Data feed related metric Ids:");
-dataFeed.getMetricIds().forEach((metricId, metricName)
-    -> System.out.printf("Metric Id : %s, Metric Name: %s%n", metricId, metricName));
+createdSqlDataFeed.getMetricIds().forEach(System.out::println);
 System.out.printf("Data feed source type: %s%n", createdSqlDataFeed.getSourceType());
 
 if (SQL_SERVER_DB == createdSqlDataFeed.getSourceType()) {
