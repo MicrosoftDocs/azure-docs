@@ -200,10 +200,10 @@
 
 - name: How-to guides
   items:
+    - name: Create an application
+      href: core/howto-create-iot-central-application.md
     - name: Develop and connect devices
       items:
-        - name: Create an application
-          href: core/howto-create-iot-central-application.md
         - name: Set up a device template
           href: core/howto-set-up-template.md
         - name: Edit a device template
@@ -232,10 +232,6 @@
           href: core/howto-use-location-data.md
         - name: Configure rules
           href: core/howto-configure-rules.md
-        - name: Create webhooks on rules
-          href: core/howto-create-webhooks.md
-        - name: Connect Azure Monitor action groups on rules
-          href: core/howto-use-action-groups.md
         - name: Analyze your device data
           href: core/howto-create-analytics.md
         - name: Export data to cloud destinations
@@ -280,22 +276,14 @@
           href: core/howto-manage-users-roles.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
-        - name: Export your application
-          href: core/howto-use-app-templates.md
         - name: Migrate V2 to V3 application
           href: core/howto-migrate.md
-        - name: Monitor application health
-          href: core/howto-monitor-application-health.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
-        - name: Manage from the Azure portal
+        - name: Manage and monitor in the Azure portal
           href: core/howto-manage-iot-central-from-portal.md
-        - name: Manage from Azure CLI
+        - name: Manage from command line
           href: core/howto-manage-iot-central-from-cli.md
-        - name: Manage from Azure PowerShell
-          href: core/howto-manage-iot-central-from-powershell.md
-        - name: Manage programmatically
-          href: core/howto-manage-iot-central-programmatically.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
     - name: Personalize your solution
