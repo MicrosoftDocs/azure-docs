@@ -335,7 +335,7 @@ This can be found on "Consumer Groups" menu of an Azure Event Hubs instance. A c
     The timestamp field must match one of these two formats:
     1. "YYYY-MM-DDTHH:MM:SSZ" format;
     2. Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
-    No matter which timestamp field it left aligns to granularity. For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
+    No matter which timestamp field it will left align to granularity. For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
 
 
 ## <span id="log">Azure Log Analytics</span>
