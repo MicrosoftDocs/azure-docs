@@ -104,7 +104,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       az extension update --name vmware
       ```
 
-   - If the extension is not installed, install it:
+   - If it's not already installed, install it:
 
       ```azurecli
       az extension add --name vmware
