@@ -60,7 +60,7 @@ You can use the following example values when creating this configuration, or yo
 | --- | --- |
 | Name | VNet1-bastion |
 | + Subnet Name | AzureBastionSubnet |
-| AzureBastionSubnet addresses | A subnet within your VNet address space with a /27 subnet mask. For example, 10.1.1.0/27.  |
+| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /27 or larger. For example, 10.1.1.0/26.  |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |
