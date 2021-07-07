@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 07/10/2021
 ---
 
 # Pricing and billing models for Azure Logic Apps
@@ -26,7 +26,7 @@ The following table summarizes how the Consumption model handles metering and bi
 
 | Component | Metering and billing |
 | ----------|----------------------|
-| Trigger and action operations | The Consumption model includes an *initial number of free [built-in operations](../connectors/built-in.md)* that a workflow can run. Above this number, metering applies to *each execution*. Based on the operation type, billing follows the [*Standard* or *Enterprise* connector pricing for Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For more information, review [Trigger and action operations in the Consumption model](#consumption-operations). |
+| Trigger and action operations | The Consumption model includes an *initial number* of built-in operations that a workflow can run *for free*. Above this number, metering applies to *each execution*, and billing follows the [*Actions* pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For other operation types, such as managed connectors, billing follows the [*Standard* or *Enterprise* connector pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For more information, review [Trigger and action operations in the Consumption model](#consumption-operations). |
 | Storage operations | Metering applies to any storage operations run by Azure Logic Apps. Billing follows the [data retention pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps/). For example, storage operations run when the service saves inputs and outputs from your workflow's run history. For more information, review [Storage operations](#storage-operations). |
 | Integration accounts | Metering applies based on the integration account type that you create and use with your logic app. Billing follows [*Integration Account* pricing](https://azure.microsoft.com/pricing/details/logic-apps/) unless your logic app is deployed and hosted in an [integration service environment (ISE)](#integration-service-environment-pricing). For more information, review [Integration accounts](#integration-accounts). |
 |||
@@ -45,7 +45,7 @@ The following table summarizes how the Consumption model handles metering and bi
 |----------------|-------------|----------------------|
 | [*Built-in*](../connectors/built-in.md) | These operations run directly and natively with the Azure Logic Apps runtime. In the designer, you can find these operations under the **Built-in** label. <p><p>For example, the HTTP trigger and Request trigger are built-in triggers. The HTTP action and Response action are built-in actions. Other built-in operations include workflow control actions such as loops and conditions, data operations, batch operations, and others. | The Consumption model includes an *initial number of free built-in operations* that a workflow can run. Above this number, built-in operation executions follow the [*Actions* pricing](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: Some managed connector operations are *also* available as built-in operations, which are included in the initial free operations. Above the initially free operations, billing follows the [*Actions* pricing](https://azure.microsoft.com/pricing/details/logic-apps/), not the [*Standard* or *Enterprise* connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | [*Managed connector*](../connectors/managed.md) | These operations run separately in Azure. In the designer, you can find these operations under the **Standard** or **Enterprise** label. | These operation executions follow the [*Standard* or *Enterprise* connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: Preview Enterprise connector operation executions follow the [Consumption *Standard* connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | These operations run separately in Azure. In the designer, you can find these operations under the **Custom** label. | These operation executions follow the [*Standard* connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). |
+| [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | These operations run separately in Azure. In the designer, you can find these operations under the **Custom** label. For limits number of connectors, throughput, and timeout, review [Custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md##custom-connector-limits). | These operation executions follow the [*Standard* connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). |
 ||||
 
 <a name="consumption-cost-estimation-tips"></a>
@@ -75,7 +75,7 @@ The following table summarizes how the Standard model handles metering and billi
 
 | Component | Metering and billing |
 | ----------|----------------------|
-| Trigger and action operations | The Standard model includes *unlimited free [built-in operations](../connectors/built-in.md)* that your workflow can run. For other operation types, metering applies to *each call*. Based on the operation type, billing follows the [same *Standard* or *Enterprise* connector pricing as the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For more information, review [Trigger and action operations in the Standard model](#standard-operations). <p><p>Also, extra metering and billing considerations apply to operations that run inside other operations such as loops or process multiple items such as arrays have metering and billing considerations. For more information, review [Other operation type behavior](#other-operation-behavior). |
+| Trigger and action operations | The Standard model includes an *unlimited number* of built-in operations that your workflow can run *for free*. <p><p>For other operation types, such as managed connectors, metering applies to *each call*, while billing follows the [same *Standard* or *Enterprise* connector pricing as the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For more information, review [Trigger and action operations in the Standard model](#standard-operations). <p><p>Also, extra metering and billing considerations apply to operations that run inside other operations such as loops or process multiple items such as arrays have metering and billing considerations. For more information, review [Other operation type behavior](#other-operation-behavior). |
 | Storage operations | Metering applies to any storage operations run by Azure Logic Apps. Billing follows your chosen [pricing tier](#standard-pricing-tiers). For example, storage operations run when the service saves inputs and outputs from your workflow's run history. For more information, review [Storage operations](#storage-operations). |
 | Integration accounts | Metering is based on the integration account type that you create and use with your logic app. Billing follows the [*Integration Account* pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For more information, review [Integration accounts](#integration-accounts). |
 |||
@@ -84,7 +84,7 @@ The following table summarizes how the Standard model handles metering and billi
 
 ### Trigger and action operations in the Standard model
 
-Except for the unlimited free built-in operation that a workflow can run, the Standard model meters and bills an operation based on *each call*, whether or not the overall workflow successfully runs, finishes, or is even instantiated. An operation usually makes a single execution [unless the operation has retry attempts enabled](#other-operation-behavior). In turn, an execution usually makes a single call [unless the operation supports and enables chunking or pagination to get large amounts of data](logic-apps-handle-large-messages.md). If chunking or pagination is enabled, an operation execution might have to make multiple calls. The Standard model meters and bills an operation *per call, not per execution*.
+Except for the unlimited free built-in operations that a workflow can run, the Standard model meters and bills an operation based on *each call*, whether or not the overall workflow successfully runs, finishes, or is even instantiated. An operation usually makes a single execution [unless the operation has retry attempts enabled](#other-operation-behavior). In turn, an execution usually makes a single call [unless the operation supports and enables chunking or pagination to get large amounts of data](logic-apps-handle-large-messages.md). If chunking or pagination is enabled, an operation execution might have to make multiple calls. The Standard model meters and bills an operation *per call, not per execution*.
 
 For example, suppose a workflow starts with a polling trigger that gets records by regularly making outbound calls to an endpoint. The outbound call is metered and billed, whether or not the trigger fires or is skipped. The trigger state controls whether or not the workflow instance is created and run. Now, suppose the operation also supports and has enabled chunking or pagination. If the operation has to make 10 calls to finish getting all the data, the operation is metered and billed *per call*.
 
@@ -94,7 +94,7 @@ The following table summarizes how the Standard model handles metering and billi
 |----------------|-------------|----------------------|
 | [*Built-in*](../connectors/built-in.md) | These operations run directly and natively with the Azure Logic Apps runtime. In the designer, you can find these operations under the **Built-in** label. For example, the HTTP trigger and Request trigger are built-in triggers. The HTTP action and Response action are built-in actions. Other built-in operations include workflow control actions such as loops and conditions, data operations, batch operations, and others. | The Standard model includes *unlimited free built-in operations*. <p><p>**Note**: Some managed connector operations are *also* available as built-in operations. While built-in operations are free, the Standard model still meters and bills managed connector operations using the [same *Standard* or *Enterprise* connector pricing as the Consumption model](https://azure.microsoft.com/pricing/details/logic-apps/). |
 | [*Managed connector*](../connectors/managed.md) | These operations run separately in Azure. In the designer, you can find these operations under the combined **Azure** label. | The Standard model meters and bills managed connector operations based on the [same *Standard* and *Enterprise* connector pricing as the Consumption model](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: Preview Enterprise connector operations follow the [Consumption *Standard* connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | Currently, you can create and use only [custom built-in connector operations](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272) in single-tenant based logic app workflows. | The Standard model includes *unlimited free built-in operations*. |
+| [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | Currently, you can create and use only [custom built-in connector operations](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272) in single-tenant based logic app workflows. | The Standard model includes *unlimited free built-in operations*. For limits on throughput and timeout, review [Custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md##custom-connector-limits). |
 ||||
 
 <a name="standard-pricing-tiers"></a>
@@ -148,23 +148,35 @@ The following table summarizes how the ISE model handles the following component
 
 | Component | Description |
 |-----------|-------------|
-| Trigger and action operations | The ISE model includes the following operation types that your workflow can run for *free*: <p><p>- [*Built-in*](../connectors/built-in.md): These operations run directly and natively with the Azure Logic Apps runtime and in the same ISE as your logic app. In the designer, you can find these operations under the **Built-in** label, but each operation also displays the **CORE** label. <p><p>- [*Managed connector*](../connectors/managed.md): Operations that display the **ISE** label are designed to work without the on-premises data gateway and run in the same ISE as your logic app. The ISE model includes unlimited Enterprise operation executions. <p><p>Operations that don't display the ISE label run in the Azure Logic Apps service. However, the ISE model includes these operations when used in logic app workflows that run in an ISE. |
-| Storage operations | The ISE model includes storage operations and usage for data retention. |
-| Integration accounts | The ISE model includes a single integration account tier, depending on your ISE SKU. |
+| Trigger and action operations | The ISE model includes built-in, managed connector, and custom connector operations that your workflow can run *for free*, but subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise) and [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md##custom-connector-limits). For more information, review [Trigger and action operations in the ISE model](#integration-service-environment-operations). |
+| Storage operations | The ISE model includes storage operations and usage for data retention *for free*. For more information, review [Storage operations](#storage-operations). |
+| Integration accounts | The ISE model includes a single integration account tier *for free*, depending on your ISE SKU. For more information, review [Integration accounts](#integration-accounts). |
 |||
 
-For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+<a name="integration-service-environment-operations"></a>
+
+### Trigger and action operations in the ISE model
+
+The following table summarizes how the ISE model handles metering and billing the following operation types when used with a logic app and workflow in single-tenant Azure Logic Apps:
 
 Free and included in the ISE model:
 
-| Operation type | Description |
-|----------------|-------------|
-| [Loop actions](logic-apps-control-flow-loops.md) | ISE pricing includes each action that runs in a loop for each loop cycle that runs. <p><p>For example, suppose that you have a "for each" loop that includes actions that process a list. To get the total number of action executions, multiply the number of list items with the number of actions in the loop, and add the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
-| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. ISE pricing includes retries along with the original request. |
+| Operation type | Description | Metering and billing |
+|----------------|-------------|----------------------|
+| [*Built-in*](../connectors/built-in.md) | These operations run directly and natively with the Azure Logic Apps runtime and in the same ISE as your logic app workflow. In the designer, you can find these operations under the **Built-in** label, but each operation also displays the **CORE** label. For example, the HTTP trigger and Request trigger are built-in triggers. The HTTP action and Response action are built-in actions. Other built-in operations include workflow control actions such as loops and conditions, data operations, batch operations, and others. | The ISE model includes built-in operations *for free*. |
+| [*Managed connector*](../connectors/managed.md) | Both *Standard* and *Enterprise* operations either run in your ISE or in multi-tenant Azure, based on whether they display the **ISE** label. <p><p>- **ISE** label: These operations are designed to work without having to use the on-premises data gateway and run in the same ISE as your logic app. <p><p>- No **ISE** labeL: These operations run in the multi-tenant Azure Logic Apps service. | The ISE model includes these operations *for free* when used with a logic app that's deployed and hosted in your ISE. |
+| [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | In the designer, you can find these operations under the **Custom** label. | The ISE model includes these operations *for free*, subject to the [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md##custom-connector-limits). |
+||||
+
+For more information about how the ISE model works with operations that run inside other operations such as loops or process multiple items such as arrays, review [Other operation type behavior](#other-operation-behavior).
 
 <a name="other-operation-behavior"></a>
 
 ## Other operation behavior
+
+ISE
+| [Loop actions](logic-apps-control-flow-loops.md) | ISE pricing includes each action that runs in a loop for each loop cycle that runs. <p><p>For example, suppose that you have a "for each" loop that includes actions that process a list. To get the total number of action executions, multiply the number of list items with the number of actions in the loop, and add the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
+| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. ISE pricing includes retries along with the original request. |
 
 | Operation | Description | Metering and billing |
 |-----------|-------------|----------------------|
