@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 07/07/2021
 ms.author: mbullwin
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/MetricsAdvisor/) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src) | [Artifact (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples)
+[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/MetricsAdvisor/) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor/azure-ai-metricsadvisor/src) | [Artifact (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples)
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ ms.author: mbullwin
   
   
 > [!TIP]
-> * You can find Java Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples).
+> * You can find Java Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples).
 > * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
@@ -54,7 +54,7 @@ Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Th
 
 ```kotlin
 dependencies {
-    compile("com.azure:azure-ai-metricsadvisor:1.0.0-beta.2")
+    compile("com.azure:azure-ai-metricsadvisor:1.0.0-beta.5")
 }
 ```
 
@@ -152,16 +152,16 @@ Replace `sql_server_connection_string` with your own SQL server connection strin
 ```java
 DataFeed dataFeed = new DataFeed()
     .setName("dataFeedName")
-    .setSource(new MySqlDataFeedSource("sql_server_connection_string", "query"))
+    .setSource(new MySqlDataFeedSource("conn-string", "query"))
     .setGranularity(new DataFeedGranularity().setGranularityType(DataFeedGranularityType.DAILY))
     .setSchema(new DataFeedSchema(
         Arrays.asList(
-            new DataFeedMetric().setName("cost"),
-            new DataFeedMetric().setName("revenue")
+            new DataFeedMetric("cost"),
+            new DataFeedMetric("revenue")
         )).setDimensions(
         Arrays.asList(
-            new DataFeedDimension().setName("city"),
-            new DataFeedDimension().setName("category")
+            new DataFeedDimension("city"),
+            new DataFeedDimension("category")
         ))
     )
     .setIngestionSettings(new DataFeedIngestionSettings(OffsetDateTime.parse("2020-01-01T00:00:00Z")))
@@ -180,12 +180,13 @@ System.out.printf("Data feed granularity type : %s%n",
 System.out.printf("Data feed granularity value : %d%n",
     createdSqlDataFeed.getGranularity().getCustomGranularityValue());
 System.out.println("Data feed related metric Ids:");
-createdSqlDataFeed.getMetricIds().forEach(System.out::println);
+dataFeed.getMetricIds().forEach((metricId, metricName)
+    -> System.out.printf("Metric Id : %s, Metric Name: %s%n", metricId, metricName));
 System.out.printf("Data feed source type: %s%n", createdSqlDataFeed.getSourceType());
 
 if (SQL_SERVER_DB == createdSqlDataFeed.getSourceType()) {
     System.out.printf("Data feed sql server query: %s%n",
-        ((SQLServerDataFeedSource) createdSqlDataFeed.getSource()).getQuery());
+        ((SqlServerDataFeedSource) createdSqlDataFeed.getSource()).getQuery());
 }
 ```
 
@@ -214,22 +215,22 @@ This example demonstrates how a user can configure an anomaly detection configur
 ```java
 String metricId = "<metric-id-from-adding-data-feed>";
 
-ChangeThresholdCondition changeThresholdCondition = new ChangeThresholdCondition()
-    .setAnomalyDetectorDirection(AnomalyDetectorDirection.BOTH)
-    .setChangePercentage(20)
-    .setShiftPoint(10)
-    .setWithinRange(true)
-    .setSuppressCondition(new SuppressCondition().setMinNumber(1).setMinRatio(2));
+ChangeThresholdCondition changeThresholdCondition = new ChangeThresholdCondition(
+        20, 
+        10, 
+        true, 
+        AnomalyDetectorDirection.BOTH, 
+        new SuppressCondition(1, 2));
 
-HardThresholdCondition hardThresholdCondition = new HardThresholdCondition()
-    .setAnomalyDetectorDirection(AnomalyDetectorDirection.DOWN)
-    .setLowerBound(5.0)
-    .setSuppressCondition(new SuppressCondition().setMinNumber(1).setMinRatio(1));
+HardThresholdCondition hardThresholdCondition = new HardThresholdCondition(
+        AnomalyDetectorDirection.DOWN, 
+        new SuppressCondition(1, 1))
+    .setLowerBound(5.0);
 
-SmartDetectionCondition smartDetectionCondition = new SmartDetectionCondition()
-    .setAnomalyDetectorDirection(AnomalyDetectorDirection.UP)
-    .setSensitivity(10.0)
-    .setSuppressCondition(new SuppressCondition().setMinNumber(1).setMinRatio(2));
+SmartDetectionCondition smartDetectionCondition = new SmartDetectionCondition(
+        10.0, 
+        AnomalyDetectorDirection.UP,
+        new SuppressCondition(1, 2));
 
 final AnomalyDetectionConfiguration anomalyDetectionConfiguration =
     metricsAdvisorAdminClient.createMetricAnomalyDetectionConfig(
@@ -241,7 +242,7 @@ final AnomalyDetectionConfiguration anomalyDetectionConfiguration =
                     .setChangeThresholdCondition(changeThresholdCondition)
                     .setHardThresholdCondition(hardThresholdCondition)
                     .setSmartDetectionCondition(smartDetectionCondition)
-                    .setCrossConditionOperator(DetectionConditionsOperator.OR))
+                    .setConditionOperator(DetectionConditionOperator.OR))
     );
 ```
 
@@ -286,8 +287,8 @@ final AnomalyAlertConfiguration anomalyAlertConfiguration
                     new MetricAnomalyAlertConfiguration(detectionConfigurationId2,
                         MetricAnomalyAlertScope.forWholeSeries())
                         .setAlertConditions(new MetricAnomalyAlertConditions()
-                            .setSeverityRangeCondition(new SeverityCondition()
-                                .setMaxAlertSeverity(AnomalySeverity.HIGH)))
+                            .setSeverityRangeCondition(new SeverityCondition(AnomalySeverity.HIGH,
+                                AnomalySeverity.HIGH)))
                 ))
             .setCrossMetricsOperator(MetricAnomalyAlertConfigurationsOperator.AND)
             .setIdOfHooksToAlert(Arrays.asList(hookId1, hookId2)));
