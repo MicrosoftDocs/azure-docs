@@ -76,6 +76,10 @@ The sign-in diagnostic for Azure AD provides you with support for the follwowing
     - Blocked by Risk Policy 
 
  
+If your scenario is not covered in this list, provide feedback by contacting us through [email](mailto:signindiagnostic@microsoft.com). 
+
+
+
 
 ## Conditional Access  
 
@@ -85,7 +89,7 @@ The sign-in diagnostic for Azure AD provides you with support for the follwowing
 In this scenario, a sign-in attempt has been blocked by a conditional access policy. 
 
 
-Description automatically generatedShape Screenshot showing access configuration with Block access selected. 
+![Screenshot showing access configuration with Block access selected.](./media/concept-sign-in-diagnostics-scenarios/block-access.png)
 
 The diagnostic section for this scenario shows details about the user sign-in event and the applied policies. 
 
@@ -95,9 +99,9 @@ The diagnostic section for this scenario shows details about the user sign-in ev
 
 This scenario is typically a result of a sign-in attempt that failed because the requirements of a conditional access policy were not satisfied. Common examples are: 
 
-Graphical user interface, text, application
 
-Description automatically generatedShape Screenshot showing access configuration with common policy examples and Grant access selected. 
+
+![Screenshot showing access configuration with common policy examples and Grant access selected.](./media/concept-sign-in-diagnostics-scenarios/require-controls.png)
 
 - Require hybrid Azure AD joined device 
 
@@ -113,9 +117,9 @@ The diagnostic section for this scenario shows details about the user sign-in at
 
 In this scenario, a conditional access policy has the requirement to sign in using multifactor authentication set. 
 
-Graphical user interface, text, application, email
 
-Description automatically generatedShape Screenshot showing access configuration with Require multifactor authentication selected. 
+
+![Screenshot showing access configuration with Require multifactor authentication selected.](./media/concept-sign-in-diagnostics-scenarios/require-mfa.png)
 
 The diagnostic section for this scenario shows details about the user sign-in attempt and the applied policies. 
 
@@ -129,15 +133,15 @@ The diagnostic section for this scenario shows details about the user sign-in at
 
 In this scenario, a multifactor authentication requirement wasn't enforced by a conditional access policy. For example, multifactor authentication on a per-user basis. 
 
-Graphical user interface, text, application, email
 
-Description automatically generatedShape Screenshot showing multifactor authentication per user configuration. 
+
+![Screenshot showing multifactor authentication per user configuration.](./media/concept-sign-in-diagnostics-scenarios/mfa-per-user.png) 
 
 The intent of this diagnostic scenario is to provide more details about: 
 
-The source of the interrupted multifactor authentication 
+- The source of the interrupted multifactor authentication 
 
-The result of the client interaction 
+- The result of the client interaction 
 
 You can also view all details of the user sign-in attempt. 
 
@@ -211,7 +215,10 @@ This diagnostic scenario provides details about the apps, the number of attempts
 
 ## Enterprise App 
 
-In Enterprise Applications there are two points where problems may occur: at the Identity Provider (Azure AD) application configuration or at the Service Provider (application service, also known as SaaS application) side.  
+In enterprise applications, there are two points where problems may occur: 
+
+- The identity provider (Azure AD) application configuration 
+- The service provider (application service, also known as SaaS application) side
 
  
 
@@ -237,43 +244,38 @@ Resolution for this scenario requires reviewing and updating the configuration o
 
  
 
-## Other Scenario Issues 
+## Other scenarios 
 
-### Security Defaults 
+### Security defaults 
 
-This scenario covers sign-in events where the user’s sign-in was interrupted due to Security Defaults settings. Security Defaults enforce best practice security for your organization and will require Multi-Factor Authentication (MFA) to be configured and used in many scenarios to prevent password sprays, replay attacks and phishing attempts from being successful. 
+This scenario covers sign-in events where the user’s sign-in was interrupted due to security defaults settings. Security defaults enforce best practice security for your organization and requires multi-factor authentication (MFA) to be configured and used in many scenarios to prevent password sprays, replay attacks and phishing attempts from being successful. 
 
-More information can be found at this link. 
+For more information, see [Fundamentals](../fundamentals/concept-fundamentals-security-defaults.md). 
 
 ### Error code insights 
 
-When an event does not have a contextual analysis in the Sign-in Diagnostic an updated error code explanation and relevant content may be shown. The error code insights will contain detailed text about the scenario, how to remediate the problem and any content to read regarding the problem. 
+When an event does not have a contextual analysis in the sign-in diagnostic an updated error code explanation and relevant content may be shown. The error code insights contains detailed text about the scenario, how to remediate the problem, and any content to read regarding the problem. 
 
-### Legacy Authentication 
+### Legacy authentication 
 
 This diagnostics scenario diagnosis a sign-in event which was blocked or interrupted since the client was attempting to use Basic (also known as Legacy) Authentication. 
 
 Preventing legacy authentication sign-in is recommended as the best practice for security. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI cannot enforce Multi-Factor Authentication (MFA) which makes them preferred entry points for adversaries to attack your organization. 
 
-More information on this topic can be found at this link. 
+For more information, see [Bla](../conditional-access/block-legacy-authentication.md). 
 
-### B2B Blocked Sign-in Due to Conditional Access 
+### B2B blocked sign-in due to conditional access 
 
 This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization-a B2B sign-in-where a Conditional Access policy requires that the client's device is joined to the resource tenant. 
 
-More information on this scenario can be found at this link. 
+For more information, see [Bla](../external-identities/conditional-access.md). 
 
 ### Blocked by Risk Policy 
 
 This scenario is where Identity Protection Policy blocks a sign-in attempt due to the sign-in attempt having been identified as risky. 
 
-More information on this scenario can be found at this link. 
+For more information, see [Bla](../identity-protection/howto-identity-protection-configure-risk-policies.md). 
 
- 
-
-If your scenario is not covered in this list, provide feedback by contacting us through [[email]]. 
-
- 
 
 
 
