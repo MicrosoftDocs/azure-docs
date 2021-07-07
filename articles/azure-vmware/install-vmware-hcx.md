@@ -7,7 +7,7 @@ ms.date: 07/16/2021
 
 # Install and activate VMware HCX in Azure VMware Solution
 
-VMware HCX Advanced and its associated Cloud Manager is no longer pre-deployed in Azure VMware Solution. Instead, you'll need to install it through the Azure portal as an add-on. The default is HCX Advanced, after which you can still request VMware HCX Enterprise Edition through support if the features in the Enterprise edition are needed. In addition, you'll still download the HCX Connector OVA and deploy the virtual appliance on your on-premises vCenter.
+VMware HCX Advanced and its associated Cloud Manager is no longer pre-deployed in Azure VMware Solution. Instead, you'll need to install it through the Azure portal as an add-on. The default is HCX Advanced, after which you can still request VMware HCX Enterprise Edition through support if the features in the Enterprise edition are needed. Also, you'll still download the HCX Connector OVA and deploy the virtual appliance on your on-premises vCenter.
 
 HCX Advanced supports up to three site connections (on-premises to cloud or cloud to cloud). If you need more than three site connections, use HCX Enterprise Edition. To activate HCX Enterprise Edition, which is currently in public preview on Azure VMware Solution, open a support request to have it enabled.  Once the service is generally available, you'll have 30 days to decide on your next steps. You can also turn off or opt out of the HCX Enterprise Edition service but keep HCX Advanced as it's part of the node cost. 
 
@@ -42,7 +42,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 
    It could take up to 45 minutes to install HCX Advanced. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing displays on the **Migration using HCX** tab.
 
-   :::image type="content" source="media/vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under the Connectivity blade.":::
+   :::image type="content" source="media/vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity.":::
 
 
 ## Download and deploy the VMware HCX Connector OVA 
