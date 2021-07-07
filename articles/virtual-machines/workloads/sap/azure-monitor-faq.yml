@@ -1,0 +1,129 @@
+### YamlMime:FAQ
+metadata:
+  title: FAQ - Azure Monitor for SAP Solutions | Microsoft Docs
+  description: In this article, learn answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.
+  author: rdeltcheva
+  ms.service: virtual-machines-sap
+  ms.topic: article
+  ms.date: 06/30/2020
+  ms.author: radeltch
+  
+    
+title: Azure Monitor for SAP solutions FAQ (preview)
+summary: |
+  ## Frequently asked questions
+  
+  This article provides answers to frequently asked questions (FAQ) about Azure Monitor for SAP solutions.  
+  
+
+sections:
+  - name: Ignored
+    questions:
+      - question: |
+          Do I have to pay for Azure Monitor for SAP Solutions?  
+        answer: |
+          There is no licensing fee for Azure Monitor for SAP Solutions.  
+          However, customers are responsible to bear the cost of managed resource group components.  
+          
+      - question: |
+          In which regions is this service available for public preview?  
+        answer: |
+          For public preview, this service will be available in East US 2, West US 2, East US and West Europe.  
+
+      - question: |
+          Do I need to provide permissions to allow the deployment of managed resource group in my subscription?  
+        answer: |
+          No, explicit permissions are not required.  
+
+      - question: |
+          Where does the collector VM reside?  
+        answer: |
+          At the time of deploying Azure Monitor for SAP Solutions resource, we recommend that customers choose the same VNET for monitoring resource as their SAP HANA server. Therefore, collector VM is recommended to reside in the same VNET as SAP HANA server. If customers are using non-HANA database, the collector VM will reside in the same VNET as non-HANA database.  
+
+      - question: |
+          Which versions of HANA are supported?  
+        answer: |
+          HANA 1.0 SPS 12 (Rev. 120 or higher) and HANA 2.0 SPS03 or higher  
+
+      - question: |
+          Which HANA deployment configurations are supported?  
+        answer: |
+          The following configurations are supported:
+             - Single node (scale-up) and multi-node (scale-out)  
+             - Single database container (HANA 1.0 SPS 12) and multiple database containers (HANA 1.0 SPS 12 or HANA 2.0)  
+             - Auto host failover (n+1) and HSR  
+          
+      - question: |
+          Which SQL Server Versions are supported?  
+        answer: |
+          SQL Server 2012 SP4 or higher.  
+
+      - question: |
+          Which SQL Server configurations are supported?  
+        answer: |
+          The following configurations are supported:
+             - Default or named standalone instances in a virtual machine  
+             - Clustered instances or instances in an AlwaysOn configuration when either using the virtual name of the clustered resource or the AlwaysOn listener name. Currently no cluster or AlwaysOn specific metrics are collected    
+             - Azure SQL Database (PAAS) is currently not supported  
+          
+      - question: |
+          What happens if I accidentally delete the managed resource group?  
+        answer: |
+          The managed resource group is locked by default. Therefore, the chances of accidental deletion of the managed resource group by customers are minuscule.  
+          If a customer deletes the managed resource group, Azure Monitor for SAP Solutions will stop working. The customer will have to deploy a new Azure Monitor for SAP Solutions resource and start over.  
+          
+      - question: |
+          Which roles do I need in my Azure subscription to deploy Azure Monitor for SAP Solutions resource?  
+        answer: |
+          Contributor role.  
+
+      - question: |
+          What is the SLA on this product?  
+        answer: |
+          Previews are excluded from service level agreements. Please read the full license term through Azure Monitor for SAP Solutions marketplace image.  
+
+      - question: |
+          Can I monitor my entire landscape through this solution?  
+        answer: |
+          You can currently monitor HANA database, the underlying infrastructure, High-availability cluster, Microsoft SQL server, SAP Netweaver availability and SAP Application Instance availability metrics in public preview.  
+
+      - question: |
+          Does this service replace SAP Solution manager?  
+        answer: |
+          No. Customers can still use SAP Solution manager for Business process monitoring.  
+
+      - question: |
+          What is the value of this service over traditional solutions like SAP HANA Cockpit/Studio?  
+        answer: |
+          Azure Monitor for SAP Solutions is not HANA database specific. Azure Monitor for SAP Solutions supports also AnyDB.  
+
+      - question: |
+          Which SAP NetWeaver versions are supported?
+        answer: |
+          SAP NetWeaver 7.0 or higher.  
+
+      - question: |
+          Which SAP NetWeaver configurations are supported?
+        answer: |
+          Supports ABAP, Java and dual-stack SAP NetWeaver Application Server configurations.
+
+      - question: |
+          Why do I need to unprotect methods for SAP NetWeaver application monitoring?
+        answer: |
+          In SAP releases >= 7.3, most webservice methods are protected by default. In order to fetch availability and performance metrics by calling these methods, you would need to unprotect the following methods: GetQueueStatistic, ABAPGetWPTable, GetProcessList, EnqGetStatistic and GetSystemInstancelist.
+          
+      - question: |
+          Is there any risk in unprotecting SAPCONTROL webmethods?
+        answer: |
+          In general unprotecting SAPCONTROL webmethods does not pose a security risk as [such](https://launchpad.support.sap.com/#/notes/1439348), however if customers want to restrict/forbid access to the unprotected webmethods via server ports(5XX13 / 5XX14) of sapstartsrv, you could do so by adding filter in SAP Access Control List(ACL) , the [OSS note](https://service.sap.com/sap/support/notes/1495075) describes the required configuration to achieve this. 
+          
+      - question: |
+          Do I need to restart my SAP instances after performing system configurations for setting up SAP NetWeaver provider?
+        answer: |
+          Yes, once you have unprotected methods through SAP config changes, you will need to restart the respective SAP systems to ensure the configuration changes are updated.  
+
+additionalContent: |
+
+  ## Next steps
+  
+  - Create your first Azure Monitor for SAP solutions resource.
