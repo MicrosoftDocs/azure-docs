@@ -385,7 +385,7 @@ You can specify the timeout duration, the number, and the size of executors to g
 #### Spark session config magic command
 You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters. 
 
-```jsonc
+```json
 %%configure
 {
     // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
