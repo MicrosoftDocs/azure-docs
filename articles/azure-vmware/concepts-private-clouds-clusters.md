@@ -22,7 +22,7 @@ As with other resources, private clouds are installed and managed from within an
 
 The diagram shows a single Azure subscription with two private clouds that represent a development and production environment. In each of those private clouds are two clusters. 
 
-:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Image that shows two private clouds in a customer subscription.":::
+:::image type="content" source="media/concepts/hosts-clusters-private-clouds-final.png" alt-text="Diagram that shows shows a single Azure subscription with two private clouds that represent a development and production environment." border="false":::
 
 ## Hosts
 

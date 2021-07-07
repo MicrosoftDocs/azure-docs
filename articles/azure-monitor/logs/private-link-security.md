@@ -100,8 +100,9 @@ As a local bypass to the All or Nothing behavior, you can select not to update y
 
 That approach isn't recommended for production environments.
 
+## Limits and additional considerations
 
-### Consider limits
+### AMPLS limits
 
 The AMPLS object has the following limits:
 * A VNet can only connect to **one** AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
@@ -220,7 +221,11 @@ So far we covered the configuration of your network, but you should also conside
 
 Go to the Azure portal. In your resource's menu, there's a menu item called **Network Isolation** on the left-hand side. This page controls both which networks can reach the resource through a Private Link, and whether other networks can reach it or not.
 
-![LA Network Isolation](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
+
+> [!NOTE]
+> Starting August 16, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't associated with an AMPLS, will stop accepting queries from any network.
+
+![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
 
 ### Connected Azure Monitor Private Link scopes
 Here you can review and configure the resource's connections to Azure Monitor Private Links scopes. Connecting to scopes (AMPLSs) allows traffic from the virtual network connected to each AMPLS to reach this resource, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Your resource can connect to 5 AMPLS objects, as mentioned in [Restrictions and limitations](#restrictions-and-limitations).
@@ -371,7 +376,8 @@ For more information on bringing your own storage account, see [Customer-owned s
 ## Restrictions and limitations
 
 ### AMPLS
-The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [Consider limits](#consider-limits) for a deeper review of these limits.
+
+The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](#ampls-limits) for a deeper review of these limits.
 
 ### Agents
 
