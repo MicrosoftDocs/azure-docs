@@ -323,7 +323,7 @@ data feed, it needs to wait at least 10 minutes after deletion.
     
     ![shared access policies](media/datafeeds/shared-access-policies.jpg)
 
-    Here's an example of connection string: 
+    Here's an example of a connection string: 
     ```
     Endpoint=<Server>;SharedAccessKeyName=<SharedAccessKeyName>;SharedAccessKey=<SharedAccess Key>;EntityPath=<EntityPath>
     ```
