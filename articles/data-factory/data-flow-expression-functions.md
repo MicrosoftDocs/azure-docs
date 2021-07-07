@@ -1438,7 +1438,12 @@ Map functions perform operations on map data types
 <code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
 Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it is defaulted to a map of string to string type.Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.
 *	``associate('fruit', 'apple', 'vegetable', 'carrot' )=> ['fruit' -> 'apple', 'vegetable' -> 'carrot']``
-___  
+___
+### <code>mapAssociation</code>
+<code><b>mapAssociation(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => array</b></code><br/><br/>
+Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. 
+*	``mapAssociation(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], @(key = #key, value = #value)) => [@(key = 'bojjus', value = 'gunchus'), @(key = 'appa', value = 'ammi')]``
+___ 
 ### <code>reassociate</code>
 <code><b>reassociate(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => map</b></code><br/><br/>
 Transforms a map by associating the keys to new values. It takes a mapping function where you can address the item as #key and current value as #value.  
@@ -1508,7 +1513,12 @@ ___
 <code><b>hasPath(<i>&lt;value1&gt;</i> : string, [<i>&lt;streamName&gt;</i> : string]) => boolean</b></code><br/><br/>
 Checks if a certain hierarchical path exists by name in the stream. You can pass an optional stream name as the second argument. Column names/paths known at design time should be addressed just by their name or dot notation path. Computed inputs are not supported but you can use parameter substitutions.  
 * ``hasPath('grandpa.parent.child') => boolean``
-___
+___  
+### <code>originColumns</code>
+<code><b>originColumns(<i>&lt;streamName&gt;</i> : string) => any</b></code><br/><br/>
+Gets all output columns for a origin stream where columns were created. Must be enclosed in another function.
+* ``array(toString(originColumns('source1')))``
+___  
 ### <code>hex</code>
 <code><b>hex(<i>\<value1\></i>: binary) => string</b></code><br/><br/>
 Returns a hex string representation of a binary value
@@ -1593,17 +1603,3 @@ Creates a map of key/values. The first parameter is an array of keys and second 
 •	keyValues(['bojjus', 'appa'], ['gunchus', 'ammi']) => ['bojjus' -> 'gunchus', 'appa' -> 'ammi']
 
 keyValues(<value1>: array, <value2>: array) => map
-
-mapAssociation
-
-Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. 
-•	mapAssociation(['bojjus' -> 'gunchus', 'appa' -> 'ammi'], @(key = #key, value = #value)) => [@(key = 'bojjus', value = 'gunchus'), @(key = 'appa', value = 'ammi')]
-
-mapAssociation(<value1>: map, <value2>: binaryFunction) => array
-
-originColumns
-
-Gets all output columns for a origin stream where columns were created. Must be enclosed in another function.
-•	array(toString(originColumns('source1')))
-
-originColumns(<streamName>: string) => any
