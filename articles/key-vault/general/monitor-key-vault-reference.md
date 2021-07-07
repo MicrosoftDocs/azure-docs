@@ -8,14 +8,10 @@ ms.service: #Required; service you are monitoring
 ms.custom: subject-monitoring
 ms.date: #Required; mm/dd/yyyy format.
 ---
-<!-- VERSION 2.3
-Template for monitoring data reference article for Azure services. This article is support for the main "Monitoring [servicename]" article for the service. -->
-
-<!-- IMPORTANT STEP 1.  Do a search and replace of Key Vault with the name of your service. That will make the template easier to read -->
 
 # Monitoring Key Vault data reference
 
-See [Monitoring Key Vault](monitor-service.md) for details on collecting and analyzing monitoring data for Key Vault.
+See [Monitoring Key Vault](monitor-key-vault.md) for details on collecting and analyzing monitoring data for Key Vault.
 
 ## Metrics
 
@@ -35,10 +31,14 @@ This section lists all the automatically collected platform metrics collected fo
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Virtual Machine | [Microsoft.Compute/virtualMachine](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines) |
+| Vault Availability | [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults) |
 | Virtual machine scale set | [Microsoft.Compute/virtualMachinescaleset](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachinescaleset) 
 
-
+  
++ Vault Saturation
++ Service API Latency
++ Total Service API Hits (Filter by Activity Type)
++ Error Codes (Filter by Status Code)
 
 --------------**OPTION 2 EXAMPLE** -------------
 
@@ -47,7 +47,7 @@ This section lists all the automatically collected platform metrics collected fo
 
 <!-- Example format. Mimic the setup of metrics supported, but add extra information -->
 
-### Virtual Machine metrics
+### Key Vault metrics
 
 Resource Provider and Type: [Microsoft.Compute/virtualMachines](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines)
 
@@ -241,6 +241,5 @@ The following schemas are in use by Key Vault
 
 ## See Also
 
-<!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitoring Azure Key Vault](monitor-service-name.md) for a description of monitoring Azure Key Vault.
+- See [Monitoring Azure Key Vault](monitor-key-vault.md) for a description of monitoring Azure Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
