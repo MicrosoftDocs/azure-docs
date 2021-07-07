@@ -32,6 +32,8 @@
       items:
       - name: Azure CLI
         href: /cli/azure/confluent
+      - name: Azure PowerShell
+        href: /powershell/module/az.confluent/#confluent
   - name: Datadog
     items:
     - name: Overview

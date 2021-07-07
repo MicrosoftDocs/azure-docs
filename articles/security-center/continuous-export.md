@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/13/2021
+ms.date: 07/07/2021
 ms.author: memildin
 
 ---
@@ -37,8 +37,8 @@ This article describes how to configure continuous export to Log Analytics works
 |----|:----|
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov, Other Gov<br>![Yes](./media/icons/yes-icon.png) China Gov|
+|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource.</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li><li>To export data to Event Hub, you'll need Write permission on the Event Hub Policy.</li><li>To export to a Log Analytics workspace:<ul><li>if it **has the SecurityCenterFree solution**, you'll need a minimum of read permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/read`</li><li>if it **doesn't have the SecurityCenterFree solution**, you'll need write permissions for the workspace solution: `Microsoft.OperationsManagement/solutions/action`</li><li>Learn more about [Azure Monitor and Log Analytics workspace solutions](../azure-monitor/insights/solutions.md)</li></ul></li></ul>|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)| 
 |||
 
 
@@ -53,8 +53,8 @@ Continuous export can export the following data types whenever they change:
     - The recommendation “Vulnerabilities in your virtual machines should be remediated” will have a ‘sub’ recommendation for every vulnerability identified by the vulnerability scanner.
     > [!NOTE]
     > If you’re configuring a continuous export with the REST API, always include the parent with the findings. 
-- (Preview feature) Secure score per subscription or per control.
-- (Preview feature) Regulatory compliance data.
+- Secure score per subscription or per control.
+- Regulatory compliance data.
 
 
 ## Set up a continuous export 
@@ -68,7 +68,9 @@ You can configure continuous export from the Security Center pages in Azure port
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
 1. From Security Center's sidebar, select **Pricing & settings**.
+
 1. Select the specific subscription for which you want to configure the data export.
+
 1. From the sidebar of the settings page for that subscription, select **Continuous Export**.
 
     :::image type="content" source="./media/continuous-export/continuous-export-options-page.png" alt-text="Export options in Azure Security Center.":::
@@ -76,13 +78,14 @@ The steps below are necessary whether you're setting up a continuous export to L
     Here you see the export options. There's a tab for each available export target. 
 
 1. Select the data type you'd like to export and choose from the filters on each type (for example, export only high severity alerts).
+
 1. Select the appropriate export frequency:
     - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
-    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent every week (this is a preview feature for weekly snapshots of secure scores and regulatory compliance data).
+    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent once a week per subscription. This preview feature provides weekly snapshots of secure scores and regulatory compliance data. To identify snapshot data, look for the field ``IsSnapshot``.
 
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
-    - Vulnerability Assessment findings on your SQL databases should be remediated
-    - Vulnerability Assessment findings on your SQL servers on machines should be remediated (Preview)
+    - SQL databases should have vulnerability findings resolved
+    - SQL servers on machines should have vulnerability findings resolved
     - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
     - Vulnerabilities in your virtual machines should be remediated
     - System updates should be installed on your machines
@@ -116,10 +119,6 @@ The API provides additional functionality not available from the Azure portal, f
     > If you've set up multiple export configurations using the API, or if you've used API-only parameters, those extra features will not be displayed in the Security Center UI. Instead, there'll be a banner informing you that other configurations exist.
 
 Learn more about the automations API in the [REST API documentation](/rest/api/securitycenter/automations).
-
-
-
-
 
 ### [**Deploy at scale with Azure Policy**](#tab/azure-policy)
 
@@ -229,8 +228,8 @@ No. Continuous export is built for streaming of **events**:
 
 - **Alerts** received before you enabled export won't be exported.
 - **Recommendations** are sent whenever a resource's compliance state changes. For example, when a resource turns from healthy to unhealthy. Therefore, as with alerts, recommendations for resources that haven't changed state since you enabled export won't be exported.
-- **Secure score (preview)** per security control or subscription is sent when a security control's score  changes by 0.01 or more. 
-- **Regulatory compliance status (preview)** is sent when the status of the resource's compliance changes.
+- **Secure score** per security control or subscription is sent when a security control's score changes by 0.01 or more. 
+- **Regulatory compliance status** is sent when the status of the resource's compliance changes.
 
 
 

@@ -1,0 +1,14 @@
+{
+    "redirections": [
+    {
+        "source_path_from_root": "/articles/purview/scan-sqlresource-firewall.md",
+        "redirect_url": "/azure/purview/register-scan-azure-sql-database",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/powershell-register-scan-power-bi.md",
+        "redirect_url": "/azure/purview/register-scan-power-bi-tenant",
+        "redirect_document_id": true
+      }
+]
+}
