@@ -45,13 +45,13 @@ The following values of `log_reuse_wait_desc` in `sys.databases` may indicate th
 
 | log_reuse_wait_desc | Diagnosis | Response required |
 |--|--|--|
-| **Nothing** | Typical state. There is nothing blocking the log from truncating. | No. |
-| **Checkpoint** | A checkpoint is needed for log truncation. Rare. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-| **Log Backup** | A log backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-| **Active backup or restore** | A database backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-| **Active transaction** | An ongoing transaction is preventing log truncation. | The log file cannot be truncated due to active and/or uncommitted transactions. See next section.| 
+| **NOTHING** | Typical state. There is nothing blocking the log from truncating. | No. |
+| **CHECKPOINT** | A checkpoint is needed for log truncation. Rare. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
+| **LOG BACKUP** | A log backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
+| **ACTIVE BACKUP OR RESTORE** | A database backup is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
+| **ACTIVE TRANSACTION** | An ongoing transaction is preventing log truncation. | The log file cannot be truncated due to active and/or uncommitted transactions. See next section.| 
+| **REPLICATION** |  | If sustained, investigate agents involved with replication or Changed Data Capture (CDC). | 
 | **AVAILABILITY_REPLICA** | Synchronization to the secondary replica is in progress. | No response required unless sustained. If sustained, file a support request with [Azure Support](https://portal.azure.com/#create/Microsoft.Support). | 
-
 
 ### Log truncation prevented by an active transaction
 
