@@ -196,7 +196,7 @@ The following table summarizes how the Consumption, Standard, and ISE model hand
 | Model | Description | Metering and billing |
 |-------|-------------|----------------------|
 | Consumption (multi-tenant) | Storage resources and usage are attached to the logic app resource. | Metering and billing follow the [data retention pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). |
-| Standard (single-tenant) | You can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements), which gives you more more control and flexibility over your workflow's data. |  Metering and billing follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs appear separately on your Azure billing invoice. <p><p>**Tip**: To help you better understand the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For more information, review [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md). |
+| Standard (single-tenant) | You can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements), which gives you more more control and flexibility over your workflow's data. |  Metering and billing follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs appear separately on your Azure billing invoice. <p><p>**Tip**: To help you better understand the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). Select either a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For more information, review [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md). |
 | Integration service environment (ISE) | Storage resources and usage are attached to the logic app resource. | Not metered or billed. |
 ||||
 
@@ -215,28 +215,9 @@ The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) is a
 
 ## Integration accounts
 
-An [integration account](logic-apps-enterprise-integration-create-integration-account.md) is a separate Azure resource that you create as a container to store business-to-business (B2B) artifacts that you create, for example, trading partners, agreements, schemas, maps, and so on. You can then use these artifacts and various B2B operations in workflows to explore, build, and test integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
+An [integration account](logic-apps-enterprise-integration-create-integration-account.md) is a separate Azure resource that you create as a container to define and store business-to-business (B2B) artifacts such as trading partners, agreements, schemas, maps, and so on. After you create this account and define these artifacts, link this account to your logic app so that you can use these artifacts and various B2B operations in workflows to explore, build, and test integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities. For more information, review [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md).
 
-### Integration accounts for multi-tenant or single-tenant based logic apps
-
-| | | Multi-tenant
-
-For multi-tenant and single-tenant hosted logic apps, metering and billing for integration accounts use a fixed [integration account price](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use.
-
-### Integration accounts for ISE based logic apps
-
-For ISE hosted logic apps, usage includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Learn more about the [ISE pricing model](#ise-pricing) earlier in this topic.
-
-| ISE SKU | Included integration account | Extra cost |
-|---------|------------------------------|-----------------|
-| **Premium** | A single [Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts. No Free or Basic accounts are permitted. |
-| **Developer** | A single [Free](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted. |
-||||
-
-
-, based on whether logic apps are hosted in multi-tenant, single-tenant, or Azure Logic Apps (multi-tenant or single-tenant) or an ISE.
-
-Azure Logic Apps offers the following integration account levels or tiers, which [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/):
+The following table describes available integration account levels or tiers, which [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/):
 
 | Tier | Description |
 |------|-------------|
@@ -245,15 +226,29 @@ Azure Logic Apps offers the following integration account levels or tiers, which
 | **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md). <p><p>**Note**: Not supported by the Logic Apps SLA. |
 |||
 
-For information about integration account limits, review [Integration account limits in Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits), such as:
+For information about integration account limits, review [Integration account limits in Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-> [!NOTE]
-> Before you can use an integration account and related artifacts in your workflow, you have to link the integration account to your logic app. 
-> For more information, review [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md).
+The following table summarizes how the Consumption, Standard, and ISE model handle metering and billing for integration accounts:
 
-## Not metered or billed
+| Model | Metering and billing |
+|-------|----------------------|
+| Consumption (multi-tenant) | Metering and billing use the [integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use. |
+| Standard (single-tenant) | Metering and billing use the [integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use. |
+| ISE | This model includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). For more information, review [Integration accounts in the ISE model](#integration-accounts-ise) and the [ISE model](#ise-pricing). |
 
-Across all pricing models, the following components that aren't metered or billed:
+<a name="integration-accounts-ise"></a>
+
+### Integration accounts in the ISE model
+
+| ISE SKU | Included integration account | Extra cost |
+|---------|------------------------------|------------|
+| **Premium** | A single [Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts. No Free or Basic accounts are permitted. |
+| **Developer** | A single [Free](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted. |
+||||
+
+## Miscellaneous not metered or billed
+
+Across all pricing models, the following items aren't metered or billed:
 
 * Triggers that are skipped due to unmet conditions
 * Actions that didn't run because the workflow stopped before completion
