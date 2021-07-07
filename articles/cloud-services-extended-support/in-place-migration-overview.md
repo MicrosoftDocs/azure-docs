@@ -13,6 +13,28 @@ ms.custom:
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 
+This document provides overview for migrating cloud services (classic) to cloud services (extended support).  Cloud Services (extended support) provides two paths for customers to migrate from ASM to ARM:
+
+1. **Re-deploy**: Customers can deploy a new cloud service directly in ARM and then delete the old cloud service in ASM after thorough validation.
+More control , self-paced - Choose this path if you desire control about how the new service components are named and how they are organized. You are also in control of pace of building new services and deleting the old deployment.
+
+2. **In-place migration**: Migration tool  enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support).	
+Less control, fast paced – Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The classic cloud services are deleted as soon as migration is complete successfully.
+
+## Redeploy Overview
+
+A new cloud service(extended support) can be deployed directly in ARM using any of the client tools – Portal, PowerShell, Template, SDK, Visual Studio.  Refer the tutorial links below to deploy a cloud service (extended support).
+
+
+Deploy a cloud service – Portal
+Deploy a cloud service – PowerShell
+Deploy a cloud service – Template
+Deploy a cloud service – SDK
+Deploy a cloud service – Visual Studio
+
+
+## Migration tool Overview
+
 This article provides an overview on the platform-supported migration tool and how to use it to migrate [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Azure Cloud Services (extended support)](overview.md).
 
 The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
