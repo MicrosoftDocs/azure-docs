@@ -141,7 +141,7 @@ The fields listed in the table below are specific to Process events, but are sim
 The process event schema references the following entities, which are central to process creation and termination activity:
 
 - **Actor**. The user that initiated the process creation or termination.
-- **ActorProcess**. The process used by the Actor to initiate the process creation or termination.
+- **ActingProcess**. The process used by the Actor to initiate the process creation or termination.
 - **TargetProcess**. The new process.
 - **TargetUser**. The user whose credentials are used to create the new process.
 - **ParentProcess**. The process that initiated the Actor Process.
