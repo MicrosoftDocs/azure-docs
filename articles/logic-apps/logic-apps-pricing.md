@@ -153,7 +153,7 @@ The following table summarizes how the ISE model handles the following component
 
 | Component | Description |
 |-----------|-------------|
-| Trigger and action operations | The ISE model includes built-in, managed connector, and custom connector operations that your workflow can run *for free*, but subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise) and [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md##custom-connector-limits). For more information, review [Trigger and action operations in the ISE model](#integration-service-environment-operations). |
+| Trigger and action operations | The ISE model includes built-in, managed connector, and custom connector operations that your workflow can run *for free*, but subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise) and [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). For more information, review [Trigger and action operations in the ISE model](#integration-service-environment-operations). |
 | Storage operations | The ISE model includes storage operations and usage for data retention *for free*. For more information, review [Storage operations](#storage-operations). |
 | Integration accounts | The ISE model includes a single integration account tier *for free*, depending on your ISE SKU. For more information, review [Integration accounts](#integration-accounts). |
 |||
@@ -184,6 +184,24 @@ The following table summarizes how the Consumption, Standard, and ISE models han
 | [Loop actions](logic-apps-control-flow-loops.md) | A loop action, such as the **For each** or **Until** loop, can include other actions that run during each loop cycle. | Except for the initial number of included built-in operations, the loop action and each action in the loop are metered each time the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of items is also used in the metering calculation. <p><p>For example, suppose you have a **For each** loop with actions that process a list. The service multiplies the number of list items against the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the included built-in operations, same as the Consumption model. | Not metered or billed. |
 | [Retry attempts](logic-apps-exception-handling.md#retry-policies) | On supported operations, you can implement basic exception and error handling by setting up a [retry policy](logic-apps-exception-handling.md#retry-policies). | Except for the initial number of built-in operations, the original execution plus each retried execution are metered. For example, an action that executes with 5 retries is metered and billed as 6 executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the built-in included operations, same as the Consumption model. | Not metered or billed. |
 ||||||
+
+<a name="storage-operations"></a>
+
+## Storage operations
+
+Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any necessary storage transactions. Examples include using queues for scheduling trigger operations or using tables and blobs for storing workflow states. Based on the operations in your workflow, storage costs vary because different triggers, actions, and payloads result in different storage operations and needs. The service also saves and stores inputs and outputs from your workflow's run history, based on the logic app resource's [run history retention limit](logic-apps-limits-and-config.md#run-duration-retention-limits). You can manage this retention limit at the logic app resource level, not the workflow level.
+
+The following table summarizes how the Consumption, Standard, and ISE model handles metering and billing for storage operations:
+
+| Consumption (multi-tenant) | Standard (single-tenant) | Integration service environment (ISE) |
+|----------------------------|--------------------------|---------------------------------------|
+| Storage resources and usage are attached to the logic app resource. Metering and billing follow the [data retention pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). | You can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements), which gives you more more control and flexibility over your workflow's data. Metering and billing follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/), and storage costs appear separately on your Azure billing invoice. <p><p>**Tip**: To help you better understand the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For more information, review [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md). | Storage resources and usage are not metered or billed. |
+||||
+
+For more information, review the following documentation:
+
+* [View metrics for executions and storage usage](plan-manage-costs.md#monitor-billing-metrics)
+* [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
 
 <a name="data-gateway"></a>
 
@@ -230,43 +248,6 @@ For information about integration account limits, review [Integration account li
 > [!NOTE]
 > Before you can use an integration account and related artifacts in your workflow, you have to link the integration account to your logic app. 
 > For more information, review [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md).
-
-
-<a name="storage-operations"></a>
-
-## Storage operations
-
-Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. The inputs and outputs from your workflow's run history are stored and metered, based on your logic app's [run history retention limit](logic-apps-limits-and-config.md#run-duration-retention-limits).
-You manage storage usage and data retention at the logic app level, not the workflow level. 
-
-For more information, review the following documentation:
-
-* [View metrics for executions and storage usage](plan-manage-costs.md#monitor-billing-metrics)
-* [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
-
-<a name="standard-storage-transactions-billing"></a>
-
-### Storage operations in the Standard model
-
-Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. With multi-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
-
-When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice.
-
-#### Tips for estimating storage needs and costs
-
-To help you get some idea about the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-
-For more information, review the following documentation:
-
-* [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md)
-* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
-
-| Environment | Notes |
-|-------------|-------|
-| **Multi-tenant** | Storage usage and retention are billed using a fixed rate, which you can find on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps), under the **Pricing details** table. |
-| **Single-tenant** | Storage usage and retention are billed using the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice. For more information, review [Storage transactions (single-tenant)](#standard-storage-transactions-billing). |
-| **ISE** | Storage operations and usage aren't metered or billed. |
-|||
 
 ## Not metered or billed
 
