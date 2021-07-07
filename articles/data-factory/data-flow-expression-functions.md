@@ -420,6 +420,11 @@ Checks if the row is marked for insert. For transformations taking more than one
 * ``isUpsert()``  
 * ``isUpsert(1)``  
 ___
+### <code>jaroWinkler</code>
+<code><b>jaroWinkler(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => double</b></code><br/><br/>
+Gets the JaroWinkler distance between two strings. 
+* ``jaroWinkler('frog', 'frog') => 1.0``  
+___
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
 Gets the last date of the month given a date.  
@@ -1594,10 +1599,3 @@ Check if this is not a number.
 •	isNan(10.2) => false
 
 isNan(<value1>: integral) => boolean
-
-jaroWinkler
-
-Gets the JaroWinkler distance between two strings.
-•	jaroWinkler('frog', 'frog') => 1.0
-
-jaroWinkler(<value1>: string, <value2>: string) => double
