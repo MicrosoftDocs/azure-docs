@@ -54,27 +54,23 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 >[!IMPORTANT]
 >While in **Public Preview**, only attach a disk pool to a test or non-production cluster.
 
-1. Register to Microsoft.AVS resource provider:
+1. Check if the subscription is registered to `Microsoft.AVS`:
 
-   - Check if the subscription is registered to Microsoft.AVS:
+   ```azurecli
+   az provider show -n "Microsoft.AVS" --query registrationState
+   ```
 
-      ```azurecli
-      az provider show -n "Microsoft.AVS" --query registrationState
-      ```
+   If the subscription is not registered, then register it:
 
-   - If the subscription is not registered, then register it:
+   ```azurecli
+   az provider register -n "Microsoft.AVS"
+   ```
 
-      ```azurecli
-      az provider register -n "Microsoft.AVS"
-      ```
+1. Check if the subscription is registered to `CloudSanExperience` AFEC in Microsoft.AVS:
 
-1. Register to **CloudSanExperience** feature flag:
-
-   - Check if the subscription is registered to CloudSanExperience AFEC in Microsoft.AVS:
-
-      ```azurecli
-      az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
-      ```
+   ```azurecli
+   az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS"
+   ```
 
    - If it's not already registered, then register it:
 
@@ -83,26 +79,24 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
       ```
 
       >[!NOTE]
-      >The registration may take approximately 15 minutes to complete. Check the current status of registration:
+      >The registration may take approximately 15 minutes to complete. You can check the current status of registration:
       >
       >```azurecli
       >az feature show --name "CloudSanExperience" --namespace "Microsoft.AVS" --query properties.state
       >```
 
-   - If the registration is stuck in an intermediate state for longer, it may be worth to unregister & re-register the flag:
+   - If the registration is stuck in an intermediate state for longer, unregister and then re-register the flag:
 
       ```azurecli
       az feature unregister --name "CloudSanExperience" --namespace "Microsoft.AVS"
       az feature register --name "CloudSanExperience" --namespace "Microsoft.AVS"
       ```
 
-1. Install the `vmware `extension:
+1. Check if the `vmware `extension is installed: 
 
-   - Check if the extension is installed: 
-
-      ```azurecli
-      az extension show --name vmware
-      ```
+   ```azurecli
+   az extension show --name vmware
+   ```
 
    - If the extension is already installed, check if the version is **3.0.0**. If an older version is installed, update the extension:
 
