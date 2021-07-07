@@ -19,7 +19,7 @@ Some high-level differences are highlighted in the following table.
 | Predictable performance |Variable latency |
 | Fixed pricing |Pay as you go variable pricing |
 | Ability to scale workload up and down |N/A |
-| Message size up to 1 MB. This limit may be raised in the future. For latest important updates to the service, see [Messaging on Azure blog](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Message size up to 256 KB |
+| Message size up to 1 MB. [Support for message payloads up to 100 MB](#large-messages-support-preview) currently exists in preview. |Message size up to 256 KB |
 
 **Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
@@ -80,6 +80,30 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 > The billing meters for Service Bus are hourly. In the case of scaling up, you only pay for the additional resources for the hours that these were used.
 >
 
+## Large messages support (Preview)
+
+Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This is primarily targeted towards legacy workloads that have used larger message payloads on other enterprise messaging brokers and are looking to seamlessly migrate to Azure Service Bus.
+
+Here are some considerations when sending large messages on Azure Service Bus -
+   * Supported on Azure Service Bus Premium tier namespaces only.
+   * Supported only when using the AMQP protocol. Not supported when using the SBMP protocol.
+   * Supported when using [Java Message Service (JMS) 2.0 client SDK](how-to-use-java-message-service-20.md) and other language client SDKs.
+   * Sending large messages results in decreased throughput and increased latency.
+   * While 100 MB message payloads are supported, it is recommended to keep the message payloads as small as possible to ensure reliable performance from the Service Bus namespace.
+   * The max message size is enforced only for messages sent to the queue or topic. The size limit is not enforced for the receive operation. This allows you to update the max message size for a given queue (or topic).
+
+### Enabling large messages support for a new queue (or topic)
+
+To enable support for large messages, set the max message size when creating a new queue (or topic) as shown below - 
+
+![large message preview when creating a new entity][large-message-preview]
+
+### Enabling large messages support for an existing queue (or topic)
+
+You can also enable support for large message for existing queues (or topics), by updating the **Max message size** on the ***Overview*** for that specific queue (or topic) as below - 
+
+![enabling large messages on an existing entity][large-message-preview-update]
+
 ## Get started with Premium Messaging
 
 Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Click **View full pricing details** to see more information about each tier.
@@ -100,3 +124,5 @@ To learn more about Service Bus Messaging, see the following links:
 <!--Image references-->
 
 [create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
+[large-message-preview]: ./media/service-bus-premium-messaging/large-message-preview.png
+[large-message-preview-update]: ./media/service-bus-premium-messaging/large-message-preview-update.png
