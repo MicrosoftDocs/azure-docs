@@ -54,7 +54,7 @@ Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Th
 
 ```kotlin
 dependencies {
-    compile("com.azure:azure-ai-metricsadvisor:1.0.0-beta.5")
+    compile("com.azure:azure-ai-metricsadvisor:1.0.0-beta.4")
 }
 ```
 
