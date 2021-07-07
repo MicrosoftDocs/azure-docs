@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor
-description: Describes how to use Azure Monitor monitor the health and performance of  virtual machines and the workloads.
+description: Describes the different features of Azure Monitor that allow you to analyze the health and performance of your AKS cluster.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -67,5 +67,5 @@ Container insights collects metrics for deployments that you can view with the *
 
 ## Next steps
 
-* [Analyze monitoring data collected for virtual machines.](monitor-virtual-machine-analyze.md)
+* [Analyze monitoring data collected for virtual machines.](monitor-aks-analyze.md)
 * 

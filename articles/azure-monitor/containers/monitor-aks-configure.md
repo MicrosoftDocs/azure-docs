@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor
-description: Describes how to use Azure Monitor monitor the health and performance of  virtual machines and the workloads.
+description: Describes how to configure AKS clusters for monitoring in Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -41,11 +41,11 @@ See [New AKS cluster](container-insights-enable-new-cluster.md) to enable contai
 
 
 ## Configure collection from Prometheus
-Container insights allows you to collect Prometheus metrics into your Log Analytics workspace without requiring a Prometheus server. See [Configure scraping of Prometheus metrics with Container insights](container-insights-prometheus-integration#view-prometheus-metrics-in-grafana.md) for details on performing this configuration.
+Container insights allows you to collect Prometheus metrics into your Log Analytics workspace without requiring a Prometheus server. See [Configure scraping of Prometheus metrics with Container insights](container-insights-prometheus-integration.md#view-prometheus-metrics-in-grafana) for details on performing this configuration.
 
 
 
 
 ## Next steps
 
-* [Analyze monitoring data collected for virtual machines.](monitor-virtual-machine-analyze.md)
+* [Analyze monitoring data collected for AKS clusters.](monitor-aks-analyze.md)

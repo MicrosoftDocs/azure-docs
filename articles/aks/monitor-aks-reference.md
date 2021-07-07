@@ -3,7 +3,7 @@ title: Monitoring AKS data reference
 description: Important reference material needed when you monitor AKS 
 ms.service: container-service
 ms.custom: subject-monitoring
-ms.date: 06/21/2021
+ms.date: 07/07/2021
 ms.topic: reference
 ---
 
@@ -13,7 +13,7 @@ See [Monitoring AKS](monitor-aks.md) for details on collecting and analyzing mon
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for AKS.  
+The following table lists the platform metrics collected for AKS.  
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -27,11 +27,9 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 ## Metric Dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+The following tables lists [dimensions](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics) for AKS metrics. 
 
 <!-- listed here /azure/azure-monitor/essentials/metrics-supported#microsoftcontainerservicemanagedclusters-->
-
-AKS has the following dimensions associated with its metrics.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
@@ -48,15 +46,18 @@ AKS has the following dimensions associated with its metrics.
 
 ## Resource logs
 
-This section lists the types of resource logs you can collect for AKS.
+The following table lists the resource log categories you can collect for AKS. For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
-
-This section lists all the resource log category types collected for AKS.  
-
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Managed Clusters | [Microsoft.ContainerService/managedClusters](/azure/azure-monitor/essentials/resource-logs-categories#microsoftcontainerservicemanagedclusters) |
+| Category                | Description |
+|:---|:---|
+| cluster-autoscale       | Understand why the AKS cluster is scaling up or down, which may not be expected. This information is also useful to correlate time intervals where something interesting may have happened in the cluster. |
+| guard                   | Managed Azure Active Directory and Azure RBAC audits. For managed Azure AD, this includes token in and user info out. For Azure RBAC, this includes access reviews in and out. |
+| kube-apiserver          | |
+| kube-audit              | Audit log data for every audit event including get, list, create, update, delete, patch, and post. |
+| kube-audit-admin        | Subset of the kube-audit log category. Significanly reduces the number of logs by excluding the get and list audit events from the log. |
+| kube-controller-manager | Gain deeper visibility of issues that may arise between Kubernetes and the Azure control plane. A typical example is the AKS cluster having a lack of permissions to interact with Azure. |
+| kube-scheduler          | |
+| AllMetrics              | Includes all platform metrics. Sends these values to Log Analytics workspace where it can be evaluated with other data using log queries.
 
 ## Azure Monitor Logs tables
 
@@ -64,54 +65,22 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to AK
 
 |Resource Type | Notes |
 |-------|-----|
-| [Kubernetes Services](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) | |
+| [ContainerImageInventory](/azure/azure-monitor/reference/tables/containerimageinventory) | Inventory of container images and their attributes that were discovered by the agent. |
+| [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) |Inventory of containers and their attributes that are monitored by the agent. |
+| [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) | Log lines collected from stdout and stderr streams for containers. |
+| [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) | Kubernetes Container logs in V2 schema. This is the successor for ContainerLog with a friendlier schema, specifically for kubernetes orchestrated containers in pods. |
+| [ContainerNodeInventory](/azure/azure-monitor/reference/tables/containernodeinventory) | Container host and node information. |
+| [ContainerServiceLog](/azure/azure-monitor/reference/tables/containerservicelog) | |
+| [KubeEvents](/azure/azure-monitor/reference/tables/kubeevents) | Kubernetes events. |
+| [KubeHealth](/azure/azure-monitor/reference/tables/kubehealth) | Health states from various health monitors for kubernetes clusters and components. |
+| [KubeMonAgentEvents](/azure/azure-monitor/reference/tables/kubemonagentevents) | Events from the Kubernetes cluster monitoring agent. |
+| [KubeNodeInventory](/azure/azure-monitor/reference/tables/kubenodeinventory) | Kubernetes cluster's node information. |
+| [KubePodInventory](/azure/azure-monitor/reference/tables/kubepodinventory) | Kubernetes cluster's pod and container information. |
+| [KubePVInventory](/azure/azure-monitor/reference/tables/kubepvinventory) | Kubernetes persistent volumes and their properties. |
+| [KubeServices](/azure/azure-monitor/reference/tables/kubeservices) | Kubernetes services information. |
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
-### Diagnostics tables
-
-AKS uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
-
-**Azure Diagnostics**
-<!-- azurediagnostics section in metrics section in portal -->
-| Property | Description |
-|:--- |:---|
-| attrs_s |  |
-| Category | Category of the log entry.  |
-| ccpNamespace_s |  |
-| Cloud_s | Cloud type. |
-| Computer |  |
-| containerID_s |  |
-| CorrelationId |  |
-| Environment_s | Name of the environment  |
-| log_s |  |
-| OperationName | Operation name of the log entry. |
-| pod_s | Name of the pod. |
-| RawData |  |
-| Resource | Name of the cluster. |
-| ResourceGroup | Resource group of the cluster. |
-| ResourceId | Resource ID of the cluster. |
-| ResourceProvider | Resource provider of the log entry. |
-| ResourceType | Resource Type of the log entry.  |
-| ResultDescription |  |
-| ResultType |  |
-| SourceSystem |  |
-| stream_s | Stream type of the log entry.  |
-| SubscriptionId | Subscription ID for the cluster. |
-| TenantId | Tenant ID for the cluster |
-| TimeGenerated | Time of the the log entry. |
-| Type | The name of the table. |
-| UnderlayClass_s | Underlay class.  |
-| UnderlayName_s | Underlay name.  |
-| _ResourceId |  A unique identifier for the resource that the record is associated with |
-| _SubscriptionId | A unique identifier for the subscription that the record is associated with  |
-
-**[TODO Service-specific table]**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
 
 ## Activity log
 
@@ -128,15 +97,6 @@ The following table lists a few example operations related to AKS that may be cr
 For a complete list of possible log entires, see [Microsoft.ContainerService Resource Provider options](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerservice).
 
 For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
-
-## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following schemas are in use by AKS
-
-resource log schemas
-
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 
 ## See Also
 

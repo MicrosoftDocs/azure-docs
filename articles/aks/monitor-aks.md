@@ -1,6 +1,6 @@
 ---
 title: Monitoring Azure Kubernetes Service (AKS)
-description: Start here to learn how to monitor Azure Kubernetes Service (AKS)
+description: Describes how to use Azure Monitor monitor the health and performance of your Azure Kubernetes Service (AKS) cluster.
 ms.service: container-service
 ms.topic: article
 ms.custom: subject-monitoring
