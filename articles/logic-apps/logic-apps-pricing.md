@@ -64,7 +64,7 @@ To help you estimate more accurate consumption costs, review these tips:
 
 ## Standard (single-tenant)
 
-In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that a logic app uses a hosting plan and a pricing tier. The pricing tier that you choose determines the resource level and pricing rates that apply to compute, memory, and storage usage.
+In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**Standard** plan](https://azure.microsoft.com/pricing/details/logic-apps/) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Standard)** resource type or use the **Azure Logic Apps (Standard)** extension in Visual Studio Code. This pricing model requires that a logic app use a hosting plan and a pricing tier, which differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them. The pricing tier that you choose determines the resource level and pricing rates that apply to compute, memory, and storage usage.
 
 > [!IMPORTANT]
 > When you create or deploy new logic apps based on the **Logic App (Standard)** resource type, you must use the 
@@ -97,36 +97,13 @@ The following table summarizes how the Standard model handles metering and billi
 | [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | Currently, you can create and use only [custom built-in connector operations](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272) in single-tenant based logic app workflows. | The Standard model includes *unlimited free built-in operations*. |
 ||||
 
-<a name="standard-managed-connector-billing"></a>
-
-### Standard billing for managed connector operations
-
-The following list describes billing model differences between **Standard** in the single-tenant environment and **Consumption** in the multi-tenant environment:
-
-* In single-tenant, the designer uses the **Azure** label to identify managed connector operations. In multi-tenant, the designer uses the **Standard** and **Enterprise** labels. However, in both environments, metering and billing use the same **Standard** and **Enterprise** connector prices as described by the Consumption pricing plan.
-
-* When an operation executes, the number of calls is usually the same as the number of executions. For example, a Salesforce operation execution that gets records is a single call unless the operation makes retry attempts. However, when an operation has chunking or pagination enabled, that operation might have to make multiple calls per execution.
-
-  In single-tenant, *each call is metered and charged*. In multi-tenant, *only the single execution is metered and charged*. This behavior means that such an execution might cost you more when running in single-tenant versus multi-tenant.
-
-  For example, suppose you have an operation that uses chunking or pagination. During one execution, the operation has to make 10 calls before getting all the necessary data. In multi-tenant, the operation is metered and charged as a single execution. In single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
-
-| Items | Description | Billing model |
-|-------|-------------|---------------|
-| [Standard connector](../connectors/managed.md) triggers and actions | These operations are deployed, hosted, and run separately in Azure, but they are labeled only as **Azure** in the workflow designer. | Executions are metered using the same price as the [Standard connector price in the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| [Enterprise connector](../connectors/managed.md) triggers and actions | These operations are deployed, hosted, and run separately in Azure, but they are labeled only as **Azure** in the workflow designer. | Executions are metered using the same price as the [Enterprise connector price in the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Note**: If in preview, Enterprise connectors use the [*Standard* connector rate](https://azure.microsoft.com/pricing/details/logic-apps/). |
-| Actions inside [loops](logic-apps-control-flow-loops.md) | Loops such as **For each** and **Until** include actions that run during each loop cycle. | Each action execution inside the loop is metered every time that the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of collection items is also used in calculating the cost. <p><p>For example, suppose that you have a **For each** loop that includes actions that process a list. Azure Logic Apps meters each action that runs in that loop by multiplying the number of list items with the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
-| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. | Metering and billing apply to the number of retries along with the original request based on whether the trigger or action has built-in, Standard, or Enterprise type. For example, an action that executes with 2 retries is charged for 3 action executions. |
-| [Data retention and storage usage](#standard-storage-transactions-billing) | For these operations, review [Standard billing for storage transactions](#standard-storage-transactions-billing). |
-||||
-
-
-
 <a name="standard-pricing-tiers"></a>
 
-### Pricing tiers and rates in the Standard model
+### Pricing tiers in the Standard model
 
-Each pricing tier includes a specific amount of compute, memory, and storage resources. For hourly rates per resource and per region, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). To learn more about how pricing works, this example provides sample estimates for the *East US 2 region*.
+The pricing tier that you choose for metering and billing your logic app includes a specific amount of compute, memory, and storage resources. For pricing information that's *specific to your region*, review the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+This example tries to show how pricing tiers work by providing sample estimates for the *East US 2 region*.
 
 * On the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/), select the **East US 2** region to view the hourly rates, or review the following table:
 
@@ -136,7 +113,7 @@ Each pricing tier includes a specific amount of compute, memory, and storage res
   | **Memory** | $0.0137 per GB |
   |||
 
-* Based on the preceding information, this table shows the estimated monthly rate for each pricing tier and the resources included in that pricing tier:
+* Based on the preceding information, the following table shows the estimated monthly rate for each pricing tier and the resources included in that pricing tier:
 
   | Pricing tier | Monthly US$ (East US 2) | Virtual CPU (vCPU) | Memory (GB) | Storage (GB) |
   |--------------|-------------------------|--------------------|-------------|--------------|
@@ -145,7 +122,7 @@ Each pricing tier includes a specific amount of compute, memory, and storage res
   | **WS3** | $700.80 | 4 | 14 | 250 |
   ||||||
 
-* Based on the preceding information, this table lists each resource and the estimated monthly rate if you choose the **WS1** pricing tier:
+* Based on the preceding information, the following table lists each resource and the estimated monthly rate if you choose the **WS1** pricing tier:
 
   | Resource | Amount | Monthly US$ (East US 2) |
   |----------|--------|-------------------------|
@@ -153,80 +130,37 @@ Each pricing tier includes a specific amount of compute, memory, and storage res
   | **Memory** | 3.5 GB | $35.04 |
   ||||
 
-<a name="standard-storage-transactions-billing"></a>
-
-### Standard billing for storage transactions
-
-Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. With multi-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
-
-When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice.
-
-#### Tips for estimating storage needs and costs
-
-To help you get some idea about the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
-
-For more information, review the following documentation:
-
-* [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md)
-* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
-
-<a name="standard-related-resources-billing"></a>
-
-### Standard plan - Other related resources
-
-Single-tenant based logic app workflows can use other related resources, such as on-premises data gateways and integration accounts. For plan-specific information about these resources, review these sections later in this topic:
-
-* [On-premises data gateways](#data-gateway)
-* [Integration accounts](#integration-accounts)
-
-<a name="standard-not-metered"></a>
-
-### Standard plan - Not metered or billed
-
-* All built-in operation executions
-* Triggers that are skipped due to unmet conditions
-* Actions that didn't run because the workflow stopped before completion
-* [Disabled logic apps](#disabled-apps)
-
-<a name="consumption-standard-differences"></a>
-
-## Differences summary between Consumption and Standard models
-
-The following list describes billing model differences between **Consumption** in the multi-tenant environment and **Standard** in the single-tenant environment:
-
-* In multi-tenant, the designer uses the **Standard** and **Enterprise** labels to identify managed connector operations. In single-tenant, the designer uses only the combined **Azure** label. However, in both environments, metering and billing use the same **Standard** and **Enterprise** connector prices as described by the Consumption plan.
-
-* When an operation executes, the number of calls is usually the same as the number of executions. For example, a Salesforce operation execution that gets records is a single call unless the operation makes retry attempts. However, when an operation has chunking or pagination enabled, that operation might have to make multiple calls per execution.
-
-  In multi-tenant, *only the single execution is metered and charged*. In single-tenant, *each call is metered and charged*. This behavior means that such an execution might cost you more when running in single-tenant versus multi-tenant.
-
-  For example, suppose you have an operation that uses chunking or pagination. During one execution, the operation has to make 10 calls before getting all the necessary data. In multi-tenant, the operation is metered and charged as a single execution. In single-tenant, the same execution is metered and charged for each call, so this execution can cost 10 times more.
-
 <a name="integration-service-environment-pricing"></a>
 
-## ISE pricing (dedicated)
+## Integration service environment (ISE)
 
-A fixed pricing model applies to logic apps that run in the dedicated [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is billed using the [Integration Service Environment price](https://azure.microsoft.com/pricing/details/logic-apps), which depends on the [ISE level or *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) that you create. This pricing differs from multi-tenant pricing as you're paying for reserved capacity and dedicated resources whether or not you use them.
+When you create a logic app using the **Logic App (Consumption)** resource type, and you deploy to a dedicated [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the logic app and its workflow follow the fixed [Integration Service Environment plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. This pricing model depends on your [ISE level or *SKU*](connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) and differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
 
-| ISE SKU | Description |
-|---------|-------------|
+The following table summarizes how the ISE model handles metering and billing for capacity and other dedicated resources based on your ISE level or SKU:
+
+| ISE SKU | Metering and billing |
+|---------|----------------------|
 | **Premium** | The base unit has [fixed capacity](logic-apps-limits-and-config.md#integration-service-environment-ise) and is [billed at an hourly rate for the Premium SKU](https://azure.microsoft.com/pricing/details/logic-apps). If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) when you create your ISE or afterwards. Each scale unit is billed at an [hourly rate that's roughly half the base unit rate](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 | **Developer** | The base unit has [fixed capacity](logic-apps-limits-and-config.md#integration-service-environment-ise) and is [billed at an hourly rate for the Developer SKU](https://azure.microsoft.com/pricing/details/logic-apps). However, this SKU has no service-level agreement (SLA), scale up capability, or redundancy during recycling, which means that you might experience delays or downtime. Backend updates might intermittently interrupt service. <p><p>**Important**: Make sure that you use this SKU only for exploration, experiments, development, and testing - not for production or performance testing. <p><p>For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 |||
 
-### Included at no extra cost
+The following table summarizes how the ISE model handles the following components when used with a logic app and a workflow in an ISE:
 
-| Items | Description |
-|-------|-------------|
-| [Built-in](../connectors/built-in.md) triggers and actions | Display the **Core** label and run in the same ISE as your logic apps. |
-| [Standard connectors](../connectors/managed.md) <p><p>[Enterprise connectors](../connectors/managed.md#enterprise-connectors) | - Managed connectors that display the **ISE** label are specially designed to work without the on-premises data gateway and run in the same ISE as your logic apps. ISE pricing includes as many Enterprise connections as you want. <p><p>- Connectors that don't display the ISE label run in the single-tenant Azure Logic Apps service. However, ISE pricing includes these executions for logic apps that run in an ISE. |
-| Actions inside [loops](logic-apps-control-flow-loops.md) | ISE pricing includes each action that runs in a loop for each loop cycle that runs. <p><p>For example, suppose that you have a "for each" loop that includes actions that process a list. To get the total number of action executions, multiply the number of list items with the number of actions in the loop, and add the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
-| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. ISE pricing includes retries along with the original request. |
-| [Data retention and storage usage](#data-retention) | Logic apps in an ISE don't incur charges for data retention and storage usage. |
-| [Integration accounts](#integration-accounts) | Includes usage for a single integration account tier, based on ISE SKU, at no extra cost. |
+| Component | Description |
+|-----------|-------------|
+| Trigger and action operations | The ISE model includes the following operation types that your workflow can run for *free*: <p><p>- [*Built-in*](../connectors/built-in.md): These operations run directly and natively with the Azure Logic Apps runtime and in the same ISE as your logic app. In the designer, you can find these operations under the **Built-in** label, but each operation also displays the **CORE** label. <p><p>- [*Managed connector*](../connectors/managed.md): Operations that display the **ISE** label are designed to work without the on-premises data gateway and run in the same ISE as your logic app. The ISE model includes unlimited Enterprise operation executions. <p><p>Operations that don't display the ISE label run in the Azure Logic Apps service. However, the ISE model includes these operations when used in logic app workflows that run in an ISE. |
+| Storage operations | The ISE model includes storage operations and usage for data retention. |
+| Integration accounts | The ISE model includes a single integration account tier, depending on your ISE SKU. |
 |||
 
 For limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
+
+Free and included in the ISE model:
+
+| Operation type | Description |
+|----------------|-------------|
+| [Loop actions](logic-apps-control-flow-loops.md) | ISE pricing includes each action that runs in a loop for each loop cycle that runs. <p><p>For example, suppose that you have a "for each" loop that includes actions that process a list. To get the total number of action executions, multiply the number of list items with the number of actions in the loop, and add the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. |
+| Retry attempts | To handle the most basic exceptions and errors, you can set up a [retry policy](logic-apps-exception-handling.md#retry-policies) on triggers and actions where supported. ISE pricing includes retries along with the original request. |
 
 <a name="other-operation-behavior"></a>
 
@@ -295,6 +229,24 @@ For more information, review the following documentation:
 * [View metrics for executions and storage usage](plan-manage-costs.md#monitor-billing-metrics)
 * [Limits in Azure Logic Apps](logic-apps-limits-and-config.md)
 
+<a name="standard-storage-transactions-billing"></a>
+
+## Storage operations in the Standard model
+
+Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. With multi-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data.
+
+When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are listed separately in your Azure billing invoice.
+
+### Tips for estimating storage needs and costs
+
+To help you get some idea about the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
+For more information, review the following documentation:
+
+* [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md)
+* [Azure Storage pricing details](https://azure.microsoft.com/pricing/details/storage/)
+
+
 
 | Environment | Notes |
 |-------------|-------|
@@ -304,12 +256,23 @@ For more information, review the following documentation:
 |||
 
 ## Not metered or billed
+
+### Consumption plan - Not metered or billed
+
 These items are not metered or billed:
 
 * The initial included number of built-in operation executions, specified by [Consumption plan pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 * Triggers that are skipped due to unmet conditions
 * Actions that didn't run because the workflow stopped before completion
 * [Disabled logic apps](#disabled-apps)
+
+### Standard plan - Not metered or billed
+
+* All built-in operation executions
+* Triggers that are skipped due to unmet conditions
+* Actions that didn't run because the workflow stopped before completion
+* [Disabled logic apps](#disabled-apps)
+
 
 <a name="disabled-apps"></a>
 
