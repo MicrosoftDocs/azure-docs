@@ -16,29 +16,29 @@ ms.service: azure-communication-services
 
 > [!IMPORTANT]
 > BYOI interoperability is in public preview and broadly available on request. To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
-> 
-> M365 authenticated interoperability is in private preview, and restricted using service controls to Azure Communication Services early adopters. 
-> 
+>
+> Microsoft 365 authenticated interoperability is in private preview, and restricted using service controls to Azure Communication Services early adopters. To enable/disable the custom Teams endpoint experience, complete [this form](https://forms.office.com/r/B8p5KqCH19).
+>
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. End-users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing.
 
-Azure Communication Services supports two types of Teams interoperability:
+Azure Communication Services supports two types of Teams interoperability depending on the identity of the end-user:
 
 1. **Bring your own identity.** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. Teams treats your application as anonymous external user.
-1. **M365 Teams identity.** Your application acts on behalf of an end-user's M365 identity and their Teams configured resources. These authenticated applications can make calls and join meetings seamlessly on behalf of M365 users.
+1. **Microsoft 365 Teams identity.** Your application acts on behalf of an end user's Microsoft 365 identity and their Teams configured resources. These authenticated applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users.
 
-Applications can implement both authentication schemes and leave the choice of authentication up to the end-user depending on circumstance.
+Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
 
 ## Bring your own identity
-Bring your own identity (BYOI) is the most common and simplest model for using Azure Communication Services and Teams interoperability. You implement whatever authentication scheme you desire, and Microsoft Teams will treat these users as anonymous external accounts.
+Bring your own identity (BYOI) is the most common and simplest model for using Azure Communication Services and Teams interoperability. You implement whatever authentication scheme you desire, your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts.
 
-This capability is ideal for applications that bringing employees (who may be familiar with Teams) and external users (using a custom application experience) together into a seamless meeting experience. For example:
+This capability is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. For example:
 
 1. Employees use Teams to schedule a meeting
 1. Meeting details are shared with external users through your custom application.
-   * **Using Graph API** Your custom Communication Services application uses the Microsoft Graph APIs to access meeting details to be shared.
-   * **Using other options** For example, your meeting link can be copied from your calendar in Microsoft Teams.
+   * **Using Graph API** -  Your custom application uses the Microsoft Graph APIs to access meeting details to be shared.
+   * **Manual options** - For example, your meeting link can be copied from your calendar in Microsoft Teams.
 1. External users use your custom application to join the Teams meeting (via the Communication Services Calling and Chat SDKs)
 
 The high-level architecture for this use-case looks like this:
@@ -49,20 +49,27 @@ Communication Services users can join scheduled Teams meetings as long as anonym
 
 While certain Teams meeting features such as raised hand, together mode, and breakout rooms will only be available for Teams users, your custom application will have access to the meeting's core audio, video, chat, and screen sharing capabilities. Meeting chat will be accessible to your custom application user while they're in the call. They won't be able to send or receive messages before joining or after leaving the call. If the meeting is scheduled for a channel, Communication Services users will not be able to join the chat or send and receive messages.
 
-When a Communication Services user joins the Teams meeting, the display name provided through the Calling SDK will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams.  Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
+When a Communication Services user joins the Teams meeting, the display name provided through the Calling SDK will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams.  
 
-## M365 Teams identity
-Authenticating the end-user's M365 account and authorizing your application through Azure Active Directory allows for a deeper level of interoperability with Microsoft Teams. These applications can make calls and join meetings seamlessly on behalf of M365 users. When interacting in a meeting or call, users of the native Teams app will observe your application's end-users having the appropriate display name, profile picture, call history, and other M365 attributes.
+Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
-This identity model is ideal for augmenting a Teams deployment with a fully custom user experience. For example, an application can be used to answer phone calls on behalf of the end-user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.  
+## Microsoft 365 Teams identity
+Authenticating the end user's Microsoft 365 account and authorizing your application through Azure Active Directory allows for a deeper level of interoperability with Microsoft Teams. These applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users. When interacting in a meeting or call, users of the native Teams app will observe your application's end-users having the appropriate display name, profile picture, call history, and other Microsoft 365 attributes.
 
-Building an Azure Communication Services app that M365 resources requires:
-1. Authentication of the end-user's M365 credentials
-2. Authorization from the end-user
+This identity model is ideal for augmenting a Teams deployment with a fully custom user experience. For example, an application can be used to answer phone calls on behalf of the end user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.  
+
+Building an Azure Communication Services app that Microsoft 365 resources requires:
+1. Authentication of the end user's Microsoft 365 credentials
+2. Authorization from the end user
 3. Publishing the application in the Azure Active Directory app gallery
-4. Application authorization from the end-user's Azure Active Directory tenant
+4. Application authorization from the end user's Azure Active Directory tenant
 
-Authentication and authorization of the end-user is through [Microsoft authentication library flows (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview), while publishing your application to the Azure Directory app gallery is documented [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/publisher-verification-overview).
+Authentication and authorization of the end user is through [Microsoft Authentication library flows (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview), while publishing your application to the Azure Directory app gallery is documented [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/publisher-verification-overview).
+
+The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
+
+![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identities/teams-identity-calling-overview.png)
+
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
@@ -70,9 +77,9 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
 Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application’s user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
 
 ## Pricing
-VoIP and Chat usage is billed to your Azure resource when using Azure APIs and SDKs, but there is no additional fee for using Teams interoperability. There is no price difference between the BYOI or M365 authenticated authentication options.
+VoIP and Chat usage is billed to your Azure resource when using Azure APIs and SDKs, but there is no additional fee for using Teams interoperability, or no price difference between the BYOI or Microsoft 365 authenticated authentication options.
 
-If your application has an end-user spend 60 minutes in a voice call with a user of Microsoft Teams, your Azure resource will be metered for 60 minutes. The 60 minutes of communication consumed by the end-user in the native Teams application is covered by the applicable Teams license and not metered to your Azure resource. 
+If your application has an end user spend 60 minutes in a voice call with a user of Microsoft Teams, your Azure resource will be metered for 60 minutes. The 60 minutes of communication consumed by the end user in the native Teams application is covered by the applicable Teams license and not metered to your Azure resource.
 
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time.
@@ -81,4 +88,4 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 
 > [!div class="nextstepaction"]
 > [Join a BYOI calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-> [Authenticate M365 users](../quickstarts/manage-teams-identity.md)
+> [Authenticate Microsoft 365 users](../quickstarts/manage-teams-identity.md)
