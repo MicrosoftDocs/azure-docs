@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2021
+ms.date: 07/07/2021
 ms.author: yelevin
 ---
 # Use Azure Functions to connect your data source to Azure Sentinel
 
 You can use Azure Functions, in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to REST API endpoints of your compatible data sources.
 
-Azure Function Apps allow you to easily connect Azure Sentinel to your data source's REST API and pull in logs. This document will show you how to configure Azure Sentinel for this purpose. You may also need to configure your source system as well. You can find vendor- and product-specific information links in each data connector's page in the portal, or on the [Partner data connectors](partner-data-connectors.md) documentation page.
+Azure Function Apps allow you to easily connect Azure Sentinel to your data source's REST API and pull in logs. This document will show you how to configure Azure Sentinel for this purpose. You may also need to configure your source system as well. You can find vendor- and product-specific information links in each data connector's page in the portal, or on the [Partner data connectors reference](partner-data-connectors-reference.md) documentation page.
 
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -37,18 +37,18 @@ The following are required to use Azure Functions to connect Azure Sentinel to y
 
 - You must have read and write permissions on Azure Functions, to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 
-- You will also need credentials for accessing the product's API - either a username and password, a token, a key, or some other combination. You may also need other API information such as an endpoint URI. This information can be found in each product's documentation. You can find the relevant links in each data connector's page in the portal, or in your product's section on the [Partner data connectors](partner-data-connectors.md) page.
+- You will also need credentials for accessing the product's API - either a username and password, a token, a key, or some other combination. You may also need other API information such as an endpoint URI. This information can be found in each product's documentation. You can find the relevant links in each data connector's page in the portal, or in your product's section on the [Partner data connectors reference](partner-data-connectors-reference.md) page.
 
 ## Configure and connect your data source
 
 > [!NOTE]
 > - You can securely store workspace and API authorization keys or tokens in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
 >
-> - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. See your product's section on the [Partner data connectors](partner-data-connectors.md) page for links to instructions to create the Kusto function and alias.
+> - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. See your product's section on the [Partner data connectors reference](partner-data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
 
 ### STEP 1 - Get your source system's API credentials
 
-Follow your source system's instructions to get its API credentials / authorization keys / tokens, as specified on the data connector page in the portal and in your product's section on the [Partner data connectors](partner-data-connectors.md) page, and copy/paste them into a text file for later.
+Follow your source system's instructions to get its API credentials / authorization keys / tokens, as specified on the data connector page in the portal and in your product's section on the [Partner data connectors reference](partner-data-connectors-reference.md) page, and copy/paste them into a text file for later.
 
 ### STEP 2 - Deploy the connector and the associated Azure Function App
 
@@ -56,7 +56,7 @@ Follow your source system's instructions to get its API credentials / authorizat
 
 # [Azure Resource Manager (ARM) template](#tab/ARM)
 
-This method provides an automated deployment of the Okta SSO connector using an ARM template.
+This method provides an automated deployment of your Azure Function-based connector using an ARM template.
 
 1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
 
@@ -71,7 +71,7 @@ This method provides an automated deployment of the Okta SSO connector using an 
 
     - Enter your Azure Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
 
-    - Complete any other fields in the form on the **Custom deployment** screen. See your data connector page in the portal or your product's section on the [Partner data connectors](partner-data-connectors.md) page for assistance.
+    - Complete any other fields in the form on the **Custom deployment** screen. See your data connector page in the portal or your product's section on the [Partner data connectors reference](partner-data-connectors-reference.md) page for assistance.
 
     - Select **Review + create**. When the validation completes, click **Create**.
 
@@ -92,6 +92,8 @@ This method provides an automated deployment of the Okta SSO connector using an 
     1. Select **Save**.
 
 # [Manual deployment with PowerShell](#tab/MPS)
+
+Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use PowerShell functions.
 
 1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
 
@@ -130,7 +132,7 @@ This method provides an automated deployment of the Okta SSO connector using an 
 
     1. When the function has been created, click on **Code + Test** on the left pane.
 
-    1. Download the Function App Code supplied by your source system's vendor and copy and paste it into the **Function App** *run.ps1* editor, replacing what's there by default. You can find the download link on the connector page or in your product's section on the [Partner data connectors](partner-data-connectors.md) page.
+    1. Download the Function App Code supplied by your source system's vendor and copy and paste it into the **Function App** *run.ps1* editor, replacing what's there by default. You can find the download link on the connector page or in your product's section on the [Partner data connectors reference](partner-data-connectors-reference.md) page.
 
     1. Click **Save**.
 
@@ -139,11 +141,13 @@ This method provides an automated deployment of the Okta SSO connector using an 
 
     1. In the **Application settings** tab, select **+ New application setting**.
 
-    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See your product's section of the [Partner data connectors](partner-data-connectors.md) page for the application settings to add.
+    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See your product's section of the [Partner data connectors reference](partner-data-connectors-reference.md) page for the application settings to add.
 
 1. Complete Setup. ***WHAT'S LEFT TO DO???***
 
 # [Manual deployment with Python](#tab/MPY)
+
+Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use Python functions.
 
 1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
 
@@ -154,7 +158,7 @@ This method provides an automated deployment of the Okta SSO connector using an 
     > [!NOTE]
     > You will need to [prepare Visual Studio Code](../azure-functions/create-first-function-vs-code-python.md) (VS Code) for Azure Function development.
 
-    1. Download the Azure Function App file using the link supplied on the data connector page and in your product's section of the [Partner data connectors](partner-data-connectors.md) page. Extract the archive to your local development computer.
+    1. Download the Azure Function App file using the link supplied on the data connector page and in your product's section of the [Partner data connectors reference](partner-data-connectors-reference.md) page. Extract the archive to your local development computer.
 
     1. Start VS Code. From the menu bar, select **File > Open Folder...**.
 
@@ -183,13 +187,13 @@ This method provides an automated deployment of the Okta SSO connector using an 
 
     1. In the **Application settings** tab, select **+ New application setting**.
 
-    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See your product's section of the [Partner data connectors](partner-data-connectors.md) page for the application settings to add.
+    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See your product's section of the [Partner data connectors reference](partner-data-connectors-reference.md) page for the application settings to add.
 
 ---
 
 ## Find your data
 
-After a successful connection is established, the data appears in **Logs** under *CustomLogs*, in the tables listed in your product's section of the [Partner data connectors](partner-data-connectors.md) page.
+After a successful connection is established, the data appears in **Logs** under *CustomLogs*, in the tables listed in your product's section of the [Partner data connectors reference](partner-data-connectors-reference.md) page.
 
 To query data, enter one of those table names - or the relevant Kusto function alias - in the query window.
 

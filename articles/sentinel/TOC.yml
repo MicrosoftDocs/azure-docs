@@ -391,6 +391,8 @@
       href: data-source-schema-reference.md
     - name: CEF log field mapping
       href: cef-name-mapping.md
+    - name: Partner data connectors reference
+      href: partner-data-connectors-reference.md
     - name: Normalization
       items:
       - name: Authentication normalization schema

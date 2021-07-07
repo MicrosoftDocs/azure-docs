@@ -47,7 +47,7 @@ ms.author: yelevin
 | **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | ConfluenceAudit |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-confluenceauditapi-parser |
-| **Application settings** | <li><li><li><li><li><li> |
+| **Application settings** | <li>ConfluenceUsername<li>ConfluenceAccessToken<li>ConfluenceHomeSiteName<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by:** | Microsoft |
 |
 
