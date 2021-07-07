@@ -85,7 +85,7 @@ When you use run this quickstart, events will be sent to the IoT Hub. To see the
 1. Expand the **Devices** node.
 1. Right-click on `avasample-iot-edge-device`, and select **Start Monitoring Built-in Event Endpoint**.
 
-    [!INCLUDE [provide-builtin-endpoint](../../common-includes/provide-builtin-endpoint.md)]
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## Use direct method calls
 

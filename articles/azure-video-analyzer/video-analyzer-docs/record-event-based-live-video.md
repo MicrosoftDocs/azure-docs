@@ -131,7 +131,7 @@ This step creates the IoT Edge deployment manifest at src/edge/config/deployment
 
 If this is your first tutorial with Video Analyzer, Visual Studio Code prompts you to input the IoT Hub connection string. You can copy it from the appsettings.json file.
 
-[!INCLUDE [provide-builtin-endpoint](../../common-includes/provide-builtin-endpoint.md)]
+[!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 Next, Visual Studio Code asks you to select an IoT Hub device. Select your IoT Edge device, which should be avasample-iot-edge-device.
 
