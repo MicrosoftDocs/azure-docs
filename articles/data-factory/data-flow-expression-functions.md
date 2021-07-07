@@ -1439,6 +1439,11 @@ Map functions perform operations on map data types
 Creates a map of key/values. All the keys & values should be of the same type. If no items are specified, it is defaulted to a map of string to string type.Same as a ```[ -> ]``` creation operator. Keys and values should alternate with each other.
 *	``associate('fruit', 'apple', 'vegetable', 'carrot' )=> ['fruit' -> 'apple', 'vegetable' -> 'carrot']``
 ___
+### <code>keyValues</code>
+<code><b>keyValues(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => map</b></code><br/><br/>
+Creates a map of key/values. The first parameter is an array of keys and second is the array of values. Both arrays should have equal length.
+*	``keyValues(['bojjus', 'appa'], ['gunchus', 'ammi']) => ['bojjus' -> 'gunchus', 'appa' -> 'ammi']``
+___ 
 ### <code>mapAssociation</code>
 <code><b>mapAssociation(<i>&lt;value1&gt;</i> : map, <i>&lt;value2&gt;</i> : binaryFunction) => array</b></code><br/><br/>
 Transforms a map by associating the keys to new values. Returns an array. It takes a mapping function where you can address the item as #key and current value as #value. 
@@ -1596,10 +1601,3 @@ Gets the JaroWinkler distance between two strings.
 •	jaroWinkler('frog', 'frog') => 1.0
 
 jaroWinkler(<value1>: string, <value2>: string) => double
-
-keyValues
-
-Creates a map of key/values. The first parameter is an array of keys and second is the array of values. Both arrays should have equal length.
-•	keyValues(['bojjus', 'appa'], ['gunchus', 'ammi']) => ['bojjus' -> 'gunchus', 'appa' -> 'ammi']
-
-keyValues(<value1>: array, <value2>: array) => map
