@@ -17,7 +17,7 @@ ms.date: 12/17/2018
 
 Multi-model databases enable you to store and work with data in multiple formats, such as relational data, graphs, JSON or XML documents, and key/value pairs.
 
-The [Azure SQL family of products](azure-sql-iaas-vs-paas-what-is-overview.md) uses a relational model that provides the best performance for a variety of general-purpose applications. However, Azure SQL products like Azure SQL Database and SQL Managed Instance are not limited to relational data. They enable you to use a variety of non-relational formats that are tightly integrated into the relational model.
+The [Azure SQL family of products](azure-sql-iaas-vs-paas-what-is-overview.md) uses a relational model that provides the best performance for a variety of general-purpose applications. However, Azure SQL products like Azure SQL Database and SQL Managed Instance are not limited to relational data. They enable you to use non-relational formats that are tightly integrated into the relational model.
 
 Consider using the multi-model capabilities of Azure SQL in the following cases:
 
@@ -54,7 +54,7 @@ A graph database can't achieve anything beyond what a relational database can ac
 
 In Azure SQL products, you can parse and query data represented in [JavaScript Object Notation (JSON)](https://www.json.org/) format, and export your relational data as JSON text. JSON is a core feature of the SQL Server database engine.
 
-JSON features enable you to put JSON documents in tables, transform relational data to JSON documents, and vice versa. You can use the standard Transact-SQL language enhanced with JSON functions for parsing documents. You can also use non-clustered indexes, columnstore indexes, or memory-optimized tables to optimize your queries.
+JSON features enable you to put JSON documents in tables, transform relational data into JSON documents, and transform JSON documents into relational data. You can use the standard Transact-SQL language enhanced with JSON functions for parsing documents. You can also use non-clustered indexes, columnstore indexes, or memory-optimized tables to optimize your queries.
 
 JSON is a popular data format for exchanging data in modern web and mobile applications. JSON is also used for storing semistructured data in log files or in NoSQL databases. Many REST web services return results formatted as JSON text or accept data formatted as JSON. 
 
@@ -102,7 +102,7 @@ The SQL Server database engine provides a powerful platform for developing rich 
 - The ability to specify an XQuery query against XML data stored in columns and variables of the XML type. You can use XQuery functionalities in any Transact-SQL query that accesses a data model that you use in your database.
 - Automatic indexing of all elements in XML documents by using the [primary XML index](/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index). Or you can specify the exact paths that should be indexed by using the [secondary XML index](/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - `OPENROWSET`, which allows the bulk loading of XML data.
-- The ability to transform relational data to XML format.
+- The ability to transform relational data into XML format.
 
 You can use document models instead of the relational models in some specific scenarios:
 
