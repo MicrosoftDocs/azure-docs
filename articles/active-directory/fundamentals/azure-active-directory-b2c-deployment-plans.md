@@ -8,8 +8,8 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 7/10/2021
 
-ms.author: gargi-sinha
-author: gasinh
+ms.author: gasinh
+author: gargi-sinha
 manager: martinco
 
 ms.collection: M365-identity-device-management
@@ -23,9 +23,9 @@ To understand the business requirements and respect compliance boundaries, a ste
 
 | Capability | Description |
 |:-----|:------|
-| Plan| Prepare Azure AD B2C projects for deployment. Start by identifying the stakeholders and later defining a project timeline. |
-| Implement | Start with enabling authentication and authorization, and later perform full application onboarding. |
-| Monitor | Enable logging, auditing, and reporting once an Azure AD B2C solution is in place. |
+| [Plan](#plan-an-azure-ad-b2c-deployment) | Prepare Azure AD B2C projects for deployment. Start by identifying the stakeholders and later defining a project timeline. |
+| [Implement](#implement-an-azure-ad-b2c-deployment) | Start with enabling authentication and authorization, and later perform full application onboarding. |
+| [Monitor](#monitor-an-azure-ad-b2c-solution) | Enable logging, auditing, and reporting once an Azure AD B2C solution is in place. |
 
 ## Plan an Azure AD B2C deployment
 
@@ -87,7 +87,7 @@ This phase includes the following capabilities.
 
 ### Deploy authentication and authorization
 
-Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements) and try [Open  policy agent](https://www.openpolicyagent.org/). Learn more about Azure AD B2C in [this developer course]((https://aka.ms/learnAADB2C)).
+Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements) and try [Open  policy agent](https://www.openpolicyagent.org/). Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c).
 
 Follow this sample checklist for more guidance:
 
