@@ -1,6 +1,6 @@
 ---
-title: Share VM images with Shared Galleries 
-description: Learn how to use shared image galleries to share Linux VM images across your organization.
+title: Share VM images in a compute gallery 
+description: Learn how to use an Azure Compute Gallery to share VM images.
 author: axayjo
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -12,9 +12,9 @@ ms.reviewer: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
-# Shared Image Galleries overview
+# Store and share images in an Azure Compute Gallery
 
-Shared Image Gallery is a service that helps you build structure and organization around your images. Shared Image Galleries provide:
+An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images. An Azure Compute Gallery provides:
 
 - Global replication of images.
 - Versioning and grouping of images for easier management.
