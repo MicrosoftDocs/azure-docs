@@ -54,15 +54,19 @@ This figure shows the architecture of an Azure Bastion deployment. In this diagr
 
 ## <a name="host-scaling"></a>Host scaling
 
-[!INCLUDE [instance count](../../includes/bastion-instance-count.md)]
+Azure Bastion supports manual host scaling. You can configure the number of host instances (scale units) in order to manage the number of concurrent RDP/SSH connections that Azure Bastion can support. Increasing the number of host instances lets Azure Bastion manage more concurrent sessions. Decreasing the number of instances decreases the number of concurrent supported sessions. Azure Bastion supports up to 50 host instances. This feature is available for the Azure Bastion Standard SKU only.
 
 For more information, see the [Configuration settings](configuration-settings.md#instance) article.
+
+## <a name="pricing"></a>Pricing
+
+Azure Bastion pricing involves a combination of hourly pricing based on SKU, scale units, and data transfer rates. Pricing information can be found on the [Pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
 
 ## <a name="new"></a>What's new?
 
 Subscribe to the RSS feed and view the latest Azure Bastion feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Bastion) page.
 
-## FAQ
+## Bastion FAQ
 
 For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
