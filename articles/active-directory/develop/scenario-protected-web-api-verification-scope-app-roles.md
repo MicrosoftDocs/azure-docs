@@ -71,7 +71,7 @@ using Microsoft.Identity.Web
 public class TodoListController : Controller
 {
     /// <summary>
-    /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
+    /// The web API will accept only tokens that have the `access_as_user` scope for
     /// this API.
     /// </summary>
     static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
@@ -218,7 +218,7 @@ The `[RequiredScope]` attribute and `VerifyUserHasAnyAcceptedScope` method, does
 
 ### [ASP.NET Classic](#tab/aspnet)
 
-In an ASP.NET application, you can validate app roles in the following way:
+In an ASP.NET application, you can validate scopes in the following way:
 
 ```CSharp
 [Authorize]
@@ -231,7 +231,7 @@ public class TodoListController : ApiController
     }
 ```
 
-A simplified version of  `ValidateAppRole` could be:
+Below is a simplified version of  `ValidateScopes`:
 
 ```csharp
 private void ValidateScopes(IEnumerable<string> acceptedScopes)
@@ -244,12 +244,14 @@ private void ValidateScopes(IEnumerable<string> acceptedScopes)
     if (scopeClaim == null || !scopeClaim.Value.Split(' ').Intersect(acceptedScopes).Any())
     {
         throw new HttpResponseException(new HttpResponseMessage
-        { StatusCode = HttpStatusCode.Unauthorized,
+        { StatusCode = HttpStatusCode.Forbidden,
             ReasonPhrase = $"The 'scp' claim does not contain '{scopeClaim}' or was not found"
         });
     }
 }
 ```
+
+For a full version of `ValidateScopes` for ASP.NET Core, [*ScopesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs)
 
 ---
 
@@ -286,7 +288,7 @@ MyController : ApiController
 }
 ```
 
-But for this, you'll need to map the Role claim to "roles" in the `startup.cs`:
+But for this, you'll need to map the Role claim to "roles" in the Startup.cs file:
 
 
 ```CSharp
@@ -316,7 +318,7 @@ public class TodoListController : ApiController
     }
 ```
 
-A simplified version of  `ValidateAppRole` could be:
+A simplified version of  `ValidateAppRole` is:
 
 ```csharp
 private void ValidateAppRole(string appRole)
@@ -336,7 +338,7 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-If you're interested in a full version of `ValidateAppRole`, see this [source](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs) code.
+For a full version of `ValidateAppRole` for ASP.NET Core, see [*RolesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs) code.
 
 ---
 
@@ -353,6 +355,32 @@ bool isAppOnlyToken = oid == sub;
 ```
 
 Checking the inverse condition allows only apps that sign in a user to call your API.
+
+### Using ACL-based authorization
+
+Alternatively to app-roles based authorization, you can
+protect your web API with an Access Control List (ACL) based authorization pattern to [control tokens without the `roles` claim](v2-oauth2-client-creds-grant-flow.md#controlling-tokens-without-the-roles-claim).
+
+If you are using Microsoft.Identity.Web on ASP.NET core, you'll need to declare that you are using ACL-based authorization, otherwise Microsoft Identity Web will throw an exception when neither roles nor scopes are in the Claims provided:
+
+```Text
+System.UnauthorizedAccessException: IDW10201: Neither scope or roles claim was found in the bearer token.
+```
+
+ To avoid this exception, set the `AllowWebApiToBeAuthorizedByACL` configuration property to true, in the appsettings.json or programmatically.
+
+```Json
+{
+ "AzureAD"
+ { 
+  // other properties
+  "AllowWebApiToBeAuthorizedByACL" : true,
+  // other properties
+ }
+}
+```
+
+If you set `AllowWebApiToBeAuthorizedByACL` to true, this is **your responsibility** to ensure the ACL mechanism.
 
 ## Next steps
 
