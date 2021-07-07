@@ -1,5 +1,5 @@
 ---
-title: Language Runtime Support Policy
+title: Azure Functions language runtime support policy 
 description: Learn about Azure Functions language runtime support policy 
 ms.topic: conceptual
 ms.date: 06/14/2021
