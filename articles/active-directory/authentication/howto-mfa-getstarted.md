@@ -76,7 +76,7 @@ Authentication methods policy | Authenticator passwordless phone sign-in can be 
 
 Azure AD MFA is enforced with Conditional Access policies. These policies allow you to prompt users for multifactor authentication when needed for security and stay out of users’ way when not needed.
 
-![Conceptual Conditional Access process flow](media/concept-mfa-plan/conditional-access-overview-how-it-works.png)
+![Conceptual Conditional Access process flow](media/concept-mfa-planhowto-mfa-getstarted/conditional-access-overview-how-it-works.png)
 
 In the Azure portal, you configure Conditional Access policies under **Azure Active Directory** > **Security** > **Conditional Access**.
 
