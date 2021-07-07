@@ -11,7 +11,7 @@ ms.topic: conceptual
 # Event Grid on Kubernetes - Concepts
 This article describes the main concepts in Event Grid on Kubernetes with Azure Arc (Preview).
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
 
 ## Events
 An event is a data record that announces a fact about the operation of a software system. Typically, an event announces a state change because of a signal raised by the system or a signal observed by the system. Events contain two types of information: 

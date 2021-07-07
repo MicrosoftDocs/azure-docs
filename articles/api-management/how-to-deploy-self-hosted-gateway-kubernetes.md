@@ -68,7 +68,7 @@ When you're automating token refresh, use [this management API operation](/rest/
 Kubernetes [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) help with dividing a single cluster among multiple teams, projects, or applications. Namespaces provide a scope for resources and names. They can be associated with a resource quota and access control policies.
 
 The Azure portal provides commands to create self-hosted gateway resources in the **default** namespace. This namespace is automatically created, exists in every cluster, and can't be deleted.
-Consider [creating and deploying](https://kubernetesbyexample.com/ns/) a self-hosted gateway into a separate namespace in production.
+Consider [creating and deploying](https://www.kubernetesbyexample.com/) a self-hosted gateway into a separate namespace in production.
 
 ### Number of replicas
 The minimum number of replicas suitable for production is two.

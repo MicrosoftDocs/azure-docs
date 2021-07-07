@@ -246,7 +246,7 @@ Use Azure AD capabilities to securely manage devices.
         as the source of authority for all device management workloads.
 
 -   [**Deploy privileged access devices**](/security/compass/privileged-access-devices#device-roles-and-profiles):
-    Use privileged access to manage Microsoft 365 and Azure AD.
+    Use privileged access to manage Microsoft 365 and Azure AD as part of a complete approach to [Securing privileged access](/security/compass/overview).
 
 ## Workloads, applications, and resources 
 

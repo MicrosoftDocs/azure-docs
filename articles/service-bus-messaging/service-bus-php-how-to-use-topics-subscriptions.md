@@ -8,8 +8,6 @@ ms.date: 06/23/2020
 
 # Quickstart: How to use Service Bus topics and subscriptions with PHP
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
 This article shows you how to use Service Bus topics and subscriptions. The samples are written in PHP and use the [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php). The scenarios covered include:
 
 - Creating topics and subscriptions 
@@ -17,6 +15,10 @@ This article shows you how to use Service Bus topics and subscriptions. The samp
 - Sending messages to a topic 
 - Receiving messages from a subscription
 - Deleting topics and subscriptions
+
+> [!IMPORTANT]
+> As of February 2021, the Azure SDK for PHP has entered a retirement phase and is no longer officially supported by Microsoft. For more information, see [this Announcement](https://github.com/Azure/azure-sdk-for-php#important-annoucement) on GitHub. This article will be retired soon. 
+ 
 
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).

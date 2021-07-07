@@ -42,7 +42,7 @@ Even so, there are some differences between the two, as the following table show
 
 ### Current supported and unsupported features
 
-[!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
+[!INCLUDE [service-bus-jms-features-list](./includes/service-bus-jms-feature-list.md)]
 
 ### Considerations
 

@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/8/2021
+ms.date: 06/30/2021
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40
 ---
 
@@ -24,6 +24,8 @@ This article describes how to program directly against the protocol in your appl
 The OAuth 2.0 client credentials grant flow permits a web service (confidential client) to use its own credentials, instead of impersonating a user, to authenticate when calling another web service. For a higher level of assurance, the Microsoft identity platform also allows the calling service to use a certificate (instead of a shared secret) as a credential.  Because the applications own credentials are being used, these credentials must be kept safe - _never_ publish that credential in your source code, embed it in web pages, or use it in a widely distributed native application. 
 
 In the client credentials flow, permissions are granted directly to the application itself by an administrator. When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform an action since there is no user involved in the authentication.  This article covers both the steps needed to [authorize an application to call an API](#application-permissions), as well as [how to get the tokens needed to call that API](#get-a-token).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram
 
@@ -78,10 +80,6 @@ If you sign the user into your app, you can identify the organization to which t
 #### Request the permissions from a directory admin
 
 When you're ready to request permissions from the organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
-
-> [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```HTTP
 // Line breaks are for legibility only.
@@ -140,10 +138,6 @@ After you've received a successful response from the app provisioning endpoint, 
 
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` Microsoft identity platform:
 
-> [!TIP]
-> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 ### First case: Access token request with a shared secret
 
 ```HTTP
@@ -153,7 +147,7 @@ Content-Type: application/x-www-form-urlencoded
 
 client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
-&client_secret=5ampl3Cr3dentia1s
+&client_secret=sampleCredentia1s
 &grant_type=client_credentials
 ```
 
@@ -193,11 +187,11 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | `client_assertion` | Required | An assertion (a JSON web token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
-Notice that the parameters are almost the same as in the case of the request by shared secret except that the client_secret parameter is replaced by two parameters: a client_assertion_type and client_assertion.
+The parameters for the certificate-based request differ in only one way from the shared secret-based request: the `client_secret` parameter is replaced by the `client_assertion_type` and `client_assertion` parameters.
 
 ### Successful response
 
-A successful response looks like this:
+A successful response from either method looks like this:
 
 ```json
 {
@@ -212,6 +206,8 @@ A successful response looks like this:
 | `access_token` | The requested access token. The app can use this token to authenticate to the secured resource, such as to a web API. |
 | `token_type` | Indicates the token type value. The only type that the Microsoft identity platform supports is `bearer`. |
 | `expires_in` | The amount of time that an access token is valid (in seconds). |
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### Error response
 

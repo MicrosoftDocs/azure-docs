@@ -223,7 +223,7 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [special_offer]: https://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
 [twiml]: https://www.twilio.com/docs/api/twiml
-[twilio_api]: https://www.twilio.com/api
+[twilio_api]: https://www.twilio.com/docs/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]:  https://www.twilio.com/console
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified#

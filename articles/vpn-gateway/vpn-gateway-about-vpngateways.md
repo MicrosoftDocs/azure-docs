@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 04/28/2021
+ms.date: 06/21/2021
 ms.author: cherylmc
 ms.custom:
   - contperf-fy21q1

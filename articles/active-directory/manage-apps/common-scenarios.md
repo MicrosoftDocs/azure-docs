@@ -1,14 +1,14 @@
 ---
 title: Common application management scenarios for Azure Active Directory | Microsoft Docs
 description: Centralize application management with Azure AD
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: overview
 ms.date: 03/02/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ---

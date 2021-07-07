@@ -35,19 +35,11 @@ To request elevation data in raster tile format using the Postman app:
 
 1. In the Postman app, select **New**.
 
-2. In the **Create New** window, select **Collection**.  
+2. In the **Create New** window, select **HTTP Request**.
 
-3. To rename the collection, right click on your collection, and select **Rename**.
+3. Enter a **Request name** for the request.
 
-4. Select **New** again.
-
-5. In the **Create New** window, select **Request**.
-
-6. Enter a **Request name** for the request.
-
-7. Select the collection that you created, and then select **Save**.
-
-8. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL to request the raster tile.
+4. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL to request the raster tile.
 
     ```http
     https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
@@ -56,7 +48,7 @@ To request elevation data in raster tile format using the Postman app:
     >[!Important]
     >For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
-9. Select the **Send** button.
+5. Select the **Send** button.
 
     You should receive the raster tile that contains the elevation data in GeoTIFF format. Each pixel within the raster tile raw data is of type `float`. The value of each pixel represents the elevation height in meters.
 
@@ -84,19 +76,17 @@ To create the request:
 
 1. In the Postman app, select **New** again.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
 3. Enter a **Request name** for the request.
 
-4. Select the collection that you previously created, and then select **Save**.
-
-5. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
     ```
 
-6. Select the **Send** button.  You'll receive the following JSON response:
+5. Select the **Send** button.  You'll receive the following JSON response:
 
     ```json
     {
@@ -119,15 +109,15 @@ To create the request:
     }
     ```
 
-7. Now, we'll call the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to get elevation data for the same two points. On the **Builder** tab, select the **POST** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+6. Now, we'll call the [Post Data for Points API](/rest/api/maps/elevation/postdataforpoints) to get elevation data for the same two points. On the **Builder** tab, select the **POST** HTTP method and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-8. In the **Headers** field of the **POST** request, set `Content-Type` to `application/json`. 
+7. In the **Headers** field of the **POST** request, set `Content-Type` to `application/json`. 
 
-1. In the **Body** field, provide the following coordinate point information:
+8. In the **Body** field, provide the following coordinate point information:
 
      ```json
     [
@@ -161,19 +151,17 @@ To create the request:
 
 1. In the Postman app, select **New**.
 
-2. In the **Create New** window, select **Request**.
+2. In the **Create New** window, select **HTTP Request**.
 
-3. Enter a **Request name**, and then select a collection.
+3. Enter a **Request name**.
 
-4. Select **Save**.
-
-5. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
    ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=-73.998672,40.714728|150.644,-34.397&samples=5
     ```
 
-6. Select the **Send** button.  You'll receive the following JSON response:
+5. Select the **Send** button.  You'll receive the following JSON response:
 
     ```JSON
     {
@@ -217,17 +205,17 @@ To create the request:
     }
     ```
 
-7. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** field, enter the following coordinate array for the value of the `lines` query key.
+6. Now, we'll request three samples of elevation data along a path between coordinates at Mount Everest, Chamlang, and Jannu mountains. In the **Params** field, enter the following coordinate array for the value of the `lines` query key.
 
     ```html
         86.9797222, 27.775|86.9252778, 27.9880556 | 88.0444444, 27.6822222
     ```
 
-8. Change the `samples` query key value to `3`.  The image below shows the new values.
+7. Change the `samples` query key value to `3`.  The image below shows the new values.
 
      :::image type="content" source="./media/how-to-request-elevation-data/get-elevation-samples.png" alt-text="Retrieve three elevation data samples.":::
 
-9. Select **Send**. You'll receive the following JSON response:
+8. Select **Send**. You'll receive the following JSON response:
 
     ```json
     {
@@ -257,15 +245,15 @@ To create the request:
     }
     ```
 
-10. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+9. Now, we'll call the [Post Data For Polyline API](/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points.  On the **Builder** tab, select the **POST** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
     ```
 
-11. In the **Headers** field of the **POST** request, set `Content-Type` to `application/json`. 
+10. In the **Headers** field of the **POST** request, set `Content-Type` to `application/json`. 
 
-1. In the **Body** field, provide the following coordinate point information.
+11. In the **Body** field, provide the following coordinate point information.
 
      ```json
     [
@@ -296,21 +284,19 @@ In this example, we'll specify rows=3 and columns=6. The response returns 18 ele
 
 To create the request:
 
-1. In the Postman app, select **New**. 
+1. In the Postman app, select **New**.
 
-2. In the **Create New** window, select **Request**. 
+2. In the **Create New** window, select **HTTP Request**.
 
-3. Enter a **Request name**, and then select a collection. 
+3. Enter a **Request name**.
 
-4. Select **Save**.
-
-5. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
+4. On the **Builder** tab, select the **GET** HTTP method, and then enter the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
     https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-6. Select **Send**.  The response returns 18 elevation data samples, one for each vertex of the grid.
+5. Select **Send**.  The response returns 18 elevation data samples, one for each vertex of the grid.
 
     ```json
     {

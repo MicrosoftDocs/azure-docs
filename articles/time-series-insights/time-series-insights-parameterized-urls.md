@@ -3,9 +3,10 @@ title: 'Share custom views with parameterized URLs - Azure Time Series Insights 
 description: Learn how to create parameterized URLs to easily share customized Explorer views in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: narmeens
+ms.author: narsam
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/02/2020
@@ -73,12 +74,12 @@ The `timeSeriesDefinitions=<collection of term objects>` parameter specifies pre
 | **useSum** | `true` | An optional parameter that specifies using sum for your measure. |
 
 > [!NOTE]
-> If `Events` is the selected **useSum** measure, count is selected by default.  
+> If `Events` is the selected **useSum** measure, count is selected by default.
 > If `Events` is not selected, average is selected by default. |
 
 * The `multiChartStack=<true/false>` key-value pair enables stacking in the chart.
-* The `multiChartSameScale=<true/false>` key-value pair enables the same Y-axis scale across terms within an optional parameter.  
-* The `timeBucketUnit=<Unit>&timeBucketSize=<integer>` enables you to adjust the interval slider to provide a more granular or smoother, more aggregated view of the chart.  
+* The `multiChartSameScale=<true/false>` key-value pair enables the same Y-axis scale across terms within an optional parameter.
+* The `timeBucketUnit=<Unit>&timeBucketSize=<integer>` enables you to adjust the interval slider to provide a more granular or smoother, more aggregated view of the chart.
 * The `timezoneOffset=<integer>` parameter enables you to set the timezone for the chart to be viewed in as an offset to UTC.
 
 | Pair(s) | Description |

@@ -26,8 +26,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Host operating system** | Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
 | **Other Software requirements** | .NET Framework 4.7 or later |
 | **Port access** |  Outbound connections on HTTPS port 443 to send VM replication data.
-| **Free disk space (cache)** |  600 GB |
-| **Free disk space (retention disk)** |  600 GB |
+
 
 
 ## Hyper-V VMs
