@@ -46,6 +46,10 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
+# [Portal](#tab/azure-portal)
+
+Portal content
+
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -68,6 +72,37 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 
 ---
 
+### Deploy a standard SSD as a shared disk
+
+To deploy a managed disk with the shared disk feature enabled, use the new property `maxShares` and define a value greater than 1. This makes the disk shareable across multiple VMs.
+
+> [!IMPORTANT]
+> The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
+
+# [Portal](#tab/azure-portal)
+
+Portal content
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku StandardSSD_LRS --max-shares 2
+```
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType StandardSSD_LRS -CreateOption Empty -MaxSharesCount 2
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
+```
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+Standard SSD template content.
+
+---
+
 ### Deploy an ultra disk as a shared disk
 
 To deploy a managed disk with the shared disk feature enabled, change the `maxShares` parameter to a value greater than 1. This makes the disk shareable across multiple VMs.
@@ -75,6 +110,9 @@ To deploy a managed disk with the shared disk feature enabled, change the `maxSh
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
+# [Portal](#tab/azure-portal)
+
+Portal content
 
 # [Azure CLI](#tab/azure-cli)
 

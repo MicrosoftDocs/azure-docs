@@ -18,7 +18,6 @@ Ultra disks have their own separate list of limitations, unrelated to shared dis
 
 When sharing ultra disks, they have the following additional limitations:
 
-- Currently limited to Azure Resource Manager or SDK support. 
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](/windows-server/failover-clustering/clustering-requirements).
 - Only [server-side encryption](../articles/virtual-machines/disk-encryption.md) is supported, [Azure Disk Encryption](../articles/virtual-machines/windows/disk-encryption-overview.md) is not currently supported.
 
@@ -26,7 +25,6 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 ### Premium SSDs
 
-- Currently limited to Azure Resource Manager or SDK support. 
 - Can only be enabled on data disks, not OS disks.
 - **ReadOnly** host caching is not available for premium SSDs with `maxShares>1`.
 - Disk bursting is not available for premium SSDs with `maxShares>1`.
@@ -45,7 +43,6 @@ For P1-P15 sizes, they are currently only available in Central US, East US, East
 ### Standard SSDs
 
 - Must email SharedDiskFeedback@microsoft .com for your subscription to be able to deploy shared standard SSDs.
-- Currently limited to Azure Resource Manager or SDK support. 
 - Can only be enabled on data disks, not OS disks.
 - When using Availability sets and virtual machine scale sets with Azure shared disks, [storage fault domain alignment](../articles/virtual-machines/availability.md) with virtual machine fault domain is not enforced for the shared data disk.
 - When using [proximity placement groups (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md), all virtual machines sharing a disk must be part of the same PPG.
