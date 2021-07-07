@@ -21,9 +21,9 @@ ms.service: azure-communication-services
 >
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. End-users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing.
+Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. end users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing.
 
-Azure Communication Services supports two types of Teams interoperability depending on the identity of the end-user:
+Azure Communication Services supports two types of Teams interoperability depending on the identity of the end user:
 
 1. **Bring your own identity.** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. Teams treats your application as anonymous external user.
 1. **Microsoft 365 Teams identity.** Your application acts on behalf of an end user's Microsoft 365 identity and their Teams configured resources. These authenticated applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users.
@@ -54,7 +54,7 @@ When a Communication Services user joins the Teams meeting, the display name pro
 Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
 ## Microsoft 365 Teams identity
-Authenticating the end user's Microsoft 365 account and authorizing your application through Azure Active Directory allows for a deeper level of interoperability with Microsoft Teams. These applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users. When interacting in a meeting or call, users of the native Teams app will observe your application's end-users having the appropriate display name, profile picture, call history, and other Microsoft 365 attributes.
+Authenticating the end user's Microsoft 365 account and authorizing your application through Azure Active Directory allows for a deeper level of interoperability with Microsoft Teams. These applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users. When interacting in a meeting or call, users of the native Teams app will observe your application's end users having the appropriate display name, profile picture, call history, and other Microsoft 365 attributes.
 
 This identity model is ideal for augmenting a Teams deployment with a fully custom user experience. For example, an application can be used to answer phone calls on behalf of the end user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.  
 
@@ -64,7 +64,7 @@ Building an Azure Communication Services app that Microsoft 365 resources requir
 3. Publishing the application in the Azure Active Directory app gallery
 4. Application authorization from the end user's Azure Active Directory tenant
 
-Authentication and authorization of the end user is through [Microsoft Authentication library flows (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), while publishing your application to the Azure Directory app gallery is documented [here](https://docs.microsoft.com/azure/active-directory/develop/publisher-verification-overview).
+Authentication and authorization of the end user is through [Microsoft Authentication Library flows (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), while publishing your application to the Azure Directory app gallery is documented [here](https://docs.microsoft.com/azure/active-directory/develop/publisher-verification-overview).
 
 The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
 
