@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure disk pools (preview) overview
-description: Learn about Azure disk pools (preview).
+description: Troubleshoot issues with Azure disk pools. Learn about common failure codes and how to resolve them.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
