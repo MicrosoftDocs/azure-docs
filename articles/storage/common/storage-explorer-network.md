@@ -163,8 +163,8 @@ The following is a list of features that support **system proxy**:
     - ADLS Gen2 Blobs
         - Listing
         - Statistics
-        - ManagingACLS
-        - PropagateACLs
+        - Managing ACLs (only viewing and modifying existing entities)
+        - Propagate ACLs
         - Move
         - Rename
         - Create folder

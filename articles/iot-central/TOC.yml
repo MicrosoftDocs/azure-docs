@@ -276,8 +276,6 @@
           href: core/howto-manage-users-roles.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
-        - name: Export your application
-          href: core/howto-use-app-templates.md
         - name: Migrate V2 to V3 application
           href: core/howto-migrate.md
         - name: Configure and use file uploads
