@@ -2830,6 +2830,43 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |virtual_core_count|Yes|Virtual core count|Count|Average|Virtual core count|No Dimensions|
 
 
+## Microsoft.Sql/servers/elasticPools
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|allocated_data_storage|Yes|Data space allocated|Bytes|Average|Data space allocated|No Dimensions|
+|allocated_data_storage_percent|Yes|Data space allocated percent|Percent|Maximum|Data space allocated percent|No Dimensions|
+|cpu_limit|Yes|CPU limit|Count|Average|CPU limit. Applies to vCore-based elastic pools.|No Dimensions|
+|cpu_percent|Yes|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
+|cpu_used|Yes|CPU used|Count|Average|CPU used. Applies to vCore-based elastic pools.|No Dimensions|
+|database_allocated_data_storage|No|Data space allocated|Bytes|Average|Data space allocated|DatabaseResourceId|
+|database_cpu_limit|No|CPU limit|Count|Average|CPU limit|DatabaseResourceId|
+|database_cpu_percent|No|CPU percentage|Percent|Average|CPU percentage|DatabaseResourceId|
+|database_cpu_used|No|CPU used|Count|Average|CPU used|DatabaseResourceId|
+|database_dtu_consumption_percent|No|DTU percentage|Percent|Average|DTU percentage|DatabaseResourceId|
+|database_eDTU_used|No|eDTU used|Count|Average|eDTU used|DatabaseResourceId|
+|database_log_write_percent|No|Log IO percentage|Percent|Average|Log IO percentage|DatabaseResourceId|
+|database_physical_data_read_percent|No|Data IO percentage|Percent|Average|Data IO percentage|DatabaseResourceId|
+|database_sessions_percent|No|Sessions percentage|Percent|Average|Sessions percentage|DatabaseResourceId|
+|database_storage_used|No|Data space used|Bytes|Average|Data space used|DatabaseResourceId|
+|database_workers_percent|No|Workers percentage|Percent|Average|Workers percentage|DatabaseResourceId|
+|dtu_consumption_percent|Yes|DTU percentage|Percent|Average|DTU Percentage. Applies to DTU-based elastic pools.|No Dimensions|
+|eDTU_limit|Yes|eDTU limit|Count|Average|eDTU limit. Applies to DTU-based elastic pools.|No Dimensions|
+|eDTU_used|Yes|eDTU used|Count|Average|eDTU used. Applies to DTU-based elastic pools.|No Dimensions|
+|log_write_percent|Yes|Log IO percentage|Percent|Average|Log IO percentage|No Dimensions|
+|physical_data_read_percent|Yes|Data IO percentage|Percent|Average|Data IO percentage|No Dimensions|
+|sessions_percent|Yes|Sessions percentage|Percent|Average|Sessions percentage|No Dimensions|
+|sqlserver_process_core_percent|Yes|SQL Server process core percent|Percent|Maximum|CPU usage as a percentage of the SQL DB process. Applies to elastic pools.|No Dimensions|
+|sqlserver_process_memory_percent|Yes|SQL Server process memory percent|Percent|Maximum|Memory usage as a percentage of the SQL DB process. Applies to elastic pools.|No Dimensions|
+|storage_limit|Yes|Data max size|Bytes|Average|Data max size|No Dimensions|
+|storage_percent|Yes|Data space used percent|Percent|Average|Data space used percent|No Dimensions|
+|storage_used|Yes|Data space used|Bytes|Average|Data space used|No Dimensions|
+|tempdb_data_size|Yes|Tempdb Data File Size Kilobytes|Count|Maximum|Space used in tempdb data files in kilobytes.|No Dimensions|
+|tempdb_log_size|Yes|Tempdb Log File Size Kilobytes|Count|Maximum|Space used in tempdb transaction log file in kilobytes.|No Dimensions|
+|tempdb_log_used_percent|Yes|Tempdb Percent Log Used|Percent|Maximum|Space used percentage in tempdb transaction log file|No Dimensions|
+|workers_percent|Yes|Workers percentage|Percent|Average|Workers percentage|No Dimensions|
+|xtp_storage_percent|Yes|In-Memory OLTP storage percent|Percent|Average|In-Memory OLTP storage percent|No Dimensions|
+
 ## Microsoft.Sql/servers/databases
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
