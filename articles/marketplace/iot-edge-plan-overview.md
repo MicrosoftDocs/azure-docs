@@ -26,7 +26,7 @@ After you create a plan, the **Plan overview** page shows:
 The actions available for a plan vary depending on the current status of your plan. They include:
 
 - **Delete draft** if the plan status is a Draft.
-- **SStop distribution of a plan** if the plan status is Published Live.
+- **Stop distribution of a plan** if the plan status is Published Live.
 
 ## Edit a plan
 
