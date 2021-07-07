@@ -83,13 +83,13 @@ You can select multiple SBCs for a single pattern. In such a case, the routing a
 #### To delete a Voice Route:
 1. In the left navigation, go to Direct routing under Voice Calling - PSTN and then select the Voice Routes tab.
 1. Select route or routes you want to delete using a checkbox.
-1. Click Remove button
+1. Select Remove.
 
 #### To delete an SBC:
 1. In the left navigation, go to Direct routing under Voice Calling - PSTN.
-1. On a Session Border Controllers tab, click Configure button.
-1. Clear the FQDN and port fields for the SBC that you want to remove, then click Next.
-1. On a Voice Routes tab, review voice routing configuration, make changes if needed. Click Save.
+1. On a Session Border Controllers tab, select Configure.
+1. Clear the FQDN and port fields for the SBC that you want to remove, select Next.
+1. On a Voice Routes tab, review voice routing configuration, make changes if needed. select Save.
 
 > [!NOTE]
 > When you remove SBC associated with a voice route, you can choose a different SBC for the route on the Voice Routes tab. The voice route without an SBC will be deleted.
