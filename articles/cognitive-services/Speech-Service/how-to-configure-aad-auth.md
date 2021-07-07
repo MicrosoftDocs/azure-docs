@@ -105,6 +105,11 @@ aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ```
 ::: zone-end
 
+::: zone pivot="programming-language-more
+More samples for acquring an AAD token can be found [here](/azure/active-directory/develop/sample-v2-code).
+
+For programming languates where an Azure Identity client is not available, you can directly [request an OAuth token](/azure/active-directory/develop/v2-oauth-ropc).
+::: zone-end
 ## Get the Speech Resoruce ID
 
 You'll need the Speech Resource's ID to make SDK calls using AAD Authtentication.
@@ -167,15 +172,18 @@ The method of providing the token, and the method to construct the corresponding
 For these objects the authorization token is built from the Resource ID and the AAD Token and then used to create a SpeechConfig object.
 
 ::: zone pivot="programming-language-csharp"
+```C#
 string resourceId = "Your ResourceID";
 string aadToken = "Your AAD Token";
 string region =  "Your Speech Region";
 
 var speechToken = $"aad#{resourceId}#{aadToken}";
 var speechConfig = SpeechConfig.FromAuthorizationToken(speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+```C++
 std::string resourceId = "Your ResourceID";
 std::string aadToken = "Your AAD Token";
 std::string region = "Your Speech Region";
@@ -183,22 +191,27 @@ std::string region = "Your Speech Region";
 auto speechToken = "aad#" + resourceId + "#" + aadToken;
 
 auto speechConfig = SpeechConfig::FromAuthorizationToken(speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+```Java
 String resourceId = "Your Resource ID";
 String region = "Your Region";
 
 String speechToken = "aad#" + resourceId + "#" + token;
 
 SpeechConfig speechConfig = SpeechConfig.fromAuthorizationToken(speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+```Python
 resourceId = "Your Resource ID"
 region = "Your Region"
 speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
 speechConfig = SpeechConfig(auth_token=speechToken, region=region)
+```
 ::: zone-end
 
 ### TranslationRecognizer
@@ -206,15 +219,18 @@ speechConfig = SpeechConfig(auth_token=speechToken, region=region)
 For the TranslationRecognizer the authorization token is built from the Resource ID and the AAD Token and then used to create a SpeechTranslationConfig object.
 
 ::: zone pivot="programming-language-csharp"
+```C#
 string resourceId = "Your ResourceID";
 string aadToken = "Your AAD Token";
 string region =  "Your Speech Region";
 
 var speechToken = $"aad#{resourceId}#{aadToken}";
 var speechConfig = SpeechTranslationConfig.FromAuthorizationToken(speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+```cpp
 std::string resourceId = "Your ResourceID";
 std::string aadToken = "Your AAD Token";
 std::string region = "Your Speech Region";
@@ -222,21 +238,27 @@ std::string region = "Your Speech Region";
 auto speechToken = "aad#" + resourceId + "#" + aadToken;
 
 auto speechConfig = SpeechTranslationConfig::FromAuthorizationToken(speechToken, region);
+```
 ::: zone-end
 
-::: zone pivot="programming-language-java"String resourceId = "Your Resource ID";
+::: zone pivot="programming-language-java"
+```Java
+String resourceId = "Your Resource ID";
 String region = "Your Region";
 
 String speechToken = "aad#" + resourceId + "#" + token;
 
 SpeechTranslationConfig translationConfig = SpeechTranslationConfig.fromAuthorizationToken(speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+```Python
 resourceId = "Your Resource ID"
 region = "Your Region"
 speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
 translationConfig = SpeechTranslationConfig(auth_token=speechToken, region=region)
+```
 ::: zone-end
 
 ### DialogServiceConnector
@@ -244,6 +266,7 @@ translationConfig = SpeechTranslationConfig(auth_token=speechToken, region=regio
 For the DialogServiceConnection the authorization token is built from the Resource ID and the AAD Token and then used to create a CustomCommandsConfig or a BotFrameworkConfig object.
 
 ::: zone pivot="programming-language-csharp"
+```C#
 string resourceId = "Your ResourceID";
 string aadToken = "Your AAD Token";
 string region =  "Your Speech Region";
@@ -251,9 +274,11 @@ string appId = "Your app ID";
 
 var speechToken = $"aad#{resourceId}#{aadToken}";
 var customCommandsConfig = CustomCommandsConfig.FromAuthorizationToken(appId, speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+```cpp
 std::string resourceId = "Your ResourceID";
 std::string aadToken = "Your AAD Token";
 std::string region = "Your Speech Region";
@@ -262,9 +287,11 @@ std::string appId = "Your app Id";
 auto speechToken = "aad#" + resourceId + "#" + aadToken;
 
 auto customCommandsConfig = CustomCommandsConfig::FromAuthorizationToken(appId, speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+```Java
 String resourceId = "Your Resource ID";
 String region = "Your Region";
 String appId = "Your AppId";
@@ -272,28 +299,50 @@ String appId = "Your AppId";
 String speechToken = "aad#" + resourceId + "#" + token;
 
 CustomCommandsConfig dialogServiceConfig = CustomCommandsConfig.fromAuthorizationToken(appId, speechToken, region);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-resourceId = "Your Resource ID"
-region = "Your Region"
-appID = "Your App ID"
-
-speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
-customCommandsConfig = CustomCommandsConfig(auth_token=speechToken, region=region)
+The DialogServiceConnector is not currently supported in Python
 ::: zone-end
 
 ### VoiceProfileClient
+To use the VoiceProfileClient with AAD Authentication the custom domain name created above is used.
+
 ::: zone pivot="programming-language-csharp"
+```C#
+string customDomainName = "Your Custom Name";
+string hostName = $"https://{customDomainName}.cognitiveservices.azure.com/";
+string token = "Your AAD Token";
+
+var config =  SpeechConfig.FromHost(new Uri(hostName));
+var token = AzureSubscription.GetAADToken().Result;
+config.AuthorizationToken = token;
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+```cpp
+std::string customDomainName = "Your Custom Name";
+std::string aadToken = "Your AAD Token";
+
+auto speechConfig = SpeechConfig::FromHost("https://" + customDomainName + ".cognitiveservices.azure.com/");
+speechConfig->SetAuthorizationToken(aadToken);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+```Java
+String aadToken = "Your AAD Token";
+String customDomainName = "Your Custom Name";
+String hostName = "https://" + customDomainName + ".cognitiveservices.azure.com/";
+SpeechConfig speechConfig = SpeechConfig.fromHost(new URI(hostName));
+speechConfig.setAuthorizationToken(aadToken);
+```
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+The VoiceProfileClient is not currently supported in Python.
 ::: zone-end
 
 > [!NOTE]
