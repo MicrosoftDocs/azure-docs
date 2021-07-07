@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 07/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -262,6 +262,29 @@ A successful response would look like:
     "signInNames.emailAddress": "john.s@contoso.com"
 }
 ```
+
+## Provide optional claims to your app
+
+The [Relying party policy technical profile](relyingparty.md#technicalprofile) OutputClaims element is a collection of claims that are returned back to your application. The InputClaims element within the UserInfoIssuer technical profile specifies the claims values. To provide more claims to your app follow these steps:
+
+1. [Add user attributes and customize user input](configure-user-input.md).
+1. Modify the Relying party policy technical profile OutputClaims element to include the claims you want to add.
+1. Modify the UserInfoIssuer technical profile  InputClaims element to include the claims you want to add. Use the `PartnerClaimType` attribute to change the name of the claim return to your app. The following example adds the city claim, and change the name of some of the claims.
+
+    ```xml
+    <TechnicalProfile Id="UserInfoIssuer">
+      ...
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="objectId" />
+        <InputClaim ClaimTypeReferenceId="city" />
+        <InputClaim ClaimTypeReferenceId="givenName" />
+        <InputClaim ClaimTypeReferenceId="surname" PartnerClaimType="familyName" />
+        <InputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+        <InputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+      </InputClaims>
+      ...
+    </TechnicalProfile>
+    ```
 
 ## Next Steps
 
