@@ -153,7 +153,7 @@ $diskpool = Get-AzDiskPool -ResourceGroupName $resourceGroupName -Name $DiskPool
 
 # Add disks to the Disk Pool
 Update-AzDiskPool -ResourceGroupName $resourceGroupName -Name $diskPoolName -DiskId $diskId
-$lun = New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunNames
+$lun = New-AzDiskPoolIscsiLunObject -ManagedDiskAzureResourceId $diskId -Name $lunName
 
 # Create an iSCSI Target and expose the disks as iSCSI LUNs
 New-AzDiskPoolIscsiTarget -DiskPoolName $diskPoolName -Name $iscsiTargetName -ResourceGroupName $resourceGroupName -Lun $lun -AclMode Dynamic
@@ -182,10 +182,6 @@ az extension add -n diskpool
 
 #Select subscription
 az account set --subscription "<yourSubscription>"
-
-#Add disk-pool CLI extension
-az extension add -n diskpool
-#az extension add -s https://zuhdefault.blob.core.windows.net/cliext/diskpool-0.1.1-py3-none-any.whl
 
 ##Initialize input parameters
 resourceGroupName='<yourRGName>'
