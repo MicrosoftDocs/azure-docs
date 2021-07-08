@@ -590,7 +590,7 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements some authentication method outlined in [secure your API Connector](secure-rest-api.md).
-* Your API responds as quickly as possible to ensure a fluid user experience.
+* Your API responds as quickly as possible to ensure a fluid user experience. *The timeout is 10 seconds*. If your API doesn't reply within that timeframe or replies with an invalid response, Azure AD B2C will attempt to call your API two more times.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at lest the [Premium plan](../azure-functions/functions-scale.md)
  
 ### Use logging

@@ -44,6 +44,7 @@ To configure an API Connector with HTTP basic authentication, follow these steps
 3. Select **API connectors**, and then select the **API Connector** you want to configure.
 4. For the **Authentication type**, select **Basic**.
 5. Provide the **Username**, and **Password** of your REST API endpoint.
+    :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Providing basic authentication configuration for an API connector.":::
 6. Select **Save**.
 
 ::: zone-end
@@ -154,6 +155,7 @@ To configure an API Connector with client certificate authentication, follow the
 4. For the **Authentication type**, select **Certificate**.
 5. In the **Upload certificate** box, select your certificate's .pfx file with a private key.
 6. In the **Enter Password** box, type the certificate's password.
+  :::image type="content" source="media/add-api-connector/api-connector-upload-cert.png" alt-text="Providing certificate authentication configuration for an API connector.":::
 7. Select **Save**.
 
 ### Perform authorization decisions 
@@ -164,6 +166,8 @@ Your API must implement the authorization based on sent client certificates in o
 It's recommended you set reminder alerts for when your certificate will expire. You will need to generate a new certificate and repeat the steps above when used certificates are about to expire. To "roll" the use of a new certificate, your API service can continue to accept old and new certificates for a temporary amount of time while the new certificate is deployed. 
 
 To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and whose start date has passed will automatically be used by Azure AD B2C.
+
+  :::image type="content" source="media/add-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
 
 ::: zone-end
 
