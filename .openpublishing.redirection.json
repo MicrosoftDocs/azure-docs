@@ -61619,6 +61619,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity.md",
+      "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity-from-cli.md",
+      "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal-from-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-desktop/teams-on-wvd.md",
       "redirect_url": "/azure/virtual-desktop/teams-on-avd",
       "redirect_document_id": false
