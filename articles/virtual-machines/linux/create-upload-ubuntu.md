@@ -1,12 +1,12 @@
 ---
 title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/06/2020
-ms.author: danis
+ms.date: 07/07/2021
+ms.author: srijangupta
 
 ---
 # Prepare an Ubuntu virtual machine for Azure
@@ -89,7 +89,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 8. Remove cloud-init default configs and leftover netplan artifacts that may conflict with cloud-init provisioning on Azure:
 
     ```console
-    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     # rm -f /etc/cloud/ds-identify.cfg
     # rm -f /etc/netplan/*.yaml
     ```

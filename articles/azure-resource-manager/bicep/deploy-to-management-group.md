@@ -1,5 +1,5 @@
 ---
-title: Use Bicep tp deploy resources to management group
+title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: conceptual
 ms.date: 06/01/2021
