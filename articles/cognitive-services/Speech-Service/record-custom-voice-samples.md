@@ -205,7 +205,7 @@ For high-quality training results, avoiding audio errors is highly recommended. 
 
   For example, below audio contains the environment noise between speeches.
 
-   ![environment noise](media/custom-voice/environment-noise.bmp)
+   ![environment noise](media/custom-voice/environment-noise.png)
 
    Below sample contains noises of DC offset or echo.
 
