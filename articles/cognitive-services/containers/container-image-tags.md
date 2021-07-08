@@ -123,6 +123,10 @@ Container images have the following tags available:
 
 # [Latest version](#tab/current)
 
+Release notes for `v2.1`:
+
+Form Recognizer containers are currently in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu) and receive approval.
+
 | Container | Tags |
 |------------|:------|
 | **Layout**| &bullet; `latest` </br> &bullet; `2.1-preview` </br> &bullet; `2.1.0.016140001-08108749-amd64-preview`|

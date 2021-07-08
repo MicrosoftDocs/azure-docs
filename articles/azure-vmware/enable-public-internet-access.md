@@ -34,7 +34,7 @@ This article details how you can use the public IP functionality in Virtual WAN.
 
 ## Reference architecture
 
-:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Public IP architecture diagram" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
+:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagram showing the public IP architecture for Azure VMware Solution." border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
 The architecture diagram shows a web server hosted in the Azure VMware Solution environment and configured with RFC1918 private IP addresses.  The web service is made available to the internet through Virtual WAN public IP functionality.  Public IP is typically a destination NAT translated in Azure Firewall. With DNAT rules, firewall policy translates public IP address requests to a private address (webserver) with a port.
 

@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/25/2021
 ms.author: rolyon
+ms.custom: subject-rbac-steps
 ---
 
 # Assign a user as an administrator of an Azure subscription
@@ -49,7 +50,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
     ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
-    The Assign a role page opens.
+    The Add role assignment page opens.
 
 ## Step 3: Select the Owner role
 

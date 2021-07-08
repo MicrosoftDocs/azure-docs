@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: Microsoft-BradleyWright
-ms.author: brwigh
+ms.author: brwrigh
 ms.date: 06/22/2021
 ---
 # Publish an integrated solution

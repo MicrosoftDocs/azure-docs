@@ -80,7 +80,7 @@ The following table displays the current Security Center feature availability in
 | - [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction)                                                                                | GA             | Not Available                  |
 | - [Azure Defender for Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                                                  | GA             | Public Preview                 |
 | - [Azure Defender for Storage](/azure/security-center/defender-for-storage-introduction) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
-| - [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                       | Public Preview | Not Available                  |
+| - [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)                                       | Public Preview | Not Available                  |
 | - [Kubernetes workload protection](/azure/security-center/kubernetes-workload-protections)                                                                                  | GA             | GA                             |
 | **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |
 | - [Just-in-time VM access](/azure/security-center/security-center-just-in-time)                                                                                             | GA             | GA                             |
@@ -120,24 +120,25 @@ For more information, see the [Azure Sentinel product documentation](../../senti
 The following tables display the current Azure Sentinel feature availability in Azure and Azure Government.
 
 
-| Feature | Azure | Azure Government |
-|--|--|--|
-| - [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
-| - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) | Public Preview | Public Preview |
+| Feature | Azure | Azure Government  |
+| ----- | ----- | ---- |
+|- [Automation rules](../../sentinel/automate-incident-handling-with-automation-rules.md) | Public Preview | Not Available |
+|- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
+| - [Cross-tenant/Cross-workspace incidents view](../../sentinel/multiple-workspace-view.md) |Public Preview | Public Preview |
 | - [Entity insights](../../sentinel/enable-entity-behavior-analytics.md) | GA | Public Preview |
 | - [Fusion](../../sentinel/fusion.md)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
-| - [Notebooks](../../sentinel/notebooks.md) | GA | GA |
-| - [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
-| - [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
-| **Threat intelligence support** |  |  |
-| - [Threat Intelligence - TAXII data connector](../../sentinel/import-threat-intelligence.md) | Public Preview | Not Available |
-| - [Threat Intelligence Platform data connector](../../sentinel/import-threat-intelligence.md) | Public Preview | Not Available |
-| - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597) | Public Preview | Not Available |
-| - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | GA | Not Available |
-| - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence) | GA | Not Available |
-| **Detection support** |  |  |
-| - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md) | Public Preview | Not Available |
+|- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
+|- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
+|- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
+| **Threat intelligence support** | | |
+| - [Threat Intelligence - TAXII data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |
+| - [Threat Intelligence Platform data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |
+| - [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | Public Preview | Not Available |
+| - [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | Public Preview | Not Available |
+| - [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | Not Available |
+|**Detection support** | | |
+| - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | **Azure service connectors** |  |  |
