@@ -1,13 +1,13 @@
 ---
 title: Micro agent Linux dependencies (Preview)  
-description: 
+description: This article describes the different Linux OS dependencies for the Defender for IoT micro agent. 
 ms.topic: conceptual
 ms.date: 07/08/2021
 ---
 
 # Micro agent Linux dependencies (Preview)
 
-This guide describes the different Defender for IoT micro agent for Linux OS dependencies. 
+This article describes the different Linux OS dependencies for the Defender for IoT micro agent. 
 
 The table below shows the dependencies for each component in it. 
 
