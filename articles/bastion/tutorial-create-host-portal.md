@@ -90,11 +90,11 @@ This section helps you create the bastion object in your VNet. This is required 
      * **Tier:** The tier is the SKU. For this exercise, we selected the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
      * **Instance count:** This is the setting for host scaling. Use the slider to configure the instance count. If you specify the Basic tier SKU, you cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). In this tutorial, you can select the instance count you'd prefer. 
     * **Virtual network**: The virtual network in which the Bastion resource will be created. You can create a new virtual network in the portal during this process, or use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements. If you don't see your virtual network from the dropdown, make sure you have selected the correct Resource Group.
-    * **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. This is the subnet in your virtual network where the Bastion instances will be deployed. 
+    * **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. This is the subnet in which your Bastion instances will be deployed. Select **Manage subnet configuration**. This takes you to the **Subnets** page.
 
-      :::image type="content" source="./media/tutorial-create-host-portal/subnet.png" alt-text="Screenshot of Manage a subnet.":::
+      :::image type="content" source="./media/tutorial-create-host-portal/subnet.png" alt-text="Screenshot of Manage subnet configuration.":::
 
-      Select **Manage subnet configuration**. This takes you to the **Subnets** page. Select **+Subnet** to open the **Add subnet** page. 
+      On the **Subnets** page, select **+Subnet** to open the **Add subnet** page. 
 
       Create a subnet using the following guidelines:
 
