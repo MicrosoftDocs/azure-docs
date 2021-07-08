@@ -87,7 +87,13 @@ This phase includes the following capabilities.
 
 ### Deploy authentication and authorization
 
-Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements) and try [Open  policy agent](https://www.openpolicyagent.org/). Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c).
+- Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). 
+
+- For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements)
+
+- Try [Open  policy agent](https://www.openpolicyagent.org/). 
+
+Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c).
 
 Follow this sample checklist for more guidance:
 
