@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a host using VM settings
+  - name: Configure Bastion using VM settings
     href: quickstart-host-portal.md
 - name: Tutorials
   items:
