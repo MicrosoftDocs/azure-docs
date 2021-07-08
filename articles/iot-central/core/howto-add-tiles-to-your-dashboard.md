@@ -23,9 +23,9 @@ The following screenshot shows the dashboard in an application created from the 
 
 After you select **Edit** or **New**, the dashboard is in *edit* mode. You can use the tools in the **Edit dashboard** panel to add tiles to the dashboard, and customize and remove tiles on the dashboard itself. For example, to add a **Line Chart** tile to track telemetry values over time reported by one or more devices:
 
-1. Select  **Start with a Visual** and then choose **Line chart** and and then click Add tile or just drag and drop it on the canvas.
+1. Select **Start with a Visual**, then choose **Line chart**, and then select **Add tile** or just drag and drop it on to the canvas.
  
-1. Select the gear icon on the tile to configure. Enter **Title** and select a **Device Group** and then choose your devices in the Devices dropdown to show on the tile. You now see the available telemetry from the devices. If needed, you can use the dropdown to select a telemetry value to show on the tile. 
+1. To configure the tile, select its gear icon. Enter a **Title** and select a **Device Group** and then choose your devices in the **Devices** dropdown to show on the tile.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Add a temperature telemetry tile to the dashboard":::
 
@@ -54,12 +54,8 @@ The following table describes the different types of tile you can add to a dashb
 | Image            | Image tiles display a custom image and can be clickable. The URL can be a relative link to another page in the application, or an absolute link to an external site.|
 | Label            | Label tiles display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard such descriptions, contact details, or help.|
 | Count            | Count tiles display the number of devices in a device group.|
-<<<<<<< HEAD
 | Map(telemetry)              | Map tiles display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display sampled route of where a device has been on the past week.|
 | Map(property)              | Map tiles display the location of one or more devices on a map.|
-=======
-| Map              | Map tiles display the [location](howto-use-location-data.md) of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display sampled route of where a device has been on the past week.|
->>>>>>> 4ebf82ee5e2353f47d1f2cbb485c6732cc4986e7
 | KPI              |  KPI tiles display aggregate telemetry values for one or more devices over a time period. For example, you can use it to show the maximum temperature and pressure reached for one or more devices during the last hour.|
 | Line chart       | Line chart tiles plot one or more aggregate telemetry values for one or more devices for a time period. For example, you can display a line chart to plot the average temperature and pressure of one or more devices for the last hour.|
 | Bar chart        | Bar chart tiles plot one or more aggregate telemetry values for one or more devices for a time period. For example, you can display a bar chart to show the average temperature and pressure of one or more devices over the last hour.|
@@ -103,7 +99,8 @@ The following screenshot shows the effect of the conditional formatting rule:
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot showing the red background color on the Average water flow tile. The number on the tile is 50.54":::
 
-### "tile" formatting
+### Tile formatting
+
 This feature, available in KPI, LKV, and Property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Tile Format":::
