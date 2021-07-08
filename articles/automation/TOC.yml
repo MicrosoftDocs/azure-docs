@@ -70,10 +70,10 @@
           items:
             - name: Enable managed identity
               href: enable-managed-identity-for-automation.md
-            - name: Disable system-assigned managed identity
+            - name: Remove system-assigned managed identity
               href: disable-managed-identity-for-automation.md
-            - name: Disable user-assigned managed identity
-              href: disable-user-assigned-identity.md
+            - name: Remove user-assigned managed identity
+              href: remove-user-assigned-identity.md
             - name: Troubleshoot managed identity
               href: troubleshoot/managed-identity.md
         - name: Run As account
