@@ -15,7 +15,7 @@ ms.reviewer: phsignor
 
 # Managing consent to applications and evaluating consent requests
 
-Microsoft [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent for only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
+Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent for only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
 
 After end-user consent is disabled or restricted, there are several important considerations to ensure your organization stays secure while still allowing business critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, while preventing the use of unmanaged accounts in third-party applications.
 
