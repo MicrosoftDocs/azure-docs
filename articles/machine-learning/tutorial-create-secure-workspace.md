@@ -10,7 +10,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 06/21/2021
 ms.topic: how-to
-
+ms.custom: subject-rbac-steps
 ---
 # How to create a secure workspace
 
@@ -329,16 +329,16 @@ Use the following steps create a network security group (NSG) and add rules requ
 Azure Machine Learning studio is a web-based application that lets you easily manage your workspace. However, it needs some extra configuration before it can be used with resources secured inside a VNet. Use the following steps to enable studio:
 
 1. From the Azure portal, select your storage account and then select __Access control (IAM)__.
+1. Select __+ Add__, and then __Add role assignment (Preview)__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-access-control.png" alt-text="screenshot of access control entry":::
+    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
 
-1. Select __+ Add__, and then __Add role assignment__.
+1. On the __Role__ tab, select the __Storage Blob Data Contributor__.
 
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-role.png" alt-text="Screenshot of + Add menu.":::
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-1. From the Add role assignment dialog, set the __Role__ to __Storage Blob Data Contributor__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
-
-    :::image type="content" source="./media/tutorial-create-secure-workspace/storage-add-blob-data-contributor.png" alt-text="Screenshot of adding storage blob data Contributor role":::
+1. On the __Members__ tab, select the managed identity with the same name as your Azure Machine Learning workspace.
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 1. When using an Azure Storage Account that has a private endpoint, add the workspace-managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
 
@@ -350,13 +350,17 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
     
         :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-selected.png" alt-text="Screenshot of endpoints to select":::
 
-    1. Select __Access control (IAM)__ from the left side. Select __+ Add__, and then __Add role assignment__.
-    
-        :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-add-role.png" alt-text="Screenshot of adding role":::
+    1. Select __Access control (IAM)__ from the left side.
+    1. Select __+ Add__, and then __Add role assignment (Preview)__.
 
-    1. From the Add role assignment dialog, set the __Role__ to __Reader__ and then type the name of your Azure Machine Learning workspace in the __Select__ field. Select the item that appears and then select __Save__.
-    
-        :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-add-workspace.png" alt-text="Screenshot of adding reader role":::
+        ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+    1. On the __Role__ tab, select the __Reader__.
+
+        ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+    1. On the __Members__ tab, select the managed identity with the same name as your Azure Machine Learning workspace.
+    1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Connect to the workspace
 

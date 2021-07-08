@@ -174,8 +174,8 @@ Azure Sentinel has many built-in resources to help in your investigation, such a
 
 For more information, see:
 
-- [Visualize and analyze your environment](/azure/sentinel/quickstart-get-visibility.md)
-- [Detect threats out of the box](/azure/sentinel/tutorial-detect-threats-built-in.md).
+- [Visualize and analyze your environment](/azure/sentinel/quickstart-get-visibility)
+- [Detect threats out of the box](/azure/sentinel/tutorial-detect-threats-built-in).
 
 ### Monitoring with Microsoft 365 Defender
 
@@ -186,7 +186,7 @@ Check for other examples of detections, hunting queries, and threat analytics re
 For more information, see:
 
 - [Track and respond to emerging threats with threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics)
-- [Understand the analyst report in threat analytics](/windows/security/threat-protection/microsoft-defender-atp/threat-analytics-analyst-reports)
+- [Understand the analyst report in threat analytics](/microsoft-365/security/defender/threat-analytics-analyst-reports)
 
 ### Monitoring with Azure Active Directory
 

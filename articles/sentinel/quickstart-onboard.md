@@ -42,13 +42,20 @@ After you connect your data sources, choose from a gallery of expertly created w
 
     | Workspace geography/region | Azure Sentinel-generated data geography/region |
     | --- | --- |
-    | United States<br>India<br>Brazil<br>Africa<br>Korea<br>United Arab Emirates | United States |
-    | Europe<br>France<br>Switzerland | Europe |
+    | United States<br>India<br>Africa | United States |
+    | Europe<br>France | Europe |
     | Australia | Australia |
     | United Kingdom | United Kingdom |
     | Canada | Canada |
     | Japan | Japan |
     | Southeast Asia (Singapore) | Southeast Asia (Singapore)* |
+    | Brazil | Brazil |
+    | Norway | Norway |
+    | South Africa | South Africa |
+    | Korea | Korea |
+    | Germany | Germany |
+    | United Arab Emirates | United Arab Emirates |
+    | Switzerland | Switzerland |
     |
     
     \* There is no paired region for Southeast Asia.

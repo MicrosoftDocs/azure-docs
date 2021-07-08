@@ -1,5 +1,5 @@
 ---
-title: Azure role-based authorization
+title: Role-based authorization
 titleSuffix: Azure Cognitive Search
 description: Azure role-based access control (Azure RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
 
@@ -13,16 +13,16 @@ ms.date: 06/21/2021
 
 # Use Azure role-based authentication in Azure Cognitive Search
 
-Azure provides a [global role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. In Azure Cognitive Search, you can use RBAC in two scenarios:
+Azure provides a [global role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. In Azure Cognitive Search, you can use role authorization in two scenarios:
 
-+ Portal admin operations. Role membership determines the level of *service administration* rights.
++ Service administration using any client that calls [Azure Resource Manager](../azure-resource-manager/management/overview.md) to create or modify an Azure service. Whether you're using Azure portal, the Management REST API, an Azure SDK, Azure PowerShell, or Azure CLI, your ability to perform service management tasks depends on your Azure role assignment. 
 
-+ Outbound indexer access to external Azure data sources, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md). For a search service that runs under a managed identity, you can assign roles on external data services, such as Azure Blob Storage, to allow read operations from the trusted search service.
++ Outbound indexer access to external Azure data sources also use role authorization, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md) to run the search service under. For a search service that runs under a managed identity, you can assign roles on external data services, such as Azure Blob Storage, to allow read operations from the trusted search service.
 
-RBAC scenarios that are **not** supported include:
+A few RBAC scenarios are **not** supported, and these include:
 
 + [Custom roles](../role-based-access-control/custom-roles.md)
-+ Inbound requests to the search service (use [key-based authentication](search-security-api-keys.md) instead)
++ Inbound requests to the search service (use [API keys](search-security-api-keys.md) instead)
 + User-identity access over search results (sometimes referred to as row-level security or document-level security.)
 
   > [!Tip]
@@ -31,7 +31,7 @@ RBAC scenarios that are **not** supported include:
 
 ## Azure roles used in Search
 
-Azure roles include Owner, Contributor, and Reader roles, where role membership consists of Azure Active Directory users and groups. In Azure Cognitive Search, roles are associated with permission levels that support the following management tasks:
+Azure roles include Owner, Contributor, and Reader roles, whose assigned members consist of Azure AD users and groups. In Azure Cognitive Search, roles are associated with permission levels that support the following management tasks:
 
 | Role | Task |
 | --- | --- |

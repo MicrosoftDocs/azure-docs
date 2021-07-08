@@ -295,7 +295,7 @@ Perform the following steps to create the Azure Automation custom role in the Az
    }
    ```
 
-1. Complete the remaining steps as outlined in [Create or update Azure custom roles using the Azure portal](./../role-based-access-control/custom-roles-portal.md#start-from-json). For [Step 3:Basics](/role-based-access-control/custom-roles-portal.md#step-3-basics), note the following:
+1. Complete the remaining steps as outlined in [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md#start-from-json). For [Step 3:Basics](../role-based-access-control/custom-roles-portal.md#step-3-basics), note the following:
 
     -  In the **Custom role name** field, enter **Automation account Contributor (custom)** or a name matching your naming standards.
     - For **Baseline permissions**, select **Start from JSON**. Then select the custom JSON file you saved earlier.

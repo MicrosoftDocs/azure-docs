@@ -12,7 +12,7 @@ ms.author: allensu
 ---
 # What is Azure Private Endpoint?
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, Azure Cosmos DB, SQL, etc. or your own [Private Link Service](private-link-service-overview.md).
+Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, Azure Cosmos DB, Azure SQL Database, or your own [Private Link Service](private-link-service-overview.md).
   
 ## Private Endpoint properties 
  A Private Endpoint specifies the following properties: 
