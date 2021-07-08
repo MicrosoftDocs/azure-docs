@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop Azure Monitor?
 description: New features and product updates for the Azure Virtual Desktop agent.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/08/2021
+ms.date: 07/09/2021
 ms.author: helohr
 manager: femila
 ms.custom: references_regions
