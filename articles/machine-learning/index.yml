@@ -43,42 +43,28 @@ highlightedContent:
       itemType: get-started
       url: tutorial-1st-experiment-hello-world.md 
     # Card
-    - title: "What's new? (TBD content)"
+    - title: "Responsible machine learning"
       itemType: concept
-      url: azure-machine-learning-release-notes.md      
+      url: concept-responsible-ml.md      
 
 conceptualContent:
 # Supports up to 3 sections
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
-  items:
-    # Card
-    - title: Data sources & wrangling
-      links:
-        - url: how-to-data-prep-synapse-spark-pool.md
-          itemType: how-to-guide
-          text: Data preparation with Spark
-        - url: how-to-access-data.md
-          itemType: how-to-guide
-          text: Connect to data sources
-        - url: how-to-cicd-data-ingestion.md
-          itemType: how-to-guide
-          text: DevOps for data ingestion
-
     # Card
     - title: Train models
       links:
-        - url: tutorial-designer-automobile-price-train-score.md
-          itemType: tutorial
-          text: 'Drag & drop: Train a regression model'
-        - url: tutorial-first-experiment-automated-ml.md
-          itemType: tutorial
-          text: 'AutoML: Train a classification model'
+        - url: how-to-train-cli.md
+          itemType: how-to-guide
+          text: Run training code in the cloud (v2 CLI preview)
         - url: how-to-tune-hyperparameters.md
           itemType: how-to-guide
           text: Tune hyperparameters for model training
         - url: how-to-create-machine-learning-pipelines.md
           itemType: how-to-guide
-          text: Create & run pipelines
+          text: Build pipelines from reuseable components
+        - url: tutorial-first-experiment-automated-ml.md
+          itemType: tutorial
+          text: 'AutoML: Train a classification model'
 
     # Card
     - title: Deploy models
@@ -125,3 +111,16 @@ conceptualContent:
         - url: /cli/azure/ml/
           itemType: reference
           text: V2 CLI (preview)
+            items:
+    # Card
+    - title: Resources
+      links:
+        - url: how-to-data-prep-synapse-spark-pool.md
+          itemType: how-to-guide
+          text: Data preparation with Spark
+        - url: how-to-access-data.md
+          itemType: how-to-guide
+          text: Connect to data sources
+        - url: how-to-cicd-data-ingestion.md
+          itemType: how-to-guide
+          text: DevOps for data ingestion
