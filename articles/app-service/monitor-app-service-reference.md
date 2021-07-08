@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 # Monitoring App Service data reference
 
-See [Monitoring App Service](monitor-app-service.md) for details on collecting and analyzing monitoring data for App Service.
+This reference applies to the use of Azure Monitor for monitoring App Service. See [Monitoring App Service](monitor-app-service.md) for details on collecting and analyzing monitoring data for App Service.
 
 ## Metrics
 
