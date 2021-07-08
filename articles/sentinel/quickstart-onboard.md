@@ -56,6 +56,7 @@ After you connect your data sources, choose from a gallery of expertly created w
     | Germany | Germany |
     | United Arab Emirates | United Arab Emirates |
     | Switzerland | Switzerland |
+    |
     
     \* There is no paired region for Southeast Asia.
 
