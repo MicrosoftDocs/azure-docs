@@ -4,7 +4,7 @@ description: How to use Azure Key Vault with Azure HPC Cache to control encrypti
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 07/08/2021
 ms.author: v-erkel
 ---
 
@@ -20,10 +20,12 @@ Azure HPC Cache also is protected by [VM host encryption](../virtual-machines/di
 There are three steps to enable customer-managed key encryption for Azure HPC Cache:
 
 1. Set up an Azure Key Vault to store the keys.
-1. When creating the Azure HPC Cache, choose customer-managed key encryption and specify the key vault and key to use.
-1. After the cache is created, authorize it to access the key vault.
+1. When creating the Azure HPC Cache, choose customer-managed key encryption and specify the key vault and key to use. Optionally, supply a user-assigned managed identity to the cache instance so that you can skip step 3.
+1. **If using a system-assigned managed identity:** Go to the newly created cache and authorize it to access the key vault.
 
-Encryption is not completely set up until after you authorize it from the newly created cache (step 3). This is because you must pass the cache's identity to the key vault to make it an authorized user. You can't do this before creating the cache, because the identity does not exist until the cache is created.
+   Encryption is not completely set up until after you authorize it from the newly created cache (step 3). This is because you must pass the cache's identity to the key vault to make it an authorized user. You can't do this before creating the cache, because the identity does not exist until the cache is created.
+
+   If you supply a [user-assigned managed identity](#2-create-the-cache-with-customer-managed-keys-enabled) when setting up the cache, this step is unnecessary.
 
 After you create the cache, you can't change between customer-managed keys and Microsoft-managed keys. However, if your cache uses customer-managed keys you can [change](#update-key-settings) the encryption key, the key version, and the key vault as needed.
 
@@ -93,7 +95,10 @@ These settings are optional:
 
 * Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
 
-* If you need to use a specific managed identity for this cache, select **User assigned** in the **Managed identities** section and select the identity to use. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
+* If you want to use a specific managed identity for this cache, select **User assigned** in the **Managed identities** section and select the identity to use. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
+
+  > [!TIP]
+  > A user-assigned managed identity simplifies cache creation. With a system-assigned managed identity, you must take an extra step after the cache is created in order to authorize the cache's newly assigned identity to use your key vault.
 
   > [!NOTE]
   > You cannot change the assigned identity after you create the cache.
@@ -103,12 +108,15 @@ Continue with the rest of the specifications and create the cache as described i
 ## 3. Authorize Azure Key Vault encryption from the cache
 <!-- header is linked from create article, update if changed -->
 
+> [!NOTE]
+> This step is not required if you supply a user-assigned managed identity when you create the cache.
+
 After a few minutes, the new Azure HPC Cache appears in your Azure portal. Go to the **Overview** page to authorize it to access your Azure Key Vault and enable customer-managed key encryption.
 
 > [!TIP]
 > The cache might appear in the resources list before the "deployment underway" messages clear. Check your resources list after a minute or two instead of waiting for a success notification.
 
-This two-step process is necessary because the Azure HPC Cache instance needs an identity to pass to the Azure Key Vault for authorization. The cache identity doesn't exist until after its initial creation steps are complete.
+This two-step process is necessary because the Azure HPC Cache instance needs an identity to pass to the Azure Key Vault for authorization. The cache identity doesn't exist until after its initial creation steps are complete. If you provided a user-assigned managed identity when you created the cache, there's no authorization step afterward.
 
 > [!NOTE]
 > You must authorize encryption within 90 minutes after creating the cache. If you don't complete this step, the cache will time out and fail. A failed cache has to be re-created, it can't be fixed.
