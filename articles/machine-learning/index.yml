@@ -80,7 +80,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Batch scoring with managed endpoints (preview)
     # Card
-    - title: Manage the ML lifecycle
+    - title: Manage the ML lifecycle (MLOps)
       links:
         - url: how-to-track-monitor-analyze-runs.md
           itemType: how-to-guide
