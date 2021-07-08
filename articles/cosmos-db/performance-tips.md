@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 07/08/2021
 ms.author: sngun
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
