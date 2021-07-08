@@ -19,7 +19,9 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory B2C is a scalable identity and access management solution. Its high flexibility to meet your business expectations and smooth integration with existing infrastructure enables further digitalization.
 
-To understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment. 
+To understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment.
+
+This guidance is intended for Microsoft Customers and Partners looking to enable further Digitalisation and Security for their Consumers Experience.
 
 | Capability | Description |
 |:-----|:------|
@@ -54,7 +56,7 @@ assessment of your organization's status and expectations.
 
 - Decide the protocols you want to use
 
-  - If you are currently using Kerberos, NTLM, and WS-Fed, [migrate and refactor your applications](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE). Once migrated, your applications can support modern identity protocols such as OAuth 2.0 and OpenID Connect (OIDC) to enable further identity protection and security.
+  - If you are currently using Kerberos, NTLM, and WS-Fed, [migrate and refactor your applications](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE). Once migrated, your applications can support modern identity protocols such as OAuth 2.0 and OpenID Connect (OIDC) to enable further identity protection and security. 
 
 ### Stakeholders
 
@@ -76,8 +78,6 @@ Communication is critical to the success of any new service. Proactively communi
 Define clear expectations and follow up plans to meet key milestones:
 
 - Expected pilot date
-
-- Quality and Assurance(QA) Testing (i.e. Performance, A/B, Availability)
 
 - Expected launch date
 
@@ -123,29 +123,28 @@ All Azure AD B2C projects start with one or more client applications, which may 
 
 Consider this sample checklist as you **deploy your applications**:
 
-- [ ] Check the number of applications that are in scope for the CIAM deployment.
+- Check the number of applications that are in scope for the CIAM deployment.
 
-- [ ] Check the type of applications that are in use. For example, traditional web applications, APIs, Single page apps (SPA), or Native mobile applications.
+- Check the type of applications that are in use. For example, traditional web applications, APIs, Single page apps (SPA), or Native mobile applications.
 
-- [ ] Check the kind of authentication that is in place. For example, forms based, federated with SAML, or federated with OIDC.
+- Check the kind of authentication that is in place. For example, forms based, federated with SAML, or federated with OIDC.
+  - If OIDC, check the response type - code or id_token.
 
-> - [ ] If OIDC, check the response type - code or id_token.
+- Check if all the frontend and backend applications are hosted in on-premises, cloud, or hybrid-cloud.
 
-- [ ] Check if all the frontend and backend applications are hosted in on-premises, cloud, or hybrid-cloud.
+- Check the platforms/languages used such as, [ASP.NET](https://docs.microsoft.com/azure/active-directory-b2c/quickstart-web-app-dotnet), Java, and Node.js.
 
-- [ ] Check the platforms/languages used such as, [ASP.NET](https://docs.microsoft.com/azure/active-directory-b2c/quickstart-web-app-dotnet), Java, and Node.js.
-
-- [ ] Check where the current user attributes are stored. It could be Lightweight Directory Access Protocol (LDAP) or databases.
+- Check where the current user attributes are stored. It could be Lightweight Directory Access Protocol (LDAP) or databases.
 
 Consider this sample checklist as you **deploy user identities**:
 
-- [ ] Check the number of users accessing the applications.
+- Check the number of users accessing the applications.
 
-- [ ] Check the type of IdPs that are needed. For example, Facebook, local account, and [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services).
+- Check the type of IdPs that are needed. For example, Facebook, local account, and [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services).
 
-- [ ] Outline the claim schema that is required from your application, [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/claimsschema), and your IdPs if applicable.
+- Outline the claim schema that is required from your application, [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/claimsschema), and your IdPs if applicable.
 
-- [ ] Outline the information that is required to capture during a [sign-in/sign-up flow](https://docs.microsoft.com/azure/active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-user-flow).
+- Outline the information that is required to capture during a [sign-in/sign-up flow](https://docs.microsoft.com/azure/active-directory-b2c/add-sign-up-and-sign-in-policy?pivots=b2c-user-flow).
 
 ### Client application onboarding and deliverables
 
@@ -176,13 +175,15 @@ Consider this sample checklist while you **deliver**.
 
 Consider this sample checklist to enhance the security of your application depending on your business needs:
 
-- [ ] Check if strong authentication method such as [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) is required. For users who trigger high value transactions or other risk events it is suggested to use MFA. For example, for banking and finance applications, online shops - first checkout process.
+- Check if strong authentication method such as [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) is required. For users who trigger high value transactions or other risk events it is suggested to use MFA. For example, for banking and finance applications, online shops - first checkout process.
 
-- [ ] Check if MFA is required, [check the methods available to do MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods#:~:text=How%20each%20authentication%20method%20works%20%20%20,%20%20MFA%20%204%20more%20rows%20) such as  SMS/Phone, email, and third-party services.
+- Check if MFA is required, [check the methods available to do MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods#:~:text=How%20each%20authentication%20method%20works%20%20%20,%20%20MFA%20%204%20more%20rows%20) such as  SMS/Phone, email, and third-party services.
 
-- [ ] Check if any anti-bot mechanism is in use today with your applications.  
+- Check if any anti-bot mechanism is in use today with your applications.
 
-- [ ] Check for any special conditional postures that need to be applied as part of sign-in or sign-up for accounts with your application.
+- Assess the risk of attempts to create fraudulent accounts and log-ins. [Microsoft DFP assessment](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-dynamics-365-fraud-protection) can be used to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.  
+
+- Check for any special conditional postures that need to be applied as part of sign-in or sign-up for accounts with your application.
 
 >[!NOTE]
 >You can use [Conditional Access rules](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to adjust the difference between user experience and security based on your business goals.
@@ -202,6 +203,8 @@ To address basic compliance requirements, consider:
 ### User experience
 
 Consider the sample checklist to define the user experience (UX) requirements:
+
+- Identify the required integrations to [extend CIAM capabilities and build seamless end-user experiences](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-gallery).
 
 - Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
 
