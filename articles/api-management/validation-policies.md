@@ -36,7 +36,7 @@ Available actions:
 | Action         | Description          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | ignore | Skip validation. |
-| prevent | Block the request or response processing, log the verbose validation error, and return an error. The response includes status code 400 for validation errors in requests, status code 502 for validation errors in responses. Processing is interrupted when the first set of errors is detected. |
+| prevent | Block the request or response processing, log the verbose validation error, and return an error. The response includes HTTP status code 400 for validation errors in requests, status code 502 for validation errors in responses. Processing is interrupted when the first set of errors is detected. |
 | detect | Log validation errors, without interrupting request or response processing. |
 
 ## Logs
