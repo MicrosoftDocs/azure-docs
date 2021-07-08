@@ -56,8 +56,8 @@ Use the `on()` method to subscribe to objects' events, and use the `off()` metho
 
 #### Collections
 - You must inspect their initial values, and subscribe to the `'<collection>Updated'` event for future value updates.
-- The `'<collection>Updated'` event's payload, has an `added` array which contains values that were added to the collection.
-- The `'<collection>Updated'` event's payload also has a `removed` array which contains values that were removed from the collection.
+- The `'<collection>Updated'` event's payload, has an `added` array that contains values that were added to the collection.
+- The `'<collection>Updated'` event's payload also has a `removed` array that contains values that were removed from the collection.
 
 ```js
 /*************************************
@@ -337,7 +337,7 @@ callAgent.on('callsUpdated', e => {
 
 Create a new `CallClient` instance. You can configure it with custom options like a Logger instance.
 
-When you have a `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This asynchronously returns a `CallAgent` instance object.
+When you have a `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This method asynchronously returns a `CallAgent` instance object.
 
 The `createCallAgent` method uses `CommunicationTokenCredential` as an argument. It accepts a [user access token](../../../access-tokens.md).
 
@@ -736,7 +736,7 @@ const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId
 
 ### Remove a participant from a call
 
-To remove a participant (either a user or a phone number) from a call, you can invoke `removeParticipant`. You have to pass one of the `Identifier` types. This resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
+To remove a participant (either a user or a phone number) from a call, you can invoke `removeParticipant`. You have to pass one of the `Identifier` types. This method resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
 
 ```js
 const userIdentifier = { communicationUserId: '<ACS_USER_ID>' };
