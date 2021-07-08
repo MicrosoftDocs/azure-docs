@@ -38,7 +38,7 @@ After the Azure Spring Cloud Data Reader role is assigned, customers can access 
 >[!NOTE]
 > If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
-3. Access the composed endpoint with the access token. Put the access token in a header to provide authorization.  Only the "GET" method is supported.
+3. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}`.  Only the "GET" method is supported.
 
     For example, access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health'* to see the health status of eureka.
 
