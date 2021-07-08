@@ -47,7 +47,7 @@ Similar to the steps in the quickstart that you completed in the prerequisites, 
 Edit the *operations.json* file:
 
 * Change the link to the graph topology:
-   `"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/ai-composition/topology.json"`
+   `"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/ai-composition/topology.json"`
 * Under `GraphInstanceSet`, edit the name of the graph topology to match the value in the preceding link:
    `"topologyName" : "AIComposition"`
 * Under `GraphTopologyDelete`, edit the name:
