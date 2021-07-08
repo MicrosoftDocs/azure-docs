@@ -6,7 +6,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 07/07/2021
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts and how to set up and use an IoT Hub.
 ---
 
@@ -82,9 +82,14 @@ IoT Hub implements commands by allowing you to invoke direct methods on devices 
 
 ## View and act on data collected from your devices
 
+*TEJAS* *Showcase how IoT Hub helps integrate data from devices into powerful Azure services that can be leveraged for post-processing and generating business insights.*
+
 ### Built-in endpoint collects data from your device by default
 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of seven days, and can be used to take actions on a device. 
+
+*TEJAS Might become important as built-in endpoint is not taking any action to collect the data. Also, if a route is created, data stops flowing to the built-in endpoint by default. Link to *Understand Azure Iot Hub message routing*
+https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c#:~:text=Use%20IoT%20Hub%20message%20routing%20to%20send%20device-to-cloud,at%20least%20once%20delivery.%20...%20More%20items...%20 
 
 For more information about IoT Hub endpoints, see [IoT Hub Dev Guide Endpoints](
 iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
