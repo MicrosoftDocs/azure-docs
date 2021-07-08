@@ -830,7 +830,8 @@
         "articles/healthcare-apis/index.yml": "healthcareapi-1.0.0",
         "articles/healthcare-apis/fhir/**": "healthcareapi-1.0.0",
         "articles/healthcare-apis/dicom/**": "healthcareapi-1.0.0",
-        "articles/healthcare-apis/data-transformation/**": "healthcareapi-1.0.0"
+        "articles/healthcare-apis/data-transformation/**": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/azure-api-for-fhir/**": "azureapiforfhir"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
