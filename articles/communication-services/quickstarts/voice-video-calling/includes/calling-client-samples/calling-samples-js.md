@@ -1129,7 +1129,7 @@ subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: Re
 ### Call diagnostics
 Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 ```js
-const callQualityApi = call.api(Features.CallQuality);
+const callQualityApi = call.api(Features.Diagnostics);
 ```
 The following users facing diagnostics are available:
 
