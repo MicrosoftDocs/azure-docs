@@ -24,7 +24,7 @@ landingContent:
           - text: What is Microsoft Genomics?
             url: overview-what-is-genomics.md
           - text: Common questions
-            url: frequently-asked-questions-genomics.md
+            url: frequently-asked-questions-genomics.yml
       - linkListType: quickstart
         links:
           - text: Run a sample workflow
