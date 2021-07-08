@@ -1,7 +1,7 @@
 ---
-title: Migrating confidential client applications to MSAL.NET
+title: Migrate confidential client applications to MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Learn how to migrate a confidential client application from Azure AD Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn how to migrate a confidential client application from Azure AD Authentication Library for .NET to Microsoft Authentication Library for .NET.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -14,47 +14,40 @@ ms.date: 06/08/2021
 ms.author: jmprieur
 ms.reviewer: saeeda, shermanouko
 ms.custom: "devx-track-csharp, aaddev"
-#Customer intent: As an application developer, I want to migrate my confidential client app from ADAL.NET to  MSAL.NET.
+#Customer intent: As an application developer, I want to migrate my confidential client app from ADAL.NET to MSAL.NET.
 ---
 
-# How to migrate confidential client applications from ADAL.NET to MSAL.NET
+# Migrate confidential client applications from ADAL.NET to MSAL.NET
 
-Confidential client applications are web apps, web APIs, and daemon applications (calling another service on their own behalf). For details see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md). If your app is based on ASP.NET Core, use [Microsoft.Identity.Web](microsoft-identity-web.md)
+This article describes how to migrate a confidential client application from Azure AD Authentication Library for .NET (ADAL.NET) to Microsoft Authentication Library for .NET (MSAL.NET). Confidential client applications are web apps, web APIs, and daemon applications that call another service on their own behalf. For more information about confidential applications, see [Authentication flows and application scenarios](authentication-flows-app-scenarios.md). If your app is based on ASP.NET Core, use [Microsoft.Identity.Web](microsoft-identity-web.md).
 
-The migration process consists of three steps:
-
-1. Inventory - identify the code in your apps that uses ADAL.NET.
-2. Install the MSAL.NET NuGet package.
-3. Update the code depending on your scenario.
-
-For app registrations, if your application isn't dual stacked (AAD and MSA being two apps):
+For app registrations, if your application isn't dual stacked (Azure AD and MSA being two apps):
 
 - You don't need to create a new app registration (you keep the same ClientID)
 - You don't need to change the pre-authorizations.
 
-## Step 1 - Find the code using ADAL.NET in your app
+## Migration steps
 
-The code using ADAL in confidential client application instantiates an `AuthenticationContext` and calls either `AcquireTokenByAuthorizationCode` or one override of `AcquireTokenAsync` with the following parameters:
+1. Find the code by using ADAL.NET in your app.
 
-- A `resourceId` string. This variable is the **App ID URI** of the web API that you want to call.
-- An instance of `IClientAssertionCertificate` or `ClientAssertion` instance. This instance provides the client credentials for your app (proving the identity of your app).
+   The code using ADAL in confidential client application instantiates an `AuthenticationContext` and calls either `AcquireTokenByAuthorizationCode` or one override of `AcquireTokenAsync` with the following parameters:
 
-## Step 2 - Install the MSAL.NET NuGet package
+   - A `resourceId` string. This variable is the **App ID URI** of the web API that you want to call.
+   - An instance of `IClientAssertionCertificate` or `ClientAssertion` instance. This instance provides the client credentials for your app (proving the identity of your app).
 
-Once you've identified that you have apps that are using ADAL.NET, install the MSAL.NET NuGet package: [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) and update your project library references.
-For more information on how to install a NuGet package, see [install a NuGet package](https://www.bing.com/search?q=install+nuget+package).
+1. After you've identified that you have apps that are using ADAL.NET, install the MSAL.NET NuGet package: [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) and update your project library references.
 
-## Step 3 - Update the code
+   For more information on how to install a NuGet package, see [install a NuGet package](https://www.bing.com/search?q=install+nuget+package).
 
-Updating code depends on the confidential client scenario. Some steps are common and apply across all the confidential client scenarios. There are also steps that are unique to each scenario. 
+1. Update the code according to the confidential client scenario. Some steps are common and apply across all the confidential client scenarios. There are also steps that are unique to each scenario. 
 
-The confidential client scenarios are as listed below:
+   The confidential client scenarios are:
 
-- [Daemon scenarios](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs, and daemon console applications.
-- [Web api calling downstream web apis](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
-- [Web app calling web apis](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign in users and call a downstream web API.
+   - [Daemon scenarios](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs, and daemon console applications.
+   - [Web api calling downstream web apis](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
+   - [Web app calling web apis](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign in users and call a downstream web API.
 
-You may have provided a wrapper around ADAL.NET to handle certificates and caching. This article uses the same approach to illustrate the migration from ADAL.NET to MSAL.NET process. However, this code is only for demonstration purposes. Don't copy/paste these wrappers or integrate them in your code as they are.
+You might have provided a wrapper around ADAL.NET to handle certificates and caching. This article uses the same approach to illustrate the process of migrating from ADAL.NET to MSAL.NET. However, this code is only for demonstration purposes. Don't copy/paste these wrappers or integrate them in your code as they are.
 
 ## [Daemon](#tab/daemon)
 
