@@ -1,6 +1,6 @@
 ---
 title: Attach disk pools to Azure VMware Solution hosts (Preview)
-description: Learn how to attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud.
+description: Learn how to attach a disk pool surfaced through an iSCSI target as the VMware datastore of an Azure VMware Solution private cloud. Once the datastore is configured, you can create volumes on it and attach them to your VMware instance.
 ms.topic: how-to 
 ms.date: 07/13/2021
 
