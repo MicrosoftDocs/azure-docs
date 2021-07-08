@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Using a user-assigned managed identity for an Azure Automation account (preview)
 
-This topic shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
+This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
 
 > [!NOTE]
 > User-assigned managed identities are supported for cloud jobs only.  
@@ -18,9 +18,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account.md).
 
-- A system-assigned managed identity. For instructions, see [Using a system-assigned managed identity for an Azure Automation account (preview)](enable-managed-identity-for-automation).
+- A system-assigned managed identity. For instructions, see [Using a system-assigned managed identity for an Azure Automation account (preview)](enable-managed-identity-for-automation.md).
 
 - A user-assigned managed identity. For instructions, see [Create a user-assigned managed identity](/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal#create-a-user-assigned-managed-identity).
 
@@ -51,7 +51,7 @@ Perform the following steps:
 
 1. Select the **User assigned** tab, and the select **Add**.
 
-1. Select your existing user-assigned managed identity and then select **Add**. You will then be returned to the **User assigned** tab.
+1. Select your existing user-assigned managed identity and then select **Add**. You'll then be returned to the **User assigned** tab.
 
 ### Add using the REST API
 
@@ -237,7 +237,7 @@ Perform the following steps.
         -TemplateFile $templateFile
     ```
 
-   The command will not produce an output; however, you can use the code below to verify:
+   The command won't produce an output; however, you can use the code below to verify:
 
     ```powershell
     (Get-AzAutomationAccount `
@@ -249,7 +249,7 @@ Perform the following steps.
 
 ## Give identity access to Azure resources by obtaining a token
 
-An Automation account can use its user-assigned managed identity to obtain tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens do not represent any specific user of the application. Instead, they represent the application that is accessing the resource. In this case, for example, the token represents an Automation account.
+An Automation account can use its user-assigned managed identity to obtain tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that is accessing the resource. In this case, for example, the token represents an Automation account.
 
 Before you can use your user-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 

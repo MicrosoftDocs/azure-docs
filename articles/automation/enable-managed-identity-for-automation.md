@@ -10,13 +10,13 @@ ms.custom: devx-track-azurepowershell
 
 # Using a system-assigned managed identity for an Azure Automation account (preview)
 
-This topic shows you how to add a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
+This article shows you how to add a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account.md).
 
 - The system-assigned managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
 
@@ -93,7 +93,7 @@ Request body
 
 ## Give access to Azure resources by obtaining a token
 
-An Automation account can use its system-assigned managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens do not represent any specific user of the application. Instead, they represent the application that's accessing the resource. In this case, for example, the token represents an Automation account.
+An Automation account can use its system-assigned managed identity to get tokens to access other resources protected by Azure AD, such as Azure Key Vault. These tokens don't represent any specific user of the application. Instead, they represent the application that's accessing the resource. In this case, for example, the token represents an Automation account.
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
@@ -148,8 +148,6 @@ Write-Output $accessToken.access_token
 
 ### Using system-assigned managed identity in Azure PowerShell
 
-Make sure you've enabled an identity before you try this script. See [Enable system-assigned identity](#enable-system-assigned-identity).
-
 For more information, see [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret).
 
 ```powershell
@@ -170,8 +168,6 @@ try {
 
 ### Using system-assigned managed identity in Python Runbook
 
-Make sure you've enabled an identity before you try this runbook. See [Enable system-assigned identity](#enable-system-assigned-identity).
-
 ```python
 #!/usr/bin/env python3 
 import os 
@@ -189,8 +185,6 @@ print(response.text)
 ```
 
 ### Using system-assigned managed identity to Access SQL Database
-
-Make sure you've enabled an identity before you try this script. See [Enable system-assigned identity](#enable-system-assigned-identity).
 
 For details on provisioning access to an Azure SQL database, see [Provision Azure AD admin (SQL Database)](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database).
 
