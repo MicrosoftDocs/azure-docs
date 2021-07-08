@@ -10,6 +10,14 @@ ms.date: 07/16/2021
 
 # Configure a DNS forwarder in the Azure portal
 
+# [H1 heading here]
+
+<!-- 2. Introductory paragraph 
+Required. Lead with a light intro that describes, in customer-friendly language, 
+what the customer will learn, or do, or accomplish. Answer the fundamental “why 
+would I want to do this?” question. Keep it short.
+-->
+
 you'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
 
 When a DNS query is received, a DNS forwarder compares the domain name with the domain names in the FQDN DNS zone. The query gets forwarded to the DNS servers specified in the FQDN DNS zone if a match is found.  Otherwise, the query gets forwarded to the DNS servers specified in the default DNS zone. 
@@ -19,6 +27,9 @@ When a DNS query is received, a DNS forwarder compares the domain name with the 
 
 >[!TIP]
 >You can also use the [NSX-T Manager console to configure a DNS forwarder](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.5/administration/GUID-A0172881-BB25-4992-A499-14F9BE3BE7F2.html).
+
+## Prerequisites
+Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment.
 
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > **Add**.

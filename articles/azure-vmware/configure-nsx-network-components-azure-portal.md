@@ -28,13 +28,18 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 >You can still use NSX-T Manager for the advanced settings mentioned and other NSX-T features. 
 
 ## Prerequisites
-Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment. 
+Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment. [doesn't belong to the network segments topic]
 
 ## Create an NSX-T segment in the Azure portal
 
 [!INCLUDE [create-nsxt-segment-azure-portal-steps](../includes/create-nsxt-segment-azure-portal-steps.md)]
 
 ## Create a DHCP server or DHCP relay using the Azure portal
+
+## Prerequisites
+Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment.
+
+---  
 
 You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP. After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
@@ -52,6 +57,11 @@ You can create a DHCP server or relay directly from Azure VMware Solution in the
 ## Configure port mirroring in the Azure portal
 
 In this step, you'll configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. This option places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a VM, or a group of VMs, and then sent to a defined destination. 
+
+## Prerequisites
+Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment.
+
+---   
 
 To set up port mirroring in the Azure VMware Solution console, you'll:
 

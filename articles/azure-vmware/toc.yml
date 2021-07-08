@@ -64,6 +64,10 @@
     items:
     - name: Configure DHCP  
       href: configure-dhcp-azure-vmware-solution.md
+    - name: Configure DNS  
+      href: configure-dns-azure-vmware-solution.md
+    - name: Configure port mirroring  
+      href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure DHCP on L2 stretched VMware HCX networks
       href: configure-l2-stretched-vmware-hcx-networks.md
     - name: Configure NSX components using Azure 

@@ -7,13 +7,14 @@ ms.date: 07/16/2021
 
 # Tutorial: Add an NSX-T network segment in Azure VMware Solution 
 
-The virtual machines (VMs) created in vCenter are placed onto the network segments created in NSX-T and are visible in vCenter.
+An Azure VMware Solution private cloud comes with NSX-T by default. The private cloud comes pre-provisioned with an NSX-T Tier-0 gateway in **Active/Active** mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  These gateways let you connect the segments (logical switches) and provide East-West and North-South connectivity. 
+
+After deploying Azure VMware Solution, you can configure the necessary NSX-T objects from the Azure portal.  It presents a simplified view of NSX-T operations a VMware administrator needs daily and targeted at users not familiar with NSX-T Manager.  
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Navigate in NSX-T Manager to add network segments
-> * Add a new network segment
+> * Add network segments in either NSX-T Manager or the Azure portal
 > * Observe the new network segment in vCenter
 
 ## Prerequisites
@@ -21,6 +22,8 @@ In this tutorial, you learn how to:
 An Azure VMware Solution private cloud with access to the vCenter and NSX-T Manager interfaces. For more information, see the [Configure networking](tutorial-configure-networking.md) tutorial.
 
 ## Add network segment in NSX-T Manager
+
+The virtual machines (VMs) created in vCenter are placed onto the network segments created in NSX-T and are visible in vCenter.
 
 [!INCLUDE [add-network-segment-steps](../includes/add-network-segment-steps.md)]
 
