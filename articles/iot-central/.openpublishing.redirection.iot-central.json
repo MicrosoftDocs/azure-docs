@@ -472,7 +472,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-manage-devices.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-devices/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-individually/",
       "redirect_document_id": false
     },
     {
@@ -482,7 +482,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-manage-devices.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-devices/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-individually/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-manage-devices.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-individually/",
       "redirect_document_id": false
     },
     {
@@ -572,12 +577,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-run-a-job.md",
-      "redirect_url": "/azure/iot-central/core/howto-run-a-job/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-in-bulk/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-run-a-job.md",
-      "redirect_url": "/azure/iot-central/core/howto-run-a-job/",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-in-bulk/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-run-a-job.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices-in-bulk/",
       "redirect_document_id": false
     },
     {
