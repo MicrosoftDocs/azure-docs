@@ -615,7 +615,7 @@ First, make sure that your Delta Lake data set is not corrupted.
 
 **Workaround:** This problem might happen if you are using some `_UTF8` database collation. Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation.
 
-In the data set is valid and workaroung cannot help, report a support ticket and provide a repro to Azure support:
+In the data set is valid, and the workaround cannot help, report a support ticket and provide a repro to Azure support:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
 - Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
 - Try to read the content that you copied in new folder and verify that you are getting the same error.
