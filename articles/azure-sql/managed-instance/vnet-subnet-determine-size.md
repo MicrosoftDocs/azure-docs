@@ -85,7 +85,7 @@ During a scaling operation, instances temporarily require additional IP capacity
   
 ## Calculate the number of IP addresses
 
-We recommend the following formula for calculating the total number of IP addresses. This formula takes into account the potential creation of a new virtual cluster during a subsequent create request or instance update. It also takes into account the maintenance window requirements of virtual clusters.
+We recommend the following formula for calculating the total number of IP addresses. This formula takes into account the potential creation of a new virtual cluster during a later create request or instance update. It also takes into account the maintenance window requirements of virtual clusters.
 
 **Formula: 5 + a * 12 + b * 16 + c * 16**
 
