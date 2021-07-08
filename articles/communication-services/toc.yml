@@ -17,9 +17,9 @@ items:
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
-      - name: Use managed identities
+      - name: Use Service Principals
         href: quickstarts/identity/service-principal.md
-      - name: Set up managed identities from CLI
+      - name: Set up Service Principals from CLI
         href: quickstarts/identity/service-principal-from-cli.md
   - name: Chat
     items:
