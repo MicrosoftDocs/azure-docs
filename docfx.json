@@ -827,11 +827,9 @@
       },
       "monikerRange": {
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
-        "articles/healthcare-apis/index.yml": "healthcareapi-1.0.0",
         "articles/healthcare-apis/fhir/**": "healthcareapi-1.0.0",
         "articles/healthcare-apis/dicom/**": "healthcareapi-1.0.0",
-        "articles/healthcare-apis/data-transformation/**": "healthcareapi-1.0.0",
-        "articles/healthcare-apis/azure-api-for-fhir/**": "azureapiforfhir"
+        "articles/healthcare-apis/data-transformation/**": "healthcareapi-1.0.0"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false
