@@ -154,7 +154,7 @@ The following table summarizes how the ISE model handles the following component
 |-----------|-------------|
 | Trigger and action operations | The ISE model includes built-in, managed connector, and custom connector operations that your workflow can run *for free*, but subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise) and [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). For more information, review [Trigger and action operations in the ISE model](#integration-service-environment-operations). |
 | Storage operations | The ISE model includes storage operations and usage for data retention *for free*. For more information, review [Storage operations](#storage-operations). |
-| Integration accounts | The ISE model includes a single integration account tier *for free*, depending on your ISE SKU. For more information, review [Integration accounts](#integration-accounts). |
+| Integration accounts | The ISE model includes a single integration account tier *for free*, depending on your ISE SKU. For an [extra cost](https://azure.microsoft.com/pricing/details/logic-apps/), you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). For more information, review [Integration accounts](#integration-accounts). |
 |||
 
 <a name="integration-service-environment-operations"></a>
@@ -214,7 +214,7 @@ The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) is a
 
 ## Integration accounts
 
-An [integration account](logic-apps-enterprise-integration-create-integration-account.md) is a separate Azure resource that you create as a container to define and store business-to-business (B2B) artifacts such as trading partners, agreements, schemas, maps, and so on. After you create this account and define these artifacts, link this account to your logic app so that you can use these artifacts and various B2B operations in workflows to explore, build, and test integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities. For more information, review [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md).
+An [integration account](logic-apps-enterprise-integration-create-integration-account.md) is a separate Azure resource that you create as a container to define and store business-to-business (B2B) artifacts such as trading partners, agreements, schemas, maps, and so on. After you create this account and define these artifacts, link this account to your logic app so that you can use these artifacts and various B2B operations in workflows to explore, build, and test integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
 
 The following table describes available integration account levels or tiers, which [vary in pricing](https://azure.microsoft.com/pricing/details/logic-apps/):
 
@@ -225,7 +225,10 @@ The following table describes available integration account levels or tiers, whi
 | **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md). <p><p>**Note**: Not supported by the Logic Apps SLA. |
 |||
 
-For information about integration account limits, review [Integration account limits in Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+For more information, review the following documentation:
+
+* [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md)
+* [Integration account limits in Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
 
 The following table summarizes how the Consumption, Standard, and ISE model handle metering and billing for integration accounts:
 
@@ -233,17 +236,8 @@ The following table summarizes how the Consumption, Standard, and ISE model hand
 |-------|----------------------|
 | Consumption (multi-tenant) | Metering and billing use the [integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use. |
 | Standard (single-tenant) | Metering and billing use the [integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use. |
-| ISE | This model includes a single integration account, based on your ISE SKU. For an extra cost, you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). For more information, review [Integration accounts in the ISE model](#integration-accounts-ise) and the [ISE model](#ise-pricing). |
-
-<a name="integration-accounts-ise"></a>
-
-### Integration accounts in the ISE model
-
-| ISE SKU | Included integration account | Extra cost |
-|---------|------------------------------|------------|
-| **Premium** | A single [Standard](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts. No Free or Basic accounts are permitted. |
-| **Developer** | A single [Free](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account | Up to 19 more Standard accounts if you already have a Free account, or 20 total Standard accounts if you don't have a Free account. No Basic accounts are permitted. |
-||||
+| ISE | This model includes a single integration account, based on your ISE SKU. For an [extra cost](https://azure.microsoft.com/pricing/details/logic-apps/), you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). |
+|||
 
 ## Miscellaneous not metered or billed
 
