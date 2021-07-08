@@ -27,7 +27,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
-Select the **Applicable products** that apply to the offer: Commerce, Finance, Human Resources, Project Operations, and/or Supply Chain Management. Selecting the products will allow customers to find their products based on the AppSource Dynamics 365 product filters. This offer will be displayed under the selected products in AppSource.
+Select the **Applicable products** that apply to the offer: Commerce, Finance, Human Resources, Project Operations, and/or Supply Chain Management. These selections allow customers to find your offer based on the AppSource Dynamics 365 product filters it displays under.
 
 Enter an **App version** for your offer. Customers will see this number listed on the offer's detail page.
 
