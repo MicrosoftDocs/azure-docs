@@ -92,9 +92,9 @@ This section helps you create the bastion object in your VNet. This is required 
 
 * **Name**: The name of the new Bastion resource.
 
-* **Region**: The Azure public region that the resource will be created in.
+* **Region**: The Azure public region in which the resource will be created.
 
-* **Tier:** The tier is also known as the SKU. For this tutorial, we select the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
+* **Tier:** The tier is also known as the **SKU**. For this tutorial, we select the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
 
 * **Instance count:** This is the setting for **host scaling**. Use the slider to configure the instance count. If you specified the Basic tier SKU, you cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). In this tutorial, you can select the instance count you'd prefer.
 
