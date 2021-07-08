@@ -77,7 +77,7 @@ The Machine Learning compute instance or cluster automatically allocates additio
     * Allow inbound TCP traffic on ports 29876-29877 from the `BatchNodeManagement` service tag.
     * Allow inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.
 
-    The following is a screenshot of the default rules for this NSG:
+    The following screenshot shows an example of these rules:
 
     :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
