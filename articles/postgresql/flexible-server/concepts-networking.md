@@ -81,7 +81,7 @@ Here are some concepts to be familiar with when using virtual networks with Post
 * If you use the Azure portal or the Azure CLI to create flexible servers with VNET, a new private DNS zone is auto-provisioned per server in your subscription using the server name provided. Alternatively, if you want to setup your own private DNS zone to use with the flexible server, please see the [private DNS overview](../../dns/private-dns-overview.md) documentation. 
 * If you use Azure API, an Azure Resource Manager template (ARM template), or Terraform, please create private DNS zones that end with `postgres.database.azure.com` and use them while configuring flexible servers with private access. For more information, see the [private DNS zone overview](../../dns/private-dns-overview.md).
 
-   > [!NOTE]
+   > [!IMPORTANT]
    > Private DNS zone names must end with `postgres.database.azure.com`.
 
 Learn how to create a flexible server with private access (VNet integration) in [the Azure portal](how-to-manage-virtual-network-portal.md) or [the Azure CLI](how-to-manage-virtual-network-cli.md).
@@ -92,7 +92,7 @@ If you are using the custom DNS server then you must use a DNS forwarder to reso
 
 ### Private DNS zone and VNET peering
 
-Private DNS zone settings and VNET peering are independent of each other. Please refer to the **Using Private DNS Zone** section above for more details on creating and using Private DNS zone. 
+Private DNS zone settings and VNET peering are independent of each other. Please refer to the [Using Private DNS Zone](concepts-networking.md#using-private-dns-zon) section above for more details on creating and using Private DNS zones. 
 
 If you want to connect to the flexible server from a client that is provisioned in another VNET from the same region or a different region, you have to link the private DNS zone with the VNET. See [how to link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) documentation.
 
