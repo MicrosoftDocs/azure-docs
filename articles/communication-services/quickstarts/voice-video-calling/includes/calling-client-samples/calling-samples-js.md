@@ -52,12 +52,12 @@ Each object in the calling sdk, has properties and collections values of which, 
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
 
 #### Properties
-- You must inspect their initial values, and subscribe to the '\<property\>Changed' event for future value updates.
+- You must inspect their initial values, and subscribe to the `'<property>Changed'` event for future value updates.
 
 #### Collections
-- You must inspect their initial values, and subsribe to the '\<collection\>Updated' event for future value updates.
-- The '\<collection\>Updated' event's payload, has an 'added' array which contains values that were added to the collection.
-- The '\<collection\>Updated' event's payload also has a 'removed' array awhich contains values that were removed from the collection.
+- You must inspect their initial values, and subsribe to the `'<collection>Updated'` event for future value updates.
+- The `'<collection>Updated'` event's payload, has an 'added' array which contains values that were added to the collection.
+- The `'<collection>Updated'` event's payload also has a 'removed' array awhich contains values that were removed from the collection.
 
 ```js
 /*************************************
