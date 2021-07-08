@@ -51,7 +51,7 @@ This has been changed so the default label(s) in a query are the Spring Profiles
 /application/config.message
 ```
 
- To convert to the new format you can run the bellow commands with your store name:
+ To convert to the new format, you can run the bellow commands with your store name:
 
 ```azurecli
 az appconfig kv export -n your-stores-name -d file --format properties --key /application_dev* --prefix /application_dev/ --path convert.properties --skip-features --yes
@@ -60,7 +60,7 @@ az appconfig kv import -n your-stores-name -s file --format properties --label d
 
 or use the Import/Export feature in the portal.
 
-When you are completly moved to the new version you can removed the old keys by running:
+When you are completely moved to the new version, you can removed the old keys by running:
 
 ```azurecli
 az appconfig kv delete -n ConversionTest --key /application_dev/*
@@ -78,7 +78,7 @@ spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter=/${spring.ap
 
 ## Configuration Reloading
 
-The monitoring of all configuration stores is now disabled by default. A new configuration has been added to the library to allow config stores to have monitoring enabled. In addition cache-expiration has been renamed to refresh-interval and has also been changed to be per config store. Also if monitoring of a config store is enabled at least one watched key is required to be configured, with an optional label.
+The monitoring of all configuration stores is now disabled by default. A new configuration has been added to the library to allow config stores to have monitoring enabled. In addition, cache-expiration has been renamed to refresh-interval and has also been changed to be per config store. Also if monitoring of a config store is enabled at least one watched key is required to be configured, with an optional label.
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled
