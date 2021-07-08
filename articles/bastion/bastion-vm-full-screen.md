@@ -8,7 +8,7 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: cherylmc
-# Customer intent: I want to manage my VM experience using Azure Bastion. 
+# Customer intent: I want to manage my VM experience using Azure Bastion.
 
 ---
 

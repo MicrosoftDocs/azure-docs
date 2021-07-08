@@ -48,7 +48,7 @@
   - name: Upgrade a SKU
     href: upgrade-sku.md
   - name: Configure host scaling instances
-    href: configure-scaling.md
+    href: configure-host-scaling.md
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
