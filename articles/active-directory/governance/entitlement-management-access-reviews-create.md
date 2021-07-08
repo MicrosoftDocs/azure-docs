@@ -51,7 +51,7 @@ This setting determines how often access reviews will occur.
 
 1. Set the **Duration** to define how many days each review of the recurring series will be open for input from reviewers. For example, you might schedule an annual review that starts on January 1st and is open for review for 30 days so that reviewers have until the end of the month to respond.
 
-1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer.
+1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer. You can also select **Manager** if you want to designate the reviewee’s manager to be the reviewer. If you select this option, you need to add a **fallback** to forward the review to in case the manager cannot be found in the system.
 
 1. If you selected **Specific reviewer(s)**, specify which users will do the access review:
     ![Select Add reviewers](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
