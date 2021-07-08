@@ -23,7 +23,7 @@ In the [Add claims and customize user input using custom policies](configure-use
 
 Your Azure AD B2C directory comes with a [built-in set of attributes](user-profile-attributes.md). However, you often need to create your own attributes to manage your specific scenario, for example when:
 
-* A customer-facing application needs to persist a **LoyaltyId** attribute.
+* A customer-facing application needs to persist a **loyaltyId** attribute.
 * An identity provider has a unique user identifier, **uniqueUserGUID**, that must be persisted.
 * A custom user journey needs to persist the state of the user, **migrationStatus**, for other logic to operate on.
 

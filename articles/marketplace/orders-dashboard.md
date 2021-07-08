@@ -13,8 +13,6 @@ ms.author: sroy
 
 This article provides information on the Orders dashboard in Partner Center. This dashboard displays information about your orders, including growth trends, presented in a graphical and downloadable format.
 
-To access the Orders dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
-
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
 
@@ -35,6 +33,8 @@ The [Orders dashboard](https://go.microsoft.com/fwlink/?linkid=2165914) displays
 ## Elements of the Orders dashboard
 
 The following sections describe how to use the Orders dashboard and how to read the data.
+
+To access the Orders dashboard in the Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Orders**.
 
 ### Month range
 
