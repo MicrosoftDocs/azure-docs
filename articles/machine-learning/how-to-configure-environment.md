@@ -127,7 +127,7 @@ See the [Azure Machine Learning notebooks repository](https://github.com/Azure/M
 To use Visual Studio Code for development:
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Install the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md) (preview).
+1. Install the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md) (preview).
 
 Once you have the Visual Studio Code extension installed, use it to:
 

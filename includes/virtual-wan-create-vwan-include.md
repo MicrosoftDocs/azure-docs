@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 07/09/2020
+ ms.date: 05/26/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -16,7 +16,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 1. Select **Virtual WAN** from the results. On the Virtual WAN page, select **Create** to open the Create WAN page.
 1. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected.":::
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Screenshot shows the Create WAN pane with the Basics tab selected." border="false":::
 
    * **Subscription** - Select the subscription that you want to use.
    * **Resource group** - Create new or use existing.

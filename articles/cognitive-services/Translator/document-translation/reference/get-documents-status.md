@@ -32,7 +32,7 @@ When both $top and $skip are included, the server should first apply $skip and t
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}/documents
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -49,7 +49,6 @@ Request parameters passed on the query string are:
 |Query parameter|In|Required|Type|Description|
 |--- |--- |--- |--- |--- |
 |id|path|True|string|The operation ID.|
-|endpoint|path|True|string|Supported Cognitive Services endpoints (protocol and hostname, for example: `https://westus.api.cognitive.microsoft.com`).|
 |$maxpagesize|query|False|integer int32|$maxpagesize is the maximum items returned in a page. If more items are requested via $top (or $top is not specified and there are more items to be returned), @nextLink will contain the link to the next page. Clients MAY request server-driven paging with a specific page size by specifying a $maxpagesize preference. The server SHOULD honor this preference if the specified page size is smaller than the server's default page size.|
 |$orderBy|query|False|array|The sorting query for the collection (ex: 'CreatedDateTimeUtc asc', 'CreatedDateTimeUtc desc').|
 |$skip|query|False|integer int32|$skip indicates the number of records to skip from the list of records held by the server based on the sorting method specified. By default, we sort by descending start time. Clients MAY use $top and $skip query parameters to specify a number of results to return and an offset into the collection. When both $top and $skip are given by a client, the server SHOULD first apply $skip and then $top on the collection. Note: If the server can't honor $top and/or $skip, the server MUST return an error to the client informing about it instead of just ignoring the query options.|
@@ -134,7 +133,7 @@ The following is an example of a successful response.
       "characterCharged": 0
     }
   ],
-  "@nextLink": "https://westus.cognitiveservices.azure.com/translator/text/batch/v1.0.preview.1/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55/documents?$top=5&$skip=15"
+  "@nextLink": "https://westus.cognitiveservices.azure.com/translator/text/batch/v1.0/operation/0FA2822F-4C2A-4317-9C20-658C801E0E55/documents?$top=5&$skip=15"
 }
 ```
 

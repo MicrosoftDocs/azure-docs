@@ -485,7 +485,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodeCapacityCollectionMap |Static|A collection of node capacities for different metrics. |
+|PropertyGroup |NodeCapacityCollectionMap | Dynamic |A collection of node capacities for different metrics. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
 
 ## NodeDomainIds
 
@@ -498,7 +498,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
-|PropertyGroup |NodePropertyCollectionMap |Static|A collection of string key-value pairs for node properties. |
+|PropertyGroup |NodePropertyCollectionMap | Dynamic |A collection of string key-value pairs for node properties. Dynamic as of Service Fabric 8.1, *Static* in earlier versions. |
 
 ## Paas
 

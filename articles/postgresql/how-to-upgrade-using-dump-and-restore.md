@@ -1,16 +1,19 @@
 ---
-title: Upgrade using dump and restore - Azure Database for PostgreSQL - Single Server
-description: Describes offline upgrade methods using dump and restore databases to migrate to a higher version Azure Database for PostgreSQL - Single Server.
+title: Upgrade using dump and restore - Azure Database for PostgreSQL
+description: Describes offline upgrade methods using dump and restore databases to migrate to a higher version Azure Database for PostgreSQL.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 06/23/2021
 ---
 
 # Upgrade your PostgreSQL database using dump and restore
 
-You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL - Single Server by migrating your databases to a higher major version server using following methods.
+>[!NOTE]
+> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server (Preview). 
+
+You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL by migrating your databases to a higher major version server using following methods.
 * **Offline** method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) which incurs downtime for migrating the data. This document addresses this method of upgrade/migration.
 * **Online** method using [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). This method provides a reduced downtime migration and keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are few prerequisites and restrictions to be addressed for using DMS. For details, see the [DMS documentation](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
@@ -36,8 +39,8 @@ This guide provides few offline migration methodologies and examples to show how
  
 To step through this how-to-guide, you need:
 
-- A **source** PostgreSQL database running 9.5, 9.6, or 10 which you want to upgrade
-- A **target** PostgreSQL database server with the desired major version [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md). 
+- A **source** PostgreSQL database server running a lower version of the engine that you want to upgrade.
+- A **target** PostgreSQL database server with the desired major version [Azure Database for PostgreSQL server - Single Server](quickstart-create-server-database-portal.md) or [Azure Database for PostgreSQL - Flexible Server](./flexible-server/quickstart-create-server-portal.md). 
 - A PostgreSQL client system to run the dump and restore commands.
   - It can be a Linux or Windows client with PostgreSQL installed and has [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
   - Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
@@ -67,6 +70,9 @@ In this guide, the following source and target servers and database names are us
  | Target database | bench5gb |
  | Target user name | pg@pg-11 |
 
+>[!NOTE]
+> Flexible server supports PostgreSQL version 11 onwards. Also, flexible server user name does not require @<servername>.
+
 ## Upgrade your databases using offline migration methods
 You may choose to use one of the methods described in this section for your upgrades. You can use the following tips while performing the tasks.
 
@@ -75,6 +81,9 @@ You may choose to use one of the methods described in this section for your upgr
 - If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 
 - In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
+
+>[!Important]
+> It is recommended to test and validate the commands in a test environment before you use them in production.
 
 ### Method 1: Migrate using dump file
 
@@ -159,5 +168,7 @@ You can consider this method if you have few larger tables in your database and 
 ## Next steps
 
 - After you're satisfied with the target database function, you can drop your old database server. 
-- If you want to use the same database endpoint as the source server, then after you had deleted your old source database server, you can create a read replica with the old database server name. Once the steady state is established, you can stop the replica, which will promote the replica server to be an independent server. See [Replication](./concepts-read-replicas.md) for more details.
-- Remember to test and validate these commands in a test environment before you use them in production.
+- For Azure Database for PostgreSQL - Single server only. If you want to use the same database endpoint as the source server, then after you had deleted your old source database server, you can create a read replica with the old database server name. Once the steady replication state is established, you can stop the replica, which will promote the replica server to be an independent server. See [Replication](./concepts-read-replicas.md) for more details.
+
+>[!Important] 
+> It is highly recommended to test the new PostgreSQL upgraded version before using it directly for production. This includes comparing server parameters between the older source version source and the newer version target. Please ensure that they are same and check on any new parameters that were added in the new version. Differences between versions can be found [here](https://www.postgresql.org/docs/release/).

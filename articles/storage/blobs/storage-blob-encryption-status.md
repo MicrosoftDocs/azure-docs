@@ -9,7 +9,8 @@ ms.topic: how-to
 ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Check the encryption status of a blob

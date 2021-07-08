@@ -23,12 +23,12 @@ The API for MongoDB has numerous added benefits of being built on [Azure Cosmos 
 * **Five 9's of availability**: [99.999% availability](high-availability.md) is easily configurable to ensure your data is always there for you.  
 * **Cost efficient, granular, unlimited scalability**: Sharded collections can scale to any size, unlike other MongoDB service offerings. API for MongoDB users are running databases with over 600TB of storage today. Scaling is done in a cost-efficient manner, since unlike other MongoDB service offering, the Cosmos DB platform can scale in increments as small as 1/100th of a VM due to economies of scale and resource governance.
 * **Serverless deployments**: Unlike MongoDB Atlas, the API for MongoDB is a cloud native database that offers a [serverless capacity mode](serverless.md). With [Serverless](serverless.md), you are only charged per operation, and don't pay for the database when you don't use it.
-* **Free Tier**: With Azure Cosmos DB free tier, you'll get the first 400 RU/s and 5 GB of storage in your account for free forever, applied at the account level.
+* **Free Tier**: With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage in your account for free forever, applied at the account level.
 * **Upgrades take seconds**: All API versions are contained within one codebase, making version changes as simple as [flipping a switch](mongodb-version-upgrade.md), with zero downtime.
 * **Real time analytics (HTAP) at any scale**: The API for MongoDB offers the ability to run complex analytical queries for use cases such as business intelligence against your database data in real time with no impact to your database. This is fast and cheap, due to the cloud native analytical columnar store being utilized, with no ETL pipelines. Learn more about the [Azure Synapse Link](synapse-link.md).
 
 > [!NOTE]
-> [You can use Azure Cosmos DB API for MongoDB for free with the free Tier!](how-pricing-works.md). With Azure Cosmos DB free tier, you'll get the first 400 RU/s and 5 GB of storage in your account for free, applied at the account level.
+> [You can use Azure Cosmos DB API for MongoDB for free with the free Tier!](free-tier.md). With Azure Cosmos DB free tier, you'll get the first 1000 RU/s and 25 GB of storage in your account for free, applied at the account level.
 
 
 ## How the API works
@@ -48,7 +48,7 @@ All the API for MongoDB versions run on the same codebase, making upgrades a sim
 
 ## What you need to know to get started
 
-* You are not billed for virtual machines in a cluster. [Pricing](how-pricing-works.md) is based on throughput in request units (RUs) configured on a per database or per collection basis. The first 400 RUs per second are free with [Free Tier](how-pricing-works.md).
+* You are not billed for virtual machines in a cluster. [Pricing](how-pricing-works.md) is based on throughput in request units (RUs) configured on a per database or per collection basis. The first 1000 RUs per second are free with [Free Tier](free-tier.md).
 
 * There are three ways to deploy Azure Cosmos DB API for MongoDB:
      * [Provisioned throughput](set-throughput.md): Set a RU/sec number and change it manually. This model best fits consistent workloads.

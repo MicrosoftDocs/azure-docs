@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 05/14/2021
+ms.date: 06/14/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
 
 ---
@@ -48,11 +48,9 @@ In this article you learn how to secure the following inferencing resources in a
 
 ## Azure Kubernetes Service
 
-To use an AKS cluster in a virtual network, the following network requirements must be met:
+> [!IMPORTANT]
+> To use an AKS cluster in a virtual network, first follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
 
-> [!div class="checklist"]
-> * Follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
-> * The AKS instance and the virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance too.
 
 To add AKS in a virtual network to your workspace, use the following steps:
 
@@ -160,9 +158,6 @@ By default, AKS clusters have a control plane, or API server, with public IP add
 
 After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
 
-> [!IMPORTANT]
-> Before using a private link enabled AKS cluster with Azure Machine Learning, you must open a support incident to enable this functionality. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
 ### Internal AKS load balancer
 
 By default, AKS deployments use a [public load balancer](../aks/load-balancer-standard.md). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
@@ -215,10 +210,19 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-> [!IMPORTANT]
-> Using the CLI, you can only create an AKS cluster with an internal load balancer. There is no az ml command to upgrade an existing cluster to use an internal load balancer.
+To upgrade an existing AKS cluster to use an internal load balancer, use the following command:
 
-For more information, see the [az ml computetarget create aks](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_aks) reference.
+```azurecli
+az ml computetarget update aks \
+                           -n myaks \
+                           --load-balancer-subnet mysubnet \
+                           --load-balancer-type InternalLoadBalancer \
+                           --workspace-name myworkspace \
+                           -g myresourcegroup
+```
+
+
+For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
 
 ---
 

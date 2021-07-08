@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
+ms.date: 5/19/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management 
@@ -81,6 +81,8 @@ Use the following procedure to view events:
 
     Each row includes the time, access package Id, the name of the operation, the object Id, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.   
 
+1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application roles, then you can select the workbook named *Application role assignment activity*.
+
 
 ## Create custom Azure Monitor queries using the Azure portal
 You can create your own queries on Azure AD audit events, including entitlement management events.  
@@ -107,7 +109,7 @@ If you would like to know the oldest and newest audit events held in Azure Monit
 AuditLogs | where TimeGenerated > ago(3653d) | summarize OldestAuditEvent=min(TimeGenerated), NewestAuditEvent=max(TimeGenerated) by Type
 ```
 
-For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/reference-azure-monitor-audit-log-schema.md).
+For more information on the columns that are stored for audit events in Azure Monitor, see [Interpret the Azure AD audit logs schema in Azure Monitor](../reports-monitoring/overview-reports.md).
 
 ## Create custom Azure Monitor queries using Azure PowerShell
 

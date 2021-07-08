@@ -2,7 +2,8 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 05/12/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Encryption of backup data using customer-managed keys

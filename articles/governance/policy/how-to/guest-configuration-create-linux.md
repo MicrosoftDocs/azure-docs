@@ -13,7 +13,7 @@ Before creating custom policies, read the overview information at
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
 
-When auditing Linux, Guest Configuration uses [Chef InSpec](https://www.inspec.io/). The InSpec
+When auditing Linux, Guest Configuration uses [Chef InSpec](https://community.chef.io/tools/chef-inspec). The InSpec
 profile defines the condition that the machine should be in. If the evaluation of the configuration
 fails, the policy effect **auditIfNotExists** is triggered and the machine is considered
 **non-compliant**.
@@ -113,7 +113,7 @@ uncompressed.
 ### Custom Guest Configuration configuration on Linux
 
 Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine with the
-name of the [InSpec profile](https://www.inspec.io/docs/reference/profiles/). **Name** is the only
+name of the [InSpec profile](https://docs.chef.io/inspec/profiles/). **Name** is the only
 required resource property. Create a YAML file and a Ruby script file, as detailed below.
 
 First, create the YAML file used by InSpec. The file provides basic information about the
@@ -490,7 +490,7 @@ GuestConfiguration agent expects the certificate public key to be present in the
 `/usr/local/share/ca-certificates/extra` on Linux machines. For the node to verify signed content,
 install the certificate public key on the machine before applying the custom policy. This process
 can be done using any technique inside the VM, or by using Azure Policy. An example template is
-[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
+[provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-push-certificate-windows).
 The Key Vault access policy must allow the Compute resource provider to access certificates during
 deployments. For detailed steps, see
 [Set up Key Vault for virtual machines in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).

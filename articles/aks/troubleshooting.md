@@ -210,6 +210,10 @@ If your cluster's provisioning status remains as *Failed* or the applications on
 
 If you're using Azure Firewall like on this [example](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall), you may encounter this issue as the long lived TCP connections via firewall using Application Rules currently have a bug (to be resolved in Q1CY21) that causes the Go `keepalives` to be terminated on the firewall. Until this issue is resolved, you can mitigate by adding a Network rule (instead of application rule) to the AKS API server IP.
 
+## When resuming my cluster after a stop operation, why is my node count not in the autoscaler min and max range?
+
+If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
+
 ## Azure Storage and AKS Troubleshooting
 
 ### Failure when setting uid and `GID` in mountOptions for Azure Disk

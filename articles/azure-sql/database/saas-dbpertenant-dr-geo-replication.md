@@ -7,9 +7,8 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 01/25/2019
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication

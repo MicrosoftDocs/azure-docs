@@ -45,20 +45,21 @@ Create your root CA certificate using OpenSSL.
 
 ### Create the root key
 
-1. Sign in to your computer where OpenSSL is installed and run the following command. This creates a password protected key.
+1. Sign in to your computer where OpenSSL is installed and run the following command. This creates an encrypted key.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
    ```
-1. At the prompt, type a strong password. For example, at least nine characters, using upper case, lower case, numbers, and symbols.
-
+   
 ### Create a Root Certificate and self-sign it
 
 1. Use the following commands to generate the csr and the certificate.
 
    ```
    openssl req -new -sha256 -key contoso.key -out contoso.csr
-
+   ```
+   
+   ```
    openssl x509 -req -sha256 -days 365 -in contoso.csr -signkey contoso.key -out contoso.crt
    ```
    The previous commands create the root certificate. You'll use this to sign your server certificate.

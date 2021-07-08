@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/12/2020
 ms.author: cynthn
-ms.reviewer: zivr
+ms.reviewer: zivr 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines
 ---

@@ -5,7 +5,7 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/06/2021
+ms.date: 06/16/2021
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -92,10 +92,10 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 
 |OCP Version|Upstream Release|Azure Red Hat OpenShift General Availability|End of Life|
 |-|-|-|-|
-|4.3|January 2020|April 2020| August 2020|
 |4.4|May 2020|July 2020|4.6 GA|
 |4.5|July 2020| November 2020|4.7 GA
 |4.6|October 2020| February 2021|4.8 GA|
+|4.7|February 2021| July 2021|4.9 GA|
 
 ## FAQ
 

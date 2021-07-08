@@ -7,13 +7,23 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 07/17/2020
+ms.date: 05/28/2021
 ---
 # What's new in Personalizer
 
 Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## Release notes
+
+### May 2021  - //Build conference
+
+* Auto-Optimize (Preview) : You can configure a Personalizer loop that you are using to continuously improve over time with less work. Personalizer will automatically run offline evaluations, discover better machine learning settings, and apply them. To learn more, see [Personalizer Auto-Optimize (Preview)](concept-auto-optimization.md).
+* Multi-slot personalization (Preview): If you have tiled layouts, carousels, and/or sidebars, it is easier to use Personalizer for each place that you recommend products or content on the same page. Personalizer now can now take a list of slots in the Rank API, assign an action to each, and learn from reward scores you send for each slot. To learn more, see [Multi-slot personalization (Preview)](concept-multi-slot-personalization.md).
+* Personalizer is now available in more regions.
+* Updated code samples (GitHub) and documentation. Use the links below to view updated samples:
+  * [C#/.NET](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
+  * [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
+  * [Python samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
 
 ### July 2020
 
@@ -33,12 +43,12 @@ The following are available in **Public Preview**:
 
 * TLS 1.2 is now enforced for all HTTP requests to this service. For more information, see [Azure Cognitive Services security](../cognitive-services-security.md).
 
-### November 2019 - Ignite Conference
+### November 2019 - Ignite conference
 
 * Personalizer is generally available (GA)
 * Azure Notebooks [tutorial](tutorial-use-azure-notebook-generate-loop-data.md) with entire lifecycle
 
-### May 2019 - //Build Conference
+### May 2019 - //Build conference
 
 The following preview features were released at the Build 2019 Conference:
 

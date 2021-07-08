@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 05/30/2021
 ms.custom: seodec18
 ---
 
@@ -57,13 +57,15 @@ Notice that each record in the blob has a **client_id** column matching the fold
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData} 
+   * cluster1/{date}/{time}/{aFieldInMyData}
+
+2. If customers want to use more than one input field, they can create a composite key in query for custom path partition in blob output by using **CONCAT**. For example: **select  concat (col1, col2) as compositeColumn into blobOutput from input**. Then they can specify **compositeColumn** as the custom path in blob storage.
    
-2. Partition keys are case insensitive, so partition keys like "John" and "john" are equivalent. Also, expressions cannot be used as partition keys. For example, **{columnA + columnB}** does not work.  
+3. Partition keys are case insensitive, so partition keys like "John" and "john" are equivalent. Also, expressions cannot be used as partition keys. For example, **{columnA + columnB}** does not work.  
 
-3. When an input stream consists of records with a partition key cardinality under 8000, the records will be appended to existing blobs and only create new blobs when necessary. If the cardinality is over 8000 there is no guarantee existing blobs will be written to and new blobs won't be created for an arbitrary number of records with the same partition key.
+4. When an input stream consists of records with a partition key cardinality under 8000, the records will be appended to existing blobs and only create new blobs when necessary. If the cardinality is over 8000 there is no guarantee existing blobs will be written to and new blobs won't be created for an arbitrary number of records with the same partition key.
 
-4. If the blob output is [configured as immutable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics will create a new blob each time data is sent.
+5. If the blob output is [configured as immutable](../storage/blobs/storage-blob-immutable-storage.md), Stream Analytics will create a new blob each time data is sent.
 
 ## Custom DateTime path patterns
 

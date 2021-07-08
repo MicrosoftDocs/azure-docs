@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/10/2021
+ms.date: 05/24/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -334,4 +334,5 @@ To help troubleshoot issues with your runbooks running on a hybrid runbook worke
 
 * If your runbooks aren't completing successfully, review the troubleshooting guide for [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * For more information on PowerShell, including language reference and learning modules, see [PowerShell Docs](/powershell/scripting/overview).
+* Learn about [using Azure Policy to manage runbook execution](enforce-job-execution-hybrid-worker.md) with Hybrid Runbook Workers.
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).

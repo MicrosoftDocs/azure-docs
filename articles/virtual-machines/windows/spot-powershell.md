@@ -8,7 +8,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 03/22/2021
 ms.author: cynthn
-ms.reviewer: jagaveer
+ms.reviewer: jagaveer 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy Azure Spot Virtual Machines using Azure PowerShell

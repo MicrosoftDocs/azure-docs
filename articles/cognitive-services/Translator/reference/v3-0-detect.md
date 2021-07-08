@@ -94,26 +94,19 @@ An example JSON response is:
 
 ```json
 [
-  {
-    "language": "de",
-    "score": 0.92,
-    "isTranslationSupported": true,
-    "isTransliterationSupported": false,
-    "alternatives": [
-      {
-        "language": "pt",
-        "score": 0.23,
+
+    {
+
+        "language": "de",
+
+        "score": 1.0,
+
         "isTranslationSupported": true,
+
         "isTransliterationSupported": false
-      },
-      {
-        "language": "sk",
-        "score": 0.23,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      }
-    ]
-  }
+
+    }
+
 ]
 ```
 

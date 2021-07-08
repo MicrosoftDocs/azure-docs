@@ -21,6 +21,7 @@ ms.author: yelevin
 
 The ExtraHop Reveal(x) data connector lets you easily connect your Reveal(x) system with Azure Sentinel to view dashboards, create custom alerts, and improve investigation. This integration gives you the ability to gain insight into your organization's network and improve your security operation capabilities.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 

@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 04/29/2021
+ms.date: 04/30/2021
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime

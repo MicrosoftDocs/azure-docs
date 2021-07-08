@@ -79,7 +79,7 @@ The top menu appears on every page:
 
 * To search for devices, enter a **Search** value.
 * To change the UI language or theme, choose the **Settings** icon. Learn more about [managing your application preferences](howto-manage-preferences.md)
-* To get help and support, choose the **Help** drop-down for a list of resources. You can [get information about your application](./howto-get-app-info.md) from the **About your app** link. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
+* To get help and support, choose the **Help** drop-down for a list of resources. You can [get information about your application](howto-faq.md#how-do-i-get-information-about-my-application) from the **About your app** link. In an application on the free pricing plan, the support resources include access to [live chat](howto-show-hide-chat.md).
 * To sign out of the application, choose the **Account** icon.
 
 You can choose between a light theme or a dark theme for the UI:
@@ -106,8 +106,6 @@ This page shows the devices in your IoT Central application grouped by _device t
 * A device template defines a type of device that can connect to your application.
 * A device represents either a real or simulated device in your application.
 
-To learn more, see the [Monitor your devices](./quick-monitor-devices.md) quickstart. 
-
 ### Device groups
 
 :::image type="content" source="Media/overview-iot-central-tour/device-groups.png" alt-text="Device Group page":::
@@ -129,7 +127,7 @@ Analytics exposes rich capabilities to analyze historical trends and correlate v
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Jobs Page":::
 
-This page lets you view and create jobs that can be used for bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-run-a-job.md) article.
+This page lets you view and create jobs that can be used for bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-manage-devices-in-bulk.md) article.
 
 ### Device templates
 

@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Managed Instance
 description: This topic describes configuration options for a custom DNS with Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual

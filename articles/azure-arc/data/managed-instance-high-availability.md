@@ -2,8 +2,8 @@
 title: Azure Arc enabled Managed Instance high availability
 titleSuffix: Deploy Azure Arc enabled Managed Instance with high availability 
 description: Learn how to deploy Azure Arc enabled Managed Instance with high availability.
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: conceptual

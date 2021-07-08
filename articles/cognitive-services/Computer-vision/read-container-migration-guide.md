@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 05/24/2021
 ms.author: aahi
 ---
 
@@ -20,7 +20,7 @@ If you're using version 2 of the Computer Vision Read OCR container, Use this ar
 ## Configuration changes
 
 * `ReadEngineConfig:ResultExpirationPeriod` is no longer supported. The Read OCR container has a built Cron job that removes the results and metadata associated with a request after 48 hours.
-* `Cache:Redis:Configuration` is no longer supported. The Cache is not used in the v3.x containers, so you do not need to set it.
+* `Cache:Redis:Configuration` is no longer supported. The Cache is not used in the v3.x containers, so you don't need to set it.
 
 ## API changes
 
@@ -30,7 +30,7 @@ The Read v3.2 container uses version 3 of the Computer Vision API and has the fo
 * `/vision/v3.2-preview.1/read/analyze`
 * `/vision/v3.2-preview.1/read/syncAnalyze`
 
-See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Note that sync operations are only supported in containers.
+See the [Computer Vision v3 REST API migration guide](./upgrade-api-versions.md) for detailed information on updating your applications to use version 3 of cloud-based Read API. This information applies to the container as well. Sync operations are only supported in containers.
 
 ## Memory requirements
 
@@ -64,7 +64,7 @@ In v3.x of the container, RabbitMQ is currently not supported. The supported bac
 | Azure Queues | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | Production |
 | RabbitMQ    | Unavailable | Production |
 
-For added redundancy the Read v3.x container uses a visibility timer to ensure requests can be successfully processed in the event of a crash, when running in a multi-container set-up. 
+For added redundancy, the Read v3.x container uses a visibility timer to ensure requests can be successfully processed if a crash occurs when running in a multi-container setup. 
 
 Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which sets the time for a message to be invisible when another worker is processing it. To avoid pages from being redundantly processed, we recommend setting the timeout period to 120 seconds. The default value is 30 seconds.
 
@@ -78,5 +78,5 @@ Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which set
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
 * Refer to the [Read API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
-* Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
+* Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Computer Vision functionality.
 * Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

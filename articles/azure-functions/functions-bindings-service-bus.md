@@ -83,21 +83,29 @@ This section describes the global configuration settings available for this bind
                 "messageWaitTimeout": "00:00:30",
                 "maxAutoRenewDuration": "00:55:00",
                 "maxConcurrentSessions": 16
+            },
+            "batchOptions": {
+                "maxMessageCount": 1000,
+                "operationTimeout": "00:01:00"
+                "autoComplete": "true"
             }
         }
     }
 }
 ```
 
-If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` will be honored.  If you have `isSessionsEnabled` set to `false`, the `messageHandlerOptions` will be honored.
+If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` is honored.  If you have `isSessionsEnabled` set to `false`, the `messageHandlerOptions` is honored.
 
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
-|maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|autoComplete|true|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
-|maxConcurrentSessions|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|messageHandlerOptions.maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
+|messageHandlerOptions.autoComplete|true|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
+|messageHandlerOptions.maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
+|sessionHandlerOptions.maxConcurrentSessions|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|batchOptions.maxMessageCount|1000| The maximum number of messages sent to the function when triggered. |
+|batchOptions.operationTimeout|00:01:00| A time span value expressed in `hh:mm:ss`. |
+|batchOptions.autoComplete|true| See the above description for `messageHandlerOptions.autoComplete`. |
 
 ### Additional settings for version 5.x+
 
@@ -108,23 +116,20 @@ The example host.json file below contains only the settings for version 5.0.0 an
     "version": "2.0",
     "extensions": {
         "serviceBus": {
-            "serviceBusOptions": {
-                "retryOptions":{
-                    "mode": "exponential",
-                    "tryTimeout": "00:00:10",
-                    "delay": "00:00:00.80",
-                    "maxDelay": "00:01:00",
-                    "maxRetries": 4
-                },
-                "prefetchCount": 100,
-                "autoCompleteMessages": true,
-                "maxAutoLockRenewalDuration": "00:05:00",
-                "maxConcurrentCalls": 32,
-                "maxConcurrentSessions": 10,
-                "maxMessages": 2000,
-                "sessionIdleTimeout": "00:01:00",
-                "maxAutoLockRenewalDuration": "00:05:00"
-            }
+            "retryOptions":{
+                "mode": "exponential",
+                "tryTimeout": "00:01:00",
+                "delay": "00:00:00.80",
+                "maxDelay": "00:01:00",
+                "maxRetries": 3
+            },
+            "prefetchCount": 0,
+            "autoCompleteMessages": true,
+            "maxAutoLockRenewalDuration": "00:05:00",
+            "maxConcurrentCalls": 16,
+            "maxConcurrentSessions": 8,
+            "maxMessages": 1000,
+            "sessionIdleTimeout": "00:01:00"
         }
     }
 }
@@ -149,7 +154,7 @@ In addition to the above configuration properties when using version 5.x and hig
 |Property  |Default | Description |
 |---------|---------|---------|
 |mode|Exponential|The approach to use for calculating retry delays. The default exponential mode will retry attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The `Fixed` mode will retry attempts at fixed intervals with each delay having a consistent duration.|
-|tryTimeout|00:00:10|The maximum duration to wait for an operation per attempt.|
+|tryTimeout|00:01:00|The maximum duration to wait for an operation per attempt.|
 |delay|00:00:00.80|The delay or back-off factor to apply between retry attempts.|
 |maxDelay|00:01:00|The maximum delay to allow between retry attempts|
 |maxRetries|3|The maximum number of retry attempts before considering the associated operation to have failed.|

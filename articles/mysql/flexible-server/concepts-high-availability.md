@@ -10,6 +10,8 @@ ms.date: 01/29/2021
 
 # High availability concepts in Azure Database for MySQL Flexible Server (Preview)
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
@@ -54,6 +56,9 @@ Applications are connected to the primary server using the database server name.
 
 ## Failover process 
 For business continuity, you need to have a failover process for planned and unplanned events. 
+
+>[!NOTE]
+> Always use fully qualified domain name (FQDN) to connect to your primary server and avoid using IP address to connect. In case of failover, once primary and standby server role are switched, DNS A-record might change too which would prevent the application from connecting to the new primary server if IP address is used in the connection string. 
 
 ### Planned events
 

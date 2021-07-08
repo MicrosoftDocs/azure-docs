@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 06/10/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
@@ -34,9 +34,7 @@ As you'll see, there's more information available in a user's profile than what 
 
     ![User's profile page, including editable information](media/active-directory-users-profile-azure-portal/user-profile-all-blade.png)
 
-3. Select **Edit** to optionally add or update the information included in each of the available sections.
-
-    ![User's profile page, showing the editable areas](media/active-directory-users-profile-azure-portal/user-profile-edit.png)
+3. Select **Edit** to optionally add or update the information included in each of the editable sections.
 
     - **Profile picture.** Select a thumbnail image for the user's account. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page.
 

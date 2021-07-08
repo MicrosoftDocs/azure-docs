@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/13/2021
+ms.date: 05/19/2021
 ---
 # Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -30,52 +30,12 @@ This quickstart demonstrates how to use the Azure portal to create an Azure Cosm
 An Azure subscription or free Azure Cosmos DB trial account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
-- [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
+- [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
 ## Create an Azure Cosmos DB account
 
-Go to the [Azure portal](https://portal.azure.com/) to create an Azure Cosmos DB account. Search for and select **Azure Cosmos DB**.
-
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="The Azure portal Databases pane":::
-
-1. Select **Add**.
-1. On the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos account. 
-
-    |Setting|Value|Description |
-    |---|---|---|
-    |Subscription|Subscription name|Select the Azure subscription that you want to use for this Azure Cosmos account. |
-    |Resource Group|Resource group name|Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-    |Account Name|A unique name|Enter a name to identify your Azure Cosmos account. Because *documents.azure.com* is appended to the name that you provide to create your URI, use a unique name.<br><br>The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
-    |API|The type of account to create|Select **Core (SQL)** to create a document database and query by using SQL syntax. <br><br>The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core (SQL) and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>[Learn more about the SQL API](introduction.md).|
-    |Capacity mode|Provisioned throughput or Serverless|Select **Provisioned throughput** to create an account in [provisioned throughput](set-throughput.md) mode. Select **Serverless** to create an account in [serverless](serverless.md) mode.|
-    |Apply Azure Cosmos DB free tier discount|Apply or Do not apply|With Azure Cosmos DB free tier, you will get the first 400 RU/s and 5 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
-    |Location|The region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that is closest to your users to give them the fastest access to the data.|
-    |Account Type|Production or Non-Production|Select **Production** if the account will be used for a production workload. Select **Non-Production** if the account will be used for non-production, e.g. development, testing, QA, or staging. This is an Azure resource tag setting that tunes the Portal experience but does not affect the underlying Azure Cosmos DB account. You can change this value anytime.|
-    |Geo-Redundancy|Enable or Disable|Enable or disable global distribution on your account by pairing your region with a pair region. You can add more regions to your account later.|
-    |Multi-region Writes|Enable or Disable|Multi-region writes capability allows you to take advantage of the provisioned throughput for your databases and containers across the globe.|
-    |Availability Zones|Enable or Disable|Availability Zones help you further improve availability and resiliency of your application.|
-
-> [!NOTE]
-> You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you do not see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
-
-> [!NOTE]
-> The following options are not available if you select **Serverless** as the **Capacity mode**:
-> - Apply Free Tier Discount
-> - Geo-redundancy
-> - Multi-region Writes
-   
-   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="The new account page for Azure Cosmos DB":::
-
-1. Select **Review + create**. You can skip the **Network** and **Tags** sections.
-
-1. Review the account settings, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete**. 
-
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="The Azure portal Notifications pane":::
-
-1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
-
-    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-quickstart-pane.png" alt-text="The Azure Cosmos DB account page":::
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-container-database"></a>
 ## Add a database and a container 
@@ -129,11 +89,11 @@ Add data to your new database using Data Explorer.
 
 ## Query your data
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)] 
+[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)] 
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 If you wish to delete just the database and use the Azure Cosmos account in future, you can delete the database with the following steps:
 

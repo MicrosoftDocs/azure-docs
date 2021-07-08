@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/25/2021
 ---
 
 # Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure CLI
@@ -67,11 +67,17 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     > [!Note]
     > The virtual network and subnet should be in the same region and subscription as your flexible server.
 
+    > [!IMPORTANT]
+    > The names including `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` and `GatewaySubnet` are reserved names within Azure. Please do not use these as your subnet name.
+
 - Create a flexible server using new virtual network, subnet with non-default address prefix
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
     ```
 Refer to the Azure CLI [reference documentation](/cli/azure/postgres/flexible-server) for the complete list of configurable CLI parameters.
+
+>[!Important]
+> If you get an error `The parameter PrivateDnsZoneArguments is required, and must be provided by customer`, this means you may be running an older version of Azure CLI. Please [upgrade Azure CLI](/cli/azure/update-azure-cli) and retry the operation.
 
 ## Next steps
 - Learn more about [networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking.md).

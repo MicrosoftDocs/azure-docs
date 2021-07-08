@@ -1,10 +1,11 @@
-﻿---
+---
 title: Use condition in templates
 description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
 author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use condition in ARM templates

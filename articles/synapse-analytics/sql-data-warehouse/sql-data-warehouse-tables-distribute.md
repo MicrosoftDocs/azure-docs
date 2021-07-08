@@ -102,7 +102,7 @@ For best performance, all of the distributions should have approximately the sam
   
 To balance the parallel processing, select a distribution column that:
 
-- **Has many unique values.** The column can have some duplicate values. However, all rows with the same value are assigned to the same distribution. Since there are 60 distributions, the column should have at least 60 unique values.  Usually the number of unique values is much greater.
+- **Has many unique values.** The column can have duplicate values.  All rows with the same value are assigned to the same distribution. Since there are 60 distributions, some distributions can have > 1 unique values while others may end with zero values.  
 - **Does not have NULLs, or has only a few NULLs.** For an extreme example, if all values in the column are NULL, all the rows are assigned to the same distribution. As a result, query processing is skewed to one distribution, and does not benefit from parallel processing.
 - **Is not a date column**. All data for the same date lands in the same distribution. If several users are all filtering on the same date, then only 1 of the 60 distributions do all the processing work.
 

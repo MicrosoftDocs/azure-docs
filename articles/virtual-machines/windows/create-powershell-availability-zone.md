@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.custom: 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a virtual machine in an availability zone using Azure PowerShell

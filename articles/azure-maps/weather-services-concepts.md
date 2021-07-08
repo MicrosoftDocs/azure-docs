@@ -43,7 +43,7 @@ Some of the Weather service (Preview) APIs allow user to specify if the data is 
 |20      |percent             |
 |21      |float               |
 |22      |integer             |
-
+|31      |MicrogramsPerCubicMeterOfAir             |
 
 ## Weather icons
 

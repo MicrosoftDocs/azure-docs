@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/01/2020
+ms.date: 05/17/2021
 ms.author: trbye
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-twenty-four
@@ -23,6 +23,10 @@ keywords: text to speech
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [C++ Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cpp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [C++ Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

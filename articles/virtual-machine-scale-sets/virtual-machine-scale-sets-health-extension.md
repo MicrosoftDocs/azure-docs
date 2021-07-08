@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Using Application Health extension with virtual machine scale sets

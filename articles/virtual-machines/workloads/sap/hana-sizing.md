@@ -7,11 +7,12 @@ author: msjuergent
 manager: bburns
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/14/2021
-ms.author: juergent
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
 ---

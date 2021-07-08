@@ -163,4 +163,4 @@ All audio files should be grouped into a zip file. Once your dataset is successf
 ## Next steps
 
 - [Create and use your voice model](how-to-custom-voice-create-voice.md)
-- [Tutorial for voice sample recording](record-custom-voice-samples.md)
+- [How to record voice samples](record-custom-voice-samples.md)

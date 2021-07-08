@@ -133,6 +133,8 @@ Calling the [Models](https://westcentralus.dev.cognitive.microsoft.com/docs/serv
 }
 ```
 
-## Next steps
+## Use the API
 
-Learn concepts about [categorizing images](concept-categorizing-images.md).
+This feature is available through the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API. You can call this API through a native SDK or through REST calls. Include `Celebrities` or `Landmarks` in the **details** query parameter. Then, when you get the full JSON response, simply parse the string for the contents of the `"details"` section.
+
+* [Quickstart: Computer Vision REST API or client libraries](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

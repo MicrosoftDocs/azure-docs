@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
 ---
-# Language and region support for text and speech translation
+# Language support for text and speech translation
 
 Use Translator to translate to and from any of the 90 text translation languages and dialects. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 
@@ -124,6 +124,9 @@ Translator supports the following languages for text to text translation.
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
+> [!NOTE]
+> The following languages are not currently available in containers: Samoan, Tahitian, Klingon, Klingon (plqaD), and Thai.
+
 ### Detect
 
 Translator detects the following languages for translation and transliteration.
@@ -135,6 +138,7 @@ Translator detects the following languages for translation and transliteration.
 | Afrikaans | `af` |
 | Albanian | `sq` |
 | Arabic | `ar` |
+|Armenian| `hy` |
 | Bulgarian | `bg` |
 | Catalan | `ca` |
 | Chinese Simplified | `zh-Hans` |
@@ -160,13 +164,16 @@ Translator detects the following languages for translation and transliteration.
 | Irish | `ga` |
 | Italian | `it` |
 | Japanese | `ja` |
+|Khmer|`km` |
 | Klingon | `tlh-Latn` |
 | Korean | `ko` |
 | Kurdish (Central) | `ku-Arab` |
+|Lao|`lo` |
 | Latvian | `lv` |
 | Lithuanian | `lt` |
 | Malay | `ms` |
 | Maltese | `mt` |
+|Myanmar|`my` |
 | Norwegian | `nb` |
 | Pashto | `ps` |
 | Persian | `fa` |
@@ -372,86 +379,6 @@ The following languages are available for customization to or from English using
 
 ## Speech Translation
 Speech Translation is available by using Translator with Cognitive Services Speech service. View [Speech Service documentation](../speech-service/index.yml) to learn more about using speech translation and to view all of the [available language options](../speech-service/language-support.md).
-
-### Speech-to-text
-Convert speech into text in order to translate to the text language of your choice. Speech-to-text is used for speech to text translation, or for speech-to-speech translation when used in conjunction with speech synthesis.
-
-| Language    |
-|:----------- |
-|Arabic|
-|Cantonese (Traditional)|
-|Catalan|
-|Chinese Simplified|
-|Chinese Traditional|
-|Danish|
-|Dutch|
-|English|
-|Finnish|
-|French|
-|French (Canada)|
-|German|
-|Gujarati|
-|Hindi|
-|Italian|
-|Japanese|
-|Korean|
-|Marathi|
-|Norwegian|
-|Polish|
-|Portuguese (Brazil)|
-|Portuguese (Portugal)|
-|Russian|
-|Spanish|
-|Swedish|
-|Tamil|
-|Telugu|
-|Thai|
-|Turkish|
-
-### Text-to-speech
-Convert text to speech. Text-to-speech is used to add audible output of translation results, or for speech-to-speech translation when used with Speech-to-text. 
-
-| Language |
-|:-|
-| Arabic |
-| Bulgarian |
-| Cantonese (Traditional) |
-| Catalan |
-| Chinese Simplified |
-| Chinese Traditional |
-| Croatian |
-| Czech |
-| Danish |
-| Dutch |
-| English |
-| Finnish |
-| French |
-| French (Canada) |
-| German |
-| Greek |
-| Hebrew |
-| Hindi |
-| Hungarian |
-| Indonesian |
-| Italian |
-| Japanese |
-| Korean |
-| Malay |
-| Norwegian |
-| Polish |
-| Portuguese (Brazil) |
-| Portuguese (Portugal) |
-| Romanian |
-| Russian |
-| Slovak |
-| Slovenian |
-| Spanish |
-| Swedish |
-| Tamil |
-| Telugu |
-| Thai |
-| Turkish |
-| Vietnamese |
 
 ## View the language list on the Microsoft Translator website
 

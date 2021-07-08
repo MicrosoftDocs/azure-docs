@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 07/07/2021
 ms.author: mbullwin
 ---
 
@@ -30,7 +30,7 @@ ms.author: mbullwin
 
 ### Install the client library 
 
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.MetricsAdvisor`. Select version `1.0.0-beta.2`, and then **Install**. 
+Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.MetricsAdvisor`. Select version `1.0.0-beta.4`, and then **Install**. 
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `metrics-advisor-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
 
@@ -59,11 +59,11 @@ Build succeeded.
 If you are using an IDE other than Visual Studio you can install the Metrics Advisor client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.2
+dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.4
 ```
 
 > [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.0.0-beta.1/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples), which contains the code examples in this quickstart.
+> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.0.0-beta.4/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples), which contains the code examples in this quickstart.
 
 From the project directory, open the *program.cs* file and add the following `using` directives:
 
@@ -139,7 +139,12 @@ var adminClient = new MetricsAdvisorAdministrationClient(new Uri(endpoint), cred
 
 ## Add a data feed
 
-Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server. Replace `connection_String` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedMetric` and `DataFeedDimension` values based on your custom data.
+Metrics Advisor supports multiple types of data sources. In this sample we'll illustrate how to create a `DataFeed` that extracts data from a SQL server. 
+
+Replace `connection_String` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedMetric` and `DataFeedDimension` values based on your custom data.
+
+> [!IMPORTANT]
+> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [Tutorial: Write a valid query](../../tutorials/write-a-valid-query.md) for more information, and examples.
 
 
 ```csharp
@@ -188,7 +193,7 @@ Console.WriteLine($"Data feed status: {dataFeed.Status.Value}");
 Console.WriteLine($"Data feed created time: {dataFeed.CreatedTime.Value}");
 
 Console.WriteLine($"Data feed administrators:");
-foreach (string admin in dataFeed.Administrators)
+foreach (string admin in dataFeed.AdministratorEmails)
 {
     Console.WriteLine($" - {admin}");
 }
@@ -211,7 +216,7 @@ var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var endTime = DateTimeOffset.Parse("2020-09-09T00:00:00Z");
 var options = new GetDataFeedIngestionStatusesOptions(startTime, endTime)
 {
-    TopCount = 5
+    MaxPageSize = 5
 };
 
 Console.WriteLine("Ingestion statuses:");
@@ -325,7 +330,7 @@ var startTime = DateTimeOffset.Parse("2020-01-01T00:00:00Z");
 var endTime = DateTimeOffset.UtcNow;
 var options = new GetAlertsOptions(startTime, endTime, AlertQueryTimeMode.AnomalyTime)
 {
-    TopCount = 5
+    MaxPageSize = 5
 };
 
 int alertCount = 0;
@@ -351,7 +356,7 @@ Once you know an alert's ID, list the [anomalies](https://github.com/Azure/azure
 string alertConfigurationId = "<alertConfigurationId>";
 string alertId = "<alertId>";
 
-var options = new GetAnomaliesForAlertOptions() { TopCount = 3 };
+var options = new GetAnomaliesForAlertOptions() { MaxPageSize = 3 };
 
 int anomalyCount = 0;
 

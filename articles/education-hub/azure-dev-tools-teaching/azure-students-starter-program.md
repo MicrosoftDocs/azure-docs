@@ -32,8 +32,7 @@ This offer is limited to one Azure for Students Starter subscription per eligibl
 non-transferable and can't be combined with any other offer, unless otherwise permitted by Microsoft.
 
 A credit card isn't required for the Azure for Students Starter offer. However, you can upgrade at 
-any time to a pay-as-you-go subscription to get access to all Azure services, using the [Azure 
-Account portal](https://account.azure.com/).
+any time to a pay-as-you-go subscription to get access to all Azure services, using the [Azure portal](https://portal.azure.com/).
 
 ## Next steps
 - [Get help with login errors](troubleshoot-login.md)
