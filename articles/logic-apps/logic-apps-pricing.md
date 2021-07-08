@@ -48,7 +48,7 @@ The following table summarizes how the Consumption model handles metering and bi
 | [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | These operations run separately in Azure. In the designer, you can find these operations under the **Custom** label. For limits number of connectors, throughput, and timeout, review [Custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). | These operation executions follow the [*Standard* connector pricing](https://azure.microsoft.com/pricing/details/logic-apps/). |
 ||||
 
-For more information about how the Consumption model works with operations that run inside other operations such as loops or process multiple items such as arrays, review [Other operation behavior](#other-operation-behavior).
+For more information about how the Consumption model works with operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies, review [Other operation behavior](#other-operation-behavior).
 
 <a name="consumption-cost-estimation-tips"></a>
 
@@ -99,7 +99,7 @@ The following table summarizes how the Standard model handles metering and billi
 | [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | Currently, you can create and use only [custom built-in connector operations](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272) in single-tenant based logic app workflows. | The Standard model includes built-in operations *for free*. For limits on throughput and timeout, review [Custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). |
 ||||
 
-For more information about how the Standard model works with operations that run inside other operations such as loops or process multiple items such as arrays, review [Other operation behavior](#other-operation-behavior).
+For more information about how the Standard model works with operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies, review [Other operation behavior](#other-operation-behavior).
 
 <a name="standard-pricing-tiers"></a>
 
@@ -170,18 +170,18 @@ The following table summarizes how the ISE model handles the following operation
 | [*Custom connector*](../connectors/apis-list.md#custom-apis-and-connectors) | In the designer, you can find these operations under the **Custom** label. | The ISE model includes these operations *for free*, but are subject to [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). |
 ||||
 
-For more information about how the ISE model works with operations that run inside other operations such as loops or process multiple items such as arrays, review [Other operation behavior](#other-operation-behavior).
+For more information about how the ISE model works with operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies, review [Other operation behavior](#other-operation-behavior).
 
 <a name="other-operation-behavior"></a>
 
 ## Other operation behavior
 
-The following table summarizes how the Consumption, Standard, and ISE models handle operations that run inside other operations such as loops, process multiple items such as arrays, and retry attempts:
+The following table summarizes how the Consumption, Standard, and ISE models handle operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies:
 
 | Operation | Description | Consumption | Standard | ISE |
 |-----------|-------------|-------------|----------|-----|
 | [Loop actions](logic-apps-control-flow-loops.md) | A loop action, such as the **For each** or **Until** loop, can include other actions that run during each loop cycle. | Except for the initial number of included built-in operations, the loop action and each action in the loop are metered each time the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of items is also used in the metering calculation. <p><p>For example, suppose you have a **For each** loop with actions that process a list. The service multiplies the number of list items against the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the included built-in operations, same as the Consumption model. | Not metered or billed. |
-| [Retry attempts](logic-apps-exception-handling.md#retry-policies) | On supported operations, you can implement basic exception and error handling by setting up a [retry policy](logic-apps-exception-handling.md#retry-policies). | Except for the initial number of built-in operations, the original execution plus each retried execution are metered. For example, an action that executes with 5 retries is metered and billed as 6 executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the built-in included operations, same as the Consumption model. | Not metered or billed. |
+| [Retry policies](logic-apps-exception-handling.md#retry-policies) | On supported operations, you can implement basic exception and error handling by setting up a [retry policy](logic-apps-exception-handling.md#retry-policies). | Except for the initial number of built-in operations, the original execution plus each retried execution are metered. For example, an action that executes with 5 retries is metered and billed as 6 executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the built-in included operations, same as the Consumption model. | Not metered or billed. |
 ||||||
 
 <a name="storage-operations"></a>
