@@ -56,57 +56,55 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png" alt-text="Screenshot of basics tab for create a virtual network.":::  
 
-1. On the **IP addresses** tab, select the following network settings.
+1. On the **IP addresses** tab, select the following IP address settings and then select **Review + create**.
    
    | Setting | Value |
-   |----|----|
-   |IPv4Address space| Leave as default |
-   |Subnet name| Click **default** and change the name from "default" to "Public"|
-   |Subnet Address Range| Leave as default|
+   | --- | --- |
+   | IPv4 address space| Leave as default. |
+   | Subnet name | Select **default** and change the subnet name to "Public". |
+   | Subnet Address Range | Leave as default. |
 
-5. Click **Next: Security >** 
-   
-   |Setting|Value|
-   |----|----|   
-   |BastionHost| Disable|
-   |DDoS protection| Disable|
-   |Firewall| Disable|
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network-ip-addresses.png" alt-text="Screenshot of IP addresses tab for create a virtual network.":::  
 
-6. When complete, click **Review and create**.
-7. If the validation checks pass, click **Create**.
-8. Wait for the deployment to finish, then click **Go to resource** or move on to the next section. 
+1. If the validation checks pass, select **Create**.
+
+1. Wait for the deployment to finish, then select **Go to resource** or move on to the next section. 
 
 ## Enable a service endpoint
 
 Service endpoints are enabled per service, per subnet. To create a subnet and enable a service endpoint for the subnet:
 
-1. If you are not already on the virtual network resource page, you can search for the newly created network in the **Search resources, services, and docs** box at the top of the portal, enter *myVirtualNetwork*, and select it from the list.
-2. In the **Settings** menu (left), select **Subnets**, and then select **+ Subnet**, as shown:
+1. If you're not already on the virtual network resource page, you can search for the newly created network in the box at the top of the portal. Enter *myVirtualNetwork*, and select it from the list.
 
-    ![Add subnet](./media/tutorial-restrict-network-access-to-resources/add-subnet.png) 
+1. Select **Subnets** under *Settings*, and then select **+ Subnet**, as shown:
 
-3. Under **Add subnet**, select or enter the following information, and then select **OK**:
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/add-subnet.png" alt-text="Screenshot of adding subnet to an existing virtual network.":::
 
-    |Setting|Value|
-    |----|----|
-    |Name| Private |
-    |Address range| Leave as default|
-    |Service endpoints| Select **Microsoft.Storage**|
-    |Service endpoint policies | Leave default as 0 |
+1. On the **Add subnet** page, select or enter the following information, and then select **Save**:
+
+    | Setting |Value |
+    | --- | --- |
+    | Name | Private |
+    | Subnet address range | Leave as default|
+    | Service endpoints | Select **Microsoft.Storage**|
+    | Service endpoint policies | Leave default. *0 selected*. |
+
+    :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/add-subnet-settings.png" alt-text="Screenshot of add a subnet page with service endpoints configured.":::  
 
 > [!CAUTION]
 > Before enabling a service endpoint for an existing subnet that has resources in it, see [Change subnet settings](virtual-network-manage-subnet.md#change-subnet-settings).
-
-4. Click **Save**, then close the Subnet window on the right. The newly created subnet should appear the list.
 
 ## Restrict network access for a subnet
 
 By default, all virtual machine instances in a subnet can communicate with all resources. You can limit communication to and from all resources in a subnet by creating a network security group, and associating it to the subnet:
 
 1. Select **All services** in the upper left corner of the Azure portal.
-2. Select **Networking**, and then select (or search for) **Network security groups**.
-3. From the **Network security groups** page, click **+ Add**.
-4. Enter the following information 
+
+1. Select **Networking**, and then select (or search for) **Network security groups**.
+
+1. From the **Network security groups** page, click **+ Add**.
+
+1. Enter the following information 
 
     |Setting|Value|
     |----|----|
