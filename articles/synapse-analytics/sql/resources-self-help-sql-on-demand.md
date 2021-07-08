@@ -544,9 +544,29 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 
 ### Partitioning column returns NULL values
 
-If you are using views over the `OPENROWSET` function that read partitioned Delta Lake folder, you might get the value `NULL` instead of the actual column values for the partitioning columns. Due to the known issue, the `OPENROWSET` function with the `WITH` clause cannot read partitioning columns. The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. You need to use the `OPENROWSET` function that doesn't have explicitly specified schema.
+If you are using views over the `OPENROWSET` function that read partitioned Delta Lake folder, you might get the value `NULL` instead of the actual column values for the partitioning columns. An example of a view that references `Year` and `Month` partitioning columns is shown in the following example:
 
-**Workaround:** Remove the `WITH` clause form the `OPENROWSET` function that is used in the views.
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+     with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
+
+Due to the known issue, the `OPENROWSET` function with the `WITH` clause cannot read the values from the partitioning columns. The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. You need to use the `OPENROWSET` function that doesn't have explicitly specified schema.
+
+**Workaround:** Remove the `WITH` clause from the `OPENROWSET` function that is used in the views - example:
+
+```sql
+create or alter view test as
+select top 10 * 
+from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
+                format = 'delta') 
+   --with (ID int, Year int, Month int, Temperature float) 
+                as rows
+```
 
 ### Query failed because of a topology change or compute container failure
 
@@ -557,7 +577,7 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
-The queries executed via master database are affected with this issue.
+The queries executed via master database are affected with this issue. This is not applicable on all queries that are reading partitioned data. The data sets partitioned by string columns are affected by this issue.
 
 **Workaround:** Execute the queries on a custom database with `Latin1_General_100_BIN2_UTF8` database collation.
 
@@ -565,7 +585,7 @@ The queries executed via master database are affected with this issue.
 
 You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
 
-**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns.
+**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
 
 ### Cannot find value of partitioning column in file 
 
@@ -601,6 +621,8 @@ In this case, report a support ticket and provide a repro to Azure support:
 - Send the content of the copied `_delta_log` file to Azure support.
 
 Microsoft team will investigate the content of the `delta_log` file and provide more info about the possible errors and workarounds.
+
+**Workaround:** This problem might happen if you are using some `_UTF8` database collation. Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation.
 
 ## Constraints
 
