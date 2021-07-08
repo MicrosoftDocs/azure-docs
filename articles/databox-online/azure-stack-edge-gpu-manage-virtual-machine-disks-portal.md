@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to manage disks on a VM running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
@@ -53,7 +53,7 @@ Before you begin to manage disks on the VMs running on your device via the Azure
 
 Follow these steps to add a disk to a virtual machine deployed on your device.
 
-1. Go to the virtual machine to which you want to add a data disk, and then go to the **Overview** page. Select **Disks**.
+1. Go to the virtual machine to which you want to add a data disk, and select **Disks** in the virtual machine **Details**.
     
     ![Select Disks on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-1.png)
 
@@ -73,7 +73,7 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
 
     Select **OK** and proceed.
 
-1. In the **Overview** page, under **Disks**, you'll see an entry corresponding to the new disk. Accept the default or assign a valid Logical Unit Number (LUN) to the disk, and select **Save**. A LUN is a unique identifier for a SCSI disk. For more information, see [What is a LUN?](../virtual-machines/linux/azure-to-guest-disk-mapping.md#what-is-a-lun).
+1. In the **Disks** display, you'll see an entry corresponding to the new disk. Accept the default or assign a valid Logical Unit Number (LUN) to the disk, and select **Save**. A LUN is a unique identifier for a SCSI disk. For more information, see [What is a LUN?](../virtual-machines/linux/azure-to-guest-disk-mapping.md#what-is-a-lun).
 
     ![New disk on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-4.png)
 
@@ -90,7 +90,7 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
 
 Follow these steps to change a disk associated with a virtual machine deployed on your device.
 
-1. Go to the virtual machine that has the data disk to change. Go to the **Resources** page. Select **Disks**.
+1. Go to the virtual machine that has the data disk to change, and select **Disks** in the virtual machine **Details**.
 
 1. In the list of data disks, select the disk that you wish to change. In the far right of the disk selected, select the edit icon (pencil).  
 
@@ -103,14 +103,14 @@ Follow these steps to change a disk associated with a virtual machine deployed o
     > [!NOTE]
     > You can only expand a data disk. You can't shrink the disk.
 
-1. On the **Overview** page, the list of disks refreshes to display the updated disk.
+1. In the **Disks** display, the list of disks refreshes to display the updated disk.
 
 
 ## Attach an existing disk
 
 Follow these steps to attach an existing disk to the virtual machine deployed on your device.
 
-1. Go to the virtual machine to which you wish to attach the existing disk, and then go to the **Overview** page. Select **Disks**.
+1. Go to the virtual machine to which you wish to attach the existing disk, and select **Disks** in the virtual machine **Details**.
     
     ![Select Disks ](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
 
@@ -137,7 +137,7 @@ Follow these steps to detach or remove a data disk associated with a virtual mac
 > - You can remove a data disk while the VM is running. Make sure that nothing is actively using the disk before detaching it from the VM.
 > - If you detach a disk, it is not automatically deleted. Follow the steps in [Delete a disk](#delete-a-data-disk), below.
 
-1. Go to the virtual machine from which you wish to detach a data disk, and go to the **Overview** page. Select **Disks**.
+1. Go to the virtual machine from which you wish to detach a data disk, and select **Disks** in the virtual machine **Details**.
 
     ![Select Disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
 
@@ -145,7 +145,7 @@ Follow these steps to detach or remove a data disk associated with a virtual mac
 
     ![Select a disk to detach](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/detach-data-disk-1.png)
 
-1. After the disk is detached, the virtual machine is updated. Refresh the **Overview** page to view the updated list of data disks.
+1. After the disk is detached, the virtual machine is updated. Refresh the page to view the updated list of data disks.
 
     ![Select save](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-2.png)
 

@@ -65,19 +65,18 @@ Follow these steps to add a network interface to a virtual machine deployed on y
 
 3. In the **Add network interface** blade, enter the following parameters:
 
-    
     |Column1  |Column2  |
     |---------|---------|
     |Name     | A unique name within the resource group. The name cannot be changed after the network interface is created. To manage multiple network interfaces easily, use the suggestions provided in the [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming).     |
-    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface. There is only one virtual network associated with your device.         |         
-    |Subnet     | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |       
-    |IP assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.        | 
+    |Virtual network| The virtual network associated with the virtual switch created on your device when you enabled compute on the network interface. There is only one virtual network associated with your device.         |
+    |Subnet     | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
+    |IP assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.        |
 
-    ![Add a network interface blade](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
+    ![Screenshot showing theh options for adding a new network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
 
 4. You'll see a notification that the network interface creation is in progress.
 
-    ![Notification when network interface is getting created](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
+    ![Notification when a network interface is getting created](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
 
 5.  After the network interface is successfully created, the list of network interfaces refreshes to display the newly created interface.
 
@@ -88,15 +87,15 @@ Follow these steps to add a network interface to a virtual machine deployed on y
 
 Follow these steps to edit a network interface associated with a virtual machine deployed on your device.
 
-1. Go to the virtual machine that you have stopped, and select **Networking**.
+1. Go to the virtual machine that you have stopped, and select **Networking** in the virtual machine **Details**.
 
 1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the edit icon (pencil).  
 
-    ![Select a network interface to edit](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
+    ![Screenshot showing the edit icon selected for a virtual network](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
 
-1. In the **Edit network interface** blade, you can only change the IP assignment of the network interface. The name, virtual network, and subnet associated with the network interface can't be changed once it is created. Change the **IP assignment** to static and save the changes.
+1. In the **Edit network interface** blade, you can only change the IP assignment of the network interface. The name, virtual network, and subnet associated with the network interface can't be changed once it is created. Change the **IP assignment** to static, and save the changes.
 
-    ![Change IP assignment for the network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
+    ![Screenshot showing how to change the IP assignment for a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
 
 1. The list of network interface refreshes to display the updated network interface.
 
@@ -105,27 +104,36 @@ Follow these steps to edit a network interface associated with a virtual machine
 
 Follow these steps to detach or remove a network interface associated with a virtual machine deployed on your device.
 
-1. Go to the virtual machine that you have stopped, and select **Networking**.
+1. Go to the virtual machine that you have stopped, and select **Networking** in the virtual machine **Details**.
 
 1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the detach icon (unplug).  
 
-    ![Select a network interface to detach](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
+    ![Screenshot showing the detach icon selected for a network interface attached to a virtual machine](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
 
-1. After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
+1. You'll see a message asking you to confirm that you want to detach the network interface. Select **Yes**.
+
+    ![Screenshot showing the detach icon - a pencil - for detaching a virtual network from a virtual machine](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-2.png)
+
+    After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
 
 ## Delete a network interface
 
 Follow these steps to delete a network interface that isn't attached to a virtual machine. The default network interface, ASENET, can't be deleted.
 
-1. Go to **Virtual machines** and then the **Resources** page. Select **Networking**.
+1. Go to **Virtual machines**, and then to the **Resources** page. Select **Networking**.
     
-    ![Select Networking on the Resources page for virtual machines](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
+    ![Screenshot showing the Networking tab on the Resources page for virtual machines](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
 
-2. In the **Networking** blade, select the delete icon by the network interface you want to delete. The delete icon is only displayed for network interfaces not attached to a VM.
+1. On the **Networking** blade, select the delete icon (trashcan) by the network interface you want to delete. The delete icon is only displayed for network interfaces that aren't attached to a VM.
 
-    ![Select the trashcan icon to Delete an unattached network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-2.png)
+    ![Screenshot showing the delete icon selected for an unattached network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-2.png)
 
+1. You'll see a message asking you to confirm that you want to delete the network interface. The operation can't be reversed. Select **Yes**.
+
+    ![To delete an unattached disk, selecting the trashcan icon to the right of the entry in the list of disks](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-3.png)
+  
+    After deletion of the network interface completes, the network interface is removed from the list.
 
 ## Next steps
 
