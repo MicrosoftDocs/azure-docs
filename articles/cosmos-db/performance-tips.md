@@ -91,7 +91,7 @@ A common performance problem in apps using the Cosmos DB SDK is blocking calls t
 * Block asynchronous execution by calling [Task.Wait](/dotnet/api/system.threading.tasks.task.wait) or [Task.Result](/dotnet/api/system.threading.tasks.task-1.result).
 * Acquire locks in common code paths. ASP.NET Core apps are most performant when architected to run code in parallel.
 * Call [Task.Run](/dotnet/api/system.threading.tasks.task.run) and immediately await it. ASP.NET Core already runs app code on normal Thread Pool threads, so calling Task.Run only results in extra unnecessary Thread Pool scheduling. Even if the scheduled code would block a thread, Task.Run does not prevent that.
-* Do not use ToList() on DocumentClient.CreateDocumentQuery(...) which uses blocking calls to synchronously drain the query. Use [AsDocumentQuery()](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/a4348f8cc0750434376b02ae64ca24237da28cd7/samples/code-samples/Queries/Program.cs#L690) to drain the query asynchronously.
+* Do not use ToList() on `DocumentClient.CreateDocumentQuery(...)` which uses blocking calls to synchronously drain the query. Use [AsDocumentQuery()](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/a4348f8cc0750434376b02ae64ca24237da28cd7/samples/code-samples/Queries/Program.cs#L690) to drain the query asynchronously.
 
 **Do**:
 
