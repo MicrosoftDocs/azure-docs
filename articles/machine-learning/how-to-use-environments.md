@@ -444,7 +444,7 @@ az ml environment download -n myenv -d downloaddir
 
 ## Create and manage environments with Visual Studio Code
 
-Using the Azure Machine Learning extension, you can create and manage environments in Visual Studio Code. For more information, see [Manage Azure Machine Learning resources with the VS Code extension](how-to-manage-resources-vscode#environments).
+Using the Azure Machine Learning extension, you can create and manage environments in Visual Studio Code. For more information, see [manage Azure Machine Learning resources with the VS Code extension](how-to-manage-resources-vscode.md#environments).
 
 ## Next steps
 
