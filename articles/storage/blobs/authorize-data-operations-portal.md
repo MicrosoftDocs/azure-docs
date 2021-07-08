@@ -106,5 +106,5 @@ To specify how to authorize a blob upload operation, follow these steps:
 
 ## Next steps
 
-- [Authenticate access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)

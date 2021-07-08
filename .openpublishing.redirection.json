@@ -31512,6 +31512,16 @@
       "source_path_from_root": "/articles/storage/storage-analytics.md",
       "redirect_url": "/azure/storage/common/storage-analytics",
       "redirect_document_id": true
+    },    
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth.md",
+      "redirect_url": "/azure/storage/common/authorize-data-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad.md",
+      "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac.md",

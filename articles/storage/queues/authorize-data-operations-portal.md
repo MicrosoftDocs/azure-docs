@@ -89,5 +89,5 @@ Queues are not listed in the portal if you do not have access to the account key
 
 ## Next steps
 
-- [Authenticate access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
 - [Assign an Azure role for access to queue data](assign-azure-role-data-access.md)
