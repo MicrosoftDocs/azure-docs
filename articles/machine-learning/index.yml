@@ -90,6 +90,7 @@ conceptualContent:
           text: Model management, deployment, lineage & monitoring
         - url: how-to-cicd-data-ingestion.md
           itemType: how-to-guide
+          text: DevOps for a data ingestion pipeline
     # Card
     - title: Security for ML projects
       links:
