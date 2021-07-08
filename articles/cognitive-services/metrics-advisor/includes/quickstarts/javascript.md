@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 07/07/2021
 ms.author: mbullwin
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-metricsadvisor-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
+[Reference documentation](/java/api/overview/azure/ai-metricsadvisor-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/metricsadvisor/ai-metrics-advisor/samples/v1/javascript)
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ ms.author: mbullwin
 * Your own SQL database with time series data.
   
 > [!TIP]
-> * You can find JavaScript Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples).
+> * You can find JavaScript Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/metricsadvisor/ai-metrics-advisor/samples/v1/javascript).
 > * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
@@ -47,7 +47,7 @@ npm init
 Install the `@azure/ai-metrics-advisor` NPM package:
 
 ```console
-npm install @azure/ai-metrics-advisor@1.0.0-beta.2
+npm install @azure/ai-metrics-advisor
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
@@ -125,9 +125,9 @@ const {
 } = require("@azure/ai-metrics-advisor");
 
 async function main() {
-  subscriptionKey = "<paste-your-metrics-advisor-key-here>";
-  apiKey ="<paste-your-metrics-advisor-api-key-here>";
-  endpoint = "<paste-your-metrics-advisor-endpoint-here>";
+  const subscriptionKey = "<paste-your-metrics-advisor-key-here>";
+  const apiKey ="<paste-your-metrics-advisor-api-key-here>";
+  const endpoint = "<paste-your-metrics-advisor-endpoint-here>";
   const sqlServerConnectionString ="<sql_server_connection_string>";
   const sqlServerQuery ="<query>";
   const credential = new MetricsAdvisorKeyCredential(subscriptionKey, apiKey);
@@ -187,7 +187,7 @@ async function createDataFeed(adminClient, sqlServerConnectionString, sqlServerQ
       fillType: "SmartFilling"
     },
     accessMode: "Private",
-    adminEmails: ["xyz@example.com"]
+    admins: ["xyz@example.com"]
   };
   const result = await adminClient.createDataFeed(dataFeed);
 
@@ -414,10 +414,10 @@ async function queryAnomaliesByAlert(client, alert) {
   console.log(
     `Listing anomalies for alert configuration '${alert.alertConfigId}' and alert '${alert.id}'`
   );
-  const iterator = client.listAnomalies(alert);
+  const iterator = client.listAnomaliesForAlert(alert);
   for await (const anomaly of iterator) {
     console.log(
-      `  Anomaly ${anomaly.severity} ${anomaly.status} ${anomaly.seriesKey.dimension} ${anomaly.timestamp}`
+      `  Anomaly ${anomaly.severity} ${anomaly.status} ${anomaly.seriesKey} ${anomaly.timestamp}`
     );
   }
 }
