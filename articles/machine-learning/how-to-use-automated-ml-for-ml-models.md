@@ -170,7 +170,7 @@ The **Models** tab contains a list of the models created ordered by the metric s
 
 ### View training run details
 
-Drill down on any of the completed models to see training run details. On the **Model** tab like a model summary and the hyperparameters used for the selected model. 
+Drill down on any of the completed models to see training run details. On the **Model** tab view details like a model summary and the hyperparameters used for the selected model. 
 
 [![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
 
