@@ -10,7 +10,7 @@ ms.author: v-erkel
 
 # Cache metrics and monitoring
 
-The Azure Portal has several built-in visualizations that you can use to monitor the performance of your Azure HPC Cache.
+The Azure portal has several built-in visualizations that you can use to monitor the performance of your Azure HPC Cache.
 
 This article explains where to find the visualizations, and what they show.
 
