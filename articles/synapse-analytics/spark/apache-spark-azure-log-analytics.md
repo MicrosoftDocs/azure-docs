@@ -199,10 +199,12 @@ And you can customize the workbook by Kusto query and configure alerts.
    | summarize max(value_d) by bin(TimeGenerated, 30s), executorId_s
    | order by TimeGenerated asc
    ```
+
 ## Write custom application logs
 
 You can write custom logs by leveraging the Apache Log4j library.
-Here are the examples:
+
+Here are some examples:
 
 For Scala:
 
