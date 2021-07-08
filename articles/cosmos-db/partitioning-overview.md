@@ -67,7 +67,7 @@ Each physical partition consists of a set of replicas, also referred to as a [*r
 
 Typically, smaller containers only require a single physical partition, but they will still have at least 4 replicas.
 
-The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
+The following image shows how logical partitions are mapped to physical partitions that are distributed globally. [Partition set](global-dist-under-the-hood.md#partition-sets) in the image refers to a group of physical partitions that manage the same logical partition keys across multiple regions:
 
 :::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="An image that demonstrates Azure Cosmos DB partitioning" border="false":::
 

@@ -134,7 +134,7 @@ The author can customize the width of any column in the grid using the *Custom C
 
 ![Screenshot of column settings with the custom column width field indicated in a red box](./media/workbooks-grid-visualizations/custom-column-width-setting.png)
 
-If the field is left black, then the width will be automatically determined based on the number of characters in the column and the number of visible columns. The default unit is "ch" (characters).
+If the field is left blank, then the width will be automatically determined based on the number of characters in the column and the number of visible columns. The default unit is "ch" (characters).
 
 Selecting the blue **(Current Width)** button in the label will fill the text field with the selected column's current width. If a value is present in the custom width field with no unit of measurement, then the default will be used.
 

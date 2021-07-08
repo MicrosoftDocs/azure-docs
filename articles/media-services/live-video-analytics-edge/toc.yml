@@ -128,7 +128,7 @@
   - name: Quotas and limitations
     href: quotas-limitations.md
   - name: FAQs
-    href: faq.md
+    href: faq.yml
   - name: Production readiness and best practices
     href: production-readiness.md
   - name: Transparency and responsible AI principles

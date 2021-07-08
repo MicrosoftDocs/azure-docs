@@ -219,7 +219,7 @@
     - name: Get started with pass-through authentication
       href: how-to-connect-pta-quick-start.md
     - name: Pass-through authentication FAQ
-      href: how-to-connect-pta-faq.md
+      href: how-to-connect-pta-faq.yml
     - name: Disable PTA with Azure AD Connect "Do not configure"
       href: how-to-connect-pta-disable-do-not-configure.md
   - name: Manage Federation Services
@@ -246,6 +246,8 @@
       href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
     - name: Emergency rotation of AD FS certificates
       href: how-to-connect-emergency-ad-fs-certificate-rotation.md
+    - name: Monitor changes to federation configuration
+      href: how-to-connect-monitor-federation-changes.md
   - name: Manage single sign-on 
     items:
 
@@ -253,7 +255,7 @@
       href: how-to-connect-sso-quick-start.md
 
     - name: Single Sign-On FAQ
-      href: how-to-connect-sso-faq.md
+      href: how-to-connect-sso-faq.yml
   - name: Manage Azure AD Connect Health
     items:
     - name: Azure AD Connect Health Operations
@@ -361,9 +363,9 @@
   - name: Accounts and permissions
     href: reference-connect-accounts-permissions.md
   - name: Azure AD Connect FAQ
-    href: reference-connect-faq.md
+    href: reference-connect-faq.yml
   - name: Azure AD Connect Health FAQ
-    href: reference-connect-health-faq.md
+    href: reference-connect-health-faq.yml
   - name: Hybrid identity considerations for Azure Government 
     href: reference-connect-government-cloud.md
   - name: Azure AD Connect user privacy
@@ -382,6 +384,8 @@
     href: how-to-connect-fed-compatibility.md
   - name: TLS 1.2 enforcement
     href: reference-connect-tls-enforcement.md
+  - name: ADSync Reference
+    href: reference-connect-adsync.md
   - name: ADSyncConfig Reference
     href: reference-connect-adsyncconfig.md
   - name: ADSyncTools Reference

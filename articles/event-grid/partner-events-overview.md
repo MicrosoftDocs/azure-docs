@@ -2,7 +2,7 @@
 title: Azure Event Grid - Partner Events 
 description: Send events from third-party Event Grid SaaS and PaaS partners directly to Azure services with Azure Event Grid.
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 06/15/2021
 ---
 
 # Partner Events in Azure Event Grid (preview)
@@ -43,12 +43,12 @@ You may want to use the Partner Events if you've one or more of the following re
 ## Available third-party event publishers
 A third-party event publisher must go through an [onboarding process](partner-onboarding-overview.md) before a subscriber can start consuming its events. 
 
-If you're a subscriber and would like a third-party service to expose its events through Event Grid, 
+> [!NOTE]
+> If you would like a third-party service to expose its events through Event Grid, submit the idea on the [User Voice portal](https://feedback.azure.com/forums/909934-azure-event-grid).
 
 ### Auth0
 **Auth0** is the first partner publisher available. You can create an [Auth0 partner topic](auth0-overview.md) to connect your Auth0 and Azure accounts. This integration allows you to react to, log, and monitor Auth0 events in real time. To try it out, see [Integrate Azure Event Grid with Auto0](auth0-how-to.md)
 
-If you would like a third-party service to expose its events through Event Grid, submit the idea on the [User Voice portal](https://feedback.azure.com/forums/909934-azure-event-grid).
  
 ## Resources managed by event publishers
 Event publishers create and manage the following resources:

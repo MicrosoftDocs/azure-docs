@@ -27,7 +27,7 @@ your first Resource Graph query.
   > the following examples. For information about other options, see
   > [Azure Identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity).
 
-- The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version
+- The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version
   8.
 
 - [Apache Maven](https://maven.apache.org/), version 3.6 or above.

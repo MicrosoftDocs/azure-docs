@@ -2,16 +2,14 @@
 title: Create collections for My Apps portals in Azure Active Directory  | Microsoft Docs
 description: Use My Apps collections to Customize My Apps pages for a simpler My Apps experience for your end users. Organize applications into groups with separate tabs.
 services: active-directory
-documentationcenter: ''
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: iangithinji
+ms.author: davidmu
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
 ---

@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 06/10/2021
 ---
 
 # Logical replication and logical decoding in Azure Database for PostgreSQL - Flexible Server
@@ -16,7 +16,7 @@ ms.date: 06/04/2021
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**
    1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
-   2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc.
+   <!--- 2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. -->
 2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
@@ -41,10 +41,11 @@ Logical decoding
 
 1. Go to server parameters page on the portal.
 2. Set the server parameter `wal_level` to `logical`.
-3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box. Also update `max_worker_processes` parameter value to at least 16.
-4. Save the changes and restart the server to apply the `wal_level` change.
-5. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
-6. Grant the admin user replication permissions.
+<!---
+3. If you want to use pglogical extension, search for the `shared_preload_libaries` parameter, and select `pglogical` from the drop-down box. Also update `max_worker_processes` parameter value to at least 16. -->
+3. Save the changes and restart the server to apply the `wal_level` change.
+4. Confirm that your PostgreSQL instance allows network traffic from your connecting resource.
+5. Grant the admin user replication permissions.
    ```SQL
    ALTER ROLE <adminname> WITH REPLICATION;
    ```
@@ -84,12 +85,17 @@ Here's some sample code you can use to try out logical replication.
    ```SQL
    SELECT * FROM basic;
    ```
+   You can add more rows to the publisher's table and view the changes on the subscriber.
 
-You can add more rows to the publisher's table and view the changes on the subscriber.
+   If you are not able to see the data, enable the login privilege for `azure_pg_admin` and check the table content. 
+   ```SQL 
+   ALTER ROLE azure_pg_admin login;
+   ```
+
 
 Visit the PostgreSQL documentation to understand more about [logical replication](https://www.postgresql.org/docs/current/logical-replication.html).
 
-
+<!---
 ### pglogical extension
 
 Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to pglogical extension documentation for more details. Also make sure you have performed pre-requisite tasks listed above.
@@ -134,7 +140,7 @@ Here is an example of configuring pglogical at the provider database server and 
    ```SQL
    SELECT subscription_name, status FROM pglogical.show_subscription_status();
    ```
-
+-->
 ### Logical decoding
 Logical decoding can be consumed via the streaming protocol or SQL interface. 
 

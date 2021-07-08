@@ -29,7 +29,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
 * The [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
@@ -147,6 +147,10 @@ To get more details about this error, run:
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
 
+### ERR_1350: Unable to download user model, not enough space on the disk
+
+This issue happens when the size of the model is bigger than the available disk space. Please try an SKU with more disk space.
+
 ### ERR_2100: Unable to start user container
 
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.
@@ -193,8 +197,7 @@ When you access managed online endpoints with REST requests, the returned status
 
 ## Next steps
 
-Learn more about deployment:
-
-* [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-* [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
+- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
+- [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
 

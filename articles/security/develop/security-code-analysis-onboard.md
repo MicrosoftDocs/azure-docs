@@ -95,4 +95,4 @@ After you install the extension, the secure development build tasks are visible 
 
 For more information about configuring the build tasks, see our [Configuration guide](security-code-analysis-customize.md) or [YAML Configuration guide](yaml-configuration.md).
 
-If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
+If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.yml).

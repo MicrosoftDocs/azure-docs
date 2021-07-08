@@ -5,7 +5,7 @@ description: Learn more about the human languages that are available with Form R
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 05/10/2021

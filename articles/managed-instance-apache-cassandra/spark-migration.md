@@ -21,7 +21,7 @@ This article describes how to migrate data to Migrate to Azure Managed Instance 
 
 ## Prerequisites
 
-* Provision an Azure Managed Instance for Apache Cassandra cluster using [Azure portal](create-cluster-portal.md) or [Azure CLI](create-cluster-cli.md) and ensure you can [connect to your cluster with CQLSH](/azure/managed-instance-apache-cassandra/create-cluster-portal#connecting-to-your-cluster).
+* Provision an Azure Managed Instance for Apache Cassandra cluster using [Azure portal](create-cluster-portal.md) or [Azure CLI](create-cluster-cli.md) and ensure you can [connect to your cluster with CQLSH](./create-cluster-portal.md#connecting-to-your-cluster).
 
 * [Provision an Azure Databricks account inside your Managed Cassandra VNet](deploy-cluster-databricks.md). Ensure it also has network access to your source Cassandra cluster.
 

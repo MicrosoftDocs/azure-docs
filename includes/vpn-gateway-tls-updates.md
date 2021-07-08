@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 07/30/2018
+ ms.date: 06/15/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -20,6 +20,6 @@ Additionally, the following legacy algorithms will also be deprecated for TLS on
 * 3DES (Triple Data Encryption Algorithm)
 * MD5 (Message Digest 5)
 
-### <a name="tls1"></a>How do I enable support for TLS 1.2 in Windows 7 and Windows 8.1?
+### <a name="tls1"></a>How do I enable support for TLS 1.2 in Windows 8.1?
 
 [!INCLUDE [tls 1.2](vpn-gateway-tls-include.md)]

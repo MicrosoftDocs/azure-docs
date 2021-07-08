@@ -6,7 +6,7 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/08/2019 
+ms.date: 06/23/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -16,6 +16,9 @@ ms.custom: devx-track-azurepowershell
 
 The Switch activity provides the same functionality that a switch statement provides in programming languages. It evaluates a set of activities corresponding to a case that matches the condition evaluation.
 
+> [!NOTE]
+> This section provides JSON definitions of Switch activity. Expressions for Switch, Cases etc. that evaluate to string should not contain '.' character which is a reserved character.
+> 
 ## Syntax
 
 ```json
