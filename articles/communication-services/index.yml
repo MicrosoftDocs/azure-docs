@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page # Required
   author: mikben
   ms.author: mikben
-  ms.date: 03/10/2021
+  ms.date: 06/30/2021
 
 landingContent:
   - title: About Azure Communication Services
@@ -45,6 +45,8 @@ landingContent:
             url: ../event-grid/event-schema-communication-services.md
           - text: Notifications
             url: concepts/notifications.md
+          - text: Best Practices
+            url: concepts/best-practices.md
           - text: Troubleshooting
             url: concepts/troubleshooting-info.md
   - title: Voice and video calling

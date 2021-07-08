@@ -107,6 +107,8 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -158,8 +160,20 @@
     items:
     - name: Monitor Azure resource
       href: essentials/monitor-azure-resource.md
-    - name: Monitor Azure virtual machines
-      href: vm/monitor-vm-azure.md
+    - name: Monitor virtual machines
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Configure monitoring
+        href: vm/monitor-virtual-machine-configure.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Monitor security
+        href: vm/monitor-virtual-machine-security.md
+      - name: Create alerts
+        href: vm/monitor-virtual-machine-alerts.md
+      - name: Monitor workloads
+        href: vm/monitor-virtual-machine-workloads.md
       displayname: VM
   - name: Deploy
     items:
@@ -1056,8 +1070,6 @@
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: vm/vminsights-log-search.md
-    - name: Alerts
-      href: vm/vminsights-alerts.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
     - name: Visualize data with workbooks
