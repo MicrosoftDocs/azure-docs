@@ -6,6 +6,5 @@ items:
   items:
   - name: What is PyTorch Enterprise?
     href: pytorch-enterprise-overview.md
-  items:
   - name: What is covered?
     href: support-boundaries.md
