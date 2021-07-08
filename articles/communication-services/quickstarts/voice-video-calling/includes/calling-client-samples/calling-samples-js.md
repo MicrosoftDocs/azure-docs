@@ -886,9 +886,9 @@ console.log(result.video);
 - When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
 - Speaker enumeration/selection is not suppported on Android nor iOS. This is already in 'known issues' documentation.
 
-# Call Feature Extensions
+## Call Feature Extensions
 
-## Record calls
+### Record calls
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
@@ -915,7 +915,7 @@ callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler)
 
 ```
 
-## Transfer calls
+### Transfer calls
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
@@ -977,7 +977,7 @@ callTransferApi.on('transferRequested', args => {
 });
 ```
 
-## Dominant speakers of a call
+### Dominant speakers of a call
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
@@ -1008,7 +1008,7 @@ const dominantSpeakersChangedHandler = () => {
 };
 callDominantSpeakersApi.api(Features.CallDominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 ``` 
-### Handle the Dominant Speaker's video streams
+#### Handle the Dominant Speaker's video streams
 Application can leverage DominantSpeakers feature to render the one or more of dominant speaker's video streams, and keep updating UI whenever dominant speaker list updates. This can be achieved with the following code example.
 ```js
 // RemoteParticipant obj representation of the dominant speaker
@@ -1126,7 +1126,7 @@ subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: Re
     }
 }
 ```
-## Call diagnostics
+### Call diagnostics
 Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 ```js
 const callQualityApi = call.api(Features.CallQuality);
