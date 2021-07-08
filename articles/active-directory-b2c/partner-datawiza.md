@@ -121,7 +121,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 3. Select the IdP from the list on the page.
 
-4. Once you're redirected to the IdP, supply your credentials as requested, including a Multi-factor authentication (MFA) token if required by that IdP.
+4. Once you're redirected to the IdP, supply your credentials as requested, including a Azure AD Multi-Factor Authentication (MFA) token if required by that IdP.
 
 5. After successfully authenticating, you should be redirected to Azure AD B2C, which forwards the application request to the DAB redirect URI.
 
