@@ -13,17 +13,15 @@ ms.custom:
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 
-This document provides overview for migrating cloud services (classic) to cloud services (extended support).  Cloud Services (extended support) provides two paths for customers to migrate from ASM to ARM:
+This document provides overview for migrating Cloud Services (classic) to Cloud Services (extended support). Cloud Services (extended support) provides two paths for customers to migrate from Azure Service Manager to Azure Resource Manager:
 
-1. **Re-deploy**: Customers can deploy a new cloud service directly in ARM and then delete the old cloud service in ASM after thorough validation.
-More control , self-paced - Choose this path if you desire control about how the new service components are named and how they are organized. You are also in control of pace of building new services and deleting the old deployment.
+1. **Redeploy**: Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager after thorough validation. Redeploy provides more control and a self-paced migration. Choose this path if you desire control about how the new service components are named and how they are organized. You are also in control of pace of building new services and deleting the old deployments.
 
-2. **In-place migration**: Migration tool  enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support).	
-Less control, fast paced – Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The classic cloud services are deleted as soon as migration is complete successfully.
+2. **In-place migration**: The In-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). In-place migration provides less control but is faster paced. Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The Cloud Services (calssic) resources are deleted as soon as migration is complete successfully.
 
 ## Redeploy Overview
 
-A new cloud service(extended support) can be deployed directly in Azure Resource Manager using the following client tools:
+A new Cloud Service (extended support) can be deployed directly in Azure Resource Manager using the following client tools:
 
 - [Deploy a cloud service – Portal](deploy-portal.md)
 - [Deploy a cloud service – PowerShell](deploy-powershell.md)
