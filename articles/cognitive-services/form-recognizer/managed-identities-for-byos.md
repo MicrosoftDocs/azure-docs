@@ -1,7 +1,7 @@
 ---
-title:  Create and use Managed Identities with bring-your-own-storage (BYOS) 
+title:  Create and use managed identity with bring-your-own-storage (BYOS) 
 titleSuffix: Azure Applied AI Services
-description: Understand how to create and  use managed identities with BYOS accounts
+description: Understand how to create and  use managed identity with BYOS accounts
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,24 +11,24 @@ ms.date: 07/08/2021
 ms.author: lajanuar
 ---
 
-# Create and use Managed Identities with bring-your-own-storage (BYOS) 
+# Create and use managed identity
 
 > [!IMPORTANT]
-> Azure role-based access control (Azure RBAC) assignment is currently in preview and is not recommended for production workloads. Certain features may not be supported or have constrained capabilities. Azure RBAC assignments are used to grant permissions for managed identities.
+> Azure role-based access control (Azure RBAC) assignment is currently in preview and not recommended for production workloads. Certain features may not be supported or have constrained capabilities. Azure RBAC assignments are used to grant permissions for managed identity.
 
-## What are managed identities?
+## What is managed identity?
 
-Azure managed identities are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use managed identities to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC).  There is no added cost to use managed identities in Azure.
+Azure managed identity is a service principal that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC).  There is no added cost to use managed identity in Azure.
 
-Managed identities support both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.   In this article, you'll learn to enable a system-assigned managed identity for your Form Recognizer instance.
+Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.   In this article, you'll learn to enable a system-assigned managed identity for your Form Recognizer instance.
 
 ## Private storage account access
 
- Private Azure storage account access and authentication is supported by [Managed Identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, or have enabled the bring-your-own-storage (BYOS) feature, Form Recognizer, cannot directly access your storage account data; however,  once a managed identity is enabled, Form Recognizer service can access your storage account using an assigned managed identity credential.
+ Private Azure storage account access and authentication is supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). If you have an Azure storage account protected by a Virtual Network (VNet) or firewall, or have enabled the bring-your-own-storage (BYOS) feature, Form Recognizer cannot directly access your storage account data; however,  once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
 >
-> * The  Analyze [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Identity Document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707), and [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) APIs can extract data from a single document by posting requests as raw binary content. In those scenarios, there is no requirement for a Managed Identity credential.
+> * The  Analyze [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**Identity Document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707), and [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) APIs can extract data from a single document by posting requests as raw binary content. In those scenarios, there is no requirement for a managed identity credential.
 
 ## Prerequisites
 
@@ -44,9 +44,9 @@ To get started, you'll need:
 
 * A brief understanding of [**Azure role-based access control (Azure RBAC)**](/azure/role-based-access-control/role-assignments-portal) using the Azure portal.
 
-## Managed Identity assignments
+## Managed identity assignments
 
-There are two types of managed identities **system-assigned** and **user-assigned**. Currently, Form Recognizer supports system-assigned managed identities. A system-assigned managed identity is **enabled** directly on a service instance. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer supports system-assigned managed identity. A system-assigned managed identity is **enabled** directly on a service instance. It is not enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
 In the following steps, we will enable a system-assigned managed identity and grant Form Recognizer limited access to your Azure blob storage account.
 
@@ -97,7 +97,7 @@ In the following steps, we will enable a system-assigned managed identity and gr
 
 That's it! You have completed the steps to enable a system-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service and train a custom model or analyze documents using files stored in your BYOS account.
 
-## Learn more about  managed identities
+## Learn more about  managed identity
 
 > [!div class="nextstepaction"]
 > [Managed identities for Azure resources frequently asked questions - Azure AD](/azure/active-directory/managed-identities-azure-resources/managed-identities-faq)
