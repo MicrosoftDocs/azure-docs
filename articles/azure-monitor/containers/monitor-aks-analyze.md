@@ -38,14 +38,20 @@ Use existing views and reports in Container Insights to monitor cluster level co
 Use Node workbooks provided by Container Insights to analyze disk capacity and IO in addition to GPU usage. See [Node workbooks](container-insights-reports.md#node-workbooks) for a description of these workbooks.
 
 
-
-### Node logs
+## Node logs
 For troubleshooting scenarios, you may need to access the AKS nodes directly for maintenance or immediate log collection. For security purposes, the AKS nodes aren't exposed to the internet but you can `kubectl debug` to SSH to the AKS nodes. See [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](../../aks/ssh.md) for details on this process.
 
-## Level 2 - AKS components
+## Level 2 - Managed AKS components
 
 | Component | Monitoring |
-| API Server | Monitor the status of API server, identifying any increase in request load and bottleneck if service is down. |
+| API Server | Monitor the status of API server, identifying any increase in request load and bottlenecks if the service is down. |
+| Kubelet | Monitoring Kubelet helps in troubleshooting of pod management issues, pods not starting, nodes not ready or pods getting killed  |
+
+
+Use the Kubelet workbook to view the health and performance of each kubelet. See [Resource Monitoring workbooks](container-insights-reports.md#resource-monitoring-workbooks) for details on this workbooks. For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](../../aks/kubelet-logs.md).
+
+
+
 
 ## Level 3 - Kubernetes objects and workloads
 This level includes Kubernetes objects such as containers and deployments and the workloads running on them.
@@ -64,6 +70,23 @@ Container insights collects metrics for deployments that you can view with the *
 > [!NOTE]
 > Deployments view is currently in public preview.
 
+
+## Level 4- Applications
+This level includes the application workloads running in the AKS cluster.
+
+| Component | Monitoring requirements |
+|:---|:---|
+| Applications | Monitor microservice application deployments to identify application failures and latency issues. Includes such information as request rates, response times, and exceptions. |
+
+Application Insights provides complete monitoring of applications running on AKS and other environments. If you have a Java application, you can provide monitoring without instrumenting your code following [Zero instrumentation application monitoring for Kubernetes - Azure Monitor Application Insights](../app/kubernetes-codeless.md). For complete monitoring though, you should configure code-based monitoring depending on your application.
+
+- [ASP.NET Applications](app/asp-net.md)
+- [ASP.NET Core Applications](app/asp-net-core.md)
+- [.NET Console Applications](app/console.md)
+- [Java](app/java-in-process-agent.md)
+- [Node.js](app/nodejs.md)
+- [Python](app/opencensus-python.md)
+- [Other platforms](app/platforms.md)
 
 ## Next steps
 
