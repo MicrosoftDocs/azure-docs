@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 
@@ -92,7 +92,7 @@ The IDs API also returns the following information:
   >
   > Currently supported ID types include worldwide passport and U.S. Driver's Licenses. We are actively seeking to expand our ID support to other identity documents around the world.
 
-## The Analyze ID Document operation
+## Analyze ID Document
 
 The [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822) operation takes an image or PDF of an ID as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
@@ -100,7 +100,7 @@ The [Analyze ID](https://westus.dev.cognitive.microsoft.com/docs/services/form-r
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## The Get Analyze ID Document Result operation
+## Get Analyze ID Document Result
 
 <!---
 Need to update this with updated APIM links when available

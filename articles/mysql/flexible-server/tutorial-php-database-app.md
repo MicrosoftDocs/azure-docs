@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server (Preview) app in Azure App Service
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP Web App in Azure with Flexible Server":::

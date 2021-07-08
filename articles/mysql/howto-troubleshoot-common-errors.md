@@ -11,7 +11,7 @@ ms.date: 5/21/2021
 
 # Commonly encountered errors during or post migration to Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 Azure Database for MySQL is a fully managed service powered by the community version of MySQL. The MySQL experience in a managed service environment may differ from running MySQL in your own environment. In this article, you'll see some of the common errors users may encounter while migrating to or developing on Azure Database for MySQL for the first time.
 

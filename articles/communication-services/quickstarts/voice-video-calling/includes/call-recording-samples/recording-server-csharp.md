@@ -6,7 +6,7 @@ author: ravithanneeru
 manager: joseys
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: joseys
@@ -35,7 +35,7 @@ The following classes handle some of the major features of the recording Server 
 ## Getting serverCallId as a requirement for call recording server APIs
 
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK. End to End client sample with recording is available at [Public Preview](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this API please use 'beta' release of ACS Calling Web SDK. A client sample with recording flows is available at [GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero/tree/public-preview).
 
 Call recording is an extended feature of the core Call API. You first need to obtain the recording feature API object:
 
@@ -53,9 +53,9 @@ const isRecordingActiveChangedHandler = () => {
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
 ```
 
-Get server call id which can be used to start/stop/pause/resume recording sessions:
+Get server call ID which can be used to start/stop/pause/resume recording sessions:
 
-Once the call is connected use the `getServerCallId` method to get the server call id.
+Once the call is connected use the `getServerCallId` method to get the server call ID.
 
 ```JavaScript
 callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
@@ -83,16 +83,16 @@ CallingServerClient callingServerClient = new CallingServerClient("<Resource_Con
 
 ## Start recording session using 'StartRecordingAsync' server API
 
-Use the server call id received during initiation of a call.
+Use the server call ID received during initiation of a call.
 
 ```csharp
 var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>").ConfigureAwait(false);
 ```
-The `StartRecordingAsync` API response contains the recording id of the recording session.
+The `StartRecordingAsync` API response contains the recording ID of the recording session.
 
 ## Stop recording session using 'StopRecordingAsync' server API
 
-Use the recording id received in response of  `StartRecordingAsync`.
+Use the recording ID received in response of  `StartRecordingAsync`.
 
 ```csharp
  var stopRecording = await callingServerClient.InitializeServerCall("<servercallid>").StopRecordingAsync("<recordingid>").ConfigureAwait(false);
@@ -100,7 +100,7 @@ Use the recording id received in response of  `StartRecordingAsync`.
 
 ## Pause recording session using 'PauseRecordingAsync' server API
 
-Use the  recording id received in response of  `StartRecordingAsync`.
+Use the  recording ID received in response of  `StartRecordingAsync`.
 
 ```csharp
 var pauseRecording = await callingServerClient.InitializeServerCall("<servercallid>").PauseRecordingAsync("<recordingid>");
@@ -108,7 +108,7 @@ var pauseRecording = await callingServerClient.InitializeServerCall("<servercall
 
 ## Resume recording session using 'ResumeRecordingAsync' server API
 
-Use the recording id received in response of  `StartRecordingAsync`.
+Use the recording ID received in response of  `StartRecordingAsync`.
 
 ```csharp
 var resumeRecording = await callingServerClient.InitializeServerCall("<servercallid>").ResumeRecordingAsync("<recordingid>");
@@ -116,10 +116,9 @@ var resumeRecording = await callingServerClient.InitializeServerCall("<servercal
 
 ## Download recording File using 'DownloadStreamingAsync' server API
 
-> [!NOTE] 
-> An [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) Web hook is required to get the notification callback event when the recorded media is ready for download.
+Use an [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
-When the recording is available for download, Azure Event Grid will trigger a notification callback event to the application with the following schema.
+Below is an example of the event schema.
 
 ```
 {
