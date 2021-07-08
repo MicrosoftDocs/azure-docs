@@ -15,7 +15,7 @@ ms.date: 12/17/2018
 # Multi-model capabilities of Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Multi-model databases enable you to store and work with data in multiple formats, such as relational data, graphs, JSON or XML documents, and key-value pairs.
+Multi-model databases enable you to store and work with data in multiple formats, such as relational data, graph, JSON or XML documents, spatial data, and key-value pairs.
 
 The [Azure SQL family of products](azure-sql-iaas-vs-paas-what-is-overview.md) uses a relational model that provides the best performance for a variety of general-purpose applications. However, Azure SQL products like Azure SQL Database and SQL Managed Instance are not limited to relational data. They enable you to use non-relational formats that are tightly integrated into the relational model.
 
