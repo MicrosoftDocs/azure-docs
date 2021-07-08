@@ -1155,8 +1155,8 @@ Find the first item from an array that match the condition. It takes a filter fu
   ``  
 ___
 ### <code>flatten</code>
-<code><b>flatten(<i>&lt;array&gt;</i> : array, <i>&lt;value2&gt;</i> : array ..., <i>&lt;value2&gt;</i> : boolen) => array</b></code><br/><br/>
-Flattens array or arrays into a single array. Arrays of atomic items are return unaltered. The last argument is optional and is defaulted to false to flatten recursively more than one level deep.
+<code><b>flatten(<i>&lt;array&gt;</i> : array, <i>&lt;value2&gt;</i> : array ..., <i>&lt;value2&gt;</i> : boolean) => array</b></code><br/><br/>
+Flattens array or arrays into a single array. Arrays of atomic items are returned unaltered. The last argument is optional and is defaulted to false to flatten recursively more than one level deep.
 *	``flatten([['bojjus', 'girl'], ['gunchus', 'boy']]) => ['bojjus', 'girl', 'gunchus', 'boy']``
 *	``flatten([[['bojjus', 'gunchus']]] , true) => ['bojjus', 'gunchus']``
 ___
@@ -1165,6 +1165,11 @@ ___
 Checks if an item is in the array.  
 * ``in([10, 20, 30], 10) -> true``  
 * ``in(['good', 'kid'], 'bad') -> false``  
+___
+### <code>intersect</code>
+<code><b>intersect(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : array) => array</b></code><br/><br/>
+Returns an intersection set of distinct items from 2 arrays.
+* ``intersect([10, 20, 30], [20, 40]) => [20]``  
 ___
 ### <code>map</code>
 <code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
@@ -1304,6 +1309,11 @@ Checks of the string value is a long value given an optional format according to
 * ``isLong('123') -> true``
 * ``isLong('$123' -> '$###') -> true``
 * ``isLong('gunchus') -> false``
+___
+### <code>isNan</code>
+<code><b>isNan (<i>\<value1\></i> : integral) => boolean</b></code><br/><br/>
+Check if this is not a number.
+* ``isNan(10.2) => false``
 ___
 ### <code>isFloat</code>
 <code><b>isFloat (<i>\<value1\></i> : string, [<format>: string]) => boolean</b></code><br/><br/>
@@ -1584,18 +1594,3 @@ Assigns a sequential row numbering for rows in a window starting with 1.
 ## Next steps
 
 [Learn how to use Expression Builder](concepts-data-flow-expression-builder.md).
-
-  
-  intersect
-
-Returns an intersection set of distinct items from 2 arrays.
-•	intersect([10, 20, 30], [20, 40]) => [20]
-
-intersect(<value1>: array, <value2>: array) => array
-
-isNan
-
-Check if this is not a number.
-•	isNan(10.2) => false
-
-isNan(<value1>: integral) => boolean
