@@ -30,7 +30,7 @@ This article outlines, for IoT Central:
 The IoT Central documentation refers to four user roles that interact with an IoT Central application:
 
 - A _solution builder_ is responsible for [creating an application](quick-deploy-iot-central.md), [configuring rules and actions](quick-configure-rules.md), [defining integrations with other services](quick-export-data.md), and further customizing the application for operators and device developers.
-- An _operator_ [manages the devices](howto-manage-devices.md) connected to the application.
+- An _operator_ [manages the devices](howto-manage-devices-individually.md) connected to the application.
 - An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application.
 - A _device developer_ [creates the code that runs on a device](concepts-telemetry-properties-commands.md) or [IoT Edge module](concepts-iot-edge.md) connected to your application.
 
@@ -83,7 +83,7 @@ You can also customize the IoT Central application UI for the operators who are 
 
 ## Manage your devices
 
-As an operator, you use the IoT Central application to [manage the devices](howto-manage-devices.md) in your IoT Central solution. Operators do tasks such as:
+As an operator, you use the IoT Central application to [manage the devices](howto-manage-devices-individually.md) in your IoT Central solution. Operators do tasks such as:
 
 - Monitoring the devices connected to the application.
 - Troubleshooting and remediating issues with devices.
@@ -103,7 +103,7 @@ Build [custom rules](tutorial-create-telemetry-rules.md) based on device state a
 
 ### Jobs
 
-[Jobs](howto-run-a-job.md) let you apply single or bulk updates to devices by setting properties or calling commands.
+[Jobs](howto-manage-devices-in-bulk.md) let you apply single or bulk updates to devices by setting properties or calling commands.
 
 ## Integrate with other services
 
