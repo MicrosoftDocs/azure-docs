@@ -135,5 +135,5 @@ The diagnostic can also be found when creating a support case to give you the op
 
 ## Next steps
 
-- [What are Azure Active Directory reports?](overview-reports.md)
+- [Sign in diagnostics for Azure AD scenarios](concept-sign-in-diagnostics-scenarios.md)
 - [What is Azure Active Directory monitoring?](overview-monitoring.md)

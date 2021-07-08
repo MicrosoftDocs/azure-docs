@@ -75,8 +75,9 @@ The sign-in diagnostic for Azure AD provides you with support for the following 
 
     - Blocked by Risk Policy 
 
- 
-If your scenario is not covered in this list, provide feedback by contacting us through [email](mailto:signindiagnostic@microsoft.com). 
+If you would like to make a request for specific coverage or share feedback on the diagnostic, please send an email to [signindiagnostic@microsoft.com](mailto:signindiagnostic@microsoft.com).
+
+
 
 
 
@@ -281,5 +282,5 @@ For more information, see [How to configure and enable risk policies](../identit
 
 ## Next steps
 
-- [What are Azure Active Directory reports?](overview-reports.md)
+- [What is the sign-in diagnostic in Azure AD?](overview-sign-in-diagnostics.md)
 - [What is Azure Active Directory monitoring?](overview-monitoring.md)
