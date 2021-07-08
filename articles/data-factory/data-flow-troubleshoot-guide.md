@@ -123,7 +123,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 ### Error code: 4510
 - **Message**: Unexpected failure during execution. 
 - **Cause**: Since debug clusters work differently from job clusters, excessive debug runs could wear the cluster over time, which could cause memory issues and abrupt restarts.
-- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs in stead because activity level run creates separate session without taxing main debug cluster.
+- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs instead because activity level run creates separate session without taxing main debug cluster.
 
 ### Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
@@ -520,7 +520,7 @@ You may encounter the following issues before the improvement, but after the imp
 
  Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
 
- After the improvement, any one of the three row delimiters: `\r`, `\n`, `\r\n` should be worked.
+ After the improvement, any one of the three-row delimiters: `\r`, `\n`, `\r\n` should  have worked.
  
  The following example shows you one pipeline behavior change after the improvement:
 
