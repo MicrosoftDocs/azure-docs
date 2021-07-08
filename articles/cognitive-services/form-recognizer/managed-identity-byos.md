@@ -11,7 +11,7 @@ ms.date: 07/08/2021
 ms.author: lajanuar
 ---
 
-# Create and use managed identity
+# Create and use managed identity for your Form Recognizer resource
 
 > [!IMPORTANT]
 > Azure role-based access control (Azure RBAC) assignment is currently in preview and not recommended for production workloads. Certain features may not be supported or have constrained capabilities. Azure RBAC assignments are used to grant permissions for managed identity.

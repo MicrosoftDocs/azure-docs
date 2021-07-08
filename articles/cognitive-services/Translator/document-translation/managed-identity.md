@@ -11,7 +11,7 @@ ms.date: 07/01/2021
 ms.author: lajanuar
 ---
 
-# Create and use managed identity
+# Create and use managed identity for Document Translation
 
 > [!IMPORTANT]
 >
