@@ -5,7 +5,7 @@ author: kgremban
 manager: lizross
 ms.author: kgremban
 ms.reviewer: fcabrera
-ms.date: 07/01/2021
+ms.date: 07/08/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -107,7 +107,27 @@ The installation steps in this section are abridged to highlight the steps speci
 
    1. Select **Next** to continue to the **Connect** step, where you provide the provisioning information for your device.
 
+1. Stop following the deployment wizard on the **Provisioning** page, as there are some steps to take to prepare your device for provisioning with TPM before you can continue. Keep the Windows Admin Center window open, as you'll return at the end of this article to complete the provisioning steps.
+
 ---
+
+## Enable TPM passthrough
+
+The IoT Edge for Linux on Windows virtual machine has a TPM feature that can be enabled or disabled. By default, it's disabled. When this feature is enabled, the virtual machine can access the host machine's TPM.
+
+1. Open PowerShell in an elevated session.
+
+1. If you haven't already, set the execution policy on your device to `AllSigned` so that you can run the IoT Edge for Linux on Windows PowerShell functions.
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
+   ```
+
+1. Turn on the TPM feature.
+
+   ```powershell
+   Set-EflowVmFeature -feature 'DpsTpm' -enable
+   ```
 
 ## Retrieve the TPM information from your device
 
