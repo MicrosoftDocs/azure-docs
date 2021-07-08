@@ -22,12 +22,10 @@ DPS supports Trusted Platform Module (TPM) attestation for IoT Edge devices only
 
 This article shows you how to use auto-provisioning on a device running IoT Edge for Linux on Windows with the following steps:
 
+* Install IoT Edge for Linux on Windows.
 * Retrieve the TPM information from your device.
 * Create an individual enrollment for the device.
-* Install IoT Edge for Linux on Windows and connect the device to IoT Hub.
-
->[!TIP]
->This article uses programs that simulate a TPM on the device to test this scenario, but much of it applies when using physical TPM hardware as well.
+* Provision your device with its TPM information.
 
 ## Prerequisites
 
@@ -35,7 +33,7 @@ This article shows you how to use auto-provisioning on a device running IoT Edge
 * An active IoT hub.
 * An instance of the IoT Hub Device Provisioning Service in Azure, linked to your IoT hub.
   * If you don't have a Device Provisioning Service instance, follow the instructions in [Set up the IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
-  * After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
+  * After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you provision the IoT Edge device.
 
 > [!NOTE]
 > TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
@@ -223,35 +221,56 @@ The Device Provisioning Service supports two types of enrollments. Enrollment gr
 
 ## Verify successful configuration
 
+Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
+
 If the runtime started successfully, you can go into your IoT Hub and start deploying IoT Edge modules to your device.
 
 You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed.
 
+# [PowerShell](#tab/powershell)
+
 Use the following commands on your device to verify that the IoT Edge installed and started successfully.
 
-Connect to the IoT Edge for Linux on Windows virtual machine.
+1. Connect to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
 
-```powershell
-Connect-EflowVM
-```
+   ```powershell
+   Connect-EflowVm
+   ```
 
-Check the status of the IoT Edge service.
+   >[!NOTE]
+   >The only account allowed to SSH to the virtual machine is the user that created it.
 
-```cmd/sh
-sudo systemctl status iotedge
-```
+1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
 
-Examine service logs.
+   ```bash
+   sudo iotedge list
+   ```
 
-```cmd/sh
-sudo journalctl -u iotedge --no-pager --no-full
-```
+1. If you need to troubleshoot the IoT Edge service, use the following Linux commands.
 
-List running modules.
+    1. If you need to troubleshoot the service, retrieve the service logs.
 
-```cmd/sh
-sudo iotedge list
-```
+       ```bash
+       sudo journalctl -u iotedge
+       ```
+
+    2. Use the `check` tool to verify configuration and connection status of the device.
+
+       ```bash
+       sudo iotedge check
+       ```
+
+# [Windows Admin Center](#tab/windowsadmincenter)
+
+1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
+
+1. The device overview page displays some information about the device:
+
+   * The **IoT Edge Module List** section shows running modules on the device. When the IoT Edge service starts for the first time, you should only see the **edgeAgent** module running. The edgeAgent module runs by default and helps to install and start any additional modules that you deploy to your device.
+
+   * The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
+
+---
 
 ## Next steps
 
