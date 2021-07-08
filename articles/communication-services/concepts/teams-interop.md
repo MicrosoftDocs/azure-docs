@@ -74,9 +74,9 @@ Interoperability between Azure Communication Services and Microsoft Teams enable
 Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact, in real time, to your users within your application’s user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
 
 ## Pricing
-VoIP and Chat usage is billed to your Azure resource when using Azure APIs and SDKs, but there is no additional fee for using Teams interoperability, or price difference between the BYOI and Microsoft 365 authentication options.
+All usage of Azure Communcation Service APIs and SDKs increments [Azure Communcation Service billing meters](https://azure.microsoft.com/pricing/details/communication-services/). Interactions with Microsoft Teams, such as joining a meeting or initiating a phone call using a Teams allocated number, will increment these meters but there is no additional fee for the Teams interoperabvility capability itself, and there is no pricing distinction between the BYOI and Microsoft 365 authentication options.
 
-If your application has an end user spend 60 minutes in a voice call with a user of Microsoft Teams, your Azure resource will be metered for 60 minutes. The 60 minutes of communication consumed by the end user in the native Teams application is covered by the applicable Teams license and not metered to your Azure resource.
+If your Azure application has an end user spend 10 minutes in a meeting with a user of Microsoft Teams, those two users combined consumed 20 calling minutes. The 10 minutes exercised through the custom application and using Azure APIs and SDKs will be billed to your resource. However the 10 minutes consumed by the end user in the native Teams application is covered by the applicable Teams license and is not metered by Azure.
 
 ## Teams in Government Clouds (GCC)
 Azure Communication Services interoperability isn't compatible with Teams deployments using [Microsoft 365 government clouds (GCC)](/MicrosoftTeams/plan-for-government-gcc) at this time.
