@@ -13,13 +13,9 @@ ms.service: azure-communication-services
 ---
 
 
-# Ensure high-quality media in Azure Communication Services
+# Network recommendations
 
-This document provides an overview of the factors and best practices that should be considered when building high-quality multimedia communication experiences with Azure Communication Services.
-
-## Factors that affect media quality and reliability
-
-There are many different factors that contribute to Azure Communication Services real-time media (audio, video, and application sharing) quality. These include network quality, bandwidth, firewall, host, and device configurations.
+This document summarizes how the network environment impacts voice and video calling quality. There are many different factors that contribute to Azure Communication Services real-time media (audio, video, and application sharing) quality. These include network quality, bandwidth, firewall, host, and device configurations.
 
 
 ### Network quality
