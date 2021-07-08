@@ -68,7 +68,8 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select either the resource group that contains the disks or each disk themselves.
 1. Select **Access control (IAM)**.
-1. Select **Add role assignment (Preview)**, and select **Virtual Machine Contributor** in the Role list.
+1. Select **Add role assignment (Preview)**, and select **Virtual Machine Contributor** in the role list.
+    If you prefer, you may create your own custom role instead. A custom role for disk pools must have the following RBAC permissions to function: **Microsoft.Compute/disks/write** and **Microsoft.Compute/disks/read**.
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 
@@ -145,7 +146,7 @@ $diskId = $disk.Id
 $scopeDef = "/subscriptions/" + $subscriptionId + "/resourceGroups/" + $resourceGroupName
 $rpId = (Get-AzADServicePrincipal -SearchString "StoragePool Resource Provider").id
 
-New-AzRoleAssignment -ObjectId $rpId -RoleDefinitionName "Contributor"  -Scope $scopeDef
+New-AzRoleAssignment -ObjectId $rpId -RoleDefinitionName "Virtual Machine Contributor" -Scope $scopeDef
 
 # Create a Disk Pool
 New-AzDiskPool -Name $diskPoolName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $subnetId -AvailabilityZone $availabilityZone -SkuName Standard
@@ -198,7 +199,8 @@ az disk create --name $diskName --resource-group $resourceGroupName --zone $zone
 
 #You can deploy all your disks into one resource group and assign StoragePool Resource Provider permission to the group
 storagePoolObjectId=$(az ad sp list --filter "displayName eq 'StoragePool Resource Provider'" --query "[0].objectId" -o json)
-storagePoolObjectId="${storagePoolObjectId%\"}"
+storagePoolObjectId="${storagePoolObjectId%"}"
+storagePoolObjectId="${storagePoolObjectId#"}"
 
 az role assignment create --assignee-object-id $storagePoolObjectId --role "Virtual Machine Contributor" --resource-group $resourceGroupName
 
