@@ -110,7 +110,14 @@ After you're finished, you can export the model to a Docker container by using t
       This command checks if the new image is in your local registry.
    
 ## Set up your development environment
+
+::: zone pivot="programming-language-csharp"
 [!INCLUDE [setup development environment](./includes/set-up-dev-environment/csharp/csharp-set-up-dev-env.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [setup development environment](./includes/set-up-dev-environment/python/python-set-up-dev-env.md)]
+::: zone-end
 
 ## Examine the sample files
 
