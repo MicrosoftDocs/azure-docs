@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 07/08/2021
 ---
 
-# Convert to New App Configuration Spring Boot Library
+# Convert to new App Configuration Spring Boot library
 
 A new version of the App Configuration library for Spring Boot is now available. The version introduces new features such as Push refresh, but also a number of breaking changes. These changes aren't backwards compatible with configuration setups that were using the previous library version. For the following topics.
 
@@ -22,7 +22,7 @@ this article provides a reference on the change and actions needed to migrate to
 
 ## Group and Artifact ID Changed
 
-All of the Azure Spring Boot libraries have had their Group and Artifact Ids updated to match a new format. The new package names are:
+All of the Azure Spring Boot libraries have had their Group and Artifact IDs updated to match a new format. The new package names are:
 
 ```xml
 <dependency>
@@ -68,7 +68,7 @@ az appconfig kv delete -n ConversionTest --key /application_dev/*
 
 This command will list all of the keys you are about to delete so you can verify no unexpected keys will be removed. Keys can also be deleted in the portal.
 
-## Which Configurations are Loaded
+## Which configurations are loaded
 
 The default case of loading configuration matching `/applicaiton/*` hasn't changed. The change is that `/${spring.application.name}/*` will not be used in addition automatically anymore unless set. Instead, to use `/${spring.application.name}/*` you can use the new Selects configuration.
 
@@ -76,7 +76,7 @@ The default case of loading configuration matching `/applicaiton/*` hasn't chang
 spring.cloud.azure.appconfiguration.stores[0].selects[0].key-filter=/${spring.application.name}/*
 ```
 
-## Configuration Reloading
+## Configuration reloading
 
 The monitoring of all configuration stores is now disabled by default. A new configuration has been added to the library to allow config stores to have monitoring enabled. In addition, cache-expiration has been renamed to refresh-interval and has also been changed to be per config store. Also if monitoring of a config store is enabled at least one watched key is required to be configured, with an optional label.
 
@@ -89,7 +89,7 @@ spring.cloud.azure.appconfiguration.stores[0].monitoring.trigger[0].label
 
 There has been no change to how the refresh-interval works, the change is renaming the configuration to clarify functionality. The requirement of a watched key makes sure that when configurations are being changed the library will not attempt to load the configurations until all changes are done.
 
-## Feature Flag Loading
+## Feature flag loading
 
 By default, loading of feature flags is now disabled. In addition, Feature Flags now have a label filter as well as a refresh-interval.
 
