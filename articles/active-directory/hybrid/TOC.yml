@@ -153,10 +153,8 @@
       href: reference-connect-instances.md
     - name: Migration
       items:
-          - name: Migrate from federation to PHS
-            href: plan-migrate-adfs-password-hash-sync.md
-          - name: Migrate from federation to PTA
-            href: plan-migrate-adfs-pass-through-authentication.md
+          - name: Migrate from federation to cloud authentication
+            href: migrate-from-federation-to-cloud-authentication.md
           - name: Move groups from one forest to another
             href: how-to-connect-migrate-groups.md
           - name: Migrate to cloud authentication using staged rollout
