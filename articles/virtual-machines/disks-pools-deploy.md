@@ -68,7 +68,7 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for and select either the resource group that contains the disks or each disk themselves.
 1. Select **Access control (IAM)**.
-1. Select **Add role assignment (Preview)**, and select **Disk Pool Operator** in the Role list.
+1. Select **Add role assignment (Preview)**, and select **Virtual Machine Contributor** in the Role list.
 1. Select User, group, or service principal in the Assign access to list.
 1. In the Select section, search for **StoragePool Resource Provider**, select it, and save.
 

@@ -32,15 +32,16 @@ In preview, disk pools have the following restrictions:
 
 Disk pools are currently available in the following regions:
 
+- Australia East
+- Canada Central
 - East US
 - West US 2
-- Canada Central
-- UK South
+- Central US
+- Japan East
 - North Europe
 - West Europe
-- Australia East
+- UK South
 - Southeast Asia
-- Japan East
 
 ## Billing
 
