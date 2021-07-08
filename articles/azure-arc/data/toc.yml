@@ -200,6 +200,8 @@
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: High availability
               href: managed-instance-high-availability.md
+            - name: Point in time restore
+              href: point-in-time-restore.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Migrate
