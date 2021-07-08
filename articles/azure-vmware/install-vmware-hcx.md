@@ -2,7 +2,7 @@
 title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 07/20/2021
 ---
 
 # Install and activate VMware HCX in Azure VMware Solution
@@ -134,7 +134,8 @@ You can uninstall HCX Advanced through the portal, which will remove the existin
 
 1. In your Azure VMware Solution private cloud, select **Manage** > **Add-ons** > **Uninstall**.
 
-1. Select **Uninstall** to confirm.
+   
+1. Enter **yes** to confirm the uninstall.
 
 At this point, HCX Advanced will no longer have the vCenter plugin, and if needed, it can be reinstalled at any time.
 
