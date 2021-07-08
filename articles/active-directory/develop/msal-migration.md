@@ -70,4 +70,4 @@ If you have questions about migration to MSAL, you can post on [Microsoft Q&A](/
 
 ## Next steps
 
-[Identify your applications that use ADAL for authentication](howto-get-list-of-all-active-directory-auth-library-apps.md) and then [update your code](howto-get-list-of-all-active-directory-auth-library-apps.md#3-Update-your-code).
+[Identify your applications that use ADAL for authentication](howto-get-list-of-all-active-directory-auth-library-apps.md) and then [update your code](howto-get-list-of-all-active-directory-auth-library-apps.md#3-update-your-code).
