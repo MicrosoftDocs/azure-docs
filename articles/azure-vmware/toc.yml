@@ -25,7 +25,7 @@
   - name: Create a private cloud
     href: tutorial-create-private-cloud.md
   - name: Create an NSX-T network segment
-    href: networking/tutorial-nsx-t-network-segment.md
+    href: tutorial-nsx-t-network-segment.md
   - name: Delete a private cloud
     href: tutorial-delete-private-cloud.md
   - name: Deploy and configure VMware HCX

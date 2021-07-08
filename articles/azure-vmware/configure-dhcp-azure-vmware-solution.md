@@ -52,12 +52,13 @@ In this how-to article, you'll use either NSX-T Manager or the Azure portal to c
 >[!IMPORTANT]
 >DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
 
+## Use NSX-T to configure DHCP
 
-## Use NSX-T to host your DHCP server
+### Use NSX-T to host your DHCP server
 
 If you want to use NSX-T to host your DHCP server, you'll create a DHCP server and a relay service. Then you'll add a network segment and specify the DHCP IP address range.
 
-### Create a DHCP server
+#### Create a DHCP server
 
 1. In NSX-T Manager, select **Networking** > **DHCP**, and then select **Add Server**.
 
@@ -79,11 +80,11 @@ If you want to use NSX-T to host your DHCP server, you'll create a DHCP server a
 
 1. Select **Save** again and then select **Close Editing**.
 
-### Add a network segment
+#### Add a network segment
 
 [!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
 
-### Specify the DHCP IP address range
+#### Specify the DHCP IP address range
  
 When you create a relay to a DHCP server, you'll also specify the DHCP IP address range.
 
@@ -107,12 +108,12 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
    :::image type="content" source="media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment for using a DHCP server." border="true":::
 
 
-## Use a third-party external DHCP server
+### Use a third-party external DHCP server
 
 If you want to use a third-party external DHCP server, you'll create a DHCP relay service in NSX-T Manager. You'll also specify the DHCP IP address range.
 
 
-### Create DHCP relay service
+#### Create DHCP relay service
 
 Use a DHCP relay for any non-NSX-based DHCP service. For example, a VM running DHCP in Azure VMware Solution, Azure IaaS, or on-premises.
 
@@ -137,7 +138,7 @@ Use a DHCP relay for any non-NSX-based DHCP service. For example, a VM running D
 1. Select **Save** again and then select **Close Editing**.
 
 
-### Specify the DHCP IP address range
+#### Specify the DHCP IP address range
 
 When you create a relay to a DHCP server, you'll also specify the DHCP IP address range.
 
@@ -161,20 +162,45 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
    :::image type="content" source="media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true":::
 
 
-## Use Azure portal to create a DHCP server or DHCP relay
+## Use Azure portal to configure DHCP
 
 You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP. After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
 
+### Configure a DHCP server
+
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
 
-2. Select either **DHCP Server** or **DHCP Relay** and then provide a name for the server or relay and three IP addresses. 
+2. Select **DHCP Server**, provide a name for the server and three IP addresses. 
+
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-dhcp-server-relay.png" alt-text="Screenshot showing how to add a DHCP server or DHCP relay in Azure VMware Solutions.":::
+
+1. Select **OK**. 
+
+
+### Create an NSX-T network segment
+
+[!INCLUDE [create-nsxt-segment-azure-portal-steps](includes/create-nsxt-segment-azure-portal-steps.md)]
+
+
+## Configure a DHCP relay
+
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
+
+2. Select either **DHCP Relay** and then provide a name for the server or relay and three IP addresses. 
 
    >[!NOTE]
    >For DHCP relay, you only require one IP address for a successful configuration.
 
+<!-- I need a new image -->
+
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-dhcp-server-relay.png" alt-text="Screenshot showing how to add a DHCP server or DHCP relay in Azure VMware Solutions.":::
 
-4. Complete the DHCP configuration by [providing DHCP ranges on the logical segments](tutorial-nsx-t-network-segment.md#create-an-nsx-t-segment-in-the-azure-portal) and then select **OK**. 
+1. Select **OK**. 
+
+
+### Create an NSX-T network segment
+
+[!INCLUDE [create-nsxt-segment-azure-portal-steps](includes/create-nsxt-segment-azure-portal-steps.md)]
 
 ## Next steps
 

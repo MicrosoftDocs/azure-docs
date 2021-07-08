@@ -40,11 +40,11 @@ Verify the presence of the new network segment. In this example, **ls01** is the
 
 1. In NSX-T Manager, select **Networking** > **Segments**. 
 
-    :::image type="content" source="../media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Screenshot showing the confirmation and status of the new network segment is present in NSX-T.":::
+    :::image type="content" source="media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Screenshot showing the confirmation and status of the new network segment is present in NSX-T.":::
 
 1. In vCenter, select **Networking** > **SDDC-Datacenter**.
 
-    :::image type="content" source="../media/nsxt/vcenter-with-ls01-2.png" alt-text="Screenshot showing the confirmation that the new network segment is present in vCenter.":::
+    :::image type="content" source="media/nsxt/vcenter-with-ls01-2.png" alt-text="Screenshot showing the confirmation that the new network segment is present in vCenter.":::
 
 ## Next steps
 

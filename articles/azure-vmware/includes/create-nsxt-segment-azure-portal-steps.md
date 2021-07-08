@@ -7,10 +7,9 @@ ms.date: 07/16/2021
 
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
-You can create and configure an NSX-T segment from the Azure portal.  Once created and configured, it's visible in Azure VMware Solution, NSX-T Manger, and vCenter. These segments are connected to the default Tier-1 gateway, and the workloads on these segments get East-West and North-South connectivity. Once you create the segment, it displays in NSX-T Manager and vCenter.
 
 >[!NOTE]
->If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](../configure-dhcp-azure-vmware-solution.md) before you can create and configure an NSX-T segment. 
+>If you plan to use DHCP, you'll need to [configure a DHCP server or DHCP relay](../configure-dhcp-azure-vmware-solution.md) before you can configure an NSX-T network segment. 
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Segments** > **Add**. 
 
@@ -22,7 +21,7 @@ You can create and configure an NSX-T segment from the Azure portal.  Once creat
 
    - **Subnet gateway** - Gateway IP address for the logical switch's subnet with a subnet mask. VMs are attached to a logical switch, and all VMs connecting to this switch belong to the same subnet.  Also, all VMs attached to this logical segment must carry an IP address from the same segment.
 
-   - **DHCP** (optional) - DHCP ranges for a logical segment. A [DHCP server or DHCP relay](../configure-nsx-network-components-azure-portal.md) must be configured to consume DHCP on Segments.  
+   - **DHCP** (optional) - DHCP ranges for a logical segment. A [DHCP server or DHCP relay](../configure-dhcp-azure-vmware-solution.md) must be configured to consume DHCP on Segments.  
 
    >[!NOTE]
    >The **Connected gateway** is selected by default and is read-only.  Tier-1 gateway and type of segment information. 

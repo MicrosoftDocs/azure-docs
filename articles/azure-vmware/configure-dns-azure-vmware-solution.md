@@ -2,7 +2,7 @@
 title: Configure DNS for Azure VMware Solution
 description: Learn how to configure DNS in either NSX-T Manager or the Azure portal. 
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 07/20/2021
 
 # Customer intent: As an Azure service administrator, I want to configure 
 
@@ -10,7 +10,6 @@ ms.date: 07/16/2021
 
 # Configure a DNS forwarder in the Azure portal
 
-# [H1 heading here]
 
 <!-- 2. Introductory paragraph 
 Required. Lead with a light intro that describes, in customer-friendly language, 
