@@ -92,7 +92,7 @@ If you are using the custom DNS server then you must use a DNS forwarder to reso
 
 ### Private DNS zone and VNET peering
 
-Private DNS zone settings and VNET peering are independent of each other. Please refer to the [Using Private DNS Zone](concepts-networking.md#using-private-dns-zon) section above for more details on creating and using Private DNS zones. 
+Private DNS zone settings and VNET peering are independent of each other. Please refer to the [Using Private DNS Zone](concepts-networking.md#using-private-dns-zone) section above for more details on creating and using Private DNS zones. 
 
 If you want to connect to the flexible server from a client that is provisioned in another VNET from the same region or a different region, you have to link the private DNS zone with the VNET. See [how to link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) documentation.
 
