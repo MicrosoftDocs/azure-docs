@@ -17,7 +17,7 @@ The sections in this article discuss the resources and settings for Azure Bastio
 
 ## <a name="skus"></a>SKUs
 
-A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The SKU is configured in the Azure portal during the workflow when you configure Bastion. You can [upgrade a Basic SKU to a Standard SKU](#upgradesku). However, downgrading from a Standard SKU to a Basic SKU is not supported. 
+A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The SKU is configured in the Azure portal during the workflow when you configure Bastion. You can [upgrade a Basic SKU to a Standard SKU](#upgradesku).
 
 * The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs. 
 * The **Standard SKU** is in **Preview**. The Standard SKU enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. 
@@ -32,15 +32,13 @@ During Preview, you must use the Azure portal if you want to specify the Standar
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier - Basic or <br>Standard (Preview) | [Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md) |
-| Azure PowerShell | Basic only - no settings |[Create a bastion host - PowerShell](bastion-create-host-powershell.md) |
-| Azure CLI |  Basic only - no settings | [Create a bastion host - CLI](create-host-cli.md) |
-
-Tier (SKU) pricing can be found on the [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
+| Azure portal | Tier - Basic or <br>Standard (Preview) | [Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md) |
+| Azure PowerShell | Basic only - no settings |[Configure Bastion - PowerShell](bastion-create-host-powershell.md) |
+| Azure CLI |  Basic only - no settings | [Configure Bastion - CLI](create-host-cli.md) |
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
-Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, you must delete and recreate Azure Bastion.
+Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, you must delete and recreate Azure Bastion. The Standard SKU is in Preview. 
 
 #### Configuration methods
 
@@ -83,7 +81,7 @@ You can configure this setting using the following methods:
 
 | Method | Value | Links |
 | --- | --- |--- |
-| Azure portal | Subnet  |[Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md)|
+| Azure portal | Subnet  |[Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
 | Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az_network_vnet_create) |
 

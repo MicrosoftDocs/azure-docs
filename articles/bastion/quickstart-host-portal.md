@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Configure Azure Bastion and connect to a VM via private IP address and a browser'
+title: 'Quickstart: Configure Bastion from VM settings'
 titleSuffix: Azure Bastion
-description: Learn how to create an Azure Bastion host from a virtual machine and connect to the VM securely through your browser via private IP address.
+description: Learn how to create an Azure Bastion host from virtual machine settings and connect to the VM securely through your browser via private IP address.
 services: bastion
 author: cherylmc
 
@@ -13,9 +13,9 @@ ms.author: cherylmc
 
 ---
 
-# Quickstart: Configure Azure Bastion using VM settings
+# Quickstart: Configure Azure Bastion from VM settings
 
-This quickstart article shows you how to configure Azure Bastion based on your VM settings, and then connect to a VM via private IP address. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+This quickstart article shows you how to configure Azure Bastion based on your VM settings in the Azure portal, and then connect to a VM via private IP address. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 ## <a name="prereq"></a>Prerequisites
 
