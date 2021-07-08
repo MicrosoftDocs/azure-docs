@@ -26,7 +26,7 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 > [!IMPORTANT]
-> The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers </a> are valid for containers. For more information on transaction request rates, see [Data Limits](../concepts/data-limits.md).
+> The free account is limited to 5,000 text records per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers </a> are valid for containers. For more information on transaction request rates, see [Data Limits](../concepts/data-limits.md).
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# [Text Analytics for health (preview)](#tab/healthcare)
+# [Text Analytics for health](#tab/healthcare)
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
@@ -115,7 +115,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# [Text Analytics for health (preview)](#tab/healthcare)
+# [Text Analytics for health](#tab/healthcare)
 
 [!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
@@ -159,8 +159,8 @@ In this article, you learned concepts and workflow for downloading, installing, 
    * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
    * *Language Detection*
-   * *Text Analytics for health (preview)*
-* Container images are downloaded from the Microsoft Container Registry (MCR) or preview container repository.
+   * *Text Analytics for health*
+* Container images are downloaded from the Microsoft Container Registry (MCR)
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
