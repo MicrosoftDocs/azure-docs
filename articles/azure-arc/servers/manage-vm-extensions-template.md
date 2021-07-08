@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
-ms.date: 04/13/2021
+ms.date: 07/08/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -553,7 +553,7 @@ To use the Azure Defender integrated scanner extension, the following sample is 
       },
       "resources": [
         {
-          "type": "resourceType/providers/WindowsAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }
@@ -590,7 +590,7 @@ To use the Azure Defender integrated scanner extension, the following sample is 
       },
       "resources": [
         {
-          "type": "resourceType/providers/LinuxAgent.AzureSecurityCenter",
+          "type": "Microsoft.HybridCompute/machines/providers/serverVulnerabilityAssessments",
           "name": "[concat(parameters('vmName'), '/Microsoft.Security/default')]",
           "apiVersion": "[parameters('apiVersionByEnv')]"
         }
