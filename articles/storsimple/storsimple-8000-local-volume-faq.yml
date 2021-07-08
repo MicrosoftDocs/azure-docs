@@ -17,12 +17,21 @@ metadata:
   ms.date: 06/26/2017 
   ms.author: manuaery
     
-title: StorSimple locally pinned volumes: frequently asked questions (FAQ)
+title: "StorSimple locally pinned volumes: frequently asked questions (FAQ)"
 summary: |
 
+  ## Overview
+  The following are questions and answers that you might have when you create a StorSimple locally pinned volume, convert a tiered volume to a locally pinned volume (and vice versa), or back up and restore a locally pinned volume.
+
+  Questions and answers are arranged into the following categories
+
+  * Creating a locally pinned volume
+  * Backing up a locally pinned
+  * Converting a tiered volume to a locally pinned volume
+  * Restoring a locally pinned volume
+  * Failing over a locally pinned volume
+
 sections:
-  - name: Overview
-    questions:
   - name: Questions about creating a locally pinned volume
     questions:
       - question: |
