@@ -55,7 +55,7 @@ Before you begin to manage VMs on your device via the Azure portal, make sure th
 
 Follow these steps to add a network interface to a virtual machine deployed on your device.<!--There's no obvious way to add a new NIC to a VM or to an Edge resource group in the portal. To update these procedures, I need to create my own test VM, which I can start and stop, create a new NIC for, detach a NIC from the stopped VM, etc.-->
 
-1. Go to the virtual machine that you have stopped, and then go to the **VM Properties** page. Select **Networking**.<!--Networking settings will be on the main screen for the VM. They look to be a passive display. To add a NIC, they need to add it to an Edge resource group, and then attach it to the VM?-->
+1. Go to the virtual machine that you have stopped, and select **Networking**.
     
     ![Select Resources and then Networking on the Virtual machines page for a device](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
 
@@ -88,7 +88,7 @@ Follow these steps to add a network interface to a virtual machine deployed on y
 
 Follow these steps to edit a network interface associated with a virtual machine deployed on your device.
 
-1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
+1. Go to the virtual machine that you have stopped, and select **Networking**.
 
 1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the edit icon (pencil).  
 
@@ -105,7 +105,7 @@ Follow these steps to edit a network interface associated with a virtual machine
 
 Follow these steps to detach or remove a network interface associated with a virtual machine deployed on your device.
 
-1. Go to the virtual machine that you have stopped and go to the **VM Properties** page. Select **Networking**.
+1. Go to the virtual machine that you have stopped, and select **Networking**.
 
 1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the detach icon (unplug).  
 
