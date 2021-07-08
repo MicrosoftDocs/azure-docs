@@ -4,7 +4,6 @@ description: This article defines the support boundaries for PyTorch Enterprise.
 author: alonbochman
 ms.author: alonbochman
 ms.service: pytorch-enterprise
-ms.subservice: pytorch-enterprise
 ms.topic: conceptual
 ms.date: 07/06/2021
 # Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before I register and scan them.

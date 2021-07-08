@@ -4,7 +4,6 @@ description: This article describes the PyTorch Enterprise program.
 author: alonbochman
 ms.author: alonbochman
 ms.service: pytorch-enterprise
-ms.subservice: pytorch-enterprise
 ms.topic: conceptual
 ms.date: 07/06/2021
 ---
