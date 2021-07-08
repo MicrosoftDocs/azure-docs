@@ -51,8 +51,8 @@ For this tutorial, you need a Spark table. The following notebook creates one:
 
 To open the wizard:
 
-1. Right-click the Spark table that you created in the previous step. Then select **Machine Learning** > **Enrich with new model**.
-![Screenshot of the Spark table, with Machine Learning and Enrich with new model highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+1. Right-click the Spark table that you created in the previous step. Then select **Machine Learning** > **Train a new model**.
+![Screenshot of the Spark table, with Machine Learning and Train a new model highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
 1. Provide configuration details for creating an automated machine learning experiment run in Azure Machine Learning. This run trains multiple models. The best model from a successful run is registered in the Azure Machine Learning model registry.
 
