@@ -50,7 +50,7 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
 1. In the **Add identity provider** page, select **Azure Active Directory B2C**.
 1. In the **Add identity provider** window, copy the **Redirect URL**.
 
-    :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-identity-provider-redirect-url.png" alt-text="Copy redirect URL":::    
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-identity-provider-redirect-url.png" alt-text="Copy redirect URL":::    
 
 1. Return to the browser tab for your Azure Active Directory B2C tenant in the Azure portal. Select **App registrations** >  **+ New registration**.
 1. In the **Register an application** page, enter your application's registration information.
@@ -64,7 +64,7 @@ In this section, create a user flow in your Azure Active Directory B2C tenant co
 
 1. On the app **Overview** page, find the **Application (client) ID** and copy the value to the clipboard.
 
-    :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-app-id.png" alt-text="Application ID":::
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-app-id.png" alt-text="Application ID":::
 1. Switch back to the API Management **Add identity provider** page and paste the ID into the **Client Id** text box.
 1. Switch back to the B2C app registration. Select **Certificates & secrets** > **+ New client secret**. 
     :::image type="content" source="media/api-management-howto-aad-b2c/generate-app-key.png" alt-text="Create client secret"::: 
@@ -112,17 +112,17 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. To sign up for a developer account by using Azure AD B2C, open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
-    :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-dev-portal.png" alt-text="Sign up in legacy developer portal":::
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal.png" alt-text="Sign up in legacy developer portal":::
 2. Choose to sign up with **Azure Active Directory B2C**.
 
-    :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure Active Directory B2C":::
+    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure Active Directory B2C":::
 
 3. You're redirected to the signup policy that you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
 
    > [!NOTE]
    > If Azure Active Directory B2C is the only option that's enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
 
-   :::image type="content" source="media/api-management-howto-aad-b2c/api-management-b2c-dev-portal-b2c-options.png" alt-text="Sign up options in legacy developer portal":::
+   :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="Sign up options in legacy developer portal":::
 
    When the signup is complete, you're redirected back to the developer portal. You're now signed in to the developer portal for your API Management service instance.
 
