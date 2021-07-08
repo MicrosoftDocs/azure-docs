@@ -89,15 +89,15 @@ In the following steps, we will enable a system-assigned managed identity and gr
 
      :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
-1. After you've received the _Added Role assignment_ confirmation message, refresh the page to see the added role assignment. 
+1. After you've received the _Added Role assignment_ confirmation message, refresh the page to see the added role assignment.
 
     :::image type="content" source="media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
 
-1. If you don't see the change right away, wait and try refreshing the page once more. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
+1. If you don't see the change right away, wait and try refreshing the page once more. When you assign or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
     :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
-That's it! You have completed the steps to enable a system-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service and train a custom model or analyze documents using files stored in your BYOS account.
+ That's it! You have completed the steps to enable a system-assigned managed identity. With this identity credential, you can grant Form Recognizer specific access rights to documents and files stored in your BYOS account.
 
 ## Learn more about  managed identity
 

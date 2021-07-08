@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 07/08/2021
 ms.author: lajanuar
 ---
 
@@ -21,7 +21,7 @@ ms.author: lajanuar
 
  Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC).  There is no added cost to use managed identity in Azure.
 
-Managed Identities support both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.  In this article, we will examine how to manage access to translation documents in your Azure blob storage account using system-assigned managed identity.
+Managed Identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.  In this article, we will examine how to manage access to translation documents in your Azure blob storage account using system-assigned managed identity.
 
 > [!NOTE]
 >
@@ -95,11 +95,11 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
     :::image type="content" source="../media/managed-identities/add-role-assignment-confirmation.png" alt-text="Screenshot: Added role assignment confirmation pop-up message.":::
 
-1. If you don't see the change right away, wait and try refreshing the page once more. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
+1. If you don't see the change right away, wait and try refreshing the page once more. When you assign or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
     :::image type="content" source="../media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
-Great! You have completed the steps to enable a system-assigned managed identity. With this identity credential, you can grant specific access rights to a single Azure service.
+ Great! You have completed the steps to enable a system-assigned managed identity. With this identity credential, you can grant Translator specific access rights to your storage resource.
 
 ## Next steps
 
