@@ -18,7 +18,7 @@ ms.author: lajanuar
 
 ## What is managed identity?
 
-Azure managed identity is a service principal that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC).  There is no added cost to use managed identity in Azure.
+Azure managed identity is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC).  There is no added cost to use managed identity in Azure.
 
 Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.   In this article, you'll learn to enable a system-assigned managed identity for your Form Recognizer instance.
 
