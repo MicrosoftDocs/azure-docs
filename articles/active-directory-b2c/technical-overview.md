@@ -24,14 +24,14 @@ In Azure Active Directory B2C (Azure AD B2C), a *tenant* represents your organiz
 The primary resources you work with in an Azure AD B2C tenant are:
 
 * **Directory** - The *directory* is where Azure AD B2C stores your users' credentials, profile data, and your application registrations.
-* **Application registrations** - You register your web, mobile, and native applications with Azure AD B2C to enable identity management. Also, any APIs you want to protect with Azure AD B2C.
-* **User flows** and **custom policies** - The built-in (user flows) and fully customizable (custom policies) identity experiences for your applications.
-  * Use *user flows* for quick configuration and enablement of common identity tasks like sign up, sign in, and profile editing.
-  * Use *custom policies* for complex identity workflows unique to your organization, customers, employees, partners, and citizens.
-* **Identity providers** - Federation settings for:
-  * *Social* identity providers like Facebook, LinkedIn, or Twitter that you want to support in your applications.
-  * *External* identity providers that support standard identity protocols like OAuth 2.0, OpenID Connect, and more.
-  * *Local* accounts that enable users to sign up and sign in with a username (or email address or other ID) and password.
+* **Application registrations** - Register your web, mobile, and native applications with Azure AD B2C to enable identity management. You can also register any APIs you want to protect with Azure AD B2C.
+* **User flows** and **custom policies** - Create identity experiences for your applications with built-in user flows and fully configurable custom policies:
+  * **User flows** help you quickly enable common identity tasks like sign-up, sign-in, and profile editing.
+  * **Custom policies** let you build complex identity workflows unique to your organization, customers, employees, partners, and citizens.
+* **Sign-in options** - Azure AD B2C offers various [sign-up and sign-in options](sign-in-options.md) for users of your applications:
+  * **Username, email, and phone sign-in** - Configure your Azure AD B2C local accounts to allow sign-up and sign-in with a username, email address, phone number, or a combination of methods.
+  * **Social identity providers** - Federate with social providers like Facebook, LinkedIn, or Twitter.
+  * **External identity providers** - Federate with standard identity protocols like OAuth 2.0, OpenID Connect, and more.
 * **Keys** - Add and manage encryption keys for signing and validating tokens, client secrets, certificates, and passwords.
 
 An Azure AD B2C tenant is the first resource you need to create to get started with Azure AD B2C. Learn how to:
@@ -68,7 +68,7 @@ For more information, see [Overview of user accounts in Azure Active Directory B
 
 Azure AD B2C provides various ways in which users can authenticate a user. Users can sign-in to a local account, by using username and password, phone verification (also known as password-less authentication). Email sign-up is enabled by default in your local account identity provider settings.
 
-For more information, see [Set up the local account identity provider](identity-provider-local.md).
+Learn more about [sign-in options](sign-in-options.md) or how to [set up the local account identity provider](identity-provider-local.md).
 
 ## User profile attributes
 

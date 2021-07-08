@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/03/2021
+ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -400,13 +400,8 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 | ExtractMailPrefix | None |
 | Join | The suffix being joined must be a verified domain of the resource tenant. |
 
-### Cross-tenant scenarios
-
-Claims mapping policies do not apply to guest users. If a guest user tries to access an application with a claims mapping policy assigned to its service principal, the default token is issued (the policy has no effect).
-
-
 ## Next steps
 
-- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)](active-directory-claims-mapping.md)
+- To learn how to customize the claims emitted in tokens for a specific application in their tenant using PowerShell, see [How to: Customize claims emitted in tokens for a specific app in a tenant](active-directory-claims-mapping.md)
 - To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
 - To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).

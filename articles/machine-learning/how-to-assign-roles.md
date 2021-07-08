@@ -160,7 +160,7 @@ You need to have permissions on the entire scope of your new role definition. Fo
 
 ## Use Azure Resource Manager templates for repeatability
 
-If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [201-machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
+If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
 
 ## Common scenarios
 
@@ -200,8 +200,8 @@ To perform MLflow operations with your Azure Machine Learning workspace, use the
 | Delete an experiment | `Microsoft.MachineLearningServices/workspaces/experiments/delete` |
 | Get a run and related data and metadata, get a list of all values for the specified metric for a given run, list artifacts for a run | `Microsoft.MachineLearningServices/workspaces/experiments/runs/read` |
 | Create a new run within an experiment, delete runs, restore deleted runs, log metrics under the current run, set tags on a run, delete tags on a run, log params (key-value pair) used for a run, log a batch of metrics, params, and tags for a run, update run status | `Microsoft.MachineLearningServices/workspaces/experiments/runs/write` |
-| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model’s version, search model versions, get URI where a model version’s artifacts are stored, search for runs by experiment ids | `Microsoft.MachineLearningServices/workspaces/models/read` |
-| Create a new registered model, update a registered model’s name/description, rename existing registered model, create new version of the model, update a model version’s description, transition a registered model to one of the stages | `Microsoft.MachineLearningServices/workspaces/models/write` |
+| Get registered model by name, fetch a list of all registered models in the registry, search for registered models, latest version models for each requests stage, get a registered model's version, search model versions, get URI where a model version's artifacts are stored, search for runs by experiment ids | `Microsoft.MachineLearningServices/workspaces/models/read` |
+| Create a new registered model, update a registered model's name/description, rename existing registered model, create new version of the model, update a model version's description, transition a registered model to one of the stages | `Microsoft.MachineLearningServices/workspaces/models/write` |
 | Delete a registered model along with all its version, delete specific versions of a registered model | `Microsoft.MachineLearningServices/workspaces/models/delete` |
 
 <a id="customroles"></a>

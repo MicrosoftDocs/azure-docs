@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2021
+ms.date: 06/10/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,6 +33,14 @@ This article assumes that you are familiar with the [Introduction to device iden
 
 > [!NOTE]
 > The minimum required domain controller version for Windows 10 hybrid Azure AD join is Windows Server 2008 R2.
+
+Hybrid Azure AD joined devices require network line of sight to your domain controllers periodically. Without this connection, devices become unusable.
+
+Scenarios that break without line of sight to your domain controllers:
+
+- Device password change
+- User password change (Cached credentials)
+- TPM reset
 
 ## Plan your implementation
 
@@ -90,7 +98,7 @@ As a first planning step, you should review your environment and determine wheth
 
 ### Handling devices with Azure AD registered state
 
-If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
+If your Windows 10 domain joined devices are [Azure AD registered](concept-azure-ad-register.md) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state for a user would be automatically removed <i>after the device is Hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. In addition to removing the Azure AD registered state, Windows 10 will also unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
 - Azure AD registered state on any local accounts on the device is not impacted by this change. It is only applicable to domain accounts. So Azure AD registered state on local accounts is not removed automatically even after user logon, since the user is not a domain user. 
@@ -182,7 +190,7 @@ The table below provides details on support for these on-premises AD UPNs in Win
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
 | Non-routable | Federated | From 1803 release | Generally available |
-| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lockscreen is not supported. The on-premises UPN must be synced to the     `onPremisesUserPrincipalName` attribute in Azure AD |
+| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lock screen is not supported. The on-premises UPN must be synced to the     `onPremisesUserPrincipalName` attribute in Azure AD |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps

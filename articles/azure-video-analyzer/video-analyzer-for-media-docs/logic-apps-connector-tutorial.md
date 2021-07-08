@@ -5,6 +5,8 @@ author: anzaman
 manager: johndeu
 ms.author: alzam
 ms.topic: tutorial #Required
+ms.service: azure-video-analyzer
+ms.subservice: azure-video-analyzer-media
 ms.date: 09/21/2020
 ---
 

@@ -94,6 +94,8 @@
     items:
     - name: Troubleshoot routing issues
       href: front-door-troubleshoot-routing.md
+    - name: Allowed certificate authorities
+      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference
   items:
   - name: Azure Front Door edge locations

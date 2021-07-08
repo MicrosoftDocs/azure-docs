@@ -53,7 +53,7 @@ By assigning logged items to a category, you have more control over telemetry ge
 
 ### Custom telemetry data
 
-In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions) and [JavaScript](functions-reference-node.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
+In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#log-custom-telemetry), and [Python](functions-reference-python.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
 
 ### Dependencies
 
@@ -76,6 +76,7 @@ In addition to automatic dependency data collection, you can also use one of the
 
 + [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 + [Log custom telemetry in JavaScript functions](functions-reference-node.md#log-custom-telemetry) 
++ [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
 
 ## Writing to logs 
 

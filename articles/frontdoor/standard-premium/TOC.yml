@@ -89,6 +89,8 @@
       href: troubleshoot-compression.md
     - name: Cross origin resource sharing
       href: troubleshoot-cross-origin-resources.md
+    - name: Allowed certificate authorities
+      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference
   items:
   - name: Azure Front Door edge locations

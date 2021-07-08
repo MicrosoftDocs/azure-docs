@@ -80,7 +80,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 ### [v2.1](#tab/v2-1)
 
 ```console
- docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
+ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1
 ```
 
 ### [v2.0](#tab/v2-0)
@@ -96,7 +96,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
 ### [v2.1](#tab/v2-1)
 
 ```console
- docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest eula=accept
+ docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
 ```
 
 ### [v2.0](#tab/v2-0)

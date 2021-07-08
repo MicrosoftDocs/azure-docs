@@ -24,7 +24,8 @@ Today, Azure Arc allows you to manage the following resource types hosted outsid
 
 * Servers - both physical and virtual machines running Windows or Linux.
 * Kubernetes clusters - supporting multiple Kubernetes distributions.
-* Azure data services - Azure SQL Database and PostgreSQL Hyperscale services.
+* Azure data services - Azure SQL Managed Instance and PostgreSQL Hyperscale services.
+* SQL Server - enroll instances from any location.
 
 ## What does Azure Arc deliver?
 

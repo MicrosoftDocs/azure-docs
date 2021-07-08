@@ -29,7 +29,7 @@ If your environment meets the prerequisites, and you're already familiar with us
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/).
 
 > [!NOTE]
 > Currently there is no ARM template support for creating enrollments with new DPS resources. This is a common and understood request that is being considered for implementation.
@@ -163,7 +163,7 @@ You can also delete resource groups and individual resources using the Azure por
 
 ## Next steps
 
-In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
+In this quickstart, you've deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a device, continue to the quickstart for creating a device.
 
 > [!div class="nextstepaction"]
 > [Quickstart to provision a device](./quick-create-simulated-device-symm-key.md)

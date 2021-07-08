@@ -92,7 +92,7 @@ The Azure Cosmos DB Emulator by default runs on the local machine ("localhost") 
 
 ## <a id="run-on-linux-macos"></a>Use the emulator on Linux or macOS
 
-Currently, the Azure Cosmos DB Emulator can only be run on Windows. Currently, the Azure Cosmos DB Emulator can only be run on Windows. If you are using Linux or macOS, we recommend you use the [Linux Emulator (Preview)](linux-emulator.md) or run the emulator in a Windows virtual machine hosted in a hypervisor such as Parallels or VirtualBox.
+Currently, the Azure Cosmos DB Emulator can only be run on Windows. If you are using Linux or macOS, we recommend you use the [Linux Emulator (Preview)](linux-emulator.md) or run the emulator in a Windows virtual machine hosted in a hypervisor such as Parallels or VirtualBox.
 > [!NOTE]
 > Every time you restart the Windows virtual machine that is hosted in a hypervisor, you have to reimport the certificate because the IP address of the virtual machine changes. Importing the certificate isn't required in case you have configured the virtual machine to preserve the IP address.
 

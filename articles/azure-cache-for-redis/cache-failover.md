@@ -14,7 +14,7 @@ To build resilient and successful client applications, it's critical to understa
 
 In this article, you find this information:  
 
-- What is a failover.
+- What is a failover?
 - How failover occurs during patching.
 - How to build a resilient client application.
 
@@ -73,12 +73,6 @@ The number of errors seen by the client application depends on how many operatio
 
 Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a preconfigured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using [a Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
-### How do I make my application resilient?
-
-Because you can't avoid failovers completely, write your client applications for resiliency to connection breaks and failed requests. Although most client libraries automatically reconnect to the cache endpoint, few of them attempt to retry failed requests. Depending on the application scenario, it might make sense to use retry logic with backoff.
-
-To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks. Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache. Tell the management service to apply Redis runtime patches during specified weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
-
 ### Can I be notified in advance of a planned maintenance?
 
 Azure Cache for Redis now publishes notifications on a publish/subscribe channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. The notifications are runtime notifications. They're built especially for applications that can use circuit breakers to bypass the cache or buffer commands, for example, during planned updates. It's not a mechanism that can notify you days or hours in advance.
@@ -91,6 +85,22 @@ Certain client-side network-configuration changes can trigger "No connection ava
 - Scaling the size or number of instances of your application.
 
 Such changes can cause a connectivity issue that lasts less than one minute. Your client application will probably lose its connection to other external network resources, but also to the Azure Cache for Redis service.
+
+## Build in resiliency
+
+You can't avoid failovers completely. Instead, write your client applications to be resilient to connection breaks and failed requests. Most client libraries automatically reconnect to the cache endpoint, but few of them attempt to retry failed requests. Depending on the application scenario, it might make sense to use retry logic with backoff.
+
+### How do I make my application resilient?
+
+Refer to these design patterns to build resilient clients, especially the circuit breaker and retry patterns:
+
+- [Reliability patterns - Cloud Design Patterns](/azure/architecture/framework/resiliency/reliability-patterns#resiliency)
+- [Retry guidance for Azure services - Best practices for cloud applications](/azure/architecture/best-practices/retry-service-specific)
+- [Implement retries with exponential backoff](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)
+
+To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks.
+
+Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
 
 ## Next steps
 
