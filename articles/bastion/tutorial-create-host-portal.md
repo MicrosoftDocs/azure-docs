@@ -63,6 +63,7 @@ You can use the following example values when creating this configuration, or yo
 | + Subnet Name | AzureBastionSubnet |
 | AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /27 or larger.<br> For example, 10.1.1.0/26.  |
 | Tier/SKU | Standard |
+| Instance count (host scaling)| 3 or greater |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |
@@ -82,6 +83,7 @@ This section helps you create the bastion object in your VNet. This is required 
 1. On the **Create a Bastion** page, configure a new Bastion resource.
 
    :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Screenshot of Create a Bastion portal page." lightbox="./media/tutorial-create-host-portal/create-expand.png":::
+
 ### Project details
 
 * **Subscription**: The Azure subscription you want to use.
@@ -96,7 +98,7 @@ This section helps you create the bastion object in your VNet. This is required 
 
 * **Tier:** The tier is also known as the **SKU**. For this tutorial, we select the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
 
-* **Instance count:** This is the setting for **host scaling**. Use the slider to configure the instance count. If you specified the Basic tier SKU, you cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). In this tutorial, you can select the instance count you'd prefer.
+* **Instance count:** This is the setting for **host scaling** and configured in scale unit increments. Use the slider to configure the instance count. If you specified the Basic tier SKU, you cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). In this tutorial, you can select the instance count you'd prefer, keeping in mind any scale unit [pricing](https://azure.microsoft.com/pricing/details/azure-bastion) considerations.
 
 ### Configure virtual networks
 
