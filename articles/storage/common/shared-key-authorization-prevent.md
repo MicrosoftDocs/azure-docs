@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/27/2021
 ms.author: tamram
-ms.reviewer: sohamnc 
+ms.reviewer: dineshm 
 ms.custom: devx-track-azurepowershell
 ---
 
