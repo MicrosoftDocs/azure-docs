@@ -20,7 +20,7 @@ A new version of the App Configuration library for Spring Boot is now available.
 
 this article provides a reference on the change and actions needed to migrate to the new library version.
 
-## Group and Artifact ID Changed
+## Group and Artifact ID changed
 
 All of the Azure Spring Boot libraries have had their Group and Artifact IDs updated to match a new format. The new package names are:
 
