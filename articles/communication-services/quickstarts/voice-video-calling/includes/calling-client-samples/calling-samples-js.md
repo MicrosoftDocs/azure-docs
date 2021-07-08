@@ -42,7 +42,7 @@ The following classes and interfaces handle some of the major features of the Az
 | `Call`                              | Used for representing a Call                                                                                                              |
 | `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system.                                                          |
 | `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
-| `RemoteVideoStream`                 | Used for representing an remote video stream from a Remote Participant.                                                                  |
+| `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.                                                                  |
 
 > [!NOTE]
 > The Calling SDK object instances shouldn't be considered to be a plain JavaScript objects. These are actual instances of various classes and therefore can't be serialized.
@@ -503,7 +503,7 @@ callAgentInstance.on('incomingCall', incomingCallHander);
 
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
-When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if its disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
+When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it is disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
 
 See Call Diagnostics section to see how to handle this call diagnostic.
 
@@ -549,7 +549,7 @@ Get the state of a call:
 
   - `None`: Initial call state.
   - `Connecting`: Initial transition state when a call is placed or accepted.
-  - `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It's `Incoming` on their side.
+  - `Ringing`: For an outgoing call, indicates that a call is ringing for remote participants. It is `Incoming` on their side.
   - `EarlyMedia`: Indicates a state in which an announcement is played before the call is connected.
   - `Connected`: Indicates that the call is connected.
   - `LocalHold`: Indicates that the call is put on hold by a local participant. No media is flowing between the local endpoint and remote participants.
@@ -640,7 +640,7 @@ const camera = cameras[1];
 localVideoStream.switchSource(camera);
 ```
 
-If the specified video device is being used by another process, or if its disabled in the system:
+If the specified video device is being used by another process, or if it is disabled in the system:
 
 - While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError and a cameraStartFiled: true call diagnostic will be raised.
 - A call to the localVideoStream.switchSource() api will cause a cameraStartFailed: true call diagnostic to be raised.
@@ -1023,7 +1023,7 @@ callTransferApi.on('transferRequested', args => {
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
-Dominant speakers for a call is an extended feature of the core `Call` API and allows you obtain a list of the active speakers in the call. 
+Dominant speakers for a call is an extended feature of the core `Call` API and allows you to obtain a list of the active speakers in the call. 
 
 This is a ranked list, where the first element in the list represents the last active speaker on the call and so on.
 
@@ -1052,7 +1052,7 @@ callDominantSpeakersApi.api(Features.CallDominantSpeakers).on('dominantSpeakersC
 ``` 
 #### Handle the Dominant Speaker's video streams
 
-Your application can use the `DominantSpeakers` feature to render the one or more of dominant speaker's video streams, and keep updating UI whenever dominant speaker list updates. This can be achieved with the following code example.
+Your application can use the `DominantSpeakers` feature to render one or more of dominant speaker's video streams, and keep updating UI whenever dominant speaker list updates. This can be achieved with the following code example.
 
 ```js
 // RemoteParticipant obj representation of the dominant speaker
@@ -1267,7 +1267,7 @@ console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFun
         - CallClient
         - CallAgent
         - DeviceManager
-    - The following are considered to be "short-lived" resources and are the ones that are playing some role in the call itself, emit events to the application, or are interacting with local media devices. These will consume more cpu&memory, but once call ends - SDK will cleanup all the state and release resource:
-        - Call - since it's the one holding the actual state of the call ( both signaling and media ).
+    - The following are considered to be "short-lived" resources and are the ones that are playing some role in the call itself, emit events to the application, or are interacting with local media devices. These will consume more cpu&memory, but once call ends - SDK will clean up all the state and release resource:
+        - Call - since it's the one holding the actual state of the call (both signaling and media).
         - RemoteParticipants - Represent the remote participants in the call.
         - VideoStreamRenderer with it's VideoStreamRendererViews - handling video rendering.
