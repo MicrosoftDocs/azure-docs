@@ -41,9 +41,17 @@ This capability is ideal for business-to-consumer applications that bring togeth
    * **Manual options** - For example, your meeting link can be copied from your calendar in Microsoft Teams.
 1. External users use your custom application to join the Teams meeting (via the Communication Services Calling and Chat SDKs)
 
-The high-level architecture for this use-case looks like this:
+The high-level architecture for this use-case is:
 
-![Architecture for Teams interop](./media/call-flows/teams-interop.png)
+:::image type="content" source="../media/scenarios/architecture_v2_calling_join_teams_driven.svg" alt-text="Diagram showing Communication Services architecture for joining a Teams meeting.":::
+
+
+#### Dataflows
+1. The Call Management Service creates a group call with [Graph APIs](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-1.0). Another pattern involves end users creating the group call using [Bookings](https://www.microsoft.com/microsoft-365/business/scheduling-and-booking-app), Outlook, Teams, or another scheduling experience in the Microsoft 365 ecosystem.
+2. The Call Management Service shares the Teams call details with Azure Communication Service clients.
+3. Typically, a Teams user must join the call and allow external users to join through the lobby. However this experience is sensitive to the Teams tenant configuration and specific meeting settings.
+4. Azure Communication Service users initialize their Call client and join the Teams meeting, using the details received in Step 2.
+5. The users communicate with each other using voice and video in a call.
 
 Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](/microsoftteams/meeting-settings-in-teams).
 
