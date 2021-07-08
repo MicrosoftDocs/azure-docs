@@ -1,15 +1,15 @@
 items:
-- name: Azure API for FHIR
+- name: FHIR service
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure API for FHIR
+  - name: FHIR service
     href: overview.md
 
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Azure API for FHIR
+  - name: FHIR service
     expanded: false
     items:
     - name: Using Portal
@@ -60,7 +60,7 @@ items:
   - name: Registering applications
     expanded: false
     items:
-    - name: Register applications for Azure API for FHIR overview
+    - name: Register applications for FHIR service
       href: fhir-app-registration.md
     - name: Resource application
       href: register-resource-azure-ad-client-app.md
@@ -74,7 +74,7 @@ items:
   - name: Configure settings
     expanded: false
     items:
-    - name: Configure another Azure API for FHIR settings
+    - name: FHIR service additional settings
       href: azure-api-for-fhir-additional-settings.md
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
@@ -98,7 +98,7 @@ items:
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
       href: how-to-run-a-reindex.md
-    - name: Search examples for Azure API for FHIR
+    - name: Search examples for FHIR service
       href: search-samples.md
   - name: Operations
     expand: false
@@ -114,16 +114,16 @@ items:
   - name: Diagnostic logging and metrics
     expanded: false
     items:
-    - name: Enable Diagnostics Logging in Azure API for FHIR
+    - name: Enable Diagnostics Logging in FHIR service
       href: enable-diagnostic-logging.md
    
-  - name: Get a token for Azure API for FHIR - CLI
+  - name: Get a token for FHIR service - CLI
     href: get-healthcare-apis-access-token-cli.md
   
 - name: Concepts
   expanded: false
   items:
-  - name: Azure AD and Azure API for FHIR Overview
+  - name: Azure AD for FHIR service
     href: azure-ad-hcapi.md
   - name: Access token validation
     href: azure-ad-hcapi-token-validation.md
