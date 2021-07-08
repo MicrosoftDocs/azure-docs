@@ -46355,7 +46355,7 @@
     {
       "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-pass-through-authentication.md",
       "redirect_url": "/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-password-hash-sync.md",

@@ -289,7 +289,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a:-switch-from-federation-to-the-new-sign-in-method-by-using-azure-ad-connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a:switch-from-federation-to-the-new-sign-in-method-by-using-azure-ad-connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
