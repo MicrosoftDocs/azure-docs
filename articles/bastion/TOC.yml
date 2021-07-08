@@ -47,7 +47,7 @@
       href: bastion-connect-vm-rdp.md
   - name: Upgrade a SKU
     href: upgrade-sku.md
-  - name: Configure host scaling instances
+  - name: Configure host scaling
     href: configure-host-scaling.md
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
