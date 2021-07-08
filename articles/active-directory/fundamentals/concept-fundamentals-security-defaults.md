@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 07/07/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -135,7 +135,7 @@ These free security defaults allow registration and use of Azure AD Multi-Factor
 - *** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
 > [!WARNING]
-> Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-verification-options).
+> Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
 
 ### Disabled MFA status
 
