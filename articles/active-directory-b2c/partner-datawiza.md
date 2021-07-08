@@ -75,7 +75,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Run DAB with a header-based application
 
-1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided for you to download and use. 
+1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided for you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Follow [these instructions](https://docs.datawiza.com/step-by-step/step3.html#important-step).
  
    ```YML
    version: '3'
@@ -107,7 +107,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Pass user attributes to the header-based application
 
-1. DAB gets user attributes from IdP and can pass the user attributes to the application via header or cookie. See the instructions on how to [pass user attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application. Log in to the container registry to download the images of DAB and the header-based application. Follow [these instructions](https://docs.datawiza.com/step-by-step/step3.html#important-step).
+1. DAB gets user attributes from IdP and can pass the user attributes to the application via header or cookie. See the instructions on how to [pass user attributes](https://docs.datawiza.com/step-by-step/step4.html) such as email address, firstname, and lastname to the header-based application. 
 
 2. After successfully configuring the user attributes, you should see the green check sign for each of the user attributes.
 
