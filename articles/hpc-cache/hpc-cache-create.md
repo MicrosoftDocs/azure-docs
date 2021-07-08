@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/23/2021
+ms.date: 07/08/2021
 ms.author: v-erkel 
 ms.custom: devx-track-azurepowershell
 ---
@@ -85,7 +85,7 @@ This table explains some important differences between the two options.
 | Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec |
 | Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
 | Maximum number of storage targets | [10 or 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) depending on cache size selection | 20 |
-| Compatible storage target types | Azure blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage, NFS-enabled blob |
+| Compatible storage target types | Azure blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage <br/>NFS-enabled blob storage is in preview for this combination |
 | Caching styles | Read caching or read-write caching | Read caching only |
 | Cache can be stopped to save cost when not needed | Yes | No |
 
@@ -103,8 +103,11 @@ You can skip this section if you do not need customer-managed keys. Azure encryp
 > [!NOTE]
 >
 > * You cannot change between Microsoft-managed keys and customer-managed keys after creating the cache.
-> * After the cache is created, you must authorize it to access the key vault. Click the **Enable encryption** button in the cache's **Overview** page to turn on encryption. Take this step within 90 minutes of creating the cache.
-> * Cache disks are created after this authorization. This means that the initial cache creation time is short, but the cache will not be ready to use for ten minutes or more after you authorize access.
+> * If you use a system-assigned managed identity, an extra step is needed:
+>   * After the cache is created, you must authorize it to access the key vault. Click the **Enable encryption** button in the cache's **Overview** page to turn on encryption. Take this step within 90 minutes of creating the cache.
+>   * Cache disks are created after this authorization. This means that the initial cache creation time is short, but the cache will not be ready to use for ten minutes or more after you authorize access.
+>
+>   With a user-assigned managed identity, the authorization happens automatically.
 
 For a complete explanation of the customer-managed key encryption process, read [Use customer-managed encryption keys for Azure HPC Cache](customer-keys.md).
 
@@ -114,12 +117,14 @@ Select **Customer managed** to choose customer-managed key encryption. The key v
 
 Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys-preview).
 
-If you need to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
+If you want to use a specific managed identity for this cache, configure it in the **Managed identities** section. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
 
 > [!NOTE]
 > You cannot change the assigned identity after you create the cache.
 
-After you create the cache, you must authorize it to use the key vault service. Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) for details.
+ If you supply a user-assigned managed identity instead of using a system-assigned identity, you don't need to do any extra authorization step after the cache is created.
+
+If you use a system-assigned managed identity, there is an extra step to do after you create the cache. You must authorize the cache to use the key vault service. Read [Authorize Azure Key Vault encryption from the cache](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) for details.
 
 ## Add resource tags (optional)
 
