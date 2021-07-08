@@ -15,7 +15,7 @@ This article lists some common failure codes related to Azure disk pools. It als
 
 ## Disk pool status
 
-Disk pools and iSCSI targets each have four states, Unknown, Running, Updating, and Stopped (deallocated).
+Disk pools and iSCSI targets each have four states: **Unknown**, **Running**, **Updating**, and **Stopped (deallocated)**.
 
 Unknown means that the resource is in a bad or unknown state. To attempt recovery, perform an update operation on the resource (such as adding or removing disks/LUNS) or delete and redeploy your disk pool.
 
