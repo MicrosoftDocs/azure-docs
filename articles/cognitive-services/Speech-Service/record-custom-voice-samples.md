@@ -64,7 +64,7 @@ Your utterances don't need to come from the same source, or the same kind of sou
 
 We recommend the recording scripts include both general sentences and your domain-specific sentences. For example, if you plan to record 2,000 sentences, 1,000 of them could be general sentences, another 1,000 of them could be sentences from your target domain or the use case of your application.  
 
-Sample scripts in the ‘General’, ‘Chat’ and ‘Customer Service’ domains for each language that are supported by custom neural voice can be found here (Cognitive-Speech-TTS/CustomVoice/script at master · Azure-Samples/Cognitive-Speech-TTS (github.com)). You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
+Sample scripts in the ‘General’, ‘Chat’ and ‘Customer Service’ domains for each language that are supported by custom neural voice can be found [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
 
 You can select your domain-specific scripts from the sentences that your custom voice will be used to read.
 
@@ -72,36 +72,35 @@ You can select your domain-specific scripts from the sentences that your custom 
 
 Below are some general guidelines that you can follow to create a good corpus (recorded audio samples) for Custom Neural Voice training.
 
-1. Balance your script to cover different sentence types in your domain including statements, questions, exclamations long sentences, and short sentences.
+-  Balance your script to cover different sentence types in your domain including statements, questions, exclamations long sentences, and short sentences.
 
-In general, each sentence should contain 4 words to 30 words. It's required that no duplicate sentences are included in your script.
+   In general, each sentence should contain 4 words to 30 words. It's required that no duplicate sentences are included in your script.<br>
+   Statement sentences are the major part of the script, taking about 70-80% of all.
+   Question sentences should take about 10%-20% of your domain script with rising and falling tones covered.<br>
+   If exclamations normally result in a different tone in your target language, consider to include 10%-20% of scripts for exclamations in your samples.<br>
+   Short word/phrase scripts should also take about 10% cases of the total utterances, with 5 to 7 words per case.
 
-Statement sentences are the major part of the script, taking about 70-80% of all.
-Question sentences should take about 10%-20% of your domain script with rising and falling tones covered.
-If exclamations normally result in a different tone in your target language, consider to include 10%-20% of scripts for exclamations in your samples.
-Short word/phrase scripts should also take about 10% cases of the total utterances, with 5 to 7 words per case.
+   Best practices include:
+    - Balanced coverage for Part of Speech, like verb, noun, adjective, and so on.  
+    - Balanced coverage for pronunciations. Include all letters from A to Z so the TTS engine learns how to pronounce each letter in your defined style.
+    - Readable, understandable, common-sense for speaker to read out.
+    - Avoid too much similar pattern for word/phrase, like "easy" and "easier".
+    - Include different format of numbers: address, unit, phone, quantity, date, and so on in all sentence types.  
+    - Include spelling sentences if it's something your TTS voice will be used to read. For example, "Spell of Apple is A P P L E".
 
-Best practices include:
-  - Balanced coverage for Part of Speech, like verb, noun, adjective, and so on.  
-  - Balanced coverage for pronunciations. Include all letters from A to Z so the TTS engine learns how to pronounce each letter in your defined style.
-  - Readable, understandable, common-sense for speaker to read out.
-  - Avoid too much similar pattern for word/phrase, like "easy" and "easier".
-  - Include different format of numbers: address, unit, phone, quantity, date, and so on in all sentence types.  
-  - Include spelling sentences if it's something your TTS voice will be used to read. For example, "Spell of Apple is A P P L E".
+- Don't put multiple sentences into one line/one utterance. Separate each line per utterances.
 
-2. Don't put multiple sentences into one line/one utterance. Separate each line per utterances.
+- Make sure the sentence is mostly clean. In general, don’t include too many non-standard words like numbers or abbreviations as they are usually hard to read. Some application may need to read many numbers or acronyms. In this case, you can include these words, but normalize them in their spoken form.  
 
-3. Make sure the sentence is mostly clean. In general, don’t include too many non-standard words like numbers or abbreviations as they are usually hard to read. Some application may need to read many numbers or acronyms. In this case, you can include these words, but normalize them in their spoken form.  
+   Below are some best practices for example:
+    - For lines with abbreviations, instead of "BTW", you have "by the way".
+    - For lines with digits, instead of "911", you have "nine one one".
+    - For lines with acronyms, instead of "ABC",  you have "A B C"
+      With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
-Below are some best practices for example:
-  - For lines with abbreviations, instead of "BTW", you have "by the way".
-  - For lines with digits, instead of "911", you have "nine one one".
-  - For lines with acronyms, instead of "ABC",  you have "A B C"
-    With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
+- Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
 
-4. Your script should include many different words and sentences with different kinds of sentence lengths, structures, and moods.  
-
-5. Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
+- Check the script carefully for errors. If possible, have someone else check it too. When you run through the script with your talent, you'll probably catch a few more mistakes.
 
 ### Typical defects of a script
 
@@ -109,46 +108,14 @@ The script's poor quality can adversely affect the training results. To achieve 
 
 The script defects generally fall into the following categories:
 
-- Have a meaningless content in a common way.
-
-- Incomplete sentences. For example:
-
-  -  "This was my last eve” (no subject, no specific meaning)  
-
-  - "He's obviously already funny” (no quote mark in the end, it is not a complete sentence)
-
-- Typo in the sentences. For example:
-
-  - Start with a lower case
-
-  - No ending punctuation if needed
-
-  - Misspelling
-
-  - Lack of punctuation: no period in the end (except news title)
-
-  - End with symbols, except comma, question, exclamation
-
-  - Wrong format, such as:
-
-       - 45$ (should be $45)
-       - No space or excess space between word / punctuation
-
-- Duplication in similar format, one per each pattern is enough. For example:  
-
-  - “Now is 1pm in New York”
-
-  - “Now is 2pm in New York”
-
-  - “Now is 3pm in New York”
-
-  - “Now is 1pm in Seattle”
-
-  - “Now is 1pm in Washington D.C.”
-
-- Uncommon foreign words: only the commonly used foreign word is acceptable in our script.  
-
-- Emoji or any other uncommon symbols.
+| Category | Example |
+| :--------- | :--------------------------- |
+| Have a meaningless content in a common way. | |
+| Incomplete sentences. |- "This was my last eve” (no subject, no specific meaning) <br>- "He's obviously already funny” (no quote mark in the end, it is not a complete sentence) |
+| Typo in the sentences. | - Start with a lower case<br>- No ending punctuation if needed<br> - Misspelling <br>- Lack of punctuation: no period in the end (except news title)<br>- End with symbols, except comma, question, exclamation <br>- Wrong format, such as:<br>    &emsp;- 45$ (should be $45)<br>    	&emsp;- No space or excess space between word/punctuation |
+|Duplication in similar format, one per each pattern is enough. |- “Now is 1pm in New York”<br>- “Now is 2pm in New York”<br>- “Now is 3pm in New York”<br>- “Now is 1pm in Seattle”<br>- “Now is 1pm in Washington D.C.” |
+|Uncommon foreign words: only the commonly used foreign word is acceptable in our script. |  |
+|Emoji or any other uncommon symbols. |  |
 
 ### Script format
 
@@ -187,9 +154,9 @@ Fortunately, it's possible to avoid these issues entirely. There are many source
 
 Record your script at a professional recording studio that specializes in voice work. They'll have a recording booth, the right equipment, and the right people to operate it. It is recommended not to skimp on recording.
 
-Discuss your project with the studio's recording engineer and listen to their advice. The recording should have little or no dynamic range compression (maximum of 4:1). It's critical that the audio have consistent volume and a high signal-to-noise ratio, while being free of unwanted sounds.
+Discuss your project with the studio's recording engineer and listen to their advice. The recording should have little or no dynamic range compression (maximum of 4:1). It's critical that the audio has consistent volume and a high signal-to-noise ratio, while being free of unwanted sounds.
 
-### Recordings Requirements
+### Recording Requirements
 
 To achieve high-quality training results, you need to comply with the following requirements during recording or data preparation:
 
@@ -209,27 +176,18 @@ To achieve high-quality training results, you need to comply with the following 
 
 You can refer to below specification to prepare for the audio samples as best practice.
 
-- File format: *.wav, Mono
+| Property | Value |
+| :--------- | :--------------------------- |
+| File format | *.wav, Mono |
+| Sampling rate |  24 KHz |
+| Sample format | 16 bit, PCM |
+| Peak volume levels | -3 dB to -6 dB |
+| SNR |  > 35 dB |
+| Silence |  - There should have some silence (recommend 100 ms) at the beginning and ending, but no longer than 200 ms<br>- Silence between words or phrases < -30 dB<br>- Silence in the wave after last word is spoken <-60 dB |
+| Environment noise, echo |   - The level of noise at start of the wave before speaking < -70 dB |
 
-- Bit Rate: 24 K, 16 bit PCM
-
-Note: You can record at higher bit rate, for example in the format of 48 KHz 24 bit PCM. During the custom voice training, we’ll down sample it to 24 KHz 16 bit PCM automatically.
-
-- Peak volume levels: -3 dB to -6 dB
-
-- SNR > 35 dB
-
-- Silence:
-
-  - There should have some silence (recommend 100 ms) at the beginning and ending, but no longer than 200 ms
-
-  - Silence between words or phrases < -30 dB
-
-  - Silence in the wave after last word is spoken <-60 dB
-
-- Environment noise, echo
-
-  - The level of noise at start of the wave before speaking < -70 dB
+> [!Note]
+> You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
 
 ### Typical audio errors
 
@@ -241,25 +199,25 @@ For high-quality training results, avoiding audio errors is highly recommended. 
 - Volume peak isn't within the range of -3 dB (70% of max volume) to -6 dB (50%).  
 - Waveform overflow. That is, the waveform at its peak value is cut and thus not complete.
 
-​ ![waveform overflow](media/custom-voice/overflow.png)
+   ![waveform overflow](media/custom-voice/overflow.png)
 
 - The silence part isn't clean, such as ambient noise, mouth noise and echo.
 
   For example, below audio contains the environment noise between speeches.
 
-​![environment noise](media/custom-voice/environment-noise.png)
+   ![environment noise](media/custom-voice/environment-noise.bmp)
 
-Below sample contains noises of DC offset or echo.
+   Below sample contains noises of DC offset or echo.
 
-![DC offset or echo](media/custom-voice/DC-offset-noise.png)
+   ![DC offset or echo](media/custom-voice/dc-offset-noise.png)
 
 - The overall volume is too low. Your data will be tagged as an issue if the volume is lower than -18 dB (10% of max volume). Make sure all audio files should be consistent at the same level of volume.
 
-![overall volume](media/custom-voice/overall-volume.png)
+  ![overall volume](media/custom-voice/overall-volume.png)
 
 - No silence before the first word or after the last word. Also, the start or end silence should not be longer than 200 ms or shorter than 100 ms.
 
-![No silence](media/custom-voice/No-silence.png)
+  ![No silence](media/custom-voice/no-silence.png)
 
 ### Do it yourself
 
@@ -294,7 +252,7 @@ Here, most of the range (height) is used, but the highest peaks of the signal do
 
 Record directly into the computer via a high-quality audio interface or a USB port, depending on the mic you're using. For analog, keep the audio chain simple: mic, preamp, audio interface, computer. You can license both [Avid Pro Tools](https://www.avid.com/en/pro-tools) and [Adobe Audition](https://www.adobe.com/products/audition.html) monthly at a reasonable cost. If your budget is extremely tight, try the free [Audacity](https://www.audacityteam.org/).
 
-Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24-bit, if your equipment supports it. You will down-sample your audio to 24 KHz 16-bit before you submit it to Speech Studio. Still, it pays to have a high-quality original recording in the event edits are needed.
+Record at 44.1 KHz 16 bit monophonic (CD quality) or better. Current state-of-the-art is 48 KHz 24 bit, if your equipment supports it. You will down-sample your audio to 24 KHz 16-bit before you submit it to Speech Studio. Still, it pays to have a high-quality original recording in the event edits are needed.
 
 Ideally, have different people serve in the roles of director, engineer, and talent. Don't try to do it all yourself. In a pinch, one person can be both the director and the engineer.
 
