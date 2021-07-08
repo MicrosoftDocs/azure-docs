@@ -2,14 +2,14 @@
 title: Error message appears on app page after you sign in | Microsoft Docs
 description: How to resolve issues with Azure AD sign in when the app returns an error message.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---
