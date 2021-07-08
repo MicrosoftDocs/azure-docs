@@ -29,34 +29,27 @@ Specifically, IoT devices:
 - May have intermittent, slow, or expensive network connectivity.
 - May need to use proprietary, custom, or industry-specific application protocols.
 
-## Connect and securely connect
+## Securely connect and communicate
 
 Per-device authentication enables each device to connect securely to IoT Hub and for each device to be managed securely. You have complete control over device access and can control connections at the per-device level.
 
 ### Devices have a secure identity
 
-Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub. You can use a process called manual provisioning, in which you connect a single device to its IoT hub. For manual provisioning, you have two options for authenticating IoT Edge devices:
+COME BACK TO HERE 
+With a secure identity, you have base names etc and blah blah blah choosing the authentication method. 
 
-* symmetric key: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating. This method is faster to get started, but not as secure.
+Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the method used to authenticate. 
 
-* X.509 Self-signed: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint.
+We support two methods of authentication between the device and the IoT Hub. In one case, you can use an SAS token-based authentication. The other method supported uses X.509 certificate authentication.
 
-If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub Device Provisioning Service](../iot-dps).
-
-If you want to create your devices and validate them one by one, you can use one of the following methods:
-
-*  [Create and provision IoT Edge devices using X.509 certificates](../iot-edge/how-to-auto-provision-x509-certs.md)
-
-*  [Create and provision IoT Edge devices with a TPM](../iot-edge/how-to-auto-provision-simulated-device-linux.md)
-
-*  [Create and provision IoT Edge devices using symmetric keys](../iot-edge/how-to-auto-provision-symmetric-keys.md)
-
-The security token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the 
+The SAS-based token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the 
 Transport Layer Security (TLS) standard connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
+
+You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](../iot-dps). 
 
 ### Devices can securely communicate with an IoT Hub
 
- IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the network. Additionally, security tokens are limited in time validity and scope. Azure IoT SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These scenarios include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
+ The reason IoT Hub uses security tokens to authenticate devices and services is to avoid sending keys on the network. Also, security tokens are limited in time validity and scope. Azure IoT SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These scenarios include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
 
 The internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, TLS 1.1, and TLS 1.0, in that order. Support for TLS 1.0 is provided for backward compatibility only. Check [TLS support in IoT Hub](iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, which provides the most security.
 
@@ -70,7 +63,7 @@ Typically, IoT devices send telemetry from the sensors to back-end services in t
 
 ### Telemetry - Receive information back from the device such as data collected by a sensor
 
-What is telemetry? Telemetry is data that a device sends to an IoT Hub. IoT Devices send events (notifications, acknowledgments, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
+Telemetry is data that a device sends to an IoT Hub. IoT Devices send events (notifications, acknowledgments, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
 
 ### Properties are state values or data that applications can access. 
 
