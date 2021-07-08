@@ -926,7 +926,7 @@ console.log(result.video);
 - The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
 - The 'audioDevicesUpdated' event fires when audio devices are plugged
 - When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
-- Speaker enumeration/selection is not supported on Android, iOS, nor MacOS Safari.
+- Speaker enumeration/selection is not supported on Android, iOS, nor macOS Safari.
 
 ## Call Feature Extensions
 
@@ -1035,7 +1035,7 @@ const callDominantSpeakersApi = call.api(Features.CallDominantSpeakers);
 
 Then, obtain the list of the dominant speakers by calling `dominantSpeakers`. This has a type of `DominantSpeakersInfo`, which has the following members:
 
-- `speakersList` contains the list of the ranked dominant speakers in the call. These are represented by their participant id.
+- `speakersList` contains the list of the ranked dominant speakers in the call. These are represented by their participant ID.
 - `timestamp` is the latest update time for the dominant speakers in the call.
 
 ```js
