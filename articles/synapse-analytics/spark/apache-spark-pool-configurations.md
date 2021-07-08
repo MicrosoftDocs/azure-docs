@@ -23,7 +23,7 @@ Apache Spark pool instance consists of one head node and two or more worker node
 
 ## Node Sizes
 
-A Spark pool can be defined with node sizes that range from a Small compute node with 8 vCore and 64 GB of memory up to a XXLarge compute node with 64 vCore and 432 GB of memory per node. Node sizes can be altered after pool creation although the instance may need to be restarted.
+A Spark pool can be defined with node sizes that range from a Small compute node with 4 vCores and 32 GB of memory up to a XXXLarge compute node with 80 vCores and 504 GB of memory per node. Node sizes can be altered after pool creation although the instance may need to be restarted.
 
 |Size | vCore | Memory|
 |-----|------|-------|
@@ -32,6 +32,7 @@ A Spark pool can be defined with node sizes that range from a Small compute node
 |Large|16|128 GB|
 |XLarge|32|256 GB|
 |XXLarge|64|432 GB|
+|XXXLarge|80|504 GB|
 
 ## Autoscale
 
