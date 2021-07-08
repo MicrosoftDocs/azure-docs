@@ -5,7 +5,7 @@ author: ash2017
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/06/2023
+ms.date: 06/06/2021
 ms.author: asrastog
 ---
 
