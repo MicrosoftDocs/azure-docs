@@ -319,12 +319,12 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method:** | [Azure Functions and the REST API](connect-azure-functions-template.md) |
 | **Azure Function App code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
-| **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken<li>Callback URL |
+| **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Configure Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks)<li>[Configure permissions](https://developers.facebook.com/docs/workplace/reference/permissions) |
 | **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Workplace_Facebook |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-WorkplaceFacebook-parser |
-| **Application settings** | <li><li><li><li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
+| **Application settings** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by:** | Microsoft |
 |
 
