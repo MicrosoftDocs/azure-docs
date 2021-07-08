@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 07/07/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -82,7 +82,7 @@ The customer initiates the account failover to the secondary endpoint. The failo
 Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints for blobs, tables, queues, and files remain the same after the failover.
 
 > [!IMPORTANT]
-> After the failover is complete, the storage account is configured to be either locally redundant or zone-redundant at the new primary endpoint, depending on whether the original primary was configured for GRS or GZRS. To resume replication to the new secondary, configure the account for geo-redundancy again.
+> After the failover is complete, the storage account is configured to be either locally redundant or zone-redundant at the new primary endpoint, depending on whether the original primary was configured for GRS/RA-GRS or GZRS/RA-GZRS. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
 > Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](storage-initiate-account-failover.md#important-implications-of-account-failover).
 
@@ -105,11 +105,11 @@ For more information about checking the **Last Sync Time** property, see [Check 
 
 ### Use caution when failing back to the original primary
 
-After you fail over from the primary to the secondary region, your storage account is configured to be either locally redundant or zone-redundant in the new primary region, depending on whether the original configuration was GRS or GZRS. You can then configure the account for geo-redundancy again. When the account is configured for geo-redundancy again after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the primary is fully copied to the new secondary.
+After you fail over from the primary to the secondary region, your storage account is configured to be either locally redundant or zone-redundant in the new primary region, depending on whether the original configuration was GRS/RA-GRS or GZRS/RA-GZRS. You can then configure the account for geo-redundancy again. When the account is configured for geo-redundancy again after a failover, the new primary region immediately begins copying data to the new secondary region, which was the primary before the original failover. However, it may take some time before existing data in the primary is fully copied to the new secondary.
 
-After the storage account is reconfigured for geo-redundancy, it's possible to initiate another failover from the new primary back to the new secondary. In this case, the original primary region prior to the failover becomes the primary region again, and is configured to be either locally redundant or zone-redundant, depending on whether the original primary configuration was GRS or GZRS. All data in the post-failover primary region (the original secondary) is then lost. If most of the data in the storage account has not been copied to the new secondary before you fail back, you could suffer a major data loss.
+After the storage account is reconfigured for geo-redundancy, it's possible to initiate another failover from the new primary back to the new secondary. In this case, the original primary region prior to the failover becomes the primary region again, and is configured to be either locally redundant or zone-redundant, depending on whether the original primary configuration was GRS/RA-GRS or GZRS/RA-GZRS. All data in the post-failover primary region (the original secondary) is then lost. If most of the data in the storage account has not been copied to the new secondary before you fail back, you could suffer a major data loss.
 
-To avoid a major data loss, check the value of the **Last Sync Time** property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate expected data loss. 
+To avoid a major data loss, check the value of the **Last Sync Time** property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate expected data loss.
 
 ## Initiate an account failover
 
