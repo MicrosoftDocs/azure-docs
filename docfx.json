@@ -41,6 +41,21 @@
           "**/*.yml"
         ],
         "exclude": [
+            "articles/healthcare-apis/azure-api-for-fhir/**",
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "azureapiforfhir",
+        "src": "articles/healthcare-apis/azure-api-for-fhir",
+        "dest": "./azure-api-for-fhir/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
             "**/_themes/**",
             "**/includes/**",
             "**/obj/**"
@@ -106,6 +121,23 @@
           "**/*.svg"
         ],
         "exclude": [
+          "articles/healthcare-apis/azure-api-for-fhir/**",
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "azureapiforfhir",
+        "src": "articles/healthcare-apis/azure-api-for-fhir",
+        "dest": "./azure-api-for-fhir/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
           "**/_themes/**",
           "**/obj/**"
         ]
@@ -133,7 +165,11 @@
       },
       "healthcare-apis": {
         "dest": "desthealthcareapis",
-        "moniker_range": "azureapiforfhir || healthcareapi-1.0.0"
+        "moniker_range": "healthcareapi-1.0.0"
+      },
+      "azureapiforfhir": {
+        "dest": "destazureapiforfhir",
+        "moniker_range": "azureapiforfhir"
       }
     },
     "overwrite": [],
