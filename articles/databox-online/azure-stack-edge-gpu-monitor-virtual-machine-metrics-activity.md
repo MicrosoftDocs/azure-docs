@@ -1,5 +1,5 @@
 ---
-title: Monitor VM GPU, memory, and activity on your Azure Stack Edge Pro GPU device
+title: Monitor VM GPU, memory, activity on Azure Stack Edge Pro GPU device
 description: Learn how to monitor metrics (GPU, memory) and view activity logs on your Azure Stack Edge Pro GPU via the Azure portal.
 services: databox
 author: v-dalc
@@ -7,16 +7,16 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 07/08/2021
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to get a quick read of resource usage and activity for the compute workloads on my Azure Stack Edge GPU device.
+# Customer intent: As an IT admin, I need to get a quick read of CPU, memory usage, and activity for the compute workloads on my Azure Stack Edge Pro GPU devices.
 ---
 
-# Monitor VM GPU and memory metrics, activity logs on Azure Stack Edge Pro GPU devices
+# Monitor VM GPU and memory metrics, activity on Azure Stack Edge Pro GPU devices
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-INTRO TK
+You can view GPU and memory metrics and activity logs for the virtual machines deployed on you Azure Stack Edge Pro GPU devices in the Azure portal.  ADD DESCRIPTION OF ARTICLE GOALS.
 
 ## Monitor GPU and memory metrics
 
@@ -34,33 +34,29 @@ INTRO TK
 
 *Is there any cost associated with viewing and manipulating these metrics?*
 
-*This is a simple implementation of Azure Metrics, with a slightly different display from the custom displays in the Azure Monitor Metrics "Getting started" article. Is there a good source to point to for advanced Metrics features (available when metrics detail is displayed?*  
-
 ## View activity logs
+
+On the **Activity log** pane for virtual machines, you can filter and sort the data, select columns to display, and drill down to details for a specific activity. For more information, see [View activity logs to monitor actions on resources](/azure/azure-resource-manager/management/view-activity-logs).
 
 To view activity logs for the virtual machines on your Azure Stack Edge Pro GPU device, do these steps:
 
-1. Open the device in the Azure portal, and go to **Virtual Machines**. Then select **Activity log**.
-
-
-
+1. Go to the device and then to **Virtual Machines**. Select **Activity log**.
 
     ![Screenshot showing the Activity logs view for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-01.png)
 
+    You'll see the VM guest logs for virtual machines on the device. *Verify this.*
 
-You'll see the VM guest logs for all virtual machines on the device. 
+1. Use filters above the list to target the activity you need to see.
 
-Use the filters to target the activity you need to see.
+    ![Screenshot showing the Timespan filter for Activity for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-02.png)
 
-![Screenshot showing the Timespan filter for Activity for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-02.png)
+1. Click the down arrow by an operation name to view the associated activity.
 
-Click the down arrow by an operation name to view a list of operations.
+    ![Screenshot showing Activity logs view for virtual machines on an Azure Stack Edge device](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-03.png)
 
-![Screenshot showing the Activity logs view for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-03
-.png)
-
-For more information, see [View activity logs to monitor actions on resources](/azure/azure-resource-manager/management/view-activity-logs). 
+For more information, see [View activity logs to monitor actions on resources](/azure/azure-resource-manager/management/view-activity-logs).
 
 ## Next steps
 
-To learn how to administer your Azure Stack Edge Pro GPU device, see [Use local web UI to administer an Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
+- To learn how to administer your Azure Stack Edge Pro GPU device, see [Use local web UI to administer an Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
+- [Collect VM guest logs in a Support package]()
