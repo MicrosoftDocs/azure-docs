@@ -75,9 +75,9 @@ landingContent:
             url: ./user-documentation/linux-overview.md
 
   # Card
-  - title: Azure Virtual Desktop Remote App Streaming
+  - title: Remote app streaming with Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links:
-          - text: How to stream apps to your customers.
+          - text: Stream apps to your customers
             url: ./remote-app-streaming/overview.md

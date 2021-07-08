@@ -1,10 +1,10 @@
-- name: Azure Virtual Desktop Remote App Streaming
+- name: Azure Virtual Desktop remote app streaming
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Virtual Desktop?
     href: ../overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-  - name: What is Azure Virtual Desktop Remote App Streaming?
+  - name: What is Azure Virtual Desktop remote app streaming?
     href:
 - name: Tutorials
   items:
@@ -18,7 +18,7 @@
     href: ../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: How-to guides
   items:
-  - name: Essentials for Remote App Streaming
+  - name: Essentials for remote app streaming
     items:
     - name: Architecture recommendations
       href: 
@@ -136,7 +136,7 @@
       href: ../drain-mode.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
 - name: Concepts
   items:
-  - name: Essentials for Remote App Streaming
+  - name: Essentials for remote app streaming
     items: 
     - name: Architecture recommendations 
       href: 

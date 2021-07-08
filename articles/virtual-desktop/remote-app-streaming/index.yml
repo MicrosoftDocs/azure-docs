@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Virtual Desktop Remote App Streaming
-summary: With Azure Virtual Desktop Remote App Streaming, you can deliver apps to users inside and outside your organization. Learn how with these tutorials and guides.
+title: Azure Virtual Desktop remote app streaming
+summary: With Azure Virtual Desktop remote app streaming, you can deliver apps to users inside and outside your organization. Learn more with these tutorials and guides.
 
 metadata:
-  title: Azure Virtual Desktop Remote App Streaming
-  description: How to use Azure Virtual Desktop Remote App Streaming to deliver apps to customers inside and outside of your organization.
+  title: Azure Virtual Desktop remote app streaming
+  description: How to use Azure Virtual Desktop remote app streaming to deliver apps to customers inside and outside of your organization.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
@@ -18,7 +18,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Azure Virtual Desktop Remote App Streaming
+  - title: Remote app streaming with Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links: 
@@ -40,7 +40,7 @@ landingContent:
             url: ../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       
   # Card
-  - title: General Azure Virtual Desktop documentation
+  - title: Learn more about Azure Virtual Desktop
     linkLists:
       - linkListType: overview
         links: 
