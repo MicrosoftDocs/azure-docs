@@ -13,15 +13,15 @@ The Azure Defender for IoT security agents allow you to build security directly 
 
 The Azure Defender for IoT micro agent provides endpoint visibility into security posture management, threat detection, and integration into Microsoft's other security tools for unified security management. 
 
-### Security posture management
+## Security posture management
 
 Proactively monitor the security posture of your IoT devices. Azure Defender for IoT provides security posture recommendations based on the CIS benchmark, along with device-specific recommendations. Get visibility into operating system security, including OS configuration, firewall configuration, and permissions. 
 
-### Endpoint IoT/OT threat detection
+## Endpoint IoT/OT threat detection
 
 Detect threats like botnets, brute force attempts, crypto miners, and suspicious network activity. Create custom alerts to target the most important threats in your unique organization. 
 
-### Flexible distribution and deployment models 
+## Flexible distribution and deployment models 
 
 The Azure Defender for IoT micro agent includes source code, so you can incorporate the micro agent into firmware or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. 
 
