@@ -127,7 +127,7 @@ Analytics exposes rich capabilities to analyze historical trends and correlate v
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Jobs Page":::
 
-This page lets you view and create jobs that can be used for bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-run-a-job.md) article.
+This page lets you view and create jobs that can be used for bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-manage-devices-in-bulk.md) article.
 
 ### Device templates
 
