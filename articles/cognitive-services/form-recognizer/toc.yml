@@ -26,7 +26,7 @@
   - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
   - name: "JavaScript"
-    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/ 
+    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: Responsible use of AI
   items:
   - name: Transparency notes
@@ -66,7 +66,7 @@
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Create and use managed identity
-      href: managed-identities-for-byos.md  
+      href: managed-identity-byos.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
