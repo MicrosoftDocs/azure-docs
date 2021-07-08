@@ -1,6 +1,6 @@
 ---
-title: What's new in Windows Virtual Desktop Azure Monitor?
-description: New features and product updates for the Windows Virtual Desktop agent.
+title: What's new in Azure Virtual Desktop Azure Monitor?
+description: New features and product updates for the Azure Virtual Desktop agent.
 author: Heidilohr
 ms.topic: overview
 ms.date: 07/08/2021
@@ -8,15 +8,15 @@ ms.author: helohr
 manager: femila
 ms.custom: references_regions
 ---
-# What’s new in Azure Monitor for Windows Virtual Desktop?
+# What’s new in Azure Monitor for Azure Virtual Desktop?
 
-This article describes the changes we make to each new version of Azure Monitor for Windows Virtual Desktop.
+This article describes the changes we make to each new version of Azure Monitor for Azure Virtual Desktop.
 
-If you're not sure which version of Azure Monitor you're currently using, you can find it in the bottom-right corner of your Insights page or configuration workbook. To access your workbook, go to [https://aka.ms/azmonwvdi](aka.ms/azmonwvdi).
+If you're not sure which version of Azure Monitor you're currently using, you can find it in the bottom-right corner of your Insights page or configuration workbook. To access your workbook, go to [https://aka.ms/azmonwvdi](https://aka.ms/azmonwvdi).
 
 ## How to read version numbers
 
-There are three numbers in each version of Azure Monitor for Windows Virtual Desktop. Here's what each number means:
+There are three numbers in each version of Azure Monitor for Azure Virtual Desktop. Here's what each number means:
 
 - The first number is the major version, and is usually used for major releases.
 
@@ -34,9 +34,9 @@ Release date: March 21st, 2021.
 
 In this version, we made the following changes:
 
-- We introduced a new visual indicator for high-impact errors and warnings from the Windows Virtual Desktop agent event log on the host diagnostics page.
+- We introduced a new visual indicator for high-impact errors and warnings from the Azure Virtual Desktop agent event log on the host diagnostics page.
 
-- We removed five expensive process performance counters from the default configuration. For more information, see our blog post at [Updated guidance on Azure Monitor for Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/updated-guidance-on-azure-monitor-for-wvd/m-p/2236173).
+- We removed five expensive process performance counters from the default configuration. For more information, see our blog post at [Updated guidance on Azure Monitor for Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/updated-guidance-on-azure-monitor-for-wvd/m-p/2236173).
 
 - The setup process for Windows Event Log for the configuration workbook is now automated.
 
@@ -50,6 +50,6 @@ In this version, we made the following changes:
 
 ## Next steps
 
-For the general What's New page, see [What's New in Windows Virtual Desktop](whats-new.md).
+For the general What's New page, see [What's New in Azure Virtual Desktop](whats-new.md).
 
-To learn more about Azure Monitor for Windows Virtual Desktop, see [Use Azure Monitor for Windows Virtual Desktop to monitor your deployment](azure-monitor.md).
+To learn more about Azure Monitor for Azure Virtual Desktop, see [Use Azure Monitor for Azure Virtual Desktop to monitor your deployment](azure-monitor.md).
