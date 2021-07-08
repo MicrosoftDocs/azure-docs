@@ -60,7 +60,9 @@ A business planner needs to track the company's revenue as the indicator of busi
 
 The metric is analyzed on **100 product categories** and **10 regions**, then the number of distinct time series being analyzed is calculated as: 
 
-    1(Revenue) * 100 product categories * 10 regions = 1,000 analyzed time series
+```
+1(Revenue) * 100 product categories * 10 regions = 1,000 analyzed time series
+```
 
 Based on the tiered pricing model described above, 1,000 analyzed time series per month is charged at (1,000 - 25) * $0.75 = **$731.25**. 
 
@@ -73,8 +75,10 @@ Based on the tiered pricing model described above, 1,000 analyzed time series pe
 <!-- introduce cost for multiple metrics and -->
 
 After validating detection results on the revenue metric, the customer would like to onboard two more metrics to be analyzed. One is cost, another is DAU(daily active user) of their website. They would also like to add a new dimension with **20 channels**. Within the month, 10 out of the 100 product categories are discontinued after the first week, and are not analyzed further. In addition, 10 new product categories are introduced in the third week of the month, and the corresponding time series are analyzed for half of the month. Then the number of distinct time series being analyzed are calculated as: 
-    
-    3(Revenue, cost and DAU) * 110 product categories * 10 regions * 20 channels = 66,000 analyzed time series
+
+```    
+3(Revenue, cost and DAU) * 110 product categories * 10 regions * 20 channels = 66,000 analyzed time series
+```
 
 Based on the tiered pricing model described above, 66,000 analyzed time series per month fall into tier 5 and will be charged at **$10281.25**. 
 
@@ -89,8 +93,8 @@ Based on the tiered pricing model described above, 66,000 analyzed time series p
 
 ## Next steps
 
-- [Manage your data feeds](manage-data-feeds.md)
-- [Configurations for different data sources](../data-feeds-from-different-sources.md)
-- [Configure metrics and fine tune detection configuration](configure-metrics.md)
+- [Manage your data feeds](how-tos/manage-data-feeds.md)
+- [Configurations for different data sources](data-feeds-from-different-sources.md)
+- [Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md)
 
 
