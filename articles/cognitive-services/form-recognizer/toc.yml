@@ -65,7 +65,7 @@
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
-    - name: Use managed identities with BYOS accounts
+    - name: Create and use managed identities
       href: managed-identities-for-byos.md  
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
