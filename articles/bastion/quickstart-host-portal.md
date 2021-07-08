@@ -13,9 +13,9 @@ ms.author: cherylmc
 
 ---
 
-# Quickstart: Connect to a VM securely through a browser via private IP address
+# Quickstart: Configure Azure Bastion using VM settings
 
-You can connect to a virtual machine (VM) through your browser using the Azure portal and Azure Bastion. This quickstart article shows you how to configure Azure Bastion based on your VM settings. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+This quickstart article shows you how to configure Azure Bastion based on your VM settings, and then connect to a VM via private IP address. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -94,7 +94,7 @@ There are a few different ways to configure a bastion host. In the following ste
 
    * **Name:** Name the bastion host.
    * **Tier:** The tier is the SKU. For this exercise, select **Standard** from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
-   * **Instance count:** This is the setting for host scaling. Use the slider to configure. If you specify the Basic tier SKU, you are limited to 2 instances and cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). Instance count is in Preview and relies on the Standard SKU.
+   * **Instance count:** This is the setting for host scaling. Use the slider to configure. If you specify the Basic tier SKU, you are limited to 2 instances and cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). Instance count is in Preview and relies on the Standard SKU. In this quickstart, you can select the instance count you'd prefer, keeping in mind any scale unit [pricing](https://azure.microsoft.com/pricing/details/azure-bastion) considerations.
    * **Public IP address:** Select **Create new**.
    * **Public IP address name:** The name of the Public IP address resource.
    * **Public IP address SKU:** Pre-configured as **Standard**.
