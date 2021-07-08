@@ -57,12 +57,12 @@
     href: bastion-nsg.md
   - name: Health monitoring
     items:
+    - name: Monitoring Azure Bastion
+      href: howto-metrics-monitor-alert.md
     - name: Configure and access diagnostic logs
       href: diagnostic-logs.md
     - name: Monitor and manage sessions
       href: session-monitoring.md
-    - name: Metrics, monitoring, and alerts
-      href: howto-metrics-monitor-alert.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference
