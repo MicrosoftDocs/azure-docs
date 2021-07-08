@@ -1,31 +1,31 @@
 ---
-title: Azure Virtual Desktop architecutre recommendations - Azure
+title: Azure Virtual Desktop architecture recommendations - Azure
 description: Architecture recommendations for Azure Virtual Desktop for app developers.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
 
 # Architecture recommendations
 
-Azure Virtual Desktop deployments come in many different shapes and sizes depending on many factors. End-user needs, the existing infrastructure of the organization deploying the service, and other things can affect what form the deployment takes. How do you make sure you're using the right architecture that meets your organization's needs?
+Azure Virtual Desktop deployments come in many different shapes and sizes depending on many factors like end-user needs, the existing infrastructure of the organization deploying the service, and so on. How do you make sure you're using the right architecture that meets your organization's needs?
 
 This article will help you by establishing guidelines for your Azure Virtual Desktop deployment structure. The examples listed in this article aren't the only possible ways you can deploy Azure Virtual Desktop. However, we do cover two of the most basic types of deployments for users inside and outside of your organization.
 
-## Deploying Azure Virtual Desktop deployment for users within your organization
+## Deploying Azure Virtual Desktop for users within your organization
 
 If you're making an Azure Virtual Desktop deployment for users inside your organization, you can host all your users and resources in the same Azure tenant. You can also use Azure Virtual Desktop's currently supported identity management methods to keep your users secure.
 
-These are the bare minimum requirements for an Azure Virtual Desktop deployment that can serve RemoteApps and desktops to users within your organization:
+These are the basic requirements for an Azure Virtual Desktop deployment that can serve RemoteApps and desktops to users within your organization:
 
-- One host pool
-- One Azure subscription
-- One Azure tenant
+- One host pool to host user sessions
+- One Azure subscription to host the host pool
+- One Azure tenant to be the owning tenant for the subscription and identity management
 
 However, you can also build a deployment with multiple host pools that offer different apps to different groups of users.
 
@@ -33,11 +33,11 @@ Some customers choose to create separate Azure subscriptions to store each Azure
 
 ## Deploying Azure Virtual Desktop for users outside your organization
 
-If your Azure Virtual Desktop deployment will serve end-users outside your organization, especially users that don't typically use Windows or don't have access to your organization's internal resources, you'll need to make extra security considerations.
+If your Azure Virtual Desktop deployment will serve end-users outside your organization, especially users that don't typically use Windows or don't have access to your organization's internal resources, you'll need to consider additional security recommendations.
 
 Azure Virtual Desktop doesn't currently support external identities, including business-to-business (B2B) or business-to-client (B2C) users. You'll need to create and manage these identities manually and provide the credentials to your users yourself. Users will then use these identities to access resources in Azure Virtual Desktop.
 
-These identities should be hybrid, where each real-world organization you're serving is assigned to its own Active Directory and Azure Active Directory (Azure AD) tenant. This separation means you'll have to create a separate Azure Virtual Desktop deployment for each organization that's totally isolated from the other deployments and their resources. The virtual machines that each organization uses shouldn't be able to access the resources of other companies to keep information secure. You can set up these separate deployments by using either a combination of Active Directory Domain Services (AD DS) and Azure AD Connect or Azure AD DS.
+To provide a secure solution to your customers, Microsoft strongly recommends creating an Azure Active Directory (AD) tenant and subscription for each customer with their own dedicated Active Directory. This separation means you'll have to create a separate Azure Virtual Desktop deployment for each organization that's totally isolated from the other deployments and their resources. The virtual machines that each organization uses shouldn't be able to access the resources of other companies to keep information secure. You can set up these separate deployments by using either a combination of Active Directory Domain Services (AD DS) and Azure AD Connect or by using Azure AD Domain Services.
 
 >[!IMPORTANT]
 >If you want to use Azure Virtual Desktop as a product-as-a-service (PaaS) to serve software-as-a-service (SaaS) apps to your customers, then you must limit your deployment to one Active Directory per real-world tenant to keep things secure. Adding users from different organizations to the same Azure tenant risks creating security breaches, so we recommend avoiding this scenario, if possible.
