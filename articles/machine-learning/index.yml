@@ -1,13 +1,13 @@
 ### YamlMime:Hub
 
-title: Azure Machine Learning documentation
-summary: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how.
+title: Azure Machine Learning documentation 
+summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more.
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-apps | power-automate | power-bi | power-platform | power-virtual-agents | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure ## Used for color theming of icons and hero area
 
 metadata:
-  title: Azure Machine Learning documentation
-  description: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how.
+  title: Azure Machine Learning documentation - code examples, tutorials 
+  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -74,10 +74,10 @@ conceptualContent:
           text: How to deploy a model
         - url: how-to-deploy-managed-online-endpoints.md
           itemType: how-to-guide
-          text: Deploy & score with a managed endpoint (preview)
+          text: Real-time scoring with a managed endpoint (preview)
         - url: how-to-use-batch-endpoint.md
           itemType: how-to-guide
-          text: Batch scoring with managed endpoints
+          text: Batch scoring with managed endpoints (preview)
     # Card
     - title: Manage the ML lifecycle
       links:
@@ -87,18 +87,20 @@ conceptualContent:
         - url: concept-model-management-and-deployment.md
           itemType: concept
           text: Model management, deployment, lineage & monitoring
+        - url: how-to-cicd-data-ingestion.md
+          itemType: how-to-guide
     # Card
     - title: Security for ML projects
       links:
-        - url: concept-enterprise-security.md
-          itemType: concept
-          text: Enterprise security & governance
         - url: tutorial-create-secure-workspace.md
           itemType: tutorial
           text: Create a secure workspace
-        - url: security-controls-policy.md
+        - url: how-to-access-data.md
+          itemType: how-to-guide
+          text: Connect to data sources 
+        - url: concept-enterprise-security.md
           itemType: concept
-          text: Regulatory compliance   
+          text: Enterprise security & governance
     # Card
     - title: Reference 
       links:
@@ -111,16 +113,12 @@ conceptualContent:
         - url: /cli/azure/ml/
           itemType: reference
           text: V2 CLI (preview)
-            items:
     # Card
     - title: Resources
       links:
-        - url: how-to-data-prep-synapse-spark-pool.md
-          itemType: how-to-guide
-          text: Data preparation with Spark
-        - url: how-to-access-data.md
-          itemType: how-to-guide
-          text: Connect to data sources
-        - url: how-to-cicd-data-ingestion.md
-          itemType: how-to-guide
-          text: DevOps for data ingestion
+        - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+          itemType: sample
+          text: Python SDK code examples
+        - url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
+          itemType: sample
+          text: v2 CLI code examples (preview)
