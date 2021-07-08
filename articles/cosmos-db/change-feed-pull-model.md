@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 07/07/2021
 ms.reviewer: sngun
 ---
 
@@ -38,7 +38,7 @@ Here's some key differences between the change feed processor and pull model:
 | Keeping track of current point in processing change feed | Lease (stored in an Azure Cosmos DB container) | Continuation token (stored in memory or manually persisted) |
 | Ability to replay past changes | Yes, with push model | Yes, with pull model|
 | Polling for future changes | Automatically checks for changes based on user-specified `WithPollInterval` | Manual |
-| Behavior where there are no new changes | Automatically wait `WithPollInterval` and recheck | Must catch exception and manually recheck |
+| Behavior where there are no new changes | Automatically wait `WithPollInterval` and recheck | Must check status and manually recheck |
 | Process changes from entire container | Yes, and automatically parallelized across multiple threads/machine consuming from the same container| Yes, and manually parallelized using FeedRange |
 | Process changes from just a single partition key | Not supported | Yes|
 
@@ -72,16 +72,16 @@ FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterat
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorForTheEntireContainer.ReadNextAsync();
+    FeedResponse<User> response = await iteratorForTheEntireContainer.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else 
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -89,7 +89,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 }
 ```
 
-Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `HasMoreResults` is always true. When you try to read the change feed and there are no new changes available, you'll receive an exception. In the above example, the exception is handled by waiting 5 seconds before rechecking for changes.
+Because the change feed is effectively an infinite list of items encompassing all future writes and updates, the value of `HasMoreResults` is always true. When you try to read the change feed and there are no new changes available, you'll receive a response with `NotModified` status. In the above example, it is handled by waiting 5 seconds before rechecking for changes.
 
 ## Consuming a partition key's changes
 
@@ -101,16 +101,16 @@ FeedIterator<User> iteratorForPartitionKey = container.GetChangeFeedIterator<Use
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorForThePartitionKey.ReadNextAsync();
+    FeedResponse<User> response = await iteratorForThePartitionKey.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -145,16 +145,16 @@ Machine 1:
 FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[0]), ChangeFeedMode.Incremental);
 while (iteratorA.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    FeedResponse<User> response = await iteratorA.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -168,16 +168,16 @@ Machine 2:
 FeedIterator<User> iteratorB = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(ranges[1]), ChangeFeedMode.Incremental);
 while (iteratorB.HasMoreResults)
 {
-    FeedResponse<User> users = await iteratorA.ReadNextAsync();
+    FeedResponse<User> response = await iteratorA.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
         await Task.Delay(TimeSpan.FromSeconds(5));
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
@@ -196,18 +196,18 @@ string continuation = null;
 
 while (iterator.HasMoreResults)
 {
-    FeedResponse<User> users = await iterator.ReadNextAsync();
+    FeedResponse<User> response = await iterator.ReadNextAsync();
 
-    if (users.Status == HttpStatusCode.NotModified)
+    if (response.StatusCode == HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        continuation = users.ContinuationToken;
+        continuation = response.ContinuationToken;
         // Stop the consumption since there are no new changes
         break;
     }
     else
     {
-        foreach (User user in users)
+        foreach (User user in response)
         {
             Console.WriteLine($"Detected change for user with id {user.id}");
         }
