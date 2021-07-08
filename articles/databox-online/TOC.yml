@@ -265,6 +265,8 @@
           href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md 
       - name: How-tos
         items: 
+        - name: Monitor metrics, activity
+          href: azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity.md
         - name: Manage network interfaces
           href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
         - name: Manage disks

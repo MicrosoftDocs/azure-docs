@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 ---
 # Collect VM guest logs on an Azure Stack Edge Pro GPU device
@@ -41,6 +41,10 @@ To collect guest logs for failed virtual machines on an Azure Stack Edge Pro GPU
    **Windows VMs:**
    - C:\Windows\Azure\Panther\WaSetup.xml
 
+> [!NOTE]
+> You can monitor activity logs for virtual machines in the Azure portal. For more information, see [Monitor metrics, activity for VMs](azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity.md)
+
 ## Next steps
 
+- [Monitor CPU, memory, activity logs for a virtual machine](azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity.md)
 - [Troubleshoot VM provisioning on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
