@@ -17,7 +17,7 @@ This document provides overview for migrating Cloud Services (classic) to Cloud 
 
 1. **Redeploy**: Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager after thorough validation. Redeploy provides more control and a self-paced migration. Choose this path if you desire control about how the new service components are named and how they are organized. You are also in control of pace of building new services and deleting the old deployments.
 
-2. **In-place migration**: The In-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). In-place migration provides less control but is faster paced. Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The Cloud Services (calssic) resources are deleted as soon as migration is complete successfully.
+2. **In-place migration**: The In-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). In-place migration provides less control but is faster paced. Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The Cloud Services (classic) resources are deleted as soon as migration is complete successfully.
 
 ## Redeploy Overview
 
