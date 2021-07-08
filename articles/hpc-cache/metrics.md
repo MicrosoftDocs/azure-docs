@@ -12,7 +12,7 @@ ms.author: v-erkel
 
 The Azure Portal has several built-in visualizations that you can use to monitor the performance of your Azure HPC Cache.
 
-This article explains where to find the statistics visualizations, and what they show.
+This article explains where to find the visualizations, and what they show.
 
 There are four HPC Cache portal pages that show cache performance data:
 
@@ -45,7 +45,7 @@ By default, the page shows aggregated data for all of the cache's storage target
 
 ![screenshot of the Cache report page.](media/cache-report.png)
 
-* **Cache used space** is the amount of space in your cache storage that's in use storing files that client machines have requested. If you selected a single storage target, it shows only the space used for files from that back-end storage system.
+* **Cache used space** is the amount of space in your cache storage that's in use storing files that client machines have requested. If you select a single storage target, it shows only the space used for files from that back-end storage system.
 
 * **Cache free space** is the available capacity remaining in cache storage.
 
