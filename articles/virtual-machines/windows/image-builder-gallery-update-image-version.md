@@ -1,8 +1,8 @@
 ---
 title: Create a new image version from an existing image version using Azure Image Builder 
 description: Create a new VM image version from an existing image version using Azure Image Builder in Windows.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
@@ -117,6 +117,7 @@ Submit the image configuration to the VM Image Builder Service.
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
+    --location $location \
     --properties @helloImageTemplateforSIGfromWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
