@@ -22,7 +22,7 @@ You can create and configure an NSX-T segment from the Azure portal.  Once creat
 
    - **Subnet gateway** - Gateway IP address for the logical switch's subnet with a subnet mask. VMs are attached to a logical switch, and all VMs connecting to this switch belong to the same subnet.  Also, all VMs attached to this logical segment must carry an IP address from the same segment.
 
-   - **DHCP** (optional) - DHCP ranges for a logical segment. A [DHCP server or DHCP relay](../networking/configure-nsx-network-components-azure-portal.md) must be configured to consume DHCP on Segments.  
+   - **DHCP** (optional) - DHCP ranges for a logical segment. A [DHCP server or DHCP relay](../configure-nsx-network-components-azure-portal.md) must be configured to consume DHCP on Segments.  
 
    >[!NOTE]
    >The **Connected gateway** is selected by default and is read-only.  Tier-1 gateway and type of segment information. 
