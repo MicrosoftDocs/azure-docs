@@ -26,7 +26,6 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces), see [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logic-app.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
-
 ## Limitations
 
 - Configuration currently can be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
@@ -34,7 +33,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - Supported tables currently are limited those specified in the [supported tables](#supported-tables) section below. For example, custom log tables currently aren't supported.
 - If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table gets supported. 
 - If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
-- Data export will be available in all regions, but currently it's not available in the following: Azure Government regions, Japan West, Brazil south east, Norway East, Norway West, UAE North, UAE Central, Australia Central 2, Switzerland North, Switzerland West, Germany West Central, South India, France South, Japan West
+- Data export will be available in all regions, but currently not available in the following: Switzerland North, Switzerland West, Germany West Central, Australia Central 2, UAE Central, UAE North, Japan West, Brazil Southeast, Norway East, Norway West, France South, South India, Korea South, Jio India Central, Jio India West, Canada East, West US 3, Sweden Central, Sweden South.
 - You can define up to 10 enabled rules in your workspace. Additional rules are allowed but in disable state. 
 - Destination must be unique across all export rules in your workspace.
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.

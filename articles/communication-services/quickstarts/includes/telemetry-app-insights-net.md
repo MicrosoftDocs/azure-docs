@@ -7,7 +7,7 @@ manager: vravikumar
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: peiliu
@@ -120,7 +120,7 @@ public static async Task TracedSample()
         activity?.SetTag("Token value", tokenResponse.Value.Token);
         activity?.SetTag("Expires on", tokenResponse.Value.ExpiresOn);
 
-        Console.WriteLine($"\nIssued an access token with 'chat' scope that expires at {expiresOn}:");
+        Console.WriteLine($"\nIssued an access token with 'chat' scope that expires at {tokenResponse.Value.ExpiresOn}:");
     }
 }
 ```

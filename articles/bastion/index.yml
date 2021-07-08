@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 10/20/2020
+  ms.date: 06/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,6 +29,10 @@ landingContent:
         links:
           - text: Azure Bastion FAQ
             url: bastion-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Bastion
+            url: /learn/modules/intro-to-azure-bastion/
       - linkListType: video
         links:
           - text: Azure Bastion
