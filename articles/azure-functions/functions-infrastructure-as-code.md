@@ -177,7 +177,7 @@ For a sample Azure Resource Manager template, see [Function app on Consumption p
 
 ### Create a Consumption plan
 
-A Consumption plan doesn't need to be defined. One will automatically be created or selected on a per-region basis when you create the function app resource itself.
+A Consumption plan doesn't need to be defined. When not defined, a plan is automatically be created or selected on a per-region basis when you create the function app resource itself.
 
 The Consumption plan is a special type of `serverfarm` resource. You can specify it by using the `Dynamic` value for the `computeMode` and `sku` properties, as follows:
 
@@ -231,7 +231,7 @@ To run your app on Linux, you must also set the property `"reserved": true` for 
 
 ### Create a function app
 
-When you define your Consumption plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
+When you explicitly define your Consumption plan, you must set the `serverFarmId` property on the app so that it points to the resource ID of the plan. Make sure that the function app has a `dependsOn` setting that also references the plan.
 
 The settings required by a function app running in Consumption plan differ between Windows and Linux.
 
