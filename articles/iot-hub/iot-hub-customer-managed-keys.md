@@ -19,6 +19,6 @@ This capability requires the creation of a new IoT Hub (basic or standard tier).
 
 ## Next steps
 
-* [What is IoT Hub>?](./about-iot-hub.md)
+* [What is IoT Hub?](./about-iot-hub.md)
 
 * [Learn more about Azure Key Vault](../key-vault/general/overview.md)
