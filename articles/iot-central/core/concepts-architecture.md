@@ -116,7 +116,7 @@ In an Azure IoT Central application, you can [continuously export your data](how
 
 ## Batch device updates
 
-In an Azure IoT Central application, you can [create and run jobs](howto-run-a-job.md) to manage connected devices. These jobs let you do bulk updates to device properties or settings, or run commands. For example, you can create a job to increase the fan speed for multiple refrigerated vending machines.
+In an Azure IoT Central application, you can [create and run jobs](howto-manage-devices-in-bulk.md) to manage connected devices. These jobs let you do bulk updates to device properties or settings, or run commands. For example, you can create a job to increase the fan speed for multiple refrigerated vending machines.
 
 ## Role-based access control (RBAC)
 
