@@ -51,6 +51,8 @@ items:
     href: hpc-cache-mount.md
   - name: Manage the cache
     href: hpc-cache-manage.md
+  - name: Metrics and monitoring
+    href: metrics.md
   - name: Use optional settings
     items:
     - name: Configure optional settings

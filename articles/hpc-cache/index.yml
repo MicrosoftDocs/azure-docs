@@ -39,8 +39,10 @@ landingContent:
             url: hpc-cache-add-storage.md
           - text: Mount clients
             url: hpc-cache-mount.md
-          - text: Manage and monitor the cache
+          - text: Manage the cache
             url: hpc-cache-manage.md
+          - text: View cache metrics
+            url: metrics.md
       - linkListType: concept
         links:
           - text: Plan the aggregated namespace
