@@ -260,6 +260,51 @@ More logging methods are available that let you write to the console at differen
 
 To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
 
+### Log custom telemetry
+
+By default, Functions writes output as traces to Application Insights. For more control, you can instead use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance. 
+
+>[!NOTE]
+> To use the OpenCensus Python Extensions, you need to enable [Python Extensions](#python-worker-extensions) by setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1` in `local.settings.json` and application settings
+>
+
+```
+// requirements.txt
+...
+opencensus-extension-azure-functions
+opencensus-ext-requests
+```
+
+```python
+import json
+import logging
+
+import requests
+from opencensus.extension.azure.functions import OpenCensusExtension
+from opencensus.trace import config_integration
+
+config_integration.trace_integrations(['requests'])
+
+OpenCensusExtension.configure()
+
+def main(req, context):
+    logging.info('Executing HttpTrigger with OpenCensus extension')
+
+    # You must use context.tracer to create spans
+    with context.tracer.span("parent"):
+        response = requests.get(url='http://example.com')
+
+    return json.dumps({
+        'method': req.method,
+        'response': response.status_code,
+        'ctx_func_name': context.function_name,
+        'ctx_func_dir': context.function_directory,
+        'ctx_invocation_id': context.invocation_id,
+        'ctx_trace_context_Traceparent': context.trace_context.Traceparent,
+        'ctx_trace_context_Tracestate': context.trace_context.Tracestate,
+    })
+```
+
 ## HTTP Trigger and bindings
 
 The HTTP trigger is defined in the function.json file. The `name` of the binding must match the named parameter in the function.

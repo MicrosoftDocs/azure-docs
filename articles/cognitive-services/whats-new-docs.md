@@ -25,20 +25,20 @@ Welcome to what's new in the Cognitive Services docs from May 1, 2021 through Ma
 
 ### Updated articles
 
-- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags.md)
+- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
 
 ## Form Recognizer
 
 ### New articles
 
-- [Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0](/azure/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md)
+- [Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0](/azure/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0)
 
 ### Updated articles
 
-- [Form Recognizer prebuilt business cards model](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
-- [Quickstart: Get started with the client library SDKs or REST API](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
-- [What's new in Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer/form-recognizer.md)
+- [Form Recognizer prebuilt business cards model](/azure/cognitive-services/form-recognizer/concept-business-cards)
+- [Quickstart: Get started with the client library SDKs or REST API](/azure/cognitive-services/form-recognizer/quickstarts/client-library)
+- [What's new in Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer)
 
 ## Translator
 
@@ -55,17 +55,17 @@ Welcome to what's new in the Cognitive Services docs from May 1, 2021 through Ma
 
 ### Updated articles
 
-- [What's new in Personalizer](/azure/cognitive-services/personalizer/whats-new.md)
+- [What's new in Personalizer](/azure/cognitive-services/personalizer/whats-new)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Tutorial: Integrate Power BI with the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/tutorials/tutorial-power-bi-key-phrases.md)
-- [Extract information in Excel using Text Analytics and Power Automate](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information.md)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new.md)
+- [Tutorial: Integrate Power BI with the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/tutorials/tutorial-power-bi-key-phrases)
+- [Extract information in Excel using Text Analytics and Power Automate](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new)
 
 ## Community contributors
 

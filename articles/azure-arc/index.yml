@@ -41,7 +41,7 @@ highlightedContent:
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: Azure Arc-enabled SQL Server (preview)
+    - title: SQL Server on Azure Arc-enabled servers (preview)
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
@@ -125,7 +125,7 @@ conceptualContent:
           itemType: overview
           text: Azure Automation overview
     # Card
-    - title: Azure Arc-enabled SQL Server
+    - title: SQL Server on Azure Arc-enabled servers (preview)
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide

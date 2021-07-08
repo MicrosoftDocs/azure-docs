@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 06/30/2021
 ms.reviewer: sngun
 ---
 
@@ -63,9 +63,6 @@ Using the change feed pull model, you get more low level control of the change f
 You can parallelize the processing of changes across multiple clients, just as you can with the change feed processor. However, the pull model does not automatically handle load-balancing across clients. When you use the pull model to parallelize processing of the change feed, you'll first obtain a list of FeedRanges. A FeedRange spans a range of partition key values. You'll need to have an orchestrator process that obtains FeedRanges and distributes them among your machines. You can then use these FeedRanges to have multiple machines read the change feed in parallel.
 
 There is no built-in "at-least-once" delivery guarantee with the pull model. The pull model gives you low level control to decide how you would like to handle errors.
-
-> [!NOTE]
-> The change feed pull model is currently in [preview in the Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.15.0-preview) only. The preview is not yet available for other SDK versions.
 
 ## Change feed in APIs for Cassandra and MongoDB
 
