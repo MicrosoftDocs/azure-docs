@@ -8,7 +8,7 @@
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir active-directory-quickstart && cd active-directory-quickstart
+mkdir active-directory-authentication-quickstart && cd active-directory-authentication-quickstart
 ```
 
 ### Install the SDK packages
@@ -20,7 +20,7 @@ pip install azure-communication-sms
 ```
 
 ### Create a new file
-Open and save a new file within your created folder called `active-directory.py`, we'll be placing our code inside this file.
+Open and save a new file within your created folder called `authentication.py`, we'll be placing our code inside this file.
 
 ### Use the SDK packages
 
@@ -90,7 +90,7 @@ print(f'SMS ID: {sms_result[0].message_id}');
 print(f'Send Result Successful: {sms_result[0].successful}');
 ```
 
-The final `active-directory.py` file should look something like this:
+The final `authentication.py` file should look something like this:
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -135,10 +135,10 @@ print(f'Send Result Successful: {sms_result[0].successful}');
 ```
 ## Run the program
 
-With everything complete, you can run the file by entering `python active-directory.py` from your project's directory. If everything went well you should see something similar to the following.
+With everything complete, you can run the file by entering `python authentication.py` from your project's directory. If everything went well you should see something similar to the following.
 
 ```Bash
-    $ python active-directory.py
+    $ python authentication.py
     Retrieving new Access Token, using Service Principals
     Retrieved Access Token: ey...Q
     Sending SMS using using Service Principals

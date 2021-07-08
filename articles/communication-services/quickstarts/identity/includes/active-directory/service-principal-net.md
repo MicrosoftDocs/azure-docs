@@ -8,13 +8,13 @@
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `ActiveDirectoryQuickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
 
 ```console
-dotnet new console -o ActiveDirectoryQuickstart
+dotnet new console -o ActiveDirectoryAuthenticationQuickstart
 ```
 
 Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
 
 ```console
-cd ActiveDirectoryQuickstart
+cd ActiveDirectoryAuthenticationQuickstart
 dotnet build
 ```
 

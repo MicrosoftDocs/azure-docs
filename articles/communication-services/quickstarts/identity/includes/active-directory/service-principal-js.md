@@ -8,7 +8,7 @@
 Open your terminal or command window create a new directory for your app, and navigate to it.
 
 ```console
-mkdir active-direct-quickstart && cd active-directory-quickstart
+mkdir active-directory-authentication-quickstart && cd active-directory-authentication-quickstart
 ```
 
 Run `npm init -y` to create a **package.json** file with default settings.
