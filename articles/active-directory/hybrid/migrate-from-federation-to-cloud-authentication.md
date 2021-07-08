@@ -1,5 +1,19 @@
+---
+title: Migrate from federation to cloud authentication
+description: This article has information about moving your hybrid identity environment from federation to cloud authentication
 
+services: active-directory
+ms.service: active-directory
+ms.subservice: hybrid
+ms.topic: conceptual
+ms.date: 07/08/2021
 
+ms.author: baselden
+author: BarbaraSelden
+manager: MartinCo
+
+ms.collection: M365-identity-device-management
+---
 # Migrate from federation to cloud authentication 
 
 In this article, you learn how to deploy cloud user authentication with either Azure Active Directory [Password hash synchronization (PHS)](whatis-phs.md) or [Pass-through authentication (PTA)](how-to-connect-pta.md). While we present the use case for moving from [Active Directory Federation Services (AD FS)](whatis-fed.md) to cloud authentication methods, the guidance substantially applies other to on premises systems as well.
@@ -10,7 +24,9 @@ We recommend using PHS for cloud authentication.
 
 ### Staged rollout
 
-[Staged rollout](https://www.microsoft.com/videoplayer/embed/RE3inQJ) is a great way to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. 
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3inQJ]
+
+Staged rollout is a great way to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. 
 
 Refer to the staged rollout implementation plan to understand the [supported](how-to-connect-staged-rollout.md) and [unsupported scenarios](how-to-connect-staged-rollout.md). We recommend using staged rollout to test before cutting over domains.
 
@@ -36,7 +52,7 @@ Install [Azure Active Directory Connect](https://www.microsoft.com/download/deta
 
 ### Document current federation settings
 
-To find your current federation settings, run the [Get-MsolDomainFederationSettings](../windows-server/identity/ad-fs/operations/ad-fs-prompt-login.md) cmdlet. 
+To find your current federation settings, run the [Get-MsolDomainFederationSettings](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login) cmdlet. 
 
 Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, **SupportsMfa**, and **PromptLoginBehavior**.
 
@@ -44,7 +60,7 @@ Verify any settings that might have been customized for your federation design a
 
 Although this deployment changes no other relying parties in your AD FS farm, you can back up your settings:
 
- - Use Microsoft [AD FS Rapid Restore Tool](../windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool.md) to restore an existing farm or create a new farm.
+ - Use Microsoft [AD FS Rapid Restore Tool](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool) to restore an existing farm or create a new farm.
 
 - Export the Microsoft 365 Identity Platform relying party trust and any associated custom claim rules you added using the following PowerShell example:
 
@@ -79,9 +95,9 @@ Modern authentication clients (Office 2016 and Office 2013, iOS, and Android app
 > [!TIP]
 > Consider planning cutover of domains during off-business hours in case of rollback requirements. 
 
-To plan for rollback, use the [documented current federation settings](#_Document_current_federation) and check the [federation design and deployment documentation](../windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide.md). 
+To plan for rollback, use the [documented current federation settings](#Document_current_federation) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
 
-The rollback process should include converting managed domains to federated domains by using the [Convert-MSOLDomainToFederated](../powershell/module/msonline/convert-msoldomaintofederated.md) cmdlet. If necessary, configuring extra claims rules.
+The rollback process should include converting managed domains to federated domains by using the [Convert-MSOLDomainToFederated](/powershell/module/msonline/convert-msoldomaintofederated) cmdlet. If necessary, configuring extra claims rules.
 
 ## Migration considerations 
 
@@ -106,7 +122,7 @@ You can [customize the Azure AD sign in page](../fundamentals/customize-branding
 
 Evaluate if you’re currently using conditional access for authentication, or if you use access control policies in AD FS. 
 
-Consider replacing AD FS access control policies with the equivalent Azure AD [Conditional Access policies](../conditional-access/overview.md) and [Exchange Online Client Access Rules](../exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules.md). You can use either Azure AD or on-premises groups for conditional access.
+Consider replacing AD FS access control policies with the equivalent Azure AD [Conditional Access policies](../conditional-access/overview.md) and [Exchange Online Client Access Rules](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules). You can use either Azure AD or on-premises groups for conditional access.
 
 **Disable Legacy Authentication** - Due to the increased risk associated with legacy authentication protocols create [Conditional Access policy to block legacy authentication](../conditional-access/howto-conditional-access-policy-block-legacy.md).
 
@@ -138,7 +154,7 @@ This section includes pre-work before you switch your sign in method and convert
 
 Create groups for staged rollout. You will also need to create groups for conditional access policies if you decide to add them.
 
-We recommend you use a group mastered in Azure AD, also known as a cloud-only group. You can use Azure AD security groups or Microsoft 365 Groups for both moving users to MFA and for conditional access policies. For more information, see [creating an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md), and this [overview of Microsoft 365 Groups for administrators](../microsoft-365/admin/create-groups/office-365-groups.md).
+We recommend you use a group mastered in Azure AD, also known as a cloud-only group. You can use Azure AD security groups or Microsoft 365 Groups for both moving users to MFA and for conditional access policies. For more information, see [creating an Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md), and this [overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups).
 
 The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
 
@@ -148,11 +164,11 @@ The version of SSO that you use is dependent on your device OS and join state.
 
 - **For Windows 10, Windows Server 2016 and later versions**, we recommend using SSO via [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md) with [Azure AD joined devices](../devices/concept-azure-ad-join.md), [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) and [Azure AD registered devices](../devices/concept-azure-ad-register.md). 
 
-- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](../PHS/how-to-connect-sso.md) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [pre-work for seamless SSO using PowerShell](../PHS/how-to-connect-staged-rollout.md).
+- **For Windows 7 and 8.1 devices**, we recommend using [seamless SSO](/PHS/how-to-connect-sso) with domain-joined to register the computer in Azure AD. You don't have to sync these accounts like you do for Windows 10 devices. However, you must complete this [pre-work for seamless SSO using PowerShell](/PHS/how-to-connect-staged-rollout).
 
 ### Pre-work for PHS and PTA
 
-Depending on the choice of sign in method, complete the [pre-work for PHS](../PHS/how-to-connect-staged-rollout.md) or [for PTA](../PHS/how-to-connect-staged-rollout.md).
+Depending on the choice of sign in method, complete the [pre-work for PHS](/PHS/how-to-connect-staged-rollout) or [for PTA](/PHS/how-to-connect-staged-rollout).
 
 ## Implement your solution
 
@@ -162,9 +178,9 @@ Finally, you switch the sign in method to PHS or PTA, as planned and convert the
 
 If you're using staged rollout, follow the steps in the links below:
 
-1. [Enable staged rollout of a specific feature on your tenant.](../PHS/how-to-connect-staged-rollout.md)
+1. [Enable staged rollout of a specific feature on your tenant.](/PHS/how-to-connect-staged-rollout)
 
-2. Once testing is complete, [convert domains from federated to managed](#_Convert_domains_from_federated_to_managed).
+2. Once testing is complete, [convert domains from federated to managed](#Convert_domains_from_federated_to_managed).
 
 ### Without using staged rollout 
 
@@ -246,14 +262,14 @@ In the Azure AD portal, select **Azure Active Directory**, and then select **Azu
 
     ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-current-user-settings.png)
 
-2. In case you're switching to PTA, follow steps in the [Deploy more authentication agents](#_Deploy_additional_authentication) link.
+2. In case you're switching to PTA, follow the next steps.
 
 ##### Deploy more authentication agents for PTA
 
 >[!NOTE]
 > PTA requires deploying lightweight agents on the Azure AD Connect server and on your on-premises computer that’s running Windows server. To reduce latency, install the agents as close as possible to your Active Directory domain controllers.
 
-For most customers, two or three authentication agents are sufficient to provide high availability and the required capacity. A tenant can have a maximum of 12 agents registered. The first agent is always installed on the Azure AD Connect server itself. To learn about agent limitations and agent deployment options, see [Azure AD pass-through authentication: Current limitations](../PHS/how-to-connect-pta-current-limitations.md).
+For most customers, two or three authentication agents are sufficient to provide high availability and the required capacity. A tenant can have a maximum of 12 agents registered. The first agent is always installed on the Azure AD Connect server itself. To learn about agent limitations and agent deployment options, see [Azure AD pass-through authentication: Current limitations](/PHS/how-to-connect-pta-current-limitations).
 
 1. Select **Pass-through authentication**.
 2. On the **Pass-through authentication** page, select the **Download** button.
@@ -273,7 +289,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#_Option_A:_Switch). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#Option_A:_Switch). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -296,7 +312,7 @@ Verify these settings:
 
     If the authentication agent isn’t active, complete these [troubleshooting steps](../PHS/tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 
-3. [Deploy more authentication agents](#_Deploy_additional_authentication).
+3. [Deploy more authentication agents](#Deploy_additional_authentication).
 
 ### Convert domains from federated to managed
 
@@ -313,7 +329,7 @@ Verify these settings:
    ```powershell
     Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
     ```
-    See [Set-MsolDomainAuthentication (MSOnline) | Microsoft Docs](../powershell/module/msonline/set-msoldomainauthentication.md)
+    See [Set-MsolDomainAuthentication (MSOnline) | Microsoft Docs](/powershell/module/msonline/set-msoldomainauthentication)
 
 3. In the Azure AD portal, select **Azure Active Directory > Azure AD Connect**.
 
@@ -331,7 +347,7 @@ When your tenant used federated identity, users were redirected from the Azure A
 
 **Instead, users sign in directly on the Azure AD sign-in page.**
 
-Follow the steps in this link - [Validate sign in with PHS/ PTA and seamless SSO](../PHS/how-to-connect-staged-rollout.md) (where required)
+Follow the steps in this link - [Validate sign in with PHS/ PTA and seamless SSO](/PHS/how-to-connect-staged-rollout) (where required)
 
 ### Remove a user from staged rollout
 
@@ -346,7 +362,7 @@ Historically, updates to the **UserPrincipalName** attribute, which uses the syn
    - The user is in a managed (non-federated) identity domain.
    - The user hasn’t been assigned a license.
 
-To learn how to verify or turn on this feature, see [Sync userPrincipalName updates](../PHS/how-to-connect-syncservice-features.md).
+To learn how to verify or turn on this feature, see [Sync userPrincipalName updates](/PHS/how-to-connect-syncservice-features).
 
 ## Manage your implementation
 
@@ -368,11 +384,11 @@ To confirm the various actions performed on staged rollout, you can [Audit event
 
 Your support team should understand how to troubleshoot any authentication issues that arise either during, or after the change from federation to managed. Use the following troubleshooting documentation to help your support team familiarize themselves with the common troubleshooting steps and appropriate actions that can help to isolate and resolve the issue.
 
--  [Azure AD PHS](../PHS/tshoot-connect-password-hash-synchronization.md)
+-  [Azure AD PHS](/PHS/tshoot-connect-password-hash-synchronization)
 
-- [Azure AD PTA](../PHS/tshoot-connect-pass-through-authentication.md)
+- [Azure AD PTA](/PHS/tshoot-connect-pass-through-authentication)
 
-- [Azure AD seamless SSO](../PHS/tshoot-connect-sso.md)
+- [Azure AD seamless SSO](/PHS/tshoot-connect-sso)
 
 ## Decommission AD FS infrastructure
 
@@ -386,12 +402,12 @@ You can move SaaS applications that are currently federated with ADFS to Azure A
 
 For more information, see – 
 
-- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](../manage-apps/migrate-adfs-apps-to-azure.md) and
-- [AD FS to Azure AD application migration playbook for developers](../samples/azure-samples/ms-identity-dotnet-adfs-to-aad.md)
+- [Moving application authentication from Active Directory Federation Services to Azure Active Directory](/manage-apps/migrate-adfs-apps-to-azure) and
+- [AD FS to Azure AD application migration playbook for developers](/samples/azure-samples/ms-identity-dotnet-adfs-to-aad)
 
 ### Remove relying party trust
 
-If you have Azure AD Connect Health, you can [monitor usage](../how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it’s safe to remove the Microsoft 365 relying party trust.
+If you have Azure AD Connect Health, you can [monitor usage](how-to-connect-health-adfs.md) from the Azure portal. In case the usage shows no new auth req and you validate that all users and clients are successfully authenticating via Azure AD, it’s safe to remove the Microsoft 365 relying party trust.
 
 If you don’t use AD FS for other purposes (that is, for other relying party trusts), you can decommission AD FS at this point.
 
