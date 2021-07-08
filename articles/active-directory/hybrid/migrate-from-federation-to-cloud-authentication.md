@@ -217,7 +217,9 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
 
 <li> If AD FS isn’t listed in the current settings, you must manually convert your domains from federated identity to managed identity by using PowerShell.
 
-#### Option A: Switch from federation to the new sign in method by using Azure AD Connect
+#### Option A
+
+**Switch from federation to the new sign in method by using Azure AD Connect**
 
 1. On your Azure AD Connect server, open **Azure AD Connect** and select **Configure**.
 
@@ -285,11 +287,13 @@ For most customers, two or three authentication agents are sufficient to provide
 
 5. When the authentication agent is installed, you can return to the PTA health page to check the status of the more agents.
 
-#### Option B: Switch from federation to the new sign in method by using Azure AD Connect and PowerShell
+#### Option B
+
+**Switch from federation to the new sign in method by using Azure AD Connect and PowerShell**
 
 *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a:switch-from-federation-to-the-new-sign-in-method-by-using-azure-ad-connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -306,13 +310,13 @@ Verify these settings:
  **In case of PTA only**, follow these steps to install more PTA agent servers.
 
  1. In the Azure AD portal, select **Azure Active Directory**, and then select **Azure AD Connect**.
-2. Select **Pass-through authentication**. Verify that the status is **Active**.
+1. Select **Pass-through authentication**. Verify that the status is **Active**.
 
     ![ Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
 
     If the authentication agent isn’t active, complete these [troubleshooting steps](/PHS/tshoot-connect-pass-through-authentication) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 
-3. [Deploy more authentication agents](#deploy-more-authentication-agents-for-pta).
+2. [Deploy more authentication agents](#deploy-more-authentication-agents-for-pta).
 
 ### Convert domains from federated to managed
 
