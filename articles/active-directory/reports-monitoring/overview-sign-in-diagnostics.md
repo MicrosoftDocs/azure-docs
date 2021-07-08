@@ -99,7 +99,10 @@ To use the diagnostic, you must be signed into the tenant as a global admin or a
 
 With the correct access level, you can find the diagnostic in various places: 
 
-**Option A**: Diagnose and Solve Problems  
+**Option A**: Diagnose and Solve Problems 
+
+![Screenshot showing how to launch sign-in diagnostics from conditional access.](./media/overview-sign-in-diagnostics/troubleshoot-link.png)
+
 
 1. Open **Azure Active Directory AAD or Azure AD Conditional Access**. 
 
@@ -114,6 +117,11 @@ With the correct access level, you can find the diagnostic in various places:
  
 
 **Option B**: Sign-in Events 
+
+![Screenshot showing how to launch sign-in diagnostics from Azure AD.](./media/overview-sign-in-diagnostics/sign-in-logs-link.png)
+
+
+
 
 1. Open Azure Active Directory. 
 
@@ -136,4 +144,3 @@ The diagnostic can also be found when creating a support case to give you the op
 ## Next steps
 
 - [Sign in diagnostics for Azure AD scenarios](concept-sign-in-diagnostics-scenarios.md)
-- [What is Azure Active Directory monitoring?](overview-monitoring.md)
