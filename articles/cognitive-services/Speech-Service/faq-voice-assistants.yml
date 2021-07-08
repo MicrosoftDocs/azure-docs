@@ -71,3 +71,10 @@ sections:
           This code still doesn't work and/or I'm getting a different error when using a `DialogServiceConnector`. What should I do?
         answer: |
           File-based logging provides substantially more detail and can help accelerate support requests. To enable this functionality, see [how to use file logging](how-to-use-logging.md).
+
+additionalContent: |
+
+  ## Next steps
+  
+  - [Troubleshooting](troubleshooting.md)
+  - [Release notes](releasenotes.md)
