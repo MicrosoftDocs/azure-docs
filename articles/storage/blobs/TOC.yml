@@ -175,10 +175,10 @@
         href: data-protection-overview.md
       - name: Soft delete for containers
         href: soft-delete-container-overview.md
-      - name: Versioning
-        href: versioning-overview.md
       - name: Soft delete for blobs
         href: soft-delete-blob-overview.md
+      - name: Versioning
+        href: versioning-overview.md
       - name: Point-in-time restore
         href: point-in-time-restore-overview.md
       - name: Snapshots
