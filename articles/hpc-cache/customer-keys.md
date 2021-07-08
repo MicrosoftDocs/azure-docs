@@ -20,12 +20,12 @@ Azure HPC Cache also is protected by [VM host encryption](../virtual-machines/di
 There are three steps to enable customer-managed key encryption for Azure HPC Cache:
 
 1. Set up an Azure Key Vault to store the keys.
-1. When creating the Azure HPC Cache, choose customer-managed key encryption and specify the key vault and key to use. Optionally, supply a user-assigned managed identity to the cache instance so that you can skip step three.
+1. When creating the Azure HPC Cache, choose customer-managed key encryption and specify the key vault and key to use. Optionally, supply a user-assigned managed identity to the cache instance so that you can skip step 3.
 1. **If using a system-assigned managed identity:** Go to the newly created cache and authorize it to access the key vault.
 
    Encryption is not completely set up until after you authorize it from the newly created cache (step 3). This is because you must pass the cache's identity to the key vault to make it an authorized user. You can't do this before creating the cache, because the identity does not exist until the cache is created.
 
-   If you supply a [user-assigned managed identity](2-create-the-cache-with-customer-managed-keys-enabled) when setting up the cache, this step is unnecessary.
+   If you supply a [user-assigned managed identity](#2-create-the-cache-with-customer-managed-keys-enabled) when setting up the cache, this step is unnecessary.
 
 After you create the cache, you can't change between customer-managed keys and Microsoft-managed keys. However, if your cache uses customer-managed keys you can [change](#update-key-settings) the encryption key, the key version, and the key vault as needed.
 
