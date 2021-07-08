@@ -8,7 +8,7 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 6/17/2021
+ms.date: 7/07/2021
 ms.author: gasinh
 ms.subservice: B2C
 ---
@@ -67,9 +67,9 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Create an application on DCMC
 
-1. [Create an application](https://docs.datawiza.com/step-by-step/step2.html) and generate a key pair of `PROVISIONING_KEY`and `PROVISIONING_SECRET` for this application on the DCMC.
+1. [Create an application](https://docs.datawiza.com/step-by-step/step2.html) and generate a key pair of `PROVISIONING_KEY` and `PROVISIONING_SECRET` for this application on the DCMC.
 
-2. [Configure Azure AD B2C](https://docs.datawiza.com/tutorial/web-app-azure-b2c.html#part-i-azure-ad-b2c-configuration) as the Identity Provider (Idp)
+2. [Configure Azure AD B2C](https://docs.datawiza.com/tutorial/web-app-azure-b2c.html#part-i-azure-ad-b2c-configuration) as the Identity Provider (IdP)
 
 ![Image show values to configure Idp](./media/partner-datawiza/configure-idp.png)
 
@@ -121,7 +121,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 3. Select the IdP from the list on the page.
 
-4. Once you're redirected to the IdP, supply your credentials as requested, including an MFA token if required by that IdP.
+4. Once you're redirected to the IdP, supply your credentials as requested, including a Multi-factor authentication (MFA) token if required by that IdP.
 
 5. After successfully authenticating, you should be redirected to Azure AD B2C, which forwards the application request to the DAB redirect URI.
 
