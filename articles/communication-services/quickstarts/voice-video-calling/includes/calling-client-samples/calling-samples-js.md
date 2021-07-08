@@ -6,11 +6,6 @@ ms.date: 06/30/2021
 ms.author: mikben
 ---
 
-# Azure Communication Calling client library for JavaScript
-
-Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app.
-Read more about Azure Communication Services [here](https://docs.microsoft.com/azure/communication-services/overview)
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -26,7 +21,7 @@ Use the `npm install` command to install the Azure Communication Services callin
 npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
-The ACS Web Calling sdk must be used through https. For local development, use localhost or local 'file:'
+The Communication Services Web Calling SDK must be used through `https`. For local development, use `localhost` or local 'file:'
 
 ## Documentation support
 - [Submit issues/bugs on github](https://github.com/Azure/Communication/issues)
@@ -53,9 +48,11 @@ Note: The Calling SDK object instances shouldn't be considered to be a plain Jav
 
 ### Events model
 Each object in the calling sdk, has properties and collections values of which, change throughout the lifetime of the object.
-Use the on() method to subscribe to objects' events, and use the off() method to unsubscribe from objects' events.
+Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
+
 #### Properties
 - You must inspect their initial values, and subscribe to the '\<property\>Changed' event for future value updates.
+
 #### Collections
 - You must inspect their initial values, and subsribe to the '\<collection\>Updated' event for future value updates.
 - The '\<collection\>Updated' event's payload, has an 'added' array which contains values that were added to the collection.
@@ -246,7 +243,9 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     }
 }
 ```
-An HTML example code that can use a bundle generated from the above js example (client.js).
+
+An HTML example code that can use a bundle generated from the above Javascript example (`client.js`).
+
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -333,6 +332,7 @@ Call creation and start are synchronous. The `call` instance allows you to subsc
 To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](../../../access-tokens.md).
 
 For a 1:1 call to a user, use the following code:
+
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const oneToOneCall = callAgent.startCall([userCallee]);
@@ -382,7 +382,8 @@ const call = callAgent.startCall([userCallee], placeCallOptions);
 ```
 
 - When your call connects, it automatically starts sending a video stream from the selected camera to the other participant. This also applies to the `Call.Accept()` video options and `CallAgent.join()` video options.
-- If the specified video
+
+
 ### Join a group call
 
 > [!NOTE]
@@ -464,6 +465,7 @@ callAgentInstance.on('incomingCall', incomingCallHander);
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
 When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if its disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
+
 See Call Diagnostics section to see how to handle this call diagnostic.
 
 ## Manage calls
@@ -600,6 +602,7 @@ localVideoStream.switchSource(camera);
 ```
 
 If the specified video device is being used by another process, or if its disabled in the system:
+
 - While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError and a cameraStartFiled: true call diagnostic will be raised.
 - A call to the localVideoStream.switchSource() api will cause a cameraStartFailed: true call diagnostic to be raised.
 See Call Diagnostics section to see how to handle call diagnostics.
@@ -1009,7 +1012,9 @@ const dominantSpeakersChangedHandler = () => {
 callDominantSpeakersApi.api(Features.CallDominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 ``` 
 #### Handle the Dominant Speaker's video streams
-Application can leverage DominantSpeakers feature to render the one or more of dominant speaker's video streams, and keep updating UI whenever dominant speaker list updates. This can be achieved with the following code example.
+
+Your application can use the `DominantSpeakers` feature to render the one or more of dominant speaker's video streams, and keep updating UI whenever dominant speaker list updates. This can be achieved with the following code example.
+
 ```js
 // RemoteParticipant obj representation of the dominant speaker
 let dominantRemoteParticipant: RemoteParticipant;
@@ -1128,9 +1133,11 @@ subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: Re
 ```
 ### Call diagnostics
 Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
+
 ```js
 const callQualityApi = call.api(Features.Diagnostics);
 ```
+
 The following users facing diagnostics are available:
 
 | Type    | Name                           | Description                                                     | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Use cases                                                                       |
