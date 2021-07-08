@@ -181,7 +181,7 @@ Consider this sample checklist to enhance the security of your application depen
 
 - Check if any anti-bot mechanism is in use today with your applications.
 
-- Assess the risk of attempts to create fraudulent accounts and log-ins. [Microsoft DFP assessment](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-dynamics-365-fraud-protection) can be used to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.  
+- Assess the risk of attempts to create fraudulent accounts and log-ins. [Microsoft Dynamics 365 Fraud Protection assessment](https://docs.microsoft.com/azure/active-directory-b2c/partner-dynamics-365-fraud-protection) can be used to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.  
 
 - Check for any special conditional postures that need to be applied as part of sign-in or sign-up for accounts with your application.
 
@@ -204,7 +204,7 @@ To address basic compliance requirements, consider:
 
 Consider the sample checklist to define the user experience (UX) requirements:
 
-- Identify the required integrations to [extend CIAM capabilities and build seamless end-user experiences](https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-gallery).
+- Identify the required integrations to [extend CIAM capabilities and build seamless end-user experiences](https://docs.microsoft.com/azure/active-directory-b2c/partner-gallery).
 
 - Provide screenshots and user stories to show the end-user experience for the existing application. For example, provide screenshots for sign-in, sign-up, combined sign-up sign-in (SUSI), profile edit, and password reset.
 
