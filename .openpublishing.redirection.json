@@ -46353,6 +46353,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-pass-through-authentication.md",
+      "redirect_url": "/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-password-hash-sync.md",
+      "redirect_url": "/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/active-directory/conditional-access/app-based-mfa.md",
       "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
       "redirect_document_id": false

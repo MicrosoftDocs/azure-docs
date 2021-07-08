@@ -95,7 +95,7 @@ Modern authentication clients (Office 2016 and Office 2013, iOS, and Android app
 > [!TIP]
 > Consider planning cutover of domains during off-business hours in case of rollback requirements. 
 
-To plan for rollback, use the [documented current federation settings](#Document_current_federation) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
+To plan for rollback, use the [documented current federation settings](#document_current_federation_settings) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
 
 The rollback process should include converting managed domains to federated domains by using the [Convert-MSOLDomainToFederated](/powershell/module/msonline/convert-msoldomaintofederated) cmdlet. If necessary, configuring extra claims rules.
 
@@ -180,7 +180,7 @@ If you're using staged rollout, follow the steps in the links below:
 
 1. [Enable staged rollout of a specific feature on your tenant.](/PHS/how-to-connect-staged-rollout)
 
-2. Once testing is complete, [convert domains from federated to managed](#Convert_domains_from_federated_to_managed).
+2. Once testing is complete, [convert domains from federated to managed](#convert_domains_from_federated_to_managed).
 
 ### Without using staged rollout 
 
@@ -289,7 +289,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#Option_A:_Switch). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option_A:_Switch_from_federation_to_the_new_sign_in_method_by_using_Azure_AD_Connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -310,9 +310,9 @@ Verify these settings:
 
     ![ Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
 
-    If the authentication agent isn’t active, complete these [troubleshooting steps](../PHS/tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
+    If the authentication agent isn’t active, complete these [troubleshooting steps](/PHS/tshoot-connect-pass-through-authentication) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 
-3. [Deploy more authentication agents](#Deploy_additional_authentication).
+3. [Deploy more authentication agents](#Deploy_more_authentication_agents_for_PTA).
 
 ### Convert domains from federated to managed
 
@@ -370,7 +370,7 @@ To learn how to verify or turn on this feature, see [Sync userPrincipalName upda
 
 We recommend that you roll over the Kerberos decryption key at least every 30 days to align with the way that Active Directory domain members submit password changes. There is no associated device attached to the AZUREADSSO computer account object, so you must perform the rollover manually.
 
-See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](../PHS/how-to-connect-sso-faq.md).
+See FAQ [How do I roll over the Kerberos decryption key of the AZUREADSSO computer account?](/PHS/how-to-connect-sso-faq).
 
 ### Monitoring and logging
 
@@ -378,7 +378,7 @@ Monitor the servers that run the authentication agents to maintain the solution 
 
 Authentication agents log operations to the Windows event logs that are located under Application and Service logs. You can also turn on logging for troubleshooting.
 
-To confirm the various actions performed on staged rollout, you can [Audit events for PHS, PTA, or seamless SSO](../PHS/how-to-connect-staged-rollout.md).
+To confirm the various actions performed on staged rollout, you can [Audit events for PHS, PTA, or seamless SSO](/PHS/how-to-connect-staged-rollout).
 
 ### Troubleshoot
 
@@ -396,7 +396,7 @@ Your support team should understand how to troubleshoot any authentication issue
 
 Migration requires assessing how the application is configured on-premises, and then mapping that configuration to Azure AD.
 
-If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you’ll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](../PHS/..y/manage-apps/add-application-portal-setup-sso.md).
+If you plan to keep using AD FS with on-premises & SaaS Applications using SAML / WS-FED or Oauth protocol, you’ll use both AD FS and Azure AD after you convert the domains for user authentication. In this case, you can protect your on-premises applications and resources with Secure Hybrid Access (SHA) through [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) or one of [Azure AD partner integrations](../manage-apps/secure-hybrid-access.md). Using Application Proxy or one of our partners can provide secure remote access to your on-premises applications. Users benefit by easily connecting to their applications from any device after a [single sign-on](/PHS/..y/manage-apps/add-application-portal-setup-sso).
 
 You can move SaaS applications that are currently federated with ADFS to Azure AD. Reconfigure to authenticate with Azure AD either via a built-in connector from the [Azure App gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps), or by [registering the application in Azure AD](../develop/quickstart-register-app.md).
 
