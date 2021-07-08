@@ -42,7 +42,7 @@ Here are some features that make a graph database unique:
 - You can express pattern matching and multi-hop navigation queries easily.
 - You can express transitive closure and polymorphic queries easily.
 
-Graph relationships and graph query capabilities are integrated into Transact-SQL and receive the benefits of using the SQL Server database engine as the foundational database management system. Graph features use standard Transact-SQL queries enhanced with the graph `MATCH` operator to query the graph data.
+[Graph relationships and graph query capabilities](/sql/relational-databases/graphs/sql-graph-overview) are integrated into Transact-SQL and receive the benefits of using the SQL Server database engine as the foundational database management system. Graph features use standard Transact-SQL queries enhanced with the graph `MATCH` operator to query the graph data.
 
 A relational database can achieve anything that a graph database can. However, a graph database can make it easier to express certain queries. Your decision to choose one over the other can be based on the following factors:
 
@@ -53,7 +53,7 @@ A relational database can achieve anything that a graph database can. However, a
 
 ## JSON features
 
-In Azure SQL products, you can parse and query data represented in [JavaScript Object Notation (JSON)](https://www.json.org/) format, and export your relational data as JSON text. JSON is a core feature of the SQL Server database engine.
+In Azure SQL products, you can parse and query data represented in [JavaScript Object Notation (JSON)](https://www.json.org/) format, and export your relational data as JSON text. [JSON](/sql/relational-databases/json/json-data-sql-server) is a core feature of the SQL Server database engine.
 
 JSON features enable you to put JSON documents in tables, transform relational data into JSON documents, and transform JSON documents into relational data. You can use the standard Transact-SQL language enhanced with JSON functions for parsing documents. You can also use non-clustered indexes, columnstore indexes, or memory-optimized tables to optimize your queries.
 
@@ -89,13 +89,13 @@ Azure SQL supports two spatial data types:
 
 Spatial features in Azure SQL enable you to store geometrical and geographical data. You can use spatial objects in Azure SQL to parse and query data represented in JSON format, and export your relational data as JSON text. These spatial objects include [Point](/sql/relational-databases/spatial/point), [LineString](/sql/relational-databases/spatial/linestring), and [Polygon](/sql/relational-databases/spatial/polygon). Azure SQL also provides specialized [spatial indexes](/sql/relational-databases/spatial/spatial-indexes-overview) that you can use to improve the performance of your spatial queries.
 
-Spatial support is a core feature of the SQL Server database engine.
+[Spatial support](/sql/relational-databases/spatial/spatial-data-sql-server) is a core feature of the SQL Server database engine.
 
 ## XML features
 
 XML features enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL products have a specialized, built-in XML data type and query functions that process XML data.
 
-The SQL Server database engine provides a powerful platform for developing applications to manage semistructured data. Support for XML is integrated into all the components of the database engine and includes:
+The SQL Server database engine provides a powerful platform for developing applications to manage semistructured data. [Support for XML](/sql/relational-databases/xml/xml-data-sql-server) is integrated into all the components of the database engine and includes:
 
 - The ability to store XML values natively in an XML data-type column that can be typed according to a collection of XML schemas or left untyped. You can index the XML column.
 - The ability to specify an XQuery query against XML data stored in columns and variables of the XML type. You can use XQuery functionalities in any Transact-SQL query that accesses a data model that you use in your database.
