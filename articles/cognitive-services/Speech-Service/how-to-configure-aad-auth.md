@@ -15,13 +15,13 @@ ROBOTS: NOINDEX
 ---
 # Using Azure Active Directory Authentication with the Speech SDK
 
-When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Azure Active Directory (AAD). This article describes how to configure the Speech resource and Speech SDK to use AAD for authentication.
+When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Azure Active Directory (AAD). This article describes how to configure the Speech resource and create a Speech SDK configuration object to use AAD for authentication.
 
 To use AAD authentication with the Speech SDK there are four steps:
 1) Create a Speech Resource
 2) Configure the Speech Resource for AAD Authentication
 3) Get an AAD token
-4) Call the Speech SDK
+4) Create the appropiate SDK configuration object.
 
 ## Create a Speech Resource
 For steps on creating a Speech Resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free)
@@ -162,8 +162,8 @@ $resourceId = resource.Id
 ```
 ***
 
-## Call the Speech SDK
-With an AAD Token, you can now call the Speech SDK.
+## Create the Speech SDK configuration object
+With an AAD Token, you can now create the appropiate Speech SDK configuration object.
 
 The method of providing the token, and the method to construct the corresponding Speech SDK Config object varies by the object you'll be using.
 
