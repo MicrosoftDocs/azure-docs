@@ -7,7 +7,7 @@ ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 07/08/2021
 ms.author: yelevin
 ---
 # Connect Azure Defender alerts from Azure Security Center
