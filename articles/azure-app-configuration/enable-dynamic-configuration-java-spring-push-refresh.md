@@ -88,12 +88,13 @@ management.endpoints.web.exposure.include= "appconfiguration-refresh"
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
 > [!NOTE]
-> * The Primary token name should be store in App Configuration and Primary token secret should be stored in App Configuration as a Key Vault Reference for added security.
-> * Event Grid Web Hooks requires validation on creation. This can be done by following the [guide](/azure/event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you.
+> The Primary token name should be store in App Configuration and Primary token secret should be stored in App Configuration as a Key Vault Reference for added security.
 
 ## Build and run the app locally
 
-1. Set the environment variable:
+Event Grid Web Hooks requires validation on creation. This can be done by following this [guide](/azure/event-grid/webhook-event-delivery), or by starting your application with Azure App Configuration Spring Web Library configured and it will register it for you. The next two sections walk through registering the event subscription.
+
+1. Set the environment variable to your App Configuration instance's connection string:
 
     #### [Windows command prompt](#tab/cmd)
 
@@ -131,7 +132,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
     ![App Configuration Events](./media/events-pane.png)
 
-1. Enter a name for the `Event Subscription` and the `System Topic`.
+1. Enter a name for the `Event Subscription` and the `System Topic`. By default the Event Types Key-Value modified and Key-Value deleted are set, this can be changed along with using the Filters tab to choose the exact reasons a Push Event will be sent.
 
     ![Create event subscription](./media/create-event-subscription.png)
 
@@ -139,12 +140,9 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
     ![Event subscription service bus endpoint](./media/event-subscription-webhook-endpoint.png)
 
-1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". i.e. `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
+1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". For example `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
 
-1. Click on `Create` to create the event subscription.
-
-> [!NOTE]
-> When `Create` is selected a registration request for the Web Hook will be sent to your application. This is received by the Azure App Configuration client library, verified, and returns a valid response.
+1. Click on `Create` to create the event subscription. When `Create` is selected a registration request for the Web Hook will be sent to your application. This is received by the Azure App Configuration client library, verified, and returns a valid response.
 
 1. Click on `Event Subscriptions` in the `Events` pane to validated that the subscription was created successfully.
 
@@ -155,9 +153,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 ## Verify and Test Application
 
-1. Open a browser window, and go to the URL: `http://localhost:8080`.  You will see the message associated with your key.
-
-You can also use *curl* to test your application, for example:
+1. After your application is running, use *curl* to test your application, for example:
 
 ```cmd
 curl -X GET http://localhost:8080
