@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 ### Add routing rules
 
-Rules are processed in the order they're listed. Traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected. 
+Rules are processed in the order they're listed if rule priority field is not used. Traffic is directed using the first rule that matches regardless of specificity. For example, if you have a rule using a basic listener and a rule using a multi-site listener both on the same port, the rule with the multi-site listener must be listed before the rule with the basic listener in order for the multi-site rule to function as expected.
 
 In this example, you create two new rules and delete the default rule created when you deployed the application gateway. You can add the rule using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
 
@@ -167,6 +167,29 @@ az network application-gateway rule delete \
   --gateway-name myAppGateway \
   --name rule1 \
   --resource-group myResourceGroupAG
+```
+### Add priority to routing rules
+
+In order to ensure that more specific rules are processed first, use the rule priority field to ensure they have higher priority. Rule priority field must be set for all the existing request routing rules and any new rule that is created later must also have a rule priority value.
+```azurecli-interactive
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name wccontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener wccontosoListener \
+  --rule-type Basic \
+  --priority 200 \
+  --address-pool wccontosoPool
+
+az network application-gateway rule create \
+  --gateway-name myAppGateway \
+  --name shopcontosoRule \
+  --resource-group myResourceGroupAG \
+  --http-listener shopcontosoListener \
+  --rule-type Basic \
+  --priority 100 \
+  --address-pool shopcontosoPool
+
 ```
 
 ## Create virtual machine scale sets

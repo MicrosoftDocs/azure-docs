@@ -21,7 +21,7 @@ Learn how to create and run projects to label images or label text data in Azure
 > [!Important]
 > Data images or text must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
 
-Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff", ".dcm". Each file is an item to be labeled. 
+Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff", ".dcm", ".dicom". Each file is an item to be labeled. 
  
 Text data can be either ".txt" or ".csv" files.
 
