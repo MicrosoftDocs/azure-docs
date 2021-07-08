@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 07/07/2021
 ms.author: apimpm
 ---
 
@@ -93,7 +93,7 @@ In the following example, the JSON payload in requests and responses is validate
 | unspecified-content-type-action | [Action](#actions) to perform for requests or responses with a content type that isn’t specified in the API schema. |  Yes     | N/A   |
 | max-size | Maximum length of the body of the request or response in bytes, checked against the `Content-Length` header. If the request body or response body is compressed, this value is the decompressed length. Maximum allowed value: 102,400 bytes (100 KB).  | Yes       | N/A   |
 | size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   Yes    | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | type | Content type to execute body validation for, checked against the `Content-Type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema. |   No    |  N/A  |
 | validate-as | Validation engine to use for validation of the body of a request or response with a matching content type. Currently, the only supported value is "json".   |  Yes     |  N/A  |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
@@ -161,7 +161,7 @@ In this example, all query and path parameters are validated in the prevention m
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-parameter-action | [Action](#actions) to perform for request parameters specified in the API schema. <br/><br/> When provided in a `headers`, `query`, or `path` element, the value overrides the value of `specified-parameter-action` in the `validate-parameters` element.  |  Yes     | N/A   |
 | unspecified-parameter-action | [Action](#actions) to perform for request parameters that are not specified in the API schema. <br/><br/>When provided in a `headers`or `query` element, the value overrides the value of `unspecified-parameter-action` in the `validate-parameters` element. |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   Yes    | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | name | Name of the parameter to override validation action for. This value is case insensitive.  | Yes | N/A |
 | action | [Action](#actions) to perform for the parameter with the matching name. If the parameter is specified in the API schema, this value overrides the higher-level `specified-parameter-action` configuration. If the parameter isn’t specified in the API schema, this value overrides the higher-level `unspecified-parameter-action` configuration.| Yes | N/A | 
 
@@ -206,7 +206,7 @@ The `validate-headers` policy validates the response headers against the API sch
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | specified-header-action | [Action](#actions) to perform for response headers specified in the API schema.  |  Yes     | N/A   |
 | unspecified-header-action | [Action](#actions) to perform for response headers that are not specified in the API schema.  |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   Yes    | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | name | Name of the header to override validation action for. This value is case insensitive. | Yes | N/A |
 | action | [Action](#actions) to perform for header with the matching name. If the header is specified in the API schema, this value overrides value of `specified-header-action` in the `validate-headers` element. Otherwise, it overrides value of `unspecified-header-action` in the validate-headers element. | Yes | N/A | 
 
@@ -248,7 +248,7 @@ The `validate-status-code` policy validates the HTTP status codes in responses a
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-status-code-action | [Action](#actions) to perform for HTTP status codes in responses that are not specified in the API schema.  |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   Yes    | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
 | code | HTTP status code to override validation action for. | Yes | N/A |
 | action | [Action](#actions) to perform for the matching status code, which is not specified in the API schema. If the status code is specified in the API schema, this override does not take effect. | Yes | N/A | 
 
