@@ -58,10 +58,16 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 **Regions**: 
 - Central US
+- East US
 - East US 2
+- North Central US
 - South Central US
+- West US
+- West US 2
 - North Europe
 - West Europe
+- Japan East
+- South East Asia
 
 **Pricing**:
 No additional cost to existing VM pricing.

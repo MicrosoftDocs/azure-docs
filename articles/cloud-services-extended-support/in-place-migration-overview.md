@@ -13,6 +13,25 @@ ms.custom:
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 
+This document provides overview for migrating Cloud Services (classic) to Cloud Services (extended support). Cloud Services (extended support) provides two paths for customers to migrate from Azure Service Manager to Azure Resource Manager:
+
+- **Redeploy**: Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager after thorough validation. Redeploy provides more control and a self-paced migration. Choose this path if you desire control about how the new service components are named and how they are organized. You are also in control of pace of building new services and deleting the old deployments.
+
+- **In-place migration**: The In-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). In-place migration provides less control but is faster paced. Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The Cloud Services (classic) resources are deleted as soon as migration is complete successfully.
+
+## Redeploy Overview
+
+A new Cloud Service (extended support) can be deployed directly in Azure Resource Manager using the following client tools:
+
+- [Deploy a cloud service – Portal](deploy-portal.md)
+- [Deploy a cloud service – PowerShell](deploy-powershell.md)
+- [Deploy a cloud service – Template](deploy-template.md)
+- [Deploy a cloud service – SDK](deploy-sdk.md)
+- [Deploy a cloud service – Visual Studio](/visualstudio/azure/cloud-services-extended-support?context=%2fazure%2fcloud-services-extended-support%2fcontext%2fcontex)
+
+
+## Migration tool Overview
+
 This article provides an overview on the platform-supported migration tool and how to use it to migrate [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Azure Cloud Services (extended support)](overview.md).
 
 The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
@@ -56,7 +75,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
 Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
 
-The list of supported scenarios differ between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
+The list of supported scenarios differs between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
 
 ## Migration steps
  
