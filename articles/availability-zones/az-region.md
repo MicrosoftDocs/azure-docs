@@ -131,6 +131,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)                                              | :large_blue_diamond:  |
 |     [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)                                      | :large_blue_diamond:  |
 |     [Azure Kubernetes Service (AKS)](../aks/availability-zones.md)                              | :large_blue_diamond:  |
+|     [Azure Media Services (AMS)](../media-services/latest/concept-availability-zones.md)        | :large_blue_diamond:  |
 |     [Azure Private Link](../private-link/private-link-overview.md)                                          | :large_blue_diamond:  |
 |     [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)                                         | :large_blue_diamond:  |
 |     Azure SQL: [Virtual Machine](../azure-sql/database/high-availability-sla.md)                                  | :large_blue_diamond:  |

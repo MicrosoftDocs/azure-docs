@@ -38,6 +38,7 @@ Use this article to find the settings and requirements for connecting different 
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault |
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>Data Lake Gen2 Shared Key<br>Service principal<br>Service principal from key vault |
+|[**Azure Event Hubs**](#eventhubs) | Basic |
 |[**Azure Log Analytics**](#log) | Basic<br>Service principal<br>Service principal from key vault |
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>Managed Identity<br>Service principal<br>Service principal from key vault<br>Azure SQL Connection String |
 |[**Azure Table Storage**](#table) | Basic | 
@@ -101,20 +102,21 @@ The following sections specify the parameters required for all authentication ty
 * **Blob Template**: Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. "%Y/%m" is the path, if you have "%d" in your path, you can add after "%m". If your JSON file is named by date, you could also use `%Y-%m-%d-%h-%M.json`.
 
    The following parameters are supported:
-    * `%Y` is the year formatted as `yyyy`
-    * `%m` is the month formatted as `MM`
-    * `%d` is the day formatted as `dd`
-    * `%h` is the hour formatted as `HH`
-    * `%M` is the minute formatted as `mm`
+   
+   * `%Y` is the year formatted as `yyyy`
+   * `%m` is the month formatted as `MM`
+   * `%d` is the day formatted as `dd`
+   * `%h` is the hour formatted as `HH`
+   * `%M` is the minute formatted as `mm`
   
-  For example, in the following dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
+   For example, in the following dataset, the blob template should be "%Y/%m/%d/00/JsonFormatV2.json".
   
-  ![blob template](media/blob-template.png)
+   ![blob template](media/blob-template.png)
   
 
 * **JSON format version**: Defines the data schema in the JSON files. Currently Metrics Advisor supports two versions, you can choose one to fill in the field:
   
-  * **v1** (Default value)
+   * **v1** (Default value)
 
       Only the metrics *Name* and *Value* are accepted. For example:
     
@@ -122,7 +124,7 @@ The following sections specify the parameters required for all authentication ty
       {"count":11, "revenue":1.23}
       ```
 
-  * **v2**
+   * **v2**
 
       The metrics *Dimensions* and *timestamp* are also accepted. For example:
       
@@ -133,7 +135,7 @@ The following sections specify the parameters required for all authentication ty
       ]
       ```
 
-    Only one timestamp is allowed per JSON file. 
+   Only one timestamp is allowed per JSON file. 
 
 ## <span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
@@ -218,9 +220,10 @@ The following sections specify the parameters required for all authentication ty
 
         The account name is the same as **Basic** authentication type.
     
-        **Step1:** Create and register an Azure AD application and then authorize it to access database, see detail in [Create an AAD app registration](/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step 1:** Create and register an Azure AD application and then authorize it to access database, see detail in [Create an AAD app registration](/azure/data-explorer/provision-azure-ad-app) documentation.
 
-        **Step2:** Assign roles.
+        **Step 2:** Assign roles.
+        
         1. In the Azure portal, go to the **Storage accounts** service.
         
         2. Select the ADLS Gen2 account to use with this application registration.
@@ -230,37 +233,34 @@ The following sections specify the parameters required for all authentication ty
         4. Click **+ Add** and select **Add role assignment** from the dropdown menu.
 
         5. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
+        
         ![lake-service-principals](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
 
         **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
         
-    
-    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. 
-    The account name is the same as *Basic* authentication type.
-   
+    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. The account name is the same as *Basic* authentication type.
 
-* **Account Key**(only *Basic* needs): Specify the account key to access your Azure Data Lake Storage Gen2. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting.
+* **Account Key** (only *Basic* needs): Specify the account key to access your Azure Data Lake Storage Gen2. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting.
 
 * **File System Name (Container)**: Metrics Advisor will expect your time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field. This can be found in your Azure storage account (Azure Data Lake Storage Gen2)  instance, and click **'Containers'** in **'Data Lake Storage'** section, then you'll see the container name.
 
-* **Directory Template**:
-   This is the directory template of the Blob file.
-       The following parameters are supported:
-       * `%Y` is the year formatted as `yyyy`
-       * `%m` is the month formatted as `MM`
-       * `%d` is the day formatted as `dd`
-       * `%h` is the hour formatted as `HH`
-       * `%M` is the minute formatted as `mm`
+* **Directory Template**: This is the directory template of the Blob file. The following parameters are supported:
+
+   * `%Y` is the year formatted as `yyyy`
+   * `%m` is the month formatted as `MM`
+   * `%d` is the day formatted as `dd`
+   * `%h` is the hour formatted as `HH`
+   * `%M` is the minute formatted as `mm`
 
    Query sample for a daily metric: `%Y/%m/%d`.
 
    Query sample for an hourly metric: `%Y/%m/%d/%h`.
-    
-
 
 * **File Template**:
    Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, if you have `%d` in your path, you can add after `%m`. 
+   
    The following parameters are supported:
+   
    * `%Y` is the year formatted as `yyyy`
    * `%m` is the month formatted as `MM`
    * `%d` is the day formatted as `dd`
@@ -275,23 +275,77 @@ The following sections specify the parameters required for all authentication ty
      {"date": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}
    ]
    ```
-<!--
+
 ## <span id="eventhubs">Azure Event Hubs</span>
-* **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
+
+* **Limitations**: There are some limitations with Metrics Advisor Event Hub integration.
+
+   * Metrics Advisor Event Hubs integration doesn't currently support more than 3 active data feeds in one Metrics Advisor instance in public preview.
+   * Metrics Advisor will always start consuming messages from the latest offset, including when re-activating a paused data feed.
+   
+      * Messages during the data feed pause period will be lost.
+      * The data feed ‘ingestion start time’ is set to the current UTC timestamp automatically when created and is for reference purposes only.
+created, and for reference only.
+
+   * Only one data feed can be used per consumer group . To reuse a consumer group from another deleted data feed, you need to wait at least 10 minutes after deletion.
+data feed, it needs to wait at least 10 minutes after deletion.
+   * The connection string and consumer group cannot be modified after the data feed is created.
+   * About messages in Event Hubs: Only JSON is supported, and the JSON values cannot be a nested JSON object. The top-level element can be a JSON object or a JSON array.
+    
+    Valid messages as follows:
+
+    ``` JSON
+    Single JSON object 
+    {
+    "metric_1": 234, 
+    "metric_2": 344, 
+    "dimension_1": "name_1", 
+    "dimension_2": "name_2"
+    }
+    ```
+        
+    ``` JSON
+    JSON array 
+    [
+        {
+            "timestamp": "2020-12-12T12:00:00", "temperature": 12.4,
+            "location": "outdoor"
+        },
+        {
+            "timestamp": "2020-12-12T12:00:00", "temperature": 24.8,
+            "location": "indoor"
+        }
+    ]
+    ```
+
+
+* **Connection String**: Navigate to the **Event Hubs Instance** first. Then add a new policy or choose an existing Shared access policy. Copy the connection string in the pop-up panel.
+    ![eventhubs](media/datafeeds/entities-eventhubs.jpg)
+    
+    ![shared access policies](media/datafeeds/shared-access-policies.jpg)
+
+    Here's an example of a connection string: 
+    ```
+    Endpoint=<Server>;SharedAccessKeyName=<SharedAccessKeyName>;SharedAccessKey=<SharedAccess Key>;EntityPath=<EntityPath>
+    ```
+
 * **Consumer Group**: A [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups) is a view (state, position, or offset) of an entire event hub.
-Event Hubs use the latest offset of a consumer group to consume (subscribe from) the data from data source. Therefore a dedicated consumer group should be created for one data feed in your Metrics Advisor instance.
-* **Timestamp**: Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field.
-The timestamp field must match one of these two formats:
-* "YYYY-MM-DDTHH:MM:SSZ" format;
-* * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
-    No matter which timestamp field it left aligns to granularity.For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
--->
+This can be found on the "Consumer Groups" menu of an Azure Event Hubs instance. A consumer group can only serve one data feed, otherwise, onboard and ingestion will fail. It is recommended that you create a new consumer group for each data feed.
+* **Timestamp**(optional): Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field. The timestamp field is optional. If no timestamp column is chosen, we will use the enqueued time as the timestamp.
+
+    The timestamp field must match one of these two formats:
+    
+    * "YYYY-MM-DDTHH:MM:SSZ" format;
+    * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
+    No matter which timestamp field it will left align to granularity. For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
+
 
 ## <span id="log">Azure Log Analytics</span>
 
 There are three authentication types for Azure Log Analytics, they are **Basic**, **Service Principal** and **Service Principal From KeyVault**.
 * **Basic**: You need to fill in **Tenant ID**, **Client ID**, **Client Secret**, **Workspace ID**.
    To get **Tenant ID**, **Client ID**, **Client Secret**, see [Register app or web API](../../active-directory/develop/quickstart-register-app.md).
+   
    * **Tenant ID**: Specify the tenant ID to access your Log Analytics.
    * **Client ID**: Specify the client ID to access your Log Analytics.
    * **Client Secret**: Specify the client secret to access your Log Analytics.
