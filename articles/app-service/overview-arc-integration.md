@@ -109,6 +109,10 @@ By default, logs from system components are sent to the Azure team. Application 
 
 When creating a Kubernetes environment resource, some subscriptions may see a "No registered resource provider found" error. The error details may include a set of locations and api versions that are considered valid. If this happens, it may be that the subscription needs to be re-registered with the Microsoft.Web provider, an operation which has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then re-attempt the Kubernetes environment command.
 
+### Can I deploy the Application services extension on an ARM64 based cluster?
+
+ARM64 based clusters are not supported at this time.  
+
 ## Next steps
 
 [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)
