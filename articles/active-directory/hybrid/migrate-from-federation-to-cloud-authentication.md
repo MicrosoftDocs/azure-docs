@@ -289,7 +289,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-A:-Switch-from-federation-to-the-new-sign-in-method-by-using-Azure-AD-Connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a:-switch-from-federation-to-the-new-sign-in-method-by-using-azure-ad-connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -312,7 +312,7 @@ Verify these settings:
 
     If the authentication agent isn’t active, complete these [troubleshooting steps](/PHS/tshoot-connect-pass-through-authentication) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 
-3. [Deploy more authentication agents](#Deploy-more-authentication-agents-for-PTA).
+3. [Deploy more authentication agents](#deploy-more-authentication-agents-for-pta).
 
 ### Convert domains from federated to managed
 
