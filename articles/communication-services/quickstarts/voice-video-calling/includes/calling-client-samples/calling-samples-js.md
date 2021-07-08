@@ -61,9 +61,12 @@ Use the `on()` method to subscribe to objects' events, and use the `off()` metho
 ```js
 /*************************************
  * Example code - client.js          *
- * Convert this script into a bundle *
- * that your html index page can use.*
+ * Convert this script into a        *
+ * bundle.js that your html index    *
+ * page can use.                     *
  *************************************/
+
+// Make sure to install the necessary dependencies
 const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
 const { AzureCommunicationTokenCredential } = require('@azure/communication-common');
 const { AzureLogger, setLogLevel } = require("@azure/logger");
@@ -73,9 +76,10 @@ AzureLogger.log = (...args) => {
 };
 
 let callAgent;
+let deviceManager;
 let call;
 let incomingCall;
-let videoOptions;
+let camera;
 let localVideoStream;
 
 document.getElementById('initialize-calling-sdk').addEventListener("click", async () => {
@@ -87,11 +91,10 @@ document.getElementById('initialize-calling-sdk').addEventListener("click", asyn
         tokenCredential = new AzureCommunicationTokenCredential(userTokenCredential);
         callAgent = await callClient.createCallAgent(tokenCredential)
         // Set up a camera device to use.
-        const dm = await callClient.getDeviceManager();
-        const camera = (await dm.getCameras())[0];
-        if (camera) {
-            videoOptions = { localVideoStreams: [new LocalVideoStream(camera)] };
-        }
+        deviceManager = await callClient.getDeviceManager();
+        await deviceManager.askDevicePermission({ video: true });
+        await deviceManager.askDevicePermission({ audio: true });
+        camera = (await deviceManager.getCameras())[0];
         // Listen for an incoming call to accept.
         callAgent.on('incomingCall', async (args) => {
             try {
@@ -112,10 +115,12 @@ document.getElementById('initialize-calling-sdk').addEventListener("click", asyn
 
 // Start an out-going call.
 // For more info on starting a call, see the "Place a call" section below.
-startCall = () => {
+startCall = async () => {
     try {
-        const calleeUserId = document.getElementById('callee-acs-user-id-input').value;
+        const calleeUserId = document.getElementById('callee-acs-user-id-input').value.trim();
+	const videoOptions = camera ? { localVideoStreams: [new LocalVideoStream(camera)] } : undefined;
         call = callAgent.startCall([{ communicationUserId: calleeUserId }], { videoOptions });
+        await displayLocalVideoStream();
         // Subscribe to the call's properties and events.
         subscribeToCall(call);
     } catch (error) {
@@ -127,11 +132,30 @@ document.getElementById('start-outgoing-call-button').addEventListener("click", 
 // Accept the incoming call.
 // For more info on accepting an incoming call, see the "Receive an incoming call" section below.
 acceptIncomingCall = async () => {
-    call = await incomingCall.accept({ videoOptions });
-    // Subscribe to the call's properties and events.
-    subscribeToCall(call);
+    try {
+        const videoOptions = camera ? { localVideoStreams: [new LocalVideoStream(camera)] } : undefined;
+        call = await incomingCall.accept({ videoOptions });
+        await displayLocalVideoStream();
+        // Subscribe to the call's properties and events.
+        subscribeToCall(call);
+    } catch (error) {
+        console.error(error);
+    }
 }
 document.getElementById('accept-incoming-call-button').addEventListener("click", acceptIncomingCall);
+
+displayLocalVideoStream = async() => {
+    try {
+        if (camera) {
+            const videoStreamRenderer = new VideoStreamRenderer(new LocalVideoStream(camera));
+            const view = await videoStreamRenderer.createView();
+            document.getElementById('localVideoContainer').removeAttribute('hidden');
+            document.getElementById('localVideoContainer').appendChild(view.target);
+        }
+    } catch (error) {
+        console.error(error);
+    } 
+}
 
 subscribeToCall = (call) => {
     try {
@@ -146,7 +170,12 @@ subscribeToCall = (call) => {
         console.log(`Call state: ${call.state}`);
         // Subscribe to call's 'stateChanged' event for value changes.
         call.on('stateChanged', () => {
-            console.log(`Call state changed: ${call.state}`);   
+            console.log(`Call state changed: ${call.state}`);
+            if(call.state === 'Connected') {
+                document.getElementById('connectedLabel').removeAttribute('hidden');
+            } else if (call.state === 'Disconnected') {
+                document.getElementById('connectedLabel').addAttribute('hidden');
+            }   
         });
 
         // Inspect the call's current remote participants and subscribe to them.
@@ -215,8 +244,9 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     const renderVideo = async () => {
         try {
             // Create a renderer view for the remote video stream.
-        view = await videoStreamRenderer.createView();
+            view = await videoStreamRenderer.createView();
             // Attach the renderer view to the UI.
+            remoteVideoContainer.removeAttribute('hidden');
             remoteVideoContainer.appendChild(view.target);
         } catch (e) {
             console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
@@ -266,7 +296,13 @@ An HTML example code that can use a bundle generated from the above Javascript e
             style="margin-bottom:1em; width: 500px; display: block;"/>
         <button id="start-outgoing-call-button" type="button" disabled="true">Start Call</button>
         <button id="accept-incoming-call-button" type="button" disabled="true">Accept Call</button>
-        <div id="remoteVideoContainer" style="width: 50%; height: 25%"></div>
+        <br>
+        <br>
+        <div id="connectedLabel" style="color: #13bb13;" hidden>Call is connected!</div>
+        <br>
+        <div id="remoteVideoContainer" style="width: 25%;" hidden>Remote participants' video streams:</div>
+        <br>
+	<div id="localVideoContainer" style="width: 25%;" hidden>Local video stream:</div>
         <!-- points to the bundle generated from client.js -->
         <script src="./bundle.js"></script>
     </body>
