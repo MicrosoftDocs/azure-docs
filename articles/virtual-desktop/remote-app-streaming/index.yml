@@ -23,7 +23,7 @@ landingContent:
       - linkListType: overview
         links: 
           - text: What is Azure Virtual Desktop, and how can it help me stream apps to my users?
-            url: overview.md
+            url: ../overview.md
 
   # Card
   - title: Get started with Azure Virtual Desktop
