@@ -144,6 +144,8 @@ acceptIncomingCall = async () => {
 }
 document.getElementById('accept-incoming-call-button').addEventListener("click", acceptIncomingCall);
 
+// Display your local video stream preview in your UI
+// For more info on starting a call, see the "Local camera preview" section below.
 displayLocalVideoStream = async() => {
     try {
         if (camera) {
