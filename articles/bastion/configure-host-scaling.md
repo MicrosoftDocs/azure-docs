@@ -16,7 +16,7 @@ ms.author: cherylmc
 
 This article helps you add additional scale units (instances) to Azure Bastion in order to accommodate additional concurrent client connections. During Preview, this setting can be configured in the Azure portal only. For more information about host scaling, see [Configuration settings](configuration-settings.md#instance). 
 
-## Azure portal steps
+## Configuration steps
 
 1. In the Azure portal, navigate to your Bastion host.
 1. Host scaling instance count requires Standard tier. On the **Configuration** page, for **Tier**, verify the tier is **Standard**. If the tier is Basic, select **Standard** from the dropdown. 
