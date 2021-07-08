@@ -28,7 +28,7 @@ Single sign-on provides a giant leap forward in how users sign in and use applic
 
 Authentication fundamentals: The basics | Azure Active Directory
 
-> [!VIDEO <https://www.youtube.com/embed/fbSVgC8nGz4>]
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
 
 ## Single sign-on with web applications
 
@@ -38,11 +38,11 @@ To learn about how single sign-on works with web apps, check out these two video
 
 Authentication fundamentals: Web applications | Azure Active Directory
 
-> [!VIDEO <https://www.youtube.com/embed/tCNcG1lcCHY>]
+> [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY]
 
 Authentication fundamentals: Web single sign-on | Azure Active Directory
 
-> [!VIDEO <https://www.youtube.com/embed/51B-jSOBF8U>]
+> [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U]
 
 ## Cloud versus on-premises hosted apps
 
@@ -64,7 +64,7 @@ When you set up single sign-on to work between multiple identity providers, it's
 
 Authentication fundamentals: Federation | Azure Active Directory
 
-> [!VIDEO <https://www.youtube.com/embed/CjarTgjKcX8>]
+> [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
 ## Next steps
 

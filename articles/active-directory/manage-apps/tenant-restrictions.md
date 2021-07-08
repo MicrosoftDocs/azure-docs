@@ -77,7 +77,7 @@ The headers should include the following elements:
 
 > [!TIP]
 > You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
-
+>
 > To validate that a directory ID or domain name refer to the same tenant, use that ID or domain in place of <tenant> in this URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration`.  If the results with the domain and the ID are the same, they refer to the same tenant.
 
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the *Restrict-Access-To-Tenants* header if it is already present in the incoming request.

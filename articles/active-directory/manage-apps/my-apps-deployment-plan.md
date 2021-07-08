@@ -21,7 +21,7 @@ ms.author: baselden
 
 Azure Active Directory (Azure AD) My Apps is a web-based portal for launching and managing apps. The My Apps page gives users a single place to start their work and find all the applications to which they have access. Users access My Apps at [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
-> [!VIDEO <https://www.youtube.com/embed/atj6Ivn5m0k>]
+> [!VIDEO https://www.youtube.com/embed/atj6Ivn5m0k]
 
 ## Why Configure My apps
 

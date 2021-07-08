@@ -20,7 +20,6 @@ Passwords, both an IT nightmare and a pain for employees across the world. This 
 **Common scenarios**
 
 > [!div class="checklist"]
-
 > * SSO for all your applications
 > * Automate provisioning and deprovisioning
 > * Secure your applications
@@ -57,7 +56,7 @@ Identity is the linchpin for security. If an identity gets compromised, it's inc
 
 ## Scenario 4: Govern access to your applications
 
-Identity Governance helps organizations achieve a balance between productivity * How quickly can a person have access to the applications they need, such as when they join my organization? And security * How should their access change over time, such as due to changes to that person's employment status?
+Identity Governance helps organizations achieve a balance between productivity - How quickly can a person have access to the applications they need, such as when they join my organization? And security - How should their access change over time, such as due to changes to that person's employment status?
 
 |Feature  |Description|Recommendation |
 |---------|---------| ---------|

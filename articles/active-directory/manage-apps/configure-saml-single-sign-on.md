@@ -25,10 +25,10 @@ In the [quickstart series](add-application-portal-setup-sso.md), there's an arti
 
 > [!IMPORTANT]
 > There are some scenarios where the **Single sign-on** option will not be present in the navigation for an application in **Enterprise applications**.
-
+>
 > If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](../develop/reference-app-manifest.md). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](../develop/authentication-vs-authorization.md#authentication-and-authorization-using-the-microsoft-identity-platform).
 >
-> Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (<https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles>).
+> Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
 ## Basic SAML configuration
 
@@ -60,7 +60,6 @@ You can add new claims, for details see [Adding application-specific claims](../
 
 > [!NOTE]
 > For additional ways to customize the SAML token from Azure AD to your application, see the following resources.
-
 >- To create custom roles via the Azure portal, see [Configure role claims](../develop/active-directory-enterprise-app-role-management.md).
 >- To customize the claims via PowerShell, see [Customize claims - PowerShell](../develop/active-directory-claims-mapping.md).
 >- To modify the application manifest to configure optional claims for your application, see [Configure optional claims](../develop/active-directory-optional-claims.md).
@@ -77,15 +76,15 @@ From Azure AD, you can download the active certificate in Base64 or Raw format d
 
 Some common things to check to verify a certificate include:
 
-- *The correct expiration date.* You can configure the expiration date for up to three years into the future.
-- *A status of active for the right certificate.* If the status is **Inactive**, change the status to **Active**. To change the status, right-click the certificate's row and select **Make certificate active**.
-- *The correct signing option and algorithm.*
-- *The correct notification email address(es).* When the active certificate is near the expiration date, Azure AD sends a notification to the email address configured in this field.
+   - *The correct expiration date.* You can configure the expiration date for up to three years into the future.
+   - *A status of active for the right certificate.* If the status is **Inactive**, change the status to **Active**. To change the status, right-click the certificate's row and select **Make certificate active**.
+   - *The correct signing option and algorithm.*
+   - *The correct notification email address(es).* When the active certificate is near the expiration date, Azure AD sends a notification to the email address configured in this field.
 
 Sometimes you might need to download the certificate. Be careful where you save it though! To download the certificate, select one of the options for Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 > [!NOTE]
-> The application should be capable of handling Byte Order Marker present in the XML rendered when using <https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id>}. Byte order mark is represented as a nonprintable ASCII character »¿ and in Hex it is represented as EF BB BF when reviewing the XML data.
+> The application should be capable of handling Byte Order Marker present in the XML rendered when using https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id}. Byte order mark is represented as a nonprintable ASCII character »¿ and in Hex it is represented as EF BB BF when reviewing the XML data.
 
 To make certificate changes, select the Edit button. There are several things you can do on the **SAML Signing Certificate** page:
 
@@ -96,17 +95,17 @@ To make certificate changes, select the Edit button. There are several things yo
 
 ## Set up the application to use Azure AD
 
-The **Set up \<applicationName>** section lists the values that need to be configured in the application so it will use Azure AD as a SAML identity provider. You set the values on the configuration page on the applications website. For example, if you are configuring GitHub then you would go to the github.com site and set the values. If the application is already pre-configured and in the Azure AD gallery, then you will find a link to **View step-by-step instructions**. Otherwise, you will need to find the documentation for the application you are configuring.
+The **Set up \<applicationName>** section lists the values that need to be configured in the application so it will use Azure AD as a SAML identity provider. You set the values on the configuration page on the applications website. For example, if you are configuring GitHub then you would go to the github.com site and set the values. If the application is already pre-configured and in the Azure AD gallery, then you will find a link to **View step-by-step instructions**. Otherwise, you will need to find the documentation for the application you are configuring. 
 
-The **Login URL** and **Logout URL** values both resolve to the same endpoint, which is the SAML request-handling endpoint for Azure AD tenant.
+The **Login URL** and **Logout URL** values both resolve to the same endpoint, which is the SAML request-handling endpoint for Azure AD tenant. 
 
 The **Azure AD Identifier** is the value of the **Issuer** in the SAML token issued to the application.
 
 ## Test single sign-on
 
-Once you've configured your application to use Azure AD as a SAML-based identity provider, you can test the settings to see if single sign-on works for your account.
+Once you've configured your application to use Azure AD as a SAML-based identity provider, you can test the settings to see if single sign-on works for your account. 
 
-Select **Test** and then choose to test with the currently signed in user or as someone else.
+Select **Test** and then choose to test with the currently signed in user or as someone else. 
 
 If sign-on is successful, you're ready to assign users and groups to your SAML application. Congratulations!
 
@@ -124,9 +123,11 @@ If an error message appears, complete the following steps:
 
 For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](./debug-saml-sso-issues.md).
 
+
 ## Next steps
 
 - [Quickstart Series on Application Management](view-applications-portal.md)
 - [Assign users or groups to the application](./assign-user-or-group-access-portal.md)
 - [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 - [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md)
+

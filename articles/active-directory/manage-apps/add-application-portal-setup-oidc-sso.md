@@ -61,7 +61,7 @@ Here is a video walking through additional details of adding an OIDC-based app t
 
 Adding an OIDC-based app in Azure Active Directory
 
-> [!VIDEO <https://www.microsoft.com/videoplayer/embed/RE4HoNI>]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
 
 ## Clean up resources
 

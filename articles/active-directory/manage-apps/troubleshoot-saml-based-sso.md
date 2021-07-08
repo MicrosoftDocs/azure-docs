@@ -64,8 +64,8 @@ To download the application metadata or certificate from Azure AD, follow these 
 1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-5. click **All Applications** to view a list of all your applications.
+4. Select **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+5. Select **All Applications** to view a list of all your applications.
    - If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 6. Select the application you have configured single sign-on.
 7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.

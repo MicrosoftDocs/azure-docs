@@ -20,7 +20,7 @@ Many applications that integrate with Azure Active Directory require permissions
 
 This results in a consent prompt being shown the first time an application is used, which is often a one-time operation.
 
-> [!VIDEO <https://www.youtube.com/embed/a1AjdvNDda4>]
+> [!VIDEO https://www.youtube.com/embed/a1AjdvNDda4]
 
 ## Scenarios in which users see consent prompts
 
