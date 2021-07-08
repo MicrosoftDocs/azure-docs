@@ -42,7 +42,7 @@ Disk pools are currently available in the following regions:
 - North Europe
 - West Europe
 - UK South
-- Southeast Asia
+
 
 ## Billing
 
