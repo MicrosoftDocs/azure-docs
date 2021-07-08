@@ -230,7 +230,7 @@ For more information, review the following documentation:
 * [Create and manage integration accounts](logic-apps-enterprise-integration-create-integration-account.md)
 * [Integration account limits in Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
 
-## Miscellaneous not metered or billed
+## Other items not metered or billed
 
 Across all pricing models, the following items aren't metered or billed:
 
