@@ -179,12 +179,12 @@ You can create a DHCP server or relay directly from Azure VMware Solution in the
 1. Select **OK**. 
 
 
-### Create an NSX-T network segment
+#### Create an NSX-T network segment
 
 [!INCLUDE [create-nsxt-segment-azure-portal-steps](includes/create-nsxt-segment-azure-portal-steps.md)]
 
 
-## Configure a DHCP relay
+### Configure a DHCP relay
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
 
@@ -200,7 +200,7 @@ You can create a DHCP server or relay directly from Azure VMware Solution in the
 1. Select **OK**. 
 
 
-### Create an NSX-T network segment
+#### Create an NSX-T network segment
 
 [!INCLUDE [create-nsxt-segment-azure-portal-steps](includes/create-nsxt-segment-azure-portal-steps.md)]
 

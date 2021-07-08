@@ -124,10 +124,8 @@ landingContent:
         links:
           - text: Configure DHCP 
             url: configure-dhcp-azure-vmware-solution.md
-          - text: Configure DHCP on L2 stretched VMware HCX networks
+          - text: Configure DHCP on L2 stretched networks
             url: configure-l2-stretched-vmware-hcx-networks.md
-          - text: Configure NSX components using Azure 
-            url: configure-nsx-network-components-azure-portal.md
           - text: Configure GitHub Enterprise Server
             url: ./configure-github-enterprise-server.md
           - text: Enable public internet access
