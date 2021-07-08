@@ -154,4 +154,4 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 
 > [!div class="nextstepaction"]
-> [Create webhooks on rules](./howto-create-webhooks.md).
+> [Configure rules](howto-configure-rules.md)

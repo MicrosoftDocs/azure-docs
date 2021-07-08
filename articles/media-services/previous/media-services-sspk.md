@@ -111,6 +111,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * KDDI Corporation
 * K-Tronics (Suzhou) Technology Co., Ltd.
 * LG Electronics, Inc.
+* Liberty Global Technology Services BV
 * Mega Fame Electronics Co. Limited
 * MINGCAI NEW CENTURY (HK) CO., LIMITED
 * MIRC Electronics Limited

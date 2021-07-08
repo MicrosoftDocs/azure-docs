@@ -52,7 +52,7 @@ To add either the trigger or an action your workflow, follow these steps:
     1. Enter a service, connector, or category in the search bar to show related operations. For example, `Azure Cosmos DB` or `Data Operations`. 
     1. If you know the specific operation you want to use, enter the name in the search bar. For example, `Call an Azure function` or `When an HTTP request is received`.
     1. Select the **Built-in** tab to only show categories of [*built-in operations*](logic-apps-overview.md#built-in-operations). Or, select the **Azure** tab to show other categories of operations available through Azure.
-    1. Select the **Triggers** tab to only show triggers. Or, select the **Actions** tab to only show actions. Some services and connectors don't offer both triggers and actions. 
+    1. You can view only triggers or actions by selecting the **Triggers** or **Actions** tab. However, you can only add a trigger as the first step and an action as a following step. Based on the operation category, only triggers or actions might be available.
     :::image type="content" source="./media/designer-overview/designer-add-operation.png" alt-text="Screenshot of the Logic Apps designer in the Azure portal, showing a workflow being edited to add a new operation." lightbox="./media/designer-overview/designer-add-operation.png":::
 1. Select the operation you want to use. 
     :::image type="content" source="./media/designer-overview/designer-filter-operations.png" alt-text="Screenshot of the Logic Apps designer, showing a pane of possible operations that can be filtered by service or name." lightbox="./media/designer-overview/designer-filter-operations.png":::

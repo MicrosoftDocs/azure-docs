@@ -35,7 +35,7 @@ In .NET, consider using the [StringInfo](/dotnet/api/system.globalization.string
 
 The Text Analytics API returns these textual elements as well, for convenience.
 
-## Offsets in API version 3.1-preview
+## Offsets in API version 3.1
 
 In version 3.1 of the API, all Text Analytics API endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
 
