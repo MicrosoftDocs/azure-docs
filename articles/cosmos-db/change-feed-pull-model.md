@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 07/08/2021
 ms.reviewer: sngun
 ---
 
