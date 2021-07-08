@@ -28,7 +28,7 @@ The following section details the parameters when creating a public IP prefix.
    |IP version|Yes| IP version of the prefix (v4 or v6).
    |Prefix size|Yes| The size of the prefix you need. A range with 16 IP addresses (/28 for v4 or /124 for v6) is the default.
 
-Instead, you may use the CLI and PowerShell commands below to create a public IP address prefix.
+Alternatively, you may use the CLI and PowerShell commands below to create a public IP address prefix.
 
 **Commands**
 
