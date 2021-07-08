@@ -112,8 +112,9 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. To sign up for a developer account by using Azure AD B2C, open a new browser window and go to the legacy developer portal. Click the **Sign up** button.
+
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal.png" alt-text="Sign up in legacy developer portal":::
-2. Choose to sign up with **Azure Active Directory B2C**.
+1. Choose to sign up with **Azure Active Directory B2C**.
 
     :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-button.png" alt-text="Sign up  with Azure Active Directory B2C":::
 
