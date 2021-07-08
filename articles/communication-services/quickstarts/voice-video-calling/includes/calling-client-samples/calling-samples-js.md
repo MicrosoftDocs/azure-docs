@@ -277,7 +277,7 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
 }
 ```
 
-An HTML example code that can use a bundle generated from the above Javascript example (`client.js`).
+An HTML example code that can use a bundle generated from the above JavaScript example (`client.js`).
 
 ```html
 <!-- index.html -->
