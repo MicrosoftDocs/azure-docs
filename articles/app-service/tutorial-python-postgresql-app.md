@@ -111,7 +111,7 @@ cd djangoapp
 
 ::: zone pivot="postgres-flexible-server"
 
-For Flexible Server (Preview), use the flexible-server branch of the sample, which contains a few necessary changes:
+For Flexible Server (Preview), use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible Server.
 
 ```terminal
 git checkout flexible-server
@@ -163,7 +163,7 @@ If the `az` command is not recognized, be sure you have the Azure CLI installed 
 Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/postgres#az_postgres_up) command:
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location centralus --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - **Replace** *\<postgres-server-name>* with a name that's **unique across all Azure** (the server endpoint becomes `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
@@ -205,10 +205,10 @@ When the command completes, it outputs a JSON object that contains different con
     az group create --name Python-Django-PGFlex-rg --location centralus
     ```
 
-1. Create the database server:
+1. Create the database server (the process takes a few minutes):
 
     ```azurecli
-    az postgres flexible-server create --public-access all
+    az postgres flexible-server create --sku-name Standard_B1ms --public-access all
     ```
     
     If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
@@ -218,7 +218,8 @@ When the command completes, it outputs a JSON object that contains different con
     - Create a default resource group if there's not a cached name already.
     - Create a PostgreSQL Flexible Server:
         - By default, the command uses a generated name like `server383813186`. You can specify your own name with the `--name` parameter. The name must be unique across all of Azure.
-        - By default, the command uses the `Standard_D2s_v3` pricing tier. You can specify a different tier with the `--sku-name` parameter. 
+        - Use the `Standard_B1ms` pricing team (the least expensive) rather than the default, `Standard_D2s_v3`. For production purposes, be sure to review the available tiers and choose one appropriate to your needs.
+        - The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `Python-Django-PGFlex-rg` in the `centralus` region.
     - Create an administrator account with a username and password. You can specify these values directly with the `--admin-user` and `--admin-password` parameters.
     - Create a database named `flexibleserverdb` by default. You can specify a database name with the `--database-name` parameter.
     - Enables complete public access, which you can control using the `--public-access` parameter.
@@ -242,7 +243,7 @@ In the terminal, make sure you're in the *djangoapp* repository folder that cont
 Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
 ```azurecli
-az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
+az webapp up --resource-group DjangoPostgres-tutorial-rg --location centralus --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
 ```
 <!-- without --sku creates PremiumV2 plan -->
 
@@ -278,10 +279,8 @@ This command performs the following actions, which may take a few minutes:
     az webapp up --name <app-name> --sku B1 
     ```
     <!-- without --sku creates PremiumV2 plan -->
-    
-    - For the `--location` argument, use the same location as you did for the database in the previous section.
-    
-    This command performs the following actions, which may take a few minutes:
+        
+    This command performs the following actions, which may take a few minutes, using resource group and location cached from the previous `az group create` command (the group `Python-Django-PGFlex-rg` in the `centralus` region in this example).
     
     <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
     <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
@@ -557,13 +556,13 @@ Having issues? Refer first to the [Troubleshooting guide](configure-language-pyt
 
 ## 8. Clean up resources
 
-If you'd like to keep the app or continue to the additional tutorials, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group create for this tutorial:
+If you'd like to keep the app or continue to the additional tutorials, skip ahead to [Next steps](#next-steps). Otherwise, to avoid incurring ongoing charges you can delete the resource group created for this tutorial:
 
 ```azurecli
-az group delete --no-wait
+az group delete --name Python-Django-PGFlex-rg --no-wait
 ```
 
-The command uses the resource group name cached in the *.azure/config* file. By deleting the resource group, you also deallocate and delete all the resources contained within it.
+By deleting the resource group, you also deallocate and delete all the resources contained within it. Be sure you no longer need the resources in the group before using the command.
 
 Deleting all the resources can take some time. The `--no-wait` argument allows the command to return immediately.
 
