@@ -165,7 +165,7 @@ This HTTP triggered function executed successfully. Started container group myco
 
 Verify that the container ran with the [Get-AzContainerInstanceLog][get-azcontainerinstancelog] command:
 
-```azurecli
+```powershell
 Get-AzContainerInstanceLog -ResourceGroupName myfunctionapp `
   -ContainerGroupName mycontainergroup 
 ```
