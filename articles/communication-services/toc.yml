@@ -18,9 +18,9 @@ items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
       - name: Use managed identities
-        href: quickstarts/managed-identity.md
+        href: quickstarts/identity/service-principal.md
       - name: Set up managed identities from CLI
-    href: quickstarts/managed-identity-from-cli.md
+        href: quickstarts/identity/service-principal-from-cli.md
   - name: Chat
     items:
       - name: Add chat to your app
