@@ -84,7 +84,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 
 Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Click **View full pricing details** to see more information about each tier.
 
-![create-premium-namespace][create-premium-namespace]
+:::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="Screenshot that shows the selection of premium tier when creating a namespace.":::
 
 You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
 
@@ -103,13 +103,13 @@ Here are some considerations when sending large messages on Azure Service Bus -
 
 To enable support for large messages, set the max message size when creating a new queue (or topic) as shown below. 
 
-![large message preview when creating a new entity][large-message-preview]
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview.png" alt-text="Screenshot that shows how to enable large message support for an existing queue.":::
 
 ### Enabling large messages support for an existing queue (or topic)
 
 You can also enable support for large message for existing queues (or topics), by updating the **Max message size** on the ***Overview*** for that specific queue (or topic) as below.
 
-![enabling large messages on an existing entity][large-message-preview-update]
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview-update.png" alt-text="Screenshot of the Create queue page with large message support enabled.":::
 
 ## Next steps
 
@@ -119,8 +119,4 @@ To learn more about Service Bus Messaging, see the following links:
 - [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
-<!--Image references-->
 
-[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
-[large-message-preview]: ./media/service-bus-premium-messaging/large-message-preview.png
-[large-message-preview-update]: ./media/service-bus-premium-messaging/large-message-preview-update.png
