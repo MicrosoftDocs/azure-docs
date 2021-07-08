@@ -41,6 +41,8 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name:   Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Train a custom model with the sample labeling tool
     href: label-tool.md
   - name: Use containers
@@ -95,7 +97,7 @@
     items:
     - name: REST API v2.1 reference
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
-    - name: SDKs v3.1.0
+    - name: Client libraries and SDKs
       items:
       - name: .NET
         href: /dotnet/api/overview/azure/ai.formrecognizer-readme
