@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/01/2021
+ms.date: 07/08/2021
 ms.custom: devx-track-python
 ---
 
@@ -217,6 +217,19 @@ The hosts in this section are used to install R packages, and are required durin
 
 > [!IMPORTANT]
 > Internally, the R SDK for Azure Machine Learning uses Python packages. So you must also allow Python hosts through the firewall.
+
+### Visual Studio Code hosts
+
+The hosts in this section are used to install Visual Studio Code packages to establish a remote connection between Visual Studio Code and compute instances in your Azure Machine Learning workspace.
+
+> [!NOTE]
+> This is not a complete list of the hosts required for all Visual Studio Code resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+
+| **Host name** | **Purpose** |
+| ---- | ---- |
+| *.update.code.visualstudio.com*</br>*.vo.msecnd.net* | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+| *github.com/Microsoft/vscode-tools-for-ai/tree/master/azureml_remote_websocket_server/*</br>*raw.githubusercontent.com/Microsoft/vscode-tools-for-ai/tree/master/azureml_remote_websocket_server/* | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.
+
 ## Next steps
 
 * [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md)
