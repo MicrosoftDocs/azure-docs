@@ -67,13 +67,13 @@ The sign-in diagnostic for Azure AD provides you with support for the following 
 
 - **Other Scenarios**   
 
-    - Security Defaults  
+    - Security defaults  
     
     - Error code insights  
 
-    - Legacy Authentication  
+    - Legacy authentication  
 
-    - Blocked by Risk Policy 
+    - Blocked by risk policy 
 
 
 > [!NOTE]
@@ -182,11 +182,11 @@ An example of this scenario is when policy requires that the user setup MFA only
 
 ### Successful sign-in 
 
-In this scenario, sign-in events were not interrupted by conditional access or multifactor authentication.  
+In this scenario, sign-in events are not interrupted by conditional access or multifactor authentication.  
 
  
 
-This diagnostic scenario provides details about user sign-in events that were expected to be interrupted due to conditional access policies or multifactor authentication. 
+This diagnostic scenario provides details about user sign-in events that are expected to be interrupted due to conditional access policies or multifactor authentication. 
 
  
 
@@ -196,7 +196,7 @@ In this scenario, a user signed-in with incorrect credentials too many times. Th
 
  
 
-This diagnostic scenario provides details about the apps, the number of attempts, the device used, the operating system and the IP address. 
+This diagnostic scenario provides details about the apps, the number of attempts, the device used, the operating system, and the IP address. 
 
  
 
@@ -208,7 +208,7 @@ More information about this topic can be found in the Azure AD Smart Lockout doc
 
 ### Invalid username or password 
 
-In this scenario, a user tried to sign in using an invalid username or password. The diagnostic is intended to allow an administrator to determine if the problem is with a user entering incorrect credentials, or a client and/or application(s) which have cached an old password and are resubmitting it. 
+In this scenario, a user tried to sign in using an invalid username or password. The diagnostic is intended to allow an administrator to determine if the problem is with a user entering incorrect credentials, or a client and/or application(s), which have cached an old password and are resubmitting it. 
 
  
 
@@ -263,7 +263,7 @@ When an event does not have a contextual analysis in the sign-in diagnostic an u
 
 This diagnostics scenario diagnosis a sign-in event which was blocked or interrupted since the client was attempting to use Basic (also known as Legacy) Authentication. 
 
-Preventing legacy authentication sign-in is recommended as the best practice for security. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI cannot enforce multifactor Authentication (MFA) which makes them preferred entry points for adversaries to attack your organization. 
+Preventing legacy authentication sign-in is recommended as the best practice for security. Legacy authentication protocols like POP, SMTP, IMAP, and MAPI cannot enforce multifactor authentication (MFA), which makes them preferred entry points for adversaries to attack your organization. 
 
 For more information, see [How to block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md). 
 
@@ -285,4 +285,3 @@ For more information, see [How to configure and enable risk policies](../identit
 ## Next steps
 
 - [What is the sign-in diagnostic in Azure AD?](overview-sign-in-diagnostics.md)
-- [What is Azure Active Directory monitoring?](overview-monitoring.md)
