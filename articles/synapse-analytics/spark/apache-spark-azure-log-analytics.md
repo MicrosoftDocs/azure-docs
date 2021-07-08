@@ -202,11 +202,9 @@ And you can customize the workbook by Kusto query and configure alerts.
 
 ## Write custom application logs
 
-You can write custom logs by leveraging the Apache Log4j library.
+You can use the Apache Log4j library to write custom logs.
 
-Here are some examples:
-
-For Scala:
+Example for Scala:
 
 ```scala
 %%spark
@@ -216,7 +214,7 @@ logger.warn("warn message")
 logger.error("error message")
 ```
 
-For PySpark:
+Example for PySpark:
 
 ```python
 %%pyspark
