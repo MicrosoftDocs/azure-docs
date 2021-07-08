@@ -75,7 +75,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
 Azure Service Manager supports two different compute products, [Azure Virtual Machines (classic)](/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) and [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) or Web/ Worker roles. The two products differ based on the deployment type that lies within the Cloud Service. Azure Cloud Services (classic) uses Cloud Service containing deployments with Web/Worker roles. Azure Virtual Machines (classic) uses a cloud service containing deployments with IaaS VMs.
 
-The list of supported scenarios differ between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
+The list of supported scenarios differs between Cloud Services (classic) and Virtual Machines (classic) because of differences in the deployment types.
 
 ## Migration steps
  
