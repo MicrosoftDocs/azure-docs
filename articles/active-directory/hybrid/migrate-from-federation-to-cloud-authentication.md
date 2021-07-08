@@ -95,7 +95,7 @@ Modern authentication clients (Office 2016 and Office 2013, iOS, and Android app
 > [!TIP]
 > Consider planning cutover of domains during off-business hours in case of rollback requirements. 
 
-To plan for rollback, use the [documented current federation settings](#document_current_federation_settings) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
+To plan for rollback, use the [documented current federation settings](#document-current-federation-settings) and check the [federation design and deployment documentation](/windows-server/identity/ad-fs/deployment/windows-server-2012-r2-ad-fs-deployment-guide). 
 
 The rollback process should include converting managed domains to federated domains by using the [Convert-MSOLDomainToFederated](/powershell/module/msonline/convert-msoldomaintofederated) cmdlet. If necessary, configuring extra claims rules.
 
@@ -180,7 +180,7 @@ If you're using staged rollout, follow the steps in the links below:
 
 1. [Enable staged rollout of a specific feature on your tenant.](/PHS/how-to-connect-staged-rollout)
 
-2. Once testing is complete, [convert domains from federated to managed](#convert_domains_from_federated_to_managed).
+2. Once testing is complete, [convert domains from federated to managed](#convert-domains-from-federated-to-managed).
 
 ### Without using staged rollout 
 
@@ -289,7 +289,7 @@ For most customers, two or three authentication agents are sufficient to provide
 
 *Available if you didn’t initially configure your federated domains by using Azure AD Connect or if you're using third-party federation services.*
 
-On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option_A:_Switch_from_federation_to_the_new_sign_in_method_by_using_Azure_AD_Connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
+On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-A:-Switch-from-federation-to-the-new-sign-in-method-by-using-Azure-AD-Connect). You will notice that on the User sign-in page, the **Do not configure** option is pre-selected.
 
 ![ See Do not Configure option on the user sign-in page](media/deploy-cloud-user-authentication/do-not-configure-on-user-sign-in-page.png)
 
@@ -312,7 +312,7 @@ Verify these settings:
 
     If the authentication agent isn’t active, complete these [troubleshooting steps](/PHS/tshoot-connect-pass-through-authentication) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 
-3. [Deploy more authentication agents](#Deploy_more_authentication_agents_for_PTA).
+3. [Deploy more authentication agents](#Deploy-more-authentication-agents-for-PTA).
 
 ### Convert domains from federated to managed
 
