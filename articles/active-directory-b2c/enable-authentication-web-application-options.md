@@ -7,27 +7,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/25/2021
+ms.date: 07/05/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication in a sample web application using Azure Active Directory B2C options
+# Configure authentication options in a web application using Azure Active Directory B2C 
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application. Before you start, familiarize yourself with the following articles: [Configure authentication in a sample web application](configure-authentication-sample-web-app.md) or [Enable authentication in your own web application](enable-authentication-web-application.md).
+This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application. Before you start, it is important to familiarize yourself with the following articles: [Configure authentication in a sample web application](configure-authentication-sample-web-app.md) or [Enable authentication in your own web application](enable-authentication-web-application.md).
 
-## Use a custom domain
+[!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
-Using a [custom domain](custom-domain.md) in your application's redirect URL provides a more seamless user experience. From the user's perspective, the user remains in your domain during the sign-in process rather than redirecting to the Azure AD B2C default domain .b2clogin.com.
+To use a custom domain and your tenant ID in the authentication URL, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. 
 
-To use a custom domain, follow the guidance in [Enable custom domains](custom-domain.md). Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. Update the `Instance` entry with your custom domain.
+- Update the `Instance` entry with your custom domain.
+- Update the `Domain` entry with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
 The following JSON shows the app settings before the change: 
 
 ```JSon
 "AzureAdB2C": {
   "Instance": "https://contoso.b2clogin.com",
+  "Domain": "tenant-name.onmicrosoft.com",
   ...
 }
 ```  
@@ -37,29 +39,6 @@ The following JSON shows the app settings after the change:
 ```JSon
 "AzureAdB2C": {
   "Instance": "https://login.contoso.com",
-  ...
-}
-``` 
-
-## Use your tenant ID
-
-You can replace your B2C tenant name in the URL with your tenant ID GUID to remove all references to “b2c” in the URL.  For example, you can change `https://account.contosobank.co.uk/contosobank.onmicrosoft.com/` to `https://account.contosobank.co.uk/<tenant ID GUID>/`
-
-To use the tenant ID, follow the guidance [Enable custom domains](custom-domain.md#optional-use-tenant-id). Under the project root folder, open the `appsettings.json` file. This file contains information about your Azure AD B2C identity provider. Update the `Domain` entry with your custom domain.
-
-The following JSON demonstrates the app settings before the change: 
-
-```JSon
-"AzureAdB2C": {
-  "Domain": "tenant-name.onmicrosoft.com",
-  ...
-}
-```  
-
-The following JSON demonstrates the app settings after the change:
-
-```JSon
-"AzureAdB2C": {
   "Domain": "00000000-0000-0000-0000-000000000000",
   ...
 }
@@ -100,14 +79,10 @@ private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 You can pass parameters between your controller and the *OnRedirectToIdentityProvider* function using context parameters. 
 
 
-## Prepopulate the sign-in name
+[!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
-During a sign-in user journey, your app may target a specific user. When targeting a user, an application can specify in the authorization request, the `login_hint` query parameter with the user sign-in name. Azure AD B2C automatically populates the sign-in name, and the user only needs to provide the password. 
-
-To prepopulate the sign-in name, follow these steps:
-
-1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. If you're using a custom policy, add the required input claim as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
+1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
     
     ```csharp
@@ -120,14 +95,10 @@ To prepopulate the sign-in name, follow these steps:
     }
     ```
 
-## Redirect sign-in to an external identity provider
+[!INCLUDE [active-directory-b2c-app-integration-domain-hint](../../includes/active-directory-b2c-app-integration-domain-hint.md)]
 
-If you configured the sign-in journey for your application to include social accounts, such as Facebook, LinkedIn, or Google, you can specify the `domain_hint` parameter. This query parameter provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. For example, if the application specifies `domain_hint=facebook.com`, the sign-in flow goes directly to the Facebook sign-in page. 
-
-To redirect sign-in to an external identity provider, follow these steps:
-
-1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. Check the domain name of your external identity provider. For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). 
+1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. In the *OnRedirectToIdentityProviderFunc* function, add the following line of code to the *OnRedirectToIdentityProvider* function:
     
     ```csharp
@@ -140,12 +111,10 @@ To redirect sign-in to an external identity provider, follow these steps:
     }
     ```
 
-## Specify the UI language
 
-Language customization in Azure AD B2C allows your user flow to accommodate different languages to suit your customer needs. For more information, see [Language customization](language-customization.md).
+[!INCLUDE [active-directory-b2c-app-integration-ui-locales](../../includes/active-directory-b2c-app-integration-ui-locales.md)]
 
-To set the preferred language, follow these steps:
-
+1. [Configure Language customization](language-customization.md).
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
 
@@ -159,13 +128,9 @@ To set the preferred language, follow these steps:
     }
     ```
 
-## Pass a custom query string parameter
+[!INCLUDE [active-directory-b2c-app-integration-custom-parameters](../../includes/active-directory-b2c-app-integration-custom-parameters.md)]
 
-With custom policies you can pass a custom query string parameter, for example when you want to [dynamically change the page content](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri).
-
-
-To pass a custom query string parameter, follow these steps:
-
+1. Configure the [ContentDefinitionParameters](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) element.
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. Add the following line of code to the *OnRedirectToIdentityProvider* function:
     
@@ -179,11 +144,8 @@ To pass a custom query string parameter, follow these steps:
     }
     ```
 
-## Pass ID token hint
 
-Azure AD B2C allows relying party applications to send an inbound JWT as part of the OAuth2 authorization request. The JWT token can be issued by a relying party application or an identity provider, and it can pass a hint about the user or the authorization request. Azure AD B2C validates the signature, issuer name, and token audience, and extracts the claim from the inbound token.
-
-To include an ID token hint in the authentication request, follow these steps: 
+[!INCLUDE [active-directory-b2c-app-integration-id-token-hint](../../includes/active-directory-b2c-app-integration-id-token-hint.md)]
 
 1. Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure.
 1. In your custom policy, define an [ID token hint technical profile](id-token-hint.md).

@@ -7,15 +7,10 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/30/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Azure Virtual Desktop
-
-> [!IMPORTANT]
-> AD FS single sign-on is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Azure Virtual Desktop.
 
@@ -23,9 +18,6 @@ This article will walk you through the process of configuring Active Directory F
 > Azure Virtual Desktop (Classic) doesn't support this feature.
 
 ## Requirements
-
-> [!IMPORTANT]
-> During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
 
 Before configuring AD FS single sign-on, you must have the following setup running in your environment:
 
@@ -43,8 +35,8 @@ Before configuring AD FS single sign-on, you must have the following setup runni
 
 The following Azure Virtual Desktop clients support this feature:
 
-* [Windows Desktop client](connect-windows-7-10.md)
-* [Web client](connect-web.md)
+* [Windows Desktop client](./user-documentation/connect-windows-7-10.md)
+* [Web client](./user-documentation/connect-web.md)
 
 ## Configure the certificate authority to issue certificates
 
@@ -227,9 +219,6 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
 
 ## Configure your Azure Virtual Desktop host pool
 
-> [!IMPORTANT]
-> During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
-
 It's time to configure the AD FS SSO parameters on your Azure Virtual Desktop host pool. To do this, [set up your PowerShell environment](powershell-module.md) for Azure Virtual Desktop if you haven't already and connect to your account.
 
 After that, update the SSO information for your host pool by running one of the following two cmdlets in the same PowerShell window on the AD FS VM:
@@ -286,5 +275,5 @@ UnConfigureWVDSSO.ps1 -WvdWebAppAppIDUri "<WVD Web App URI>" -WvdClientAppApplic
 
 Now that you've configured single sign-on, you can sign in to a supported Azure Virtual Desktop client to test it as part of a user session. If you want to learn how to connect to a session using your new credentials, check out these articles:
 
-* [Connect with the Windows Desktop client](connect-windows-7-10.md)
-* [Connect with the web client](connect-web.md)
+* [Connect with the Windows Desktop client](./user-documentation/connect-windows-7-10.md)
+* [Connect with the web client](./user-documentation/connect-web.md)

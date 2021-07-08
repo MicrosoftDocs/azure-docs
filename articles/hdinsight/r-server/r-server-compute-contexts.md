@@ -3,19 +3,21 @@ title: Compute context options for ML Services on HDInsight - Azure
 description: Learn about the different compute context options available to users with ML Services on HDInsight 
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
 ms.date: 01/02/2020
+ROBOTS: NOINDEX
 ---
 
 # Compute context options for ML Services on HDInsight
 
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
 ML Services on Azure HDInsight controls how calls are executed by setting the compute context. This article outlines the options that are available to specify whether and how execution is parallelized across cores of the edge node or HDInsight cluster.
 
-The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
+The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR's Hadoop Map Reduce or Apache Spark compute contexts.
 
 ## ML Services on Azure HDInsight
 
-[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an Apache Hadoop HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake Store, or the local Linux file system. Since ML Services is built on open-source R, the R-based applications you build can apply any of the 8000+ open-source R packages. They can also use the routines in [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft’s big data analytics package that is included with ML Services.  
+[ML Services on Azure HDInsight](r-server-overview.md) provides the latest capabilities for R-based analytics. It can use data that is stored in an Apache Hadoop HDFS container in your [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob storage") storage account, a Data Lake Store, or the local Linux file system. Since ML Services is built on open-source R, the R-based applications you build can apply any of the 8000+ open-source R packages. They can also use the routines in [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), Microsoft's big data analytics package that is included with ML Services.  
 
 ## Compute contexts for an edge node
 

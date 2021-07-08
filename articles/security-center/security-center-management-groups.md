@@ -39,13 +39,13 @@ For a detailed overview of management groups, see the [Organize your resources w
 
 1. From the [Azure portal](https://portal.azure.com), use the search box in the top bar to find and open **Management Groups**.
 
-    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accessing your management groups":::
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accessing your management groups.":::
 
     The list of your management groups appears.
 
 1. To create a management group, select **Add management group**, enter the relevant details, and select **Save**.
 
-    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Adding a management group to Azure":::
+    :::image type="content" source="media/security-center-management-groups/add-management-group.png" alt-text="Adding a management group to Azure.":::
 
     - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier isn't editable after creation as it is used throughout the Azure system to identify this group. 
     - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
@@ -56,13 +56,13 @@ You can add subscriptions to the management group that you created.
 
 1. From the Azure portal, open **Management Groups** and select the management group for your subscription.
 
-    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Select a management group for your subscription":::
+    :::image type="content" source="./media/security-center-management-groups/management-group-subscriptions.png" alt-text="Select a management group for your subscription.":::
 
 1. When the group's page opens, select **Subscriptions**.
 
 1. From the subscriptions page, select **Add**, then select your subscriptions and select **Save**. Repeat until you've added all the subscriptions in the scope.
 
-    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Adding a subscription to a management group":::
+    :::image type="content" source="./media/security-center-management-groups/management-group-add-subscriptions.png" alt-text="Adding a subscription to a management group.":::
 
    > [!IMPORTANT]
    > Management groups can contain both subscriptions and child management  groups. When you assign a user an Azure role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
@@ -75,7 +75,7 @@ You can add subscriptions to the management group that you created.
 
 1. From the [Azure portal](https://portal.azure.com), use the search box in the top bar to find and open **Management Groups**.
 
-    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accessing your management groups":::
+    :::image type="content" source="./media/security-center-management-groups/open-management-groups-service.png" alt-text="Accessing your management groups.":::
 
     The list of your management groups appears.
 
@@ -83,11 +83,11 @@ You can add subscriptions to the management group that you created.
 
 1. Select **Access control (IAM)**, open the **Role assignments** tab and select **Add** > **Add role assignment**.
 
-    :::image type="content" source="./media/security-center-management-groups/add-user.png" alt-text="Adding a user to a management group":::
+    :::image type="content" source="./media/security-center-management-groups/add-user.png" alt-text="Adding a user to a management group.":::
 
 1. From the **Add role assignment** page, select the relevant role.
 
-    :::image type="content" source="./media/security-center-management-groups/add-role-assignment-page.png" alt-text="Add role assignment page":::
+    :::image type="content" source="./media/security-center-management-groups/add-role-assignment-page.png" alt-text="Add role assignment page.":::
 
 1. From the **Members** tab, select **+ Select members** and assign the role to the relevant members.
 
@@ -106,7 +106,7 @@ You can add subscriptions to the management group that you created.
 
 3. When prompted, sign in with global admin credentials. 
 
-    ![Sign in prompt screenshot](./media/security-center-management-groups/azurerm-sign-in.PNG)
+    ![Sign in prompt screenshot.](./media/security-center-management-groups/azurerm-sign-in.PNG)
 
 4. Grant reader role permissions by running the following command:
 

@@ -6,7 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -66,15 +66,15 @@ Prepare your Blob storage for the tutorial by completing these steps:
 6. Under **Location**, select the location for the data factory. Only supported locations appear in the list. The data stores (for example, Azure Storage and Azure SQL Database) and computes (for example, Azure HDInsight) that your data factory uses can be in other locations and regions.
 8. Select **Create**.
 9. After the data factory is created, the data factory home page appears.
-10. To open the Azure Data Factory user interface (UI) on a separate tab, select the **Author & Monitor** tile:
+10. To open the Azure Data Factory user interface (UI) on a separate tab, select **Open** on the **Open Azure Data Factory Studio** tile:
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 ## Use the Copy Data tool to create a pipeline
 
-1. On the **Let's get started** page, select the **Copy Data** tile to open the Copy Data tool:
+1. On the Azure Data Factory home page, select the **Ingest** tile to open the Copy Data tool:
 
-   ![Copy Data tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 2. On the **Properties** page, take the following steps:
 

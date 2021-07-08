@@ -112,4 +112,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
-    href: private-link-faq.md
+    href: private-link-faq.yml

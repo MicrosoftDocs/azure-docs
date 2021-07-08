@@ -57,7 +57,7 @@ Several resources are defined in the template:
     - **Resource group**: select an existing resource group from the drop-down, or select **Create new**, enter a unique name for the resource group, and then click **OK**.
     - **Location**: select a location.  For example, **Central US**.
     - **Admin username**: provide a username, such as *azureuser*.
-    - **Admin password**: provide a password to use for the admin account. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    - **Admin password**: provide a password to use for the admin account. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
     - **DNS label prefix**: enter a unique identifier to use as part of the DNS label.
     - **Windows OS version**: select which version of Windows you want to run on the VM.
     - **VM size**: select the [size](../sizes.md) to use for the VM.

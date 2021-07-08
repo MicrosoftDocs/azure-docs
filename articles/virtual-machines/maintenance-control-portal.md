@@ -83,7 +83,7 @@ You can also check a specific host using **Virtual Machines** or properties of t
 
 ## Apply updates
 
-You can apply pending updates on demand using **Virtual Machines**. On the VM details, click **Maintenance** and click **Apply maintenance now**.
+You can apply pending updates on demand. On the VM or Azure Dedicated Host details, click **Maintenance** and click **Apply maintenance now**. Apply update calls can take upto 2 hours to complete.
 
 ![Screenshot showing how to apply pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-apply-updates-now.png)
 
