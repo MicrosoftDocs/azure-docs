@@ -87,10 +87,10 @@ This section helps you create the bastion object in your VNet. This is required 
     * **Resource Group**: The Azure resource group in which the new Bastion resource will be created. If you don't have an existing resource group, you can create a new one.
     * **Name**: The name of the new Bastion resource.
     * **Region**: The Azure public region that the resource will be created in.
-     * **Tier:** The tier is the SKU. For this exercise, we selected **Standard** from the dropdown. You can select either SKU. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
-     * **Instance count:** This is the setting for host scaling. Instance count requires the Standard SKU. Use the slider to configure. If you specify the Basic tier SKU, you cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). In this tutorial, you can select the instance count you'd prefer. 
+     * **Tier:** The tier is the SKU. For this exercise, we selected the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
+     * **Instance count:** This is the setting for host scaling. Use the slider to configure the instance count. If you specify the Basic tier SKU, you cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). In this tutorial, you can select the instance count you'd prefer. 
     * **Virtual network**: The virtual network in which the Bastion resource will be created. You can create a new virtual network in the portal during this process, or use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements. If you don't see your virtual network from the dropdown, make sure you have selected the correct Resource Group.
-    * **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. The subnet in your virtual network where the Bastion instances will be deployed. 
+    * **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. This is the subnet in your virtual network where the Bastion instances will be deployed. 
 
       :::image type="content" source="./media/tutorial-create-host-portal/subnet.png" alt-text="Screenshot of Manage a subnet.":::
 
@@ -103,7 +103,7 @@ This section helps you create the bastion object in your VNet. This is required 
 
         :::image type="content" source="./media/tutorial-create-host-portal/azure-bastion-subnet.png" alt-text="Screenshot of the AzureBastionSubnet subnet.":::
 
-      You don't need to fill out additional fields on this page. Select **Save** at the bottom of the page. 
+      You don't need to fill out additional fields on this page. Select **Save** at the bottom of the page to save the settings and close the **Add subnet** page.
 
       At the top of the **Subnets** page, select **Create a Bastion** to return to the Bastion configuration page.
 
