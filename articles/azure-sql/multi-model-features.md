@@ -78,19 +78,6 @@ You can use document models instead of the relational models in some specific sc
 - You need to simplify your data model by denormalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in JSON format without an additional tool that parses the data.
 
-## Spatial features
-
-Spatial data represents information about the physical location and shape of objects. These objects can be point locations or more complex objects such as countries/regions, roads, or lakes.
-
-Azure SQL supports two spatial data types: 
-
-- The geometry type represents data in a Euclidean (flat) coordinate system.
-- The geography type represents data in a round-earth coordinate system.
-
-Spatial features in Azure SQL enable you to store geometrical and geographical data. You can use spatial objects in Azure SQL to parse and query data represented in JSON format, and export your relational data as JSON text. These spatial objects include [Point](/sql/relational-databases/spatial/point), [LineString](/sql/relational-databases/spatial/linestring), and [Polygon](/sql/relational-databases/spatial/polygon). Azure SQL also provides specialized [spatial indexes](/sql/relational-databases/spatial/spatial-indexes-overview) that you can use to improve the performance of your spatial queries.
-
-[Spatial support](/sql/relational-databases/spatial/spatial-data-sql-server) is a core feature of the SQL Server database engine.
-
 ## XML features
 
 XML features enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL products have a specialized, built-in XML data type and query functions that process XML data.
@@ -109,6 +96,19 @@ You can use document models instead of the relational models in some specific sc
 - You're working with applications that natively use XML documents for communication or data models, and you don't want to introduce more layers that transform relational data into JSON and vice versa.
 - You need to simplify your data model by denormalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in XML format without an additional tool that parses the data.
+
+## Spatial features
+
+Spatial data represents information about the physical location and shape of objects. These objects can be point locations or more complex objects such as countries/regions, roads, or lakes.
+
+Azure SQL supports two spatial data types: 
+
+- The geometry type represents data in a Euclidean (flat) coordinate system.
+- The geography type represents data in a round-earth coordinate system.
+
+Spatial features in Azure SQL enable you to store geometrical and geographical data. You can use spatial objects in Azure SQL to parse and query data represented in JSON format, and export your relational data as JSON text. These spatial objects include [Point](/sql/relational-databases/spatial/point), [LineString](/sql/relational-databases/spatial/linestring), and [Polygon](/sql/relational-databases/spatial/polygon). Azure SQL also provides specialized [spatial indexes](/sql/relational-databases/spatial/spatial-indexes-overview) that you can use to improve the performance of your spatial queries.
+
+[Spatial support](/sql/relational-databases/spatial/spatial-data-sql-server) is a core feature of the SQL Server database engine.
 
 ## Key-value pairs
 
