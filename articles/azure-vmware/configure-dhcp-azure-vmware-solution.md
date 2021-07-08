@@ -29,7 +29,9 @@ Applications and workloads running in a private cloud environment require name r
 Use the DHCP service built-in to NSX or use a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
 -->
 
-In this how-to article, you'll use either NSX-T Manager or the Azure portal to configure DHCP for Azure VMware Solution. Using the Azure portal (simplified view) is targeted at users unfamiliar with NSX-T Manager.
+[!INCLUDE [configure-nsxt-objects-description](includes/configure-nsxt-objects-description.md)]
+
+In this how-to article, you'll use either NSX-T Manager or the Azure portal to configure DHCP for Azure VMware Solution. 
 
 ## Supported scenarios
 

@@ -30,12 +30,4 @@ ms.date: 03/13/2021
 
 1. Select **No** to decline the option to continue configuring the segment. 
 
-1. Confirm the presence of the new network segment. In this example, **ls01** is the new network segment.
 
-   1. In NSX-T Manager, select **Networking** > **Segments**. 
-
-      :::image type="content" source="../media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Screenshot showing the confirmation and status of the new network segment is present in NSX-T.":::
-
-   1. In vCenter, select **Networking** > **SDDC-Datacenter**.
-
-      :::image type="content" source="../media/nsxt/vcenter-with-ls01-2.png" alt-text="Screenshot showing the confirmation that the new network segment is present in vCenter.":::

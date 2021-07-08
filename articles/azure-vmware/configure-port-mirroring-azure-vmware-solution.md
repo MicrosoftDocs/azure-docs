@@ -1,36 +1,23 @@
 ---
 title: Configure port mirroring for Azure VMware Solution
-description: Learn how to configure port mirroring in either NSX-T Manager or the Azure portal. 
+description: Learn how to configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. 
 ms.topic: how-to
 ms.date: 07/16/2021
 
-# Customer intent: As an Azure service administrator, I want to configure 
+# Customer intent: As an Azure service administrator, I want to configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another.
 
 ---
 
 # Configure port mirroring in the Azure portal
 
-# [H1 heading here]
+After deploying Azure VMware Solution, you can configure port mirroring from the Azure portal. Port mirroring places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a virtual machine (VM), or a group of VMs, and then sent to a defined destination. 
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
+In this how-to, you'll configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. 
 
 
+## Create the VMs or VM groups
 
-In this step, you'll configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. This option places a protocol analyzer on the port that receives the mirrored data. It analyzes traffic from a source, a VM, or a group of VMs, and then sent to a defined destination. 
-
-## Prerequisites
-Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment.
-
-To set up port mirroring in the Azure VMware Solution console, you'll:
-
-* Create the source and destination VMs or VM groups – The source group has a single VM or multiple VMs where the traffic is mirrored.
-
-* Create a port mirroring profile – You'll define the traffic direction for the source and destination VM groups.
-
+You'll create the source and destination VMs or VM groups. The source group has a single VM or multiple VMs where the traffic is mirrored.
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Port mirroring** > **VM groups** > **Add**.
 
@@ -42,6 +29,10 @@ To set up port mirroring in the Azure VMware Solution console, you'll:
 
    >[!NOTE]
    >Before creating a port mirroring profile, make sure that you've created both the source and destination VM groups.
+
+## Create a port mirroring profile
+
+You'll create a port mirroring profile that defines the traffic direction for the source and destination VM groups.
 
 1. Select **Port mirroring** > **Port mirroring** > **Add** and then provide:
 
