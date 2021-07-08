@@ -24,10 +24,11 @@ You can create and configure an NSX-T segment from the Azure portal.  Once creat
 
    - **DHCP** (optional) - DHCP ranges for a logical segment. A [DHCP server or DHCP relay](../networking/configure-nsx-network-components-azure-portal.md) must be configured to consume DHCP on Segments.  
 
-   - **Connected gateway** - *Selected by default and is read-only.*  Tier-1 gateway and type of segment information. 
-
-      - **T1** - Name of the Tier-1 gateway in NSX-T Manager. A private cloud comes with an NSX-T Tier-0 gateway in Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  Segments created through the Azure VMware Solution console only connect to the default Tier-1 gateway, and the workloads of these segments get East-West and North-South connectivity. You can only create more Tier-1 gateways through NSX-T Manager. Tier-1 gateways created from the NSX-T Manager console are not visible in the Azure VMware Solution console. 
-
-      - **Type** - Overlay segment supported by Azure VMware Solution.
+   >[!NOTE]
+   >The **Connected gateway** is selected by default and is read-only.  Tier-1 gateway and type of segment information. 
+   >
+   >- **T1** - Name of the Tier-1 gateway in NSX-T Manager. A private cloud comes with an NSX-T Tier-0 gateway in Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  Segments created through the Azure VMware Solution console only connect to the default Tier-1 gateway, and the workloads of these segments get East-West and North-South connectivity. You can only create more Tier-1 gateways through NSX-T Manager. Tier-1 gateways created from the NSX-T Manager console are not visible in the Azure VMware Solution console. 
+   >
+   >- **Type** - Overlay segment supported by Azure VMware Solution.
 
 The segment is now visible in Azure VMware Solution, NSX-T Manger, and vCenter.
