@@ -15,7 +15,7 @@ ms.date: 12/17/2018
 # Multi-model capabilities of Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Multi-model databases enable you to store and work with data in multiple formats, such as relational data, graphs, JSON or XML documents, and key/value pairs.
+Multi-model databases enable you to store and work with data in multiple formats, such as relational data, graphs, JSON or XML documents, and key-value pairs.
 
 The [Azure SQL family of products](azure-sql-iaas-vs-paas-what-is-overview.md) uses a relational model that provides the best performance for a variety of general-purpose applications. However, Azure SQL products like Azure SQL Database and SQL Managed Instance are not limited to relational data. They enable you to use non-relational formats that are tightly integrated into the relational model.
 
@@ -44,11 +44,12 @@ Here are some features that make a graph database unique:
 
 Graph relationships and graph query capabilities are integrated into Transact-SQL and receive the benefits of using the SQL Server database engine as the foundational database management system. Graph features use standard Transact-SQL queries enhanced with the graph `MATCH` operator to query the graph data.
 
-A graph database can't achieve anything beyond what a relational database can achieve. However, a graph database can make it easier to express certain queries. Your decision to choose one over the other can be based on the following factors:
+A relational database can achieve anything that a graph database can. However, a graph database can make it easier to express certain queries. Your decision to choose one over the other can be based on the following factors:
 
-- You need to model hierarchical data where one node can have multiple parents, so you can't use `HierarchyId`.
+- You need to model hierarchical data where one node can have multiple parents, so you can't use [the hierarchyId data type](/sql/t-sql/data-types/hierarchyid-data-type-method-reference).
 - Your application has complex many-to-many relationships. As the application evolves, new relationships are added.
 - You need to analyze interconnected data and relationships.
+- You want to use graph-specific T-SQL search conditions such as [SHORTEST_PATH](/sql/relational-databases/graphs/sql-graph-shortest-path).
 
 ## JSON features
 
@@ -60,15 +61,13 @@ JSON is a popular data format for exchanging data in modern web and mobile appli
 
 Most Azure services have REST endpoints that return or consume JSON. These services include [Azure Cognitive Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Azure SQL provides the following functions for working with JSON data:
-
-![Diagram that illustrates JSON functions.](./media/multi-model-features/image_1.png)
-
 If you have JSON text, you can extract data from JSON or verify that JSON is properly formatted by using the built-in functions [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql), [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql), and [ISJSON](/sql/t-sql/functions/isjson-transact-sql). The other functions are:
 
 - [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql): Lets you update values inside JSON text. 
 - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql): Can transform an array of JSON objects into a set of rows, for more advanced querying and analysis. Any SQL query can be executed on the returned result set. 
 - [FOR JSON](/sql/relational-databases/json/format-query-results-as-json-with-for-json-sql-server): Lets you format data stored in your relational tables as JSON text.
+
+![Diagram that illustrates JSON functions.](./media/multi-model-features/image_1.png)
 
 For more information, see [How to work with JSON data](database/json-features.md). 
 
@@ -94,7 +93,7 @@ Spatial support is a core feature of the SQL Server database engine.
 
 ## XML features
 
-XML features enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL products have a specialized, built-in XML query engine that processes XML data.
+XML features enable you to store and index XML data in your database and use native XQuery/XPath operations to work with XML data. Azure SQL products have a specialized, built-in XML data type and query functions that process XML data.
 
 The SQL Server database engine provides a powerful platform for developing applications to manage semistructured data. Support for XML is integrated into all the components of the database engine and includes:
 
@@ -111,9 +110,9 @@ You can use document models instead of the relational models in some specific sc
 - You need to simplify your data model by denormalizing child tables or Entity-Object-Value patterns.
 - You need to load or export data stored in XML format without an additional tool that parses the data.
 
-## Key/value pairs
+## Key-value pairs
 
-Azure SQL products don't have specialized types or structures that support key/value pairs, because key/value structures can be natively represented as standard relational tables:
+Azure SQL products don't have specialized types or structures that support key-value pairs, because key-value structures can be natively represented as standard relational tables:
 
 ```sql
 CREATE TABLE Collection (
@@ -122,12 +121,12 @@ CREATE TABLE Collection (
 )
 ```
 
-You can customize this key/value structure to fit your needs without any constraints. As an example, the value can be an XML document instead of the `nvarchar(max)` type. If the value is a JSON document, you can use a `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns. For example:
+You can customize this key-value structure to fit your needs without any constraints. As an example, the value can be an XML document instead of the `nvarchar(max)` type. If the value is a JSON document, you can use a `CHECK` constraint that verifies the validity of JSON content. You can put any number of values related to one key in the additional columns. For example:
 
 - Add computed columns and indexes to simplify and optimize data access.
 - Define the table as a memory-optimized, schema-only table to get better performance.
 
-For an example of how a relational model can be effectively used as a key/value pair solution in practice, see [How bwin is using SQL Server 2016 In-Memory OLTP to achieve unprecedented performance and scale](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale). Bwin used a relational model for its ASP.NET caching solution to achieve 1.2 million batches per second.
+For an example of how a relational model can be effectively used as a key-value pair solution in practice, see [How bwin is using SQL Server 2016 In-Memory OLTP to achieve unprecedented performance and scale](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale). In this case study, bwin used a relational model for its ASP.NET caching solution to achieve 1.2 million batches per second.
 
 ## Next steps
 
@@ -137,3 +136,4 @@ Multi-model capabilities are core SQL Server database engine features that are s
 - [JSON data in SQL Server](/sql/relational-databases/json/json-data-sql-server)
 - [Spatial data in SQL Server](/sql/relational-databases/spatial/spatial-data-sql-server)
 - [XML data in SQL Server](/sql/relational-databases/xml/xml-data-sql-server)
+- [Key-value store performance in Azure SQL Database](https://devblogs.microsoft.com/azure-sql/azure-sql-database-as-a-key-value-store/)
