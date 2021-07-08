@@ -102,4 +102,4 @@ In the following steps, we will enable a system-assigned managed identity and gr
 ## Learn more about  managed identity
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources frequently asked questions - Azure AD](/azure/active-directory/managed-identities-azure-resources/managed-identities-faq)
+> [Managed identities for Azure resources: frequently asked questions - Azure AD](/azure/active-directory/managed-identities-azure-resources/managed-identities-faq)
