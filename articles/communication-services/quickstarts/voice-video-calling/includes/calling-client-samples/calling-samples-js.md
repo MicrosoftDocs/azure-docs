@@ -44,7 +44,8 @@ The following classes and interfaces handle some of the major features of the Az
 | `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
 | `RemoteVideoStream`                 | Used for representing an remote video stream from a Remote Participant.                                                                  |
 
-Note: The Calling SDK object instances shouldn't be considered to be a plain JavaScript objects. These are actual instances of various classes and therefore can't be serialized.
+> [!NOTE]
+> The Calling SDK object instances shouldn't be considered to be a plain JavaScript objects. These are actual instances of various classes and therefore can't be serialized.
 
 ### Events model
 Each object in the calling sdk, has properties and collections values of which, change throughout the lifetime of the object.
