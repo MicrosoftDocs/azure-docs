@@ -44,5 +44,5 @@ landingContent:
     linkLists:
       - linkListType: overview
         links: 
-          - text: The main Azure Virtual Desktop documentation, where you'll find more detailed information about the service.
+          - text: The main Azure Virtual Desktop documentation, where you'll find more detailed information about the service
             url: ../overview.md
