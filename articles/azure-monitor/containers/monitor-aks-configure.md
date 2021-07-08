@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor
+title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor - Configure
 description: Describes how to configure AKS clusters for monitoring in Azure Monitor.
 ms.service:  azure-monitor
 ms.topic: conceptual

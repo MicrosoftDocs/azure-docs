@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor
+title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor - Analyze
 description: Describes the different features of Azure Monitor that allow you to analyze the health and performance of your AKS cluster.
 ms.service:  azure-monitor
 ms.topic: conceptual
