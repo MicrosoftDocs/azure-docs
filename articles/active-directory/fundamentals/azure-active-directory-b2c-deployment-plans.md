@@ -44,7 +44,7 @@ assessment of your organization's status and expectations.
 
 - Identify customer's location and [create a tenant in the corresponding datacenter](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
-- Evaluate the type of applications you've
+- Check the type of applications you have
   - Check the platforms that are currently supported - [MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) or [Open source](https://azure.microsoft.com/free/open-source/search/?OCID=AID2200277_SEM_f63bcafc4d5f1d7378bfaa2085b249f9:G:s&ef_id=f63bcafc4d5f1d7378bfaa2085b249f9:G:s&msclkid=f63bcafc4d5f1d7378bfaa2085b249f9).
   - For backend services, use the [client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/msal-authentication-flows#client-credentials).
 
