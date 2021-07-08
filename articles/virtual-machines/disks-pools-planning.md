@@ -15,7 +15,7 @@ It's important to understand the performance requirements of your workload befor
 
 ## Optimize for low latency
 
-If you're prioritizing for low latency, add ultra disks to your disk pool. Ultra disks provide sub-ms disk latency. To get the lowest latency possible, you must also evaluate your network configuration and ensure it's using the most optimal path. If you're using ExpressRoute to connect clients to disk pool, consider using [ExpressRoute FastPath](../expressroute/about-fastpath.md) to minimize network latency.
+If you're prioritizing for low latency, add ultra disks to your disk pool. Ultra disks provide sub-ms disk latency. To get the lowest latency possible, you must also evaluate your network configuration and ensure it's using the most optimal path. Consider using [ExpressRoute FastPath](../expressroute/about-fastpath.md) to minimize network latency.
 
 ## Optimize for high throughput
 
@@ -39,10 +39,9 @@ Refer to the [Networking planning checklist for Azure VMware Solution](../azure-
 
 |Resource  |Limit  |
 |---------|---------|
-|Maximum number of disks per disk pool|32|
+|Maximum number of disks per disk pool|8|
 |Maximum IOPS per disk pool|25,600|
 |Maximum MBps per disk pool|384|
-|Maximum number of iSCSI initiators|16|
 
 The following example should give you an idea of how the different performance factors work together:
 

@@ -47,7 +47,7 @@ Once your subscription has been registered, you can deploy a disk pool.
 
 ### Delegate subnet permission
 
-In order for your disk pool to work with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool** resource provider.
+In order for your disk pool to work with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool/diskPools** resource provider.
 
 1. Go to the virtual networks blade in the Azure portal and select the virtual network to use for the disk pool.
 1. Select **Subnets** from the virtual network blade and select **+Subnet**.
@@ -61,7 +61,7 @@ For more information on subnet delegation, see [Add or remove a subnet delegatio
 For a disk to be able to be used in a disk pool, it must meet the following requirements:
 
 - The **StoragePool** resource provider must have been assigned an RBAC role that contains Read & Write permissions for every managed disk in the disk pool.
-- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
+- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
 
@@ -92,7 +92,7 @@ For the optimal performance, we suggest you to deploy the disk pool in the same 
 
 To add a disk, it must meet the following requirements:
 
-- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool, or deployed with ZRS.
+- Must be either a premium SSD or an ultra disk in the same availability zone as the disk pool.
     - Currently, you can only add premium SSDs in the portal. Ultra disks must be added with either the Azure PowerShell module or the Azure CLI.
     - For ultra disks, it must have a disk sector size of 512 bytes.
 - Must be a shared disk with a maxShares value of two or greater.
@@ -220,7 +220,8 @@ az disk-pool iscsi-target create --name $targetName \
 
 #Add the disk to disk pool
 diskId=$(az disk show --name $diskName --resource-group $resourceGroupName --query "id" -o json)
-diskId="${diskId%\"}"
+diskId="${diskId%"}"
+diskId="${diskId#"}"
 
 az disk-pool update --name $diskPoolName --resource-group $resourceGroupName --disks $diskId
 
