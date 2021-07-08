@@ -154,8 +154,8 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: REST API (v3.1-preview)
-          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/
+        - text: REST API (v3.1)
+          url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1
         - text: REST API (v3.0)
           url: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
         - text: .NET client library
