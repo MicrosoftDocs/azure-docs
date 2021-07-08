@@ -20,9 +20,6 @@ Read more about Azure Communication Services [here](https://docs.microsoft.com/a
 
 ## Install the SDK
 
-> [!NOTE]
-> This document uses ACS Calling Web SDK.
-
 Use the `npm install` command to install the Azure Communication Services calling and common SDKs for JavaScript.
 
 ```console
@@ -43,17 +40,19 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                | Description                                                                                                                              |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                        | The main entry point to the Calling SDK.                                                       									         |
-| `CallAgent`                         | Used to start and manage calls.                                                                      									 |
-| `DeviceManager`                     | Used to manage media devices.                                                                                                            |
+| `CallClient`                        | The main entry point to the Calling SDK.                                                                                                 |
 | `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`.                                       |
+| `CallAgent`                         | Used to start and manage calls.                                                                                                          |
+| `DeviceManager`                     | Used to manage media devices.                                                                                                            |
 | `Call`                              | Used for represening a Call                                                                                                              |
-| `RemoteParticipant`                 | Used for representing a remote participant in the Call
+| `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system.                                                          |
+| `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
+| `RemoteVideoStream`                 | Used for representing an remote video stream from a Remote Participant.                                                                  |
 
-Note: The Calling SDK's objects are not POJO.
+Note: The Calling SDK object instances shouldn't be considered to be a plain JavaScript objects. These are actual instances of various classes and therefore can't be serialized.
 
 ### Events model
-Each object in the calling sdk, has properties and collections whos values change throughout the lifetime of the object.
+Each object in the calling sdk, has properties and collections values of which, change throughout the lifetime of the object.
 Use the on() method to subscribe to objects' events, and use the off() method to unsubscribe from objects' events.
 #### Properties
 - You must inspect their initial values, and subscribe to the '\<property\>Changed' event for future value updates.
@@ -64,22 +63,81 @@ Use the on() method to subscribe to objects' events, and use the off() method to
 
 ```js
 /*************************************
- * Example code for for Events model *
+ * Example code - client.js          *
+ * Convert this script into a bundle *
+ * that your html index page can use.*
  *************************************/
+const { CallClient, VideoStreamRenderer, LocalVideoStream } = require('@azure/communication-calling');
+const { AzureCommunicationTokenCredential } = require('@azure/communication-common');
+const { AzureLogger, setLogLevel } = require("@azure/logger");
+setLogLevel('verbose');
+AzureLogger.log = (...args) => {
+    console.log(...args);
+};
 
-const { CallClient, VideoStreamRenderer } = require('@azure/communication-calling');
-const { AzureCommunicationTokenCredential} = require('@azure/communication-common');
+let callAgent;
+let call;
+let incomingCall;
+let videoOptions;
+let localVideoStream;
 
-initialize = async () => {
+document.getElementById('initialize-calling-sdk').addEventListener("click", async () => {
     try {
         // Instantiate the Call Agent.
-        // For more info on instantiating the Call Agent, see the "Initialize a CallClient instance..." section below.
-        const callClient = new CallClient();
-        const tokenCredential = new AzureCommunicationTokenCredential('USER_TOKEN');
-        const callAgent = await callClient.createCallAgent(tokenCredential);
-        const callee = { communicationUserId: '<ACS_USER_ID>' };
-        const call = callAgent.startCall([callee]);
+        // For more info on instantiating the Call Agent, see the "Initialize a CallClient instance..." section below.	
+        const callClient = new CallClient(); 
+        const userTokenCredential = document.getElementById('user-access-token').value;
+        tokenCredential = new AzureCommunicationTokenCredential(userTokenCredential);
+        callAgent = await callClient.createCallAgent(tokenCredential)
+        // Set up a camera device to use.
+        const dm = await callClient.getDeviceManager();
+        const camera = (await dm.getCameras())[0];
+        if (camera) {
+            videoOptions = { localVideoStreams: [new LocalVideoStream(camera)] };
+        }
+        // Listen for an incoming call to accept.
+        callAgent.on('incomingCall', async (args) => {
+            try {
+                incomingCall = args.incomingCall;
+                document.getElementById('accept-incoming-call-button').disabled = false;
+                document.getElementById('start-outgoing-call-button').disabled = true;
+            } catch (error) {
+                console.error(error);
+            }
+        });
 
+        document.getElementById('start-outgoing-call-button').disabled = false;
+        document.getElementById('initialize-calling-sdk').disabled = true;
+    } catch(error) {
+        console.error(error);
+    }
+})
+
+// Start an out-going call.
+// For more info on starting a call, see the "Place a call" section below.
+startCall = () => {
+    try {
+        const calleeUserId = document.getElementById('callee-acs-user-id-input').value;
+        call = callAgent.startCall([{ communicationUserId: calleeUserId }], { videoOptions });
+        // Subscribe to the call's properties and events.
+        subscribeToCall(call);
+    } catch (error) {
+        console.error(error);
+    }
+}
+document.getElementById('start-outgoing-call-button').addEventListener("click", startCall);
+
+// Accept the incoming call.
+// For more info on accepting an incoming call, see the "Receive an incoming call" section below.
+acceptIncomingCall = async () => {
+    call = await incomingCall.accept({ videoOptions });
+    // Subscribe to the call's properties and events.
+    subscribeToCall(call);
+}
+document.getElementById('accept-incoming-call-button').addEventListener("click", acceptIncomingCall);
+
+subscribeToCall = (call) => {
+    try {
         // Inspect the initial call.id value.
         console.log(`Call Id: ${call.id}`);
         //Subsribe to call's 'idChanged' event for value changes.
@@ -114,7 +172,6 @@ initialize = async () => {
         console.error(error);
     }
 }
-initialize();
 
 subscribeToRemoteParticipant = (remoteParticipant) => {
     try {
@@ -161,13 +218,14 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     const renderVideo = async () => {
         try {
             // Create a renderer view for the remote video stream.
-            view = await videoStreamRenderer.createView();
+        view = await videoStreamRenderer.createView();
             // Attach the renderer view to the UI.
             remoteVideoContainer.appendChild(view.target);
         } catch (e) {
             console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
         }	
     }
+    
     remoteVideoStream.on('isAvailableChanged', async () => {
         // Participant has switched video on.
         if (remoteVideoStream.isAvailable) {
@@ -188,11 +246,37 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     }
 }
 ```
-
+An HTML example code that can use a bundle generated from the above js example (client.js).
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Azure Communication Services - Calling Web SDK</title>
+    </head>
+    <body>
+        <h4>Azure Communication Services - Calling Web SDK</h4>
+        <input id="user-access-token"
+            type="text"
+            placeholder="User access token"
+            style="margin-bottom:1em; width: 500px;"/>
+        <button id="initialize-calling-sdk" type="button">Initialize Calling SDK</button>
+        <input id="callee-acs-user-id-input"
+            type="text"
+            placeholder="Enter callee's ACS user identity in format: '8:acs:resourceId_userId'"
+            style="margin-bottom:1em; width: 500px; display: block;"/>
+        <button id="start-outgoing-call-button" type="button" disabled="true">Start Call</button>
+        <button id="accept-incoming-call-button" type="button" disabled="true">Accept Call</button>
+        <div id="remoteVideoContainer" style="width: 50%; height: 25%"></div>
+        <!-- points to the bundle generated from client.js -->
+        <script src="./bundle.js"></script>
+    </body>
+</html>
+```
+Note that after starting call, joining call, or accepting call, you can also use
+the callAgent's 'callsUpdated' event to be notified of the new Call object and
+start subscribing to it.
 ```js
-// Note that after starting call, joining call, or accepting call, you can also use
-// the callAgent's 'callsUpdated' event to be notified of the new Call object and
-// start subscribing to it.
 callAgent.on('callsUpdated', e => {
     // New Call object is added to callAgent.calls collection
     e.added.forEach(call => {
@@ -1134,4 +1218,3 @@ console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFun
         - Call - since it's the one holding the actual state of the call ( both signaling and media ).
         - RemoteParticipants - Represent the remote participants in the call.
         - VideoStreamRenderer with it's VideoStreamRendererViews - handling video rendering.
-
