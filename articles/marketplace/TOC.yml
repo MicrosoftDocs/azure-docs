@@ -464,7 +464,7 @@
   - name: Manage metered billing anomalies
     href: anomaly-detection.md
   - name: Analytics common questions
-    href: analytics-faq.md
+    href: analytics-faq.yml
 - name: Policies and terms
   items:    
   - name: About our policies and terms
