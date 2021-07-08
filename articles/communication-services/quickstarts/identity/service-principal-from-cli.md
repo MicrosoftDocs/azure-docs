@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Active Directory Service Principal from the Azure CLI
 titleSuffix: An Azure Communication Services quickstart
-description: Azure Active Directory lets you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
+description: In this quick start we'll create an application and service principal to authenticate with Azure Communication Services.
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
@@ -28,12 +28,12 @@ The Azure Identity SDK can authenticate with many methods. In Development we'll 
 
 When using Active Directory for other Azure Resources, you should be using Managed identities. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
-- [Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
-- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
-- [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure Resource Manager SDKs](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
-- [App services](../../app-service/overview-managed-identity.md)
+- [Azure portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+- [Azure PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure CLI](../../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager template](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure Resource Manager SDKs](../../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [App services](../../../app-service/overview-managed-identity.md)
 
 ## Authenticate a registered application in the development environment
 
