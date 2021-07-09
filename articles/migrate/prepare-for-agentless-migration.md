@@ -253,17 +253,17 @@ After the aforementioned changes are performed, the system partition will be unl
 
 1. **Fstab validation**
 
-   Azure Migrate will validate the entries of the fstab file and replace fstab entries with persistent volume identifiers, UUIDs wherever needed. This ensures the drive/partition name remains constant no matter the system it is attached to.
+    Azure Migrate will validate the entries of the fstab file and replace fstab entries with persistent volume identifiers, UUIDs wherever needed. This ensures the drive/partition name remains constant no matter the system it is attached to.
 
    - If the device name is a standard device name (say /dev/sdb1), then:
      - If it’s a root or boot partition, then it is replaced with UUID.
      - If the partition coexists with either the root or boot partition as standard partitions on the same disk, then it is replaced with UUID.
    - If the device name is UUID/LABEL/LV, then no changes will be done.
-   - If it’s a network device (nfs, cifs, smbfs …etc), then the script will comment the entry. To access it, you can uncomment the same and reboot your Azure VM.
+   - If it’s a network device (nfs, cifs, smbfs, and etc), then the script will comment the entry. To access it, you can uncomment the same and reboot your Azure VM.
 
 1. **Install the Linux Azure Guest Agent**
 
-    Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
+     Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
     Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually] (/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
 
