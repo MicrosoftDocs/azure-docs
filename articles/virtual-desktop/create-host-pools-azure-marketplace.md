@@ -13,10 +13,10 @@ manager: femila
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Azure Virtual Desktop (classic) can't be managed with the Azure portal.
 
-Host pools are a collection of one or more identical virtual machines (VMs), also known as "session hosts," within Azure Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop. If you'd like to learn more about deployment architecture, check out [Azure Virtual Desktop environment](environment-setup.md). If you're an app developer using Remote App Streaming for Azure Virtual Desktop, your customers or users can use your apps just like local apps on a physical device. For more information how to leverage Azure Virtual Desktop as an app developer, check out our [Remote App Streaming for Azure Virtual Desktop]() documentation.
+Host pools are a collection of one or more identical virtual machines (VMs), also known as "session hosts," within Azure Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop. If you'd like to learn more about deployment architecture, check out [Azure Virtual Desktop environment](environment-setup.md). If you're an app developer using remote app streaming for Azure Virtual Desktop, your customers or users can use your apps just like local apps on a physical device. For more information how to use Azure Virtual Desktop as an app developer, check out our [Azure Virtual Desktop remote app streaming]() documentation.
 
 >[!NOTE]
->If you're an app developer using Remote App Streaming for Azure Virtual Desktop and your app's users are in the same organization as your deployment, you can use your existing Azure tenant to create your host pool. If your users are outside of your organization, then for security reasons you'll need to create separate Azure tenants with at least one host pool for each organization. Learn more about which practices we recommend you follow to keep your deployment secure at [Architecture recommendations]().
+>If you're an app developer using remote app streaming for Azure Virtual Desktop and your app's users are in the same organization as your deployment, you can use your existing Azure tenant to create your host pool. If your users are outside of your organization, then for security reasons you'll need to create separate Azure tenants with at least one host pool for each organization. Learn more about which practices we recommend you follow to keep your deployment secure at [Architecture recommendations]().
 
 This article will walk you through the setup process for creating a host pool for a Azure Virtual Desktop environment through the Azure portal. This method provides a browser-based user interface to create a host pool in Azure Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the Azure Active Directory (AD) domain, and register the VMs with Azure Virtual Desktop.
 
@@ -40,7 +40,7 @@ You'll also need to know the following things:
 
 ### Requirements for app developers
 
-If you're an app developer who's using Remote App Streaming for Azure Virtual Desktop to deliver apps to your customers, here's what you'll need to get started:
+If you're an app developer who's using remote app streaming for Azure Virtual Desktop to deliver apps to your customers, here's what you'll need to get started:
 
 - If you plan on serving your organization's app to end-users, make sure you actually have that app ready. For more information, see [How to serve your custom app with Azure Virtual Desktop]().
 - If existing Azure Gallery image options don't meet your needs, you'll also need to create your own custom image for your session host VMs. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
