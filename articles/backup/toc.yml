@@ -346,6 +346,8 @@
         href: backup-azure-sql-mabs.md
       - name: Protect system state and bare metal recovery
         href: backup-mabs-system-state-and-bmr.md
+      - name: Using pre-backup and post-backup scripts
+        href: pre-backup-post-backup-scripts.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server
