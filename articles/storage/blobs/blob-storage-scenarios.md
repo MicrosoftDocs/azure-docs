@@ -34,7 +34,7 @@ You can look at what API was used in the "Transactions by API name" if you want.
 
 You can open up the transaction chart and modify it to show a separate line for ingress and a separate line for egress. This helps you figure out whether data is coming in or out.
 
-
+You can use metrics to identity the nature of a transaction, but you'll have to look at logs to identity the exact content that was read, uploaded, or downloaded, and from what source this occurred. Therefore, zoom into spikes of activity and use that date or date range to query logs.
 
 
 Capacity
