@@ -1,5 +1,6 @@
 ---
-title: 'Upgrade a SKU | Azure Bastion'
+title: 'Upgrade a SKU'
+titleSuffix: Azure Bastion
 description: Learn how to change Tiers from the Basic to the Standard SKU.
 services: bastion
 author: cherylmc
