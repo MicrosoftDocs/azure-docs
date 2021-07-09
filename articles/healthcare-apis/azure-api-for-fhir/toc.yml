@@ -1,5 +1,8 @@
+items:
 - name: Azure API for FHIR
   href: index.yml
+- name: Healthcare APIs documentation
+  href: ../index.yml
 - name: Overview
   items:
   - name: About Azure API for FHIR
@@ -7,7 +10,7 @@
   - name: About Azure IoT Connector for FHIR (preview)
     href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Quickstarts
-  expanded: true
+  expanded: false
   items:
   - name: Deploy Azure API for FHIR
     expanded: false
@@ -100,7 +103,7 @@
     - name: Configure Private Link
       href: configure-private-link.md
   - name: Search
-    expand: false
+    expanded: false
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -111,7 +114,7 @@
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
   - name: Operations
-    expand: false
+    expanded: false
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
