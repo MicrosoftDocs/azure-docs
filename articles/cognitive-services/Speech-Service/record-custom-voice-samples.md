@@ -64,7 +64,7 @@ Your utterances don't need to come from the same source, or the same kind of sou
 
 We recommend the recording scripts include both general sentences and your domain-specific sentences. For example, if you plan to record 2,000 sentences, 1,000 of them could be general sentences, another 1,000 of them could be sentences from your target domain or the use case of your application.  
 
-Sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language that are supported by custom neural voice can be found [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
+We provide [sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) to help you prepare your recording scripts. You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
 
 You can select your domain-specific scripts from the sentences that your custom voice will be used to read.
 
@@ -152,7 +152,7 @@ Fortunately, it's possible to avoid these issues entirely. There are many source
 
 ## Recording your script
 
-Record your script at a professional recording studio that specializes in voice work. They'll have a recording booth, the right equipment, and the right people to operate it. It is recommended not to skimp on recording.
+Record your script at a professional recording studio that specializes in voice work. They'll have a recording booth, the right equipment, and the right people to operate it. It's recommended not to skimp on recording.
 
 Discuss your project with the studio's recording engineer and listen to their advice. The recording should have little or no dynamic range compression (maximum of 4:1). It's critical that the audio has consistent volume and a high signal-to-noise ratio, while being free of unwanted sounds.
 
