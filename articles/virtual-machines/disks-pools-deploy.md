@@ -10,7 +10,7 @@ ms.subservice: disks
 ---
 # Deploy a disk pool (preview)
 
-This article covers how to deploy and configure a disk pool (preview). Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
+This article covers how to deploy and configure an Azure disk pool (preview). Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
 In order for a disk pool to work correctly, you must complete the following steps:
 - Register your subscription for the preview.

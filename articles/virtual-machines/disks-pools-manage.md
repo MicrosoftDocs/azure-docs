@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Manage a disk pool (preview)
 
-Once you've deployed a disk pool (preview), there are two management actions available to you. You can:
+Once you've deployed an Azure disk pool (preview), there are two management actions available to you. You can:
 - Add a disk to a disk pool
 - Disable iSCSI support on a disk
 

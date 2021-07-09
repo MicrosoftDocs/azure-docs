@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Move a disk pool (preview) to a different subscription
 
-Moving a disk pool (preview) involves moving the disk pool itself, the disks contained in the disk pool, the disk pool's managed resource group, and all the resources contained in the managed resource group. Currently, Azure doesn't support moving multiple resource groups to another subscription at once. 
+Moving an Azure disk pool (preview) involves moving the disk pool itself, the disks contained in the disk pool, the disk pool's managed resource group, and all the resources contained in the managed resource group. Currently, Azure doesn't support moving multiple resource groups to another subscription at once. 
 
 - Export the template of your existing disk pool.
 - Delete the old disk pool.

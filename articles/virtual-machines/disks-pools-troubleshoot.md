@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Troubleshoot Azure disk pools (preview)
 
-This article lists some common failure codes related to Azure disk pools. It also provides possible resolutions and some clarity on disk pool statuses.
+This article lists some common failure codes related to Azure disk pools (preview). It also provides possible resolutions and some clarity on disk pool statuses.
 
 ## Disk pool status
 
@@ -19,7 +19,11 @@ Disk pools and iSCSI targets each have four states: **Unknown**, **Running**, **
 
 **Unknown** means that the resource is in a bad or unknown state. To attempt recovery, perform an update operation on the resource (such as adding or removing disks/LUNS) or delete and redeploy your disk pool.
 
+**Running** means the resource is running and in a healthy state.
+
 **Updating** means that the resource is going through an update. This usually happens during deployment or when applying an update like adding disks or LUNs.
+
+**Stopped (deallocated)** means that the resource is stopped and its underlying resources have been deallocated. You can restart the resource to recover your disk pool or iSCSI target.
 
 ## Recover a disk pool or an iSCSI target
 
@@ -45,3 +49,7 @@ If the disk pool didn't recover after this process, contact Azure support and pr
 |GoalStateApplicationError     |Occurs when the iSCSI target configuration is invalid and cannot be applied to the disk pool. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
 |GoalStateApplicationTimeoutError     |Occurs when the disk pool infrastructure stops responding to the resource provider. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
 |OngoingOperationInProgress     |An ongoing operation is in-progress on the disk pool. Wait until that operation completes, then retry deployment.         |
+
+## Next steps
+
+[Manage a disk pool (preview)](disks-pools-manage.md)

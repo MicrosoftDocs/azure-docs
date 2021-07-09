@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Disk pools (preview) planning guide
 
-It's important to understand the performance requirements of your workload before you deploy a disk pool. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets of individual disks contained in the disk pool, and the networking connection between the client machines to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
+It's important to understand the performance requirements of your workload before you deploy an Azure disk pool (preview). Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets of individual disks contained in the disk pool, and the networking connection between the client machines to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
 
 ## Optimize for low latency
 
@@ -45,7 +45,19 @@ Refer to the [Networking planning checklist for Azure VMware Solution](../azure-
 
 The following example should give you an idea of how the different performance factors work together:
 
-As an example, if we added two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a disk pool, we could achieve 2 x 5000  = 10,000 IOPS but our throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, we can deploy more disk pools to scale out for extra throughput.
+As an example, if we added two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a disk pool, we could achieve 2 x 5000  = 10,000 IOPS but our throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, we can deploy more disk pools to scale out for extra throughput. The throughput of your network will limit the effectiveness of scaling out.
+
+## Availability
+
+Disk pools are currently in preview, and shouldn't be used for production workloads.
+
+If your disk pool becomes inaccessible to your Azure VMware Solution cloud for any reason, you will experience the following:
+
+- All datastores associated to the disk pool will no longer be accessible.
+- All VMware VMs hosted in this Azure VMware Solution cloud what is using the impacted datastores will be in an unhealthy state.
+- The health of clusters in this Azure VMware Solution cloud won't be impacted, except for one operation: You won't be able to place a host into maintenance mode. Azure VMware Solution will handle this failure and attempt recovery by disconnecting the impacted datastores.
+
+If you enter this state, follow these [steps](disks-pools-troubleshoot.md#recover-a-disk-pool-or-an-iscsi-target) to recover your disk pool.
 
 ## Next steps
 
