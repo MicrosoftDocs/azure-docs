@@ -58,6 +58,8 @@
   items:
     - name: Visualize data anomalies on Event Hubs data streams
       href: event-hubs-tutorial-visualize-anomalies.md
+    - name: Analyze fraudulent call data with Stream Analytics
+      href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
     - name: Store captured data in a Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Process Apache Kafka for Event Hubs events using Stream analytics

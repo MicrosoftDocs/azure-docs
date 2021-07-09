@@ -37,7 +37,7 @@ The following example is a typical use case of data moving across multiple syste
 
 ## Lineage granularity
 
-This section covers the details about the granularity of which the lineage information is gathered by a data catalog. This granularity can vary based on the data systems which are being.
+The following section covers the details about the granularity of which the lineage information is gathered by Purview. This granularity can vary based on the data systems supported in Purview.
 
 ###	Entity level lineage: Source(s) > Process > Target(s) 
 

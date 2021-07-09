@@ -168,14 +168,6 @@ dataprep_step = PythonScriptStep(
     )
 ```
 
-You may choose to upload the contents of your `OutputFileDatasetConfig` object at the end of a run. In that case, use the `as_upload()` function along with your `OutputFileDatasetConfig` object, and specify whether to overwrite existing files in the destination. 
-
-```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=(blob_store, 'outputdataset')).as_upload(overwrite=False)
-```
-
 > [!NOTE]
 > Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using distributed training. 
 

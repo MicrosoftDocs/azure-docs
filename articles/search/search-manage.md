@@ -68,7 +68,7 @@ Cognitive Search leverages other Azure services for deeper monitoring and manage
 
 When you open the search service overview page, the permissions assigned to your account determine what pages are available to you. The overview page at the beginning of the article shows the portal pages an administrator or contributor will see.
 
-In Azure resource, administrative rights are granted through role assignments. In the context of Azure Cognitive Search, [role assignments](search-security-rbac.md) will determine who can allocate replicas and partitions or manage API keys, regardless of whether they are using the portal, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md),or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api):
+In Azure resource, administrative rights are granted through role assignments. In the context of Azure Cognitive Search, [role assignments](search-security-rbac.md) will determine who can allocate replicas and partitions or manage API keys, regardless of whether they are using the portal, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md),or the [Management REST APIs](/rest/api/searchmanagement):
 
 > [!TIP]
 > Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator. Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).

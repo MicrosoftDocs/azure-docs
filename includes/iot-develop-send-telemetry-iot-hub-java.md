@@ -50,7 +50,7 @@ In this section, you use the Java SDK to send messages from your simulated devic
 ### Build the sample
 1. In your console, clone the Azure IoT Java device SDK to your local machine:
     ```console
-    git clone https://github.com/Azure/azure-iot-sdk-c.git
+    git clone https://github.com/Azure/azure-iot-sdk-java.git
     ```
 1. Navigate to the root folder of the SDK, and run the following command to build the SDK and update the samples.
     ```console

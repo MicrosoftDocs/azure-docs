@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/22/2019
+ms.date: 07/05/2021
 ---
 
 # Copy data from SAP Business Warehouse by using Azure Data Factory
@@ -38,9 +38,9 @@ This article shows how to use Azure Data Factory to copy data from SAP Business 
 
 ## Do a full copy from SAP BW Open Hub
 
-In the Azure portal, go to your data factory. Select **Author & Monitor** to open the Data Factory UI in a separate tab.
+In the Azure portal, go to your data factory. Select **Open** on the **Open Azure Data Factory Studio** tile to open the Data Factory UI in a separate tab.
 
-1. On the **Let's get started** page, select **Copy Data** to open the Copy Data tool.
+1. On the home page, select **Ingest** to open the Copy Data tool.
 
 2. On the **Properties** page, specify a **Task name**, and then select **Next**.
 
@@ -128,7 +128,7 @@ Incremental copy uses a "high-watermark" mechanism that's based on the **request
 
 ![Incremental copy workflow flow chart](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-On the data factory **Let's get started** page, select **Create pipeline from template** to use the built-in template.
+On the data factory home page, select **Pipeline templates** in the **Discover more** section to use the built-in template.
 
 1. Search for **SAP BW** to find and select the **Incremental copy from SAP BW to Azure Data Lake Storage Gen2** template. This template copies data into Azure Data Lake Storage Gen2. You can use a similar workflow to copy to other sink types.
 

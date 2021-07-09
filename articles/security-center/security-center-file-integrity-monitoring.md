@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/25/2021
+ms.date: 07/01/2021
 ms.author: memildin
 
 ---
@@ -20,13 +20,13 @@ Learn how to configure file integrity monitoring (FIM) in Azure Security Center 
 |Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md).<br>FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.|
 |Required roles and permissions:|**Workspace owner** can enable/disable FIM (for more information, see [Azure Roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Reader** can view results.|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/servers/overview.md) enabled devices.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)<br>Supported only in regions where Azure Automation's change tracking solution is available.<br>:::image type="icon" source="./media/icons/yes-icon.png"::: [Azure Arc](../azure-arc/servers/overview.md) enabled devices.<br>See [Supported regions for linked Log Analytics workspace](../automation/how-to/region-mappings.md).<br>[Learn more about change tracking](../automation/change-tracking/overview.md).|
 |||
 
 ## What is FIM in Security Center?
 File integrity monitoring (FIM), also known as change monitoring, examines operating system files, Windows registries, application software, Linux system files, and more, for changes that might indicate an attack. 
 
-Security Center recommends entities to monitor with FIM, and you can also define your own FIM policies or entities to monitor. FIM alerts you for suspicious activity such as:
+Security Center recommends entities to monitor with FIM, and you can also define your own FIM policies or entities to monitor. FIM informs you about suspicious activity such as:
 
 - File and registry key creation or removal
 - File modifications (changes in file size, access control lists, and hash of the content)
@@ -43,7 +43,7 @@ In this tutorial you'll learn how to:
 
 ## How does FIM work?
 
-By comparing the current state of these items with the state during the previous scan, FIM alerts you if suspicious modifications have been made.
+By comparing the current state of these items with the state during the previous scan, FIM notifies you if suspicious modifications have been made.
 
 FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When file integrity monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 

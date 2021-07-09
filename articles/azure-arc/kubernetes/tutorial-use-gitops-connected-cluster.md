@@ -34,6 +34,8 @@ In this tutorial, you will apply configurations using GitOps on an Azure Arc ena
     >[!TIP]
     > If the `k8s-configuration` extension is already installed, you can update it to the latest version using the following command - `az extension update --name k8s-configuration`
 
+- If your Git repository is located outside the firewall and git protocol is being used with the configuration repository parameter, then TCP on port 9418 (`git://:9418`) needs to be enabled for egress access on firewall.
+
 ## Create a configuration
 
 The [example repository](https://github.com/Azure/arc-k8s-demo) used in this article is structured around the persona of a cluster operator. The manifests in this repository provision a few namespaces, deploy workloads, and provide some team-specific configuration. Using this repository with GitOps creates the following resources on your cluster:

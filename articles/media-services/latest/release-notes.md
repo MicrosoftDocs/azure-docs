@@ -10,6 +10,7 @@ editor: ''
 
 ms.service: media-services
 ms.workload: na
+ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
@@ -29,6 +30,14 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## June 2021
 
+### Private links support is now GA
+
+Support for using Media Services with [private links](/azure/private-link/) is now GA and available in all Azure regions including Azure Government clouds.
+Azure Private Link enables you to access Azure PaaS Services and Azure hosted customer-owned/partner services over a Private Endpoint in your virtual network.
+Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
+
+For details on how to use Media Services with private links, see [Create a Media Services and Storage account with a Private Link](./security-private-link-how-to.md)
+
 ### New US West 3 region is GA
 
 The US West 3 region is now GA and available for customers to use when creating new Media Services accounts.
@@ -41,6 +50,23 @@ This allows operators to restrict delivery of DRM licenses and AES-128 content k
 This feature can also be used to shut off all public internet delivery of DRM licenses or AES-128 keys and restrict delivery to a private network endpoint.
 
 See the article [Restrict access to DRM license and AES key delivery using IP allowlists](./drm-content-protection-key-delivery-ip-allow.md) for details.
+
+### New Samples for Python and Node.js (with Typescript)
+Updated samples for **Node.js** that use the latest Typescript support in the Azure SDK.
+
+|Sample|Description|
+|---|---|
+|[Live streaming](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| Basic live streaming example. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live|
+|[Upload and stream HLS and DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| Basic example for uploading a local file or encoding from a source URL. Sample shows how to use storage SDK to download content, and shows how to stream to a player |
+|[Upload and stream HLS and DASH with Playready and Widevine DRM](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Demonstrates how to encode and stream using Widevine and PlayReady DRM |
+|[Upload and use AI to index videos and audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| Example of using the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file |
+
+
+New **Python** sample demonstrating how to use Azure Functions, and Event Grid to trigger Face redaction preset.
+
+|Sample|Description|
+|---|---|
+|[Face Redaction using events and functions](https://github.com/Azure-Samples/media-services-v3-python/tree/main/VideoAnalytics/FaceRedactorEventBased) | This is an example of an event-based approach that triggers an Azure Media Services Face Redactor job on a video as soon as it lands on an Azure Storage Account. It leverages Azure Media Services, Azure Function, Event Grid and Azure Storage for the solution. For the full description of the solution, see the [README.md](https://github.com/Azure-Samples/media-services-v3-python/blob/main/VideoAnalytics/FaceRedactorEventBased/README.md) |
 
 
 ## May 2021

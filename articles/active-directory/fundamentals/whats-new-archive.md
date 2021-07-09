@@ -150,7 +150,7 @@ Tenant administrators can now use Staged Rollout to deploy Email Sign-In with Pr
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
  
-With the initial preview release of the Sign-in Diagnostic, admins can now review user sign-ins. Admins can receive contextual, specific, and relevant details and guidance on what happened during a sign-in and how to fix problems. The diagnostic is available in both the Azure AD level, and Conditional Access Diagnose and Solve blades. The diagnostic scenarios covered in this release are Conditional Access, Multi-Factor Authentication, and successful sign-in.
+With the initial preview release of the Sign-in Diagnostic, admins can now review user sign-ins. Admins can receive contextual, specific, and relevant details and guidance on what happened during a sign-in and how to fix problems. The diagnostic is available in both the Azure AD level, and Conditional Access Diagnose and Solve blades. The diagnostic scenarios covered in this release are Conditional Access, Azure Active Directory Multi-factor Authentication, and successful sign-in.
 
 For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md).
  
@@ -397,7 +397,7 @@ Manually created connected organizations will have a default setting of "configu
  
 Risk-based Conditional Access and risk detection features of Identity Protection are now available in [Azure AD B2C](../..//active-directory-b2c/conditional-access-identity-protection-overview.md). With these advanced security features, customers can now:
 - Leverage intelligent insights to assess risk with B2C apps and end user accounts. Detections include atypical travel, anonymous IP addresses, malware-linked IP addresses, and Azure AD threat intelligence. Portal and API-based reports are also available.
-- Automatically address risks by configuring adaptive authentication policies for B2C users. App developers and administrators can mitigate real-time risk by requiring multi-factor authentication (MFA) or blocking access depending on the user risk level detected, with additional controls available based on location, group, and app.
+- Automatically address risks by configuring adaptive authentication policies for B2C users. App developers and administrators can mitigate real-time risk by requiring Azure Active Directory Multi-factor Authentication (MFA) or blocking access depending on the user risk level detected, with additional controls available based on location, group, and app.
 - Integrate with Azure AD B2C user flows and custom policies. Conditions can be triggered from built-in user flows in Azure AD B2C or can be incorporated into B2C custom policies. As with other aspects of the B2C user flow, end user experience messaging can be customized. Customization is according to the organization’s voice, brand, and mitigation alternatives.
  
 ---
@@ -467,14 +467,14 @@ MSAL.js version 2.x now includes support for the authorization code flow for sin
 
 ---
 
-### Updates to Remember Multi-Factor Authentication (MFA) on a trusted device setting
+### Updates to Remember Azure Active Directory Multi-factor Authentication (MFA) on a trusted device setting
 
 **Type:** Changed feature  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 
-We've recently updated the [remember Multi-Factor Authentication (MFA)](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) on a trusted device feature to extend authentication for up to 365 days. Azure Active Directory (Azure AD) Premium licenses, can also use the [Conditional Access – Sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) that provides more flexibility for reauthentication settings.
+We've recently updated the [remember Azure Active Directory Multi-factor Authentication (MFA)](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) on a trusted device feature to extend authentication for up to 365 days. Azure Active Directory (Azure AD) Premium licenses, can also use the [Conditional Access – Sign-in Frequency policy](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) that provides more flexibility for reauthentication settings.
 
 For the optimal user experience, we recommend using Conditional Access sign-in frequency to extend session lifetimes on trusted devices, locations, or low-risk sessions as an alternative to the remember MFA on a trusted device setting. To get started, review our [latest guidance on optimizing the reauthentication experience](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
@@ -570,7 +570,7 @@ Continuous access evaluation (CAE) is now available in public preview for Azure 
 **Service category:** User Access Management  
 **Product capability:** Entitlement Management
  
-Administrators can now require that users requesting an access package answer additional questions beyond just business justification in Azure AD Entitlement management's My Access portal. The users' answers will then be shown to the approvers to help them make a more accurate access approval decision. To learn more, see [Collect additional requestor information for approval (preview)](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview).
+Administrators can now require that users requesting an access package answer additional questions beyond just business justification in Azure AD Entitlement management's My Access portal. The users' answers will then be shown to the approvers to help them make a more accurate access approval decision. To learn more, see [Collect additional requestor information for approval](../governance/entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval).
  
 ---
 
@@ -663,7 +663,7 @@ This experience will be changed to display only the resources currently added in
 
 ## August 2020 
  
-### Updates to Azure Multi-Factor Authentication Server firewall requirements
+### Updates to Azure Active Directory Multi-factor Authentication Server firewall requirements
 
 **Type:** Plan for change  
 **Service category:** MFA  
@@ -671,7 +671,7 @@ This experience will be changed to display only the resources currently added in
  
 Starting 1 October 2020, Azure MFA Server firewall requirements will require additional IP ranges.
 
-If you have outbound firewall rules in your organization, update the rules so that your MFA servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Multi-Factor Authentication Server firewall requirements](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
+If you have outbound firewall rules in your organization, update the rules so that your MFA servers can communicate with all the necessary IP ranges. The IP ranges are documented in [Azure Active Directory Multi-factor Authentication Server firewall requirements](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements).
 
 ---
 
@@ -991,13 +991,13 @@ You can now view role assignments across all scopes for a role in the "Roles and
  
 ---
 
-### Azure Multi-Factor Authentication Software Development (Azure MFA SDK) Deprecation
+### Azure Active Directory Multi-factor Authentication Software Development (Azure MFA SDK) Deprecation
 
 **Type:** Deprecated  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
-The Azure Multi-Factor Authentication Software Development (Azure MFA SDK) reached the end of life on November 14th, 2018, as first announced in November 2017. Microsoft will be shutting down the SDK service effective on September 30th, 2020. Any calls made to the SDK will fail.
+The Azure Active Directory Multi-factor Authentication Software Development (Azure MFA SDK) reached the end of life on November 14th, 2018, as first announced in November 2017. Microsoft will be shutting down the SDK service effective on September 30th, 2020. Any calls made to the SDK will fail.
 
 If your organization is using the Azure MFA SDK, you need to migrate by September 30th, 2020:
 - Azure MFA SDK for MIM:  If you use the SDK with MIM, you should migrate to Azure MFA Server and activate Privileged Access Management (PAM) following these [instructions](/microsoft-identity-manager/working-with-mfaserver-for-mim).   
@@ -2763,7 +2763,7 @@ We've released an updated version of Azure AD Connect for auto-upgrade customers
 
 ---
 
-### Azure Multi-Factor Authentication (MFA) Server, version 8.0.2 is now available
+### Azure Active Directory Multi-factor Authentication (MFA) Server, version 8.0.2 is now available
 
 **Type:** Fixed
 **Service category:** MFA
@@ -3032,7 +3032,7 @@ New user interface changes are coming to the design of the **Add from the galler
 **Service category:** MFA
 **Product capability:** Identity Security & Protection
 
-We're removing the MFA server IP address from the [Office 365 IP Address and URL Web service](/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Multi-Factor Authentication Server firewall requirements** section of the [Getting started with the Azure Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements) article.
+We're removing the MFA server IP address from the [Office 365 IP Address and URL Web service](/office365/enterprise/office-365-ip-web-service). If you currently rely on these pages to update your firewall settings, you must make sure you're also including the list of IP addresses documented in the **Azure Active Directory Multi-factor Authentication Server firewall requirements** section of the [Getting started with the Azure Active Directory Multi-factor Authentication Server](../authentication/howto-mfaserver-deploy.md#azure-multi-factor-authentication-server-firewall-requirements) article.
 
 ---
 
@@ -3329,7 +3329,7 @@ For more information about setting up your company branding, see [Add branding t
 
 ---
 
-### Azure Multi-Factor Authentication (MFA) Server is no longer available for new deployments
+### Azure Active Directory Multi-factor Authentication (MFA) Server is no longer available for new deployments
 
 **Type:** Deprecated
 **Service category:** MFA
@@ -3337,7 +3337,7 @@ For more information about setting up your company branding, see [Add branding t
 
 As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who want to require multi-factor authentication in their organization must now use cloud-based Azure AD Multi-Factor Authentication. Customers who activated MFA Server prior to July 1 won't see a change. You'll still be able to download the latest version, get future updates, and generate activation credentials.
 
-For more information, see [Getting started with the Azure Multi-Factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
+For more information, see [Getting started with the Azure Active Directory Multi-factor Authentication Server](../authentication/howto-mfaserver-deploy.md). For more information about cloud-based Azure AD Multi-Factor Authentication, see [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../authentication/howto-mfa-getstarted.md).
 
 ---
 
@@ -6119,9 +6119,9 @@ For more information, see:
 **Service category:**  Multi-factor authentication
 **Product capability:** User authentication
 
-The Network Policy Server extension for Azure AD Multi-Factor Authentication adds cloud-based Multi-Factor Authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers.
+The Network Policy Server extension for Azure Active Directory (Azure AD) Multi-Factor Authentication adds cloud-based Multi-Factor Authentication capabilities to your authentication infrastructure by using your existing servers. With the Network Policy Server extension, you can add phone call, text message, or phone app verification to your existing authentication flow. You don't have to install, configure, and maintain new servers.
 
-This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Multi-Factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
+This extension was created for organizations that want to protect virtual private network connections without deploying the Azure Active Directory Multi-factor Authentication Server. The Network Policy Server extension acts as an adapter between RADIUS and cloud-based Azure AD Multi-Factor Authentication to provide a second factor of authentication for federated or synced users.
 
 For more information, see [Integrate your existing Network Policy Server infrastructure with Azure AD Multi-Factor Authentication](../authentication/howto-mfa-nps-extension.md).
 
@@ -6225,7 +6225,7 @@ Due to a service issue, this functionality was temporarily disabled. The issue w
 **Service category:** Multi-factor authentication
 **Product capability:** Identity security and protection
 
-Multi-factor authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features were added:
+Azure Active Directory (Azure AD) Multi-factor authentication (MFA) is an essential part of protecting your organization. To make credentials more adaptive and the experience more seamless, the following features were added:
 
 - Multi-factor challenge results are directly integrated into the Azure AD sign-in report, which includes programmatic access to MFA results.
 - The MFA configuration is more deeply integrated into the Azure AD configuration experience in the Azure portal.

@@ -1,8 +1,8 @@
 ---
 title: 'Migrate your data to a Cassandra API account in Azure Cosmos DB- Tutorial'
 description: In this tutorial, learn how to copy data from Apache Cassandra to a Cassandra API account in Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -93,7 +93,7 @@ Use the following steps to migrate data to the Cassandra API account with Spark:
 
 1. Provision an [Azure Databricks cluster](cassandra-spark-databricks.md) or an [Azure HDInsight cluster](cassandra-spark-hdinsight.md). 
 
-1. Move data to the destination Cassandra API endpoint by using the [table copy operation](cassandra-spark-table-copy-ops.md). 
+1. Move data to the destination Cassandra API endpoint. Refer to this [how-to guide](cassandra-migrate-cosmos-db-databricks.md) for migration with Azure Databricks.
 
 Migrating data by using Spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. To do this, you must set up Spark as an intermediary for one-time or regular ingestion. You can accelerate this migration by using Azure ExpressRoute connectivity between your on-premises environment and Azure. 
 

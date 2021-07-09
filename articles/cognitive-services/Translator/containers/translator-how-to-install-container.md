@@ -14,9 +14,9 @@ recommendations: false
 keywords: on-premises, Docker, container, identify
 ---
 
-# Install and run Translator containers (Preview)
+# Install and run Translator containers (preview)
 
-  Containers enable you to run some features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
+  Containers enable you to run several features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
 
 Translator container enables you to build a translator application architecture that is optimized for both robust cloud capabilities and edge locality.
 
