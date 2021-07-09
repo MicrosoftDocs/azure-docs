@@ -292,8 +292,9 @@ lose ownership of the subscription. If you're directly assigned to the Owner rol
 subscription (not inherited from the management group), you can move it to any management group
 where you're a contributor.
 
-> [!NOTE]
-> It can take a few minutes for the Azure portal to reflect the change after you move a subscription into a new management group.
+> [!IMPORTANT]
+> Azure Resource Manager caches management group hierarchy details for up to 30 minutes.
+> As a result, moving a management group may not immediately be reflected in Portal. 
 
 ## Audit management groups using activity logs
 
