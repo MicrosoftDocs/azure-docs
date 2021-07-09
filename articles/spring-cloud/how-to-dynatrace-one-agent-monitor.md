@@ -96,7 +96,7 @@ az spring-cloud app deploy --name <your-application-name> --jar-path app.ja
 
 ## View reports in Dynatrace
 
-After e you add the environment variables to your application, Dynatrace starts collecting data. To view reports, in the Dynatrace menu
+After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, in the Dynatrace menu
 (https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services** and
 select your application.
 
@@ -107,21 +107,21 @@ select your application.
 
 * **Transactions and services` blade**
   * You can find the `Service flow` from `yourAppName/Details/Service flow`
-    ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
+    [ ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
   * You can find the `Method hotspots` from `yourAppName/Details/Method hotspots`
-    ![Method hotspots](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)
+    [ ![Method hotspots](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)
   * You can find the `Database statements` from `yourAppName/Details/Response time anaysis`
-    ![Database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png)
+    [ ![Database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png)](media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png)
 * `Diagnostic tools` blade
   * You can find the `Top database statements` from `Multidimensional analysis/Top database statements`
-    ![Top database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png)
+    [ ![Top database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png)](media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png)
   * You can find the `Exceptions overview` from `Multidimensional analysis/Exceptions overview`
-    ![Exceptions overview](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)
+    [ ![Exceptions overview](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)
   * You can find the `CPU analysis` from this blade
-    ![CPU analysis](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)
+    [ ![CPU analysis](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)
 * `Databases` blade
   * You can find `Backtrace` from this blade
-    ![Backtrace](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)
+    [ ![Backtrace](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)
 
 ## Dynatrace OneAgent Logging
 
