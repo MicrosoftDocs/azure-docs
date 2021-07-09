@@ -27,12 +27,14 @@ Workbooks are a set of queries that collect and visualize information that is av
 
 ## Prerequisites
 
--  [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+To use workbook feature, you need to:
+
+-  [Integrate your Azure AD sign-ins and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 
 ## 1. Access the sign-ins workbook
 
-Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the prerequisites, follow the steps below to access the sign-ins workbook:
+Once you've integrated your Azure AD sign-ins and audit logs with Azure Monitor as specified in the prerequisites, follow the steps below to access the sign-ins workbook:
 
    1. Sign into the Azure portal 
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks** 
