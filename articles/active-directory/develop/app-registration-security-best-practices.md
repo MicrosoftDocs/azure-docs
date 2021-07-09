@@ -49,7 +49,7 @@ It's important to keep Redirect URIs of your application up to date. A lapse in 
 
 ## Implicit flow token configuration
 
-Scenarios that require Implicit flow can now use Auth code flow to reduce the risk of compromise associated with Implicit Grant Flow misuse. If you configured your application registration to get Access tokens using Implicit Flow, but don't actively use it, we recommend you turn off the setting to protect from misuse.
+Scenarios that require **implicit flow** can now use **Auth code flow** to reduce the risk of compromise associated with implicit grant flow misuse. If you configured your application registration to get Access tokens using implicit flow, but don't actively use it, we recommend you turn off the setting to protect from misuse.
 
 ![access tokens used for implicit flows](media/active-directory-application-registration-best-practices/implict-grant-flow.png)
 
@@ -95,7 +95,7 @@ Certain applications can expose resources (via WebAPI) and as such need to defin
 
 | Do                                           | Don't                  |
 | -------------------------------------------- | ---------------------- |
-| Avoid collisions by using valid Uri formats. | Use wildcard AppId URI |
+| Avoid collisions by using valid URI formats. | Use wildcard AppId URI |
 | Use verified domain in LoB apps              | Malformed URI          |
 | Inventory your AppId URIs                    |                        |
 
