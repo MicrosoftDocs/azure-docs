@@ -53,12 +53,12 @@ Scenarios that require Implicit flow can now use Auth code flow to reduce the ri
 
 ![IGF](media/active-directory-application-registration-best-practices/implict-grant-flow.png)
 
-### Implicit Grant Flow summary
+### Implicit grant flow summary
 
 | Do                                                                    | Don't                                                                  |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Understand if Implicit Flow is required (https://aka.ms/igfScenarios) | Use Implicit Flow unless explicitly required (https://aka.ms/igfCheck) |
-| Separate App Registration for (valid) Implicit Flow scenarios                  |                                                                        |
+| Understand if implicit flow is required (https://aka.ms/igfScenarios) | Use implicit flow unless explicitly required (https://aka.ms/igfCheck) |
+| Separate app registration for (valid) implicit flow scenarios                  |                                                                        |
 | Turn off unused implicit flow                                         |                                                                        |
 
 ## Credential configuration
