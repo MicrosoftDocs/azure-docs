@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 
 # Get It Now - add an app from the Azure Marketplace
 
-You are almost there! 
+You are almost there!
 
 If you are trying to use Azure AD as the identity provider for an app then you are in the right place. You just need to add it to your Azure AD tenant. To learn how to do this, follow the quickstart series here: [View apps in your Azure AD tenant](view-applications-portal.md).
 
