@@ -28,7 +28,7 @@ Depending on the Application Insights logging package you use, there will be var
 
 ## ASP.NET Core applications
 
-To add Application Insights telemetry to to ASP.NET Core applications, use the `Microsoft.ApplicationInsights.AspNetCore` NuGet package. This can be configured from with [Visual Studio as a Connected service](/visualstudio/azure/azure-app-insights-add-connected-service), or manually.
+To add Application Insights telemetry to ASP.NET Core applications, use the `Microsoft.ApplicationInsights.AspNetCore` NuGet package. This can be configured through [Visual Studio as a Connected service](/visualstudio/azure/azure-app-insights-add-connected-service), or manually.
 
 By default, ASP.NET Core applications have Application Insights logging provider registered when configured using the [Code](./asp-net-core.md) or [Code-less](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) approach. The registered provider is configured to automatically capture log events with a severity of <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> or greater. Severity and categories may be customized. For more information, see [Control logging level](#control-logging-level).
 
@@ -78,7 +78,7 @@ By default, ASP.NET Core applications have Application Insights logging provider
     }
     ```
 
-With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, require either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601>. When these implementations are resolved, the `ApplicationInsightsLoggerProvider` will be providing them. Messages or exceptions logged will be sent to Application Insights. Consider the following example controller:
+With the NuGet package installed, and the provider being registered with dependency injection, the app is ready to log. With constructor injection, either <xref:Microsoft.Extensions.Logging.ILogger> or the generic-type alternative <xref:Microsoft.Extensions.Logging.ILogger%601> is required. When these implementations are resolved, the `ApplicationInsightsLoggerProvider` will be providing them. Messages or exceptions logged will be sent to Application Insights. Consider the following example controller:
 
 ```csharp
 public class ValuesController : ControllerBase
@@ -107,7 +107,7 @@ For more information, see [Logging in ASP.NET Core](/aspnet/core/fundamentals/lo
 
 Some scenarios require capturing logs as part of the app startup routine, prior to the request-response pipeline being ready to accept requests. However, `ILogger` implementations aren't easily available from dependency injection in *Program.cs* and *Startup.cs*. For more information, see [Logging in .NET: Create logs in `Main`](/dotnet/core/extensions/logging?tabs=command-line#create-logs-in-main).
 
-The are several applicable limitations when logging from *Program.cs* and *Startup.cs*:
+There are several applicable limitations when logging from *Program.cs* and *Startup.cs*:
 
 * Telemetry is sent using the [InMemoryChannel](./telemetry-channels.md) telemetry channel.
 * No [sampling](./sampling.md) is applied to telemetry.
@@ -165,7 +165,7 @@ namespace WebApplication
 }
 ```
 
-In the preceding code, the `ApplicationInsightsLoggerProvider` is configured with your `"APPINSIGHTS_CONNECTIONSTRING"` connection string, and a filters are applied setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
+In the preceding code, the `ApplicationInsightsLoggerProvider` is configured with your `"APPINSIGHTS_CONNECTIONSTRING"` connection string, and filters are applied, setting the log level to <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>.
 
 > [!IMPORTANT]
 > [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
@@ -387,7 +387,7 @@ Host.CreateDefaultBuilder(args)
     });
 ```
 
-This preceding code is functionally equivalent as the previous section in *appsettings.json*. For more information, see [Configuration in .NET](/dotnet/core/extensions/configuration).
+This preceding code is functionally equivalent to the previous section in *appsettings.json*. For more information, see [Configuration in .NET](/dotnet/core/extensions/configuration).
 
 ## Logging scopes
 
