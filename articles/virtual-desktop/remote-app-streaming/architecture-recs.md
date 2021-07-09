@@ -15,13 +15,13 @@ manager: femila
 
 Azure Virtual Desktop deployments come in many different shapes and sizes depending on many factors like end-user needs, the existing infrastructure of the organization deploying the service, and so on. How do you make sure you're using the right architecture that meets your organization's needs?
 
-This article will help you by establishing guidelines for your Azure Virtual Desktop deployment structure. The examples listed in this article aren't the only possible ways you can deploy Azure Virtual Desktop. However, we do cover two of the most basic types of deployments for users inside and outside of your organization.
+This article will provide guidance for your Azure Virtual Desktop deployment structure. The examples listed in this article aren't the only possible ways you can deploy Azure Virtual Desktop. However, we do cover two of the most basic types of deployments for users inside and outside of your organization.
 
 ## Deploying Azure Virtual Desktop for users within your organization
 
 If you're making an Azure Virtual Desktop deployment for users inside your organization, you can host all your users and resources in the same Azure tenant. You can also use Azure Virtual Desktop's currently supported identity management methods to keep your users secure.
 
-These are the basic requirements for an Azure Virtual Desktop deployment that can serve RemoteApps and desktops to users within your organization:
+These are the most basic requirements for an Azure Virtual Desktop deployment that can serve RemoteApps and desktops to users within your organization:
 
 - One host pool to host user sessions
 - One Azure subscription to host the host pool
