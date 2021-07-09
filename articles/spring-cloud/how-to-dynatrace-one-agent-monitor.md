@@ -100,9 +100,9 @@ After e you add the environment variables to your application, Dynatrace starts 
 (https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services** and
 select your application.
 
-![Platform/Solutions](media/dynatrace-oneagent/platform-solutions.pdf)
+![Platform/Solutions](media/dynatrace-oneagent/platform-solutions.png)
 
-![Resources/Services & Support](media/dynatrace-oneagent/resources-services-support.pdf)
+![Resources/Services & Support](media/dynatrace-oneagent/resources-services-support.png)
 ## Dynatrace Dashboard
 
 * **Transactions and services` blade**
@@ -111,10 +111,10 @@ select your application.
   * You can find the `Method hotspots` from `yourAppName/Details/Method hotspots`
     ![Method hotspots](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)
   * You can find the `Database statements` from `yourAppName/Details/Response time anaysis`
-    ![Database statements](media/dynatrace-oneagent/images/spring-cloud-dynatrace-database-contribution.png)
+    ![Database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-database-contribution.png)
 * `Diagnostic tools` blade
   * You can find the `Top database statements` from `Multidimensional analysis/Top database statements`
-    ![Top database statements](media/dynatrace-oneagent/images/spring-cloud-dynatrace-top-database.png)
+    ![Top database statements](media/dynatrace-oneagent/spring-cloud-dynatrace-top-database.png)
   * You can find the `Exceptions overview` from `Multidimensional analysis/Exceptions overview`
     ![Exceptions overview](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)
   * You can find the `CPU analysis` from this blade
