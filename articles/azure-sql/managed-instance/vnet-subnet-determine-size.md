@@ -30,7 +30,7 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
 - Plans to scale up/down or change the service tier
 
 > [!IMPORTANT]
-> A subnet size of 16 IP addresses (subnet mask /28) allows the deployment of a single managed instance inside it, and should only be used for evaluation, or dev/test scenarios where scaling operations won't be performed. 
+> A subnet size of 16 IP addresses (subnet mask /28) allows the deployment of a single managed instance inside it. It should be used only for evaluation or for dev/test scenarios where scaling operations won't be performed. 
 
 ## Determine subnet size
 
@@ -48,16 +48,21 @@ GP = general purpose;
 BC = business critical; 
 VC = virtual cluster
 
-| **Hardware generation** | **Pricing tier** | **Azure usage**<sup>1</sup>  | **VC usage** <sup>2</sup>   | **Instance usage** <sup>3</sup> | **Total** <sup>4</sup> |
+| **Hardware generation** | **Pricing tier** | **Azure usage** | **VC usage** | **Instance usage** | **Total** |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-<sup>4</sup> The **Total** column displays the total number of addresses that are used by a single deployed instance to the subnet. <sup>3</sup>  When you add additional instances to the subnet, the number of addresses used by the instance, and subsequently, the total number of addresses increases. For example, adding another  Gen4 GP managed instance would increase the **Instance usage** value to 10, and the **Total** value of used addresses to 16. <sup>1</sup>Addresses represented in the **Azure usage** column are shared across multiple virtual clusters.   <sup>2</sup>Addresses represented in the **VC usage** column are shared across instances placed in that virtual cluster.
+In the preceding table:
 
-Also consider the [maintenance window feature](../database/maintenance-window.md) when you're determining the subnet size (especially when multiple instances will be deployed inside the same subnet). Specifying a maintenance window for a managed instance during its creation or afterward means that it must be placed in a virtual cluster with the corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
+- The **Total** column displays the total number of addresses that are used by a single deployed instance to the subnet. 
+- When you add more instances to the subnet, the number of addresses used by the instance increases. The total number of addresses then also increases. For example, adding another Gen4 GP managed instance would increase the **Instance usage** value to 10 and would increase the **Total** value of used addresses to 16. 
+- Addresses represented in the **Azure usage** column are shared across multiple virtual clusters.  
+- Addresses represented in the **VC usage** column are shared across instances placed in that virtual cluster.
+
+Also consider the [maintenance window feature](../database/maintenance-window.md) when you're determining the subnet size, especially when multiple instances will be deployed inside the same subnet. Specifying a maintenance window for a managed instance during its creation or afterward means that it must be placed in a virtual cluster with the corresponding maintenance window. If there is no such virtual cluster in the subnet, a new one must be created first to accommodate the instance.
 
 An update operation typically requires [resizing the virtual cluster](management-operations-overview.md). When a new create or update request comes, the SQL Managed Instance service communicates with the compute platform with a request for new nodes that need to be added. Based on the compute response, the deployment system either expands the existing virtual cluster or creates a new one. Even if in most cases the operation will be completed within same virtual cluster, a new one might be created on the compute side. 
 
@@ -71,8 +76,8 @@ During a scaling operation, instances temporarily require additional IP capacity
 | Gen4<sup>1</sup> | GP or BC | Scaling vCores | 5 |
 | Gen4<sup>1</sup> | GP or BC | Scaling storage | 5 |
 | Gen4 | GP or BC | Switching from GP to BC or BC to GP | 5 |
-| Gen4 | GP | Switching to Gen5* | 9 |
-| Gen4 | BC | Switching to Gen5* | 11 |
+| Gen4 | GP | Switching to Gen5 | 9 |
+| Gen4 | BC | Switching to Gen5 | 11 |
 | Gen5 | GP | Scaling vCores | 3 |
 | Gen5 | GP | Scaling storage | 0 |
 | Gen5 | GP | Switching to BC | 5 |
@@ -104,7 +109,7 @@ Example:
   Because IP ranges are defined in powers of 2, your subnet requires a minimum IP range of 128 (2^7) for this deployment. You need to reserve the subnet with a subnet mask of /25.
 
 > [!NOTE]
-> Though it's possible to deploy managed instances to a subnet with a number of IP addresses less than the output of the subnet formula, always consider using bigger subnets instead. Using a bigger subnet can help avoid future issues stemming from a lack of IP addresses, such as the inability to create additional instances within the subnet, or scale existing instances. 
+> Though it's possible to deploy managed instances to a subnet with a number of IP addresses that's less than the output of the subnet formula, always consider using bigger subnets instead. Using a bigger subnet can help avoid future issues stemming from a lack of IP addresses, such as the inability to create additional instances within the subnet or scale existing instances. 
 
 ## Next steps
 
