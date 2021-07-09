@@ -1,6 +1,6 @@
 ---
-title: Overview and deployment of GPU VMs on your Azure Stack Edge Pro GPU device
-description: Describes how to create and manage GPU virtual machines (VMs) on an Azure Stack Edge Pro GPU device using templates.
+title: Deploy GPU VMs on your Azure Stack Edge Pro GPU device
+description: Describes how to create and deploy GPU virtual machines (VMs) on Azure Stack Edge Pro GPU via the Azure portal or using templates.
 services: databox
 author: alkohli
 
@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/09/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I want the flexibility to deploy GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device via the Azure portal or by using APIs so that I can efficiently manage my GPU VMs.
 ---
 
 
