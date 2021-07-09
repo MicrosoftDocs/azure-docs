@@ -4,6 +4,9 @@ description: Learn to create and configure the networking needed to deploy your 
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/23/2021
+
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure

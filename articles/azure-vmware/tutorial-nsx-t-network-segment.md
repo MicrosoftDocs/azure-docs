@@ -17,7 +17,7 @@ After deploying Azure VMware Solution, you can configure an NSX-T network segmen
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add network segments using NSX-T Manager or the Azure portal
+> * Add network segments using either NSX-T Manager or the Azure portal
 > * Verify the new network segment 
 
 ## Prerequisites
@@ -53,7 +53,7 @@ In this tutorial, you created an NSX-T network segment to use for VMs in vCenter
 
 You can now: 
 
-- [Create and manage DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md)
+- [Configure and manage DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md)
 - [Create a content Library to deploy VMs in Azure VMware Solution](deploy-vm-content-library.md) 
 - [Peer on-premises environments to a private cloud](tutorial-expressroute-global-reach-private-cloud.md)
 
