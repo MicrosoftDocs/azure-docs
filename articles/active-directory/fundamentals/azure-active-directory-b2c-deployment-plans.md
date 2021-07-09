@@ -35,8 +35,8 @@ This phase includes the following capabilities:
 |:------------|:------------| 
 |[Business requirements review](#business-requirements-review) | Assess your organization’s status and expectations |
 | [Stakeholders](#stakeholders) |Build your project team |
-|[Communication](#communication) | Project communication |
-| [Timeline](#timeline) | A reminder of key project milestones  |
+|[Communication](#communication) | Communicate with your team about the project |
+| [Timeline](#timeline) | Reminder of key project milestones  |
 
 ### Business requirements review
 
@@ -91,8 +91,8 @@ This phase includes the following capabilities.
 
 | Capability | Description |
 |:-------------|:--------------|
-| [Deploy authentication and authorization](#deploy-authentication-and-authorization) | Authentication and authorization scenarios and information about the setup |
-| [Deploy applications and user identities](#deploy-applications-and-user-identities) | Client application and user deployments  |
+| [Deploy authentication and authorization](#deploy-authentication-and-authorization) | Authentication and authorization scenarios |
+| [Deploy applications and user identities](#deploy-applications-and-user-identities) | Client application and user deployment  |
 | [Client application onboarding and deliverables](#client-application-onboarding-and-deliverables) | Client application onboarding and project delivarables |
 | [Security](#security) | Enhance the security of your Identity solution |
 |[Compliance](#compliance) | Address regulatory requirements |
