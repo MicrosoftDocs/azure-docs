@@ -1,7 +1,7 @@
 ---
 title: How to prepare an application for deployment in Azure Spring Cloud
 description: Learn how to prepare an application for deployment to Azure Spring Cloud.
-author: bmitchell287
+author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/06/2021
