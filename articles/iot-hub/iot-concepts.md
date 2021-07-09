@@ -35,9 +35,7 @@ Per-device authentication enables each device to connect securely to IoT Hub and
 
 ### Devices have a secure identity
 
-COME BACK TO HERE 
-With a secure identity, you have base names and so and tejas choosing the authentication method. 
-
+COME BACK HERE TEJAS AND FIX THIS! 
 Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the method used to authenticate. 
 
 We support two methods of authentication between the device and the IoT Hub. In one case, you can use an SAS token-based authentication. The other method supported uses X.509 certificate authentication.
@@ -49,7 +47,9 @@ You can set up and provision many devices at a time using the [IoT Hub Device Pr
 
 ### Devices can securely communicate with an IoT Hub
 
- The reason IoT Hub uses security tokens to authenticate devices and services is to avoid sending keys on the network. Also, security tokens are limited in time validity and scope. Azure IoT SDKs automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These scenarios include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
+TEJAS --- GET CLARITY FROM JOHN
+
+ The reason IoT Hub uses security tokens to authenticate devices and services is to avoid sending keys on the network. Also, security tokens are limited in time validity and scope. Azure IoT SDKs automatically generate tokens without requiring any special configuration. If you don't use the SDK, you'll have to generate the security tokens. These scenarios include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
 
 The internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, TLS 1.1, and TLS 1.0, in that order. Support for TLS 1.0 is provided for backward compatibility only. Check [TLS support in IoT Hub](iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, which provides the most security.
 
