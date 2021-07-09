@@ -80,7 +80,7 @@ During a scaling operation, instances temporarily require additional IP capacity
 | Gen5 | BC | Scaling storage | 5 |
 | Gen5 | BC | Switching to GP | 3 |
 
-\* Gen4 hardware is being phased out and is no longer available for new deployments. Updating the hardware generation from Gen4 to Gen5 will take advantage of capabilities specific to Gen5.
+<sup>1</sup> Gen4 hardware is being phased out and is no longer available for new deployments. Updating the hardware generation from Gen4 to Gen5 will take advantage of capabilities specific to Gen5.
   
 ## Calculate the number of IP addresses
 
