@@ -630,7 +630,10 @@ To stop local video, pass the `localVideoStream` instance that's available in th
 
 ```js
 await call.stopVideo(localVideoStream);
+// or
+await call.stopVideo(call.localVideoStreams[0]);
 ```
+Note that there are 4 apis in which you can pass a localVideoStream instance to start video in a call, callAgent.startCall() api, callAgent.join() api, call.accept() api, and call.startVideo() api. To the call.stopVideo() api, you must pass that same localVideoStream instance that you passed in those 4 apis.
 
 You can switch to a different camera device while a video is sending by invoking `switchSource` on a `localVideoStream` instance:
 
@@ -1174,7 +1177,7 @@ subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: Re
 Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
 
 ```js
-const callQualityApi = call.api(Features.Diagnostics);
+const callDiagnostics = call.api(Features.Diagnostics);
 ```
 
 The following users facing diagnostics are available:
@@ -1230,13 +1233,13 @@ const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEvent
     }
 };
 
-call.api(Features.Diagnostics).network.on('diagnosticChanged', diagnosticChangedListener);
-call.api(Features.Diagnostics).media.on('diagnosticChanged', diagnosticChangedListener);
+callDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
+callDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
 ```
 
 - Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
 ```js
-const latestNetworkDiagnostics = call.api(Features.Diagnostics).network.getLatest();
+const latestNetworkDiagnostics = callDiagnostics.network.getLatest();
 	
 console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, ` +
     `value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
@@ -1248,7 +1251,7 @@ console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQua
     `value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
 
 
-const latestMediaDiagnostics = call.api(Features.Diagnostics).media.getLatest();
+const latestMediaDiagnostics = callDiagnostics.media.getLatest();
 	
 console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
     `value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);
