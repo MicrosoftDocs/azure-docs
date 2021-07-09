@@ -20,7 +20,7 @@ Azure Migrate automatically handles these configuration changes for the operatin
 - Windows Server 2008 or later
 - Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
 - CentOS 8, 7.7, 7.6, 7.5, 7.4, 6.x
-- SUSE Linux Enterprise Server 15 SPO, 15 SP1, 12, 11
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7
@@ -54,7 +54,7 @@ The preparation script executes the following changes based on the OS type of th
 
 ### Changes performed on Windows servers
 
-1. **Discover and prepare the Windows OS volume:**
+1. **Discover and prepare the Windows OS volume**
 
    Before performing relevant configuration changes, the preparation script will validate if the correct OS disk was selected for migration. The preparation script will look through all the attached volumes visible to the system and look for the SYSTEM registry hive file path to find the source OS volume.
 
@@ -68,7 +68,7 @@ The preparation script executes the following changes based on the OS type of th
    >[!NOTE]
    >This step is not relevant if you’re manually preparing the servers for migration.
 
-1. **Make boot and connectivity related changes:**
+1. **Make boot and connectivity related changes**
 
    After the source OS volume files are detected, the preparation script will load the SYSTEM registry hive into the registry editor of the temporary Azure VM and perform the following changes to ensure VM boot up and connectivity. You need to configure these settings manually if the OS version is not supported for hydration.
 
@@ -88,7 +88,7 @@ The preparation script executes the following changes based on the OS type of th
 
       To manually configure this setting:
 
-      - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**
+      - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**.
 
         ![Manual Configuration](./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png)
 
@@ -125,7 +125,7 @@ The preparation script executes the following changes based on the OS type of th
 
     The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
 
-    To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell).
+    To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
     ![Successfull Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
 
@@ -220,7 +220,8 @@ The preparation script executes the following changes based on the OS type of th
    1. Remove Network Manager if necessary. Network Manager can interfere with the Azure Linux agent for a few OS versions. It is recommended to make these changes for servers running RedHat and Ubuntu distributions.
 
    1. Uninstall this package by running the following command:
-    An illustrative example for RedHat servers
+    
+      An illustrative example for RedHat servers
 
       ```console
          # sudo rpm -e --nodeps NetworkManager
@@ -228,7 +229,7 @@ The preparation script executes the following changes based on the OS type of th
 
    1. Backup existing NIC settings and create eth0 NIC configuration file with DHCP settings. To do this, the script will create or edit the /etc/sysconfig/network-scripts/ifcfg-eth0 file, and add the following text:
 
-      An illustrative example for RedHat servers:
+      An illustrative example for RedHat servers
 
       ```config
          DEVICE=eth0
@@ -242,9 +243,9 @@ The preparation script executes the following changes based on the OS type of th
          NM_CONTROLLED=yes
       ```
 
-   1. Reset etc/sysconfig/network file as follows.
+   1. Reset etc/sysconfig/network file as follows:
 
-      An illustrative example for RedHat servers:
+      An illustrative example for RedHat servers
 
       ```config
          NETWORKING=yes
@@ -265,7 +266,7 @@ The preparation script executes the following changes based on the OS type of th
 
     Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
-    Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually] (/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
+    Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually](/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
 
     You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
     Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
@@ -279,9 +280,9 @@ The preparation script executes the following changes based on the OS type of th
 
 ### Clean up the temporary VM
 
-After the necessary changes are performed, Azure Migrate will spin down the temporary VM and free the attached OS disks (and data disks). This marks the end of the *hydration process*.                                  
+After the necessary changes are performed, Azure Migrate will spin down the temporary VM and free the attached OS disks (and data disks). This marks the end of the *hydration process*.     
 
-After this, the modified OS disk and the data disks, that contain the replicated data, are cloned. A new virtual machine is created in the target region, virtual network, and subnet, and the cloned disks are attached to the virtual machine. This marks the completion of the migration process.
+After this, the modified OS disk and the data disks that contain the replicated data are cloned. A new virtual machine is created in the target region, virtual network, and subnet, and the cloned disks are attached to the virtual machine. This marks the completion of the migration process.
 
 ## Learn more
 
