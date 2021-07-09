@@ -11,14 +11,18 @@ ms.topic: troubleshooting
 
 This page lists common issues interfering with Azure Remote Rendering, and ways to resolve them.
 
+## Client can't connect to server
+
+Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-firewall).
+
+## Failed to load model
+
+When loading a model (e.g. via a Unity sample) fails although the blob configuration is correct, it is likely that the blob storage is not properly linked. This is explained in the [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) chapter. Note that after correct linking it can take up to 30 minutes until the changes take effect.
+
 ## Can't link storage account to ARR account
 
 Sometimes during [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) the Remote Rendering account isn't listed. To fix this issue, go to the ARR account in the Azure portal and select **Identity** under the **Settings** group on the left. Make sure **Status** is set to **On**.
 ![Unity frame debugger](./media/troubleshoot-portal-identity.png)
-
-## Client can't connect to server
-
-Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-firewall).
 
 ## Error '`Disconnected: VideoFormatNotAvailable`'
 

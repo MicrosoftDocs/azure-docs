@@ -40,7 +40,7 @@ The plugin works by calling the [Azure Digital Twins query API](/rest/api/digita
     For example, consider the below Azure Digital Twins query that is executed using the API:
     
     ```SQL
-    SELECT * FROM DIGITAL TWINS
+    SELECT * FROM DIGITALTWINS
     ```
     
     To execute that query when using the plugin, it should be rewritten like this:
