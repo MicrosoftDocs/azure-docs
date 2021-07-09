@@ -3,7 +3,7 @@ title: Using a user-assigned managed identity for an Azure Automation account (p
 description: This article describes how to set up a user-assigned managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/08/2021
+ms.date: 07/09/2021
 ms.topic: conceptual 
 ---
 
@@ -37,7 +37,29 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Add user-assigned managed identity for Azure Automation account
 
-You can add a user-assigned managed identity for an Azure Automation account using the Azure portal, the Azure REST API, or ARM template.
+You can add a user-assigned managed identity for an Azure Automation account using the Azure portal, PowerShell, the Azure REST API, or ARM template. For the examples involving PowerShell, first sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
+
+```powershell
+# Sign in to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount -Subscription
+}
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+```
+
+Then initialize a set of variables that will be used throughout the examples. Revise the values below and then execute"
+
+```powershell
+$resourceGroup = "resourceGroupName"
+$automationAccount = "automationAccountName"
+$subscriptionID = "subscriptionID"
+$userAssignedOne = "userAssignedIdentityOne"
+$userAssignedTwo = "userAssignedIdentityTwo"
+```
 
 ### Add using the Azure portal
 
@@ -49,11 +71,33 @@ Perform the following steps:
 
 1. Under **Account Settings**, select **Identity**.
 
-1. Select the **User assigned** tab, and the select **Add**.
+1. Select the **User assigned** tab, and then select **Add**.
 
 1. Select your existing user-assigned managed identity and then select **Add**. You'll then be returned to the **User assigned** tab.
 
-### Add using the REST API
+   :::image type="content" source="media/add-user-assigned-identity/user-assigned-managed-identity.png" alt-text="Alt text here.":::
+
+### Add using PowerShell
+
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to add the user-assigned managed identities. The example adds two existing user-assigned managed identities to an existing Automation account.
+
+```powershell
+$output = Set-AzAutomationAccount `
+    -ResourceGroupName $resourceGroup `
+    -Name $automationAccount `
+    -AssignUserIdentity "/subscriptions/$subscriptionID/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$userAssignedOne", `
+        "/subscriptions/$subscriptionID/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$userAssignedTwo"
+
+$output
+```
+
+The output should look similar to the following:
+
+:::image type="content" source="media/add-user-assigned-identity/set-azautomationaccount-output.png" alt-text="Alt text here.":::
+
+For additional output, execute: `$output.identity | ConvertTo-Json`.
+
+### Add using a REST API
 
 Syntax and example steps are provided below.
 
@@ -62,22 +106,15 @@ Syntax and example steps are provided below.
 The sample body syntax below enables a system-assigned managed identity if not already enabled and assigns two existing user-assigned managed identities to the existing Automation account.
 
 ```json
-{ 
-  "properties": { 
-    "sku": { 
-      "name": "Free" 
-    } 
-  }, 
-  "name": "yourAutomationAccountName", 
-  "location": "yourLocation", 
-  "identity" : { 
-      "type": "SystemAssigned, UserAssigned", 
-      "userAssignedIdentities": { 
-           "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {}, 
-           "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {} 
-        } 
-    } 
-} 
+{
+  "identity": {
+    "type": "SystemAssigned, UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {},
+      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {}
+    }
+  }
+}
 ```
 
 The syntax of the API is as follows:
@@ -90,29 +127,12 @@ https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/
 
 Perform the following steps.
 
-1. Revise the syntax of the body above and save it to a file named `body.json`.
+1. Revise the syntax of the body above into a file named `body_ua.json`. Save the file on your local machine or in an Azure storage account.
 
-1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
-
-    ```powershell
-    # Sign in to your Azure subscription
-    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Connect-AzAccount -Subscription
-    }
-    
-    # If you have multiple subscriptions, set the one to use
-    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
-    ```
-
-1. Revise the variable values below and then execute.
+1. Revise the variable value below and then execute.
 
     ```powershell
-    $subscription = "subscriptionID"
-    $resourceGroup = "resourceGroupName"
-    $automationAccount = "automationAccountName"
-    $file = "path\body.json"
+    $file = "path\body_ua.json"
     ```
 
 1. This example uses the PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send the PATCH request to your Automation account.
@@ -161,7 +181,7 @@ Perform the following steps.
     }
     ```
 
-### Using an Azure Resource Manager template
+### Add using an ARM template
 
 Syntax and example steps are provided below.
 
@@ -171,32 +191,55 @@ The sample template syntax below enables a system-assigned managed identity if n
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-      {
-        "type": "Microsoft.Automation/automationAccounts",
-        "apiVersion": "2020-01-13-preview",
-        "name": "yourAutomationAccountName", 
-        "location": "yourLocation", 
-        "identity": {
-          "type": "SystemAssigned, UserAssigned",
-          "userAssignedIdentities": {
-               "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {}, 
-               "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {} 
-          }
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "automationAccountName": {
+     "defaultValue": "YourAutomationAccount",
+      "type": "String",
+      "metadata": {
+        "description": "Automation account name"
+      }
+    },
+    "userAssignedOne": {
+     "defaultValue": "userAssignedOne",
+      "type": "String",
+      "metadata": {
+        "description": "User-assigned managed identity"
+      }
+	  },
+    "userAssignedTwo": {
+     "defaultValue": "userAssignedTwo",
+      "type": "String",
+      "metadata": {
+        "description": "User-assigned managed identity"
+      }
+	  }
+   },
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts",
+      "apiVersion": "2020-01-13-preview",
+      "name": "[parameters('automationAccountName')]",
+      "location": "[resourceGroup().location]",
+      "identity": {
+        "type": "SystemAssigned, UserAssigned",
+        "userAssignedIdentities": {
+          "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('userAssignedOne'))]": {},
+          "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',parameters('userAssignedTwo'))]": {}
+        }
+      },
+      "properties": {
+        "sku": {
+          "name": "Basic"
         },
-        "properties": {
-          "sku": {
-            "name": "Basic"
-          },
-          "encryption": {
-            "keySource": "Microsoft.Automation",
-            "identity": {}
-          }
+        "encryption": {
+          "keySource": "Microsoft.Automation",
+          "identity": {}
         }
       }
-    ]
+    }
+  ]
 }
 ```
 
@@ -204,37 +247,24 @@ The sample template syntax below enables a system-assigned managed identity if n
 
 Perform the following steps.
 
-1. Revise the syntax of the template above and save it to a file named `template.json`.
+1. Copy and paste the template into a file named `template_ua.json`. Save the file on your local machine or in an Azure storage account.
 
-1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
-
-    ```powershell
-    # Sign in to your Azure subscription
-    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
-    if(-not($sub))
-    {
-        Connect-AzAccount -Subscription
-    }
-    
-    # If you have multiple subscriptions, set the one to use
-    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
-    ```
-
-1. Revise the variable values below and then execute.
+1. Revise the variable value below and then execute.
 
     ```powershell
-    $resourceGroup = "resourceGroupName"
-    $automationAccount = "automationAccountName"
-    $templateFile = "path\body.json"
+    $templateFile = "path\template_ua.json"
     ```
 
 1. Use PowerShell cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) to deploy the template.
 
     ```powershell
     New-AzResourceGroupDeployment `
-        -Name "TestDeployment" `
+        -Name "UserAssignedDeployment" `
         -ResourceGroupName $resourceGroup `
-        -TemplateFile $templateFile
+        -TemplateFile $templateFile `
+        -automationAccountName $automationAccount `
+        -userAssignedOne $userAssignedOne `
+        -userAssignedTwo $userAssignedTwo
     ```
 
    The command won't produce an output; however, you can use the code below to verify:
@@ -256,15 +286,19 @@ Before you can use your user-assigned managed identity for authentication, set u
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example and may or may not be required in your case. Alternatively, you can use portal also to assign the role to the target Azure resource.
 
 ```powershell
-New-AzRoleAssignment -ObjectId <automation-Identity-object-id> -Scope "/subscriptions/<subscription-id>" -RoleDefinitionName "Contributor"
+New-AzRoleAssignment `
+    -ObjectId <automation-Identity-object-id> `
+    -Scope "/subscriptions/<subscription-id>" `
+    -RoleDefinitionName "Contributor"
 ```
 
 ## Authenticate access with user-assigned managed identity
 
-After you enable the user-assigned managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
+After you enable the user-assigned managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
 ```powershell
-Connect-AzAccount -Identity -AccountId <user-assigned-identity-ClientId> 
+Connect-AzAccount -Identity `
+    -AccountId <user-assigned-identity-ClientId> 
 ```
 
 ## Generate an access token without using Azure cmdlets

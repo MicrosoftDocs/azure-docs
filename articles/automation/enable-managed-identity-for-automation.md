@@ -3,7 +3,7 @@ title: Using a system-assigned managed identity for an Azure Automation account 
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/08/2021
+ms.date: 07/09/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -31,12 +31,43 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Enable a system-assigned managed identity for an Azure Automation account
 
-You can enable a system-assigned managed identity for an Azure Automation account using the Azure portal, or using the Azure REST API.
+Once enabled, the following properties will be assigned to the system-assigned managed identity.
+
+|Property (JSON) | Value | Description|
+|----------|-----------|------------|
+| principalid | \<principal-ID\> | The Globally Unique Identifier (GUID) of the service principal object for the system-assigned managed identity that represents your Automation account in the Azure AD tenant. This GUID sometimes appears as an "object ID" or objectID. |
+| tenantid | \<Azure-AD-tenant-ID\> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the Automation account is now a member. Inside the Azure AD tenant, the service principal has the same name as the Automation account. |
+
+You can enable a system-assigned managed identity for an Azure Automation account using the Azure portal, PowerShell, the Azure REST API, or ARM template. For the examples involving PowerShell, first sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
+
+```powershell
+# Sign in to your Azure subscription
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
+if(-not($sub))
+{
+    Connect-AzAccount -Subscription
+}
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+```
+
+Then initialize a set of variables that will be used throughout the examples. Revise the values below and then execute"
+
+```powershell
+$resourceGroup = "resourceGroupName"
+$automationAccount = "automationAccountName"
+$subscriptionID = "subscriptionID"
+$userAssignedOne = "userAssignedIdentityOne"
+$userAssignedTwo = "userAssignedIdentityTwo"
+```
 
 > [!IMPORTANT]
-> The new Automation account-level identity will override any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
+> The new Automation account-level identity will override any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account system-assigned managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
 
 ### Enable using the Azure portal
+
+Perform the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -52,44 +83,157 @@ You can enable a system-assigned managed identity for an Azure Automation accoun
 
    :::image type="content" source="media/managed-identity/managed-identity-object-id.png" alt-text="Managed identity object ID.":::
 
+### Enable using PowerShell
+
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to enable the system-assigned managed identity.
+
+```powershell
+$output = Set-AzAutomationAccount `
+    -ResourceGroupName $resourceGroup `
+    -Name $automationAccount `
+    -AssignSystemIdentity
+
+$output
+```
+
+The output should look similar to the following:
+
+:::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Alt text here.":::
+
+For additional output, execute: `$output.identity | ConvertTo-Json`.
+
 ### Enable using a REST API
 
-You can enable a system-assigned managed identity to the Automation account by using the following REST API call.
+Syntax and example steps are provided below.
+
+#### Syntax
+
+The body syntax below enables a system-assigned managed identity to an existing Automation account.
+
+```json
+{ 
+ "identity": { 
+   "type": "SystemAssigned" 
+  } 
+}
+```
+
+The syntax of the API is as follows:
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
 
-Request body
-```json
-{ 
- "identity": 
- { 
-  "type": "SystemAssigned" 
-  } 
-}
-```
+#### Example
+
+Perform the following steps.
+
+1. Copy and paste the body syntax into a file named `body_sa.json`. Save the file on your local machine or in an Azure storage account.
+
+1. Revise the variable value below and then execute.
+
+    ```powershell
+    $file = "path\body_sa.json"
+    ```
+
+1. This example uses the PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send the PATCH request to your Automation account.
+
+    ```powershell
+    # build URI
+    $URI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
+    
+    # build body
+    $body = Get-Content $file
+    
+    # obtain access token
+    $azContext = Get-AzContext
+    $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+    $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+    $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+    $authHeader = @{
+        'Content-Type'='application/json'
+        'Authorization'='Bearer ' + $token.AccessToken
+    }
+    
+    # Invoke the REST API
+    $response = Invoke-RestMethod -Uri $URI -Method PATCH -Headers $authHeader -Body $body
+    
+    # Review output
+    $response.identity | ConvertTo-Json
+    ```
+
+    The output should look similar to the following:
+
+    ```json
+    {
+        "PrincipalId":  "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        "TenantId":  "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+        "Type":  0,
+        "UserAssignedIdentities":  null
+    }
+    ```
+
+### Enable using an ARM template
+
+Syntax and example steps are provided below.
+
+#### Template syntax
+
+The sample template syntax below enables a system-assigned managed identity to the existing Automation account.
 
 ```json
 {
- "name": "automation-account-name",
- "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name",
- .
- .
- "identity": {
-    "type": "SystemAssigned",
-    "principalId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-    "tenantId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"
- },
-.
-.
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Automation/automationAccounts",
+      "apiVersion": "2020-01-13-preview",
+      "name": "yourAutomationAccount",
+      "location": "[resourceGroup().location]",
+      "identity": {
+        "type": "SystemAssigned"
+        },
+      "properties": {
+        "sku": {
+          "name": "Basic"
+        }
+      }
+    }
+  ]
 }
 ```
 
-|Property (JSON) | Value | Description|
-|----------|-----------|------------|
-| principalid | \<principal-ID\> | The Globally Unique Identifier (GUID) of the service principal object for the system-assigned managed identity that represents your Automation account in the Azure AD tenant. This GUID sometimes appears as an "object ID" or objectID. |
-| tenantid | \<Azure-AD-tenant-ID\> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the Automation account is now a member. Inside the Azure AD tenant, the service principal has the same name as the Automation account. |
+#### Example
+
+Perform the following steps.
+
+1. Revise the syntax of the template above to use your Automation account and save it to a file named `template_sa.json`.
+
+1. Revise the variable value below and then execute.
+
+    ```powershell
+    $templateFile = "path\template_sa.json"
+    ```
+
+1. Use PowerShell cmdlet [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) to deploy the template.
+
+    ```powershell
+    New-AzResourceGroupDeployment `
+        -Name "SystemAssignedDeployment" `
+        -ResourceGroupName $resourceGroup `
+        -TemplateFile $templateFile
+    ```
+
+   The command won't produce an output; however, you can use the code below to verify:
+
+    ```powershell
+    (Get-AzAutomationAccount `
+    -ResourceGroupName $resourceGroup `
+    -Name $automationAccount).Identity | ConvertTo-Json
+    ```
+
+   The output will look similar to the output shown for the REST API example, above.
 
 ## Give access to Azure resources by obtaining a token
 
@@ -100,7 +244,10 @@ Before you can use your system-assigned managed identity for authentication, set
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
 
 ```powershell
-New-AzRoleAssignment -ObjectId <automation-Identity-object-id> -Scope "/subscriptions/<subscription-id>" -RoleDefinitionName "Contributor"
+New-AzRoleAssignment `
+    -ObjectId <automation-Identity-object-id> `
+    -Scope "/subscriptions/<subscription-id>" `
+    -RoleDefinitionName "Contributor"
 ```
 
 ## Authenticate access with system-assigned managed identity
