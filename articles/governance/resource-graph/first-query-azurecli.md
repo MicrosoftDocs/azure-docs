@@ -52,8 +52,10 @@ Docker image](https://hub.docker.com/_/microsoft-azure-cli), or locally installe
 ## Run your first Resource Graph query
 
 With the Azure CLI extension added to your environment of choice, it's time to try out a simple
-Resource Graph query. The query will return the first five Azure resources with the **Name** and
-**Resource Type** of each resource.
+tenant-based Resource Graph query. The query returns the first five Azure resources with the
+**Name** and **Resource Type** of each resource. To query by
+[management group](../management-groups/overview.md) or subscription, use the `--managementgroups`
+or `--subscriptions` arguments.
 
 1. Run your first Azure Resource Graph query using the `graph` extension and `query` command:
 
