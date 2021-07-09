@@ -13,8 +13,8 @@ metadata:
   ms.collection: performance # Optional; Remove if no collection is used.
   author: WilliamDAssafMSFT #Required; your GitHub user alias, with correct capitalization.
   ms.author: wiassaf #Required; microsoft alias of author; optional team alias.
-  ms.reviewer: sstein
-  ms.date: 03/10/2020 #Required; mm/dd/yyyy format.
+  ms.reviewer: 
+  ms.date: 07/01/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -30,8 +30,14 @@ landingContent:
             url: monitor-tune-overview.md
       - linkListType: learn
         links:
-          - text: Microsoft Azure Database Monitoring Playbook
-            url: https://app.pluralsight.com/library/courses/microsoft-azure-database-playbook-monitoring
+          - text: Configure databases for performance
+            url: /learn/modules/configure-databases-performance/
+          - text: Optimize query performance 
+            url: /learn/paths/optimize-query-performance-sql-server/
+          - text: Monitor and optimize operational resources 
+            url: /learn/paths/monitor-optimize-operational-resources-sql-server/
+          - text: Protect, monitor, and tune 
+            url: /learn/modules/protect-monitor-tuning-migrated-database/
 
   # Card (optional)
   - title: Azure SQL Database intelligent performance recommendations

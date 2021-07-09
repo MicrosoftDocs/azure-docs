@@ -23,7 +23,7 @@ With any Synapse RBAC role, you can list Synapse RBAC role assignments for all s
 
 ## Open Synapse Studio  
 
-To review role assignments, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace. 
+To review role assignments, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace. To sign into your workspace, there are two **Account selection methods**. One is from **Azure subscription**, the other is from **Enter manually**. If you have the Synapse Azure role or higher level Azure roles, you can use both methods to log into the workspace. If you don't have the related Azure roles, and you were granted as the Synapse RBAC role, **Enter manually** is the only way to log into the workspace.
 
 ![Log in to workspace](./media/common/login-workspace.png) 
  

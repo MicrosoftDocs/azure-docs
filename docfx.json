@@ -133,7 +133,7 @@
       },
       "healthcare-apis": {
         "dest": "desthealthcareapis",
-        "moniker_range": ">=azureapiforfhir"
+        "moniker_range": "azureapiforfhir || healthcareapi-1.0.0"
       }
     },
     "overwrite": [],
@@ -826,7 +826,14 @@
         "articles/media-services/video-indexer/*.md": "video-indexer"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
+        "articles/iot-edge/**/*.md": ">=iotedge-2018-06",
+
+        "articles/healthcare-apis/azure-api-for-fhir/**": "azureapiforfhir",
+        "articles/healthcare-apis/*.yml": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/*.md": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/fhir/**": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/dicom/**": "healthcareapi-1.0.0",
+        "articles/healthcare-apis/data-transformation/**": "healthcareapi-1.0.0"
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false

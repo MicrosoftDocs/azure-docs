@@ -4,14 +4,24 @@ items:
 - name: Overview
   expanded: true
   items:
-    - name: About Azure Healthcare APIs
+    - name: About Healthcare APIs
       href: healthcare-apis-overview.md
-    - name: FAQs about Azure Healthcare APIs
-      href: healthcare-apis-faqs.yml
-- name: Workspace
+    - name: About workspace
+      href: workspace-overview.md
+- name: Quickstarts
   expanded: true
   items:
-    - name: Workspace Overview
-      href: workspace-overview.md
-    - name: Deploy workspace in the Azure portal
+    - name: Deploy Healthcare APIs
       href: healthcare-apis-quickstart.md
+- name: FHIR service
+  href: ./fhir/index.yml
+- name: DICOM service
+  href: ./dicom/index.yml
+- name: Data Transformation
+  href: ./data-transformation/index.yml
+- name: FAQ
+  href: healthcare-apis-faqs.yml
+- name: Reference
+
+
+
