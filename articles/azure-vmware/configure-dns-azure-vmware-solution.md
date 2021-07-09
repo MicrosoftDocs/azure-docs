@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.custom: contperf-fy22q1
 ms.date: 07/20/2021
 
-# Customer intent: As an Azure service administrator, I want to configure 
+#Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T DNS Service.> and <why?>  
 
 ---
 
@@ -45,7 +45,7 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
    >[!IMPORTANT]
    >While NSX-T allows spaces and other non-alphanumeric characters in a DNS zone name, certain NSX resources such as a DNS Zone are mapped to an Azure resource whose names don’t permit certain characters. 
    >
-   >As a result, DNS zone names that would otherwise be valid in NSX-T may need adjustment to adhere to the [Azure resource naming conventions](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftresources).
+   >As a result, DNS zone names that would otherwise be valid in NSX-T may need adjustment to adhere to the [Azure resource naming conventions](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftresources).
 
    You’ll see a message in the Notifications when the DNS zone has been created.
 
