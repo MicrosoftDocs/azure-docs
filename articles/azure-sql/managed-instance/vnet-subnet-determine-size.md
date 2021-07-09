@@ -66,7 +66,7 @@ An update operation typically requires [resizing the virtual cluster](management
 
 During a scaling operation, instances temporarily require additional IP capacity that depends on pricing tier and hardware generation:
 
-| **Hardware generation** | **Pricing tier** | **Scenario** | **Additional addresses*** |
+| **Hardware generation** | **Pricing tier** | **Scenario** | **Additional addresses**  |
 | --- | --- | --- | --- |
 | Gen4 | GP or BC | Scaling vCores | 5 |
 | Gen4 | GP or BC | Scaling storage | 5 |
