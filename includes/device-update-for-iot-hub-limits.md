@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
  > When a given resource or operation doesn't have adjustable limits, the default and the maximum limits are the same.
  > When the limit can be adjusted, the table includes different values for Default limit and Maximum limit headers. The limit can be raised above the default limit 
  > but not above the maximum limit.
- > If you want to raise the limit or quota above the default limit, open an [online customer support request](https://azure.microsoft.com/en-us/support/options/).
+ > If you want to raise the limit or quota above the default limit, open an [online customer support request](https://azure.microsoft.com/support/options/).
 
 
 This table provides the limits for the Device Update for IoT Hub resource in Azure Resource Manager:
