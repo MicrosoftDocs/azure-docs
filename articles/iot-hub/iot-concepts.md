@@ -36,7 +36,7 @@ Per-device authentication enables each device to connect securely to IoT Hub and
 ### Devices have a secure identity
 
 COME BACK TO HERE 
-With a secure identity, you have base names etc and blah blah blah choosing the authentication method. 
+With a secure identity, you have base names and so and tejas choosing the authentication method. 
 
 Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the method used to authenticate. 
 
@@ -56,7 +56,7 @@ The internet connection between the IoT device and IoT Hub is secured using the 
 
 ## Communication patterns with a device
 
-Typically, IoT devices send telemetry from the sensors to back-end services in the cloud. However, other types of communication are possible, such as a back-end service sending commands to your devices. Some examples of different types of communication include the following: 
+Typically, IoT devices send telemetry from the sensors to back-end services in the cloud. However, other types of communication are possible, such as a back-end service sending commands to your devices. Some examples of different types of communication include the following examples: 
 
 *  A refrigeration truck sending temperature every 5 minutes to an IoT Hub
 *  A back-end service sending a command to a device to change the frequency at which it sends telemetry to help diagnose a problem
@@ -83,7 +83,7 @@ IoT Hub implements commands by allowing you to invoke direct methods on devices 
 
 ## View and act on data collected from your devices
 
-*TEJAS* *Showcase how IoT Hub helps integrate data from devices into powerful Azure services that can be leveraged for post-processing and generating business insights.*
+*TEJAS* Showcase how IoT Hub helps integrate data from devices into powerful Azure services that can be leveraged for post-processing and generating business insights.
 
 ### Built-in endpoint collects data from your device by default
 
@@ -96,7 +96,7 @@ iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
 
 ### Use Message Routing to send data to other endpoints for processing
 
-These events may also need to be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. 
+These events can also be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. 
 
 You can also filter the data that is sent to different services. 
 
