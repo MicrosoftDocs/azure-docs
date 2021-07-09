@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 07/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 

@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 07/06/2021
+ms.date: 07/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 
