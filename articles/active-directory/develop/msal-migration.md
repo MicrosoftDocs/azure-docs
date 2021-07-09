@@ -34,7 +34,7 @@ MSAL has several advantages over ADAL, which includes:
     - Security fixes beyond June 30, 2022.
     - [Continuous Access Evaluation (CAE)](app-resilience-continuous-access-evaluation.md) that proactively refreshes tokens and can revoke access tokens based on critical event and policy.
     - [Conditional access authentication context](developer-guide-conditional-access-authentication-context.md) that allows you to apply granular policies to sensitive data and actions.
-    - [Proof of possession](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Proof-Of-Possession-(PoP)-tokens) ensures that access tokens are not stolen and used to access protected resources using the following mechanisms:
+    - Proof of possession ensures that access tokens are not stolen and used to access protected resources using the following mechanisms:
         - Access tokens are bound to the user/machine that wants to access a protected resource via public/private key pair.
         - Access tokens are bound to a protected resource, i.e a token that is used to access <code>GET https://contoso.com/transactions</code> cannot be used to access <code>GET https://contoso.com/tranfer/100</code>
 - Performance and scalability:
