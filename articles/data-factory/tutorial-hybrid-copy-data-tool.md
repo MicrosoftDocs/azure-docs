@@ -171,10 +171,12 @@ You use the name and key of your storage account in this tutorial. To get the na
    a. Under **Name**, enter **AzureStorageLinkedService**.
 
    b. Under **Connect via integration runtime**, select **TutorialIntegrationRuntime**, and select **Account key** under **Authentication method**.
+   
+   c. Under **Azure subscription**, select your Azure subscription from the drop-down list.
 
-   c. Under **Storage account name**, select your storage account from the drop-down list.
+   d. Under **Storage account name**, select your storage account from the drop-down list.
 
-   d. Select **Create**.
+   e. Test connection and select **Create**.
 
 1. In the **Destination data store** dialog, make sure that the newly created **Azure Blob Storage** connection is selected in the **Connection** block. Then under **Folder path**, enter **adftutorial/fromonprem**. You created the **adftutorial** container as part of the prerequisites. If the output folder doesn't exist (in this case **fromonprem**), Data Factory automatically creates it. You can also use the **Browse** button to browse the blob storage and its containers/folders. If you do not specify any value under **File name**, by default the name from the source would be used (in this case **dbo.emp**).
 
