@@ -1,8 +1,8 @@
 items:
+- name: Azure Healthcare APIs (preview) documentation
+  href: ../index.yml
 - name: Azure API for FHIR
   href: index.yml
-- name: Healthcare APIs documentation
-  href: ../index.yml
 - name: Overview
   items:
   - name: About Azure API for FHIR

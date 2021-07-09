@@ -1,8 +1,8 @@
 items:
-- name: Azure Healthcare APIs
-  href: index.yml
 - name: Azure API for FHIR documentation
   href: ./azure-api-for-fhir/index.yml
+- name: Azure Healthcare APIs (preview)
+  href: index.yml
 - name: Overview
   expanded: true
   items:
@@ -23,7 +23,6 @@ items:
   href: ./data-transformation/index.yml
 - name: FAQ
   href: healthcare-apis-faqs.yml
-- name: Reference
 
 
 

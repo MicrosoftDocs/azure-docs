@@ -597,8 +597,8 @@
       tocHref: /azure/healthcare-apis/data-transformation/
       topicHref: /azure/healthcare-apis/data-transformation/index
   - name: Azure API for FHIR
-    tocHref: /azure//healthcare-apis/azure-api-for-fhir/
-    topicHref: /azure//healthcare-apis/azure-api-for-fhir/
+    tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+    topicHref: /azure/ealthcare-apis/azure-api-for-fhir/
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
