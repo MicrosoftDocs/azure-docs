@@ -10,7 +10,7 @@ manager: femila
 
 # What is Azure Virtual Desktop Remote App Streaming?
 
-Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud and lets you access your remote desktop anytime, anywhere. However, did you know you can also make your Azure Virtual Desktop deployment provide your organization's apps as a Platform as a Service (PaaS) or Software as a Service (SaaS) for your customers? With Azure Virtual Desktop Remote App Streaming, you can now use Azure Virtual Desktop to deliver apps to your customers over a secure network through virtual machines.
+Azure Virtual Desktop is a desktop and app virtualization service that runs on the cloud and lets you access your remote desktop anytime, anywhere. However, did you know you can also use Azure Virtual Desktop as as a Platform as a Service (PaaS) to provide your organization's apps as Software as a Service (SaaS) to your customers? With Azure Virtual Desktop Remote App Streaming, you can now use Azure Virtual Desktop to deliver apps to your customers over a secure network through virtual machines.
 
 If you're unfamiliar with Azure Virtual Desktop (or are new to app virtualization in general), we've gathered some resources here that can help you get your deployment up and running.
 
@@ -22,7 +22,7 @@ In order to set up an Azure Virtual Desktop deployment for your custom apps that
 
 - Your custom app. See [How to serve your custom app with Azure Virtual Desktop]() to learn about the types of apps Azure Virtual Desktop supports and how you can serve them to your customers.
 
-- Your domain join credentials. If you don't already have an Active Directory and domain controller for each organization of users you're going to send your apps to, you'll need to set up identity management for your host pool. See [How to set up identities managed by the Azure Virtual Desktop deployment owner]() for more information.
+- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool.
 
 - An Azure subscription. If you don't already have a subscription, make sure to [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -34,7 +34,7 @@ You have two options to set yourself up for success. You can either set up your 
 
 ### Set up Azure Virtual Desktop manually
 
-If you want to set up your deployment manually, which will give you more control over configuration, you can start by following these tutorials:
+If you want to set up your deployment manually, which will give you more control over your initial configuration, you can start by following these tutorials:
 
 1. [Create a host pool with the Azure portal](../create-host-pools-azure-marketplace.md)
 
@@ -73,9 +73,9 @@ Once you've set up Azure Virtual Desktop, you have lots of options to customize 
 Read the following articles to understand concepts essential to creating and managing deployments:
 
 - [Understanding licensing for app hosting]()
-- [Windows Virtual Desktop security best practices - Azure \| Microsoft Docs](../security-guide.md)
+- [Azure Virtual Desktop security best practices](../security-guide.md)
 - [Azure Monitor for Azure Virtual Desktop glossary](../azure-monitor-glossary.md)
-- [Windows Virtual Desktop for the enterprise - Azure Example Scenarios \| Microsoft Docs](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+- [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [Understanding total Azure Virtual Desktop costs]()
 - [Architecture recommendations]()
 - [Security implications of multi-tenancy]()
