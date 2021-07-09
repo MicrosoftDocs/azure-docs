@@ -1,5 +1,5 @@
 items:
-- name: PyTorch Enterprise Documentation
+- name: PyTorch Enterprise documentation
   href: index.yml
 - name: Overview
   expanded: true
