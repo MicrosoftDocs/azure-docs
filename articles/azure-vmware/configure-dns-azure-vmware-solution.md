@@ -45,7 +45,7 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
    >[!IMPORTANT]
    >While NSX-T allows spaces and other non-alphanumeric characters in a DNS zone name, certain NSX resources such as a DNS Zone are mapped to an Azure resource whose names don’t permit certain characters. 
    >
-   >As a result, DNS zone names that would otherwise be valid in NSX-T may need adjustment to adhere to the [Azure resource naming conventions](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftresources).
+   >As a result, DNS zone names that would otherwise be valid in NSX-T may need adjustment to adhere to the [Azure resource naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftresources).
 
    You’ll see a message in the Notifications when the DNS zone has been created.
 
