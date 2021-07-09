@@ -241,7 +241,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 ## Device Update for IoT Hub  limits
 
-[!INCLUDE [device-update-for-iot-hub-limits](../../iot-hub-device-update/device-update-limits.md)]
+[!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
 
 ## Digital Twins limits
 
