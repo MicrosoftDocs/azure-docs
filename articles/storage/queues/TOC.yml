@@ -47,7 +47,7 @@
     href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     items:
     - name: Authenticate and authorize with Azure AD
-      href: authorize-data-access.md
+      href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
       items:
       - name: View and manage account keys

@@ -18,15 +18,15 @@ Azure Storage supports using Azure Active Directory (Azure AD) to authorize requ
 
 Authorizing requests against Azure Storage with Azure AD provides superior security and ease of use over Shared Key authorization. Microsoft recommends using Azure AD authorization with your table applications when possible to minimize potential security vulnerabilities inherent in Shared Key.
 
-Authorization with Azure AD is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization.
+Authorization with Azure AD is available for all general-purpose in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization.
 
 ## Overview of Azure AD for tables
 
-When a security principal (a user, group, or application) attempts to access a table resource, the request must be authorized, unless it is a blob available for anonymous access. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Table service and used by the service to authorize access to the specified resource.
+When a security principal (a user, group, or application) attempts to access a table resource, the request must be authorized. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Table service and used by the service to authorize access to the specified resource.
 
-The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access blobs or queues. To learn how to authorize requests made by a managed identity to the Azure Table service, see [Authorize access to tables with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md).
+The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access tables. To learn how to authorize requests made by a managed identity to the Azure Table service, see [Authorize access to tables with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md).
 
-The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for table data. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for Azure Storage, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
+The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for table data. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for table access, see [Assign an Azure role for access to table data](../tables/assign-azure-role-data-access.md).
 
 Native applications and web applications that make requests to the Azure Table service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for table data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](storage-auth-aad-app.md).
 
@@ -34,13 +34,13 @@ Native applications and web applications that make requests to the Azure Table s
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access table data. You can also define custom roles for access to table data.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual table. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### Azure built-in roles for tables
 
 [!INCLUDE [storage-auth-rbac-roles-table-include](../../../includes/storage-auth-rbac-roles-table-include.md)]
 
-To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
+To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to table data](../tables/assign-azure-role-data-access.md).
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
@@ -64,14 +64,13 @@ When you attempt to access table data, the Azure portal first checks whether you
 
 To access table data from the Azure portal using your Azure AD account, you need permissions to access table data, and you also need permissions to navigate through the storage account resources in the Azure portal. The built-in roles provided by Azure Storage grant access to table resources, but they don't grant permissions to storage account resources. For this reason, access to the portal also requires the assignment of an Azure Resource Manager role such as the [Reader](../../role-based-access-control/built-in-roles.md#reader) role, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable. To learn more about how to assign permissions to users for data access in the Azure portal with an Azure AD account, see [Assign an Azure role for access to table data](assign-azure-role-data-access.md).
 
-The Azure portal indicates which authorization scheme is in use when you navigate to a container or queue. For more information about data access in the portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md) and [Choose how to authorize access to queue data in the Azure portal](../queues/authorize-data-operations-portal.md).
+The Azure portal indicates which authorization scheme is in use when you navigate to a table. For more information about data access in the portal, see [Choose how to authorize access to table data in the Azure portal](../tables/authorize-data-operations-portal.md).
 
 ### Data access from PowerShell or Azure CLI
 
-Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access table data](../blobs/authorize-data-operations-powershell.md).
+Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in with Azure AD, your session runs under those credentials.
 
 ## Next steps
 
-- [Authorize access to data with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
-- [Authorize with Azure Active Directory from an application for access to data](storage-auth-aad-app.md)
-- [Azure Storage support for Azure Active Directory based access control generally available](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
+- [Assign an Azure role for access to table data](assign-azure-role-data-access.md)

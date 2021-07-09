@@ -20,17 +20,17 @@ Authorizing requests against Azure Storage with Azure AD provides superior secur
 
 Authorization with Azure AD is available for all general-purpose and Blob storage accounts in all public regions and national clouds. Only storage accounts created with the Azure Resource Manager deployment model support Azure AD authorization.
 
-Blob storage additionally supports creating shared access signatures (SAS) that are signed with Azure AD credentials. For more information, see [Grant limited access to data with shared access signatures](storage-sas-overview.md).
+Blob storage additionally supports creating shared access signatures (SAS) that are signed with Azure AD credentials. For more information, see [Grant limited access to data with shared access signatures](../common/storage-sas-overview.md).
 
 ## Overview of Azure AD for blobs
 
-When a security principal (a user, group, or application) attempts to access a blob resource, the request must be authorized, unless it is a blob available for anonymous access. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Blob or Queue service and used by the service to authorize access to the specified resource.
+When a security principal (a user, group, or application) attempts to access a blob resource, the request must be authorized, unless it is a blob available for anonymous access. With Azure AD, access to a resource is a two-step process. First, the security principal's identity is authenticated and an OAuth 2.0 token is returned. Next, the token is passed as part of a request to the Blob service and used by the service to authorize access to the specified resource.
 
-The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access blob data. To learn how to authorize requests made by a managed identity to the Azure Blob or Queue service, see [Authorize access to blobs with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md).
+The authentication step requires that an application request an OAuth 2.0 access token at runtime. If an application is running from within an Azure entity such as an Azure VM, a virtual machine scale set, or an Azure Functions app, it can use a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access blob data. To learn how to authorize requests made by a managed identity to the Azure Blob service, see [Authorize access to blobs with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md).
 
-The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for blob data. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for Azure Storage, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
+The authorization step requires that one or more Azure roles be assigned to the security principal. Azure Storage provides Azure roles that encompass common sets of permissions for blob data. The roles that are assigned to a security principal determine the permissions that the principal will have. To learn more about assigning Azure roles for blob access, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
-Native applications and web applications that make requests to the Azure Blob or Queue service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for blob data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](storage-auth-aad-app.md).
+Native applications and web applications that make requests to the Azure Blob service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for blob data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](../common/storage-auth-aad-app.md).
 
 ## Assign Azure roles for access rights
 
@@ -70,7 +70,10 @@ The Azure portal indicates which authorization scheme is in use when you navigat
 
 ### Data access from PowerShell or Azure CLI
 
-Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see [Run Azure CLI or PowerShell commands with Azure AD credentials to access blob data](../blobs/authorize-data-operations-powershell.md).
+Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in, your session runs under those credentials. To learn more, see one of the following articles:
+
+- [Choose how to authorize access to blob data with Azure CLI](authorize-data-operations-cli.md)
+- [Run PowerShell commands with Azure AD credentials to access blob data](authorize-data-operations-powershell.md)
 
 ## Next steps
 
