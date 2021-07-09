@@ -12,7 +12,7 @@ ms.date: 07/06/2021
 
 This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](./tutorial-migrate-vmware.md) method using the Azure Migrate: Server Migration tool.
 
-Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established.   
+Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established.
 Azure Migrate automatically handles these configuration changes for the operating system versions mentioned below for both Linux and Windows. This process is called *Hydration*.
 
 **Operating system versions supported for hydration**
@@ -35,7 +35,7 @@ You can also use this article to manually prepare the VMs for migration to Azure
 
 ## Hydration process
 
-You have to make some changes to the VMs configuration before the migration to ensure that the migrated VMs function properly on Azure.Azure Migrate handles these configuration changes via the *hydration* process. The hydration process is not performed for other operating system versions supported by Azure, but not listed above. You need to perform the required changes manually before you migrate. If the VM is migrated without the required changes, the VM may not boot or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Migrate performs the hydration process.
+You have to make some changes to the VMs configuration before the migration to ensure that the migrated VMs function properly on Azure. Azure Migrate handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of Azure supported operating systems given above. You need to perform the required changes manually before you migrate. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Migrate performs the hydration process.
 
  [![Hydration steps](./media/concepts-prepare-vmware-agentless-migration/hydration-process-inline.png)](./media/concepts-prepare-vmware-agentless-migration/hydration-process-expanded.png#lightbox)
 
@@ -73,6 +73,7 @@ The preparation script executes the following changes based on the OS type of th
    After the source OS volume files are detected, the preparation script will load the SYSTEM registry hive into the registry editor of the temporary Azure VM and perform the following changes to ensure VM boot up and connectivity. You need to configure these settings manually if the OS version is not supported for hydration.
 
    1. **Validate the presence of the required drivers**
+      
       Ensure if the required drivers are installed and are set to load at **boot start**. These Windows drivers allow the server to communicate with the hardware and other connected devices.
 
       - IntelIde.sys
@@ -82,7 +83,8 @@ The preparation script executes the following changes based on the OS type of th
       - VMbus
 
    1. **Set storage area network (SAN) policy to Online All**
-     This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to Online All.
+
+      This ensures that the Windows volumes in the Azure VM use the same drive letter assignments as the on-premises VM. By default, Azure VMs are assigned drive D: to use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter. To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to Online All.
 
       To manually configure this setting:
 
@@ -146,7 +148,7 @@ After the aforementioned changes are performed, the system partition will be unl
      - Use fstab content to determine if /boot is a separate partition. If it’s a separate partition, then obtain the boot partition device name from the fstab content or look for the partition, which has the boot flag.
      - The script will proceed to discover and mount /boot, and other necessary partitions on “/mnt/azure_sms_root” to build the root filesystem tree required for chroot jail. Other necessary partitions include: /boot/grub/menu.lst, /boot/grub/grub.conf, /boot/grub2/grub.cfg, /boot/grub/grub.cfg, /boot/efi (for UEFI boot), /var, /lib, /etc, /usr, and others.
 
-2. **Discover OS Version**
+1. **Discover OS Version**
 
    Once the root partition is discovered, the script will use the below files to determine the Linux Operating System distribution and version.
 
@@ -156,7 +158,7 @@ After the aforementioned changes are performed, the system partition will be unl
    - Ubuntu: etc/lsb-release
    - Debian: etc/debian_version
 
-3. **Install Hyper-V Linux Integration Services and regenerate kernel image**  
+1. **Install Hyper-V Linux Integration Services and regenerate kernel image**  
 
    The next step is to inspect the kernel image and rebuild the Linux init image so, that it contains the necessary Hyper-V drivers (**hv_vmbus, hv_storvsc, hv_netvsc**) on the initial ramdisk. Rebuilding the init image ensures that the VM will boot in Azure.
 
@@ -261,9 +263,9 @@ After the aforementioned changes are performed, the system partition will be unl
 
 1. **Install the Linux Azure Guest Agent**
 
-   Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
+    Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
-   Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually] (/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
+    Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually] (/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
 
    You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
    Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
