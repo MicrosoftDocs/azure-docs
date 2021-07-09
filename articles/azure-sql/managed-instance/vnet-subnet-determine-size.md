@@ -91,7 +91,7 @@ During a scaling operation, instances temporarily require additional IP capacity
 
 We recommend the following formula for calculating the total number of IP addresses. This formula takes into account the potential creation of a new virtual cluster during a later create request or instance update. It also takes into account the maintenance window requirements of virtual clusters.
 
-**Formula: 5 + a * 12 + b * 16 + c * 16**
+**Formula: 5 + (a * 12) + (b * 16) + (c * 16)**
 
 - a = number of GP instances
 - b = number of BC instances
@@ -104,7 +104,7 @@ Explanation:
 - 16 addresses as a backup = scenario where new virtual cluster is created
 
 Example: 
-- You plan to have three general-purpose and two business-critical managed instances deployed in the same subnet. All instances will have same maintenance window configured. That means you need 5 + 3 * 12 + 2 * 16 + 1 * 16 = 85 IP addresses. 
+- You plan to have three general-purpose and two business-critical managed instances deployed in the same subnet. All instances will have same maintenance window configured. That means you need 5 + (3 * 12) + (2 * 16) + (1 * 16) = 89 IP addresses. 
 
   Because IP ranges are defined in powers of 2, your subnet requires a minimum IP range of 128 (2^7) for this deployment. You need to reserve the subnet with a subnet mask of /25.
 
