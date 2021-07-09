@@ -121,16 +121,16 @@ The preparation script executes the following changes based on the OS type of th
 
 1. **Install the Windows Azure Guest Agent**
 
-Azure Migrate will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Migrate automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
+    Azure Migrate will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Migrate automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
 
-The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
+    The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
 
-To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell).
+    To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell).
 
- ![Successfull Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
+    ![Successfull Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
 
-After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
-[Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
+    After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
+    [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
 
 ### Changes performed on Linux servers
 
@@ -263,12 +263,12 @@ After the aforementioned changes are performed, the system partition will be unl
 
 1. **Install the Linux Azure Guest Agent**
 
-     Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
+    Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
     Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually] (/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
 
-   You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
-   Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
+    You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
+    Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
 
    ```
     $ vgchange -an <vg-name>
