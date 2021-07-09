@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: PyTorch Enterprise  documentation
+title: PyTorch Enterprise on Azure documentation
 summary: PyTorch Enterprise provides long-term support, prioritized troubleshooting, and integration with Azure solutions for PyTorch developers.
 
 metadata: 
@@ -18,15 +18,15 @@ metadata:
 
 landingContent: 
   # Card
-  - title: What is PyTorch Enterprise
+  - title: What is PyTorch Enterprise?
     linkLists:
       - linkListType: overview
         links:
           - text: What is PyTorch Enterprise?
-            url: pytorch-enterprise-overview.md
+            url: pte-overview.md
   
   # Card
-  - title: What is covered
+  - title: What is covered?
     linkLists:
       - linkListType: overview
         links:

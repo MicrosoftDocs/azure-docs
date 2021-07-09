@@ -13,9 +13,9 @@ ms.date: 07/06/2021
 This brief document describes the modules and components supported under Pytorch Enterprise.
 
 
-|Area|Supported Versions|Notes|
+|Area|Supported versions|Notes|
 |----|----|----|
-|OS|Windows 10, Debian 9, Debian 10, Ubuntu 16.04.7 LTS, Ubuntu 18.04.5 LTS|These branches represent the LTS versions of Debian and Ubuntu distributions. We only support the x86_64 architecture.|
+|OS|Windows 10, Debian 9, Debian 10, Ubuntu 16.04.7 LTS, Ubuntu 18.04.5 LTS|We support the LTS versions of Debian and Ubuntu distributions, and only the x86_64 architecture.|
 |Python|3.6+||
 |PyTorch|1.8.1+||
 |CUDA Toolkit|10.2, 11.1||
