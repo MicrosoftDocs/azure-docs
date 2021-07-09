@@ -11,7 +11,7 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/01/2021
+ms.date: 07/01/2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -22,8 +22,13 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **SQL IaaS extension no longer requires restart** | Restarting the SQL Server service is no longer necessary when registering with [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode)! | 
+| **SQL IaaS extension full mode no longer requires restart** | Restarting the SQL Server service is no longer necessary when registering with [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) in [full mode](sql-agent-extension-manually-register-single-vm.md#full-mode)! | 
 
+## June 2021
+
+| Changes | Details |
+| --- | --- |
+| **Security enhancements in the Azure portal** | Once you've enabled [Azure Defender for SQL](/security-center/defender-for-sql-usage), you can view Security Center recommendations in the [SQL virtual machines resource in the Azure portal](manage-sql-vm-portal.md#security-center). | 
 
 ## May 2021
 

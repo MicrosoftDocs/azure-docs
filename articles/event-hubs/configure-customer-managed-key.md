@@ -332,7 +332,7 @@ In this step, you will update the Event Hubs namespace with key vault informatio
                 "maximumThroughputUnits":0,
                 "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
                 "encryption":{
-                   "keySource":"Microsoft.KeyVault",
+                   "keySource":"Microsoft.KeyVault",                   
                    "keyVaultProperties":[
                       {
                          "keyName":"[parameters('keyName')]",
@@ -384,6 +384,31 @@ In this step, you will update the Event Hubs namespace with key vault informatio
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
+
+#### Enable infrastructure encryption for double encryption of data in Event Hubs namespace
+If you require a higher level of assurance that your data is secure, you can enable infrastructure level encryption which is also known as Double Encryption. 
+
+When infrastructure encryption is enabled, data in the Event Hubs namespace account is encrypted twice, once at the service level and once at the infrastructure level, using two different encryption algorithms and two different keys. Hence, infrastructure encryption of Event Hubs data protects against a scenario where one of the encryption algorithms or keys may be compromised.
+
+You can enable infrastructure encryption by updating the ARM template with `requireInfrastructureEncryption` property in the above **CreateEventHubClusterAndNamespace.json** as shown below. 
+
+```json
+"properties":{
+   "isAutoInflateEnabled":false,
+   "maximumThroughputUnits":0,
+   "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+   "encryption":{
+      "keySource":"Microsoft.KeyVault",
+      "requireInfrastructureEncryption":true,
+      "keyVaultProperties":[
+         {
+            "keyName":"[parameters('keyName')]",
+            "keyVaultUri":"[parameters('keyVaultUri')]"
+         }
+      ]
+   }
+}
+```
 
 ## Troubleshoot
 As a best practice, always enable logs like shown in the previous section. It helps in tracking the activities when BYOK encryption is enabled. It also helps in scoping down the problems.

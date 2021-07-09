@@ -1,7 +1,7 @@
 ---
 title:  "Quickstart - Provision Azure Spring Cloud service"
 description: Describes creation of Azure Spring Cloud service instance for app deployment.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart

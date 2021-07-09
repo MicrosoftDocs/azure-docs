@@ -222,7 +222,54 @@ $sqlvm = Get-AzSqlVM -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName
 $sqlvm.SqlManagementType
 ```
 
-### Verify registration status
+## Upgrade to full
+
+SQL Server VMs that have registered the extension in *lightweight* mode can upgrade to _full_ using the Azure portal, the Azure CLI, or Azure PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-from-extension) the SQL Server VM from the SQL IaaS Agent extension. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine.
+
+> [!NOTE]
+> When you upgrade the management mode for the SQL IaaS extension to full, it will restart the SQL Server service. In some cases, the restart may cause the service principal names (SPNs) associated with the SQL Server service to change to the wrong user account. If you have connectivity issues after upgrading the management mode to full, [unregister and reregister your SPNs](/sql/database-engine/configure-windows/register-a-service-principal-name-for-kerberos-connections).
+
+### Azure portal
+
+To upgrade the extension to full mode using the Azure portal, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to your [SQL virtual machines](manage-sql-vm-portal.md#access-the-resource) resource.
+1. Select your SQL Server VM, and select **Overview**.
+1. For SQL Server VMs with the NoAgent or lightweight IaaS mode, select the **Only license type and edition updates are available with the SQL IaaS extension** message.
+
+   ![Selections for changing the mode from the portal](./media/sql-agent-extension-manually-register-single-vm/change-sql-iaas-mode-portal.png)
+
+1. Select the **I agree to restart the SQL Server service on the virtual machine** check box, and then select **Confirm** to upgrade your IaaS mode to full.
+
+    ![Check box for agreeing to restart the SQL Server service on the virtual machine](./media/sql-agent-extension-manually-register-single-vm/enable-full-mode-iaas.png)
+
+### Command line
+
+# [Azure CLI](#tab/bash)
+
+To upgrade the extension to full mode, run the following Azure CLI code snippet:
+
+  ```azurecli-interactive
+  # Update to full mode
+  az sql vm update --name <vm_name> --resource-group <resource_group_name> --sql-mgmt-type full  
+  ```
+
+# [Azure PowerShell](#tab/powershell)
+
+To upgrade the extension to full mode, run the following Azure PowerShell code snippet:
+
+  ```powershell-interactive
+  # Get the existing  Compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+
+  # Register with SQL IaaS Agent extension in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -Location $vm.Location
+  ```
+
+---
+
+## Verify registration status
 
 You can verify if your SQL Server VM has already been registered with the SQL IaaS Agent extension by using the Azure portal, the Azure CLI, or Azure PowerShell.
 
