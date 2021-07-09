@@ -614,9 +614,9 @@ The data object has the following properties:
 | state | string | State of the live event. |
 | healthy | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
 | lastFragmentArrivalTime | string |The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
-| ingestDriftValue | integer | The number of seconds of drift calculated for the ingest since the beginning of the event computed over a rolling one-minute window. This is applicable to video tracks only.|
-| transcriptionState | string | The state of the live transcription feature (On/Off).  This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
-| transcriptionLanguage | language | The BCP-47 language code used for this track if the tracktype is "audio". When transcriptionState is "Off" this will have an empty value. All other non-audio tracks will also contain an empty value. |
+| ingestDriftValue | string | The number of integer unit seconds  of drift calculated for the ingest since the beginning of the event computed over a rolling one-minute window. This is applicable to video tracks only. Non video tracks will display the string “n/a” in this value. Be aware of this situation when parsing the string value from the event.|
+| transcriptionState | string | The state of the live transcription feature (expected values are the strings "On" or "Off").  This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
+| transcriptionLanguage | string  | The BCP-47 language code used for this track if the tracktype is "audio". When transcriptionState is "Off" this will have an empty value. All other non-audio tracks will also contain an empty value. |
 
 
 ### LiveEventTrackDiscontinuityDetected
