@@ -33,15 +33,12 @@ This phase includes the following capabilities:
 
 | Capability | Description |
 |:------------|:------------| 
-|Business requirements review | blah |
-| Stakeholders | blah |
-|Communication | blah |
-| Timeline | blah |
+|[Business requirements review](#business-requirements-review) | Assess your organization’s status and expectations |
+| [Stakeholders](#stakeholders) |Build your project team |
+|[Communication](#communication) | Project communication |
+| [Timeline](#timeline) | A reminder of key project milestones  |
 
 ### Business requirements review
-
-Before engaging into a deployment project, it's recommended to have a quick
-assessment of your organization's status and expectations.
 
 - Assess the primary reason to switch off existing systems and [move to Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview).
 
@@ -94,12 +91,12 @@ This phase includes the following capabilities.
 
 | Capability | Description |
 |:-------------|:--------------|
-| Deploy authentication and authorization | blah |
-| Deploy applications and user identities | blah |
-| Client application onboarding and deliverables | blah |
-| Security | blah |
-|Compliance | blah |
-|User experience | blah |
+| [Deploy authentication and authorization](#deploy-authentication-and-authorization) | Authentication and authorization scenarios and information about the setup |
+| [Deploy applications and user identities](#deploy-applications-and-user-identities | Client application and user deployments  |
+| [Client application onboarding and deliverables](#client-application-onboarding-and-deliverables) | Client application onboarding and project delivarables |
+| [Security](#security) | Enhance the security of your Identity solution |
+|[Compliance](#compliance) | Addressing regulatory requirements |
+|[User experience](#user-experience) | enabling a user friendly service |
 
 ### Deploy authentication and authorization
 
