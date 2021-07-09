@@ -31,6 +31,13 @@ This guidance is intended for Microsoft Customers and Partners. To understand th
 
 This phase includes the following capabilities:
 
+| Capability | Description |
+|:------------|:------------| 
+|Business requirements review | blah |
+| Stakeholders | blah |
+|Communication | blah |
+| Timeline | blah |
+
 ### Business requirements review
 
 Before engaging into a deployment project, it's recommended to have a quick
@@ -84,6 +91,15 @@ Define clear expectations and follow up plans to meet key milestones:
 ## Implement an Azure AD B2C deployment
 
 This phase includes the following capabilities.
+
+| Capability | Description |
+|:-------------|:--------------|
+| Deploy authentication and authorization | blah |
+| Deploy applications and user identities | blah |
+| Client application onboarding and deliverables | blah |
+| Security | blah |
+|Compliance | blah |
+|User experience | blah |
 
 ### Deploy authentication and authorization
 
