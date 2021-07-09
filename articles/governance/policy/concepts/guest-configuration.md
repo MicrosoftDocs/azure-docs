@@ -121,7 +121,7 @@ configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
 [service tags](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" and "Storage" can be
 used to reference the Guest Configuration and Storage services rather than manually maintaining the [list of IP
-ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Azure datacenters. Both tags are required.
+ranges](https://www.microsoft.com/download/details.aspx?id=56519) for Azure datacenters. Both tags are required.
 
 ### Communicate over Private Link in Azure
 
