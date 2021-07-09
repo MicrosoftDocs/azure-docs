@@ -20,12 +20,10 @@
   items:
   - name: Essentials for remote app streaming
     items:
-    - name: Architecture recommendations
-      href: 
     - name: Deploy apps with MSIX app attach
-      href: 
+      href: msix-app-attach.md
     - name: Host custom apps
-      href: 
+      href: custom-apps.md
     - name: App hosting licenses 
       href: 
     - name: Enroll in per-user license pricing
@@ -139,7 +137,7 @@
   - name: Essentials for remote app streaming
     items: 
     - name: Architecture recommendations 
-      href: 
+      href: architecture-recs.md
     - name: App hosting licenses
       href: 
   - name: Security
