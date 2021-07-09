@@ -69,7 +69,7 @@ During a scaling operation, instances temporarily require additional IP capacity
 | **Hardware generation** | **Pricing tier** | **Scenario** | **Additional addresses**  |
 | --- | --- | --- | --- |
 | Gen4<sup>1</sup> | GP or BC | Scaling vCores | 5 |
-| Gen4 | GP or BC | Scaling storage | 5 |
+| Gen4<sup>1</sup> | GP or BC | Scaling storage | 5 |
 | Gen4 | GP or BC | Switching from GP to BC or BC to GP | 5 |
 | Gen4 | GP | Switching to Gen5* | 9 |
 | Gen4 | BC | Switching to Gen5* | 11 |
