@@ -11,10 +11,13 @@ ms.date: 07/20/2021
 
 # Configure a DNS forwarder in the Azure portal
 
+By default, Azure VMware Solution management components such as vCenter can only resolve name records available via Public DNS. Certain hybrid use cases require Azure VMware Solution management components to resolve name records from privately hosted DNS to properly function, including customer-managed systems such as vCenter and Active Directory. 
+
+Private DNS for Azure VMware Solution management components provides the capability for an Azure VMware Solution administrator to define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T DNS Service.
 
 
 
-
+---
 
 
 you'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
