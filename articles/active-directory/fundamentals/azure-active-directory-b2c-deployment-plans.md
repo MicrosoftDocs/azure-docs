@@ -29,7 +29,7 @@ This guidance is intended for Microsoft Customers and Partners. To understand th
 
 ## Plan an Azure AD B2C deployment
 
-This phase includes the following capabilities.
+This phase includes the following capabilities:
 
 ### Business requirements review
 
@@ -212,7 +212,7 @@ Consider the sample checklist to define the user experience (UX) requirements:
 
 ## Monitor an Azure AD B2C solution
 
-This phase includes the following capabilities.
+This phase includes the following capabilities:
 
 | Capability | Description |
 |:---------|:----------|
