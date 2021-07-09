@@ -220,6 +220,7 @@ Do not use auth context where the app itself is going to be a target of Conditio
 - [Granular Conditional Access for sensitive data and actions (Blog)](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
 - [Zero trust with the Microsoft Identity platform](/security/zero-trust/identity-developer)
 - [Building Zero Trust ready apps with the Microsoft identity platform](/security/zero-trust/identity-developer)
+- [Use the Conditional Access auth context to perform step\-up authentication for high\-privilege operations in a Web app](https://github.com/Azure-Samples/ms-identity-dotnetcore-ca-auth-context-app/blob/main/README.md)
 - [Use the Conditional Access auth context to perform step-up authentication for high-privilege operations in a Web API](https://github.com/Azure-Samples/ms-identity-ca-auth-context/blob/main/README.md)
 - [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context-preview)
 - [authenticationContextClassReference resource type - MS Graph](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)
