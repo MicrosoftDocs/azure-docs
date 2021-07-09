@@ -2,14 +2,14 @@
 title: 'Quickstart: Set up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant'
 description: This quickstart walks through the process of setting up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
-ms.author: mtillman
+ms.author: davidmu
 ---
 
 # Quickstart: Set up SAML-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant
@@ -27,7 +27,6 @@ To set up SSO for an application that you added to your Azure AD tenant, you nee
 - Optional: Completion of [Add an app](add-application-portal.md).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
 - Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
-
 
 >[!IMPORTANT]
 >Use a non-production environment to test the steps in this quickstart.
@@ -59,7 +58,6 @@ To set up single sign-on for an application:
 
 > [!TIP]
 > You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
-
 
 ## Clean up resources
 
