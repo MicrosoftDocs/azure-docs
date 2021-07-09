@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 07/09/2021
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
@@ -15,6 +15,17 @@ PostgreSQL provides the ability to extend the functionality of your database by 
 ## Use PostgreSQL extensions
 
 PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command from the psql tool to load the packaged objects into your database.
+
+> [!NOTE]
+> If `CREATE EXTENSION` fails with a permission denied error, try the
+> `create_extension()` function instead. For instance:
+>
+> ```sql
+> SELECT create_extension('postgis');
+> ```
+>
+> This function is currently in preview, and isn't available on all server
+> groups.
 
 Azure Database for PostgreSQL - Hyperscale (Citus) currently supports a subset of key extensions as listed here. Extensions other than the ones listed aren't supported. You can't create your own extension with Azure Database for PostgreSQL.
 
