@@ -2,7 +2,7 @@
 title: Create backup policies for blobs using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for blobs using REST API.
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 07/09/2021
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
 ---
 # Create Azure Data Protection backup policies for blobs using REST API
@@ -13,7 +13,7 @@ ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
 A backup policy typically governs the retention and schedule of your backups. Since operational backup for blobs is continuous in nature, you don't need a schedule to perform backups. The policy is essentially needed to specify the retention period. You can reuse the backup policy to configure backup for multiple storage accounts to a vault.
 
 >[!NOTE]
-    >Restoring over long durations may lead to restore operations taking longer to complete. Furthermore, the time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
+>Restoring over long durations may lead to restore operations taking longer to complete. Furthermore, the time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
 
 The steps to create a backup policy for an Azure Recovery Services vault are outlined in the policy [REST API document](/rest/api/dataprotection/backup-policies/create-or-update). Let's use this document as a reference to create a policy for blobs in a storage account.
 
@@ -43,7 +43,7 @@ The following request body defines a backup policy for blob backups.
 
 The policy says:
 
-- Retention period is 30 days .
+- Retention period is 30 days.
 - Datastore is 'operational store' since the backups are local and no data is stored in the Backup vault.
 
 ```json

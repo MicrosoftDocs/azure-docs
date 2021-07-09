@@ -2,7 +2,7 @@
 title: Back up blobs in a storage account using Azure Data protection REST API
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 07/09/2021
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ---
 
@@ -14,9 +14,9 @@ For information on the Azure blob region availability, supported scenarios and l
 
 ## Prerequisites
 
-- [Create a Backup vault](backup-azure-dataprotection-userestapi-createorupdate-backupvault.md)
+- [Create a Backup vault](backup-azure-dataprotection-use-restapi-create-update-backup-vault.md)
 
-- [Create a blob backup policy](backup-azure-dataprotection-userestapi-createorupdateBlobpolicy)
+- [Create a blob backup policy](backup-azure-dataprotection-use-restapi-create-update-blob-policy.md)
 
 ## Configure backup
 
@@ -42,7 +42,7 @@ You need to assign a few permissions via RBAC to vault (represented by vault MSI
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and storage account, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for all blobs within a storage account. The ARM ID of the storage account and it's details are mentioned in the 'datasourceinfo' section and the policy information is present in the 'policyinfo' section.
+Once the relevant permissions are set to the vault and storage account, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for all blobs within a storage account. The ARM ID of the storage account and its details are mentioned in the 'datasourceinfo' section and the policy information is present in the 'policyinfo' section.
 
 ```json
 {
@@ -66,9 +66,9 @@ Once the relevant permissions are set to the vault and storage account, and the 
 
 ### Validate the request to configure backup
 
-We can validate whether the request to configure backup or not will be successful or not using [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). The response can be used by customer to perform all required pre-requisites and then submit the configure for backup request.
+We can validate whether the request to configure backup or not will be successful or not using [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). The response can be used by customer to perform all required pre-requisites and then submit the configuration for backup request.
 
-The validate for backup request is a POST operation and the URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
+Validate for backup request is a POST operation and the URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.DataProtection/backupVaults/{backupVaultName}/validateForBackup?api-version=2021-01-01
@@ -106,7 +106,7 @@ The [request body](#prepare-the-request-to-configure-backup) that we prepared ea
 
 #### Responses for validate backup request
 
-The validate for backup request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
+Validate for backup request is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
 

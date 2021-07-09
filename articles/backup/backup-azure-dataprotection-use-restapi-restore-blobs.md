@@ -2,7 +2,7 @@
 title: Restore blobs in a storage account using Azure Data protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 07/09/2021
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 ---
 
@@ -21,11 +21,11 @@ In this article, you'll learn how to:
 
 ## Pre-requisites
 
-- [Create a Backup vault](backup-azure-dataprotection-userestapi-createorupdate-backupvault.md)
+- [Create a Backup vault](backup-azure-dataprotection-use-restapi-create-update-backup-vault.md)
 
-- [Create a blob backup policy](backup-azure-dataprotection-userestapi-createorupdateBlobpolicy.md)
+- [Create a blob backup policy](backup-azure-dataprotection-use-restapi-create-update-blob-policy.md)
 
-- [Configure a blob backup](backup-azure-dataprotection-userestapi-backupBlobs.md)
+- [Configure a blob backup](backup-azure-dataprotection-use-restapi-backup-blobs.md)
 
 We will refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where blobs in a storage account named "msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d" in the examples.
 
