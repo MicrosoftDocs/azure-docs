@@ -21,4 +21,5 @@ are expected to change once the service is Generally Available.
 
 ## Next steps
  
-  [Troubleshoot common Device Update for IoT Hub issues] (./troubleshoot-device-update.md)
+  [Create a Device Update for IoT Hub account](create-device-update-account.md)
+  [Troubleshoot common Device Update for IoT Hub issues] (troubleshoot-device-update.md)
