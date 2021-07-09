@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -21,7 +21,7 @@ Azure Virtual Desktop can host multiple types of Windows applications. We recomm
 
 MSIX is the recommended type of package for custom apps in Azure Virtual Desktop because they can take advantage of the service's built-in [MSIX app attach feature](../app-attach-glossary.md). To learn how to repackage existing Win32 applications in the MSIX format, visit [Repackage your existing Win32 applications to the MSIX format](/windows/application-management/msix-app-packaging-tool).
 
-Once you've packaged your app in the MSIX format, you can use Azure Virtual Desktop’s MSIX app attach feature to deliver your apps to your customers. Learn how to use MSIX app attach for your apps at [Deploy apps with MSIX app attach]().
+Once you've packaged your app in the MSIX format, you can use Azure Virtual Desktop’s MSIX app attach feature to deliver your apps to your customers. Learn how to use MSIX app attach for your apps at [Deploy apps with MSIX app attach](msix-app-attach.md).
 
 ## Other options for Win32 applications
 
@@ -46,4 +46,8 @@ If you must install your apps manually, you'll need to remote into your session 
 
 ## Microsoft Store applications
 
-We don't recommend using Microsoft Store apps for Remote App Streaming in Azure Virtual Desktop at this time.
+We don't recommend using Microsoft Store apps for remote app streaming in Azure Virtual Desktop at this time.
+
+## Next steps
+
+To learn how to package and deploy apps using MSIX app attach, see [Deploy apps with MSIX app attach](msix-app-attach.md).
