@@ -1,25 +1,24 @@
 ---
-title: Postman FHIR server in Azure - Azure API for FHIR
-description: In this tutorial, we'll walk through the steps needed to use Postman to access an FHIR server. Postman is helpful for debugging applications that access APIs.
+title: Using Postman
+description: In this tutorial, we'll walk through the steps needed to use Postman to access an FHIR server.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: dseven
 ms.author: cavoeg
 author: matjazl
 ms.date: 03/26/2021
 ---
 
-# Access Azure API for FHIR with Postman
+# Access FHIR service with Postman
 
-A client application can access the Azure API for FHIR through a [REST API](https://www.hl7.org/fhir/http.html). To send requests, view responses, and debug your application as it is being built, use an API testing tool of your choice. In this tutorial, we'll walk you through the steps of accessing the FHIR server using [Postman](https://www.getpostman.com/). 
+A client application can access the FHIR service through a [REST API](https://www.hl7.org/fhir/http.html). To send requests, view responses, and debug your application as it is being built, use an API testing tool of your choice. In this tutorial, we'll walk you through the steps of accessing the FHIR server using [Postman](https://www.getpostman.com/). 
 
 ## Prerequisites
 
 - A FHIR endpoint in Azure. 
 
-  To deploy the Azure API for FHIR (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+  To deploy the FHIR service (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
 
 - A registered [confidential client application](register-confidential-azure-ad-client-app.md) to access the FHIR service.
 - You have granted permissions to the confidential client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
@@ -49,7 +48,7 @@ Open Postman, and then select **GET** to make a request to `https://fhir-server-
 
 ![Postman Metadata Capability Statement](media/tutorial-postman/postman-metadata.png)
 
-The metadata URL for Azure API for FHIR is `https://MYACCOUNT.azurehealthcareapis.com/metadata`. 
+The metadata URL for FHIR service is `https://MYACCOUNT.azurehealthcareapis.com/metadata`. 
 
 In this example, the FHIR server URL is `https://fhirdocsmsft.azurewebsites.net`, and the capability statement of the server is available at `https://fhirdocsmsft.azurewebsites.net/metadata`. This endpoint is accessible without authentication.
 
@@ -75,7 +74,7 @@ In the **Get New Access Token** dialog box, enter the following details:
 | Token Name            | MYTOKEN                                                                                                         | A name you choose          |
 | Grant Type            | Authorization Code                                                                                              |                            |
 | Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                    |                            |
-| Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` is `https://MYACCOUNT.azurehealthcareapis.com` for Azure API for FHIR |
+| Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` is `https://MYACCOUNT.azurehealthcareapis.com` for FHIR service |
 | Access Token URL      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                    |                            |
 | Client ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                           | Application ID             |
 | Client Secret         | `XXXXXXXX`                                                                                                      | Secret client key          |
@@ -119,7 +118,7 @@ You can inspect the access token using a tool like [jwt.ms](https://jwt.ms). An 
 
 In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. If your token is from the correct issuer (`iss` claim) and has the correct audience (`aud` claim), but you are still unable to access the FHIR API, it is likely that the user or service principal (`oid` claim) doesn't have access to the FHIR data plane. We recommend you use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign data plane roles to users. If you're using an external, secondary Azure Active directory tenant for your data plane, you'll need to [Configure local RBAC for FHIR](configure-local-rbac.md) assignments.
 
-It's also possible to get a token for the [Azure API for FHIR using the Azure CLI](get-healthcare-apis-access-token-cli.md). If you're using a token obtained with the Azure CLI, you should use Authorization type *Bearer Token*. Paste the token in directly.
+It's also possible to get a token for the [FHIR service using the Azure CLI](get-healthcare-apis-access-token-cli.md). If you're using a token obtained with the Azure CLI, you should use Authorization type *Bearer Token*. Paste the token in directly.
 
 ## Inserting a patient
 
@@ -137,7 +136,7 @@ If you repeat the patient search, you should now see the patient record.
 
 ## Next steps
 
-In this tutorial, you've accessed the Azure API for FHIR using Postman. For more information about the Azure API for FHIR features, see
+In this tutorial, you've accessed the FHIR service using Postman. For more information about the FHIR service features, see
  
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)

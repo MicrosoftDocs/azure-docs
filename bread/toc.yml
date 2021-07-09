@@ -584,8 +584,21 @@
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
   - name: Healthcare APIs
-    tocHref: /azure/healthcare-apis
-    topicHref: /azure/healthcare-apis
+    tocHref: /azure/healthcare-apis/
+    topicHref: /azure/healthcare-apis/
+    items:
+    - name: FHIR service
+      tocHref: /azure/healthcare-apis/fhir/
+      topicHref: /azure/healthcare-apis/fhir/index
+    - name: DICOM service
+      tocHref: /azure/healthcare-apis/dicom/
+      topicHref: /azure/healthcare-apis/dicom/index
+    - name: Data Transformation
+      tocHref: /azure/healthcare-apis/data-tranformation/
+      topicHref: /azure/healthcare-apis/data-transformation/index
+  - name: Azure API for FHIR
+    tocHref: /azure/azure-api-for-fhir/
+    topicHref: /azure/azure-api-for-fhir/
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
