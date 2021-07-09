@@ -27,14 +27,12 @@ Workbooks are a set of queries that collect and visualize information that is av
 
 ## Prerequisites
 
-To use workbook feature, you need to:
-
--  [Integrate your Azure AD sign-ins and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+-  [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 
-### 1. Access the sign-ins workbook
+## 1. Access the sign-ins workbook
 
-Once you've integrated your Azure AD sign-ins and audit logs with Azure Monitor as specified in the prerequisites, follow the steps below to access the sign-ins workbook:
+Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the prerequisites, follow the steps below to access the sign-ins workbook:
 
    1. Sign into the Azure portal 
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks** 
@@ -42,7 +40,7 @@ Once you've integrated your Azure AD sign-ins and audit logs with Azure Monitor 
 
    :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure Active Directory portal workbooks interface highlighting the sign-ins workbook.":::
 
-### 2. Identify apps using ADAL for authentication
+## 2. Identify apps using ADAL for authentication
 
 The Sign-ins workbook has a new table at the bottom of the page that can show you which recently used apps are using ADAL as shown below. You can also export a list of the apps. Update these apps to use MSAL.
     
@@ -52,7 +50,7 @@ If there are no apps using ADAL, the workbook will display a view as shown below
     
 :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/no-active-directory-auth-library-apps.png" alt-text="Screenshot of sign-ins workbook when no app is using Active Directory Authentication Library.":::
 
-### 3. Update your code
+## 3. Update your code
 
 After identifying your apps that use ADAL, you can migrate them to MSAL depending on your application type as illustrated below.
 
@@ -61,4 +59,4 @@ After identifying your apps that use ADAL, you can migrate them to MSAL dependin
     
 ## Next steps
 
-- [Microsoft identity platform code samples](sample-v2-code.md)
+[Microsoft identity platform code samples](sample-v2-code.md)
