@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Deprovision an Azure disk pool (preview)
 
-This article covers the deletion process for a disk pool (preview) and how to disable iSCSI support.
+This article covers the deletion process for an Azure disk pool (preview) and how to disable iSCSI support.
 
 ## Stop a disk pool
 

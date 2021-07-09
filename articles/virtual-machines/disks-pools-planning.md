@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Disk pools (preview) planning guide
 
-It's important to understand the performance requirements of your workload before you deploy a disk pool. Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets of individual disks contained in the disk pool, and the networking connection between the client machines to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
+It's important to understand the performance requirements of your workload before you deploy an Azure disk pool (preview). Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors: The disk pool's scalability target, the scalability targets of individual disks contained in the disk pool, and the networking connection between the client machines to the disk pool. Adjusting these three factors will tweak the performance you get from a disk pool.
 
 ## Optimize for low latency
 

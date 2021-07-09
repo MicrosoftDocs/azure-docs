@@ -11,7 +11,7 @@ ms.subservice: disks
 
 # Troubleshoot Azure disk pools (preview)
 
-This article lists some common failure codes related to Azure disk pools. It also provides possible resolutions and some clarity on disk pool statuses.
+This article lists some common failure codes related to Azure disk pools (preview). It also provides possible resolutions and some clarity on disk pool statuses.
 
 ## Disk pool status
 
