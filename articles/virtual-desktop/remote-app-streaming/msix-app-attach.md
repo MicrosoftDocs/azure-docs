@@ -16,7 +16,7 @@ This article is a basic outline of how to publish an application in Azure Virtua
 
 MSIX app attach is an application layering solution that lets you deliver applications to active user sessions in Azure Virtual Desktop. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the master image and give them to users later.
 
-To learn more, see [What is MSIX app attach?](./virtual-desktop/what-is-app-attach.md)
+To learn more, see [What is MSIX app attach?](../what-is-app-attach.md)
 
 ## Requirements
 
@@ -41,12 +41,12 @@ If you find that your app fidelity decreases after repackaging, your organizatio
 
 ## Create an MSIX image
 
-Next, you'll need to create an MSIX image from your packaged app. An MSIX image is what happens when you expand an MSIX app package and store the resulting app in a VHD(X) or CIM storage. To learn how to create an MSIX image, see [Create an MSIX image](./virtual-desktop/app-attach-msixmgr.md#create-an-msix-image).
+Next, you'll need to create an MSIX image from your packaged app. An MSIX image is what happens when you expand an MSIX app package and store the resulting app in a VHD(X) or CIM storage. To learn how to create an MSIX image, see [Create an MSIX image](../app-attach-msixmgr.md#create-an-msix-image).
 
 ## Configure an MSIX file share
 
-Next, you'll need to set up an MSIX network share to store MSIX images. Once configured, your session hosts will use the MSIX share to attach MSIX packages to active user sessions, delivering apps to your users. Learn how to set up an MSIX share at [Set up a file share for MSIX app attach](./virtual-desktop/app-attach-file-share.md).
+Next, you'll need to set up an MSIX network share to store MSIX images. Once configured, your session hosts will use the MSIX share to attach MSIX packages to active user sessions, delivering apps to your users. Learn how to set up an MSIX share at [Set up a file share for MSIX app attach](../app-attach-file-share.md).
 
 ## Configure MSIX app attach for Azure Virtual Desktop host pool
 
-After you've uploaded an MSIX image to the MSIX share, you'll need to open up the Azure portal and configure the host pool you're going to use to accept MSIX app attach. Learn how to configure your host pool at [Set up MSIX app attach with the Azure portal](./virtual-desktop/app-attach-azure-portal.md).
+After you've uploaded an MSIX image to the MSIX share, you'll need to open up the Azure portal and configure the host pool you're going to use to accept MSIX app attach. Learn how to configure your host pool at [Set up MSIX app attach with the Azure portal](../app-attach-azure-portal.md).
