@@ -51,7 +51,7 @@ Your Azure Automation cloud or hybrid jobs includes the PowerShell [#Requires](/
 
 ### Cause
 
-PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement is not supported in Azure Automation cloud and hybrid jobs.
+Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it is not supported in Azure sandbox or on Hybrid Runbook Workers and will cause the job to fail.
 
 ### Resolution
 
