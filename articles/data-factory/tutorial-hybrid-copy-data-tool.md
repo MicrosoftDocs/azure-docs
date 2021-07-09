@@ -158,7 +158,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. On the **Source data store** page, ensure that the newly created **SQL Server** connection is selected in the **Connection** block. Then in the **Source tables** section, choose **EXISTING TABLES** and select the **dbo.emp** table in the list, and select **Next**. You can select any other table based on your database.
 
-1. On the **Apply filter** page, you can preview data and view the schema of the input data by selecting the **Preview data** button.Then select **Next**.
+1. On the **Apply filter** page, you can preview data and view the schema of the input data by selecting the **Preview data** button. Then select **Next**.
 
 1. On the **Destination data store** page, select **+ Create new connection**
 
