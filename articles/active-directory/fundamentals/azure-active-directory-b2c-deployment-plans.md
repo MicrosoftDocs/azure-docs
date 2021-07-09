@@ -91,7 +91,7 @@ This phase includes the following capabilities.
 
 | Capability | Description |
 |:-------------|:--------------|
-| [Deploy authentication and authorization](#deploy-authentication-and-authorization) | Authentication and authorization scenarios |
+| [Deploy authentication and authorization](#deploy-authentication-and-authorization) | Understand the [authentication and authorization](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization) scenarios |
 | [Deploy applications and user identities](#deploy-applications-and-user-identities) | Client application and user deployment  |
 | [Client application onboarding and deliverables](#client-application-onboarding-and-deliverables) | Client application onboarding and project delivarables |
 | [Security](#security) | Enhance the security of your Identity solution |
