@@ -25,7 +25,7 @@ Once you've packaged your app in the MSIX format, you can use Azure Virtual Desk
 
 ## Other options for Win32 applications
 
-You can also offer Win32 applications to your customers without repackaging them in MSIX format by using the following options.
+You can also offer Win32 applications to your users without repackaging them in MSIX format by using the following options.
 
 ### Include the application manually on session hosts
 
