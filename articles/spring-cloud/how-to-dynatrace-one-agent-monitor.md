@@ -100,9 +100,6 @@ After you add the environment variables to your application, Dynatrace starts co
 (https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services** and
 select your application.
 
-![Platform/Solutions](media/dynatrace-oneagent/platform-solutions.png)
-
-![Resources/Services & Support](media/dynatrace-oneagent/resources-services-support.png)
 ## Dynatrace Dashboard
 
 * **Transactions and services` blade**
