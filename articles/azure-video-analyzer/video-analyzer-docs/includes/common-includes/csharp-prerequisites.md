@@ -13,7 +13,7 @@ ms.author: juliako
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     
-    [!INCLUDE [install-docker-prompt](./common-includes/install-docker-prompt.md)]  
+    [!INCLUDE [install-docker-prompt](./install-docker-prompt.md)]  
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
     

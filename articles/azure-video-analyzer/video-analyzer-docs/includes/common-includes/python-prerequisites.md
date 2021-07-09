@@ -13,6 +13,6 @@ ms.author: juliako
 - [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
   * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
   
-   [!INCLUDE [install-docker-prompt](./common-includes/install-docker-prompt.md)]
+   [!INCLUDE [install-docker-prompt](./install-docker-prompt.md)]
    * [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 * [Python 3](https://www.python.org/downloads/) (3.6.9 or later), [Pip 3](https://pip.pypa.io/en/stable/installing/) and optionally [venv](https://docs.python.org/3/library/venv.html).
