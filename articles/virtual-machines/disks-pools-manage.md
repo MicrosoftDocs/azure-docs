@@ -2,9 +2,9 @@
 title: Manage an Azure disk pool (preview)
 description: Learn how to manage an Azure disk pool.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 07/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -22,7 +22,7 @@ Install [version 6.1.0 or newer](/powershell/module/az.diskpool/?view=azps-6.1.0
 ## Add a disk to a pool
 
 Your disk must meet the following requirements in order to be added to the disk pool:
-- Must be either a premium SSD or an ultra disk in the same region and availability zone as the disk pool, or use ZRS.
+- Must be either a premium SSD or an ultra disk in the same region and availability zone as the disk pool.
     - Ultra disks must have a disk sector size of 512 bytes.
 - Must be a shared disk, with a maxShares value of two or greater.
 - You must [provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool.](disks-pools-deploy.md#provide-storagepool-resource-provider-permission-to-the-disks-that-will-be-added-to-the-disk-pool).

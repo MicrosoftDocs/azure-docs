@@ -2,9 +2,9 @@
 title: Optimize your Azure disk pools (preview) performance
 description: Learn how to get the most performance out of an Azure disk pool.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 07/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -15,7 +15,7 @@ It's important to understand the performance requirements of your workload befor
 
 ## Optimize for low latency
 
-If you're prioritizing for low latency, add ultra disks to your disk pool. Ultra disks provide sub-ms disk latency. To get the lowest latency possible, you must also evaluate your network configuration and ensure it's using the most optimal path. If you're using ExpressRoute to connect clients to disk pool, consider using [ExpressRoute FastPath](../expressroute/about-fastpath.md) to minimize network latency.
+If you're prioritizing for low latency, add ultra disks to your disk pool. Ultra disks provide sub-ms disk latency. To get the lowest latency possible, you must also evaluate your network configuration and ensure it's using the most optimal path. Consider using [ExpressRoute FastPath](../expressroute/about-fastpath.md) to minimize network latency.
 
 ## Optimize for high throughput
 
@@ -24,25 +24,24 @@ If you're prioritizing throughput, begin by evaluating the number of disk pools 
 
 ## Use cases
 
-The following table lists some typical use cases for disk pools with Azure VMware Solution (AVS) and a recommended configuration.
+The following table lists some typical use cases for disk pools with Azure VMware Solution and a recommended configuration.
 
 
-|AVS use cases  |Suggested disk type  |Suggested network configuration  |
+|Azure VMware Solution use cases  |Suggested disk type  |Suggested network configuration  |
 |---------|---------|---------|
-|Block storage for active working sets, like an extension of AVS vSAN.     |Ultra disks         |Use Express Route virtual network gateway: Ultra Performance or ErGw3AZ (10 Gbps) to connect the disk pool virtual network to the AVS cloud and enable FastPath to minimize network latency.         |
-|Tiering - tier infrequently accessed data from the AVS vSAN to the disk pool.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the AVS cloud.         |
-|Data storage for disaster recovery site on AVS: replicate data from on-premises or primary VMware environment to the disk pool as a secondary site.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2Gpbs) to connect the disk pool virtual network to the AVS cloud.         |
+|Block storage for active working sets, like an extension of Azure VMware Solution vSAN.     |Ultra disks         |Use Express Route virtual network gateway: Ultra Performance or ErGw3AZ (10 Gbps) to connect the disk pool virtual network to the Azure VMware Solution cloud and enable FastPath to minimize network latency.         |
+|Tiering - tier infrequently accessed data from the Azure VMware Solution vSAN to the disk pool.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2 Gbps) to connect the disk pool virtual network to the Azure VMware Solution cloud.         |
+|Data storage for disaster recovery site on Azure VMware Solution: replicate data from on-premises or primary VMware environment to the disk pool as a secondary site.     |Premium SSD         |Use Express Route virtual network gateway: Standard (1 Gbps) or High Performance (2 Gbps) to connect the disk pool virtual network to the Azure VMware Solution cloud.         |
 
-Refer to the [Networking planning checklist for Azure VMware Solution](../azure-vmware/tutorial-network-checklist.md) to plan for your networking setup, along with other AVS considerations.
+Refer to the [Networking planning checklist for Azure VMware Solution](../azure-vmware/tutorial-network-checklist.md) to plan for your networking setup, along with other Azure VMware Solution considerations.
 
 ## Disk pool scalability and performance targets
 
 |Resource  |Limit  |
 |---------|---------|
-|Maximum number of disks per disk pool|32|
+|Maximum number of disks per disk pool|8|
 |Maximum IOPS per disk pool|25,600|
 |Maximum MBps per disk pool|384|
-|Maximum number of iSCSI initiators|16|
 
 The following example should give you an idea of how the different performance factors work together:
 

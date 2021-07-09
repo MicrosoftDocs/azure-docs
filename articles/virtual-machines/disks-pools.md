@@ -2,9 +2,9 @@
 title: Azure disk pools (preview) overview
 description: Learn about Azure disk pools (preview).
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 07/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -12,35 +12,37 @@ ms.custom: references_regions
 
 # Azure disk pools (preview)
 
-A disk pool (preview) is a top-level Azure resource that allows your applications and workloads to access all disks under a disk pool one single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to an Azure VMware Solution (AVS) host as datastores. This allows you to scale your storage independent of your AVS hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances through vCenter, like any other datastore in an on-prem VMware environment.
+A disk pool (preview) is a top-level Azure resource that allows your applications and workloads to access all disks under one single endpoint. A disk pool can expose an Internet Small Computer Systems Interface (iSCSI) target to enable data access to disks inside this pool over iSCSI. Each disk pool can have one iSCSI target and each disk can be exposed as an iSCSI LUN. You can connect disks under the disk pool to Azure VMware Solution hosts as datastores. This allows you to scale your storage independent of your Azure VMware Solution hosts. Once a datastore is configured, you can create volumes on it and attach them to your VMware instances.
 
 ## How it works
 
 When a disk pool is deployed, a managed resource group is automatically created for you. This managed resource group contains all Azure resources necessary for the operation of a disk pool. The naming convention for these resource groups is: MSP_(resource-group-name)_(diskpool-name)_(region-name).
 
-When you add a managed disk to the disk pool, the disk is attached to managed iSCSI controllers. Multiple managed disks can be added as storage targets to a disk pool, each storage target is presented as an iSCSI LUN under the disk pool's iSCSI target. Disk pools offer native support for AVS, and an AVS cluster can connected to a disk pool, which would encompass all AVS hosts in that environment. The following diagram shows how you can use disk pools with AVS.
+When you add a managed disk to the disk pool, the disk is attached to managed iSCSI controllers. Multiple managed disks can be added as storage targets to a disk pool, each storage target is presented as an iSCSI LUN under the disk pool's iSCSI target. Disk pools offer native support for Azure VMware Solution, and an Azure VMware Solution cluster can connect to a disk pool, which would encompass all Azure VMware Solution hosts in that environment. The following diagram shows how you can use disk pools with Azure VMware Solution.
 
-:::image type="content" source="media/disks-pools/disk-pool-diagram.png" alt-text="Diagram depicting how disk pools works, each ultra disk can be accessed by each iSCSI controller over iSCSI, and the AVS hosts can access the iSCSI controller over iSCSI.":::
+:::image type="content" source="media/disks-pools/disk-pool-diagram.png" alt-text="Diagram depicting how disk pools works, each ultra disk can be accessed by each iSCSI controller over iSCSI, and the Azure VMware Solution hosts can access the iSCSI controller over iSCSI.":::
 
 ## Restrictions
 
 In preview, disk pools have the following restrictions:
 
 - Only premium SSDs or ultra disks can be added to a disk pool.
+- Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) aren't currently supported. 
 
 ### Regional availability
 
 Disk pools are currently available in the following regions:
 
+- Australia East
+- Canada Central
 - East US
 - West US 2
-- Canada Central
-- UK South
+- Central US
+- Japan East
 - North Europe
 - West Europe
-- Australia East
-- Southeast Asia
-- Japan East
+- UK South
+
 
 ## Billing
 
