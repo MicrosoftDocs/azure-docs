@@ -59,4 +59,4 @@ After identifying your apps that use ADAL, you can migrate them to MSAL dependin
     
 ## Next steps
 
-[Microsoft identity platform code samples](sample-v2-code.md)
+- [Microsoft identity platform code samples](sample-v2-code.md)
