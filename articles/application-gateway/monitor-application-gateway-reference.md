@@ -192,4 +192,4 @@ sslEnabled_s | Does the client request have SSL enabled|
 
 <!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Azure Application Gateway.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

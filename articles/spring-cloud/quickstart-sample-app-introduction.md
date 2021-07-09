@@ -1,7 +1,7 @@
 ---
 title:  "Quickstart - Introduction to the sample app - Azure Spring Cloud"
 description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Cloud.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
