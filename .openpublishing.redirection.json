@@ -14174,6 +14174,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cdn/dn-restrict-access-by-country.md",
+      "redirect_url": "/azure/cdn/cdn-restrict-access-by-country-region",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cdn/cdn-rules-engine.md",
       "redirect_url": "/azure/cdn/cdn-verizon-premium-rules-engine",
       "redirect_document_id": true
