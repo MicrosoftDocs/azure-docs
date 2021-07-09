@@ -65,7 +65,7 @@ Every [device template](howto-set-up-template.md) includes:
   - The commands called from IoT Central.
 
 - Cloud properties that aren't stored on the device.
-- Customizations, dashboards, and forms that are part of your IoT Central application.
+- Customizations, forms, and device views that are part of your IoT Central application.
 
 You have several options for creating device templates:
 
