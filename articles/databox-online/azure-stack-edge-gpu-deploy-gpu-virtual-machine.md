@@ -7,18 +7,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 07/09/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro GPU device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy GPU VMs on your Azure Stack Edge Pro GPU device
 
-<!--In development. Overview was removed from the "Deploy GPU VMs" article, but no updates have been made to metadata, introduction, or procedures.-->
+# Deploy GPU VMs on your Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device. The article also describes how to create a GPU VM by using the Azure Resource Manager templates. 
+This article how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates. In the Azure portal, you can install the GPU extension as part of VM creation.
+
+*ADD LINK TO GPU VMs OVERVIEW WHEN ARTICLE IS AVAILABLE.*
 
 ---
 
@@ -37,22 +38,18 @@ Follow these steps when deploying GPU VMs on your device via the Azure portal:
 
     1. On the **Basics** tab, select a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
 
-       ![Screenshot of Basics tab with supported VM sizes for GPU VMs identified.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/basics-tab-01-select-vm-size-for-gpu.png)<!--Reshoot with Basics tab context.-->
+       ![Screenshot of Basics tab with supported VM sizes for GPU VMs identified.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/basics-vm-size-for-gpu.png)
 
-    1. To install the GPU extension during deployment, on the **Advanced** tab, choose **Select an extension to install**. Then select a GPU extension to install.<!--Screenshots below to be combined as in post-deployment install.-->
-    
-       GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
-
+    1. To install the GPU extension during deployment, on the **Advanced** tab, choose **Select an extension to install**. Then select a GPU extension to install. GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+        
         > [!NOTE]
         > If you're using a Red Hat image, you'll need to install the GPU extension after VM deployment. Follow the steps in [Install GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
     
-       ![Screenshot identifying the Select an extension option on the Advanced tab](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/advanced-tab-01-select-an-extension-to-install.png)
+       ![Illustration showing how to add a GPU extension to a virtual machine during VM creation in the portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-01.png)
 
-       ![Screenshot showing Select extension to install on the Add extension pane](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/advanced-tab-02-add-extension-pane.png)
+       The **Advanced** tab shows the extension you selected.
 
-        The **Advanced** tab shows the extension you selected.
-
-        ![Screenshot showing an extension added to the Advanced tab](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/advanced-tab-03-with-gpu-extension-added.png)
+       ![Screenshot showing an extension added to the Advanced tab during VM creation](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-02.png)
 
 1. Once the GPU VM is successfully created, you can view this VM in the list of virtual machines in your Azure Stack Edge resource in the Azure portal.
 
@@ -60,23 +57,8 @@ Follow these steps when deploying GPU VMs on your device via the Azure portal:
 
     Select the VM, and drill down to the details. On the **Basics** tab, under **Installed extensions**, make sure the GPU extension has **Succeeded** status. <!--NOT NEEDED? Copy the IP address allocated to the VM.-->
 
-    ![Installed GPU extension shown on the Details pane for a virtual machine](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/vm-details-01-extension-settings.png)
+    ![Installed GPU extension shown on the Details pane for a virtual machine](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/vm-details-extension-installed.png)
 
-1. If needed, you can switch the compute network back to whatever you need.
-
-#### Install GPU extension on a deployed VM
-
-To install a GPU extension after you deploy a virtual machine, do these steps in the Azure portal:
-
-1. Go to the virtual machine you want to add the GPU extension to.
-
-    ![Screenshot that shows how to select a virtual machines from the Virtual machines Overview.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-virtual-machine-extension-01.png)
-  
-1. In **Details**, select **+ Add extension**. Then select a GPU extension to install.
-
-    GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
-
-    ![Screenshot that shows the + Add virtual machine button on the dashboard for a VM.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-virtual-machine-extension-02.png)
 
 ### [Templates](#tab/templates)
 
@@ -113,6 +95,33 @@ After the VM is created, you can [deploy the GPU extension using the extension t
 > [!NOTE]
 > When updating your device software version from 2012 to later, you will need to manually stop the GPU VMs.
 
+## Install GPU extension after deployment
+
+After you create a virtual machine for use with GPU, you must install a GPU extension. From the portal, you can install the GPU extension during or after VM deployment. If you're using templates, you'll install the GPU extension after you create the VM.
+
+---
+
+### [Portal](#tab/portal)
+
+If you didn't install the GPU extension when you created the VM, you can install it after deployment. 
+
+Follow these steps to install a GPU extension on a VM in the Azure portal:
+
+1. Go to the virtual machine you want to add the GPU extension to.
+
+    ![Screenshot that shows how to select a virtual machines from the Virtual machines Overview.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-after-deployment-01.png)
+  
+1. In **Details**, select **+ Add extension**. Then select a GPU extension to install.
+
+    GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+
+    ![Screenshot that shows the + Add virtual machine button on the dashboard for a VM.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-after-deploument-02.png)
+
+### [Templates](#tab/templates)
+
+When you create a GPU VM using templates, you install the GPU extension after deployment. For detailed steps for using templates to deploy a GPU extension on a Windows virtual machine or a Linux virtual machine, see [Install GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
+
+---
 
 ## Next steps
 
