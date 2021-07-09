@@ -368,7 +368,7 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
 
-Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customiztion](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customization](customize-ui-with-html.md) with Cascading Style Sheets. For example:
     
 ```css
 .verificationInfoText div{display: block!important}
