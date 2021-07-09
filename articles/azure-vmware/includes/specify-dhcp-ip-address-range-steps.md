@@ -16,12 +16,12 @@ ms.date: 07/16/2021
    
 1. Select **Set Subnets** to specify the DHCP IP address for the subnet. 
    
-   :::image type="content" source="media/manage-dhcp/network-segments.png" alt-text="Screenshot showing how to set the subnets to specify the DHCP IP address." border="true":::
+   :::image type="content" source="../media/manage-dhcp/network-segments.png" alt-text="Screenshot showing how to set the subnets to specify the DHCP IP address." border="true":::
       
 1. Modify the gateway IP address if needed, and enter the DHCP range IP. 
       
-   :::image type="content" source="media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges." border="true":::
+   :::image type="content" source="../media/manage-dhcp/edit-subnet.png" alt-text="Screenshot showing the gateway IP address and DHCP ranges." border="true":::
       
 1. Select **Apply**, and then **Save**. The segment is assigned a DHCP server pool.
       
-   :::image type="content" source="media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true":::
+   :::image type="content" source="../media/manage-dhcp/assigned-to-segment.png" alt-text="Screenshot showing that the DHCP server pool assigned to segment." border="true":::
