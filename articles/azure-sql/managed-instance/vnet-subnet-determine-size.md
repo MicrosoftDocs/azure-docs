@@ -62,7 +62,7 @@ Also consider the [maintenance window feature](../database/maintenance-window.md
 An update operation typically requires [resizing the virtual cluster](management-operations-overview.md). When a new create or update request comes, the SQL Managed Instance service communicates with the compute platform with a request for new nodes that need to be added. Based on the compute response, the deployment system either expands the existing virtual cluster or creates a new one. Even if in most cases the operation will be completed within same virtual cluster, a new one might be created on the compute side. 
 
 
-## Determine additional capacity for update scenarios
+## Update scenarios
 
 During a scaling operation, instances temporarily require additional IP capacity that depends on pricing tier and hardware generation:
 
