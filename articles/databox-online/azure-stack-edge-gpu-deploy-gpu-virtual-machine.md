@@ -9,7 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/09/2021
 ms.author: alkohli
-#Customer intent: As an IT admin, I want the flexibility to deploy GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device via the Azure portal or by using APIs so that I can efficiently manage my GPU VMs.
+#Customer intent: As an IT admin, I want the flexibility to deploy a single GPU virtual machine (VM) quickly in the portal or use templates to deploy and manage multiple GPU VMs efficiently on my Azure Stack Edge Pro GPU device.
 ---
 
 
@@ -17,18 +17,22 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates. In the Azure portal, you can install the GPU extension as part of VM creation. 
+This article how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates.
 
-For an overview of GPU VM capabilities and requirements see [GPU virtual machines on Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview-gpu-virtual-machines.md). 
+Use the Azure portal to quickly deploy a single GPU VM. You can install the GPU extension during or after VM creation. Or use Azure Resource Manager templates to efficiently deploy and manage multiple GPU VMs.
+
 
 ---
 
 ## Create GPU VMs
 
-You can deploy GPU VMs via the portal or using Azure Resource Manager templates.
+You can deploy a GPU VM via the portal or using Azure Resource Manager templates.
+
+For a list of supported operating systems, drivers, and VM sizes for GPU VMs, see [GPU virtual machines on Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview-gpu-virtual-machines.md). For deployment considerations, see [GPU VMs and Kubernetes](For supported operating systems, drivers, and VM sizes for GPU,  see [GPU virtual machines on Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview-gpu-virtual-machines.md).
+
 
 > [!IMPORTANT]
-> If your device will be running Kubernetes, do not configure Kubernetes before you deploy your GPU VMs. If you configure Kubernetes first, it claims all the available GPU resources, and GPU VM creation will fail.
+> If your device will be running Kubernetes, do not configure Kubernetes before you deploy your GPU VMs. If you configure Kubernetes first, it claims all the available GPU resources, and GPU VM creation will fail. For Kubernetes deployment considerations on 1-GPU and 2-GPU devices, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-virtual-machines-gpu-overview.md#gpu-vms-and-kubernetes).
 
 ### [Portal](#tab/portal)
 
@@ -126,4 +130,3 @@ When you create a GPU VM using templates, you install the GPU extension after de
 ## Next steps
 
 - Learn how to [Install the GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md) on the GPU VMs running on your device.
-- *Add link to central article about Kubernetes installation.*

@@ -238,7 +238,7 @@
       - name: View supported API profiles
         href: azure-stack-edge-profiles-azure-resource-manager-versions.md
       - name: What are GPU VMs?
-        href: azure-stack-edge-gpu-virtual-machines-gpu-overview.md
+        href: azure-stack-edge-gpu-overview-gpu-virtual-machines.md
       - name: Create VM image
         items:
         - name: Custom image from Azure VM

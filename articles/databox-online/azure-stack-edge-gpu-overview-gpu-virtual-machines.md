@@ -6,17 +6,17 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/09/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
 
-# Overview of GPU VMs on your Azure Stack Edge Pro GPU device
+# What is a GPU VM on your Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device. Supported OS and GPU drivers, deployment of GPU VMs with Kubernetes clusters. 
+This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device. Supported OS and GPU drivers, deployment of GPU VMs with Kubernetes clusters.
 
 
 ## About GPU VMs
