@@ -13,14 +13,9 @@ items:
     expanded: false
     items:
     - name: Using Portal
-      href: fhir-paas-portal-quickstart.md
-    - name: Using PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Using CLI
-      href: fhir-paas-cli-quickstart.md
+      href: fhir-portal-quickstart.md
     - name: Using ARM template
-      displayName: Resource Manager
-      href: fhir-paas-arm-template-quickstart.md
+      href: fhir-arm-template-quickstart.md
 
 - name: Tutorials
   expanded: false
@@ -38,8 +33,6 @@ items:
       href: tutorial-web-app-write-web-app.md
   - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
-  - name: Use SMART on FHIR proxy
-    href: use-smart-on-fhir-proxy.md
   
   - name: Interoperability and Patient Access
     expanded: false
@@ -74,14 +67,6 @@ items:
   - name: Configure settings
     expanded: false
     items:
-    - name: FHIR service additional settings
-      href: azure-api-for-fhir-additional-settings.md
-    - name: Configure Azure RBAC
-      href: configure-azure-rbac.md
-    - name: Configure Local RBAC
-      href: configure-local-rbac.md
-    - name: Configure database settings
-      href: configure-database.md
     - name: Configure customer-managed keys
       href: customer-managed-key.md
     - name: Configure CORS
@@ -90,7 +75,7 @@ items:
       href: configure-private-link.md
 
   - name: Search
-    expand: false
+    expanded: false
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -101,7 +86,7 @@ items:
     - name: Search examples for FHIR service
       href: search-samples.md
   - name: Operations
-    expand: false
+    expanded: false
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
@@ -147,6 +132,3 @@ items:
   items:
   - name: Azure CLI
     href: /cli/azure/healthcareapis
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md

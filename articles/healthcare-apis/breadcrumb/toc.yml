@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
@@ -5,3 +6,16 @@
   - name: Healthcare APIs
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/index
+  - name: Azure API for FHIR
+    tocHref: /azure/azure-api-for-fhir/
+    topicHref: /azure/azure-api-for-fhir/index
+    items:
+    - name: FHIR service
+      tocHref: /azure/healthcare-apis/fhir/
+      topicHref: /azure/healthcare-apis/fhir/index
+    - name: DICOM service
+      tocHref: /azure/healthcare-apis/dicom/
+      topicHref: /azure/healthcare-apis/dicom/index
+    - name: Data Transformation
+      tocHref: /azure/healthcare-apis/data-tranformation/
+      topicHref: /azure/healthcare-apis/data-transformation/index
