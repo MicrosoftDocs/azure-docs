@@ -1,5 +1,5 @@
 ---
-title: What are Azure Healthcare APIs?
+title: What is the Azure Healthcare APIs?
 description: This article is an overview of the Azure Healthcare APIs. 
 services: healthcare-apis
 author: stevewohl
