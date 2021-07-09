@@ -9,7 +9,7 @@ ms.date: 03/13/2021
 
 1. In NSX-T Manager, select **Networking** > **Segments**, and then select **Add Segment**. 
 
-   :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="Screenshot showing how to add a new segment":::
+   :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="Screenshot showing how to add a new segment in NSX-T Manager.":::
 
 1. Enter a name for the segment.
 

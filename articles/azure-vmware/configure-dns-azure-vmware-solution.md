@@ -2,6 +2,7 @@
 title: Configure DNS for Azure VMware Solution
 description: Learn how to configure DNS in either NSX-T Manager or the Azure portal. 
 ms.topic: how-to
+ms.custom: contperf-fy22q1
 ms.date: 07/20/2021
 
 # Customer intent: As an Azure service administrator, I want to configure 

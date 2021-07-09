@@ -2,6 +2,7 @@
 title: Configure port mirroring for Azure VMware Solution
 description: Learn how to configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another. 
 ms.topic: how-to
+ms.custom: contperf-fy22q1
 ms.date: 07/16/2021
 
 # Customer intent: As an Azure service administrator, I want to configure port mirroring to monitor network traffic that involves forwarding a copy of each packet from one network switch port to another.
