@@ -27,8 +27,8 @@ are expected to change once the service is Generally Available.
 | --- | --- | --- | --- |
 | Accounts per subscription | 2 | 25 | Yes |
 | Instances per account | 2 | 25 | Yes |
-| Length of account name | Minimum: 3 Maximum: 24 | Minimum: 3 Maximum: 24 | No |
-| Length of instance name | Minimum: 3 Maximum: 36 | Minimum: 3 Maximum: 36 | No |
+| Length of account name | Minimum: 3  Maximum: 24 | Minimum: 3  Maximum: 24 | No |
+| Length of instance name | Minimum: 3  Maximum: 36 | Minimum: 3  Maximum: 36 | No |
 | Number of devices per instance | 1,000 | 10,000 | Yes |
 | Number of update providers per instance | 5 | 5 | No |
 | Number of update names per provider per instance | 5 | 5 | No |
