@@ -196,6 +196,23 @@ Moogsoft runs in your Azure real-estate with integration to monitoring and autom
 
 [Newrelic documentation](https://newrelic.com/solutions/partners/azure)
 
+## Nodinite
+
+![Nodinite Logo](./media/partners/nodinite.png)
+
+Nodinite provides you with true end-to-end visibility, support and maintenance tool for all your system integrations and message flows. In addition, Nodinite is the only tool on the market that offers end-to-end [Monitoring](http://docs.nodinite.com/monitoring), [Logging (with a powerful non-events feature)](http://docs.nodinite.com/logging) and [Workflow Documentation](http://docs.nodinite.com/workflow-documentation) in a fixed price package. Nodinite is a Swedish software company developing Nodinite to facilitate predictive support and enable business growth.
+
+To achieve a higher experienced quality when automating the incident process, Nodinite decorates alerts with the CMDB properties set in the [Repository Model](http://docs.nodinite.com/repository-model).
+Nodinite supports Microsoft Azure/Cloud EAI services and many other technologies and products:
+
+- Functions, Logic Apps, Service Bus Queues and Topics, Event Grid, Storage (files, queues and blobs), Data Factory, Azure database, API Management Services, Event Hub, Kusto queries using Application Insights, Certificates, Virtual machine monitoring (Windows).
+
+- [Dynamics 365 (CRM)](http://docs.nodinite.com/goto/microsoft-dynamics-365)
+
+Nodinite is a potent tool replacing a plethora of other tools and portals. Nodinite runs on-premise and in the public/private cloud. In addition, a SaaS offering exists through Partners.
+
+[Nodinite documentation](https://docs.nodinite.com/)
+
 ## OpsGenie
 
 ![OpsGenie Logo](./media/partners/opsgenie.png)
