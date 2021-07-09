@@ -1,7 +1,7 @@
 ---
 title:  "Tutorial: Use IntelliJ to deploy Azure Spring Cloud applications"
 description: Use IntelliJ to deploy applications to Azure Spring Cloud.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
