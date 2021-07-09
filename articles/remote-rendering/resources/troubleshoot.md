@@ -17,9 +17,7 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 
 ## Failed to load model
 
-### Loading a model from blob storage
-
-When loading a model (e.g. via a Unity sample) fails albeit the blob configuration is correct, it is likely that the blob storage is not properly linked. This is explained in the [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) chapter. Note that after correct linking it can take up to 30min until the changes take effect.
+When loading a model (e.g. via a Unity sample) fails albeit the blob configuration is correct, it is likely that the blob storage is not properly linked. This is explained in the [linking of a storage account](../how-tos/create-an-account.md#link-storage-accounts) chapter. Note that after correct linking it can take up to 30 minutes until the changes take effect.
 
 ## Can't link storage account to ARR account
 
