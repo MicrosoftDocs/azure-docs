@@ -22,7 +22,6 @@ Private DNS for Azure VMware Solution management components provides the capabil
 
 you'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
 
-When a DNS query is received, a DNS forwarder compares the domain name with the domain names in the FQDN DNS zone. The query gets forwarded to the DNS servers specified in the FQDN DNS zone if a match is found.  Otherwise, the query gets forwarded to the DNS servers specified in the default DNS zone. 
 
 ## Prerequisites
 Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment.
