@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Kubernetes Service (AKS) with Azure Monitor
-description: Describes how to use Azure Monitor monitor the health and performance of  virtual machines and the workloads.
+description: Describes how to use Azure Monitor monitor the health and performance of AKS clusters and their workloads.
 ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -11,10 +11,6 @@ ms.date: 06/02/2021
 
 # Monitoring Azure Kubernetes Service (AKS) machines with Azure Monitor
 This scenario describes how to use Azure Monitor monitor the health and performance of Azure Kubernetes Service (AKS). It includes collection of telemetry critical for monitoring, analysis and visualization of collected data to identify trends, and how to configure alerting to be proactively notified of critical issues.
-
-
-> [!IMPORTANT]
-> This scenario does not include features that are not generally available. This includes features in public preview such as [virtual machine guest health](vminsights-health-overview.md) that have the potential to significantly modify the recommendations made here. The scenario will be updated as preview features move into general availability.
 
 
 ## Scope of the scenario
@@ -41,7 +37,7 @@ Below is the bottoms-up strategy which is commonly used by large scale clusters.
 
 
 ## Monitoring tools
-[Container insights](../conatiners/container-insights-overview.md) has native integration with AKS, collecting critical metrics and logs, alerting on identified issues, and providing visualization with workbooks. [Prometheus](https://prometheus.io/) and [Grafana](https://www.prometheus.io/docs/visualization/grafana/) are CNCF backed widely popular open source tools for k8s monitoring. AKS(k8s) exposes many metrics in Prometheus format which makes Prometheus a popular choice. Azure Monitor supports collection of Prometheus metrics, in-fact, many native Azure Monitor insights are built-up on top of Prometheus metrics. Azure Monitor complements & completes E2E monitoring of AKS including log collection which Prometheus as stand-alone tool doesn’t provide. Many customers use Prometheus integration & Azure Monitor together for E2E monitoring & for them the biggest operational challenge of monitoring is the large volume of data generated due to the dynamic nature of k8s.
+[Container insights](../containers/container-insights-overview.md) has native integration with AKS, collecting critical metrics and logs, alerting on identified issues, and providing visualization with workbooks. [Prometheus](https://prometheus.io/) and [Grafana](https://www.prometheus.io/docs/visualization/grafana/) are CNCF backed widely popular open source tools for k8s monitoring. AKS(k8s) exposes many metrics in Prometheus format which makes Prometheus a popular choice. Azure Monitor supports collection of Prometheus metrics, in-fact, many native Azure Monitor insights are built-up on top of Prometheus metrics. Azure Monitor complements & completes E2E monitoring of AKS including log collection which Prometheus as stand-alone tool doesn’t provide. Many customers use Prometheus integration & Azure Monitor together for E2E monitoring & for them the biggest operational challenge of monitoring is the large volume of data generated due to the dynamic nature of k8s.
 As mentioned above there are CNCF backed opensource monitoring tools (Prometheus & Grafana) & 3rd party proprietary tools which can be used for AKS monitoring. 
 
 
@@ -56,4 +52,4 @@ AKS connector in Sentinel - Connect Azure Kubernetes Service (AKS) diagnostics l
 
 ## Next steps
 
-* [Analyze monitoring data collected for virtual machines.](monitor-virtual-machine-analyze.md)
+* [Analyze monitoring data collected for AKS clusters.](monitor-aks-analyze.md)

@@ -10,7 +10,13 @@ ms.date: 06/02/2021
 ---
 
 # Monitoring Azure Kubernetes Service (AKS) - Alerts
+This article is part of the [Monitoring AKS with Azure Monitor scenario](monitor-aks.md). It provides guidance on creating alert rules for your AKS clusters and their workloads. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. 
 
+
+## Choosing the alert type
+The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). The type of alert rule that you create for a particular scenario will depend on where the data is located that you're alerting on. You may have cases though where data for a particular alerting scenario is available in both Metrics and Logs, and you need to determine which rule type to use. You may also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
+
+It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in Metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
 
 ## Metric alert rules
 
@@ -40,18 +46,16 @@ The following table lists common and recommended alert rules for AKS.
 
 
 ## Log alerts rules
+The following sections provide log queries for different alert rules. 
 
-### Pod scale out (hpa)
-Container insights automatically monitors the deployment and HPA with specific metrics, and these are collected at every 60 seconds interval in the InsightMetrics table. The list of available metrics name can be referred in the Azure docs.
+View your AKS cluster in the Azure portal and select **Logs** from the **Monitoring** menu. 
 
- 
+Paste the script into query window and click **Run** to verify the results. You may need to temporarily adjust the threshold values to return data for testing.
 
-The log search query pulls the Pod scale out data from Insight Metrics table and joins the output from “KubePodInventory” to get the number of scaled out replicas in each deployment. The additional logic calculate the scale out percentage with the maximum number of replicas configured in HPA (The HPA specific information is collected in “kube_hpa_status_current_replicas”).
+Click **New alert rule**.
 
- 
-
-This query returns the results of any application that are hosted with hpa in non-system namespace.
-
+### Pod scale out
+Alerts when the percentage of scaled out replicas in a deployment exceeds a minimum or maximum threshold. 
 
 ```kusto
 let _minthreshold = 70; // minimum threshold 
@@ -72,14 +76,13 @@ KubePodInventory
     | extend max_reps = todynamic(pTags.spec_max_replicas) // Parse maximum replica settings from HPA deployment
     | extend desired_reps = todynamic(pTags.status_desired_replicas) // Parse desired replica settings from HPA deployment
     | summarize arg_max(TimeGenerated, *) by tostring(ns), tostring(deployment_hpa), Cluster=toupper(tostring(split(_ResourceId, '/')[8])), toint(desired_reps), toint(max_reps), scale_out_percentage=(desired_reps * 100 / max_reps)
-    //| where scale_out_percentage > _minthreshold and scale_out_percentage <= _maxthreshold
+    | where scale_out_percentage > _minthreshold and scale_out_percentage <= _maxthreshold
     )
     on deployment_hpa
 ```
 
-## Nodepool scale outs 
-The following query returns the number of active nodes in each node pools. The additional logic calculates the number of available active node and the max node configuration in the auto-scaler settings to determine the scale out percentage. This is useful when it comes to monitoring the underlying node infrastructure availability for scaling requirement.
-
+### Nodepool scale outs 
+Alerts when the percentage of nodes determined by the auto-scaler settings exceeds a minimum or maximum threshold. 
  
 ```kusto
 let nodepoolMaxnodeCount = 10; // the maximum number of nodes in your auto scale setting goes here.
@@ -91,9 +94,8 @@ KubeNodeInventory
 | extend nodepoolType = todynamic(Labels) //Parse the labels to get the list of node pool types
 | extend nodepoolName = todynamic(nodepoolType[0].agentpool) // parse the label to get the nodepool name or set the specific nodepool name (like nodepoolName = 'agentpool)'
 | summarize nodeCount = count(Computer) by ClusterName, tostring(nodepoolName), TimeGenerated
-//(Uncomment the below two lines to set this as an log search alert)
-//| extend scaledpercent = iff(((nodeCount * 100 / nodepoolMaxnodeCount) >= _minthreshold and (nodeCount * 100 / nodepoolMaxnodeCount) < _maxthreshold), "warn", "normal")
-//| where scaledpercent == 'warn'
+| extend scaledpercent = iff(((nodeCount * 100 / nodepoolMaxnodeCount) >= _minthreshold and (nodeCount * 100 / nodepoolMaxnodeCount) < _maxthreshold), "warn", "normal")
+| where scaledpercent == 'warn'
 | summarize arg_max(TimeGenerated, *) by nodeCount, ClusterName, tostring(nodepoolName)
 | project ClusterName, 
     TotalNodeCount= strcat("Total Node Count: ", nodeCount),
@@ -102,11 +104,8 @@ KubeNodeInventory
     nodepoolName
 ```
 
-System containers (replicaset) availability
-
-This query monitors the system containers (replicasets) and report the unavailable percentage.
-
- 
+### System containers (replicaset) availability
+Alerts when the available system containers (replicasets) exceeds a minimum or maximum threshold. 
 
 
 ```kusto
@@ -127,8 +126,7 @@ KubePodInventory
     )
     on ClusterName
 | project ClusterName, ServiceName, podCount, containerNotrunning, containerNotrunningPercent = (containerNotrunning * 100 / podCount), TimeGenerated, PodStatus, PodLabel, Namespace, Environment = tostring(split(ClusterName, '-')[3]), Location = tostring(split(ClusterName, '-')[4]), ContainerStatus
-//Uncomment the below line to set for automated alert
-//| where PodStatus == "Running" and containerNotrunningPercent > _minalertThreshold and containerNotrunningPercent < _maxalertThreshold
+| where PodStatus == "Running" and containerNotrunningPercent > _minalertThreshold and containerNotrunningPercent < _maxalertThreshold
 | summarize arg_max(TimeGenerated, *), c_entry=count() by PodLabel, ServiceName, ClusterName
 //Below lines are to parse the labels to identify the impacted service/component name
 | extend parseLabel = replace(@'k8s-app', @'k8sapp', PodLabel)
@@ -150,10 +148,8 @@ KubePodInventory
 
 
 
-System containers (daemonsets) availability
-
-This query monitors the system containers (daemonsets) and report the unavailable percentage.
-
+### System containers (daemonsets) availability
+Alerts when the available system containers (daemonsets) exceeds a minimum or maximum threshold. 
  
 ```kusto
 let startDateTime = 5m; // the minimum time interval goes here
@@ -174,7 +170,7 @@ KubePodInventory
     on ClusterName
 | project ClusterName, ServiceName, podCount, containerNotrunning, containerNotrunningPercent = (containerNotrunning * 100 / podCount), TimeGenerated, PodStatus, PodLabel, Namespace, Environment = tostring(split(ClusterName, '-')[3]), Location = tostring(split(ClusterName, '-')[4]), ContainerStatus
 //Uncomment the below line to set for automated alert
-//| where PodStatus == "Running" and containerNotrunningPercent > _minalertThreshold and containerNotrunningPercent < _maxalertThreshold
+| where PodStatus == "Running" and containerNotrunningPercent > _minalertThreshold and containerNotrunningPercent < _maxalertThreshold
 | summarize arg_max(TimeGenerated, *), c_entry=count() by PodLabel, ServiceName, ClusterName
 //Below lines are to parse the labels to identify the impacted service/component name
 | extend parseLabel = replace(@'k8s-app', @'k8sapp', PodLabel)
@@ -195,9 +191,8 @@ KubePodInventory
 ```
 
 
-Individual Container restarts
-
-This query monitors the individual system container restart counts for last 10 minutes
+### Individual container restarts
+Alerts when the individual system container restart count exceeds a threshold for last 10 minutes.
 
  
 ```kusto
@@ -208,7 +203,7 @@ let starttime = ago(5m);
 KubePodInventory
 | where TimeGenerated >= starttime
 | where Namespace in ('default', 'kube-system') // the namespace filter goes here
-//| where ContainerRestartCount > _alertThreshold
+| where ContainerRestartCount > _alertThreshold
 | extend Tags = todynamic(ContainerLastStatus)
 | extend startedAt = todynamic(Tags.startedAt)
 | where startedAt >= Timenow
@@ -217,5 +212,5 @@ KubePodInventory
 
 ## Next steps
 
-* [Analyze monitoring data collected for virtual machines.](monitor-aks-analyze.md)
+* [Analyze monitoring data collected for AKS cluster.](monitor-aks-analyze.md)
 * 

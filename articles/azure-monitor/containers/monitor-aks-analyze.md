@@ -9,7 +9,7 @@ ms.date: 06/02/2021
 
 ---
 
-# Monitoring Azure Kubernetes Service (AKS) - Configuration
+# Monitoring Azure Kubernetes Service (AKS) - Analyze data
 
 
 The screenshot below shows the **Monitor** menu 
@@ -44,6 +44,7 @@ For troubleshooting scenarios, you may need to access the AKS nodes directly for
 ## Level 2 - Managed AKS components
 
 | Component | Monitoring |
+|:---|:---|
 | API Server | Monitor the status of API server, identifying any increase in request load and bottlenecks if the service is down. |
 | Kubelet | Monitoring Kubelet helps in troubleshooting of pod management issues, pods not starting, nodes not ready or pods getting killed  |
 
@@ -58,9 +59,9 @@ This level includes Kubernetes objects such as containers and deployments and th
 
 | Component | Monitoring requirements |
 |:---|:---|
-| Deployments | Actual vs desired state of the deployment. Monitor the health deployments and the pods  | <br>Rolled-up status pods<br>Rolled-up resource utilization
-| Pods | Monitor pods that are running on you AKS cluster. Watch resource utilization trends to identify and diagnose any issues. | - Pod status<br>- CPU<br>- Memory<br>Persistent Volumes |
-| Containers | | - CPU<br>- Memory |
+| Deployments | Actual vs desired state of the deployment. Monitor the health deployments and the pods  | 
+| Pods | Monitor pods that are running on you AKS cluster. Watch resource utilization trends to identify and diagnose any issues. |
+| Containers | |
 
 
 Use existing views and reports in Container Insights to monitor containers and pods. Use the **Nodes** and **Controllers** views to view the health and performance of the pods running on them and drill down to the health and performance of their containers. View the health and performance for containers directly from the **Containers** view. See [Monitor your Kubernetes cluster performance with Container insights](container-insights-analyze.md) for details on using this view and analyzing container health and performance.
@@ -80,13 +81,13 @@ This level includes the application workloads running in the AKS cluster.
 
 Application Insights provides complete monitoring of applications running on AKS and other environments. If you have a Java application, you can provide monitoring without instrumenting your code following [Zero instrumentation application monitoring for Kubernetes - Azure Monitor Application Insights](../app/kubernetes-codeless.md). For complete monitoring though, you should configure code-based monitoring depending on your application.
 
-- [ASP.NET Applications](app/asp-net.md)
-- [ASP.NET Core Applications](app/asp-net-core.md)
-- [.NET Console Applications](app/console.md)
-- [Java](app/java-in-process-agent.md)
-- [Node.js](app/nodejs.md)
-- [Python](app/opencensus-python.md)
-- [Other platforms](app/platforms.md)
+- [ASP.NET Applications](../app/asp-net.md)
+- [ASP.NET Core Applications](../app/asp-net-core.md)
+- [.NET Console Applications](../app/console.md)
+- [Java](../app/java-in-process-agent.md)
+- [Node.js](../app/nodejs.md)
+- [Python](../app/opencensus-python.md)
+- [Other platforms](../app/platforms.md)
 
 ## Next steps
 
