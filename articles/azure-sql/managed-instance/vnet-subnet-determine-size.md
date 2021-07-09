@@ -30,7 +30,7 @@ By design, a managed instance needs a minimum of 32 IP addresses in a subnet. As
 - Plans to scale up/down or change the service tier
 
 > [!IMPORTANT]
-> A subnet size of 16 IP addresses (subnet mask /28) will allow the deployment of a managed instance inside it. But you should use it only for deploying a single instance for evaluation or for dev/test scenarios, in which scaling operations won't be performed.
+> A subnet size of 16 IP addresses (subnet mask /28) allows the deployment of a single managed instance inside it, and should only be used for evaluation, or dev/test scenarios where scaling operations won't be performed. 
 
 ## Determine subnet size
 
