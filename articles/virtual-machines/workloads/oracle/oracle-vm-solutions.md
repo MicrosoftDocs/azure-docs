@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 07/09/2021
 ms.author: kegorman
 
 ---
@@ -20,59 +20,103 @@ To get a list of currently available images, run the following command:
 az vm image list --publisher oracle -o table --all
 ```
 
-As of June 2020 the following images are available:
+As of July 2021 the following images are available:
 
 ```bash
-Offer                   Publisher    Sku                     Urn                                                          Version
-----------------------  -----------  ----------------------  -----------------------------------------------------------  -------------
-oracle-database-19-3    Oracle       oracle-db-19300         Oracle:oracle-database-19-3:oracle-db-19300:19.3.0           19.3.0
-Oracle-Database-Ee      Oracle       12.1.0.2                Oracle:Oracle-Database-Ee:12.1.0.2:12.1.20170220             12.1.20170220
-Oracle-Database-Ee      Oracle       12.2.0.1                Oracle:Oracle-Database-Ee:12.2.0.1:12.2.20180725             12.2.20180725
-Oracle-Database-Ee      Oracle       18.3.0.0                Oracle:Oracle-Database-Ee:18.3.0.0:18.3.20181213             18.3.20181213
-Oracle-Database-Se      Oracle       12.1.0.2                Oracle:Oracle-Database-Se:12.1.0.2:12.1.20170220             12.1.20170220
-Oracle-Database-Se      Oracle       12.2.0.1                Oracle:Oracle-Database-Se:12.2.0.1:12.2.20180725             12.2.20180725
-Oracle-Database-Se      Oracle       18.3.0.0                Oracle:Oracle-Database-Se:18.3.0.0:18.3.20181213             18.3.20181213
-Oracle-Linux            Oracle       6.10                    Oracle:Oracle-Linux:6.10:6.10.00                             6.10.00
-Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.0                                6.8.0
-Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.20190529                         6.8.20190529
-Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.0                                6.9.0
-Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.20190529                         6.9.20190529
-Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.0                                7.3.0
-Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.20190529                         7.3.20190529
-Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.1                                7.4.1
-Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.20190529                         7.4.20190529
-Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.1                                7.5.1
-Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.2                                7.5.2
-Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20181207                         7.5.20181207
-Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20190529                         7.5.20190529
-Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.2                                7.6.2
-Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.3                                7.6.3
-Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.4                                7.6.4
-Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.1                                 7.7.1
-Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.2                                 7.7.2
-Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.3                                 7.7.3
-Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.4                                 7.7.4
-Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.5                                 7.7.5
-Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.01                             7.7.01
-Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.02                             7.7.02
-Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.03                             7.7.03
-Oracle-Linux            Oracle       78                      Oracle:Oracle-Linux:78:7.8.01                                7.8.01
-Oracle-Linux            Oracle       8                       Oracle:Oracle-Linux:8:8.0.2                                  8.0.2
-Oracle-Linux            Oracle       8-ci                    Oracle:Oracle-Linux:8-ci:8.0.11                              8.0.11
-Oracle-Linux            Oracle       81                      Oracle:Oracle-Linux:81:8.1.0                                 8.1.0
-Oracle-Linux            Oracle       81                      Oracle:Oracle-Linux:81:8.1.2                                 8.1.2
-Oracle-Linux            Oracle       81-ci                   Oracle:Oracle-Linux:81-ci:8.1.0                              8.1.0
-Oracle-Linux            Oracle       81-gen2                 Oracle:Oracle-Linux:81-gen2:8.1.11                           8.1.11
-Oracle-Linux            Oracle       ol77-ci-gen2            Oracle:Oracle-Linux:ol77-ci-gen2:7.7.1                       7.7.1
-Oracle-Linux            Oracle       ol77-gen2               Oracle:Oracle-Linux:ol77-gen2:7.7.01                         7.7.01
-Oracle-Linux            Oracle       ol77-gen2               Oracle:Oracle-Linux:ol77-gen2:7.7.02                         7.7.02
-Oracle-Linux            Oracle       ol78-gen2               Oracle:Oracle-Linux:ol78-gen2:7.8.11                         7.8.11
-Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
-weblogic-122130-jdk8u3  Oracle       owls-122130-8u131-ol73  Oracle:weblogic-122130-jdk8u131-ol73:owls-122130-8u131-ol7   1.1.6
-weblogic-122130-jdk8u4  Oracle       owls-122130-8u131-ol74  Oracle:weblogic-122130-jdk8u131-ol74:owls-122130-8u131-ol7   1.1.1
-weblogic-122140-jdk8u6  Oracle       owls-122140-8u251-ol76  Oracle:weblogic-122140-jdk8u251-ol76:owls-122140-8u251-ol7   1.1.1
-weblogic-141100-jdk116  Oracle       owls-141100-11_07-ol76  Oracle:weblogic-141100-jdk11_07-ol76:owls-141100-11_07-ol7   1.1.1
-weblogic-141100-jdk8u6  Oracle       owls-141100-8u251-ol76  Oracle:weblogic-141100-jdk8u251-ol76:owls-141100-8u251-ol7   1.1.1
+Offer                          Publisher    Sku                      Urn                                                                 Version
+-----------------------------  -----------  -----------------------  ------------------------------------------------------------------  -------------
+ohs-122140-jdk8-ol73           Oracle       ohs-122140-jdk8-ol73     Oracle:ohs-122140-jdk8-ol73:ohs-122140-jdk8-ol73:1.1.1              1.1.1
+ohs-122140-jdk8-ol74           Oracle       ohs-122140-jdk8-ol74     Oracle:ohs-122140-jdk8-ol74:ohs-122140-jdk8-ol74:1.1.1              1.1.1
+ohs-122140-jdk8-ol76           Oracle       ohs-122140-jdk8-ol76     Oracle:ohs-122140-jdk8-ol76:ohs-122140-jdk8-ol76:1.1.1              1.1.1
+oracle-database-19-3           Oracle       oracle-database-19-0904  Oracle:oracle-database-19-3:oracle-database-19-0904:19.3.1          19.3.1
+Oracle-Database-Ee             Oracle       12.1.0.2                 Oracle:Oracle-Database-Ee:12.1.0.2:12.1.20170220                    12.1.20170220
+Oracle-Database-Ee             Oracle       12.2.0.1                 Oracle:Oracle-Database-Ee:12.2.0.1:12.2.20180725                    12.2.20180725
+Oracle-Database-Ee             Oracle       18.3.0.0                 Oracle:Oracle-Database-Ee:18.3.0.0:18.3.20181213                    18.3.20181213
+Oracle-Database-se             Oracle       12.1.0.2                 Oracle:Oracle-Database-se:12.1.0.2:12.1.20170220                    12.1.20170220
+Oracle-Database-se             Oracle       12.2.0.1                 Oracle:Oracle-Database-se:12.2.0.1:12.2.20180725                    12.2.20180725
+Oracle-Database-se             Oracle       18.3.0.0                 Oracle:Oracle-Database-se:18.3.0.0:18.3.20181213                    18.3.20181213
+Oracle-Linux                   Oracle       6.10                     Oracle:Oracle-Linux:6.10:6.10.00                                    6.10.00
+Oracle-Linux                   Oracle       6.8                      Oracle:Oracle-Linux:6.8:6.8.0                                       6.8.0
+Oracle-Linux                   Oracle       6.8                      Oracle:Oracle-Linux:6.8:6.8.20190529                                6.8.20190529
+Oracle-Linux                   Oracle       6.9                      Oracle:Oracle-Linux:6.9:6.9.0                                       6.9.0
+Oracle-Linux                   Oracle       6.9                      Oracle:Oracle-Linux:6.9:6.9.20190529                                6.9.20190529
+Oracle-Linux                   Oracle       7.3                      Oracle:Oracle-Linux:7.3:7.3.0                                       7.3.0
+Oracle-Linux                   Oracle       7.3                      Oracle:Oracle-Linux:7.3:7.3.20190529                                7.3.20190529
+Oracle-Linux                   Oracle       7.4                      Oracle:Oracle-Linux:7.4:7.4.1                                       7.4.1
+Oracle-Linux                   Oracle       7.4                      Oracle:Oracle-Linux:7.4:7.4.20190529                                7.4.20190529
+Oracle-Linux                   Oracle       7.5                      Oracle:Oracle-Linux:7.5:7.5.1                                       7.5.1
+Oracle-Linux                   Oracle       7.5                      Oracle:Oracle-Linux:7.5:7.5.2                                       7.5.2
+Oracle-Linux                   Oracle       7.5                      Oracle:Oracle-Linux:7.5:7.5.20181207                                7.5.20181207
+Oracle-Linux                   Oracle       7.5                      Oracle:Oracle-Linux:7.5:7.5.20190529                                7.5.20190529
+Oracle-Linux                   Oracle       7.5                      Oracle:Oracle-Linux:7.5:7.5.3                                       7.5.3
+Oracle-Linux                   Oracle       7.6                      Oracle:Oracle-Linux:7.6:7.6.2                                       7.6.2
+Oracle-Linux                   Oracle       7.6                      Oracle:Oracle-Linux:7.6:7.6.3                                       7.6.3
+Oracle-Linux                   Oracle       7.6                      Oracle:Oracle-Linux:7.6:7.6.4                                       7.6.4
+Oracle-Linux                   Oracle       7.6                      Oracle:Oracle-Linux:7.6:7.6.5                                       7.6.5
+Oracle-Linux                   Oracle       77                       Oracle:Oracle-Linux:77:7.7.1                                        7.7.1
+Oracle-Linux                   Oracle       77                       Oracle:Oracle-Linux:77:7.7.2                                        7.7.2
+Oracle-Linux                   Oracle       77                       Oracle:Oracle-Linux:77:7.7.3                                        7.7.3
+Oracle-Linux                   Oracle       77                       Oracle:Oracle-Linux:77:7.7.4                                        7.7.4
+Oracle-Linux                   Oracle       77                       Oracle:Oracle-Linux:77:7.7.5                                        7.7.5
+Oracle-Linux                   Oracle       77                       Oracle:Oracle-Linux:77:7.7.6                                        7.7.6
+Oracle-Linux                   Oracle       77-ci                    Oracle:Oracle-Linux:77-ci:7.7.01                                    7.7.01
+Oracle-Linux                   Oracle       77-ci                    Oracle:Oracle-Linux:77-ci:7.7.02                                    7.7.02
+Oracle-Linux                   Oracle       77-ci                    Oracle:Oracle-Linux:77-ci:7.7.03                                    7.7.03
+Oracle-Linux                   Oracle       78                       Oracle:Oracle-Linux:78:7.8.3                                        7.8.3
+Oracle-Linux                   Oracle       78                       Oracle:Oracle-Linux:78:7.8.5                                        7.8.5
+Oracle-Linux                   Oracle       79-gen2                  Oracle:Oracle-Linux:79-gen2:7.9.11                                  7.9.11
+Oracle-Linux                   Oracle       79-gen2                  Oracle:Oracle-Linux:79-gen2:7.9.12                                  7.9.12
+Oracle-Linux                   Oracle       79-gen2                  Oracle:Oracle-Linux:79-gen2:7.9.13                                  7.9.13
+Oracle-Linux                   Oracle       79-gen2                  Oracle:Oracle-Linux:79-gen2:7.9.14                                  7.9.14
+Oracle-Linux                   Oracle       79-gen2                  Oracle:Oracle-Linux:79-gen2:7.9.15                                  7.9.15
+Oracle-Linux                   Oracle       8                        Oracle:Oracle-Linux:8:8.0.2                                         8.0.2
+Oracle-Linux                   Oracle       8-ci                     Oracle:Oracle-Linux:8-ci:8.0.11                                     8.0.11
+Oracle-Linux                   Oracle       81                       Oracle:Oracle-Linux:81:8.1.0                                        8.1.0
+Oracle-Linux                   Oracle       81                       Oracle:Oracle-Linux:81:8.1.2                                        8.1.2
+Oracle-Linux                   Oracle       81-ci                    Oracle:Oracle-Linux:81-ci:8.1.0                                     8.1.0
+Oracle-Linux                   Oracle       81-gen2                  Oracle:Oracle-Linux:81-gen2:8.1.11                                  8.1.11
+Oracle-Linux                   Oracle       ol77-ci-gen2             Oracle:Oracle-Linux:ol77-ci-gen2:7.7.1                              7.7.1
+Oracle-Linux                   Oracle       ol77-gen2                Oracle:Oracle-Linux:ol77-gen2:7.7.01                                7.7.01
+Oracle-Linux                   Oracle       ol77-gen2                Oracle:Oracle-Linux:ol77-gen2:7.7.02                                7.7.02
+Oracle-Linux                   Oracle       ol77-gen2                Oracle:Oracle-Linux:ol77-gen2:7.7.03                                7.7.03
+Oracle-Linux                   Oracle       ol78-gen2                Oracle:Oracle-Linux:ol78-gen2:7.8.03                                7.8.03
+Oracle-Linux                   Oracle       ol78-gen2                Oracle:Oracle-Linux:ol78-gen2:7.8.05                                7.8.05
+Oracle-Linux                   Oracle       ol79                     Oracle:Oracle-Linux:ol79:7.9.1                                      7.9.1
+Oracle-Linux                   Oracle       ol79                     Oracle:Oracle-Linux:ol79:7.9.2                                      7.9.2
+Oracle-Linux                   Oracle       ol79                     Oracle:Oracle-Linux:ol79:7.9.3                                      7.9.3
+Oracle-Linux                   Oracle       ol79                     Oracle:Oracle-Linux:ol79:7.9.4                                      7.9.4
+Oracle-Linux                   Oracle       ol79                     Oracle:Oracle-Linux:ol79:7.9.5                                      7.9.5
+Oracle-Linux                   Oracle       ol79-gen2                Oracle:Oracle-Linux:ol79-gen2:7.9.11                                7.9.11
+Oracle-Linux                   Oracle       ol79-lvm                 Oracle:Oracle-Linux:ol79-lvm:7.9.01                                 7.9.01
+Oracle-Linux                   Oracle       ol79-lvm-gen2            Oracle:Oracle-Linux:ol79-lvm-gen2:7.9.11                            7.9.11
+Oracle-Linux                   Oracle       ol82                     Oracle:Oracle-Linux:ol82:8.2.1                                      8.2.1
+Oracle-Linux                   Oracle       ol82                     Oracle:Oracle-Linux:ol82:8.2.3                                      8.2.3
+Oracle-Linux                   Oracle       ol82-gen2                Oracle:Oracle-Linux:ol82-gen2:8.2.01                                8.2.01
+Oracle-Linux                   Oracle       ol83-lvm                 Oracle:Oracle-Linux:ol83-lvm:8.3.1                                  8.3.1
+Oracle-Linux                   Oracle       ol83-lvm                 Oracle:Oracle-Linux:ol83-lvm:8.3.2                                  8.3.2
+Oracle-Linux                   Oracle       ol83-lvm                 Oracle:Oracle-Linux:ol83-lvm:8.3.3                                  8.3.3
+Oracle-Linux                   Oracle       ol83-lvm                 Oracle:Oracle-Linux:ol83-lvm:8.3.4                                  8.3.4
+Oracle-Linux                   Oracle       ol83-lvm-gen2            Oracle:Oracle-Linux:ol83-lvm-gen2:8.3.11                            8.3.11
+Oracle-Linux                   Oracle       ol83-lvm-gen2            Oracle:Oracle-Linux:ol83-lvm-gen2:8.3.12                            8.3.12
+Oracle-Linux                   Oracle       ol83-lvm-gen2            Oracle:Oracle-Linux:ol83-lvm-gen2:8.3.13                            8.3.13
+Oracle-Linux                   Oracle       ol83-lvm-gen2            Oracle:Oracle-Linux:ol83-lvm-gen2:8.3.14                            8.3.14
+Oracle-Linux                   Oracle       ol84-lvm                 Oracle:Oracle-Linux:ol84-lvm:8.4.1                                  8.4.1
+Oracle-Linux                   Oracle       ol84-lvm-gen2            Oracle:Oracle-Linux:ol84-lvm-gen2:8.4.11                            8.4.11
+Oracle-Linux                   Oracle       ol8_2-gen2               Oracle:Oracle-Linux:ol8_2-gen2:8.2.13                               8.2.13
+Oracle-WebLogic-Server         Oracle       Oracle-WebLogic-Server   Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2         12.1.2
+oracle_sd-wan_edge             Oracle       oracle_sdwan_edge_91000  Oracle:oracle_sd-wan_edge:oracle_sdwan_edge_91000:8.4.0             8.4.0
+oracle_virtual_esbc            Oracle       oracle_evsbc_8301        Oracle:oracle_virtual_esbc:oracle_evsbc_8301:8.3.1                  8.3.1
+weblogic-122130-jdk8-ol73      Oracle       owls-122130-jdk8-ol73    Oracle:weblogic-122130-jdk8-ol73:owls-122130-jdk8-ol73:1.1.1        1.1.1
+weblogic-122130-jdk8-ol74      Oracle       owls-122130-jdk8-ol74    Oracle:weblogic-122130-jdk8-ol74:owls-122130-jdk8-ol74:1.1.1        1.1.1
+weblogic-122130-jdk8u131-ol73  Oracle       owls-122130-8u131-ol73   Oracle:weblogic-122130-jdk8u131-ol73:owls-122130-8u131-ol73:1.1.10  1.1.10
+weblogic-122130-jdk8u131-ol74  Oracle       owls-122130-8u131-ol74   Oracle:weblogic-122130-jdk8u131-ol74:owls-122130-8u131-ol74:1.1.5   1.1.5
+weblogic-122140-jdk8-ol76      Oracle       owls-122140-jdk8-ol76    Oracle:weblogic-122140-jdk8-ol76:owls-122140-jdk8-ol76:1.1.1        1.1.1
+weblogic-122140-jdk8-ol76      Oracle       owls-122140-jdk8-ol76    Oracle:weblogic-122140-jdk8-ol76:owls-122140-jdk8-ol76:1.1.2        1.1.2
+weblogic-122140-jdk8u251-ol76  Oracle       owls-122140-8u251-ol76   Oracle:weblogic-122140-jdk8u251-ol76:owls-122140-8u251-ol76:1.1.4   1.1.4
+weblogic-141100-jdk11-ol76     Oracle       owls-141100-jdk11-ol76   Oracle:weblogic-141100-jdk11-ol76:owls-141100-jdk11-ol76:1.1.1      1.1.1
+weblogic-141100-jdk11_07-ol76  Oracle       owls-141100-11_07-ol76   Oracle:weblogic-141100-jdk11_07-ol76:owls-141100-11_07-ol76:1.1.4   1.1.4
+weblogic-141100-jdk8-ol76      Oracle       owls-141100-jdk8-ol76    Oracle:weblogic-141100-jdk8-ol76:owls-141100-jdk8-ol76:1.1.1        1.1.1
+weblogic-141100-jdk8u251-ol76  Oracle       owls-141100-8u251-ol76   Oracle:weblogic-141100-jdk8u251-ol76:owls-141100-8u251-ol76:1.1.4   1.1.4
 ```
 
 These images are considered "Bring Your Own License" and as such you will only be charged for compute, storage, and networking costs incurred by running a VM.  It is assumed you are properly licensed to use Oracle software and that you have a current support agreement in place with Oracle. Oracle has guaranteed license mobility from on-premises to Azure. See the published [Oracle and Microsoft](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) note for details on license mobility.
