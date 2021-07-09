@@ -84,6 +84,22 @@
       href: linter.md
     - name: Best practices
       href: best-practices.md
+    - name: Patterns
+      items:
+      - name: Overview
+        href: patterns-overview.md
+      - name: Configuration map
+        href: patterns-configuration-map.md
+      - name: Logical to physical
+        href: patterns-logical-physical.md
+    - name: Scenarios
+      items:
+      - name: Overview
+        href: scenarios-overview.md
+      - name: Identity
+        href: scenarios-identity.md
+      - name: Network security groups
+        href: scenarios-nsg.md
   - name: Deploy
     items:
     - name: Predeployment checks
