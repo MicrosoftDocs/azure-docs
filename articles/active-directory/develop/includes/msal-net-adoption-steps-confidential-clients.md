@@ -1,4 +1,4 @@
-##### Common steps
+The following steps for updating code apply across all the confidential client scenarios:
 
 1. Add the MSAL.NET namespace in your source code: `using Microsoft.Identity.Client;`.
 2. Instead of instantiating `AuthenticationContext`, use `ConfidentialClientApplicationBuilder.Create` to instantiate `IConfidentialClientApplication`.

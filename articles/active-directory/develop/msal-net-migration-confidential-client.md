@@ -66,9 +66,9 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 
 [!INCLUDE [Common steps](includes/msal-net-adoption-steps-confidential-clients.md)]
 
-To update the code of daemon scenarios, we replace the call to `AuthenticationContext.AcquireTokenAsync` with a call to `IConfidentialClientApplication.AcquireTokenClient`.
+In this case, we replace the call to `AuthenticationContext.AcquireTokenAsync` with a call to `IConfidentialClientApplication.AcquireTokenClient`.
 
-The following table compares the ADAL.NET and MSAL.NET code for daemon scenarios.
+Here's a comparison of ADAL.NET and MSAL.NET code for daemon scenarios:
 
 :::row:::
 :::column span="":::
@@ -166,9 +166,9 @@ You'll need to serialize `AppTokenCache` if you choose not to use the default in
 
 ## [Web API calling downstream web APIs](#tab/obo)
 
-### Migrate a web API that's calling downstream web APIs
+### Migrate a web API that calls downstream web APIs
 
-Web APIs that call downstream web APIs use the OAuth2.0 [OBO](v2-oauth2-on-behalf-of-flow.md) flow. The code of the web API uses the token retrieved from the HTTP authorized header and validates it. This token is exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` instance in both ADAL.NET and MSAL.NET.
+Web APIs that call downstream web APIs use the OAuth2.0 [on-behalf-of (OBO)](v2-oauth2-on-behalf-of-flow.md) flow. The code of the web API uses the token retrieved from the HTTP authorized header and validates it. This token is exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` instance in both ADAL.NET and MSAL.NET.
 
 #### Find out if your code uses OBO
 
@@ -184,7 +184,7 @@ The ADAL code for your app uses OBO if it contains a call to `AuthenticationCont
 
 In this case, we replace the call to `AuthenticationContext.AcquireTokenAsync` with a call to `IConfidentialClientApplication.AcquireTokenOnBehalfOf`.
 
-Here's some sample OBO code:
+Here's a comparison of sample OBO code for ADAL.NET and MSAL.NET:
 
 :::row:::
    :::column span="":::
@@ -294,7 +294,7 @@ For an example of a `CreateTokenCache` implementation, see the [code samples](ht
 
 ## [Web app calling web APIs](#tab/authcode)
 
-### Migrate web apps that call web APIs
+### Migrate a web app that calls web APIs
 
 If your app uses ASP.NET Core, we strongly recommend that you update to Microsoft.Identity.Web, which processes everything for you. For a quick presentation, see the [Microsoft.Identity.Web announcement of general availability](https://github.com/AzureAD/microsoft-identity-web/wiki/1.0.0). For details about how to use it in a web app, see [Why use Microsoft.Identity.Web in web apps?](https://aka.ms/ms-id-web/webapp).
 
@@ -314,7 +314,7 @@ The ADAL code for your app uses auth code flow if it contains a call to `Authent
 
 In this case, we replace the call to `AuthenticationContext.AcquireTokenAsync` with a call to `IConfidentialClientApplication.AcquireTokenByAuthorizationCode`.
 
-The following code is a sample authorization code flow:
+Here's a comparison of sample authorization code flows for ADAL.NET and MSAL.NET:
 
 :::row:::
    :::column span="":::
@@ -438,7 +438,7 @@ Key benefits of MSAL.NET for your app include:
           .Build();
   ```
 
-## Troubleshoot exception messages
+## Troubleshooting
 
 The following troubleshooting information makes two assumptions: 
 
