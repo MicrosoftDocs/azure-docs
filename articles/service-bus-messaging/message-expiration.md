@@ -2,7 +2,7 @@
 title: Azure Service Bus - message expiration
 description: This article explains about expiration and time to live of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 07/09/2021
 ---
 
 # Message expiration (Time to Live)
@@ -17,6 +17,9 @@ Past the **expires-at-utc** instant, messages become ineligible for retrieval. T
 While the message is under lock, the application might be in possession of a message that has expired. Whether the application is willing to go ahead with processing or chooses to abandon the message is up to the implementer.
 
 Extremely low TTL in the order of milliseconds or seconds may cause messages to expire before receiver applications receive it. Consider the highest TTL that works for your application.
+
+> [!NOTE]
+> If the topic specifies a smaller TTL than the subscription, the topic TTL is applied.
 
 ## Entity-level expiration
 All messages sent into a queue or topic are subject to a default expiration that is set at the entity level. It can also be set in the portal during creation and adjusted later. The default expiration is used for all messages sent to the entity where time-to-live isn't explicitly set. The default expiration also functions as a ceiling for the time-to-live value. Messages that have a longer time-to-live expiration than the default value are silently adjusted to the default message time-to-live value before being enqueued.
