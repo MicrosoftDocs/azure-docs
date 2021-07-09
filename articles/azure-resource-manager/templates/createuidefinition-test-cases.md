@@ -15,7 +15,7 @@ The toolkit includes [test cases](test-cases.md) for Azure Resource Manager temp
 
 The _createUiDefinition.json_ file creates custom user-interface (UI) controls using [elements](../managed-applications/create-uidefinition-elements.md) and [functions](../managed-applications/create-uidefinition-functions.md).
 
-## Verify control values are allowed in template parameter
+## Verify template parameter allows values
 
 Test name: **Allowed Values Should Actually Be Allowed**
 
@@ -601,7 +601,7 @@ The _createUiDefinition.json_ file for this example:
 }
 ```
 
-## Template parameters without default must exist in outputs
+## Parameters without default must exist in outputs
 
 Test name: **Parameters Without Default Must Exist In CreateUIDefinition**
 
@@ -686,7 +686,7 @@ The _azuredeploy.json_ file for this example. The `comboBox` parameter doesn't h
 }
 ```
 
-## Use secure parameter with password box element
+## Use secure parameter with password box
 
 Test name: **Password Textboxes Must Be Used For Password Parameters**
 
@@ -906,7 +906,7 @@ The following example **passes**:
 }
 ```
 
-## toolTip property must exist with a value
+## toolTip must exist with a value
 
 Test name: **Tooltips Should Be Present**
 
