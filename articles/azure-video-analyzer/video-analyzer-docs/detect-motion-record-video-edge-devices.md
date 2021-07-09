@@ -63,7 +63,13 @@ Complete the following steps to use Video Analyzer to detect the motion of the c
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/vscode-common-screenshots/verbose-message.png" alt-text= "Show Verbose Message":::
 
-1. Start a debugging session by selecting the F5 key. The **TERMINAL** window prints some messages.
+1.  ::: zone pivot="programming-language-csharp"
+    [!INCLUDE [header](includes/common-includes/csharp-run-program.md)]
+    ::: zone-end
+
+    ::: zone pivot="programming-language-python"
+    [!INCLUDE [header](includes/common-includes/python-run-program.md)]
+    ::: zone-end
 1. The _operations.json_ code calls the direct methods `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after previous quickstarts, then this process will return empty lists and then pause. Press the Enter key.
 
    ```
