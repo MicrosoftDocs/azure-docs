@@ -24,7 +24,7 @@ Managed identity supports both privately and publicly accessible Azure blob stor
 
 ## Private storage account access
 
- Private Azure storage account access and authentication is supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). If you have an Azure storage account protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS), Form Recognizer cannot directly access your storage account data; however,  once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
+ Private Azure storage account access and authentication is supported by [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview). If you have an Azure storage account protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS), Form Recognizer cannot directly access your storage account data; however, once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
 >
