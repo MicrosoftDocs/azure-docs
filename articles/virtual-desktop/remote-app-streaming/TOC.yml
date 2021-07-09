@@ -20,8 +20,6 @@
   items:
   - name: Essentials for remote app streaming
     items:
-    - name: Architecture recommendations
-      href: 
     - name: Deploy apps with MSIX app attach
       href: 
     - name: Host custom apps
@@ -139,7 +137,7 @@
   - name: Essentials for remote app streaming
     items: 
     - name: Architecture recommendations 
-      href: 
+      href: architecture-recs.md
     - name: App hosting licenses
       href: 
   - name: Security
