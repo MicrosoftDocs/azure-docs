@@ -17,10 +17,10 @@ The sections in this article discuss the resources and settings for Azure Bastio
 
 ## <a name="skus"></a>SKUs
 
-A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The SKU is configured in the Azure portal during the workflow when you configure Bastion. You can upgrade a Basic SKU to a Standard SKU. However, downgrading from a Standard SKU to a Basic SKU is not supported. 
+A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The SKU is configured in the Azure portal during the workflow when you configure Bastion. You can [upgrade a Basic SKU to a Standard SKU](#upgradesku).
 
 * The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs. 
-* The **Standard SKU** enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. 
+* The **Standard SKU** is in **Preview**. The Standard SKU enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. 
 
 The following table shows features and corresponding SKUs. 
 
@@ -32,43 +32,38 @@ During Preview, you must use the Azure portal if you want to specify the Standar
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier - Basic or Standard | [Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md) |
-| Azure PowerShell | Basic only - no settings |[Create a bastion host - PowerShell](bastion-create-host-powershell.md) |
-| Azure CLI |  Basic only - no settings | [Create a bastion host - CLI](create-host-cli.md) |
+| Azure portal | Tier - Basic or <br>Standard (Preview) | [Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md) |
+| Azure PowerShell | Basic only - no settings |[Configure Bastion - PowerShell](bastion-create-host-powershell.md) |
+| Azure CLI |  Basic only - no settings | [Configure Bastion - CLI](create-host-cli.md) |
 
-### <a name="upgradesku"></a>To upgrade a SKU
+### <a name="upgradesku"></a>Upgrade a SKU
 
-Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, you must delete and recreate Azure Bastion.
+Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, you must delete and recreate Azure Bastion. The Standard SKU is in Preview. 
 
-1. Navigate to the bastion host.
-1. On the **Configuration** page, for **Tier**, select **Standard** from the dropdown. 
-1. Click **Apply**.
+#### Configuration methods
 
-## <a name="instance"></a>Instances and host scaling
+You can configure this setting using the following method:
+
+| Method | Value | Links |
+| --- | --- | --- |
+| Azure portal |Tier  | [Upgrade a SKU - Preview](upgrade-sku.md)|
+
+## <a name="instance"></a>Instances and host scaling (Preview)
 
 An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU, you can specify the number of instances. This is called **host scaling**. 
 
-Each instance can support 10-12 concurrent RDP/SSH connections. The number of connections per instances depends on what actions you are taking when connected to the client VM. For example, if you are doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, an additional scale unit is required. To add more scale units, verify that you have the Standard SKU, then adjust the scale units slider. If you are running the Basic SKU, you can easily [upgrade to the Standard SKU](#upgradesku) in the portal. 
-
-Scale unit pricing can be found on the [Azure Bastion pricing](https://azure.microsoft.com/pricing/details/azure-bastion) page.
+Each instance can support 10-12 concurrent RDP/SSH connections. The number of connections per instances depends on what actions you are taking when connected to the client VM. For example, if you are doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, an additional scale unit (instance) is required. 
 
 Instances are created in the AzureBastionSubnet. For host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances you can create. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
 
 ### Configuration methods
 
-You can configure this setting using the following methods:
+You can configure this setting using the following method:
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal |Instance count  | [Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md)|
+| Azure portal |Instance count  | [Configure host scaling - Preview](configure-host-scaling.md)|
 
-### To change the instance count
-
-You can change the instance count using the Azure portal.
-
-1. Navigate to the bastion host.
-1. On the **Configuration** page, adjust the slider to reflect the instance count. 
-1. Click **Apply**.
 
 ## <a name="subnet"></a>Azure Bastion subnet
 
@@ -86,7 +81,7 @@ You can configure this setting using the following methods:
 
 | Method | Value | Links |
 | --- | --- |--- |
-| Azure portal | Subnet  |[Quickstart - Create from VM settings](quickstart-host-portal.md)<br>[Tutorial - Create a bastion host](tutorial-create-host-portal.md)|
+| Azure portal | Subnet  |[Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
 | Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az_network_vnet_create) |
 
