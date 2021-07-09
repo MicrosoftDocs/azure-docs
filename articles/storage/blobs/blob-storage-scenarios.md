@@ -20,11 +20,42 @@ Tasks for determining use and capacity
 
 #### Identify storage accounts with no or low use
 
-Monitor for accounts that have low or now traffic. 
+Use storage insights because it provides you with a unified view of all of your storage accounts. This is different than the storage account-specific view that you get when you use metrics from the account menu itself. Point to guidance for storage insights.
+
+A great way to determine use is to scan for transaction volume and capacity.
+
+Transactions
+
+Line all of them up and quickly see transactions in the overview page. If you see transactions below a certain threshold, you might deem the account has having low or no use. You can investigate the nature of transactions by clicking the account link to see transaction by storage account type. You can adjust the time frame to any thing you want. 
+
+If you see some small number of transactions and want to know what those are and who is performing the transaction ...
+
+You can look at what API was used in the "Transactions by API name" if you want. Some other ways to identity the nature of transactions is:
+
+You can open up the transaction chart and modify it to show a separate line for ingress and a separate line for egress. This helps you figure out whether data is coming in or out.
+
+
+
+
+Capacity
+
+See capacity of them in the capacity page. Look for accounts that have low capacity.
+
+
+
+It provides a real clean way to see all of your shit.  Include steps or point to the appropriate material.
+
+   Interesting metrics include 
 
 - Lead with metrics  - Capacity, ingress, egress. how many operations how much activity are we seeing in accounts. 
 
-- Showcase storage insights for this one. Borrow whatever you can from that article and try a few things out.
+##### Use Storage Insights
+
+ - Use guidance for pulling up info for capacity and use.
+ 
+   Investigation item: I see a lot of transactions appearing. How do I find out what those are coming from and who is doing that?
+   Investigation item: I see a lot of space being taken up, but we are past the metrics retention period so I can't determine when the spike up in space Occurred. 
+
 
 - Use logs to drill in a bit deeper on things like use etc.
 
