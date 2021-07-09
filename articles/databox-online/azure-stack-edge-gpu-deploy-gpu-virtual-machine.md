@@ -90,7 +90,7 @@ Follow these steps when deploying GPU VMs on your device using Azure Resource Ma
 
     ![IP allocated to GPU VM in Azure portal](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/get-ip-of-virtual-machine.png)
 
-1. If needed, you can switch the compute network back to whatever you need.
+<!--1. If needed, you can switch the compute network back to whatever you need.-->
 
 After the VM is created, you can [deploy the GPU extension using the extension template](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md?tabs=linux).
 
@@ -117,9 +117,12 @@ Follow these steps to install a GPU extension on a VM in the Azure portal:
   
 1. In **Details**, select **+ Add extension**. Then select a GPU extension to install.
 
-    GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview).
+    GPU extensions are only available for a virtual machine with a [VM size from NCasT4-v3-series](azure-stack-edge-gpu-virtual-machine-sizes.md#ncast4_v3-series-preview). If you prefer, you can [install the GPU extension after deployment](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension-after-deployment).
 
     ![Illustration showing how to use the + Add extension button in VM details to add a GPU extension to a VM.](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/add-extension-after-deployment-02.png)
+
+> [!Note]
+> You can't remove a GPU extension via the portal. Instead, use the [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension?view=azurermps-6.13.0&preserve-view=true) cmdlet in Azure PowerShell. For instructions, see [Remove GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md#remove-gpu-extension)
 
 ### [Templates](#tab/templates)
 

@@ -391,6 +391,9 @@ PS C:\Program Files\NVIDIA Corporation\NVSMI>
 
 For more information, see [Nvidia GPU driver extension for Windows](../virtual-machines/extensions/hpccompute-gpu-windows.md).
 
+> [!NOTE]
+> After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.
+
 ### [Linux](#tab/linux)
 
 Follow these steps to verify the driver installation:
@@ -467,6 +470,10 @@ Follow these steps to verify the driver installation:
     ```
 
 For more information, see [Nvidia GPU driver extension for Linux](../virtual-machines/extensions/hpccompute-gpu-linux.md).
+
+> [!NOTE]
+> After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.
+
 
 ---
 

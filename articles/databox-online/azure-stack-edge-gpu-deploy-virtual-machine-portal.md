@@ -165,11 +165,7 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
 1. To install an extension on your VM when you create it, choose **Select an extension to install**. Then select the extension on the **Add extension** screen.
 
-    ![Illustration that shows how to use the Select an extension option on the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-01.png)
-
-    The **Advanced** tab shows the selected extension.
-
-    ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-02.png)
+    ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-01.png)
 
     > [!NOTE]
     > For detailed steps to install a GPU extension, see [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
