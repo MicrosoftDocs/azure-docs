@@ -10,6 +10,8 @@ ms.custom: devx-track-java
 ---
 
 # Dynatrace Spring Cloud OneAgent (Preview)
+> [!Note]
+> This document is in progress and will undergo further editorial review.
 
 Ths document explains how to use **Dynatrace OneAgent** to monitor Azure Spring Cloud applications.  With the **Dynatrace OneAgent** you can:
 
@@ -18,37 +20,73 @@ Ths document explains how to use **Dynatrace OneAgent** to monitor Azure Spring 
 * Check all monitoring data from **Dynatrace** dashboard.
 
 ## Prerequisite
-You will need the following to use these features:
+To monitor your Spring Cloud workloads with Dynatrace, you must integrate OneAgent with your Azure Spring Cloud application. You will need the following to use these features:
 * **Dynatrace** account.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Create a [PaaS token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/).
+* Install the Azure CLI (https://www.dynatrace.comhttps://dt-url.net/cf63rl6).
 
-## Leverage Dynatrace OneAgent
-To set up **Dynatrace OneAgent**, create an application using an instance of Azure Spring Cloud. 
+## Set up integration 
 
-  ```shell
-  az spring-cloud app create --name "appName" --is-public true \
-      -s "resourceName" -g "resourceGroupName"
-  ```
+### Prepare your environment in Azure 
+1. In the Azure Portal, create an instance of Azure Spring Cloud.
+1. In the new Azure Spring Cloud instance, create a resource group where Dynatrace will be deployed.
+1.  In the new resource group, create an application that you want to report to Dynatrace by running the following command. Replace the placeholders <...> with your own values.
+```azurecli
+az spring-cloud app create --name <your-application-name> --is-public true
+```
+### Determine the values for the required environment variables
+To set up OneAgent integration on your Azure Spring Cloud instance, you need to
+configure three environment variables, DT_TENANT , DT_TENANTTOKEN , and
+DT_CONNECTION_POINT.
 
-Create a deployment with the **Dynatrace** agent and configure **Environment Variables**.
+To determine the values for **DT_TENANTTOKEN** and **DT_CONNECTION_POINT**, make an
+API request as follows:
 
-  ```shell
-  az spring-cloud app deploy --name "appName" --jar-path app.jar \
-     -s "resourceName" -g "resourceGroupName" \
-     --env DT_TENANT=dynatraceTenant DT_TENANTTOKEN=dynatraceTenantToken \
-           DT_CONNECTION_POINT=DynatraceConnectionPoint
-  ```
+**For SaaS deployments:**
+Replace the placeholders <...> with your own values.
+```
+curl https://DT_TENANT.live.dynatrace.com/api/v1/deployment/installer/
+```
 
-  Azure Spring Cloud pre-installs the **Dynatrace OneAgent** to the base image. Customers can leverage environment variables like `DT_TENANT`, `DT_TENANTTOKEN` and `DT_CONNECTION_POINT` to configure **OneAgent** from applications.  For more details see [Dynatrace OneAgent environment variables](https://www.dynatrace.com/support/help/technology-support/cloud-platforms/kubernetes/other-deployments-and-configurations/deploy-oneagent-on-kubernetes-for-application-only-monitoring/#expand-container-build-time-injection-3578).
+**For Managed deployments:**
+Replace <your-domain> with your Managed deployment domain
+and <your-environment-id> with your Dynatrace environment ID
+(https://www.dynatrace.com/support/help/reference/dynatraceconcepts/environment-id/).
+```
+curl https://<your-domain>/e/<your-environment-id>/api/v1/deployment/i
+```
 
+**For environment ActiveGates:**
+Replace <your-activegate-domain> with your ActiveGate
+domain and <your-environment-id> with your Dynatrace environment ID
+(https://www.dynatrace.com/support/help/reference/dynatraceconcepts/environment-id/).
+
+```
+curl https://<your-activegate-domain>/e/<your-environment-id>/api/v1/de
+```
+
+### Add the environment variables to your application
+When you have the values for the environment variables required for OneAgent
+integration, you can add the respective key/value pairs to your application either on
+Azure Portal, or in the Azure CLI. See below the instructions for each of these options.
+
+## Azure CLI**
+Run the command below, replacing the placeholders <...> with your
+values determined in the previous steps.
+```azurecli
+az spring-cloud app deploy --name <your-application-name> --jar-path app.ja
+ -s <your-resource-name> -g <your-resource-group-name> --env DT_TENANT=<yo
+ DT_TENANTTOKEN=<your-tenant-token> DT_CONNECTION_POINT=<your-communicati
+```
 
 ## Portal
 
-* You can also configure **OneAgent** from the Azure portal with existing applications.
+* You can configure **OneAgent** from the Azure portal with existing applications.
 
   ![Existing applications view](media/dynatrace-oneagent/existing-applications.png)
 
-* Click an applications to jump to the **Overview** page of the application.
+* Click an application to jump to the **Overview** page of the application.
 
   ![Overview](media/dynatrace-oneagent/overview-application.png)
 
@@ -56,17 +94,34 @@ Create a deployment with the **Dynatrace** agent and configure **Environment Var
 
   ![Configuration](media/dynatrace-oneagent/configuration-application.png)
 
-* View the **Hosts** page from the **Dynatrace** dashboard.
+## View reports in Dynatrace
 
-  [ ![Host view](media/dynatrace-oneagent/hosts.png)](media/dynatrace-oneagent/hosts.png)
+After e you add the environment variables to your application, Dynatrace starts collecting data. To view reports, in the Dynatrace menu
+(https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services** and
+select your application.
 
-* View application **Host** details from the **Dynatrace** dashboard.
+![Platform/Solutions](media/dynatrace-oneagent/platform-solutions.pdf)
 
-  [ ![Dashboard view](media/dynatrace-oneagent/dashboard.png)](media/dynatrace-oneagent/dashboard.png)
+![Resources/Services & Support](media/dynatrace-oneagent/resources-services-support.pdf)
+## Dynatrace Dashboard
 
-* View the **Metrics** page of the application from the **Dynatrace** dashboard.
-
-  [ ![Metrics view](media/dynatrace-oneagent/metrics.png)](media/dynatrace-oneagent/metrics.png)
+* **Transactions and services` blade**
+  * You can find the `Service flow` from `yourAppName/Details/Service flow`
+    ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
+  * You can find the `Method hotspots` from `yourAppName/Details/Method hotspots`
+    ![Method hotspots](media/dynatrace-oneagent/spring-cloud-dynatrace-hotspots.png)
+  * You can find the `Database statements` from `yourAppName/Details/Response time anaysis`
+    ![Database statements](media/dynatrace-oneagent/images/spring-cloud-dynatrace-database-contribution.png)
+* `Diagnostic tools` blade
+  * You can find the `Top database statements` from `Multidimensional analysis/Top database statements`
+    ![Top database statements](media/dynatrace-oneagent/images/spring-cloud-dynatrace-top-database.png)
+  * You can find the `Exceptions overview` from `Multidimensional analysis/Exceptions overview`
+    ![Exceptions overview](media/dynatrace-oneagent/spring-cloud-dynatrace-exception-analysis.png)
+  * You can find the `CPU analysis` from this blade
+    ![CPU analysis](media/dynatrace-oneagent/spring-cloud-dynatrace-cpu-analysis.png)
+* `Databases` blade
+  * You can find `Backtrace` from this blade
+    ![Backtrace](media/dynatrace-oneagent/spring-cloud-dynatrace-database-backtrace.png)
 
 ## Dynatrace OneAgent Logging
 
