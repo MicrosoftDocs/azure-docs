@@ -102,9 +102,9 @@ The pricing tier that you choose for metering and billing your logic app include
 > For specific vCPU and memory pricing based on specific regions where Azure Logic Apps is available, review the 
 > [Standard plan for a selected region on the Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
 >
-> Suppose that in some region, the following resources have these hourly rates:
+> Suppose that in an example region, the following resources have these hourly rates:
 >
-> | Resource | Hourly US$ (example region) |
+> | Resource | Hourly rate (example region) |
 > |----------|-----------------------------|
 > | **vCPU** | $0.192 per vCPU |
 > | **Memory** | $0.0137 per GB |
@@ -112,11 +112,11 @@ The pricing tier that you choose for metering and billing your logic app include
 >
 > The following calculation provides an estimated monthly rate:
 >
-> <*monthly-US$*> = 730 hours (per month) x [(<*num-vCPU*> x <*hourly-rate-vCPU*>) + (<*num-GB-memory*> x <*hourly-rate-GB-memory*>)]
+> <*monthly-rate*> = 730 hours (per month) * [(<*number-vCPU*> * <*hourly-rate-vCPU*>) + (<*number-GB-memory*> * <*hourly-rate-GB-memory*>)]
 >
 > Based on the preceding information, the following table shows the estimated monthly rates for each pricing tier and the resources in that pricing tier:
 >
-> | Pricing tier | Virtual CPU (vCPU) | Memory (GB) | Monthly US$ (example region) |
+> | Pricing tier | Virtual CPU (vCPU) | Memory (GB) | Monthly rate (example region) |
 > |--------------|--------------------|-------------|------------------------------|
 > | **WS1** | 1 | 3.5 | $175.16 |
 > | **WS2** | 2 | 7 | $350.33 |
