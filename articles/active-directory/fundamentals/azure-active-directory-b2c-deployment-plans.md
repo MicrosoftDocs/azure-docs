@@ -95,8 +95,8 @@ This phase includes the following capabilities.
 | [Deploy applications and user identities](#deploy-applications-and-user-identities) | Client application and user deployments  |
 | [Client application onboarding and deliverables](#client-application-onboarding-and-deliverables) | Client application onboarding and project delivarables |
 | [Security](#security) | Enhance the security of your Identity solution |
-|[Compliance](#compliance) | Addressing regulatory requirements |
-|[User experience](#user-experience) | enabling a user friendly service |
+|[Compliance](#compliance) | Address regulatory requirements |
+|[User experience](#user-experience) | Enable a user friendly service |
 
 ### Deploy authentication and authorization
 
