@@ -36,7 +36,7 @@ MSAL has several advantages over ADAL, which includes:
     - [Conditional access authentication context](developer-guide-conditional-access-authentication-context.md) that allows you to apply granular policies to sensitive data and actions.
     - Proof of possession ensures that access tokens are not stolen and used to access protected resources using the following mechanisms:
         - Access tokens are bound to the user/machine that wants to access a protected resource via public/private key pair.
-        - Access tokens are bound to a protected resource, i.e a token that is used to access <code>GET https://contoso.com/transactions</code> cannot be used to access <code>GET https://contoso.com/tranfer/100</code>
+        - Access tokens are bound to a protected resource, i.e a token that is used to access <code>GET https://contoso.com/transactions</code> cannot be used to access <code>GET https://contoso.com/tranfer/100</code>.
 - Performance and scalability:
     - Standards compliant with OAuth v2.0 and OpenID Connect (OIDC),  which enables you to authenticate several identity types like:
         - Work or school accounts, provisioned through Azure AD.
@@ -70,4 +70,4 @@ If you have questions about migration to MSAL, you can post on [Microsoft Q&A](/
 
 ## Next steps
 
-- [Identify your applications that use ADAL](howto-get-list-of-all-active-directory-auth-library-apps.md) and then [update your code](howto-get-list-of-all-active-directory-auth-library-apps.md#3-update-your-code).
+[Identify your applications that use ADAL](howto-get-list-of-all-active-directory-auth-library-apps.md) and then [update your code](howto-get-list-of-all-active-directory-auth-library-apps.md#3-update-your-code).
