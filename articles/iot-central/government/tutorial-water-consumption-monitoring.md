@@ -104,7 +104,7 @@ You can customize views in the dashboard for operators.
 
     :::image type="content" source="media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-edit-dashboard.png" alt-text="Edit dashboard":::
 
-To learn more, see [Create and customize dashboards](../core/howto-create-personal-dashboards.md).
+To learn more, see [Create and customize dashboards](../core/howto-manage-dashboards.md).
 
 ## Explore the device template
 
