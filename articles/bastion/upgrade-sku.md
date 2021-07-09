@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 07/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to upgrade to the Standard SKU.
 
