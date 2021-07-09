@@ -92,7 +92,7 @@ This phase includes the following capabilities.
 | Capability | Description |
 |:-------------|:--------------|
 | [Deploy authentication and authorization](#deploy-authentication-and-authorization) | Authentication and authorization scenarios and information about the setup |
-| [Deploy applications and user identities](#deploy-applications-and-user-identities | Client application and user deployments  |
+| [Deploy applications and user identities](#deploy-applications-and-user-identities) | Client application and user deployments  |
 | [Client application onboarding and deliverables](#client-application-onboarding-and-deliverables) | Client application onboarding and project delivarables |
 | [Security](#security) | Enhance the security of your Identity solution |
 |[Compliance](#compliance) | Addressing regulatory requirements |
