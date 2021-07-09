@@ -630,7 +630,10 @@ To stop local video, pass the `localVideoStream` instance that's available in th
 
 ```js
 await call.stopVideo(localVideoStream);
+// or
+await call.stopVideo(call.localVideoStreams[0]);
 ```
+Note that there are 4 apis in which you can pass a localVideoStream instance to start video in a call, callAgent.startCall() api, callAgent.join() api, call.accept() api, and call.startVideo() api. To the call.stopVideo() api, you must pass that same localVideoStream instance that you passed in those 4 apis.
 
 You can switch to a different camera device while a video is sending by invoking `switchSource` on a `localVideoStream` instance:
 
