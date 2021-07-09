@@ -16,7 +16,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device. 
+This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device.
 
 
 ## About GPU VMs

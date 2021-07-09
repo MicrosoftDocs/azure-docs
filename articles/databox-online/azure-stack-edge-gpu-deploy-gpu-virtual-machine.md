@@ -17,9 +17,9 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates. In the Azure portal, you can install the GPU extension as part of VM creation.
+This article how to create a GPU VM in the Azure portal or by using the Azure Resource Manager templates. In the Azure portal, you can install the GPU extension as part of VM creation. 
 
-*ADD LINK TO GPU VMs OVERVIEW WHEN ARTICLE IS AVAILABLE.*
+For an overview of GPU VM capabilities and requirements see [GPU virtual machines on Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview-gpu-virtual-machines.md). 
 
 ---
 
