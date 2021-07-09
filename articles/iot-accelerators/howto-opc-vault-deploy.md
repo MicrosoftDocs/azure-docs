@@ -2,12 +2,13 @@
 title: How to deploy the OPC Vault certificate management service - Azure | Microsoft Docs
 description: How to deploy the OPC Vault certificate management service from scratch.
 author: mregen
-ms.author: mregen
+ms.author: v-condav
 ms.date: 08/16/2019
 ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ROBOTS: NOINDEX
 ---
 
 # Build and deploy the OPC Vault certificate management service

@@ -2,13 +2,15 @@
 title: What is OPC Publisher - Azure | Microsoft Docs
 description: This article provides an overview of the features of OPC Publisher. It allows you to publish encoded JSON telemetry data using a JSON payload, to Azure IoT Hub.
 author: dominicbetts
-ms.author: dobett
+ms.author: v-condav
 ms.date: 06/10/2019
 ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom:  [amqp, mqtt]
+ROBOTS: NOINDEX
+
 ---
 
 # What is OPC Publisher?

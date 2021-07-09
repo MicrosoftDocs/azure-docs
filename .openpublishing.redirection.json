@@ -146,6 +146,76 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/howto-opc-publisher-configure.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-publisher-run.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-run.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-dependencies.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-dependencies.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-existing.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-existing.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-modules.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-modules.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-deploy.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-manage.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-manage.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-secure-ca.md",
+      "redirect_url": "/previous-versions/azure/howto-opc-vault-secure-ca.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-secure.md",
+      "redirect_url": "/previous-versions/azure/howto-opc-vault-secure.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-publisher.md",
+      "redirect_url": "/previous-versions/azure/overview-opc-publisher.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-twin-architecture.md",
+      "redirect_url": "/previous-versions/azure/overview-opc-twin-architecture.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-twin.md",
+      "redirect_url": "/previous-versions/azure/overview-opc-twin.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-vault-architecture.md",
+      "redirect_url": "/previous-versions/azure/overview-opc-vault-architecture.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-vault.md",
+      "redirect_url": "/previous-versions/azure/overview-opc-vault.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false

@@ -2,12 +2,13 @@
 title: How to deploy an OPC Twin module to an existing Azure project | Microsoft Docs
 description: This article describes how to deploy OPC Twin to an existing project. You can also learn how to troubleshoot deployment failures.
 author: dominicbetts
-ms.author: dobett
+ms.author: v-condav
 ms.date: 11/26/2018
 ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ROBOTS: NOINDEX
 ---
 
 # Deploy OPC Twin to an existing project

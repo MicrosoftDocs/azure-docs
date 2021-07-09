@@ -2,13 +2,14 @@
 title: Run OPC Publisher - Azure | Microsoft Docs
 description: This article describes how to run and debug OPC Publisher. It also addresses performance and memory considerations.
 author: dominicbetts
-ms.author: dobett
+ms.author: v-condav
 ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom:  [amqp, mqtt]
+ROBOTS: NOINDEX
 ---
 
 # Run OPC Publisher

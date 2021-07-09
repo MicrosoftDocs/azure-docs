@@ -2,12 +2,14 @@
 title: OPC Twin architecture - Azure | Microsoft Docs
 description: This article provides an overview of the OPC Twin architecture. It describes about the discovery, activation, browsing, and monitoring of the server.
 author: dominicbetts
-ms.author: dobett
+ms.author: v-condav
 ms.date: 11/26/2018
 ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ROBOTS: NOINDEX
+
 ---
 
 # OPC Twin architecture

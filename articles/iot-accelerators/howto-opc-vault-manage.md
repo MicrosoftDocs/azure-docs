@@ -2,12 +2,13 @@
 title: How to manage the OPC Vault certificate service - Azure | Microsoft Docs
 description: Manage the OPC Vault root CA certificates and user permissions.
 author: mregen
-ms.author: mregen
+ms.author: v-condav
 ms.date: 8/16/2019
 ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ROBOTS: NOINDEX
 ---
 
 # Manage the OPC Vault certificate service

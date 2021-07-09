@@ -2,13 +2,14 @@
 title: Configure OPC Publisher - Azure | Microsoft Docs
 description: This article describes how to configure OPC Publisher to specify OPC UA node data changes, OPC UA events to publish and also the telemetry format.
 author: dominicbetts
-ms.author: dobett
+ms.author: v-condav
 ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
+ROBOTS: NOINDEX
 ---
 
 # Configure OPC Publisher

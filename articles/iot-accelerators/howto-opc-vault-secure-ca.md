@@ -2,12 +2,13 @@
 title: How to run the OPC Vault certificate management service securely - Azure | Microsoft Docs
 description: Describes how to run the OPC Vault certificate management service securely in Azure, and reviews other security guidelines to consider.
 author: mregen
-ms.author: mregen
+ms.author: v-condav
 ms.date: 8/16/2019
 ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ROBOTS: NOINDEX
 ---
 
 # Run the OPC Vault certificate management service securely
