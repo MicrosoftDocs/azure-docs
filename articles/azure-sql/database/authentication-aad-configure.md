@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, sstein
-ms.date: 05/11/2021
+ms.reviewer: vanto
+ms.date: 07/07/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -380,6 +380,10 @@ However, using Azure Active Directory authentication with SQL Database and Azure
 
 > [!WARNING]
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements are not supported.
+
+> [!IMPORTANT]
+> Azure AD users and service principals (Azure AD applications) that are members of more than 2048 Azure AD security groups are not supported to login into the database via Security Groups in SQL Database, Managed Instance, or Azure Synapse.
+
 
 To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity, as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
 
