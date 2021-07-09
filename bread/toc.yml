@@ -594,11 +594,11 @@
       tocHref: /azure/healthcare-apis/dicom/
       topicHref: /azure/healthcare-apis/dicom/index
     - name: Data Transformation
-      tocHref: /azure/healthcare-apis/data-tranformation/
+      tocHref: /azure/healthcare-apis/data-transformation/
       topicHref: /azure/healthcare-apis/data-transformation/index
   - name: Azure API for FHIR
-    tocHref: /azure/azure-api-for-fhir/
-    topicHref: /azure/azure-api-for-fhir/
+    tocHref: /azure//healthcare-apis/azure-api-for-fhir/
+    topicHref: /azure//healthcare-apis/azure-api-for-fhir/
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
