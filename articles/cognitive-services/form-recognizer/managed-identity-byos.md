@@ -74,9 +74,9 @@ In the following steps, we will enable a system-assigned managed identity and gr
 
     :::image type="content" source="media/managed-identities/azure-role-assignments-page-portal.png" alt-text="Screenshot: Azure role assignments page in the Azure portal.":::
 
->[!NOTE]
->
-> If you're unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you're currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
+    > [!NOTE]
+    >
+    > If you're unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you're currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
 
  7. Next, you're going to assign a **Storage Blob Data Reader** role to your Form Recognizer service resource. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
 
