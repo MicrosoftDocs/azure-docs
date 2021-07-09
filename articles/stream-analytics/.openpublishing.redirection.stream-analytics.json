@@ -1,12 +1,12 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "articles/stream-analytics/stream-analytics-manage-job.md",
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-manage-job.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/stream-analytics/stream-analytics-tools-visual-studio-cicd-vsts.md",
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-tools-visual-studio-cicd-vsts.md",
             "redirect_url": "/azure/stream-analytics/set-up-cicd-pipeline",
             "redirect_document_id": false
         },
