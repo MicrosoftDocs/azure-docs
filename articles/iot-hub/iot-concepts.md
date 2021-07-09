@@ -45,7 +45,7 @@ We support two methods of authentication between the device and the IoT Hub. In 
 The SAS-based token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the 
 Transport Layer Security (TLS) standard connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
 
-You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](../..iot-dps/about-iot-dps.md#provisioning-process) overview.
+You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps#provisioning-process) overview.
 
 ### Devices can securely communicate with an IoT Hub
 
