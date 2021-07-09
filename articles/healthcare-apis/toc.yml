@@ -22,10 +22,11 @@ items:
   href: ./fhir/index.yml
 - name: DICOM service
   href: ./dicom/index.yml
-- name: Data Transformation
-  href: ./data-transformation/index.yml
 - name: IoT service
   href: ./iot/index.yml
+- name: Data Transformation
+  href: ./data-transformation/index.yml
+
 
 
 
