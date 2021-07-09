@@ -88,8 +88,7 @@ IoT Hub implements commands by allowing you to invoke direct methods on devices 
 
 A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of seven days, and can be used to take actions on a device. 
 
-*TEJAS Might become important as built-in endpoint is not taking any action to collect the data. Also, if a route is created, data stops flowing to the built-in endpoint by default. Link to *Understand Azure Iot Hub message routing*
-https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c#:~:text=Use%20IoT%20Hub%20message%20routing%20to%20send%20device-to-cloud,at%20least%20once%20delivery.%20...%20More%20items...%20 
+*TEJAS*
 
 For more information about IoT Hub endpoints, see [IoT Hub Dev Guide Endpoints](
 iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
