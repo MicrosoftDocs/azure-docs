@@ -5,6 +5,6 @@ ms.topic: include
 ms.date: 07/9/2021
 ms.author: russellcooks
 ---
-Navigate to the `TERMINAL` window in VS Code
-cd into the video-analyzer-iot-edge-python-main/src/cloud-to-device-console-app directory relative to your current working directory
-Run "python main.py" then you will see messages printed in the `TERMINAL` window
+* Navigate to the `TERMINAL` window in VS Code
+* cd into the video-analyzer-iot-edge-python-main/src/cloud-to-device-console-app directory relative to your current working directory
+* Run "python main.py" then you will see messages printed in the `TERMINAL` window
