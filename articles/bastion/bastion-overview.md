@@ -55,4 +55,5 @@ For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 ## Next steps
 
 * [Tutorial: Create an Azure Bastion host and connect to a Windows VM](tutorial-create-host-portal.md).
+* [Learn module: Introduction to Azure Bastion](/learn/modules/intro-to-azure-bastion/).
 * Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
