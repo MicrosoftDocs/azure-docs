@@ -114,7 +114,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
 
 These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled.
 
