@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -27,10 +27,12 @@ The Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password 
 >
 > * The Microsoft identity platform only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
 > * Personal accounts that are invited to an Azure AD tenant can't use ROPC.
-> * Accounts that don't have passwords can't sign in through ROPC. For this scenario, we recommend that you use a different flow for your app instead.
+> * Accounts that don't have passwords can't sign in with ROPC, which means features like SMS sign-in, FIDO, and the Authenticator app won't work with that flow. Use a flow other than ROPC if your app or users require these features.
 > * If users need to use [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to log in to the application, they will be blocked instead.
 > * ROPC is not supported in [hybrid identity federation](../hybrid/whatis-fed.md) scenarios (for example, Azure AD and ADFS used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity providers, Azure AD is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/how-to-connect-pta.md) is supported with ROPC, however.
 > * An exception to a hybrid identity federation scenario would be the following: Home Realm Discovery policy with AllowCloudPasswordValidation set to TRUE will enable ROPC flow to work for federated users when on-premises password is synced to cloud. For more information, see [Enable direct ROPC authentication of federated users for legacy applications](../manage-apps/configure-authentication-for-federated-users-portal.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram
 
@@ -41,11 +43,6 @@ The following diagram shows the ROPC flow.
 ## Authorization request
 
 The ROPC flow is a single request: it sends the client identification and user's credentials to the IDP, and then receives tokens in return. The client must request the user's email address (UPN) and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
-
-> [!TIP]
-> Try executing this request in Postman!
-> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
-
 
 ```HTTP
 // Line breaks and spaces are for legibility only.  This is a public client, so no secret is required.
@@ -97,6 +94,8 @@ The following example shows a successful token response:
 | `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`. |
 
 You can use the refresh token to acquire new access tokens and refresh tokens using the same flow described in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
+
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### Error response
 

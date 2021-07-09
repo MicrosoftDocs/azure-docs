@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 01/25/2021
+ms.date: 06/24/2021
 tags: azure-synpase
 ---
 # Dynamic data masking 
@@ -78,6 +78,7 @@ You can use the REST API to programmatically manage data masking policy and rule
 
 Dynamic data masking can be configured by the Azure SQL Database admin, server admin, or the role-based access control (RBAC) [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role.
 
-## Next steps
+## See also
 
-[Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)
+- [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking) for SQL Server.
+- Data Exposed episode about [Granular Permissions for Azure SQL Dynamic Data Masking](https://channel9.msdn.com/Shows/Data-Exposed/Granular-Permissions-for-Azure-SQL-Dynamic-Data-Masking) on Channel 9.

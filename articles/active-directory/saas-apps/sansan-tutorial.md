@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/16/2021
+ms.date: 06/25/2021
 ms.author: jeedes
 ---
 
@@ -53,7 +53,7 @@ To configure and test Azure AD SSO with Sansan, perform the following steps:
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Configure Sansan](#configure-sansan)** to configure the SSO settings on application side.
+1. **[Configure Sansan SSO](#configure-sansan-sso)** to configure the SSO settings on application side.
    1. **[Create Sansan test user](#create-sansan-test-user)** to have a counterpart of Britta Simon in Sansan that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
@@ -94,6 +94,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
+   ```Logout URL
+    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+    ```
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called Britta Simon.
@@ -118,7 +122,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure Sansan
+## Configure Sansan SSO
 
 To perform the **Single Sign-On settings** on the **Sansan** side, please follow the below steps according to your requirement.
 

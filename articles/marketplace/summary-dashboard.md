@@ -13,14 +13,12 @@ ms.author: sroy
 
 This article provides information on the Summary dashboard in Partner Center. This dashboard displays graphs, trends, and values of aggregate data that summarize marketplace activity for your offers.
 
-To access the Summary dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Summary**.
-
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
 
 ## Summary dashboard
 
-The Summary dashboard presents an overview of Azure Marketplace and Microsoft AppSource offers’ business performance. The dashboard provides a broad overview of the following:
+The [Summary dashboard](https://go.microsoft.com/fwlink/?linkid=2165765) presents an overview of Azure Marketplace and Microsoft AppSource offers’ business performance. The dashboard provides a broad overview of the following:
 
 - Customers' orders
 - Customers
@@ -30,6 +28,8 @@ The Summary dashboard presents an overview of Azure Marketplace and Microsoft Ap
 ## Elements of the Summary dashboard
 
 The following sections describe how to use the summary dashboard and how to read the data.
+
+To access the Summary dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Summary**.
 
 ### Month range
 
