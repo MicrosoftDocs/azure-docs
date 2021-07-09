@@ -58,7 +58,7 @@ Complete these steps to make changes to a plan for an offer that you've already 
 Complete these steps to update available images in a plan for an offer that you've already published.
 
 1. With the **Offer overview** page for your existing offer open, choose the plan you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
-1. In the left nav, select **Technical Configuration**.
+1. In the focus nav, select **Technical Configuration**.
 1. To add a new version, select **+ Add VM image**.
 1. To remove a version, select **Deprecate**. Note that you can’t deprecate the last VM from the plan.
 1. Select **Save draft** after making your changes.
