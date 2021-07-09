@@ -118,7 +118,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
    ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
-1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
+1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
 1. On the **Source data store** page, select on **+ Create new connection**.
 
