@@ -1,6 +1,6 @@
 ---
 title: Overview of GPU VMs on your Azure Stack Edge Pro GPU device
-description: Describes GPU virtual machines on Azure Stack Edge Pro GPU.
+description: Describes use of virtual machines optimized for GPU-accelerated workloads on Azure Stack Edge Pro with GPU.
 services: databox
 author: alkohli
 
@@ -12,18 +12,23 @@ ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
 
-# What is a GPU VM on your Azure Stack Edge Pro GPU device
+# GPU virtual machines for Azure Stack Edge Pro GPU devices
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article provides an overview of GPU virtual machines (VMs) on your Azure Stack Edge Pro GPU device. Supported OS and GPU drivers, deployment of GPU VMs with Kubernetes clusters.
+This article provides an overview of the use of GPU VMs on Azure Stack Edge Pro GPU devices, including supported OSs, GPU drivers, and VM sizes and deployment with Kubernetes clusters.
 
+To know more about VMs that can be deployed on your Azure Stack Edge device, see [Virtual machines on Azure Stack Edge devices](azure-stack-edge-gpu-virtual-machine-overview).
 
 ## About GPU VMs
 
-Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs.
+GPU-accelerated workloads on a Azure Stack Edge Pro GPU device require a GPU virtual machine. A GPU VM must be a particular size and have the GPU extension installed. THIS NEEDS WORK! 
 
-For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
+Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes.
+
+For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
+
+For supported scenarios and key capabilities for GPU-accelerated workloads, see [What is Azure Stack Edge Pro with GPU?](databox-online/azure-stack-edge-gpu-overview.md).
 
 ## Supported OS and GPU drivers 
 
