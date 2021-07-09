@@ -3,13 +3,13 @@ title: Disable system-assigned managed identity for Azure Automation account (pr
 description: This article explains how to disable a system-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/07/2021
+ms.date: 07/09/2021
 ms.topic: conceptual
 ---
 
 # Disable system-assigned managed identity for Azure Automation account (preview)
 
-You can disable a system-assigned managed identity in Azure Automation by using the Azure portal, or using an Azure Resource Manager (ARM) template.
+You can disable a system-assigned managed identity in Azure Automation by using the Azure portal, or using REST API.
 
 ## Disable using the Azure portal
 
@@ -23,9 +23,13 @@ You can disable the system-assigned managed identity from the Azure portal no ma
 
 The system-assigned managed identity is disabled and no longer has access to the target resource.
 
-## Disable using Azure Resource Manager template
+## Disable using REST API
 
-If you enabled the system-assigned managed identity for your Automation account using an Azure Resource Manager template, you can disable the system-assigned managed identity by reusing that template and modifying its settings. Set the type of the `identity` object's child property to `None` as shown in the following example, and then re-run the template.
+Syntax and example steps are provided below.
+
+### Syntax
+
+The body syntax below disables the system-assigned managed identity and removes any user-assigned managed identities:
 
 ```json
 "identity": { 
@@ -33,7 +37,77 @@ If you enabled the system-assigned managed identity for your Automation account 
 } 
 ```
 
-Disabling a system-assigned managed identity with this method also deletes it from Azure AD. System-assigned managed identities are also automatically removed from Azure AD when the app resource that they are assigned to is deleted.
+The body syntax below disables the system-assigned managed identity and retains any user-assigned managed identities:
+
+```json
+"identity": { 
+   "type": "UserAssigned" 
+} 
+```
+
+The syntax of the API is as follows:
+
+```http
+PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
+```
+
+### Example
+
+Perform the following steps.
+
+1. Copy and paste the relevant body syntax into a file named `body_remove_sa.json`. Save the file on your local machine or in an Azure storage account.
+
+1. Sign in to Azure interactively using the Connect-AzAccount cmdlet and follow the instructions.
+
+    ```powershell
+    # Sign in to your Azure subscription
+    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Connect-AzAccount -Subscription
+    }
+    
+    # If you have multiple subscriptions, set the one to use
+    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+    ```
+
+1. Initialize a set of variables. Revise the values below and then execute:
+
+    ```powershell
+    $resourceGroup = "resourceGroupName"
+    $automationAccount = "automationAccountName"
+    $file = "path\body_remove_sa.json"
+    ```
+
+1. This example uses the PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send the PATCH request to your Automation account.
+
+    ```powershell
+    # build URI
+    $URI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
+    
+    # build body
+    $body = Get-Content $file
+    
+    # obtain access token
+    $azContext = Get-AzContext
+    $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+    $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+    $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+    $authHeader = @{
+        'Content-Type'='application/json'
+        'Authorization'='Bearer ' + $token.AccessToken
+    }
+    
+    # Invoke the REST API
+    Invoke-RestMethod -Uri $URI -Method PATCH -Headers $authHeader -Body $body
+    
+    # Confirm removal
+    (Get-AzAutomationAccount `
+        -ResourceGroupName $resourceGroup `
+        -Name $automationAccount).Identity.Type
+    ```
+
+    Depending on the syntax you used, the output will either be: `UserAssigned` or blank.
 
 ## Next steps
 

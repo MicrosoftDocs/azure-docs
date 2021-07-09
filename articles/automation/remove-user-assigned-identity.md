@@ -3,7 +3,7 @@ title: Remove user-assigned managed identity for Azure Automation account (previ
 description: This article explains how to remove a user-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/07/2021
+ms.date: 07/09/2021
 ms.topic: conceptual
 ---
 
@@ -34,6 +34,17 @@ If you added the user-assigned managed identity for your Automation account usin
 ```json
 TBD
 ```
+
+NOTE TO SELF:
+4 scenarios for each method:
+
+Retain SA
+ - Remove one UA
+ - Remove all UAs
+
+Remove SA
+ - Remove one UA
+ - Remove all UAs
 
 
 ## Next steps
