@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 > [!Note]
 > This document is in progress and will undergo further editorial review.
 
-Ths document explains how to use **Dynatrace OneAgent** to monitor Azure Spring Cloud applications.  With the **Dynatrace OneAgent** you can:
+This document explains how to use **Dynatrace OneAgent** to monitor Azure Spring Cloud applications.  With the **Dynatrace OneAgent** you can:
 
 * Monitor apps with the **Dynatrace OneAgent**.
 * Configure the **Dynatrace OneAgent** by **Environment Variables**.
@@ -29,7 +29,7 @@ To monitor your Spring Cloud workloads with Dynatrace, you must integrate OneAge
 ## Set up integration 
 
 ### Prepare your environment in Azure 
-1. In the Azure Portal, create an instance of Azure Spring Cloud.
+1. In the Azure portal, create an instance of Azure Spring Cloud.
 1. In the new Azure Spring Cloud instance, create a resource group where Dynatrace will be deployed.
 1.  In the new resource group, create an application that you want to report to Dynatrace by running the following command. Replace the placeholders <...> with your own values.
 ```azurecli
@@ -37,7 +37,7 @@ az spring-cloud app create --name <your-application-name> --is-public true
 ```
 ### Determine the values for the required environment variables
 To set up OneAgent integration on your Azure Spring Cloud instance, you need to
-configure three environment variables, DT_TENANT , DT_TENANTTOKEN , and
+configure three environment variables, DT_TENANT, DT_TENANTTOKEN, and
 DT_CONNECTION_POINT.
 
 To determine the values for **DT_TENANTTOKEN** and **DT_CONNECTION_POINT**, make an
@@ -69,7 +69,7 @@ curl https://<your-activegate-domain>/e/<your-environment-id>/api/v1/de
 ### Add the environment variables to your application
 When you have the values for the environment variables required for OneAgent
 integration, you can add the respective key/value pairs to your application either on
-Azure Portal, or in the Azure CLI. See below the instructions for each of these options.
+Azure portal, or in the Azure CLI. See below the instructions for each of these options.
 
 ## Azure CLI**
 Run the command below, replacing the placeholders <...> with your
