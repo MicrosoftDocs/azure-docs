@@ -62127,6 +62127,11 @@
       "source_path_from_root": "/articles/virtual-network/virtual-network-public-ip-address-upgrade.md",
       "redirect_url": "/azure/virtual-network/public-ip-upgrade-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/application-insights/monitor-performance-live-website-now.md",
+      "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-overview",
+      "redirect_document_id": true
     }
   ]
 }
