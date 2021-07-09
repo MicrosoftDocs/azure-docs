@@ -33,7 +33,7 @@ Follow the instructions at [Prepare and customize a master VHD image](../set-up-
 
 ### Use Microsoft Endpoint Manager to deploy the application at scale
 
-If you use Microsoft Endpoint Manager to manage your session hosts, you can deploy applications by following the instructions in [Windows 10 app deployment by using Microsoft Intune | Microsoft Docs](/mem/intune/apps/apps-windows-10-app-deploy#install-apps-on-windows-10-devices). Make sure you deploy your app in "device context" mode to all session hosts to make sure all users in your deployment can access the application.
+If you use Microsoft Endpoint Manager to manage your session hosts, you can deploy applications by following the instructions in [Install apps on Windows 10 devices](/mem/intune/apps/apps-windows-10-app-deploy#install-apps-on-windows-10-devices). Make sure you deploy your app in "device context" mode to all session hosts to make sure all users in your deployment can access the application.
 
 ### Manual installation
 
