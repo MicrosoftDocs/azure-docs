@@ -417,6 +417,24 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
 ![Malicious traffic flows detail in log search](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
+### View information about public IPs interacting with our deployment
+
+**Look for**
+
+- Which public IPs are conversing with my network? What is the WHOIS data and geographic location of all public IPs?
+- Which malicious IPs are sending traffic to my deployments? What is the threat type and threat description for malicious IPs?
+	- The Public IP Information section, gives a summary of all types of public IPs present in your network traffic. 
+	  Select the public IP type of interest to view details. This [schema document](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#public-ip-details-schema) defines the data fields presented.
+	  
+	  ![Public IP information](./media/traffic-analytics/public-ip-information.png)
+	  
+	  ![Log Analytics Workspace view for all malicious IP](./media/traffic-analytics/log-analytics-malicious-ip.png)
+	  
+	- On the traffic analytics dashboard, click on any IP to view its information	
+	
+	  ![external IP information in tool tip](./media/traffic-analytics/external-public-ip-details.png)
+	  
+	  ![malicious IP information in tool tip](./media/traffic-analytics/malicious-ip-details.png)
 
 ### Visualize the trends in NSG/NSG rules hits
 
