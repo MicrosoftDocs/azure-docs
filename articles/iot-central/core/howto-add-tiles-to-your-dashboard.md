@@ -1,8 +1,8 @@
 ---
 title: Configure to your Azure IoT Central dashboard | Microsoft Docs
 description: As a builder, learn how to configure the default Azure IoT Central application dashboard with tiles.
-author: philmea
-ms.author: philmea
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/19/2020
 ms.topic: how-to
 ms.service: iot-central
