@@ -53,7 +53,8 @@ Here are the features currently available for preview:
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
-* **[create_extension() UDF](concepts-hyperscale-extensions.md)**.
+* **[create_extension()
+  UDF](concepts-hyperscale-extensions.md#use-postgresql-extensions)**.
   Allows you to create extensions whose installation requires
   administrative access.
 
