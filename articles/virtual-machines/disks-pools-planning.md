@@ -47,6 +47,18 @@ The following example should give you an idea of how the different performance f
 
 As an example, if we added two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a disk pool, we could achieve 2 x 5000  = 10,000 IOPS but our throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, we can deploy more disk pools to scale out for extra throughput. The throughput of your network will limit the effectiveness of scaling out.
 
+## Availability
+
+Disk pools are currently in preview, and shouldn't be used for production workloads.
+
+If your disk pool becomes inaccessible to your Azure VMware Solution cloud for any reason, you will experience the following:
+
+- All datastores associated to the disk pool will no longer be accessible.
+- All VMware VMs hosted in this Azure VMware Solution cloud what is using the impacted datastores will be in an unhealthy state.
+- The health of clusters in this Azure VMware Solution cloud won't be impacted, except for one operation: You won't be able to place a host into maintenance mode. Azure VMware Solution will handle this failure and attempt recovery by disconnecting the impacted datastores.
+
+If you enter this state, follow these [steps](disks-pools-troubleshoot.md#recover-a-disk-pool-or-an-iscsi-target) to recover your disk pool.
+
 ## Next steps
 
 [Deploy a disk pool](disks-pools-deploy.md).
