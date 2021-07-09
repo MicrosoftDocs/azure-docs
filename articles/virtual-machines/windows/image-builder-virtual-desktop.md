@@ -1,8 +1,8 @@
 ---
 title: Image Builder - Create a Windows Virtual Desktop image
 description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Builder in PowerShell.
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
 ms.reviewer: cynthn
 ms.date: 05/12/2021
 ms.topic: article
