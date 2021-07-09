@@ -3,11 +3,11 @@ title: Restrict Azure CDN content by country/region
 description: Learn how to restrict access by country/region to your Azure CDN content by using the geo-filtering feature.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: jessie-jyy
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 01/16/2021
-ms.author: allensu
+ms.date: 07/07/2021
+ms.author: yuajia
 
 ---
 # Restrict Azure CDN content by country/region
@@ -56,11 +56,11 @@ For example, a geo-filtering rule for blocking the path */Photos/Strasbourg/* fi
 
 ### Define the countries/regions
 
-From the **COUNTRY CODES** list, select the countries/regions that you want to block or allow for the path. 
+From the **COUNTRY/REGION CODES** list, select the countries/regions that you want to block or allow for the path. 
 
 After you have finished selecting the countries/regions, select **Save** to activate the new geo-filtering rule. 
 
-![Screenshot shows COUNTRY CODES to use to block or allow countries or regions.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
+![Screenshot shows COUNTRY/REGION CODES to use to block or allow countries or regions.](./media/cdn-filtering/cdn-geo-filtering-rules.png)
 
 ### Clean up resources
 
@@ -105,5 +105,5 @@ In the country/region filtering rules table, select the delete icon next to a ru
 
 * Only one rule can be applied to the same relative path. That is, you can't create multiple country/region filters that point to the same relative path. However, because country/region filters are recursive, a folder can have multiple country/region filters. In other words, a subfolder of a previously configured folder can be assigned a different country/region filter.
 
-* The geo-filtering feature uses country codes to define the countries/regions from which a request is allowed or blocked for a secured directory. Although Akamai and Verizon profiles support most of the same country codes, there are a few differences. For more information, see [Azure CDN country codes](/previous-versions/azure/mt761717(v=azure.100)). 
+* The geo-filtering feature uses country/region codes to define the countries/regions from which a request is allowed or blocked for a secured directory. Although Akamai and Verizon profiles support most of the same country/region codes, there are a few differences. For more information, see [Azure CDN country/region codes](/previous-versions/azure/mt761717(v=azure.100)). 
 
