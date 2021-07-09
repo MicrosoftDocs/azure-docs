@@ -36,45 +36,46 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you begin this tutorial, you should:
 
 1. [Review](hyper-v-migration-architecture.md) the Hyper-V migration architecture.
-2. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
-3. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
-4. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
-5. Go to the already created project or [create a new project](./create-manage-projects.md)
-6. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
+1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
+1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
+1. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
+1. Go to the already created project or [create a new project](./create-manage-projects.md)
+1. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Download the provider
 
 For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software providers (Microsoft Azure Site Recovery provider and Microsoft Azure Recovery Service agent) on Hyper-V Hosts or cluster nodes. Note that the [Azure Migrate appliance](migrate-appliance.md) isn't used for Hyper-V migration.
 
 1. In the Azure Migrate project > **Servers**, in **Azure Migrate: Server Migration**, click **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
-3. In **Target region**, select the Azure region to which you want to migrate the machines.
-4. Select **Confirm that the target region for migration is region-name**.
-5. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
+1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with Hyper-V**.
+1. In **Target region**, select the Azure region to which you want to migrate the machines.
+1. Select **Confirm that the target region for migration is region-name**.
+1. Click **Create resources**. This creates an Azure Site Recovery vault in the background.
     - If you've already set up migration with Azure Migrate Server Migration, this option won't appear since resources were set up previously.
     - You can't change the target region for this project after clicking this button.
     - All subsequent migrations are to this region.
 
-6. In **Prepare Hyper-V host servers**, download the Hyper-V Replication provider, and the registration key file.
+1. In **Prepare Hyper-V host servers**, download the Hyper-V Replication provider, and the registration key file.
     - The registration key is needed to register the Hyper-V host with Azure Migrate Server Migration.
     - The key is valid for five days after you generate it.
 
     ![Download provider and key](./media/tutorial-migrate-hyper-v/download-provider-hyper-v.png)
 
-7. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate.  
+1. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate.  
 
-## Install and register the provider 
+## Install and register the provider
 
 Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
 
 :::zone target="docs" pivot="install-using-ui"
 ### [Install using UI](#tab/UI)
 
-1. Run the provider setup file on each host, as described below:
-    - Click the file icon in the taskbar to open the folder where the installer file and registration key are downloaded.
-    - Select **AzureSiteRecoveryProvider**.
-    - In the provider installation wizard, ensure **On (recommended)** is checked, and then click **Next**.
-    - Select **Install** to accept the default installation folder.
+Run the provider setup file on each host, as described below:
+
+1. Click the file icon in the taskbar to open the folder where the installer file and registration key are downloaded.
+1. Select **AzureSiteRecoveryProvider**.
+1. In the provider installation wizard, ensure **On (recommended)** is checked, and then click **Next**.
+1. Select **Install** to accept the default installation folder.
     - Select **Register** to register this server in Azure Site Recovery vault.
     - Click **Browse**.
     - Locate the registration key and click **Open**.
@@ -117,23 +118,23 @@ Run the following commands on each host, as described below:
     
     For authenticated proxy, you can use the optional parameters /proxyusername and /proxypassword 
 
-        "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /proxyusername <username> /proxypassword <password>
+      `C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /proxyusername <username> /proxypassword <password>`
 
     **Configure proxy bypass rules during the registration process:** If you need to bypass proxy URLs to force the URLs to not traverse the internet, use the /AddBypassUrls parameter to configure proxy bypass rules. 
     
-        "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /AddBypassUrls windowsazure.com 
+    `C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /AddBypassUrls windowsazure.com`
 
     > [!Tip]
     > You can use proxy bypass to ensure that the required traffic doesn’t flow via internet. This is recommended to allow the private link URLs through ExpressRoute private peering circuits.
 :::zone-end
 
-1. After installing the provider on hosts, in **Discover machines**, click **Finalize registration**.
+After installing the provider on hosts, in **Discover machines**, click **Finalize registration**.
 
-![Finalize registration](./media/tutorial-migrate-hyper-v/finalize-registration.png) 
+ ![Finalize registration](./media/tutorial-migrate-hyper-v/finalize-registration.png) 
 
 It can take up to 15 minutes after finalizing registration until discovered VMs appear in Azure Migrate Server Migration. As VMs are discovered, the **Discovered servers** count rises.
 
-![Discovered servers](./media/tutorial-migrate-hyper-v/discovered-servers.png)
+ ![Discovered servers](./media/tutorial-migrate-hyper-v/discovered-servers.png)
 
 ## Replicate Hyper-V VMs
 
@@ -157,7 +158,7 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
 1. In **Replication Storage Account**, select the Azure Storage account in which replicated data will be stored in Azure.
-8. **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
+1. **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
 1. In **Availability options**, select:
     -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
     -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
