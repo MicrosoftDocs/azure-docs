@@ -7,11 +7,11 @@ ms.topic: overview
 
 # What is Azure Lighthouse?
 
-Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants.
+Azure Lighthouse enables multi-tenant management with scalability, higher automation, and enhanced governance across resources.
 
-With Azure Lighthouse, service providers can deliver managed services using [comprehensive and robust tooling built into the Azure platform](concepts/architecture.md). Customers maintain control over who can access their tenant, which resources they can access, and what actions can be taken. This offering can also benefit [enterprise IT organizations](concepts/enterprise.md) managing resources across multiple tenants.
+With Azure Lighthouse, service providers can deliver managed services using [comprehensive and robust tooling built into the Azure platform](concepts/architecture.md). Customers maintain control over who has access to their tenant, which resources they can access, and what actions can be taken. This offering can also benefit [enterprise IT organizations](concepts/enterprise.md) managing resources across multiple tenants.
 
-The [cross-tenant management experience](concepts/cross-tenant-management-experience.md) lets you work more efficiently with Azure management services like [Azure Policy](how-to/policy-at-scale.md), [Azure Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md), and many more. All service provider activity is [tracked in the activity log](how-to/view-service-provider-activity.md), which is stored in the customer's tenant (and can be viewed by users in the managing tenant). Users can see what changes were made and by whom.
+[Cross-tenant management experiences](concepts/cross-tenant-management-experience.md) lets you work more efficiently with Azure services like [Azure Policy](how-to/policy-at-scale.md), [Azure Sentinel](how-to/manage-sentinel-workspaces.md), [Azure Arc](how-to/manage-hybrid-infrastructure-arc.md), and many more. Users can see what changes were made and by whom [in the activity log](how-to/view-service-provider-activity.md), which is stored in the customer's tenant (and can be viewed by users in the managing tenant).
 
 ![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
@@ -21,7 +21,7 @@ Azure Lighthouse helps service providers efficiently build and deliver managed s
 
 - **Management at scale**: Customer engagement and life-cycle operations to manage customer resources are easier and more scalable. Existing APIs, management tools, and workflows can be used with delegated resources, including machines hosted outside of Azure, regardless of the regions in which they’re located.
 - **Greater visibility and control for customers**: Customers have precise control over the scopes they delegate for management and the permissions that are allowed. They can [audit service provider actions](how-to/view-service-provider-activity.md) and remove access completely if desired.
-- **Comprehensive and unified platform tooling**: Our tooling experience addresses key service provider scenarios, including multiple licensing models such as EA, CSP and pay-as-you-go. Azure Lighthouse works with existing tools and APIs, licensing models, [Azure managed applications](concepts/managed-applications.md), and partner programs such as the [Cloud Solution Provider program (CSP)](/partner-center/csp-overview). You can integrate Azure Lighthouse into your existing workflows and applications, and track your impact on customer engagements by [linking your partner ID](./how-to/partner-earned-credit.md).
+- **Comprehensive and unified platform tooling**: Azure Lighthouse works with existing tools and APIs, [Azure managed applications](concepts/managed-applications.md), and partner programs such as the [Cloud Solution Provider program (CSP)](concepts/cloud-solution-provider.md). This flexibility supports key service provider scenarios, including multiple licensing models such as EA, CSP and pay-as-you-go. You can integrate Azure Lighthouse into your existing workflows and applications, and track your impact on customer engagements by [linking your partner ID](how-to/partner-earned-credit.md).
 
 ## Capabilities
 
