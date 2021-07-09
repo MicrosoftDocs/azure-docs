@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/10/2021
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -35,11 +35,6 @@ There are two price tiers for Azure Virtual Desktop per-user access pricing. Cha
 - If a user doesn't access any application groups, then there's no charge.
 
 For more information about prices, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-
->[!NOTE]
-> Azure Virtual Desktop is currently offering a special promotion with no charge to access Azure Virtual Desktop for streaming applications to external users. Enrollment in per-user access pricing is still required to provide access to external users, but there's no charge during the promotional period. To learn more, see [Azure Virtual Desktop pricing](https://aka.ms/wvdpricing).
-
-<!---I need to ask to see if this note is allowed.--->
 
 Each price tier has flat per-user access charges. For example, a user incurs the same charge to your subscription no matter when or how many hours they used the service during that billing cycle.
 
@@ -73,4 +68,4 @@ Now that you're familiar with your licensing pricing options, you can start plan
 
 - [Enroll in per-user access pricing]()
 - [Estimate user access costs]()
-- If you feel ready to start setting up your first deployment, get started with our [Tutorials]().
+- If you feel ready to start setting up your first deployment, get started with our [Tutorials](../create-host-pools-azure-marketplace.md).

@@ -138,8 +138,8 @@
     items: 
     - name: Architecture recommendations 
       href: architecture-recs.md
-    - name: App hosting licenses
-      href: 
+    - name: Understand licenses and per-user access pricing
+      href: licensing.md
   - name: Security
     items:
     - name: Azure security baseline
