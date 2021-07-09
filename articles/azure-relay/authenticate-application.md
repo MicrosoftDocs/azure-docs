@@ -47,6 +47,21 @@ Assign one of the Azure Relay roles to the application's service principal at th
 Here's the code from the sample that shows how to use Azure AD authentication to connect to the Azure Relay service.  
 
 1. Create a [TokenProvider](/dotnet/api/microsoft.azure.relay.tokenprovider) object by using the `TokenProvider.CreateAzureActiveDirectoryTokenProvider` method. 
+
+    If you haven't already created an app registration, see the [Register your application with Azure AD](#register-your-application-with-an-azure-ad-tenant) section to create it and then create a client secret as mentioned in the [Create a client secret](#create-a-client-secret) section.
+
+    If you want to use an existing app registration, follow these instructions to get **Application (client) ID** and **Directory (tenant) ID**. 
+
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    1. Search for and select **Azure Active Directory** using the search bar at the top.
+    1. On the **Azure Active Directory** page, select **App registrations** in the **Manage** section on the left menu. 
+    1. Select your app registration. 
+    1. On the page for your app registration, you will see the values for **Application (client) ID** and **Directory (tenant) ID**. 
+    
+    To get the **client secret**, follow these steps:
+    1. On the page your app registration, select **Certificates & secrets** on the left menu. 
+    1. Use the copy button in the **Value** column for the secret in the **Client secrets** section. 
+
     
     ```csharp
     static TokenProvider GetAadTokenProvider(string clientId, string tenantId, string clientSecret)
