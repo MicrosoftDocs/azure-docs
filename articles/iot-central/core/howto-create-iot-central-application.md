@@ -108,7 +108,7 @@ When you create an application template, it includes the following items from yo
 - The default application dashboard, including the dashboard layout and all the tiles you've defined.
 - Device templates, including measurements, settings, properties, commands, and dashboard.
 - Rules. All rule definitions are included. However actions, except for email actions, aren't included.
-- Device sets, including their conditions and dashboards.
+- Device groups, including their queries.
 
 > [!WARNING]
 > If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
