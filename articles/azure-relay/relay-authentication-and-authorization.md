@@ -23,9 +23,10 @@ For Azure Relay, the management of namespaces and all related resources through 
 
 | Role | Description | 
 | ---- | ----------- | 
-| Azure Relay Owner | Use this role to give **full** access to Azure Relay resources. |
-| Azure Relay Listener | Use this role to give **listen** access to Azure Relay resources. |
-| Azure Relay Sender | Use this role to give **send** access to Azure Relay resources. | 
+| Azure Relay Owner | Use this role to grant **full** access to Azure Relay resources. |
+| Azure Relay Listener | Use this role to grant **listen and entity read** access to Azure Relay resources. |
+| Azure Relay Sender | Use this role to grant **send and entity read** access to Azure Relay resources. | 
+
 
 ## Shared Access Signature
 Applications can authenticate to Azure Relay using Shared Access Signature (SAS) authentication. SAS authentication enables applications to authenticate to the Azure Relay service using an access key configured on the Relay namespace. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to the relay service.

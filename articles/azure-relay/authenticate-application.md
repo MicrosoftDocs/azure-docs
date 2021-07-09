@@ -24,10 +24,13 @@ The first step in using Azure AD to authorize Azure Relay entities is registerin
 For step-by-step instructions to register your application with Azure AD, see [Quickstart: Register an application with Azure AD](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
 > [!IMPORTANT]
-> Make note of the **Directory (tenant) ID** and the **Application (client) ID**. You will need these values to run the application.
+> Make note of the **Directory (tenant) ID** and the **Application (client) ID**. You will need these values to run the sample application.
 
 ### Create a client secret   
 The application needs a client secret to prove its identity when requesting a token. In the same article linked above, see the [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret) section to create a client secret. 
+
+> [!IMPORTANT]
+> Make note of the **Client Secret**. You will need it to run the sample application.
 
 ## Assign Azure roles using the Azure portal
 Assign one of the Azure Relay roles to the application's service principal at the desired scope (Relay entity, namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
