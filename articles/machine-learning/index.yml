@@ -26,12 +26,10 @@ landingContent:
         links:
           - text: What is Azure Machine Learning?
             url: quickstart-create-resources.md  
-    linkLists:
       - linkListType: quickstart
         links:
           - text: Set up resources
             url: quickstart-create-resources.md           
-    linkLists:
       - linkListType: tutorial
         links:        
           - text: Train with the Python SDK
