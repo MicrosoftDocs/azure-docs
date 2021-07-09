@@ -481,9 +481,9 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
 - **Cause**: Data flow activity runs failed because of the transient network issue or because one node in spark cluster runs out of memory.
 - **Recommendation**: Use the following options to solve this problem:
-  - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized" and "Core count" to "4 (+ 4 Driver cores)". The settings are shown in the picture below.
+  - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized". The settings are shown in the picture below.
         
-      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type-and-core-count.png" alt-text="Screenshot that shows the configuration of Compute type and Core count.":::   
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Screenshot that shows the configuration of Compute type.":::   
 
   - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#cluster-size).
   
