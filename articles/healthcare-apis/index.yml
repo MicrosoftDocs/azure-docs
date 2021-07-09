@@ -61,12 +61,6 @@ landingContent:
 
   - title: Data Transformation
     linkLists:
-      - linkListType: get-started
-        links:
-          - text: Deploy IoT Connector Using Portal
-            url: ./data-transformation/iot-fhir-portal-quickstart.md
-          - text: Deploy IoT Connector Using ARM template
-            url: ./data-transformation/iot-fhir-arm-template-quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Exporting your data
@@ -92,5 +86,14 @@ landingContent:
         links:
           - text: Using DICOMweb Standard APIs with Python
             url: ./dicom/dicomweb-standard-apis-python.md
+
+  - title: IoT service
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Deploy IoT Connector Using Portal
+            url: ./data-transformation/iot-fhir-portal-quickstart.md
+          - text: Deploy IoT Connector Using ARM template
+            url: ./data-transformation/iot-fhir-arm-template-quickstart.md
 
             
