@@ -51,7 +51,7 @@ It's important to keep Redirect URIs of your application up to date. A lapse in 
 
 Scenarios that require Implicit flow can now use Auth code flow to reduce the risk of compromise associated with Implicit Grant Flow misuse. If you configured your application registration to get Access tokens using Implicit Flow, but don't actively use it, we recommend you turn off the setting to protect from misuse.
 
-![IGF](media/active-directory-application-registration-best-practices/implict-grant-flow.png)
+![access tokens used for implicit flows](media/active-directory-application-registration-best-practices/implict-grant-flow.png)
 
 ### Implicit grant flow summary
 
@@ -89,7 +89,7 @@ Certain applications can expose resources (via WebAPI) and as such need to defin
 - https://_{string}.{verifiedCustomerDomain}_
 - https://_{string}.{verifiedCustomerDomain}/{string}_
 
-![appid](media/active-directory-application-registration-best-practices/appid-uri.png)
+![application id uri](media/active-directory-application-registration-best-practices/appid-uri.png)
 
 ### AppId URI summary
 
