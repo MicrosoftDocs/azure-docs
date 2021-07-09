@@ -118,88 +118,76 @@ This will open the NuGet Package Manager. Select the *Updates* tab and if there 
 
 ### Publish the app
 
-To publish the function app to Azure, you'll first need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app.
+To publish the function app to Azure, you'll first need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app. This section completes these actions using the Azure CLI.
 
-1. Create an Azure storage account by running the following command:
+1. Create an **Azure storage account** by running the following command:
 
     ```azurecli-interactive
     az storage account create --name <name-for-new-storage-account> --location <location> --resource-group <resource-group> --sku Standard_LRS
     ```
 
-1. Create an Azure function app by running the following command:
+1. Create an **Azure function app** by running the following command:
 
     ```azurecli-interactive
     az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
     ```
 
-1. Next you'll zip up and publish the functions to your Azure function app.
+1. Next, you'll **zip** up the functions and **publish** them to your new Azure function app.
 
-    1. Open a terminal like PowerShell on your local machine and navigate to the [Digital Twins samples repo](https://github.com/azure-samples/digital-twins-samples/tree/master/) you downloaded earlier in the tutorial. From the location of the repo, navigate to "digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp".
+    1. Open a terminal like PowerShell on your local machine, and navigate to the [Digital Twins samples repo](https://github.com/azure-samples/digital-twins-samples/tree/master/) you downloaded earlier in the tutorial. Inside the downloaded repo folder, navigate to *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp*.
     
     1. In your terminal, run the following command to publish the project:
 
-        ```powershell-interactive
+        ```powershell
         dotnet publish -c Release
         ```
 
-        This command publishes the project to the "digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish\" directory.
+        This command publishes the project to the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
 
-    1. Copy the full path to the "\publish" directory where the project was published to and paste it into the following command to create a zip of the files in the directory location of your terminal:
+    1. Create a zip of the published files that are located in the *digital-twins-samples-master\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. 
+        
+        If you're using PowerShell, you can do this by copying the full path to that *\publish* directory and pasting it into the following command:
     
-        ```powershell-interactive
+        ```powershell
         Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
         ```
 
-        > [!NOTE]
-        > The cmdlet will create a **publish.zip** file in the directory location of your terminal that includes a *host.json* file, in addition to *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents* directories.
-        >
-        > If you're not using PowerShell and don't have access to the `Compress-Archive` cmdlet, you'll need to zip up the files using the File Explorer or other methods.
+        The cmdlet will create a **publish.zip** file in the directory location of your terminal that includes a *host.json* file, as well as *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents* directories.
 
-1. Run the following command to deploy the zipped published functions to your Azure function app:
+        If you're not using PowerShell and don't have access to the `Compress-Archive` cmdlet, you'll need to zip up the files using the File Explorer or another method.
+
+1. In the Azure CLI, run the following command to deploy the published and zipped functions to your Azure function app:
 
     ```azurecli-interactive
     az functionapp deployment source config-zip --resource-group <resource-group> --name <name-of-your-function-app> --src "<full-path-to-publish.zip>"
     ```
 
     > [!NOTE]
-    > If you're using the Azure CLI locally, you can access the ZIP file on your computer directly using its path on your machine. If you're using the Azure Cloud Shell, upload the ZIP file to Cloud Shell with this button before running the command:
+    > If you're using the Azure CLI locally, you can access the ZIP file on your computer directly using its path on your machine.
+    > 
+    >If you're using the Azure Cloud Shell, upload the ZIP file to Cloud Shell with this button before running the command:
     >
     > :::image type="content" source="media/tutorial-end-to-end/azure-cloud-shell-upload.png" alt-text="Screenshot of the Azure Cloud Shell highlighting how to upload files.":::
     >
-    > In this case, the path is the root directory, so you can refer to the file by its name in the command without needing a full path (for instance, publish.zip).
+    > In this case, the file will be uploaded to the root directory of your Cloud Shell storage, so you can refer to the file directly by its name for the `--src` parameter of the command (as in, `--src publish.zip`).
 
-    A successful deployment will respond with status code 202 and return the following json object:
+    A successful deployment will respond with status code 202 and output a JSON object containing details of your new function. You can confirm the deployment succeeded by looking for this field in the result:
 
     ```json
     {
-      "active": true,
-      "author": "N/A",
-      "author_email": "N/A",
-      "complete": true,
-      "deployer": "ZipDeploy",
-      "end_time": "<DateTime-value>",
-      "id": "<ID-value>",
-      "is_readonly": true,
-      "is_temp": false,
-      "last_success_end_time": "<DateTime-value>",
-      "log_url": "https://<name-of-your-Azure-function>.scm.azurewebsites.net/api/deployments/latest/log",
-      "message": "Created via a push deployment",
-      "progress": "",
+      ...
       "provisioningState": "Succeeded",
-      "received_time": "<DateTime-value>",
-      "site_name": "<name-of-your-Azure-function>",
-      "start_time": "<DateTime-value>",
-      "status": 4,
-      "status_text": "",
-      "url": "https://<name-of-your-Azure-function>.scm.azurewebsites.net/api/deployments/latest"
+      ...
     }
     ```
 
-For your function app to be able to access Azure Digital Twins, it will need to have permissions to access your Azure Digital Twins instance and the instance's host name. You'll configure these next.
+You've now published the functions to a function app in Azure.
+
+Next, for your function app to be able to access Azure Digital Twins, it will need to have permission to access your Azure Digital Twins instance. You'll configure this access in the next section.
 
 ### Configure permissions for the function app
 
-There are two settings that need to be set for the function app to access your Azure Digital Twins instance. These can both be done via commands in the [Azure Cloud Shell](https://shell.azure.com). 
+There are two settings that need to be set for the function app to access your Azure Digital Twins instance. These can both be done using the Azure CLI. 
 
 #### Assign access role
 
