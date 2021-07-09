@@ -82,9 +82,7 @@ Copy the provider setup file and registration key file to each Hyper-V host (or 
     - Ensure **Connect directly to Azure Site Recovery without a proxy server** is selected, and then click **Next**.
         - If you need to connect to the internet via a proxy server, select  **Connect to Azure Site Recovery using a proxy server** to provide the proxy details. Specify the proxy address (in the form http://ProxyIPAddress) and listening port. Provide proxy credentials if the proxy needs authentication.
     - Click **Finish**.
-:::zone-end
 
-:::zone target="docs" pivot="install-using-commands"
 ### [Install using commands](#tab/commands) 
 
 Run the following commands on each host, as described below:
