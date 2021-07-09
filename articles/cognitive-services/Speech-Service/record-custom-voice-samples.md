@@ -23,7 +23,7 @@ Many small but important details go into creating a professional voice recording
 > [!NOTE]
 > To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom neural voice model. When preparing your recording script, make sure you include the below sentence. 
 
-> “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
+> "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice."
 This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
 
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
@@ -64,7 +64,7 @@ Your utterances don't need to come from the same source, or the same kind of sou
 
 We recommend the recording scripts include both general sentences and your domain-specific sentences. For example, if you plan to record 2,000 sentences, 1,000 of them could be general sentences, another 1,000 of them could be sentences from your target domain or the use case of your application.  
 
-Sample scripts in the ‘General’, ‘Chat’ and ‘Customer Service’ domains for each language that are supported by custom neural voice can be found [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
+Sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language that are supported by custom neural voice can be found [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script). You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
 
 You can select your domain-specific scripts from the sentences that your custom voice will be used to read.
 
@@ -90,7 +90,7 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
 - Don't put multiple sentences into one line/one utterance. Separate each line per utterances.
 
-- Make sure the sentence is mostly clean. In general, don’t include too many non-standard words like numbers or abbreviations as they are usually hard to read. Some application may need to read many numbers or acronyms. In this case, you can include these words, but normalize them in their spoken form.  
+- Make sure the sentence is mostly clean. In general, don't include too many non-standard words like numbers or abbreviations as they are usually hard to read. Some application may need to read many numbers or acronyms. In this case, you can include these words, but normalize them in their spoken form.  
 
    Below are some best practices for example:
     - For lines with abbreviations, instead of "BTW", you have "by the way".
@@ -111,9 +111,9 @@ The script defects generally fall into the following categories:
 | Category | Example |
 | :--------- | :--------------------------- |
 | Have a meaningless content in a common way. | |
-| Incomplete sentences. |- "This was my last eve” (no subject, no specific meaning) <br>- "He's obviously already funny” (no quote mark in the end, it is not a complete sentence) |
+| Incomplete sentences. |- "This was my last eve" (no subject, no specific meaning) <br>- "He's obviously already funny" (no quote mark in the end, it is not a complete sentence) |
 | Typo in the sentences. | - Start with a lower case<br>- No ending punctuation if needed<br> - Misspelling <br>- Lack of punctuation: no period in the end (except news title)<br>- End with symbols, except comma, question, exclamation <br>- Wrong format, such as:<br>    &emsp;- 45$ (should be $45)<br>    	&emsp;- No space or excess space between word/punctuation |
-|Duplication in similar format, one per each pattern is enough. |- “Now is 1pm in New York”<br>- “Now is 2pm in New York”<br>- “Now is 3pm in New York”<br>- “Now is 1pm in Seattle”<br>- “Now is 1pm in Washington D.C.” |
+|Duplication in similar format, one per each pattern is enough. |- "Now is 1pm in New York"<br>- "Now is 2pm in New York"<br>- "Now is 3pm in New York"<br>- "Now is 1pm in Seattle"<br>- "Now is 1pm in Washington D.C." |
 |Uncommon foreign words: only the commonly used foreign word is acceptable in our script. |  |
 |Emoji or any other uncommon symbols. |  |
 
@@ -156,7 +156,7 @@ Record your script at a professional recording studio that specializes in voice 
 
 Discuss your project with the studio's recording engineer and listen to their advice. The recording should have little or no dynamic range compression (maximum of 4:1). It's critical that the audio has consistent volume and a high signal-to-noise ratio, while being free of unwanted sounds.
 
-### Recording Requirements
+### Recording requirements
 
 To achieve high-quality training results, you need to comply with the following requirements during recording or data preparation:
 
@@ -300,7 +300,7 @@ Take regular breaks and provide a beverage to help your voice talent keep their 
 
 ### After the session
 
-Modern recording studios run on computers. At the end of the session, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 24 KHz 16-bit is common and desirable. The default sampling rate for a custom neural voice is 24 KHz.  It’s recommended that you should use a sample rate of 24 KHz for your training data. Higher sampling rates, such as 96 KHz, are generally not needed.
+Modern recording studios run on computers. At the end of the session, you receive one or more audio files, not a tape. These files will probably be WAV or AIFF format in CD quality (44.1 KHz 16-bit) or better. 24 KHz 16-bit is common and desirable. The default sampling rate for a custom neural voice is 24 KHz.  It's recommended that you should use a sample rate of 24 KHz for your training data. Higher sampling rates, such as 96 KHz, are generally not needed.
 
 Speech Studio requires each provided utterance to be in its own file. Each audio file delivered by the studio contains multiple utterances. So the primary post-production task is to split up the recordings and prepare them for submission. The recording engineer might have placed markers in the file (or provided a separate cue sheet) to indicate where each utterance starts.
 
