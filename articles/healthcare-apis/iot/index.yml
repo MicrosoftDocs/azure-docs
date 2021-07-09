@@ -19,7 +19,7 @@ metadata:
 
 landingContent:
 
-  - title: IoT Connector
+  - title: Deploy IoT service
     linkLists:
       - linkListType: get-started
         links:
@@ -27,6 +27,8 @@ landingContent:
             url: iot-fhir-portal-quickstart.md
           - text: Deploy IoT Connector Using ARM template
             url: iot-fhir-arm-template-quickstart.md
+  - title: Using IoT service
+    linkLists:
       - linkListType: concept
         links:
           - text: IoT Connector Data Flow
@@ -37,3 +39,4 @@ landingContent:
         links:
           - text: Receive device data through Azure IoT Hub
             url: device-data-through-iot-hub.md 
+    
