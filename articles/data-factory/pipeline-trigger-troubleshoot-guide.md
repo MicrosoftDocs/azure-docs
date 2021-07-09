@@ -211,7 +211,7 @@ Please run pipeline in trigger mode.
 **Cause**
 
 You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter "Trigger deactivation error" message. This is due to the storage account, used for the event trigger, is being locked. 
-=======
+
 ### Expression builder fails to load
 
 **Cause**
