@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 3/31/2021
+ms.date: 7/8/2021
 ---
 
 # Hyperscale service tier
@@ -220,6 +220,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We'r
 | Query Performance Insights | Query Performance Insights is currently not supported for Hyperscale databases. |
 | Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE isn't currently supported for Hyperscale databases. |
 | Database integrity check | DBCC CHECKDB isn't currently supported for Hyperscale databases. DBCC CHECKFILEGROUP and DBCC CHECKTABLE may be used as a workaround. See [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
+| Elastic Jobs | Using a Hyperscale database as the Job database is not supported. However, elastic jobs can target Hyperscale databases in the same way as any other Azure SQL database. |
 
 ## Next steps
 
