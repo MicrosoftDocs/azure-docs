@@ -124,14 +124,20 @@ az webapp vnet-integration add --resource-group demoresourcegroup -n  mywebapp -
 ## Configure environment variables to connect the database
 With the code now deployed to App Service, the next step is to connect the app to the flexible server in Azure. The app code expects to find database information in a number of environment variables. To set environment variables in App Service, use [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
+  
 ```azurecli
-az webapp config appsettings set  --name mywebapp --settings DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>" --groupeneric-configurations '{"vnetRouteAllEnabled": true}'
+  
+az webapp config appsettings set  --name mywebapp --settings DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>" 
 ```
 - Replace **postgres-server-name**,**username**,**password** for the newly created flexible server command.
 - Replace **<username>** and **<password>** with the credentials that the command also generated for you.
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named **DBHOST**, **DBNAME**, **DBUSER***, and **DBPASS**. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
-- **vnetRouteAllEnabled** set to  true to allow all outbound connections from within the virtual network.
+
+Configure the web app to allow all outbound counnections from within the virtual network.
+```azurecli
+az webapp config set --name mywebapp --resource-group demoresourcegroup --generic-configurations '{"vnetRouteAllEnabled": true}'
+```
 
 ## Clean up resources
 
