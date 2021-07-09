@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/12/2021
+ms.date: 06/17/2021
 ms.author: radeltch
 
 ---
@@ -676,7 +676,7 @@ op start timeout=3600 op stop timeout=3600 \
 op monitor interval=61 role="Slave" timeout=700 \
 op monitor interval=59 role="Master" timeout=700 \
 op promote timeout=3600 op demote timeout=3600 \
-promotable meta notify=true clone-max=2 clone-node-max=1 interleave=true
+promotable notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
 sudo pcs resource create nc_<b>HN1</b>_<b>03</b> azure-lb port=625<b>03</b>

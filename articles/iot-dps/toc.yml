@@ -118,8 +118,6 @@
   items:
   - name: Development
     items:
-    - name: Connect MXChip IoT DevKit to IoT Hub
-      href: how-to-connect-mxchip-iot-devkit.md
     - name: How to send additional data from devices
       href: how-to-send-additional-data.md
     - name: Provision devices using custom allocation policies

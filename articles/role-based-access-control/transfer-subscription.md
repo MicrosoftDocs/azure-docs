@@ -244,18 +244,19 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List other known resources
 
-1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID.
+1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID (in `bash`).
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//' -e 's/\r$//')
     ```
-
-1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies.
+    
+1. Use the [az graph](/cli/azure/graph) extension to list other Azure resources with known Azure AD directory dependencies (in `bash`).
 
     ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
-    --subscriptions $subscriptionId --output table
+    az graph query -q 'resources 
+        | where type != "microsoft.azureactivedirectory/b2cdirectories" 
+        | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true 
+        | project name, type, kind, identity, tenantId, properties.tenantId' --subscriptions $subscriptionId --output yaml
     ```
 
 ## Step 2: Transfer the subscription

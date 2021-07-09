@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 03/02/2021
-author: timsander1
-ms.author: tisande
+author: gahl-levy
+ms.author: gahllevy
 ms.custom: devx-track-js
 ---
 # Manage indexing in Azure Cosmos DB's API for MongoDB

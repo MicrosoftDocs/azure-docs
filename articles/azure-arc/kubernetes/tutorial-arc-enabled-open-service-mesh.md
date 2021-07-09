@@ -301,7 +301,7 @@ Add namespaces to the mesh by running the following command:
 osm namespace add <namespace_name>
 ```
 
-More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/tasks_usage/onboard_services/).
+More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/tasks/onboard_services/).
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
@@ -314,7 +314,7 @@ You can start with a [demo application](https://release-v0-8.docs.openservicemes
 
 The OSM extension has [Jaeger](https://www.jaegertracing.io/docs/getting-started/), [Prometheus](https://prometheus.io/docs/prometheus/latest/installation/) and [Grafana](https://grafana.com/docs/grafana/latest/installation/) installation disabled by default so that users can integrate OSM with their own running instances of those tools instead. To integrate with your own instances, check the following documentation:
 
-- [BYO-Jaeger instance](https://github.com/openservicemesh/osm-docs/blob/main/content/docs/tasks_usage/observability/tracing.md#byo-bring-your-own)
+- [BYO-Jaeger instance](https://github.com/openservicemesh/osm-docs/blob/main/content/docs/tasks/observability/tracing.md#byo-bring-your-own)
     - To set the values described in this documentation, you will need to update the `osm-config` ConfigMap with the following settings:
         ```json
         {

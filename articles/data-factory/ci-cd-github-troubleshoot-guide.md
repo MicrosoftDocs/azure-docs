@@ -19,13 +19,13 @@ If you have questions or issues in using source control or DevOps techniques, he
 
 - Refer to [Source Control in ADF](source-control.md) to learn how source control is practiced in ADF. 
 - Refer to  [CI-CD in ADF](continuous-integration-deployment.md) to learn more about how DevOps CI-CD is practiced in ADF.
- 
+
 ## Common errors and messages
 
 ### Connect to Git repository failed due to different tenant
 
 #### Issue
-    
+
 Sometimes you encounter Authentication issues like HTTP status 401. Especially when you have multiple tenants with guest account, things could become more complicated.
 
 #### Cause
@@ -60,7 +60,7 @@ The error occurs because we often delete a trigger, which is parameterized, ther
 
 CI/CD release pipeline failing with the following error:
 
-`
+```output
 2020-07-06T09:50:50.8716614Z There were errors in your deployment. Error code: DeploymentFailed.
 2020-07-06T09:50:50.8760242Z ##[error]At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.
 2020-07-06T09:50:50.8771655Z ##[error]Details:
@@ -68,7 +68,7 @@ CI/CD release pipeline failing with the following error:
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
-`
+```
 
 #### Cause
 
@@ -76,10 +76,10 @@ This error is due to an integration runtime with the same name in the target fac
 
 #### Recommendation
 
-- Refer to this Best Practices for CI/CD below:
+- Refer to the [Best Practices for CI/CD](continuous-integration-deployment.md#best-practices-for-cicd)
 
-    https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
 - Integration runtimes don't change often and are similar across all stages in your CI/CD, so Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If the name and types & properties are different, make sure to match the source and target integration runtime configuration and then deploy the release pipeline.
+
 - If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
 ### Document creation or update failed because of invalid reference

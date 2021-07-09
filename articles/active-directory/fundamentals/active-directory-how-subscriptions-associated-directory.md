@@ -28,6 +28,8 @@ When a user signs up for a Microsoft cloud service, a new Azure AD tenant is 
 
 All of your users have a single *home* directory for authentication. Your users can also be guests in other directories. You can see both the home and guest directories for each user in Azure AD.
 
+:::image type="content" source="media/active-directory-how-subscriptions-associated-directory/trust-relationship-azure-ad.png" alt-text="Screenshot that shows the trust relationship between Azure subscriptions and Azure active directories.":::
+
 > [!Important]
 > When you associate a subscription with a different directory, users that have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >

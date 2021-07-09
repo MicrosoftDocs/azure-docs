@@ -57,7 +57,7 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    For quick reference, here are some example values for the above parameters. You can also view the complete [import manifest schema](import-schema.md) for more details.
+    The following table is a quick reference for how to populate the above parameters. If you need more information, you can also view the complete [import manifest schema](import-schema.md).
 
     | Parameter | Description |
     | --------- | ----------- |
@@ -67,8 +67,8 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
     | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
     | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
-    | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
-    | updateFilePath(s) | Path to the update file(s) on your computer
+    | installedCriteria | Used during deployment to compare the version already on the device with the version of the update. Deploying the update to the device will return a “failed” result if the installedCriteria value doesn't match the version that is on the device.<ul><li>For `microsoft/swupdate:1` update type, specify value of SWVersion </li><li>For `microsoft/apt:1` update type, specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
+    | updateFilePath(s) | Path to the update file(s) on your computer.
 
 
 ## Review the generated import manifest
@@ -117,7 +117,7 @@ Example:
 ## Import an update
 
 > [!NOTE]
-> The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](/rest/api/deviceupdate/updates) to import an update. 
+> The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](#if-youre-importing-via-apis-instead) to import an update instead.
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
@@ -133,7 +133,7 @@ Example:
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Import New Update" lightbox="media/import-update/import-new-update-2.png":::
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select your update file(s).
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created previously using the PowerShell cmdlet. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the same update file(s) that you included when you created your import manifest.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Select Update Files" lightbox="media/import-update/select-update-files.png":::
 
@@ -156,6 +156,15 @@ Example:
 10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="Job Status" lightbox="media/import-update/update-ready.png":::
+
+## If you're importing via APIs instead
+
+If you've just finished using the steps above to import via the Azure portal, skip to Next Steps below.
+
+If you want to use the [Device Update for IoT Hub Update APIs](/rest/api/deviceupdate/updates) to import an update instead of importing via the Azure portal, note the following:
+  - You will need to upload your update file(s) to an Azure Blob Storage location before you call the Update APIs.
+  - You can reference this [sample API call](import-schema.md#example-import-request-body) which uses the import manifest you created above.
+
 
 ## Next Steps
 

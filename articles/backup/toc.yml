@@ -238,6 +238,12 @@
         href: backup-managed-disks-ps.md
       - name: Restore
         href: restore-managed-disks-ps.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-managed-disks-cli.md
+      - name: Restore
+        href: restore-managed-disks-cli.md
   - name: Azure Blobs backup
     items:
     - name: Overview
@@ -254,6 +260,12 @@
         href: backup-blobs-storage-account-ps.md
       - name: Restore
         href: restore-blobs-storage-account-ps.md
+    - name: With CLI
+      items:
+      - name: Backup
+        href: backup-blobs-storage-account-cli.md
+      - name: Restore
+        href: restore-blobs-storage-account-cli.md
   - name: Azure File share backup
     items:
     - name: Overview
@@ -334,6 +346,8 @@
         href: backup-azure-sql-mabs.md
       - name: Protect system state and bare metal recovery
         href: backup-mabs-system-state-and-bmr.md
+      - name: Using pre-backup and post-backup scripts
+        href: pre-backup-post-backup-scripts.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server

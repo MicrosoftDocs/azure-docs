@@ -180,12 +180,11 @@ This can happen if you have not scaled up SHIR as per your workload.
 
 Long queue-related error messages can appear for various reasons. 
 
-
 **Resolution**
 * If you receive an error message from any source or destination via connectors, which can generate a long queue, go to [Connector Troubleshooting Guide.](./connector-troubleshoot-guide.md)
 * If you receive an error message about Mapping Data Flow, which can generate a long queue, go to [Data Flows Troubleshooting Guide.](./data-flow-troubleshoot-guide.md)
 * If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](./data-factory-troubleshoot-guide.md)
-* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.md) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
+* If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](./ssis-integration-runtime-ssis-activity-faq.yml) and [Integration Runtime Management Troubleshooting Guide.](./ssis-integration-runtime-management-troubleshoot.md)
 
 ### Error message - "code":"BadRequest", "message":"null"
 
@@ -212,10 +211,17 @@ Please run pipeline in trigger mode.
 **Cause**
 
 You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter "Trigger deactivation error" message. This is due to the storage account, used for the event trigger, is being locked. 
+=======
+### Expression builder fails to load
+
+**Cause**
+
+The expression builder can fail to load due to network or cache problems with the web browser.  
+
 
 **Resolution**
 
-Remove the lock to allow publish to succeed.
+Upgrade the web browser to the latest version of a supported browser, clear cookies for the site, and refresh the page.
 
 ### "Code":"BadRequest","message":"ErrorCode=FlowRunSizeLimitExceeded
 

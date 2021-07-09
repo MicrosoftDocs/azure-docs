@@ -97,7 +97,7 @@ Due to some reasons in learning embedding from the subgraph, a few entities may 
 
 ## Storage location
 
-The data are stored in blobs in the West/East US data center, in the following blob container: https://mind201910small.blob.core.windows.net/release/.
+The data are stored in blobs in the West/East US data center, in the following blob container: 'https://mind201910small.blob.core.windows.net/release/'.
 
 Within the container, the training and validation set are compressed into MINDlarge_train.zip and MINDlarge_dev.zip respectively.
 

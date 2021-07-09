@@ -36,7 +36,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 The deployment process will take about **20 minutes**. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
 1. **Video Analyzer account** - This [cloud service](overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
 1. **Storage account** - For storing recorded video and video analytics.
-1. **Managed Identity** - This is the user assigned [managed identity]../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
+1. **Managed Identity** - This is the user assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
 1. **Virtual machine** - This is a virtual machine that will serve as your simulated edge device.
 1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
@@ -85,11 +85,7 @@ When you use run this quickstart, events will be sent to the IoT Hub. To see the
 1. Expand the **Devices** node.
 1. Right-click on `avasample-iot-edge-device`, and select **Start Monitoring Built-in Event Endpoint**.
 
-    > [!NOTE]
-    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## Use direct method calls
 
