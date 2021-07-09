@@ -457,7 +457,7 @@
   - name: Security
     items:
     - name: Security Baseline
-      href: security/benchmark/azure/baselines/media-services-security-baseline.md
+      href: http://docs.microsoft.com/security/benchmark/azure/baselines/media-services-security-baseline.md
       displayName: security, baseline
     - name: Azure RBAC
       href: security-rbac-concept.md
