@@ -19,9 +19,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory B2C is a scalable identity and access management solution. Its high flexibility to meet your business expectations and smooth integration with existing infrastructure enables further digitalization.
 
-To understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment.
-
-This guidance is intended for Microsoft Customers and Partners looking to enable further Digitalisation and Security for their Consumers Experience.
+This guidance is intended for Microsoft Customers and Partners. To understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment.
 
 | Capability | Description |
 |:-----|:------|
