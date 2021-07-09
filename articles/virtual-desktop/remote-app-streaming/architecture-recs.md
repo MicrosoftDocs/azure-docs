@@ -29,7 +29,7 @@ These are the basic requirements for an Azure Virtual Desktop deployment that ca
 
 However, you can also build a deployment with multiple host pools that offer different apps to different groups of users.
 
-Some customers choose to create separate Azure subscriptions to store each Azure Virtual Desktop deployment in. This practice lets you distinguish the cost of each deployment from each other based on the sub-organizations they provide resources to. Others choose to use Azure billing scopes to distinguish costs at a more granular level. To learn more, see [Understand and work with scopes](../cost-management-billing/costs/understand-work-scopes.md).
+Some customers choose to create separate Azure subscriptions to store each Azure Virtual Desktop deployment in. This practice lets you distinguish the cost of each deployment from each other based on the sub-organizations they provide resources to. Others choose to use Azure billing scopes to distinguish costs at a more granular level. To learn more, see [Understand and work with scopes](../../cost-management-billing/costs/understand-work-scopes.md).
 
 ## Deploying Azure Virtual Desktop for users outside your organization
 
