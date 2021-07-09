@@ -24,7 +24,7 @@ Use storage insights because it provides you with a unified view of all of your 
 
 A great way to determine use is to scan for transaction volume and capacity.
 
-Transactions
+##### Transactions
 
 Line all of them up and quickly see transactions in the overview page. If you see transactions below a certain threshold, you might deem the account has having low or no use. You can investigate the nature of transactions by clicking the account link to see transaction by storage account type. You can adjust the time frame to any thing you want. 
 
@@ -34,34 +34,27 @@ You can look at what API was used in the "Transactions by API name" if you want.
 
 You can open up the transaction chart and modify it to show a separate line for ingress and a separate line for egress. This helps you figure out whether data is coming in or out.
 
-You can use metrics to identity the nature of a transaction, but you'll have to look at logs to identity the exact content that was read, uploaded, or downloaded, and from what source this occurred. Therefore, zoom into spikes of activity and use that date or date range to query logs.
+You can use metrics to identity the nature of a transaction, but you'll have to look at logs to identity the exact content that was read, uploaded, or downloaded, and from what source this occurred. Therefore, zoom into spikes of activity and use that date or date range to query logs. These can be hints as to what is happening there.
 
+For example:
 
-Capacity
+- The time of the transaction (time)
+- OperationName - revealing if it is a read write or delete operation.
+- CallerIpAddress can help you determine which client performed the operation.
+- URI shows what the file is.
+- Identify the caller by how they authorized the call.
 
-See capacity of them in the capacity page. Look for accounts that have low capacity.
+Show log analytic query that pulls all this info together. See the section below about how to use the information in the identity fields to determine the source.
 
+##### Capacity
 
+See capacity of them in the capacity page of Storage Analytics. Look for accounts that have low amount used capacity or accounts that have a flat amount used capacity over time.
 
-It provides a real clean way to see all of your shit.  Include steps or point to the appropriate material.
+Click into the account. Then click the "Capacity" tab. You'll see two tables "Storage capacity" and "Storage units". capacity is about usage in bytes and units is about number of blobs.
 
-   Interesting metrics include 
+Open up into either of those windows and adjust your time frame to find when the last time capacity was used in the account. If you're beyond the point that metrics are kept, then that means nothings been added in a long time. 
 
-- Lead with metrics  - Capacity, ingress, egress. how many operations how much activity are we seeing in accounts. 
-
-##### Use Storage Insights
-
- - Use guidance for pulling up info for capacity and use.
- 
-   Investigation item: I see a lot of transactions appearing. How do I find out what those are coming from and who is doing that?
-   Investigation item: I see a lot of space being taken up, but we are past the metrics retention period so I can't determine when the spike up in space Occurred. 
-
-
-- Use logs to drill in a bit deeper on things like use etc.
-
-- Log analytic query to find accounts that have had below a certain threshold of requests against it.
-
-- Log analytic query to identify accounts that have little or no blob data in them. 
+A flat line over time indicates no usage or perhaps slight usage of the account. If you see a spike in capacity use, you can use logs to find more about what was uploaded. If you have a large amount of data in an account that sees no or little use over time, you might want to determine what is taking up so much space. You can't easily do that with metrics or logs.  You can however, use blob inventory to look into that - put steps here for blob inventory and show example.
 
 #### Monitor the use of a container
 
@@ -69,9 +62,13 @@ This scenario is about clearly identifying container use. For example, ISV partn
 
 Another way to phrase this scenario is that customers want effective ways to meter costs in their Azure data estate. They want to identify costs and account for them at a granular level. For example: tagging, how much data is being queried or consumed by other departments. Keeping track of costs at folder or container level.
 
+##### Determine space used
+
 This is the solution with inventory - [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
 
-There's also a PowerShell script that does this sort of calculation. 
+##### Determine transaction costs associated with the container.
+
+Figure out a way to attribute transaction costs and other costs associated with container traffic for the purpose of departmental billing.
 
 ## Monitor activity
 
