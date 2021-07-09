@@ -45,3 +45,7 @@ If the disk pool didn't recover after this process, contact Azure support and pr
 |GoalStateApplicationError     |Occurs when the iSCSI target configuration is invalid and cannot be applied to the disk pool. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
 |GoalStateApplicationTimeoutError     |Occurs when the disk pool infrastructure stops responding to the resource provider. Retry the deployment. If the issue persists, contact Azure support and provide the tracking ID of the error.         |
 |OngoingOperationInProgress     |An ongoing operation is in-progress on the disk pool. Wait until that operation completes, then retry deployment.         |
+
+## Next steps
+
+[Manage a disk pool (preview)](disks-pools-manage.md)
