@@ -106,7 +106,7 @@ To delete a management group, the following requirements must be met:
 Use the **Remove-AzManagementGroup** command within PowerShell to delete management groups.
 
 ```azurepowershell-interactive
-Remove-AzManagementGroup -GroupName 'Contoso'
+Remove-AzManagementGroup -GroupId 'Contoso'
 ```
 
 ### Delete in Azure CLI
