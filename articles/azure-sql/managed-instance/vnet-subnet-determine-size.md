@@ -48,7 +48,7 @@ GP = general purpose;
 BC = business critical; 
 VC = virtual cluster
 
-| **Hardware generation** | **Pricing tier** | **Azure usage** | **VC usage** | **Instance usage** | **Total*** |
+| **Hardware generation** | **Pricing tier** | **Azure usage**<sup>1</sup>  | **VC usage** <sup>2</sup>   | **Instance usage** <sup>3</sup> | **Total** <sup>4</sup> |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
