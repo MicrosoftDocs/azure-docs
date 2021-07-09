@@ -104,7 +104,7 @@ Example:
   Because IP ranges are defined in powers of 2, your subnet requires a minimum IP range of 128 (2^7) for this deployment. You need to reserve the subnet with a subnet mask of /25.
 
 > [!NOTE]
-> Even though it's possible to deploy managed instances in the subnet with a number of IP addresses that's less than the subnet formula's output, always consider using bigger subnets rather than smaller. Using bigger subnets avoids the issue of lacking IP addresses in the future, including the inability to create new instances in the subnet or scale existing ones.
+> Though it's possible to deploy managed instances to a subnet with a number of IP addresses less than the output of the subnet formula, always consider using bigger subnets instead. Using a bigger subnet can help avoid future issues stemming from a lack of IP addresses, such as the inability to create additional instances within the subnet, or scale existing instances. 
 
 ## Next steps
 
