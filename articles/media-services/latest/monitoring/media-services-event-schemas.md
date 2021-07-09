@@ -426,8 +426,8 @@ The following example shows the schema of the **LiveEventIncomingDataChunkDroppe
       "trackType": "Video",
       "trackName": "Video",
       "bitrate": 300000,
-      "timestamp": 36656620000,
-      "timescale": 10000000,
+      "timestamp": "36656620000",
+      "timescale": "10000000",
       "resultCode": "FragmentDrop_OverlapTimestamp"
     },
     "dataVersion": "1.0",
