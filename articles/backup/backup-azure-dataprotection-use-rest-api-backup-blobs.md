@@ -1,12 +1,12 @@
 ---
-title: Back up blobs in a storage account using Azure Data protection REST API
+title: Back up blobs in a storage account using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ---
 
-# Back up blobs in a storage account using Azure Data protection via REST API
+# Back up blobs in a storage account using Azure Data Protection via REST API
 
 This article describes how to manage backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level. So, all blobs in the storage account are protected with operational backup.
 
@@ -14,9 +14,9 @@ For information on the Azure blob region availability, supported scenarios and l
 
 ## Prerequisites
 
-- [Create a Backup vault](backup-azure-dataprotection-use-restapi-create-update-backup-vault.md)
+- [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
-- [Create a blob backup policy](backup-azure-dataprotection-use-restapi-create-update-blob-policy.md)
+- [Create a blob backup policy](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md)
 
 ## Configure backup
 
@@ -42,7 +42,7 @@ You need to assign a few permissions via RBAC to vault (represented by vault MSI
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and storage account, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for all blobs within a storage account. The ARM ID of the storage account and its details are mentioned in the 'datasourceinfo' section and the policy information is present in the 'policyinfo' section.
+Once the relevant permissions are set to the vault and storage account, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for all blobs within a storage account. The Azure Resource Manager ID (ARM ID) of the storage account and its details are mentioned in the 'datasourceinfo' section and the policy information is present in the 'policyinfo' section.
 
 ```json
 {
@@ -326,7 +326,7 @@ It returns two responses: 201 (Created) when backup instance is created and the 
 
 ##### Example responses to configure backup request
 
-Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with a Azure-asyncOperation header. Please note that the request body contains all the backup instance properties.
+Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with an Azure-asyncOperation header. Please note that the request body contains all the backup instance properties.
 
 ```http
 HTTP/1.1 201 Created
@@ -466,5 +466,5 @@ GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx
 
 For more information on the Azure Backup REST APIs, see the following documents:
 
-- [Azure data protection provider REST API](/rest/api/dataprotection/)
+- [Azure Data Protection Provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)

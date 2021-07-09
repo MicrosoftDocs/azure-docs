@@ -1,12 +1,12 @@
 ---
-title: Restore blobs in a storage account using Azure Data protection REST API
+title: Restore blobs in a storage account using Azure Data Protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
 ms.topic: conceptual
 ms.date: 07/09/2021
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 ---
 
-# Restore Azure blobs to point-in-time using Azure data protection REST API
+# Restore Azure blobs to point-in-time using Azure Data Protection REST API
 
 This article describes how to restore [blobs](blob-backup-overview.md) to any point-in-time using Azure Backup.
 
@@ -19,13 +19,13 @@ In this article, you'll learn how to:
 
 - Track the restore operation status
 
-## Pre-requisites
+## Prerequisites
 
-- [Create a Backup vault](backup-azure-dataprotection-use-restapi-create-update-backup-vault.md)
+- [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
-- [Create a blob backup policy](backup-azure-dataprotection-use-restapi-create-update-blob-policy.md)
+- [Create a blob backup policy](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md)
 
-- [Configure a blob backup](backup-azure-dataprotection-use-restapi-backup-blobs.md)
+- [Configure a blob backup](backup-azure-dataprotection-use-rest-api-backup-blobs.md)
 
 We will refer to an existing backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_, where blobs in a storage account named "msblobbackup-f2df34eb-5628-4570-87b2-0331d797c67d" in the examples.
 
@@ -128,7 +128,7 @@ The key points to remember in this scenario are:
 - Restore is happening to the same storage account which means the target object for the restore is same as the source datasource. This is reflected in the restore target info section below.
 - These are continuous backups and hence the restore time is a point-in-time and not a distinct recovery point.
 - All blobs are restored
-- The source datastore i.e., where the backups reside, is the same storage account. Hence the source datastore is 'Operational' datastore.
+- The source datastore that is, where the backups reside, is the same storage account. Hence the source datastore is 'Operational' datastore.
 
 ```json
 {
@@ -460,5 +460,5 @@ The job status above indicates that the restore job is completed and all blobs h
 
 For more information on the Azure Backup REST APIs, see the following documents:
 
-- [Azure data protection provider REST API](/rest/api/dataprotection/)
+- [Azure Data Protection provider REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)

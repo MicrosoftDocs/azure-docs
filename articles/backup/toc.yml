@@ -269,11 +269,11 @@
     - name: With REST API
       items:
       - name: Blob policy
-        href: backup-azure-dataprotection-use-restapi-create-update-blob-policy.md
+        href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
       - name: Backup
-        href: backup-azure-dataprotection-use-restapi-backup-blobs.md
+        href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
       - name: Restore
-        href: backup-azure-dataprotection-use-restapi-restore-blobs.md
+        href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
   - name: Azure File share backup
     items:
     - name: Overview
@@ -463,7 +463,7 @@
       - name: Manage Azure Backup jobs
         href: backup-azure-arm-userestapi-managejobs.md
     - name: Use Azure Data Protection REST API
-      href: backup-azure-dataprotection-use-restapi-create-update-backup-vault.md
+      href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
     - name: Query backup information using ARG
       href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
