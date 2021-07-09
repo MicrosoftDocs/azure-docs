@@ -16,7 +16,7 @@ This article is a basic outline of how to publish an application in Azure Virtua
 
 MSIX app attach is an application layering solution that lets you deliver applications to active user sessions in Azure Virtual Desktop. The MSIX package system separates apps from the operating system, making it easier to build images for virtual machines. MSIX packages also give you greater control over which apps your users can access in their virtual machines. You can even separate apps from the master image and give them to users later.
 
-To learn more, see [What is MSIX app attach?](../what-is-app-attach.md)
+To learn more, see [What is MSIX app attach?](../what-is-app-attach.md).
 
 ## Requirements
 
