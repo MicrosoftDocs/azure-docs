@@ -190,7 +190,7 @@ In Azure IoT Central, you can create simulated devices to test your device templ
 
 Add new devices by selecting **+ New** on the **Devices** tab.
 
-To learn more, see [Manage devices](../core/howto-manage-devices.md).
+To learn more, see [Manage devices](../core/howto-manage-devices-individually.md).
 
 ## Explore rules
 
@@ -238,7 +238,7 @@ In Azure IoT Central, jobs allow you to trigger device or cloud property updates
 1. Select **Jobs** on the left pane.
 1. Select **+ New**, and configure one or more jobs.
 
-To learn more, see [How to run a job](../core/howto-run-a-job.md).
+To learn more, see [How to run a job](../core/howto-manage-devices-in-bulk.md).
 
 ## Customize your application
 

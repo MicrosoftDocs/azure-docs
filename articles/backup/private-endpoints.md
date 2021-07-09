@@ -2,7 +2,7 @@
 title: Private Endpoints
 description: Understand the process of creating private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 05/07/2020 
+ms.date: 07/06/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -33,6 +33,9 @@ While private endpoints are enabled for the vault, they're used for backup and r
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
+
+>[!Note]
+>Private endpoints aren't supported with DPM and MABS servers. 
 
 ## Get started with creating private endpoints for Backup
 

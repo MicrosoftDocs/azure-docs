@@ -124,9 +124,7 @@ In the **SQL Server settings** tab, select **Enable** under **Automated backup**
 
 ## Configure existing VMs
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-For existing SQL Server virtual machines, go to the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) and then select **Backups** to configure your automated backups.
+For existing SQL Server virtual machines, go to the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource) and then select **Backups** to configure your automated backups.
 
 ![SQL Automated Backup for existing VMs](./media/automated-backup/sql-server-configuration.png)
 
