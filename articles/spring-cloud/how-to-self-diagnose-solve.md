@@ -1,7 +1,7 @@
 ---
 title: "How to self-diagnose and solve problems in Azure Spring Cloud"
 description: Learn how to self-diagnose and solve problems in Azure Spring Cloud.
-author: MikeDodaro
+author: brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
