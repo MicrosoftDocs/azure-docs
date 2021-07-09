@@ -36,12 +36,12 @@ Additional live event ingest heartbeat properties have been added to the Event G
 
 See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md) for more details.
 
-| Property | Description |
+| New LiveEventIngestHeartbeat property | Description |
 | -------- | ---------- |
 | lastFragmentArrivalTime | The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
-| ingestDriftValue |  The number of seconds of drift calculated for the ingest since the beginning of the event computed over a rolling one-minute window. This is applicable to video tracks only.|
-| transcriptionState |  The state of the live transcription feature (On/Off).  This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
-| transcriptionLanguage |  The BCP-47 language code used for this track if the tracktype is "audio". When transcriptionState is "Off" this will have an empty value. All other non-audio tracks will also contain an empty value. |
+| ingestDriftValue |  Measures the drift between the timestamp of the ingested content and the system clock in the ingest endpoint, measured in integer seconds per minute. A non zero value indicates that the ingested content is arriving slower than system clock time In other cases you will see 0, or "n/a" when there are no incoming fragments.|
+| transcriptionState |  The state of the live transcription feature.  This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value, or empty when disabled.|
+| transcriptionLanguage |  The BCP-47 language code used for this track if the tracktype is "audio". When transcriptionState is empty (off) this will have an empty value. All other non-audio tracks will also contain an empty value. |
 
 ### Private links support is now GA
 
