@@ -601,7 +601,7 @@ The _createUiDefinition.json_ file for this example:
 }
 ```
 
-## Template parameters without default must exist in control outputs
+## Template parameters without default must exist in outputs
 
 Test name: **Parameters Without Default Must Exist In CreateUIDefinition**
 
