@@ -414,6 +414,8 @@
       href: test-toolkit.md
     - name: Test cases
       href: test-cases.md
+    - name: Create UI Definition test cases
+      href: create-uidefinition-test-cases.md
   - name: Template specs
     items:
     - name: Create & deploy template specs
