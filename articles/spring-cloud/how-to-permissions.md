@@ -1,6 +1,6 @@
 ---
-title: "How to - Use permissions in Azure Spring Cloud"
-description: This article shows you how to create custom roles for permissions in Azure Spring Cloud.
+title: "How to use permissions in Azure Spring Cloud"
+description: This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -12,93 +12,93 @@ ms.custom: devx-track-java
 # How to use permissions in Azure Spring Cloud
 This article shows you how to create custom roles that delegate permissions to Azure Spring Cloud resources. Custom roles extend [Azure built-in roles](../role-based-access-control/built-in-roles.md) with various stock permissions.
 
-We will implement the following custom roles:
+We'll implement the following custom roles.
 
 * **Developer role**: 
     * Deploy
     * Test
     * Restart apps
-    * Can apply and make changes to app configurations in the git repository
-    * Can get the log stream
-* **Ops - Site Reliability Engineering**: 
+    * Apply and make changes to app configurations in the Git repository
+    * Get log streams
+* **Ops - Site Reliability Engineering role**: 
     * Restart apps
     * Get log streams
-    * Cannot make changes to apps or configurations
-* **Azure Pipelines/Jenkins/GitHub Actions role**:
-    * Can perform create, read, update, delete operations
-    * Can create and configure everything in Azure Spring Cloud and apps within service instance: Azure Pipelines, Jenkins or GitHub Actions, using Terraform or ARM Templates
+    * Can't make changes to apps or configurations
+* **Azure Pipelines / Jenkins / GitHub Actions role**:
+    * Perform create, read, update, and delete operations
+    * Use Terraform or ARM templates to create and configure everything in Azure Spring Cloud and apps within a service instance: Azure Pipelines, Jenkins, or GitHub Actions
 
-## Define Developer role
+## Define the Developer role
 
-The developer role includes permissions to restart apps and see their log streams, but cannot make changes to apps, configuration.
+The Developer role includes permissions to restart apps and see their log streams. This role can't make changes to apps or configurations.
 
-### Navigate subscription and resource group Access control (IAM)
 
-Follow these steps to start defining a role.
-
-1. In the Azure portal, open the subscription where you want the custom role to be assignable.
-2. Open **Access control (IAM)**.
-3. Click **+ Add**.
-4. Click **Add custom role**.
 #### [Portal](#tab/Azure-portal)
-5. Click **Next**.
+1. In the Azure portal, open the subscription where you want to assign the custom role.
+2. Open **Access control (IAM)**.
+3. Select **Add**.
+4. Select **Add custom role**.
+5. Select **Next**:
 
-   ![Create custom role](media/spring-cloud-permissions/create-custom-role.png)
+   ![Screenshot that shows the Basics tab of the Create a custom role window.](media/spring-cloud-permissions/create-custom-role.png)
 
-6. Click **Add permissions**.
+6. Select **Add permissions**:
 
-   ![Add permissions start](media/spring-cloud-permissions/add-permissions.png)
+   ![Screenshot that shows the Add permissions button.](media/spring-cloud-permissions/add-permissions.png)
 
-### Search for Azure Spring Cloud permissions:
-7. In the search box, search for *Microsoft.app*.
-Select *Microsoft Azure Spring Cloud*.
 
-   ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
+7. In the search box, search for **Microsoft.app**. Select **Microsoft Azure Spring Cloud**:
 
-8. Select the permissions for the developer role:
+   ![Screenshot that shows the results of searching for Microsoft.app.](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
-From **Microsoft.AppPlatform/Spring**, select:
-* Write : Create or Update Azure Spring Cloud service instance
-* Read : Get Azure Spring Cloud service instance
-* Other : List Azure Spring Cloud service instance test keys
+8. Select the permissions for the Developer role.
 
-From **Microsoft.AppPlatform/Spring/apps**, select:
-* Read : Read Microsoft Azure Spring Cloud application
-* Other : Get Microsoft Azure Spring Cloud application resource upload URL
+   Under **Microsoft.AppPlatform/Spring**, select:
+   * **Write : Create or Update Azure Spring Cloud service instance**
+   * **Read : Get Azure Spring Cloud service instance**
+   * **Other : List Azure Spring Cloud service instance test keys**
 
-From **Microsoft.AppPlatform/Spring/apps/bindings**, select:
-* Read : Read Microsoft Azure Spring Cloud application binding
+   Under **Microsoft.AppPlatform/Spring/apps**, select:
+   * **Read : Read Microsoft Azure Spring Cloud application**
+   * **Other : Get Microsoft Azure Spring Cloud application resource upload URL**
 
-From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
-* Write : Write Microsoft Azure Spring Cloud application deployment
-* Read : Read Microsoft Azure Spring Cloud application deployment
-* Other : Start Microsoft Azure Spring Cloud application deployment
-* Other : Stop Microsoft Azure Spring Cloud application deployment
-* Other : Restart Microsoft Azure Spring Cloud application deployment
-* Other : Get Microsoft Azure Spring Cloud application deployment log file URL
+   Under **Microsoft.AppPlatform/Spring/apps/bindings**, select:
+   * **Read : Read Microsoft Azure Spring Cloud application binding**
 
-From **Microsoft.AppPlatform/Spring/apps/domains**, select:
-* Read : Read Microsoft Azure Spring Cloud application custom domain
+   Under **Microsoft.AppPlatform/Spring/apps/deployments**, select:
+   * **Write : Write Microsoft Azure Spring Cloud application deployment**
+   * **Read : Read Microsoft Azure Spring Cloud application deployment**
+   * **Other : Start Microsoft Azure Spring Cloud application deployment**
+   * **Other : Stop Microsoft Azure Spring Cloud application deployment**
+   * **Other : Restart Microsoft Azure Spring Cloud application deployment**
+   * **Other : Get Microsoft Azure Spring Cloud application deployment log file URL**
 
-From **Microsoft.AppPlatform/Spring/certificates**, select:
-* Read : Read Microsoft Azure Spring Cloud certificate
+   Under **Microsoft.AppPlatform/Spring/apps/domains**, select:
+   * **Read : Read Microsoft Azure Spring Cloud application custom domain**
 
-From **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
-* Read : Read operation result
+   Under **Microsoft.AppPlatform/Spring/certificates**, select:
+   * **Read : Read Microsoft Azure Spring Cloud certificate**
 
-From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
-* Read : Read operation status
+   Under **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
+   * **Read : Read operation result**
 
-    [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
+   Under **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
+   * **Read : Read operation status**
 
-9. Click **Add**.
+    [ ![Screenshot that shows the selections for Developler permissions.](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
+
+9. Select **Add**.
 
 #### [JSON](#tab/JSON)
-5. Click **Next**.
+1. In the Azure portal, open the subscription where you want to assign the custom role.
+2. Open **Access control (IAM)**.
+3. Select **Add**.
+4. Select **Add custom role**.
+5. Select **Next**.
 
-6. Click the **JSON** tab.
+6. Select the **JSON** tab.
 
-7. Click **Edit**, and delete the default text.
+7. Select **Edit**, and then delete the default text:
 
    ![Edit custom role](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
@@ -149,7 +149,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 
 11. Click **Review and create**.
 
-## Define DevOps engineer role
+## Define the DevOps engineer role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. Repeat the procedure to navigate subscription and access Access control (IAM).
@@ -274,7 +274,7 @@ From **Microsoft.AppPlatform/skus**, select:
 
 7. Click **Review and create**.
 ---
-## Define Ops - Site Reliability Engineering role
+## Define the Ops - Site Reliability Engineering role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. Repeat the procedure to navigate subscription and access Access control (IAM).
