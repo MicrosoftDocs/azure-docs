@@ -1,7 +1,7 @@
 ---
 title:  Java and base OS for Azure Spring Cloud microservice apps
 description: Principles for maintaining healthy Java and base operating system for Azure Spring Cloud microservice apps
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Provision an Azure Spring Cloud instance with terraform
 description: Provision an Azure Spring Cloud instance with Terraform.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
