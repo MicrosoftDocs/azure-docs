@@ -67,7 +67,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 ```
 
 ## Mount file share as an inline volume
-> Note: inline `azureFile volume can only access secret in the same namespace as pod, to specify a different secret namespace, please use below persistent volume example instead.
+> Note: inline `azureFile` volume can only access secret in the same namespace as pod, to specify a different secret namespace, please use below persistent volume example instead.
 
 To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
