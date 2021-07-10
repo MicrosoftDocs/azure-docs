@@ -143,10 +143,13 @@ To create and run a new scan, do the following:
     
     The JDBC URL can be accessed from the Connection URL property as shown below.
     :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
+    
+    > [!Note]
+    > When copying the URL from hive-site.xml be sure to remove "amp;" from the string otherwise the scan will fail.
 
     To this url, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
 
-    So the metastore JDBC URL will be:
+    The metastore JDBC URL will be:
     
     jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem
 
