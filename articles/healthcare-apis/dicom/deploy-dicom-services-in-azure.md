@@ -21,19 +21,19 @@ To deploy the DICOM Service, you must have a workspace created in the Azure port
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Healthcare APIs Workspace**.
 
-   :::image type="content" source="media/select-workspace-resource-group.png" alt-text="Select workspace resource group" lightbox="select-workspace-resource-group.png":::
+   :::image type="content" source="./media/select-workspace-resource-group.png" alt-text="Select workspace resource group" lightbox="select-workspace-resource-group.png":::
 
 2. Select **Deploy DICOM Service**.
 
-    :::image type="content" source="media/workspace-deploy-dicom-services.png" alt-text="Deploy DICOM Service" lightbox="workspace-deploy-dicom-services.png":::
+    :::image type="content" source="./media/workspace-deploy-dicom-services.png" alt-text="Deploy DICOM Service" lightbox="workspace-deploy-dicom-services.png":::
 
 3. Select **Add DICOM Service**.
 
-   :::image type="content" source="media/add-dicom-service.png" alt-text="Add DICOM Service" lightbox="add-dicom-service.png":::
+   :::image type="content" source="./media/add-dicom-service.png" alt-text="Add DICOM Service" lightbox="add-dicom-service.png":::
 
 4. Enter a name for the DICOM Service, and then select **Review + create**. 
 
-   :::image type="content" source="media/enter-dicom-service-name.png" alt-text="Enter DICOM Service name" lightbox="enter-dicom-service-name.png":::
+   :::image type="content" source="./media/enter-dicom-service-name.png" alt-text="Enter DICOM Service name" lightbox="enter-dicom-service-name.png":::
 
    (**Optional**) Select **Next: Tags >**.
 
@@ -43,11 +43,11 @@ To deploy the DICOM Service, you must have a workspace created in the Azure port
 
 6. When the deployment process completes, click **Go to resource**.  
 
-   :::image type="content" source="media/go-to-resource.png" alt-text="Go to resource":::
+   :::image type="content" source="./media/go-to-resource.png" alt-text="Go to resource":::
 
    The result of the newly deployed DICOM Service is shown below.
 
-   :::image type="content" source="media/results-deployed-dicom-service.png" alt-text="Result of newly deployed DICOM service":::
+   :::image type="content" source="./media/results-deployed-dicom-service.png" alt-text="Result of newly deployed DICOM service":::
 
 ## Next steps
 
