@@ -95,7 +95,7 @@ A possible mitigation is to check if there are unused deployments that can be de
 
 ### ERR_1101: Out of capacity
 
-The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Please retry the provisioning later or try deploying to a different region.
+The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
 
 ### ERR_1200: Unable to download user container image
 
@@ -153,7 +153,7 @@ az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --line
 
 ### ERR_1350: Unable to download user model, not enough space on the disk
 
-This issue happens when the size of the model is bigger than the available disk space. Please try an SKU with more disk space.
+This issue happens when the size of the model is bigger than the available disk space. Try an SKU with more disk space.
 
 ### ERR_2100: Unable to start user container
 
