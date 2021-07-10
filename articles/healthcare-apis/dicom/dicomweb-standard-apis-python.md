@@ -1,11 +1,11 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with Python - Azure Healthcare APIs 
+title:  Using DICOMweb Standard APIs with Python - Azure Healthcare APIs 
 description: This tutorial describes how to use DICOMweb Standard APIs with cURL. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 06/28/2021
+ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
@@ -94,8 +94,6 @@ Create a `requests` session, called `client`, that will be used to communicate w
 ```python
 client = requests.session()
 ```
-
---------------------
 ## Uploading DICOM Instances (STOW)
 
 The following examples highlight persisting DICOM files.
@@ -371,7 +369,6 @@ In the following examples, we search for items using their unique identifiers. Y
 
 Refer to the [DICOM Conformance Statement](dicom-services-conformance-statement.md#supported-search-parameters) document for supported DICOM attributes.
 
----
 ### Search for studies
 
 This request searches for one or more studies by DICOM attributes.

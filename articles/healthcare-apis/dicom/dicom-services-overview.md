@@ -1,15 +1,19 @@
 ---
-title:  Overview of DICOM Service  
-description: In this article, you'll learn concepts of DICOM, Medical Imaging, and DICOM Service.
+title:  Overview of DICOM service - Azure Healthcare APIs
+description: In this article, you'll learn concepts of DICOM, Medical Imaging, and DICOM service.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/28/2021
+ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
-# Overview of DICOM Service
+# Overview of DICOM service
+
+This article describes the concepts of DICOM, Medical Imaging, and the DICOM service.
+
+
 
 ## Medical imaging
 
@@ -37,7 +41,7 @@ FHIR&trade; is becoming an important standard for clinical data and provides ext
 
 DICOM Service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required. The diagram below depicts all of the resources created within your resource group.
 
- :::image type="content" source="media/dicom-deployment-architecture.png" alt-text="DICOM deployment architecture":::
+ :::image type="content" source="media/dicom-deployment-architecture.png" alt-text="DICOM deployment architecture" border="false":::
 
 - **Azure SQL**: Indexes a subset of the Medical Imaging Server for DICOM metadata to support queries and to maintain a queryable log of changes.
 - **App Service Plan**: Hosts the Medical Imaging Server for DICOM.

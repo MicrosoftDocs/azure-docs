@@ -1,11 +1,11 @@
 ---
-title: Deploy the DICOM Service using the Azure portal
-description: In this article, you'll learn how to deploy a workspace in the Azure portal 
+title: Deploy the DICOM service using the Azure portal - Azure Healthcare APIs
+description: In this article, you'll learn how to deploy the DICOM service in the Azure portal. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/21/2021
+ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
@@ -21,25 +21,25 @@ To deploy the DICOM Service, you must have a workspace created in the Azure port
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Healthcare APIs Workspace**.
 
-   :::image type="content" source="media/select-workspace-resource-group.png" alt-text="Select workspace resource group":::
+   :::image type="content" source="media/select-workspace-resource-group.png" alt-text="Select workspace resource group" lightbox="select-workspace-resource-group.png":::
 
 2. Select **Deploy DICOM Service**.
 
-    :::image type="content" source="media/workspace-deploy-dicom-services.png" alt-text="Deploy DICOM Service":::
+    :::image type="content" source="media/workspace-deploy-dicom-services.png" alt-text="Deploy DICOM Service" lightbox="workspace-deploy-dicom-services.png":::
 
 3. Select **Add DICOM Service**.
 
-   :::image type="content" source="media/add-dicom-service.png" alt-text="Add DICOM Service":::
+   :::image type="content" source="media/add-dicom-service.png" alt-text="Add DICOM Service" lightbox="add-dicom-service.png":::
 
 4. Enter a name for the DICOM Service, and then select **Review + create**. 
 
-   :::image type="content" source="media/enter-dicom-service-name.png" alt-text="Enter DICOM Service name":::
+   :::image type="content" source="media/enter-dicom-service-name.png" alt-text="Enter DICOM Service name" lightbox="enter-dicom-service-name.png":::
 
    (**Optional**) Select **Next: Tags >**.
 
     Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
-5. When you notice the green validation checkmark, select **Create** to deploy the DICOM Service.
+5. When you notice the green validation check mark, select **Create** to deploy the DICOM Service.
 
 6. When the deployment process completes, click **Go to resource**.  
 
