@@ -36,7 +36,7 @@ Model **C** represents a clear case of overfitting; the training accuracy is ver
 
 ## Prevent overfitting
 
-In the most egregious cases, an overfitted model assume that the feature value combinations seen during training will always result in the exact same output for the target.
+In the most egregious cases, an overfitted model assumes that the feature value combinations seen during training will always result in the exact same output for the target.
 
 The best way to prevent overfitting is to follow ML best-practices including:
 
@@ -75,7 +75,7 @@ Automated ML also implements explicit **model complexity limitations** to preven
 
 ### Cross-validation
 
-**Cross-validation (CV)** is the process of taking many subsets of your full training data and training a model on each subset. The idea is that a model could get "lucky" and have great accuracy with one subset, but by using many subsets the model won't achieve this high accuracy every time. When doing CV, you provide a validation holdout dataset, specify your CV folds (number of subsets) and automated ML will train your model and tune hyperparameters to minimize error on your validation set. One CV fold could be overfit, but by using many of them it reduces the probability that your final model is overfit. The tradeoff is that CV does result in longer training times and thus greater cost, because instead of training a model once, you train it once for each *n* CV subsets. 
+**Cross-validation (CV)** is the process of taking many subsets of your full training data and training a model on each subset. The idea is that a model could get "lucky" and have great accuracy with one subset, but by using many subsets the model won't achieve this high accuracy every time. When doing CV, you provide a validation holdout dataset, specify your CV folds (number of subsets) and automated ML will train your model and tune hyperparameters to minimize error on your validation set. One CV fold could be overfitted, but by using many of them it reduces the probability that your final model is overfitted. The tradeoff is that CV does result in longer training times and thus greater cost, because instead of training a model once, you train it once for each *n* CV subsets. 
 
 > [!NOTE]
 > Cross-validation is not enabled by default; it must be configured in automated ML settings. However, after cross-validation is configured and a validation data set has been provided, the process is automated for you. Learn more about [cross validation configuration in Auto ML](how-to-configure-cross-validation-data-splits.md)
