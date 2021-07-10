@@ -10,7 +10,7 @@ ms.custom: references_region
 ---
 
 # Data collection endpoints in Azure Monitor (preview)
-Data Collection Endpoints (DCE) allow you to uniquely configure imgestion settings for your machines, giving you greater control over your networking requirements. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
+Data Collection Endpoints (DCE) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. This article provides an overview of data collection endpoints including their contents and structure and how you can create and work with them.
 
 ## Components of a data collection endpoint
 A data collection endpoint includes the following components.
@@ -23,11 +23,11 @@ A data collection endpoint includes the following components.
 Data collection endpoints are ARM resources created within specific regions. An endpoint in a given region can only be **associated with machines in the same region**, although you can have more than one endpoint within the same region as per your needs.
 
 ## Limits
-As this feature is in preview, we do not recommend using it in production environments until generally available.
+As this feature is in preview, while there are no feature limitations we do not recommend using it in production environments until generally available.
 
 
 ## Enable network isolation via private links
-Data collection endpoints when used in conjuction with the new Azure Monitor agent and data collection rules enable you to configure private links, using [AMPLS], for sending data to Azure Monitor.
+Data collection endpoints when used in conjuction with the new Azure Monitor agent and data collection rules enable you to configure private links, using [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md), for sending data to Azure Monitor.
 
 
 
