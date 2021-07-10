@@ -819,6 +819,7 @@
     "articles/hdinsight/.openpublishing.redirection.hdinsight.json",
     "articles/iot-central/.openpublishing.redirection.iot-central.json",
     "articles/iot-pnp/.openpublishing.redirection.iot-pnp.json",
+    "articles/marketplace/.openpublishing.redirection.marketplace.json",
     "articles/purview/.openpublishing.redirection.purview.json",
     "articles/service-bus-messaging/.openpublishing.redirection.service-bus-messaging.json",
     "articles/stream-analytics/.openpublishing.redirection.stream-analytics.json"
