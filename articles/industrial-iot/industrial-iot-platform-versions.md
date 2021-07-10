@@ -11,7 +11,7 @@ ms.date: 03/08/2021
 
 We are pleased to announce the declaration of Long-Term Support (LTS) for version 2.8.0. While we continue to develop and release updates to our ongoing projects on GitHub, we now also offer a branch that will only get critical bug fixes and security updates starting in July 2021. Customers can rely upon a longer-term support lifecycle for these LTS builds, providing stability and assurance for the planning on longer time horizons our customers require. The LTS branch offers customers a guarantee that they will benefit from any necessary security or critical bug fixes with minimal impact to their deployments and module interactions.  At the same time, customers can access the latest updates in the master branch to keep pace with the latest developments and fastest cycle time for product updates. 
 
-# Version history 
+## Version history 
 
 |Version      |Type                   |Date         |Highlights                             |
 |-------------|-----------------------|-------------|---------------------------------------|
@@ -19,7 +19,7 @@ We are pleased to announce the declaration of Long-Term Support (LTS) for versio
 |2.7.206      |Stable                 |January 2021 |Configuration through REST API (orchestrated mode), supports Samples telemetry format as well as PubSub - [Release notes](https://github.com/Azure/Industrial-IoT/releases/tag/2.7.206)|
 |2.8.0        |Long-term support (LTS)|July 2021    |IoT Edge update to 1.1 LTS, OPC stack logging and tracing for better OPC Publisher diagnostics, Security fixes|
 
-# Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [What is the Industrial IoT Platform?](overview-what-is-industrial-iot.md)
