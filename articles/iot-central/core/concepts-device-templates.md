@@ -1,6 +1,6 @@
 ---
 title: What are device templates in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and dashboards an operator uses.
+description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and views an operator uses.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/19/2020
@@ -291,7 +291,7 @@ For writable properties, the device application returns a desired state status c
 
 ## Telemetry
 
-IoT Central lets you view telemetry on dashboards and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the device model, such as data types, units and display names, to determine how to display telemetry values.
+IoT Central lets you view telemetry in device views and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the device model, such as data types, units and display names, to determine how to display telemetry values. You can also display telemetry values on application and personal dashboards.
 
 You can use the IoT Central data export feature to stream telemetry to other destinations such as storage or Event Hubs.
 
@@ -314,7 +314,7 @@ Offline commands are one-way notifications to the device from your solution. Off
 
 Cloud properties are part of the device template, but aren't part of the device model. Cloud properties let the solution developer specify any device metadata to store in the IoT Central application. Cloud properties don't affect the code that a device developer writes to implement the device model.
 
-A solution developer can add cloud properties to dashboards and views alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
+A solution developer can add cloud properties to device views and forms alongside device properties to enable an operator to manage the devices connected to the application. A solution developer can also use cloud properties as part of a rule definition to make a threshold value editable by an operator.
 
 ## Customizations
 

@@ -4,7 +4,7 @@ description: Learn how to scale an application with Azure Spring Cloud in the Az
 ms.service: spring-cloud
 ms.topic: how-to
 ms.author: brendm
-author: bmitchell287
+author: brendm
 ms.date: 10/06/2019
 ms.custom: devx-track-java
 ---

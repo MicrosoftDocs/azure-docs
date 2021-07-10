@@ -2,7 +2,7 @@
 title: "How to monitor with New Relic Java agent"
 titleSuffix: Azure Spring Cloud
 description: Learn how to monitor Azure Spring Cloud apps using the New Relic Java agent.
-author: MikeDodaro
+author: brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
