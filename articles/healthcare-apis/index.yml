@@ -44,20 +44,14 @@ landingContent:
         links:
           - text: About FHIR service
             url: ./fhir/overview.md
-      - linkListType: quickstart
+      - linkListType: deploy
         links:
           - text: Deploy FHIR service using Portal
             url: ./fhir/fhir-portal-quickstart.md
-          - text: Deploy FHIR service using ARM templates
-            url: ./fhir/fhir-arm-template-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Deploy JavaScript application
-            url: ./fhir/tutorial-web-app-fhir-server.md
           - text: Interoperability and Patient Access
             url: ./fhir/cms-tutorial-introduction.md
-          - text: Access FHIR API with Postman
-            url: ./fhir/access-fhir-postman-tutorial.md
 
   - title: DICOM
     linkLists:
@@ -65,7 +59,7 @@ landingContent:
         links:
           - text: About DICOM service 
             url: ./dicom/dicom-services-overview.md
-      - linkListType: quickstart
+      - linkListType: deploy
         links:
           - text: Deploy DICOM Services using the Azure portal
             url: ./dicom/deploy-dicom-services-in-azure.md
@@ -76,12 +70,16 @@ landingContent:
   
   - title: IoT connector
     linkLists:
-      - linkListType: get-started
+      - linkListType: deploy
         links:
           - text: Deploy IoT Connector Using Portal
             url: ./iot/iot-fhir-portal-quickstart.md
           - text: Deploy IoT Connector Using ARM template
             url: ./iot/iot-fhir-arm-template-quickstart.md
+      - linkListType: tutorial
+        links:
+          - text: IoT mapping templates
+            url: ./iot/iot-mapping-templates.md
 
   - title: Data Transformation
     linkLists:

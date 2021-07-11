@@ -108,4 +108,4 @@ FHIR is the registered trademark of HL7 and is used with the permission of HL7.
 In this article, you learned how to enable Audit Logs for FHIR service. Next, learn about other additional settings you can configure in the FHIR service
  
 >[!div class="nextstepaction"]
->[Additional Settings](azure-api-for-fhir-additional-settings.md)
+>[Additional Settings](additional-settings.md)

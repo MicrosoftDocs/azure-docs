@@ -12,7 +12,7 @@ ms.author: zxue
 
 # Get access token for FHIR service using Azure CLI
 
-In this article, you'll learn how to obtain an access token for the FHIR service using the Azure CLI. When you [provision the FHIR service](fhir-paas-portal-quickstart.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
+In this article, you'll learn how to obtain an access token for the FHIR service using the Azure CLI. When you [provision the FHIR service](fhir-portal-quickstart.md), you configure a set of users or service principals that have access to the service. If your user object ID is in the list of allowed object IDs, you can access the service using a token obtained using the Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
