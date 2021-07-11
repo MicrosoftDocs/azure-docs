@@ -35,7 +35,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
    * **Stream to an event hub** for ingestion by a third-party service or custom analytic solution. You’ll need to create an event hub namespace and event hub policy before you can configure this step.
    * **Send to partner solution** that you are working with as partner organization in Azure. For information about potential partner integrations, see [Azure partner solutions documentation](../../partner-solutions/overview.md)
 
-     For information about supported metrics, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices.md).
+     For information about supported metrics, see [Supported metrics with Azure Monitor](.././../azure-monitor/essentials/metrics-supported).
 
 6. Select **Save**.
 
@@ -103,4 +103,4 @@ FHIR is the registered trademark of HL7 and is used with the permission of HL7.
 In this article, you learned how to enable audit logs for the DICOM service. For information about the Azure activity log, see
  
 >[!div class="nextstepaction"]
->[Azure Activity Log event schema](../../azure-monitor/essentials/activity-log-schema?WT.mc_id=Portal-Microsoft_Azure_Monitoring.md)
+>[Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema)

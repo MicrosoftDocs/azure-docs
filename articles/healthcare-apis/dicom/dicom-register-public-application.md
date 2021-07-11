@@ -23,7 +23,7 @@ This quickstart guide provides general information about how to register an [app
 2. In the **Azure Active Directory** blade, select **App registrations**.
 3. Select **New registration**.
 
-   :::image type="content" source="media/dicom-azure-app-registrations.png" alt-text="Azure App registrations" lightbox="dicom-azure-app-registrations.png":::
+   :::image type="content" source="media/dicom-azure-app-registrations.png" alt-text="DICOM application registration in Azure portal" lightbox="dicom-azure-app-registrations.png":::
 
 ## Application registration overview
 
@@ -41,7 +41,7 @@ To configure your [desktop](.././../active-directory/develop/scenario-desktop-ap
 
 1. In the [Azure portal](https://portal.azure.com), select the **App registrations** blade, and then select the **Authentication** blade.
 
-   :::image type="content" source="media/dicom-authentication.png" alt-text="Azure App registrations" lightbox="dicom-authentication.png":::
+   :::image type="content" source="media/dicom-authentication.png" alt-text="Azure public application registration" lightbox="dicom-authentication.png":::
 
 2. In the **Advanced settings**, select **Yes**.
 
