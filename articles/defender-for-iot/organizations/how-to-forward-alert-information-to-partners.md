@@ -1,7 +1,7 @@
 ---
 title: Forward alert information
 description: You can send alert information to partner systems by working with forwarding rules.
-ms.date: 12/02/2020
+ms.date: 07/11/2021
 ms.topic: how-to
 ---
 
@@ -37,17 +37,57 @@ Relevant information is sent to partner systems when forwarding rules are create
 
 ## Create forwarding rules
 
-To create a new forwarding rule:
+**To create a new forwarding rule on a sensor**:
+
+1. Sign in to the sensor.
 
 1. Select **Forwarding** on the side menu.
 
-   ::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="Create a Forwarding Rule icon.":::
+1. Select **Create Forwarding Rule**.
 
-2. Select **Create Forwarding Rule**.
+   :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="Create a Forwarding Rule icon.":::
 
-   :::image type="content" source="media/how-to-work-with-alerts-sensor/create-a-forwardong-rule.png" alt-text="Create a new forwarding rule.":::
+1. Enter a name for the forwarding rule.
 
-3. Enter the name of the forwarding rule.
+1. Select the severity level.
+
+1. Select any protocols to apply.
+
+1. Select which engines the rule should apply to.
+
+1. Select an action to apply, and fill in any parameters needed for the selected action.
+
+1. Add an additional action if desired.
+
+1. Select **Submit**.
+
+**To create a forwarding rule on the management console**:
+
+1. Sign in to the sensor.
+
+1. Select **Forwarding** on the side menu.
+
+1. Select the :::image type="icon" source="../media/how-to-work-with-alerts-sensor/plus-add-icon.png" border="false"::: icon.
+
+1. In the Create Forwarding Rule window, enter a name for the rule
+
+   :::image type="content" source="../media/how-to-work-with-alerts-sensor/management-console-create-forwarding-rule.png" alt-text="Enter a meaningful name in the name field of the Create Forwarding Rule window.":::
+
+1. Select the severity level from the drop down menu.
+ 
+1. Select any protocols to apply.
+
+1. Select which engines the rule should apply to.
+
+1. Select the checkbox if you want the forwarding to rule to report system notifications.
+  
+1. Select the checkbox if you want the forwarding to rule to report alert notifications.
+
+1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
+
+1. Add an additional action if desired.
+
+1. Select **Save**.
 
 ### Forwarding rule criteria 
 
