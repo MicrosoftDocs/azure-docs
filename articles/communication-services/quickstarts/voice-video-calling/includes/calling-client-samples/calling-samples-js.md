@@ -96,6 +96,9 @@ document.getElementById('initialize-calling-sdk').addEventListener("click", asyn
         await deviceManager.askDevicePermission({ video: true });
         await deviceManager.askDevicePermission({ audio: true });
         camera = (await deviceManager.getCameras())[0];
+	if (camera) {
+            localVideoStream = new LocalVideoStream(camera);
+        }
         // Listen for an incoming call to accept.
         callAgent.on('incomingCall', async (args) => {
             try {
@@ -119,7 +122,7 @@ document.getElementById('initialize-calling-sdk').addEventListener("click", asyn
 startCall = async () => {
     try {
         const calleeUserId = document.getElementById('callee-acs-user-id-input').value.trim();
-	const videoOptions = camera ? { localVideoStreams: [new LocalVideoStream(camera)] } : undefined;
+	const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
         call = callAgent.startCall([{ communicationUserId: calleeUserId }], { videoOptions });
         await displayLocalVideoStream();
         // Subscribe to the call's properties and events.
@@ -134,7 +137,7 @@ document.getElementById('start-outgoing-call-button').addEventListener("click", 
 // For more info on accepting an incoming call, see the "Receive an incoming call" section below.
 acceptIncomingCall = async () => {
     try {
-        const videoOptions = camera ? { localVideoStreams: [new LocalVideoStream(camera)] } : undefined;
+        const videoOptions = localVideoStream ? { localVideoStreams: [localVideoStream] } : undefined;
         call = await incomingCall.accept({ videoOptions });
         await displayLocalVideoStream();
         // Subscribe to the call's properties and events.
@@ -149,8 +152,8 @@ document.getElementById('accept-incoming-call-button').addEventListener("click",
 // For more info on starting a call, see the "Local camera preview" section below.
 displayLocalVideoStream = async() => {
     try {
-        if (camera) {
-            const videoStreamRenderer = new VideoStreamRenderer(new LocalVideoStream(camera));
+        if (localVideoStream) {
+            const videoStreamRenderer = new VideoStreamRenderer(localVideoStream);
             const view = await videoStreamRenderer.createView();
             document.getElementById('localVideoContainer').removeAttribute('hidden');
             document.getElementById('localVideoContainer').appendChild(view.target);
@@ -278,7 +281,6 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
 ```
 
 An HTML example code that can use a bundle generated from the above JavaScript example (`client.js`).
-
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
@@ -644,7 +646,6 @@ localVideoStream.switchSource(camera);
 ```
 
 If the specified video device is being used by another process, or if it is disabled in the system:
-
 - While in a call, if your video is off and you start video using the call.startVideo() api, this API will throw with a SourceUnavailableError and a cameraStartFiled: true call diagnostic will be raised.
 - A call to the localVideoStream.switchSource() api will cause a cameraStartFailed: true call diagnostic to be raised.
 See Call Diagnostics section to see how to handle call diagnostics.
@@ -929,7 +930,7 @@ console.log(result.video);
 - The 'videoDevicesUpdated' event fires when video devices are plugging-in/unplugged.
 - The 'audioDevicesUpdated' event fires when audio devices are plugged
 - When the DeviceManager is created, at first it does not know about any devices if permissions have not been granted yet and so initially it's device lists are empty. If we then call the DeviceManager.askPermission() API, the user is prompted for device access and if the user clicks on 'allow' to grant the access, then the device manager will learn about the devices on the system, update it's device lists and emit the 'audioDevicesUpdated' and 'videoDevicesUpdated' events. Lets say we then refresh the page and create device manager, the device manager will be able to learn about devices because user has already previously granted access, and so it will initially it will have it's device lists filled and it will not emit 'audioDevicesUpdated' nor 'videoDevicesUpdated' events.
-- Speaker enumeration/selection is not supported on Android, iOS, nor macOS Safari.
+- Speaker enumeration/selection is not supported on Android Cheome, iOS Safari, nor macOS Safari.
 
 ## Call Feature Extensions
 
