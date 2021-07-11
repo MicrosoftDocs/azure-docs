@@ -67,6 +67,9 @@ Azure Active Directory features versioned endpoints which affect how your regist
 
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
 
+> [!NOTE]
+> While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorisation](authentication-authorization) section for more information.
+
 # [Apple](#tab/apple)
 
 | Field Path                             | Description                                                                                  |
@@ -260,7 +263,7 @@ To use a custom OIDC provider, use the following URL patterns.
 
 ### Authentication callbacks
 
-Authentication providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
+Custom OIDC providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
 
 | Type   | URL pattern                                                 |
 | ------ | ----------------------------------------------------------- |
