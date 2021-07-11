@@ -40,9 +40,9 @@ In your application, install the following NuGet packages:
 
 *  [fo-dicom](https://www.nuget.org/packages/fo-dicom/)
 
-## Create a `DicomWebClient`
+## Create a DicomWebClient
 
-After you've deployed your DICOM service, you'll create a 'DicomWebClient'. Run the following code snippet to create `DicomWebClient`, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously.
+After you've deployed your DICOM service, you'll create a DicomWebClient. Run the following code snippet to create DicomWebClient, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously.
 
 ```c#
 string webServerUrl ="{Your DicomWeb Server URL}"
@@ -51,11 +51,11 @@ httpClient.BaseAddress = new Uri(webServerUrl);
 IDicomWebClient client = new DicomWebClient(httpClient);
 ```
 
-With the `DicomWebClient`, we can now perform the Store, Retrieve, Search, and Delete operations.
+With the DicomWebClient, we can now perform the Store, Retrieve, Search, and Delete operations.
 
 ## Store DICOM Instances (STOW)
 
-Using the `DicomWebClient` that we've created, we can now store DICOM files.
+Using the DicomWebClient that we've created, we can now store DICOM files.
 
 ### Store single instance
 
@@ -87,7 +87,7 @@ Before moving on to the next part of the tutorial, upload the `green-square.dcm`
 
 ## Retrieving DICOM instance(s) (WADO)
 
-The following code snippets will demonstrate how to perform each of the retrieve queries using the `DicomWebClient` created previously.
+The following code snippets will demonstrate how to perform each of the retrieve queries using the DicomWebClient created previously.
 
 The following variables will be used throughout the rest of the examples:
 
@@ -362,4 +362,4 @@ This response deletes the blue-circle instance (it is the only element left in t
 For information about the DICOM service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM service](dicom-services-overview.md)
+>[Overview of a DICOM service](dicom-services-overview.md)
