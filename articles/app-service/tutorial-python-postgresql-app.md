@@ -208,7 +208,7 @@ When the command completes, it outputs a JSON object that contains different con
 1. Create the database server (the process takes a few minutes):
 
     ```azurecli
-    az postgres flexible-server create  --public-access all
+    az postgres flexible-server create --sku-name Standard_B1ms --public-access all
     ```
     
     If the `az` command is not recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#1-set-up-your-initial-environment).
@@ -218,7 +218,7 @@ When the command completes, it outputs a JSON object that contains different con
     - Create a default resource group if there's not a cached name already.
     - Create a PostgreSQL Flexible Server:
         - By default, the command uses a generated name like `server383813186`. You can specify your own name with the `--name` parameter. The name must be unique across all of Azure.
-        - The command uses the  `Standard_D2s_v3` pricing tier by default. You can change the tier using the `--sku-name` argument, as in `--sku-name Standard_B1ms`.
+        - The command uses the lowest-cost `Standard_B1ms` pricing tier. Omit the `--sku-name` argument to use the default `Standard_D2s_v3` tier.
         - The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `Python-Django-PGFlex-rg` in the `centralus` region.
     - Create an administrator account with a username and password. You can specify these values directly with the `--admin-user` and `--admin-password` parameters.
     - Create a database named `flexibleserverdb` by default. You can specify a database name with the `--database-name` parameter.
