@@ -105,7 +105,7 @@ Forwarding rule actions instruct the sensor to forward alert information to part
 
 In addition to the forwarding actions delivered with your system, other actions might become available when you integrate with partner vendors. 
 
-#### Email address action
+### Email address action
 
 Send mail that includes the alert information. You can enter one email address per rule.
 
@@ -117,7 +117,7 @@ To define email for the forwarding rule:
 
 1. Select **Submit**.
 
-#### Syslog server actions
+### Syslog server actions
 
 The following formats are supported:
 
@@ -176,7 +176,7 @@ Enter the following parameters:
 
 After you enter all the information, select **Submit**.
 
-#### Webhook server action
+### Webhook server action
 
 Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
 
@@ -192,7 +192,7 @@ Send alert information to a webhook server. Working with webhook servers lets yo
 
 1. Select **Save**.
 
-#### NetWitness action
+### NetWitness action
 
 Send alert information to a NetWitness server.
 
@@ -206,7 +206,7 @@ To define NetWitness forwarding parameters:
 
 1. Select **Submit**.
 
-#### Integrated vendor actions
+### Integrated vendor actions
 
 You might have integrated your system with a security, device management, or other industry vendor. These integrations let you:
 
@@ -222,7 +222,7 @@ Use the actions section to enter the credentials and other information required 
 
 For details about setting up forwarding rules for the integrations, refer to the relevant partner integration articles.
 
-### Test forwarding rules
+## Test forwarding rules
 
 Test the connection between the sensor and the partner server that's defined in your forwarding rules:
 
@@ -234,7 +234,7 @@ Test the connection between the sensor and the partner server that's defined in 
 
 1. Go to your partner system to verify that the information sent by the sensor was received.
 
-### Edit and delete forwarding rules 
+## Edit and delete forwarding rules 
 
 To edit a forwarding rule:
 
@@ -244,7 +244,7 @@ To remove a forwarding rule:
 
 - On the **Forwarding Rule** screen, select **Remove** under the **More** drop-down menu. In the **Warning** dialog box, select **OK**.
 
-### Forwarding rules and alert exclusion rules
+## Forwarding rules and alert exclusion rules
 
 The administrator might have defined alert exclusion rules. These rules help administrators achieve more granular control over alert triggering by instructing the sensor to ignore alert events based on various parameters. These parameters might include device addresses, alert names, or specific sensors.
 
