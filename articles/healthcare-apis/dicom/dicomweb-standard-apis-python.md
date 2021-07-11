@@ -107,18 +107,17 @@ _Details:_
 * Path: ../studies
 * Method: POST
 * Headers:
-    * `Accept: application/dicom+json`
-    * `Content-Type: multipart/related; type="application/dicom"`
-     * `Authorization: Bearer $token"`
+    * Accept: application/dicom+json
+    * Content-Type: multipart/related; type="application/dicom"
+     * Authorization: Bearer $token"
 
 * Body:
-    * `Content-Type: application/dicom` for each file uploaded, separated by a boundary value
+    * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
 Some programming languages and tools behave differently. For instance, some of them require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
- > * `Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234`
- > * `Content-Type: multipart/related; boundary=ABCD1234`
- > * `Content-Type: multipart/related`
-
+* Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
+* Content-Type: multipart/related; boundary=ABCD1234
+* Content-Type: multipart/related
 
 ```python
 #upload blue-circle.dcm
@@ -148,10 +147,10 @@ _Details:_
 * Path: ../studies/{study}
 * Method: POST
 * Headers:
-    * `Accept: application/dicom+json`
-    * `Content-Type: multipart/related; type="application/dicom"`
+    * Accept: application/dicom+json
+    * Content-Type: multipart/related; type="application/dicom"
 * Body:
-    * `Content-Type: application/dicom` for each file uploaded, separated by a boundary value
+    * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
 
 ```python
@@ -176,7 +175,6 @@ headers = {'Accept':'application/dicom+json', "Content-Type":content_type}
 url = f'{base_url}/studies'
 response = client.post(url, body, headers=headers, verify=False)
 ```
-
 ### Store single instance (non-standard)
 
 The following code example demonstrates how to upload a single DICOM file. It is a non-standard API endpoint that simplifies uploading a single file as binary bytes sent in the body of a request
@@ -185,8 +183,8 @@ _Details:_
 * Path: ../studies
 * Method: POST
 * Headers:
-   *  `Accept: application/dicom+json`
-   *  `Content-Type: application/dicom`
+   *  Accept: application/dicom+json
+   *  Content-Type: application/dicom
 * Body:
     * Contains a single DICOM file as binary bytes.
 
@@ -217,7 +215,7 @@ _Details:_
 * Path: ../studies/{study}
 * Method: GET
 * Headers:
-   * `Accept: multipart/related; type="application/dicom"; transfer-syntax=*`
+   * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
 
 All three of the dcm files that we uploaded previously are part of the same study so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
 
@@ -276,7 +274,7 @@ _Details:_
 * Path: ../studies/{study}/series/{series}
 * Method: GET
 * Headers:
-   * `Accept: multipart/related; type="application/dicom"; transfer-syntax=*`
+   * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
 
 This series has two instances (green-square and red-triangle), so the response should return both instances. Validate that the response has a status code of OK and that both instances are returned.
 
@@ -295,7 +293,7 @@ _Details:_
 * Path: ../studies/{study}/series/{series}/metadata
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
 
 This series has two instances (green-square and red-triangle), so the response should return metatdata for both instances. Validate that the response has a status code of OK and that both instances metadata are returned.
 
@@ -314,7 +312,7 @@ _Details:_
 * Path: ../studies/{study}/series{series}/instances/{instance}
 * Method: GET
 * Headers:
-   * `Accept: application/dicom; transfer-syntax=*`
+   * Accept: application/dicom; transfer-syntax=*
 
 This code example should only return the instance red-triangle. Validate that the response has a status code of OK and that the instance is returned.
 
@@ -333,7 +331,7 @@ _Details:_
 * Path: ../studies/{study}/series/{series}/instances/{instance}/metadata
 * Method: GET
 * Headers:
-  * `Accept: application/dicom+json`
+  * Accept: application/dicom+json
 
 This code example should only return the metatdata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
 
@@ -379,7 +377,7 @@ _Details:_
 * Path: ../studies?StudyInstanceUID={study}
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
 
 Validate that the response includes one study and that the response code is OK.
 
@@ -399,7 +397,7 @@ _Details:_
 * Path: ../series?SeriesInstanceUID={series}
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
 
 Validate that the response includes one series and that the response code is OK.
 
@@ -419,7 +417,7 @@ _Details:_
 * Path: ../studies/{study}/series?SeriesInstanceUID={series}
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
 
 Validate that the response includes one series and that the response code is OK.
 
@@ -439,7 +437,7 @@ _Details:_
 * Path: ../instances?SOPInstanceUID={instance}
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
 
 Validate that the response includes one instance and that the response code is OK.
 
@@ -459,7 +457,7 @@ _Details:_
 * Path: ../studies/{study}/instances?SOPInstanceUID={instance}
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
 
 Validate that the response includes one instance and that the response code is OK.
 
@@ -479,7 +477,7 @@ _Details:_
 * Path: ../studies/{study}/series/{series}/instances?SOPInstanceUID={instance}
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
 
 Validate that the response includes one instance and that the response code is OK.
 
@@ -552,4 +550,4 @@ response = client.delete(url)
 For information about the DICOM service, see 
 
 >[!div class="nextstepaction"]
->[Overview of DICOM service](dicom-services-overview.md)
+>[Overview of a DICOM service](dicom-services-overview.md)
