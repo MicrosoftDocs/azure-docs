@@ -11,7 +11,7 @@ ms.reviewer: sdash
 
 The name "URL ping test" is a bit of a misnomer. To be clear, these tests are not making any use of ICMP (Internet Control Message Protocol) to check your site's availability. Instead they use more advanced HTTP request functionality to validate whether an endpoint is responding. They also measure the performance associated with that response, and adds the ability to set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
 
-In order to create an availability test, you need use an existing Application Insight resource or [create an Application Insights resource](create-new-resource.md).
+In order to create an availability test, you need use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 
 ## Create a test
 
