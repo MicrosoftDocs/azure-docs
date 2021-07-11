@@ -24,7 +24,7 @@ There are two different ways you can use Azure Virtual Desktop. Each way has dif
 
 ## Per-user access pricing for Azure Virtual Desktop
 
-Per-user access pricing lets you pay for Azure Virtual Desktop access rights on behalf of external users. You must enroll in per-user access pricing to build a compliant deployment for external users. To learn more, see [Enroll in per-user access pricing]().
+Per-user access pricing lets you pay for Azure Virtual Desktop access rights on behalf of external users. You must enroll in per-user access pricing to build a compliant deployment for external users. To learn more, see Enroll in per-user access pricing.
 
 You pay for per-user access pricing through your enrolled Azure subscription or subscriptions on top of your charges for virtual machines, storage, and other Azure services. Each billing cycle, you only pay for users who actually used the service. Only users that connect at least once to Azure Virtual Desktop that month incur an access charge.
 
@@ -66,6 +66,4 @@ The Azure Virtual Desktop per-user access license isn't a full replacement for a
 
 Now that you're familiar with your licensing pricing options, you can start planning your Azure Virtual Desktop environment. Here are some articles that might help you:
 
-- [Enroll in per-user access pricing]()
-- [Estimate user access costs]()
 - If you feel ready to start setting up your first deployment, get started with our [Tutorials](../create-host-pools-azure-marketplace.md).

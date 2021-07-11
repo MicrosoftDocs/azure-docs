@@ -23,12 +23,10 @@
     - name: Deploy apps with MSIX app attach
       href: msix-app-attach.md
     - name: Host custom apps
-      href: 
+      href: custom-apps.md
     - name: App hosting licenses 
       href: 
     - name: Enroll in per-user license pricing
-      href: 
-    - name: Security guidelines
       href: 
     - name: Estimate total deployment costs 
       href: 
@@ -138,6 +136,8 @@
     items: 
     - name: Architecture recommendations 
       href: architecture-recs.md
+    - name: Security guidelines
+      href: security.md
     - name: Understand licenses and per-user access pricing
       href: licensing.md
   - name: Security
