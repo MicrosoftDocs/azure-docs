@@ -37,7 +37,7 @@ For more information about how to configure each of these areas, check out our [
 
 You can protect workloads by using security features and controls from Microsoft 365, Azure, and Azure Virtual Desktop.
 
-When the service connects to the internet, Azure Active Directory (Azure AD) authenticates its credentials, enabling protective features like [Conditional Access](/azure/active-directory/conditional-access/overview) and [multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks). These features greatly reduce the risk of user identities being compromised.
+When the service connects to the internet, Azure Active Directory (Azure AD) authenticates its credentials, enabling protective features like [Conditional Access](/azure/active-directory/conditional-access/overview) and [multifactor authentication](/azure/active-directory/authentication/concept-mfa-howitworks). These features greatly reduce the risk of user identities being compromised.
 
 Azure Virtual Desktop has features like [Reverse Connect](../network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
@@ -70,7 +70,7 @@ Security boundaries separate the code and data of security domains with differen
 | Session boundary              | A user session can't access or tamper with another user session without being authorized.                                                                    |
 | Web browser boundary          | An unauthorized website can't violate the same-origin policy, nor can it access or tamper with the native code and data of the Microsoft Edge web browser sandbox.       |
 | Virtual machine boundary      | An unauthorized Hyper-V guest virtual machine can't access or tamper with the code and data of another guest virtual machine; this includes Hyper-V isolated containers. |
-| Virtual Secure Mode (VSM) boundary  | Code running outside of the VSM trustlet or enclave can't access or tamper with data and code within the trustlet.                              |
+| Virtual Secure Mode (VSM) boundary  | Code running outside of the VSM trusted process or enclave can't access or tamper with data and code within the trusted process.                              |
 
 ## Security features
 
