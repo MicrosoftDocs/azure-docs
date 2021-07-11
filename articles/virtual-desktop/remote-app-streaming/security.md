@@ -39,7 +39,7 @@ You can protect workloads by using security features and controls from Microsoft
 
 When the service connects to the internet, Azure Active Directory (Azure AD) authenticates its credentials, enabling protective features like [Conditional Access](/azure/active-directory/conditional-access/overview) and [multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks). These features greatly reduce the risk of user identities being compromised.
 
-Azure Virtual Desktop has features like [Reverse Connect](network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+Azure Virtual Desktop has features like [Reverse Connect](../network-connectivity.md#reverse-connect-transport) that allow users to access the session host without having to open inbound ports. This feature is designed with scalability and service in mind, so it shouldn't limit your ability to expand session hosts, either. You can also use existing GPOs with this feature to apply additional security with support for Active Directory-joined VMs or, for Windows 10 session hosts that might involve Azure Active Directory Join scenarios, [Microsoft Endpoint Manager](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ## Defense in depth
 
@@ -93,7 +93,7 @@ The following table lists our recommendations for each scenario.
 | Trust level scenario                                 | Recommended solution                |
 |------------------------------------------------------|-------------------------------------|
 | Users from one organization with standard privileges | Windows 10 Enterprise multi-session |
-| Users requires administrative privileges             | Personal Desktops (VDI)             |
+| Users require administrative privileges             | Personal Desktops (VDI)             |
 | Users from different organizations connecting        | Separate Azure subscription         |
 
 Let's take a look at our recommendations for some example scenarios.
