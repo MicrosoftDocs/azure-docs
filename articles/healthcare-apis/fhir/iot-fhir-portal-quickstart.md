@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart 
 ms.date: 04/05/2021
-ms.author: punagpal
+ms.author: rabhaiya
 ---
 
 # Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal

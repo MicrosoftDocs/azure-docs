@@ -12,7 +12,7 @@ In a bash-based shell, use `curl` to download the OSM release and then extract w
 
 ```bash
 # Specify the OSM version that will be leveraged throughout these instructions
-OSM_VERSION=v0.8.2
+OSM_VERSION=v0.8.4
 
 curl -sL "https://github.com/openservicemesh/osm/releases/download/$OSM_VERSION/osm-$OSM_VERSION-darwin-amd64.tar.gz" | tar -vxzf -
 ```

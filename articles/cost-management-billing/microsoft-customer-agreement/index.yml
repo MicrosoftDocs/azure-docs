@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
-title: Get started on the Microsoft Customer Agreement
-summary: Get started with managing your billing and subscriptions under your Microsoft Customer Agreement. Learn how to understand and optimize your costs while ensuring secure access to your billing environment.
+title: Microsoft Customer Agreement documentation
+summary: Get started with managing your billing and subscriptions under your Microsoft Customer Agreement (MCA). Learn how to understand and optimize your costs while ensuring secure access to your billing environment.
 metadata:
-  title: Get started on the Microsoft Customer Agreement
-  description: Learn how to get started with your Microsoft Customer Agreement.
+  title: Microsoft Customer Agreement documentation
+  description: Learn how to get started with your Microsoft Customer Agreement (MCA).
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 05/05/2021
+  ms.date: 06/16/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -43,7 +43,10 @@ landingContent:
         url: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: API differences between EA and MCA
         url: /rest/api/billing/
-
+      - text: Cost Management Power BI connector
+        url: /power-bi/connect-data/desktop-connect-azure-cost-management?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Export Cost Management data
+        url: ../costs/tutorial-export-acm-data.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 
 
   # Card (optional)
@@ -75,6 +78,8 @@ landingContent:
         url: https://www.youtube.com/watch?v=9sqglBlKkho
       - text: Understand your invoice
         url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+      - text: Transition billing for Azure subscriptions from MOSA to MCA
+        url: https://www.youtube.com/watch?v=gfiUI2YLsgc
 
 
   # Card (optional)

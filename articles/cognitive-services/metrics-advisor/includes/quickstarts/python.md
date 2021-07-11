@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 07/07/2021
 ms.author: mbullwin
 ---
 
@@ -94,7 +94,7 @@ client = MetricsAdvisorAdministrationClient(service_endpoint,
 In a new method, create import statements like the example below. Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedmetric` and `DataFeedDimension` values based on your custom data.
 
 > [!IMPORTANT]
-> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](../../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 
+> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data.  See the [Tutorial: Write a valid query](../../tutorials/write-a-valid-query.md) for more information and examples.
 
 Create a client with your keys and endpoint, and use `client.create_data_feed()` to configure the name, source, granularity, and schema. You can also set the ingestion time, rollup settings and more.
 
@@ -103,12 +103,12 @@ Create a client with your keys and endpoint, and use `client.create_data_feed()`
 def sample_create_data_feed():
     from azure.ai.metricsadvisor import MetricsAdvisorKeyCredential, MetricsAdvisorAdministrationClient
     from azure.ai.metricsadvisor.models import (
-        SQLServerDataFeed,
+        SqlServerDataFeedSource,
         DataFeedSchema,
         DataFeedMetric,
         DataFeedDimension,
-        DataFeedOptions,
-        DataFeedRollupSettings
+        DataFeedRollupSettings,
+        DataFeedMissingDataPointFillSettings
     )
     sql_server_connection_string = "<replace-with-your-sql-server-connection-string>"
     query = "<replace-with-metrics-advisor-sql-server-query>"
@@ -118,7 +118,7 @@ def sample_create_data_feed():
 
     data_feed = client.create_data_feed(
     name="My data feed",
-    source=SQLServerDataFeed(
+    source=SqlServerDataFeedSource(
         connection_string=sql_server_connection_string,
         query=query,
     ),
@@ -135,17 +135,16 @@ def sample_create_data_feed():
         timestamp_column="Timestamp"
     ),
     ingestion_settings=datetime.datetime(2019, 10, 1),
-    options=DataFeedOptions(
-        data_feed_description="cost/revenue data feed",
-        rollup_settings=DataFeedRollupSettings(
-            rollup_type="AutoRollup",
-            rollup_method="Sum",
-            rollup_identification_value="__CUSTOM_SUM__"
-        ),
-        missing_data_point_fill_settings=DataFeedMissingDataPointFillSettings(
-            fill_type="SmartFilling"
-        ),
-        access_mode="Private"
+    data_feed_description="cost/revenue data feed",
+    rollup_settings=DataFeedRollupSettings(
+        rollup_type="AutoRollup",
+        rollup_method="Sum",
+        rollup_identification_value="__CUSTOM_SUM__"
+    ),
+    missing_data_point_fill_settings=DataFeedMissingDataPointFillSettings(
+        fill_type="SmartFilling"
+    ),
+    access_mode="Private"
     )
 )
 
@@ -232,7 +231,7 @@ detection_config = client.create_detection_configuration(
     metric_id=metric_id,
     description="anomaly detection config for metric",
     whole_series_detection_condition=MetricDetectionCondition(
-        cross_conditions_operator="OR",
+        condition_operator="OR",
         change_threshold_condition=change_threshold_condition,
         hard_threshold_condition=hard_threshold_condition,
         smart_detection_condition=smart_detection_condition
@@ -243,7 +242,7 @@ return detection_config
 
 ## Create a hook
 
-In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link for receiving the alert.  
+In a new method, create import statements like the example below. Create a client with your keys and endpoint, and use `client.create_hook()` to create a hook. Enter a description, a list of emails to send the alert to, and an external link which will appear in the alert.
 
 ```python
 def sample_create_hook():
@@ -262,7 +261,7 @@ hook = client.create_hook(
         name="email hook",
         description="my email hook",
         emails_to_alert=["alertme@alertme.com"],
-        external_link="https://example.com/handleAlerts", # you must enter a valid webhook url to post the alert payload
+        external_link="https://example.com/handleAlerts"   #A customized field configured by users, which will be displayed in the anomaly alert. It's usually been used to link to a troubleshooting guide to help further diagnose the issue.
     )
 )
 ```

@@ -58,6 +58,8 @@
   items:
     - name: Managed identities and Azure VMs
       href: how-managed-identities-work-vm.md
+    - name: Best practice recommendations
+      href: managed-identity-best-practice-recommendations.md
 - name: How-to guides
   items:
   - name: Configure managed identities on VMs
@@ -106,17 +108,7 @@
       href: howto-assign-access-powershell.md
 
   - name: Manage user-assigned managed identities
-    items:
-    - name: Portal
-      href: how-to-manage-ua-identity-portal.md
-    - name: CLI
-      href: how-to-manage-ua-identity-cli.md
-    - name: PowerShell
-      href: how-to-manage-ua-identity-powershell.md
-    - name: Azure Resource Manager Template
-      href: how-to-manage-ua-identity-arm.md
-    - name: REST
-      href: how-to-manage-ua-identity-rest.md
+    href: how-manage-user-assigned-managed-identities.md
   - name: View managed identity service principals
     items:
     - name: Portal

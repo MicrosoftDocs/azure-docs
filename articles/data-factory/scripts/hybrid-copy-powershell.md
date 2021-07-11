@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.topic: article
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.date: 10/31/2017
 ---
 

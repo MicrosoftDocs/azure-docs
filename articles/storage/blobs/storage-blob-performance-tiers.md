@@ -1,10 +1,10 @@
 ---
 title: Block blob storage performance tiers — Azure Storage
 description: Discusses the difference between premium and standard performance tiers for Azure block blob storage.
-author: twooley
+author: normesta
 
-ms.author: twooley
-ms.date: 11/12/2019
+ms.author: normesta
+ms.date: 05/17/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -22,14 +22,14 @@ Azure block blob storage offers two different performance tiers:
 
 The following considerations apply to the different performance tiers:
 
-| Area |Standard performance  |Premium performance  |
-|---------|---------|---------|
-|Region availability     |   All  regions      | In [select regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
-|Supported [storage account types](../common/storage-account-overview.md#types-of-storage-accounts)     |     General purpose v2, BlobStorage, General purpose v1    |    BlockBlobStorage     |
-|Supports [high throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Yes, at greater than 4 MiB PutBlock or PutBlob sizes     |    Yes, at greater than 256 KiB PutBlock or PutBlob sizes    |
-|Redundancy     |     See [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts)   |  Currently supports only locally-redundant storage (LRS) and zone-redudant storage (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div>     |
+| Area | Standard performance | Premium performance |
+|--|--|--|
+| Region availability | All  regions | In [select regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage) |
+| Supported [storage account types](../common/storage-account-overview.md#types-of-storage-accounts) | General purpose v2, general purpose v1, legacy blob | Premium block blob |
+| Supports [high throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) | Yes, at greater than 4 MiB PutBlock or PutBlob sizes | Yes, at greater than 256 KiB PutBlock or PutBlob sizes |
+| Redundancy | See [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts) | Currently supports only locally-redundant storage (LRS) and zone-redudant storage (ZRS)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>1</sup></div> |
 
-<div id="zone-redundant-storage"><sup>1</sup>Zone-redundant storage (ZRS) is available in select regions for premium performance block blob storage accounts.</div>
+<div id="zone-redundant-storage"><sup>1</sup>Zone-redundant storage (ZRS) is available in select regions for premium  block blob storage accounts.</div>
 
 Regarding cost, premium performance provides optimized pricing for applications with high transaction rates to help [lower total storage cost](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) for these workloads.
 
@@ -59,7 +59,7 @@ Standard performance supports different [access tiers](storage-blob-storage-tier
 
 ## Migrate from standard to premium
 
-You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a BlockBlobStorage account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](../common/storage-account-create.md).
+You can't convert an existing standard performance storage account to a block blob storage account with premium performance. To migrate to a premium performance storage account, you must create a premium block blob account, and migrate the data to the new account. For more information, see [Create a BlockBlobStorage account](../common/storage-account-create.md).
 
 To copy blobs between storage accounts, you can use the latest version of the [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) command-line tool. Other tools such as Azure Data Factory are also available for data movement and transformation.
 

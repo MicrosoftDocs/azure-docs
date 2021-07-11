@@ -63,7 +63,7 @@ This table describes the details about the subscription management process steps
 | Process step | Publisher action | Recommended or required for publishers |
 | ------------ | ------------- | ------------- |
 | 5. The publisher manages the subscription to the SaaS application through the SaaS fulfillment API. | Handle subscription changes and other management tasks through the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).<br><br>This step requires an access token as described in process step 3. | Required |
-| 6. When using metered pricing, the publisher emits usage events to the metering service API. | If your SaaS app features usage-based billing, make usage notifications through the [Marketplace metering service APIs](./partner-center-portal/marketplace-metering-service-apis.md).<br><br>This step requires an access token as described in Step 3. | Required for metering |
+| 6. When using metered pricing, the publisher emits usage events to the metering service API. | If your SaaS app features usage-based billing, make usage notifications through the [Marketplace metering service APIs](marketplace-metering-service-apis.md).<br><br>This step requires an access token as described in Step 3. | Required for metering |
 ||||
 
 ## Process steps for user management

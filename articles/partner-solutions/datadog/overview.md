@@ -4,7 +4,7 @@ description: Learn about using Datadog in the Azure Marketplace.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 02/19/2021
+ms.date: 05/28/2021
 ms.author: tomfitz
 ---
 

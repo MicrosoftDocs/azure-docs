@@ -1,7 +1,7 @@
 ---
 title: Enable system-assigned managed identity for Azure Spring Cloud application
 description: How to enable system-assigned managed identity for application.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to

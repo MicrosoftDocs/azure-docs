@@ -26,8 +26,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Host operating system** | Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2 with latest updates. Note that Server core installation of these operating systems is also supported. |
 | **Other Software requirements** | .NET Framework 4.7 or later |
 | **Port access** |  Outbound connections on HTTPS port 443 to send VM replication data.
-| **Free disk space (cache)** |  600 GB |
-| **Free disk space (retention disk)** |  600 GB |
+
 
 
 ## Hyper-V VMs
@@ -41,7 +40,7 @@ You can select up to 10 VMs at once for replication. If you want to migrate more
 | **Linux boot**                 | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks. |
 | **UEFI boot**                  | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs.  |
 | **UEFI - Secure boot**         | Not supported for migration.|
-| **Disk size**                  | 2 TB for the OS disk (BIOS boot), 4 TB for the OS disk (UEFI boot), 4 TB for the data disks.|
+| **Disk size**                  | up to 2 TB OS disk, 8 TB for the data disks.|
 | **Disk number** | A maximum of 16 disks per VM.|
 | **Encrypted disks/volumes**    | Not supported for migration.|
 | **RDM/passthrough disks**      | Not supported for migration.|

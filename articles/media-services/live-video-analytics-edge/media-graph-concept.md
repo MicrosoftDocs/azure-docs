@@ -1,11 +1,13 @@
 ---
-title: Media graph concept - Azure
-description: A media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of the media graph concept.
+title: Live Video Analytics media graph concept - Azure
+description: A media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. This article gives a detailed description of the Live Video Analytics media graph concept.
 ms.topic: conceptual
 ms.date: 05/01/2020
 
 ---
-# Media graph
+# Live Video Analytics media graph
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Suggested pre-reading
 

@@ -4,9 +4,10 @@ description: This article provides information on Web Application Firewall reque
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/20/2020
+ms.date: 07/06/2021
 ms.author: victorh
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Web Application Firewall request size limits and exclusion lists
@@ -91,7 +92,12 @@ Web Application Firewall allows you to configure request size limits within lowe
    - 500 MB for v1 Large WAF gateways
    - 750 MB for v2 WAF gateways 
 
- The default value for file upload limit is 100 MB.
+The default value for file upload limit is 100 MB.
+
+For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows:
+   
+   - 2MB request body size limit
+   - 4GB file upload limit 
 
 WAF also offers a configurable knob to turn the request body inspection on or off. By default, the request body inspection is enabled. If the request body inspection is turned off, WAF doesn't evaluate the contents of HTTP message body. In such cases, WAF continues to enforce WAF rules on headers, cookies, and URI. If the request body inspection is turned off, then maximum request body size field isn't applicable and can't be set. Turning off the request body inspection allows for messages larger than 128 KB to be sent to WAF, but the message body isn't inspected for vulnerabilities.
 

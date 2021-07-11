@@ -3,13 +3,13 @@ title: Spatial Analysis operations
 titleSuffix: Azure Cognitive Services
 description: The Spatial Analysis operations.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Spatial Analysis operations
@@ -65,6 +65,8 @@ These are the parameters required by each of these Spatial Analysis operations.
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
 | INPUT_VIDEO_WIDTH | Input video/stream's frame width (e.g. 1920). This is an optional field and if provided, the frame will be scaled to this dimension while preserving the aspect ratio.|
 | DETECTOR_NODE_CONFIG | JSON indicating which GPU to run the detector node on. It should be in the following format: `"{ \"gpu_index\": 0 }",`|
+| CAMERA_CONFIG | JSON indicating the calibrated camera parameters for multiple cameras. If the skill you used requires calibration and you already have the camera parameter, you can use this config to provide them directly. Should be in the following format: `"{ \"cameras\": [{\"source_id\": \"endcomputer.0.persondistancegraph.detector+end_computer1\", \"camera_height\": 13.105561256408691, \"camera_focal_length\": 297.60003662109375, \"camera_tiltup_angle\": 0.9738943576812744}] }"`, the `source_id` is used to identify each camera. It can be get from the `source_info` of the event we published. It will only take effect when `do_calibration=false` in `DETECTOR_NODE_CONFIG`.|
+| TRACKER_NODE_CONFIG | JSON indicating whether to compute speed in the tracker node or not. It should be in the following format: `"{ \"enable_speed\": false }",`|
 | SPACEANALYTICS_CONFIG | JSON configuration for zone and line as outlined below.|
 | ENABLE_FACE_MASK_CLASSIFIER | `True` to enable detecting people wearing face masks in the video stream, `False` to disable it. By default this is disabled. Face mask detection requires input video width parameter to be 1920 `"INPUT_VIDEO_WIDTH": 1920`. The face mask attribute will not be returned if detected people are not facing the camera or are too far from it. Refer to the [camera placement](spatial-analysis-camera-placement.md) guide for more information |
 
@@ -76,10 +78,11 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 "gpu_index": 0,
 "do_calibration": true,
 "enable_recalibration": true,
-"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_frequency_seconds": 86400,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
-"calibration_quality_check_one_round_sample_collect_num":10,
-"calibration_quality_check_queue_max_size":1000
+"calibration_quality_check_one_round_sample_collect_num": 10,
+"calibration_quality_check_queue_max_size": 1000,
+"calibration_event_frequency_seconds": -1
 }
 ```
 
@@ -92,7 +95,113 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 | `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimum number of seconds between collecting new data samples for recalibration and quality checking. Default is `300` (5 minutes). Only used when `enable_recalibration=True`.|
 | `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
 | `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
+| `calibration_event_frequency_seconds` | int | Output frequency (seconds) of camera calibration events. A value of `-1` indicates that the camera calibration should not be sent unless the camera calibration info has been changed. Default is `-1`.|
 | `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
+| `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to False. |
+
+
+### Camera calibration output
+This is an example of the output from camera calibration if enabled. Ellipses indicate more of the same type of objects in a list.
+```
+{
+  "type": "cameraCalibrationEvent",
+  "sourceInfo": {
+    "id": "camera1",
+    "timestamp": "2021-04-20T21:15:59.100Z",
+    "width": 640,
+    "height": 360,
+    "frameId": 531,
+    "cameraCalibrationInfo": {
+      "status": "Calibrated",
+      "cameraHeight": 13.294151306152344,
+      "focalLength": 372.0000305175781,
+      "tiltupAngle": 0.9581864476203918,
+      "lastCalibratedTime": "2021-04-20T21:15:59.058"
+    }
+  },
+  "zonePlacementInfo": {
+    "optimalZoneRegion": {
+      "type": "POLYGON",
+       "points": [
+        {
+          "x": 0.8403755868544601,
+          "y": 0.5515320334261838
+        },
+        {
+          "x": 0.15805946791862285,
+          "y": 0.5487465181058496
+        },
+        ...
+      ],
+      "name": "optimal_zone_region"
+    },
+    "fairZoneRegion": {
+      "type": "POLYGON",
+      "points": [
+        {
+          "x": 0.7871674491392802,
+          "y": 0.7437325905292479
+        },
+        {
+          "x": 0.22065727699530516,
+          "y": 0.7325905292479109
+        },
+        ...
+      ],
+      "name": "fair_zone_region"
+    },
+    "uniformlySpacedPersonBoundingBoxes": [
+      {
+        "type": "RECTANGLE",
+        "points": [
+          {
+            "x": 0.0297339593114241,
+            "y": 0.0807799442896936
+          },
+          {
+            "x": 0.10015649452269171,
+            "y": 0.2757660167130919
+          }
+        ]
+      },
+      ...
+    ],
+    "personBoundingBoxGroundPoints": [
+      {
+        "x": -22.944068908691406,
+        "y": 31.487680435180664
+      },
+      ...
+    ]
+  }
+}
+```
+
+See [Spatial analysis operation output](#spatial-analysis-operation-output) for details on `source_info`.
+
+| ZonePlacementInfo Field Name | Type| Description|
+|---------|---------|---------|
+| `optimalZonePolygon` | object| A polygon in the camera image where lines or zones for your operations can be placed for optimal results. <br/> Each value pair represents the x,y for vertices of a polygon. The polygon represents the areas in which people are tracked or counted and polygon points are based on normalized coordinates (0-1), where the top left corner is (0.0, 0.0) and the bottom right corner is (1.0, 1.0).|
+| `fairZonePolygon` | object| A polygon in the camera image where lines or zones for your operations can be placed for good, but possibly not optimal, results. <br/> See `optimalZonePolygon` above for an in-depth explanation of the contents. |
+| `uniformlySpacedPersonBoundingBoxes` | list | A list of bounding boxes of people within the camera image distributed uniformly in real space. Values are based on normalized coordinates (0-1).|
+| `personBoundingBoxGroundPoints` | list | A list of coordinates on the floor plane relative to the camera. Each coordinate corresponds to the bottom right of the bounding box in `uniformlySpacedPersonBoundingBoxes` with the same index. <br/> See the `centerGroundPoint` field under the [JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights) section for more details on how coordinates on the floor plane are calculated. |
+
+Example of the zone placement info output visualized on a video frame:
+![Zone placement info visualization](./media/spatial-analysis/zone-placement-info-visualization.png)
+
+The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configuration](#camera-configuration) must still be followed for best results.
+
+### Speed Parameter Settings
+You can configure the speed computation through the tracker node parameter settings.
+```
+{
+"enable_speed": true,
+}
+```
+| Name | Type| Description|
+|---------|---------|---------|
+| `enable_speed` | bool | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to false. It is highly recommended that we enable both speed and orientation to have the best estimated values |
+
 
 ## Spatial Analysis operations configuration and output
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
@@ -211,6 +320,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 | `zones` | list| List of zones. |
 | `name` | string| Friendly name for this zone.|
 | `polygon` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which people are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
+| `target_side` | int| Specifies a side of the zone defined by `polygon` to measure how long people face that side while in the zone. 'dwellTimeForTargetSide' will output that estimated time. Each side is a numbered edge between the two vertices of the polygon that represents your zone. For example, the edge between the first two vertices of the polygon represent first side, 'side'=1. The value of `target_side` is between `[0,N-1]` where `N` is the number of sides of the `polygon`. This is an optional field.  |
 | `threshold` | float| Events are egressed when the person is greater than this number of pixels inside the zone. The default value is 48 when type is zonecrossing and 16 when time is DwellTime. These are the recommended values to achieve maximum accuracy.  |
 | `type` | string| For **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** this should be `zonecrossing` or `zonedwelltime`.|
 | `trigger`|string|The type of trigger for sending an event<br>Supported Values: "event": fire when someone enters or exits the zone.|
@@ -531,6 +641,7 @@ Sample JSON for detections output by this operation.
 | `properties` | collection| Collection of values|
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of line crossings, either 'CrossLeft' or 'CrossRight'. Direction is based on imagining standing at the "start" facing the "end" of the line. CrossRight is crossing from left to right. CrossLeft is crossing from right to left.|
+| `orientationDirection` | string| The orientation direction of the detected person after crossing the line. The value can be 'Left', 'Right, or 'Straight'. This value is output if `enable_orientation` is set to `True` in `DETECTOR_NODE_CONFIG` |
 | `zone` | string | The "name" field of the line that was crossed|
 
 | Detections Field Name | Type| Description|
@@ -540,6 +651,9 @@ Sample JSON for detections output by this operation.
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
+| `groundOrientationAngle` | float| The clockwise radian angle of the person's orientation on the inferred ground plane |
+| `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
+| `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
 | `face_mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
 | `face_nomask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |
@@ -630,7 +744,8 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-              "durationMs": 7132.0
+		              "dwellTime": 7132.0,
+		              "dwellFrames": 20            
             },
             "zone": "queuecamera"
         }
@@ -661,7 +776,12 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
                 ]
             },
             "confidence": 0.6267998814582825,
-            "metadataType": ""
+            "metadataType": "",
+	         "metadata": { 
+	    	         "groundOrientationAngle": 1.2,
+		             "mappedImageOrientation": 0.3,
+		             "speed": 1.2
+	           },
         }
     ],
     "schemaVersion": "1.0"
@@ -677,7 +797,11 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `trackinId` | string| Unique identifier of the person detected|
 | `status` | string| Direction of polygon crossings, either 'Enter' or 'Exit'|
 | `side` | int| The number of the side of the polygon that the person crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side. 'Side' is empty when the event isn't associated with a specific side due to occlusion. For example, an exit occurred when a person disappears but wasn't seen crossing a side of the zone or an enter occurred when a person appeared in the zone but wasn't seen crossing a side.|
-| `durationMs` | float | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is _personZoneDwellTimeEvent_|
+| `dwellTime` | float | The number of milliseconds that represent the time the person spent in the zone. This field is provided when the event type is personZoneDwellTimeEvent|
+| `dwellFrames` | int | The number of frames that the person spent in the zone. This field is provided when the event type is personZoneDwellTimeEvent|
+| `dwellTimeForTargetSide` | float | The number of milliseconds that represent the time the person spent in the zone and were facing to the `target_side`. This field is provided when `enable_orientation` is `True` in `DETECTOR_NODE_CONFIG ` and the value of `target_side` is set in `SPACEANALYTICS_CONFIG`|
+| `avgSpeed` | float| The average speed of the person in the zone. The unit is `foot per second (ft/s)`|
+| `minSpeed` | float| The minimum speed of the person in the zone. The unit is `foot per second (ft/s)`|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 
 | Detections Field Name | Type| Description|
@@ -687,6 +811,9 @@ Sample JSON for detections output by this operation with `zonedwelltime` type SP
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
 | `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
+| `groundOrientationAngle` | float| The clockwise radian angle of the person's orientation on the inferred ground plane |
+| `mappedImageOrientation` | float| The projected clockwise radian angle of the person's orientation on the 2D image space |
+| `speed` | float| The estimated speed of the detected person. The unit is `foot per second (ft/s)`|
 | `confidence` | float| Algorithm confidence|
 | `face_mask` | float | The attribute confidence value with range (0-1) indicates the detected person is wearing a face mask |
 | `face_nomask` | float | The attribute confidence value with range (0-1) indicates the detected person is **not** wearing a face mask |

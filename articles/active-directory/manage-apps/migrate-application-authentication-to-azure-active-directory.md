@@ -2,14 +2,14 @@
 title: 'Migrate application authentication to Azure Active Directory'
 description: This whitepaper details the planning for and benefits of migrating your application authentication to Azure AD.
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/05/2021
-ms.author: iangithinji
+ms.author: davidmu
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ---
@@ -93,7 +93,7 @@ Economics and security benefits drive organizations to adopt Azure AD, but full 
 - Reduce administrative overhead by managing only a single identity for each user across cloud and on-premises environments:
 
   - [Automate provisioning](../app-provisioning/user-provisioning.md) of user accounts (in [Azure AD Gallery](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps))based on Azure AD identities
-  - Access all your apps from MyApps panel in the [Azure portal ](https://portal.azure.com/)
+  - Access all your apps from MyApps panel in the [Azure portal](https://portal.azure.com/)
 
 - Enable developers to secure access to their apps and improve the end-user experience by using the [Microsoft Identity Platform](../develop/v2-overview.md) with the Microsoft Authentication Library (MSAL).
 
@@ -550,11 +550,9 @@ Once you have migrated the apps, you can enrich your user’s experience in many
 
 **Point your user** to the [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](../app-proxy/application-proxy.md) provided they have permissions to access those apps.
 
-
 You can guide your users on how to discover their apps:
 
 - Use the [Existing Single Sign-on](./view-applications-portal.md) feature to **link your users to any app**
-
 
 - Enable [Self-Service Application Access](./manage-self-service-access.md)to an app and **let users add apps that you curate**
 

@@ -30,7 +30,7 @@ This quickstart requires:
 - For Windows ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
 - On Android, you need an ARM-based Android device (API 23: Android 6.0 Marshmallow or higher) enabled for development with a working microphone.
 - On iOS, you need an iOS device (ARM64) enabled for development with a working microphone.
-- On MacOS, you need Mac device (x64) and the latest LTS version of Unity 2019 (or higher) for integrated support for microphone access in Unity Player settings.
+- On macOS, you need Mac device (x64) and the latest LTS version of Unity 2019 (or higher) for integrated support for microphone access in Unity Player settings.
 
 ## Install the Speech SDK
 
@@ -43,8 +43,6 @@ To install the Speech SDK for Unity, follow these steps:
 1. Ensure that all files are selected, and select **Import**. After a few moments, the Unity asset package is imported into your project.
 
 For more information about importing asset packages into Unity, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

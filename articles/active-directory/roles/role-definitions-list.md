@@ -27,16 +27,16 @@ This article describes how to list the Azure AD built-in and custom roles along 
 
 1. Select **Roles and administrators** to see the list of all available roles.
 
-    ![list of roles in Azure AD portal](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
+    ![list of roles in Azure portal](./media/role-definitions-list/view-roles-in-azure-active-directory.png)
 
 1. On the right, select the ellipsis and then **Description** to see the complete list of permissions for a role.
 
     The page includes links to relevant documentation to help guide you through managing roles.
 
-    ![Screenshot that shows the "Global administrator - Description" page.](./media/role-definitions-list/role-description.png)
+    ![Screenshot that shows the "Global Administrator - Description" page.](./media/role-definitions-list/role-description.png)
 
 ## Next steps
 
 * Feel free to share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* For more about roles and Administrator role assignment, see [Assign administrator roles](permissions-reference.md).
+* For more about role permissions, see [Azure AD built-in roles](permissions-reference.md).
 * For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

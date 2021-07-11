@@ -52,7 +52,7 @@ A hot partition arises when one or a few logical partition keys consume a dispro
 
 Here are some examples of partitioning strategies that lead to hot partitions:
 - You have a container storing IoT device data for a write-heavy workload that is partitioned by date. All data for a single date will reside on the same logical and physical partition. Because all the data written each day has the same date, this would result in a hot partition every day. 
-    - Instead, for this scenario, a partition key like id (either a GUID or device id), or a [synthetic partition key](/synthetic-partition-keys.md) combining id and date would yield a higher cardinality of values and better distribution of request volume.
+    - Instead, for this scenario, a partition key like id (either a GUID or device id), or a [synthetic partition key](./synthetic-partition-keys.md) combining id and date would yield a higher cardinality of values and better distribution of request volume.
 - You have a multi-tenant scenario with a container partitioned by tenantId. If one tenant is significantly more active than the others, it results in a hot partition. For example, if the largest tenant has 100,000 users, but most tenants have fewer than 10 users, you will have a hot partition when partitioned by the tenantID. 
     - For this previous scenario, consider having a dedicated container for the largest tenant, partitioned by a more granular property such as UserId. 
     
@@ -88,7 +88,7 @@ This sample output shows that in a particular minute, the logical partition key 
 > In any workload, there will be natural variation in request volume across logical partitions. You should determine if the hot partition is caused by a fundamental skewness due to choice of partition key (which may require changing the key) or temporary spike due to natural variation in workload patterns.
 
 #### Recommended solution
-Review the guidance on [how to chose a good partition key](/partitioning-overview.md#choose-partitionkey).
+Review the guidance on [how to chose a good partition key](./partitioning-overview.md#choose-partitionkey).
 
 If there is high percent of rate limited requests and no hot partition:
 - You can [increase the RU/s](set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template.  

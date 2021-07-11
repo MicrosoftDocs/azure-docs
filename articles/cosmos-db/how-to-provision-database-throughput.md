@@ -26,8 +26,10 @@ If you are using a different API, see [API for MongoDB](how-to-provision-through
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 
    * Enter a database ID.
-   * Select the **Provision database throughput** option.
-   * Enter a throughput (for example, 1000 RUs).
+   * Select the **Share throughput across containers** option.
+   * Select **Autoscale** or **Manual** throughput and enter the required **Database throughput** (for example, 1000 RU/s).
+   * Enter a name for your container under **Container ID**
+   * Enter a **Partition key**
    * Select **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Screenshot of New Database dialog box":::

@@ -43,7 +43,7 @@ Here is an example that populates the marker `tags` for three twins:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
-Here is a code example on how to set the marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client):
+Here is a code example on how to set the marker `tags` for a twin using the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
 

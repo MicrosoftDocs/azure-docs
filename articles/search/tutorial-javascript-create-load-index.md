@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
 ---
@@ -91,6 +91,14 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
 1. Expand Indexes, then Documents, then `good-books`, then select a doc to see all the document-specific data.
  
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
+
+## Rollback bulk import file changes
+
+Use the following git command in the VS Code integrated terminal at the `bulk-insert` directory, to rollback the changes. They are not needed to continue the tutorial and you shouldn't save or push these secrets to your repo. 
+
+```git
+git checkout .
+```
 
 ## Copy your Search resource name
 

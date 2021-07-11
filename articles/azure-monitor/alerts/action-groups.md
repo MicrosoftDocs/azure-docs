@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 05/28/2021
 ms.author: dukek
 ---
 # Create and manage action groups in the Azure portal
@@ -154,6 +154,8 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
 
+When defining the Function action the the Function's httptrigger endpoint and access key are saved in the action definition. For example: `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. If you change the access key for the function you will need to remove and recreate the Function action in the Action Group.
+
 You may have a limited number of Function actions in an Action Group.
 
 ### ITSM
@@ -298,12 +300,14 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
 | 351 | Portugal |
 | 1 | Puerto Rico |
 | 40 | Romania |
+| 7  | Russia  |
 | 65 | Singapore |
 | 27 | South Africa |
 | 82 | South Korea |
 | 34 | Spain |
 | 41 | Switzerland |
 | 886 | Taiwan |
+| 971 | UAE    |
 | 44 | United Kingdom |
 | 1 | United States |
 

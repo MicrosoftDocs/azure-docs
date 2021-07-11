@@ -7,7 +7,8 @@ ms.author: banders
 ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Link a partner ID to your Azure accounts

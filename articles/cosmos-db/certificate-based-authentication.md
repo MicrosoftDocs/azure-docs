@@ -7,7 +7,8 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
-ms.reviewer: sngun
+ms.reviewer: sngun 
+ms.custom: devx-track-azurepowershell
 
 ---
 
