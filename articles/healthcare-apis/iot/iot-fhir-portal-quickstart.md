@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal'
-description: In this quickstart, you'll learn how to deploy, configure, and use the Azure IoT Connector for FHIR feature of Azure API for FHIR using the Azure portal.
+description: In this quickstart, you'll learn how to deploy, configure, and use the Azure IoT Connector for FHIR feature of FHIR service using the Azure portal.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
@@ -12,21 +12,21 @@ ms.author: rabhaiya
 
 # Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal
 
-Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. During the preview phase, Azure IoT Connector for FHIR feature is being available for free. In this quickstart, you'll learn how to:
+Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* is an optional feature of FHIR service that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. During the preview phase, Azure IoT Connector for FHIR feature is being available for free. In this quickstart, you'll learn how to:
 - Deploy and configure Azure IoT Connector for FHIR using the Azure portal
 - Use a simulated device to send data to Azure IoT Connector for FHIR
-- View resources created by Azure IoT Connector for FHIR on Azure API for FHIR
+- View resources created by Azure IoT Connector for FHIR on FHIR service
 
 ## Prerequisites
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Azure API for FHIR resource - [Deploy Azure API for FHIR using Azure portal](../fhir/fhir-paas-portal-quickstart.md)
+- FHIR service resource - [Deploy FHIR service using Azure portal](../fhir/fhir-portal-quickstart.md)
 
-## Go to Azure API for FHIR resource
+## Go to FHIR service resource
 
-Open the [Azure portal](https://portal.azure.com) and go to the **Azure API for FHIR** resource for which you'd like to create the Azure IoT Connector for FHIR feature.
+Open the [Azure portal](https://portal.azure.com) and go to the **FHIR service** resource for which you'd like to create the Azure IoT Connector for FHIR feature.
 
-[![Azure API for FHIR resource](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg)](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg#lightbox)
+[![FHIR service resource](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg)](media/quickstart-iot-fhir-portal/portal-azure-api-fhir.jpg#lightbox)
 
 On the left-hand navigation menu, click on **IoT Connector (preview)** under the **Add-ins** section to open the **IoT Connectors** page.
 
@@ -47,8 +47,8 @@ Enter settings for the new Azure IoT Connector for FHIR. Click on **Create** but
 
 |Setting|Value|Description |
 |---|---|---|
-|Connector name|A unique name|Enter a name to identify your Azure IoT Connector for FHIR This name should be unique within an Azure API for FHIR resource. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must start and end with a letter or a number, and must be between 3-24 characters in length.|
-|Resolution type|Lookup or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html) and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your Azure API for FHIR. Azure IoT Connector for FHIR will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want Azure IoT Connector for FHIR to create bare-bones Device and Patient resources in your Azure API for FHIR using respective identifier values present in the device data.|
+|Connector name|A unique name|Enter a name to identify your Azure IoT Connector for FHIR This name should be unique within an FHIR service resource. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must start and end with a letter or a number, and must be between 3-24 characters in length.|
+|Resolution type|Lookup or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html) and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your FHIR service. Azure IoT Connector for FHIR will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want Azure IoT Connector for FHIR to create bare-bones Device and Patient resources in your FHIR service using respective identifier values present in the device data.|
 
 Once installation is complete, the newly created Azure IoT Connector for FHIR will show up on the **IoT Connectors** page.
 
@@ -184,16 +184,16 @@ Create a new data export:
 - Under **Data** select *Telemetry* as the *Type of data to export*.
 - Under **Destination** select the destination name you created in the previous name.
 
-## View device data in Azure API for FHIR
+## View device data in FHIR service
 
-You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. Set up your [Postman to access Azure API for FHIR](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
+You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on FHIR service using Postman. Set up your [Postman to access FHIR service](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value. 
 
 > [!TIP]
-> Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](../fhir/configure-azure-rbac.md) to assign required data plane roles.
+> Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../fhir/configure-azure-rbac.md) to assign required data plane roles.
 
 ## Clean up resources
 
-When no longer needed, you can delete an instance of Azure IoT Connector for FHIR by removing the associated resource group, or the associated Azure API for FHIR service, or the Azure IoT Connector for FHIR instance itself. 
+When no longer needed, you can delete an instance of Azure IoT Connector for FHIR by removing the associated resource group, or the associated FHIR service, or the Azure IoT Connector for FHIR instance itself. 
 
 To directly remove an Azure IoT Connector for FHIR instance, select the instance from **IoT Connectors** page to go to **IoT Connector** page and click on **Delete** button. Select **Yes** when asked for confirmation. 
 
@@ -201,7 +201,7 @@ To directly remove an Azure IoT Connector for FHIR instance, select the instance
 
 ## Next steps
 
-In this quickstart guide, you've deployed Azure IoT Connector for FHIR feature in your Azure API for FHIR resource. Select from below next steps to learn more about Azure IoT Connector for FHIR:
+In this quickstart guide, you've deployed Azure IoT Connector for FHIR feature in your FHIR service resource. Select from below next steps to learn more about Azure IoT Connector for FHIR:
 
 Understand different stages of data flow within Azure IoT Connector for FHIR.
 

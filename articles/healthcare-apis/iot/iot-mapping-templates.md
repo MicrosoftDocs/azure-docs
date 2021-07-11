@@ -1,5 +1,5 @@
 ---
-title: 'Concepts: Mapping templates in Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR'
+title: 'Concepts: Mapping templates in Azure IoT Connector for FHIR (preview) feature of FHIR service'
 description: Learn to create two types of mapping templates in Azure IoT Connector for FHIR (preview). Device mapping template transforms device data into a normalized schema. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource.
 services: healthcare-apis
 author: ms-puneet-nagpal

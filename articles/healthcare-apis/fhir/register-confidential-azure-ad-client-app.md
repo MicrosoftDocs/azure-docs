@@ -1,5 +1,5 @@
 ---
-title: Register a confidential client app in Azure AD - Azure API for FHIR
+title: Register a confidential client app in Azure AD - FHIR service
 description: Register a confidential client application in Azure Active Directory that authenticates on a user's behalf and requests access to resource applications.
 services: healthcare-apis
 author: matjazl
@@ -48,7 +48,7 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **Add a permission**.
 
-    If you're using the Azure API for FHIR, you'll add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare API** under **APIs my organization uses**. The search result for Azure Healthcare API will only return if you've already [deployed the Azure API for FHIR](fhir-paas-powershell-quickstart.md).
+    If you're using the FHIR service, you'll add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare API** under **APIs my organization uses**. The search result for Azure Healthcare API will only return if you've already [deployed the FHIR service](fhir-paas-powershell-quickstart.md).
 
     If you're referencing a different resource application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
@@ -83,4 +83,4 @@ Now that you've registered your application, you must select which API permissio
 In this article, you were guided through the steps of how to register a confidential client application in the Azure AD. You were also guided through the steps of how to add API permissions to the Azure Healthcare API. Lastly, you were shown how to create an application secret. Furthermore, you can learn how to access your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)
+>[Access FHIR service with Postman](access-fhir-postman-tutorial.md)

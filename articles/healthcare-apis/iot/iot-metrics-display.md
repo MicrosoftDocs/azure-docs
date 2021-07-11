@@ -19,7 +19,7 @@ In this article, you'll learn how to display and configure Azure IoT Connector f
 
 ## Display metrics for Azure IoT Connector for FHIR (preview)
 
-1. Sign in to the Azure portal, and then select your Azure API for FHIR service. 
+1. Sign in to the Azure portal, and then select your FHIR service. 
 
 2. On the left pane, select **Metrics**. 
 
@@ -27,7 +27,7 @@ In this article, you'll learn how to display and configure Azure IoT Connector f
 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-main.png" alt-text="Screenshot of the 'IoT Connector' pane, with line graphs displaying the number of incoming and normalized messages." lightbox="media/iot-metrics-display/iot-metrics-main.png"::: 
 
-4. Select an IoT Connector to view its metrics. For example, there are four IoT Connectors (*connector 1*, *connector 2*, and so on) associated with this Azure API for FHIR service.
+4. Select an IoT Connector to view its metrics. For example, there are four IoT Connectors (*connector 1*, *connector 2*, and so on) associated with this FHIR service.
 
    :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="Screenshot of the 'IoT Connector' pane, displaying IoT Connector tabs 1, 2, 3, and 4." lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 

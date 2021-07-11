@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Receive device data through Azure IoT Hub'
-description: In this tutorial, you'll learn how to enable device data routing from IoT Hub into Azure API for FHIR through Azure IoT Connector for FHIR.
+description: In this tutorial, you'll learn how to enable device data routing from IoT Hub into FHIR service through Azure IoT Connector for FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
@@ -12,12 +12,12 @@ ms.author: rabhaiya
 
 # Tutorial: Receive device data through Azure IoT Hub
 
-Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into Azure API for FHIR. The [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) to Azure IoT Connector for FHIR. Azure IoT Connector for FHIR can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to Azure IoT Connector for FHIR.
+Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into FHIR service. The [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) to Azure IoT Connector for FHIR. Azure IoT Connector for FHIR can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to Azure IoT Connector for FHIR.
 
 ## Prerequisites
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Azure API for FHIR resource with at least one Azure IoT Connector for FHIR - [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md)
+- FHIR service resource with at least one Azure IoT Connector for FHIR - [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md)
 - Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](../../iot-hub/quickstart-send-telemetry-dotnet.md)
 
 > [!TIP]
@@ -49,8 +49,8 @@ Here is the list of parameters to use with the command to create an endpoint:
 |Name|hub-name|Name of your IoT Hub resource.|
 |EndpointName|endpoint-name|Use a name that you would like to assign to the endpoint being created.|
 |EndpointType|endpoint-type|Type of endpoint that IoT Hub needs to connect with. Use literal value of "EventHub" for PowerShell and "eventhub" for CLI.|
-|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
-|EndpointSubscriptionId|endpoint-subscription-id|Subscription Id for your Azure IoT Connector for FHIR's Azure API for FHIR resource. You can get this value from the Overview page of Azure API for FHIR.|
+|EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for FHIR's FHIR service resource. You can get this value from the Overview page of FHIR service.|
+|EndpointSubscriptionId|endpoint-subscription-id|Subscription Id for your Azure IoT Connector for FHIR's FHIR service resource. You can get this value from the Overview page of FHIR service.|
 |ConnectionString|connection-string|Connection string to your Azure IoT Connector for FHIR. Use the value you obtained in the previous step.|
 
 ### Add a message route
@@ -68,7 +68,7 @@ Here is the list of parameters to use with the command to add a message route:
 
 ## Send device message to IoT Hub
 
-Use your device (real or simulated) to send the sample heart rate message shown below to Azure IoT Hub. This message will get routed to Azure IoT Connector for FHIR, where the message will be transformed into a FHIR Observation resource and stored into the Azure API for FHIR.
+Use your device (real or simulated) to send the sample heart rate message shown below to Azure IoT Hub. This message will get routed to Azure IoT Connector for FHIR, where the message will be transformed into a FHIR Observation resource and stored into the FHIR service.
 
 ```json
 {
@@ -86,12 +86,12 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 > [!IMPORTANT]
 > Make sure to send the device message that conforms to the [mapping templates](iot-mapping-templates.md) configured with your Azure IoT Connector for FHIR.
 
-## View device data in Azure API for FHIR
+## View device data in FHIR service
 
-You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR on Azure API for FHIR using Postman. Set up your [Postman to access Azure API for FHIR](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
+You can view the FHIR Observation resource(s) created by Azure IoT Connector for FHIR on FHIR service using Postman. Set up your [Postman to access FHIR service](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value submitted in the above sample message.
 
 > [!TIP]
-> Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](../fhir/configure-azure-rbac.md) to assign required data plane roles.
+> Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../fhir/configure-azure-rbac.md) to assign required data plane roles.
 
 
 ## Next steps

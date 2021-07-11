@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 # Quickstart: Use an Azure Resource Manager (ARM) template to deploy Azure IoT Connector for FHIR (preview)
 
-In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*, a feature of Azure API for FHIR. To deploy a working instance of Azure IoT Connector for FHIR, this template also deploys a parent Azure API for FHIR service and an Azure IoT Central application that  exports telemetry from a device simulator to Azure IoT Connector for FHIR. You can execute ARM template to deploy Azure IoT Connector for FHIR through the Azure portal, PowerShell, or CLI.
+In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*, a feature of FHIR service. To deploy a working instance of Azure IoT Connector for FHIR, this template also deploys a parent FHIR service and an Azure IoT Central application that  exports telemetry from a device simulator to Azure IoT Connector for FHIR. You can execute ARM template to deploy Azure IoT Connector for FHIR through the Azure portal, PowerShell, or CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -56,7 +56,7 @@ Select the following link to deploy the Azure IoT Connector for FHIR using the A
 
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
 
-On the **Deploy Azure API for FHIR** page:
+On the **Deploy FHIR service** page:
 
 1. If you want, change the **Subscription** from the default to a different subscription.
 
@@ -64,9 +64,9 @@ On the **Deploy Azure API for FHIR** page:
 
 3. If you created a new resource group, select a **Region** for the resource group.
 
-4. Enter a name for your new Azure API for FHIR instance in **FHIR Service Name**.
+4. Enter a name for your new FHIR service instance in **FHIR Service Name**.
 
-5. Choose the **Location** for your Azure API for FHIR. The location can be the same as or different from the region of the resource group.
+5. Choose the **Location** for your FHIR service. The location can be the same as or different from the region of the resource group.
 
 6. Provide a name for your Azure IoT Connector for FHIR instance in **Iot Connector Name**.
 
@@ -102,7 +102,7 @@ Use the following code to deploy the Azure IoT Connector for FHIR service using 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
 $resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
-$fhirServiceName = Read-Host -Prompt "Enter a name for the new Azure API for FHIR service"
+$fhirServiceName = Read-Host -Prompt "Enter a name for the new FHIR service"
 $location = Read-Host -Prompt "Enter an Azure region (for example, westus2) for the service"
 $iotConnectorName = Read-Host -Prompt "Enter a name for the new Azure IoT Connector for FHIR"
 $connectionName = Read-Host -Prompt "Enter a name for the connection with Azure IoT Connector for FHIR"
@@ -142,7 +142,7 @@ Use the following code to deploy the Azure IoT Connector for FHIR service using 
 ```azurecli-interactive
 read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
 read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
-read -p "Enter a name for the new Azure API for FHIR service: " fhirServiceName &&
+read -p "Enter a name for the new FHIR service: " fhirServiceName &&
 read -p "Enter an Azure region (for example, westus2) for the service: " location &&
 read -p "Enter a name for the new Azure IoT Connector for FHIR: " iotConnectorName &&
 read -p "Enter a name for the connection with Azure IoT Connector for FHIR: " connectionName &&
@@ -160,17 +160,17 @@ read -p "Press [ENTER] to continue: "
 ---
 
 > [!NOTE]
-> The deployment takes a few minutes to complete. Note the names for the Azure API for FHIR service, Azure IoT Central application, and the resource group, which you use to review the deployed resources later.
+> The deployment takes a few minutes to complete. Note the names for the FHIR service, Azure IoT Central application, and the resource group, which you use to review the deployed resources later.
 
 ## Review deployed resources
 
 # [Portal](#tab/azure-portal)
 
-Follow these steps to see an overview of your new Azure API for FHIR service:
+Follow these steps to see an overview of your new FHIR service:
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure API for FHIR**.
+1. In the [Azure portal](https://portal.azure.com), search for and select **FHIR service**.
 
-2. In the FHIR list, select your new service. The **Overview** page for the new Azure API for FHIR service appears.
+2. In the FHIR list, select your new service. The **Overview** page for the new FHIR service appears.
 
 3. To validate that the new FHIR API account is provisioned, select the link next to **FHIR metadata endpoint** to fetch the FHIR API capability statement. The link has a format of `https://<service-name>.azurehealthcareapis.com/metadata`. If the account is provisioned, a large JSON file is displayed.
 
@@ -182,10 +182,10 @@ Follow these steps to see an overview of your new Azure API for FHIR service:
 
 # [PowerShell](#tab/PowerShell)
 
-Run the following interactive code to view details about your Azure API for FHIR service. You'll have to enter the name of the new FHIR service and the resource group.
+Run the following interactive code to view details about your FHIR service. You'll have to enter the name of the new FHIR service and the resource group.
 
 ```azurepowershell-interactive
-$fhirServiceName = Read-Host -Prompt "Enter the name of your Azure API for FHIR service"
+$fhirServiceName = Read-Host -Prompt "Enter the name of your FHIR service"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Write-Verbose "Get-AzHealthcareApisService -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
 Get-AzHealthcareApisService -ResourceGroupName $resourceGroupName -Name $serviceName
@@ -211,10 +211,10 @@ Get-AzIotCentralApp -ResourceGroupName $resourceGroupName -Name $iotCentralName
 
 # [CLI](#tab/CLI)
 
-Run the following interactive code to view details about your Azure API for FHIR service. You'll have to enter the name of the new FHIR service and the resource group.
+Run the following interactive code to view details about your FHIR service. You'll have to enter the name of the new FHIR service and the resource group.
 
 ```azurecli-interactive
-read -p "Enter the name of your Azure API for FHIR service: " fhirServiceName &&
+read -p "Enter the name of your FHIR service: " fhirServiceName &&
 read -p "Enter the resource group name: " resourceGroupName &&
 echo "SHOW SERVICE DETAILS:  az healthcareapis service show --resource-group $resourceGroupName --resource-name $fhirServiceName" &&
 az healthcareapis service show --resource-group $resourceGroupName --resource-name $fhirServiceName &&
@@ -252,12 +252,12 @@ Once you've deployed your IoT Central application, your two out-of-the-box simul
 
 ---
 
-## View device data in Azure API for FHIR
+## View device data in FHIR service
 
-You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on your FHIR server using Postman. Set up your [Postman to access Azure API for FHIR](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value.
+You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on your FHIR server using Postman. Set up your [Postman to access FHIR service](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value.
 
 > [!TIP]
-> Ensure that your user has appropriate access to Azure API for FHIR data plane. Use [Azure role-based access control (Azure RBAC)](../fhir/configure-azure-rbac.md) to assign required data plane roles.
+> Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../fhir/configure-azure-rbac.md) to assign required data plane roles.
 
 ---
 
@@ -299,7 +299,7 @@ For a step-by-step tutorial that guides you through the process of creating an A
 
 ## Next steps
 
-In this quickstart guide, you've deployed Azure IoT Connector for FHIR feature in your Azure API for FHIR resource. Select from below next steps to learn more about Azure IoT Connector for FHIR:
+In this quickstart guide, you've deployed Azure IoT Connector for FHIR feature in your FHIR service resource. Select from below next steps to learn more about Azure IoT Connector for FHIR:
 
 Understand different stages of data flow within Azure IoT Connector for FHIR.
 

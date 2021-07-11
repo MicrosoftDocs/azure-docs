@@ -74,7 +74,7 @@ landingContent:
           - text: Using DICOMweb Standard APIs with Python
             url: ./dicom/dicomweb-standard-apis-python.md
   
-  - title: IoT service
+  - title: IoT connector
     linkLists:
       - linkListType: get-started
         links:

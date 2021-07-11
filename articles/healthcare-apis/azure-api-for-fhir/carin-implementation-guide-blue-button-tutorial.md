@@ -11,7 +11,7 @@ author: caitlinv39
 ms.date: 05/27/2021
 ---
 
-# CARIN Implementation Guide for Blue Button&#174;
+# CARIN Implementation Guide for Blue Button&#174; for Azure API for FHIR
 
 In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
