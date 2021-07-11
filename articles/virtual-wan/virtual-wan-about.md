@@ -134,4 +134,6 @@ Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the
 
 ## Next steps
 
-[Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Tutorial: Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Learn module: Introduction to Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
+
