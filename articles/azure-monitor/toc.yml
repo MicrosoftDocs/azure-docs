@@ -810,6 +810,8 @@
       - name: URL tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
+      - name: Standard test
+        href: app/availability-standard-test.md
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md

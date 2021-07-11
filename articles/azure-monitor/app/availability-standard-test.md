@@ -5,9 +5,9 @@ ms.topic: conceptual
 ms.date: 07/12/2021
 ---
 
-## Standard test
+# Standard test
 
-Standard test is a single request test that is similar to the [URL ping test](monitor-web-app-availability.md) but more advanced. In addition to validating whether an endpoint is responding and measuring the performance, Standard test also includes SSL certificate validity, proactive lifetime check, HTTP request verb, and custom data associated with your HTTP request.
+Standard test is a single request test that is similar to the [URL ping test](monitor-web-app-availability.md) but more advanced. In addition to validating whether an endpoint is responding and measuring the performance, Standard test also includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`,`HEAD`,`POST`, etc.), custom headers, and custom data associated with your HTTP request.
 
 > [!NOTE]
 > Standard ping tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.

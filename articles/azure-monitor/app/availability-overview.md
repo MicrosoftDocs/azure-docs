@@ -16,8 +16,8 @@ You can set up availability tests for any HTTP or HTTPS endpoint that is accessi
 
 There are four types of availability tests:
 
-* [URL ping test](monitor-web-app-availability.md): A simple tests you can create through the portal. Standard ping test includes features like using any HTTP request methods (for example `GET`,`HEAD`,`POST`, etc.) or adding custom headers.
-* [Standard Test](availability-standard-test.md): A single request test that is similar to the URL ping test but includes SSL certificate validity, proactive lifetime check, HTTP request verb, and custom data associated with your HTTP request.
+* [URL ping test](monitor-web-app-availability.md): A simple tests you can create through the portal to validate whether an endpoint is responding and measure performance associated with that response. You may also set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
+* [Standard Test](availability-standard-test.md): A single request test that is similar to the URL ping test but includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`,`HEAD`,`POST`, etc.), custom headers, and custom data associated with your HTTP request.
 * [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
 * [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
 
