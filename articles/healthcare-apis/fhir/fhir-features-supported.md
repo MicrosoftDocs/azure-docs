@@ -92,4 +92,4 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 In this article, you've read about the supported FHIR features in the FHIR service. Next deploy the FHIR serivce.
  
 >[!div class="nextstepaction"]
->[Deploy FHIR service](fhir-paas-portal-quickstart.md)
+>[Deploy FHIR service](fhir-portal-quickstart.md)

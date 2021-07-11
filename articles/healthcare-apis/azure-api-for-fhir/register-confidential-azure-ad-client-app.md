@@ -10,7 +10,7 @@ ms.date: 04/08/2021
 ms.author: cavoeg
 ---
 
-# Register a confidential client application in Azure Active Directory
+# Register a confidential client application in Azure Active Directory for Azure API for FHIR
 
 In this tutorial, you'll learn how to register a confidential client application in Azure Active Directory (Azure AD).  
 

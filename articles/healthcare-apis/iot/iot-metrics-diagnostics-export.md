@@ -1,5 +1,5 @@
 ---
-title: Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings
+title: Export IoT Connector Metrics through Diagnostic settings
 description: This article explains how to export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings
 services: healthcare-apis
 author: msjasteppe

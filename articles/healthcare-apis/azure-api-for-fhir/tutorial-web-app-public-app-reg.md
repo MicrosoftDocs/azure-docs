@@ -1,5 +1,5 @@
 ---
-title: Web App Tutorial - Client Application Setup
+title: Web App Tutorial - Client Application Setup - Azure API for FHIR
 description: This tutorial walks through the steps of registering a public application for getting ready to deploy a web application
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -11,7 +11,7 @@ author: caitlinv39
 ms.date: 01/03/2020
 ---
 
-# Client application registration
+# Client application registration for Azure API for FHIR
 In the previous tutorial, you deployed and set up your Azure API for FHIR. Now that you have your Azure API for FHIR setup, we will register a public client application. You can read through the full [register a public client app](register-public-azure-ad-client-app.md) how-to guide for more details or troubleshooting, but we have called out the major steps for this tutorial below.
 
 1. Navigate to Azure Active Directory

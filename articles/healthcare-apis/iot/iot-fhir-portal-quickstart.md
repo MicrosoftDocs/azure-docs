@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal'
+title: Deploy Azure IoT Connector for FHIR (preview) using Azure portal
 description: In this quickstart, you'll learn how to deploy, configure, and use the Azure IoT Connector for FHIR feature of FHIR service using the Azure portal.
 services: healthcare-apis
 author: ms-puneet-nagpal
@@ -10,7 +10,7 @@ ms.date: 04/05/2021
 ms.author: rabhaiya
 ---
 
-# Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal
+# Deploy Azure IoT Connector for FHIR (preview) using Azure portal
 
 Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* is an optional feature of FHIR service that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. During the preview phase, Azure IoT Connector for FHIR feature is being available for free. In this quickstart, you'll learn how to:
 - Deploy and configure Azure IoT Connector for FHIR using the Azure portal

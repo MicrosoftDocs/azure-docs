@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy Azure IoT Connector for FHIR (preview) using an ARM template'
+title: Deploy Azure IoT Connector for FHIR (preview) using an ARM template
 description: In this quickstart, learn how to deploy Azure IoT Connector for FHIR (preview) using an Azure Resource Manager template (ARM template).
 author: rbhaiya
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.date: 01/21/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Quickstart: Use an Azure Resource Manager (ARM) template to deploy Azure IoT Connector for FHIR (preview)
+# Use an Azure Resource Manager (ARM) template to deploy Azure IoT Connector for FHIR (preview)
 
 In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*, a feature of FHIR service. To deploy a working instance of Azure IoT Connector for FHIR, this template also deploys a parent FHIR service and an Azure IoT Central application that  exports telemetry from a device simulator to Azure IoT Connector for FHIR. You can execute ARM template to deploy Azure IoT Connector for FHIR through the Azure portal, PowerShell, or CLI.
 

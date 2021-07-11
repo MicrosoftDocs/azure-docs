@@ -18,10 +18,10 @@ A client application can access the FHIR service through a [REST API](https://ww
 
 - A FHIR endpoint in Azure. 
 
-  To deploy the FHIR service (a managed service), you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
+  To deploy the FHIR service (a managed service), you can use the [Azure portal](fhir-portal-quickstart.md).
 
 - A registered [confidential client application](register-confidential-azure-ad-client-app.md) to access the FHIR service.
-- You have granted permissions to the confidential client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. For more information, see [Configure Azure RBAC for FHIR](./configure-azure-rbac.md).
+- You have granted permissions to the confidential client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service.
 - Postman installed. 
     
   For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
@@ -116,7 +116,7 @@ You can inspect the access token using a tool like [jwt.ms](https://jwt.ms). An 
 }
 ```
 
-In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. If your token is from the correct issuer (`iss` claim) and has the correct audience (`aud` claim), but you are still unable to access the FHIR API, it is likely that the user or service principal (`oid` claim) doesn't have access to the FHIR data plane. We recommend you use [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md) to assign data plane roles to users. If you're using an external, secondary Azure Active directory tenant for your data plane, you'll need to [Configure local RBAC for FHIR](configure-local-rbac.md) assignments.
+In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. If your token is from the correct issuer (`iss` claim) and has the correct audience (`aud` claim), but you are still unable to access the FHIR API, it is likely that the user or service principal (`oid` claim) doesn't have access to the FHIR data plane.
 
 It's also possible to get a token for the [FHIR service using the Azure CLI](get-healthcare-apis-access-token-cli.md). If you're using a token obtained with the Azure CLI, you should use Authorization type *Bearer Token*. Paste the token in directly.
 

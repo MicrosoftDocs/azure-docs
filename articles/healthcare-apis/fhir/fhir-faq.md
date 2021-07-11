@@ -102,7 +102,7 @@ We support sorting by strings and dates for single fields at a time. For more in
 
 ### How does $export work?
 
-$export is part of the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](export-data.md).
+$export is part of the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](../data-transformation/export-data.md).
 
 ### Is de-identified export available at Patient and Group level as well?
 Anonymized export is currently supported only on a full system export (/$export), and not for Patient export (/Patient/$export). We are working on making it available at the Patient level as well.

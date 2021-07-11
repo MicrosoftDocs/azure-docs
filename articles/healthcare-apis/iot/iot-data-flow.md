@@ -10,7 +10,7 @@ ms.date: 11/13/2020
 ms.author: rabhaiya
 ---
 
-# Azure IoT Connector for FHIR (preview) data flow
+# IoT connector for FHIR: data flow
 
 This article provides an overview of data flow in Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*. You'll learn about different data processing stages within Azure IoT Connector for FHIR that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
