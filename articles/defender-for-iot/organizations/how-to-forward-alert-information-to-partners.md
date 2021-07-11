@@ -13,7 +13,7 @@ Syslog and other default forwarding actions are delivered with your system. More
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
-Defender for IoT administrators have permission to use forwarding rules.
+Defender for IoT administrators has permission to use forwarding rules.
 
 ## About forwarded alert information
 
@@ -57,7 +57,7 @@ Relevant information is sent to partner systems when forwarding rules are create
 
 1. Select an action to apply, and fill in any parameters needed for the selected action.
 
-1. Add an additional action if desired.
+1. Add another action if desired.
 
 1. Select **Submit**.
 
@@ -73,7 +73,7 @@ Relevant information is sent to partner systems when forwarding rules are create
 
    :::image type="content" source="../media/how-to-work-with-alerts-sensor/management-console-create-forwarding-rule.png" alt-text="Enter a meaningful name in the name field of the Create Forwarding Rule window.":::
 
-1. Select the severity level from the drop down menu.
+1. Select the severity level from the drop-down menu.
  
 1. Select any protocols to apply.
 
@@ -85,7 +85,7 @@ Relevant information is sent to partner systems when forwarding rules are create
 
 1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
 
-1. Add an additional action if desired.
+1. Add another action if desired.
 
 1. Select **Save**.
 
@@ -111,11 +111,11 @@ Send mail that includes the alert information. You can enter one email address p
 
 To define email for the forwarding rule:
 
-1. Enter a single email address. If more than one mail needs to be sent, create another action.
+1. Enter a single email address. If you need to add more than one email, you will need to create another action for each email address.
 
-2. Enter the time zone for the time stamp for the alert detection at the SIEM.
+1. Enter the time zone for the time stamp for the alert detection at the SIEM.
 
-3. Select **Submit**.
+1. Select **Submit**.
 
 #### Syslog server actions
 
@@ -172,22 +172,24 @@ Enter the following parameters:
 | Date and time |	Date and time that the syslog server machine received the information. |  
 | Priority |	User.Alert | 
 | Hostname |	Sensor IP |
-| Message |	Sensor name: The name of the Azure Defender for IoT appliance. <br />LEEF:1.0 <br />Azure Defender for IoT <br />Sensor  <br />Sensor version <br />Azure Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. Note that it might be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
+| Message |	Sensor name: The name of the Azure Defender for IoT appliance. <br />LEEF:1.0 <br />Azure Defender for IoT <br />Sensor  <br />Sensor version <br />Azure Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
 
 After you enter all the information, select **Submit**.
 
 #### Webhook server action
 
-Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered,the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
+Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
 
 **To define to a webhook action:**
 
 1. Select the Webhook action.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Define a webhook forwarding rule.":::
+   :::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Define a webhook forwarding rule.":::
 
 1. Enter the server address in the **URL**field.
-1. In the **Key** and **Value**fields, customize the HTTP header with a key and value definition. Keys can only contain letters, numbers, dashes, and underscores. Values can only contain one leading and/or one trailing space.
+
+1. In the **Key** and **Value fields, customize the HTTP header with a key and value definition. Keys can only contain letters, numbers, dashes, and underscores. Values can only contain one leading and/or one trailing space.
+
 1. Select **Save**.
 
 #### NetWitness action
@@ -198,11 +200,11 @@ To define NetWitness forwarding parameters:
 
 1. Enter NetWitness **Hostname** and **Port** information.
 
-2. Enter the time zone for the time stamp for the alert detection at the SIEM.
+1. Enter the time zone for the time stamp for the alert detection at the SIEM.
 
    :::image type="content" source="media/how-to-work-with-alerts-sensor/add-timezone.png" alt-text="Add a time zone to your forwarding rule.":::
 
-3. Select **Submit**.
+1. Select **Submit**.
 
 #### Integrated vendor actions
 
@@ -226,11 +228,11 @@ Test the connection between the sensor and the partner server that's defined in 
 
 1. Select the rule from the **Forwarding rule** dialog box.
 
-2. Select the **More** box.
+1. Select the **More** box.
 
-3. Select **Send Test Message**.
+1. Select **Send Test Message**.
 
-4. Go to your partner system to verify that the information sent by the sensor was received.
+1. Go to your partner system to verify that the information sent by the sensor was received.
 
 ### Edit and delete forwarding rules 
 
