@@ -1,12 +1,12 @@
 ---
 title: Understanding total Azure Virtual Desktop deployment costs - Azure
-description: How to  Azure Virtual Desktop.
+description: How to estimate the total cost of your Azure Virtual Desktop deployment.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -17,7 +17,7 @@ Azure Virtual Desktop costs come from two sources: underlying Azure resource con
 In this article, we'll explain consumption and licensing costs, as well as how to estimate service costs before deploying Azure Virtual Desktop using Azure Pricing Calculator. This article also includes instructions for how to use Azure Cost Management to view costs after deploying Azure Virtual Desktop.
 
 >[!NOTE]
->The customer who pays for the Azure Virtual Desktop deployment is responsible for handling their deployment's lifetime resource management and costs. If the owner no longer needs resources connected to their Azure Virtual Desktop deployment, they should ensure those resources are properly removed. For more information, see [How to manage Azure resources by using the Azure portal](../azure-resource-manager/management/manage-resources-portal.md).
+>The customer who pays for the Azure Virtual Desktop deployment is responsible for handling their deployment's lifetime resource management and costs. If the owner no longer needs resources connected to their Azure Virtual Desktop deployment, they should ensure those resources are properly removed. For more information, see [How to manage Azure resources by using the Azure portal](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ## Consumption costs
 
@@ -31,9 +31,9 @@ In Azure Virtual Desktop, session host VMs use the following three Azure service
 - Storage for managed disks (including OS storage per VM and any data disks for personal desktops)
 - Bandwidth (networking)
 
-These charges can be viewed at the Azure Resource Group level where the host pool-specific resources including session host VMs are assigned. If one or more host pools are also configured to use the paid Log Analytics service to send VM data to the optional Azure Virtual Desktop Insights feature, then the bill will also charge you for the Log Analytics for the corresponding Azure Resource Groups. You can view [Monitor Windows Virtual Desktop cost pricing estimates](./azure-monitor-costs.md) for more information.
+These charges can be viewed at the Azure Resource Group level where the host pool-specific resources including session host VMs are assigned. If one or more host pools are also configured to use the paid Log Analytics service to send VM data to the optional Azure Virtual Desktop Insights feature, then the bill will also charge you for the Log Analytics for the corresponding Azure Resource Groups. You can view [Monitor Windows Virtual Desktop cost pricing estimates](../azure-monitor-costs.md) for more information.
 
-Of the three primary VM session host usage costs listed at the beginning of this section, compute usually costs the most. To mitigate compute costs and optimize resource demand with availability, many customers choose to [scale session hosts automatically](./virtual-desktop/set-up-scaling-script.md).
+Of the three primary VM session host usage costs listed at the beginning of this section, compute usually costs the most. To mitigate compute costs and optimize resource demand with availability, many customers choose to [scale session hosts automatically](../set-up-scaling-script.md).
 
 ### Domain controller costs for Active Directories
 
@@ -53,19 +53,17 @@ However, domain controllers have a few key differences from session host VMs:
 
 ### Shared service costs
 
-<!---stopped here--->
-
 Depending on which features your Azure Virtual Desktop deployment uses, you may also have to pay for Azure storage for any combination of the following optional features:
 
 - [MSIX app attach](../what-is-app-attach.md)
-- [Custom OS images](../set-up-customize-master-images.md)
+- [Custom OS images](../set-up-customize-master-image.md)
 - [FSLogix profiles](../fslogix-containers-azure-files.md)
 
 These features use Azure storage options like [Azure Files](../../storage/files/storage-files-introduction.md) and [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md), so that means they can share their storage with other Azure services beyond Azure Virtual Desktop. We recommend creating a separate storage account for the storage you buy for your Azure Virtual Desktop features to make sure you can tell the difference between its costs and the costs for other Azure services you're using.
 
 ### User access costs
 
-You pay user access costs each month for each user who connects to apps or desktops in your Azure Virtual Desktop deployment. To learn more about how Azure Virtual Desktop’s per-user access pricing works, see [Understanding licensing for app hosting](placeholder.md).
+You pay user access costs each month for each user who connects to apps or desktops in your Azure Virtual Desktop deployment. To learn more about how Azure Virtual Desktop’s per-user access pricing works, see [Understanding licensing and per-user access pricing](licensing.md).
 
 ## Predicting costs before deploying Azure Virtual Desktop
 
@@ -91,7 +89,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 
 ### Predicting user access costs
 
-User access costs depend on the number of users that connect to your deployment each month. To learn how to estimate the total user access costs you can expect, see [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md).
+User access costs depend on the number of users that connect to your deployment each month. To learn how to estimate the total user access costs you can expect, see Estimate per-user app streaming costs for Azure Virtual Desktop.
 
 ## Viewing costs after deploying Azure Virtual Desktop
 
@@ -99,8 +97,14 @@ Once you deploy Azure Virtual Desktop, you can use [Azure Cost Management](../..
 
 ### Viewing bills for consumption costs
 
-With the proper [Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md) permissions, users in your organization like billing admins can use [cost analysis tools](../cost-management-billing/costs/cost-analysis-common-uses.md) and find Azure billing invoices through [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to track monthly Azure Virtual Desktop consumption costs under your Azure subscription or subscriptions.
+With the proper [Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md) permissions, users in your organization like billing admins can use [cost analysis tools](../../cost-management-billing/costs/cost-analysis-common-uses.md) and find Azure billing invoices through [Azure Cost Management](../../cost-management-billing/cost-management-billing-overview.md) to track monthly Azure Virtual Desktop consumption costs under your Azure subscription or subscriptions.
 
 ### Viewing bills for user access costs
 
 User access costs will appear each billing cycle on the Azure billing invoice for any enrolled subscription, alongside consumption costs and other Azure charges.
+
+## Next steps
+
+If you'd like to get a clearer idea of how much specific parts of your deployment will cost, take a look at these articles:
+
+- [Understanding licensing and per-user access pricing](licensing.md)
