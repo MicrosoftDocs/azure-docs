@@ -67,7 +67,7 @@ If you want to see the full definition of the policy, you can visit the [Definit
 
 1. Fill in your policy details
 
-- Scope: It can be a subscription or a resource group. In latter case, select resource group that contains flowlogs resource (and not network security group)
+- Scope: It can be a subscription or a resource group. In latter case, select resource group that contains flow logs resource (and not network security group)
 - Policy Definition: Should be chosen as shown in the "Locate the policies" section.
 - AssignmentName: Choose a descriptive name 
 
@@ -88,16 +88,16 @@ You should see something similar to the following screenshot once your policy ru
 
 ### Configure network security groups to use specific workspace for traffic analytics 
 
-It flags the NSG that do not have Traffic Analytics enabled. It means that for the flagged NSG, either the corresponding flowlogs resource does not exist or flowlogs resource exist but traffic analytics is not enabled on it. You can create Remediation task if you want the policy to affect existing resources.
+It flags the NSG that do not have Traffic Analytics enabled. It means that for the flagged NSG, either the corresponding flow logs resource does not exist or flow logs resource exist but traffic analytics is not enabled on it. You can create Remediation task if you want the policy to affect existing resources.
 Network Watcher is a regional service so this policy will apply to NSGs belonging to particular region only in the selected scope. (For a different region, create another policy assignment.)
  
-Remediation can be assigned while assigning policy or after policy is assigned and evaluated. Remediation will enable Traffic Analytics on all the flagged resources with the provided parameters. Note that if an NSG already has FlowLogs enabled into a particular storage id but it does not have Traffic Analytics enabled, then remediation will enable Traffic Analytics on this NSG with the provided parameters. If for the flagged NSG, the storage id provided in the parameters is different from the one already enabled for Flowlogs, then the latter gets overwritten with the provided storage id in the remediation task. If you don't want to overwrite, use policy *"Configure network security groups to enable Traffic Analytics"* described below.
+Remediation can be assigned while assigning policy or after policy is assigned and evaluated. Remediation will enable Traffic Analytics on all the flagged resources with the provided parameters. Note that if an NSG already has flow Logs enabled into a particular storage ID but it does not have Traffic Analytics enabled, then remediation will enable Traffic Analytics on this NSG with the provided parameters. If for the flagged NSG, the storage ID provided in the parameters is different from the one already enabled for flow logs, then the latter gets overwritten with the provided storage ID in the remediation task. If you don't want to overwrite, use policy *"Configure network security groups to enable Traffic Analytics"* described below.
 
 If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Traffic Analytics" to find the policy. 
 
 ### Configure network security groups to enable Traffic Analytics
 
-It is same as the above policy except that during remediation, it does not overwrite flowlogs settings on the flagged NSGs that have flowlogs enabled but Traffic Analytics disabled with the parameter provided in the policy assignment.
+It is same as the above policy except that during remediation, it does not overwrite flow logs settings on the flagged NSGs that have flow logs enabled but Traffic Analytics disabled with the parameter provided in the policy assignment.
 
 ### Assignment
 
@@ -113,7 +113,7 @@ It is same as the above policy except that during remediation, it does not overw
 - Storage ID: Full resource ID of the storage account. This storage account should be in the same region as the NSG.
 - Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, you can enter 'NetworkWatcherRG' which is the default.
 - Network Watcher name: Name of the regional network watcher service. Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus.
-- Workspace resource id: Resource ID of the workspace where Traffic Analytics has to be enabled. Format is "/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
+- Workspace resource ID: Resource ID of the workspace where Traffic Analytics has to be enabled. Format is "/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
 - WorkspaceID: Workspace guid
 - WorkspaceRegion: Region of the workspace (note that it need not be same as the region of NSG)
 - TimeInterval: Frequency at which processed logs will be pushed into workspace. Currently allowed values are 60 mins and 10 mins. Default value is 60 mins.
