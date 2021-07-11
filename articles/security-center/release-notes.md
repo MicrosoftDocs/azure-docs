@@ -25,21 +25,24 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 
 Updates in July include:
 
-- [Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview)
+- [Continuous export of secure score and regulatory compliance data released for General Availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
 - [Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps](#assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps)
 
 
-### Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)
+### Continuous export of secure score and regulatory compliance data released for General Availability (GA)
 
-Security Center natively integrates with [Azure Sentinel](../sentinel/index.yml), Azure's cloud-native SIEM and SOAR solution. 
+[Continuous export](continuous-export.md) provides the mechanism for exporting your security alerts and recommendations for tracking with other monitoring tools in your environment.
 
-Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels. Learn more in [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-azure-sentinel).
+When you set up your continuous export, you configure what is exported, and where it will go. Learn more in the [overview of continuous export](continuous-export.md).
 
-When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender will *not* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+We've enhanced and expanded this feature over time:
 
-Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, the corresponding original alert will be closed in Azure Defender automatically.
+- In November 2020, we added the **preview** option to stream changes to your **secure score**.<br/>For full details, see [Secure score is now available in continuous export (preview)](release-notes-archive.md#secure-score-is-now-available-in-continuous-export-preview).
 
-Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
+- In December 2020, we added the **preview** option to stream changes to your **regulatory compliance assessment data**.<br/>For full details, see [Continuous export gets new data types (preview)](release-notes-archive.md#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies).
+
+With this update, these two options are released for General Availability (GA). 
+
 
 
 ### Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps
