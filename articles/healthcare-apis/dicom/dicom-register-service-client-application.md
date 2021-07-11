@@ -9,7 +9,7 @@ ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
-# Register a service client application in Azure Active Directory
+# Register a service client application
 
 In this article, you'll learn how to register a service client application in Azure Active Directory (Azure AD).
 

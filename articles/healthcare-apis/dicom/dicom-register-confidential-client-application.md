@@ -9,7 +9,7 @@ ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
-# Register a confidential client application in Azure Active Directory
+# Register a confidential client application
 
 In this tutorial, you'll learn how to register a confidential client application in Azure Active Directory (Azure AD).
 

@@ -9,7 +9,7 @@ ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
-# Register a public client application in Azure Active Directory
+# Register a public client application
 
 In this article, you'll learn how to register a public application in the Azure Active Directory (Azure AD).
 

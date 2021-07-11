@@ -30,12 +30,12 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 
 5. Select the **Category** and **Destination** details for accessing the diagnostic logs.
 
-* **Send to Log Analytics workspace** in the Azure Monitor. You’ll need to create your Logs Analytics workspace before you can select this option. For more information about the platform logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
-* **Archive to a storage account** for auditing or manual inspection. The storage account you want to use needs to be already created.
-* **Stream to an event hub** for ingestion by a third-party service or custom analytic solution. You’ll need to create an event hub namespace and event hub policy before you can configure this step.
-* **Send to partner solution** that you are working with as partner organization in Azure. For information about potential partner integrations, see [Azure partner solutions documentation](../../partner-solutions/overview.md)
+   * **Send to Log Analytics workspace** in the Azure Monitor. You’ll need to create your Logs Analytics workspace before you can select this option. For more information about the platform logs, see [Overview of Azure platform logs](../../azure-monitor/essentials/platform-logs-overview.md).
+   * **Archive to a storage account** for auditing or manual inspection. The storage account you want to use needs to be already created.
+   * **Stream to an event hub** for ingestion by a third-party service or custom analytic solution. You’ll need to create an event hub namespace and event hub policy before you can configure this step.
+   * **Send to partner solution** that you are working with as partner organization in Azure. For information about potential partner integrations, see [Azure partner solutions documentation](../../partner-solutions/overview.md)
 
-  For information about supported metrics, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices.md).
+     For information about supported metrics, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices.md).
 
 6. Select **Save**.
 
@@ -43,7 +43,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
    > [!Note] 
    > It might take up to 15 minutes for the first Logs to show in Log Analytics. Also, if the DICOM service is moved from one resource group or subscription to another, update the settings once the move is complete. 
  
-For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
+   For information on how to work with diagnostic logs, see [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Audit log details
 
