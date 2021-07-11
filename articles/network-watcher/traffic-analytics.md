@@ -428,8 +428,6 @@ Do you have malicious traffic in your environment? Where is it originating from?
 	  
 	  :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Public IP information" lightbox="./media/traffic-analytics/public-ip-information.png":::
 	  
-	  :::image type="content" source="./media/traffic-analytics/log-analytics-malicious-ip.png" alt-text="Log Analytics Workspace view for all malicious IP" lightbox="./media/traffic-analytics/log-analytics-malicious-ip.png":::
-	  
 	- On the traffic analytics dashboard, click on any IP to view its information	
 	
 	  :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="external IP information in tool tip" lightbox="./media/traffic-analytics/external-public-ip-details.png":::
