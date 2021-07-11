@@ -11,9 +11,9 @@ ms.author: aersoy
 
 # Change Feed Overview
 
-The Change Feed provides logs of all the changes that occur in the DICOM Service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of the DICOM Service and acts upon the creates and deletes in the service.
+The Change Feed provides logs of all the changes that occur in the DICOM service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of the DICOM service and acts upon the creates and deletes in the service.
 
-Client applications can read these logs at any time, either in streaming or in batch mode. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM Service.
+Client applications can read these logs at any time, either in streaming, or in batch mode. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM service.
 
 You can process these change events asynchronously, incrementally or in-full. Any number of client applications can independently read the Change Feed, in parallel, and at their own pace.
 
@@ -23,8 +23,8 @@ The API exposes two `GET` endpoints for interacting with the Change Feed. A typi
 
 Verb | Route              | Returns     | Description
 :--- | :----------------- | :---------- | :---
-GET  | /changefeed        | Json Array  | [Read the Change Feed](#read-change-feed)
-GET  | /changefeed/latest | Json Object | [Read the latest entry in the Change Feed](#get-latest-change-feed-item)
+GET  | /changefeed        | JSON Array  | [Read the Change Feed](#read-change-feed)
+GET  | /changefeed/latest | JSON Object | [Read the latest entry in the Change Feed](#get-latest-change-feed-item)
 
 ### Object model
 
@@ -79,7 +79,6 @@ deleted  | This instance has been deleted and is no longer available in the serv
     ...
 ]
 ```
-
 #### Parameters
 
 Name            | Type | Description
@@ -117,7 +116,7 @@ includemetadata | bool | Whether or not to include the metadata (default: true)
 
 ### Example usage flow
 
-Below is the usage flow for an example application that does other processing on the instances within the DICOM Service.
+Below is the usage flow for an example application that does other processing on the instances within the DICOM service.
 
 1. Application that wants to monitor the Change Feed starts.
 2. It determines if there's a current state that it should start with:
@@ -141,10 +140,10 @@ Change Feed support is well suited for scenarios that process data based on obje
 
 ## Summary
 
-In this article, we reviewed the REST API design of Change Feed and potential usage scenarios. For a how-to guide on Change Feed, see [Pull changes from Change Feed](pull-dicom-changes-from-change-feed.md).
+In this article, we reviewed the REST API design of Change Feed and potential usage scenarios. For information on Change Feed, see [Pull changes from Change Feed](pull-dicom-changes-from-change-feed.md).
 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Service](dicom-services-overview.md)
+>[Overview of DICOM service](dicom-services-overview.md)
 

@@ -5,13 +5,13 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
 # Pull DICOM changes using the Change Feed
 
-DICOM Change Feed offers customers the ability to go through the history of the DICOM Service and act on the create and delete events in the service. This how-to guide describes how to consume Change Feed.
+DICOM Change Feed offers customers the ability to go through the history of the DICOM service and act on the create and delete events in the service. This how-to guide describes how to consume Change Feed.
 
 The Change Feed is accessed using REST APIs. These APIs along with sample usage of Change Feed are documented in the [Overview of DICOM Change Feed](dicom-change-feed-overview.md).
 
@@ -43,7 +43,7 @@ To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consu
 
 ### Next Steps
 
-This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the  DICOM Service. For more information about DICOM Service, see
+This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the DICOM service. For information about the DICOM service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Service](dicom-services-overview.md)
+>[Overview of DICOM service](dicom-services-overview.md)

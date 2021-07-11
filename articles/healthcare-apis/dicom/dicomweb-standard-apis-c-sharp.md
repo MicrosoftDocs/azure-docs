@@ -1,17 +1,17 @@
 ---
 title:  Using DICOMweb&trade;Standard APIs with C# - Azure Healthcare APIs 
-description: In this tutorial, you'll learn how to use DICOMweb&trade;Standard APIs with C#. 
+description: In this tutorial, you'll learn how to use DICOMweb &trade;Standard APIs with C#. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 06/28/2021
+ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
 # Using DICOMweb&trade; Standard APIs with C#
 
-This tutorial uses C# to demonstrate working with the DICOM Service.
+This tutorial uses C# to demonstrate working with the DICOM service.
 
 In this tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
@@ -26,13 +26,13 @@ In this tutorial, we'll use these [sample DICOM files](https://github.com/micros
 
 ## Prerequisites
 
-To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Service deployed. If you haven't already deployed an instance of the DICOM Service, see [Deploy DICOM Service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-Once you've deployed an instance of the DICOM Service, retrieve the URL for your App Service:
+After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/).
-1. Search **Recent resources** and select your DICOM Service instance.
-1. Copy the **Service URL** of your DICOM Service.
+1. Search **Recent resources** and select your DICOM service instance.
+1. Copy the **Service URL** of your DICOM service.
 
 In your application, install the following NuGet packages:
 
@@ -42,7 +42,7 @@ In your application, install the following NuGet packages:
 
 ## Create a `DicomWebClient`
 
-After you've deployed your DICOM Service, you'll create a 'DicomWebClient'. Run the following code snippet to create `DicomWebClient`, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously.
+After you've deployed your DICOM service, you'll create a 'DicomWebClient'. Run the following code snippet to create `DicomWebClient`, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously.
 
 ```c#
 string webServerUrl ="{Your DicomWeb Server URL}"
@@ -113,7 +113,7 @@ All three of the dcm files that we've uploaded previously are part of the same s
 
 ### Use the retrieved instances
 
-The following code snippet shows how to access the instances that are retrieved. It also shows how to access some of the fields of the instances, and how to save it as a `.dcm` file.
+The following code snippet shows how to access the instances that are retrieved. It also shows how to access some of the fields of the instances, and how to save it as a dcm file.
 
 ```c#
 DicomWebAsyncEnumerableResponse<DicomFile> response = await client.RetrieveStudyAsync(studyInstanceUid);
@@ -140,7 +140,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveStudyMetadataAsync(studyInstanceUid);
 ```
 
-All three of the `.dcm` files that we uploaded previously are part of the same study so the response should return the metadata for all three instances. Validate that the response has a status code of OK and that all the metadata is returned.
+All three of the dcm files that we've uploaded previously are part of the same study, so the response should return the metadata for all three instances. Validate that the response has a status code of OK and that all the metadata is returned.
 
 ### Retrieve all instances within a series
 
@@ -169,7 +169,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveSeriesMetadataAsync(studyInstanceUid, seriesInstanceUid);
 ```
 
-This series has two instances (green-square and red-triangle), so the response should return metadata for both instances. Validate that the response has a status code of OK and that both instances metadata are returned.
+This series has two instances (green-square and red-triangle), so the response should return metadata for both instances. Validate that the response has a status code of OK and that both instances of the metadata are returned.
 
 ### Retrieve a single instance within a series of a study
 
@@ -232,7 +232,7 @@ string query = $"/studies?StudyInstanceUID={studyInstanceUid}";
 DicomWebResponse response = await client.QueryAsync(query);
 ```
 
-Validates that the response includes one study and that the response code is OK.
+Validates that the response includes one study, and that the response code is OK.
 
 ### Search for series
 
@@ -247,7 +247,7 @@ string query = $"/series?SeriesInstanceUID={seriesInstanceUid}";
 DicomWebResponse response = await client.QueryAsync(query);
 ```
 
-Validates that the response includes one series and that the response code is OK.
+Validates that the response includes one series, and that the response code is OK.
 
 ### Search for series within a study
 
@@ -262,7 +262,7 @@ string query = $"/studies/{studyInstanceUid}/series?SeriesInstanceUID={seriesIns
 DicomWebResponse response = await client.QueryAsync(query);
 ```
 
-Validates that the response includes one series and that the response code is OK.
+Validates that the response includes one series, and that the response code is OK.
 
 ### Search for instances
 
@@ -277,7 +277,7 @@ string query = $"/instances?SOPInstanceUID={sopInstanceUid}";
 DicomWebResponse response = await client.QueryAsync(query);
 ```
 
-Validates that the response includes one instance and that the response code is OK.
+Validates that the response includes one instance, and that the response code is OK.
 
 ### Search for instances within a study
 
@@ -292,7 +292,7 @@ string query = $"/studies/{studyInstanceUid}/instances?SOPInstanceUID={sopInstan
 DicomWebResponse response = await client.QueryAsync(query);
 ```
 
-Validates that the response includes one instance and that the response code is OK.
+Validates that the response includes one instance, and that the response code is OK.
 
 ### Search for instances within a study and series
 
@@ -307,7 +307,7 @@ string query = $"/studies/{studyInstanceUid}/series/{seriesInstanceUid}/instance
 DicomWebResponse response = await client.QueryAsync(query);
 ```
 
-Validates that the response includes one instance and that the response code is OK.
+Validates that the response includes one instance, and that the response code is OK.
 
 ## Delete DICOM
 
@@ -359,7 +359,7 @@ This response deletes the blue-circle instance (it is the only element left in t
 
 ### Next Steps
 
-For more information about DICOM Service, see
+For information about the DICOM service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Service](dicom-services-overview.md)
+>[Overview of DICOM service](dicom-services-overview.md)

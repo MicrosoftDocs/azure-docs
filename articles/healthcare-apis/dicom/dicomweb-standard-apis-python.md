@@ -11,7 +11,7 @@ ms.author: aersoy
 
 # Using DICOMWeb&trade; Standard APIs with Python
 
-This tutorial uses Python to demonstrate working with the DICOM Service.
+This tutorial uses Python to demonstrate working with the DICOM service.
 
 In the tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
@@ -22,21 +22,21 @@ In the tutorial, we'll use these [sample DICOM files](https://github.com/microso
 |blue-circle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207|1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114|
 
 > [!NOTE]
-> Each of these files represent a single instance and are part of the same study. Also green-square and red-triangle are part of the same series, while blue-circle is in a separate series.
+> Each of these files represent a single instance and are part of the same study. Also,the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
 
 ## Prerequisites
 
-To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM Service deployed. If you haven't already deployed the DICOM Service, see [Deploy DICOM Service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMWeb&trade; Standard APIs, you must have an instance of the DICOM service deployed. If you haven't already deployed the DICOM service, see [Deploy DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-Once you've deployed an instance of the DICOM Service, retrieve the URL for your App Service:
+After you've deployed an instance of the DICOM service, retrieve the URL for your App service:
 
 1. Sign into the [Azure portal](https://ms.portal.azure.com/).
-1. Search **Recent resources** and select your DICOM Service instance.
-1. Copy the **Service URL** of your DICOM Service.
+1. Search **Recent resources** and select your DICOM service instance.
+1. Copy the **Service URL** of your DICOM service.
 
 For this code, we'll be accessing an unsecured dev/test service. It is important that you don't upload any private health information (PHI).
 
-## Working with the DICOM Service
+## Working with the DICOM service
 
 The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; standard awkward. However, once you have it up and running, it's easy to use. It just takes a little familiarity to get started.
 
@@ -56,7 +56,7 @@ from urllib3.filepost import encode_multipart_formdata, choose_boundary
 
 ### Configure user-defined variables to be used throughout
 
-Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the default URL for Azure App Service. If you're using a custom URL, you'll need to override that value with your own.
+Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the default URL for Azure App service. If you're using a custom URL, you'll need to override that value with your own.
 
 ```python
 dicom_server_name = "{server-name}"
@@ -88,7 +88,7 @@ def encode_multipart_related(fields, boundary=None):
 
 ### Create a `requests` session
 
-Create a `requests` session, called `client`, that will be used to communicate with the Medical Imaging Server for DICOM.
+Creates a `requests` session, called `client`, that will be used to communicate with the DICOM service.
 
 
 ```python
@@ -98,9 +98,9 @@ client = requests.session()
 
 The following examples highlight persisting DICOM files.
 
-### Store-instances-using-multipart/related
+### Store instances using `multipart/related`
 
-This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to pre-load the DICOM file (as bytes) into memory.  By passing an array of files to the fields parameter of encode_multipart_related, multiple files can be uploaded in a single POST. It is sometimes used to upload a complete series or study.
+This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to pre-load the DICOM file (as bytes) into memory. By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study.
 
 _Details:_
 
@@ -109,10 +109,12 @@ _Details:_
 * Headers:
     * `Accept: application/dicom+json`
     * `Content-Type: multipart/related; type="application/dicom"`
+     * `Authorization: Bearer $token"`
+
 * Body:
     * `Content-Type: application/dicom` for each file uploaded, separated by a boundary value
 
-> Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
+Some programming languages and tools behave differently. For instance, some of them require you to define your own boundary. For those, you may need to use a slightly modified Content-Type header. The following have been used successfully.
  > * `Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234`
  > * `Content-Type: multipart/related; boundary=ABCD1234`
  > * `Content-Type: multipart/related`
@@ -136,7 +138,7 @@ url = f'{base_url}/studies'
 response = client.post(url, body, headers=headers, verify=False)
 ```
 
-### Store-instances-for-a-specific-study
+### Store instances for a specific study
 
 This example demonstrates how to upload multiple DICOM files into the specified study. It uses a bit of a Python to pre-load the DICOM file (as bytes) into memory.  
 
@@ -177,7 +179,7 @@ response = client.post(url, body, headers=headers, verify=False)
 
 ### Store single instance (non-standard)
 
-The following code example demonstrates how to upload a single DICOM file. It is a non-standard API endpoint simplifies uploading a single file as binary bytes sent in the body of a request
+The following code example demonstrates how to upload a single DICOM file. It is a non-standard API endpoint that simplifies uploading a single file as binary bytes sent in the body of a request
 
 _Details:_
 * Path: ../studies
@@ -217,7 +219,7 @@ _Details:_
 * Headers:
    * `Accept: multipart/related; type="application/dicom"; transfer-syntax=*`
 
-All three of the `.dcm` files that we uploaded previously are part of the same study so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
+All three of the dcm files that we uploaded previously are part of the same study so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}'
@@ -494,7 +496,7 @@ response = client.get(url, headers=headers, params=params) #, verify=False)
 > [!NOTE]
 > Delete is not part of the DICOM standard, but it has been added for convenience.
 
-A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) have never existed or have already been deleted.
+A 204 response code is returned when the deletion is successful. A 404 response code is returned if the item(s) has never existed or it's already been deleted.
 
 ### Delete a specific instance within a study and series
 
@@ -522,7 +524,7 @@ _Details:_
 * Method: DELETE
 * Headers: No special headers needed
 
-This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code contains no content.
+This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code won't content.
 
 ```python
 #headers = {'Accept':'anything/at+all'}
@@ -547,7 +549,7 @@ response = client.delete(url)
 
 ### Next Steps
 
-For more information about DICOM Services, see 
+For information about the DICOM service, see 
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Service](dicom-services-overview.md)
+>[Overview of DICOM service](dicom-services-overview.md)
