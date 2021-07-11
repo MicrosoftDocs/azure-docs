@@ -516,7 +516,7 @@ namespace WcfService4
 
 ## Exception performance counters
 
-If you have [installed the Application Insights Agent](./status-monitor-v2-overview.md) on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
+If you have [installed the Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) on your server, you can get a chart of the exceptions rate, measured by .NET. This includes both handled and unhandled .NET exceptions.
 
 Open a Metric Explorer tab, add a new chart, and select **Exception rate**, listed under Performance Counters.
 

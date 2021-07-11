@@ -34,7 +34,7 @@ Internet Information Services (IIS) logs counts of all request reaching IIS and 
 * This is probably a firewall issue. [Set firewall exceptions for Application Insights to send data](../../azure-monitor/app/ip-addresses.md).
 * IIS Server might be missing some prerequisites, like .NET Extensibility 4.5 or ASP.NET 4.5.
 
-*I [installed Application Insights Agent](./status-monitor-v2-overview.md) on my web server to monitor existing apps. I don't see any results.*
+*I [installed Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) on my web server to monitor existing apps. I don't see any results.*
 
 * See [Troubleshooting Status Monitor](./status-monitor-v2-troubleshoot.md).
 
