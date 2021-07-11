@@ -28,8 +28,6 @@
       href: 
     - name: Enroll in per-user license pricing
       href: 
-    - name: Security guidelines
-      href: 
     - name: Estimate total deployment costs 
       href: 
     - name: Estimate per-user app streaming costs 
@@ -138,6 +136,8 @@
     items: 
     - name: Architecture recommendations 
       href: architecture-recs.md
+    - name: Security guidelines
+      href: security.md
     - name: App hosting licenses
       href: 
   - name: Security
