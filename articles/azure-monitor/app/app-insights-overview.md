@@ -91,7 +91,7 @@ There are several ways to get started. Begin with whichever works best for you. 
 * **At run time: instrument your web app on the server.** Ideal for applications already deployed. Avoids any update to the code.
   * [**ASP.NET or ASP.NET Core applications hosted on Azure Web Apps**](./azure-web-apps.md)
   * [**ASP.NET applications hosted in IIS on Azure VM or Azure virtual machine scale set**](./azure-vm-vmss-apps.md)
-  * [**ASP.NET applications hosted in IIS on-premises server **](./status-monitor-v2-overview.md)
+  * [**ASP.NET applications hosted in IIS on-premises server**](./status-monitor-v2-overview.md)
 * **At development time: add Application Insights to your code.** Allows you to customize telemetry collection and send additional telemetry.
   * [ASP.NET Applications](./asp-net.md)
   * [ASP.NET Core Applications](./asp-net-core.md)
