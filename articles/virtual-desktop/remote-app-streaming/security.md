@@ -2,7 +2,7 @@
 title: Security guide for cross-organizational apps Azure Virtual Desktop - Azure
 description: A guide for how to keep the apps you host in Azure Virtual Desktop secure across multiple organizations.
 author: Heidilohr
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 07/14/2021
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
