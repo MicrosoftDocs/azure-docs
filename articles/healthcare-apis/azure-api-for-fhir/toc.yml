@@ -60,13 +60,13 @@ items:
     - name: CMS Interoperability and Patient Access rule introduction
       href: cms-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
-      href: carin-implementation-guide-blue-button-tutorial.md
+      href: ../fhir/carin-implementation-guide-blue-button-tutorial.md
     - name: Da Vinci Drug Formulary
-      href: davinci-drug-formulary-tutorial.md
+      href: ../fhir/davinci-drug-formulary-tutorial.md
     - name: Da Vinci PDex
-      href: davinci-pdex-tutorial.md
+      href: ../fhir/davinci-pdex-tutorial.md
     - name: Da Vinci Plan Net
-      href: davinci-plan-net.md
+      href: ../fhir/davinci-plan-net.md
 - name: How-to guides
   expanded: false
   items:
@@ -99,7 +99,7 @@ items:
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Export
-      href: configure-export-data.md
+      href: ../data-transformation/configure-export-data.md
     - name: Configure Private Link
       href: configure-private-link.md
   - name: Search
@@ -122,11 +122,11 @@ items:
       expanded: false
       items:
       - name: Export data
-        href: export-data.md
+        href: ../data-transformation/export-data.md
       - name: De-identified export
-        href: de-identified-export.md
+        href: ../data-transformation/de-identified-export.md
       - name: Move data to Synapse
-        href: move-to-synapse.md
+        href: ../data-transformation/move-to-synapse.md
     - name: Convert data
       expanded: false
       items:

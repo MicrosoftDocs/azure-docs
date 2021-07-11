@@ -57,4 +57,4 @@ After you've completed this final step, you are now ready to export the data usi
 For more information about configuring database settings, access control, enabling diagnostic logging, and using custom headers to add data to audit logs, see:
 
 >[!div class="nextstepaction"]
->[Additional Settings](../fhir/azure-api-for-fhir-additional-settings.md)
+>[Additional Settings](../fhir/additional-settings.md)

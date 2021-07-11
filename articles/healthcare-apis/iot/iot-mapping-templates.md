@@ -657,6 +657,6 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.yml)
+>[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.md)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

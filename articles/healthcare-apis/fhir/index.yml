@@ -40,8 +40,6 @@ landingContent:
             url: tutorial-web-app-fhir-server.md
           - text: Access FHIR API with Postman
             url: access-fhir-postman-tutorial.md
-          - text: SMART integration for third-party apps & medical records
-            url: use-smart-on-fhir-proxy.md
 
 
   - title: Register apps for AD authentication

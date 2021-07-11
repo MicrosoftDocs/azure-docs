@@ -74,4 +74,4 @@ client.Get("Patient");
 In this article, you learned how to add data to audit logs by using custom headers in the FHIR service. Next, learn about other additional settings you can configure in the FHIR service.
  
 >[!div class="nextstepaction"]
->[Additional Settings](azure-api-for-fhir-additional-settings.md)
+>[Additional Settings](additional-settings.md)

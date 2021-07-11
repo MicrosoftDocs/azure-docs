@@ -12,7 +12,7 @@ ms.author: zxue
 
 # Find identity object IDs for authentication configuration
 
-In this article, you'll learn how to find identity object IDs needed when configuring the FHIR service to [use an external or secondary Active Directory tenant](configure-local-rbac.md) for data plane.
+In this article, you'll learn how to find identity object IDs needed when configuring the FHIR service to [use an external or secondary Active Directory tenant](../azure-api-for-fhir/configure-local-rbac.md) for data plane.
 
 ## Find user object ID
 
@@ -68,4 +68,4 @@ az ad group show --group "mygroup" --query objectId --out tsv
 In this article, you've learned how to find identity object IDs needed to configure the FHIR service to use an external or secondary Azure Active Directory tenant. Next read about how to use the object IDs to configure local RBAC settings:
  
 >[!div class="nextstepaction"]
->[Configure local RBAC settings](configure-local-rbac.md)
+>[Configure local RBAC settings](../azure-api-for-fhir/configure-local-rbac.md)

@@ -67,12 +67,8 @@ items:
   - name: Configure settings
     expanded: false
     items:
-    - name: Configure customer-managed keys
-      href: customer-managed-key.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-    - name: Configure Private Link
-      href: configure-private-link.md
 
   - name: Search
     expanded: false
@@ -122,7 +118,7 @@ items:
 - name: Resources
   items:
   - name: FAQ
-    href: fhir-faq.yml
+    href: fhir-faq.md
   - name: Supported features
     href: fhir-features-supported.md
   - name: GitHub Projects

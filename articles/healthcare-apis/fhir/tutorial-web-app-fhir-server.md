@@ -32,7 +32,7 @@ Before starting this set of tutorials, you will need the following items:
 ## Deploy FHIR service
 The first step in the tutorial is to get your FHIR service setup correctly.
 
-1. If you haven't already, deploy the [FHIR service](fhir-paas-portal-quickstart.md).
+1. If you haven't already, deploy the [FHIR service](fhir-portal-quickstart.md).
 1. Once you have your FHIR service deployed, configure the [CORS](configure-cross-origin-resource-sharing.md) settings by going to your FHIR service and selecting CORS. 
     1. Set **Origins** to *
     1. Set **Headers** to *

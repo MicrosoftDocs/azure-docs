@@ -47,9 +47,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy FHIR service using Portal
-            url: ./fhir/fhir-paas-portal-quickstart.md
+            url: ./fhir/fhir-portal-quickstart.md
           - text: Deploy FHIR service using ARM templates
-            url: ./fhir/fhir-paas-arm-template-quickstart.md
+            url: ./fhir/fhir-arm-template-quickstart.md
       - linkListType: tutorial
         links:
           - text: Deploy JavaScript application

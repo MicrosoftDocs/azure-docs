@@ -15,7 +15,7 @@ ms.author: jasteppe
 In this article, you'll learn how to export Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* Metrics logs. The feature that enables Metrics logging is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 > [!TIP]
-> Follow the guidance in [Enable Diagnostic Logging in FHIR service and Azure IoT Connector for FHIR](../fhir/enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) to set up audit logging.
+> Follow the guidance in [Enable Diagnostic Logging in FHIR service and Azure IoT Connector for FHIR](../fhir/enable-diagnostic-logging.md) to set up audit logging.
 
 ## Enable Metrics logging for the Azure IoT Connector for FHIR (preview)
 1. To enable Metrics logging for the Azure IoT Connector for FHIR, select your FHIR service service in the Azure portal 
@@ -53,6 +53,6 @@ Having access to Metrics logs is essential for monitoring and troubleshooting.  
 Check out frequently asked questions about the Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.yml)
+>[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.md)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

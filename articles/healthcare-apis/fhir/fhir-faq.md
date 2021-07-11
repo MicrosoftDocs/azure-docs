@@ -128,7 +128,7 @@ We have a [Health Architecture GitHub page](https://aka.ms/health-architectures)
 
 ### Is there a way to encrypt my data using my personal key not a default key?
 
-Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](customer-managed-key.md).
+Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](../azure-api-for-fhir/customer-managed-key.md).
 
 ## Azure API for FHIR: Preview Features
 **THIS NEEDS TO BE UPDATED BY THE IOT TEAM**

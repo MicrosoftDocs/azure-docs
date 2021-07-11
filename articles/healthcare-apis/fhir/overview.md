@@ -101,6 +101,6 @@ To start working with the FHIR service, follow the 5-minute quickstart to deploy
 To try out the Azure IoT Connector for FHIR feature, check out the quickstart to deploy Azure IoT Connector for FHIR using Azure portal.
 
 >[!div class="nextstepaction"]
->[Deploy Azure IoT Connector for FHIR](../data-transformation/iot-fhir-portal-quickstart.md)
+>[Deploy Azure IoT Connector for FHIR](../iot/iot-fhir-portal-quickstart.md)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7. 
