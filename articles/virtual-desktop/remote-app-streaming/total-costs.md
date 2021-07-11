@@ -14,7 +14,7 @@ manager: femila
 
 Azure Virtual Desktop costs come from two sources: underlying Azure resource consumption and licensing. Azure Virtual Desktop costs are charged to the organization that owns the Azure Virtual Desktop deployment, not the end-users accessing the deployment resources. Some licensing charges must be paid in advance. Other licenses and the underlying resource consumption charges are based on meters that track your usage.
 
-In this article, we'll explain consumption and licensing costs, as well as how to estimate service costs before deploying Azure Virtual Desktop using Azure Pricing Calculator. This article also includes instructions for how to use Azure Cost Management to view costs after deploying Azure Virtual Desktop.
+In this article, we'll explain consumption and licensing costs, and how to estimate service costs before deploying Azure Virtual Desktop using the Azure Pricing Calculator. This article also includes instructions for how to use Azure Cost Management to view costs after deploying Azure Virtual Desktop.
 
 >[!NOTE]
 >The customer who pays for the Azure Virtual Desktop deployment is responsible for handling their deployment's lifetime resource management and costs. If the owner no longer needs resources connected to their Azure Virtual Desktop deployment, they should ensure those resources are properly removed. For more information, see [How to manage Azure resources by using the Azure portal](../../azure-resource-manager/management/manage-resources-portal.md).
@@ -33,7 +33,7 @@ In Azure Virtual Desktop, session host VMs use the following three Azure service
 
 These charges can be viewed at the Azure Resource Group level where the host pool-specific resources including session host VMs are assigned. If one or more host pools are also configured to use the paid Log Analytics service to send VM data to the optional Azure Virtual Desktop Insights feature, then the bill will also charge you for the Log Analytics for the corresponding Azure Resource Groups. You can view [Monitor Windows Virtual Desktop cost pricing estimates](../azure-monitor-costs.md) for more information.
 
-Of the three primary VM session host usage costs listed at the beginning of this section, compute usually costs the most. To mitigate compute costs and optimize resource demand with availability, many customers choose to [scale session hosts automatically](../set-up-scaling-script.md).
+Of the three primary VM session host usage costs that are listed at the beginning of this section, compute usually costs the most. To mitigate compute costs and optimize resource demand with availability, many customers choose to [scale session hosts automatically](../set-up-scaling-script.md).
 
 ### Domain controller costs for Active Directories
 
@@ -44,7 +44,7 @@ Domain controller VMs use the following four Azure services at a minimum:
 - Bandwidth (networking)
 - Virtual networks
 
-If your Azure Virtual Desktop deployment relies on a domain controller to run its Active Directory, then you should include it in the total Azure Virtual Desktop deployment cost. Domain controllers hosted in Azure will also share the three Azure services for session host VMs described in [Session host VM costs](#session-host-vm-costs), because a standard Azure VM must also keep the Active Directory’s identities available.
+If your Azure Virtual Desktop deployment relies on a domain controller to run its Active Directory, then you should include it in the total Azure Virtual Desktop deployment cost. Domain controllers that are hosted in Azure will also share the three Azure services for session host VMs described in [Session host VM costs](#session-host-vm-costs), because a standard Azure VM must also keep the Active Directory’s identities available.
 
 However, domain controllers have a few key differences from session host VMs:
 
@@ -77,7 +77,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 
 2. Select **Azure Virtual Desktop**. The Azure Virtual Desktop calculator module should appear.
 
-3. Enter the values for your deployment into the fields to estimate your monthly Azure bill based on your anticipated compute, storage, and networking usage.
+3. Enter the values for your deployment into the fields to estimate your monthly Azure bill based on your expected compute, storage, and networking usage.
 
 >[!NOTE]
 >Currently, the Azure Pricing Calculator Azure Virtual Desktop module can only estimate consumption costs for session host VMs and the aggregate additional storage of any optional Azure Virtual Desktop features requiring storage that you choose to deploy. However, you can add estimates for other Azure Virtual Desktop features in separate modules within the same Azure Pricing calculator page to get a more complete or modular cost estimate.
