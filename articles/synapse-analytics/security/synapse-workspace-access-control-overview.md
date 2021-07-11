@@ -37,6 +37,8 @@ Azure roles are used to control management of:
 
 To *create* these resources, you need to be an Azure Owner or Contributor on the resource group. To *manage* them once created, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
 
+An Azure Owner or Contributor can enable or disable Azure Active Directory (AAD) only authentication for Azure Synapse workspaces.
+
 ### Developing and executing code in Synapse 
 
 Synapse supports two development models.
