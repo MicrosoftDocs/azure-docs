@@ -17,7 +17,7 @@ When you host or stream apps on Azure Virtual Desktop, you reach a wide variety 
 
 Before Azure Virtual Desktop, on-premises virtualization solutions like Azure Virtual Desktop require granting users access to roles like Gateway, Broker, Web Access, and so on. These roles had to be fully redundant and able to handle peak capacity. Admins would install these roles as part of the Windows Server OS, and they had to be domain-joined with specific ports accessible to public connections. To keep deployments secure, admins had to constantly make sure everything in the infrastructure was maintained and up-to-date.
 
-Meanwhile, Azure Virtual Desktop manages portions of the services on the customer's behalf. Speficially, Miscorosft hosts and manages the infrastructure parts as part of the service. Partners and customers no longer have to manually manage the required infrastructure to let users access session host virtual machines (VMs). The service also has built-in advanced security capabilities like reverse connect, which reduces the risk involved with allowing users to access their remote desktops from anywhere.
+Meanwhile, Azure Virtual Desktop manages portions of the services on the customer's behalf. Specifically, Microsoft hosts and manages the infrastructure parts as part of the service. Partners and customers no longer have to manually manage the required infrastructure to let users access session host virtual machines (VMs). The service also has built-in advanced security capabilities like reverse connect, which reduces the risk involved with allowing users to access their remote desktops from anywhere.
 
 To keep the service flexible, the session hosts are hosted in the partner or customers' Azure subscription. This lets customers integrate the service with other Azure services and lets them connect on-premises network infrastructure with ExpressRoute or a virtual private network (VPN).
 
@@ -78,7 +78,7 @@ Azure Virtual Desktop supports most security features available in Windows. Secu
 
 To learn more about security feature support and servicing, see our [Microsoft Security Servicing Criteria for Windows](https://www.microsoft.com/msrc/windows-security-servicing-criteria).
 
-## Recommended security boudaries for Azure Virtual Desktop scenarios
+## Recommended security boundaries for Azure Virtual Desktop scenarios
 
 You'll also need to make certain choices about security boundaries on a case-by-case basis. For example, if a user in your organization needs local administrative privileges to install apps, you'll need to give them a personal desktop instead of a shared RDSH. We don't typically recommend giving users local admin privileges in RDSH because these users can cross security boundaries for sessions or NTFS data permissions, shut down shared RDSH VMs, or do other things that could interrupt service or cause data losses.
 
