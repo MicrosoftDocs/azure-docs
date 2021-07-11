@@ -28,7 +28,7 @@ Per-user access pricing lets you pay for Azure Virtual Desktop access rights on 
 
 You pay for per-user access pricing through your enrolled Azure subscription or subscriptions on top of your charges for virtual machines, storage, and other Azure services. Each billing cycle, you only pay for users who actually used the service. Only users that connect at least once to Azure Virtual Desktop that month incur an access charge.
 
-There are two price tiers for Azure Virtual Desktop per-user access pricing. Charges are determined automatically each billing cycle based on the type of [application groups](environment-setup.md#app-groups) a user connected to.
+There are two price tiers for Azure Virtual Desktop per-user access pricing. Charges are determined automatically each billing cycle based on the type of [application groups](../environment-setup.md#app-groups) a user connected to.
 
 - The first price tier is called "Apps." This flat price is charged for each user who accesses at least one RemoteApp application group and zero Desktop application groups.
 - The second tier is "Apps + Desktops." This flat price is charged for each user who accesses at least one Desktop application group.
