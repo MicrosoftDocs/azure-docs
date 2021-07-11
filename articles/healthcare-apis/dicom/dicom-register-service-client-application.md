@@ -81,7 +81,7 @@ The service client needs a secret (password) to obtain a token.
 In this article, you've learned how to register a service client application in Azure AD. 
 
 >[!div class="nextstepaction"]
->[Overview of a DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)
 
 
 

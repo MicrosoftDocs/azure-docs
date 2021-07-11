@@ -47,4 +47,4 @@ curl -X GET --header "Authorization: Bearer $token"  https://<workspace-service>
 In this article, you've learned how to obtain an access token for the DICOM service using the Azure CLI. 
 
 >[!div class="nextstepaction"]
->[Overview of a DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)

@@ -145,5 +145,5 @@ In this article, we reviewed the REST API design of Change Feed and potential us
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Overview of DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)
 

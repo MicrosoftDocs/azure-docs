@@ -78,7 +78,7 @@ Now that you've registered your application, you must select which API permissio
 In this article, you were guided through the steps of how to register a confidential client application in the Azure AD. You were also guided through the steps of how to add API permissions to the Azure API for DICOM. Lastly, you were shown how to create an application secret. 
 
 >[!div class="nextstepaction"]
->[Overview of a DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)
 
 
 

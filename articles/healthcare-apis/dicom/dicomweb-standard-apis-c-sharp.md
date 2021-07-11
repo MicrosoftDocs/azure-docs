@@ -362,4 +362,4 @@ This response deletes the blue-circle instance (it is the only element left in t
 For information about the DICOM service, see
 
 >[!div class="nextstepaction"]
->[Overview of a DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)

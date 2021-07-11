@@ -478,4 +478,4 @@ The response body will be empty. The status code is the only useful information 
 For information about the DICOM service, see 
 
 >[!div class="nextstepaction"]
->[Overview of DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)

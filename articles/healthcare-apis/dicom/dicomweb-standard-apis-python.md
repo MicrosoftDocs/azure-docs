@@ -550,4 +550,4 @@ response = client.delete(url)
 For information about the DICOM service, see 
 
 >[!div class="nextstepaction"]
->[Overview of a DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)

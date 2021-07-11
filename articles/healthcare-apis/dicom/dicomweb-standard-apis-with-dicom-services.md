@@ -65,4 +65,4 @@ This tutorial provided an overview of the APIs supported by the DICOM service. G
 For more information about DICOM service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)

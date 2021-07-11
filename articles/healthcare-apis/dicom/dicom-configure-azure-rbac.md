@@ -40,4 +40,4 @@ The DICOM service will cache decisions for up to five minutes. If you grant a us
 In this article, you learned how to assign Azure roles for the DICOM service data plane. 
  
 >[!div class="nextstepaction"]
->[Overview of a DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)

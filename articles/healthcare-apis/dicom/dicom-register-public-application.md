@@ -70,7 +70,7 @@ Select the permissions that you would like the DICOM service application to requ
 In this article, you've learned how to register a public client application in the Azure Active Directory.  
 
 >[!div class="nextstepaction"]
->[Overview of a DICOM service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)
 
 
 
