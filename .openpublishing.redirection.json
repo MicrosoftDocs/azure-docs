@@ -15784,61 +15784,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-use-interactive-tutorials.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-analyze-weblogs",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-u-sql-develop-assemblies.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-data-lake-tools-for-vscode",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-get-started-cli2.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-get-started-net-sdk.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-get-started-python.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-get-started-java-sdk.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-manage-use-java-sdk",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-use-u-sql-catalog.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-use-window-functions.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-u-sql-combine-data-with-joins.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-u-sql-parameterize_scripts.md",
-      "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/data-lake-analytics/policy-samples.md",
-      "redirect_url": "/azure/data-lake-analytics/policy-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/data-lake-store/data-lake-store-troubleshooting-guidance.md",
       "redirect_url": "/azure/data-lake-store/data-lake-store-disaster-recovery-guidance",
       "redirect_document_id": false
@@ -41614,11 +41559,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/data-lake-analytics/data-lake-analytics-get-started-rest-api.md",
-      "redirect_url": "/rest/api/datalakeanalytics/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/frontdoor/front-door-rest-api.md",
       "redirect_url": "/rest/api/frontdoor",
       "redirect_document_id": false
@@ -61847,7 +61787,7 @@
       "source_path": "articles/machine-learning/team-data-science-process/walkthroughs.md",
       "redirect_url": "/azure/architecture/data-science-process/walkthroughs",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "articles/load-balancer/load-balancer-monitor-log.md",
       "redirect_url": "/azure/load-balancer/monitor-load-balancer",
