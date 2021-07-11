@@ -93,13 +93,13 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
 | **EventSchemaVersion**  | Mandatory   | String     |    The version of the schema. The version of the schema documented here is `0.1`         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides additional information about the event.|
-| **Dvc** | Alias       | String     |               A unique identifier of the device on which the process event occurred. <br><br>Example: `ContosoDc.Contoso.Azure` <br><br>This field may alias any of [**DvcId**](#dvcid), **[DvcHostname](#dvchostname)** or **[DvcIpAddr](#dvcipaddr)** fields.           |
-| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |         The IP Address of the device on which the process event occurred.  <br><br>Example: `45.21.42.12`    |
-| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   |               The hostname of the device on which the process event occurred. <br><br>Example: `ContosoDc.Contoso.Azure`               |
-| <a name ="dvcid"></a>**DvcId**               | Optional    | String     |  The unique ID of the device on which the process event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
-| **DvcMacAddr**          | Optional    | MAC        |   The MAC  of device on which the process event occurred.  <br><br>Example: `00:1B:44:11:3A:B7`       |
-| **DvcOs**               | Optional    | String     |         The operating system running on the device on which the process event occurred.    <br><br>Example: `Windows`    |
-| **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the process event occurred. <br><br>Example: `10` |
+| **Dvc** | Alias       | String     |               A unique identifier of the device on which the registry event occurred. <br><br>Example: `ContosoDc.Contoso.Azure` <br><br>This field may alias any of [**DvcId**](#dvcid), **[DvcHostname](#dvchostname)** or **[DvcIpAddr](#dvcipaddr)** fields.           |
+| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |         The IP Address of the device on which the registry event occurred.  <br><br>Example: `45.21.42.12`    |
+| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   |               The hostname of the device on which the registry event occurred. <br><br>Example: `ContosoDc.Contoso.Azure`               |
+| <a name ="dvcid"></a>**DvcId**               | Optional    | String     |  The unique ID of the device on which the registry event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
+| **DvcMacAddr**          | Optional    | MAC        |   The MAC  of device on which the registry event occurred.  <br><br>Example: `00:1B:44:11:3A:B7`       |
+| **DvcOs**               | Optional    | String     |         The operating system running on the device on which the registry event occurred.    <br><br>Example: `Windows`    |
+| **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the registry event occurred. <br><br>Example: `10` |
 | **AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic ***AdditionalFields*** field, and add to it the extra information as key/value pairs.    |
 
 
