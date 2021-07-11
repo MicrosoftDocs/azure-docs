@@ -31,6 +31,8 @@ You'll need to configure security in the following areas:
 - Deployment configuration
 - Network controls
 
+For more information about how to configure each of these areas, check out our [security best practices](./../security-guide.md).
+
 ## Combined Microsoft security platform
 
 You can protect workloads by using security features and controls from Microsoft 365, Azure, and Azure Virtual Desktop.
@@ -113,3 +115,7 @@ This deployment would benefit from a security in depth strategy that adds more s
 On the other hand, Microsoft doesn't support granting users that work for different or competing companies access to the same multi-session environment. These scenarios have several security boundaries that can be attacked or abused, like network, kernel, process, user, or sessions. A single security vulnerability could cause unauthorized data and credential theft, personal information leaks, identity thief, and other issues. Virtualized environment providers are responsible for offering well-designed systems with multiple strong security boundaries and extra safety features enabled wherever possible.
 
 Reducing these potential threats requires a fault-proof configuration, patch management design process, and regular patch deployment, which is beyond the scope of most organizations. It's better to follow the principles of defense in depth and keep environments separate.
+
+## Next steps
+
+Find our recommended guidelines for configuring security for your Azure Virtual Desktop deployment at our [security best practices](./../security-guide.md).
