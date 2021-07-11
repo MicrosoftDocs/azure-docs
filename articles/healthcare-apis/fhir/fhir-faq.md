@@ -12,6 +12,8 @@ ms.author: cavoeg
 
 # Frequently asked questions about the FHIR service
 
+This section covers some of the frequently asked questions about Healthcare APIs FHIR service.
+
 ## FHIR service: The Basics
 
 ### What is FHIR?
@@ -24,9 +26,6 @@ Yes, the data is stored in managed databases in Azure. The FHIR service in the A
 ### What identity provider do you support?
 
 We currently support Microsoft Azure Active Directory as the identity provider.
-
-### What is the Recovery Point Objective (RPO) for the FHIR Service for the Azure Healthcare APIs?
-**Need input from Chad & Benjamin**
 
 ### What FHIR version do you support?
 
@@ -41,7 +40,7 @@ The FHIR service is our implementation of the FHIR specification that sits in th
 * The FHIR service has a limit of 4TB and is in public preview while the Azure API for FHIR supports more than 4TB and is GA.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
 * Chained searching and reverse chained searching does not have a limit on number of resources returned
-* The Azure API for FHIR has more platform features (such as Private Link, CMK) that are not yet available in the FHIR service in the Azure Healthcare APIs. **NEED REVIEW FROM BENJAMIN/CHAD/CHAMI**
+* The Azure API for FHIR has more platform features (such as Private Link, CMK) that are not yet available in the FHIR service in the Azure Healthcare APIs.
 
 ### What's the difference between 'FHIR service in the Azure Healthcare APIs' and the 'FHIR server'?
 
@@ -54,8 +53,6 @@ For a development standpoint, every feature that doesn't apply only to the manag
 ### In which regions is the FHIR service available?
 
 Currently, we have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, check out [Azure services by FedRAMP](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
-
-**NEED CONFIRMATION THAT THIS IS STILL ACCURATE FOR FHIR Service**
 
 ### Where can I see what is releasing into the FHIR service?
 
@@ -111,8 +108,6 @@ Anonymized export is currently supported only on a full system export (/$export)
 
 ### How do I enable log analytics for Azure Healthcare APIs?
 
-**NEED INPUT FROM CHAMI/BENJAMIN/CHAD - I think this should be moved to a more generic FAQ section for all of Healthcare APIs**
-
 We enable diagnostic logging and allow reviewing sample queries for these logs. For details on enabling audit logs and sample queries, check out [this section](enable-diagnostic-logging.md). If you want to include additional information in the logs, check out [using custom HTTP headers](use-custom-headers.md).
 
 ### Where can I see some examples of using the FHIR service within a workflow?
@@ -124,14 +119,12 @@ We have a collection of reference architectures available on the [Health Archite
 We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to Azure API for FHIR.  
 
 ## Azure API for FHIR Features and Services 
-**THIS NEEDS TO BE UPDATED BY BENJAMIN/CHAD**
 
 ### Is there a way to encrypt my data using my personal key not a default key?
 
 Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](../azure-api-for-fhir/customer-managed-key.md).
 
 ## Azure API for FHIR: Preview Features
-**THIS NEEDS TO BE UPDATED BY THE IOT TEAM**
 
 ### Can I configure scaling capacity for Azure IoT Connector for FHIR (preview)?
 
