@@ -46,15 +46,15 @@ Azure Sentinel offers a flexible and predictable pricing model. For more informa
 Azure Sentinel runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
 ### How you're charged for Azure Sentinel
 
-There are two ways to pay for the Azure Sentinel service: Pay-As-You-Go and Commitment Tiers.
+There are two ways to pay for the Azure Sentinel service: **Pay-As-You-Go** and **Commitment Tiers**.
 
-Pay-As-You-Go is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10^9 bytes).
+- **Pay-As-You-Go** is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10^9 bytes).
 
-Log Analytics and Azure Sentinel also have Commitment Tier pricing, formerly called Capacity Reservations, which is more predictable and saves as much as 65% compared to Pay-As-You-Go pricing. With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100GB/day bills you for the committed 100GB/day data volume, plus any additional GB/day at the discounted rate for that tier.
+- Log Analytics and Azure Sentinel also have **Commitment Tier** pricing, formerly called Capacity Reservations, which is more predictable and saves as much as 65% compared to Pay-As-You-Go pricing. With Commitment Tier pricing, you can buy a commitment starting at 100 GB/day. Any usage above the commitment level is billed at the Commitment Tier rate you selected. For example, a Commitment Tier of 100GB/day bills you for the committed 100GB/day data volume, plus any additional GB/day at the discounted rate for that tier.
 
-You can increase your commitment tier anytime, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
+    You can increase your commitment tier anytime, and decrease it every 31 days, to optimize costs as your data volume increases or decreases. To see your current Azure Sentinel pricing tier, select **Settings** in the Azure Sentinel left navigation, and then select the **Pricing** tab. Your current pricing tier is marked as **Current tier**.
 
-To set and change your Commitment Tier, see [Set or change pricing tier](#set-or-change-pricing-tier).
+    To set and change your Commitment Tier, see [Set or change pricing tier](#set-or-change-pricing-tier).
 
 ### Understand your Azure Sentinel bill
 
