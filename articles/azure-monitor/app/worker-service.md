@@ -529,9 +529,9 @@ Get an instance of `TelemetryClient` by using constructor injection, and call th
 
 Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Core Applications. This document will be updated when Visual Studio ships support for onboarding Worker service applications.
 
-### Can I enable Application Insights monitoring by using tools like Status Monitor?
+### Can I enable Application Insights monitoring by using tools like Application Insights Agent (formally Status Monitor v2)?
 
-No. [Status Monitor](./monitor-performance-live-website-now.md) and [Status Monitor v2](./status-monitor-v2-overview.md) currently support ASP.NET 4.x only.
+No, [Application Insights Agent](./status-monitor-v2-overview.md) currently supports ASP.NET 4.x only.
 
 ### If I run my application in Linux, are all features supported?
 
