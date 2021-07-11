@@ -16,7 +16,8 @@ In order to create an availability test, you need use an existing Application In
 ## Create a test
 
 To create your first availability request:
-1. In your Application Insights resources open the Availability pane and select  **Add Classic Test**.
+1. In your Application Insights resource open the Availability pane and select  **Add Classic Test**.
+
     :::image type="content" source="./media/monitor-web-app-availability/create-test.png" alt-text="Screenshot of create of create a test." lightbox ="./media/monitor-web-app-availability/create-test.png":::
 1. Name your test and select "URL ping " as the *SKU*.
 1. Enter the URL you wish to test.

@@ -18,7 +18,7 @@ There are three types of availability tests:
 
 * [URL ping test](monitor-web-app-availability.md): This category has two simple tests you can create through the portal.
 * [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
-* [Custom Track Availability Tests](availability-azure-functions): If you decide to create a custom application to run availability tests, the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method can be used to send the results to Application Insights.
+* [Custom Track Availability Tests](availability-azure-functions.md): If you decide to create a custom application to run availability tests, the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method can be used to send the results to Application Insights.
 
 > [!IMPORTANT]
 > Both, [URL ping test](monitor-web-app-availability.md) and [multi-step web test](availability-multistep.md) rely on the public internet DNS infrastructure to resolve the domain names of the tested endpoints. This means that if you are using Private DNS, you must either ensure that every domain name of your test is also resolvable by the public domain name servers or, when it is not possible, you can use [custom track availability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
