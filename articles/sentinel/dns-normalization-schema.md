@@ -119,14 +119,15 @@ Event fields are common to all schemas, and describe the activity itself and the
 | <a name=eventresultdetails></a>**EventResultDetails** | Mandatory | Alias | `NXDOMAIN` | Reason or details for the result reported in the **_EventResult_** field. Aliases the [ResponseCodeName](#responsecodename) field.|
 | **EventOriginalUid** | Optional | String | | A unique ID of the original record, if provided by the source. |
 | **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. <br><br>Example: `lookup`|
-| **EventProduct** | Mandatory | String | `DNS Server` | The product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
+| <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | `DNS Server` | The product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
 | **EventProductVersion** | Optional | String | `12.1` | The version of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
 | **EventVendor** | Mandatory | String | `Microsoft` | The vendor of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
 | **EventSchemaVersion** | Mandatory | String | `0.1` | The version of the schema documented here is **0.1**. |
 | **EventReportUrl** | Optional | String | | A URL provided in the event for a resource that provides more information about the event. |
-| <a name=dvc></a>**Dvc** | Mandatory | String | `45.21.42.12` | A unique identifier of the reporting device, provided by the reporting device. <br><br>In many cases, such as in Syslog messages, the value included in the message can be an IP address, a hostname, or an FQDN. Values can be stored in the **Dvc** field without identifying their type. |
-| **DvcIpAddr** | Recommended | IP Address | `45.21.42.12` | The IP Address of the reporting device. If an identifier is available but the type is not known, use the [Dvc](#dvc) field instead.|
-| **DvcHostname** | Recommended | String | `dc.contoso.loco` | The hostname of the reporting device. If an identifier is available but the type is not known, use the [Dvc](#dvc) field instead. |
+| <a name=dvc></a>**Dvc** | Mandatory       | String     |    `ContosoDc.Contoso.Azure` |           A unique identifier of the device on which the event occurred. <br><br><br>This field may alias any of [**DvcId**](#dvcid), **[DvcHostname](#dvchostname)** or **[DvcIpAddr](#dvcipaddr)** fields. For cloud sources, for which there is not apparent device, use the same value as [**Event Product**](#eventproduct)           |
+| <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |  `45.21.42.12` |       The IP Address of the device on which the process event occurred.  |
+| <a name ="dvchostname"></a>**DvcHostname**         | Recommended | Hostname   | `ContosoDc.Contoso.Azure` |              The hostname of the device on which the process event occurred.                |
+| <a name ="dvcid"></a>**DvcId**               | Optional    | String     || The unique ID of the device on which the process event occurred. <br><br>Example: `41502da5-21b7-48ec-81c9-baeea8d7d669`   |
 | <a name=additionalfields></a>**AdditionalFields** | Optional | Dynamic | | If your source provides other information worth preserving, either keep it with the original field names or create the **AdditionalFields** dynamic field, and add to the extra information as key/value pairs. |
 | | | | | |
 
