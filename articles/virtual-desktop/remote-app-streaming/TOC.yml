@@ -31,7 +31,7 @@
     - name: Estimate total deployment costs 
       href: total-costs.md
     - name: Estimate per-user app streaming costs 
-      href: 
+      href: streaming-costs.md
     - name: Deploy apps with Microsoft Intune
       href: /mem/intune/apps/apps-windows-10-app-deploy?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Serve Intune managed endpoint clients
