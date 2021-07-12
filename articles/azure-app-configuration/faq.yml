@@ -124,7 +124,11 @@ sections:
           * Attempting to create or modify a key when the storage quote is exceeded.
           
           Check the body of the 429 response for the specific reason why the request failed.
-          
+
+      - question: Why can't I create an App Configuration store with the same name as one that I just deleted?
+        answer: |
+          When a configuration store is deleted the name is reserved for three days after deletion. It is possible to recreate a store with the same name before the reservation period has elapsed but it must be in the same resource group as the original store. If the resource group that contained the store was deleted it will need to be recreated first before recreating the store inside of it.
+
       - question: How can I receive announcements on new releases and other information related to App Configuration?
         answer: |
           Subscribe to our [GitHub announcements repo](https://github.com/Azure/AppConfiguration-Announcements).
