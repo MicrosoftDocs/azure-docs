@@ -413,7 +413,7 @@
     - name: Test toolkit
       href: test-toolkit.md
     - name: Test cases
-      href: test-cases.md
+      href: template-test-cases.md
     - name: CreateUiDefinition test cases
       href: createuidefinition-test-cases.md
   - name: Template specs
