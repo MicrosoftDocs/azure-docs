@@ -24,8 +24,6 @@
       href: msix-app-attach.md
     - name: Host custom apps
       href: custom-apps.md
-    - name: App hosting licenses 
-      href: 
     - name: Enroll in per-user access pricing
       href: per-user-access-pricing.md
     - name: Estimate total deployment costs 
