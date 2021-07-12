@@ -1,33 +1,34 @@
 ---
-title: Deploy Azure Arc data controller | Direct connect mode
-description: Explains how to deploy the data controller in direct connect mode. 
-author: twright-msft
-ms.author: twright
+title: Create Azure Arc data controller | Direct connect mode
+description: Explains how to create the data controller in direct connect mode. 
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/08/2021
 ms.topic: overview
 ---
 
-#  Deploy Azure Arc data controller | Direct connect mode
+#  Create Azure Arc data controller in Direct connectivity mode using CLI
 
-This article describes how to deploy the Azure Arc data controller in direct connect mode during the current preview of this feature. 
-
-Currently you can create the Azure Arc data controller from Azure portal. Other tools for Azure Arc enabled data services do not support creating the data controller in direct connect mode. For details, see [Release notes](release-notes.md).
+This article describes how to create the Azure Arc data controller in **direct** connectivity mode using CLI, during the current preview of this feature. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Complete prerequisites
 
-Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
-From a high level, this article explains how to complete these tasks:
+Creating an Azure Arc data controller in **direct** connectivity mode involves the following steps:
 
 1. Create an Azure Arc enabled data services extension. 
 1. Create a custom location.
-1. Deploy the data controller from the portal.
+1. Create the data controller.
+
+> [!NOTE]
+> Currently, this step can only be performed from the portal. For details, see [Release notes](release-notes.md). 
 
 ## Create an Azure Arc enabled data services extension
 
