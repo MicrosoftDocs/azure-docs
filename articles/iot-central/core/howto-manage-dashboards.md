@@ -48,15 +48,15 @@ The following screenshot shows the dashboard in an application created from the 
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-sample-contoso.png" alt-text="Dashboard for applications based on the custom application template":::
 
-After you select **Edit** or **New**, the dashboard is in *edit* mode. You can use the tools in the **Edit dashboard** panel to add tiles to the dashboard, and customize and remove tiles on the dashboard itself. For example, to add a **Telemetry** tile to show current temperature reported by one or more devices:
+After you select **Edit** or **New**, the dashboard is in *edit* mode. You can use the tools in the **Edit dashboard** panel to add tiles to the dashboard, and customize and remove tiles on the dashboard itself. For example, to add a **Line Chart** tile to track telemetry values over time reported by one or more devices:
 
-1. Select a **Device Group** and then choose your devices in the **Devices** dropdown to show on the tile. You now see the available telemetry, properties, and commands from the devices.
-
-1. If needed, use the dropdown to select a telemetry value to show on the tile. Select **+ Telemetry**, **+ Property**, or **+ Cloud Property** to add more items to the tile.
+1. Select **Start with a Visual**, then choose **Line chart**, and then select **Add tile** or just drag and drop it on to the canvas.
+ 
+1. To configure the tile, select its gear icon. Enter a **Title** and select a **Device Group** and then choose your devices in the **Devices** dropdown to show on the tile.
 
 :::image type="content" source="media/howto-manage-dashboards/device-details.png" alt-text="Add a temperature telemetry tile to the dashboard":::
 
-When you've selected all the values to show on the tile, select **Add tile**. The tile appears on the dashboard where you can change the visualization, resize it, move it, and configure it.
+When you've selected all the values to show on the tile, click **Update**
 
 When you've finished adding and customizing tiles on the dashboard, select **Save** to save the changes to the dashboard, which takes you out of edit mode.
 
@@ -80,7 +80,8 @@ The following table describes the different types of tile you can add to a dashb
 | Image            | Image tiles display a custom image and can be clickable. The URL can be a relative link to another page in the application, or an absolute link to an external site.|
 | Label            | Label tiles display custom text on a dashboard. You can choose the size of the text. Use a label tile to add relevant information to the dashboard such descriptions, contact details, or help.|
 | Count            | Count tiles display the number of devices in a device group.|
-| Map              | Map tiles display the [location](howto-use-location-data.md) of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display sampled route of where a device has been on the past week.|
+| Map(telemetry)              | Map tiles display the location of one or more devices on a map. You can also display up to 100 points of a device's location history. For example, you can display sampled route of where a device has been on the past week.|
+| Map(property)              | Map tiles display the location of one or more devices on a map.|
 | KPI              |  KPI tiles display aggregate telemetry values for one or more devices over a time period. For example, you can use it to show the maximum temperature and pressure reached for one or more devices during the last hour.|
 | Line chart       | Line chart tiles plot one or more aggregate telemetry values for one or more devices for a time period. For example, you can display a line chart to plot the average temperature and pressure of one or more devices for the last hour.|
 | Bar chart        | Bar chart tiles plot one or more aggregate telemetry values for one or more devices for a time period. For example, you can display a bar chart to show the average temperature and pressure of one or more devices over the last hour.|
@@ -89,6 +90,10 @@ The following table describes the different types of tile you can add to a dashb
 | Last Known Value | Last known value tiles display the latest telemetry values for one or more devices. For example, you can use this tile to display the most recent temperature, pressure, and humidity values for one or more devices. |
 | Event History    | Event History tiles display the events for a device over a time period. For example, you can use it to show all the valve open and close events for one or more devices during the last hour.|
 | Property         |  Property tiles display the current value for properties and cloud properties of one or more devices. For example, you can use this tile to display device properties such as the manufacturer or firmware version for a device. |
+| State Chart         |  State chart plot changes for one or more devices over a set time range. For example, you can use this tile to display device properties such as the temperature changes for a device. |
+| Event Chart         |  Event chart displays telemetry events for one or more devices over a set time range. For example, you can use this tile to display the properties such as the temperature changes for a device. |
+| State History         |  State history lists and displays status changes for State telemetry.|
+| External Content         |  External content tile allows you to load external content from an external source. |
 
 Currently, you can add up to 10 devices to tiles that support multiple devices.
 
@@ -122,7 +127,7 @@ The following screenshot shows the effect of the conditional formatting rule:
 
 ### Tile formatting
 
-This feature, available in KPI, LKV, and property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
+This feature, available in KPI, LKV, and Property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
 
 :::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Tile Format":::
 

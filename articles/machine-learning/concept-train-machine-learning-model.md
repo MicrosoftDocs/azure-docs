@@ -103,18 +103,6 @@ The designer lets you train models using a drag and drop interface in your web b
 + [What is the designer?](concept-designer.md)
 + [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 
-## Many models solution accelerator
-
-The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
-
-For example, building a model __for each instance or individual__ in the following scenarios can lead to improved results:
-
-* Predicting sales for each individual store
-* Predictive maintenance for hundreds of oil wells
-* Tailoring an experience for individual users.
-
-For more information, see the [Many Models Solution Accelerator](https://aka.ms/many-models) on GitHub.
-
 ## Azure CLI
 
 The machine learning CLI is an extension for the Azure CLI. It provides cross-platform CLI commands for working with Azure Machine Learning. Typically, you use the CLI to automate tasks, such as training a machine learning model.

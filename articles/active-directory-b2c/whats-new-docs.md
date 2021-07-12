@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 06/02/2021
+ms.date: 07/12/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,33 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## June 2021
+
+### New articles
+
+- [Enable authentication in your own web API using Azure Active Directory B2C](enable-authentication-web-api.md)
+- [Enable authentication in your own Single Page Application using Azure Active Directory B2C](enable-authentication-spa-app.md)
+- [Publish your Azure AD B2C app to the Azure AD app gallery](publish-app-to-azure-ad-app-gallery.md)
+- [Configure authentication in a sample Single Page application using Azure Active Directory B2C](configure-authentication-sample-spa-app.md)
+- [Configure authentication in a sample web application that calls a web API using Azure Active Directory B2C](configure-authentication-sample-web-app-with-api.md)
+- [Configure authentication in a sample Single Page application using Azure Active Directory B2C options](enable-authentication-spa-app-options.md)
+- [Configure authentication in a sample web application  that calls a web API using Azure Active Directory B2C options](enable-authentication-web-app-with-api-options.md)
+- [Enable authentication in your own web application that calls a web API using Azure Active Directory B2C](enable-authentication-web-app-with-api.md)
+- [Sign-in options in Azure AD B2C](sign-in-options.md)
+
+### Updated articles
+
+- [User profile attributes](user-profile-attributes.md)
+- [Configure authentication in a sample web application using Azure Active Directory B2C](configure-authentication-sample-web-app.md)
+- [Configure authentication in a sample web application using Azure Active Directory B2C options](enable-authentication-web-application-options.md)
+- [Set up a sign-in flow in Azure Active Directory B2C](add-sign-in-policy.md)
+- [Set up a sign-up and sign-in flow in Azure Active Directory B2C](add-sign-up-and-sign-in-policy.md)
+- [Set up the local account identity provider](identity-provider-local.md)
+- [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
+- [Add user attributes and customize user input in Azure Active Directory B2C](configure-user-input.md)
+- [Azure Active Directory B2C service limits and restrictions](service-limits.md)
+
 
 ## May 2021
 
