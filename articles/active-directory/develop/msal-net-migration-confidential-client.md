@@ -402,7 +402,7 @@ Calling `AcquireTokenByAuthorizationCode` adds a token to the token cache. To ac
 
 #### Benefit from token caching
 
-Because your web app uses `AcquireTokenByAuthorizationCode`, your app needs to use a distributed token cache for token caching. For details, see [Token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and read through [sample code](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
+Because your web app uses `AcquireTokenByAuthorizationCode`, your app needs to use a distributed token cache for token caching. For details, see [Token cache for a web app or web API](msal-net-token-cache-serialization.md?tabs=aspnet) and read through [sample code](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
 
 
 ```CSharp
