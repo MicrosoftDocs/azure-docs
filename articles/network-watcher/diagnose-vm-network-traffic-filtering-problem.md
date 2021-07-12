@@ -60,11 +60,8 @@ To test network communication with Network Watcher, first enable a network watch
 If you already have a network watcher enabled in at least one region, skip to the [Use IP flow verify](#use-ip-flow-verify).
 
 1. In the portal, select **All services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
-2. Enable a network watcher in the East US region, because that's the region the VM was deployed to in a previous step. Select **Regions**, to expand it, and then select **...** to the right of **East US**, as shown in the following picture:
-
-    ![Enable Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
-
-3. Select **Enable Network Watcher**.
+2. Enable a network watcher in the East US region, because that's the region the VM was deployed to in a previous step. Hit add button on the top left corner, select your subscription and region needed to deploy Network Watcher and hit create.(Refresh the page to see the created Network Watcher)
+3. This will enable Network Watcher in the region you selected.
 
 ### Use IP flow verify
 
