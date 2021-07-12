@@ -80,7 +80,7 @@ A default TCP idle timeout of 4 minutes is used and can be increased to up to 12
 
 ## Regional or zone isolation with availability zones
 
-NAT is regional by default. When creating [availability zones](/azure/availability-zones/az-overview) scenarios, NAT can be isolated in a specific zone (zonal deployment).
+NAT is regional by default. When creating [availability zones](../../availability-zones/az-overview.md) scenarios, NAT can be isolated in a specific zone (zonal deployment).
 
 :::image type="content" source="./media/nat-overview/az-directions.png" alt-text="Figure shows three zonal stacks, each of which contains a NAT gateway and a subnet.":::
 
