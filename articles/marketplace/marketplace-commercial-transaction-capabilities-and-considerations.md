@@ -142,11 +142,7 @@ In this scenario, Microsoft bills $100.00 for your software license and pays out
 
 ### Commercial marketplace service fees
 
-We charge a 20% standard store service fee when customers purchase your transact offer from the commercial marketplace. For details of this fee, see section 5c of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement).
-
-For certain transact offers that you publish to the commercial marketplace, you may qualify for a reduced store service fee of 10%. For an offer to qualify, it must have been designated by Microsoft as _Azure IP Co-sell incentivized_. Eligibility must be met at least five business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month until _Azure IP Co-sell incentivized_ status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
-
-The Reduced Marketplace Service Fee applies to Azure IP Co-sell incentivized SaaS, VMs, Managed apps, and any other qualified transactable IaaS solutions made available through the commercial marketplace. Paid SaaS offers associated with one Microsoft Teams app or at least two Microsoft 365 add-ins (Excel, PowerPoint, Word, Outlook, and SharePoint) and published to Microsoft AppSource can also qualify for this discount.
+We charge a 3% standard store service fee when customers purchase your transact offer from the commercial marketplace.
 
 ### Customer invoicing, payment, billing, and collections
 
