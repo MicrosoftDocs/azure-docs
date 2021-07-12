@@ -61,6 +61,76 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/howto-opc-publisher-configure.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-publisher-run.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-publisher-run",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-dependencies.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-dependencies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-existing.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-existing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-twin-deploy-modules.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-twin-deploy-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-deploy.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-manage.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-secure-ca.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-secure-ca",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/howto-opc-vault-secure.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/howto-opc-vault-secure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-publisher.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-publisher",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-twin-architecture.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-twin-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-twin.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-twin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-vault-architecture.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-vault-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/overview-opc-vault.md",
+      "redirect_url": "/previous-versions/azure/iot-accelerators/overview-opc-vault",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric-mesh/move-across-regions.md",
       "redirect_url": "/previous-versions/azure/service-fabric-mesh/move-across-regions",
       "redirect_document_id": false
@@ -11081,6 +11151,11 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/template-variables.md",
       "redirect_url": "/azure/azure-resource-manager/templates/variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/test-cases.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-test-cases",
       "redirect_document_id": false
     },
     {
@@ -59451,6 +59526,16 @@
     {
       "source_path_from_root": "/articles/communication-services/concepts/ui-framework/teams-embed.md",
       "redirect_url": "/azure/communication-services/concepts/ui-library/teams-embed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity.md",
+      "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/managed-identity-from-cli.md",
+      "redirect_url": "/azure/communication-services/quickstarts/identity/service-principal-from-cli",
       "redirect_document_id": false
     },
     {
