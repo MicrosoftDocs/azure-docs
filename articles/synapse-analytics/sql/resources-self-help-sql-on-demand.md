@@ -579,6 +579,29 @@ Cannot find value of partitioning column '<column name>' in file
 
 **Workaround:** Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
 
+### JSON text is not properly formatted
+
+This error indicates that serverless SQL pool cannot read Delta Lake transaction log. You will probably see the error like the following error:
+
+```
+Msg 13609, Level 16, State 4, Line 1
+JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
+Msg 16513, Level 16, State 0, Line 1
+Error reading external metadata.
+```
+
+- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Synapse or Databricks cluster. This way you will ensure that the `_delta_log` file is not corrupted.
+- Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
+
+In this case, report a support ticket and provide a repro to Azure support:
+- Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
+- Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
+- Try to read the content that you copied in new folder and verify that you are getting the same error.
+- Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this.
+- Send the content of the copied `_delta_log` file to Azure support.
+
+Microsoft team will investigate the content of the `delta_log` file and provide more info about the possible errors and workarounds.
+
 ## Constraints
 
 There are some general system constraints that may affect your workload:
