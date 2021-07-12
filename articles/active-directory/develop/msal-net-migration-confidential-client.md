@@ -284,7 +284,6 @@ public partial class AuthWrapper
 For token caching in OBOs, you need to use a distributed token cache. For details, see [Token cache for a web app or web API (confidential client application)](msal-net-token-cache-serialization.md?tabs=aspnet) and read through [sample code](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
 
 ```CSharp
-IMsalTokenCacheProvider msalTokenCacheProvider = CreateTokenCache(cacheImplementation)
 msalTokenCacheProvider.Initialize(app.UserTokenCache);
 ```
 
