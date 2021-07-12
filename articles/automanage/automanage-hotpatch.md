@@ -53,7 +53,7 @@ To start using Hotpatch on a new VM, follow these steps:
 1.  Create a VM from the Azure portal
     * During the preview, you'll need to get started using [this link](https://aka.ms/AutomanageWindowsServerPreview).
 1.  Supply VM details
-    * Ensure that _Windows Server 2019 Datacenter: Azure Edition_ is selected in the Image dropdown)
+    * Ensure that the _Windows Server Azure Edition_ image that you would like to use is selected in the Image dropdown
     * On the Management tab step, scroll down to the ‘Guest OS updates’ section. You'll see Hotpatching set to On and Patch installation defaulted to Azure-orchestrated patching.
     * Automanage VM Best Practices will be enabled by default
 1. Create your new VM
