@@ -1,13 +1,13 @@
 ---
 title: Use Azure Sentinel watchlists
-description: This article describes how to use Azure Sentinel watchlists investigate threats, import business data, create allow lists, and enrich event data.
+description: This article describes how to use Azure Sentinel watchlists to create allow/deny lists, enrich event data, and assist in investigating threats.
 services: sentinel
 author: yelevin
 ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/11/2021
 ---
@@ -151,6 +151,6 @@ You can also view, edit, and create new watchlist items directly from the Watchl
 
 ## Next steps
 In this document, you learned how to use watchlists in Azure Sentinel to enrich data and improve investigations. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
