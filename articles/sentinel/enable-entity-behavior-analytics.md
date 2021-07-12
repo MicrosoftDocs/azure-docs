@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2021
+ms.date: 01/25/2021
 ms.author: yelevin
 
 ---
 # Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel 
 
 > [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+> The UEBA and Entity Pages features are now in **General Availability** in ***all*** Azure Sentinel geographies and regions. 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -60,14 +59,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 
 1. Select **Go to entity search**. This will take you to the entity search pane, which from now on will be what you see when you choose **Entity behavior** from the main Azure Sentinel menu.
 
-> [!NOTE]
-> Enabling UEBA grants consent to Azure Sentinel to synchronize your Azure Active Directory and create profiles for each user in your organization.
->
-> Synchronized Azure AD data is stored for Azure Sentinel in the [IdentityInfo table](ueba-enrichments.md##identityinfo-table-public-preview) in your Log Analytics workspace, and includes a snapshot of your user profiles, such as user metadata, group information, and Azure AD roles assigned.
->
-
 ## Next steps
-
 In this document, you learned how to enable and configure User and Entity Behavior Analytics (UEBA) in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
