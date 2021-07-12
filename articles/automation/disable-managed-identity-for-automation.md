@@ -32,17 +32,23 @@ Syntax and example steps are provided below.
 The body syntax below disables the system-assigned managed identity and removes any user-assigned managed identities:
 
 ```json
-"identity": { 
+{ 
+ "identity": { 
    "type": "None" 
-} 
+  } 
+}
+
 ```
 
 The body syntax below disables the system-assigned managed identity and retains any user-assigned managed identities:
 
 ```json
-"identity": { 
+{ 
+ "identity": { 
    "type": "UserAssigned" 
-} 
+  } 
+}
+ 
 ```
 
 The syntax of the API is as follows:
@@ -57,7 +63,7 @@ Perform the following steps.
 
 1. Copy and paste the relevant body syntax into a file named `body_remove_sa.json`. Save the file on your local machine or in an Azure storage account.
 
-1. Sign in to Azure interactively using the Connect-AzAccount cmdlet and follow the instructions.
+1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
 
     ```powershell
     # Sign in to your Azure subscription
@@ -74,6 +80,7 @@ Perform the following steps.
 1. Initialize a set of variables. Revise the values below and then execute:
 
     ```powershell
+    $subscriptionID = "subscriptionID"
     $resourceGroup = "resourceGroupName"
     $automationAccount = "automationAccountName"
     $file = "path\body_remove_sa.json"
@@ -83,7 +90,7 @@ Perform the following steps.
 
     ```powershell
     # build URI
-    $URI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
+    $URI = "https://management.azure.com/subscriptions/$subscriptionID/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
     
     # build body
     $body = Get-Content $file
