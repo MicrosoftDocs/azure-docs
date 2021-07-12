@@ -8,7 +8,7 @@ ms.date: 07/13/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
-# Deploy a disk pool (preview)
+# Deploy an Azure disk pool (preview)
 
 This article covers how to deploy and configure an Azure disk pool (preview). Before deploying a disk pool, read the [conceptual](disks-pools.md) and [planning](disks-pools-planning.md) articles.
 
@@ -102,7 +102,7 @@ To add a disk, it must meet the following requirements:
 
 If your disk meets these requirements, you can add it to a disk pool by selecting **+Add disk** in the disk pool pane.
 
-:::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-disks-pane.png" alt-text="Screenshot of the disk pane for create a disk pool, add a disk highlighted.":::
+:::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-disks-blade.png" alt-text="Screenshot of the disk pane for create a disk pool, add a disk highlighted.":::
 
 ### Enable iSCSI
 
@@ -113,7 +113,7 @@ If your disk meets these requirements, you can add it to a disk pool by selectin
     - The ACL mode is set to **Dynamic** by default. To use your disk pool as a storage solution for Azure VMware Solution, the ACL mode must be set to **Dynamic**.
 1. Select **Review + create**.
 
-    :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-iscsi-pane.png" alt-text="Screenshot of the iscsi pane for create a disk pool.":::
+    :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool-iscsi-blade.png" alt-text="Screenshot of the iscsi pane for create a disk pool.":::
 
 # [PowerShell](#tab/azure-powershell)
 
