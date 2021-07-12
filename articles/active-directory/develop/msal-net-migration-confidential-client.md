@@ -24,7 +24,7 @@ This article describes how to migrate a confidential client application from Azu
 For app registrations:
 
 - You don't need to create a new app registration. (You keep the same client ID.)
-- You don't need to change the preauthorizations.
+- You don't need to change the preauthorizations (admin consented API permissions).
 
 ## Migration steps
 
