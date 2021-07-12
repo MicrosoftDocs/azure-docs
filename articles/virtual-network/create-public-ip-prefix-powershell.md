@@ -84,14 +84,21 @@ Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.ne
 To create a IPv4 public IP address, enter **IPv4** in the **--IpAddressVersion** parameter.
 
 ```azurepowershell-interactive
+$pf =@{
+    Name = 'myPublicIpPrefix'
+    ResourceGroupName = 'myResourceGroup'
+}
+$prefix = Get-AzPublicIpPrefix @pf
+
 $ipv4 =@{
     Name = 'myPublicIpAddress'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
     Sku = 'Standard'
     Tier = 'Regional'
+    AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
-    PublicIpPrefix = 'myPublicIpPrefix'
+    PublicIpPrefix = $prefix
 }
 New-AzPublicIpAddress @ipv4
 ```
@@ -102,14 +109,21 @@ To create a IPv6 public IP prefix, enter **IPv6** in the **--IpAddressVersion** 
 
 
 ```azurepowershell-interactive
+$pf =@{
+    Name = 'myPublicIpPrefix'
+    ResourceGroupName = 'myResourceGroup'
+}
+$prefix = Get-AzPublicIpPrefix @pf
+
 $ipv6 =@{
     Name = 'myPublicIpAddress'
     ResourceGroupName = 'myResourceGroup'
     Location = 'eastus2'
     Sku = 'Standard'
     Tier = 'Regional'
+    AllocationMethod = 'Static'
     IpAddressVersion = 'IPv6'
-    PublicIpPrefix = 'myPublicIpPrefix'
+    PublicIpPrefix = $prefix
 }
 New-AzPublicIpAddress @ipv6
 ```
