@@ -323,7 +323,7 @@ The proliferation of supported devices to access your cloud resources helps to i
 
 ### Require approved client apps
 
-Employees use their mobile devices for both personal and work tasks. For BYOD scenarios you must decide whether to manage the entire device or just the data on it. if managing only data and access, you can [require approved cloud apps](app-based-conditional-access.md) that can protect your corporate data. for example, you can require email only be accessed via Outlook mobile, and not via a generic mail program.
+Employees use their mobile devices for both personal and work tasks. For BYOD scenarios you must decide whether to manage the entire device or just the data on it. If managing only data and access, you can [require approved cloud apps](app-based-conditional-access.md) that can protect your corporate data. for example, you can require email only be accessed via Outlook mobile, and not via a generic mail program.
 
 ### Block access
 
