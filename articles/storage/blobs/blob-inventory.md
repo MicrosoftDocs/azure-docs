@@ -312,7 +312,7 @@ Each inventory run for a rule generates the following files:
 
 Configuring an inventory policy can result in additional charges to your account. For each successful inventory run, the account is billed per million objects listed. Once an inventory rule is completed, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory generated blobs in the account.
 
-If rules have overlapping prefixes, then the same blob can appear in more than one inventory report. You'll be billed for both instances. For example, assume that the `prefixMatch` element of one rule is set to `["inventory-blob-1", "inventory-blob-2"]`, and the `prefixMatch` element of another rule is set to `["inventory-blob-10", "inventory-blob-20"]`. An object named `inventory-blob-200` appears in both inventory reports.
+If a rule contains a prefix that overlaps with a prefix of any other rule, then the same blob can appear in more than one inventory report. You'll be billed for both instances. For example, assume that the `prefixMatch` element of one rule is set to `["inventory-blob-1", "inventory-blob-2"]`, and the `prefixMatch` element of another rule is set to `["inventory-blob-10", "inventory-blob-20"]`. An object named `inventory-blob-200` appears in both inventory reports.
 
 Snapshots and versions of a blob also count towards billing even if you've set `includeSnapshots` and `includeVersions` filters to `false`. Those filter values don't affect billing. You can use them only to filter what appears in the report.
 
