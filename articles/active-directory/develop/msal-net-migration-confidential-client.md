@@ -24,7 +24,7 @@ This article describes how to migrate a confidential client application from Azu
 For app registrations:
 
 - You don't need to create a new app registration. (You keep the same client ID.)
-- You don't need to change the preauthorizations (admin consented API permissions).
+- You don't need to change the preauthorizations (admin-consented API permissions).
 
 ## Migration steps
 
@@ -60,7 +60,7 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 - A resource (app ID URI) as a first parameter
 - `IClientAssertionCertificate` or `ClientAssertion` as the second parameter
 
-`AuthenticationContext.AcquireTokenAsync` doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using the [Web API calling downstream web APIs ](/azure/active-directory/develop/msal-net-migration-confidential-client?#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
+`AuthenticationContext.AcquireTokenAsync` doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using the [web API calling downstream web APIs ](/azure/active-directory/develop/msal-net-migration-confidential-client?#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
 
 #### Update the code of daemon scenarios
 
