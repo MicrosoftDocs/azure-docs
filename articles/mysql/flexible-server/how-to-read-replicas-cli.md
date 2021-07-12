@@ -11,17 +11,21 @@ ms.custom: devx-track-azurecli
 
 # How to create and manage read replicas in Azure Database for MySQL flexible server using the Azure CLI
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!IMPORTANT]
 > Read replicas in Azure Database for MySQL - Flexible Server is in preview.
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL flexible server using the Azure CLI. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
 > [!Note]
+>
 > * Replica is not supported on high availability enabled server. 
 >
->* If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
+> * If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 ## Azure CLI
+
 You can create and manage read replicas using the Azure CLI.
 
 ### Prerequisites
@@ -32,7 +36,7 @@ You can create and manage read replicas using the Azure CLI.
 ### Create a read replica
 
 > [!IMPORTANT]
-> When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+>When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 A read replica server can be created using the following command:
 
@@ -55,7 +59,7 @@ az mysql flexible-server replica list --server-name mydemoserver --resource-grou
 ### Stop replication to a replica server
 
 > [!IMPORTANT]
-> Stopping replication to a server is irreversible. Once replication has stopped between a source and replica, it cannot be undone. The replica server then becomes a standalone server and now supports both read and writes. This server cannot be made into a replica again.
+>Stopping replication to a server is irreversible. Once replication has stopped between a source and replica, it cannot be undone. The replica server then becomes a standalone server and now supports both read and writes. This server cannot be made into a replica again.
 
 Replication to a read replica server can be stopped using the following command:
 
@@ -74,7 +78,7 @@ az mysql flexible-server delete --resource-group myresourcegroup --name mydemore
 ### Delete a source server
 
 > [!IMPORTANT]
-> Deleting a source server stops replication to all replica servers and deletes the source server itself. Replica servers become standalone servers that now support both read and writes.
+>Deleting a source server stops replication to all replica servers and deletes the source server itself. Replica servers become standalone servers that now support both read and writes.
 
 To delete a source server, you can run the **[az mysql flexible-server delete](/cli/azure/mysql/flexible-server)** command.
 

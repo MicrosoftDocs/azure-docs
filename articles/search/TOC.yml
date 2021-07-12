@@ -488,14 +488,10 @@
     href: /azure/templates/microsoft.search/searchservices
   - name: REST
     items:
-    - name: Search API (Stable)
+    - name: Search API
       href: /rest/api/searchservice
-    - name: Search API (Preview)
-      href: /rest/api/searchservice/index-preview
-    - name: Management API (Stable)
+    - name: Management API
       href: /rest/api/searchmanagement
-    - name: Management API (Preview)
-      href: /rest/api/searchmanagement/index-preview
   - name: .NET
     items:
     - name: Search API

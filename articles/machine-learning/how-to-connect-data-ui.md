@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
+ms.date: 07/06/2021
 ms.custom: data4ml
 
 # Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.
@@ -84,7 +84,7 @@ To create a dataset in the studio:
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset.
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-studio-virtual-network.md).
     1. For Tabular datasets, you can specify a 'timeseries' trait to enable time related operations on your dataset. Learn how to [add the timeseries trait to your dataset](how-to-monitor-datasets.md#studio-dataset).
-1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
+1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. You can also indicate on this form if your data contains multi-line data. 
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](#profile).
 1. Select **Create** to complete your dataset creation.
 

@@ -93,6 +93,10 @@ Before deploying a model, you need to have enough compute quota. This quota defi
 
 A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](./how-to-manage-quotas.md).
 
+### ERR_1101: Out of capacity
+
+The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
+
 ### ERR_1200: Unable to download user container image
 
 During deployment creation after the compute provisioning, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR). There could be two possible issues.
@@ -146,6 +150,10 @@ To get more details about this error, run:
 ```azurecli
 az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
 ```
+
+### ERR_1350: Unable to download user model, not enough space on the disk
+
+This issue happens when the size of the model is bigger than the available disk space. Try an SKU with more disk space.
 
 ### ERR_2100: Unable to start user container
 

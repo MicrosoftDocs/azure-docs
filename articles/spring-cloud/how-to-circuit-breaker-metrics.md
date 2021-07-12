@@ -1,7 +1,7 @@
 ---
 title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer
 description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Cloud. 
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to

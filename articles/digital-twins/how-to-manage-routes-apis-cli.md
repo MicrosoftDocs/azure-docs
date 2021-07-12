@@ -103,20 +103,24 @@ Follow the steps below to set up these storage resources in your Azure account, 
 
 1. Follow the steps in [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) to create a **storage account** in your Azure subscription. Make a note of the storage account name to use it later.
 2. Follow the steps in [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to create a **container** within the new storage account. Make a note of the container name to use it later.
-3. Next, create a **SAS token** for your storage account that the endpoint can use to access it. Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
-4. In the storage account page, choose the _Shared access signature_ link in the left navigation bar to start setting up the SAS token.
+3. Retrieve your storage account keys using the following command and copy the value for either one of your keys:
 
-    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png" alt-text="Screenshot of the storage account page in the Azure portal." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-1.png":::
+    ```azurecli
+    az storage account keys list --account-name <storage-account-name>
+    ```
 
-1. On the *Shared access signature page*, under *Allowed services* and *Allowed resource types*, select whatever settings you want. You'll need to select at least one box in each category. Under *Allowed permissions*, choose **Write** (you can also select other permissions if you want).
-1. Set whatever values you want for the remaining settings.
-1. When you're finished, select the _Generate SAS and connection string_ button to generate the SAS token. 
+4. Select an expiration date and generate the SAS token for your storage account using the following command:
 
-    :::image type="content" source="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png" alt-text="Screenshot of the storage account page in the Azure portal showing all the setting selection to generate a SAS token." lightbox="./media/how-to-manage-routes-apis-cli/generate-sas-token-2.png"::: 
+    ```azurecli
+    az storage account generate-sas --account-name <storage-account-name> --account-key <storage-account-key> --expiry <expiration-date> --services bfqt --resource-types o --permissions w
+    ```
 
-1. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values, and use the *Copy to clipboard* icon to copy the **SAS token** value. Save it to use later.
+    The output of this command is the SAS token. Copy the SAS token value to use later.
 
-    :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Screenshot of the storage account page in the Azure portal highlighting how to copy the SAS token to use in the dead-letter secret." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
+    > [!NOTE]
+    > This command includes "**b**lob", "**f**ile", "**q**ueue", and "**t**able" *services*; an "**o**bject" *resource type*; and allows "**w**rite" *permissions*.
+    >
+    > For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az_storage_account_generate_sas).
     
 #### Create the dead-letter endpoint
 

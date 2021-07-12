@@ -1,7 +1,7 @@
 ---
 title:  "Customer responsibilities running Azure Spring Cloud in vnet"
 description: This article describes customer responsibilities running Azure Spring Cloud in vnet.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -21,6 +21,7 @@ By default, Azure Spring Cloud has unrestricted outbound (egress) internet acces
 The following is a list of resource requirements for Azure Spring Cloud services. As a general requirement you should not modify resource groups created by Azure Spring Cloud and the underlying network resources.
 - Do not modify resource groups created and owned by Azure Spring Cloud.
   - By default, these resource groups are named as ap-svc-rt_[SERVICE-INSTANCE-NAME]_[REGION]* and ap_[SERVICE-INSTANCE-NAME]_[REGION]*.
+  - Do not block Azure Spring Cloud from updating reseources in these resource groups.
 - Do not modify subnets used by Azure Spring Cloud.
 - Do not create more than one Azure Spring Cloud service instance in the same subnet.
 - When using a firewall to control traffic, *do not* block the following egress traffic to Azure Spring Cloud components that operate, maintain, and support the service instance.
