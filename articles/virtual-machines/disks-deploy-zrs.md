@@ -59,7 +59,7 @@ You've now deployed a VM with a ZRS OS disk.
 
 1. In the Azure portal, search for and select **Disks**.
 1. Select **+ Add** to create a new disk.
-1. Select a supported region and **Availability options** to **No infrastructure redundancy required**.
+1. Select a supported region and **Availability zone** to **None**.
 1. Select **Change size**.
 
     :::image type="content" source="media/disks-deploy-zrs/create-zrs-disk-pane.png" alt-text="Screenshot of the disk creation workflow, basics pane." lightbox="media/disks-deploy-zrs/create-zrs-disk-pane.png":::
