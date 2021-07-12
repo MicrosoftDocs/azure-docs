@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/01/2021
+ms.date: 07/12/2021
 ms.custom: devx-track-python
 ---
 
@@ -176,6 +176,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure Storage Account | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
+| Azure Machine Learning pre-built images | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
 > [!TIP]
 > * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft.
