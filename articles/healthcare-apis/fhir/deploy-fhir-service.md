@@ -25,6 +25,8 @@ From the workspace, select **Deploy FHIR Services**.
 
 Select **+ Add FHIR Service**.
 
+[ ![Deploy FHIR service](media/fhir-service/add-fhir-service.png) ](media/fhir-service/add-fhir-service.png#lightbox)
+
 :::image type="content" source="media/fhir-service/add-fhir-service.png" alt-text="Add FHIR service" lightbox="media/fhir-service/add-fhir-service.png":::
 
 Enter an **Account name** for your FHIR service. Select the **FHIR version** (**STU3** or **R4**), and then select **Review + create**.
