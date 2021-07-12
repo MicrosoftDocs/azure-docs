@@ -134,6 +134,8 @@
       href: vmware-azure-configuration-server-requirements.md
     - name: Deploy Azure Site Recovery replication appliance (preview)
       href: deploy-vmware-azure-replication-appliance-preview.md
+      - name: Failover/switch replication appliance (preview)
+        href: failover-switch-replication-appliance-preview.md
   - name: VMware to Azure architecture
     items:
     - name: Classic

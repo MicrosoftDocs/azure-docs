@@ -277,5 +277,7 @@ You can create and use multiple replication appliances in a vault.
 
 - You can switch a protected machine, between different appliances in the same vault, given the selected appliance is healthy.
 
+For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](failover-switch-replication-appliance.md)
+
 ## Next steps
 Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
