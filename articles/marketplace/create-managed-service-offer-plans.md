@@ -7,7 +7,7 @@ ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 07/12/2021
 ---
 
 # Create plans for a Managed Service offer
@@ -97,7 +97,7 @@ You can create up to 20 authorizations for each plan.
 > [!TIP]
 > In most cases, you'll want to assign roles to an Azure AD user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users without having to update and republish the plan when your access requirements change. When assigning roles to Azure AD groups, the [group type](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) should be Security and not Office 365. For additional recommendations, see [Tenants, roles, and users in Azure Lighthouse scenarios](../lighthouse/concepts/tenants-users-roles.md).
 
-For each Authorization, you'll need to provide the following information. You can then select **+ Add authorization** as many times as needed to add more users and role definitions.
+Provide the following information for each **Authorization**. Select **+ Add authorization** as needed to add more users and role definitions.
 
 - **Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
 - **Principal ID**: The Azure AD identifier of a user, user group, or application that will be granted certain permissions (as defined by the Role Definition) to your customers' resources.
@@ -107,21 +107,16 @@ For each Authorization, you'll need to provide the following information. You ca
   > As applicable new built-in roles are added to Azure, they will become available here, although there may be some delay before they appear.
 - **Assignable Roles**: This option will appear only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to [managed identities]/../active-directory/managed-identities-azure-resources/overview.md), which is required in order to [deploy policies that can be remediated](../lighthouse/how-to/deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
 
-> [!NOTE]
-> As applicable new built-in roles are added to Azure, they will become available here. There may be some delay before they appear.
-
-- **Assignable Roles**: This option only appear if you selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to managed identities, which is required in order to [deploy policies that can be remediated](../lighthouse/how-to/deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
-- **Approvers**: You may specify a list of users or user groups as approvers for an authorization. All approvers will be notified when the approval is requested and has been granted. If none are provided, the authorization will activate automatically.
-
 > [!TIP]
 > To ensure you can [remove access to a delegation](../lighthouse/how-to/remove-delegation.md) if needed, include an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
+
+Once you've completed all of the sections for your plan, you can select **+ Create new plan** to create additional plans. When you're done, select **Save draft**. When you're done creating plans, select **Plans** in the breadcrumb trail at the top of the window to return to the left-nav menu for the offer.
 
 ## Updating an offer
 
 You can [publish an updated version of your offer](update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](../lighthouse/how-to/view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to review the changes and decide whether they want to update to the new version.
 
-<br>Once you've completed all sections for your plan, you can select **+ Create new plan** to create additional plans. When you’re done, select **Save draft** before continuing.
-
 ## Next steps
 
-* [Review and publish](review-publish-offer.md)
+- Exit plan setup and continue with optional [Co-sell with Microsoft](./co-sell-overview.md), or
+- [Review and publish your offer](review-publish-offer.md)
