@@ -37,7 +37,7 @@ Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-over
 ## Should I switch to Azure Monitor agent?
 Azure Monitor agent coexists with the [generally available agents for Azure Monitor](agents-overview.md), but you may consider transitioning your VMs off the current agents during the Azure Monitor agent public preview period. Consider the following factors when making this determination.
 
-- **Environment requirements.** Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environemnt support, and networking requirements will most likely be provided in this new agent. You should assess whether your environment is supported by Azure Monitor agent. If not, then you may need to stay with the current agent. If Azure Monitor agent supports your current environment, then you should consider transitioning to it.
+- **Environment requirements.** Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today. Support for future operating system versions, environment support, and networking requirements will most likely be provided in this new agent. You should assess whether your environment is supported by Azure Monitor agent. If not, then you may need to stay with the current agent. If Azure Monitor agent supports your current environment, then you should consider transitioning to it.
 - **Current and new feature requirements.** Azure Monitor agent introduces several new capabilities such as filtering, scoping, and multi-homing, but it isn’t at parity yet with the current agents for other functionality such as custom log collection and integration with all solutions ([see solutions in preview](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent)). Most new capabilities in Azure Monitor will only be made available with Azure Monitor agent, so over time more functionality will only be available in the new agent. Consider whether Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. If Azure Monitor agent has all the core capabilities you require, then consider transitioning to it. If there are critical features that you require, then continue with the current agent until Azure Monitor agent reaches parity.
 - **Tolerance for rework.** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If it will take a significant amount of work, then consider setting up your new environment with the new agent as it is now generally available. A deprecation date will be published for the Log Analytics agents in August 2021. The current agents will be supported for several years once deprecation begins.
 
@@ -50,26 +50,26 @@ Azure Monitor agent is available in all public regions that supports Log Analyti
 ## Supported services and features
 The following table shows the current support for Azure Monitor agent with other Azure services.
 
-| Azure service | Current support |
-|:---|:---|
-| [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview |
-| [Azure Sentinel](../../sentinel/overview.md) | Private preview |
+| Azure service | Current support | More information |
+|:---|:---|:---|
+| [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview | [Sign up link](https://aka.ms/AMAgent) |
+| [Azure Sentinel](../../sentinel/overview.md) | Private preview | [Sign up link](https://aka.ms/AMAgent) |
 
 
 The following table shows the current support for Azure Monitor agent with Azure Monitor features.
 
-| Azure Monitor feature | Current support |
-|:---|:---|
-| [VM Insights](../vm/vminsights-overview.md) | Private preview  |
-| [VM Insights guest health](../vm/vminsights-health-overview.md) | Public preview |
-| [SQL insights](../insights/sql-insights-overview.md) | Public preview. |
+| Azure Monitor feature | Current support | More information |
+|:---|:---|:---|
+| [VM Insights](../vm/vminsights-overview.md) | Private preview  | [Sign up link](https://forms.office.com/r/jmyE821tTy) |
+| [VM Insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
+| [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
 
 The following table shows the current support for Azure Monitor agent with Azure solutions.
 
-| Solution | Current support |
-|:---|:---|
-| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  |
-| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. |
+| Solution | Current support | More information |
+|:---|:---|:---|
+| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  | [Sign up link](https://aka.ms/AMAgent) |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. | [Sign up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
 
 
 
