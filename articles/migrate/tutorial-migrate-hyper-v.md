@@ -6,7 +6,6 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/18/2021
-zone_pivot_groups: azure-migrate-ins
 ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
