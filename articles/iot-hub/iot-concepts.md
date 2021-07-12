@@ -35,23 +35,20 @@ Per-device authentication enables each device to connect securely to IoT Hub and
 
 ### Devices have a secure identity
 
-COME BACK HERE TEJAS AND FIX THIS! 
-Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT Hub hostname, the device ID, and the method used to authenticate. 
+Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to the IoT hub. Before a device or module can connect to an IoT hub, there must be an entry for that device or module in the IoT hub's identity registry. A device or module must also authenticate with the IoT hub based on credentials stored in the identity registry.
 
 We support two methods of authentication between the device and the IoT Hub. In one case, you can use an SAS token-based authentication. The other method supported uses X.509 certificate authentication.
 
 The SAS-based token method provides authentication for each call made by the device to IoT Hub by associating the symmetric key to each call. X.509-based authentication allows authentication of an IoT device at the physical layer as part of the 
 Transport Layer Security (TLS) standard connection establishment. The security-token-based method can be used without the X.509 authentication, which is a less secure pattern. The choice between the two methods is primarily dictated by how secure the device authentication needs to be, and availability of secure storage on the device (to store the private key securely).
 
+Azure IoT SDKs automatically generate tokens without requiring any special configuration. If you don't use the SDK, you'll have to generate the security tokens.
+
 You can set up and provision many devices at a time using the [IoT Hub Device Provisioning Service](/azure/iot-dps).
 
 ### Devices can securely communicate with an IoT Hub
 
-TEJAS --- GET CLARITY FROM JOHN
-
- The reason IoT Hub uses security tokens to authenticate devices and services is to avoid sending keys on the network. Also, security tokens are limited in time validity and scope. Azure IoT SDKs automatically generate tokens without requiring any special configuration. If you don't use the SDK, you'll have to generate the security tokens. These scenarios include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern.
-
-The internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, TLS 1.1, and TLS 1.0, in that order. Support for TLS 1.0 is provided for backward compatibility only. Check [TLS support in IoT Hub](iot-hub-tls-support.md) to see how to configure your hub to use TLS 1.2, which provides the most security.
+"After selecting your Authentication method, the internet connection between the IoT device and IoT Hub is secured using the Transport Layer Security (TLS) standard. Azure IoT supports TLS 1.2, TLS 1.1, and TLS 1.0, in that order. Support for TLS 1.0 is provided for backward compatibility only. Check TLS support in IoT Hub to see how to configure your hub to use TLS 1.2, which provides the most security."
 
 ## Communication patterns with a device
 
@@ -82,23 +79,29 @@ IoT Hub implements commands by allowing you to invoke direct methods on devices 
 
 ## View and act on data collected from your devices
 
-*TEJAS* Showcase how IoT Hub helps integrate data from devices into powerful Azure services that can be leveraged for post-processing and generating business insights.
+IoT Hub gives you the ability to unlock the value of your device data with other Azure services so you can shift to predictive problem-solving, rather than reactive management. Connect your IoT Hub with other Azure services to do machine learning, analytics and AI to act on real-time data, optimize processing, and gain deeper insights.
 
-### Built-in endpoint collects data from your device by default
+### Built-in endpoint collects data from your devices by default
 
-A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of seven days, and can be used to take actions on a device. 
+A built-in endpoint collects data from your device by default. The data is collected using a request-response pattern over dedicated IoT device endpoints, is available for a max of seven days, and can be used to take actions on a device. Here is the data accepted by the device endpoint:
 
-*TEJAS*
+*    Send device-to-cloud messages. A device uses this endpoint to send device-to-cloud messages.
+
+*    Receive cloud-to-device messages. A device uses this endpoint to receive targeted cloud-to-device messages.
+
+*    Initiate file uploads. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to upload a file.
+
+*    Retrieve and update device twin properties. A device uses this endpoint to access its device twin's properties. HTTPS is not supported.
+
+*    Receive direct method requests. A device uses this endpoint to listen for direct method's requests. HTTPS is not supported.
+
+[!INCLUDE iot-hub-include-x509-ca-signed-support-note]
 
 For more information about IoT Hub endpoints, see [IoT Hub Dev Guide Endpoints](
 iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
 
 ### Use Message Routing to send data to other endpoints for processing
 
-These events can also be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. 
+Data can also be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. Data can also be filtered to send to different services. Once a message route has been created, data stops flowing to the built-in-endpoint unless a fallback route has been configured. For a tutorial showing multiple uses of message routing, see the [Routing Tutorial](tutorial-routing.md).
 
-You can also filter the data that is sent to different services. 
-
-You can also use Message Routing to send data to other endpoints for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services, also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. For a tutorial showing multiple uses of message routing, see the [Routing Tutorial](tutorial-routing.md).
-
-Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless architectures. Learn more about [Event Grid](https://azure.microsoft.com/services/event-grid/). 
+IoT Hub also integrates with Event Grid which enables you to fan out data to multiple subscribers. Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless architectures. Learn more about Event Grid. The differences between message routing and using Event Grid are explained in the [Message Routing and Event Grid Comparison](iot-hub-event-grid-routing-comparison.md)
