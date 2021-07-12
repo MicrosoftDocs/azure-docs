@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ms.topic: overview
 ---
 

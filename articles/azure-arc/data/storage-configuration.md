@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ms.topic: conceptual
 ---
 
