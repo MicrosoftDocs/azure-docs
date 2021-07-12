@@ -28,19 +28,19 @@ Suppose you have have multiple Bicep file that define network security groups (N
 
 Define a JSON file that includes the common security rules:
 
-::: code language="json" source="code/shared-rules.json" :::
+::: code language="json" source="code/patterns-shared-variable-file/shared-rules.json" :::
 
 In your Bicep file, declare a variable that imports the shared security rules:
 
-::: code language="bicep" source="code/patterns-variable-file/main.bicep" range="5" :::
+::: code language="bicep" source="code/patterns-shared-variable-file/main.bicep" range="5" :::
 
 Create a variable array that represents the custom rules for this specific NSG:
 
-::: code language="bicep" source="code/patterns-variable-file/main.bicep" range="6-21" :::
+::: code language="bicep" source="code/patterns-shared-variable-file/main.bicep" range="6-21" :::
 
 Define the NSG resource, and use the `concat()` function to combine the two arrays together:
 
-::: code language="bicep" source="code/patterns-variable-file/main.bicep" range="23-29" highlight="5" :::
+::: code language="bicep" source="code/patterns-sharedvariable-file/main.bicep" range="23-29" highlight="5" :::
 
 ## Next steps
 
