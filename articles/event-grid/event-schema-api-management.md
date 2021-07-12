@@ -55,7 +55,7 @@ The following example shows the schema of a product created event. The schema of
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of a product event. The schema of other API Management resource created events is similar. 
+The following example shows the schema of a product created event. The schema of other API Management resource created events is similar. 
 
 ```json
 [{
