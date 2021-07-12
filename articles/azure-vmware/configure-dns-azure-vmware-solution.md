@@ -3,7 +3,7 @@ title: Configure DNS forwarder for Azure VMware Solution
 description: Learn how to configure DNS forwarder for Azure VMware Solution using the Azure portal. 
 ms.topic: how-to
 ms.custom: contperf-fy22q1
-ms.date: 07/20/2021
+ms.date: 07/16/2021
 
 #Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T DNS Service.> and <why?>  
 
@@ -11,16 +11,23 @@ ms.date: 07/20/2021
 
 # Configure a DNS forwarder in the Azure portal
 
-By default, Azure VMware Solution management components such as vCenter can only resolve name records available via Public DNS. Certain hybrid use cases require Azure VMware Solution management components to resolve name records from privately hosted DNS to properly function, including customer-managed systems such as vCenter and Active Directory. 
+>[!IMPORTANT]
+>For private clouds created on or before July 1, 2021, you now have the ability to configure private DNS resolution.  For private clouds created before July 1, 2021, that need private DNS resolution, open a [support ticket]() and request Private DNS configuration. 
 
-Private DNS for Azure VMware Solution management components provides the capability for an Azure VMware Solution administrator to define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T DNS Service.
+By default, Azure VMware Solution management components such as vCenter can only resolve name records available through Public DNS. However, certain hybrid use cases require Azure VMware Solution management components to resolve name records from privately hosted DNS to properly function, including customer-managed systems such as vCenter and Active Directory.
+
+Private DNS for Azure VMware Solution management components lets you define conditional forwarding rules for the desired domain name to a selected set of private DNS servers through the NSX-T DNS Service.
+
+This capability leverages the DNS Forwarder Service in NSX-T. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T DNS Service. The DNS Service conditionally forwards DNS queries for each zone based on the external DNS servers defined in that zone.
+
+>[!NOTE]
+>The DNS Service is associated with up to five FQDN zones. Each FQDN zone is associated with up to three DNS servers.
 
 
+## Architecture
 
----
 
-
-you'll configure a DNS forwarder where specific DNS requests get forwarded to a designated DNS server for resolution.  A DNS forwarder is associate with a **default DNS zone** and up to three **FQDN zones**.
+:::image type="content" source="media/networking/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
 
 
 ## Prerequisites
@@ -31,10 +38,11 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
 
 
 
-1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > **Add**.
+1. In your Azure VMware Solution private cloud, under Workload Networking, select DNS > DNS zones > Add.
 
    >[!NOTE]
    >The default DNS zone is created for you during the private cloud creation.
+
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
@@ -58,15 +66,15 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
    >[!IMPORTANT]
    >While certain operations in your private cloud may be performed from NSX-T Manager, you must edit the DNS service from the Simplified Networking experience in the Azure portal. 
 
-   [new image]
+   --> [new image]
 
 1. From the FQDN zones drop-down, select the newly created FQDN and then select OK.
 
-   It takes several minutes to complete and once finished you’ll see the Completed message from Notifications.
+   It takes several minutes to complete and once finished you’ll see the *Completed* message from **Notifications**.
 
-   [new image]
+   --> [new image]
 
-   At this point, management coponents in your private cloud should be able to resolve DNS entries from the FQND zone provided to the NSX-T DNS Service. 
+   At this point, management components in your private cloud should be able to resolve DNS entries from the FQND zone provided to the NSX-T DNS Service. 
 
 1. Repeat the above steps for additional FQDN zones, including any applicable reverse lookup zones.
 
@@ -77,5 +85,45 @@ After you’ve configured the DNS forwarder, you’ll have a few options availab
 
 ### NSX-T Manager
 
+NSX-T Manager provides the DNS Forwarder Service statistics at the global service level and on a per-zone basis. 
+
+1. In NSX-T Manager, select **Networking** > **DNS**, and then expand your DNS Forwarder Service.
+
+   :::image type="content" source="media/networking/nsxt-manager-dns-services.png" alt-text="Screenshot showing the DNS Services tab in NSX-T Manager.":::
+
+1. Select **View Statistics** and then from the **Zone Statistics** drop-down, select your FQDN Zone.
+
+   The top half shows the statistics for the entire service, and the bottom half shows the statistics for your specified zone. In this example, you can see successful queries that were forwarded to the DNS services specified during the configuration of the FQDN zone.
+
+   :::image type="content" source="media/networking/nsxt-manager-dns-services-statistics.png" alt-text="Screenshot showing the DNS Forwarder statistics.":::
+
 
 ### PowerCLI
+
+The NSX-T Policy API provides the ability to perform nslookup commands from the NSX-T DNS Forwarder Service. The required cmdlets are part of the VMware.VimAutomation.Nsxt module in PowerCLI. The following example demonstrates output from version 12.3.0 of that module.
+
+1. Connect to your NSX-T Server. 
+
+   >[!TIP]
+   >You can obtain the IP address of your NSX-T Server from the Azure portal under **Manage** > **Identity**.
+   >
+   >:::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service-information.png" alt-text="Screenshot showing the NSX-T Server IP address.":::
+ 
+   ```powershell
+   Connect-NsxtServer -Server 10.103.64.3
+   ```
+
+1. Obtain a proxy to the DNS Forwarder's nslookup service.
+
+   ```powershell
+   $nslookup = Get-NsxtPolicyService -Name      
+   com.vmware.nsx_policy.infra.tier_1s.dns_forwarder.nslookup
+   ```
+
+1. Perform lookups from the DNS Forwarder Service.
+
+   ```powershell
+   $response = $nslookup.get('TNT86-T1', 'vc01.contoso.corp')
+   ```
+
+  The first parameter in the command is the ID for your private cloud’s T1 gateway, which you can obtain from the DNS service tab in the Azure portal.
