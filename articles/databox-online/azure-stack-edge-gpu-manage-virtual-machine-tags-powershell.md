@@ -158,6 +158,8 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
 
 For more information, see [Add-AzureRMTag](/powershell/module/azurerm.tags/remove-azurermtag?view=azurermps-6.13.0&preserve-view=true).
 
+---
+
 ## View tags of a VM
 
 ### [Az](#tab/az)
@@ -240,6 +242,7 @@ You can view the tags applied to a specific virtual machine running on your devi
     
     PS C:\WINDOWS\system32>
     ```
+---
 
 ## View tags for all resources
 
@@ -319,6 +322,8 @@ PS C:\WINDOWS\system32>
 ```
 
 The preceding output indicates that out of the three tags, 2 VMs are tagged as `Engineering` and one is tagged as belonging to `Sales`.
+
+---
 
 ## Remove a tag from a VM
 
@@ -400,7 +405,6 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
     PS C:\WINDOWS\system32>
     ```
 
-
 ### [AzureRM](#tab/azurerm)
 
 1. Set some parameters. 
@@ -475,7 +479,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
                         provisioningState=Succeeded}
     PS C:\WINDOWS\system32>
     ```
-
+---
 
 ## Next steps
 
