@@ -22,7 +22,21 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 
 # [Azure portal](#tab/portal)
 
-You must enable the feature for your subscription.
+### Prerequisites
+
+You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
+
+1.	Execute the following command to register the feature for your subscription
+
+    ```powershell
+     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
+    ```
+
+1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
+
+    ```powershell
+     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
+    ```
 
 ### Create a VM with a ZRS OS disk
 
@@ -30,12 +44,12 @@ You must enable the feature for your subscription.
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
 1. Make sure to select an eligible region and set redundancy to local.
 
-    :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic blade, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
+    :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic pane, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
 
-1. Proceed to the **Disks** blade.
+1. Proceed to the **Disks** pane.
 1. Select your disk and select one of the ZRS disks in the drop down.
 
-    :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png" alt-text="Screenshot of the vm creation workflow, disks blade, OS disk dropdown is expanded with the ZRS premium SSD and standard SSD options highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png":::
+    :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png" alt-text="Screenshot of the vm creation workflow, disks pane, OS disk dropdown is expanded with the ZRS premium SSD and standard SSD options highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-select-blade.png":::
 
 1. Proceed through the rest of the VM deployment, making any choices that you desire.
 
@@ -168,7 +182,7 @@ You must enable the feature for your subscription. Use the following steps to en
      Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
     ```
 
-2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
+1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
 
     ```powershell
      Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
