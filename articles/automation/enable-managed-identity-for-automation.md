@@ -108,12 +108,22 @@ Syntax and example steps are provided below.
 
 #### Syntax
 
-The body syntax below enables a system-assigned managed identity to an existing Automation account.
+The body syntax below enables a system-assigned managed identity to an existing Automation account. However, this syntax will remove any existing user-assigned managed identities associated with the Automation account.
 
 ```json
 { 
  "identity": { 
    "type": "SystemAssigned" 
+  } 
+}
+```
+
+Use the syntax below to retain any existing user-assigned managed identities associated with the Automation account.
+
+```json
+{ 
+ "identity": { 
+   "type": "SystemAssigned, UserAssigned" 
   } 
 }
 ```
@@ -140,7 +150,7 @@ Perform the following steps.
 
     ```powershell
     # build URI
-    $URI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
+    $URI = "https://management.azure.com/subscriptions/$subscriptionID/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
     
     # build body
     $body = Get-Content $file
@@ -179,7 +189,7 @@ Syntax and example steps are provided below.
 
 #### Template syntax
 
-The sample template syntax below enables a system-assigned managed identity to the existing Automation account.
+The sample template syntax below enables a system-assigned managed identity to the existing Automation account. However, this syntax will remove any existing user-assigned managed identities associated with the Automation account.
 
 ```json
 {

@@ -79,7 +79,7 @@ Perform the following steps:
 
 ### Add using PowerShell
 
-Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to add the user-assigned managed identities. The example adds two existing user-assigned managed identities to an existing Automation account.
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to add the user-assigned managed identities. You must first consider whether there is an existing system-assigned managed identity. The example below adds two existing user-assigned managed identities to an existing Automation account, and will remove a system-assigned managed identity if one exists.
 
 ```powershell
 $output = Set-AzAutomationAccount `
@@ -87,6 +87,19 @@ $output = Set-AzAutomationAccount `
     -Name $automationAccount `
     -AssignUserIdentity "/subscriptions/$subscriptionID/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$userAssignedOne", `
         "/subscriptions/$subscriptionID/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$userAssignedTwo"
+
+$output
+```
+
+To retain an existing system-assigned managed identity, use the following:
+
+```powershell
+$output = Set-AzAutomationAccount `
+    -ResourceGroupName $resourceGroup `
+    -Name $automationAccount `
+    -AssignUserIdentity "/subscriptions/$subscriptionID/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$userAssignedOne", `
+        "/subscriptions/$subscriptionID/resourcegroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$userAssignedTwo" `
+    -AssignSystemIdentity
 
 $output
 ```
@@ -139,7 +152,7 @@ Perform the following steps.
 
     ```powershell
     # build URI
-    $URI = "https://management.azure.com/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
+    $URI = "https://management.azure.com/subscriptions/$subscriptionID/resourceGroups/$resourceGroup/providers/Microsoft.Automation/automationAccounts/$automationAccount`?api-version=2020-01-13-preview"
     
     # build body
     $body = Get-Content $file
