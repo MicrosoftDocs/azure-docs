@@ -27,7 +27,7 @@
     - name: App hosting licenses 
       href: 
     - name: Enroll in per-user access pricing
-      href: 
+      href: per-user-access-pricing.md
     - name: Estimate total deployment costs 
       href: total-costs.md
     - name: Estimate per-user app streaming costs 
