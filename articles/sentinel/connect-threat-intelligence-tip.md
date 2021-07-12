@@ -132,7 +132,7 @@ The last step in the integration process is to enable the **Threat Intelligence 
 
 1. As you’ve already completed the app registration and configured your TIP or custom solution to send threat indicators, the only step left is to click the **Connect** button.
 
-Within a few minutes, threat indicators should begin flowing into this Azure Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade off the Azure Sentinel navigation menu.
+Within a few minutes, threat indicators should begin flowing into this Azure Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Azure Sentinel navigation menu.
 
 ## Next steps
 

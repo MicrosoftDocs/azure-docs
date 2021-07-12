@@ -24,6 +24,8 @@ The most widely adopted industry standard for the transmission of threat intelli
 
 :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-taxii-import-path.png" alt-text="TAXII import path":::
 
+Learn more about [Threat Intelligence](understand-threat-intelligence.md) in Azure Sentinel, and specifically about the [TAXII threat intelligence feeds](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) that can be integrated with Azure Sentinel.
+
 ## Prerequisites  
 
 - You must have read and write permissions to the Azure Sentinel workspace to store your threat indicators.
@@ -37,14 +39,14 @@ Follow these steps to import STIX formatted threat indicators to Azure Sentinel 
 
 1. Enable the Threat Intelligence - TAXII data connector in Azure Sentinel
 
-#### Get the TAXII server API Root and Collection ID
+### Get the TAXII server API Root and Collection ID
 
 TAXII 2.x servers advertise API Roots, which are URLs that host Collections of threat intelligence. You can usually find the API Root and the Collection ID in the documentation pages of the threat intelligence provider hosting the TAXII server. 
 
 > [!NOTE]
 > In some cases, the provider will only advertise a URL called a Discovery Endpoint. You can use the cURL utility to browse the discovery endpoint and request the API Root, as [detailed below](#find-the-api-root).
 
-#### Enable the Threat Intelligence - TAXII data connector in Azure Sentinel
+### Enable the Threat Intelligence - TAXII data connector in Azure Sentinel
 
 To import threat indicators into Azure Sentinel from a TAXII server, follow these steps:
 
@@ -60,9 +62,9 @@ To import threat indicators into Azure Sentinel from a TAXII server, follow thes
  
 You should receive confirmation that a connection to the TAXII server was established successfully, and you may repeat the last step above as many times as you want, to connect to multiple Collections from one or more TAXII servers.
 
-Within a few minutes, threat indicators should begin flowing into this Azure Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade off the Azure Sentinel navigation menu.
+Within a few minutes, threat indicators should begin flowing into this Azure Sentinel workspace. You can find the new indicators in the **Threat intelligence** blade, accessible from the Azure Sentinel navigation menu.
 
-#### Find the API Root
+### Find the API Root
 
 Here's an example of how to use the [cURL](https://en.wikipedia.org/wiki/CURL) command line utility, which is provided in Windows and most Linux distributions, to discover the API Root and browse the Collections of a TAXII server, given only the discovery endpoint. Using the discovery endpoint of the [Anomali Limo](https://www.anomali.com/community/limo) ThreatStream TAXII 2.0 server, you can request the API Root URI and then the Collections.
 
