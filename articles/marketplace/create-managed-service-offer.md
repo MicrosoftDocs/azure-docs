@@ -35,7 +35,7 @@ To publish a Managed Service offer, you must have earned a Gold or Silver Micros
 
 ## Setup details
 
-This section is blank for this offer type.
+This section does not apply for this offer type.
 
 ## Customer leads
 
