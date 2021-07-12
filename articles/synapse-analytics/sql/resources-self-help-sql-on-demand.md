@@ -83,6 +83,12 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
 
+### Could not allocate tempdb space while transferring data from one distribution to another
+
+This error is special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
+
+Apply the same mitigation and the best practices before you file a support ticket.
+
 ### Query fails with error while handling an external file. 
 
 If your query fails with the error message 'error handling external file: Max errors count reached', it means that there is a mismatch of a specified column type and the data that needs to be loaded. 
