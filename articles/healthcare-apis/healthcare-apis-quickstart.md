@@ -1,5 +1,5 @@
 ---
-title: Deploy workspace in the Azure portal
+title: Deploy workspace in the Azure portal - Azure Healthcare APIs
 description: This article describes how to deploy a workspace in the Azure portal. 
 author: stevewohl
 ms.service: healthcare-apis
