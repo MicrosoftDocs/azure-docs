@@ -1,11 +1,11 @@
 ---
-title: Authenticate with Managed Identities for Azure Relay resources (Preview)
+title: Authenticate with managed identities for Azure Relay resources (preview)
 description: This article describes how to use managed identities to access with Azure Relay resources.
 ms.topic: article
 ms.date: 07/19/2021
 ---
 
-# Authenticate a managed identity with Azure Active Directory to access Azure Relay resources (Preview)
+# Authenticate a managed identity with Azure Active Directory to access Azure Relay resources (preview)
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs.
 
 With managed identities, the Azure platform manages this runtime identity. You don't need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. A Relay client app running inside an Azure App Service application or in a virtual machine with enabled managed entities for Azure resources support doesn't need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Relay namespace. When the app connects, Relay binds the managed entity's context to the client in an operation that is shown in an example later in this article. Once it's associated with a managed identity, your Relay client can do all authorized operations. Authorization is granted by associating a managed entity with Relay roles.
