@@ -11,7 +11,7 @@ author: tfitzmac
 
 This article describes the tests that are run with the [template test toolkit](test-toolkit.md) for [createUiDefinition.json](../managed-applications/create-uidefinition-overview.md) files. The examples include the test names and code samples that **pass** or **fail** the tests.
 
-The toolkit includes [test cases](test-cases.md) for Azure Resource Manager templates (ARM templates) and the main template files named _azuredeploy.json_ or _maintemplate.json_. When the directory contains a _createUiDefinition.json_ file, specific tests are run for UI controls. For more information about how to run tests, see [Test parameters](test-toolkit.md#test-parameters).
+The toolkit includes [test cases](template-test-cases.md) for Azure Resource Manager templates (ARM templates) and the main template files named _azuredeploy.json_ or _maintemplate.json_. When the directory contains a _createUiDefinition.json_ file, specific tests are run for UI controls. For more information about how to run tests, see [Test parameters](test-toolkit.md#test-parameters).
 
 The _createUiDefinition.json_ file creates custom user-interface (UI) controls using [elements](../managed-applications/create-uidefinition-elements.md) and [functions](../managed-applications/create-uidefinition-functions.md).
 
@@ -1206,4 +1206,4 @@ The _createUiDefinition.json_ file for this example:
 - To create an Azure portal user interface, see [CreateUiDefinition.json for Azure managed application's create experience](../managed-applications/create-uidefinition-overview.md).
 - To use the Create UI Definition Sandbox, see [Test your portal interface for Azure Managed Applications](../managed-applications/test-createuidefinition.md).
 - For more information about UI controls, see [CreateUiDefinition elements](../managed-applications/create-uidefinition-elements.md) and [CreateUiDefinition functions](../managed-applications/create-uidefinition-functions.md).
-- To learn more about ARM template tests, see [Default test cases for ARM template test toolkit](test-cases.md).
+- To learn more about ARM template tests, see [Default test cases for ARM template test toolkit](template-test-cases.md).
