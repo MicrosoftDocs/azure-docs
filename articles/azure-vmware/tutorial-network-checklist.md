@@ -30,6 +30,9 @@ When deploying a private cloud, you receive IP addresses for vCenter and NSX-T M
 
 The private cloud logical networking comes with pre-provisioned NSX-T. A Tier-0 gateway and Tier-1 gateway are pre-provisioned for you. You can create a segment and attach it to the existing Tier-1 gateway or attach it to a new Tier-1 gateway that you define. NSX-T logical networking components provide East-West connectivity between workloads and provide North-South connectivity to the internet and Azure services.
 
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
+
 ## Routing and subnet considerations
 The Azure VMware Solution private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing is Border Gateway Protocol (BGP) based, automatically provisioned, and enabled by default for each private cloud deployment. 
 
