@@ -45,8 +45,6 @@ In this section, you'll create a private endpoint with Private Link as part of t
 
 # [Portal](#tab/portal)
 
-When using the Azure portal, you can choose to turn on Private Link with a private endpoint for an Azure Digital Twins instance as part of the instance's initial setup, or enable it later on an instance that already exists. 
-
 This section describes how to turn on Private Link while setting up an Azure Digital Twins instance in the Azure portal. The focus in this article is on the networking step of the creation process; for a complete walkthrough of creating a new Azure Digital Twins instance, see [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
 The Private Link options are located in the **Networking** tab of instance setup.
