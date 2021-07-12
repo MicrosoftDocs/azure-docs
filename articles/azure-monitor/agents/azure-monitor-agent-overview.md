@@ -50,26 +50,26 @@ Azure Monitor agent is available in all public regions that supports Log Analyti
 ## Supported services and features
 The following table shows the current support for Azure Monitor agent with other Azure services.
 
-| Azure service | Current support |
-|:---|:---|
-| [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview |
-| [Azure Sentinel](../../sentinel/overview.md) | Private preview |
+| Azure service | Current support | More information |
+|:---|:---|:---|
+| [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview | [Sign up link](https://aka.ms/AMAgent) |
+| [Azure Sentinel](../../sentinel/overview.md) | Private preview | [Sign up link](https://aka.ms/AMAgent) |
 
 
 The following table shows the current support for Azure Monitor agent with Azure Monitor features.
 
-| Azure Monitor feature | Current support |
-|:---|:---|
-| [VM Insights](../vm/vminsights-overview.md) | Private preview  |
-| [VM Insights guest health](../vm/vminsights-health-overview.md) | Public preview |
-| [SQL insights](../insights/sql-insights-overview.md) | Public preview. |
+| Azure Monitor feature | Current support | More information |
+|:---|:---|:---|
+| [VM Insights](../vm/vminsights-overview.md) | Private preview  | [Sign up link](https://forms.office.com/r/jmyE821tTy) |
+| [VM Insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
+| [SQL insights](../insights/sql-insights-overview.md) | Public preview. | Available only on the new agent |
 
 The following table shows the current support for Azure Monitor agent with Azure solutions.
 
-| Solution | Current support |
-|:---|:---|
-| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  |
-| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. |
+| Solution | Current support | More information |
+|:---|:---|:---|
+| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring (FIM) in Azure Security Center private preview.  | [Sign up link](https://aka.ms/AMAgent) |
+| [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn’t require an agent. | [Sign up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
 
 
 
