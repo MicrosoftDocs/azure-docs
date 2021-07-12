@@ -19,8 +19,7 @@ ms.author: moagra
 
 # Deploy and manage Traffic Analytics using Azure Policy 
 
-## Overview
-Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will use two built-in policies available for NSG Flow Logs to manage your flow logs setup. The first policy  flags any NSGs without flow logs enabled. The second policy automatically deploys Flow logs for NSGs without Flow logs enabled. 
+Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will cover three built-in policies available for [Traffic Analytics](./traffic-analytics.md) to manage your setup.
 
 If you are creating an Azure policy for the first time, you can read through: 
 - [Azure Policy overview](../governance/policy/overview.md) 
@@ -59,7 +58,7 @@ There are separate instructions for each policy below.
 
 ### Network Watcher flow logs should have traffic analytics enabled
 
-The policy audits all existing ARM objects of type "Microsoft.Network/networkWatchers/flowLogs" and checks if Traffic Analytics is enabled via the "networkWatcherFlowAnalyticsConfiguration.enabled" property of the flow logs resource. It flags the flow logs resource which have the property set to false.
+The policy audits all existing Azure resource manager objects of type "Microsoft.Network/networkWatchers/flowLogs" and checks if Traffic Analytics is enabled via the "networkWatcherFlowAnalyticsConfiguration.enabled" property of the flow logs resource. It flags the flow logs resource which have the property set to false.
 
 If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "traffic analytics" to find the policy
 
