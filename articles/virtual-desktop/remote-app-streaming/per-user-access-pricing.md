@@ -35,4 +35,4 @@ To enroll your Azure subscription into per-user access pricing:
 
 ## Next steps
 
-To learn more about per-user access pricing, see [Understanding licensing and per-user access pricing](licensing.md).
+To learn more about per-user access pricing, see [Understanding licensing and per-user access pricing](licensing.md). If you want to learn how to estimate per-user app streaming costs for your deployment, see [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md). For estimating total deployment costs, see [Understanding total Azure Virtual Desktop deployment costs](total-costs.md). 
