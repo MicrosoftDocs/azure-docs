@@ -40,7 +40,7 @@ Create a variable array that represents the custom rules for this specific NSG:
 
 Define the NSG resource, and use the `concat()` function to combine the two arrays together:
 
-::: code language="bicep" source="code/patterns-sharedvariable-file/main.bicep" range="23-29" highlight="5" :::
+::: code language="bicep" source="code/patterns-shared-variable-file/main.bicep" range="23-29" highlight="5" :::
 
 ## Next steps
 
