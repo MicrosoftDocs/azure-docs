@@ -35,7 +35,7 @@ items:
     href: access-fhir-postman-tutorial.md
   
   - name: Interoperability and Patient Access
-    expanded: false
+    expanded: true
     items:
     - name: CMS Interoperability and Patient Access rule introduction
       href: cms-tutorial-introduction.md
