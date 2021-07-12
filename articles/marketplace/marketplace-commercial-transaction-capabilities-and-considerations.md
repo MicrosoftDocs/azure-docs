@@ -100,8 +100,8 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published VM im
 
 | **Microsoft bills** | **$1.14 per hour**  |
 |---------|---------|
-| Microsoft pays you 80% of your license cost | $0.80 per hour |
-| Microsoft keeps 20% of your license cost  |  $0.20 per hour |
+| Microsoft pays you 97% of your license cost | $0.97 per hour |
+| Microsoft keeps 3% of your license cost  |  $0.03 per hour |
 | Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
 ||
 
@@ -133,12 +133,12 @@ SaaS subscriptions can be priced at a flat rate or per user on a monthly or annu
 | _Customer is billed by Microsoft_ | _$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)_ |
 ||
 
-In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 or $90.00 to you depending on whether the offer qualifies for a reduced store service fee.
+In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
 
 | **Microsoft bills** | **$100.00 per month** |
 |---------|---------|
-| Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps | $80.00 per month <br> \* $90.00 per month |
-| Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps. | $20.00 per month <br> \* $10.00 |
+| Microsoft pays you 97% of your license cost  | $97.00 per month |
+| Microsoft keeps 3% of your license cost | $3.00 per month |
 
 ### Commercial marketplace service fees
 
@@ -160,7 +160,7 @@ When subscription or Pay-as-You-Go (also called usage-based) pricing models are 
 
 ### Publisher payout and reporting
 
-Any software licensing fees collected by Microsoft as an agent are subject to a 20% transaction fee unless otherwise specified and are deducted at the time of publisher payout.
+Any software licensing fees collected by Microsoft as an agent are subject to a 3% store service fee unless otherwise specified and are deducted at the time of publisher payout.
 
 Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
 
