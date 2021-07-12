@@ -2,14 +2,14 @@
 title: 'Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management'
 description: In this Quickstart, use the Azure portal to view the list of applications that are registered to use your Azure Active Directory (Azure AD) tenant for identity management.
 services: active-directory
-author: mtillman
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 04/09/2019
-ms.author: mtillman
+ms.author: davidmu
 ms.reviewer: arvinh
 ms.custom: it-pro
 ---
@@ -29,7 +29,7 @@ To view applications that have been registered in your Azure AD tenant, you need
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-To install and use the CLI locally, run Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+To install and use the CLI locally, run Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Find the list of applications in your tenant
 

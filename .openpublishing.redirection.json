@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "active-directory/authentication/concept-mfa-plan.md",
+      "redirect_url": "active-directory/authentication/howto-mfa-getstarted",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cost-management-billing/cloudyn/activate-subs-accounts.md",
       "redirect_url": "/previous-versions/azure/cost-management-billing/cloudyn/activate-subs-accounts",
       "redirect_document_id": false
@@ -14166,6 +14171,11 @@
     {
       "source_path_from_root": "/articles/cdn/cdn-cloud-service-with-cdn.md",
       "redirect_url": "/azure/cdn/cdn-create-a-storage-account-with-cdn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cdn/dn-restrict-access-by-country.md",
+      "redirect_url": "/azure/cdn/cdn-restrict-access-by-country-region",
       "redirect_document_id": false
     },
     {
