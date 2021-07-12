@@ -93,9 +93,9 @@ You can choose between a light theme or a dark theme for the UI:
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot of IoT Central Dashboard.":::
 
-* **Dashboard** is the first page you see when you sign in to your IoT Central application. You can create and customize multiple application dashboards. Learn more about [adding tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
+* **Dashboard** is the first page you see when you sign in to your IoT Central application. You can create and customize multiple application dashboards. Learn more about [adding tiles to your dashboard](howto-manage-dashboards.md)
 
-* Personal dashboards can also be created to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-create-personal-dashboards.md) how-to article.
+* Personal dashboards can also be created to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-manage-dashboards.md) how-to article.
 
 ### Devices
 
