@@ -36,6 +36,7 @@ This sample template performs the following:
 * Automates the creation of an Azure Automation account.
 * Links the Automation account to the Log Analytics workspace.
 * Adds sample Automation runbooks to the account.
+* Creates a Managed Identity for the Azure Automation account.
 
 >[!NOTE]
 >Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Create Run As account](create-run-as-account.md).
