@@ -57,7 +57,7 @@ Scenarios that require **implicit flow** can now use **Auth code flow** to reduc
 
 | Do                                                                    | Don't                                                                  |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| Understand if implicit flow is required (https://aka.ms/igfScenarios) | Use implicit flow unless explicitly required (https://aka.ms/igfCheck) |
+| Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) | Use implicit flow unless [explicitly required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) |
 | Separate app registration for (valid) implicit flow scenarios                  |                                                                        |
 | Turn off unused implicit flow                                         |                                                                        |
 
@@ -70,8 +70,8 @@ While it's convenient to use password secrets as a credential, we strongly recom
 
 | Do                                                                     | Don't                             |
 | ---------------------------------------------------------------------- | --------------------------------- |
-| Use certificate credentials (https://aka.ms/aadCertCreds)              | Use Password credentials          |
-| Use Key Vault with Managed identities (https://aka.ms/managedIdentity) | Share credentials across apps     |
+| Use [certificate credentials](./active-directory-certificate-credentials.md)              | Use Password credentials          |
+| Use Key Vault with [Managed identities](../managed-identities-azure-resources/overview.md) | Share credentials across apps     |
 | Rollover frequently                                                    | Have many credentials on one app  |
 |                                                                        | Let stale credentials hang around |
 |                                                                        | Commit credentials in code        |
