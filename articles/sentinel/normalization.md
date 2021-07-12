@@ -109,7 +109,7 @@ Each schema field has a type. Some have built-in, Azure Log Analytics types such
 
 ### Common fields
 
-The following fields are common to all ASIM schemas. They are documented here, but also for each schema, as there might be unique details relevant to each schema. For example the valid values for EventType or the valud of EventSchemaVersion. 
+The following fields are common to all ASIM schemas. Common fields are listed both here, and for each schema, to support situations where details differ per schema. For example, values for the **EventType** field may vary per schema, as may the value of the **EventSchemaVersion** field. 
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
