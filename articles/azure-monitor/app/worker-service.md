@@ -15,7 +15,7 @@ The new SDK does not do any telemetry collection by itself. Instead, it brings i
 
 ## Supported scenarios
 
-The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced [.NET Core 3.0 Worker Service](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [background tasks in Asp.Net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services), Console apps (.NET Core/ .NET Framework), etc.
+The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced [.NET Core 3.0 Worker Service](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [background tasks in ASP.NET Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services), Console apps (.NET Core/ .NET Framework), etc.
 
 ## Prerequisites
 
@@ -529,16 +529,16 @@ Get an instance of `TelemetryClient` by using constructor injection, and call th
 
 Visual Studio IDE onboarding is currently supported only for ASP.NET/ASP.NET Core Applications. This document will be updated when Visual Studio ships support for onboarding Worker service applications.
 
-### Can I enable Application Insights monitoring by using tools like Status Monitor?
+### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Status Monitor](./monitor-performance-live-website-now.md) and [Status Monitor v2](./status-monitor-v2-overview.md) currently support ASP.NET 4.x only.
+No, [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) currently supports ASP.NET 4.x only.
 
 ### If I run my application in Linux, are all features supported?
 
 Yes. Feature support for this SDK is the same in all platforms, with the following exceptions:
 
 * Performance counters are supported only in Windows with the exception of Process CPU/Memory shown in Live Metrics.
-* Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or MacOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
+* Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -561,8 +561,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 [.NET Core Console Application](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 Use this sample if you are using a Console Application written in either .NET Core (2.0 or higher) or .NET Framework (4.7.2 or higher)
 
-[ASP .NET Core background tasks with HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)
-Use this sample if you are in Asp.Net Core 2.1/2.2, and creating background tasks as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services)
+[ASP.NET Core background tasks with HostedServices](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+Use this sample if you are in ASP.NET Core 2.1/2.2, and creating background tasks as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services)
 
 [.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 Use this sample if you have a .NET Core 3.0 Worker Service application as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio#worker-service-template)
@@ -571,7 +571,7 @@ Use this sample if you have a .NET Core 3.0 Worker Service application as per of
 
 * [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet).
 
-For the latest updates and bug fixes [consult the release notes](./release-notes.md).
+For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
 
 ## Next steps
 

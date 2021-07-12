@@ -29,8 +29,8 @@ You will need to authenticate with your S-User or P-User. You can create a P-Use
 | -------------- | :--------- | 
 | **SAP S/4HANA 2020 FPS01, Fully-Activated Appliance**  Apr 21, 2021 | [Create Instance](https://cal.sap.com/registration?sguid=a0b63a18-0fd3-4d88-bbb9-4f02c13dc343&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |This appliance contains SAP S/4HANA 2020 (FPS01) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Transportation Mgmt. (TM), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/a0b63a18-0fd3-4d88-bbb9-4f02c13dc343) | 
-| **SAP S/4HANA 2020, Fully-Activated Appliance**  Dec 14, 2020 | [Create Instance](https://cal.sap.com/registration?sguid=7a3ebd3e-d005-4c70-ae35-40a167aed981&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-| This appliance contains SAP S/4HANA 2020 (SP00) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service Management, Master Data Governance (MDG), Transportation Mgmt. (TM), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows Remote desktop, or the backend operating system for full administrative access. | [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/7a3ebd3e-d005-4c70-ae35-40a167aed981) | 
+| **SAP S/4HANA 2020 FPS02**  Jun 10, 2021 | [Create Instance](https://cal.sap.com/registration?sguid=c7cff775-cbf7-4cd1-a907-6eeca95a0946&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+| This solution comes as a standard S/4HANA system installation including a remote desktop for easy frontend access. It contains a pre-configured and activated SAP S/4HANA Fiori UI in client 100, with prerequisite components activated as per SAP note 3045635 Rapid Activation for SAP Fiori in SAP S/4HANA 2020 FPS02. See More Information Link. | [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/c7cff775-cbf7-4cd1-a907-6eeca95a0946) | 
 | **SAP Business One 10.0 PL02, version for SAP HANA**   Aug 4, 2020 | [Create Instance](https://cal.sap.com/registration?sguid=371edc8c-56c6-4d21-acb4-2d734722c712&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |Trusted by over 70,000 small and midsize businesses in 170+ countries, SAP Business One is a flexible, affordable, and scalable ERP solution with the power of SAP HANA. The solution is pre-configured using a 31-day trial license and has a demo database of your choice pre-installed. See the getting started guide to learn about the scope of the solution and how to easily add new demo databases.| [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/371edc8c-56c6-4d21-acb4-2d734722c712) | 
 | **SAP Financial Services Data Platform 1.13**  Jun 6, 2021 | [Create Instance](https://cal.sap.com/registration?sguid=5e351903-8fbe-40ce-b7ae-8ec53cb1ddb8&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
@@ -53,10 +53,10 @@ You will need to authenticate with your S-User or P-User. You can create a P-Use
 ## Setup and get started with SAP Cloud Appliance Library
 
 > [!NOTE]
-For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
+> For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
 
 > [!NOTE]
-As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.
+> As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.
 
 ## Create an account in the SAP CAL
 1. To sign in to the SAP CAL for the first time, use your SAP S-User or other user registered with SAP. Then define an SAP CAL account that is used by the SAP CAL to deploy appliances on Azure. In the account definition, you need to:
@@ -68,7 +68,7 @@ As of May 29, 2017, you can use the Azure Resource Manager deployment model in a
     c. Give the SAP CAL permission to deploy into your Azure subscription.
 
     > [!NOTE]
-    The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
+    > The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
 2. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
@@ -114,10 +114,10 @@ You successfully created an SAP CAL account that is able to:
 Now you can start to deploy S/4HANA into your user subscription in Azure.
 
 > [!NOTE]
-Before you continue, determine whether you have required Azure core quotas. Some solutions in SAP CAL uses M-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any M-Series core quotas. If so, you might need to contact Azure support to get a required quota.
+> Before you continue, determine whether you have required Azure core quotas. Some solutions in SAP CAL uses M-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any M-Series core quotas. If so, you might need to contact Azure support to get a required quota.
 
 > [!NOTE]
-When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
+> When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
 
 ## Deploy a solution
 

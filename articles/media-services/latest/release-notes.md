@@ -30,6 +30,19 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## June 2021
 
+### Additional Live Event ingest heartbeat properties for improved diagnostics
+
+Additional live event ingest heartbeat properties have been added to the Event Grid message. This includes the following new fields to assist with diagnosing issues during live ingest.  The **ingestDriftValue** is helpful in scenarios where you need to monitor network latency from the source ingest encoder pushing into the live event. If this value drifts out too far, it can be an indication that the network latency is too high for a successful live streaming event.
+
+See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md) for more details.
+
+| New LiveEventIngestHeartbeat property | Description |
+| -------- | ---------- |
+| lastFragmentArrivalTime | The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
+| ingestDriftValue |  Measures the drift between the timestamp of the ingested content and the system clock in the ingest endpoint, measured in integer seconds per minute. A non zero value indicates that the ingested content is arriving slower than system clock time In other cases you will see 0, or "n/a" when there are no incoming fragments.|
+| transcriptionState |  The state of the live transcription feature.  This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value, or empty when disabled.|
+| transcriptionLanguage |  The BCP-47 language code used for this track if the tracktype is "audio". When transcriptionState is empty (off) this will have an empty value. All other non-audio tracks will also contain an empty value. |
+
 ### Private links support is now GA
 
 Support for using Media Services with [private links](/azure/private-link/) is now GA and available in all Azure regions including Azure Government clouds.
