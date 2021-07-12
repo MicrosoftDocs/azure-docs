@@ -128,12 +128,12 @@
           {
             "source_path_from_root": "/articles/virtual-machines/linux/join-redhat-linux-vm-to-azure-active-directory-domain-service.md",
             "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-join-rhel-linux-vm",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/ansible-create-vm.md",
             "redirect_url": "/azure/ansible/ansible-create-vm",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/ansible-install-configure.md",
@@ -703,7 +703,7 @@
           {
             "source_path_from_root": "/articles/virtual-machines/linux/copy-vm-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/copy-vm",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/cli-manage-nodejs.md",
@@ -923,7 +923,7 @@
           {
             "source_path_from_root": "/articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/multiple-nics-nodejs.md",
@@ -943,7 +943,7 @@
           {
             "source_path_from_root": "/articles/virtual-machines/linux/classic/mysql-on-opensuse.md",
             "redirect_url": "/azure/virtual-machines/linux/mysql-on-opensuse",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/azure-vm-network-overview.md",
@@ -2163,7 +2163,7 @@
           {
             "source_path_from_root": "/articles/virtual-machines/windows/classic/install-mongodb.md",
             "redirect_url": "/azure/virtual-machines/windows/install-mongodb",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/impactful-maintenance.md",
@@ -2253,7 +2253,7 @@
           {
             "source_path_from_root": "/articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md",
             "redirect_url": "/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/classic/createportal.md",
