@@ -1,11 +1,11 @@
 ---
 title: Deploy a FHIR service within Azure Healthcare APIs
-description: In this article, you'll learn how to deploy a workspace in the Azure portal. 
+description: This article describes how to deploy a workspace in the Azure portal. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/09/2021
+ms.date: 07/12/2021
 ms.author: ginle
 ---
 
@@ -15,7 +15,7 @@ In this quickstart, you’ll learn how to deploy the FHIR service within the Azu
 
 ## Prerequisite
 
-Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see [Deploy workspace in the Azure portal](deploy-workspace-in-portal.md).
+Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see [Deploy workspace in the Azure portal](../deploy-workspace-in-portal.md).
 
 ## Create a new FHIR service
 
@@ -44,7 +44,7 @@ You can also select the **Additional settings** tab to view the authentication s
 
 Notice that the box for entering **Allowed object IDs** is grayed out. This is because we use Azure RBAC for configuring role assignments in this case.
 
-If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server. For more information, see the **local RBAC configuration guide**.
+If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server. For more information, see the [local RBAC assignment reference](configure-local-rbac.md).
 
 ## Fetch FHIR API capability statement
 
@@ -52,7 +52,7 @@ To validate that the new FHIR API account is provisioned, fetch a capability sta
 
 ## Next steps
 
-In this quickstart guide, you've deployed the FHIR service into your Azure Healthcare APIs workspace. To set another settings in your FHIR service, see the **additional settings how-to guide**. If you are ready to start using the FHIR service, see **how to register applications**.
+In this quickstart guide, you've deployed the FHIR service into your Azure Healthcare APIs workspace. To set another settings in your FHIR service, see the **additional settings how-to guide**. If you are ready to start using the FHIR service, see [Register the Azure Active Directory apps for the FHIR service](fhir-app-registration.md).
 
 >[!div class="nextstepaction"]
 >[Overview of Heathcare APIs](../healthcare-apis-overview.md)
