@@ -37,15 +37,19 @@ After you complete these steps, you should have:
 
 ### Set admin consent for your app
 
-To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources. If you don't have an ownership role in the app, contact the app owner and ask them to set admin consent for you in the app. If you do have an admin role, add yourself as an owner of the app to approve admin consent once.
+To use SMART on FHIR, you must first authenticate and authorize the app. The first time you use SMART on FHIR, you also must get administrative consent to let the app access your FHIR resources.
 
-To add yourself as owner of an app:
+If you don't have an ownership role in the app, contact the app owner and ask them to grant admin consent for you in the app. 
 
-1. In the Azure portal, go to Active Directory.
+If you do have administrative privileges, complete the following steps to grant admin consent to yourself directly. (You also can grant admin consent to yourself later when you are prompted in the app.) You can complete the same steps to add other users as owners, so they can view and edit this app registration.
+
+To add yourself or another user as owner of an app:
+
+1. In the Azure portal, go to Azure Active Directory.
 1. In the left menu, select **App Registration**.
 1. Search for the app registration you created, and then select it.
-1. In the left menu under **Manage**, select **Owners**.
-1. Select **Add owners** and add yourself.
+1. In the left menu, under **Manage**, select **Owners**.
+1. Select **Add owners**, and then add yourself or the user you want to have admin consent.
 1. Select **Save**.
 
 ## Enable the SMART on FHIR proxy
