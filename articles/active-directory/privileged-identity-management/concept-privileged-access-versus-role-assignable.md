@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 ## What are Azure AD role-assignable groups?
 
-Azure AD supports the ability to assign a cloud native Azure AD security group to an Azure AD role. In order to add additional security for this scenario, Global Administrators and Privileged Role Administrators must create a new Azure AD security group and enable the ability to assign the group to a role while creating the new group. Once this setting is turned on, only the Global admin, privileged role admin, and owner of the group can modify the membership of the group. Additional protection is also added to prevent non global administrators and privileged role administrators from resetting the password of the user’s who are a member of the group. This helps to prevent an elevation of privileged where a lesser privileged admin gets access to a higher privileged role without going through standard procedure. 
+Azure AD supports the ability to assign a cloud Azure AD security group to an Azure AD role. In order to add extra security for this scenario, Global Administrators and Privileged Role Administrators must create a new Azure AD security group and enable the ability to assign the group to a role while creating the new group. Once this setting is turned on, only the Global admin, privileged role admin, and owner of the group can modify the membership of the group. Additional protection is also added to prevent non global administrators and privileged role administrators from resetting the password of the user’s who are a member of the group. This helps to prevent an elevation of privileged where a lesser privileged admin gets access to a higher privileged role without going through standard procedure.
 
 ## What are Privileged Access groups?
 
