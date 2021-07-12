@@ -69,7 +69,6 @@ Following tools and environments are already installed on the compute instance:
 |----|:----:|
 |RStudio Server Open Source Edition (preview)||
 |R kernel||
-|Azure Machine Learning SDK for R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>SDK samples|
 
 |**PYTHON** tools & environments|Details|
 |----|----|
