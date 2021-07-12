@@ -19,20 +19,20 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory B2C is a scalable identity and access management solution. Its high flexibility to meet your business expectations and smooth integration with existing infrastructure enables further digitalization.
 
-This guidance is intended for Microsoft Customers and Partners. To understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment.
+To help organizations understand the business requirements and respect compliance boundaries, a step-by-step approach is recommended throughout an Azure Active Directory (Azure AD) B2C deployment.
 
 | Capability | Description |
 |:-----|:------|
 | [Plan](#plan-an-azure-ad-b2c-deployment) | Prepare Azure AD B2C projects for deployment. Start by identifying the stakeholders and later defining a project timeline. |
 | [Implement](#implement-an-azure-ad-b2c-deployment) | Start with enabling authentication and authorization and later perform full application onboarding. |
-| [Monitor](#monitor-an-azure-ad-b2c-solution) | Enable logging, auditing and reporting once an Azure AD B2C solution is in place. |
+| [Monitor](#monitor-an-azure-ad-b2c-solution) | Enable logging, auditing, and reporting once an Azure AD B2C solution is in place. |
 
 ## Plan an Azure AD B2C deployment
 
 This phase includes the following capabilities.
 
 | Capability | Description |
-|:------------|:------------| 
+|:------------|:------------|
 |[Business requirements review](#business-requirements-review) | Assess your organization’s status and expectations |
 | [Stakeholders](#stakeholders) |Build your project team |
 |[Communication](#communication) | Communicate with your team about the project |
@@ -58,11 +58,11 @@ This phase includes the following capabilities.
 
 - Decide the protocols you want to use
 
-  - If you are currently using Kerberos, NTLM, and WS-Fed, [migrate and refactor your applications](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE). Once migrated, your applications can support modern identity protocols such as OAuth 2.0 and OpenID Connect (OIDC) to enable further identity protection and security. 
+  - If you're currently using Kerberos, NTLM, and WS-Fed, [migrate and refactor your applications](https://www.bing.com/videos/search?q=application+migration+in+azure+ad+b2c&docid=608034225244808069&mid=E21B87D02347A8260128E21B87D02347A8260128&view=detail&FORM=VIRE). Once migrated, your applications can support modern identity protocols such as OAuth 2.0 and OpenID Connect (OIDC) to enable further identity protection and security.
 
 ### Stakeholders
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you are engaging the right
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right
 stakeholders](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#include-the-right-stakeholders) and that stakeholders understand their roles.
 
 - Identify the primary architect, project manager, and owner for the application.
@@ -96,15 +96,15 @@ This phase includes the following capabilities.
 | [Client application onboarding and deliverables](#client-application-onboarding-and-deliverables) | Onboard the client application and test the solution |
 | [Security](#security) | Enhance the security of your Identity solution |
 |[Compliance](#compliance) | Address regulatory requirements |
-|[User experience](#user-experience) | Enable a user friendly service |
+|[User experience](#user-experience) | Enable a user-friendly service |
 
 ### Deploy authentication and authorization
 
-- Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant). 
+- Start with [setting up an Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 - For business driven authorization, use the [Azure AD  B2C Identity Experience Framework (IEF) sample user journeys](https://github.com/azure-ad-b2c/samples#local-account-policy-enhancements)
 
-- Try [Open  policy agent](https://www.openpolicyagent.org/). 
+- Try [Open  policy agent](https://www.openpolicyagent.org/).
 
 Learn more about Azure AD B2C in [this developer course](https://aka.ms/learnaadb2c).
 
@@ -186,13 +186,13 @@ Consider this sample checklist while you **deliver**.
 
 Consider this sample checklist to enhance the security of your application depending on your business needs:
 
-- Check if strong authentication method such as [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) is required. For users who trigger high value transactions or other risk events it is suggested to use MFA. For example, for banking and finance applications, online shops - first checkout process.
+- Check if strong authentication method such as [MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) is required. For users who trigger high value transactions or other risk events its suggested to use MFA. For example, for banking and finance applications, online shops - first checkout process.
 
 - Check if MFA is required, [check the methods available to do MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods#:~:text=How%20each%20authentication%20method%20works%20%20%20,%20%20MFA%20%204%20more%20rows%20) such as  SMS/Phone, email, and third-party services.
 
 - Check if any anti-bot mechanism is in use today with your applications.
 
-- Assess the risk of attempts to create fraudulent accounts and log-ins. [Microsoft Dynamics 365 Fraud Protection assessment](https://docs.microsoft.com/azure/active-directory-b2c/partner-dynamics-365-fraud-protection) can be used to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.  
+- Assess the risk of attempts to create fraudulent accounts and log-ins. Use [Microsoft Dynamics 365 Fraud Protection assessment](https://docs.microsoft.com/azure/active-directory-b2c/partner-dynamics-365-fraud-protection) to block or challenge suspicious attempts to create new fake accounts or to compromise existing accounts.  
 
 - Check for any special conditional postures that need to be applied as part of sign-in or sign-up for accounts with your application.
 
