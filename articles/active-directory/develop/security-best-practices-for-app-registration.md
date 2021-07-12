@@ -43,9 +43,9 @@ It's important to keep Redirect URIs of your application up to date. A lapse in 
 | ------------------------------------- | -------------- |
 | Maintain ownership of all URIs        | Use wildcards  |
 | Keep DNS up to date                   | Use URN scheme |
-| Keep the list small                   |                |
-| Trim any unnecessary URIs             |                |
-| Update URLs from Http to Https scheme |                |
+| Keep the list small                   |   -----        |
+| Trim any unnecessary URIs             |   -----        |
+| Update URLs from Http to Https scheme |   -----        |
 
 ## Implicit flow token configuration
 
@@ -58,8 +58,10 @@ Scenarios that require **implicit flow** can now use **Auth code flow** to reduc
 | Do                                                                    | Don't                                                                  |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) | Use implicit flow unless [explicitly required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) |
-| Separate app registration for (valid) implicit flow scenarios                  |                                                                        |
-| Turn off unused implicit flow                                         |                                                                        |
+| Separate app registration for (valid) implicit flow scenarios                  
+|         -----                                                          |
+| Turn off unused implicit flow                                         
+|         -----                                                          |
 
 ## Credential configuration
 
@@ -73,8 +75,8 @@ While it's convenient to use password secrets as a credential, we strongly recom
 | Use [certificate credentials](./active-directory-certificate-credentials.md)              | Use Password credentials          |
 | Use Key Vault with [Managed identities](../managed-identities-azure-resources/overview.md) | Share credentials across apps     |
 | Rollover frequently                                                    | Have many credentials on one app  |
-|                                                                        | Let stale credentials hang around |
-|                                                                        | Commit credentials in code        |
+|     -----                                                              | Let stale credentials hang around |
+|     -----                                                              | Commit credentials in code        |
 
 ## AppId URI configuration
 
@@ -97,7 +99,7 @@ Certain applications can expose resources (via WebAPI) and as such need to defin
 | -------------------------------------------- | ---------------------- |
 | Avoid collisions by using valid URI formats. | Use wildcard AppId URI |
 | Use verified domain in Line of Business (LoB) apps | Malformed URI    |
-| Inventory your AppId URIs                    |                        |
+| Inventory your AppId URIs                    |      -----             |
 
 ## App ownership configuration
 
