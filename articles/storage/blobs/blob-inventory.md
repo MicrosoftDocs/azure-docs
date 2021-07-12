@@ -1,11 +1,11 @@
 ---
-title: Azure Storage blob inventory (preview)
+title: Azure Storage blob inventory
 description: Azure Storage inventory is a tool to help get an overview of all your blob data within a storage account.
 services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/18/2021
+ms.date: 07/12/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -13,21 +13,9 @@ ms.subservice: blobs
 ms.custom: references_regions
 ---
 
-# Azure Storage blob inventory (preview)
+# Azure Storage blob inventory
 
 The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
-
-## Availability
-
-Blob inventory is supported for both general purpose version 2 (GPv2) and premium block blob storage accounts. This feature is supported with or without the [hierarchical namespace](data-lake-storage-namespace.md) feature enabled on the account.
-
-> [!IMPORTANT]
-> Azure Storage Blob inventory is currently in PREVIEW and is available on storage accounts in all public regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-## Pricing and billing
-
-The fee for inventory reports isn't charged during the preview period. Pricing will be determined when this feature is generally available. 
 
 ## Inventory features
 
@@ -51,7 +39,7 @@ The following list describes features and capabilities that are available in the
 
 ## Enabling inventory reports
 
-Enable blob inventory reports by adding a policy with one or more rules to your storage account. For guidance, see [Enable Azure Storage blob inventory reports (preview)](blob-inventory-how-to.md).
+Enable blob inventory reports by adding a policy with one or more rules to your storage account. For guidance, see [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md).
 
 ## Upgrading an inventory policy 
 
@@ -89,7 +77,7 @@ View the JSON for an inventory policy by selecting the **Code view** tab in the 
 | Parameter name | Parameter type        | Notes | Required? |
 |----------------|-----------------------|-------|-----------|
 | enabled        | boolean               | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
-| rules          | Array of rule objects | At least one rule is required in a policy. Up to 10 rules are supported. | Yes |
+| rules          | Array of rule objects | At least one rule is required in a policy. Up to 100 rules are supported per policy. | Yes |
 
 ## Inventory rules
 
@@ -179,7 +167,6 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - BlobType
 - AccessTier
 - AccessTierChangeTime
-- AccessTierInferred
 - Expiry-Time
 - hdi_isfolder
 - Owner
@@ -190,7 +177,6 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 - VersionId (Available and required when you choose to include blob versions in your report)
 - IsCurrentVersion (Available and required when you choose to include blob versions in your report)
 - Metadata
-- Tags
 - LastAccessTime
 
 
@@ -322,6 +308,16 @@ Each inventory run for a rule generates the following files:
 	} 
    ```
 
+## Pricing and billing
+
+Configuring an inventory policy can result in additional charges to your account. For each successful inventory run, the account is billed per million objects listed. Once an inventory rule is completed, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory generated blobs in the account.
+
+If rules have overlapping prefixes, then the same blob can appear in more than one inventory report. You'll be billed for both instances. For example, assume that the `prefixMatch` element of one rule is set to `["inventory-blob-1", "inventory-blob-2"]`, and the `prefixMatch` element of another rule is set to `["inventory-blob-10", "inventory-blob-20"]`. An object named `inventory-blob-200` appears in both inventory reports.
+
+Snapshots and versions of a blob also count towards billing even if you've set `includeSnapshots` and `includeVersions` filters to `false`. Those filter values don't affect billing. You can use them only to filter what appears in the report.
+
+For more information about pricing for Azure Storage blob inventory, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
 ## Known issues
 
 This section describes limitations and known issues of the Azure Storage blob inventory feature.
@@ -336,6 +332,6 @@ An object replication policy can prevent an inventory job from writing inventory
 
 ## Next steps
 
-- [Enable Azure Storage blob inventory reports (preview)](blob-inventory-how-to.md)
+- [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
 - [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
 - [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
