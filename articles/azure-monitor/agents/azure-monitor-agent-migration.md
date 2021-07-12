@@ -16,7 +16,7 @@ This article provides high-level guidance on when and how to migrate to the new 
 
 ### Review
 - Go through the guidance [here](./azure-monitor-agent-overview.md#should-i-switch-to-azure-monitor-agent) to decide if you should migrate to the new Azure Monitor agent now or at a later time
-- For the Azure Monitor agent, review the new capabilities, availability of existing features and services, as well as limitations [here](./agents-overview.md#azure-monitor-agent)
+- For the Azure Monitor agent, review the new capabilities, availability of existing features, services, solutions as well as current limitations [here](./agents-overview.md#azure-monitor-agent)
 
 
 ### Test migration using Azure portal
