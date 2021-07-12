@@ -14,7 +14,7 @@ ms.reviewer: sngun
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 HTTP 401: The MAC signature found in the HTTP request isn't the same as the computed signature.
-If you received the 401 error message "The MAC signature found in the HTTP request is not the same as the computed signature," it can be caused by the following scenarios.
+If you received the 401 error message "The MAC signature found in the HTTP request is not the same as the computed signature", it can be caused by the following scenarios.
 
 For older SDKs, the exception can appear as an invalid JSON exception instead of the correct 401 unauthorized exception. Newer SDKs properly handle this scenario and give a valid error message.
 
