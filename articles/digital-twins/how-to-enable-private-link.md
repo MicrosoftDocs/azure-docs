@@ -73,7 +73,7 @@ This will return you to the **Networking** tab of the Azure Digital Twins instan
 
 You can then use the bottom navigation buttons to continue with the rest of instance setup.
 
-# [CLI](#tab/cli+arm-client)
+# [CLI](#tab/cli)
 
 You cannot add a Private Link endpoint during instance creation using the Azure CLI. 
 
@@ -131,7 +131,7 @@ When the endpoint is finished deploying, it should show up in the private endpoi
 >[!TIP]
 > The endpoint can also be viewed from the Private Link Center in the Azure portal.
 
-# [CLI](#tab/cli+arm-client)
+# [CLI](#tab/cli)
 
 To create a private endpoint and link it to an Azure Digital Twins instance using the Azure CLI, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create) command. Identify the Azure Digital Twins instance by using its fully qualified ID in the `--private-connection-resource-id` parameter.
 
@@ -160,7 +160,7 @@ Once a private endpoint has been created for your Azure Digital Twins instance, 
 
 Select the endpoint to view its information in detail, make changes to its configuration settings, or delete the connection.
 
-# [CLI](#tab/cli+arm-client)
+# [CLI](#tab/cli)
 
 Once a private endpoint has been created for your Azure Digital Twins instance, you can use the [az dt network private-endpoint connection](/cli/azure/dt/network/private-endpoint/connection?view=azure-cli-latest&preserve-view=true) commands to continue managing private endpoint **connections** with respect to the instance. Operations include:
 * Show a private endpoint connection
@@ -188,7 +188,7 @@ This policy allows you to restrict API access to Private Link connections only. 
 
 You can update the value of the network flag using the [Azure portal](https://portal.azure.com), or through a command line via the [Azure CLI](/cli/azure/) or [ARMClient command tool](https://github.com/projectkudu/ARMClient).
 
-# [Portal](#tab/portal)
+# [Portal](#tab/portal-2)
 
 ### Use the Azure portal
 
@@ -208,7 +208,7 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
     Select **Save**.
 
-# [CLI](#tab/cli)
+# [CLI](#tab/cli-2)
 
 In the command line, you can manage public network access using the [Azure CLI](/cli/azure/) or the [ARMClient command tool](https://github.com/projectkudu/ARMClient).
 
@@ -228,7 +228,7 @@ To **enable** public network access on an instance where it's currently disabled
 az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Enabled
 ```
 
-# [ARMClient](#tab/arm-client)
+# [ARMClient](#tab/arm-client-2)
 
 ## Use the ARMClient command tool
 
