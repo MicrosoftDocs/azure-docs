@@ -1,10 +1,10 @@
 ---
-title: Discover Bicep in Microsoft Learn
-description: Provides an overview of the units that are available in Microsoft Learn for Bicep.
+title: Discover Bicep on Microsoft Learn
+description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
 ms.date: 06/28/2021
 ---
-# Bicep in Microsoft Learn
+# Bicep on Microsoft Learn
 
 For step-by-step guidance on using Bicep to deploy your infrastructure to Azure, Microsoft Learn offers several learning modules.
 
