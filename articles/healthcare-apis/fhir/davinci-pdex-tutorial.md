@@ -1,11 +1,10 @@
 ---
-title: Tutorial - Da Vinci PDex - Azure API for FHIR
-description: This tutorial walks through setting up the Azure API for FHIR to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
+title: Tutorial - Da Vinci PDex - Healthcare APIs
+description: This tutorial walks through setting up the FHIR service to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 06/07/2021
@@ -27,9 +26,8 @@ The first set of tests that we'll focus on is testing the Azure API for FHIR aga
 
 * The second test validates all the profiles have been added for US Core. This test will pass without updates but will include a bunch of warnings. To have these warnings removed, you need to [load the US Core profiles](validation-against-profiles.md). We've created a [sample HTTP file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) that walks through creating all the profiles. You can also get the [profiles](http://hl7.org/fhir/us/core/STU3.1.1/profiles.html#profiles) from the HL7 site directly, which will have the most current versions.
 
-* The third test validates that the [$patient-everything operation](patient-everything.md) is supported. Right now, this test will fail. The operation will be available in mid-June 2021 in the Azure API for FHIR and is available now in the open-source FHIR server on Cosmos DB. However, it is missing from the capability statement, so this test will fail until we release a fix to bug [1989](https://github.com/microsoft/fhir-server/issues/1989). 
+* The third test validates that the [$patient-everything operation](patient-everything.md) is supported.
 
- 
 :::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="Da Vinci PDex execution failed.":::
 
 ## Touchstone $member-match test
@@ -49,6 +47,8 @@ The next tests we'll review is the [patient by reference](https://touchstone.aeg
 ## Touchstone patient/$everything test
 
 The final test we'll walk through is testing patient-everything. For this test, you'll need to load a patient, and then you'll use that patient’s ID to test that you can use the $everything operation to pull all data related to the patient.
+
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-patient-everything.png" alt-text="touchstone patient/$everything test passed.":::
 
 ## Next steps
 

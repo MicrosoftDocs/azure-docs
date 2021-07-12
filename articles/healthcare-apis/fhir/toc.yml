@@ -10,7 +10,7 @@ items:
   expanded: true
   items:
   - name: Deploy FHIR service
-    expanded: false
+    expanded: true
     items:
     - name: Using Portal
       href: fhir-portal-quickstart.md
@@ -18,7 +18,7 @@ items:
       href: fhir-arm-template-quickstart.md
 
 - name: Tutorials
-  expanded: false
+  expanded: true
   items:
   - name: Deploy JavaScript application
     expanded: false
@@ -48,7 +48,7 @@ items:
     - name: Da Vinci Plan Net
       href: davinci-plan-net.md
 - name: How-to guides
-  expanded: false
+  expanded: true
   items:
   - name: Registering applications
     expanded: false
@@ -73,7 +73,7 @@ items:
       href: additional-settings.md
 
   - name: Search
-    expanded: false
+    expanded: true
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -81,10 +81,10 @@ items:
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
       href: how-to-run-a-reindex.md
-    - name: Search examples for FHIR service
+    - name: Search examples
       href: search-samples.md
   - name: Operations
-    expanded: false
+    expanded: true
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
