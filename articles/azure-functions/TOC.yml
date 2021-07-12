@@ -399,6 +399,8 @@
         - name: Analyze telemetry data
           href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
+        - name: Monitor metrics
+          href: monitor-metrics.md  
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
@@ -695,6 +697,8 @@
       href: https://azure.microsoft.com/roadmap/?category=compute
     - name: Pricing
       href: pricing.md
+    - name: Language support policy
+      href: language-support-policy.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Quota information
