@@ -6,6 +6,8 @@
     href: overview.md
   - name: What's new?
     href: whats-new.md
+  - name: What's new for Azure Monitor
+    href: whats-new-azure-monitor.md
   - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
@@ -25,19 +27,19 @@
   - name: Connect to Azure Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: ./user-documentation/connect-windows-7-10.md
+        href: ./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the web client
-        href: ./user-documentation/connect-web.md
+        href: ./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the Android client
-        href: ./user-documentation/connect-android.md
+        href: ./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the macOS client
-        href: ./user-documentation/connect-macos.md
+        href: ./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the iOS client
-        href: ./user-documentation/connect-ios.md
+        href: ./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with the Microsoft Store client
-        href: ./user-documentation/connect-microsoft-store.md
+        href: ./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
       - name: Connect with thin clients
-        href: ./user-documentation/linux-overview.md
+        href: ./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
   - name: Configure device redirections
     href: configure-device-redirections.md
   - name: Set up the PowerShell module
@@ -138,6 +140,8 @@
     href: drain-mode.md
 - name: Concepts
   items:
+  - name: Management recommendations
+    href: management.md
   - name: Built-in roles
     href: rbac.md
   - name: Authentication

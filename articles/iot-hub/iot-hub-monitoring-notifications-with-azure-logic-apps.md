@@ -6,7 +6,6 @@ keywords: iot monitoring, iot notifications, iot temperature monitoring
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 #I think this is out of date. I changed 'click' to select. --RobinShahan

@@ -38,7 +38,7 @@ Perform the necessary steps to have Video Analyzer module deployed and working o
 1. Choose one of the many languages that are supported by gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
 1. Implement a gRPC server that will communicate with Video Analyzer using [the proto3 files](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc).
 
-    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.png" alt-text="gRPC server that will communicate with Video Analyzer using the proto3 files":::
+    :::image type="content" source="./media/develop-deploy-grpc-inference-srv/inference-srv-container-process.svg" alt-text="gRPC server that will communicate with Video Analyzer using the proto3 files":::
 
     Within this service:
     1. Handle session description message exchange between the server and the client.

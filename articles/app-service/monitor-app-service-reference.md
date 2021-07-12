@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 # Monitoring App Service data reference
 
-See [Monitoring App Service](monitor-app-service.md) for details on collecting and analyzing monitoring data for App Service.
+This reference applies to the use of Azure Monitor for monitoring App Service. See [Monitoring App Service](monitor-app-service.md) for details on collecting and analyzing monitoring data for App Service.
 
 ## Metrics
 
@@ -92,4 +92,4 @@ For more information on the schema of Activity Log entries, see [Activity  Log s
 ## See Also
 
 - See [Monitoring Azure App Service](monitor-app-service.md) for a description of monitoring Azure App Service.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

@@ -126,7 +126,7 @@ To enable monitoring for an application, you must decide whether you will use co
 - [Applications hosted on Azure Web Apps](app/azure-web-apps.md)
 - [Java applications](app/java-in-process-agent.md)
 - [ASP.NET applications hosted in IIS on Azure VM or Azure virtual machine scale set](app/azure-vm-vmss-apps.md)
-- [ASP.NET applications hosted in IIS on-premises VM](app/monitor-performance-live-website-now.md)
+- [ASP.NET applications hosted in IIS on-premises](app/status-monitor-v2-overview.md)
 
 
 **Code-based monitoring** is more customizable and collects additional telemetry, but it requires adding a dependency to your code on the Application Insights SDK NuGet packages. See the following resources for details on enabling monitoring depending on your application.
