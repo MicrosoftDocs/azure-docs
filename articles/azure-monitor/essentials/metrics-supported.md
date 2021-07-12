@@ -207,6 +207,18 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |TotalUpdateDeploymentMachineRuns|Yes|Total Update Deployment Machine Runs|Count|Total|Total software update deployment machine runs in a software update deployment run|SoftwareUpdateConfigurationName, Status, TargetComputer, SoftwareUpdateConfigurationRunId|
 |TotalUpdateDeploymentRuns|Yes|Total Update Deployment Runs|Count|Total|Total software update deployment runs|SoftwareUpdateConfigurationName, Status|
 
+## Microsoft.AVS/privateClouds
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|CapacityLatest|Yes|Datastore Disk Total Capacity|Bytes|Average|The total capacity of disk in the datastore|dsname|
+|DiskUsedPercentage|Yes| Percentage Datastore Disk Used|Percent|Average|Percent of available disk used in Datastore|dsname|
+|EffectiveCpuAverage|Yes|Percentage CPU|Percent|Average|Percentage of Used CPU resources in Cluster|clustername|
+|EffectiveMemAverage|Yes|Average Effective Memory|Bytes|Average|Total available amount of machine memory in cluster|clustername|
+|OverheadAverage|Yes|Average Memory Overhead|Bytes|Average|Host physical memory consumed by the virtualization infrastructure|clustername|
+|TotalMbAverage|Yes|Average Total Memory|Bytes|Average|Total memory in cluster|clustername|
+|UsageAverage|Yes|Average Memory Usage|Percent|Average|Memory usage as percentage of total configured or available memory|clustername|
+|UsedLatest|Yes|Datastore Disk Used|Bytes|Average|The total amount of disk used in the datastore|dsname|
 
 ## Microsoft.Batch/batchAccounts
 
@@ -1090,6 +1102,14 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |NICWriteThroughput|Yes|Write Throughput (Network)|BytesPerSecond|Average|The write throughput of the network interface on the device in the reporting period for all volumes in the gateway.|InstanceName|
 |TotalCapacity|Yes|Total Capacity|Bytes|Average|Total Capacity|No Dimensions|
 
+## Microsoft.DataCollaboration/workspaces
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|DataAssetCount|Yes|Created Data Assets|Count|Maximum|Number of created data assets|DataAssetName|
+|PipelineCount|Yes|Created Pipelines|Count|Maximum|Number of created pipelines|PipelineName|
+|ProposalCount|Yes|Created Proposals|Count|Maximum|Number of created proposals|ProposalName|
+|ScriptCount|Yes|Created Scripts|Count|Maximum|Number of created scripts|ScriptName|
 
 ## Microsoft.DataFactory/datafactories
 
@@ -2708,6 +2728,20 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |Heartbeat|Yes|Heartbeat|Count|Total|Heartbeat|Computer, OSType, Version, SourceComputerId|
 |Update|Yes|Update|Count|Average|Update|Computer, Product, Classification, UpdateState, Optional, Approved|
 
+## Microsoft.Peering/peerings
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|EgressTrafficRate|Yes|Egress Traffic Rate|BitsPerSecond|Average|Egress traffic rate in bits per second|ConnectionId, SessionIp, TrafficClass|
+|IngressTrafficRate|Yes|Ingress Traffic Rate|BitsPerSecond|Average|Ingress traffic rate in bits per second|ConnectionId, SessionIp, TrafficClass|
+|SessionAvailability|Yes|Session Availability|Count|Average|Availability of the peering session|ConnectionId, SessionIp|
+
+
+## Microsoft.Peering/peeringServices
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|PrefixLatency|Yes|Prefix Latency|Milliseconds|Average|Median prefix latency|PrefixName|
 
 ## Microsoft.PowerBIDedicated/capacities
 
