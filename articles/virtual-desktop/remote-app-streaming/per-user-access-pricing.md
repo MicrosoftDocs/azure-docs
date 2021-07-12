@@ -13,7 +13,7 @@ manager: femila
 
 # Enroll your subscription in per-user access pricing
 
-Before external users can connect to your deployment, you need to enroll your subscription in per-user access pricing. This will allow users outside of your organization to access apps and desktops in your subscription. Your enrolled subscription will be charged each month based on the number of distinct users who connect to Azure Virtual Desktop resources within it.
+Before external users can connect to your deployment, you need to enroll your subscription in per-user access pricing. Per-user access pricing lets users outside of your organization access apps and desktops in your subscription. Your enrolled subscription will be charged each month based on the number of distinct users that connect to Azure Virtual Desktop resources.
 
 ## How to enroll
 
@@ -35,4 +35,4 @@ To enroll your Azure subscription into per-user access pricing:
 
 ## Next steps
 
-To learn more about per-user access pricing, see [Understanding licensing for app hosting](placeholder.md).
+To learn more about per-user access pricing, see [Understanding licensing and per-user access pricing](licensing.md).
