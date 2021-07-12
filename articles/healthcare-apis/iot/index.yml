@@ -35,6 +35,8 @@ landingContent:
             url: iot-data-flow.md
           - text: Mapping templates for IoT Connector
             url: iot-mapping-templates.md
+  - title: Azure IoT Hub
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Receive device data through Azure IoT Hub

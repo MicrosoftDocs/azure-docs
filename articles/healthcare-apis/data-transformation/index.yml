@@ -19,12 +19,16 @@ metadata:
 
 landingContent:
 
-  - title: Export Data
+  - title: Configure settings for data export
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Configure settings for export
+            url: configure-export-data.md
+  - title: Export data
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure settings for data export
-            url: configure-export-data.md
           - text: Exporting your data
             url: export-data.md
           - text: De-identified export
@@ -33,7 +37,7 @@ landingContent:
             url: move-to-synapse.md
   - title: Convert Data
     linkLists:
-      - linkListType: concept
+      - linkListType: learn
         links:
           - text: $convert-data and FHIR Converter Extension Templates
             url: convert-data.md

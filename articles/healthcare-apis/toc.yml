@@ -15,17 +15,19 @@ items:
   items:
     - name: Deploy Healthcare APIs
       href: healthcare-apis-quickstart.md
-- name: FAQ
+- name: FAQs
   href: healthcare-apis-faqs.yml
-
-- name: FHIR service
-  href: ./fhir/index.yml
-- name: DICOM service
-  href: ./dicom/index.yml
-- name: IoT connector
-  href: ./iot/index.yml
-- name: Data Transformation
-  href: ./data-transformation/index.yml
+- name: Healthcare APIs services
+  expanded: true
+  items:  
+    - name: FHIR service
+      href: ./fhir/index.yml
+    - name: DICOM service
+      href: ./dicom/index.yml
+    - name: IoT connector
+      href: ./iot/index.yml
+    - name: Data Transformation
+      href: ./data-transformation/index.yml
 
 
 

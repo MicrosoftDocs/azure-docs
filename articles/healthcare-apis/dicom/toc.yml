@@ -37,6 +37,6 @@ items:
   items:
     - name: DICOM Conformance Statement
       href: dicom-services-conformance-statement.md
-    - name: DICOM Services FAQs
+    - name: FAQs
       href: dicom-services-faqs.yml
 

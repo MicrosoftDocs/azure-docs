@@ -3,13 +3,13 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: FHIR service
+  - name: About FHIR service
     href: overview.md
 
 - name: Quickstarts
   expanded: true
   items:
-  - name: FHIR service
+  - name: Deploy FHIR service
     expanded: false
     items:
     - name: Using Portal
