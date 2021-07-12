@@ -15,9 +15,9 @@ Kafka Connect for Azure Cosmos DB is a connector to read from and write data to 
 
 ## Prerequisites
 
-* It is recommended to start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because this gives you a complete environment to work with. If you do not wish to use Confluent Platform, then you need to install and configure Zookeper, Apache Kafka, Kafka Connect, yourself. You will also need to install and configure the Azure Cosmos DB connectors manually.
+* Start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because it gives you a complete environment to work with. If you do not wish to use Confluent Platform, then you need to install and configure Zookeeper, Apache Kafka, Kafka Connect, yourself. You will also need to install and configure the Azure Cosmos DB connectors manually.
 * Create an Azure Cosmos DB account, container [setup guide](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md)
-* Bash shell, which is tested on GitHub Codespaces, Mac, Ubuntu, Windows with WSL2. This doesn’t work in Cloud Shell or WSL1.
+* Bash shell, which is tested on GitHub Codespaces, Mac, Ubuntu, Windows with WSL2. This shell doesn’t work in Cloud Shell or WSL1.
 * Download [Java 11+](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 * Download [Maven](https://maven.apache.org/download.cgi)
 
@@ -75,7 +75,7 @@ The three records entered are published to the “hotels” Kafka topic in JSON 
 
 ## Create the sink connector
 
-Create the Azure Cosmos DB sink connector in Kafka Connect. The following JSON body defines config for the sink connector. Make sure to replace the values for `connect.cosmos.connection.endpoint` and `connect.cosmos.master.key`, properties which you should have saved from the Azure Cosmos DB setup guide in the prerequisites.
+Create the Azure Cosmos DB sink connector in Kafka Connect. The following JSON body defines config for the sink connector. Make sure to replace the values for `connect.cosmos.connection.endpoint` and `connect.cosmos.master.key`, properties that you should have saved from the Azure Cosmos DB setup guide in the prerequisites.
 
 Refer to the [sink properties](#sink-configuration-properties) section for more information on each of these configuration properties.
 
@@ -160,13 +160,13 @@ The following settings are used to configure the Cosmos DB Kafka sink connector.
 Data will always be written to the Azure Cosmos DB as JSON without any schema.
 
 ## Supported data types
- 
+
 The Azure Cosmos DB sink connector converts sink record into JSON document supporting the following schema types:
 
 | Schema type | JSON data type |
 | :--- | :--- |
 | Array | Array |
-| Boolean | Boolean | 
+| Boolean | Boolean |
 | Float32 | Number |
 | Float64 | Number |
 | Int8 | Number |
@@ -190,9 +190,9 @@ The sink Connector also supports the following AVRO logical types:
 
 ## Single Message Transforms(SMT)
 
-Along with the sink connector settings, you can specify the use of Single Message Transformations (SMTs) to modify messages flowing through the Kafka Connect platform. Refer to the [Confluent SMT Documentation](https://docs.confluent.io/platform/current/connect/transforms/overview.html) for more information.
+Along with the sink connector settings, you can specify the use of Single Message Transformations (SMTs) to modify messages flowing through the Kafka Connect platform. For more information, refer to the [Confluent SMT Documentation](https://docs.confluent.io/platform/current/connect/transforms/overview.html).
 
-### Using the InsertUUID SMT 
+### Using the InsertUUID SMT
 
 You can use InsertUUID SMT to automatically add item IDs. With the custom `InsertUUID` SMT, you can insert the `id` field with a random UUID value for each message, before it is written to Azure Cosmos DB.
 
@@ -227,11 +227,11 @@ Inside your sink connector config, add the following properties to set the `id`.
 "transforms.insertID.uuid.field.name": "id"
 ```
 
-Refer to the [InsertUUID repository](https://github.com/confluentinc/kafka-connect-insert-uuid) for more information on using this SMT.
+For more information on using this SMT, see the [InsertUUID repository](https://github.com/confluentinc/kafka-connect-insert-uuid).
 
 ### Using SMTs to configure Time to live (TTL)
 
-Using both the `InsertField` and `Cast` SMTs, you can add specify the TTL on each item created in Azure Cosmos DB. You must enable TTL on the container before enabling TTL at an item level. See the [time-to-live](how-to-time-to-live.md#enable-time-to-live-on-a-container-using-azure-portal) doc for more information.
+Using both the `InsertField` and `Cast` SMTs, you can configure TTL on each item created in Azure Cosmos DB. Enable TTL on the container before enabling TTL at an item level. For more information, see the [time-to-live](how-to-time-to-live.md#enable-time-to-live-on-a-container-using-azure-portal) doc.
 
 Inside your Sink connector config, add the following properties to set the TTL in seconds. In this following example, the TTL is set to 100 seconds. If the message already contains the `TTL` field, the `TTL` value will be overwritten by these SMTs.
 
@@ -244,13 +244,13 @@ Inside your Sink connector config, add the following properties to set the TTL i
 "transforms.castTTLInt.spec": "ttl:int32"
 ```
 
-Refer to the [InsertField](https://docs.confluent.io/platform/current/connect/transforms/insertfield.html) and [Cast](https://docs.confluent.io/platform/current/connect/transforms/cast.html) documentation for more information on using these SMTs.
+For more information on using these SMTs, see the [InsertField](https://docs.confluent.io/platform/current/connect/transforms/insertfield.html) and [Cast](https://docs.confluent.io/platform/current/connect/transforms/cast.html) documentation.
 
 ## Troubleshooting common issues
 
 Here are solutions to some common problems that you may encounter when working with the Kafka sink connector.
 
-### Reading non-JSON data with JsonConverter
+### Read non-JSON data with JsonConverter
 
 If you have non-JSON data on your source topic in Kafka and attempt to read it using the `JsonConverter`, you will see the following exception:
 
@@ -270,9 +270,9 @@ This error is likely caused by data in the source topic being serialized in eith
 "value.converter.schema.registry.url": "http://schema-registry:8081",
 ```
 
-### Reading non-Avro data with AvroConverter
+### Read non-Avro data with AvroConverter
 
-When you try to use the Avro converter to read data from a topic that is not Avro. This includes data written by an Avro serializer other than the Confluent Schema Registry’s Avro serializer, which has its own wire format.
+This scenario is applicable when you try to use the Avro converter to read data from a topic that is not in Avro format. Which, includes data written by an Avro serializer other than the Confluent Schema Registry’s Avro serializer, which has its own wire format.
 
 ```console
 org.apache.kafka.connect.errors.DataException: my-topic-name
@@ -285,7 +285,7 @@ org.apache.kafka.common.errors.SerializationException: Unknown magic byte!
 
 **Solution**: Check the source topic’s serialization format. Then, either switch Kafka Connect’s sink connector to use the right converter or switch the upstream format to Avro.
 
-### Reading a JSON message without the expected schema/payload structure
+### Read a JSON message without the expected schema/payload structure
 
 Kafka Connect supports a special structure of JSON messages containing both payload and schema as follows.
 
@@ -328,7 +328,7 @@ To be clear, the only JSON structure that is valid for `schemas.enable=true` has
 
 ## Limitations
 
-* Auto-creation of databases and containers in Azure Cosmos DB are not supported. The database and containers must already exist, and they must be configured to use these.
+* Autocreation of databases and containers in Azure Cosmos DB are not supported. The database and containers must already exist, and they must be configured correctly.
 
 ## Next steps
 

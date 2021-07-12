@@ -1,5 +1,5 @@
 ---
-title: Use Kafka Connect for Azure Cosmos DB to read and write data.
+title: Use Kafka Connect for Azure Cosmos DB to read and write data
 description: Kafka Connect for Azure Cosmos DB is a connector to read from and write data to Azure Cosmos DB. Kafka Connect is a tool for scalable and reliably streaming data between Apache Kafka and other systems
 author: kushagrathapar
 ms.service: cosmos-db
@@ -16,7 +16,7 @@ ms.author: kuthapar
 
 ## Source & sink connectors semantics
 
-* **Source connector** - Currently this connector supports at-least once with multiple tasks and exactly-once for single tasks.
+* **Source connector** - Currently this connector supports at-least once with multiple tasks and exactly once for single tasks.
 
 * **Sink connector** -  This connector fully supports exactly once semantics.
 
@@ -91,7 +91,7 @@ The resulting message to Kafka would look like the example below, with schema an
 
 The Kafka Connector supports AVRO data format. To use AVRO format, configure a `AvroConverter` so that Kafka Connect knows how to work with AVRO data. Azure Cosmos DB Kafka Connect has been tested with the [AvroConverter](https://www.confluent.io/hub/confluentinc/kafka-connect-avro-converter) supplied by Confluent, under Apache 2.0 license. You can also use a different custom converter if you prefer.
 
-Kafka deals with keys and values independently. Specify the `key.converter` and `value.converter` properties as required in the worker configuration. When using `AvroConverter`, add an additional converter property that provides the URL for the schema registry. The following example shows the AvroConverter key and value properties that are added to the configuration:
+Kafka deals with keys and values independently. Specify the `key.converter` and `value.converter` properties as required in the worker configuration. When using `AvroConverter`, add an extra converter property that provides the URL for the schema registry. The following example shows the AvroConverter key and value properties that are added to the configuration:
 
   ```java
   key.converter=io.confluent.connect.avro.AvroConverter
@@ -134,23 +134,23 @@ The source and sink connectors share the following common configuration properti
 | connect.cosmos.databasename | string | The name of the Azure Cosmos database the sink writes to. | Required |
 | connect.cosmos.containers.topicmap | string | Mapping between Kafka topics and Azure Cosmos DB containers. It is formatted using CSV as `topic#container,topic2#container2` | Required |
 
-For sink connector specific configuration, please refer to the [Sink Connector Documentation](kafka-connector-sink.md)
+For sink connector-specific configuration, see the [Sink Connector Documentation](kafka-connector-sink.md)
 
-For source connector specific configuration, please refer to the [Source Connector Documentation](kafka-connector-source.md)
+For source connector-specific configuration, see the [Source Connector Documentation](kafka-connector-source.md)
 
 ## Common configuration errors
 
 If you misconfigure the converters in Kafka Connect, it can result in errors. These errors will show up at the Kafka Connector sink because you’ll try to deserialize the messages already stored in Kafka. Converter problems don’t usually occur in source because serialization is set at the source.
 
-For more details, see [common configuration errors](https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained/#common-errors) doc.
+For more information, see [common configuration errors](https://www.confluent.io/blog/kafka-connect-deep-dive-converters-serialization-explained/#common-errors) doc.
 
 ## Project setup
 
-Please refer [Developer walkthrough and project setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Developer_Walkthrough.md) for initial setup instructions.
+Refer to the [Developer walkthrough and project setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Developer_Walkthrough.md) for initial setup instructions.
 
 ## Performance testing
 
-For more information on the performance tests run for the sink and source connectors, refer to the [Performance testing document](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Performance_Testing.md).
+For more information on the performance tests run for the sink and source connectors, see the [Performance testing document](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Performance_Testing.md).
 
 Refer to the [Performance environment setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/src/perf/README.md) for exact steps on deploying the performance test environment for the connectors.
 

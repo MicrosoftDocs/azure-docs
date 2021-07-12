@@ -751,7 +751,7 @@
               href: kafka-connector.md
             - name: Kafka Connect - Source
               href: kafka-connector-source.md
-            - name: Kafka Connect - sink
+            - name: Kafka Connect - Sink
               href: kafka-connector-sink.md
         - name: Troubleshooting
           items:

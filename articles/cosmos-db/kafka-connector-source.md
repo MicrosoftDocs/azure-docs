@@ -16,9 +16,9 @@ Kafka Connect for Azure Cosmos DB is a connector to read from and write data to 
 
 ## Prerequisites
 
-* It is recommended to start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because this gives you a complete environment to work with. If you do not wish to use Confluent Platform, then you need to install and configure Zookeper, Apache Kafka, Kafka Connect, yourself. You will also need to install and configure the Azure Cosmos DB connectors manually.
+* Start with the [Confluent platform setup](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/Confluent_Platform_Setup.md) because it gives you a complete environment to work with. If you do not wish to use Confluent Platform, then you need to install and configure Zookeeper, Apache Kafka, Kafka Connect, yourself. You will also need to install and configure the Azure Cosmos DB connectors manually.
 * Create an Azure Cosmos DB account, container [setup guide](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/CosmosDB_Setup.md)
-* Bash shell, which is tested on GitHub Codespaces, Mac, Ubuntu, Windows with WSL2. This doesn’t work in Cloud Shell or WSL1.
+* Bash shell, which is tested on GitHub Codespaces, Mac, Ubuntu, Windows with WSL2. This shell doesn’t work in Cloud Shell or WSL1.
 * Download [Java 11+](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 * Download [Maven](https://maven.apache.org/download.cgi)
 
@@ -48,7 +48,7 @@ Create a Kafka topic using Confluent Control Center. For this scenario, we will 
 
 ### Create the source connector in Kafka Connect
 
-To create the Azure Cosmos DB source connector in Kafka Connect, use the following JSON config. Make sure to replace the placeholder values for `connect.cosmos.connection.endpoint`, `connect.cosmos.master.key` properties which you should have saved from the Azure Cosmos DB setup guide in the prerequisites.
+To create the Azure Cosmos DB source connector in Kafka Connect, use the following JSON config. Make sure to replace the placeholder values for `connect.cosmos.connection.endpoint`, `connect.cosmos.master.key` properties that you should have saved from the Azure Cosmos DB setup guide in the prerequisites.
 
 ```json
 {
@@ -70,7 +70,7 @@ To create the Azure Cosmos DB source connector in Kafka Connect, use the followi
 }
 ```
 
-See the [source properties](#source-configuration-properties) section for more information on each of the above configuration properties. Once you have all the values filled out, save the JSON file somewhere locally. You can use this file to create the connector using the REST API.
+For more information on each of the above configuration properties, see the [source properties](#source-configuration-properties) section. Once you have all the values filled out, save the JSON file somewhere locally. You can use this file to create the connector using the REST API.
 
 #### Create connector using Control Center
 
@@ -91,41 +91,41 @@ curl -H "Content-Type: application/json" -X POST -d @<path-to-JSON-config-file> 
 
 ## Insert document into Azure Cosmos DB
 
-* Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
-* Open the **Data Explore** tab and select **Databases**
-* Open the "kafkaconnect" database and "kafka" container you created earlier.
-* To create a new JSON document, in the SQL API pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.
-* Now, add a document to the container with the following structure. Paste the following sample JSON block into the Items tab, overwriting the current content:
+1. Sign into the [Azure portal](https://portal.azure.com/learn.docs.microsoft.com) and navigate to your Azure Cosmos DB account.
+1. Open the **Data Explore** tab and select **Databases**
+1. Open the "kafkaconnect" database and "kafka" container you created earlier.
+1. To create a new JSON document, in the SQL API pane, expand "kafka" container, select **Items**, then select **New Item** in the toolbar.
+1. Now, add a document to the container with the following structure. Paste the following sample JSON block into the Items tab, overwriting the current content:
 
-  ``` json
+   ``` json
+ 
+   {
+     "id": "2",
+     "productId": "33218897",
+     "category": "Women's Outerwear",
+     "manufacturer": "Contoso",
+     "description": "Black wool pea-coat",
+     "price": "49.99",
+     "shipping": {
+       "weight": 2,
+       "dimensions": {
+         "width": 8,
+         "height": 11,
+         "depth": 3
+       }
+     }
+   }
+ 
+   ```
 
-  {
-    "id": "2",
-    "productId": "33218897",
-    "category": "Women's Outerwear",
-    "manufacturer": "Contoso",
-    "description": "Black wool pea-coat",
-    "price": "49.99",
-    "shipping": {
-      "weight": 2,
-      "dimensions": {
-        "width": 8,
-        "height": 11,
-        "depth": 3
-      }
-    }
-  }
-
-  ```
-
-* Select **Save**.
-* Confirm the document has been saved by viewing the Items on the left-hand menu.
+1. Select **Save**.
+1. Confirm the document has been saved by viewing the Items on the left-hand menu.
 
 ### Confirm data written to Kafka topic
 
-* Open Kafka Topic UI on `<http://localhost:9000>`.
-* Select the Kafka "apparels" topic you created.
-* Verify that the document you inserted into Azure Cosmos DB earlier appears in the Kafka topic.
+1. Open Kafka Topic UI on `<http://localhost:9000>`.
+1. Select the Kafka "apparels" topic you created.
+1. Verify that the document you inserted into Azure Cosmos DB earlier appears in the Kafka topic.
 
 ### Cleanup
 
@@ -152,7 +152,7 @@ The following settings are used to configure the Kafka source connector. These c
 | connect.cosmos.databasename | String | Name of the database to read from. | Required |
 | connect.cosmos.master.key | String | The Azure Cosmos DB primary key. | Required |
 | connect.cosmos.connection.endpoint | URI | The account endpoint. | Required |
-| connect.cosmos.containers.topicmap | String | Comma separated topic to container mapping. For example,  topic1#coll1,topic2#coll2 | Required |
+| connect.cosmos.containers.topicmap | String | Comma-separated topic to container mapping. For example,  topic1#coll1, topic2#coll2 | Required |
 | connect.cosmos.messagekey.enabled | Boolean | This value represents if the Kafka message key should be set. Default value is `true` | Required |
 | connect.cosmos.messagekey.field | String | Use the field's value from the document as the message key. Default is `id`. | Required |
 | connect.cosmos.offset.useLatest | Boolean |  Set to `true` to use the most recent source offset. Set to `false` to use the earliest recorded offset. Default value is `false`. | Required |
