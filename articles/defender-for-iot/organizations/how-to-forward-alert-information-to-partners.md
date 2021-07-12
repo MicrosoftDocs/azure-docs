@@ -1,7 +1,7 @@
 ---
 title: Forward alert information
 description: You can send alert information to partner systems by working with forwarding rules.
-ms.date: 07/11/2021
+ms.date: 07/12/2021
 ms.topic: how-to
 ---
 
@@ -13,7 +13,7 @@ Syslog and other default forwarding actions are delivered with your system. More
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
-Defender for IoT administrators has permission to use forwarding rules.
+Defender for IoT administrators have permission to use forwarding rules.
 
 ## About forwarded alert information
 
@@ -186,9 +186,9 @@ Send alert information to a webhook server. Working with webhook servers lets yo
 
    :::image type="content" source="media/how-to-work-with-alerts-sensor/webhook.png" alt-text="Define a webhook forwarding rule.":::
 
-1. Enter the server address in the **URL**field.
+1. Enter the server address in the **URL** field.
 
-1. In the **Key** and **Value fields, customize the HTTP header with a key and value definition. Keys can only contain letters, numbers, dashes, and underscores. Values can only contain one leading and/or one trailing space.
+1. In the **Key** and **Value fields**, customize the HTTP header with a key and value definition. Keys can only contain letters, numbers, dashes, and underscores. Values can only contain one leading and/or one trailing space.
 
 1. Select **Save**.
 
