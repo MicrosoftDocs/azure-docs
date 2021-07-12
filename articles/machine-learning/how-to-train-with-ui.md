@@ -138,7 +138,8 @@ There are two ways to do input binding:
 * Path: You can use `--data .path` to specify a cloud location. The path is what you enter in the **Path on compute** field.
 [![Refer input path in the command](media/how-to-train-with-ui/input-command-path.png)](media/how-to-train-with-ui/input-command-path.png)
 
-> [!NOTE] In the **command to start the job**, you must add a period to the **Path on compute** value. For instance, `/data/wikitext-2` becomes `./data/wikitext-2` 
+>[!NOTE] 
+>In the **command to start the job**, you must add a period to the **Path on compute** value. For instance, `/data/wikitext-2` becomes `./data/wikitext-2`.
 
 ## Review and Create 
 
