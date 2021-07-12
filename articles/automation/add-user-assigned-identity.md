@@ -75,7 +75,7 @@ Perform the following steps:
 
 1. Select your existing user-assigned managed identity and then select **Add**. You'll then be returned to the **User assigned** tab.
 
-   :::image type="content" source="media/add-user-assigned-identity/user-assigned-managed-identity.png" alt-text="Alt text here.":::
+   :::image type="content" source="media/add-user-assigned-identity/user-assigned-managed-identity.png" alt-text="Output from Portal.":::
 
 ### Add using PowerShell
 
@@ -106,7 +106,7 @@ $output
 
 The output should look similar to the following:
 
-:::image type="content" source="media/add-user-assigned-identity/set-azautomationaccount-output.png" alt-text="Alt text here.":::
+:::image type="content" source="media/add-user-assigned-identity/set-azautomationaccount-output.png" alt-text="Output from Set-AzAutomationAccount command.":::
 
 For additional output, execute: `$output.identity | ConvertTo-Json`.
 
