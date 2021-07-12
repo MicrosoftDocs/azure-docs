@@ -286,7 +286,6 @@ For token caching in OBOs, you need to use a distributed token cache. For detail
 ```CSharp
 ```
 
-For an example of a `CreateTokenCache` implementation, see the [code samples](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/ConfidentialClientTokenCache/Program.cs).
 
 [Learn more about web APIs calling downstream web APIs](scenario-web-api-call-api-overview.md) and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
