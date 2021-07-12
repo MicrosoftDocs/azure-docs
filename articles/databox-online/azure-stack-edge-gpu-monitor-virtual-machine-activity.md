@@ -24,17 +24,17 @@ To view activity logs for the virtual machines on your Azure Stack Edge Pro GPU 
 
 1. Go to the device and then to **Virtual Machines**. Select **Activity log**.
 
-    ![Screenshot showing the Activity logs view for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-01.png)
+    ![Screenshot showing the Activity logs view for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-01.png)
 
     You'll see the VM guest logs for virtual machines on the device. *Verify this.*
 
 1. Use filters above the list to target the activity you need to see.
 
-    ![Screenshot showing the Timespan filter for Activity for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-02.png)
+    ![Screenshot showing the Timespan filter for Activity for virtual machines on an Azure Stack Edge device in the Azure portal](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-02.png)
 
 1. Click the down arrow by an operation name to view the associated activity.
 
-    ![Screenshot showing Activity logs view for virtual machines on an Azure Stack Edge device](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/activity-log-03.png)
+    ![Screenshot showing Activity logs view for virtual machines on an Azure Stack Edge device](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)
 
 On any **Activity log** pane in Azure, you can filter and sort activities, select columns to display, drill down to details for a specific activity, and get **Quick Insights** into errors, failed deployments, alerts, service health, and security changes over the last 24 hours. For more information about the logs and the filtering options, see [View activity logs](/azure/azure-resource-manager/management/view-activity-logs).
 

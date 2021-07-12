@@ -34,15 +34,15 @@ ANY COST ASSOCIATED?
 
 1. Open the device in the Azure portal, and go to **Virtual Machines**. Select the virtual machine, and select **Metrics**.
 
-    ![Metrics tab on the dashboard for a virtual machine](media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/metrics-01.png)
+    ![Metrics tab on the dashboard for a virtual machine](media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-01.png)
 
 2. By default, the graphs show average CPU and memory usage for the previous hour. To see data for a different time period, select a different option by **Show data for last**.
 
-    ![Metrics tab showing average CPU and memory usage for the last 12 hours](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/metrics-02.png)
+    ![Metrics tab showing average CPU and memory usage for the last 12 hours](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-02.png)
 
 3. Point anywhere in either chart to display a vertical line with a hand that you can move left or right to view an earlier or later data sample.
 
-    ![Screenshot showing how to hover over the 0 percent data line to view an earlier or later data sample.](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics-activity/metrics-03.png)
+    ![Screenshot showing how to hover over the 0 percent data line to view an earlier or later data sample.](./media/azure-stack-edge-gpu-monitor-virtual-machine-metrics/metrics-03.png)
 
 ## Next steps
 
