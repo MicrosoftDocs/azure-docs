@@ -883,7 +883,7 @@
           {
             "source_path_from_root": "/articles/virtual-machines/linux/install-mongodb-nodejs.md",
             "redirect_url": "/azure/virtual-machines/linux/install-mongodb",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
