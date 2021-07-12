@@ -27,22 +27,19 @@ Select **+ Add FHIR Service**.
 
 [ ![Deploy FHIR service](media/fhir-service/add-fhir-service.png) ](media/fhir-service/add-fhir-service.png#lightbox)
 
-:::image type="content" source="media/fhir-service/add-fhir-service.png" alt-text="Add FHIR service" lightbox="media/fhir-service/add-fhir-service.png":::
-
 Enter an **Account name** for your FHIR service. Select the **FHIR version** (**STU3** or **R4**), and then select **Review + create**.
 
-:::image type="content" source="media/fhir-service/create-fhir-service.png" alt-text="Create FHIR Service" lightbox="media/fhir-service/create-fhir-service.png":::
+[ ![Deploy FHIR service](media/fhir-service/create-fhir-service.png) ](media/fhir-service/create-fhir-service.png#lightbox)
 
 Before you select **Create**, review the properties of the **Basics** and **Additional settings** of your FHIR service. If you need to go back and make changes, select **Previous**. Confirm that the **Validation success** message is displayed. 
 
-:::image type="content" source="media/fhir-service/validation-fhir-service.png" alt-text="Validation success message" lightbox="media/fhir-service/validation-fhir-service.png":::
+[ ![Deploy FHIR service](media/fhir-service/validation-fhir-service.png) ](media/fhir-service/validation-fhir-service.png#lightbox)
 
 ## Additional settings (optional)
 
 You can also select the **Additional settings** tab to view the authentication settings. The default configuration for the Azure API for FHIR is to **use Azure RBAC for assigning data plane roles**. When it's configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription.
 
-
-:::image type="content" source="media/fhir-service/additional-settings-tab.png" alt-text="Additional settings tab" lightbox="media/fhir-service/additional-settings-tab.png":::
+[ ![Deploy FHIR service](media/fhir-service/additional-settings-tab.png) ](media/fhir-service/additional-settings-tab.png#lightbox)
 
 Notice that the box for entering **Allowed object IDs** is grayed out. This is because we use Azure RBAC for configuring role assignments in this case.
 
