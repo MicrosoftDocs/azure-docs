@@ -58,7 +58,7 @@ There are separate instructions for each policy below.
 
 ### Network Watcher flow logs should have traffic analytics enabled
 
-The policy audits all existing Azure resource manager objects of type "Microsoft.Network/networkWatchers/flowLogs" and checks if Traffic Analytics is enabled via the "networkWatcherFlowAnalyticsConfiguration.enabled" property of the flow logs resource. It flags the flow logs resource which have the property set to false.
+The policy audits all existing Azure Resource Manager objects of type "Microsoft.Network/networkWatchers/flowLogs" and checks if Traffic Analytics is enabled via the "networkWatcherFlowAnalyticsConfiguration.enabled" property of the flow logs resource. It flags the flow logs resource which have the property set to false.
 
 If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "traffic analytics" to find the policy
 
