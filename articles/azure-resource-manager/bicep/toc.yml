@@ -88,8 +88,8 @@
       items:
       - name: Overview
         href: patterns-overview.md
-      - name: Configuration map
-        href: patterns-configuration-map.md
+      - name: Configuration set
+        href: patterns-configuration-set.md
       - name: Logical to physical
         href: patterns-logical-physical.md
     - name: Scenarios
