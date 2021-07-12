@@ -16,6 +16,10 @@ ms.date: 07/11/2021
 
 Azure Sentinel watchlists enable the collection of data from external data sources for correlation with the events in your Azure Sentinel environment. Once created, you can use watchlists in your search, detection rules, threat hunting, and response playbooks. Watchlists are stored in your Azure Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
 
+> [!IMPORTANT]
+> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 Common scenarios for using watchlists include:
 
 - **Investigating threats** and responding to incidents quickly with the rapid import of IP addresses, file hashes, and other data from CSV files. Once imported, you can use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and general queries.
@@ -28,9 +32,9 @@ Common scenarios for using watchlists include:
 
 > [!NOTE]
 > - The use of watchlists should be limited to reference data, as they are not designed for large data volumes.
-> 
+>
 > - The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items do not count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
-> 
+>
 > - Watchlists can only be referenced from within the same workspace. Cross-workspace and/or Lighthouse scenarios are currently not supported.
 
 ## Create a new watchlist
@@ -51,7 +55,7 @@ Common scenarios for using watchlists include:
 
 1. In the **SearchKey** field, enter the name of a column in your watchlist that you expect to use as a join with other data or a frequent object of searches. For example, if your server watchlist contains country names and their respective two-letter country codes, and you expect to use the country codes often for search or joins, use the **Code** column as the SearchKey.
 
-1. Select **Next: Review and Create**.
+1. <a name="review-and-create"></a>Select **Next: Review and Create**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="watchlist source page" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
@@ -67,6 +71,26 @@ Common scenarios for using watchlists include:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="watchlist successful creation notification" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
 
+
+## Create a new watchlist using a template (Public preview)
+
+1. From the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Watchlist** > **Templates (Preview)**.
+
+1. Select a template from the list to view details on the right, and then select **Create from template** to create your watchlist.
+
+    :::image type="content" source="./media/watchlists/create-watchlist-from-template.png" alt-text="Create a watchlist from a built-in template.":::
+
+1. Continue in the **Watchlist wizard**. 
+
+    - The watchlist's **Name**, **Description**, and **Watchlist Alias** values are all read-only so that Azure Sentinel can leverage the data populated in the watchlists, customized for your organization's needs.
+
+    - Select **Download Schema** to download a CSV file that contains the relevant schema expected for the selected watchlist template.
+
+1.  Populate the local version of the CSV file, and then upload it back into the wizard.
+
+1. Continue as you would when [creating a new watchlist from scratch](#review-and-create), and then use your watchlist with [queries](#use-watchlists-in-queries) and [analytics rules](#use-watchlists-in-analytics-rules).
+
+Each built-in watchlist template has it's own set of data listed in the attached CSV file. For more information, see [Built-in watchlist schemas](watchlist-schemas.md)
 ## Use watchlists in queries
 
 > [!TIP]
