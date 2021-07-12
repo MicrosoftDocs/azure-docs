@@ -17,6 +17,7 @@ This section covers some of the frequently asked questions about Healthcare APIs
 ## FHIR service: The Basics
 
 ### What is FHIR?
+
 The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The FHIR service supports R4 and also supports the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
 
 ### Is the data behind the FHIR APIs stored in Azure?
@@ -33,10 +34,10 @@ We support versions 4.0.0 and 3.0.1.
 
 For details, see [Supported features](fhir-features-supported.md). Read about what has changed between FHIR versions (i.e. STU3 to R4) in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
 
-Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4, and is visible only on R4 instances of the FHIR service.
-
 ### What is the difference between the Azure API for FHIR and the FHIR service in the Healthcare APIs?
+
 The FHIR service is our implementation of the FHIR specification that sits in the Azure Healthcare APIs, which allows you to have a FHIR service and a DICOM service within a single workspace. The Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
+
 * The FHIR service has a limit of 4TB and is in public preview while the Azure API for FHIR supports more than 4TB and is GA.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
 * Chained searching and reverse chained searching does not have a limit on number of resources returned
@@ -102,6 +103,7 @@ We support sorting by strings and dates for single fields at a time. For more in
 $export is part of the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](../data-transformation/export-data.md).
 
 ### Is de-identified export available at Patient and Group level as well?
+
 Anonymized export is currently supported only on a full system export (/$export), and not for Patient export (/Patient/$export). We are working on making it available at the Patient level as well.
 
 ## Using the FHIR service
@@ -123,13 +125,3 @@ We have a [Health Architecture GitHub page](https://aka.ms/health-architectures)
 ### Is there a way to encrypt my data using my personal key not a default key?
 
 Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](../azure-api-for-fhir/customer-managed-key.md).
-
-## Azure API for FHIR: Preview Features
-
-### Can I configure scaling capacity for Azure IoT Connector for FHIR (preview)?
-
-Since Azure IoT Connector for FHIR is free of charge during public preview, its scaling capacity is fixed and limited. Azure IoT Connector for FHIR configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
-
-### Why can't I install Azure IoT Connector for FHIR (preview) when Private Link is enabled on Azure API for FHIR?
-
-Azure IoT Connector for FHIR doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install Azure IoT Connector for FHIR and vice-versa. This limitation is expected to go away when Azure IoT Connector for FHIR is available for General Availability (GA).
