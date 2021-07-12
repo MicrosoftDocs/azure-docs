@@ -206,7 +206,7 @@ Each exported message contains a normalized form of the full message the device 
 - `enqueuedTime`: The time at which this message was received by IoT Central.
 - `enrichments`: Any enrichments set up on the export.
 - `module`: The IoT Edge module that sent this message. This field only appears if the message came from an IoT Edge module.
-- `component`: The component that sent this message. This field only appears if the capabilities sent in the message were modeled as a [component in the device template](howto-set-up-template.md#create-a-component).
+- `component`: The component that sent this message. This field only appears if the capabilities sent in the message were modeled as a component in the device template
 - `messageProperties`: Additional properties that the device sent with the message. These properties are sometimes referred to as *application properties*. [Learn more from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 For Event Hubs and Service Bus, IoT Central exports a new message quickly after it receives the message from a device. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, and `iotcentral-message-source` are included automatically.

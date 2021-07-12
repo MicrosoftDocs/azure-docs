@@ -91,7 +91,7 @@ To view an interface in your IoT Central Application
 
     :::image type="content" source="media/howto-set-up-template/edit-interface.png" alt-text="How to view or edit"::: 
 
-To learn more about models see [modeling guide](../../iot-pnp/concepts-modeling-guide.md).
+To learn more about models see [modeling guide](../../iot-pnp/concepts-modeling-guide).
 
 
 ## Cloud properties
@@ -109,10 +109,11 @@ The following table shows the configuration settings for a cloud property:
 | Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The cloud property data type, such as double, string, or vector. The available choices are determined by the semantic type. |
 
-
 ## Customizations
 
 Use customizations when you need to modify an imported component or add IoT Central-specific features to a capability. You can customize any part of an existing device template's capabilities.
+
+For example you can customize **SensorPressure** component to add 
 
 ## Views
 
@@ -129,13 +130,13 @@ Add views to a device template to enable operators to visualize a device by usin
 To add a view to a device template:
 
 1. Go to your device template, and select **Views**.
-1. Choose **Visualizing the Device**.
+1. Select **Visualizing the Device**.
 1. Enter a name for your view in **View name**.
-1. Add tiles to your view from the list of static, property, cloud property, telemetry, and command tiles. Drag and drop the tiles you want to add to your view.
-1. To plot multiple telemetry values on a single chart tile, select the telemetry values, and then select **Combine**.
-1. Configure each tile you add to customize how it displays data. Access this option by selecting the gear icon, or by selecting **Change configuration** on your chart tile.
-1. Arrange and resize the tiles on your view.
-1. Save the changes.
+1. Select **Start with a visual**  under add tiles and choose the type of visual you want to show on your tile, and then click Add tile (or just drag and drop it on the canvas). Click the gear icon on your new tile to configure the tile.
+
+:::image type="content" source="media/howto-set-up-template/start-visual.png" alt-text="How to start with a visual"::: 
+
+:::image type="content" source="media/howto-set-up-template/tile.png" alt-text="configure tile"::: 
 
 To view and test your view, select **Configure preview device**. This feature lets you see the view as your operator sees it after it's published. Use this feature to validate that your views show the correct data. You can choose from the following options:
 
@@ -145,16 +146,15 @@ To view and test your view, select **Configure preview device**. This feature le
 
 Add forms to a device template to enable operators to manage a device by viewing and setting properties. Operators can only edit cloud properties and writable device properties. You can have multiple forms for a device template.
 
-To add a form to a device template:
+1. Select the **Views** node, and then select the **Editing device and cloud data** tile to add a new view.
 
-1. Go to your device template, and select **Views**.
-1. Choose **Editing Device and Cloud data**.
-1. Enter a name for your form in **Form Name**.
-1. Select the number of columns to use to lay out your form.
-1. Add properties to an existing section on your form, or select properties and choose **Add Section**. Use sections to group properties on your form. You can add a title to a section.
-1. Configure each property on the form to customize its behavior.
-1. Arrange the properties on your form.
-1. Save the changes.
+1. Change the form name to **Manage device**.
+
+1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Target Temperature** property. Then select **Add section**.
+
+1. Select **Save** to save your new form.
+
+:::image type="content" source="media/howto-set-up-template/form.png" alt-text="configure form"::: 
 
 
 ## Publish a device template
