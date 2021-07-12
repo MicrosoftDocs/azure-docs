@@ -37,7 +37,7 @@ The transact publishing option is currently supported for the following offer ty
 
 | Offer type | Billing cadence | Metered billing | Pricing model |
 | ------------ | ------------- | ------------- | ------------- |
-| Azure Application<br>(Managed application) | Monthly | Yes | Usage-based |
+| Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
 | Azure Virtual Machine | Monthly * | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
 |||||
