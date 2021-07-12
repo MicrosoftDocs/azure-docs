@@ -25,7 +25,7 @@ SRM helps you plan, test, and run the recovery of VMs between a protected vCente
 
 The diagram shows the deployment of the primary Azure VMware Solution to secondary Azure VMware Solution scenario.
 
-:::image type="content" source="media/vmware-srm-vsphere-replication/vmware-site-recovery-manager-diagram.png" alt-text="Diagram showing the VMware Site Recovery Manager (SRM) disaster recovery solution in Azure VMware Solution.":::
+:::image type="content" source="media/vmware-srm-vsphere-replication/vmware-site-recovery-manager-diagram.png" alt-text="Diagram showing the VMware Site Recovery Manager (SRM) disaster recovery solution in Azure VMware Solution." border="false":::
 
 You can use SRM to implement different types of recovery, such as:
 
