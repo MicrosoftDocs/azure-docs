@@ -6,6 +6,7 @@ ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/18/2021
+zone_pivot_groups: azure-migrate-ins
 ms.custom: [ "MVC", "fasttrack-edit"]
 ---
 
@@ -39,7 +40,7 @@ Before you begin this tutorial, you should:
 1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Hyper-V host requirements for migration, and the Azure URLs to which Hyper-V hosts and clusters need access for VM migration.
 1. [Review](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) the requirements for Hyper-V VMs that you want to migrate to Azure.
 1. We recommend that you  [assess Hyper-V VMs](tutorial-assess-hyper-v.md) before migrating them to Azure, but you don't have to.
-1. Go to the already created project or [create a new project](./create-manage-projects.md)
+1. Go to the already created project or [create a new project.](./create-manage-projects.md)
 1. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
 
 ## Download the provider
@@ -73,31 +74,30 @@ Copy the provider setup file and registration key file to each Hyper-V host (or 
 Run the provider setup file on each host, as described below:
 
 1. Click the file icon in the taskbar to open the folder where the installer file and registration key are downloaded.
-1. Select **AzureSiteRecoveryProvider**.
-1. In the provider installation wizard, ensure **On (recommended)** is checked, and then click **Next**.
-1. Select **Install** to accept the default installation folder.
+1. Select **AzureSiteRecoveryProvider.exe**.
+    - In the provider installation wizard, ensure **On (recommended)** is checked, and then click **Next**.
+    - Select **Install** to accept the default installation folder.
     - Select **Register** to register this server in Azure Site Recovery vault.
     - Click **Browse**.
     - Locate the registration key and click **Open**.
     - Click **Next**.
     - Ensure **Connect directly to Azure Site Recovery without a proxy server** is selected, and then click **Next**.
-        - If you need to connect to the internet via a proxy server, select  **Connect to Azure Site Recovery using a proxy server** to provide the proxy details. Specify the proxy address (in the form http://ProxyIPAddress) and listening port. Provide proxy credentials if the proxy needs authentication.
     - Click **Finish**.
 
 ### [Install using commands](#tab/commands) 
 
 Run the following commands on each host, as described below:
 
-1. Extract the contents of installer file (AzureSiteRecoveryProvider.exe) to a local folder (for example C:\Temp) on the machine, as follows:
+1. Extract the contents of installer file (AzureSiteRecoveryProvider.exe) to a local folder (for example .\Temp) on the machine, as follows:
 
     ```
-     AzureSiteRecoveryProvider.exe /q /x:C:\Temp\Extracted
+     AzureSiteRecoveryProvider.exe /q /x:.\Temp\Extracted
     ```
 
 1. Go to the folder with the extracted files.
 
     ```
-    cd C:\Temp\Extracted
+    cd .\Temp\Extracted
     ```
 1. Install the Hyper-V replication provider. The results are logged to %Programdata%\ASRLogs\DRASetupWizard.log.
 
@@ -108,26 +108,31 @@ Run the following commands on each host, as described below:
 1. Register the Hyper-V host to Azure Migrate.
 
     ```
-    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> 
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure> 
     ```
 
-    **Configure proxy rules during the registration process:** If you need to connect to the internet via a proxy, use the /proxyaddress and /proxyport parameters to specify the proxy address (in the form http://ProxyIPAddress) and proxy listening port. 
+    **Configure proxy rules after the registration process:** After the registration process is complete, if you need to connect to the internet via a proxy, use the /proxyaddress and /proxyport parameters to specify the proxy address (in the form http://ProxyIPAddress) and proxy listening port.
 
-    `"C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888`
+    ``` 
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure /proxyaddress http://127.0.0.1 /proxyport 8888
+    ```
+    
+    For authenticated proxy, you can use the optional parameters /proxyusername and /proxypassword.
+     
+    ```
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure /proxyaddress http://127.0.0.1 /proxyport 8888 /proxyusername <username> /proxypassword <password>
+    ```
 
-    For authenticated proxy, you can use the optional parameters /proxyusername and /proxypassword 
+    **Configure proxy bypass rules during the registration process:** You can add a list of URLs or IP addresses that should bypass the proxy server.Use the /AddBypassUrls parameter to configure proxy bypass rules.
 
-      `C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /proxyusername <username> /proxypassword <password>`
+    ```
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /AddBypassUrls windowsazure.com
+    ```
 
-    **Configure proxy bypass rules during the registration process:** If you need to bypass proxy URLs to force the URLs to not traverse the internet, use the /AddBypassUrls parameter to configure proxy bypass rules.
-
-    `C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /AddBypassUrls windowsazure.com`
-
-    > [!Tip]
-    > You can use proxy bypass to ensure that the required traffic doesn’t flow via internet. This is recommended to allow the private link URLs through ExpressRoute private peering circuits.
+    
 :::zone-end
 
-After installing the provider on hosts, in **Discover machines**, click **Finalize registration**.
+After installing the provider on hosts, go to the Azure portal and in **Discover machines**, click **Finalize registration**.
 
  ![Finalize registration](./media/tutorial-migrate-hyper-v/finalize-registration.png) 
 
