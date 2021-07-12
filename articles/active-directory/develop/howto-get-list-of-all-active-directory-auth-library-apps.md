@@ -25,14 +25,13 @@ Support for Active Directory Authentication Library (ADAL) will end on June 30, 
 
 Workbooks are a set of queries that collect and visualize information that is available in Azure AD logs. [Learn more about the sign-in logs schema here](../reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md). The Sign-ins workbook in the Azure AD admin portal now has a new table to assist you in determining which applications use ADAL and how often they are used. First, we’ll detail how to access the workbook before showing the visualization for the list of applications.
 
-## Prerequisites
+## 1. Azure Monitor integration
 
--  [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+Follow the steps in [Integrate your Azure AD sign-in and audit logs with Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) before accessing workbook. Only sign-in and audit events created after Azure Monitor integration will be stored. Insights before the date of the Azure Monitor integration won't be available. 
 
+## 2. Access the sign-ins workbook
 
-## 1. Access the sign-ins workbook
-
-Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the prerequisites. Only sign-in and audit events created after Azure Monitor integration will be stored. Insights before the date of the Azure Monitor integration won't be available. To access sign-ins workbook, follow the steps below:
+Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the [Azure Monitor integration](howto-get-list-of-all-active-directory-auth-library-apps.md#azure-monitor-integration), access the sign-ins workbook:
 
    1. Sign into the Azure portal 
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks** 
@@ -40,7 +39,7 @@ Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor a
 
    :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/sign-in-workbook.png" alt-text="Screenshot of the Azure Active Directory portal workbooks interface highlighting the sign-ins workbook.":::
 
-## 2. Identify apps using ADAL for authentication
+## 3. Identify apps using ADAL for authentication
 
 The Sign-ins workbook has a new table at the bottom of the page that can show you which recently used apps are using ADAL as shown below. You can also export a list of the apps. Update these apps to use MSAL.
     
@@ -50,7 +49,7 @@ If there are no apps using ADAL, the workbook will display a view as shown below
     
 :::image type="content" source="media/howto-get-list-of-all-active-directory-auth-library-apps/no-active-directory-auth-library-apps.png" alt-text="Screenshot of sign-ins workbook when no app is using Active Directory Authentication Library.":::
 
-## 3. Update your code
+## 4. Update your code
 
 After identifying your apps that use ADAL, you can migrate them to MSAL depending on your application type as illustrated below.
 
