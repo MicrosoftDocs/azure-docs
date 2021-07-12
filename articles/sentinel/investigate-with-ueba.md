@@ -13,13 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2021
+ms.date: 07/12/2021
 ms.author: bagol
 
 ---
 # Investigate incidents with UEBA data
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
+
+> [!IMPORTANT]
+> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Prerequisites
 
@@ -79,6 +83,16 @@ The user entity page is also linked from the [incident page](tutorial-investigat
 > In the **Hunting** area, run the **Anomalous Geo Location Logon** query. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
 >
 
+### Embed IdentityInfo data in your analytics rules (Public Preview)
+
+As attackers often use the organization's own user and service accounts, data about those user accounts, including the user identification and privileges, are crucial for the analysts in the process of an investigation.
+
+Embed data from the **IdentityInfo table** to fine-tune your analytics rules to fit your use cases, reducing false positives, and possibly speeding up your investigation process.
+
+The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user.
+
+For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table) in the UEBA enrichments reference.
+
 ## Identify password spray and spear phishing attempts
 
 Without multi-factor authentication (MFA) enabled, user credentials are vulnerable to attackers looking to compromise attacks with [password spraying](https://www.microsoft.com/security/blog/2020/04/23/protecting-organization-password-spray-attacks/) or [spear phishing](https://www.microsoft.com/security/blog/2019/12/02/spear-phishing-campaigns-sharper-than-you-think/) attempts.
@@ -100,6 +114,9 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 > [!TIP]
 > You can also run the **Anomalous Failed Logon** [hunting query](hunting.md) to monitor all of an organization's anomalous failed logins. Use the results from the query to start investigations into possible password spray attacks.
 >
+
+## Investigate with Azure AD data
+
 
 ## Next steps
 
