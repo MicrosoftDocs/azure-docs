@@ -97,7 +97,7 @@ The information in the rest of this document provides information on what featur
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
 | [Data Box Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
-| [Open Datasets](/azure/open-datasets/samples)                                                              | Public Preview       | YES                | YES         |
+| [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
 | [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
 | [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models)                                                                | Public Preview       | NO                 | NO          |
 

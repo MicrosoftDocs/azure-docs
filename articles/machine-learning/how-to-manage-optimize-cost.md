@@ -99,7 +99,7 @@ One of the key methods of optimizing cost and performance is by parallelizing th
 
 ## Set data retention & deletion policies
 
-Every time a pipeline is executed, intermediate datasets are generated at each step. Over time, these intermediate datasets take up space in your storage account. Consider setting up policies to manage your data throughout its lifecycle to archive and delete your datasets. For more information, see [optimize costs by automating Azure Blob Storage access tiers](/azure/storage/blobs/storage-lifecycle-management-concepts).
+Every time a pipeline is executed, intermediate datasets are generated at each step. Over time, these intermediate datasets take up space in your storage account. Consider setting up policies to manage your data throughout its lifecycle to archive and delete your datasets. For more information, see [optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage-lifecycle-management-concepts.md).
 
 ## Deploy resources to the same region
 
