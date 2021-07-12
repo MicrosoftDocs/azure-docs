@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Enterprise applications documentation
+title: Application management documentation
 summary: Azure Active Directory is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
 
 metadata: 
-   title: Enterprise applications documentation
+   title: Application management documentation
    description: Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored.
    ms.service: active-directory
    ms.subservice: app-mgmt
