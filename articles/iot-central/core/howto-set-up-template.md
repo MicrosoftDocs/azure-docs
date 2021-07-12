@@ -66,7 +66,7 @@ To create a device model, you can:
 - Import a DTDL model from a JSON file. A device builder might have used Visual Studio Code to author a device model for your application.
 - Select one of the devices from the Device Catalog. This option imports the device model that the manufacturer has published for this device. A device model imported like this is automatically published.
 
-To learn more about models see [here.](../../iot-pnp/concepts-modeling-guide#reuse)
+To learn more about models see [here.](../../iot-pnp/concepts-modeling-guide.md.#reuse)
 
 To view an interface in your IoT Central Application
 
@@ -91,7 +91,7 @@ To view an interface in your IoT Central Application
 
     :::image type="content" source="media/howto-set-up-template/edit-interface.png" alt-text="How to view or edit"::: 
 
-To learn more about models see [modeling guide](../../iot-pnp/concepts-modeling-guide).
+To learn more about models see [modeling guide](../../iot-pnp/concepts-modeling-guide.md).
 
 
 ## Cloud properties
