@@ -48,7 +48,7 @@ You can use SRM to implement different types of recovery, such as:
 
 ## Deployment workflow
 
-The deployment workflow shows the steps to take within the Azure portal and the VMware environments of Azure VMware Solution to achieve the end-to-end protection of VMs. 
+The workflow diagrams shows the steps to take within the Azure portal and the VMware environments of Azure VMware Solution to achieve the end-to-end protection of VMs. 
 
 :::image type="content" source="media/vmware-srm-vsphere-replication/site-recovery-manager-workflow.png" alt-text="Diagram showing the deployment workflow for VMware Site Recovery Manager on Azure VMware Solution." border="false":::
 
