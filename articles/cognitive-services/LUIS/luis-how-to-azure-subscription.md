@@ -67,7 +67,7 @@ To create LUIS resources, you can use the LUIS portal, [Azure portal](https://ms
 
 # [Without LUIS portal](#tab/without-portal)
 
-### Create LUIS resources in the Azure CLI
+### Create LUIS resources without using the LUIS portal
 
 Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource individually.
 
@@ -128,7 +128,7 @@ The following procedure assigns a resource to a specific app.
 
 # [Without LUIS portal](#tab/without-portal)
 
-## Assign prediction resource programmatically 
+## Assign prediction resource without using the LUIS portal
 
 For automated processes like CI/CD pipelines, you can automate the assignment of a LUIS resource to a LUIS app with the following steps:
 
@@ -179,7 +179,7 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
 
 # [Without LUIS portal](#tab/without-portal)
 
-## Unassign prediction resource programmatically
+## Unassign prediction resource without using the LUIS portal
 
 1. Get an [Azure Resource Manager token](https://resources.azure.com/api/token?plaintext=true) which is an alphanumeric string of characters. This token does expire, so use it right away. You can also use the following Azure CLI command.
 
