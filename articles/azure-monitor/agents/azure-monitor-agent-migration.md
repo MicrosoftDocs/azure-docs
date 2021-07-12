@@ -33,7 +33,7 @@ This article provides high-level guidance on when and how to migrate to the new 
 	a. Sources (VMs, VMSS, On-prem servers)
 	b. Data Sources (Perf. Counters, Windows Event Logs, Syslog)
 	c. Destinations (Log Analytics workspaces)
-2. [Create new data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-rule-and-association-using-resource-manager-template) as per above configuration. As a **best practice** you may want to have a separate DCR for Windows vs Linux sources, or separate DCRs for individual teams with different data collection needs.
+2. [Create new data collection rule(s)](/rest/api/monitor/datacollectionrules/create#examples) as per above configuration. As a **best practice** you may want to have a separate DCR for Windows vs Linux sources, or separate DCRs for individual teams with different data collection needs.
 3. [Enable Managed Identity (System Assigned)](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity) on target resources.
 4. Install the AMA extension and deploy DCR associations on all target resources using the [built-in policy initiative](../deploy-scale.md#built-in-policy-initiatives), and providing the above DCR as input parameter. 
 5. Validate data is flowing as expected via AMA (check ‘Heartbeat table’ for new agent version values), and ensure it matches data flowing through existing Log Analytics Agent
