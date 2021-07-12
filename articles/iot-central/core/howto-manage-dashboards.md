@@ -50,23 +50,13 @@ The following screenshot shows the dashboard in an application created from the 
 
 After you select **Edit** or **New**, the dashboard is in *edit* mode. You can use the tools in the **Edit dashboard** panel to add tiles to the dashboard, and customize and remove tiles on the dashboard itself. For example, to add a **Line Chart** tile to track telemetry values over time reported by one or more devices:
 
-<<<<<<< HEAD:articles/iot-central/core/howto-add-tiles-to-your-dashboard.md
 1. Select **Start with a Visual**, then choose **Line chart**, and then select **Add tile** or just drag and drop it on to the canvas.
  
 1. To configure the tile, select its gear icon. Enter a **Title** and select a **Device Group** and then choose your devices in the **Devices** dropdown to show on the tile.
-=======
-1. Select a **Device Group** and then choose your devices in the **Devices** dropdown to show on the tile. You now see the available telemetry, properties, and commands from the devices.
-
-1. If needed, use the dropdown to select a telemetry value to show on the tile. Select **+ Telemetry**, **+ Property**, or **+ Cloud Property** to add more items to the tile.
->>>>>>> 4d014ef6660a7864ba7898278f0b06a3e041e4da:articles/iot-central/core/howto-manage-dashboards.md
 
 :::image type="content" source="media/howto-manage-dashboards/device-details.png" alt-text="Add a temperature telemetry tile to the dashboard":::
 
-<<<<<<< HEAD:articles/iot-central/core/howto-add-tiles-to-your-dashboard.md
 When you've selected all the values to show on the tile, click **Update**
-=======
-When you've selected all the values to show on the tile, select **Add tile**. The tile appears on the dashboard where you can change the visualization, resize it, move it, and configure it.
->>>>>>> 4d014ef6660a7864ba7898278f0b06a3e041e4da:articles/iot-central/core/howto-manage-dashboards.md
 
 When you've finished adding and customizing tiles on the dashboard, select **Save** to save the changes to the dashboard, which takes you out of edit mode.
 
@@ -137,13 +127,7 @@ The following screenshot shows the effect of the conditional formatting rule:
 
 ### Tile formatting
 
-<<<<<<< HEAD:articles/iot-central/core/howto-add-tiles-to-your-dashboard.md
-### Tile formatting
-
 This feature, available in KPI, LKV, and Property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
-=======
-This feature, available in KPI, LKV, and property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
->>>>>>> 4d014ef6660a7864ba7898278f0b06a3e041e4da:articles/iot-central/core/howto-manage-dashboards.md
 
 :::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Tile Format":::
 
