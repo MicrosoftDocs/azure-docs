@@ -89,7 +89,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 
 ### Predicting user access costs
 
-User access costs depend on the number of users that connect to your deployment each month. To learn how to estimate the total user access costs you can expect, see Estimate per-user app streaming costs for Azure Virtual Desktop.
+User access costs depend on the number of users that connect to your deployment each month. To learn how to estimate the total user access costs you can expect, see [Estimate per-user app streaming costs for Azure Virtual Desktop](streaming-costs.md).
 
 ## Viewing costs after deploying Azure Virtual Desktop
 
