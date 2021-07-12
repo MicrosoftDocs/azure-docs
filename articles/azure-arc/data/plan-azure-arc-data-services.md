@@ -27,15 +27,13 @@ Review the following sections:
 - [Connectivity modes and their requirements](connectivity.md)
 
 Verify that you have:
-- [Installed `az` CLI and the `arcdata` extension](install-arcdata-extension.md)
-- [Installed the other client tools](install-client-tools.md) 
-- Access to the Kubernetes cluster
-- Your `kubeconfig` file configured. It should point to the Kubernetes cluster you want to deploy to. Run the following command to verify the current context of your cluster you will be deploying to:
-
+- installed the [arcdata CLI extension](install-arcdata-extension.md)
+- installed the other [client tools](install-client-tools.md)
+- access to the Kubernetes cluster
+- your `kubeconfig` file configured. It should point to the Kubernetes cluster you want to deploy to. Run the following command to verify the current context of your cluster you will be deploying to:
    ```console
    kubectl cluster-info
-   ``` 
-- An Azure subscription to which resources such as Azure Arc data controller, Azure Arc enabled SQL managed instance or Azure Arc enabled PostgreSQL Hyperscale server will be projected and billed to. 
+- an Azure subscription to which resources such as Azure Arc data controller, Azure Arc enabled SQL managed instance or Azure Arc enabled PostgreSQL Hyperscale server will be projected and billed to. 
 
 
 > [!NOTE]
@@ -62,7 +60,7 @@ Currently, the validated list of Kubernetes services and distributions includes:
 - OpenShift Container Platform (OCP)
 
 > [!IMPORTANT]
-> * The minimum supported version of Kubernetes is v1.10. See [Known issues](./release-notes.md#known-issues) for additional information. 
+> * The minimum supported version of Kubernetes is v1.18. See [Known issues](./release-notes.md#known-issues) for additional information. 
 > * The minimum supported version of OCP is 4.7.
 > * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. See [Known issues](./release-notes.md#known-issues) for additional information. 
 
@@ -107,10 +105,9 @@ There are multiple options for creating the Azure Arc data controller:
 > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
 > 
 
-- [Create a data controller in indirect connected mode with CLI](create-data-controller-using-cli.md)
-- [Create a data controller in indirect connected mode with azdata](create-data-controller-using-azdata.md)
-- [Create a data controller in indirect connected mode with Azure Data Studio](create-data-controller-azure-data-studio.md)
-- [Create a data controller in indirect connected mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
+- [Create a data controller in indirect connected mode with CLI](create-data-controller-indirect-cli.md)
+- [Create a data controller in indirect connected mode with Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)
+- [Create a data controller in indirect connected mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-indirect-azure-portal.md)
 - [Create a data controller in indirect connected mode with Kubernetes tools such as kubectl or oc](create-data-controller-using-kubernetes-native-tools.md)
-- [Create a data controller in direct connected mode](deploy-data-controller-direct-mode-prerequisites.md)
+- [Create a data controller in direct connected mode](create-data-controller-direct-prerequisites.md)
 - [Create a data controller with Azure Arc Jumpstart for an accelerated experience of a test deployment](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/)

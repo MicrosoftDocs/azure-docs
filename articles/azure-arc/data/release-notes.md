@@ -115,7 +115,7 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
    - Azure Data CLI (`azdata`)
    - Kubernetes native tools (`kubectl`)
 
-   [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md) explains how to create the data controller in the portal. 
+   [Create Azure Arc data controller in Direct connectivity mode from Azure portal](create-data-controller-direct-azure-portal.md) explains how to create the data controller in the portal. 
 
 - You can still use `kubectl` to create resources directly on a Kubernetes cluster, however they will not be reflected in the Azure portal.
 

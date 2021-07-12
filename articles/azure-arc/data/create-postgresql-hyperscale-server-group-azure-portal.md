@@ -34,8 +34,8 @@ If you prefer to try out things without provisioning a full environment yourself
 
 Requirement: before you deploy an Azure Arc enabled PostgreSQL Hyperscale server group that you operate from the Azure portal you must first deploy an Azure Arc data controller configured to use the *Direct* connectivity mode.
 To deploy an Arc data controller, complete the instructions in these articles:
-1. [Deploy data controller - direct connect mode (prerequisites)](deploy-data-controller-direct-mode-prerequisites.md)
-1. [Deploy Azure Arc data controller | Direct connect mode](deploy-data-controller-direct-mode.md)
+1. [Deploy data controller - direct connect mode (prerequisites)](create-data-controller-direct-prerequisites.md)
+1. [Deploy Azure Arc data controller in Direct connect mode from Azure portal](create-data-controller-direct-azure-portal.md)
 
 
 ## Preliminary and temporary step for OpenShift users only
