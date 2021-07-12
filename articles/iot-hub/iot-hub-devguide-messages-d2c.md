@@ -100,7 +100,7 @@ You can configure a route by following this [tutorial](tutorial-routing.md).
 
 Use the following tutorials to learn how to read messages from an endpoint.
 
-* Reading from [Built-in-endpoint](quickstart-send-telemetry-node.md)
+* Reading from [Built-in-endpoint](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * Reading from [Blob storage](../storage/blobs/storage-blob-event-quickstart.md)
 
@@ -160,6 +160,6 @@ Use the [troubleshooting guide for routing](troubleshoot-message-routing.md) for
 
 * To learn how to create Message Routes, see [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md).
 
-* [How to send device-to-cloud messages](quickstart-send-telemetry-node.md)
+* [How to send device-to-cloud messages](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 * For information about the SDKs you can use to send device-to-cloud messages, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).

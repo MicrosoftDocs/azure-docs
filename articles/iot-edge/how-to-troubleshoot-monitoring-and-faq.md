@@ -55,7 +55,7 @@ You could use [built-in log pull features](how-to-retrieve-iot-edge-logs.md). A 
 Azure Monitor's [native metrics](../azure-monitor/essentials/data-platform-metrics.md) technology doesn't yet support Prometheus data format directly. Log-based metrics are currently better suited for IoT Edge metrics because of:
 
 * Native support for Prometheus metrics format via the standard *InsightsMetrics* table.
-* Advanced data processing via [KQL](https://aka.ms/kql) for visualizations and alerts.
+* Advanced data processing via [KQL](/azure/data-explorer/kusto/query/) for visualizations and alerts.
 
 The use of Log Analytics as the metrics database is the reason why metrics appear in the **Logs** page in Azure portal rather than **Metrics**.
 

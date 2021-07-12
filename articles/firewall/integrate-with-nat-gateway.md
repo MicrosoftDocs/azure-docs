@@ -16,7 +16,7 @@ Azure Firewall provides 2048 SNAT ports per public IP address configured, and yo
 
 Another challenge with using a large number of public IP addresses is when there are downstream IP address filtering requirements. Azure Firewall randomly selects the source public IP address to use for a connection, so you need to allow all public IP addresses associated with it. Even if you use [Public IP address prefixes](../virtual-network/public-ip-address-prefix.md) and you need to associate 250 public IP addresses to meet your outbound SNAT port requirements, you still need to create and allow 16 public IP address prefixes.
 
-A better option to scale outbound SNAT ports is to use [NAT gateway resource](../virtual-network/nat-overview.md). It provides 64,000 SNAT ports per public IP address and supports up to 16 public IP addresses, effectively providing up to 1,024,000 outbound SNAT ports.
+A better option to scale outbound SNAT ports is to use [NAT gateway resource](../virtual-network/nat-gateway/nat-overview.md). It provides 64,000 SNAT ports per public IP address and supports up to 16 public IP addresses, effectively providing up to 1,024,000 outbound SNAT ports.
 
 When a NAT gateway resource is associated with an Azure Firewall subnet, all outbound Internet traffic automatically uses the public IP address of the NAT gateway. There is no need to configure [User Defined Routes](../virtual-network/tutorial-create-route-table-portal.md). Response traffic uses the Azure Firewall public IP address to maintain flow symmetry. If there are multiple IP addresses associated with the NAT gateway the IP address is randomly selected. It isn't possible to specify what address to use.
 
@@ -62,4 +62,4 @@ az network vnet subnet update --name AzureFirewallSubnet --vnet-name nat-vnet --
 
 ## Next steps
 
-- [Designing virtual networks with NAT gateway resources](../virtual-network/nat-gateway-resource.md)
+- [Designing virtual networks with NAT gateway resources](../virtual-network/nat-gateway/nat-gateway-resource.md)
