@@ -17,14 +17,14 @@ This article provides information about how you can failover/switch between repl
 
 ## Failover/switch a replication appliance
 
-You can switch replication appliance in multiple scenarios:
+You can switch replication appliance in the following scenarios:
 
 - You want to switch appliance in case your current replication appliance has failed.
 - you want to switch the replication appliance due to some internal Org level requirements.
 
 As an example, here is the scenario where replication appliance 1 (RA1) has failed and you want to move the protected workloads to replication appliance 2 (RA2), which is in healthy state. Or, you want to switch the workloads under RA1  to RA2 for any org level requirements.
 
-Follow these steps.
+Follow these steps:
 
 1. Go to **Site Recovery infrastructure** blade and select **ASR replication appliance**.
 
@@ -47,7 +47,7 @@ Follow these steps.
    >[!NOTE]
    > In case of a failover, You will be prompted to select the account credentials for all the selected machines, as the previous appliance has failed.
 
-5. Select **Switch application**.
+5. Select **Switch appliance**.
 
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 
