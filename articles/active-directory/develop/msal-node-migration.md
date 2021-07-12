@@ -138,53 +138,6 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 As a notable difference, MSAL does not have a flag to disable authority validation and authorities are always validated by default. MSAL compares your requested authority against a list of authorities known to Microsoft or a list of authorities you've specified in your configuration. See for more: [Configuration Options](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)
 
-## Enable logging
-
-In ADAL Node, you configure logging separately at any place in your code:
-
-```javascript
-var adal = require('adal-node');
-
-//PII or OII logging disabled. Default Logger does not capture any PII or OII.
-adal.logging.setLoggingOptions({
-  log: function (level, message, error) {
-    console.log(message);
-
-    if (error) {
-        console.log(error);
-    }
-  },
-  level: logging.LOGGING_LEVEL.VERBOSE, // provide the logging level
-  loggingWithPII: false  // Determine if you want to log personal identification information. The default value is false.
-});
-```
-
-In MSAL Node, logging is part of the configuration options and is created with the initialization of the MSAL Node instance:
-
-```javascript
-const msal = require('@azure/msal-node');
-
-const msalConfig = {
-    auth: {
-        // authentication related parameters
-    },
-    cache: {
-        // cache related parameters
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false,
-            logLevel: msal.LogLevel.Verbose,
-        }
-    }
-}
-
-const cca = new msal.ConfidentialClientApplication(msalConfig);
-```
-
 ## Switch to MSAL API
 
 Most of the public methods in ADAL Node have equivalents in MSAL Node:
@@ -192,7 +145,7 @@ Most of the public methods in ADAL Node have equivalents in MSAL Node:
 | ADAL                                | MSAL                              | Notes                             |
 |-------------------------------------|-----------------------------------|-----------------------------------|
 | `acquireToken`                      | `acquireTokenSilent`              | Renamed and now expects an [account](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#accountinfo) object |
-| `acquireTokenWithAuthorizationCode` | `acquireByAuthorizationCode`      |                                   |
+| `acquireTokenWithAuthorizationCode` | `acquireTokenByCode`      |                                   |
 | `acquireTokenWithClientCredentials` | `acquireTokenByClientCredential` |                                   |
 | `acquireTokenWithRefreshToken`      | `acquireTokenByRefreshToken`      |                                   |
 | `acquireTokenWithDeviceCode`        | `acquireTokenByDeviceCode`        | Now abstracts user code acquisition (see below) |
@@ -242,31 +195,6 @@ pca.acquireTokenByCode(tokenRequest).then((response) => {
 
 One advantage of the scope-centric model is the ability to use *dynamic scopes*. When building applications using v1.0, you needed to register the full set of permissions (called *static scopes*) required by the application for the user to consent to at the time of login. In v2.0, you can use the scope parameter to request the permissions at the time you want them (hence, *dynamic scopes*). This allows the user to provide **incremental consent** to scopes. So if at the beginning you just want the user to sign in to your application and you don’t need any kind of access, you can do so. If later you need the ability to read the calendar of the user, you can then request the calendar scope in the acquireToken methods and get the user's consent. See for more: [Resources and scopes](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md)
 
-<<<<<<< HEAD
-=======
-## Switch to MSAL API
-
-Most of the public methods in ADAL Node have equivalents in MSAL Node:
-
-| ADAL                                | MSAL                              | Notes                             |
-|-------------------------------------|-----------------------------------|-----------------------------------|
-| `acquireToken`                      | `acquireTokenSilent`              | Renamed and now expects an [account](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#accountinfo) object |
-| `acquireTokenWithAuthorizationCode` | `acquireTokenByCode`      |                                   |
-| `acquireTokenWithClientCredentials` | `acquireTokenByClientCredential` |                                   |
-| `acquireTokenWithRefreshToken`      | `acquireTokenByRefreshToken`      |                                   |
-| `acquireTokenWithDeviceCode`        | `acquireTokenByDeviceCode`        | Now abstracts user code acquisition (see below) |
-| `acquireTokenWithUsernamePassword`  | `acquireTokenByUsernamePassword`  |                                   |
-
-However, some methods in ADAL Node are deprecated, while MSAL Node offers new methods:
-
-| ADAL                              | MSAL                            | Notes                             |
-|-----------------------------------|---------------------------------|-----------------------------------|
-| `acquireUserCode`                   | N/A                             | Merged with `acquireTokeByDeviceCode` (see above)|
-| N/A                               | `acquireTokenOnBehalfOf`          | A new method that abstracts [OBO flow](./v2-oauth2-on-behalf-of-flow.md) |
-| `acquireTokenWithClientCertificate` | N/A                             | No longer needed as certificates are assigned during initialization now (see [configuration options](#configure-msal)) |
-| N/A                               | `getAuthCodeUrl`                  | A new method that abstracts [authorize endpoint](./active-directory-v2-protocols.md#endpoints) URL construction |
-
->>>>>>> 744d4beb2564c3e6b78dc1d3d97f8a028e4af8cc
 ## Use promises instead of callbacks
 
 In ADAL Node, callbacks are used for any operation after the authentication succeeds and a response is obtained:
@@ -303,6 +231,53 @@ You can also use the **async/await** syntax that comes with ES8:
     } catch (error) {
         console.log(error);
     }
+```
+
+## Enable logging
+
+In ADAL Node, you configure logging separately at any place in your code:
+
+```javascript
+var adal = require('adal-node');
+
+//PII or OII logging disabled. Default Logger does not capture any PII or OII.
+adal.logging.setLoggingOptions({
+  log: function (level, message, error) {
+    console.log(message);
+
+    if (error) {
+        console.log(error);
+    }
+  },
+  level: logging.LOGGING_LEVEL.VERBOSE, // provide the logging level
+  loggingWithPII: false  // Determine if you want to log personal identification information. The default value is false.
+});
+```
+
+In MSAL Node, logging is part of the configuration options and is created with the initialization of the MSAL Node instance:
+
+```javascript
+const msal = require('@azure/msal-node');
+
+const msalConfig = {
+    auth: {
+        // authentication related parameters
+    },
+    cache: {
+        // cache related parameters
+    },
+    system: {
+        loggerOptions: {
+            loggerCallback(loglevel, message, containsPii) {
+                console.log(message);
+            },
+            piiLoggingEnabled: false,
+            logLevel: msal.LogLevel.Verbose,
+        }
+    }
+}
+
+const cca = new msal.ConfidentialClientApplication(msalConfig);
 ```
 
 ## Enable token caching
@@ -406,6 +381,8 @@ pca.acquireTokenByRefreshToken(refreshTokenRequest).then((response) => {
     console.log(JSON.stringify(error));
 });
 ```
+
+We recommend you to destroy the older ADAL Node token cache once you retrieve new refresh tokens with MSAL Node using the `acquireTokenByRefreshToken` method as shown above. 
 
 ## Handle errors and exceptions
 
