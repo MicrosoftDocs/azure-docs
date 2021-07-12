@@ -2,7 +2,7 @@
 title: Enable end-to-end Transport Layer Security
 titleSuffix: Azure Spring Cloud
 description: How to enable end-to-end Transport Layer Security for an application.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
