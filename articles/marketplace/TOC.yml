@@ -398,7 +398,7 @@
     - name: Salesforce
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md  
     - name: Lead management FAQ 
-      href: lead-management-faq.md
+      href: lead-management-faq.yml
 - name: Data and analytics
   items:
   - name: Commercial marketplace analytics 
@@ -464,7 +464,7 @@
   - name: Manage metered billing anomalies
     href: anomaly-detection.md
   - name: Analytics common questions
-    href: analytics-faq.md
+    href: analytics-faq.yml
 - name: Policies and terms
   items:    
   - name: About our policies and terms
