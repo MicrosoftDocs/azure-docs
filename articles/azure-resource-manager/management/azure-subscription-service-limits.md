@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 07/06/2021
+ms.date: 07/12/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -238,6 +238,10 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Database Migration Service Limits
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
+
+## Device Update for IoT Hub  limits
+
+[!INCLUDE [device-update-for-iot-hub-limits](../../../includes/device-update-for-iot-hub-limits.md)]
 
 ## Digital Twins limits
 
