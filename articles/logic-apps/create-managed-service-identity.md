@@ -441,7 +441,7 @@ Here is the example HTTP action that shows all these property values:
 
 1. On some triggers and actions, the **Audience** property also appears for you to set the target resource ID. Set the **Audience** property to the [resource ID for the target resource or service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
   
-    For example, if you are authenticating to [a Key Vault resource in the Azure Global cloud](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication#azure-key-vault), you must set the **Audience** property to exactly `https://vault.azure.net`. Note that this particular target resource ID does *not* have any trailing slashes and the presence of a trailing slash may result in either a `400 Bad Request` or `401 Unauthorized` error.
+    For example, if you are authenticating to [a Key Vault resource in the Azure Global cloud](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-key-vault), you must set the **Audience** property to exactly `https://vault.azure.net`. Note that this particular target resource ID does *not* have any trailing slashes and the presence of a trailing slash may result in either a `400 Bad Request` or `401 Unauthorized` error.
 
    > [!IMPORTANT]
    > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory (AD) expects, 
