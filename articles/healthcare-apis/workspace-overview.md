@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 07/09/2021
+ms.date: 07/12/2021
 ms.author: ginle
 ---
 
@@ -41,7 +41,7 @@ You can use PowerShell, CLI, or Terraform scripts, or the .NET SDK to deploy the
 
 ## DICOM service
 
-Deploy a DICOM service to bring medical imaging data into the cloud from any DICOMwebTM enabled system. The DICOM Service is a .NET Core implementation of DICOMwebTM, which is the DICOM standard for web-based medical imaging. For more information, see [Overview of DICOM service](dicom-services-overview.md).
+Deploy a DICOM service to bring medical imaging data into the cloud from any DICOMwebTM enabled system. The DICOM Service is a .NET Core implementation of DICOMwebTM, which is the DICOM standard for web-based medical imaging. For more information, see [Overview of DICOM service](dicom/dicom-services-overview.md).
 
 ## FHIR service
 
@@ -54,7 +54,7 @@ systems into the Azure Cloud based on the [FHIR](https://www.hl7.org/fhir/index.
 
 The Azure IoT Connector for FHIR feature enables you to quickly set up a service to ingest Internet of 
 Medical Things (IoMT) data into Azure API for FHIR in a scalable, secure, and compliant manner. For 
-more information, see [Azure IoT Connector for FHIR (preview)](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview.md).
+more information, see [Azure IoT Connector for FHIR (preview)](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview)
 
 For instructions on how to deploy an IoT Connector using a scripted template, see [Deploy an IoT Connector using an ARM template](data-transformation/./iot-fhir-arm-template-quickstart.md)
 
@@ -76,7 +76,7 @@ When you create a workspace, the data for all Healthcare APIs instances are encr
 
 
 ### Application monitoring
-Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For more information, see [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) documentation.
+Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](https://docs.microsoft.com/azure/azure-monitor/) documentation.
 
 
 ### Role-based access control (RBAC)
