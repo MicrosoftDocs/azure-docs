@@ -207,7 +207,7 @@ To satisfy certain regulatory requirements you may consider using vNets, IP rest
 
 To address basic compliance requirements, consider:
 
-- The specific regulatory compliance requirements, for example, PCI-DSS and GDPR that you need to support.
+- The specific regulatory compliance requirements, for example, PCI-DSS that you need to support.
 
 - Check if it's required to store data into a separate database store. If so, check if this information must never be written into the directory.
 
