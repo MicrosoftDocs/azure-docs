@@ -70,7 +70,7 @@ $ipv6 =@{
     PrefixLength = '124'
     IpAddressVersion = 'IPv6' 
 }
-New-AzPublicIpPrefix @ipv4
+New-AzPublicIpPrefix @ipv6
 ```
 
 ## Create a static public IP address from a prefix
