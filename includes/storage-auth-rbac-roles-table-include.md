@@ -10,7 +10,7 @@ ms.author: tamram
 ms.custom: "include file"
 ---
 
-Azure RBAC provides a number of built-in roles for authorizing access to table data using Azure AD and OAuth. Roles that provide permissions to tables in Azure Storage include:
+Azure RBAC provides built-in roles for authorizing access to table data using Azure AD and OAuth. Built-in roles that provide permissions to tables in Azure Storage include:
 
 - [Storage Table Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-table-data-contributor): Use to grant read/write/delete permissions to Table storage resources.
 - [Storage Table Data Reader](../articles/role-based-access-control/built-in-roles.md#storage-table-data-reader): Use to grant read-only permissions to Table storage resources.

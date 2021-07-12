@@ -12,7 +12,7 @@ Before you assign an Azure RBAC role to a security principal, determine the scop
 
 The following list describes the levels at which you can scope access to Azure table resources, starting with the narrowest scope:
 
-- **An individual table.** At this scope, a role assignment applies to ???.
+- **An individual table.** At this scope, a role assignment applies to the specified table.
 - **The storage account.** At this scope, a role assignment applies to all tables in the account.
 - **The resource group.** At this scope, a role assignment applies to all of the tables in all of the storage accounts in the resource group.
 - **The subscription.** At this scope, a role assignment applies to all of the tables in all of the storage accounts in all of the resource groups in the subscription.

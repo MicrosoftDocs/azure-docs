@@ -1,26 +1,29 @@
 ---
-title: Assign an Azure role for access to table data
+title: Assign an Azure role for access to table data (preview)
 titleSuffix: Azure Storage
-description: Learn how to assign permissions for table data to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
+description: Learn how to assign permissions for table data (preview) to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication and authorization via Azure AD.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 07/12/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Assign an Azure role for access to table data
+# Assign an Azure role for access to table data (preview)
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access tables.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access tables in Azure Storage (preview).
 
 When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual table. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 This article shows how to assign Azure roles for data access to tables.
+
+> [!IMPORTANT]
+> Authorization with Azure AD for tables is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Azure roles for tables
 
@@ -32,29 +35,7 @@ This article shows how to assign Azure roles for data access to tables.
 
 ## Assign an Azure role
 
-You can use the Azure portal, PowerShell, or Azure CLI to assign a role for data access.
-
-# [Azure portal](#tab/portal)
-
-To access table data in the Azure portal with Azure AD credentials, a user must have the following role assignments:
-
-- A data access role, such as **Storage Table Data Contributor**
-- The Azure Resource Manager **Reader** role
-
-To learn how to assign these roles to a user, follow the instructions provided in [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-The [Reader](../../role-based-access-control/built-in-roles.md#reader) role is an Azure Resource Manager role that permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to table tables in the Azure portal.
-
-For example, if you assign the **Storage Table Data Contributor** role to user Mary at the level of a table named **sample-table**, then Mary is granted read, write, and delete access to all of the tables in that table. However, if Mary wants to view a table in the Azure portal, then the **Storage Table Data Contributor** role by itself will not provide sufficient permissions to navigate through the portal to the table in order to view it. The additional permissions are required to navigate through the portal and view the other resources that are visible there.
-
-A user must be assigned the **Reader** role to use the Azure portal with Azure AD credentials. However, if a user has been assigned a role with **Microsoft.Storage/storageAccounts/listKeys/action** permissions, then the user can use the portal with the storage account keys, via Shared Key authorization. To use the storage account keys, Shared Key access must be permitted for the storage account. For more information on permitting or disallowing Shared Key access, see [Prevent Shared Key authorization for an Azure Storage account](../common/shared-key-authorization-prevent.md).
-
-You can also assign an Azure Resource Manager role that provides additional permissions beyond than the **Reader** role. Assigning the least possible permissions is recommended as a security best practice. For more information, see [Best practices for Azure RBAC](../../role-based-access-control/best-practices.md).
-
-> [!NOTE]
-> Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to table data in the Azure portal](../tables/authorize-data-operations-portal.md).
->
-> The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify table data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
+You can use PowerShell or Azure CLI to assign a role for data access.
 
 # [PowerShell](#tab/powershell)
 
