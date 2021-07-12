@@ -64,7 +64,7 @@ We'll be using the [DefaultAzureCredential](/java/api/com.azure.identity.default
 private TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 ```
 
-## Issue a token with managed identities
+## Issue a token with service principals
 
 Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on;
 
@@ -80,9 +80,9 @@ Now we'll add code which uses the created credential, to issue a VoIP Access Tok
     }
 ```
 
-## Send an SMS with managed identities
+## Send an SMS with service principals
 
-As another example of using managed identities, we'll add this code which uses the same credential to send an SMS:
+As another example of using service principals, we'll add this code which uses the same credential to send an SMS:
 
 ```java
      public SmsSendResult sendSms(String endpoint, String from, String to, String message) {
@@ -97,7 +97,7 @@ As another example of using managed identities, we'll add this code which uses t
 ```
 ## Write the Main method
 
-Your `App.java` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of managed identities:
+Your `App.java` should already have a Main method, let's add some code which will call our previously created code to demonstrate the use of service principals:
 ```java
     public static void main(String[] args) {
           App instance = new App();
@@ -105,13 +105,13 @@ Your `App.java` should already have a Main method, let's add some code which wil
           // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com/";
 
-          System.out.println("Retrieving new Access Token, using Managed Identities");
+          System.out.println("Retrieving new Access Token, using Service Principals");
           AccessToken token = instance.createIdentityAndGetTokenAsync(endpoint);
           System.out.println("Retrieved Access Token: "+ token.getToken());
 
-          System.out.println("Sending SMS using Managed Identities");
+          System.out.println("Sending SMS using Service Principals");
           // You will need a phone number from your resource to send an SMS.
-          SmsSendResult result = instance.sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Managed Identities");
+          SmsSendResult result = instance.sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Service Principals");
           System.out.println("Sms id: "+ result.getMessageId());
           System.out.println("Send Result Successful: "+ result.isSuccessful());
     }
@@ -162,13 +162,13 @@ public class App
           // e.g. "https://<RESOURCE_NAME>.communication.azure.com";
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com/";
 
-          System.out.println("Retrieving new Access Token, using Managed Identities");
+          System.out.println("Retrieving new Access Token, using Service Principals");
           AccessToken token = instance.createIdentityAndGetTokenAsync(endpoint);
           System.out.println("Retrieved Access Token: "+ token.getToken());
 
-          System.out.println("Sending SMS using Managed Identities");
+          System.out.println("Sending SMS using Service Principals");
           // You will need a phone number from your resource to send an SMS.
-          SmsSendResult result = instance.sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Managed Identities");
+          SmsSendResult result = instance.sendSms(endpoint, "<FROM NUMBER>", "<TO NUMBER>", "Hello from Service Principals");
           System.out.println("Sms id: "+ result.getMessageId());
           System.out.println("Send Result Successful: "+ result.isSuccessful());
     }
@@ -197,9 +197,9 @@ mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanup
 
 The final output should resemble the following:
 ```
-Retrieving new Access Token, using Managed Identities
+Retrieving new Access Token, using Service Principals
 Retrieved Access Token: ey..A
-Sending SMS using Managed Identities
+Sending SMS using using Service Principals
 Sms id: Outgoing_202104...33f8ae1f_noam
 Send Result Successful: true
 ```
