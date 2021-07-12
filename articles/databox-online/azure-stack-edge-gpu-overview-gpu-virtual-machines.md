@@ -16,19 +16,17 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
-This article provides an overview of the use of GPU VMs on Azure Stack Edge Pro GPU devices, including supported OSs, GPU drivers, and VM sizes and deployment with Kubernetes clusters.
-
-To know more about VMs that can be deployed on your Azure Stack Edge device, see [Virtual machines on Azure Stack Edge devices](azure-stack-edge-gpu-virtual-machine-overview.md).
+GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU virtual machine. This article provides an overview of GPU VMs, including supported OSs, GPU drivers, and VM sizes. Deployment options for GPU VMs used with Kubernetes clusters also is discussed.
 
 ## About GPU VMs
 
-GPU-accelerated workloads on a Azure Stack Edge Pro GPU device require a GPU virtual machine. A GPU VM must be a particular size and have the GPU extension installed. THIS NEEDS WORK! 
+Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
 
-Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes.
-
-For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
+A GPU VM must have a GPU extension installed. The GPU extension can be installed during or after VM deployment via the Azure portal. If you use templates to deploy your VMs, you'll install the GPU extension after deploying the VM. For more information, see [Deploy GPU VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
 For supported scenarios and key capabilities for GPU-accelerated workloads, see [What is Azure Stack Edge Pro with GPU?](azure-stack-edge-gpu-overview.md).
+
+To know more about VMs that can be deployed on your Azure Stack Edge device, see [Virtual machines on Azure Stack Edge devices](azure-stack-edge-gpu-virtual-machine-overview.md).
 
 ## Supported OS and GPU drivers 
 

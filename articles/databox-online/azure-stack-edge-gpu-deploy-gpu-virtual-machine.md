@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/09/2021
+ms.date: 07/12/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I want the flexibility to deploy a single GPU virtual machine (VM) quickly in the portal or use templates to deploy and manage multiple GPU VMs efficiently on my Azure Stack Edge Pro GPU device.
 ---
@@ -21,14 +21,11 @@ This article how to create a GPU VM in the Azure portal or by using the Azure Re
 
 Use the Azure portal to quickly deploy a single GPU VM. You can install the GPU extension during or after VM creation. Or use Azure Resource Manager templates to efficiently deploy and manage multiple GPU VMs.
 
-
----
-
 ## Create GPU VMs
 
 You can deploy a GPU VM via the portal or using Azure Resource Manager templates.
 
-For a list of supported operating systems, drivers, and VM sizes for GPU VMs, see [GPU virtual machines on Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview-gpu-virtual-machines.md). For deployment considerations, see [GPU VMs and Kubernetes](For supported operating systems, drivers, and VM sizes for GPU,  see [GPU virtual machines on Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview-gpu-virtual-machines.md).
+For a list of supported operating systems, drivers, and VM sizes for GPU VMs, see [GPU virtual machines on Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview-gpu-virtual-machines.md). For deployment considerations, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-deploy-gpu-virtual-machine#gpu-vms-and-kubernetes).
 
 
 > [!IMPORTANT]
