@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 07/07/2021
+ms.date: 07/12/2021
 ms.author: apimpm
 ---
 
@@ -36,7 +36,7 @@ Available actions:
 | Action         | Description          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | ignore | Skip validation. |
-| prevent | Block the request or response processing, log the verbose validation error, and return an error. The response includes HTTP status code 400 for validation errors in requests, status code 502 for validation errors in responses. Processing is interrupted when the first set of errors is detected. |
+| prevent | Block the request or response processing, log the verbose [validation error](#validation-errors), and return an error. Processing is interrupted when the first set of errors is detected. <br/><br/> When a validation policy applied in the inbound scope produces an error, the response from API Management includes HTTP status code 400 and a detailed error message. When a validation policy applied in the outbound scope produces an error, the response includes HTTP status code 502 and a generic error message.|
 | detect | Log validation errors, without interrupting request or response processing. |
 
 ## Logs
