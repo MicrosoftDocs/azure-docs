@@ -267,6 +267,15 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ssh|Databricks SSH|No|
 |workspace|Databricks Workspace|No|
 
+## Microsoft.DataCollaboration/workspaces
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|CollaborationAudit|Collaboration Audit|Yes|
+|DataAssets|Data Assets|No|
+|Pipelines|Pipelines|No|
+|Proposals|Proposals|No|
+|Scripts|Scripts|No|
 
 ## Microsoft.DataFactory/factories
 
