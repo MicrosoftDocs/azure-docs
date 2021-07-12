@@ -45,6 +45,12 @@ The 401 MAC signature issue is seen shortly after a container creation. This iss
 #### Solution:
 There's a race condition with container creation. An application instance is trying to access the container before the container creation is complete. The most common scenario for this race condition is if the application is running and the container is deleted and re-created with the same name. The SDK attempts to use the new container, but the container creation is still in progress so it doesn't have the keys.
 
+### Bulk mode enabled 
+When using Bulk mode enabled (link to https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/), read and write operations are optimized for best network performance and sent to the backend through a dedicated Bulk API. 401 errors while performing read operations with Bulk mode enabled often mean that the application is using the [read-only keys](secure-access-to-data.md#primary-keys).
+
+#### Solution
+Use the read/write keys or authorization mechanism with write access when performing operations with Bulk mode enabled.
+
 ## Next steps
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
 * Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
