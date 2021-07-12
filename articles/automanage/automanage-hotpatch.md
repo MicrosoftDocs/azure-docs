@@ -19,9 +19,9 @@ ms.custom: devx-track-azurepowershell
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Hotpatch capabilities can be found in one of these Windows Server Azure Edition images: Windows Server 2019 Datacenter: Azure Edition (Core), Windows Server 2022 Datacenter: Azure Edition (Core)
+> Hotpatch capabilities can be found in one of these _Windows Server Azure Edition_ images: Windows Server 2019 Datacenter: Azure Edition (Core), Windows Server 2022 Datacenter: Azure Edition (Core)
 
-Hotpatching is a new way to install updates on new Windows Server Azure Edition virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for Windows Server Azure Edition VMs, which has the following benefits:
+Hotpatching is a new way to install updates on supported _Windows Server Azure Edition_ virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for supported _Windows Server Azure Edition_ VMs, which has the following benefits:
 * Lower workload impact with less reboots
 * Faster deployment of updates as the packages are smaller, install faster, and have easier patch orchestration with Azure Update Manager
 * Better protection, as the Hotpatch update packages are scoped to Windows security updates that install faster without rebooting
@@ -168,7 +168,7 @@ Similar to on-demand assessment, you can also install patches on-demand for your
 
 Hotpatch covers Windows Security updates and maintains parity with the content of security updates issued to in the regular (non-Hotpatch) Windows update channel.
 
-There are some important considerations to running a Windows Server Azure edition VM with Hotpatch enabled. Reboots are still required to install updates that aren't included in the Hotpatch program. Reboots are also required periodically after a new baseline has been installed. These reboots keep the VM in sync with non-security patches included in the latest cumulative update.
+There are some important considerations to running a supported _Windows Server Azure Edition_ VM with Hotpatch enabled. Reboots are still required to install updates that aren't included in the Hotpatch program. Reboots are also required periodically after a new baseline has been installed. These reboots keep the VM in sync with non-security patches included in the latest cumulative update.
 * Patches that are currently not included in the Hotpatch program include non-security updates released for Windows, and non-Windows updates (such as .NET patches).  These types of patches need to be installed during a baseline month, and will require a reboot.
 
 ## Frequently asked questions
@@ -221,7 +221,7 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### Will I be charged during the preview?
 
-* The license for Windows Server Azure Edition is free during the preview. However, the cost of any underlying infrastructure set up for your VM (storage, compute, networking, etc.) will still be charged to your subscription.
+* The license for _Windows Server Azure Edition_ is free during the preview. However, the cost of any underlying infrastructure set up for your VM (storage, compute, networking, etc.) will still be charged to your subscription.
 
 ### How can I get troubleshooting support for Hotpatching?
 
