@@ -99,7 +99,6 @@ The information in the rest of this document provides information on what featur
 | **Other** |   | | |
 | [Open Datasets](/azure/open-datasets/samples)                                                              | Public Preview       | YES                | YES         |
 | [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
-| [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models)                                                                | Public Preview       | NO                 | NO          |
 
 
 ### Azure Government scenarios
@@ -212,7 +211,6 @@ The information in the rest of this document provides information on what featur
 | **Other** |    | | |
 | Open Datasets                                                              | Public Preview   | YES       | N/A        |
 | Custom Cognitive Search                                                    | Public Preview   | YES       | N/A        |
-| Many Models                                                                | Public Preview   | NO        | N/A        |
 
 
 
