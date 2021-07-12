@@ -11084,6 +11084,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/test-cases.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/template-test-cases",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/vs-azure-tools-update-deploy-script-to-az-powershell.md",
       "redirect_url": "/azure/azure-resource-manager/templates/update-visual-studio-deployment-script",
       "redirect_document_id": false
