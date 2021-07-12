@@ -25,7 +25,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 ## 1 - Set up a managed identity
 
-Set up the [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) using one of the following options.
+Set up the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) using one of the following options.
 
 ### Option 1 - Turn on system-assigned managed identity
 

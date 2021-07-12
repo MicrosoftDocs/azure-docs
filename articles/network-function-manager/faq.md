@@ -25,7 +25,7 @@ The NFM preview is currently available on Azure Stack Edge Pro with GPU that is 
 
 ### What additional capabilities are available on Azure Stack Edge Pro with GPU in addition to running network functions?
 
-Azure Stack Edge (ASE) Pro with GPU and Azure Network Function Manager are a part of the [Azure private MEC](https://go.microsoft.com/fwlink/?linkid=2165316) solution. You can now run a private mobile network and VM or container-based edge application on your ASE device. This lets you build innovative solutions that provide predictable SLAs to your critical business applications. Azure Stack Edge Pro is also equipped with one or two [GPUs](../databox-online/azure-stack-edge-gpu-technical-specifications-compliance.md#compute-acceleration-specifications) that let you take advantage of scenarios such as video inferencing and machine learning at the edge.
+Azure Stack Edge (ASE) Pro with GPU and Azure Network Function Manager are a part of the [Azure private MEC](../private-multi-access-edge-compute-mec/index.yml) solution. You can now run a private mobile network and VM or container-based edge application on your ASE device. This lets you build innovative solutions that provide predictable SLAs to your critical business applications. Azure Stack Edge Pro is also equipped with one or two [GPUs](../databox-online/azure-stack-edge-gpu-technical-specifications-compliance.md#compute-acceleration-specifications) that let you take advantage of scenarios such as video inferencing and machine learning at the edge.
 
 ### What is the pricing for Network Function Manager preview?
 

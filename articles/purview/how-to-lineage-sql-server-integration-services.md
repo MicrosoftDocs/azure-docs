@@ -14,7 +14,7 @@ This article elaborates on the data lineage aspects of SQL Server Integration Se
 
 ## Prerequisites
 
-- [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
+- [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 
 ## Supported scenarios
 
@@ -71,6 +71,6 @@ Once Execute SSIS Package activity finishes the execution, you can check lineage
 
 ## Next steps
 
-- [Lift and shift SQL Server Integration Services workloads to the cloud](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
+- [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview)
 - [Learn about Data lineage in Azure Purview](catalog-lineage-user-guide.md)
 - [Link Azure Data Factory to push automated lineage](how-to-link-azure-data-factory.md)
