@@ -168,7 +168,7 @@ The "basic" audit level is enabled by default. For more information, see [AD FS 
 3. On the right, select **Filter Current Logs**.
 4. For **Event sources**, select **AD FS Auditing**.
 
-    For more information about audit logs, see [Operations questions](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions).
+    For more information about audit logs, see [Operations questions](./reference-connect-health-faq.yml#operations-questions).
 
     ![Screenshot showing the Filter Current Log window. In the "Event sources" field, "AD FS auditing" is selected.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 

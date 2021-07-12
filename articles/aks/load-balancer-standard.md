@@ -340,7 +340,7 @@ Frequently the root cause of SNAT exhaustion is an anti-pattern for how outbound
 ### Steps
 1. Check if your connections remain idle for a long time and rely on the default idle timeout for releasing that port. If so the default timeout of 30 min might need to be reduced for your scenario.
 2. Investigate how your application is creating outbound connectivity (for example, code review or packet capture).
-3. Determine if this activity is expected behavior or whether the application is misbehaving. Use [metrics](../load-balancer/load-balancer-standard-diagnostics.md) and [logs](../load-balancer/load-balancer-monitor-log.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric for example.
+3. Determine if this activity is expected behavior or whether the application is misbehaving. Use [metrics](../load-balancer/load-balancer-standard-diagnostics.md) and [logs](../load-balancer/monitor-load-balancer.md) in Azure Monitor to substantiate your findings. Use "Failed" category for SNAT Connections metric for example.
 4. Evaluate if appropriate [patterns](#design-patterns) are followed.
 5. Evaluate if SNAT port exhaustion should be mitigated with [additional Outbound IP addresses + additional Allocated Outbound Ports](#configure-the-allocated-outbound-ports) .
 

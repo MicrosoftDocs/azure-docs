@@ -36,7 +36,7 @@ To complete the steps in this article, [create an App Service app](./index.yml),
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment) instead.
+The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](./faq-app-service-linux.yml#continuous-integration-and-deployment) instead.
 
 ## Deploy ZIP file with Azure CLI
 
