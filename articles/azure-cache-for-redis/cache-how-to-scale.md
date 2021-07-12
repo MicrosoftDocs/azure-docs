@@ -20,7 +20,7 @@ You can use the [monitoring](cache-how-to-monitor.md) features of Azure Cache fo
 You can monitor the following metrics to help determine if you need to scale.
 
 - Redis Server Load
-  - Redis is a single threaded process and high Redis server load means that Redis is unable to keep with the requests from all the client connections. In such situations, it helps to enable clustering or increase shard count so that client connections get distributed across multiple Redis processes.
+  - Redis is a single threaded process and high Redis server load means that Redis is unable to keep pace with the requests from all the client connections. In such situations, it helps to enable clustering or increase shard count so that client connections get distributed across multiple Redis processes.
 - Memory Usage
   - High memory usage indicates that your data size is too large for the current cache size and you should consider scaling to a cache size with larger memory.
 - Client connections
