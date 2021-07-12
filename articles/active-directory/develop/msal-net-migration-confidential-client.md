@@ -160,7 +160,7 @@ public partial class AuthWrapper
 
 To benefit from the in-memory cache, the instance of `IConfidentialClientApplication` needs to be kept in a member variable. If you re-create the confidential client application each time you request a token, you won't benefit from the token cache.
 
-You'll need to serialize `AppTokenCache` if you choose not to use the default in-memory app token cache. Similarly, If you want to implement a distributed token cache, you'll need to serialize `AppTokenCache`. For details, see [Token cache for a web app or web API (confidential client application)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization#token-cache-for-a-web-app-or-web-api-confidential-client-application) and the sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
+You'll need to serialize `AppTokenCache` if you choose not to use the default in-memory app token cache. Similarly, If you want to implement a distributed token cache, you'll need to serialize `AppTokenCache`. For details, see [Token cache for a web app or web API (confidential client application)](msal-net-token-cache-serialization.md?tabs=aspnet) and the sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
 
 [Learn more about the demon scenario](scenario-daemon-overview.md) and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
