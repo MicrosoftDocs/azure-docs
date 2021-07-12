@@ -1,6 +1,6 @@
 ---
-title: Azure Industrial IoT Platform versions
-description: This article provides an overview of the existing version of the Industrial IoT Platform and their support.
+title: Azure Industrial IoT platform versions
+description: This article provides an overview of the existing version of the Industrial IoT platform and their support.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
@@ -9,7 +9,7 @@ ms.date: 03/08/2021
 ---
 # Azure Industrial IoT Platform v2.8.0 LTS
 
-We are pleased to announce the declaration of Long-Term Support (LTS) for version 2.8.0. While we continue to develop and release updates to our ongoing projects on GitHub, we now also offer a branch that will only get critical bug fixes and security updates starting in July 2021. Customers can rely upon a longer-term support lifecycle for these LTS builds, providing stability and assurance for the planning on longer time horizons our customers require. The LTS branch offers customers a guarantee that they will benefit from any necessary security or critical bug fixes with minimal impact to their deployments and module interactions.  At the same time, customers can access the latest updates in the master branch to keep pace with the latest developments and fastest cycle time for product updates. 
+We are pleased to announce the declaration of Long-Term Support (LTS) for version 2.8.0. While we continue to develop and release updates to our ongoing projects on GitHub, we now also offer a branch that will only get critical bug fixes and security updates starting in July 2021. Customers can rely upon a longer-term support lifecycle for these LTS builds, providing stability and assurance for the planning on longer time horizons our customers require. The LTS branch offers customers a guarantee that they will benefit from any necessary security or critical bug fixes with minimal impact to their deployments and module interactions.  At the same time, customers can access the latest updates in the main branch to keep pace with the latest developments and fastest cycle time for product updates. 
 
 ## Version history 
 
@@ -22,4 +22,4 @@ We are pleased to announce the declaration of Long-Term Support (LTS) for versio
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is the Industrial IoT Platform?](overview-what-is-industrial-iot.md)
+> [What is Industrial IoT?](overview-what-is-industrial-iot.md)
