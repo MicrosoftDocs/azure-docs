@@ -18,6 +18,13 @@ ms.date: 07/01/2021
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
+## July 2021
+
+| Changes | Details |
+| --- | --- |
+| **Repair SQL Server IaaS extension in portal** | It's now possible to verify the status of your SQL Server IaaS Agent extension directly from the Azure portal, and repair it, if necessary. | 
+
+
 ## June 2021
 
 | Changes | Details |
