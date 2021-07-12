@@ -1,6 +1,7 @@
 ---
 title: "Azure Monitor docs: What's new for June 2021"
 description: "What's new in the Azure Monitor docs for June 2021."
+ms.topic: conceptual
 ms.date: 07/12/2021
 ---
 
