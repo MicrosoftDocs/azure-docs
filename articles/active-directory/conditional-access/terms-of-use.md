@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 07/12/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -198,16 +198,10 @@ Users are only required to accept the terms of use policy once and they will not
 
 Users can review and see the terms of use policies that they have accepted by using the following procedure.
 
-1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. In the upper right corner, click your name and select **Profile**.
-
-    ![MyApps site with the user's pane open](./media/terms-of-use/tou14.png)
-
-1. On your Profile page, click **Review terms of use**.
-
-    ![Profile page for a user showing the Review terms of use link](./media/terms-of-use/tou13a.png)
-
-1. From there, you can review the terms of use policies you have accepted.
+1. Sign in to [https://myaccount.microsoft.com/](https://myaccount.microsoft.com/).
+1. Select **Settings & Privacy**.
+1. Select **Privacy**.
+1. Under **Organization's notice**, select **View** next to the terms of use statement you want to review.
 
 ## Edit terms of use details
 
