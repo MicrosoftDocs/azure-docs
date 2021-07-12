@@ -4,7 +4,7 @@ description: This article describes how to use Azure API Management as an Event 
 ms.topic: conceptual
 author: dlepow
 ms.author: danlep
-ms.date: 07/02/2021
+ms.date: 07/12/2021
 ---
 
 # Azure API Management as an Event Grid source (Preview)
@@ -53,41 +53,21 @@ The following example shows the schema of a product created event. The schema of
 }]
 ```
 
-The following example shows the schema of a user deleted event. The schema of other API Management resource deleted events is similar. 
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example shows the schema of a product created event. The schema of other API Management resource created events is similar. 
 
 ```json
 [{
   "id": "81dac958-49cf-487e-8805-d0baf0ee485a",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
   "subject": "/users/apimuser-contoso-com",
   "data": {
     "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/users/apimuser-contoso-com"
   },
-  "eventType": "Microsoft.ApiManagement.UserDeleted",x`
-  "dataVersion": "1",
-  "metadataVersion": "1",
-  "eventTime": "2021-07-02T00:38:44.3978295Z"
-}]
-```
-# [Cloud event schema](#tab/cloud-event-schema)
-
-The following example shows the schema of an API updated event. The schema of other API Management resource updated events is similar. 
-
-```json
-[{
-  "id": "96c9a22d-c047-41f4-bd4f-7547df2bb884",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
-  "subject": "/apis/demo-conference-api;Rev=1",
-  "data": {
-    "updatedProperties": [
-      "path"
-    ],
-    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/demo-conference-api;Rev=1"
-  },
-  "eventType": "Microsoft.ApiManagement.APIUpdated",
-  "dataVersion": "1",
-  "metadataVersion": "1",
-  "eventTime": "2021-07-02T18:36:27.0214836Z"
+  "Type": "Microsoft.ApiManagement.UserDeleted",x`
+  "Time": "2021-07-02T00:38:44.3978295Z",
+  "specversion":"1.0"
 }]
 ```
 
@@ -134,6 +114,7 @@ The data object has the following properties:
 | `updatedProperties` | string[] | List of properties updated in the API Management resource that triggered an update event. |
 
 ## Tutorials and how-tos
+
 |Title  |Description  |
 |---------|---------|
 | [Send events from API Management to Event Grid](../api-management/how-to-event-grid.md)| How to subscribe to API Management events using Event Grid. |

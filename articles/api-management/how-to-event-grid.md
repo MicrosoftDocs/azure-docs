@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 07/02/2021
+ms.date: 07/12/2021
 ms.custom:
 ---
 
@@ -28,7 +28,7 @@ In this article, you subscribe to Event Grid events in your API Management insta
 
 In this section, you use a Resource Manager template to deploy a pre-built sample web application to Azure App Service. Later, you subscribe to your API Management instance's Event Grid events and specify this app as the endpoint to which the events are sent.
 
-To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the Azure CLI.
+To deploy the sample app, you can use the Azure CLI, Azure PowerShell, or the Azure portal. The following example uses the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) command in the Azure CLI.
 
 * Set `RESOURCE_GROUP_NAME` to the name of an existing resource group
 * Set `SITE_NAME` to a unique name for your web app
@@ -68,7 +68,7 @@ In Event Grid, you subscribe to a *topic* to tell it which events you want to tr
     * Select **Confirm selection**.
 1. Leave the settings on the remaining tabs at their default values, and then select **Create**.
 
-:::image type="content" source="media/how-to-event-grid/create-event-subscription.png" alt-text="Create an event subscription in Azure portal":::
+    :::image type="content" source="media/how-to-event-grid/create-event-subscription.png" alt-text="Create an event subscription in Azure portal":::
 
 ## Trigger and view events
 
@@ -82,7 +82,7 @@ Navigate to your Event Grid Viewer web app, and you should see the `ProductCreat
 
 ## Event Grid event schema
 
-API Management event data always includes the `resourceUri`, which identifies the API Management resource that triggered the event. For details about the  API Management event message schema, see the Event Grid documentation:
+API Management event data includes the `resourceUri`, which identifies the API Management resource that triggered the event. For details about the API Management event message schema, see the Event Grid documentation:
 
 [Azure Event Grid event schema for API Management](../event-grid/event-schema-api-management.md)
 
@@ -91,16 +91,3 @@ API Management event data always includes the `resourceUri`, which identifies th
 * [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md)
 * Learn more about [subscribing to events](../event-grid/subscribe-through-portal.md).
 
-<!-- LINKS - Internal -->
-
-[az-eventgrid-event-subscription-create]: /cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create
-[az-group-create]: /cli/azure/group#az_group_create
-
-
-
-Qs:
-
-1. SKU support?
-1. Requirement for system MSI
-1. Sample scenarios - email notificais?
-1. Are all 15 event types going to be supported?
