@@ -47,6 +47,10 @@ Running the primary and secondary connections of an ExpressRoute circuit in acti
 
 Alternatively, running the primary and secondary connections of an ExpressRoute circuit in active-active mode, results in only about half the flows failing and getting rerouted, following an ExpressRoute connection failure. Thus, active-active mode will significantly help improve the Mean Time To Recover (MTTR).
 
+> [!NOTE]
+> During a maintenance activity or in case of unplanned events impacting one of the connection, Microsoft will prefer to use AS path prepending to drain traffic over to the healthy connection. You will need to ensure the traffic is able to route over the healthy path when path prepend is configured from Microsoft and required route advertisements are configured appropriately to avoid any service disruption. 
+> 
+
 ### NAT for Microsoft peering 
 
 Microsoft peering is designed for communication between public end-points. So commonly, on-premises private endpoints are Network Address Translated (NATed) with public IP on the customer or partner network before they communicate over Microsoft peering. Assuming you use both the primary and secondary connections in active-active mode, where and how you NAT has an impact on how quickly you recover following a failure in one of the ExpressRoute connections. Two different NAT options are illustrated in the following figure:
