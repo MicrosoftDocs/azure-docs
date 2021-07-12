@@ -53,7 +53,6 @@ The information in the rest of this document provides information on what featur
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
 | **SDK support** |  |  | | 
-| [R SDK support](https://azure.github.io/azureml-sdk-for-r/reference/index.html)                                                              | Public Preview       | YES                | YES         |
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
@@ -165,7 +164,6 @@ The information in the rest of this document provides information on what featur
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
 | Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
 | **SDK support** |    | | |
-| R SDK support                                                              | Public Preview   | YES       | N/A        |
 | Python SDK support                                                         | GA               | YES       | N/A        |
 | **Security** |   | | |
 | Virtual Network (VNet) support for training                                | GA               | YES       | N/A        |
