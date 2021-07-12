@@ -406,7 +406,7 @@ Because your web app uses `AcquireTokenByAuthorizationCode`, your app needs to u
 
 
 ```CSharp
-IMsalTokenCacheProvider msalTokenCacheProvider = CreateTokenCache(cacheImplementation)
+app.UseInMemoryTokenCaches(); // or a distributed token cache.
 msalTokenCacheProvider.Initialize(app.UserTokenCache);
 ```
 
