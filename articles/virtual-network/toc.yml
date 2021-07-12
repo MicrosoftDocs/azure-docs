@@ -230,6 +230,8 @@
       items:
       - name: Create public IP prefix - Portal
         href: create-public-ip-prefix-portal.md
+      - name: Create public IP prefix - PowerShell
+        href: create-public-ip-prefix-powershell.md
       - name: Create public IPv6 prefix
         href: ipv6-reserve-public-ip-address-prefix.md
     - name: Upgrade a public IP address
