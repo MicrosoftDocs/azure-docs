@@ -60,7 +60,7 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 - A resource (app ID URI) as a first parameter
 - `IClientAssertionCertificate` or `ClientAssertion` as the second parameter
 
-`AuthenticationContext.AcquireTokenAsync` doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using an [on-behalf-of (OBO) flow](/azure/active-directory/develop/msal-net-migration-confidential-client?#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
+`AuthenticationContext.AcquireTokenAsync` doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using the [Web API calling downstream web APIs ](/azure/active-directory/develop/msal-net-migration-confidential-client?#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
 
 #### Update the code of daemon scenarios
 
