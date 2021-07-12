@@ -41,7 +41,7 @@ New-AzResourceGroup @rg
 
 In this section, you'll create a zone redundant, zonal, and non-zonal public IP prefix using Azure PowerShell. 
 
-The prefix link in the examples is:
+The prefixes in the examples are:
 
 * **IPv4** - /28 (16 addresses)
 * **IPv6** - /124 (16 addresses)
@@ -52,7 +52,7 @@ Create a public IP prefix with [New-AzPublicIpPrefix](/powershell/module/az.netw
 
 ### Zone redundant IPv4 prefix
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **--IpAddressVersion** parameter. To create a zone redundant IPv4 prefix, enter **1,2,3** in the **--Zone** parameter.
+To create a IPv4 public IP prefix, enter **IPv4** in the **IpAddressVersion** parameter. To create a zone redundant IPv4 prefix, enter **1,2,3** in the **Zone** parameter.
 
 ```azurepowershell-interactive
 $ipv4 =@{
@@ -68,7 +68,7 @@ New-AzPublicIpPrefix @ipv4
 
 ### Zonal IPv4 prefix
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **--IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
+To create a IPv4 public IP prefix, enter **IPv4** in the **IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
 
 ```azurepowershell-interactive
 $ipv4 =@{
@@ -87,7 +87,7 @@ New-AzPublicIpPrefix @ipv4
 
 ### Non-zonal IPv4 prefix
 
-To create a IPv4 public IP prefix, enter **IPv4** in the **--IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP prefix.
+To create a IPv4 public IP prefix, enter **IPv4** in the **IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP prefix.
 
 ```azurepowershell-interactive
 $ipv4 =@{
@@ -105,7 +105,7 @@ The removal of the **zone** parameter in the command is valid in all regions.
 The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 ### Zone redundant IPv6 prefix
 
-To create a IPv4 public IP prefix, enter **IPv6** in the **--IpAddressVersion** parameter. To create a zone redundant IPv6 prefix, enter **1,2,3** in the **--Zone** parameter.
+To create a IPv4 public IP prefix, enter **IPv6** in the **IpAddressVersion** parameter. To create a zone redundant IPv6 prefix, enter **1,2,3** in the **Zone** parameter.
 
 ```azurepowershell-interactive
 $ipv6 =@{
@@ -120,7 +120,7 @@ New-AzPublicIpPrefix @ipv6
 ```
 ### Zonal IPv6 prefix
 
-To create a IPv6 public IP prefix, enter **IPv6** in the **--IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
+To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
 
 ```azurepowershell-interactive
 $ipv6 =@{
@@ -139,7 +139,7 @@ New-AzPublicIpPrefix @ipv6
 
 ### Non-zonal IPv6 prefix
 
-To create a IPv6 public IP prefix, enter **IPv6** in the **--IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP prefix.
+To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP prefix.
 
 ```azurepowershell-interactive
 $ipv6 =@{
@@ -163,7 +163,7 @@ Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.ne
 
 ### Zone redundant IPv4 address
 
-To create a IPv4 public IP address, enter **IPv4** in the **--IpAddressVersion** parameter. To create a zone redundant IPv4 address, enter **1,2,3** in the **--Zone** parameter.
+To create a IPv4 public IP address, enter **IPv4** in the **IpAddressVersion** parameter. To create a zone redundant IPv4 address, enter **1,2,3** in the **Zone** parameter.
 
 ```azurepowershell-interactive
 $pf =@{
@@ -188,7 +188,7 @@ New-AzPublicIpAddress @ipv4
 
 ### Zonal IPv4 address
 
-To create a IPv4 public IP address, enter **IPv4** in the **--IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
+To create a IPv4 public IP address, enter **IPv4** in the **IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
 
 ```azurepowershell-interactive
 $pf =@{
@@ -216,7 +216,7 @@ New-AzPublicIpAddress @ipv4
 
 ### Non-zonal IPv4 address
 
-To create a IPv4 public IP address, enter **IPv4** in the **--IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP address.
+To create a IPv4 public IP address, enter **IPv4** in the **IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP address.
 
 ```azurepowershell-interactive
 $pf =@{
@@ -245,7 +245,7 @@ The removal of the **zone** parameter is the default selection for standard publ
 
 ### Zone redundant IPv6 address
 
-To create a IPv6 public IP prefix, enter **IPv6** in the **--IpAddressVersion** parameter. To create a zone redundant IPv6 address, enter **1,2,3** in the **--Zone** parameter.
+To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** parameter. To create a zone redundant IPv6 address, enter **1,2,3** in the **Zone** parameter.
 
 
 ```azurepowershell-interactive
@@ -271,7 +271,7 @@ New-AzPublicIpAddress @ipv6
 
 ### Zonal IPv6 address
 
-To create a IPv4 public IP address, enter **IPv6** in the **--IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
+To create a IPv4 public IP address, enter **IPv6** in the **IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
 
 ```azurepowershell-interactive
 $pf =@{
@@ -299,7 +299,7 @@ New-AzPublicIpAddress @ipv6
 
 ### Non-zonal IPv6 address
 
-To create a IPv6 public IP address, enter **IPv6** in the **--IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP address.
+To create a IPv6 public IP address, enter **IPv6** in the **IpAddressVersion** parameter. Remove the **Zone** parameter to create a non-zonal IP address.
 
 ```azurepowershell-interactive
 $pf =@{
