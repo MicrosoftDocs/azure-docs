@@ -30,7 +30,7 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 ### How quickly will the Healthcare APIs be restored at the request of customers or when there is a regional or global service outage?
  
-Customers may request that the Healthcare APIs be restored through the backup and restore procedure based on the service request priority. For customers that have the disaster recovery feature enabled, a fully operational environment is configured and activated in a secondary region and will be used as the primary region in the event of disaster. **Currently our disaster recovery plan on the backup and restore procedure is in public preview; more details will be available by GA.**
+Customers may request that the Healthcare APIs be restored through the backup and restore procedure based on the service request priority. For customers that have the disaster recovery feature enabled, a fully operational environment is configured and activated in a secondary region and will be used as the primary region in the event of disaster. **Currently Healthcare APIs is in public preview; more details on our disaster recovery plan will be available by GA.**
 
 ### What FHIR version do you support?
 
@@ -45,7 +45,7 @@ The FHIR service is our implementation of the FHIR specification that sits in th
 * The FHIR service has a limit of 4TB and is in public preview while the Azure API for FHIR supports more than 4TB and is GA.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
 * Chained searching and reverse chained searching does not have a limit on number of resources returned
-* The Azure API for FHIR has more platform features (such as Private Link, CMK) that are not yet available in the FHIR service in the Azure Healthcare APIs.
+* The Azure API for FHIR has more platform features (such as Private Link, CMK) that are not yet available in the FHIR service in the Azure Healthcare APIs. More details will follow on these features by GA.
 
 ### What's the difference between 'FHIR service in the Azure Healthcare APIs' and the 'FHIR server'?
 
@@ -127,8 +127,6 @@ We have a collection of reference architectures available on the [Health Archite
 ### Where can I see an example of connecting a web application to FHIR service?
 
 We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to FHIR service.  
-
-## FHIR service Features and Services
  
 ### Does the Healthcare APIs support encryption with customer managed keys (CMK)?
  
