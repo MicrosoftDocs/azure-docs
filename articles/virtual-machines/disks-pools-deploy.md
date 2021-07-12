@@ -43,9 +43,7 @@ Register your subscription to the **Microsoft.StoragePool** provider, to be able
 
 Once your subscription has been registered, you can deploy a disk pool.
 
-## Get started
-
-### Delegate subnet permission
+## Delegate subnet permission
 
 For your disk pool to work with your client machines, you must delegate a subnet to your Azure disk pool. When creating a disk pool, you specify a virtual network and the delegated subnet. You may either create a new subnet or use an existing one and delegate to the **Microsoft.StoragePool/diskPools** resource provider.
 
@@ -56,7 +54,7 @@ For your disk pool to work with your client machines, you must delegate a subnet
 
 For more information on subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
-### Assign StoragePool resource provider permissions
+## Assign StoragePool resource provider permissions
 
 For a disk to be able to be used in a disk pool, it must meet the following requirements:
 
@@ -75,8 +73,9 @@ For a disk to be able to be used in a disk pool, it must meet the following requ
 1. For **Assign access to**, select **User, group, or service principal**.
 1. Select **+ Select members** and then search for **StoragePool Resource Provider**, select it, and save.
 
-### Create a disk pool
-For the optimal performance, deploy the disk pool in the same Availability Zone of your clients. If you are deploying a disk pool for an Azure VMware Solution cloud and need guidance on identifying the Availability Zone, fill in this [form](https://aka.ms/DiskPoolCollocate).
+## Create a disk pool
+
+For optimal performance, deploy the disk pool in the same Availability Zone of your clients. If you are deploying a disk pool for an Azure VMware Solution cloud and need guidance on identifying the Availability Zone, fill in this [form](https://aka.ms/DiskPoolCollocate).
 
 # [Portal](#tab/azure-portal)
 
@@ -88,9 +87,9 @@ For the optimal performance, deploy the disk pool in the same Availability Zone 
 
     :::image type="content" source="media/disks-pools-deploy/create-a-disk-pool.png" alt-text="Screenshot of the basic pane for create a disk pool.":::
 
-#### Add disks
+### Add disks
 
-##### Prerequisites
+#### Prerequisites
 
 To add a disk, it must meet the following requirements:
 

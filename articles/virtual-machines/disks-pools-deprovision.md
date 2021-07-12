@@ -41,7 +41,7 @@ When you delete a disk pool, all the resources in the managed resource group are
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for **Disk pool** and select it, then select the disk pool you want to delete.
-1. Select **Delete** at the top of the blade.
+1. Select **Delete** at the top of the pane.
 
 # [PowerShell](#tab/azure-powershell)
 
