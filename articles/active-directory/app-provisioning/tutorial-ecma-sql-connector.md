@@ -124,7 +124,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
      |Property|Value|
      |-----|-----|
-     |DSN File|Go to the file created at the beginning of the tutorial in Step 2.|
+     |DSN File|Go to the file created at the beginning of the tutorial in "Create the DSN connection file."|
      |User Name|contoso\administrator|
      |Password|Enter the administrator's password.|
  1. On the **Schema 1** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.

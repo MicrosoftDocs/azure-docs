@@ -129,4 +129,4 @@ The following attributes and objects aren't supported:
    The attributes that the target application supports are discovered and surfaced in the Azure portal in **Attribute Mappings**. Newly added attributes will continue to be discovered. If an attribute type has changed, for example, string to Boolean, and the attribute is part of the mappings, the type won't change automatically in the Azure portal. Customers will need to go into advanced settings in mappings and manually update the attribute type.
 
 ## Next steps
-- [How provisioning works](how-provisioning-works.md)
+[How provisioning works](how-provisioning-works.md)

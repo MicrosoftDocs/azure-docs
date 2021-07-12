@@ -36,7 +36,7 @@ App provisioning lets you:
 - **Use rich customization**: Take advantage of customizable attribute mappings that define what user data should flow from the source system to the target system.
 - **Get alerts for critical events**: The provisioning service provides alerts for critical events and allows for Log Analytics integration where you can define custom alerts to suit your business needs.
 
-## What is System for Cross-domain Identity Management?
+## What is SCIM?
 
 To help automate provisioning and deprovisioning, apps expose proprietary user and group APIs. But anyone who's tried to manage users in more than one app will tell you that every app tries to perform the same actions, such as creating or updating users, adding users to groups, or deprovisioning users. Yet, all these actions are implemented slightly differently by using different endpoint paths, different methods to specify user information, and a different schema to represent each element of information.
 
