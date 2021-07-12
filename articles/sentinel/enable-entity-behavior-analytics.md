@@ -63,7 +63,7 @@ To enable or disable this feature (these prerequisites are not required to use t
 > [!NOTE]
 > Enabling UEBA grants consent to Azure Sentinel to synchronize your Azure Active Directory and create profiles for each user in your organization.
 >
-> Synchronized Azure AD data is stored for Azure Sentinel in the [IdentityInfo table](ueba-enrichments.md#identityinfo-table) in your Log Analytics workspace, and includes a snapshot of your user profiles, such as user metadata, group information, and Azure AD roles assigned.
+> Synchronized Azure AD data is stored for Azure Sentinel in the [IdentityInfo table](ueba-enrichments.md##identityinfo-table-public-preview) in your Log Analytics workspace, and includes a snapshot of your user profiles, such as user metadata, group information, and Azure AD roles assigned.
 >
 
 ## Next steps

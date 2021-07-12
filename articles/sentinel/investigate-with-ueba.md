@@ -91,7 +91,7 @@ Embed data from the **IdentityInfo table** to fine-tune your analytics rules to 
 
 The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user.
 
-For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table) in the UEBA enrichments reference.
+For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 

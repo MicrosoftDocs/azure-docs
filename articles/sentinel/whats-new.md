@@ -42,7 +42,7 @@ Now, having [UEBA enabled](enable-entity-behavior-analytics.md) in your Azure Se
 
 Use the **IdentityInfo** table during investigations and when fine-tuning analytics rules for your organization to reduce false positives.
 
-For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
+For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
 
 
 ### Support for data residency in more geos
