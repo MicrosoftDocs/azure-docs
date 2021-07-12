@@ -50,9 +50,9 @@ Customize the user experience, adjust the capabilities accordingly to your needs
 
 ## Quality and security
 
-The Teams Embed SDK is built under Teams Quality standards so for video quality you can see [the bandwidth requirements.](https://docs.microsoft.com/microsoftteams/prepare-network#bandwidth-requirements)
+The Teams Embed SDK is built under Teams Quality standards so for video quality you can see [the bandwidth requirements.](/microsoftteams/prepare-network#bandwidth-requirements)
 
-You can use an Azure Communication Service access token, more information [how generate and manage access tokens.](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+You can use an Azure Communication Service access token, more information [how generate and manage access tokens.](../../quickstarts/access-tokens.md)
 
 ## Capabilities
 

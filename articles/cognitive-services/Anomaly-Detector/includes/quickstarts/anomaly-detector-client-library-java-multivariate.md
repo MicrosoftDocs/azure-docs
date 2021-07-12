@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for Java to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library reference documentation](https://go.microsoft.com/fwlink/?linkid=2165600&clcid=0x409) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/) | [Sample code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)
+[Library reference documentation](/java/api/com.azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/) | [Sample code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)
 
 ## Prerequisites
 
@@ -286,4 +286,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 * [What is the Anomaly Detector API?](../../overview-multivariate.md)
-* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

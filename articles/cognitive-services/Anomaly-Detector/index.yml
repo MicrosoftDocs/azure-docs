@@ -145,10 +145,10 @@ landingContent:
         - text: REST API (multivariate)
           url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
         - text: .NET SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165601&clcid=0x409
+          url: /dotnet/api/azure.ai.anomalydetector
         - text: Python SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165298&clcid=0x409
+          url: /python/api/azure-ai-anomalydetector/azure.ai.anomalydetector
         - text: Java SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165600&clcid=0x409
+          url: /java/api/com.azure.ai.anomalydetector
         - text: Node.js SDK (multivariate)
-          url: https://go.microsoft.com/fwlink/?linkid=2165523&clcid=0x409
+          url: /javascript/api/overview/azure/ai-anomaly-detector-readme

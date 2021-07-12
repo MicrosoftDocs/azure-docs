@@ -21,7 +21,7 @@ This guide shows you how to export your model to an ONNX file with the Python SD
 
 ## Create a training client
 
-You need to have a [CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) object to export a model iteration. Create variables for your Custom Vision training resources Azure endpoint and subscription keys, and use them to create the client object.
+You need to have a [CustomVisionTrainingClient](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient) object to export a model iteration. Create variables for your Custom Vision training resources Azure endpoint and subscription keys, and use them to create the client object.
 
 ```python
 ENDPOINT = "PASTE_YOUR_CUSTOM_VISION_TRAINING_ENDPOINT_HERE"
@@ -32,7 +32,7 @@ trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 ```
 
 > [!IMPORTANT]
-> Remember to remove the keys from your code when youre done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article.
+> Remember to remove the keys from your code when youre done, and never post them publicly. For production, consider using a secure way of storing and accessing your credentials. For more information, see the Cognitive Services [security](../cognitive-services-security.md) article.
 
 ## Call the export method
 
@@ -50,7 +50,7 @@ flavor = "ONNX10"
 export = trainer.export_iteration(project_id, iteration_id, platform, flavor, raw=False)
 ```
 
-For more information, see the **[export_iteration](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
+For more information, see the **[export_iteration](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#export-iteration-project-id--iteration-id--platform--flavor-none--custom-headers-none--raw-false----operation-config-)** method.
 
 ## Download the exported model
 
@@ -69,7 +69,7 @@ while (export.status == "Exporting"):
     print("Export status is: ", export.status)
 ```
 
-For more information, see the **[get_exports](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** method.
+For more information, see the **[get_exports](/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#get-exports-project-id--iteration-id--custom-headers-none--raw-false----operation-config-)** method.
 
 Then, you can programmatically download the exported model to a location on your device.
 
@@ -90,4 +90,3 @@ Integrate your exported model into an application by exploring one of the follow
 * See the sample for [CoreML model in an iOS application](https://go.microsoft.com/fwlink/?linkid=857726) for real-time image classification with Swift.
 * See the sample for [Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) for real-time image classification on Android.
 * See the sample for [CoreML model with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) for real-time image classification in a Xamarin iOS app.
-

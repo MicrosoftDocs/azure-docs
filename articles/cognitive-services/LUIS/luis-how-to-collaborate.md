@@ -22,7 +22,7 @@ An app owner can add contributors to apps. These contributors can modify the mod
 
 You have migrated if your LUIS authoring experience is tied to an Authoring resource on the **Manage -> Azure resources** page in the LUIS portal.
 
-In the Azure portal, find your Language Understanding (LUIS) authoring resource. It has the type `LUIS.Authoring`. In the resource's **Access Control (IAM)** page, add the role of **contributor** for the user that you want to contribute. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+In the Azure portal, find your Language Understanding (LUIS) authoring resource. It has the type `LUIS.Authoring`. In the resource's **Access Control (IAM)** page, add the role of **contributor** for the user that you want to contribute. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## View the app as a contributor
 
