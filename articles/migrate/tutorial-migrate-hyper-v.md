@@ -107,10 +107,10 @@ Run the following commands on each host, as described below:
 1. Register the Hyper-V host to Azure Migrate.
 
     ```
-    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure> 
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r> 
     ```
 
-    **Configure proxy rules after the registration process:** After the registration process is complete, if you need to connect to the internet via a proxy, use the /proxyaddress and /proxyport parameters to specify the proxy address (in the form http://ProxyIPAddress) and proxy listening port.
+    **Configure proxy rules:** After the registration is complete, if you need to connect to the internet via a proxy, use the /proxyaddress and /proxyport parameters to specify the proxy address (in the form http://ProxyIPAddress) and proxy listening port.
 
     ``` 
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure /proxyaddress http://127.0.0.1 /proxyport 8888
@@ -122,10 +122,10 @@ Run the following commands on each host, as described below:
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure /proxyaddress http://127.0.0.1 /proxyport 8888 /proxyusername <username> /proxypassword <password>
     ```
 
-    **Configure proxy bypass rules during the registration process:** You can add a list of URLs or IP addresses that should bypass the proxy server.Use the /AddBypassUrls parameter to configure proxy bypass rules.
+    **Configure proxy bypass rules:** After the registration, you can add a list of URLs or IP addresses that should bypass the proxy server. Use the /AddBypassUrls parameter to configure proxy bypass rules.
 
     ```
-    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /AddBypassUrls windowsazure.com
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /AddBypassUrls windowsazure.com
     ```
 
     
