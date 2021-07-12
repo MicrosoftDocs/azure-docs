@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/09/2021
+ms.date: 07/12/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
@@ -18,7 +18,7 @@ ms.author: alkohli
 
 This article provides an overview of the use of GPU VMs on Azure Stack Edge Pro GPU devices, including supported OSs, GPU drivers, and VM sizes and deployment with Kubernetes clusters.
 
-To know more about VMs that can be deployed on your Azure Stack Edge device, see [Virtual machines on Azure Stack Edge devices](azure-stack-edge-gpu-virtual-machine-overview).
+To know more about VMs that can be deployed on your Azure Stack Edge device, see [Virtual machines on Azure Stack Edge devices](azure-stack-edge-gpu-virtual-machine-overview.md).
 
 ## About GPU VMs
 
@@ -28,7 +28,7 @@ Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 G
 
 For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
 
-For supported scenarios and key capabilities for GPU-accelerated workloads, see [What is Azure Stack Edge Pro with GPU?](databox-online/azure-stack-edge-gpu-overview.md).
+For supported scenarios and key capabilities for GPU-accelerated workloads, see [What is Azure Stack Edge Pro with GPU?](azure-stack-edge-gpu-overview.md).
 
 ## Supported OS and GPU drivers 
 
