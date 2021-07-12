@@ -32,7 +32,7 @@ You can monitor the following metrics to help determine if you need to scale.
 
 If you determine your cache is no longer meeting your application's requirements, you can scale to an appropriate cache pricing tier for your application. You can choose a larger or smaller cache to match your needs.
 
-For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](cache-planning-faq#azure-cache-for-redis-performance) to view the complete list of available SKU specifications.
+For more information on determining the cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier) and [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq) to view the complete list of available SKU specifications.
 
 ## Scale a cache
 
@@ -42,7 +42,7 @@ To scale your cache, [browse to the cache](cache-configure.md#configure-azure-ca
 
 On the left, select the pricing tier you want from **Select pricing tier** and **Select**.
 
-![Pricing tier][redis-cache-pricing-tier-blade]
+:::image type="content" source="media/cache-how-to-scale/redis-cache-pricing-tier-blade.png" alt-text="redis cache pricing tier screenshot":::
 
 You can scale to a different pricing tier with the following restrictions:
 
@@ -55,7 +55,7 @@ You can scale to a different pricing tier with the following restrictions:
 
 While the cache is scaling to the new pricing tier, a **Scaling** status is displayed on the left in the **Azure Cache for Redis**.
 
-![Scaling][redis-cache-scaling]
+:::image type="content" source="media/cache-how-to-scale/redis-cache-scaling.png" alt-text="redis cache scaling":::
 
 When scaling is complete, the status changes from **Scaling** to **Running**.
 
