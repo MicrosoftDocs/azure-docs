@@ -10,7 +10,7 @@ ms.date: 06/15/2021
 Microsoft Azure native services let you monitor, manage, and protect your virtual machines (VMs) in a hybrid environment (Azure, Azure VMware Solution, and on-premises). The Azure native services that you can integrate with Azure VMware Solution include:
 
 - **Log Analytics workspace:** Each workspace has its own data repository and configuration for storing log data. Data sources and solutions are configured to store their data in a specific workspace. Easily deploy the Log Analytics agent using Azure Arc enabled servers VM extension support for new and existing VMs. 
-- **Azure Security Center:** Unified infrastructure security management system that strengthens security of data centers, and provides advanced threat protection across hybrid workloads in the cloud or on premises. It assesses the vulnerability of Azure VMware Solution VMs and raise alerts as needed. To enable Azure Security Center, see [Integrate Azure Security Center with Azure VMware Solution](azure-security-integration.md).
+- **Azure Security Center:** Unified infrastructure security management system that strengthens security of data centers, and provides advanced threat protection across hybrid workloads in the cloud or on premises. It assesses the vulnerability of Azure VMware Solution VMs and raises alerts as needed. To enable Azure Security Center, see [Integrate Azure Security Center with Azure VMware Solution](azure-security-integration.md).
 - **Azure Sentinel:** A cloud-native, security information event management (SIEM) solution. It provides security analytics, alert detection, and automated threat response across an environment. Azure Sentinel is built on top of a Log Analytics workspace.
 - **Azure Arc:** Extends Azure management to any infrastructure, including Azure VMware Solution, on-premises, or other cloud platforms. 
 - **Azure Update Management:** Manages operating system updates for your Windows and Linux machines in a hybrid environment.
@@ -28,7 +28,7 @@ In this article, you'll integrate Azure native services in your Azure VMware Sol
    >[!TIP]
    >You can [use an Azure Resource Manager (ARM) template to create an Automation account](../automation/quickstart-create-automation-account-template.md). Using an ARM template takes fewer steps compared to other deployment methods.
 
-1. [Enable Update Management from an Automation account](../automation/update-management/enable-from-automation-account.md).  This links your Log Analytics workspace to your automation account. It also enables Azure and non-Azure VMs in Update Management.
+1. [Enable Update Management from an Automation account](../automation/update-management/enable-from-automation-account.md).  It links your Log Analytics workspace to your automation account. It also enables Azure and non-Azure VMs in Update Management.
 
    - If you have a workspace, select **Update management**. Then select the Log Analytics workspace, and Automation account and select **Enable**. The setup takes up to 15 minutes to complete.
 

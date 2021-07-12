@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI and REST API
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure CLI and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
 ## Azure CLI

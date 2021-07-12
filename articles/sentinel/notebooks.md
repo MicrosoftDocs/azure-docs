@@ -51,7 +51,7 @@ As Azure Sentinel notebooks run on [Azure Machine Learning](/azure/machine-learn
 |Permission  |Description  |
 |---------|---------|
 |**Azure Sentinel permissions**     |   Like other Azure Sentinel resources, to access notebooks on Azure Sentinel Notebooks blade, an Azure Sentinel Reader, Azure Sentinel Responder, or Azure Sentinel Contributor role is required. <br><br>For more information, see [Permissions in Azure Sentinel](roles.md).|
-|**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](/azure/machine-learning/how-to-assign-roles) and [Azure built-in roles](/azure/role-based-access-control/built-in-roles). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](/azure/role-based-access-control/role-assignments-portal.md)<br>    - [PowerShell](/azure/role-based-access-control/role-assignments-powershell.md)<br>    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli.md)<br>   - [REST API](../role-based-access-control/role-assignments-rest.md)<br>    - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)<br> - [Azure Machine Learning CLI ](/azure/machine-learning/how-to-assign-roles?#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](/azure/machine-learning/how-to-assign-roles#create-custom-role). |
+|**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](/azure/machine-learning/how-to-assign-roles) and [Azure built-in roles](/azure/role-based-access-control/built-in-roles). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](/azure/role-based-access-control/role-assignments-portal)<br>    - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)<br>    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)<br>   - [REST API](/azure/role-based-access-control/role-assignments-rest)<br>    - [Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template)<br> - [Azure Machine Learning CLI ](/azure/machine-learning/how-to-assign-roles?#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](/azure/machine-learning/how-to-assign-roles#create-custom-role). |
 |     |         |
 
 
@@ -81,7 +81,7 @@ This procedure describes how to create an Azure ML workspace from Azure Sentinel
 
 1. On the **Review + create** tab, review the information to verify that it's correct, and then select **Create** to start deploying your workspace. For example:
 
-    :::image type="content" source="media/notebooks/sentinel-notebook-aml-create-laststep.png" alt-text="Review + create your Machine Learning workspace from Azure Sentinel.":::
+    :::image type="content" source="media/notebooks/machine-learning-create-last-step.png" alt-text="Review + create your Machine Learning workspace from Azure Sentinel.":::
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
@@ -89,7 +89,7 @@ This procedure describes how to create an Azure ML workspace from Azure Sentinel
 
     If you have multiple notebooks, make sure to select a default AML workspace to use when launching your notebooks. For example:
 
-    :::image type="content" source="media/notebooks/sentinel-notebooks-default-aml.png" alt-text="Select a default AML workspace for your notebooks.":::
+    :::image type="content" source="media/notebooks/default-machine-learning.png" alt-text="Select a default AML workspace for your notebooks.":::
 
 
 ## Launch a notebook in your Azure ML workspace
@@ -115,7 +115,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     For example:
 
-    :::image type="content" source="media/notebooks/sentinel-notebooks-on-aml.png" alt-text="Launch your notebook in your AML workspace.":::
+    :::image type="content" source="media/notebooks/sentinel-notebooks-on-machine-learning.png" alt-text="Launch your notebook in your AML workspace.":::
 
 1. At the top of the page, select a **Compute** instance to use for your notebook server.
 
@@ -134,9 +134,9 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Restart a notebook kernel.":::
 
-> [!NOTE]
-> If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](/azure/machine-learning/how-to-run-jupyter-notebooks).
->
+## Troubleshooting
+
+If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](/azure/machine-learning/how-to-run-jupyter-notebooks#troubleshooting).
 
 
 ## Next steps

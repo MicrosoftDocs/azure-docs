@@ -10,7 +10,7 @@ ms.topic: guide
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma
-ms.date: 05/24/2021
+ms.date: 06/30/2021
 ---
 
 # Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance
@@ -36,6 +36,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Import data from Blob storage using ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-sql-copy) | This Azure Resource Manager template creates an instance of Azure Data Factory V2 that copies data from Azure Blob storage to SQL Database.|
 | [HDInsight cluster with a database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-with-sql-database) | This template allows you to create an HDInsight cluster, a logical SQL server, a database, and two tables. This template is used by the [Use Sqoop with Hadoop in HDInsight article](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
 | [Azure Logic App that runs a SQL Stored Procedure on a schedule](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-sql-proc) | This template allows you to create a logic app that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.|
+| [Provision server with Azure AD-only authentication enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server-aad-only-auth) | This template creates a SQL logical server with an Azure AD admin set for the server and Azure AD-only authentication enabled. |
 
 ## [Azure SQL Managed Instance](#tab/managed-instance)
 

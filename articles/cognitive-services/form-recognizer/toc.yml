@@ -26,12 +26,12 @@
   - name: "Python"
     href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
   - name: "JavaScript"
-    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/ 
+    href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: Responsible use of AI
   items:
   - name: Transparency notes
     items:
-    - name: Azure Form Recognizer use cases
+    - name: Azure Form Recognizer scenarios
       href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
     - name: Characteristics and limitations
       href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
@@ -41,6 +41,8 @@
     href: /legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/cognitive-services/form-recognizer/context/context
 - name: How-to guides
   items:
+  - name:   Deploy the sample labeling tool
+    href: deploy-label-tool.md
   - name: Train a custom model with the sample labeling tool
     href: label-tool.md
   - name: Use containers
@@ -63,6 +65,8 @@
     items:
     - name: Set up Virtual Networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/form-recognizer/context/context
+    - name: Create and use managed identity
+      href: managed-identity-byos.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
@@ -95,7 +99,7 @@
     items:
     - name: REST API v2.1 reference
       href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
-    - name: SDKs v3.1.0
+    - name: Client libraries and SDKs
       items:
       - name: .NET
         href: /dotnet/api/overview/azure/ai.formrecognizer-readme

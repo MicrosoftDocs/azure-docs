@@ -63,9 +63,17 @@ For premium SSDs, credit-based bursting is available for disk sizes P20 and smal
 VM-level bursting only uses the credit-based model for bursting, it is enabled by default for all VMs that support it.
 
 VM-level bursting is enabled in all regions in the Azure Public Cloud on these supported sizes: 
+- [Dsv4-series](../articles/virtual-machines/dv4-dsv4-series.md)
+- [Dasv4-series](../articles/virtual-machines/dav4-dasv4-series.md)
+- [Ddsv4-series](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Esv4-series](../articles/virtual-machines/ev4-esv4-series.md)
+- [Easv4-series](../articles/virtual-machines/eav4-easv4-series.md)
+- [Edsv4-series](../articles/virtual-machines/edv4-edsv4-series.md)
+- [B-series](../articles/virtual-machines/sizes-b-series-burstable.md)
+- [Fsv2-series](../articles/virtual-machines/fsv2-series.md)
+- [Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
+- [Esv3-series](../articles/virtual-machines/ev3-esv3-series.md)
 - [Lsv2-series](../articles/virtual-machines/lsv2-series.md)
-- [Dv3 and Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
-- [Ev3 and Esv3-series](../articles/virtual-machines/ev3-esv3-series.md)
 
 ## Bursting flow
 
@@ -115,7 +123,7 @@ Then the application needs to process a batched job that requires 192 MB/s. 2 MB
     - Max burst MB/s: 1,280
 - P50 OS Disk
     - Provisioned MB/s: 250 
-- 2 P10 Data Disks 
+- 2 P50 Data Disks 
     - Provisioned MB/s: 250
 
  After the initial boot up, an application is run on the VM and has a non-critical workload. This workload requires 30 MB/s that gets spread evenly across all the disks.

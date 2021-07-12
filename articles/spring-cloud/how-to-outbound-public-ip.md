@@ -1,7 +1,7 @@
 ---
 title: How - to identify outbound public IP addresses in Azure Spring Cloud 
 description: How to view the static outbound public IP addresses to communicate with external resources, such as Database, Storage, Key Vault, etc.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to

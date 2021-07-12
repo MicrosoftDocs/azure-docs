@@ -101,6 +101,8 @@
       href: deploy-iot-edge-device.md
     - name: Deploy to an IoT Edge for Linux on Windows
       href: deploy-iot-edge-linux-on-windows.md
+    - name: Deploy on Azure Stack Edge
+      href: deploy-on-stack-edge.md
   - name: Playback
     items:      
     - name: Playback a recording
