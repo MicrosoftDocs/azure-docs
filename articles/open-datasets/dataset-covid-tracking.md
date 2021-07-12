@@ -28,7 +28,7 @@ Modified versions of the dataset are available in CSV, JSON, JSON-Lines, and Par
 All modified versions have ISO 3166 subdivision codes and load times added, and use lower case column names with underscore separators.
 
 Raw data:
-https://pandemicdatalake.blob.core.windows.net/public/raw/covid-19/covid_tracking/latest/daily.json
+'https://pandemicdatalake.blob.core.windows.net/public/raw/covid-19/covid_tracking/latest/daily.json'
 
 Previous versions of modified and raw data:
 https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/covid_tracking/

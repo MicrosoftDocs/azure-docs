@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 07/12/2021
 ms.reviewer: sngun
 
 ---
@@ -151,6 +151,7 @@ Azure Cosmos items support the following operations. You can use any of the Azur
 
 Learn how to manage your Azure Cosmos account and other concepts:
 
+* To learn more, see the [Azure Cosmos DB SQL API](/learn/modules/intro-to-azure-cosmos-db-core-api/) learn module.
 * [How-to manage your Azure Cosmos account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)

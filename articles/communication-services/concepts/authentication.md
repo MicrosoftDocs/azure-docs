@@ -8,7 +8,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -45,7 +45,7 @@ If you wish to call ACS' APIs manually using an access key, then you will need t
 
 Managed Identities, provides superior security and ease of use over other authorization options. For example, by using Azure AD, you avoid having to store your account access key within your code, as you do with Access Key authorization. While you can continue to use Access Key authorization with communication services applications, Microsoft recommends moving to Azure AD where possible. 
 
-To set up a managed identity, [create a registered application from the Azure CLI](../quickstarts/managed-identity-from-cli.md). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [managed identity](../quickstarts/managed-identity.md) is used.
+To set up a managed identity, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [managed identity](../quickstarts/identity/service-principal.md) is used.
 
 ### User Access Tokens
 
@@ -55,7 +55,7 @@ User access tokens are generated using the Identity SDK and are associated with 
 
 > [!div class="nextstepaction"]
 > [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
-> [Create an Azure Active Directory managed identity application from the Azure CLI](../quickstarts/managed-identity-from-cli.md)
+> [Create an Azure Active Directory managed identity application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md)
 > [Create User Access Tokens](../quickstarts/access-tokens.md)
 
 For more information, see the following articles:

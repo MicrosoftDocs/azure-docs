@@ -1,10 +1,10 @@
 ---
-title: Enable public internet access in Azure VMware Solution
+title: Enable public internet for Azure VMware Solution workloads
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 06/25/2021
 ---
-# Enable public internet access in Azure VMware Solution
+# Enable public internet for Azure VMware Solution workloads
 
 Public IP is a feature in Azure VMware Solution connectivity. It makes resources, such as web servers, virtual machines (VMs), and hosts accessible through a public network. 
 
@@ -34,7 +34,7 @@ This article details how you can use the public IP functionality in Virtual WAN.
 
 ## Reference architecture
 
-:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Public IP architecture diagram" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
+:::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagram showing the public IP architecture for Azure VMware Solution." border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
 The architecture diagram shows a web server hosted in the Azure VMware Solution environment and configured with RFC1918 private IP addresses.  The web service is made available to the internet through Virtual WAN public IP functionality.  Public IP is typically a destination NAT translated in Azure Firewall. With DNAT rules, firewall policy translates public IP address requests to a private address (webserver) with a port.
 

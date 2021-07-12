@@ -44,7 +44,7 @@ If there were document-specific problems during the run, they will be listed in 
 
 Warnings are common with some types of indexers, and do not always indicate a problem. For example indexers that use cognitive services can report warnings when image or PDF files don't contain any text to process. 
 
-For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Cognitive Search](search-indexer-troubleshooting.md).
+For more information about investigating indexer errors and warnings, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md).
 
 ## Monitor using Get Indexer Status (REST API)
 
