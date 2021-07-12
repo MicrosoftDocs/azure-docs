@@ -21,9 +21,9 @@ This article provides high-level guidance on when and how to migrate to the new 
 
 ### Test migration using Azure portal
 1. To ensure safe deployment during migration, it is recommended to begin testing with a few resources in your non-production environment that are running the existing Log Analytics agent. Once you can validate the data collected on these test resources, you can rollout to production following the same steps further
-2. Go to 'Monitor > Settings > Data Collection Rules' and [create new data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) to start collecting some of the existing data types. Using the portal, it perform the following steps on all the target resources, on your behalf:
+2. Go to 'Monitor > Settings > Data Collection Rules' and [create new data collection rule(s)](./data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) to start collecting some of the existing data types. Using the portal, it performs the following steps on all the target resources, on your behalf:
 	- Enable Managed Identity (System Assigned) 
-	- Istall the AMA extension 
+	- Install the AMA extension 
 	- Create and deploy DCR associations 
 3. Validate data is flowing as expected via AMA (check ‘Heartbeat table’ for new agent version values), and ensure it matches data flowing through existing Log Analytics Agent
 
