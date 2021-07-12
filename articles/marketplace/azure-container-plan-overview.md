@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 03/30/2021
+ms.date: 07/05/2021
 ---
 
 # Create and edit plans for an Azure Container offer
@@ -26,7 +26,7 @@ After you create a plan, the **Plan overview** page shows:
 The actions available for a plan vary depending on the current status of your plan. They include:
 
 - **Delete draft** if the plan status is a Draft.
-- **Stop sell plan** if the plan status is Published Live.
+- **Stop distribution** if the plan status is Published Live.
 
 ## Edit a plan
 
