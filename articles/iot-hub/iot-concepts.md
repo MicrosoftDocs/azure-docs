@@ -91,11 +91,9 @@ A built-in endpoint collects data from your device by default. The data is colle
 
 *    Initiate file uploads. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to upload a file.
 
-*    Retrieve and update device twin properties. A device uses this endpoint to access its device twin's properties. HTTPS is not supported.
+*    Retrieve and update device twin properties. A device uses this endpoint to access its device twin's properties. 
 
-*    Receive direct method requests. A device uses this endpoint to listen for direct method's requests. HTTPS is not supported.
-
-[!INCLUDE iot-hub-include-x509-ca-signed-support-note]
+*    Receive direct method requests. A device uses this endpoint to listen for direct method's requests. 
 
 For more information about IoT Hub endpoints, see [IoT Hub Dev Guide Endpoints](
 iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
