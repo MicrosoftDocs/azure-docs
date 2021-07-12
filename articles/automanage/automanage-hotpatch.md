@@ -53,7 +53,7 @@ To start using Hotpatch on a new VM, follow these steps:
 1.  Create a VM from the Azure portal
     * During the preview, you'll need to get started using [this link](https://aka.ms/AutomanageWindowsServerPreview).
 1.  Supply VM details
-    * Ensure that the _Windows Server Azure Edition_ image that you would like to use is selected in the Image dropdown
+    * Ensure that the supported _Windows Server Azure Edition_ image that you would like to use is selected in the Image dropdown.  Supported images are listed at the top of this article.
     * On the Management tab step, scroll down to the ‘Guest OS updates’ section. You'll see Hotpatching set to On and Patch installation defaulted to Azure-orchestrated patching.
     * Automanage VM Best Practices will be enabled by default
 1. Create your new VM
@@ -133,7 +133,7 @@ az provider register --namespace Microsoft.Compute
 
 ## Patch installation
 
-During the preview, [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled automatically for all VMs created with _Windows Server 2019 Datacenter: Azure Edition_. With automatic VM guest patching enabled:
+During the preview, [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled automatically for all VMs created with a supported _Windows Server Azure Edition_ image. With automatic VM guest patching enabled:
 * Patches classified as Critical or Security are automatically downloaded and applied on the VM.
 * Patches are applied during off-peak hours in the VM's time zone.
 * Patch orchestration is managed by Azure and patches are applied following [availability-first principles](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
@@ -143,7 +143,7 @@ During the preview, [Automatic VM Guest Patching](../virtual-machines/automatic-
 
 When [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md) is enabled on a VM, the available Critical and Security patches are downloaded and applied automatically. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
 
-With Hotpatch enabled on _Windows Server 2019 Datacenter: Azure Edition_ VMs, most monthly security updates are delivered as hotpatches that don't require reboots. Latest Cumulative Updates sent on planned or unplanned baseline months will require VM reboots. Additional Critical or Security patches may also be available periodically which may require VM reboots.
+With Hotpatch enabled on supported _Windows Server Azure Edition_ VMs, most monthly security updates are delivered as hotpatches that don't require reboots. Latest Cumulative Updates sent on planned or unplanned baseline months will require VM reboots. Additional Critical or Security patches may also be available periodically which may require VM reboots.
 
 The VM is assessed automatically every few days and multiple times within any 30-day period to determine the applicable patches for that VM. This automatic assessment ensures that any missing patches are discovered at the earliest possible opportunity.
 
@@ -175,7 +175,7 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### What is hotpatching?
 
-* Hotpatching is a new way to install updates on a Windows Server 2019 Datacenter: Azure Edition VM in Azure that doesn’t require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process.
+* Hotpatching is a new way to install updates on a supported _Windows Server Azure Edition_ VM in Azure that doesn’t require a reboot after installation. It works by patching the in-memory code of running processes without the need to restart the process.
 
 ### How does hotpatching work?
 
@@ -183,7 +183,7 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### Why should I use Hotpatch?
 
-* When you use Hotpatch on Windows Server 2019 Datacenter: Azure Edition, your VM will have higher availability (fewer reboots), and faster updates (smaller packages that are installed faster without the need to restart processes). This process results in a VM that is always up to date and secure.
+* When you use Hotpatch on a supported _Windows Server Azure Edition_ image, your VM will have higher availability (fewer reboots), and faster updates (smaller packages that are installed faster without the need to restart processes). This process results in a VM that is always up to date and secure.
 
 ### What types of updates are covered by Hotpatch?
 
@@ -213,7 +213,7 @@ There are some important considerations to running a Windows Server Azure editio
 
 ### Can I upgrade from my existing Windows Server OS?
 
-* Upgrading from existing versions of Windows Server (that is, Windows Server 2016 or 2019 non-Azure editions) isn't supported currently. Upgrading to future releases of Windows Server Azure Edition will be supported.
+* Upgrading from existing versions of Windows Server (that is, Windows Server 2016 or 2019 non-Azure editions) to _Windows Server 2022 Datacenter: Azure Edition_ is supported. Upgrading to _Windows Server 2019 Datacenter: Azure Edition_ isn't supported.
 
 ### Can I use Hotpatch for production workloads during the preview?
 
