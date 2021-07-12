@@ -55,7 +55,44 @@ The following example shows the schema of a product created event. The schema of
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of a product created event. The schema of other API Management resource created events is similar. 
+The following example shows the schema of a product event. The schema of other API Management resource created events is similar. 
+
+```json
+[{
+  "id": "81dac958-49cf-487e-8805-d0baf0ee485a",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/products/myproduct",
+  "data": {
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/products/myproduct"
+  },
+  "Type": "Microsoft.ApiManagement.ProductCreated",
+  "Time": "2021-07-02T00:38:44.3978295Z",
+  "specversion":"1.0"
+}]
+```
+---
+
+# [Event Grid event schema](#tab/event-grid-event-schema)
+The following example shows the schema of a user deleted event. The schema of other API Management resource deleted events is similar.
+
+```json
+[{
+  "id": "92c502f2-a966-42a7-a428-d3b319844544",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/users/apimuser-contoso-com",
+  "data": {
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/users/apimuser-contoso-com"
+  },
+  "eventType": "Microsoft.ApiManagement.UserDeleted",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-02T00:47:47.8536532Z"
+}]
+```
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example shows the schema of a user deleted event. The schema of other API Management resource deleted events is similar. 
 
 ```json
 [{
@@ -65,12 +102,54 @@ The following example shows the schema of a product created event. The schema of
   "data": {
     "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/users/apimuser-contoso-com"
   },
-  "Type": "Microsoft.ApiManagement.UserDeleted",x`
+  "Type": "Microsoft.ApiManagement.UserDeleted",
   "Time": "2021-07-02T00:38:44.3978295Z",
   "specversion":"1.0"
 }]
 ```
+---
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+The following example shows the schema of an API updated event. The `data` property includes both the  `updatedProperies` array and the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+```json
+[{
+  "id": "95015754-aa51-4eb6-98d9-9ee322b82ad7",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/apis/myapi;Rev=1",
+  "data": {
+    "updatedProperties": [
+      "path"
+    ],
+    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+  },
+  "eventType": "Microsoft.ApiManagement.APIUpdated",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "eventTime": "2021-07-12T23:13:44.9048323Z"
+}]
+```
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+The following example shows the schema of an API updated event. The `data` property includes both the  `updatedProperies` array and the `resourceUri`.  The schema of other API Management resource updated events is similar. 
+
+```json
+[{
+  "id": "95015754-aa51-4eb6-98d9-9ee322b82ad7",
+  "source": "/subscriptions/{subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}",
+  "subject": "/apis/myapi;Rev=1",
+  "data": {
+    "updatedProperties": [
+      "path"
+    ],
+    "resourceUri": "/subscriptions/subscription-id}/resourceGroups/{your-rg}/providers/Microsoft.ApiManagement/service/{your-APIM-instance}/apis/myapi;Rev=1"
+  },
+  "Type": "Microsoft.ApiManagement.APIUpdated",
+  "Time": "2021-07-12T23:13:44.9048323Z",
+  "specversion":1.0
+}]
+```
 ---
 
 ## Event properties
