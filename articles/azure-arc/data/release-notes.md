@@ -36,7 +36,7 @@ This release introduces the `arcdata` extension to the Azure CLI. To add the ext
 az extension add --name arcdata 
 ```
 
-The extension supports command line interaction with data controller and SQL managed instance and PostgreSQL Hyperscale resources. 
+The extension supports command-line interaction with data controller and SQL managed instance and PostgreSQL Hyperscale resources. 
 
 To update your scripts for data controller, replace `azdata arc dc...` with `az arcdata dc...`.
 
@@ -51,7 +51,7 @@ The `infrastructure` property is a new required property when deploying a data c
 
 #### Kibana login
 
-The OpenDistro security pack has been removed.  Login to Kibana is now done through a generic browser username/password  prompt.  More information will be provided later how to configure additional authentication/authorization options.
+The OpenDistro security pack has been removed.  Log in to Kibana is now done through a generic browser username/password  prompt.  More information will be provided later how to configure additional authentication/authorization options.
 	
 #### CRD version bump to `v1beta1`
 
@@ -69,14 +69,14 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 
 #### Data controller
 
-- Streamlined user experience for deploying a data controller in the direct connected mode from the Azure Portal. Once a Kubernetes cluster has been Arc-enabled, you can dploy the data controller entirely from the portal with the Arc data controller create wizard in one motion. This deployment also creates the custom location and Arc-enabled data services extension (bootstrapper). You can also pre-create the custom location and/or extension and configure the data controller deployment to use them.
-- New `Infrastructure` property is a required property when deploying a Arc data controller. This property will be required for billing purposes. More information will be provided at general availability.
-- Various usability improvements in the data controller user experience in the Azure Portal including the ability to better see the deployment status of resources that are in the deployment process on the Kubernetes cluster.
+- Streamlined user experience for deploying a data controller in the direct connected mode from the Azure portal. Once a Kubernetes cluster has been Arc-enabled, you can deploy the data controller entirely from the portal with the Arc data controller create wizard in one motion. This deployment also creates the custom location and Arc-enabled data services extension (bootstrapper). You can also pre-create the custom location and/or extension and configure the data controller deployment to use them.
+- New `Infrastructure` property is a required property when you deploy an Arc data controller. This property will be required for billing purposes. More information will be provided at general availability.
+- Various usability improvements in the data controller user experience in the Azure portal including the ability to better see the deployment status of resources that are in the deployment process on the Kubernetes cluster.
 - Data controller automatically uploads logs (optionally) and now also metrics to Azure in direct connected mode.
 - The monitoring stack (metrics and logs databases/dashboards) has now been packaged into its own custom resource definition (CRD) - `monitors.arcdata.microsoft.com`. When this custom resource is created the monitoring stack pods are created. When it is deleted the monitoring stack pods are deleted. When the data controller is created the monitor custom resource is automatically created.
 - New regions support for direct connected mode (preview): East US 2, West US 2, South Central US, UK South, France Central, Southeast Asia, Australia East.
 - The custom location resource chart now on the overview blade shows Arc-enabled data services resources that are deployed to it.
-- Diagnostics and solutions have been added to the Azure Portal for data controller.
+- Diagnostics and solutions have been added to the Azure portal for data controller.
 - Added new `Observed Generation` property to all Arc related custom resources.
 - Credential manager service is now included and handles the automated distribution of certificates to all services managed by the data controller.
 
@@ -93,7 +93,7 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 
 -  Automated backups are now enabled.
 -  You can now restore a database backup as a new database on the same SQL instance by creating a new custom resource based on the `sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com` custom resource definition (CRD). See documentation for details. There is no command-line interface (`azdata` or `az`), Azure portal, or Azure Data Studio experience for restoring a database yet.
--  The version of SQL engine binaries included in this release is aligned to the latest binaries that are deployed globally in Azure SQL Managed Instance (PaaS in Azure). This enables backup/restore back and forth between Azure SQL Managed Instance PaaS and Azure Arc-enabled Azure SQL Managed Instance. More details on the compatibility will be provided later.
+-  The version of SQL engine binaries included in this release is aligned to the latest binaries that are deployed globally in Azure SQL Managed Instance (PaaS in Azure). This alignment enables backup/restore back and forth between Azure SQL Managed Instance PaaS and Azure Arc-enabled Azure SQL Managed Instance. More details on the compatibility will be provided later.
 -  You can now delete Azure Arc SQL Managed Instances from the Azure portal in direct connected mode.
 -  You can now configure a SQL Managed Instance to have a pricing tier (`GeneralPurpose`, `BusinessCritical`), license type (`LicenseIncluded`, `BasePrice` (used for AHB pricing), and `developer`. There will be no charges incurred for using Azure Arc enabled SQL Managed Instance until the General Availability date (publicly announced as scheduled for July 30, 2021).
 -  The `arcdata` extension for Azure Data Studio now has additional parameters that can be configured for deploying and editing SQL Managed Instances: enable/disable agent, admin login secret, annotations, labels, service annotations, service labels, SSL/TLS configuration settings, collation, language, and trace flags.
@@ -104,13 +104,13 @@ This release introduces `az` CLI extensions for Azure Arc-enabled data services.
 
 -  `azdata arc dc export` is deprecated. It is replaced by `az arcdata dc export` in the `arcdata` extension for the Azure CLI (`az`). It uses a different approach to export the data out. It does not connect directly to the data controller API anymore. Instead it creates an export task based on the `exporttasks.tasks.arcdata.microsoft.com` custom resource definition (CRD). The export task custom resource that is created drives a workflow to generate a downloadable package. The Azure CLI waits for the completion of this task and then retrieves the secure URL from the task custom resource status to download the package.
 -  Support for using NFS-based storage classes.
-- Diagnostics and solutions have been added to the Azure Portal for Arc SQL Managed Instance
+- Diagnostics and solutions have been added to the Azure portal for Arc SQL Managed Instance
 
 ### Known issues
 
 #### Platform
 
-- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment with other Azure Arc-enabled data services tools are not supported. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
+- You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a connected cluster with the Azure portal. Deployment is not supported with other Azure Arc-enabled data services tools. Specifically, you can't deploy a data controller in direct connect mode with any of the following tools during this release.
    - Azure Data Studio
    - Azure Data CLI (`azdata`)
    - Kubernetes native tools (`kubectl`)
@@ -184,7 +184,7 @@ This release introduces the following features or capabilities:
 - Delete an Azure Arc PostgreSQL Hyperscale from the Azure portal when its Data Controller was configured for Direct connectivity mode.
 - Deploy Azure Arc-enabled PostgreSQL Hyperscale from the Azure database for Postgres deployment page in the Azure portal. See [Select Azure Database for PostgreSQL deployment option - Microsoft Azure](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer).
 - Specify storage classes and Postgres extensions when deploying Azure Arc-enabled PostgreSQL Hyperscale from the Azure portal.
-- Reduce the number of worker nodes in your Azure Arc-enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command line.
+- Reduce the number of worker nodes in your Azure Arc-enabled PostgreSQL Hyperscale. You can do this operation (known as scale in as opposed to scale out when you increase the number of worker nodes) from `azdata` command-line.
 
 #### Azure Arc-enabled SQL Managed Instance
 
