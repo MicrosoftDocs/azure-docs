@@ -5,13 +5,13 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 07/09/2021
+ms.date: 07/12/2021
 ms.author: ginle
 ---
 
 # Deploy workspace in the Azure portal
 
-In this article, you’ll learn how to create a workspace by deploying an Azure Healthcare APIs 
+IN this article, you’ll learn how to create a workspace by deploying an Azure Healthcare APIs 
 service using the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
 
 
