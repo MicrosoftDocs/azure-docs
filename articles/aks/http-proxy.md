@@ -1,4 +1,4 @@
-git ---
+---
 title: Configuring Azure Kubernetes Service (AKS) nodes with an HTTP proxy
 description: Use the HTTP proxy configuration feature for Azure Kubernetes Service (AKS) nodes.
 services: container-service
@@ -28,7 +28,7 @@ The following scenarios are **not** supported:
 
 By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
 
-*noProxy* by default includes `localhost`, `127.0.0.1` 
+*noProxy* by default includes **should we list all the IPs/FQDNs?**
 
 Upon deploying a cluster using the HTTP proxy feature, 
 
