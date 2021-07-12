@@ -1,23 +1,19 @@
 ---
-title: Switch replication appliances - Preview
-description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure - Preview
+title: Switch replication appliance in Azure Site Recovery - Preview
+description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure in Azure Site Recovery- Preview
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/12/2021
 ---
 
-# Switch replication appliance
+# Switch Azure Site Recvoery replication appliance
 
 >[!NOTE]
 > The information in this article applies to Azure Site Recovery - Preview.
 
-You need to [create and deploy an on-premises replication appliance](deploy-vmware-azure-replication-appliance-preview.md) when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure.
+You need to [create and deploy an on-premises Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-preview.md) when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. For detailed information about replication appliance, see [the architecture](vmware-azure-architecture-preview.md). You can create and use multiple replication appliances based on the capacity requirements of your organization.
 
-For detailed information about replication appliance, see [the architecture](vmware-azure-architecture-preview.md).
-
-You create multiple replication appliances based on the capacity your organization needs.
-
-This article provides information about how you can switch between replication appliances when a replication appliance fails.
+This article provides information about how you can failover/switch between replication appliances.
 
 ## Failover/switch a replication appliance
 
