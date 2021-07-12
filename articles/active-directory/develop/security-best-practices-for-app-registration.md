@@ -58,10 +58,8 @@ Scenarios that require **implicit flow** can now use **Auth code flow** to reduc
 | Do                                                                    | Don't                                                                  |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | Understand if [implicit flow is required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) | Use implicit flow unless [explicitly required](./v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant) |
-| Separate app registration for (valid) implicit flow scenarios                  
-|         -----                                                          |
-| Turn off unused implicit flow                                         
-|         -----                                                          |
+| Separate app registration for (valid) implicit flow scenarios |   -----                                                |
+| Turn off unused implicit flow | -----              |
 
 ## Credential configuration
 
