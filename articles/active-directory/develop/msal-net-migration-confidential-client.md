@@ -407,7 +407,6 @@ Because your web app uses `AcquireTokenByAuthorizationCode`, your app needs to u
 app.UseInMemoryTokenCaches(); // or a distributed token cache.
 ```
 
-For an example of a `CreateTokenCache` implementation, see the [code samples](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/ConfidentialClientTokenCache/Program.cs).
 
 [Learn more about web apps calling web APIs](scenario-web-app-call-api-overview.md) and how they're implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
