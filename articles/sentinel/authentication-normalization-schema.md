@@ -97,6 +97,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventSubType**    | Optional    | String     |   The sign-in type, typically used for Windows Logon types. <br><br>Example: `Interactive`|
 | **EventOriginalResultDetails**    | Optional    | String     |  The value provided in the original record for [EventResultDetails](#eventresultdetails), if provided by the source.|
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.|
+| **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source.<br><br>Example: `4624`|
 | <a name ="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Windows`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `10` <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.     |
 | **EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
