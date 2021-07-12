@@ -779,9 +779,6 @@
               href: app/status-monitor-v2-troubleshoot.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
-            - name: Status Monitor (legacy)
-              displayname: IIS monitoring, on premises monitoring, on prem 
-              href: app/monitor-performance-live-website-now.md
         - name: Java
           href: app/java-on-premises.md
     - name: OpenTelemetry
