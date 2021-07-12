@@ -204,6 +204,10 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
 # [CLI](#tab/cli)
 
+In the command line, you can manage public network access using the Azure CLI or the [ARMClient command tool](https://github.com/projectkudu/ARMClient).
+
+## Use the Azure CLI
+
 In the Azure CLI, you can disable or enable public network access by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create a new instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists. (For more information about this command, see its [reference documentation](/cli/azure/dt?view=azure-cli-latest&preserve-view=true#az_dt_create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 To **disable** public network access for an Azure Digital Twins instance, use the `--public-network-access` parameter like this:
@@ -218,7 +222,7 @@ To **enable** public network access on an instance where it's currently disabled
 az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Enabled
 ```
 
-# [ARMClient](#tab/arm)
+## Use the ARMClient command tool
 
 With the [ARMClient command tool](https://github.com/projectkudu/ARMClient), public network access is enabled or disabled using the commands below. 
 
