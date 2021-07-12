@@ -19,7 +19,15 @@ When you create an ISE, Azure *injects* that ISE into your Azure virtual network
 > [!IMPORTANT]
 > For logic apps and integration accounts to work together in an ISE, both must use the *same ISE* as their location.
 
-An ISE has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md). To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+An ISE has increased limits on:
+* Run duration
+* Storage retention
+* Throughput
+* HTTP request and response timeouts
+* Message sizes
+* Custom connector requests
+
+For more information, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md). To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 This article shows you how to complete these tasks by using the Azure portal:
 
@@ -55,7 +63,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
    
   * If you use a [network virtual appliance (NVA)](../virtual-network/virtual-networks-udr-overview.md#user-defined), make sure that you don't enable TLS/SSL termination or change the outbound TLS/SSL traffic. Also, make sure that you don't enable inspection for traffic that originates from your ISE's subnet. For more information, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
 
-  * If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
+  * If you want to use custom Domain Name System (DNS) servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
     > [!NOTE]
     > If you change your DNS server or DNS server settings, you must restart your ISE so that the ISE can pick up those changes. For more information, see [Restart your ISE](../logic-apps/ise-manage-integration-service-environment.md#restart-ISE).
@@ -271,7 +279,7 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 
 1. To view your environment, select **Go to resource** if Azure doesn't automatically go to your environment after deployment finishes.
 
-1. For an ISE that has *external* endpoint access, you need to create a network security group, if you don't have one already, and add an inbound security rule to allow traffic from managed connector outbound IP addresses. To set up this rule, follow these steps:
+1. For an ISE that has *external* endpoint access, you need to create a network security group (NSG), if you don't have one already. You need to add an inbound security rule to the NSG to allow traffic from managed connector outbound IP addresses. To set up this rule, follow these steps:
 
    1. On your ISE menu, under **Settings**, select **Properties**.
 
