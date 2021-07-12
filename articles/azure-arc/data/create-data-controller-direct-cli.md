@@ -22,7 +22,8 @@ This article describes how to create the Azure Arc data controller in **direct**
 Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
 Creating an Azure Arc data controller in **direct** connectivity mode involves the following steps:
- 1. Create an Azure Arc enabled data services extension. 
+
+1. Create an Azure Arc enabled data services extension. 
 1. Create a custom location.
 1. Create the data controller.
 

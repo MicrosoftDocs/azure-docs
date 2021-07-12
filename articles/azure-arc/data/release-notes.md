@@ -247,7 +247,7 @@ Azure Data CLI (`azdata`) version number: 20.3.2. You can install `azdata` from 
 
 ### Data controller
 
-- Deploy Azure Arc-enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+- Deploy Azure Arc-enabled data services data controller in direct connect mode from the portal. Start from [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
 ### Azure Arc-enabled PostgreSQL Hyperscale
 
