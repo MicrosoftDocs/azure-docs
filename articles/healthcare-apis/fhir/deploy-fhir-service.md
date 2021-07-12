@@ -1,6 +1,6 @@
 ---
 title: Deploy a FHIR service within Azure Healthcare APIs
-description: This article describes how to deploy a workspace in the Azure portal. 
+description: This article teaches users how to deploy a FHIR service in the Azure portal. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -15,7 +15,7 @@ In this quickstart, you’ll learn how to deploy the FHIR service within the Azu
 
 ## Prerequisite
 
-Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see [Deploy workspace in the Azure portal](../deploy-workspace-in-portal.md).
+Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see [Deploy workspace in the Azure portal](../healthcare-apis-quickstart.md).
 
 ## Create a new FHIR service
 
