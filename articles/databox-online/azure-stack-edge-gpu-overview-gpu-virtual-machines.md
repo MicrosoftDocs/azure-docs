@@ -22,7 +22,7 @@ GPU-accelerated workloads on an Azure Stack Edge Pro GPU device require a GPU vi
 
 Your Azure Stack Edge devices may be equipped with 1 or 2 of Nvidia's Tesla T4 GPU. To deploy GPU-accelerated VM workloads on these devices, use GPU-optimized VM sizes. For example, the NC T4 v3-series should be used to deploy inference workloads featuring T4 GPUs. For more information, see [NC T4 v3-series VMs](../virtual-machines/nct4-v3-series.md).
 
-A GPU VM must have a GPU extension installed. The GPU extension can be installed during or after VM deployment via the Azure portal. If you use templates to deploy your VMs, you'll install the GPU extension after deploying the VM. For more information, see [Deploy GPU VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
+A GPU VM must have a GPU extension installed. In the Azure portal, you can install the GPU extension during or after you deploy a VM. If you use templates to deploy your VMs, you'll install the GPU extension after deploying the VM. For instructions, see [Deploy GPU VMs on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
 For supported scenarios and key capabilities for GPU-accelerated workloads, see [What is Azure Stack Edge Pro with GPU?](azure-stack-edge-gpu-overview.md).
 
