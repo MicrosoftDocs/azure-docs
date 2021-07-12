@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 07/12/2021
 ---
 
-# Switch Azure Site Recvoery replication appliance
+# Failover/switch Azure Site Recovery replication appliance
 
 >[!NOTE]
 > The information in this article applies to Azure Site Recovery - Preview.
@@ -19,19 +19,16 @@ This article provides information about how you can failover/switch between repl
 
 You can switch replication appliance in multiple scenarios:
 
-You want to switch appliance in case your current replication appliance has failed.
+- You want to switch appliance in case your current replication appliance has failed.
+- you want to switch the replication appliance due to some internal Org level requirements.
 
-or  you want to switch the replication appliance due to some internal Org level requirements.
-
-As an example, here is the scenario where replication appliance 1 (RP1) has failed and you want to move the protected workloads to replication appliance 2 (RP2), which is in healthy state.
-
-or workloads under RA1 are to be moved to RA2 for any org level management requirement.
+As an example, here is the scenario where replication appliance 1 (RP1) has failed and you want to move the protected workloads to replication appliance 2 (RP2), which is in healthy state. Or, you want to switch the workloads under RA1  to RA2 for any org level requirements.
 
 Follow these steps.
 
 1. Go to **Site Recovery infrastructure** blade and select **ASR replication appliance**.
 
-The list of available appliances and their health is displayed. You find RA2 is healthy and you need to  failover/switch  the workloads from RA1 to RA2.
+  The list of available appliances and their health is displayed. You find RA2 is healthy and you need to  failover/switch  the workloads from RA1 to RA2.
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
