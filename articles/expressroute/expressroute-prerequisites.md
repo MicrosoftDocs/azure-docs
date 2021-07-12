@@ -43,7 +43,7 @@ If you plan to enable Microsoft 365 on ExpressRoute, review the following docume
 * [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Network and migration planning for Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
 * [Microsoft 365 integration with on-premises environments](/microsoft-365/enterprise/microsoft-365-integration)
-* [Stay up to date with Office 365 IP Address changes](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide)
+* [Stay up to date with Office 365 IP Address changes](/microsoft-365/enterprise/microsoft-365-ip-web-service?view=o365-worldwide)
 * [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
 
 ## Next steps

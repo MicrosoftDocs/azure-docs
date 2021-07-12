@@ -19,7 +19,7 @@ sections:
       - question: |
           When do I create a new namespace vs. use an existing namespace?
         answer: |
-          Capacity allocations ([throughput units (TUs)](/azure/event-hubs/event-hubs-faq#throughput-units) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
+          Capacity allocations ([throughput units (TUs)](#throughput-units) or [processing units (PUs)](./event-hubs-scalability.md#processing-units)) are billed at the namespace level. A namespace is also associated with a region.
           
           You may want to create a new namespace instead of using an existing one in one of the following scenarios: 
           

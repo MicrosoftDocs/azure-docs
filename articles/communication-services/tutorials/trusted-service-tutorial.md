@@ -17,13 +17,13 @@ ms.service: azure-communication-services
 This article describes how to use Azure Functions to build a trusted user access service.
 
 > [!IMPORTANT]
-> The endpoint created at the end of this tutorial isn't secure. Be sure to read about the security details in the [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts) article. You need to add security to the endpoint to ensure bad actors can't provision tokens.
+> The endpoint created at the end of this tutorial isn't secure. Be sure to read about the security details in the [Azure Function Security](../../azure-functions/security-concepts.md) article. You need to add security to the endpoint to ensure bad actors can't provision tokens.
 
 [!INCLUDE [Trusted Service JavaScript](./includes/trusted-service-js.md)]
 
 ## Securing Azure Function
 
-As part of setting up an trusted service to provision access tokens for users, we need to take into account the security of that endpoint to make sure no bad actor can randomly create tokens for your service. Azure Functions provide built-in security features that you can use to secure the endpoint using different types of authentication policies. Read more about [Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts)
+As part of setting up an trusted service to provision access tokens for users, we need to take into account the security of that endpoint to make sure no bad actor can randomly create tokens for your service. Azure Functions provide built-in security features that you can use to secure the endpoint using different types of authentication policies. Read more about [Azure Function Security](../../azure-functions/security-concepts.md)
 
 ## Clean up resources
 
@@ -32,7 +32,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about Azure Function Security](https://docs.microsoft.com/azure/azure-functions/security-concepts)
+> [Learn about Azure Function Security](../../azure-functions/security-concepts.md)
 
 > [!div class="nextstepaction"]
 > [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)

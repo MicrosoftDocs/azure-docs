@@ -100,4 +100,4 @@ The following schemas are in use by Azure Container Registry's resource logs.
 ## Next steps
 
 - See [Monitor Azure Container Registry](monitor-service.md) for a description of monitoring an Azure container registry.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/overview) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/overview.md) for details on monitoring Azure resources.
