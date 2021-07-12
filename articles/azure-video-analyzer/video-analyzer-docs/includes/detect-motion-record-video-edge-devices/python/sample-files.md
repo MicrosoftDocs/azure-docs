@@ -23,7 +23,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
         * Invokes direct methods to clean up resources.
 1. Edit the **operations.json** file:
 
-    * Change the link to the pipeline: <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
+    * Change the link to the pipeline: <br/>`"pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
     * Under livePipelineSet, edit the name of the pipeline topology to match the value in the preceding link: <br/>`"topologyName" : "EVRToFilesOnMotionDetection" `
     * Under PipelineTopologyDelete, edit the name: <br/>`"name": "EVRToFilesOnMotionDetection" `
 
