@@ -44,8 +44,8 @@ You can set up your deployment manually by following these tutorials:
 
 Once you've set up Azure Virtual Desktop, you have lots of options to customize your deployment to meet your organization or customers' needs. These articles can help you get started:
 
-- [How to serve your custom app with Azure Virtual Desktop](custom-apps.md)
-- [Enroll in per-user access pricing]()
+- [How to host custom apps with Azure Virtual Desktop](custom-apps.md)
+- [Enroll your subscription in per-user access pricing](per-user-access-pricing.md)
 - [How to use Azure Active Directory](../../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 - [Using Windows 10 virtual machines with Intune](/mem/intune/fundamentals/windows-10-virtual-machines)
 - [How to deploy an app using MSIX app attach](msix-app-attach.md)
@@ -59,7 +59,7 @@ Once you've set up Azure Virtual Desktop, you have lots of options to customize 
 Read the following articles to understand concepts essential to creating and managing Azure Virtual Desktop deployments:
 
 - [Understanding licensing and per-user access pricing](licensing.md)
-- [Security guidelines for remote app streaming](security.md)
+- [Security guidelines for cross-organizational apps](security.md)
 - [Azure Virtual Desktop security best practices](../security-guide.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Azure Monitor for Azure Virtual Desktop glossary](../azure-monitor-glossary.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 - [Azure Virtual Desktop for the enterprise](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
