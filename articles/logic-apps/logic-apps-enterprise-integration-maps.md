@@ -34,7 +34,7 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 where you store your maps and other artifacts for enterprise 
 integration and business-to-business (B2B) solutions.
 
-* If your map references an external assembly, you need a 64 bit assembly. Transform service is running as 64 bit process and 32 bit assemblies are not supported. If you have a 32 bit assembly which you have the source code for, recompile the code to a 64 bit assembly. If you do not have the source code and obtained the binary from a third party provider, obtain from the provider a 64 bit version of the assembly. Some vendors provide assemblies in packages with both 32 and 64 bit versions, then pick the 64 bit version of the assembly from the package.
+* If your map references an external assembly, you need a 64-bit assembly. Transform service is running as 64-bit process and 32-bit assemblies aren't supported. If you have a 32-bit assembly that you have the source code for, recompile the code to a 64-bit assembly. If you do not have the source code and obtained the binary from a third-party provider, obtain from the provider a 64-bit version of the assembly. Some vendors provide assemblies in packages with both 32- and 64-bit versions, then pick the 6- bit version of the assembly from the package.
 
 * If your map references an external assembly, you have to upload 
 *both the assembly and the map* to your integration account. 
