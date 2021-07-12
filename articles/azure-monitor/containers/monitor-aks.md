@@ -22,9 +22,9 @@ The Cloud Monitoring Guide defines the primary monitoring objectives you should 
 
 
 ## Layers of monitoring
-The approach you take to AKS monitoring should be based on factors including scale, topology, organization roles, and multi-cluster tenancy. A common strategy is a bottoms-up approach starting from infrastructure bare bones all the way to applications. 
+The approach you take to AKS monitoring should be based on factors including scale, topology, organization roles, and multi-cluster tenancy. A common strategy is a bottoms-up approach starting from infrastructure bare bones all the way to applications. Below is the bottoms-up strategy which is commonly used by large scale clusters. There can be alterations based on the cluster topology.
 
-Below is the bottoms-up strategy which is commonly used by large scale clusters. There can be alterations based on the cluster topology
+:::image type="content" source="media/monitor-aks/layers.png" alt-text="AKS layers":::
 
 
 | Level | Description | Details |
