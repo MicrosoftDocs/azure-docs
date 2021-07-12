@@ -32,24 +32,24 @@ Follow these steps.
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
-  << writer's comment - the screenshot reads as **Appliance failover** any changes in the UI or UI text here? >>
+   << writer's comment - the screenshot reads as **Appliance failover** any changes in the UI or UI text here? >>
 
 3. Under  **Select machines**- select the applications/machines from the list which you want to failover to another replication appliance (RA2). Select **Next**.
 
-  ![Select machines for switching](./media/switch-replication-appliances/select-machines.png)
+   ![Select machines for switching](./media/switch-replication-appliances/select-machines.png)
 
 4. Under **Select appliance** page, for each of the selected appliances (in earlier page), select the replication appliance.  
 
-  << writer's comment - Here the screen displays the other tab as **Select machine** in previous screen, it was **machines** >>
+   << writer's comment - Here the screen displays the other tab as **Select machine** in previous screen, it was **machines** >>
 
-  ![Select replication appliance](./media/switch-replication-appliances/select-replication-appliance.png)
+   ![Select replication appliance](./media/switch-replication-appliances/select-replication-appliance.png)
 
-  >[!NOTE]
-  > In case of a failover, You will be prompted to select the account credentials for all the selected machines, as the previous appliance has failed.
+   >[!NOTE]
+   > In case of a failover, You will be prompted to select the account credentials for all the selected machines, as the previous appliance has failed.
 
 5. Select **Switch application**.
 
-  Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
+   Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 
 ## Next steps
 Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
