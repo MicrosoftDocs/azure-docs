@@ -3,6 +3,7 @@ title: Tech Community Ninja Training
 description: Follow Defender for IoT training sessions
 ms.date: 10/07/2021
 ms.topic: Resources
+---
 
 # View Tech Community training videos
 
