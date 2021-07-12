@@ -88,6 +88,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Registry records, supported values include: <br>- `RegistryKeyCreated` <br>- `RegistryKeyDeleted`<br>- `RegistryKeyRenamed` <br>- `RegistryValueDeleted` <br>- `RegistryValueSet`|
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
+| **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source.<br><br>Example: `4657`|
 | **EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
 | **EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
