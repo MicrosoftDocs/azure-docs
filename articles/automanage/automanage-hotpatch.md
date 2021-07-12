@@ -13,6 +13,14 @@ ms.custom: devx-track-azurepowershell
 
 # Hotpatch for new virtual machines (Preview)
 
+> [!IMPORTANT]
+> Automanage for Windows Server Services is currently in Public Preview. An opt-in procedure is needed to use the Hotpatch capability described below.
+> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> Hotpatch capabilities can be found in one of these Windows Server Azure Edition images: Windows Server 2019 Datacenter: Azure Edition (Core), Windows Server 2022 Datacenter: Azure Edition (Core)
+
 Hotpatching is a new way to install updates on new Windows Server Azure Edition virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for Windows Server Azure Edition VMs, which has the following benefits:
 * Lower workload impact with less reboots
 * Faster deployment of updates as the packages are smaller, install faster, and have easier patch orchestration with Azure Update Manager
@@ -36,14 +44,14 @@ Hotpatch is available in all global Azure regions in preview. Azure Government r
 ## How to get started
 
 > [!NOTE]
-> During the preview phase you can only get started in the Azure portal using [this link](https://aka.ms/AzureAutomanageHotPatch).
+> During the preview phase you can get started in the Azure portal using [this link](https://aka.ms/AutomanageWindowsServerPreview).
 
 To start using Hotpatch on a new VM, follow these steps:
 1.  Enable preview access
     * One-time preview access enablement is required per subscription.
     * Preview access can be enabled through API, PowerShell, or CLI as described in the following section.
 1.  Create a VM from the Azure portal
-    * During the preview, you'll need to get started using [this link](https://aka.ms/AzureAutomanageHotPatch).
+    * During the preview, you'll need to get started using [this link](https://aka.ms/AutomanageWindowsServerPreview).
 1.  Supply VM details
     * Ensure that _Windows Server 2019 Datacenter: Azure Edition_ is selected in the Image dropdown)
     * On the Management tab step, scroll down to the ‘Guest OS updates’ section. You'll see Hotpatching set to On and Patch installation defaulted to Azure-orchestrated patching.
