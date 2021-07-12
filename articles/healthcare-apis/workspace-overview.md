@@ -54,7 +54,7 @@ systems into the Azure Cloud based on the [FHIR](https://www.hl7.org/fhir/index.
 
 The Azure IoT Connector for FHIR feature enables you to quickly set up a service to ingest Internet of 
 Medical Things (IoMT) data into Azure API for FHIR in a scalable, secure, and compliant manner. For 
-more information, see [Azure IoT Connector for FHIR (preview)](https://docs.microsoft.com/en-us/azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview)
+more information, see [Azure IoT Connector for FHIR (preview)](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview)
 
 For instructions on how to deploy an IoT Connector using a scripted template, see [Deploy an IoT Connector using an ARM template](data-transformation/./iot-fhir-arm-template-quickstart.md)
 
