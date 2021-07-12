@@ -1,8 +1,8 @@
 ---
 title: Prerequisites | Direct connect mode
 description: Prerequisites to deploy the data controller in direct connect mode. 
-author: twright-msft
-ms.author: twright
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
@@ -21,8 +21,12 @@ At a high level, the prerequisites for creating Azure Arc data controller in **d
 
 1. Connect Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
 2. Create the service principal and configure roles for metrics
+3. Create Azure Arc enabled data services data controller. This step involves creating
+    - Azure Arc data services extension
+    - custom location
+    - Azure Arc data controller
 
-## Connect Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
+## 1. Connect Kubernetes cluster to Azure using Azure Arc enabled Kubernetes
 
 Connecting your kubernetes cluster to Azure can be done by using the ```az``` CLI, with the following extensions as well as Helm.
 
@@ -39,6 +43,8 @@ Install the latest versions of the following az extensions:
 - ```k8s-configuration```
 - `customlocation`
 
+Run the following commands to install the az CLI extensions:
+
 ```azurecli
 az extension add --name k8s-extension
 az extension add --name connectedk8s
@@ -54,22 +60,20 @@ az extension update --name connectedk8s
 az extension update --name k8s-configuration
 az extension update --name customlocation
 ```
+#### Connect your cluster to Azure
 
-In order to deploy the Azure Arc data controller in **direct** connectivity mode, the kubernetes cluster needs to be Arc-enabled. To complete this task, follow the steps in [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md).
+To complete this task, follow the steps in [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md).
 
+After you connect your cluster to Azure, continue to create a Service Principal. 
 
-
-
-
-## Create service principal and configure roles for metrics
+## 2. Create service principal and configure roles for metrics
 
 Follow the steps detailed in the [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) article and create a Service Principal and grant the roles as described the article. 
 
 The SPN ClientID, TenantID, and Client Secret information will be required when you [deploy Azure Arc data controller](create-data-controller-direct-azure-portal.md). 
 
-
-
-
-## Next steps
+## 3. Create Azure Arc data services
 
 After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](create-data-controller-direct-azure-portal.md).
+
+

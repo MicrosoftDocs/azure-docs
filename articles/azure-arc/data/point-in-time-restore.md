@@ -31,7 +31,8 @@ Point-in-time restore to Azure Arc enabled SQL Managed Instance has the followin
 - You can only restore to the same Azure Arc enabled SQL managed instance
 - Point-in-time restore can be performed only via a yaml file 
 - Older backup files that are beyond the pre-configured retention period need to be manually cleaned up
-- Renaming databases is currently not supported 
+- Renaming a databases starts a new backup chain in a new folder
+- Dropping and creating different databases with same names isn't handled properly at this time
 
 ### Edit PITR settings
 
@@ -117,7 +118,7 @@ kubectl get sqlmirestoretask -n arc
 
 ### Monitor your backups
 
-The backups are stored under ```/var/opt/mssql/backups/archived/<dbname><datetime>``` folder, where ```<dbname>``` is the name of the database and ```<datetime>``` would be a timestamp for the beginning of each full backup. Each time a full backup is initiated, a new folder would be created with the full back and all subsequent differential and transaction log backups inside that folder. The most current full backup and its subsequent differential and transaction log backups are stored under ```/var/opt/mssql/backups/current/<dbname><datetime>``` folder.
+The backups are stored under ```/var/opt/mssql/backups/archived/<dbname>/<datetime>``` folder, where ```<dbname>``` is the name of the database and ```<datetime>``` would be a timestamp in UTC format, for the beginning of each full backup. Each time a full backup is initiated, a new folder would be created with the full back and all subsequent differential and transaction log backups inside that folder. The most current full backup and its subsequent differential and transaction log backups are stored under ```/var/opt/mssql/backups/current/<dbname><datetime>``` folder.
 
 
 ### Clean up 
