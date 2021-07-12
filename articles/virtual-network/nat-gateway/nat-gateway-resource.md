@@ -54,9 +54,9 @@ The following diagram shows the writeable references between the different Azure
 
 *Figure: Virtual Network NAT object model*
 
-NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](/azure/load-balancer/load-balancer-outbound-connections).  
+NAT is recommended for most workloads unless you have a specific dependency on [pool-based Load Balancer outbound connectivity](../../load-balancer/load-balancer-outbound-connections.md).  
 
-You can migrate from standard load balancer scenarios, including [outbound rules](/azure/load-balancer/load-balancer-outbound-connections#outboundrules), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP address resources and public IP prefix resource can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
+You can migrate from standard load balancer scenarios, including [outbound rules](../../load-balancer/load-balancer-outbound-connections.md#outboundrules), to NAT gateway. To migrate, move the public ip and public ip prefix resources from load balancer frontends to NAT gateway. New IP addresses for NAT gateway aren't required. Standard public IP address resources and public IP prefix resource can be reused as long as the total doesn't exceed 16 IP addresses. Plan for migration with service interruption in mind during the transition.  You can minimize the interruption by automating the process. Test the migration in a staging environment first.  During the transition, inbound originated flows aren't affected.
 
 
 The following example is a snippet from an Azure Resource Manager template.  This template deploys several resources, including a NAT gateway.  The template has the following parameters in this example:
@@ -95,7 +95,7 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Cost optimization
 
-[Service endpoints](../virtual-network-service-endpoints-overview.md) and [private link](/azure/private-link/private-link-overview) are options to consider for optimizing cost. NAT isn't needed for these services. Traffic directed to service endpoints or private link is not processed by the virtual network's NAT.  
+[Service endpoints](../virtual-network-service-endpoints-overview.md) and [private link](../../private-link/private-link-overview.md) are options to consider for optimizing cost. NAT isn't needed for these services. Traffic directed to service endpoints or private link is not processed by the virtual network's NAT.  
 
 Service endpoints tie Azure service resources to your virtual network and control access to your Azure service resources. For example, when you access Azure storage, use a service endpoint for storage to avoid data processed NAT charges. Service endpoints are free.
 
@@ -222,7 +222,7 @@ While the scenario will appear to work, its health model and failure mode is und
 >The zones property of a NAT gateway resource isn't mutable.  Redeploy NAT gateway resource with the intended regional or zone preference.
 
 >[!NOTE] 
->IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](/azure/load-balancer/load-balancer-standard-availability-zones) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
+>IP addresses by themselves aren't zone-redundant if no zone is specified.  The frontend of a [Standard Load Balancer is zone-redundant](../../load-balancer/load-balancer-standard-availability-zones.md) if an IP address isn't created in a specific zone.  This doesn't apply to NAT.  Only regional or zone-isolation is supported.
 
 ## Performance
 
@@ -270,7 +270,7 @@ A NAT gateway will likely translate flow 4 to a port that may be used for other 
 
 Don't take a dependency on the specific way source ports are assigned in the above example.  The preceding is an illustration of the fundamental concept only.
 
-SNAT provided by NAT is different from [Load Balancer](/azure/load-balancer/load-balancer-outbound-connections) in several aspects.
+SNAT provided by NAT is different from [Load Balancer](../../load-balancer/load-balancer-outbound-connections.md) in several aspects.
 
 ### On-demand
 

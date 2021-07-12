@@ -18,7 +18,7 @@ This article shows you how to create a Windows Virtual Desktop image with these 
 
 * Installing [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Running a [Windows Virtual Desktop Optimization script](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) from the community repo.
-* Install [Microsoft Teams](../../virtual-desktop/teams-on-wvd.md).
+* Install [Microsoft Teams](../../virtual-desktop/teams-on-avd.md).
 * [Restart](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
 * Run [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 

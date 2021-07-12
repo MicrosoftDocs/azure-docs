@@ -483,7 +483,7 @@ The previous version of Remote Desktop client is now called “Remote Desktop 8.
 
 ### Teams update
 
-We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](teams-on-wvd.md).
+We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](./teams-on-avd.md).
 
 ## June 2020
 
