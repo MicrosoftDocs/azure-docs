@@ -29,7 +29,7 @@
     - name: Enroll in per-user license pricing
       href: 
     - name: Estimate total deployment costs 
-      href: 
+      href: total-costs.md
     - name: Estimate per-user app streaming costs 
       href: 
     - name: Deploy apps with Microsoft Intune
