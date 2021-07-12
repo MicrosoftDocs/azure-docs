@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/09/2021
+ms.date: 07/12/2021
 ms.author: alkohli
 ---
 
@@ -50,7 +50,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myazvm"
     PS C:\WINDOWS\system32> $VMRG = "myaseazrg"
     PS C:\WINDOWS\system32> $TagName = "Organization"
@@ -75,7 +75,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
     PS C:\WINDOWS\system32> $tags = $VirtualMachine.Tags
     PS C:\WINDOWS\system32> $tags.Add($TagName, $TagValue)
@@ -110,7 +110,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
     PS C:\WINDOWS\system32> $VMRG = "myaserg2"
     PS C:\WINDOWS\system32> $TagName = "Organization"
@@ -135,7 +135,7 @@ Before you can deploy a VM on your device via PowerShell, make sure that:
 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
     PS C:\WINDOWS\system32> $tags = $VirtualMachine.Tags
     PS C:\WINDOWS\system32> $tags.Add($TagName, $TagValue)
@@ -172,25 +172,25 @@ You can view the tags applied to a specific virtual machine running on your devi
    ```
     Here is an example output:
 
-    ```powershell
-    PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
-    PS C:\WINDOWS\system32> $VMRG = "myaserg2"
+    ```output
+    PS C:\WINDOWS\system32> $VMName = "myazvm"
+    PS C:\WINDOWS\system32> $VMRG = "myaseazrg"
     ```
 1. Get the VM object and view its tags.
 
    ```powershell
-   $VirtualMachine = Get-AzureRmVM -ResourceGroupName $VMRG -Name $VMName
+   $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
    $VirtualMachine.Tags
    ```
     Here is an example output:
 
-    ```powershell
-    PS C:\WINDOWS\system32> $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
+    ```output
+    PS C:\WINDOWS\system32>  $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName     
     PS C:\WINDOWS\system32> $VirtualMachine.Tags
     
     Key          Value
     ---          -----
-    Organization Sales
+    Organization Sales    
     
     PS C:\WINDOWS\system32>
     ```
@@ -208,7 +208,7 @@ You can view the tags applied to a specific virtual machine running on your devi
    ```
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myasetestvm1"
     PS C:\WINDOWS\system32> $VMRG = "myaserg2"
     ```
@@ -220,7 +220,7 @@ You can view the tags applied to a specific virtual machine running on your devi
    ```
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
     PS C:\WINDOWS\system32> $VirtualMachine
 
@@ -250,37 +250,36 @@ To view the current list of tags for all the resources in the local Azure Resour
 
 Here is an example output when multiple VMs are running on your device and you want to view all the tags on all the VMs.
 
-```powershell
+```output
 PS C:\WINDOWS\system32> Get-AzTag
 
 Name         Count
 ----         -----
-Organization 3
+Organization 2
 
 PS C:\WINDOWS\system32>
 ```
 
-The preceding output indicates that there are three `Organization` tags on the VMs running on your device.
+The preceding output indicates that there are two `Organization` tags on the VMs running on your device.
 
 To view further details, use the `-Detailed` parameter.
 
-```powershell
+```output
 PS C:\WINDOWS\system32> Get-AzTag -Detailed |fl
 
 Name        : Organization
 ValuesTable :
               Name         Count
               ===========  =====
-              Engineering  2
               Sales        1
-
-Count       : 3
-Values      : {Engineering, Sales}
+              Engineering  1
+Count       : 2
+Values      : {Sales, Engineering}
 
 PS C:\WINDOWS\system32>
 ```
 
-The preceding output indicates that out of the three tags, 2 VMs are tagged as `Engineering` and one is tagged as belonging to `Sales`.
+The preceding output indicates that out of the two tags, 1 VM is tagged as `Engineering` and the other one is tagged as belonging to `Sales`.
 
 ### [AzureRM](#tab/azurerm)
 
@@ -303,7 +302,7 @@ The preceding output indicates that there are three `Organization` tags on the V
 
 To view further details, use the `-Detailed` parameter.
 
-```powershell
+```output
 PS C:\WINDOWS\system32> Get-AzureRMTag -Detailed |fl
 
 Name        : Organization
@@ -334,7 +333,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
    ``` 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myaselinuxvm1"
     PS C:\WINDOWS\system32> $VMRG = "myaserg1"
     PS C:\WINDOWS\system32> $TagName = "Organization" 
@@ -342,59 +341,62 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
 2. Get the VM object.
 
     ```powershell
-    $VirtualMachine = Get-AzureRmVM -ResourceGroupName $VMRG -Name $VMName
+    $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
     $VirtualMachine   
     ```   
 
     Here is an example output:
 
-    ```powershell
-    PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
-    ResourceGroupName : myaserg1
-    Id                : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg1/providers/Microsoft.Compute/virtualMachines/myaselinuxvm1
-    VmId              : 290b3fdd-0c99-4905-9ea1-cf93cd6f25ee
-    Name              : myaselinuxvm1
-    Type              : Microsoft.Compute/virtualMachines
-    Location          : dbelocal
-    Tags              : {"Organization":"Engineering"}
-    HardwareProfile   : {VmSize}
-    NetworkProfile    : {NetworkInterfaces}
-    OSProfile         : {ComputerName, AdminUsername, LinuxConfiguration, Secrets}
-    ProvisioningState : Succeeded
-    StorageProfile    : {ImageReference, OsDisk, DataDisks}
-                                                                              PS C:\WINDOWS\system32> 
+    ```output
+    PS C:\WINDOWS\system32> $VirtualMachine = Get-AzVM -ResourceGroupName $VMRG -Name $VMName
+    PS C:\WINDOWS\system32> $VirtualMachine
+    
+    ResourceGroupName  : myaseazrg
+    Id                 : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/mya
+    seazrg/providers/Microsoft.Compute/virtualMachines/myazvm
+    VmId               : 568a264f-c5d3-477f-a16c-4c5549eafa8c
+    Name               : myazvm
+    Type               : Microsoft.Compute/virtualMachines
+    Location           : dbelocal
+    Tags               : {"Organization":"Sales"}
+    DiagnosticsProfile : {BootDiagnostics}
+    HardwareProfile    : {VmSize}
+    NetworkProfile     : {NetworkInterfaces}
+    OSProfile          : {ComputerName, AdminUsername, LinuxConfiguration, Secrets,
+    AllowExtensionOperations, RequireGuestProvisionSignal}
+    ProvisioningState  : Succeeded
+    StorageProfile     : {ImageReference, OsDisk, DataDisks}
+    
+    PS C:\WINDOWS\system32>
     ```
 3. Remove the tag and update the VM. Use the optional `-Force` flag to run the command without user confirmation.
 
     ```powershell
     $tags = $VirtualMachine.Tags
     $tags.Remove($TagName)
-    Set-AzureRmResource -ResourceId $VirtualMachine.Id -Tag $tags [-Force]
+    Set-AzResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
     ```
     Here is an example output:
 
-    ```powershell
-    PS C:\WINDOWS\system32> $tags = $Virtualmachine.Tags
-    PS C:\WINDOWS\system32> $tags
-    Key          Value
-    ---          -----
-    Organization Engineering
+    ```output
+    PS C:\WINDOWS\system32> $tags = $VirtualMachine.Tags
     PS C:\WINDOWS\system32> $tags.Remove($TagName)
     True
-    PS C:\WINDOWS\system32> Set-AzureRMResource -ResourceID $VirtualMachine.ID -Tag $tags -Force
-    Name              : myaselinuxvm1
-    ResourceId        : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGrou
-                        ps/myaserg1/providers/Microsoft.Compute/virtualMachines/myaselin
-                        uxvm1
-    ResourceName      : myaselinuxvm1
+    PS C:\WINDOWS\system32> Set-AzResource -ResourceId $VirtualMachine.Id -Tag $tags -Force
+    
+    Name              : myazvm
+    ResourceId        : /subscriptions/d64617ad-6266-4b19-45af-81112d213322/resourceGroups/myas
+                        eazrg/providers/Microsoft.Compute/virtualMachines/myazvm
+    ResourceName      : myazvm
     ResourceType      : Microsoft.Compute/virtualMachines
-    ResourceGroupName : myaserg1
+    ResourceGroupName : myaseazrg
     Location          : dbelocal
-    SubscriptionId    : 992601bc-b03d-4d72-598e-d24eac232122
+    SubscriptionId    : d64617ad-6266-4b19-45af-81112d213322
     Tags              : {}
-    Properties        : @{vmId=290b3fdd-0c99-4905-9ea1-cf93cd6f25ee; hardwareProfile=;
-                        storageProfile=; osProfile=; networkProfile=;
+    Properties        : @{vmId=568a264f-c5d3-477f-a16c-4c5549eafa8c; hardwareProfile=;
+                        storageProfile=; osProfile=; networkProfile=; diagnosticsProfile=;
                         provisioningState=Succeeded}
+    
     PS C:\WINDOWS\system32>
     ```
 
@@ -410,7 +412,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
    ``` 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VMName = "myaselinuxvm1"
     PS C:\WINDOWS\system32> $VMRG = "myaserg1"
     PS C:\WINDOWS\system32> $TagName = "Organization" 
@@ -424,7 +426,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
 
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $VirtualMachine = Get-AzureRMVM -ResourceGroupName $VMRG -Name $VMName
     ResourceGroupName : myaserg1
     Id                : /subscriptions/992601bc-b03d-4d72-598e-d24eac232122/resourceGroups/myaserg1/providers/Microsoft.Compute/virtualMachines/myaselinuxvm1
@@ -449,7 +451,7 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
     ```
     Here is an example output:
 
-    ```powershell
+    ```output
     PS C:\WINDOWS\system32> $tags = $Virtualmachine.Tags
     PS C:\WINDOWS\system32> $tags
     Key          Value
