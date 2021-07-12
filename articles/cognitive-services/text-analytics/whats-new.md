@@ -21,10 +21,11 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ### GA release updates
 
-* General availability for Text Analytics for health for both containers and hosted API (/health).
-* General availability for Opinion Mining.
-* General availability for PII extraction and redaction.
-* General availability for Asynchronous (`/analyze`) endpoint.
+* General availability for Text Analytics for health for both containers and hosted API (/health) as a part of v3.1.
+* General availability for Opinion Mining as a part of v3.1.
+* General availability for PII extraction and redaction as a part of v3.1.
+* General availability for Asynchronous (`/analyze`) endpoint as a part of v3.1.
+* General availability of Text Analytics SDK as a part of v5.1.0.
 * Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples. 
 
 ## June 2021
