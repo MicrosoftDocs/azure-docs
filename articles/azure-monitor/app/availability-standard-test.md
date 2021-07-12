@@ -148,11 +148,6 @@ In addition to the raw results, you can also view two key Availability metrics i
 1. Availability: Percentage of the tests that were successful, across all test executions.
 2. Test Duration: Average test duration across all test executions.
 
-## Automation
-
-* [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../alerts/alerts-webhooks.md) that is called when an alert is raised.
-
 ## Next steps
 
 * [Availability Alerts](availability-alerts.md)
