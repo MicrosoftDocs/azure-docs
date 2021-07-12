@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 7/10/2021
+ms.date: 7/12/2021
 
 ms.author: gasinh
 author: gargi-sinha
