@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 07/02/2021 
+  ms.date: 07/15/2021 
 
 
 # card 1
@@ -192,6 +192,8 @@ landingContent:
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
+          - text: Deploy JetStream DR 
+            url: deploy-disaster-recovery-using-jetstream.md
 
 # card 9
   - title: Resources
