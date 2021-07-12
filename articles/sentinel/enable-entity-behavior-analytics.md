@@ -20,6 +20,7 @@ ms.author: yelevin
 # Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel 
 
 > [!IMPORTANT]
+>
 > The UEBA and Entity Pages features are now in **General Availability** in ***all*** Azure Sentinel geographies and regions. 
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
