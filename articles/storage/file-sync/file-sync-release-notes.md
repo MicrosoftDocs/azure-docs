@@ -49,21 +49,21 @@ The following Azure File Sync agent versions have expired and are no longer supp
 The following release notes are for version 13.0.0.0 of the Azure File Sync agent (released July 12, 2021).
 
 ### Improvements and issues that are fixed
-- Authoritative upload
-	Authoritative upload is a new mode available when creating the first server endpoint in a sync group. It is useful for the scenario where the cloud (Azure file share) has some/most of the data but is outdated and needs to be caught up with the more recent data on the new server endpoint. This is the case in offline migration scenarios like DataBox, for instance. When a DataBox is filled and sent to Azure, the users of the local server will keep changing / adding / deleting files on the local server. That makes the data in the DataBox and thus the Azure file share, slightly outdated. With Authoritative Upload, you can now tell the server and cloud, how to resolve this case and get the cloud seamlessly updated with the latest changes on the server. 
+- Authoritative upload  
+	- Authoritative upload is a new mode available when creating the first server endpoint in a sync group. It is useful for the scenario where the cloud (Azure file share) has some/most of the data but is outdated and needs to be caught up with the more recent data on the new server endpoint. This is the case in offline migration scenarios like DataBox, for instance. When a DataBox is filled and sent to Azure, the users of the local server will keep changing / adding / deleting files on the local server. That makes the data in the DataBox and thus the Azure file share, slightly outdated. With Authoritative Upload, you can now tell the server and cloud, how to resolve this case and get the cloud seamlessly updated with the latest changes on the server. 
 
-	No matter how the data got to the cloud, this mode can update the Azure file share if the data stems from the matching location on the server. Be sure to avoid large directory restructures between the initial copy to the cloud and catching up with Authoritative Upload. This will ensure you are only transporting updates. Changes to directory names will cause all files in these renamed directories to be uploaded again. This functionality is comparable to semantics of RoboCopy /MIR = mirror source to target, including removing files on the target that no longer exist on the source. 
+		No matter how the data got to the cloud, this mode can update the Azure file share if the data stems from the matching location on the server. Be sure to avoid large directory restructures between the initial copy to the cloud and catching up with Authoritative Upload. This will ensure you are only transporting updates. Changes to directory names will cause all files in these renamed directories to be uploaded again. This functionality is comparable to semantics of RoboCopy /MIR = mirror source to target, including removing files on the target that no longer exist on the source. 
+		
+		Authoritative Upload replaces the "Offline Data Transfer" feature for DataBox integration with Azure File Sync via a staging share. A staging share is no longer required to use DataBox. New Offline Data Transfer jobs can no longer be started with the AFS V13 agent. Existing jobs on a server will continue even with the upgrade to agent version 13.
 
-	Authoritative Upload replaces the "Offline Data Transfer" feature for DataBox integration with Azure File Sync via a staging share. A staging share is no longer required to use DataBox. New Offline Data Transfer jobs can no longer be started with the AFS V13 agent. Existing jobs on a server will continue even with the upgrade to agent version 13.
-
-- Portal improvements to view cloud change enumeration and sync progress
-	When a new sync group is created, any connected server endpoint can only begin sync, when cloud change enumeration is complete.  In case files already exist in the cloud endpoint (Azure file share) of this sync group, change enumeration of content in the cloud can take some time. The more items (files and folders) exist in the namespace, the longer this process can take. Admins will now be able to obtain cloud change enumeration progress in the Azure portal to estimate an eta for completion / sync to start with servers.
+- Portal improvements to view cloud change enumeration and sync progress  
+	- When a new sync group is created, any connected server endpoint can only begin sync, when cloud change enumeration is complete.  In case files already exist in the cloud endpoint (Azure file share) of this sync group, change enumeration of content in the cloud can take some time. The more items (files and folders) exist in the namespace, the longer this process can take. Admins will now be able to obtain cloud change enumeration progress in the Azure portal to estimate an eta for completion / sync to start with servers.
 
 - Support for server rename  
-	If a registered server is renamed, Azure File Sync will now show the new server name in the portal. If the server was renamed prior to the v13 release, the server name in the portal will now be updated to show the correct server name.
+	- If a registered server is renamed, Azure File Sync will now show the new server name in the portal. If the server was renamed prior to the v13 release, the server name in the portal will now be updated to show the correct server name.
 
 - Support for Windows Server 2022 Preview  
-	The Azure File Sync agent is now supported on Windows Server 2022 Preview build 20348 or later.
+	- The Azure File Sync agent is now supported on Windows Server 2022 Preview build 20348 or later.
 
 	> [!Note]  
 	> Windows Server 2022 adds support for TLS 1.3 which is not currently supported by Azure File Sync.  If the [TLS settings](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview) are managed via group policy, the server must be configured to support TLS 1.2. 
