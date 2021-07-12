@@ -15,7 +15,7 @@ ms.reviewer: laobri
 
 # Create a training job with the job creation UI (preview)
 
-There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs) with the 2.0 CLI (preview)](how-to-train-cli.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job.In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning Studio.
+There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs) with the 2.0 CLI (preview)](how-to-train-cli.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning Studio.
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ After selecting a compute target, you need to specify the runtime environment fo
 
 ### Curated environments
 
-Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the run preparation overhead. You can see detailed information about the contents of each curated environment in the cards displayed in the "Curated environments" page.
+Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the run preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. 
 
  [![Curated environments](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 
