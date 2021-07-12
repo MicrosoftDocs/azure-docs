@@ -2,10 +2,10 @@
   href: index.yml
 - name: Overview
   items:
+  - name: What is Azure Virtual Desktop remote app streaming?
+    href: overview.md
   - name: What is Azure Virtual Desktop?
     href: ../overview.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-  - name: What is Azure Virtual Desktop remote app streaming?
-    href:
 - name: Tutorials
   items:
   - name: 1. Create a host pool with the Azure portal
