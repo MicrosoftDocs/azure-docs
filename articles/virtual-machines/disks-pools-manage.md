@@ -11,9 +11,7 @@ ms.subservice: disks
 
 # Manage an Azure disk pool (preview)
 
-Once you've deployed an Azure disk pool (preview), there are two management actions available to you. You can:
-- Add a disk to a disk pool
-- Disable iSCSI support on a disk
+This article covers how to add a managed disk to an Azure disk pool (preview) and how to disable iSCSI support on a disk that has been added to a disk pool.
 
 ## Prerequisites
 
@@ -69,7 +67,7 @@ Update-AzDiskPoolIscsiTarget -Name $iscsiTargetName -DiskPoolName $diskPoolName 
 
 ## Disable iSCSI on a disk and remove it from the pool
 
-iSCSI support can be disabled on a disk to remove it from a disk pool. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI LUN the disk is exposed as. When the disk is removed from the disk pool, it isn't deleted, hence there will not be any data loss. You can manually delete the disk if you don't want to incur further charges for having the disk and the data stored in the disk will be deleted.
+Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connections to the iSCSI LUN the disk is exposed as. When a disk is removed from the disk pool, it isn't automatically deleted. This prevents any data loss but you will still be billed for storing data. If you don't need the data stored in a disk, you can manually delete the disk. This will delete the disk and all data stored on it and will prevent further charges.
 
 ```azurepowershell
 #Initialize input parameters

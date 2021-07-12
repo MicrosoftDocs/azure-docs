@@ -9,7 +9,7 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Disk pools (preview) planning guide
+# Azure disk pools (preview) planning guide
 
 It's important to understand the performance requirements of your workload before you deploy an Azure disk pool (preview). Determining your requirements in advance allows you to get the most performance out of your disk pool. The performance of a disk pool is determined by three main factors, adjusting any of them will tweak your disk pool's performance:
 
