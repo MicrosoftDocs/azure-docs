@@ -31,7 +31,7 @@ Follow the steps in [Integrate your Azure AD sign-in and audit logs with Azure M
 
 ## 2. Access the sign-ins workbook
 
-Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the [Azure Monitor integration](howto-get-list-of-all-active-directory-auth-library-apps.md#azure-monitor-integration), access the sign-ins workbook:
+Once you've integrated your Azure AD sign-in and audit logs with Azure Monitor as specified in the [Azure Monitor integration](howto-get-list-of-all-active-directory-auth-library-apps.md#1-azure-monitor-integration'), access the sign-ins workbook:
 
    1. Sign into the Azure portal 
    1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks** 
