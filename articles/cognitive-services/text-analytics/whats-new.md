@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 07/07/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -17,15 +17,27 @@ ms.custom: references_regions
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## July 2021
+
+### GA release updates
+
+* General availability for Text Analytics for health for both containers and hosted API (/health).
+* General availability for Opinion Mining.
+* General availability for PII extraction and redaction.
+* General availability for Asynchronous (`/analyze`) endpoint.
+* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples. 
+
 ## June 2021
 
 ### General API updates
 
-* New model-version `2021-06-01` for key phrase extraction, which adds support for simplified Chinese.
+* New model-version `2021-06-01` for key phrase extraction based on transformers. It provides:
+  * Support for 10 languages (Latin and CJK). 
+  * Improved key phrase extraction.
 * The `2021-06-01` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
   * Improved AI quality and expanded language support for the *Skill* entity category. 
   * Added Spanish, French, German, Italian and Portuguese language support for the *Skill* entity category
-* Asynchronous operation and Text Analytics for health are available in all regions 
+* Asynchronous (/analyze) operation and Text Analytics for health (ungated preview) is available in all regions. 
 
 ### Text Analytics for health updates
 
