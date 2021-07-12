@@ -1,8 +1,8 @@
 ---
-title: Test cases for test toolkit
-description: Describes the tests that are run by the Azure Resource Manager template test toolkit.
+title: Template test cases for test toolkit
+description: Describes the template tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 07/12/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
