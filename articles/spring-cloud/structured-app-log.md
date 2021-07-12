@@ -1,7 +1,7 @@
 ---
 title: Structured application log for Azure Spring Cloud | Microsoft Docs
 description: This article explains how to generate and collect structured application log data in Azure Spring Cloud.
-author: MikeDodaro
+author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/05/2021
