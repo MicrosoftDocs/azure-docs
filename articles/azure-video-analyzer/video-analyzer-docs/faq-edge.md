@@ -91,7 +91,7 @@ Solutions vary depending on the communication protocol that's used by the infere
 
    In your Video Analyzer topology, you instantiate two live pipelines with different inference URLs, as shown here: 
 
-   1st live pipeline:  inference server URL = `http://avaextension1:44001/score`    
+   1st live pipeline:  inference server URL = `http://avaextension1:44000/score`    
    2nd live pipeline: inference server URL = `http://avaextension2:44001/score`
    
 *Use the gRPC protocol*: 
