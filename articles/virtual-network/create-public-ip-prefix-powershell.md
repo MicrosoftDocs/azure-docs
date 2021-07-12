@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 07/09/2021
+ms.date: 07/12/2021
 ms.author: allensu
 ---
 
@@ -25,6 +25,7 @@ When you create a public IP address resource, you can assign a static public IP 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
+
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **myResourceGroup** in the **eastus2** location.
@@ -44,6 +45,7 @@ In this section, you'll create a zone redundant, zonal, and non-zonal public IP 
 The prefixes in the examples are:
 
 * **IPv4** - /28 (16 addresses)
+
 * **IPv6** - /124 (16 addresses)
 
 For more information on available prefix sizes, see [Prefix sizes](public-ip-address-prefix.md#prefix-sizes).
@@ -103,6 +105,7 @@ New-AzPublicIpPrefix @ipv4
 The removal of the **zone** parameter in the command is valid in all regions.  
 
 The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+
 ### Zone redundant IPv6 prefix
 
 To create a IPv4 public IP prefix, enter **IPv6** in the **IpAddressVersion** parameter. To create a zone redundant IPv6 prefix, enter **1,2,3** in the **Zone** parameter.
@@ -118,6 +121,7 @@ $ipv6 =@{
 }
 New-AzPublicIpPrefix @ipv6
 ```
+
 ### Zonal IPv6 prefix
 
 To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** parameter. Enter **2** in the **Zone** parameter to create a zonal IP prefix in zone 2.
@@ -155,6 +159,7 @@ New-AzPublicIpPrefix @ipv6
 The removal of the **zone** parameter in the command is valid in all regions.  
 
 The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
+
 ## Create a static public IP address from a prefix
 
 Once you create a prefix, you must create static IP addresses from the prefix. In this section, you'll create a static IP address from the prefix you created earlier.
@@ -242,11 +247,9 @@ The removal of the **zone** parameter in the command is valid in all regions.
 
 The removal of the **zone** parameter is the default selection for standard public IP addresses in regions without [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
-
 ### Zone redundant IPv6 address
 
 To create a IPv6 public IP prefix, enter **IPv6** in the **IpAddressVersion** parameter. To create a zone redundant IPv6 address, enter **1,2,3** in the **Zone** parameter.
-
 
 ```azurepowershell-interactive
 $pf =@{
@@ -357,4 +360,4 @@ Remove-AzResourceGroup -ResourceGroupName 'myResourceGroup'
 
 ## Next steps
 
-- Learn about scenarios and benefits of using a [public IP prefix](public-ip-address-prefix.md)
+- Learn about scenarios and benefits of using a [public IP prefix](public-ip-address-prefix.md).
