@@ -128,7 +128,7 @@ For details, see:
 - [Create a SQL Server virtual machine](sql-vm-create-portal-quickstart.md)
 
 ## <a id="lifecycle"></a> SQL Server VM image refresh policy
-Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#images).
+Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](./frequently-asked-questions-faq.yml#images).
 
 ## Customer experience improvement program (CEIP)
 The Customer Experience Improvement Program (CEIP) is enabled by default. This periodically sends reports to Microsoft to help improve SQL Server. There is no management task required with CEIP unless you want to disable it after provisioning. You can customize or disable the CEIP by connecting to the VM with remote desktop. Then run the **SQL Server Error and Usage Reporting** utility. Follow the instructions to disable reporting. For more information about data collection, see the [SQL Server Privacy Statement](/sql/sql-server/sql-server-privacy).
