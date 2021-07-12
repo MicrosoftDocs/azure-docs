@@ -8,7 +8,7 @@ ms.date: 07/07/2021
 ms.author: nickoman
 ---
 
-# HTTP proxy support in Azure Kubernetes Service (Preview)
+# HTTP proxy support in Azure Kubernetes Service (preview)
 
 Azure Kubernetes Service (AKS) clusters, whether deployed into a managed or custom virtual network, have certain outbound dependencies necessary to function properly. Previously, in environments requiring internet access to be routed through HTTP proxies, this was a problem. Nodes had no way of bootstrapping the configuration, environment variables, and certificates necessary to access internet services.
 
@@ -16,13 +16,21 @@ This preview feature adds HTTP proxy support to AKS clusters, exposing a straigh
 
 Some more complex solutions may require creating a chain of trust to establish secure communications across the network. The feature also provides the ability to install a trusted certificate authority onto the nodes as part of bootstrapping a cluster.
 
-## Limitations and requirements
+## Limitations, requirements, and other details
 
-The following scenarios are not supported:
+The following scenarios are **not** supported:
 - Different proxy configurations per node pool
 - Updating proxy settings post cluster creation
-- User/Password auth (as opposed to certificate auth)
+- User/Password authentication
 - Custom CAs for API server communication
+- Windows-based clusters
+- Node pools using Virtual Machine Availability Sets (VMAS)
+
+By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
+
+*noProxy* by default   
+
+Upon deploying a cluster using the HTTP proxy feature, 
 
 ## Configuring an HTTP proxy using Azure CLI 
 
@@ -70,6 +78,16 @@ Deploying an AKS cluster with an HTTP proxy configured via ARM template is very 
 
 In your template, provide values for `httpProxy`, `httpsProxy`, and `noProxy`. If necessary, also provide a value for `trustedCa`. Deploy the template, and your cluster should initialize with your HTTP proxy configured on the nodes.
 
+## Handling CA rollover
+
+Values for *httpProxy*, *httpsProxy*, and *noProxy* cannot be changed after cluster creation. However, to support rolling CA certs, the value for *trustedCa* can be changed and applied to the cluster with the [az aks update][az-aks-update] command.
+
+For example, assuming a new file has been created with the base64 encoded string of the new CA cert called *aks-proxy-config-2.json*, the following will update the cluster:
+
+```azurecli
+az aks update -n $clusterName -g $resourceGroup --proxy-configuration-file aks-proxy-config-2.json
+```
+
 ## Next steps
 - For more on the network requirements of AKS clusters, please see [control egress traffic for cluster nodes in AKS][aks-egress].
 
@@ -77,3 +95,4 @@ In your template, provide values for `httpProxy`, `httpsProxy`, and `noProxy`. I
 <!-- LINKS - internal -->
 [aks-egress]: ./limit-egress-traffic.md
 [az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-update]: /cli/azure/aks#az_aks_update
