@@ -55,12 +55,6 @@ For details on the permissions required to call specific Table service operation
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## Access data with an Azure AD account
-
-Access to table data via PowerShell or Azure CLI can be authorized either by using the user's Azure AD account or by using the account access keys (Shared Key authorization).
-
-Azure CLI and PowerShell support signing in with Azure AD credentials. After you sign in with Azure AD, your session runs under those credentials.
-
 ## Next steps
 
 - [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
