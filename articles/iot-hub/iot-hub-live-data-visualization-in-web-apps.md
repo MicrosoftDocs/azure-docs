@@ -5,7 +5,6 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]

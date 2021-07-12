@@ -36,9 +36,10 @@ For guidance on creating Visual Studio web tests consult the [official Visual St
 
 ## Upload the web test
 
-1. In the Application Insights portal on the Availability pane select **Create Test** > **Test type** > **Multi-step web test**.
-
-2. Set the test locations, frequency, and alert parameters.
+1. In the Application Insights portal on the Availability pane select **Add Classic test**, then select **Multi-step** as the *SKU*.
+2. Upload your multi-step web test.
+3. Set the test locations, frequency, and alert parameters.
+4. Select **Create**.
 
 ### Frequency & location
 

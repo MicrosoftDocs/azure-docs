@@ -177,7 +177,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** keeps all original columns in the result set and defines additional ones. The following query uses **extend** to add the *EventCode* column. Note that this column may not display at the end of the table results in which case you would need to expand the details of a record to view it.
+**extend** keeps all original columns in the result set and defines additional ones. The following query uses **extend** to add the *EventCode* column. Note that this column may not display at the end of the table results, in which case you would need to expand the details of a record to view it.
 
 ```Kusto
 SecurityEvent
