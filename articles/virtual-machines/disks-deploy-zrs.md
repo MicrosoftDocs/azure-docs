@@ -3,7 +3,7 @@ title: Deploy a ZRS managed disk
 description: Learn how to deploy a managed disk that uses zone-redundant storage (ZRS).
 author: roygara
 ms.author: rogarana
-ms.date: 07/01/2021
+ms.date: 07/12/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
@@ -42,7 +42,7 @@ You must enable the feature for your subscription. Use the following steps to en
 
 1. Sign in to the Azure portal.
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
-1. Make sure to select an eligible region and set redundancy to local.
+1. Select an eligible region and set **Availability options** to **No infrastructure redundancy required**.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic pane, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
 
