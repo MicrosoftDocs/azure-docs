@@ -73,7 +73,7 @@ Copy the provider setup file and registration key file to each Hyper-V host (or 
 Run the provider setup file on each host, as described below:
 
 1. Click the file icon in the taskbar to open the folder where the installer file and registration key are downloaded.
-1. Select **AzureSiteRecoveryProvider.exe**.
+1. Select **AzureSiteRecoveryProvider.exe** file.
     - In the provider installation wizard, ensure **On (recommended)** is checked, and then click **Next**.
     - Select **Install** to accept the default installation folder.
     - Select **Register** to register this server in Azure Site Recovery vault.
