@@ -42,7 +42,7 @@ You must enable the feature for your subscription. Use the following steps to en
 
 1. Sign in to the Azure portal.
 1. Navigate to **Virtual machines** and follow the normal VM creation process.
-1. Select an eligible region and set **Availability options** to **No infrastructure redundancy required**.
+1. Select a supported region and set **Availability options** to **No infrastructure redundancy required**.
 
     :::image type="content" source="media/disks-deploy-zrs/disks-zrs-portal-basic.png" alt-text="Screenshot of the VM creation workflow, basic pane, redundancy and regions are highlighted." lightbox="media/disks-deploy-zrs/disks-zrs-portal-basic.png":::
 
@@ -59,9 +59,18 @@ You've now deployed a VM with a ZRS OS disk.
 
 1. In the Azure portal, search for and select **Disks**.
 1. Select **+ Add** to create a new disk.
-1. Select a supported region and select no redundancy requirements.
-1. Select the size, then select a ZRS SKU.
+1. Select a supported region and **Availability options** to **No infrastructure redundancy required**.
+1. Select **Change size**.
 
+    :::image type="content" source="media/disks-deploy-zrs/create-zrs-disk-pane.png" alt-text="Screenshot of the disk creation workflow, basics pane." lightbox="media/disks-deploy-zrs/create-zrs-disk-pane.png":::
+
+1. Select one of the available ZRS disks and select **OK**.
+
+    :::image type="content" source="media/disks-deploy-zrs/select-zrs-disk-sku.png" alt-text="Screenshot of the disk creation workflow, select a disk size pane, ZRS disks highlighted." lightbox="media/disks-deploy-zrs/select-zrs-disk-sku.png":::
+
+1. Continue through the deployment process.
+
+You have now created a managed disk that uses ZRS.
 
 # [Azure CLI](#tab/azure-cli)
 
