@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 # Using a system-assigned managed identity for an Azure Automation account (preview)
 
-This article shows you how to add a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
+This article shows you how to enable a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -52,14 +52,12 @@ if(-not($sub))
 # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 ```
 
-Then initialize a set of variables that will be used throughout the examples. Revise the values below and then execute"
+Then initialize a set of variables that will be used throughout the examples. Revise the values below and then execute.
 
 ```powershell
+$subscriptionID = "subscriptionID"
 $resourceGroup = "resourceGroupName"
 $automationAccount = "automationAccountName"
-$subscriptionID = "subscriptionID"
-$userAssignedOne = "userAssignedIdentityOne"
-$userAssignedTwo = "userAssignedIdentityTwo"
 ```
 
 > [!IMPORTANT]
@@ -98,7 +96,7 @@ $output
 
 The output should look similar to the following:
 
-:::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Alt text here.":::
+:::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Output from set-azautomationaccount sommand.":::
 
 For additional output, execute: `$output.identity | ConvertTo-Json`.
 
@@ -118,7 +116,7 @@ The body syntax below enables a system-assigned managed identity to an existing 
 }
 ```
 
-Use the syntax below to retain any existing user-assigned managed identities associated with the Automation account.
+Use the syntax below to keep any existing user-assigned managed identities associated with the Automation account.
 
 ```json
 { 

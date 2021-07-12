@@ -54,9 +54,9 @@ if(-not($sub))
 Then initialize a set of variables that will be used throughout the examples. Revise the values below and then execute"
 
 ```powershell
+$subscriptionID = "subscriptionID"
 $resourceGroup = "resourceGroupName"
 $automationAccount = "automationAccountName"
-$subscriptionID = "subscriptionID"
 $userAssignedOne = "userAssignedIdentityOne"
 $userAssignedTwo = "userAssignedIdentityTwo"
 ```
@@ -79,7 +79,7 @@ Perform the following steps:
 
 ### Add using PowerShell
 
-Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to add the user-assigned managed identities. You must first consider whether there is an existing system-assigned managed identity. The example below adds two existing user-assigned managed identities to an existing Automation account, and will remove a system-assigned managed identity if one exists.
+Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to add the user-assigned managed identities. You must first consider whether there's an existing system-assigned managed identity. The example below adds two existing user-assigned managed identities to an existing Automation account, and will disable a system-assigned managed identity if one exists.
 
 ```powershell
 $output = Set-AzAutomationAccount `
@@ -91,7 +91,7 @@ $output = Set-AzAutomationAccount `
 $output
 ```
 
-To retain an existing system-assigned managed identity, use the following:
+To keep an existing system-assigned managed identity, use the following:
 
 ```powershell
 $output = Set-AzAutomationAccount `
