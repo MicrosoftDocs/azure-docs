@@ -6,24 +6,24 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/10/2021
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
 
 # Estimate per-user app streaming costs for Azure Virtual Desktop
 
-Per-user access pricing for Azure Virtual Desktop lets you grant access to apps and desktops hosted with Azure Virtual Desktop to users outside of your organization. To learn more about per-user access pricing for Azure Virtual Desktop, see [Understanding per-user access pricing](placeholder.md). This article will show you how to estimate user access costs for your deployment, assuming full pricing.
+Per-user access pricing for Azure Virtual Desktop lets you grant access to apps and desktops hosted with Azure Virtual Desktop to users outside of your organization. To learn more about per-user access pricing for Azure Virtual Desktop, see [Understanding licensing and per-user access pricing](licensing.md). This article will show you how to estimate user access costs for your deployment, assuming full pricing.
 
 >[!NOTE]
->The prices in this article are based on full price per-user subscriptions without promotional offers or discounts. Also, keep in mind that there are additional costs associated with an Azure Virtual Desktop deployment, such as infrastructure consumption costs. To learn more about these other costs, see [Understanding total Azure Virtual Desktop costs](placeholder.md).
+>The prices in this article are based on full price per-user subscriptions without promotional offers or discounts. Also, keep in mind that there are additional costs associated with an Azure Virtual Desktop deployment, such as infrastructure consumption costs. To learn more about these other costs, see [Understanding total Azure Virtual Desktop deployment costs](total-costs.md).
 
 ## Requirements
 
 Before you can estimate per-user access costs for an existing deployment, you’ll need the following things:
 
 - An Azure Virtual Desktop deployment that's had active users within the last month.
-- [Azure Monitor for your Azure Virtual Desktop deployment](../virtual-desktop/azure-monitor.md)
+- [Azure Monitor for your Azure Virtual Desktop deployment](../azure-monitor.md)
 
 ## Measure monthly user activity in a host pool
 
@@ -52,7 +52,7 @@ You can estimate the total cost by checking how many users in each pricing tier 
 
 To check the number of users in each tier:
 
-1. Go to the [Azure Virtual Desktop pricing page](placeholder.md) and look for the "Apps" and "Apps + Desktops" prices for your region.
+1. Go to the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/) and look for the "Apps" and "Apps + Desktops" prices for your region.
 2. Use the connection volume number you found in step 4 of [Measure monthly activity in a host pool](#measure-monthly-user-activity-in-a-host-pool) to calculate the total user access cost.
    
    If your host pool uses a RemoteApp application group, you'll need to multiply the connection volume by the price value you see in "Apps." In other words, you'll need to use this equation:
@@ -68,4 +68,4 @@ To check the number of users in each tier:
 
 ## Next steps
 
-If you're interested in learning about estimating total costs for an entire Azure Virtual Desktop deployment, see [Understanding total costs](placeholder.md).
+If you're interested in learning about estimating total costs for an entire Azure Virtual Desktop deployment, see [Understanding total Azure Virtual Desktop deployment costs](total-costs.md). To learn about licensing requirements and costs, see [Understanding licensing and per-user access pricing](licensing.md).
