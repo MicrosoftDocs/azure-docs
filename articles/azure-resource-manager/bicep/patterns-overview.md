@@ -1,15 +1,15 @@
 ---
-title: Patterns for Bicep
+title: Patterns for Bicep code
 description: Describes Bicep code patterns you can use to build sophisticated deployments.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/11/2021
 ---
-# Patterns for Bicep
+# Patterns for Bicep code
 
-TODO
+Bicep is a powerful language, and it has a set of features you can combine to create complex deployment topologies. In this section, we describe some common patterns you can follow to create Bicep deployments for a variety of solutions.
 
 ## Next steps
 
-TODO
+[Understand the configuration set pattern.](patterns-configuration-set.md)

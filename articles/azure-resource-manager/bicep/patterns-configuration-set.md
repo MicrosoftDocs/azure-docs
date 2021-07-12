@@ -4,7 +4,7 @@ description: Describes the configuration set pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/11/2021
 ---
 # Configuration set pattern
 
@@ -14,7 +14,7 @@ Create predefined sets of configuration for resources based on a single paramete
 
 A single Bicep file often defines many resources, and each resource might need to use a different configuration depending on the environment you're deploying it to. For example, you might build a Bicep file that deploys an App Service plan and a storage account. Each of these resources has multiple options that affect its cost, availability, and resiliency. For production environments, you want to use one set of configuration. For test environments, you want to use a different set of configuration.
 
-You could create parameters for each configuration setting. However:
+While you could create parameters for each configuration setting, this has some drawbacks:
 
 - This approach creates a burden on your template users, since they need to understand the values to use for each resource, and the impact of doing so.
 - The number of parameters in your template increases with each new resource you define.
@@ -50,3 +50,7 @@ Then create a _map variable_, which is an object that defines the specific confi
 When you define the resources, use the configuration map to define the resource properties:
 
 ::: code language="bicep" source="code/patterns-configuration-set/main.bicep" range="44-55" highlight="4, 11" :::
+
+## Next steps
+
+[Return to the list of patterns for Bicep code.](patterns-overview.md)

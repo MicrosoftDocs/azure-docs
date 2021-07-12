@@ -1,0 +1,18 @@
+{
+  "securityRules": [
+    {
+      "name": "Client_communication_to_API_Management",
+      "properties": {
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "80",
+        "sourceAddressPrefix": "VirtualNetwork",
+        "destinationAddressPrefix": "VirtualNetwork",
+        "access": "Allow",
+        "priority": 100,
+        "direction": "Inbound"
+      }
+    }
+    // other rules here
+  ]
+}

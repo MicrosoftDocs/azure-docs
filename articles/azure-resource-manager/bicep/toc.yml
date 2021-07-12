@@ -90,8 +90,8 @@
         href: patterns-overview.md
       - name: Configuration set
         href: patterns-configuration-set.md
-      - name: Logical to physical
-        href: patterns-logical-physical.md
+      - name: Shared variable file
+        href: patterns-shared-variable-file.md
     - name: Scenarios
       items:
       - name: Overview
