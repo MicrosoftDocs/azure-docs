@@ -4,7 +4,7 @@ description: Describes procedures and limitations when using ADLS-NFS blob stora
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 07/12/2021
 ms.author: v-erkel
 ---
 
@@ -33,7 +33,7 @@ This setting persists for the lifetime of the container, even if you remove it f
 ## Pre-load data with NFS protocol
 <!-- cross-referenced from hpc-cache-ingest.md and here -->
 
-On an NFS-enabled blob container, *a file can only be edited by the same protocol used when it was created*. That is, if you use the Azure REST API to populate a container, you cannot use NFS to update those files. Because Azure HPC Cache only uses NFS, it can't edit any files that were created with the Azure REST API.
+On an NFS-enabled blob container, *a file can only be edited by the same protocol used when it was created*. That is, if you use the Azure REST API to populate a container, you cannot use NFS to update those files. Because Azure HPC Cache only uses NFS, it can't edit any files that were created with the Azure REST API. (Learn more about [known issues with blob storage APIs](../storage/blobs/network-file-system-protocol-known-issues.md#blob-storage-apis))
 
 It's not a problem for the cache if your container is empty, or if the files were created by using NFS.
 

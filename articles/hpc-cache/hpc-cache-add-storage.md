@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 07/12/2021
 ms.custom: subject-rbac-steps
 ms.author: v-erkel
 ---
@@ -50,7 +50,7 @@ Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more 
 
 You can select from three storage target types: **NFS**, **Blob**, and **ADLS-NFS**. Choose the type that matches the kind of storage system you will use to store your files during this HPC Cache project.
 
-* **NFS** - Create an NFS storage target to access data on an on-premises NAS system.
+* **NFS** - Create an NFS storage target to access data on a network-attached storage (NAS) system. This can be an on-premises storage system or another storage type that's accessible with NFS.
 
   * Requirements: [NFS storage requirements](hpc-cache-prerequisites.md#nfs-storage-requirements)
   * Instructions: [Add a new NFS storage target](#add-a-new-nfs-storage-target)
