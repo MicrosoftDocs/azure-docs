@@ -11,7 +11,7 @@ ms.service: azure-object-anchors
 ---
 # Quickstart: In-depth MRTK walkthrough
 
-This guide provides an in-depth coverage of the [Azure Object Anchors MRTK Unity sample application](get-started-unity-hololens-mrtk.md). It is intended to provide insight into the design of the sample. By reading this guide, developers can accelerate their understanding of key Azure Object Anchors concepts in the sample.
+This guide provides an in-depth coverage of the [Azure Object Anchors MRTK Unity sample application](get-started-unity-hololens-mrtk.md). It's intended to provide insight into the design of the sample. By reading this guide, developers can accelerate their understanding of key Azure Object Anchors concepts in the sample.
 
 ## Project Layout
 
@@ -35,7 +35,7 @@ Assets created for the Azure Object Anchors MRTK Unity sample are stored in `Ass
 **Mixed Reality Play Space** –  Mostly boilerplate MRTK
 
 - <a href="/windows/mixed-reality/develop/unity/mrtk-getting-started" target="_blank">Introducing MRTK for Unity</a>.
-- There is a UI attached to the camera that details overall status of Azure Object Anchors (See `OverlayDebugText.cs`).
+- There's a UI attached to the camera that details overall status of Azure Object Anchors (See `OverlayDebugText.cs`).
 
 **Object Mixed Reality Play Space** – Mostly Azure Object Anchors related, but with some MRTK controls. Two scripts, `TrackableObjectSearch` and `ObjectTracker`, attached to the parent, represent the primary interface with Azure Object Anchors.
 
