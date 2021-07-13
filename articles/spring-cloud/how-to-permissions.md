@@ -26,7 +26,7 @@ We'll implement the following custom roles.
     * Can't make changes to apps or configurations
 * **Azure Pipelines / Jenkins / GitHub Actions role**:
     * Perform create, read, update, and delete operations
-    * Use Terraform or ARM templates to create and configure everything in Azure Spring Cloud and apps within a service instance: Azure Pipelines, Jenkins, or GitHub Actions
+    * Use Terraform or ARM templates to create and configure everything in Azure Spring Cloud and apps within a service instance: Azure Pipelines, Jenkins, and GitHub Actions
 
 ## Define the Developer role
 
