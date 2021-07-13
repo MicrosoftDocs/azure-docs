@@ -157,7 +157,7 @@ Make sure to follow the [Unity Tutorial: View remote models](../tutorials/unity/
 
 Reasons for this issue could be MSAA, HDR, or enabling post processing. Make sure that the low-quality profile is selected and set as default in the Unity. To do so go to *Edit > Project Settings... > Quality*.
 
-When using the OpenXR plugin in Unity 2020, there are versions of the URP (Universal Render Pipeline) that do this extra blit regardless of post processing being enabled. It is thus important to upgrade the URP version manually to at least 10.5.1 (or higher). This is described in the [system requirements](../overview/system-requirements.md#unity-2020).
+When using the OpenXR plugin in Unity 2020, there are versions of the URP (Universal Render Pipeline) that create this extra off-screen render target regardless of post processing being enabled. It is thus important to upgrade the URP version manually to at least 10.5.1 (or higher). This is described in the [system requirements](../overview/system-requirements.md#unity-2020).
 
 ## Unity code using the Remote Rendering API doesn't compile
 
@@ -181,9 +181,9 @@ The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* p
 
 ## Native C++ based application does not compile
 
-### 'Library not found' error for UWP application or Dll
+### 'Library not found' error for UWP application or DLL
 
-Inside the C++ NuGet package, there is file `microsoft.azure.remoterendering.Cpp.targets` file that defines which of the binary flavor to use. To identify `UWP`, the conditions in the file check for `ApplicationType == 'Windows Store'`. So it needs to be ensured that this type is set in the project. That should be the case when creating a UWP application or Dll through Visual Studio's project wizard.
+Inside the C++ NuGet package, there is file `microsoft.azure.remoterendering.Cpp.targets` file that defines which of the binary flavor to use. To identify `UWP`, the conditions in the file check for `ApplicationType == 'Windows Store'`. So it needs to be ensured that this type is set in the project. That should be the case when creating a UWP application or DLL through Visual Studio's project wizard.
 
 ## Unstable Holograms
 
