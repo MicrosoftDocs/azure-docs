@@ -54,6 +54,10 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn more about the IntSights integration with Azure Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
 - To connect Azure Sentinel to the IntSights TAXII Server, obtain the API Root, Collection ID, Username and Password from the IntSights portal after you configure a policy of the data you wish to send to Azure Sentinel.
 
+### Kaspersky Threat Data Feeds :::image type="icon" source="media/threat-intelligence-integration/kaspersky.png":::
+
+- Learn more about [Kaspersky Threat Data Feeds](https://www.kaspersky.com/enterprise-security/threat-intelligence).
+
 ### ThreatConnect :::image type="icon" source="media/threat-intelligence-integration/threat-connect.png":::
 
 - [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
