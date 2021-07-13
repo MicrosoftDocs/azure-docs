@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to deploy and manage GPU-accelerated VM workloads on my Azure Stack Edge Pro GPU devices.
 ---
@@ -50,13 +50,13 @@ This extension supports the following OS distros, depending on the driver suppor
 | Ubuntu | 18.04 LTS |
 | Red Hat Enterprise Linux | 7.4 |
 
-## GPU extension installation
+## GPU VM deployment
 
 You can deploy a GPU VM via the Azure portal or using Azure Resource Manager templates. The GPU extension is installed after VM creation.<!--Wording still needs work!-->
 
-- **Portal:** In the Azure portal, you can quickly [install the GPU extension when you create a VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md&tabs=portal#create-gpu-vms) or [after VM deployment]().<!--Can they remove the GPU extension. Tomorrow, create a new GPU VM to test.-->
+- **Portal:** In the Azure portal, you can quickly [install the GPU extension when you create a VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms) or [after VM deployment]().<!--Can they remove the GPU extension. Tomorrow, create a new GPU VM to test.-->
 
-- **Templates:** Using Azure Resource Manager templates, [you create a VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md&tabs=template#install-gpu-extension-after-deployment) and then [install the GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
+- **Templates:** Using Azure Resource Manager templates, [you create a VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#install-gpu-extension-after-deployment) and then [install the GPU extension](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 
 
 ## GPU VMs and Kubernetes
