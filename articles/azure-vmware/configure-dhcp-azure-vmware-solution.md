@@ -12,23 +12,24 @@ ms.date: 07/16/2021
 # Configure DHCP for Azure VMware Solution
 
 <!-- not sure this include is needed -->
-<!--
+
 [!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
--->
+<!--
 Applications and workloads running in a private cloud environment require name resolution and DHCP services for lookup and IP address assignments. A proper DHCP and DNS infrastructure are required to provide these services. You can configure a virtual machine to provide these services in your private cloud environment.  
 
 Use the DHCP service built-in to NSX or use a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
+-->
 
-<!--
+
 [!INCLUDE [configure-nsxt-objects-description](includes/configure-nsxt-objects-description.md)]
 
--->
+<!--
 After deploying Azure VMware Solution, you can configure DHCP either using NSX-T Manager or the Azure portal.  Once configured, the objects are visible in Azure VMware Solution, NSX-T Manger, and vCenter. 
 
 >[!TIP]
 >The Azure portal presents a simplified view of NSX-T operations a VMware administrator needs regularly and targeted at users not familiar with NSX-T Manager. 
-
+-->
 
 In this how-to article, you'll use either NSX-T Manager or the Azure portal to configure DHCP for Azure VMware Solution. 
 
