@@ -43,7 +43,7 @@ In this article, you learn about various Azure DevTest Labs features used to mee
    | --- | --- |
    | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can allow Azure Marketplace images, making available for selection only the images you want for the testers.|
    | [Create a custom image](devtest-lab-create-template.md) |Create a custom image by pre-installing the software you need so that testers can quickly create a VM using the custom image.|
-   | [Learn about image factory](./devtest-lab-faq.yml#blog-post) |Watch a video that describes how to set up and use an image factory.|
+   | [Learn about image factory](/azure/devtest-labs/devtest-lab-faq#blog-post) |Watch a video that describes how to set up and use an image factory.|
 
 3. **Create reusable templates for test machines** 
    
@@ -97,7 +97,7 @@ In this article, you learn about various Azure DevTest Labs features used to mee
    | Task | What you learn |
    | --- | --- |
    | [Define lab policies](devtest-lab-set-lab-policy.md) |Control costs by setting policies in the lab. |
-   | [Delete all the lab VMs using a PowerShell script](./devtest-lab-faq.yml#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when testing is complete.|
+   | [Delete all the lab VMs using a PowerShell script](/azure/devtest-labs/devtest-lab-faq#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when testing is complete.|
 
 1. **Add a virtual network to a Lab** 
    
@@ -113,7 +113,7 @@ In this article, you learn about various Azure DevTest Labs features used to mee
 
 6. **Share the lab with each tester**
    
-    Labs can be directly accessed using a link that you share with your testers. They don't even have to have an Azure account, as long as they have a [Microsoft account](./devtest-lab-faq.yml#what-is-a-microsoft-account). Testers cannot see VMs created by other testers.  
+    Labs can be directly accessed using a link that you share with your testers. They don't even have to have an Azure account, as long as they have a [Microsoft account](/azure/devtest-labs/devtest-lab-faq#what-is-a-microsoft-account). Testers cannot see VMs created by other testers.  
    
     Learn more by clicking on the links in the following table:
    
@@ -121,7 +121,7 @@ In this article, you learn about various Azure DevTest Labs features used to mee
    | --- | --- |
    | [Add a tester to a lab in Azure DevTest Labs](devtest-lab-add-devtest-user.md) |Use the Azure portal to add testers to your lab.|
    | [Add testers to the lab using a PowerShell script](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Use PowerShell to automate adding testers to your lab. |
-   | [Get a link to the lab](./devtest-lab-faq.yml#how-do-i-share-a-direct-link-to-my-lab) |Learn how testers can directly access a lab via a hyperlink.|
+   | [Get a link to the lab](/azure/devtest-labs/devtest-lab-faq#how-do-i-share-a-direct-link-to-my-lab) |Learn how testers can directly access a lab via a hyperlink.|
 
 7. **Automate lab creation for more teams** 
    
@@ -131,6 +131,6 @@ In this article, you learn about various Azure DevTest Labs features used to mee
    
    | Task | What you learn |
    | --- | --- |
-   | [Create a lab using a Resource Manager template](./devtest-lab-faq.yml#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
+   | [Create a lab using a Resource Manager template](/azure/devtest-labs/devtest-lab-faq#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
