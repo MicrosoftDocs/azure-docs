@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 07/13/2021
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
