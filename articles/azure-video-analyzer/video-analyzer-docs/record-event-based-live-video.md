@@ -357,13 +357,11 @@ You can examine the Video Analyzer video resource that was created by the live p
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
-> [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
-> 
 ## Clean up resources
 
-If you intend to try the other tutorials, hold on to the resources you created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this tutorial, and delete the resource group.
+[!INCLUDE [clean-up-resources](./includes/common-includes/clean-up-resources.md)]
 
 ## Next steps
 

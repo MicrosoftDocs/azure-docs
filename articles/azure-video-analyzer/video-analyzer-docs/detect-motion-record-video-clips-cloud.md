@@ -991,9 +991,7 @@ You can examine the Video Analyzer video resource that was created by the live p
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
 
-> [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
-    
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]    
 
 ## Clean up resources
 
