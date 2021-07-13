@@ -10,7 +10,7 @@ ms.date: 02/07/2019
 ms.author: zxue
 ---
 
-# Find identity object IDs for authentication configuration
+# Find identity object IDs for authentication configuration for Azure API for FHIR
 
 In this article, you'll learn how to find identity object IDs needed when configuring the Azure API for FHIR to [use an external or secondary Active Directory tenant](configure-local-rbac.md) for data plane.
 

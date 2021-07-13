@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Healthcare APIs
-    tocHref: /azure/healthcare-apis/
-    topicHref: /azure/healthcare-apis/index

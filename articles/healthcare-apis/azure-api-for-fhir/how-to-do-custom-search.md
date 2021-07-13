@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 05/03/2021
 ms.author: cavoeg
 ---
-# Defining custom search parameters
+# Defining custom search parameters for Azure API for FHIR
 
 The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the Azure API for FHIR.
 

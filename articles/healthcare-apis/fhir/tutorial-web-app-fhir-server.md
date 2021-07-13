@@ -1,6 +1,6 @@
 ---
-title: Web App Tutorial - Set up Azure API for FHIR
-description: This tutorial walks through an example of deploying a simple web application. This first tutorial describes the prerequisites and the deployment of the Azure API for FHIR
+title: Web App Tutorial - Set up FHIR service
+description: This tutorial walks through an example of deploying a simple web application. This first tutorial describes the prerequisites and the deployment of the FHIR service
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -29,18 +29,18 @@ Before starting this set of tutorials, you will need the following items:
 > [!NOTE]
 > For this tutorial, the FHIR service, Azure AD application, and Azure AD users are all in the same Azure AD tenant. If this is not the case, you can still follow along with this tutorial, but may need to dive into some of the referenced documents to do additional steps.
 
-## Deploy Azure API for FHIR
-The first step in the tutorial is to get your Azure API for FHIR setup correctly.
+## Deploy FHIR service
+The first step in the tutorial is to get your FHIR service setup correctly.
 
-1. If you haven't already, deploy the [Azure API for FHIR](fhir-paas-portal-quickstart.md).
-1. Once you have your Azure API for FHIR deployed, configure the [CORS](configure-cross-origin-resource-sharing.md) settings by going to your Azure API for FHIR and selecting CORS. 
+1. If you haven't already, deploy the [FHIR service](fhir-portal-quickstart.md).
+1. Once you have your FHIR service deployed, configure the [CORS](configure-cross-origin-resource-sharing.md) settings by going to your FHIR service and selecting CORS. 
     1. Set **Origins** to *
     1. Set **Headers** to *
     1. Under **Methods**, choose **Select all**
     1. Set the **Max age** to **600**
 
 ## Next Steps
-Now that you have your Azure API for FHIR deployed, you are ready to register a public client application.
+Now that you have your FHIR service deployed, you are ready to register a public client application.
 
 >[!div class="nextstepaction"]
 >[Register public client application](tutorial-web-app-public-app-reg.md)

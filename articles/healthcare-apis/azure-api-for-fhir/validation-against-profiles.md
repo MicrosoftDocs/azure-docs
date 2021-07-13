@@ -9,7 +9,7 @@ ms.date: 06/07/2021
 ms.author: ginle
 ---
 
-# How to validate FHIR resources against profiles
+# How to validate FHIR resources against profiles in Azure API for FHIR
 
 HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define additional rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 
