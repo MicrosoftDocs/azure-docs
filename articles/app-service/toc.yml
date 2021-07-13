@@ -267,7 +267,7 @@
       href: manage-scale-per-app.md
   - name: Monitor app
     items:
-    - name: Monitor App Service
+    - name: Monitor App Service with Azure Monitor
       href: monitor-app-service.md
     - name: Quotas & alerts
       href: web-sites-monitor.md

@@ -93,9 +93,9 @@ You can choose between a light theme or a dark theme for the UI:
 
 :::image type="content" source="Media/overview-iot-central-tour/dashboard.png" alt-text="Screenshot of IoT Central Dashboard.":::
 
-* **Dashboard** is the first page you see when you sign in to your IoT Central application. You can create and customize multiple application dashboards. Learn more about [adding tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
+* **Dashboard** is the first page you see when you sign in to your IoT Central application. You can create and customize multiple application dashboards. Learn more about [adding tiles to your dashboard](howto-manage-dashboards.md)
 
-* Personal dashboards can also be created to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-create-personal-dashboards.md) how-to article.
+* Personal dashboards can also be created to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-manage-dashboards.md) how-to article.
 
 ### Devices
 
@@ -127,7 +127,7 @@ Analytics exposes rich capabilities to analyze historical trends and correlate v
 
 :::image type="content" source="Media/overview-iot-central-tour/jobs.png" alt-text="Jobs Page":::
 
-This page lets you view and create jobs that can be used for bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-run-a-job.md) article.
+This page lets you view and create jobs that can be used for bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-manage-devices-in-bulk.md) article.
 
 ### Device templates
 
