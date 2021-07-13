@@ -105,7 +105,7 @@ The following software must be installed:
 
 ## Unity
 
-For development with Unity, install a a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
+For development with Unity, install a supported version of Unity [(download)](https://unity3d.com/get-unity/download). We recommend using Unity Hub for managing installations.
 Make sure to include the following modules in your Unity installation:
 * **UWP** - Universal Windows Platform Build Support
 * **IL2CPP** - Windows Build Support (IL2CPP)
@@ -125,7 +125,7 @@ For Unity 2020, use latest version of Unity 2020.3.
 > ![Version of the Universal RP](./media/unity-universal-rp-version-10-5-1.png)
 
 > [!IMPORTANT]
-> The **WMR version of Unity 2020.3** currently has a performance degradation with ARR. We are actively working on a fix. For a better experience, we suggest to either stay on Unity 2019.X until this has been sorted out or switch to the OpenXR version.
+> The **WMR (Windows Mixed Reality) version of Unity 2020.3** currently has a performance degradation with ARR. We are actively working on a fix. For a better experience, we suggest to either stay on Unity 2019.X until this has been sorted out or switch to the OpenXR version.
 
 
 ## Next steps

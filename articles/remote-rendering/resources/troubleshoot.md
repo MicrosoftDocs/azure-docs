@@ -157,7 +157,7 @@ Make sure to follow the [Unity Tutorial: View remote models](../tutorials/unity/
 
 Reasons for this issue could be MSAA, HDR, or enabling post processing. Make sure that the low-quality profile is selected and set as default in the Unity. To do so go to *Edit > Project Settings... > Quality*.
 
-When using the OpenXR version of Unity 2020, there are versions of the URP (Universal Render Pipeline) that do this extra blit regardless of post processing being enabled. It is thus important to upgrade the URP version manually to at least 10.5.1 (or higher). This is described in the [system requirements](../overview/system-requirements.md#unity-2020).
+When using the OpenXR plugin in Unity 2020, there are versions of the URP (Universal Render Pipeline) that do this extra blit regardless of post processing being enabled. It is thus important to upgrade the URP version manually to at least 10.5.1 (or higher). This is described in the [system requirements](../overview/system-requirements.md#unity-2020).
 
 ## Unity code using the Remote Rendering API doesn't compile
 
