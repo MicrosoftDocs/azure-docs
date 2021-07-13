@@ -53,8 +53,3 @@ After you've completed this final step, you are now ready to export the data usi
 
 > [!Note]
 > Only storage accounts in the same subscription as that for FHIR service are allowed to be registered as the destination for $export operations.
-
-For more information about configuring database settings, access control, enabling diagnostic logging, and using custom headers to add data to audit logs, see:
-
->[!div class="nextstepaction"]
->[Additional Settings](../fhir/additional-settings.md)
