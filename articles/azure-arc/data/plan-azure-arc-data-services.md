@@ -79,7 +79,7 @@ Regardless of the option you choose, during the creation process you will need t
 - **Azure resource group name** - The name of the resource group where you want the data controller resource in Azure to be created.
 - **Azure location** - The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see [Azure global infrastructure / Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). The metadata and billing information about the Azure resources managed by the data controller that you are deploying will be stored only in the location in Azure that you specify as the location parameter. If you are deploying in the directly connected mode, the location parameter for the data controller will be the same as the location of the custom location resource that you target.
 - **Service Principal information** - as described in the [Upload prerequisites](upload-metrics-and-logs-to-azure-monitor.md) article, you will need the Service Principal information during Azure Arc data controller create when deploying in *direct* connectivity mode. For *indirect* connectivity mode, the Service Principal is still needed to export and upload manually but after the Azure Arc data controller is created.
-- **Infrastructure** - For billing purposes, it is required to indicate the infrastructure on which you are running Arc enabled data services.  The options are alibaba, aws, azure, gcp, onpremises, or other.
+- **Infrastructure** - For billing purposes, it is required to indicate the infrastructure on which you are running Arc enabled data services.  The options are `alibaba`, `aws`, `azure`, `gcp`, `onpremises`, or `other`.
 
 ## Additional concepts for direct connected mode
 
@@ -105,7 +105,7 @@ There are multiple options for creating the Azure Arc data controller:
 > **Just want to try things out?**
 > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM!
 >
-- [Create a data controller in direct connected mode with the Azure Portal](create-data-controller-direct-prerequisites.md)
+- [Create a data controller in direct connected mode with the Azure portal](create-data-controller-direct-prerequisites.md)
 - [Create a data controller in indirect connected mode with CLI](create-data-controller-indirect-cli.md)
 - [Create a data controller in indirect connected mode with Azure Data Studio](create-data-controller-indirect-azure-data-studio.md)
 - [Create a data controller in indirect connected mode from the Azure portal via a Jupyter notebook in Azure Data Studio](create-data-controller-indirect-azure-portal.md)

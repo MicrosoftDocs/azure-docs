@@ -36,7 +36,7 @@
           items: 
           - name: Azure Data Studio
             href: create-data-controller-indirect-azure-data-studio.md
-          - name: Azure Portal
+          - name: Azure portal
             href: create-data-controller-indirect-azure-portal.md
           - name: azdata CLI
             href: create-data-controller-indirect-cli.md
@@ -46,7 +46,7 @@
           items:
           - name: Prerequisites
             href: create-data-controller-direct-prerequisites.md
-          - name: Azure Portal
+          - name: Azure portal
             href: create-data-controller-direct-azure-portal.md
           - name: az CLI
             href: create-data-controller-direct-cli.md
