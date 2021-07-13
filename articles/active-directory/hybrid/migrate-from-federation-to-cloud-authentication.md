@@ -1,5 +1,5 @@
 ---
-title: Migrate from federation to cloud authentication
+title: Migrate from federation to cloud authentication in Azure Active Directory
 description: This article has information about moving your hybrid identity environment from federation to cloud authentication
 
 services: active-directory
@@ -22,11 +22,11 @@ Before you continue, we suggest that you review our guide on [choosing the right
 
 We recommend using PHS for cloud authentication.
 
-### Staged rollout
+## Staged rollout
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3inQJ]
 
-Staged rollout is a great way to selectively test groups of users with cloud authentication capabilities like Azure AD multifactor authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. 
+Staged rollout is a great way to selectively test groups of users with cloud authentication capabilities like Azure AD Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains. 
 
 Refer to the staged rollout implementation plan to understand the [supported](how-to-connect-staged-rollout.md#supported-scenarios) and [unsupported scenarios](how-to-connect-staged-rollout.md#unsupported-scenarios). We recommend using staged rollout to test before cutting over domains.
 
@@ -52,7 +52,7 @@ Install [Azure Active Directory Connect](https://www.microsoft.com/download/deta
 
 ### Document current federation settings
 
-To find your current federation settings, run the [Get-MsolDomainFederationSettings](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login.md#how-to-configure-a-federated-domain-to-send-promptlogin-to-ad-fs) cmdlet. 
+To find your current federation settings, run the [Get-MsolDomainFederationSettings](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login) cmdlet. 
 
 Verify any settings that might have been customized for your federation design and deployment documentation. Specifically, look for customizations in **PreferredAuthenticationProtocol**, **SupportsMfa**, and **PromptLoginBehavior**.
 
@@ -259,9 +259,9 @@ Sign in to the [Azure AD portal](https://aad.portal.azure.com/), select **Azure 
 
 2. Verify these settings:
 
-   - **Federation** is set to **Disabled**.
-   - **Seamless single sign-on** is set to **Enabled**.
-   - **Password Hash Sync** is set to **Enabled**.
+      - **Federation** is set to **Disabled**.
+      - **Seamless single sign-on** is set to **Enabled**.
+      - **Password Hash Sync** is set to **Enabled**.
 
   ![ Reverify current user settings](media/deploy-cloud-user-authentication/reverify-settings.png)
 
@@ -314,7 +314,7 @@ On your Azure AD Connect server, follow the steps 1- 5 in [Option A](#option-a).
 
     ![ Pass-through authentication settings](media/deploy-cloud-user-authentication/pass-through-authentication-settings.png)
 
-   If the authentication agent isn’t active, complete these [troubleshooting steps](/PHS/tshoot-connect-pass-through-authentication) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
+   If the authentication agent isn’t active, complete these [troubleshooting steps](tshoot-connect-pass-through-authentication.md) before you continue with the domain conversion process in the next step. You risk causing an authentication outage if you convert your domains before you validate that your PTA agents are successfully installed and that their status is **Active** in the Azure portal.
 
 3. [Deploy more authentication agents](#deploy-more-authentication-agents-for-pta).
 
