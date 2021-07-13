@@ -119,20 +119,4 @@ We have a collection of reference architectures available on the [Health Archite
 
 ### Where can I see an example of connecting a web application to FHIR service?
 
-We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to FHIR service.  
- 
-### Does the Healthcare APIs support encryption with customer managed keys (CMK)?
- 
-By default all data stored in the Healthcare APIs is encrypted by Microsoft managed keys. However, customers can choose to use their own keys for encryption when the Healthcare APIs are provisioned. **Currently Healthcare APIs is in public preview and does not support CMK; we will provide more details on encryption with CMK by GA.**
-
-For reference, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key for Azure API for FHIR, check out [this section](../azure-api-for-fhir/customer-managed-key.md).
-
-### How do I enable log analytics for Azure Healthcare APIs?
-
-We enable audit and diagnostic logs and allow reviewing the logs from the Azure portal. For details on enabling audit logs and sample queries, check out [this section](enable-diagnostic-logging.md). If you want to include additional information in the logs, check out [using custom HTTP headers](use-custom-headers.md).
-
-Customers can also choose to export the logs to their designated locations such as an Azure Storage account. **Currently Healthcare APIs is in public preview and does not support logging; we will provide more details on logging by GA.**
-
-### How quickly will the Healthcare APIs be restored at the request of customers or when there is a regional or global service outage?
- 
-Customers may request that the Healthcare APIs be restored through the backup and restore procedure based on the service request priority. For customers that have the disaster recovery feature enabled, a fully operational environment is configured and activated in a secondary region and will be used as the primary region in the event of disaster. **Currently Healthcare APIs is in public preview and does not support disaster recovery; more details on our disaster recovery will be available by GA.**
+We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to FHIR service.
