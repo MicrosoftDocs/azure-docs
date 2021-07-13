@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ms.custom: generated
 ---
 
@@ -144,6 +144,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [Cognitive Services QnA Maker Editor](#cognitive-services-qna-maker-editor) | Let's you create, edit, import and export a KB. You cannot publish or delete a KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | [Search Index Data Contributor](#search-index-data-contributor) | Grants full access to Azure Cognitive Search index data. | 8ebe5a00-799e-43f5-93ac-243d3dce84a7 |
+> | [Search Index Data Reader](#search-index-data-reader) | Grants read access to Azure Cognitive Search index data. | 1407120a-92aa-4202-b7e9-c0e197c71c8f |
 > | **Internet of things** |  |  |
 > | [Device Update Administrator](#device-update-administrator) | Gives you full access to management and content operations | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
 > | [Device Update Content Administrator](#device-update-content-administrator) | Gives you full access to content operations | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
@@ -6620,6 +6622,84 @@ Lets you read and list keys of Cognitive Services. [Learn more](../cognitive-ser
 }
 ```
 
+### Search Index Data Contributor
+
+Grants full access to Azure Cognitive Search index data.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Search](resource-provider-operations.md#microsoftsearch)/searchServices/indexes/documents/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full access to Azure Cognitive Search index data.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7",
+  "name": "8ebe5a00-799e-43f5-93ac-243d3dce84a7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Search/searchServices/indexes/documents/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Search Index Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Search Index Data Reader
+
+Grants read access to Azure Cognitive Search index data.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Search](resource-provider-operations.md#microsoftsearch)/searchServices/indexes/documents/read | Read documents or suggested query terms from an index. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants read access to Azure Cognitive Search index data.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f",
+  "name": "1407120a-92aa-4202-b7e9-c0e197c71c8f",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Search/searchServices/indexes/documents/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Search Index Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Internet of things
 
 
@@ -7944,6 +8024,7 @@ Role allows user or principal full access to FHIR Data [Learn more](../healthcar
 > | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/* |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -7960,7 +8041,8 @@ Role allows user or principal full access to FHIR Data [Learn more](../healthcar
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/*"
+        "Microsoft.HealthcareApis/services/fhir/resources/*",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/*"
       ],
       "notDataActions": []
     }
@@ -8024,6 +8106,7 @@ Role allows user or principal to read FHIR Data [Learn more](../healthcare-apis/
 > | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -8040,7 +8123,8 @@ Role allows user or principal to read FHIR Data [Learn more](../healthcare-apis/
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/read"
+        "Microsoft.HealthcareApis/services/fhir/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read"
       ],
       "notDataActions": []
     }
@@ -8063,8 +8147,10 @@ Role allows user or principal to read and write FHIR Data [Learn more](../health
 > | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/* |  |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/* |  |
 > | **NotDataActions** |  |
 > | Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action | Hard Delete (including version history). |
+> | Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action | Hard Delete (including version history). |
 
 ```json
 {
@@ -8079,10 +8165,12 @@ Role allows user or principal to read and write FHIR Data [Learn more](../health
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/*"
+        "Microsoft.HealthcareApis/services/fhir/resources/*",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/*"
       ],
       "notDataActions": [
-        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action"
+        "Microsoft.HealthcareApis/services/fhir/resources/hardDelete/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/hardDelete/action"
       ]
     }
   ],
@@ -9563,10 +9651,15 @@ View permissions for Security Center. Can view recommendations, alerts, a securi
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/*/read | Read security components and policies |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/*/read |  |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/*/read |  |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/packageDownloads/action | Gets downloadable IoT Defender packages information |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotDefenderSettings/downloadManagerActivation/action | Download manager activation file with subscription quota data |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/iotSensors/downloadResetPassword/action | Downloads reset password file for IoT Sensors |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/packageDownloads/action | Gets downloadable IoT Defender packages information |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/defenderSettings/downloadManagerActivation/action | Download manager activation file |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/sensors/* |  |
+> | [Microsoft.IoTSecurity](resource-provider-operations.md#microsoftiotsecurity)/onPremiseSensors/* |  |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -9592,10 +9685,15 @@ View permissions for Security Center. Can view recommendations, alerts, a securi
         "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
+        "Microsoft.IoTSecurity/*/read",
         "Microsoft.Support/*/read",
         "Microsoft.Security/iotDefenderSettings/packageDownloads/action",
         "Microsoft.Security/iotDefenderSettings/downloadManagerActivation/action",
         "Microsoft.Security/iotSensors/downloadResetPassword/action",
+        "Microsoft.IoTSecurity/defenderSettings/packageDownloads/action",
+        "Microsoft.IoTSecurity/defenderSettings/downloadManagerActivation/action",
+        "Microsoft.IoTSecurity/sensors/*",
+        "Microsoft.IoTSecurity/onPremiseSensors/*",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
