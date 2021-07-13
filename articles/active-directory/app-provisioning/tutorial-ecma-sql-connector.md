@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/01/2021
+ms.date: 07/13/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: arvinh
@@ -214,7 +214,7 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
 
      |Property|Value|
      |-----|-----|
-     |Tenant URL|https://localhost:8585/ecma2host_SQL/scim|
+     |Tenant URL|https://localhost:8585/ecma2host_<connectorName>/scim|
 
 6. Enter the secret token value that you defined when creating the connector.
 7. Click Test Connection and wait one minute.
