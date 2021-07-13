@@ -427,7 +427,7 @@ This JSON can be saved and deployed using [Azure Resource Manager in Azure porta
                 "autoMitigate": "[parameters('autoMitigate')]",
                 "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
                 "actions": {
-                  "actionGroups": "[parameters('actionGroupId')]",
+                    "actionGroups": "[parameters('actionGroupId')]",
                     "customProperties": {
                         "key1": "value1",
                         "key2": "value2"
