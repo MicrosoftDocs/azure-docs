@@ -16,12 +16,12 @@ ms.author: henrymbugua
       **Web app**
       - [ADAL.NET to MSAL.NET](../msal-net-migration.md) 
       - [ADAL Node to MSAL Node](../msal-node-migration.md)
-      - [ADAL Java to MSAL Java](../migrate-adal-msal-java.md)
    :::column-end:::
    :::column span="":::
       **Web API**
       - [ADAL Python to MSAL Python](../migrate-python-adal-msal.md)
       - [ADAL.NET to MSAL.NET](../msal-net-migration.md) 
+      - [ADAL Java to MSAL Java](../migrate-adal-msal-java.md)  
    :::column-end:::
 :::row-end:::
 
