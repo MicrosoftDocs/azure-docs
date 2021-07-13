@@ -25,8 +25,7 @@ After completing the setup steps, you'll be able to run the simulated live video
 
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-> [!TIP] 
-> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
+[!INCLUDE [install-docker-prompt](./includes/common-includes/install-docker-prompt.md)]
 
 ## Set up Azure resources
 
