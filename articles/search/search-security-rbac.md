@@ -13,9 +13,9 @@ ms.date: 07/14/2021
 
 # Use Azure role-based authentication in Azure Cognitive Search
 
-Azure provides a [global role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. In Azure Cognitive Search, you can take advantage of this role authorization model in the following ways:
+Azure provides a [global role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. In Cognitive Search, you can use this role authorization model in the following ways:
 
-+ Grant service administration rights that work against any client calling [Azure Resource Manager](../azure-resource-manager/management/overview.md). Roles range from full access (Owner), to read-only access to service information (Reader).
++ Grant service admin rights that work against any client calling [Azure Resource Manager](../azure-resource-manager/management/overview.md). Roles range from full access (Owner), to read-only access to service information (Reader).
 
 + (Preview only) Grant permissions for inbound calls to a search service for data plane operations, such as creating, deleting, or querying indexes.
 
@@ -58,14 +58,12 @@ For just the preview roles described above, you will need to also configure your
 
 ### [**Stable roles**](#tab/rbac-ga)
 
-Stable roles refer to roles that are generally available. Currently, these roles are used to control access to service information and administrative operations. None of these roles will grant access rights to the search service endpoint. Data plane operations, such as index management, index population, and queries on search data, are controlled through [API keys](search-security-api-keys.md), not roles.
+Stable roles refer to those that are generally available. Currently, these roles are used to control access to service information and admin operations. None of these roles will grant access rights to the search service endpoint itself. For search solutions having hard requirements on generally available features, continue to [use API keys](search-security-api-keys.md) to control access to indexes, indexers, data sources, skillsets, and synonym maps.
 
 + Stable roles: Owner, Contributor, Reader
 + Applies to: Control plane (or service administration)
 
 No service configuration is required. To assign roles, use one of these [supported approaches](/role-based-access-control/role-assignments-steps).
-
-For search solutions having hard requirements on generally available features, continue to [use API keys](search-security-api-keys.md) to control access to indexes, indexers, data sources, skillsets, and synonym maps.
 
 ### [**Preview roles**](#tab/rbac-preview)
 
@@ -74,21 +72,21 @@ Several new roles are now in public preview.
 + Preview roles: Search Service Contributor, Search Index Data Contributor, Search Index Data Reader
 + Applies to: Control plane and data plane operations
 
+There are no regional, tier, or pricing restrictions for using RBAC on Azure Cognitive Search.
+
 #### Step 1: Configure the search service
 
-Use [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). There are no regional or tier requirements for using RBAC on Azure Cognitive Search. 
-
-You'll use the Management REST API version 2021-04-01-Preview to enable role-based authorization for data plane operations.
+Use [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). You'll use the Management REST API version 2021-04-01-Preview to enable role-based authorization for data plane operations.
 
 Alternatively, you can use the Azure portal to update an existing search service:
 
-1. Open the portal with this syntax: `https://ms.portal.azure.com/?feature.enableRbac=true`.
+1. Open the portal with this syntax: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true).
 
 1. Navigate to your search service.
 
 1. Select **Keys** in the left navigation pane.
 
-1. Choose an API access control mechanism:
+1. Choose an **API access control** mechanism:
 
    | Option | Description |
    |--------|-------------|
