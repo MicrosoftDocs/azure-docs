@@ -333,15 +333,15 @@
       href: ../../../sentinel/sap-solution-security-content.md
 - name: Azure Monitor for SAP Solutions
   items:
-  - name: Azure Monitor for SAP Solutions Overview
+  - name: AMS overview
     href: azure-monitor-overview.md
-  - name: Azure Monitor for SAP Solutions Providers
+  - name: AMS providers
     href: azure-monitor-providers.md
-  - name: Configure Azure Monitor for SAP Solutions - Portal
+  - name: Configure AMS - Portal
     href: azure-monitor-sap-quickstart.md
-  - name: Configure Azure Monitor for SAP Solutions - Azure PowerShell
+  - name: Configure AMS - Azure PowerShell
     href: azure-monitor-sap-quickstart-powershell.md
-  - name: Azure Monitor for SAP Solutions FAQ
+  - name: AMS FAQ
     href: azure-monitor-faq.md
 - name: Reference
   items:
