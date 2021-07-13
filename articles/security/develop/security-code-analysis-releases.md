@@ -76,4 +76,4 @@ The deprecated MSRD fuzzing service will be replaced with an open source self-ho
 
 For instructions on how to onboard and install Microsoft Security Code Analysis, refer to our [Onboarding and installation guide](security-code-analysis-onboard.md).
 
-If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.md).
+If you have more questions about the extension and the tools offered, check out our [FAQ page](security-code-analysis-faq.yml).

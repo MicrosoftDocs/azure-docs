@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 05/03/2021
+ms.date: 07/01/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -15,13 +15,22 @@ You can set the lock level to **CanNotDelete** or **ReadOnly**. In the portal, t
 - **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role.
 
-## How locks are applied
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
+
+## Lock inheritance
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
+## Understand scope of locks
 
-Resource Manager locks apply only to operations that happen in the [management plane](control-plane-and-data-plane.md), which consists of operations sent to `https://management.azure.com`. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on a SQL Database logical server prevents you from deleting or modifying the server. It doesn't prevent you from creating, updating, or deleting data in the databases on that server. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
+> [!NOTE]
+> It's important to understand that locks don't apply to all types of operations. Azure operations can be divided into two categories - control plane and data plane. **Locks only apply to control plane operations**.
+
+Control plane operations are operations sent to `https://management.azure.com`. Data plane operations are operations sent to your instance of a service, such as `https://myaccount.blob.core.windows.net/`. For more information, see [Azure control plane and data plane](control-plane-and-data-plane.md). To discover which operations use the control plane URL, see the [Azure REST API](/rest/api/azure/).
+
+This distinction means locks prevent changes to a resource, but they don't restrict how resources perform their own functions.  For example, a ReadOnly lock on a SQL Database logical server prevents you from deleting or modifying the server. It doesn't prevent you from creating, updating, or deleting data in the databases on that server. Data transactions are permitted because those operations aren't sent to `https://management.azure.com`.
+
+More examples of the differences between control and data plane operations are described in the next section.
 
 ## Considerations before applying locks
 
@@ -29,7 +38,9 @@ Applying locks can lead to unexpected results because some operations that don't
 
 - A read-only lock on a **storage account** prevents users from listing the account keys. The Azure Storage [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is handled through a POST request to protect access to the account keys, which provide complete access to data in the storage account. When a read-only lock is configured for a storage account, users who don't have the account keys must use Azure AD credentials to access blob or queue data. A read-only lock also prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue).
 
-- A cannot-delete lock on a **storage account** doesn't prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted, and doesn't protect blob, queue, table, or file data within that storage account.
+- A cannot-delete lock on a **storage account** doesn't prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted. If a request uses [data plane operations](control-plane-and-data-plane.md#data-plane), the lock on the storage account doesn't protect blob, queue, table, or file data within that storage account. However, if the request uses [control plane operations](control-plane-and-data-plane.md#control-plane), the lock protects those resources.
+
+  For example, if a request uses [File Shares - Delete](/rest/api/storagerp/file-shares/delete), which is a control plane operation, the deletion is denied. If the request uses [Delete Share](/rest/api/storageservices/delete-share), which is a data plane operation, the deletion succeeds. We recommend that you use the control plane operations.
 
 - A read-only lock on a **storage account** doesn't prevent data within that account from being deleted or modified. This type of lock only protects the storage account itself from being deleted or modified, and doesn't protect blob, queue, table, or file data within that storage account.
 
@@ -46,6 +57,8 @@ Applying locks can lead to unexpected results because some operations that don't
 - A cannot-delete lock on a **resource group** prevents **Azure Machine Learning** from autoscaling [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) to remove unused nodes.
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
+
+- A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses POST](/rest/api/application-gateway/application-gateways/backend-health), which is blocked by the read-only lock.
 
 ## Who can create or delete locks
 
@@ -181,7 +194,7 @@ To create a resource group and lock it, deploy the following template at the sub
 
 # [Bicep](#tab/bicep)
 
-The main Bicep file creates a resource group and uses a [module](../templates/bicep-modules.md) to create the lock.
+The main Bicep file creates a resource group and uses a [module](../bicep/modules.md) to create the lock.
 
 ```Bicep
 targetScope = 'subscription'

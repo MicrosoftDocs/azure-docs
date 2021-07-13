@@ -1,12 +1,12 @@
 ---
 title: Create a container in Azure Cosmos DB API for MongoDB
 description: Learn how to create a container in Azure Cosmos DB API for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs. 
-author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 10/16/2020
-ms.author: mjbrown 
+author: gahl-levy
+ms.author: gahllevy
 ms.custom: devx-track-csharp
 ---
 

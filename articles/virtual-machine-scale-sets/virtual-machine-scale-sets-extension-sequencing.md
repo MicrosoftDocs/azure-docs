@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
 ms.date: 01/30/2019
 ms.reviewer: mimckitt
-ms.custom: mimckitt
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Sequence extension provisioning in virtual machine scale sets

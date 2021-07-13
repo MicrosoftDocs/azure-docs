@@ -1,11 +1,11 @@
 ---
 title: Copy data from Zoho using Azure Data Factory (Preview) 
 description: Learn how to copy data from Zoho to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/03/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Copy data from Zoho using Azure Data Factory (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

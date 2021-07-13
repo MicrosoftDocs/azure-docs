@@ -54,12 +54,18 @@
     href: ./tutorials/create-share-query.md
 - name: Samples
   items:
-  - name: Starter queries
-    displayName: query language, data explorer, count, list, show
-    href: ./samples/starter.md
-  - name: Advanced queries
-    displayName: query language, data explorer, list, regex
-    href: ./samples/advanced.md
+  - name: Language examples
+    items:
+    - name: Starter queries
+      displayName: query language, data explorer, count, list, show
+      href: ./samples/starter.md
+    - name: Advanced queries
+      displayName: query language, data explorer, list, regex
+      href: ./samples/advanced.md
+  - name: Index by category
+    href: ./samples/samples-by-category.md
+  - name: Index by table
+    href: ./samples/samples-by-table.md
 - name: Concepts
   items:
   - name: Understanding the query language

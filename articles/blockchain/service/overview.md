@@ -9,7 +9,11 @@ ms.reviewer: patricka
 
 # What is Azure Blockchain Service?
 
-Azure Blockchain Service is a fully managed ledger service that gives users the ability to grow and operate blockchain networks at scale in Azure. By providing unified control for both infrastructure management as well as blockchain network governance, Azure Blockchain Service provides:
+Azure Blockchain Service is a fully managed ledger service that gives users the ability to grow and operate blockchain networks at scale in Azure.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+By providing unified control for both infrastructure management as well as blockchain network governance, Azure Blockchain Service provides:
 
 * Simple network deployment and operations
 * Built-in consortium management
@@ -25,7 +29,7 @@ Deploying Azure Blockchain Service is done through the Azure portal, Azure CLI, 
 
 ### Performance and service tiers
 
-Azure Blockchain Service offers two service tiers: *Basic* and *Standard*. Each tier offers different performance and capabilities to support lightweight development and test workloads up to massively scaled production blockchain deployments. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. Both tiers include at least one transaction node, and one validator node (Basic) or two validator nodes (Standard). 
+Azure Blockchain Service offers two service tiers: *Basic* and *Standard*. Each tier offers different performance and capabilities to support lightweight development and test workloads up to massively scaled production blockchain deployments. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. Both tiers include at least one transaction node, and one validator node (Basic) or two validator nodes (Standard).
 
 ![Pricing tiers](./media/overview/pricing-tiers.png)
 

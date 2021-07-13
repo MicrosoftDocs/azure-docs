@@ -4,7 +4,7 @@ description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
@@ -131,4 +131,4 @@ Congratulations, you now have bootstrapped the web of trust with your DID!
 
 ## Next steps
 
-If during onboarding you enter the wrong domain information of you decide to change it, you will need to [opt out](how-to-opt-out.md). At this time, we don't support updating your DID document. Opting out and opting back in will create a brand new DID.
+If during onboarding you enter the wrong domain information or if you decide to change it, you will need to [opt out](how-to-opt-out.md). At this time, we don't support updating your DID document. Opting out and opting back in will create a brand new DID.

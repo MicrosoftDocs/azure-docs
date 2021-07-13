@@ -1,6 +1,6 @@
 ---
 title: 'Copy and paste to and from a virtual machine: Azure Bastion'
-description: In this article, learn how copy and paste to and from an Azure VM using Bastion.
+description: Learn how copy and paste to and from an Azure VM using Bastion.
 services: bastion
 author: cherylmc
 

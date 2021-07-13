@@ -1,12 +1,12 @@
 ---
 title: Custom models - Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Learn concepts related to Form Recognizer API custom models- usage and limits.
 services: cognitive-services
 author: laujan
 manager: nitinme
 
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/25/2021
@@ -42,7 +42,7 @@ You'll need to upload your training data to an Azure blob storage container. If 
 > [!div class="nextstepaction"]
 >[&#120785;. Train your custom model](quickstarts/client-library.md#train-a-custom-model)
 
-You can train your model [without](quickstarts/client-library.md#train-a-model-without-labels) or [with](quickstarts/client-library.md#train-a-model-with-labels) labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
+You can [train your model](quickstarts/client-library.md#train-a-custom-model)  with or without labeled data sets. Unlabeled datasets rely solely on the Layout API to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.  
 
 >[!div class="nextstepaction"]
 >[&#120786;. Analyze documents with your custom model](quickstarts/client-library.md#analyze-forms-with-a-custom-model)
@@ -59,5 +59,5 @@ At any time, you can view a list of all the custom models under your subscriptio
 Learn more about the Form Recognizer client library by exploring our API reference documentation.
 
 > [!div class="nextstepaction"]
-> [Form Recognizer API reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
+> [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)
 >

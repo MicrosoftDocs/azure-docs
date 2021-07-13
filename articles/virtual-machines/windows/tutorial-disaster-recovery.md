@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 05/18/2020
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Windows VMs to another Azure region.
@@ -34,21 +34,21 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
         - Create a VM in the selected virtual network.
         - Write to an Azure storage account.
         - Write to an Azure-managed disk.
-    - The Site Recovery Contributor built-in role, to manage Site Recovery operations in the vault. 
+    - The Site Recovery Contributor built-in role, to manage Site Recovery operations in the vault.
 3. We recommend you use a Windows VM running Windows Server 2012 or later. The VM disk shouldn't be encrypted for the purpose of this tutorial.
 4. If VM outbound connections use a URL-based proxy, make sure it can access these URLs. Using an authenticated proxy isn't supported.
 
     **Name** | **Public cloud** | **Government cloud** | **Details**
     --- | --- | --- | ---
-    Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Write data from the VM to the cache storage account in the source region. 
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Authorize and authenticate to Site Recovery service URLs. 
-    Replication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |VM communication with the Site Recovery service. 
-    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM writes to Site Recovery monitoring and diagnostic data. 
+    Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Write data from the VM to the cache storage account in the source region.
+    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Authorize and authenticate to Site Recovery service URLs.
+    Replication | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |VM communication with the Site Recovery service.
+    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM writes to Site Recovery monitoring and diagnostic data.
 
 4. If you're using network security groups (NSGs) to limit network traffic for VMs, create NSG rules that allow outbound connectivity (HTTPS 443) for the VM using these service tags (groups of IP addresses). Try out the rules on a test NSG first.
 
-    **Tag** | **Allow** 
-    --- | --- 
+    **Tag** | **Allow**
+    --- | ---
     Storage tag | Allows data to be written from the VM to the cache storage account.
     Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
     EventsHub tag | Allows access to Site Recovery monitoring.
@@ -67,10 +67,10 @@ You can optionally enable disaster recovery when you create a VM.
 5. In **Recovery Services vault**, select the vault you want to use for the replication. If you don't have a vault, select **Create new**. Select a resource group in which to place the vault, and a vault name.
 6. In **Site Recovery policy**, leave the default policy, or select **Create new** to set custom values.
 
-    - Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use a recovery point to restore the VM in the target region. 
-    - A crash-consistent recovery point is created every five minutes. This setting can't be modified. A crash-consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory. 
+    - Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use a recovery point to restore the VM in the target region.
+    - A crash-consistent recovery point is created every five minutes. This setting can't be modified. A crash-consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory.
     - By default Site Recovery keeps crash-consistent recovery points for 24 hours. You can set a custom value between 0 and 72 hours.
-    - An app-consistent snapshot is taken every 4 hours. An app-consistent snapshot 
+    - An app-consistent snapshot is taken every 4 hours. An app-consistent snapshot
     - By default Site Recovery stores recovery points for 24 hours.
 
 7. In **Availability options**, specify whether the VM is deploy as standalone, in an availability zone, or in an availability set.
@@ -78,6 +78,9 @@ You can optionally enable disaster recovery when you create a VM.
     :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="Enable replication on the VM management properties page."
 
 8. Finish creating the VM.
+
+>[!NOTE]
+> When you enable replication while creating a Windows VM, only the OS disk gets replicated. Data disks need to be initialized by you, after which Azure Site Recovery automatically replicates them.
 
 ## Enable disaster recovery for an existing VM
 
@@ -128,7 +131,7 @@ After the replication job finishes, you can check the VM replication status.
 1. Open the VM properties page.
 2. In **Operations**, select **Disaster recovery**.
 3. Expand the **Essentials** section to review defaults about the vault, replication policy, and target settings.
-4. In **Health and status**, get information about replication state for the VM, the agent version, failover readiness, and the latest recovery points. 
+4. In **Health and status**, get information about replication state for the VM, the agent version, failover readiness, and the latest recovery points.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/essentials.png" alt-text="Essentials view for VM disaster recovery.":::
 
@@ -139,22 +142,22 @@ After the replication job finishes, you can check the VM replication status.
 
 ## Run a drill
 
-Run a drill to make sure disaster recovery works as expected. When you run a test failover, it creates a copy of the VM, with no impact on ongoing replication, or on your production environment. 
+Run a drill to make sure disaster recovery works as expected. When you run a test failover, it creates a copy of the VM, with no impact on ongoing replication, or on your production environment.
 
 1. In the VM disaster recovery page, select **Test failover**.
 2. In **Test failover**, leave the default **Latest processed (low RPO)** setting for the recovery point.
 
    This option provides the lowest recovery point objective (RPO), and generally the quickest spin up of the target VM. It first processes all the data that has been sent to Site Recovery service, to create a recovery point for each VM, before failing over to it. This recovery point has all the data replicated to Site Recovery when the failover was triggered.
 
-3. Select the virtual network in which the VM will be located after failover. 
+3. Select the virtual network in which the VM will be located after failover.
 
      :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-settings.png" alt-text="Page to set test failover options.":::
 
 4. The test failover process begins. You can monitor the progress in notifications.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="Test failover notifications."::: 
-    
-   After the test failover completes, the VM is in the *Cleanup test failover pending* state on the **Essentials** page. 
+    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="Test failover notifications.":::
+
+   After the test failover completes, the VM is in the *Cleanup test failover pending* state on the **Essentials** page.
 
 
 
@@ -164,15 +167,15 @@ The VM is automatically cleaned up by Site Recovery after the drill.
 
 1. To begin automatic cleanup, select **Cleanup test failover**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Start cleanup on the Essentials page."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="Start cleanup on the Essentials page.":::
 
 2. In **Test failover cleanup**, type in any notes you want to record for the failover, and then select **Testing is complete. Delete test failover virtual machine**. Then select **OK**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Page to record notes and delete test VM."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="Page to record notes and delete test VM.":::
 
 7. The delete process begins. You can monitor progress in notifications.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="Notifications to monitor delete test VM."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="Notifications to monitor delete test VM.":::
 
 ### Stop replicating the VM
 
@@ -187,10 +190,10 @@ Stop replication as follows:
 1. In the VM disaster recovery page, select **Disable Replication**.
 2. In **Disable Replication**, select the reasons that you want to disable replication. Then select **OK**.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Page to disable replication and provide a reason."::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="Page to disable replication and provide a reason.":::
 
 
-The Site Recovery extension installed on the VM during replication isn't removed automatically. If you disable replication for the VM, and you don't want to replicate it again at a later time, you can remove the Site Recovery extension manually, as follows: 
+The Site Recovery extension installed on the VM during replication isn't removed automatically. If you disable replication for the VM, and you don't want to replicate it again at a later time, you can remove the Site Recovery extension manually, as follows:
 
 1. Go to the VM > **Settings** > **Extensions**.
 2. In the **Extensions** page, select each *Microsoft.Azure.RecoveryServices* entry for Linux.

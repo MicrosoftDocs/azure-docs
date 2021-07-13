@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 05/28/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -31,6 +31,7 @@ To apply published labels to groups, you must first enable the feature. These st
 1. Run the following commands to prepare to run the cmdlets.
 
     ```PowerShell
+    Install-Module AzureADPreview
     Import-Module AzureADPreview
     Connect-AzureAD
     ```

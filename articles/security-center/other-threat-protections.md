@@ -14,9 +14,6 @@ As well as the built-in [Azure Defender protections](azure-defender.md), Azure S
 
 > [!TIP]
 > To enable Security Center's threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads.
->
-> You can enable threat protection for **Azure Database for MariaDB/MySQL/PostgreSQL** at the resource level only.
-
 
 ## Threat protection for Azure network layer <a name="network-layer"></a>
 Security Center network-layer analytics are based on sample [IPFIX data](https://en.wikipedia.org/wiki/IP_Flow_Information_Export), which are packet headers collected by Azure core routers. Based on this data feed, Security Center uses machine learning models to identify and flag malicious traffic activities. Security Center also uses the Microsoft Threat Intelligence database to enrich IP addresses.
@@ -33,7 +30,7 @@ For a list of the Azure network layer alerts, see the [Reference table of alerts
 >
 > 1. From Security Center's menu, select **Pricing & settings**.
 > 1. Select the subscription you want to change.
-> 1. Select **Threat detection**.
+> 1. Select **Integrations**.
 > 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
 
 

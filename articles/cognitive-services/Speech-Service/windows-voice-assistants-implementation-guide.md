@@ -61,7 +61,7 @@ private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsyn
 }
 ```
 
-After retrieving the ActivationSignalDetector object, call its `ActivationSignalDetector.CreateConfigurationAsync` method with the signal ID, model ID, and display name to register your keyword and retrieve your application's `ActivationSignalDetectionConfiguration`. The signal and model IDs should be guids decided on by the developer and stay consistent for the same keyword.
+After retrieving the ActivationSignalDetector object, call its `ActivationSignalDetector.CreateConfigurationAsync` method with the signal ID, model ID, and display name to register your keyword and retrieve your application's `ActivationSignalDetectionConfiguration`. The signal and model IDs should be GUIDs decided on by the developer and stay consistent for the same keyword.
 
 ### Verify that the voice activation setting is enabled
 
@@ -119,7 +119,7 @@ When an app shows a view above lock, it is considered to be in "Kiosk Mode". For
 
 An activation above lock is similar to an activation below lock. If there are no active instances of the application, a new instance will be started in the background and `OnBackgroundActivated` in App.xaml.cs will be called. If there is an instance of the application, that instance will get a notification through the `ConversationalAgentSession.SignalDetected` event.
 
-If the application is not already showing above lock, it must call `ConversationalAgentSession.RequestForegroundActivationAsync`. This triggers the `OnLaunched` method in App.xaml.cs which should navigate to the view that will be shown above lock.
+If the application does not appear above lock, it must call `ConversationalAgentSession.RequestForegroundActivationAsync`. This triggers the `OnLaunched` method in App.xaml.cs which should navigate to the view that will appear above lock.
 
 ### Detecting lock screen transitions
 
@@ -149,4 +149,4 @@ To properly close the application programmatically while above or below lock, us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visit the UWP Voice Assistant Sample app for examples and code walk-throughs](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample)
+> [Visit the UWP Voice Assistant Sample app for examples and code walk-throughs](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample)

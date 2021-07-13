@@ -6,7 +6,8 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 02/10/2021 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 

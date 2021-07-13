@@ -1,7 +1,6 @@
 ---
 title: "Plan for Intel SGX enclaves and attestation in Azure SQL Database"
 description: "Plan the deployment of Always Encrypted with secure enclaves in Azure SQL Database."
-keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted, secure enclaves, SGX, attestation
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -23,13 +22,13 @@ ms.date: 01/15/2021
 
 ## Plan for Intel SGX in Azure SQL Database
 
-Intel SGX is a hardware-based trusted execution environment technology. Intel SGX is available for databases that use the [vCore model](service-tiers-vcore.md) and the [DC-series](service-tiers-vcore.md?#dc-series) hardware generation. Therefore, to ensure you can use Always Encrypted with secure enclaves in your database, you need to either select the DC-series hardware generation when you create the database, or you can update your existing database to use the DC-series hardware generation.
+Intel SGX is a hardware-based trusted execution environment technology. Intel SGX is available for databases that use the [vCore model](service-tiers-sql-database-vcore.md) and the [DC-series](service-tiers-sql-database-vcore.md?#dc-series) hardware generation. Therefore, to ensure you can use Always Encrypted with secure enclaves in your database, you need to either select the DC-series hardware generation when you create the database, or you can update your existing database to use the DC-series hardware generation.
 
 > [!NOTE]
 > Intel SGX is not available in hardware generations other than DC-series. For example, Intel SGX is not available for Gen5 hardware, and it is not available for databases using the [DTU model](service-tiers-dtu.md).
 
 > [!IMPORTANT]
-> Before you configure the DC-series hardware generation for your database, check the regional availability of DC-series and make sure you understand its performance limitations. For details, see [DC-series](service-tiers-vcore.md#dc-series).
+> Before you configure the DC-series hardware generation for your database, check the regional availability of DC-series and make sure you understand its performance limitations. For details, see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
 
 ## Plan for attestation in Azure SQL Database
 

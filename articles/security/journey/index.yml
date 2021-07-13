@@ -112,6 +112,6 @@ landingContent:
       - linkListType: concept
         links:
           - text: Governance, risk, compliance
-            url: /azure/architecture/framework/governance/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+            url: /azure/architecture/framework/security/monitor-audit?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
           - text: Identity and network risks
             url: /azure/architecture/framework/security/monitor-test?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json

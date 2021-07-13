@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: extensions
 author: mgreenegit
 ms.author: migreene
-ms.date: 04/15/2021
+ms.date: 04/15/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -49,11 +50,6 @@ To learn more about private networking, see the following articles:
 
 ## How can I install the extension?
 
-To deploy the latest version of the extension at scale including identity requirements,
-assign the Azure Policy,
-[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json).
-For individual machines, the extension can be deployed using Azure CLI, PowerShell, Resource Manager templates, or third-party tools.
-
 The instance name of the extension must be set to
 "AzurePolicyforWindows" or "AzurePolicyforLinux",
 because the policies referenced above require these specific strings.
@@ -62,6 +58,13 @@ By default, all deployments update to the latest version. The value
 of property _autoUpgradeMinorVersion_ defaults to "true" unless it is otherwise
 specified. You do not need to worry about updating your code when
 new versions of the extension are released.
+
+### Azure Policy
+
+To deploy the latest version of the extension at scale including identity requirements,
+[assign](../../governance/policy/assign-policy-portal.md) the Azure Policy:
+
+[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
 
 ### Azure CLI
 
@@ -108,7 +111,7 @@ To deploy the extension for Linux:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforLinux",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}
@@ -130,7 +133,7 @@ To deploy the extension for Windows:
   "properties": {
     "publisher": "Microsoft.GuestConfiguration",
     "type": "ConfigurationforWindows",
-    "typeHandlerVersion": "1.0"
+    "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
     "settings": {},
     "protectedSettings": {}

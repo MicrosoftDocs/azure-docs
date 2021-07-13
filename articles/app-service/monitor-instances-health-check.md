@@ -18,14 +18,15 @@ This article uses Health check in the Azure portal to monitor App Service instan
 ## What App Service does with Health checks
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, the system determines it's unhealthy and removes it.
-- After removal, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
-- If an instance remains unhealthy for one hour, it will be replaced with new instance.
+- If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, it will be deemed unhealthy and requests will not be routed to that instance.
+- Health check will continue to ping the unhealthy instance after it has been removed from the load balancer. If the instance continues to respond unseccessfully for one hour, it will be replaced with new VM.
 - Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
 > Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->
+> 
+> On App Service Environments, if an instance continues to fail for one hour it will not be automatically replaced with a new instance due to the limited number of extra virtual machines on the stamp.
+>  
 
 ## Enable Health Check
 
@@ -64,8 +65,8 @@ After providing your application's Health check path, you can monitor the health
 Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
 
 ## Next steps
-- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png

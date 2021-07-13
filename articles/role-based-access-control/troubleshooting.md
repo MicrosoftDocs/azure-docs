@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 04/06/2021
 ms.author: rolyon
-ms.custom: seohack1, devx-track-azurecli
+ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
 # Troubleshoot Azure RBAC
 

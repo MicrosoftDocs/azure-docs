@@ -7,7 +7,8 @@ ms.author: banders
 ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Link a partner ID to your Azure accounts
@@ -26,7 +27,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Service principal**: Your customer can add an app or script from your organization in their directory and assign any Azure role. The identity of the app or script is known as a service principal.
 
-- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure Lighthouse](../../lighthouse/overview.md).
 
 ## Link to a partner ID
 

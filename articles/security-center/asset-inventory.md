@@ -37,14 +37,14 @@ The asset management possibilities for this tool are substantial and continue to
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|All users|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 
 ## What are the key features of asset inventory?
 The inventory page provides the following tools:
 
-:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Main features of the asset inventory page in Azure Security Center" lightbox="media/asset-inventory/highlights-of-inventory.png":::
+:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Main features of the asset inventory page in Azure Security Center." lightbox="media/asset-inventory/highlights-of-inventory.png":::
 
 
 ### 1 - Summaries
@@ -111,18 +111,18 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
     - **Off** - Resources that aren't protected by an Azure Defender plan. You can right-click on any of these and upgrade them:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Azure Defender from right click" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Azure Defender from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
     - **On** - Resources that are protected by an Azure Defender plan
     - **Partial** - This applies to **subscriptions** that have some but not all of the Azure Defender plans disabled. For example, the following subscription has five Azure Defender plans disabled. 
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially on Azure Defender":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially on Azure Defender.":::
 
 1. To further examine the results of your query, select the resources that interest you.
 
 1. To view the current selected filter options as a query in Resource Graph Explorer, select **Open query**.
 
-    ![Inventory query in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+    ![Inventory query in ARG.](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
 1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
 
@@ -135,7 +135,7 @@ The inventory view lists your Security Center connected resources from a Cloud S
 
 For example, the following screenshot shows a user with access to 38 subscriptions but only 10 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 10 subscriptions with active recommendations appear in the inventory:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations.":::
 
 ### Why do some of my resources show blank values in the Azure Defender or agent monitoring columns?
 
@@ -143,7 +143,7 @@ Not all Security Center monitored resources have agents. For example, Azure Stor
 
 When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the agent monitoring or Azure Defender columns":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the agent monitoring or Azure Defender columns.":::
 
 ## Next steps
 

@@ -20,7 +20,7 @@ Use the Face client library for .NET to:
 * [Create a PersonGroup](#create-a-persongroup)
 * [Identify a face](#identify-a-face)
 
-[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
+[Reference documentation](/dotnet/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [Samples](/samples/browse/?products=azure&term=face)
 
 ## Prerequisites
 
@@ -256,10 +256,10 @@ Define the deletion method with the following code:
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face client library for .NET to do basic facial recognition tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face client library for .NET to do basic facial recognition tasks. Next, learn about the different face detection models and how to specify the right model for your use case.
 
 > [!div class="nextstepaction"]
-> [Face API reference (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
+> [Specify a face detection model version](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [What is the Face service?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs).

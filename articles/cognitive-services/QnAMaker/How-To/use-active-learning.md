@@ -125,9 +125,9 @@ Use the [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to se
 
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) to use this feature.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-In QnA Maker managed (Preview), since the runtime is hosted by the QnA Maker service itself, there is no need to upgrade the runtime manually.
+In Custom question answering (Preview), there is no need to upgrade the runtime manually.
 
 ---
 
@@ -154,9 +154,9 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
     
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-By default, active learning is **on** in QnA Maker managed (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
+By default, active learning is **on** in Custom question answering (Preview). To see the suggested alternate questions, [use View options](../How-To/improve-knowledge-base.md#view-suggested-questions) on the Edit page.
 
 ---
 

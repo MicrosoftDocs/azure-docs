@@ -15,7 +15,7 @@ In the Azure portal, the Recovery Services vault dashboard provides access to va
 * The total size of all backup snapshots.
 * The number of VMs that are enabled for backups.
 
-You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard.
+You can manage backups by using the dashboard and by drilling down to individual VMs. To begin machine backups, open the vault on the dashboard:
 
 ![Full dashboard view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 

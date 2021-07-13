@@ -1,7 +1,7 @@
 ---
 title: 'Storage overview - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about data storage in Azure Time Series Insights Gen2.
-author: jatinas
+author: tedvilutis
 ms.author: tvilutis
 manager: diviso
 ms.workload: big-data

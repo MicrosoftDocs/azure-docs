@@ -35,4 +35,42 @@ To list the available voices for your Speech endpoint, run the following command
 
 You should receive a response like the following one.
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/get-voices.sh" id="response":::
+```http
+[
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+        "DisplayName": "Hoda",
+        "LocalName": "هدى",
+        "ShortName": "ar-EG-Hoda",
+        "Gender": "Female",
+        "Locale": "ar-EG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
+        "DisplayName": "Naayf",
+        "LocalName": "نايف",
+        "ShortName": "ar-SA-Naayf",
+        "Gender": "Male",
+        "Locale": "ar-SA",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
+        "DisplayName": "Ivan",
+        "LocalName": "Иван",
+        "ShortName": "bg-BG-Ivan",
+        "Gender": "Male",
+        "Locale": "bg-BG",
+        "SampleRateHertz": "16000",
+        "VoiceType": "Standard"
+    },
+    {
+        // This response is truncated. The response will include 
+        // a complete list of supported languages and specific 
+        // details like short name, gender, etc. 
+    }
+]
+```

@@ -1,19 +1,19 @@
 ---
 title: Build a SCIM endpoint for user provisioning to apps from Azure Active Directory
-description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure AD, and automatically provision users and groups into your cloud applications with Azure Active Directory. 
+description: Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and automatically provision users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Tutorial: Develop a sample SCIM endpoint
+# Tutorial: Develop a sample SCIM endpoint in Azure Active Directory
 
 No one wants to build a new endpoint from scratch, so we created some [reference code](https://aka.ms/scimreferencecode) for you to get started with [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview). You can get your SCIM endpoint up and running with no code in just five minutes.
 

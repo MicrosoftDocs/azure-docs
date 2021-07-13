@@ -163,7 +163,7 @@ ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.out
 This script does the following things:
 
 1. Creates a service principal with `Storage Blob Data Contributor` permissions on the Data Lake Storage Gen2 storage account.
-1. Obtains an authentication token to authorize POST requests to the [Data Lake Storage Gen2 file system REST API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
+1. Obtains an authentication token to authorize POST requests to the [Data Lake Storage Gen2 file system REST API](/rest/api/storageservices/datalakestoragegen2/filesystem/create).
 1. Fills in the actual name of your Data Lake Storage Gen2 storage account in the `sparktransform.py` and `query.hql` files.
 1. Obtains storage keys for the Data Lake Storage Gen2 and Blob storage accounts.
 1. Creates another resource deployment to create an Azure Data Factory pipeline, with its associated linked services and activities. It passes the storage keys as parameters to the template file so that the linked services can access the storage accounts correctly.
@@ -260,8 +260,8 @@ For other ways to transform data by using HDInsight, see [this article on using 
 
 1. From **Navigator**, select `sales`, and/or `sales_raw` to preview the data. After the data is loaded, you can experiment with the dashboard that you want to create. See the following links to get started with Power BI dashboards:
 
-* [Introduction to dashboards for Power BI designers](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Tutorial: Get started with the Power BI service](https://docs.microsoft.com/power-bi/service-get-started)
+* [Introduction to dashboards for Power BI designers](/power-bi/service-dashboards)
+* [Tutorial: Get started with the Power BI service](/power-bi/service-get-started)
 
 ## Clean up resources
 

@@ -1,11 +1,12 @@
 ---
-title: Deploy an application to a Service Fabric managed cluster via PowerShell (preview)
+title: Deploy an application to a Service Fabric managed cluster via PowerShell
 description: In this tutorial, you will connect to a Service Fabric managed cluster and deploy an application via PowerShell.
 ms.topic: tutorial
-ms.date: 09/28/2020
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Tutorial: Deploy an app to a Service Fabric managed cluster (preview)
+# Tutorial: Deploy an app to a Service Fabric managed cluster
 
 In this tutorial series we will discuss:
 
@@ -34,7 +35,7 @@ To connect to your cluster, you'll need the cluster certificate thumbprint. You 
 The following command can be used to query your cluster resource for the cluster certificate thumbprint.
 
 ```powershell
-$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprint
+$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprints
 ```
 
 With the cluster certificate thumbprint, you're ready to connect to your cluster.
@@ -88,7 +89,12 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 ## Next steps
 
-In this step, we deployed an app to a Service Fabric managed cluster. To learn more about Service Fabric managed clusters, see:
+In this step, we deployed an application to a Service Fabric managed cluster. To learn more about application deployment options, see:
 
-> [!div class="nextstepaction"]
-> [Service Fabric managed clusters frequently asked questions](faq-managed-cluster.md)
+* [Deploy managed cluster application secrets](how-to-managed-cluster-application-secrets.md)
+* [Deploy managed cluster applications using ARM templates](how-to-managed-cluster-app-deployment-template.md)
+* [Deploy managed cluster applications with managed identity](how-to-managed-cluster-application-managed-identity.md)
+
+To learn more about managed cluster configuration options, see:
+
+* [Configure your manage cluster](how-to-managed-cluster-configuration.md)

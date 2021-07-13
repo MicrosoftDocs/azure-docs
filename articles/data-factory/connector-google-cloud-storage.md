@@ -1,11 +1,11 @@
 ---
 title: Copy data from Google Cloud Storage by using Azure Data Factory 
 description: Learn about how to copy data from Google Cloud Storage to supported sink data stores by using Azure Data Factory.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Copy data from Google Cloud Storage by using Azure Data Factory

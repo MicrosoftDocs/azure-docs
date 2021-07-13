@@ -47,7 +47,7 @@ File names may not include the following characters:
 The maximum number of files that can be extracted and maximum file size is based on your **[QnA Maker pricing tier limits](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
 
 > [!NOTE]
-> QnA Maker managed (Preview) is a free service with no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
+> Custom question answering (preview) is a free service with no limits on the number of sources that can be added. Throughput is currently capped at 10 transactions per second for both management APIs and prediction APIs.
 
 ### Maximum number of deep-links from URL
 
@@ -55,15 +55,31 @@ The maximum number of deep-links that can be crawled for extraction of QnAs from
 
 ## Metadata Limits
 
-Metadata is presented as a text-based key:value pair, such as `product:windows 10`. It is stored and compared in lower case.
+Metadata is presented as a text-based key:value pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**.
 
-### By Azure Cognitive Search pricing tier
+# [QnA Maker GA (stable release)](#tab/v1)
 
-Maximum number of metadata fields per knowledge base is based on your **[Azure Cognitive Search tier limits](../../search/search-limits-quotas-capacity.md)**.
+For GA version, since the test index is shared across all the KBs, the limit is applied across all KBs in the QnA Maker service.
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
+
+# [Custom question answering (preview release)](#tab/v2)
+
+If you choose to have multiple language KBs in one service, there is a dedicated test index per KB. So the limit is applied per KB in the QnA Maker service.
+
+|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Maximum metadata fields per QnA Maker service (per KB)|1,000|100*|1,000|1,000|1,000|1,000|
+
+If you don't choose the option to have KBs in multiple langauges, then the limits are applied across all KBs in the QnA Maker service.
+
+|**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|Maximum metadata fields per QnA Maker service (across all KBs)|1,000|100*|1,000|1,000|1,000|1,000|
+
+---
 
 ### By name and value
 
@@ -123,6 +139,9 @@ These represent the limits when Prebuilt API is used to *Generate response* or c
 * Number of documents: 5
 * Maximum size of a single document:  5,120 characters
 * Maximum 3 responses per document.
+
+> [!IMPORTANT]
+> Support for unstructured file/content and Prebuilt API is available only in Custom question answering (preview)
 
 ## Next steps
 

@@ -53,7 +53,7 @@ Here are the high-level steps to create a new access package.
 
 ## Start new access package
 
-**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
+**Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -73,11 +73,11 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 1. In the **Catalog** drop-down list, select the catalog you want to create the access package in. For example, you might have a catalog owner that manages all the marketing resources that can be requested. In this case, you could select the marketing catalog.
 
-    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be a Global administrator or User administrator, or you must be a catalog owner or access package manager in that catalog.
+    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be a Global administrator, Identity Governance administrator or User administrator, or you must be a catalog owner or access package manager in that catalog.
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
-    If you are a Global administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**.
+    If you are a Global administrator, an Identity Governance administrator, a User administrator, or catalog creator and you would like to create your access package in a new catalog that's not listed, click **Create new catalog**. Enter the Catalog name and description and then click **Create**.
 
     The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
 

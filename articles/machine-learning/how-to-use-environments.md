@@ -8,7 +8,7 @@ ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/23/2020
+ms.date: 07/08/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 
@@ -83,6 +83,12 @@ for env in envs:
 > [!WARNING]
 >  Don't start your own environment name with the _AzureML_ prefix. This prefix is reserved for curated environments.
 
+To customize a curated environment, clone and rename the environment. 
+```python 
+env = Environment.get(workspace=ws, name="AzureML-Minimal")
+curated_clone = env.clone("customize_curated")
+```
+
 ### Use Conda dependencies or pip requirements files
 
 You can create an environment from a Conda specification or a pip requirements file. Use the [`from_conda_specification()`](/python/api/azureml-core/azureml.core.environment.environment#from-conda-specification-name--file-path-) method or the [`from_pip_requirements()`](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) method. In the method argument, include your environment name and the file path of the file that you want. 
@@ -125,6 +131,7 @@ myenv.docker.base_image_registry="your_registry_location"
 > * Ubuntu 16.04 or greater.
 > * Conda 4.5.# or greater.
 > * Python 3.6+.
+> * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
 #### Use your own Dockerfile 
 
@@ -351,7 +358,7 @@ exp = Experiment(name="myexp", workspace = ws)
 myenv = Environment(name="myenv")
 
 # Configure the ScriptRunConfig and specify the environment
-src = ScriptRunConfig(source_directory=".", script="train.py", target="local", environment=myenv)
+src = ScriptRunConfig(source_directory=".", script="train.py", compute_target="local", environment=myenv)
 
 # Submit run 
 run = exp.submit(src)
@@ -397,13 +404,17 @@ service = Model.deploy(
 
 ## Notebooks
 
-This [article](./how-to-access-terminal.md#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
+Code examples in this article are also included in the [using environments notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/using-environments/using-environments.ipynb).
+
+ To install a Conda environment as a kernel in a notebook, see [add a new Jupyter kernel](./how-to-access-terminal.md#add-new-kernels).
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/spark) demonstrates how to deploy a Spark model as a web service.
 
-## Create and manage environments with the CLI
+## Create and manage environments with the Azure CLI
+
+[!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate fundamental functionality.
 
@@ -430,6 +441,10 @@ Download a registered environment by using the following command.
 ```azurecli-interactive
 az ml environment download -n myenv -d downloaddir
 ```
+
+## Create and manage environments with Visual Studio Code
+
+Using the Azure Machine Learning extension, you can create and manage environments in Visual Studio Code. For more information, see [manage Azure Machine Learning resources with the VS Code extension](how-to-manage-resources-vscode.md#environments).
 
 ## Next steps
 

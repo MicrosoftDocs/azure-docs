@@ -61,11 +61,11 @@ The application creates five randomly named containers and begins uploading the 
 
 The `UploadFilesAsync` method is shown in the following example:
 
-# [.NET v12](#tab/dotnet)
+# [.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Scalable.cs" id="Snippet_UploadFilesAsync":::
 
-# [.NET v11](#tab/dotnet11)
+# [.NET v11 SDK](#tab/dotnet11)
 
 The minimum and maximum number of threads are set to 100 to ensure that a large number of concurrent connections are allowed.
 

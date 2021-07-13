@@ -2,9 +2,9 @@
 title: Enable end-to-end encryption using encryption at host - Azure portal - managed disks
 description: Use encryption at host to enable end-to-end encryption on your Azure managed disks - Azure portal.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 07/01/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -12,11 +12,7 @@ ms.custom: references_regions
 
 # Use the Azure portal to enable end-to-end encryption using encryption at host
 
-When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, as well as other managed disk encryption types, see:
-
-* Linux: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
-
-* Windows: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the Storage service. For conceptual information on encryption at host, and other managed disk encryption types, see: [Encryption at host - End-to-end encryption for your VM data](./disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 ## Restrictions
 
@@ -29,19 +25,19 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 ## Prerequisites
 
-You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Follow the steps below to enable the feature for your subscription:
 
 1. **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
     ![Icon to launch the Cloud Shell from the Azure portal](../Cloud-Shell/media/overview/portal-launch-icon.png)
     
-2.	Execute the following command to register the feature for your subscription
+1.	Execute the following command to register the feature for your subscription
 
     ```powershell
      Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
     ```
 
-3.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+1.	Confirm that the registration state is **Registered** (takes a few minutes) using the command below before trying out the feature.
 
     ```powershell
      Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
@@ -61,7 +57,7 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk
 
 ## Deploy a VM
 
-You must deploy a new VM to enable encryption at host, it cannot be enabled on existing VMs.
+Now that you've setup an Azure Key Vault and disk encryption set, you can deploy a VM and it will use encryption at host.
 
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
@@ -77,6 +73,16 @@ You must deploy a new VM to enable encryption at host, it cannot be enabled on e
 1. Finish the VM deployment process, make selections that fit your environment.
 
 You have now deployed a VM with encryption at host enabled, all its associated disks will be encrypted using encryption at host.
+
+## Disable host based encryption
+
+Make sure your VM is deallocated first, you cannot disable encryption at host unless your VM is deallocated.
+
+1. On your VM, select **Disks** and then select **Additional settings**.
+
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-host-based-encryption-additional-settings.png" alt-text="Screenshot of the Disks blade on a VM, Additional Settings is highlighted.":::
+
+1. Select **No** for **Encryption at host** then select **Save**.
 
 ## Next steps
 
