@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
@@ -16,23 +16,6 @@ ms.topic: how-to
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## Login to the Azure Arc data controller
-
-Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.
-
-```console
-azdata login
-```
-
-You will then be prompted for the username, password, and the system namespace.  
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
 
 ## Create an Azure SQL Managed Instance
 
