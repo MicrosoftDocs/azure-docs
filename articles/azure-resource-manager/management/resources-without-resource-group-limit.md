@@ -113,9 +113,6 @@ For some resource types, you need to contact support to have the 800 instance li
 ## microsoft.insights
 
 * metricalerts
-
-## microsoft.insights
-
 * scheduledqueryrules
 
 ## Microsoft.Logic
