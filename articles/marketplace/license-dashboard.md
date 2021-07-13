@@ -11,9 +11,6 @@ ms.author: subhaset
 
 # License dashboard in commercial marketplace analytics
 
-> [!IMPORTANT]
-> This capability is currently in Public Preview.
-
 This article provides information about the License dashboard in the commercial marketplace program in Partner Center. The License dashboard shows the following information:
 
 - Number of customers who purchased licenses
@@ -63,6 +60,26 @@ The _Analysis widget_ shows the number and percentage of provisioned and assigne
 The _License Distribution_ widget shows the distribution of licenses across different countries and regions. The colored regions show where the user licenses are distributed. To revert to the default view, select the **Reset zoom** button (Home icon) in the widget.
 
 :::image type="content" source="./media/license-dashboard/license-distribution.png" alt-text="Screenshot of the License Distribution widget on the License dashboard in Partner Center.":::
+
+## Data terms in License report downloads
+
+You can use the download icon in the upper-right corner of any widget to download the data.
+
+| Attribute name | Definition |
+| ------------ | ------------- |
+| Customer Country | Customer’s billing country |
+| Customer Country Code | Customer’s billing country code |
+| Customer Name | Customer name |
+| Activation Date | Date when licenses were activated |
+| Product Display Name | Offer title as shown in AppSource |
+| Product ID | Product ID |
+| Licenses Provisioned | Number of licenses activated into the customer’s account |
+| Licenses Assigned | Number of licenses customer has assigned to their users |
+| SKU Name | Name of the plan in the offer |
+| Tenant ID | Unique ID of the tenant |
+| License State | License state |
+| Service ID | Unique identifier used in the package to map the plan with the license checks |
+|||
 
 ## Next steps
 

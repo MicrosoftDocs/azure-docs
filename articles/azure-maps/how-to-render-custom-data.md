@@ -3,7 +3,7 @@ title: Render custom data on a raster map in Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/22/2021
+ms.date: 07/02/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -49,7 +49,9 @@ To get a static image with custom pins and labels:
 
 3. Enter a **Request name** for the request, such as *GET Static Image*.
 
+
 4. Select the **GET** HTTP method.
+
 
 5. Enter the following URL (replace `{subscription-key}` with your primary subscription key):
 
