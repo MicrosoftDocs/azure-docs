@@ -111,6 +111,8 @@
       href: howto-private-endpoints.md
     - name: Manage network access control
       href: howto-network-access-control.md
+    - name: Secure outbound traffic through Shared Private Endpoints
+      href: howto-shared-private-endpoints.md
     - name: Use managed identity
       href: howto-use-managed-identity.md
   - name: Integrate
