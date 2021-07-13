@@ -263,7 +263,7 @@
           href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
         - name: VMs - Azure PowerShell script
           href: azure-stack-edge-gpu-deploy-virtual-machine-powershell-script.md 
-        - name: Via Azure CLI/Python
+        - name: VMs - Azure CLI/Python
           href: azure-stack-edge-gpu-deploy-virtual-machine-cli-python.md
       - name: Install extensions
         items: 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/09/2021
+ms.date: 07/13/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -66,6 +66,8 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
    For information about preparing the VHD, see [Prepare a generalized image from a Windows VHD](azure-stack-edge-gpu-prepare-windows-vhd-generalized-image.md).
 
+   [Troubleshoot VM image uploads](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
+
 1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Edge services** > **Virtual machines**.
 
     ![Screenshot that shows Edge Services and Virtual machines.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
@@ -78,10 +80,9 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     Select **+ Add image** to download the VHD from the storage account and add it to the device. The download process takes several minutes depending on the size of the VHD and the internet bandwidth available for the download. 
 
-    ![Screenshot that shows the Overview page with the Add button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
+    ![Screenshot that shows the Overview page with the Add image button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
 
 1. On the **Add image** pane, input the following parameters. Select **Add**.
-
 
     |Parameter  |Description  |
     |---------|---------|
@@ -114,9 +115,9 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
 ### Add a VM
 
-Follow these steps to create a VM after you've created a VM image.<!--Use this portal: https://aka.ms/vmmayrelease-->
+Follow these steps to create a VM after you've created a VM image.
 
-1. On the **Virtual machines** page, select **Add virtual machine**.<!--RETEST: Earlier, this was available on Overview? Could be because I had just added a VM image.-->
+1. On the **Virtual machines** page, select **Add virtual machine**.
 
     ![Screenshot that shows the Overview page and the Add virtual machine button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-1.png)
 
@@ -162,9 +163,9 @@ Follow these steps to create a VM after you've created a VM image.<!--Use this p
 
     Select **Next: Advanced**. On the **Advanced** tab, you can select an extension to install during VM deployment, and you can specify a `cloud-init` script to customize your VM.
 
-1. To install an extension on your VM when you create it, choose **Select an extension to install**. Then select the extension on the **Add extension** screen.
+1. If you want to install an extension on your VM when you create it, choose **Select an extension to install**. Then select the extension on the **Add extension** screen.
 
-    For detailed steps to install a GPU extension, see [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
+    For detailed steps to install a GPU extension during VM deployment, see [Deploy GPU VMs](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md#create-gpu-vms).
 
     ![Screenshot that shows an extension added to the Advanced tab.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-extension-01.png)
 
@@ -216,4 +217,8 @@ Follow these steps to connect to a Windows VM.
 
 ## Next steps
 
-To learn how to administer your Azure Stack Edge Pro GPU device, see [Use local web UI to administer an Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
+- [Deploy a GPU VM](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md)
+- [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
+- [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
+- [Monitor CPU and memory on a VM](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)
+
