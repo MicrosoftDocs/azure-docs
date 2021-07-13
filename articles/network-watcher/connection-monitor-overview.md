@@ -361,6 +361,37 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 * BGP isn't enabled on the gateway connection.
 * The DIP probe is down at the load balancer.
 
+## Comparision between Azure's Connectivity Monitoring Support 
+
+You can migrate tests from Network Performance Monitor and Connection Monitor (Classic) to New, Improved Connection Monitor with a single click and with zero downtime.
+ 
+The migration helps produce the following results:
+
+* Agents and firewall settings work as is. No changes are required. 
+* Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
+* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent -> ChecksFailedPercent and AverageRoundtripMs -> RoundTripTimeMs.
+* Data monitoring:
+   * **Alerts**: Migrated automatically to the new metrics.
+   * **Dashboards and integrations**: Require manually editing of the metrics set. 
+   
+There are several reasons to migrate from Network Performance Monitor and Connection Monitor (Classic) to Connection Monitor. Below are some of the use cases which show us how Azure's Connection Monitor performs against Network Performance Monitor and Connection Monitor (Classic) . 
+
+ | Feature	| Network Performance Monitor | Connection Monitor Classic | Connection Monitor |
+ | -------  | --------------------------- | -------------------------- | ------------------ | 
+ | Unified experience for Azure and Hybrid monitoring |	Not Available |	Not Available |	Available |
+ | Cross Subscription, Cross Region, Cross Workspace Monitoring | Allows cross subscription, cross region monitoring but doesn’t allow cross workspace monitoring |	Not Available | Allows Cross Subscription , Cross Workspace monitoring; Azure Agents have regional boundary  |
+ | Centralized workspace support | 	Not Available |	Not Available	| Available |
+ | Multiple Sources can ping Multiple Destinations | Performance Monitoring allows multiple sources to ping multiple destinations , Service Connectivity Monitoring allows multiple sources to ping a single service/URL and Express Route allows multiple source to ping multiple destinations | Not Available | Available |
+ | Unified Topology across On-Premises, Internet Hops and Azure | Not Available | Not Available	| Available |
+ | HTTP Status Code Checks | Not Available	| Not Available	| Available |
+ | Connectivity Diagnostics | Not Available | Available | Available |
+ | Compound resources - VNETs , Subnets & On-Premises Custom Networks | Performance Monitoring supports Subnets, On premise Networks and Logical Network Groups , Service Connectivity Monitoring and Express Route support only On Premise and Azure Agents | Not Available | Available |
+ | Connectivity Metrics and Dimensions Measurements |	Not Available | Loss, Latency, RTT | Available |
+ | Automation – PS/ CLI/Terraform | Not Available | Available | Available |
+ | Support for Linux | Performance Monitoring supports Linux, Service Connectivity Monitor and Express Route do not support Linux | Available | Available |
+ | Support for Public, Government , Mooncake & Air-Gapped Cloud | Available | Available | Available|
+
+
 ## FAQ
 
 ### Are classic VMs supported?
