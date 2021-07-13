@@ -2,14 +2,14 @@
 title: 'Tutorial: User provisioning for GitHub - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to GitHub.
 services: active-directory
-author: Zhchia
+author: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
