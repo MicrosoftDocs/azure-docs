@@ -57393,6 +57393,11 @@
       "source_path_from_root": "/articles/azure-monitor/app/monitor-performance-live-website-now.md",
       "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-reserve-public-ip-address-prefix.md",
+      "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
+      "redirect_document_id": true
     }
   ]
 }
