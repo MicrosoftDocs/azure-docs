@@ -57,24 +57,22 @@ Typically, IoT devices send telemetry from the sensors to back-end services in t
 *  A back-end service sending a command to a device to change the frequency at which it sends telemetry to help diagnose a problem
 *  A device monitoring a batch reactor in a chemical plant, sending an alert when the temperature exceeds a certain value
 
-### Telemetry - Receive information back from the device such as data collected by a sensor
+### Telemetry is data emitted by a device 
 
-Telemetry is data that a device sends to an IoT Hub. IoT Devices send events (notifications, acknowledgments, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
+Examples of telemetry received from a device can include sensor data such as speed or temperature, an error message such as missed event, or an information message to indicate the device is in good health. IoT Devices send events (notifications, acknowledgments, telemetry) to an application to gain insights. Applications may require specific subsets of events for processing or storage at different endpoints.
 
 ### Properties are state values or data that applications can access. 
 
-For example, the current firmware version of the device, or writable properties that can be updated, such a temperature, are properties.
-
-Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device or read from a temperature sensor attached to the device. 
+For example, the current firmware version of the device, or writable properties that can be updated, such a temperature, are properties. Properties can be read or set from the IoT Hub, and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device or read from a temperature sensor attached to the device. 
 
 You can enable properties in IoT Hub using [Device Twins](iot-hub-devguide-device-twins.md) or [Plug and Play](../iot-pnp/overview-iot-plug-and-play.md).
 
     
- To learn more about the differences between device twins and Plug and Play, see [Plug and Play](../iot-pnp/concepts-digital-twin.md#device-twins-and-digital-twins).
+To learn more about the differences between device twins and Plug and Play, see [Plug and Play](../iot-pnp/concepts-digital-twin.md#device-twins-and-digital-twins).
 
-### Commands can be used to execute methods directly on connected devices. An example of a command is rebooting the device.
+### Commands can be used to execute methods directly on connected devices. 
 
-IoT Hub implements commands by allowing you to invoke direct methods on devices from the cloud. [Direct methods](iot-hub-devguide-direct-methods.md) represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond.
+An example of a command is rebooting the device. IoT Hub implements commands by allowing you to invoke direct methods on devices from the cloud. [Direct methods](iot-hub-devguide-direct-methods.md) represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond.
 
 ## View and act on data collected from your devices
 
