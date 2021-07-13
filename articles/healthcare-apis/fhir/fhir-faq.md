@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 04/30/2021
 ms.author: cavoeg
+ms.custom: references_regions
 ---
 
 # Frequently asked questions about the FHIR service

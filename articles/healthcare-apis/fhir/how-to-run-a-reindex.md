@@ -1,5 +1,5 @@
 ---
-title:  How to run a reindex job in FHIR service 
+title:  How to run a reindex job in FHIR service - Azure Healthcare APIs (preview)
 description: How to run a reindex job to index any search or sort parameters that have not yet been indexed in your database
 author: ginalee-dotcom
 ms.service: healthcare-apis
