@@ -79,7 +79,7 @@ Now that the workspace is created, you can:
 
 
 > [!NOTE]
-> You can deploy a FHIR Service or DICOM Service through the Azure Portal. If you would like to deploy an IoT Connector, see [Deploy Azure IoT Connector service using an ARM template](data-transformation/iot-fhir-arm-template-quickstart.md).
+> You can deploy a FHIR Service or DICOM Service through the Azure Portal. If you would like to deploy an IoT Connector, see [Deploy Azure IoT Connector service using an ARM template](iot/iot-fhir-arm-template-quickstart.md).
 
 >[!div class="nextstepaction"]
 >[Workspace overview](workspace-overview.md)
