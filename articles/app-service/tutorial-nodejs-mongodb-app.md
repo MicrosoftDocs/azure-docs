@@ -14,14 +14,14 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 ::: zone pivot="platform-windows"  
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js app in App Service on Windows and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](overview.md). The sample application uses a combination of [Sails.js](https://sailsjs.com/) and [Angular](https://angular.io/).
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js app in App Service on Windows and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](overview.md). The sample application uses a combination of [Sails.js](https://sailsjs.com/) and [Angular 12](https://angular.io/).
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js app in App Service on Linux, connect it locally to a MongoDB database, then deploy it to a database in Azure Cosmos DB's API for MongoDB. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. The sample application uses a combination of [Sails.js](https://sailsjs.com/) and [Angular](https://angular.io/).
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js app in App Service on Linux, connect it locally to a MongoDB database, then deploy it to a database in Azure Cosmos DB's API for MongoDB. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. The sample application uses a combination of [Sails.js](https://sailsjs.com/) and [Angular 12](https://angular.io/).
 
 ::: zone-end
 
@@ -97,7 +97,7 @@ To stop Node.js at any time, press `Ctrl+C` in the terminal.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
-For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/documentdb/). Cosmos DB supports MongoDB client connections.
+For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/cosmos-db/). Cosmos DB supports MongoDB client connections.
 
 ### Create a resource group
 
@@ -200,15 +200,15 @@ The `ssl: true` option is required because [Cosmos DB requires TLS/SSL](../cosmo
 In the terminal, set the `MONGODB_URI` environment variable. Be sure to replace the two \<cosmosdb-name> placeholders with your Cosmos DB database name, and replace the \<cosmosdb-key> placeholder with the key you copied in the previous step.
 
 ```bash
-export MONGODB_URL=mongodb://<cosmosdb-name>:<cosmosdb-key>@<cosmosdb-name>.documents.azure.com:10250/todoapp
+export MONGODB_URI=mongodb://<cosmosdb-name>:<cosmosdb-key>@<cosmosdb-name>.documents.azure.com:10250/todoapp
 ```
 
 > [!NOTE]
 > This connection string follows the format defined in the [Sails.js documentation](https://sailsjs.com/documentation/reference/configuration/sails-config-datastores#?the-connection-url).
 
-### Test the application with MongoDB 
+### Test the application with MongoDB
 
-In a local terminal window, run `node app.js --alter` again. Ignore the certificate error and the config.domain warning. 
+In a local terminal window, run `node app.js --alter` again.
 
 ```bash
 node app.js --alter
@@ -242,19 +242,18 @@ When the App Service plan has been created, the Azure CLI shows information simi
 
 <pre>
 { 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "West Europe",
+  "freeOfferExpirationTime": null,
+  "geoRegion": "UK West",
   "hostingEnvironmentProfile": null,
+  "hyperV": false,
   "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "isSpot": false,
+  "isXenon": false,
   "kind": "app",
-  "location": "West Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
+  "location": "ukwest",
+  "maximumElasticWorkerCount": 1,
+  "maximumNumberOfWorkers": 0,
   &lt; JSON data removed for brevity. &gt;
-  "targetWorkerSizeId": 0,
-  "type": "Microsoft.Web/serverfarms",
-  "workerTierName": null
 } 
 </pre>
 
@@ -330,17 +329,25 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 ::: zone pivot="platform-windows"
 
 <pre>
-Counting objects: 5, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (5/5), done.
-Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
-Total 5 (delta 3), reused 0 (delta 0)
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 318 bytes | 318.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
 remote: Updating branch 'main'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '6c7c716eee'.
-remote: Running custom deployment command...
+remote: Preparing deployment for commit id '4eb0ca7190'.
+remote: Generating deployment script.
 remote: Running deployment command...
 remote: Handling node.js deployment.
+remote: Creating app_offline.htm
+remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
+remote: Copying file: 'package.json'
+remote: Deleting app_offline.htm
+remote: Looking for app.js/server.js under site root.
+remote: Using start-up script app.js
+remote: Generated web.config.
 .
 .
 .
@@ -348,6 +355,15 @@ remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      main -> main
 </pre>
+
+> [!TIP]
+> During Git deployment, the deployment engine runs `npm install --production` as part of its build automation.
+>
+> - As defined in `package.json`, the `postinstall` script is picked up by `npm install` and runs `ng build` to generate the production files for Angular and deploy them to the [assets](https://sailsjs.com/documentation/concepts/assets) folder.
+> - `scripts` in `package.json` can use tools that are installed in `node_modules/.bin`. Since `npm install` has installed `node_modules/.bin/ng` too, you can use it to deploy your Angular client files. This npm behavior is exactly the same in Azure App Service.
+> Packages under `devDependencies` in `package.json` are not installed. Any package you need in the production environment needs to be moved under `dependencies`.
+>
+> If your app needs to bypass the default automation and run custom automation, see [Run Grunt/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
 
 ::: zone-end
 
@@ -382,8 +398,6 @@ To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
    4f7e3ac..a6fcf81  main -> main
 </pre>
 
-::: zone-end
-
 > [!TIP]
 > During Git deployment, the deployment engine runs `npm install` as part of its build automation.
 >
@@ -392,6 +406,8 @@ To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
 > When build automation is complete, the whole completed repository is copied into the `/home/site/wwwroot` folder, out of which your app is hosted.
 >
 > If your app needs to bypass the default automation and run custom automation, see [Run Grunt/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
+
+::: zone-end
 
 ### Browse to the Azure app 
 
