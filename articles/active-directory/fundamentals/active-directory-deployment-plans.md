@@ -1,6 +1,6 @@
 ---
 title: Deployment plans - Azure Active Directory | Microsoft Docs
-description: End-to-end guidance about how to deploy many Azure Active Directory capabilities.
+description: Guidance about how to deploy many Azure Active Directory capabilities.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory deployment plans
-Looking for end-to-end guidance on deploying Azure Active Directory (Azure AD) capabilities? Azure AD deployment plans walk you through the business value, planning considerations, and operational procedures needed to successfully deploy common Azure AD capabilities.
+Looking for complete guidance on deploying Azure Active Directory (Azure AD) capabilities? Azure AD deployment plans walk you through the business value, planning considerations, and operational procedures needed to successfully deploy common Azure AD capabilities.
 
 From any of the plan pages, use your browser's Print to PDF capability to create an up-to-date offline version of the documentation.
 
@@ -25,7 +25,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 
 | Capability | Description|
 | -| -|
-| [Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. Watch this video on [How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)|
+| [Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)| Azure AD Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure AD MFA helps safeguard access to your data and applications while meeting the demand for a simple sign in process. Watch this video on [How to configure and enforce multi-factor authentication in your tenant](https://www.youtube.com/watch?v=qNndxl7gqVM)|
 | [Conditional Access](../conditional-access/plan-conditional-access.md)| With Conditional Access, you can implement automated access control decisions for who can access your cloud apps, based on conditions. |
 | [Self-service password reset](../authentication/howto-sspr-deployment.md)| Self-service password reset helps your users reset their passwords without administrator intervention, when and where they need to. |
 | [Passwordless](../authentication/howto-authentication-passwordless-deployment.md) | Implement passwordless authentication using the the Microsoft Authenticator app or FIDO2 Security keys in your organization |
@@ -34,7 +34,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 
 | Capability | Description|
 | -| - |
-| [Single sign-on](../manage-apps/plan-sso-deployment.md)| Single sign-on helps your users access the apps and resources they need to do business while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce to Box to internal applications without being required to enter credentials a second time. |
+| [Single sign-on](../manage-apps/plan-sso-deployment.md)| Single sign-on helps your users' access the apps and resources they need to do business while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce to Box to internal applications without being required to enter credentials a second time. |
 | [My Apps](../manage-apps/my-apps-deployment-plan.md)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
 | [Devices](../devices/plan-device-deployment.md) | This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools. |
 
@@ -43,9 +43,9 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 
 | Capability | Description|
 | -| -|
-| [AD FS to cloud user authentication](../hybrid/migrate-from-federation-to-cloud-authentication.md)| Learn how to deploy cloud user authentication with either Azure Active Directory [Password hash synchronization (PHS)](whatis-phs.md) or [Pass-through authentication (PTA)](how-to-connect-pta.md). While we present the use case for moving from [Active Directory Federation Services (AD FS)](whatis-fed.md) to cloud authentication methods, the guidance substantially applies other to on premises systems as well.
+| [AD FS to cloud user authentication](/hybrid/migrate-from-federation-to-cloud-authentication.md)| Learn how to deploy cloud user authentication with either Azure Active Directory [Password hash synchronization (PHS)](/hybrid/whatis-phs.md) or [Pass-through authentication (PTA)](/hybrid/how-to-connect-pta.md). While we present the use case for moving from [Active Directory Federation Services (AD FS)](/hybrid/whatis-fed.md) to cloud authentication methods, the guidance substantially applies other to on premises systems as well.
 | [Azure AD Application Proxy](../app-proxy/application-proxy-deployment-plan.md) |Employees today want to be productive at any place, at any time, and from any device. They need to access SaaS apps in the cloud and corporate apps on-premises. Azure AD Application proxy enables this robust access without costly and complex virtual private networks (VPNs) or demilitarized zones (DMZs). |
-| [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. With this feature, users won't need to type in their passwords to sign in to Azure AD and usually won't need to enter their usernames. This feature provides authorized users with easy access to your cloud-based applications without needing any additional on-premises components. |
+| [Seamless SSO](../hybrid/how-to-connect-sso-quick-start.md)| Azure Active Directory Seamless Single Sign-On (Azure AD Seamless SSO) automatically signs users in when they are on their corporate devices connected to your corporate network. With this feature, users won't need to type in their passwords to sign in to Azure AD and usually won't need to enter their usernames. This feature provides authorized users with easy access to your cloud-based applications without needing any extra on-premises components. |
 
 ## Deploy user provisioning
 
