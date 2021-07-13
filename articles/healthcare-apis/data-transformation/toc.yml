@@ -1,18 +1,9 @@
 items:
 - name: Data Transformation
   href: index.yml
-<<<<<<< HEAD
-- name: Overview
-  expanded: true
-  items:
-    - name: About IoT Connector
-      href: iot-connector-overview.md
-- name: How-to Guides
-=======
 
 
 - name: Export data
->>>>>>> 309030d79eaa4944fdbadc1ef558aaa9cf51a71c
   expanded: true
   items:
     - name: Configure settings for data export
