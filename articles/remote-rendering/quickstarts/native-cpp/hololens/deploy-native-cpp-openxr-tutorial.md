@@ -1,15 +1,15 @@
 ---
-title: Deploy native C++ WMR tutorial to HoloLens
-description: Quickstart that shows how to run the native C++ HolographicApp tutorial on HoloLens
+title: Deploy native C++ OpenXR tutorial to HoloLens
+description: Quickstart that shows how to run the native C++ OpenXR tutorial on HoloLens
 author: florianborn71
 ms.author: flborn
-ms.date: 06/08/2020
+ms.date: 07/01/2021
 ms.topic: quickstart
 ---
 
-# Quickstart: Deploy native C++ WMR sample to HoloLens
+# Quickstart: Deploy native C++ OpenXR sample to HoloLens
 
-This quickstart covers how to deploy and run the native C++ WMR (Windows Mixed Reality) tutorial application on a HoloLens 2.
+This quickstart covers how to deploy and run the OpenXR-based native C++ tutorial application on a HoloLens 2.
 
 In this quickstart you will learn how to:
 
@@ -46,17 +46,17 @@ git clone https://github.com/Azure/azure-remote-rendering
 
 The last command creates a subdirectory in the ARR directory containing the various sample projects for Azure Remote Rendering.
 
-The C++ HoloLens tutorial can be found in the subdirectory *NativeCpp/HoloLens-Wmr*.
+The C++ HoloLens tutorial can be found in the subdirectory *NativeCpp/HoloLens-OpenXr*.
 
 ## Build the project
 
-Open the solution file *HolographicApp.sln* located in the *NativeCpp/HoloLens-Wmr* subdirectory with Visual Studio 2019.
+Open the solution file *BasicXrApp.sln* located in the *NativeCpp/HoloLens-OpenXr* subdirectory with Visual Studio 2019.
 
 Switch the build configuration to *Debug* (or *Release*) and *ARM64*. Also make sure the debugger mode is set to *Device* as opposed to *Remote Machine*:
 
 ![Visual Studio config](media/vs-config-native-cpp-tutorial.png)
 
-Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open the file `HolographicAppMain.cpp` inside Visual Studio and change the part where the client is created inside the constructor of class `HolographicAppMain`:
+Since the account credentials are hardcoded in the tutorial's source code, change them to valid credentials. For that, open the file `OpenXrProgram.cpp` inside Visual Studio and change the part where the client is created inside the `InitARR()` function:
 
 ```cpp
 // 2. Create Client
@@ -87,13 +87,18 @@ Now the application can be compiled.
 1. Turn on the HoloLens and wait until the start menu shows up.
 1. Start the Debugger in Visual Studio (F5). It will automatically deploy the app to the device.
 
-The sample app should launch and a text panel should appear that informs you about the current application state. The status at startup time is either starting a new session or connecting to an existing session. After model loading has completed, the built-in engine model appears right at your head position. Occlusion-wise, the engine model interacts properly with the spinning cube that is rendered locally.
+The sample app should launch and a text panel should appear that informs you about the current application state. The status at startup time is either starting a new session or connecting to an existing session. After model loading has completed, the built-in engine model appears right at your head position. Occlusion-wise, the engine model interacts properly with the spinning cubes that are rendered locally.
 
- If you want to launch the sample a second time later, you can also find it from the HoloLens start menu, but note it may have an expired session ID compiled into it.
+If you want to launch the sample a second time later, you can also find it from the HoloLens start menu, but note it may have an expired session ID compiled into it.
 
 ## Next steps
 
-This quickstart is based on the outcome of a tutorial that explains how to integrate all Remote Rendering related pieces into a stock *Holographic App*. To learn which steps are necessary, follow this tutorial:
+Now that you have successfully compiled and deployed a native OpenXR sample with ARR capabilities, you can start enhancing the sample by adding interaction code for remote objects:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Integrate Remote Rendering into a HoloLens Holographic App](../../../tutorials/native-cpp/hololens/integrate-remote-rendering-into-holographic-app.md)
+> [Concepts: Entities](../../../concepts/entities.md)
+
+Also, you can inject your own converted model:
+
+> [!div class="nextstepaction"]
+> [Quickstart: Convert a model](../../../quickstarts/convert-model.md)
