@@ -26,7 +26,7 @@ To start developing a voice assistant for Windows, you will need to mak
 
 ## Obtain resources from Microsoft
 
-Some resources necessary for a completely customized voice agent on Windows will require resources from Microsoft. The [UWP Voice Assistant Sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) provides sample versions of these resources for initial development and testing, so this section is unnecessary for initial development.
+Some resources necessary for a completely customized voice agent on Windows will require resources from Microsoft. The [UWP Voice Assistant Sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) provides sample versions of these resources for initial development and testing, so this section is unnecessary for initial development.
 
 - **Keyword model:** Voice activation requires a keyword model from Microsoft in the form of a .bin file. The .bin file provided in the UWP Voice Assistant Sample is trained on the keyword *Contoso*.
 - **Limited Access Feature Token:** Since the ConversationalAgent APIs provide access to microphone audio, they are protected under Limited Access Feature restrictions. To use a Limited Access Feature, you will need to obtain a Limited Access Feature token connected to the package identity of your application from Microsoft.
@@ -47,7 +47,7 @@ These are the requirements to create a basic dialog service using Direct Line Sp
 
 ## Try out the sample app
 
-With your Speech Services subscription key and echo bot's bot ID, you're ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample). Follow the instructions in the readme to run the app and enter your credentials.
+With your Speech Services subscription key and echo bot's bot ID, you're ready to try out the [UWP Voice Assistant sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample). Follow the instructions in the readme to run the app and enter your credentials.
 
 ## Create your own voice assistant for Windows
 
