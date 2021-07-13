@@ -93,7 +93,7 @@ The dataset is provided in two forms:
 
 - Archives available via Azure blob storage and/or direct links;
 - Original files available via Azure blob storage;
-Everything is stored in https://azureopendatastorage.blob.core.windows.net/openstt/
+Everything is stored in 'https://azureopendatastorage.blob.core.windows.net/openstt/'
 
 Folder structure:
 

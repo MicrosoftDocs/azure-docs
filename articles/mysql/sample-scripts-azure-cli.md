@@ -10,6 +10,8 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
 ---
 # Azure CLI samples for Azure Database for MySQL 
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 The following table includes links to sample Azure CLI scripts for Azure Database for MySQL.
 
 | Sample link | Description  |
