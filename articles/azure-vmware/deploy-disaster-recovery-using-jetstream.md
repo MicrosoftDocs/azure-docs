@@ -101,15 +101,33 @@ A network with the following characteristics must be established between the pro
 
 
 
+## Download MSA OVA and set up SSH access
 
+1. [Download and extract the MSA OVA installation file]().
 
+2. Provide SSH security in JetStream DR MSA.
 
+   1. Edit the file `[/etc/ssh/sshd_config](https://man7.org/linux/man-pages/man5/sshd_config.5.html)` and add the SSH key.
 
+   2. Set the PasswordAuthentication option to **yes** or **no**.
 
-## Activate JetStream DR in your subscription
+   3. Restart the `[sshd](https://man7.org/linux/man-pages/man8/sshd.8.html)` service.
 
+      ```
+      service sshd restart
+      ```
 
-## Deploy JetStream DR in the cluster
+You can add more SSH public keys manually to the /root/.ssh/authorized_keys or by running the [ssh‐copy‐id script](https://www.unix.com/man-page/linux/1/SSH-COPY-ID/).
+
+If the directory or file doesn't exist, create it manually:
+
+```
+mkdir /root/.ssh 
+echo "" >> /root/.ssh/authorized_keys 
+chmod 600 /root/.ssh/authorized_keys 
+chmod 700 /root/.ssh/ 
+```
+
 
 
 ## Install and configure JetStream DR 
