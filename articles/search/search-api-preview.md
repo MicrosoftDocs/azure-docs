@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 07/14/2021
 ---
 # Preview features in Azure Cognitive Search
 
@@ -18,6 +18,7 @@ Preview features that transition to general availability are removed from this l
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
+| [**RBAC support**](search-security-rbac.md) | Security| Use new built-in roles for improved granularity over service administration and new support for data plane operations like creating and querying an index. | Azure portal or [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) (Management REST API version 2021-04-01-Preview) and authorization request header in Search REST API version 2021-04-30-Preview.|
 | [**Reset Documents**](search-howto-run-reset-indexers.md) | Indexer | Reprocesses individually selected search documents in indexer workloads. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
 |  [**Power Query connectors**](search-how-to-index-power-query-data-sources.md) | Indexer data source | Indexers can now index from other cloud platforms. If you are using an indexer to crawl external data sources for indexing, you can now use Power Query connectors to connect to Amazon Redshift, Elasticsearch, PostgreSQL, Salesforce Objects, Salesforce Reports, Smartsheet, and Snowflake. | [Sign up](https://aka.ms/azure-cognitive-search/indexer-preview) is required so that support can be enabled for your subscription on the backend. Access this data source using [Create Data Source (REST)](/rest/api/searchservice/create-data-source) with api-version=2020-06-30-Preview or the Azure portal.|
 | [**SharePoint Online Indexer**](search-howto-index-sharepoint-online.md) | Indexer data source | New data source for indexer-based indexing of SharePoint content. | [Search REST API 2020-06-30-Preview](/rest/api/searchservice/preview-api/create-indexer) |
