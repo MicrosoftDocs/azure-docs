@@ -32,7 +32,7 @@ Application Insights provide many observable perspectives, including:
 * Availability
 
 >[NOTE]
-> This preview feature is not supported in Mooncake and new region like UAE yet.
+> This preview feature is not supported in Mooncake and new regions like UAE yet.
 
 ## Enable Java In-Process Agent for Application Insights
 
