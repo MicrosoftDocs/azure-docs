@@ -210,11 +210,11 @@ The Generic SQL Connector is a DSN file to connect to the SQL server. First we n
      >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Navigating to your server > search for services in the windows search bar > identify the Azure AD Connect Provisioning Agent Service > right click on the service and restart.
    
      ![Restart an agent](.\media\on-premises-ecma-configure\configure-8.png)
-5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host.
+5.  After 10 minutes, under the **Admin credentials** section, enter the following URL, replacing "connectorName" portion with the name of the connector on the ECMA Host. You may also replace localhost with the host name. 
 
      |Property|Value|
      |-----|-----|
-     |Tenant URL|https://localhost:8585/ecma2host_<connectorName>/scim|
+     |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
 
 6. Enter the secret token value that you defined when creating the connector.
 7. Click Test Connection and wait one minute.
