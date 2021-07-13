@@ -5505,6 +5505,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/deploy-data-controller-direct-mode-prerequisites.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/deploy-data-controller-direct-mode.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-azure-data-studio.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-azure-data-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/data-controller-resource-in-azure-portal.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-azure-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-using-cli.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-using-azdata.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-using-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/scale-out-postgresql-hyperscale-server-group.md",
       "redirect_url": "/azure/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group",
       "redirect_document_id": false
@@ -29533,6 +29563,16 @@
       "source_path_from_root": "/articles/storage/storage-analytics.md",
       "redirect_url": "/azure/storage/common/storage-analytics",
       "redirect_document_id": true
+    },    
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth.md",
+      "redirect_url": "/azure/storage/common/authorize-data-access",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/storage-auth-aad.md",
+      "redirect_url": "/azure/storage/blobs/authorize-access-azure-active-directory",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-auth-aad-rbac.md",
@@ -41462,6 +41502,16 @@
     {
       "source_path_from_root": "/articles/active-directory/authentication/tutorial-mfa-applications.md",
       "redirect_url": "/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-pass-through-authentication.md",
+      "redirect_url": "/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/hybrid/plan-migrate-adfs-password-hash-sync.md",
+      "redirect_url": "/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication",
       "redirect_document_id": true
     },
     {
