@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: feospina
 ms.author: feospina
-ms.date: 7/02/2021
+ms.date: 7/13/2021
 ---
 
 # Microsoft preferred solution badge
@@ -32,8 +32,9 @@ An offer must meet [co-sell requirements](/azure/marketplace/co-sell-requirement
 
 ## What criteria for earning the badge has changed?
 
-The commercial marketplace catalog has grown to tens of thousands of listings where customers can select from co-sell ready, in-market, and offers with a co-sell incentive. Starting in August 2021, to improve discovery of offers with a co-sell incentive, the preferred solution badge is awarded as a benefit to offers that have met the business and technical requirements to earn Azure IP or Business Applications Co-sell-enabled status.
+Until July 2021, publishers with at least one co-sell ready offer were eligible to receive the Microsoft preferred solution badge for all offers published to the commercial marketplace. Starting in August 2021, to improve discovery of offers that have achieved co-sell incentive status, the preferred solution badge is awarded only to offers that meet the business and technical requirements to earn an Azure IP co-sell incentive or the Business Applications co-sell incentive.  
 
 ## Next steps
 
-- where?
+- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](/azure/marketplace/co-sell-configure)
+- For information about co-sell incentive status, see [Requirements for Azure IP Co-sell incentive status](/azure/marketplace/co-sell-requirements) or [Business Applications Co-sell incentive status](/azure/marketplace/co-sell-requirements)
