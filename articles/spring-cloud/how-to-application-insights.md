@@ -163,8 +163,8 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 
 | Azure Spring Cloud | Application Insights                                         |
 | ------------------ | ------------------------------------------------------------ |
-| `App`                | * __Application Map__/Role<br />* __Live Metrics__/Role<br />* __Failures__/Roles/Cloud Role<br />* __Performance__/Roles/Could Role |
-| `App Instance`       | * __Application Map__/Role Instance<br />* __Live Metrics__/Service Name<br />* __Failures__/Roles/Cloud Instance<br />* __Performance__/Roles/Could Instance |
+| `App`              | * __Application Map__/Role<br />* __Live Metrics__/Role<br />* __Failures__/Roles/Cloud Role<br />* __Performance__/Roles/Could Role |
+| `App Instance`     | * __Application Map__/Role Instance<br />* __Live Metrics__/Service Name<br />* __Failures__/Roles/Cloud Instance<br />* __Performance__/Roles/Could Instance |
 
 The name `App Instance` from Azure Spring Cloud will be changed or generated in the following scenarios:
 
@@ -184,6 +184,13 @@ When data is stored in Application Insights, it contains the history of Azure Sp
   * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
   * Two instances in Application Map with time ranges in last hour, as well as Failures, Performance, and Metrics.
   * Two instances in Live Metrics.
+
+## Limitation
+
+* Mooncake is not supported.
+* Global cloud new region like UAE is not supported.
+
+We are working on this limitation and will keep you posted.
 
 ## See also
 
