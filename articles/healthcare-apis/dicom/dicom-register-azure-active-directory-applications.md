@@ -26,7 +26,7 @@ Client applications are registrations of the clients that will be requesting tok
 
 ### Confidential clients
 
-Confidential clients are also known as web apps in Azure AD. Confidential clients are applications that use [authorization code flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) to obtain a token on behalf of a signed in user presenting valid credentials. They are called confidential clients because they can hold a secret and will present this secret to Azure AD when exchanging the authentication code for a token. Since confidential clients can authenticate themselves using the client secret, they are trusted more than public clients and can have longer lived tokens and be granted a refresh token. For more information, see [Register a confidential client application in Azure Active Directory](dicom-register-confidential-client-application.md). It’s important to register the reply URL at which the client will be receiving the authorization code.
+Confidential clients are also known as web apps in Azure AD. Confidential clients are applications that use [authorization code flow](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-protocols-oauth-code) to obtain a token on behalf of a signed in user presenting valid credentials. They are called confidential clients because they can hold a secret and will present this secret to Azure AD when exchanging the authentication code for a token. Since confidential clients can authenticate themselves using the client secret, they are trusted more than public clients and can have longer lived tokens and be granted a refresh token. For more information, see [Register a confidential client application in Azure Active Directory](dicom-register-confidential-client-application.md). It’s important to register the reply URL at which the client will be receiving the authorization code.
 
 ### Public clients
 
@@ -34,7 +34,7 @@ These are clients that cannot keep a secret. Typically, this would be a mobile d
 
 ### Service clients
 
-These clients obtain tokens on behalf of themselves (not on behalf of a user) using the [client credentials flow](.././../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md). They typically represent applications that access the DICOM Service in a non-interactive way. An example would be an ingestion process. When using a service client, it is not necessary to start the process of getting a token with a call to the /authorize endpoint. A service client can go straight to the /token endpoint and present client ID and client secret to obtain a token. For more information, see [Register a service client application in Azure Active Directory](dicom-register-service-client-applicaiton.md).
+These clients obtain tokens on behalf of themselves (not on behalf of a user) using the [client credentials flow](.././../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md). They typically represent applications that access the DICOM Service in a non-interactive way. An example would be an ingestion process. When using a service client, it is not necessary to start the process of getting a token with a call to the /authorize endpoint. A service client can go straight to the /token endpoint and present client ID and client secret to obtain a token. For more information, see [Register a service client application in Azure Active Directory](dicom-register-service-client-application.md).
 
 ## Next steps
 
@@ -42,7 +42,11 @@ This overview article guided you through the application registration process fo
 
 >[!div class="nextstepaction"]
 >[Register a confidential client application in Azure Active Directory](dicom-register-confidential-client-application.md)
+
+>[!div class="nextstepaction"]
 >[Register a public client application in Azure Active Directory](dicom-register-public-application.md)
->[Register a service client application in Azure Active Directory](dicom-register-service-client-applicaiton.md)
+
+>[!div class="nextstepaction"]
+>[Register a service client application in Azure Active Directory](dicom-register-service-client-application.md)
 
 
