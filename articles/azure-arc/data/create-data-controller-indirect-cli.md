@@ -1,17 +1,17 @@
 ---
-title: Create data controller using Azure Data CLI (azdata)
-description: Create an Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have created using the Azure Data CLI (azdata).
+title: Create data controller using CLI
+description: Create an Azure Arc data controller, on a typical multi-node Kubernetes cluster which you already have created, using the CLI.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 04/07/2021
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
-# Create Azure Arc data controller using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
+# Create Azure Arc data controller using the CLI
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -55,16 +55,30 @@ kubectl config current-context
 ## Create the Azure Arc data controller
 
 > [!NOTE]
-> You can use a different value for the `--namespace` parameter of the azdata arc dc create command in the examples below, but be sure to use that namespace name for the `--namespace parameter` in all other commands below.
+> You can use a different value for the `--namespace` parameter of the `azdata arc dc create` command in the examples below, but be sure to use that namespace name for the `--namespace parameter` in all other commands below.
 
-- [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
-- [Create on AKS engine on Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
-- [Create on AKS on Azure Stack HCI](#create-on-aks-on-azure-stack-hci)
-- [Create on Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
-- [Create on Red Hat OpenShift Container Platform (OCP)](#create-on-red-hat-openshift-container-platform-ocp)
-- [Create on open source, upstream Kubernetes (kubeadm)](#create-on-open-source-upstream-kubernetes-kubeadm)
-- [Create on AWS Elastic Kubernetes Service (EKS)](#create-on-aws-elastic-kubernetes-service-eks)
-- [Create on Google Cloud Kubernetes Engine Service (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
+- [Create Azure Arc data controller using the CLI](#create-azure-arc-data-controller-using-the-cli)
+  - [Prerequisites](#prerequisites)
+    - [Linux or macOS](#linux-or-macos)
+    - [Windows PowerShell](#windows-powershell)
+  - [Create the Azure Arc data controller](#create-the-azure-arc-data-controller)
+    - [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
+    - [Create on AKS engine on Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
+    - [Create on AKS on Azure Stack HCI](#create-on-aks-on-azure-stack-hci)
+    - [Create on Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
+      - [Create custom deployment profile](#create-custom-deployment-profile)
+      - [Create data controller](#create-data-controller)
+    - [Create on Red Hat OpenShift Container Platform (OCP)](#create-on-red-hat-openshift-container-platform-ocp)
+      - [Determine storage class](#determine-storage-class)
+      - [Create custom deployment profile](#create-custom-deployment-profile-1)
+      - [Set storage class](#set-storage-class)
+      - [Set LoadBalancer (optional)](#set-loadbalancer-optional)
+      - [Create data controller](#create-data-controller-1)
+    - [Create on open source, upstream Kubernetes (kubeadm)](#create-on-open-source-upstream-kubernetes-kubeadm)
+    - [Create on AWS Elastic Kubernetes Service (EKS)](#create-on-aws-elastic-kubernetes-service-eks)
+    - [Create on Google Cloud Kubernetes Engine Service (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
+  - [Monitoring the creation status](#monitoring-the-creation-status)
+  - [Troubleshooting creation problems](#troubleshooting-creation-problems)
 
 ### Create on Azure Kubernetes Service (AKS)
 
@@ -76,7 +90,7 @@ If you are going to use `managed-premium` as your storage class, then you can ru
 azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 If you are not sure what storage class to use, you should use the `default` storage class which is supported regardless of which VM type you are using. It just won't provide the fastest performance.
@@ -87,7 +101,7 @@ If you want to use the `default` storage class, then you can run this command:
 azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -102,7 +116,7 @@ You can run the following command to create the data controller using the manage
 azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 If you are not sure what storage class to use, you should use the `default` storage class which is supported regardless of which VM type you are using. In Azure Stack Hub, premium disks and standard disks are backed by the same storage infrastructure. Therefore, they are expected to provide the same general performance, but with different IOPS limits.
@@ -113,7 +127,7 @@ If you want to use the `default` storage class, then you can run this command.
 azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -128,21 +142,13 @@ You can run the following command to create the data controller using the `defau
 azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
 
 
 ### Create on Azure Red Hat OpenShift (ARO)
-
-Azure Red Hat OpenShift requires a security context constraint.
-
-#### Apply the security context
-
-Before you create the data controller on Azure Red Hat OpenShift, you will need to apply specific security context constraints (SCC). For the preview release, these relax the security constraints. Future releases will provide updated SCC.
-
-[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### Create custom deployment profile
 
@@ -156,14 +162,11 @@ azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
 
 You can run the following command to create the data controller:
 
-> [!NOTE]
-> Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is `arc`.
-
 ```console
 azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example
-#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -172,12 +175,6 @@ Once you have run the command, continue on to [Monitoring the creation status](#
 
 > [!NOTE]
 > If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
-
-Before you create the data controller on Red Hat OCP, you will need to apply specific security context constraints. 
-
-#### Apply the security context constraint
-
-[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### Determine storage class
 
@@ -218,33 +215,9 @@ By default, the `azure-arc-openshift` deployment profile uses `NodePort` as the 
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
-#### Verify security policies
-
-When using OpenShift, you might want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical. You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time by running the following commands.
-
-This command disables metrics collections about pods. You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature. Default is true.
-
-```console
-azdata arc dc config replace -p ./custom/control.json --json-values spec.security.allowPodMetricsCollection=false
-```
-
-This command disables metrics collections about nodes. You will not be able to see metrics about nodes in the Grafana dashboards if you disable this feature. Default is true.
-
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowNodeMetricsCollection=false
-```
-
-This command disables the ability to take memory dumps for troubleshooting purposes.
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values spec.security.allowDumps=false
-```
-
 #### Create data controller
 
 Now you are ready to create the data controller using the following command.
-
-> [!NOTE]
->   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above. Example is `arc`.
 
 > [!NOTE]
 >   The `--path` parameter should point to the _directory_ containing the control.json file not to the control.json file itself.
@@ -254,7 +227,7 @@ Now you are ready to create the data controller using the following command.
 azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --path ./custom --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -298,7 +271,7 @@ Now you are ready to create the data controller using the following command.
 azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --path ./custom --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -313,7 +286,7 @@ Run the following command to create the data controller using the provided EKS d
 azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
@@ -328,7 +301,7 @@ Run the following command to create the data controller using the provided GKE d
 azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription 1e5ff510-76cf-44cc-9820-82f2d9b51951 --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
 Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
