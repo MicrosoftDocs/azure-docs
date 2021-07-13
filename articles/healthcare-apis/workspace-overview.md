@@ -60,26 +60,15 @@ systems into the Azure Cloud based on the [FHIR](https://www.hl7.org/fhir/index.
 
 The Azure IoT Connector for FHIR feature enables you to quickly set up a service to ingest Internet of 
 Medical Things (IoMT) data into Azure API for FHIR in a scalable, secure, and compliant manner. For 
-more information, see [Azure IoT Connector for FHIR (preview)](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview)
+more information, see [the IoT connector documentation page](./iot/index.yml).
 
-For instructions on how to deploy an IoT Connector using a scripted template, see [Deploy an IoT Connector using an ARM template](data-transformation/./iot-fhir-arm-template-quickstart.md)
+For instructions on how to deploy an IoT Connector using a scripted template, see [Deploy an IoT Connector using an ARM template](./iot/iot-fhir-arm-template-quickstart.md)
 
  
 ## Workspace configuration settings
 
 Several configuration settings are implemented at the workspace level. Changes to these configuration 
 settings will affect all service instances in the workspace. 
-
-### Private link
-
-Private link enables you to access all your Azure Healthcare APIs instances over a private endpoint. A 
-private endpoint is a network interface that connects these instances privately and securely using a 
-private IP address from your virtual network. An advantage of using a private link is that you can accessor services securely from your VNet as a first-party service without having to go through a public domain name system (DNS). For more information, see [Private Link](https://docs.microsoft.com/azure/private-link/index.yml) documentation.
-
-### Customer-managed keys (CMK)
-
-When you create a workspace, the data for all Healthcare APIs instances are encrypted using Microsoft-managed keys by default. You can add a second layer of encryption for the data using your own key that you choose and manages yourself. For more information, see [Configure customer-managed keys](../healthcare-apis/fhir/customer-managed-key.md) documentation.
-
 
 ### Application monitoring
 Azure Monitor helps you maximize the availability and performance of your applications and services. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. This information provides you insights to how your applications are performing and lets you proactively identify and resolve issues affecting them and the resources they depend on. For information about Azure Monitor, see [Azure Monitor overview](https://docs.microsoft.com/azure/azure-monitor/) documentation.
