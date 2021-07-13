@@ -30,7 +30,8 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
-[Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
+- [Use Azure AD data with Azure Sentinel's IdentityInfo table (Public preview)](#use-azure-ad-data-with-azure-sentinels-identityinfo-table-public-preview)
+- [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
 
@@ -44,6 +45,12 @@ Use the **IdentityInfo** table during investigations and when fine-tuning analyt
 
 For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference and [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives).
 
+- [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
+- [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
+
+### Watchlists are in general availability
+
+The [watchlists](watchlists.md) feature is now generally available. Use watchlists to enrich alerts with business data, to create allowlists or blocklists against which to check access events, and to help investigate threats and reduce alert fatigue.
 
 ### Support for data residency in more geos
 
