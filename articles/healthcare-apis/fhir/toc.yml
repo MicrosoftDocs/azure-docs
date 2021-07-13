@@ -95,25 +95,24 @@ items:
       href: configure-cross-origin-resource-sharing.md
     - name: Additional FHIR settings
       href: additional-settings.md
-   
-  - name: Get a token for FHIR service - CLI
-    href: get-healthcare-apis-access-token-cli.md
   
-- name: Concepts
-  expanded: false
-  items:
-  - name: Azure AD for FHIR service
-    href: azure-ad-hcapi.md
-  - name: Access token validation
-    href: azure-ad-hcapi-token-validation.md
-  - name: Find identity object IDs
-    href: find-identity-object-ids.md
-  
-  - name: Security
+  - name: Using Azure Active Directory (AAD) for FHIR service
+    expanded: true
     items:
-    - name: Security controls by Azure Policy
-      href: ./security-controls-policy.md
+    - name: AAD for FHIR service
+      href: azure-ad-hcapi.md
+    - name: Access token validation
+      href: azure-ad-hcapi-token-validation.md
+    - name: Get access token using CLI
+      href: get-healthcare-apis-access-token-cli.md
+    - name: Find identity object IDs
+      href: find-identity-object-ids.md
 
+- name: Concepts
+  items:
+  - name: Security controls by Azure Policy
+    href: ./security-controls-policy.md
+    
 - name: Resources
   items:
   - name: FAQ
