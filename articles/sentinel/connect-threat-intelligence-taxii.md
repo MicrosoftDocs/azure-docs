@@ -20,6 +20,8 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+**See also**: [Connect your threat intelligence platform (TIP) to Azure Sentinel](connect-threat-intelligence-tip.md)
+
 The most widely adopted industry standard for the transmission of threat intelligence is a [combination of the STIX data format and the TAXII protocol](https://oasis-open.github.io/cti-documentation/). If your organization receives threat indicators from solutions that support the current STIX/TAXII version (2.0 or 2.1), you can use the **Threat Intelligence - TAXII data connector** to bring your threat indicators into Azure Sentinel. This connector enables a built-in TAXII client in Azure Sentinel to import threat intelligence from TAXII 2.x servers.
 
 :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-taxii-import-path.png" alt-text="TAXII import path":::

@@ -1,5 +1,5 @@
 ---
-title: Connect threat intelligence from your TIP or custom platform to Azure Sentinel | Microsoft Docs
+title: Connect your threat intelligence platform to Azure Sentinel | Microsoft Docs
 description: Learn how to connect your threat intelligence platform (TIP) or custom feed to Azure Sentinel and send threat indicators.
 documentationcenter: na
 author: yelevin
@@ -19,6 +19,8 @@ ms.author: yelevin
 # Connect your threat intelligence platform to Azure Sentinel
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+**See also**: [Connect Azure Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md)
 
 Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from a variety of sources, to curate the data within the platform, and then to choose which threat indicators to apply to various security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Azure Sentinel. The **Threat Intelligence Platforms data connector** allows you to use these solutions to import threat indicators into Azure Sentinel. 
 
