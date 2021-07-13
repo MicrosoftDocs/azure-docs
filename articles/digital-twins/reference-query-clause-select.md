@@ -36,7 +36,7 @@ Use the `*` character in a select statement to project the digital twin document
 
 ### Returns
 
-The set of properties which are returned from the query.
+The set of properties that are returned from the query.
 
 ### Example
 
@@ -64,18 +64,18 @@ To project a property:
 
 A collection of twins, properties, or relationships specified in the projection.
 
-If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set. For an example of this behavior, see [Project property example: Property not present for a data row](#project-property-example-property-not-present-for-a-data-row).
+If a property included in the projection isn't present for a particular data row, the property will similarly not be present in the result set. For an example of this behavior, see [Project property example: Property not present for a data row](#project-property-example-property-not-present-for-a-data-row).
 
 ### Examples
 
 #### Example scenario
 
 For the following examples, consider a twin graph that contains the following data elements:
-* A Factory twin called `FactoryA`
+* A Factory twin called FactoryA
     - Contains a property called `name` with a value of `FactoryA`
-* A Consumer twin called `Contoso`
+* A Consumer twin called Contoso
     - Contains a property called `name` with a value of `Contoso`
-* A consumerRelationship relationship from `FactoryA` to `Contoso`, called `FactoryA-consumerRelationship-Contoso`
+* A consumerRelationship relationship from FactoryA to Contoso, called `FactoryA-consumerRelationship-Contoso`
     - Contains a property called `managedBy` with a value of `Jeff`
 
 Here's a diagram illustrating this scenario:
@@ -94,7 +94,7 @@ Below is an example query that projects a collection from this graph. The follow
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectCollectionExample":::
 
-Here is the JSON payload that's returned from this query:
+Here's the JSON payload that's returned from this query:
 
 ```json
 {
@@ -136,11 +136,11 @@ Here is the JSON payload that's returned from this query:
 
 #### Project with JOIN example
 
-Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
+Projection is commonly used to return a collection specified in a `JOIN`. The following query uses projection to return the data of the Consumer, Factory, and Relationship. For more about the `JOIN` syntax used in the example, see [Azure Digital Twins query language reference: JOIN clause](reference-query-clause-join.md).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectJoinExample":::
 
-Here is the JSON payload that's returned from this query:
+Here's the JSON payload that's returned from this query:
 
 ```json
 {
@@ -188,11 +188,11 @@ Here is the JSON payload that's returned from this query:
 
 #### Project property example
 
-Here is an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship.
+Here's an example that projects a property. The following query uses projection to return the `name` property of the Consumer twin, and the `managedBy` property of the relationship.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyExample":::
 
-Here is the JSON payload that's returned from this query:
+Here's the JSON payload that's returned from this query:
 
 ```json
 {
@@ -212,15 +212,15 @@ Here is the JSON payload that's returned from this query:
 
 #### Project property example: Property not present for a data row
 
-If a property included in the projection is not present for a particular data row, the property will similarly not be present in the result set.
+If a property included in the projection isn't present for a particular data row, the property will similarly not be present in the result set.
 
-Consider for this example a set of twins that represent people. Some of the twins have ages associated with them, but others do not.
+Consider for this example a set of twins that represent people. Some of the twins have ages associated with them, but others don't.
 
-Here is a query that projects the `name` and `age` properties:
+Here's a query that projects the `name` and `age` properties:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="SelectProjectPropertyNotPresentExample":::
 
-The result might look something like this, with the `age` property missing from some twins in the result where the twins do not have this property.
+The result might look something like this, with the `age` property missing from some twins in the result where the twins don't have this property.
 
 ```json
 {
@@ -269,7 +269,7 @@ The following query returns the count of all relationships in the instance.
 
 ## SELECT TOP
 
-Use this method to return only a certain number of top items that meet the query requirements.
+Use this method to return only some of the top items that meet the query requirements.
 
 ### Syntax
 

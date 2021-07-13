@@ -73,7 +73,7 @@ You cannot move a virtual network to another resource group or subscription when
 
 ### Enable DDoS protection for all virtual networks
 
-This [policy](https://aka.ms/ddosvnetpolicy) will detect any virtual networks in a defined scope that do not have DDoS Protection Standard enabled, then optionally create a remediation task that will create the association to protect the VNet. For detailed step-by-step instructions on how to deploy this policy, see https://aka.ms/ddosvnetpolicy-techcommunity.
+This [built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94de2ad3-e0c1-4caf-ad78-5d47bbc83d3d) will detect any virtual networks in a defined scope that do not have DDoS Protection Standard enabled, then optionally create a remediation task that will create the association to protect the VNet. See [Azure Policy built-in definitions for Azure DDoS Protection Standard](policy-reference.md) for full list of built-in policies. 
 
 ## Validate and test
 

@@ -23,7 +23,7 @@ All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to 
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Coming soon<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported ([In preview](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 |Size |vCPU |Processor |Memory (GiB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |All-cores frequency (GHz, peak) |Single-core frequency (GHz, peak) |RDMA performance (Gb/s) |MPI support |Temp storage (GiB) |Max data disks |Max Ethernet vNICs |

@@ -8,11 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 
+# Solution developer
 ---
 
 # Use properties in an Azure IoT Central solution
 
-This how-to guide shows you how, as a device developer, to use device properties that are defined in a device template in your Azure IoT Central application.
+This how-to guide shows you how to use device properties that are defined in a device template in your Azure IoT Central application.
 
 Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. By default, device properties are read-only in IoT Central. Writable properties let you synchronize state between your device and your Azure IoT Central application.
 
@@ -30,7 +31,7 @@ The following table shows the configuration settings for a property capability.
 
 | Field           | Description                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Display name    | The display name for the property value used on dashboards and forms.                                                                                                                                                              |
+| Display name    | The display name for the property value used on dashboard tiles and device forms.                                                                                                                                                              |
 | Name            | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value.           |
 | Capability type | Property.                                                                                                                                                                                                                          |
 | Semantic type   | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available.                                                                       |
@@ -39,7 +40,7 @@ The following table shows the configuration settings for a property capability.
 | Severity        | Only available for the event semantic type. The severities are **Error**, **Information**, or **Warning**.                                                                                                                         |
 | State values    | Only available for the state semantic type. Define the possible state values, each of which has display name, name, enumeration type, and value.                                                                                   |
 | Unit            | A unit for the property value, such as **mph**, **%**, or **&deg;C**.                                                                                                                                                              |
-| Display unit    | A display unit for use on dashboards and forms.                                                                                                                                                                                    |
+| Display unit    | A display unit for use on dashboards tiles and device forms.                                                                                                                                                                                    |
 | Comment         | Any comments about the property capability.                                                                                                                                                                                        |
 | Description     | A description of the property capability.                                                                                                                                                                                          |
 

@@ -2,7 +2,7 @@
 title: Reserved instances of Azure VMware Solution
 description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 05/13/2021
 ---
 
 # Save costs with Azure VMware Solution
@@ -15,7 +15,7 @@ Reserved instances are available with some exceptions.
 
 -   **Clouds** - Reservations are available only in the regions listed on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) page.
 
--   **Insufficient quota** - A reservation scoped to a single/shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create quota increase request](enable-azure-vmware-solution.md) to resolve this issue.
+-   **Insufficient quota** - A reservation scoped to a single/shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create quota increase request](request-host-quota-azure-vmware-solution.md) to resolve this issue.
 
 -   **Offer eligibility**- You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 
@@ -66,13 +66,13 @@ CSPs that want to purchase reserved instances for their customers must use the *
 
 3. Expand customer details and select **Microsoft Azure Management Portal**. 
 
-   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Microsoft Partner Center customers area" lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
+   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Screenshot showing the Microsoft Partner Center customer area with Microsoft Azure Management Portal selected." lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
 
 4. In the Azure portal, select **All services** > **Reservations**.
 
 5. Select **Purchase Now** and then select **Azure VMware Solution**.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Microsoft Azure portal reservations" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Screenshot showing where to purchase Azure VMware Solution reservations in the Microsoft Azure portal." lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. Enter the required fields. The selected attributes that match running Azure VMware Solution hosts qualify for the reservation discount.  Attributes include the SKU, regions (where applicable), and scope. Reservation scope selects where the reservation savings apply.
 
@@ -133,6 +133,6 @@ CSPs can cancel, exchange, or refund reservations, with certain limitations, pur
 Now that you've covered reserved instance of Azure VMware Solution, you may want to learn about:
 
 - [Creating an Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md).
-- [Managing DHCP for Azure VMware Solution](manage-dhcp.md).
-- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
+- [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md).
  

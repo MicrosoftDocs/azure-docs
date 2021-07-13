@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 02/11/2021
+ ms.date: 05/26/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -13,7 +13,7 @@
 1. On the **VPN sites** page, click **+Create site**.
 1. On the **Create VPN Site** page,  on the **Basics** tab, complete the following fields:
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Basics tab" lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot shows Create VPN site page with the Basics tab open." lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
 
     * **Region** - Previously referred to as location. This is the location you want to create this site resource in.
     * **Name** - The name by which you want to refer to your on-premises site.
@@ -25,7 +25,7 @@
       >
 1. Select **Links** to add information about the physical links at the branch. If you have a Virtual WAN partner CPE device, check with them to see if this information is exchanged with Azure as a part of the branch information upload set up from their systems.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-links.png" alt-text="Links tab" lightbox="./media/virtual-wan-tutorial-site-include/site-links.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-links.png" alt-text="Screenshot shows Create VPN site page with the Links tab open." lightbox="./media/virtual-wan-tutorial-site-include/site-links.png":::
 
    * **Link Name** - A name you want to provide for the physical link at the VPN Site. Example: mylink1.
    * **Link speed** - This is the speed of the VPN device at the branch location. Example: 50, which means 50 Mbps is the speed of the VPN device at the branch site.
@@ -43,4 +43,4 @@
 1. Once you have finished filling out the fields, select **Review + create** to verify and create the site.
 1. Navigate to the virtual hub that you want, and deselect **Hub association** to connect your VPN site to the hub.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="Connect to this hub" lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::

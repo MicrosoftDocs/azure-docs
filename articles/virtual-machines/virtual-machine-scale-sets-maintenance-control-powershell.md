@@ -6,18 +6,14 @@ ms.service: virtual-machine-scale-sets
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 09/11/2020
-ms.author: jushiman
+ms.author: jushiman 
+ms.custom: devx-track-azurepowershell
 #pmcontact: shants
 ---
 
-# Preview: Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
+# Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
 
 Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
-
-> [!IMPORTANT]
-> Maintenance control for OS image upgrades on Azure virtual machine scale sets is currently in Public Preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Enable the PowerShell module
@@ -108,12 +104,10 @@ New-AzConfigurationAssignment `
 
 ## Enable automatic OS upgrade
 
-You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. Refer to document [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for enabling automatic OS upgrades on your virtual machine scale set. 
+You can enable automatic OS upgrades for each virtual machine scale set that is going to use maintenance control. For more information about enabling automatic OS upgrades on your virtual machine scale set, see [Azure virtual machine scale set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
 
 ## Next steps
 
-Learn about Maintenance and updates for virtual machines running in Azure.
-
 > [!div class="nextstepaction"]
-> [Maintenance and updates](maintenance-and-updates.md)
+> [Learn about Maintenance and updates for virtual machines running in Azure](maintenance-and-updates.md)

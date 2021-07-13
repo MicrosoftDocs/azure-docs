@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 03/02/2021
+ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
@@ -34,8 +34,7 @@ If you installed Azure Arc data controller in the past, on the same cluster and 
 # Cleanup azure arc data service artifacts
 kubectl delete crd datacontrollers.arcdata.microsoft.com 
 kubectl delete crd sqlmanagedinstances.sql.arcdata.microsoft.com 
-kubectl delete crd postgresql-11s.arcdata.microsoft.com 
-kubectl delete crd postgresql-12s.arcdata.microsoft.com
+kubectl delete crd postgresqls.arcdata.microsoft.com 
 ```
 
 ## Overview
@@ -87,33 +86,20 @@ The bootstrapper.yaml template file defaults to pulling the bootstrapper contain
 - Add an image pull secret to the bootstrapper container. See example below.
 - Change the image location for the bootstrapper image. See example below.
 
-The example below assumes that you created a image pull secret name `regcred` as indicated in the Kubernetes documentation.
+The example below assumes that you created a image pull secret name `arc-private-registry`.
 
 ```yaml
-#just showing only the relevant part of the bootstrapper.yaml template file here
-containers:
-      - env:
-        - name: ACCEPT_EULA
-          value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-dec-2020  <-- template value to change
-        image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
-        imagePullPolicy: IfNotPresent
-        name: bootstrapper
-        resources: {}
-        securityContext:
-          runAsUser: 21006
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
+#Just showing only the relevant part of the bootstrapper.yaml template file here
+    spec:
+      serviceAccountName: sa-bootstrapper
+      nodeSelector:
+        kubernetes.io/os: linux
       imagePullSecrets:
-      - name: regcred
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      serviceAccount: sa-mssql-controller
-      serviceAccountName: sa-mssql-controller
-      terminationGracePeriodSeconds: 30
-
+      - name: arc-private-registry #Create this image pull secret if you are using a private container registry
+      containers:
+      - name: bootstrapper
+        image: mcr.microsoft.com/arcdata/arc-bootstrapper:latest #Change this registry location if you are using a private container registry.
+        imagePullPolicy: Always
 ```
 
 ## Create a secret for the data controller administrator
@@ -191,7 +177,12 @@ Edit the following as needed:
 
 The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.
 
-```yaml
+```yml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-mssql-controller
+---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: datacontroller
 metadata:
@@ -200,11 +191,11 @@ metadata:
 spec:
   credentials:
     controllerAdmin: controller-login-secret
-    #dockerRegistry: arc-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
+    dockerRegistry: arc-private-registry #Create a registry secret named 'arc-private-registry' if you are going to pull from a private registry instead of MCR.
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-dec-2020 
+    imageTag: latest
     registry: mcr.microsoft.com
     repository: arcdata
   security:
@@ -215,18 +206,18 @@ spec:
   services:
   - name: controller
     port: 30080
-    serviceType: LoadBalancer
+    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
   - name: serviceProxy
     port: 30777
-    serviceType: LoadBalancer
+    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
   settings:
     ElasticSearch:
       vm.max_map_count: "-1"
     azure:
-      connectionMode: Indirect
-      location: eastus
-      resourceGroup: myresourcegroup
-      subscription: c82c901a-129a-435d-86e4-cc6b294590ae
+      connectionMode: indirect
+      location: eastus # Choose a different Azure location if you want
+      resourceGroup: <your resource group>
+      subscription: <your subscription GUID>
     controller:
       displayName: arc
       enableBilling: "True"
@@ -235,11 +226,11 @@ spec:
   storage:
     data:
       accessMode: ReadWriteOnce
-      className: default
+      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
       size: 15Gi
     logs:
       accessMode: ReadWriteOnce
-      className: default
+      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
       size: 10Gi
 ```
 
@@ -270,10 +261,10 @@ kubectl get pods --namespace arc
 You can also check on the creation status of any particular pod by running a command like below.  This is especially useful for troubleshooting any issues.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/control-2g7bl --namespace arc
+#kubectl describe pod/control-2g7bl --namespace arc
 ```
 
 Azure Arc extension for Azure Data Studio provides a notebook to walk you through the experience of how to set up Azure Arc enabled Kubernetes and configure it to monitor a git repository that contains a sample SQL Managed Instance yaml file. When everything is connected, a new SQL Managed Instance will be deployed to your Kubernetes cluster.

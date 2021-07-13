@@ -1,4 +1,4 @@
-- name: Azure DB for MariaDB documentation
+- name: Azure Database for MariaDB documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -153,10 +153,8 @@
       href: concepts-ssl-connection-security.md
     - name: Configure TLS
       href: howto-tls-configurations.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Configuring Advanced Threat Protection
-      href: howto-database-threat-protection-portal.md
+    - name: Threat protection with Azure Defender
+      href: ../security-center/defender-for-databases-usage.md?toc=/azure/mariadb/toc.json&bc=/azure/mariadb/breadcrumb/toc.json
     - name: Auditing Concepts
       href: concepts-audit-logs.md    
     - name: Configuring Audit logs

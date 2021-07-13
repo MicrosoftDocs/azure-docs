@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: jeedes
 
 ---
@@ -33,7 +33,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Samsung Knox and Business Services supports **SP** initiated SSO
+* Samsung Knox and Business Services supports **SP** initiated SSO.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
 	* In the **Sign on URL** text box, type the URL:
-	`https://www.samsungknox.com`
+	`https://www2.samsungknox.com/en/sso/login/ad`
 	* In the **Reply URL (assertion consumer service URL)** text box, type the URL: 
 	`https://central.samsungknox.com/ams/ad/saml/acs`
 	

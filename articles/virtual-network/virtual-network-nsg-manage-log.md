@@ -9,7 +9,8 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Resource logging for a network security group

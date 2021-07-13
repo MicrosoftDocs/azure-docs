@@ -12,7 +12,7 @@ ms.topic: conceptual
 This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview).
 
 If you want a sample environment that is already set up without following the steps described in this
-article, you can use the [Azure Automation Managed Node template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). This template sets up a complete State Configuration (DSC) environment, including an Azure VM that is managed by State Configuration (DSC).
+article, you can use the [Azure Automation Managed Node template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration). This template sets up a complete State Configuration (DSC) environment, including an Azure VM that is managed by State Configuration (DSC).
 
 ## Prerequisites
 
@@ -233,7 +233,7 @@ You can assign a node to use a different node configuration than the one you ini
 
 ## Unregister a node
 
-If you no longer want a node to be managed by State Configuration, you can unregister it. See [How to remove a configuration and node from Automation State Configuration](./how-to/remove-desired-state-configuration-package.md).
+If you no longer want a node to be managed by State Configuration, you can unregister it. See [How to remove a configuration and node from Automation State Configuration](./state-configuration/remove-node-and-configuration-package.md).
 
 ## Next steps
 

@@ -8,11 +8,13 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
+
+# Administrator
 ---
 
 # Manage users and roles in your IoT Central application
 
-This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your application.
+This article describes how you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your application.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically added to the **Administrator** role for that application.
 
@@ -24,13 +26,13 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
 
-  :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Manage users":::
+    :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of Manage users.":::
 
-1. To add a user, on the **Users** page, choose **+ Add user**.
+1. To add a user, on the **Users** page, choose **+ Assign user**.
 
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 
-  :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Add a user and select a role.":::
+    :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Screenshot to add a user and select a role.":::
 
   > [!NOTE]
   > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
@@ -53,8 +55,8 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 Roles enable you to control who within your organization is allowed to do various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](#create-a-custom-role) if you require finer-grained control.
 
-> [!div class="mx-imgBorder"]
-> ![Manage roles selection](media/howto-manage-users-roles/manage-roles-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/manage-roles-pnp.png" alt-text="Screenshot to Manage roles selection.":::
+
 
 ### Administrator
 
@@ -76,8 +78,8 @@ If your solution requires finer-grained access controls, you can create roles wi
 
 You can add users to your custom role in the same way that you add users to a built-in role.
 
-> [!div class="mx-imgBorder"]
-> ![Build a custom role](media/howto-manage-users-roles/create-custom-role-pnp.png)
+:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role.":::
+
 
 ### Custom role options
 
@@ -266,4 +268,4 @@ When you define a custom role, you choose the set of permissions that a user is 
 
 ## Next steps
 
-Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Manage your bill](howto-view-bill.md).
+Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Customize application UI](howto-customize-ui.md).

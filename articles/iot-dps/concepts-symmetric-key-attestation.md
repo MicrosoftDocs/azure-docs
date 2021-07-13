@@ -32,7 +32,7 @@ You can also provide your own symmetric keys for enrollments by disabling this o
 
 ## Detailed attestation process
 
-Symmetric key attestation with the Device Provisioning Service is performed using the same [Security tokens](../iot-hub/iot-hub-devguide-security.md#security-token-structure) supported by IoT hubs to identify devices. These security tokens are [Shared Access Signature (SAS) tokens](../service-bus-messaging/service-bus-sas.md). 
+Symmetric key attestation with the Device Provisioning Service is performed using the same [Security tokens](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure) supported by IoT hubs to identify devices. These security tokens are [Shared Access Signature (SAS) tokens](../service-bus-messaging/service-bus-sas.md). 
 
 SAS tokens have a hashed *signature* that is created using the symmetric key. The signature is recreated by the Device Provisioning Service to verify whether a security token presented during attestation is authentic or not.
 
@@ -52,7 +52,7 @@ Here are the components of each token:
 
 When a device is attesting with an individual enrollment, the device uses the symmetric key defined in the individual enrollment entry to create the hashed signature for the SAS token.
 
-For code examples that create a SAS token, see [Security Tokens](../iot-hub/iot-hub-devguide-security.md#security-token-structure).
+For code examples that create a SAS token, see [Security Tokens](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
 Creating security tokens for symmetric key attestation is supported by the Azure IoT C SDK. For an example using the Azure IoT C SDK to attest with an individual enrollment, see [Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md).
 

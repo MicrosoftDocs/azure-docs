@@ -1,11 +1,11 @@
 ---
 title: Copy data from and to a REST endpoint by using Azure Data Factory 
 description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 # Copy data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,11 +34,11 @@ Specifically, this generic REST connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 

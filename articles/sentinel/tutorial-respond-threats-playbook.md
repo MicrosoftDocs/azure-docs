@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2021
+ms.date: 06/17/2021
 ms.author: yelevin
 ---
 
@@ -32,7 +32,7 @@ This tutorial shows you how to use playbooks together with automation rules to a
 
 ## What are automation rules and playbooks?
 
-Automation rules help you triage incidents in Azure Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known false positives, change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents.
+Automation rules help you triage incidents in Azure Sentinel. You can use them to automatically assign incidents to the right personnel, close noisy incidents or known [false positives](false-positives.md), change their severity, and add tags. They are also the mechanism by which you can run playbooks in response to incidents.
 
 Playbooks are collections of procedures that can be run from Azure Sentinel in response to an alert or incident. A playbook can help automate and orchestrate your response, and can be set to run automatically when specific alerts or incidents are generated, by being attached to an analytics rule or an automation rule, respectively. It can also be run manually on-demand.
 
@@ -119,7 +119,15 @@ Every playbook must start with a trigger. The trigger defines the action that wi
 
    Choose the trigger that matches the type of playbook you are creating.
 
+    > [!NOTE]
+    > Remember that only playbooks based on the **incident trigger** can be called by automation rules. Playbooks based on the **alert trigger** must be defined to run directly in [analytics rules](tutorial-detect-threats-custom.md#set-automated-responses-and-create-the-rule) and can also be run manually.
+    > 
+    > For more about which trigger to use, see [**Use triggers and actions in Azure Sentinel playbooks**](playbook-triggers-actions.md)
+
     :::image type="content" source="./media/tutorial-respond-threats-playbook/choose-trigger.png" alt-text="Choose a trigger for your playbook":::
+
+> [!NOTE]
+> When you choose a trigger, or any subsequent action, you will be asked to authenticate to whichever resource provider you are interacting with. In this case, the provider is Azure Sentinel. There are a few different approaches you can take to authentication. For details and instructions, see [**Authenticate playbooks to Azure Sentinel**](authenticate-playbooks-to-sentinel.md).
 
 ### Add actions
 
@@ -155,7 +163,7 @@ To create an automation rule:
 
 1. Choose the actions you want this automation rule to take. Available actions include **Assign owner**, **Change status**, **Change severity**, **Add tags**, and **Run playbook**. You can add as many actions as you like.
 
-1. If you add a **Run playbook** action, you will be prompted to choose from the drop-down list of available playbooks. Only playbooks that start with the **incident trigger** can be run from automation rules, so only they will appear in the list.
+1. If you add a **Run playbook** action, you will be prompted to choose from the drop-down list of available playbooks. Only playbooks that start with the **incident trigger** can be run from automation rules, so only they will appear in the list.<a name="permissions-to-run-playbooks"></a>
 
     > [!IMPORTANT]
     > Azure Sentinel must be granted explicit permissions in order to run playbooks from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
@@ -166,6 +174,22 @@ To create an automation rule:
     >    1. From the Azure Sentinel navigation menu in the playbooks' tenant, select **Settings**.
     >    1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
     >    1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
+    > - If, in an **MSSP** scenario, you want to [run a playbook in a customer tenant](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture) from an automation rule created while signed into the service provider tenant, you must grant Azure Sentinel permission to run the playbook in ***both tenants***. In the **customer** tenant, follow the instructions for the multi-tenant deployment in the preceding bullet point. In the **service provider** tenant, you must add the Azure Security Insights app in your Azure Lighthouse onboarding template:
+    >    1. From the Azure Portal go to **Azure Active Directory**.
+    >    1. Click on **Enterprise Applications**.
+    >    1. Select **Application Type**  and filter on **Microsoft Applications**.
+    >    1. In the search box type **Azure Security Insights**.
+    >    1. Copy the **Object ID** field. You will need to add this additional authorization to your existing Azure Lighthouse delegation.
+    >
+    >    The **Azure Sentinel Automation Contributor** role has a fixed GUID which is `f4c81013-99ee-4d62-a7ee-b3f1f648599a`. A sample Azure Lighthouse authorization would look like this in your parameters template:
+    >    
+    >    ```json
+    >    {
+    >        "principalId": "<Enter the Azure Security Insights app Object ID>", 
+    >        "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+    >        "principalIdDisplayName": "Azure Sentinel Automation Contributors" 
+    >    }
+    >    ```
 
 1. Set an expiration date for your automation rule if you want it to have one.
 

@@ -40,7 +40,7 @@ The workspace source and destination subscriptions must exist within the same Az
 > - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be an effective solution in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
 > 
 > **Re-create alerts**
-> - All alerts must be re-created after a move because the permissions are based on the Azure Resource ID of the workspace, which changes during a workspace move.
+> - All alerts must be re-created after a workspace move or rename operation because the permissions are based on the Azure Resource ID of the workspace, which changes during a workspace move or resource name change.
 >
 > **Update resource paths**
 > - After a workspace move, any Azure or external resources that point to the workspace must be reviewed and updated to point to the new resource target path.

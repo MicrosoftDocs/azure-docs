@@ -7,11 +7,11 @@ ms.date: 04/09/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
+
+# This topic applies to solution builders.
 ---
 
 # Transform data for IoT Central
-
-*This topic applies to solution builders.*
 
 IoT devices send data in various formats. To use the device data with your IoT Central application, you may need to use a transformation to:
 
@@ -32,13 +32,13 @@ The following table shows three example transformation types:
 |------------------------|-------------|----------|-------|
 | Message Format         | Convert to or manipulate JSON messages. | CSV to JSON  | At ingress. IoT Central only accepts value JSON messages. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md). |
 | Computations           | Math functions that [Azure Functions](../../azure-functions/index.yml) can execute. | Unit conversion from Fahrenheit to Celsius.  | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. Transforming the data lets you use IoT Central features such as visualizations and jobs. |
-| Message Enrichment     | Enrichments from external data sources not found in device properties or telemetry. To learn more about internal enrichments, see [Export IoT data to cloud destinations using data export](howto-export-data.md) | Add weather information to messages using location data from devices. | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. |
+| Message Enrichment     | Enrichments from external data sources not found in device properties or telemetry. To learn more about internal enrichments, see [Export IoT data to cloud destinations using data export](howto-export-data.md) | Add weather information to messages using [location data](howto-use-location-data.md) from devices. | Transform using the egress pattern to take advantage of scalable device ingress through direct connection to IoT Central. |
 
 ## Prerequisites
 
-To complete the steps in this article, you need an active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+To complete the steps in this how-to guide, you need:
 
-To set up the solution, you need an IoT Central application. To learn how to create an IoT Central application, see [Create an Azure IoT Central application](quick-deploy-iot-central.md).
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## Data transformation at ingress
 
@@ -82,6 +82,8 @@ You want to use an IoT Edge module to transform the data to the following JSON f
   }
 }
 ```
+
+[![Browse code](media/common/browse-code.svg)](https://github.com/iot-for-all/iot-central-transform-with-iot-edge)
 
 The following steps show you how to set up and configure this scenario:
 

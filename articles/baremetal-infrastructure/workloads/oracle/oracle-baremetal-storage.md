@@ -2,7 +2,7 @@
 title: Storage on BareMetal for Oracle workloads
 description: Learn about the storage offered by the BareMetal Infrastructure for Oracle workloads.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
 ---
 

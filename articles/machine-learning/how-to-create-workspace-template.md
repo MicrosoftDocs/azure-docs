@@ -26,11 +26,9 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/) or the [Azure CLI](/cli/azure/install-azure-cli).
-
-* Some scenarios require you to open a support ticket. For example, using a Private Link enabled workspace with a customer-managed key. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Limitations
 
@@ -72,7 +70,7 @@ The example template has two **required** parameters:
 
 For more information on templates, see the following articles:
 
-* [Author Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md)
+* [Author Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.MachineLearningServices resource types](/azure/templates/microsoft.machinelearningservices/allversions)
 
@@ -278,7 +276,7 @@ By setting the `vnetOption` parameter value to either `new` or `existing`, you a
 If your associated resources are not behind a virtual network, you can set the **privateEndpointType** parameter to `AutoAproval` or `ManualApproval` to deploy the workspace behind a private endpoint. This can be done for both new and existing workspaces. When updating an existing workspace, fill in the template parameters with the information from the existing workspace.
 
 > [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
+> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
 # [Azure CLI](#tab/azcli)
 

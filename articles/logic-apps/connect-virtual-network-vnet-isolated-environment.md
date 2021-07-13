@@ -1,16 +1,16 @@
 ---
-title: Connect to Azure virtual networks with an ISE
-description: Create an integration service environment (ISE) that can access Azure virtual networks (VNETs) from Azure Logic Apps
+title: Connect to Azure virtual networks using an ISE
+description: Create an integration service environment (ISE) to access Azure virtual networks (VNETs) from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: azla
 ms.topic: conceptual
 ms.date: 04/21/2021
 ---
 
-# Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
+# Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
 
-For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is a dedicated environment that uses dedicated storage and other resources that are kept separate from the "global" multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
+For scenarios where your logic apps and integration accounts need access to an [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). An ISE is an environment that uses dedicated storage and other resources that are kept separate from the "global" multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.
 
 When you create an ISE, Azure *injects* that ISE into your Azure virtual network, which then deploys the Logic Apps service into your virtual network. When you create a logic app or integration account, select your ISE as their location. Your logic app or integration account can then directly access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network.
 
@@ -27,7 +27,7 @@ This article shows you how to complete these tasks by using the Azure portal:
 * Create your ISE.
 * Add extra capacity to your ISE.
 
-You can also create an ISE by using the [sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-integration-service-environment) or by using the Logic Apps REST API, including setting up customer-managed keys:
+You can also create an ISE by using the [sample Azure Resource Manager quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/integration-service-environment) or by using the Logic Apps REST API, including setting up customer-managed keys:
 
 * [Create an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md)
 * [Set up customer-managed keys to encrypt data at rest for ISEs](../logic-apps/customer-managed-keys-integration-service-environment.md)
@@ -39,7 +39,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [!IMPORTANT]
   > Logic apps, built-in triggers, built-in actions, and connectors that run in your ISE use a pricing plan 
   > different from the consumption-based pricing plan. To learn how pricing and billing work for ISEs, see the 
-  > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
+  > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md) that has four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by these internal and hidden components:

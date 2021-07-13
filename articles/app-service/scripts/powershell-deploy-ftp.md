@@ -5,13 +5,13 @@ tags: azure-service-management
 
 ms.assetid: b7d46d6f-44fd-454c-8008-87dab6eefbc1
 ms.topic: sample
-ms.date: 03/20/2017
+ms.date: 06/23/2021
 ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Upload files to a web app using FTP
 
-This sample script creates a web app in App Service with its related resources, and then deploys your web app code using FTP (via [WebClient.UploadFile()](/dotnet/api/system.net.webclient.uploadfile)).
+This sample script creates a web app in App Service with its related resources, and then deploys a file to it using FTPS (via [System.Net.FtpWebRequest](/dotnet/api/system.net.ftpwebrequest)).
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/), and then run `Connect-AzAccount` to create a connection with Azure.
 

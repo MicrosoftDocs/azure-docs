@@ -34,7 +34,7 @@ In this article, you learn how to transfer the logs to an Azure Log Analytics wo
 
 ## Deployment overview
 
-Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/concepts/azure-delegated-resource-management.md) to [delegate a resource](../lighthouse/concepts/azure-delegated-resource-management.md), which allows your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource. After you complete the steps in this article, you'll have access to the *azure-ad-b2c-monitor* resource group that contains the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) in your **Azure AD B2C** portal. You'll also be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
+Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). To enable *Diagnostic settings* in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource. After you complete the steps in this article, you'll have access to the *azure-ad-b2c-monitor* resource group that contains the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) in your **Azure AD B2C** portal. You'll also be able to transfer the logs from Azure AD B2C to your Log Analytics workspace.
 
 During this deployment, you'll authorize a user or group in your Azure AD B2C directory to configure the Log Analytics workspace instance within the tenant that contains your Azure subscription. To create the authorization, you deploy an [Azure Resource Manager](../azure-resource-manager/index.yml) template to your Azure AD tenant containing the subscription.
 
@@ -255,36 +255,35 @@ The workbook will display reports in the form of a dashboard.
 
 ## Create alerts
 
-Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events are created, absence of an event, or a number of events are created within a particular time window. For example, alerts can be used to notify you when average number of sign-in exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/alerts/tutorial-response.md).
+Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. You can create alerts based on specific performance metrics or when certain events are created, absence of an event, or a number of events are created within a particular time window. For example, alerts can be used to notify you when average number of sign-in exceeds a certain threshold. For more information, see [Create alerts](../azure-monitor/alerts/alerts-log.md).
 
 
-Use the following instructions to create a new Azure Alert, which will send an [email notification](../azure-monitor/alerts/action-groups.md#configure-notifications) whenever there is a 25% drop in the **Total Requests** compare to previous period. Alert will run every 5 minutes and look for the drop within last 24 hours windows. The alerts are created using Kusto query language.
+Use the following instructions to create a new Azure Alert, which will send an [email notification](../azure-monitor/alerts/action-groups.md#configure-notifications) whenever there is a 25% drop in the **Total Requests** compare to previous period. Alert will run every 5 minutes and look for the drop in the last hour compared to the hour before that. The alerts are created using Kusto query language.
 
 
 1. From **Log Analytics workspace**, select **Logs**. 
 1. Create a new **Kusto query** by using the query below.
 
     ```kusto
-    let start = ago(24h);
+    let start = ago(2h);
     let end = now();
     let threshold = -25; //25% decrease in total requests.
     AuditLogs
     | serialize TimeGenerated, CorrelationId, Result
-    | make-series TotalRequests=dcount(CorrelationId) on TimeGenerated in range(start, end, 1h)
+    | make-series TotalRequests=dcount(CorrelationId) on TimeGenerated from start to end step 1h
     | mvexpand TimeGenerated, TotalRequests
-    | where TotalRequests > 0
-    | serialize TotalRequests, TimeGenerated, TimeGeneratedFormatted=format_datetime(todatetime(TimeGenerated), 'yyyy-M-dd [hh:mm:ss tt]')
+    | serialize TotalRequests, TimeGenerated, TimeGeneratedFormatted=format_datetime(todatetime(TimeGenerated), 'yyyy-MM-dd [HH:mm:ss]')
     | project   TimeGeneratedFormatted, TotalRequests, PercentageChange= ((toreal(TotalRequests) - toreal(prev(TotalRequests,1)))/toreal(prev(TotalRequests,1)))*100
-    | order by TimeGeneratedFormatted
+    | order by TimeGeneratedFormatted desc
     | where PercentageChange <= threshold   //Trigger's alert rule if matched.
     ```
 
-1. Select **Run**, to test the query. You should see the results if there is a drop of 25% or more in the total requests within the past 24 hours.
+1. Select **Run**, to test the query. You should see the results if there is a drop of 25% or more in the total requests within the past hour.
 1. To create an alert rule based on the query above, use the **+ New alert rule** option available in the toolbar.
 1. On the **Create an alert rule** page, select **Condition name** 
 1. On the **Configure signal logic** page, set following values and then use **Done** button to save the changes.
     * Alert logic: Set **Number of results** **Greater than** **0**.
-    * Evaluation based on: Select **1440** for Period (in minutes) and **5** for Frequency (in minutes) 
+    * Evaluation based on: Select **120** for Period (in minutes) and **5** for Frequency (in minutes) 
 
     ![Create a alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
 

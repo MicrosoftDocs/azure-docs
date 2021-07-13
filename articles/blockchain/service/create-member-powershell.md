@@ -4,7 +4,7 @@ description: Create an Azure Blockchain Service member for a blockchain consorti
 ms.reviewer: ravastra
 ms.date: 9/22/2020
 ms.topic: quickstart
-ms.custom:
+ms.custom: devx-track-azurepowershell
   - references_regions
   - devx-track-azurepowershell
   - mode-api
@@ -14,6 +14,8 @@ ms.custom:
 # Quickstart: Create an Azure Blockchain Service blockchain member using Azure PowerShell
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure PowerShell.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 ## Prerequisites
 

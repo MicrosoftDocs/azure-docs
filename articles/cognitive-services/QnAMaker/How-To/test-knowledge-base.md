@@ -60,7 +60,7 @@ Select **Save and Train** to persist this answer. A new question-answer pair has
 > [!NOTE]
 > All edits to your knowledge base only get saved when you press the **Save and Train** button.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
 1. Access your knowledge base by selecting its name on the **My knowledge bases** page.
 1. To access the Test slide-out panel, select **Test** in your application's top panel. 
@@ -88,6 +88,7 @@ You inspect details of the test result in the Inspect panel.
 
 2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 3. The panel shows the confidence score of answer passage along with score of answer span detected.
+4. The panel also shows the source of the knowledgebase for the answer passage.
 
 ### Correct the top scoring answer
 

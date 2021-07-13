@@ -3,9 +3,10 @@ title: Create an Azure-SSIS integration runtime in Azure Data Factory
 description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 06/04/2021
 author: swinarko
-ms.author: sawinark
+ms.author: sawinark 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an Azure-SSIS integration runtime in Azure Data Factory
@@ -90,9 +91,9 @@ After your data factory is created, open its overview page in the Azure portal. 
 
 ### Provision an Azure-SSIS integration runtime
 
-On the **Let's get started** page, select the **Configure SSIS Integration** tile to open the **Integration runtime setup** pane.
+On the home page, select the **Configure SSIS** tile to open the **Integration runtime setup** pane.
 
-   ![Configure SSIS Integration Runtime tile](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
    The **Integration runtime setup** pane has three pages where you successively configure general, deployment, and advanced settings.
 

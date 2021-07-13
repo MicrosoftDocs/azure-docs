@@ -39,7 +39,7 @@ Follow these steps to help you find the right role.
 
 ## 2. Use Privileged Identity Management to grant just-in-time access
 
-One of the principles of least privilege is that access should be granted only for a specific period of time. [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) lets you grant just-in-time access to your administrators. Microsoft recommends that you enable PIM in Azure AD. Using PIM, a user can be made an eligible member of an Azure AD role. The can then activate their role for a limited timeframe every time the needs to use it. Privileged access is automatically removed when the timeframe expires. You can also [configure PIM settings](../privileged-identity-management/pim-how-to-change-default-settings.md) to require approval or receive notification emails when someone activates their role assignment. Notifications provide an alert when new users are added to highly privileged roles. 
+One of the principles of least privilege is that access should be granted only for a specific period of time. [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) lets you grant just-in-time access to your administrators. Microsoft recommends that you enable PIM in Azure AD. Using PIM, a user can be made an eligible member of an Azure AD role where they can then activate the role for a limited time when needed. Privileged access is automatically removed when the timeframe expires. You can also [configure PIM settings](../privileged-identity-management/pim-how-to-change-default-settings.md) to require approval or receive notification emails when someone activates their role assignment. Notifications provide an alert when new users are added to highly privileged roles. 
 
 ## 3. Turn on multi-factor authentication for all your administrator accounts
 
@@ -69,7 +69,7 @@ Microsoft recommends that you keep two break glass accounts that are permanently
 
 If you have an external governance system that takes advantage of groups, then you should consider assigning roles to Azure AD groups, instead of individual users. You can also manage role-assignable groups in PIM to ensure that there are no standing owners or members in these privileged groups. For more information, see [Management capabilities for privileged access Azure AD groups](../privileged-identity-management/groups-features.md).
 
-You can assign an owner to role-assignable groups. That owner decides who is added to or removed from the group, so indirectly, decides who gets the role assignment. In this way, a Global Administrator or Privileged Role Administrator can delegate role management on a per-role basis by using groups. For more information, see [Use cloud groups to manage role assignments in Azure Active Directory](groups-concept.md).
+You can assign an owner to role-assignable groups. That owner decides who is added to or removed from the group, so indirectly, decides who gets the role assignment. In this way, a Global Administrator or Privileged Role Administrator can delegate role management on a per-role basis by using groups. For more information, see [Use Azure AD groups to manage role assignments](groups-concept.md).
 
 ## 7. Activate multiple roles at once using privileged access groups
 

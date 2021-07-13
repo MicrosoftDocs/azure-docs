@@ -8,7 +8,7 @@ ms.date: 12/06/2019
 
 # Use Apache Sqoop with Hadoop in HDInsight
 
-[!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
+[!INCLUDE [sqoop-selector](../includes/hdinsight-selector-use-sqoop.md)]
 
 Learn how to use Apache Sqoop in HDInsight to import and export data between an HDInsight cluster and Azure SQL Database.
 
@@ -54,7 +54,7 @@ In this article, you use these two datasets to test Sqoop import and export.
 
 ## <a name="create-cluster-and-sql-database"></a>Set up test environment
 
-The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to a SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to a SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
 
 ```json
 "storageKeyType": "Primary",
@@ -66,7 +66,7 @@ The cluster, SQL database, and other objects are created through the Azure porta
 
 1. Select the following image to open the Resource Manager template in the Azure portal.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Enter the following properties:
 

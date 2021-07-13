@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 07/07/2021
 
 ms.author: justinha
 author: justinha
@@ -69,7 +69,7 @@ The NPS extension is meant to work with your existing infrastructure. Make sure 
 
 ### Licenses
 
-The NPS Extension for Azure AD Multi-Factor Authentication is available to customers with [licenses for Azure AD Multi-Factor Authentication](./concept-mfa-howitworks.md). Consumption-based licenses for Azure AD Multi-Factor Authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
+The NPS Extension for Azure AD Multi-Factor Authentication is available to customers with [licenses for Azure AD Multi-Factor Authentication](./concept-mfa-howitworks.md) (included with Azure AD Premium P1 and Premium P2 or Enterprise Mobility + Security). Consumption-based licenses for Azure AD Multi-Factor Authentication, such as per user or per authentication licenses, aren't compatible with the NPS extension.
 
 ### Software
 
@@ -170,7 +170,7 @@ If you need to create and configure a test account, use the following steps:
 
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account.
 2. Follow the prompts to set up a verification method.
-3. In the Azure portal as an admin user, [create a Conditional Access policy](howto-mfa-getstarted.md#create-conditional-access-policy) to require multi-factor authentication for the test account.
+3. In the Azure portal as an admin user, [create a Conditional Access policy](howto-mfa-getstarted.md#plan-conditional-access-policies) to require multi-factor authentication for the test account.
 
 > [!IMPORTANT]
 >

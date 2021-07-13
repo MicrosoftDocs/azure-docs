@@ -48,7 +48,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 |:--- |:--- |
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type |Specify the record type of the data that is being submitted. Can only contain letters, numbers, and underscore (_), and may not exceed 100 characters. |
-| x-ms-date |The date that the request was processed, in RFC 1123 format. |
+| x-ms-date |The date that the request was processed, in RFC 7234 format. |
 | x-ms-AzureResourceId | Resource ID of the Azure resource the data should be associated with. This populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](./design-logs-deployment.md#access-mode) queries. If this field isn't specified, the data will not be included in resource-context queries. |
 | time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 
@@ -68,8 +68,8 @@ Use this format to encode the **SharedKey** signature string:
 ```
 StringToSign = VERB + "\n" +
                   Content-Length + "\n" +
-               Content-Type + "\n" +
-                  x-ms-date + "\n" +
+                  Content-Type + "\n" +
+                  "x-ms-date:" + x-ms-date + "\n" +
                   "/api/logs";
 ```
 
@@ -593,7 +593,7 @@ public class ApiExample {
     String stringToHash = String
         .join("\n", httpMethod, String.valueOf(json.getBytes(StandardCharsets.UTF_8).length), contentType,
             xmsDate , resource);
-    String hashedString = getHMAC254(stringToHash, sharedKey);
+    String hashedString = getHMAC256(stringToHash, sharedKey);
     String signature = "SharedKey " + workspaceId + ":" + hashedString;
 
     postData(signature, dateString, json);
@@ -601,7 +601,7 @@ public class ApiExample {
 
   private static String getServerTime() {
     Calendar calendar = Calendar.getInstance();
-    SimpleDateFormat dateFormat = new SimpleDateFormat(RFC_1123_DATE);
+    SimpleDateFormat dateFormat = new SimpleDateFormat(RFC_1123_DATE, Locale.US);
     dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
     return dateFormat.format(calendar.getTime());
   }
@@ -622,14 +622,14 @@ public class ApiExample {
     }
   }
 
-  private static String getHMAC254(String input, String key) throws InvalidKeyException, NoSuchAlgorithmException {
+  private static String getHMAC256(String input, String key) throws InvalidKeyException, NoSuchAlgorithmException {
     String hash;
-    Mac sha254HMAC = Mac.getInstance("HmacSHA256");
+    Mac sha256HMAC = Mac.getInstance("HmacSHA256");
     Base64.Decoder decoder = Base64.getDecoder();
     SecretKeySpec secretKey = new SecretKeySpec(decoder.decode(key.getBytes(StandardCharsets.UTF_8)), "HmacSHA256");
-    sha254HMAC.init(secretKey);
+    sha256HMAC.init(secretKey);
     Base64.Encoder encoder = Base64.getEncoder();
-    hash = new String(encoder.encode(sha254HMAC.doFinal(input.getBytes(StandardCharsets.UTF_8))));
+    hash = new String(encoder.encode(sha256HMAC.doFinal(input.getBytes(StandardCharsets.UTF_8))));
     return hash;
   }
 

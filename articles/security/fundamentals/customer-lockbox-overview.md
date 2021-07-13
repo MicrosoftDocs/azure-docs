@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 04/05/2021
+ms.date: 05/12/2021
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -27,6 +27,7 @@ The following services are generally available for Customer Lockbox:
 
 - Azure API Management
 - Azure App Service
+- Azure Cognitive Search
 - Azure Cognitive Services
 - Azure Container Registry
 - Azure Database for MySQL

@@ -13,7 +13,7 @@ Azure Storage encrypts all data in a storage account at rest. By default, data i
 
 ## Limitations
 * Data disk encryption support is limited to AKS clusters running Kubernetes version 1.17 and above.
-* Encryption of OS and data disk with customer-managed keys can only be enabled when creating an AKS cluster.
+* Encryption of OS disk with customer-managed keys can only be enabled when creating an AKS cluster.
 
 ## Prerequisites
 * You must enable soft delete and purge protection for *Azure Key Vault* when using Key Vault to encrypt managed disks.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 06/18/2021
 ms.author: jeedes
 
 ---
@@ -48,7 +48,6 @@ To configure the integration of Saba Cloud into Azure AD, you need to add Saba C
 1. In the **Add from the gallery** section, type **Saba Cloud** in the search box.
 1. Select **Saba Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD SSO for Saba Cloud
 
 Configure and test Azure AD SSO with Saba Cloud using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Saba Cloud.
@@ -75,25 +74,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `<CUSTOMER_NAME>_SPLN_PRINCIPLE`
+    a. In the **Identifier** text box, type a URL using the following pattern (you'll get this value in the Configure Saba Cloud SSO section on step 6, but it usually is in the format of `<CUSTOMER_NAME>_sp`):
+    `<CUSTOMER_NAME>_sp`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SIGN-ON URL>/Saba/saml/SSO/alias/<ENTITY_ID>`
+    b. In the **Reply URL** text box, type a URL using the following pattern (ENTITY_ID refers to the previous step, usually `<CUSTOMER_NAME>_sp`):
+    `https://<CUSTOMER_NAME>.sabacloud.com/Saba/saml/SSO/alias/<ENTITY_ID>`
+    
+    > [!NOTE]
+    > If you specify the reply URL incorrectly, you might have to adjust it in the **App Registration** section of Azure AD, not in the **Enterprise Application** section. Making changes to the **Basic SAML Configuration** section doesn't always update the Reply URL.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<CUSTOMER_NAME>.sabacloud.com`
+       `https://<CUSTOMER_NAME>.sabacloud.com`
 
     b. In the **Relay State** text box, type a URL using the following pattern: `IDP_INIT---SAML_SSO_SITE=<SITE_ID> `or in case SAML is configured for a microsite, type a URL using the following pattern:
-`IDP_INIT---SAML_SSO_SITE=<SITE_ID>---SAML_SSO_MICRO_SITE=<MicroSiteId>`
+       `IDP_INIT---SAML_SSO_SITE=<SITE_ID>---SAML_SSO_MICRO_SITE=<MicroSiteId>`
 
     > [!NOTE]
-    > For more information on configuring the RelayState, please refer to [this](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html) link.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > 
+    > For more information about configuring the RelayState, see [IdP and SP initiated SSO for a microsite](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html).
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, Sign-on URL and Relay State. Contact [Saba Cloud Client support team](mailto:support@saba.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+1. In the **User Attributes & Claims** section, adjust the Unique User Identifier to whatever you organization intends to use as the primary username for Saba users.
+
+   This step is required only if you're attempting to convert from username/password to SSO. If this is a new Saba Cloud deployment that doesn't have existing users, you can skip this step.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -129,7 +134,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Saba Cloud SSO
 
-1. Sign in to your Saba Cloud company site as an administrator.
+1. To automate the configuration within Saba Cloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Saba Cloud** will direct you to the Saba Cloud application. From there, provide the admin credentials to sign into Saba Cloud. The browser extension will automatically configure the application for you and automate steps 3-9.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup Saba Cloud manually, in a different web browser window, sign in to your Saba Cloud company site as an administrator.
+
 1. Click on **Menu** icon and click **Admin**, then select **System Admin** tab.
 
     ![screenshot for system admin](./media/saba-cloud-tutorial/system.png)
@@ -153,6 +167,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Configure Properties** section, verify the populated fields and click **SAVE**. 
 
     ![screenshot for Configure Properties](./media/saba-cloud-tutorial/configure-properties.png) 
+    
+    You might need to set **Max Authentication Age (in seconds)** to **7776000** (90 days) to match the default max rolling age Azure AD allows for a login. Failure to do so could result in the error `(109) Login failed. Please contact system administrator.`
 
 ### Create Saba Cloud test user
 

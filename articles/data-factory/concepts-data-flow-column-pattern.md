@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 05/21/2021
 ---
 
 # Using column patterns in mapping data flow
@@ -28,7 +28,6 @@ To add a column pattern in a derived column, aggregate, or window transformation
 
 Use the [expression builder](concepts-data-flow-expression-builder.md) to enter the match condition. Create a boolean expression that matches columns based on the `name`, `type`, `stream`, `origin`, and `position` of the column. The pattern will affect any column, drifted or defined, where the condition returns true.
 
-The two expression boxes below the match condition specify the new names and values of the affected columns. Use `$$` to reference the existing value of the matched field. The left expression box defines the name and the right expression box defines the value.
 
 ![Screenshot shows the Derived column's settings tab.](media/data-flow/edit-column-pattern.png "Column Patterns")
 
@@ -80,7 +79,7 @@ The above example matches on all subcolumns of complex column `a`. `a` contains 
 
 * `$$` translates to the name or value of each match at run time. Think of `$$` as equivalent to `this`.
 * `name` represents the name of each incoming column
-* `type` represents the data type of each incoming column
+* `type` represents the data type of each incoming column. The list of data types in the data flow type system can be found [here.](concepts-data-flow-overview.md#data-flow-data-types)
 * `stream` represents the name associated with each stream, or transformation in your flow
 * `position` is the ordinal position of columns in your data flow
 * `origin` is the transformation where a column originated or was last updated

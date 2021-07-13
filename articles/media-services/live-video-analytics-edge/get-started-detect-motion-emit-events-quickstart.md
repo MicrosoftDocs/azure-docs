@@ -1,11 +1,13 @@
 ---
-title: Get started with Live Video Analytics on IoT Edge - Azure
-description: This quickstart shows how to get started with Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
+title: Get started with Azure Live Video Analytics on IoT Edge
+description: This quickstart shows how to get started with Azure Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Get started - Live Video Analytics on IoT Edge
+# Quickstart: Get started with Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device. It also uses a simulated live video stream. 
 

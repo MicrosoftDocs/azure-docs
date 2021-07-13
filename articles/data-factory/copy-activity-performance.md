@@ -3,8 +3,8 @@ title: Copy activity performance and scalability guide
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use the copy activity.
 services: data-factory
 documentationcenter: ''
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory

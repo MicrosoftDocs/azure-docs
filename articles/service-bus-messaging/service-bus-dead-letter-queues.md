@@ -45,7 +45,7 @@ There is a limit on number of attempts to deliver messages for Service Bus queue
 ## Time to live
 When you enable dead-lettering on queues or subscriptions, all expiring messages are moved to the DLQ. The dead-letter reason code is set to: TTLExpiredException.
 
-Expired messages are only purged and moved to the DLQ when there is at least one active receiver pulling from the main queue or subscription. The deferred messages will also not be purged and moved to the dead-letter queue after they expire. This behavior is by design.
+The deferred messages will also not be purged and moved to the dead-letter queue after they expire. This behavior is by design.
 
 ## Errors while processing subscription rules
 If you enable dead-lettering on filter evaluation exceptions, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment in which not all message types have subscribers.

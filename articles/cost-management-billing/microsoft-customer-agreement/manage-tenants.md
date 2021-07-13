@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/05/2021
 ms.author: banders
 ms.reviewer: baolcsva
 ---
@@ -38,6 +38,24 @@ Billing owners can create subscriptions when they have the [appropriate permissi
 
 - You can link subscriptions from other tenants to your Microsoft Customer Agreement billing account. Taking billing ownership of a subscription only changes the invoicing arrangement. It doesn't affect the service tenant or Azure RBAC roles.
 - To change the subscription owner in the service tenant, you must transfer the [subscription to a different Azure Active Directory directory](../../role-based-access-control/transfer-subscription.md).
+
+An MCA billing account is managed by a single tenant/directory. The billing account only controls billing for the subscriptions in its tenant. However, you can use a billing ownership transfer to link a subscription to a billing account in a different tenant.
+
+### Billing ownership transfer
+
+A billing ownership transfer only changes the invoice arrangement for a single subscription. User and resource management for the subscription do not change.
+
+A billing ownership transfer does two things:
+
+- The subscription’s original billing ownership is removed.
+- The subscription billing ownership is *linked* to the target billing account, which could be in a different tenant/directory.
+
+Billing ownership transfer doesn’t affect:
+
+- Users
+- Resources
+- Azure RBAC permissions
+
 
 ## Add guest users to your Microsoft Customer Agreement tenant
 

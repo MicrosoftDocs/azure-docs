@@ -4,14 +4,14 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 07/07/2021
 ms.author: mbullwin
 ---
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/MetricsAdvisor/) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src) | [Artifact (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples)
+[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/MetricsAdvisor/) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor/azure-ai-metricsadvisor/src) | [Artifact (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-metricsadvisor) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples)
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ ms.author: mbullwin
   
   
 > [!TIP]
-> * You can find Java Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples).
+> * You can find Java Metrics Advisor samples on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/metricsadvisor/azure-ai-metricsadvisor/src/samples).
 > * It may take 10 to 30 minutes for your Metrics Advisor resource to deploy a service instance for you to use. Click **Go to resource** once it successfully deploys. After deployment, you can start using your Metrics Advisor instance with both the web portal and REST API. 
 > * You can find the URL for the REST API in Azure portal, in the **Overview** section of your resource. It will look like this:
 >    * `https://<instance-name>.cognitiveservices.azure.com/`
@@ -54,7 +54,7 @@ Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Th
 
 ```kotlin
 dependencies {
-    compile("com.azure:azure-ai-metricsadvisor:1.0.0-beta.2")
+    compile("com.azure:azure-ai-metricsadvisor:1.0.0-beta.4")
 }
 ```
 
@@ -101,10 +101,10 @@ The following classes handle some of the major features of the Metrics Advisor J
 
 |Name|Description|
 |---|---|
-| [MetricsAdvisorClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.2/com/azure/ai/metricsadvisor/MetricsAdvisorClient.html) | **Used for**: <br> - Listing anomaly incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
-| [MetricsAdvisorAdministrationClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.2/com/azure/ai/metricsadvisor/administration/MetricsAdvisorAdministrationClient.html)| **Allows you to:** <br> - Manage data feeds <br> - Configure anomaly detection configurations <br> - Configure anomaly alerting configurations <br> - Manage hooks  |
-| [DataFeed](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.2/com/azure/ai/metricsadvisor/models/DataFeed.html) | **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
-| [DataFeedMetric](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.2/com/azure/ai/metricsadvisor/models/DataFeedMetric.html) | A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
+| [MetricsAdvisorClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.4/com/azure/ai/metricsadvisor/MetricsAdvisorClient.html) | **Used for**: <br> - Listing anomaly incidents <br> - Listing root cause of incidents <br> - Retrieving original time series data and time series data enriched by the service. <br> - Listing alerts <br> - Adding feedback to tune your model |
+| [MetricsAdvisorAdministrationClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.4/com/azure/ai/metricsadvisor/administration/MetricsAdvisorAdministrationClient.html)| **Allows you to:** <br> - Manage data feeds <br> - Configure anomaly detection configurations <br> - Configure anomaly alerting configurations <br> - Manage hooks  |
+| [DataFeed](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.4/com/azure/ai/metricsadvisor/models/DataFeed.html) | **What Metrics Advisor ingests from your datasource. A `DataFeed` contains rows of:** <br> - Timestamps <br> - Zero or more dimensions <br> - One or more measures  |
+| [DataFeedMetric](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-metricsadvisor/1.0.0-beta.4/com/azure/ai/metricsadvisor/models/DataFeedMetric.html) | A `DataFeedMetric` is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a web health metric might contain dimensions for user count and the en-us market. |
 
 ## Code examples
 
@@ -147,21 +147,21 @@ MetricsAdvisorAdministrationClient metricsAdvisorAdministrationClient =
 Replace `sql_server_connection_string` with your own SQL server connection string, and replace `query` with a query that returns your data at a single timestamp. You will also need to adjust the `DataFeedMetric` and `DataFeedDimension` values based on your custom data.
 
 > [!IMPORTANT]
-> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [FAQ section on queries](../../faq.md#how-do-i-write-a-valid-query-for-ingesting-my-data) for more information, and examples. 
+> The query should return at most one record for each dimension combination, at each timestamp. And all records returned by the query must have the same timestamps. Metrics Advisor will run this query for each timestamp to ingest your data. See the [Tutorial: Write a valid query](../../tutorials/write-a-valid-query.md) for more information, and examples.
 
 ```java
 DataFeed dataFeed = new DataFeed()
     .setName("dataFeedName")
-    .setSource(new MySqlDataFeedSource("sql_server_connection_string", "query"))
+    .setSource(new MySqlDataFeedSource("conn-string", "query"))
     .setGranularity(new DataFeedGranularity().setGranularityType(DataFeedGranularityType.DAILY))
     .setSchema(new DataFeedSchema(
         Arrays.asList(
-            new DataFeedMetric().setName("cost"),
-            new DataFeedMetric().setName("revenue")
+            new DataFeedMetric("cost"),
+            new DataFeedMetric("revenue")
         )).setDimensions(
         Arrays.asList(
-            new DataFeedDimension().setName("city"),
-            new DataFeedDimension().setName("category")
+            new DataFeedDimension("city"),
+            new DataFeedDimension("category")
         ))
     )
     .setIngestionSettings(new DataFeedIngestionSettings(OffsetDateTime.parse("2020-01-01T00:00:00Z")))
@@ -185,7 +185,7 @@ System.out.printf("Data feed source type: %s%n", createdSqlDataFeed.getSourceTyp
 
 if (SQL_SERVER_DB == createdSqlDataFeed.getSourceType()) {
     System.out.printf("Data feed sql server query: %s%n",
-        ((SQLServerDataFeedSource) createdSqlDataFeed.getSource()).getQuery());
+        ((SqlServerDataFeedSource) createdSqlDataFeed.getSource()).getQuery());
 }
 ```
 
@@ -214,22 +214,22 @@ This example demonstrates how a user can configure an anomaly detection configur
 ```java
 String metricId = "<metric-id-from-adding-data-feed>";
 
-ChangeThresholdCondition changeThresholdCondition = new ChangeThresholdCondition()
-    .setAnomalyDetectorDirection(AnomalyDetectorDirection.BOTH)
-    .setChangePercentage(20)
-    .setShiftPoint(10)
-    .setWithinRange(true)
-    .setSuppressCondition(new SuppressCondition().setMinNumber(1).setMinRatio(2));
+ChangeThresholdCondition changeThresholdCondition = new ChangeThresholdCondition(
+        20, 
+        10, 
+        true, 
+        AnomalyDetectorDirection.BOTH, 
+        new SuppressCondition(1, 2));
 
-HardThresholdCondition hardThresholdCondition = new HardThresholdCondition()
-    .setAnomalyDetectorDirection(AnomalyDetectorDirection.DOWN)
-    .setLowerBound(5.0)
-    .setSuppressCondition(new SuppressCondition().setMinNumber(1).setMinRatio(1));
+HardThresholdCondition hardThresholdCondition = new HardThresholdCondition(
+        AnomalyDetectorDirection.DOWN, 
+        new SuppressCondition(1, 1))
+    .setLowerBound(5.0);
 
-SmartDetectionCondition smartDetectionCondition = new SmartDetectionCondition()
-    .setAnomalyDetectorDirection(AnomalyDetectorDirection.UP)
-    .setSensitivity(10.0)
-    .setSuppressCondition(new SuppressCondition().setMinNumber(1).setMinRatio(2));
+SmartDetectionCondition smartDetectionCondition = new SmartDetectionCondition(
+        10.0, 
+        AnomalyDetectorDirection.UP,
+        new SuppressCondition(1, 2));
 
 final AnomalyDetectionConfiguration anomalyDetectionConfiguration =
     metricsAdvisorAdminClient.createMetricAnomalyDetectionConfig(
@@ -241,7 +241,7 @@ final AnomalyDetectionConfiguration anomalyDetectionConfiguration =
                     .setChangeThresholdCondition(changeThresholdCondition)
                     .setHardThresholdCondition(hardThresholdCondition)
                     .setSmartDetectionCondition(smartDetectionCondition)
-                    .setCrossConditionOperator(DetectionConditionsOperator.OR))
+                    .setConditionOperator(DetectionConditionOperator.OR))
     );
 ```
 
@@ -286,8 +286,8 @@ final AnomalyAlertConfiguration anomalyAlertConfiguration
                     new MetricAnomalyAlertConfiguration(detectionConfigurationId2,
                         MetricAnomalyAlertScope.forWholeSeries())
                         .setAlertConditions(new MetricAnomalyAlertConditions()
-                            .setSeverityRangeCondition(new SeverityCondition()
-                                .setMaxAlertSeverity(AnomalySeverity.HIGH)))
+                            .setSeverityRangeCondition(new SeverityCondition(AnomalySeverity.HIGH,
+                                AnomalySeverity.HIGH)))
                 ))
             .setCrossMetricsOperator(MetricAnomalyAlertConfigurationsOperator.AND)
             .setIdOfHooksToAlert(Arrays.asList(hookId1, hookId2)));

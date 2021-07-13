@@ -52,34 +52,15 @@ The "try Azure Cosmos DB for free" option doesn't require an Azure subscription 
 
 ## Add a container
 
-You can now use the Data Explorer tool in the Azure portal to create a database and container.
-
-1. Select **Data Explorer** > **New Container**.
-
-   The **Add Container** area is displayed on the far right, you may need to scroll right to see it.
-
-   :::image type="content" source="./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png" alt-text="The Azure portal Data Explorer, Add Container pane":::
-
-2. In the **Add container** page, enter the settings for the new container.
-
-   | Setting           | Suggested value | Description                                                                                                                                                                                                                                                                                                                                                                           |
-   | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Database ID**   | Tasks           | Enter _Tasks_ as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
-   | **Throughput**    | 400             | Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.                                                                                                                                                                                                                                                    |
-   | **Container ID**  | Items           | Enter _Items_ as the name for your new container. Container IDs have the same character requirements as database names.                                                                                                                                                                                                                                                               |
-   | **Partition key** | /category       | The sample described in this article uses _/category_ as the partition key.                                                                                                                                                                                                                                                                                                           |
-
-   In addition to the preceding settings, you can optionally add **Unique keys** for the container. Let's leave the field empty in this example. Unique keys provide developers with the ability to add a layer of data integrity to the database. By creating a unique key policy while creating a container, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](unique-keys.md) article.
-
-   Select **OK**. The Data Explorer displays the new database and container.
+[!INCLUDE [cosmos-db-create-collection](includes/cosmos-db-create-collection.md)]
 
 ## Add sample data
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## Query your data
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## Clone the sample application
 
@@ -198,7 +179,7 @@ You can continue to experiment with this sample application or go back to Data E
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Next steps
 

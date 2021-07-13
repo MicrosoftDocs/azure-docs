@@ -10,11 +10,11 @@ services: iot-central
 ---
 # What are application templates?
 
-Application templates in Azure IoT Central are a tool to help solution builders kickstart their IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
+Application templates in Azure IoT Central are a tool to help you kickstart your IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing your application to resell to your customers.
 
 Application templates consist of:
 
-- Sample operator dashboards
+- Sample dashboards
 - Sample device templates
 - Simulated devices producing real-time data
 - Pre-configured rules and jobs
@@ -24,28 +24,13 @@ You choose the application template when you create your application. You can't 
 
 ## Custom templates
 
-If you want to create your application from scratch, choose one of the **Custom application** templates.
+If you want to create your application from scratch, choose the **Custom application** template. The custom application template id is `iotc-pnp-preview`.
 
 ## Industry focused templates
 
-Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
+Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today:
 
-- [Retail](../retail/overview-iot-central-retail.md)
-  - Connected logistics
-  - Digital distribution center
-  - In-store analytics - condition monitoring
-  - In-store analytics - checkout
-  - Smart Inventory Management
-  - Video analytics - object and motion detection
-- [Energy](../energy/overview-iot-central-energy.md)
-  - Smart meter monitoring
-  - Solar panel monitoring
-- [Government](../government/overview-iot-central-government.md)
-  - Connected waste management
-  - Water consumption monitoring
-  - Water quality monitoring
-- [Healthcare](../healthcare/overview-iot-central-healthcare.md).
-  - Continuous patient monitoring
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## Next steps
 

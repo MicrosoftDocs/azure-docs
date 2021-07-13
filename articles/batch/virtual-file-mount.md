@@ -71,7 +71,7 @@ new PoolAddParameter
 }
 ```
 
-### Azure Blob file system
+### Azure Blob container
 
 Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md) or [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md). For more information and tips on using blobfuse, see the blobfuse .
 
@@ -92,7 +92,7 @@ new PoolAddParameter
                 AccountName = "StorageAccountName",
                 ContainerName = "containerName",
                 AccountKey = "StorageAccountKey",
-                SasKey = "",
+                SasKey = "SasKey",
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
             },
@@ -103,7 +103,7 @@ new PoolAddParameter
 
 ### Network File System
 
-Network File Systems (NFS) can be mounted to pool nodes, allowing traditional file systems to be accessed by Azure Batch. This could be a single NFS server deployed in the cloud, or an on-premises NFS server accessed over a virtual network. Alternatively, you can use the [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache solution for data-intensive high-performance computing (HPC) tasks
+Network File Systems (NFS) can be mounted to pool nodes, allowing traditional file systems to be accessed by Azure Batch. This could be a single NFS server deployed in the cloud, or an on-premises NFS server accessed over a virtual network. NFS mounts support [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache solution for data-intensive high-performance computing (HPC) tasks as well as other standard NFS compliant interfaces such as [NFS for Azure Blob](../storage/blobs/network-file-system-protocol-support.md) and [NFS for Azure Files](../storage/files/storage-files-how-to-mount-nfs-shares.md).
 
 ```csharp
 new PoolAddParameter
@@ -117,7 +117,7 @@ new PoolAddParameter
             {
                 Source = "source",
                 RelativeMountPath = "RelativeMountPath",
-                MountOptions = "options ver=1.0"
+                MountOptions = "options ver=3.0"
             },
         }
     }
@@ -126,7 +126,7 @@ new PoolAddParameter
 
 ### Common Internet File System
 
-Mounting [Common Internet File Systems (CIFS)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) to pool nodes is another way to provide access to traditional file systems. CIFS is a file-sharing protocol that provides an open and cross-platform mechanism for requesting network server files and services. CIFS is based on the enhanced version of the [Server Message Block (SMB)](/windows-server/storage/file-server/file-server-smb-overview) protocol for internet and intranet file sharing, and can be used to mount external file systems on Windows nodes.
+Mounting [Common Internet File Systems (CIFS)](/windows/desktop/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) to pool nodes is another way to provide access to traditional file systems. CIFS is a file-sharing protocol that provides an open and cross-platform mechanism for requesting network server files and services. CIFS is based on the enhanced version of the [Server Message Block (SMB)](/windows-server/storage/file-server/file-server-smb-overview) protocol for internet and intranet file sharing.
 
 ```csharp
 new PoolAddParameter
@@ -155,36 +155,28 @@ If a mount configuration fails, the compute node in the pool will fail and the n
 
 To get the log files for debugging, use [OutputFiles](batch-task-output-files.md) to upload the `*.log` files. The `*.log` files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location. Mount log files have the format: `<type>-<mountDirOrDrive>.log` for each mount. For example, a `cifs` mount at a mount directory named `test` will have a mount log file named: `cifs-test.log`.
 
-## Supported SKUs
+## Support Matrix
 
-| Publisher | Offer | SKU | Azure Files Share | Blobfuse | NFS mount | CIFS mount |
-|---|---|---|---|---|---|---|
-| batch | rendering-centos73 | rendering | :heavy_check_mark: <br>Note: Compatible with CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Note: Compatible with CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>Note: Supports A_8 or 9 storage</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-azure-batch | ubuntu-server-container | 16.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
-| Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
+Azure Batch supports the following virtual file system types for node agents produced for their respective publisher and offer.
+
+| OS Type | Azure Files Share | Azure Blob container | NFS mount | CIFS mount |
+|---|---|---|---|---|
+| Linux | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Windows | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## Networking requirements
 
 When using virtual file mounts with [Azure Batch pools in a virtual network](batch-virtual-network.md), keep in mind the following requirements and ensure no required traffic is blocked.
 
-- **Azure Files**:
+- **Azure File shares**:
   - Requires TCP port 445 to be open for traffic to/from the "storage" service tag. For more information, see [Use an Azure file share with Windows](../storage/files/storage-how-to-use-files-windows.md#prerequisites).
-- **Blobfuse**:
+- **Azure Blob containers**:
   - Requires TCP port 443 to be open for traffic to/from the "storage" service tag.
   - VMs must have access to https://packages.microsoft.com in order to download the blobfuse and gpg packages. Depending on your configuration, you may also need access to other URLs to download additional packages.
 - **Network File System (NFS)**:
   - Requires access to port 2049 (by default; your configuration may have other requirements).
   - VMs must have access to the appropriate package manager in order to download the nfs-common (for Debian or Ubuntu) or nfs-utils (for CentOS) package. This URL may vary based on your OS version. Depending on your configuration, you may also need access to other URLs to download additional packages.
+  - Mounting Azure Blob or Azure Files via NFS may require additional networking requirements such as compute nodes sharing the same designated subnet of a virtual network as the storage account.
 - **Common Internet File System (CIFS)**:
   - Requires access to TCP port 445.
   - VMs must have access to the appropriate package manager(s) in order to download the cifs-utils package. This URL may vary based on your OS version.
