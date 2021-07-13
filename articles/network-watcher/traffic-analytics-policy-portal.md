@@ -156,5 +156,6 @@ In such scenarios, the assignment's managed identity must be manually granted ac
 
 ## Next steps 
 
+-	Learn about [NSG Flow Logs Built-in Policies](./nsg-flow-logs-policy-portal.md)
 -	Learn more about [Traffic Analytics](./traffic-analytics.md)
 -	Learn more about [Network Watcher](./index.yml)
