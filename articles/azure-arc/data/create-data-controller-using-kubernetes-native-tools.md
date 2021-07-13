@@ -166,7 +166,7 @@ Edit the following as needed:
 **RECOMMENDED TO REVIEW AND POSSIBLY CHANGE DEFAULTS**
 - **storage..className**: the storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is `default` which assumes there is a storage class that exists and is named `default` not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
 - **serviceType**: Change the service type to `NodePort` if you are not using a LoadBalancer.  Note: There are two serviceType settings that need to be changed.
-- On Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, you must apply the security context constraint before you create the data controller. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
+- On Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, you must apply the security context constraint before you create the data controller. Follow the instructions at [Apply a security context constraint for Azure Arc-enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
 - **Security** For Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, replace the `security:` settings with the following values in the data controller yaml file.
 
 ```yml
@@ -182,7 +182,7 @@ Edit the following as needed:
 - **displayName**: Set this to the same value as the name attribute at the top of the file.
 - **registry**: The Microsoft Container Registry is the default.  If you are pulling the images from the Microsoft Container Registry and [pushing them to a private container registry](offline-deployment.md), enter the IP address or DNS name of your registry here.
 - **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
-- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc enabled data services container images.
+- **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
 - **imageTag**: the current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
 
 The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.
@@ -278,9 +278,9 @@ kubectl describe pod/<pod name> --namespace arc
 #kubectl describe pod/control-2g7bl --namespace arc
 ```
 
-Azure Arc extension for Azure Data Studio provides a notebook to walk you through the experience of how to set up Azure Arc enabled Kubernetes and configure it to monitor a git repository that contains a sample SQL Managed Instance yaml file. When everything is connected, a new SQL Managed Instance will be deployed to your Kubernetes cluster.
+Azure Arc extension for Azure Data Studio provides a notebook to walk you through the experience of how to set up Azure Arc-enabled Kubernetes and configure it to monitor a git repository that contains a sample SQL Managed Instance yaml file. When everything is connected, a new SQL Managed Instance will be deployed to your Kubernetes cluster.
 
-See the **Deploy a SQL Managed Instance using Azure Arc enabled Kubernetes and Flux** notebook in the Azure Arc extension for Azure Data Studio.
+See the **Deploy a SQL Managed Instance using Azure Arc-enabled Kubernetes and Flux** notebook in the Azure Arc extension for Azure Data Studio.
 
 ## Troubleshooting creation problems
 

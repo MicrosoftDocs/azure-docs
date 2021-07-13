@@ -11,9 +11,9 @@ ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
-# Apply a security context constraint for Azure Arc enabled data services on OpenShift
+# Apply a security context constraint for Azure Arc-enabled data services on OpenShift
 
-This article describes how to apply a security context constraint for Azure Arc enabled data services. 
+This article describes how to apply a security context constraint for Azure Arc-enabled data services. 
 
 ## Applicability
 

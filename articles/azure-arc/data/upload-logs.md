@@ -1,6 +1,6 @@
 ---
 title: Upload logs to Azure Monitor
-description: Upload logs for Azure Arc enabled data services to Azure Monitor
+description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -17,7 +17,7 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc enabled data services.
+> During the preview period, there is no cost for using Azure Arc-enabled data services.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -209,7 +209,7 @@ With the environment variables set, you can upload logs to the log workspace.
 
 ## Upload logs to Azure Monitor
 
- To upload logs for your Azure Arc enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
+ To upload logs for your Azure Arc-enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
 1. Log in to to the Azure Arc data controller with Azure (`az`)  CLI with the `arcdata` extension.
 
