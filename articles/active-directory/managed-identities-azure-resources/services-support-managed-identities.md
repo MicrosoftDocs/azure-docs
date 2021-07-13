@@ -499,7 +499,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 
 > [!NOTE]
-> You can use Managed Identities to authenticate an [Azure Stream analytics job to PowerBI](../../stream-analytics/powerbi-output-managed-identity.md).
+> You can use Managed Identities to authenticate an [Azure Stream analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
 
 
 [check]: media/services-support-managed-identities/check.png "Available"
