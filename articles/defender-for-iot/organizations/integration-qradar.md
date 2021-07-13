@@ -19,22 +19,6 @@ Some of the benefits of the integration include:
 
 - Integrate with existing SOC workflows.
 
-## Defining Defender for IoT appliance name
-
-You can change the name of the platform at any time.
-
-When building sites and assigning appliances to zones in the on-premises management console, you should assign each appliance a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line. 
-
-It is important to pick a meaningful name for your appliance, because the appliance's name is passed on to the logs. When reviewing logs, each alert has a sensor attached to it. You will be able to identify which sensor is related to each alert based on it's name.
-
-**To change the appliance name**:
-
-1. On the side menu, select the current appliance name. The **Edit management console configuration** dialog box appears.
-
-   :::image type="content" source="media/integration-qradar/edit-management-console.png" alt-text="Change the name of your console.":::
-
-1. Enter a name in the Name field and select **Save**.
-
 ## Configuring Syslog listener for QRadar
 
 To configure the Syslog listener to work with QRadar:
@@ -168,6 +152,22 @@ All the XSense reports from now on are tagged as XSense Alerts.
       - Xsense Sender Name RegEx: `senderName=(.*)(?=\t)`
       - Xsense Alert Engine RegEx: `engine =(.*)(?=\t)`
       - Xsense Source Device Name RegEx: `src`
+
+## Defining Defender for IoT appliance name
+
+You can change the name of the platform at any time.
+
+When building sites and assigning appliances to zones in the on-premises management console, you should assign each appliance a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line. 
+
+It is important to pick a meaningful name for your appliance, because the appliance's name is passed on to the logs. When reviewing logs, each alert has a sensor attached to it. You will be able to identify which sensor is related to each alert based on it's name.
+
+**To change the appliance name**:
+
+1. On the side menu, select the current appliance name. The **Edit management console configuration** dialog box appears.
+
+   :::image type="content" source="media/integration-qradar/edit-management-console.png" alt-text="Change the name of your console.":::
+
+1. Enter a name in the Name field and select **Save**.
 
 ## Next steps
 
