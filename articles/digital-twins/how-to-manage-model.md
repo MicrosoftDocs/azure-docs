@@ -134,7 +134,9 @@ This version of the model will then be available in your instance to use for dig
 
 #### 2. Update graph elements as needed
 
-Next, update the **twins and relationships** in your instance to use the new model version instead of the old. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twins-model) and [update relationships](how-to-manage-graph.md#update-relationships). The patch operation to update a twin's model will look something like this:
+Next, update the **twins and relationships** in your instance to use the new model version instead of the old.
+
+You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twins-model) and [update relationships](how-to-manage-graph.md#update-relationships). The patch operation to update a twin's model will look something like this:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-model-1.json":::
 
@@ -181,7 +183,9 @@ Now that your new model has been uploaded in place of the old one, the twins in 
 >[!NOTE]
 > If you removed other dependent models earlier in order to delete the original model, reupload them now after the cache has reset. If you updated the dependent models to temporarily remove references to the original model, you can update them again to put the reference back.
 
-Next, update the **twins and relationships** in your instance so their properties match the properties defined by the new model. There are two ways to achieve this purpose:
+Next, update the **twins and relationships** in your instance so their properties match the properties defined by the new model. Before this step is completed, the twins that don't match their model can still be read, but cannot be written to. For more information on the state of twins without a valid model, see [Twins without models](#after-deletion-twins-without-models).
+
+There are two ways to update twins and relationships for the new model so that they're writable again:
 * Patch the twins and relationships as needed so they fit the new model. You can use the following instructions to [update twins](how-to-manage-twin.md#update-a-digital-twin) and [update relationships](how-to-manage-graph.md#update-relationships).
     - **If you've added properties**: Updating twins and relationships to have the new values isn't required, since twins missing the new values will still be valid twins. You can patch them however you want to add values for the new properties.
     - **If you've removed properties**: It's required to patch twins to remove the properties that are now invalid with the new model.
