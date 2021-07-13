@@ -28,7 +28,7 @@ Use the following built-in workbooks for SAP to visualize and monitor data inges
 
 |Workbook name  |Description  |
 |---------|---------|
-|**SAP - System Applications and Products workbook**     |         |
+|<a name="sap---system-applications-and-products-workbook"></a>**SAP - System Applications and Products workbook**     |         |
 |**SAP - Suspicious Privileges Operations**     |         |
 |**SAP - Attempts to Bypass SAP Security Mechanisms**     |         |
 |**SAP - Backdoor Creation**     |         |
@@ -36,7 +36,6 @@ Use the following built-in workbooks for SAP to visualize and monitor data inges
 |     |         |
 
 For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md) and [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md).
-
 
 ## Built-in analytics rules
 
