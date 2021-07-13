@@ -77,6 +77,8 @@ Manual failover is available at no additional cost for IoT hubs created after Ma
 
 For step-by-step instructions, see [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)
 
+## Manual failover and Event Hub
+
 As noted previously in the **Caution** section, the Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after manual failover. This is because the EventHub client doesn't have visibility into IoT Hub events. Note that the same is true for other cloud-based clients such as Functions and Azure Stream Analytics. To retrieve the endpoint and name, you can use the portal or leverage an included sample.
 
 ### Use the portal
