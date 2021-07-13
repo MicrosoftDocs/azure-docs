@@ -28,7 +28,7 @@ For your [partner] and [custom](create-custom-connector.md) data connectors, sta
 
 ## Filter your logs before ingestion
 
-You may want to filter logs collected, or log content, before the data is ingested into Azure Sentinel. For example, you may want to filter out logs that are irrelevant or unimportant to security operations, or you may want to removed unwanted details from log messages. Filtering message content may be specifically helpful when trying to drive down costs when working with Syslog, CEF, or Windows-based logs that have a lot of irrelevant details.
+You may want to filter logs collected, or log content, before the data is ingested into Azure Sentinel. For example, you may want to filter out logs that are irrelevant or unimportant to security operations, or you may want to remove unwanted details from log messages. Filtering message content may be specifically helpful when trying to drive down costs when working with Syslog, CEF, or Windows-based logs that have a lot of irrelevant details.
 
 Filter your logs using one of the following methods:
 

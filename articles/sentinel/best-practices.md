@@ -85,14 +85,14 @@ Any generated incidents are displayed on the **Incidents** page, which serves as
 
 The **Incidents** page works together with the **Investigation graph**, an interactive tool that allows users to explore and dive deep into an alert to show the full scope of an attack. Users can then construct a timeline of events and discover the extent of a threat chain.
 
-If you discover that the incident is a true positive, take action directly from the **Incidents** page to investigate logs, entities, and exploring the threat chain. After you've identified the threat and created a plan of action, use other tools in Azure Sentinel and [other Microsoft security services](best-practices.md#integrate-with-microsoft-security-services) to continue investigating.
+If you discover that the incident is a true positive, take action directly from the **Incidents** page to investigate logs, entities, and explore the threat chain. After you've identified the threat and created a plan of action, use other tools in Azure Sentinel and [other Microsoft security services](best-practices.md#integrate-with-microsoft-security-services) to continue investigating.
 
 
 ### Handle incidents with workbooks
 
 In addition to [visualizing and displaying information and trends](quickstart-get-visibility.md), Azure Sentinel workbooks are valuable investigative tools.
 
-For example, use the [Investigation Insights](top-workbooks.md#investigation-insights) workbook to investigate specific incidents together with any associated entities and alerts. Dive deeper into entities by showing related logs, actions, and alerts.
+For example, use the [Investigation Insights](top-workbooks.md#investigation-insights) workbook to investigate specific incidents together with any associated entities and alerts. This workbook enables you to dive deeper into entities by showing related logs, actions, and alerts.
 
 ### Handle incidents with threat hunting
 
@@ -117,7 +117,7 @@ To maximize threat intelligence-based detections, make sure to use threat intell
 
 Use indicators of compromise in analytics rules, when threat hunting, investigating logs, or generating additional incidents.
 
-Use a combination of watchlists to cover data both from ingested logs and external, enrichment data. For example, keep lists of IP address ranges used by your organization or recently terminated employees. Use watchlists with playbooks to gather enrichment data, such as adding malicious IP addresses to watchlists to use during detection, threat hunting and investigations.
+Use a watchlist that combines data from ingested data and external sources, such as enrichment data. For example, create lists of IP address ranges used by your organization or recently terminated employees. Use watchlists with playbooks to gather enrichment data, such as adding malicious IP addresses to watchlists to use during detection, threat hunting and investigations.
 
 During an incident, use watchlists to contain investigation data, and then delete them when your investigation is done to ensure that sensitive data does not remain in view.
 
