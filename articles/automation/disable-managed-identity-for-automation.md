@@ -3,7 +3,7 @@ title: Disable system-assigned managed identity for Azure Automation account (pr
 description: This article explains how to disable a system-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 07/13/2021
 ms.topic: conceptual
 ---
 
@@ -27,9 +27,9 @@ The system-assigned managed identity is disabled and no longer has access to the
 
 Syntax and example steps are provided below.
 
-### Syntax
+### Request body
 
-The body syntax below disables the system-assigned managed identity and removes any user-assigned managed identities:
+The following request body disables the system-assigned managed identity and removes any user-assigned managed identities.
 
 ```json
 { 
@@ -40,7 +40,7 @@ The body syntax below disables the system-assigned managed identity and removes 
 
 ```
 
-The body syntax below disables the system-assigned managed identity and retains any user-assigned managed identities:
+The following request body disables the system-assigned managed identity and keeps any user-assigned managed identities.
 
 ```json
 { 
@@ -51,7 +51,7 @@ The body syntax below disables the system-assigned managed identity and retains 
  
 ```
 
-The syntax of the API is as follows:
+The following is the service's REST API request URI to send the PATCH request.
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -61,7 +61,7 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 
 Perform the following steps.
 
-1. Copy and paste the relevant body syntax into a file named `body_remove_sa.json`. Save the file on your local machine or in an Azure storage account.
+1. Copy and paste the request body, depending on which operation you want to perform, into a file named `body_remove_sa.json`. Save the file on your local machine or in an Azure storage account.
 
 1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
 
@@ -77,7 +77,7 @@ Perform the following steps.
     # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
     ```
 
-1. Initialize a set of variables. Revise the values below and then execute:
+1. Provide an appropriate value for the variables and then execute the script.
 
     ```powershell
     $subscriptionID = "subscriptionID"

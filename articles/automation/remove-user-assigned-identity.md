@@ -3,33 +3,13 @@ title: Remove user-assigned managed identity for Azure Automation account (previ
 description: This article explains how to remove a user-assigned managed identity for an Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 07/13/2021
 ms.topic: conceptual
 ---
 
 # Remove user-assigned managed identity for Azure Automation account (preview)
 
-You can remove a user-assigned managed identity in Azure Automation by using the Azure portal, PowerShell, the Azure REST API, or Azure Resource Manager (ARM) template. For the examples involving PowerShell, first sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
-
-```powershell
-# Sign in to your Azure subscription
-$sub = Get-AzSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Connect-AzAccount -Subscription
-}
-
-# If you have multiple subscriptions, set the one to use
-# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
-```
-
-Then initialize a set of variables that will be used throughout the examples. Revise the values below and then execute.
-
-```powershell
-$subscriptionID = "subscriptionID"
-$resourceGroup = "resourceGroupName"
-$automationAccount = "automationAccountName"
-```
+You can remove a user-assigned managed identity in Azure Automation by using the Azure portal, PowerShell, the Azure REST API, or an Azure Resource Manager (ARM) template.
 
 ## Remove using the Azure portal
 
@@ -51,25 +31,45 @@ The user-assigned managed identity is removed and no longer has access to the ta
 
 Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to remove all user-assigned managed identities and retain an existing system-assigned managed identity.
 
-```powershell
-# Removes all UAs, keeps SA
-$output = Set-AzAutomationAccount `
-    -ResourceGroupName $resourceGroup `
-    -Name $automationAccount `
-    -AssignSystemIdentity 
+1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
 
-$output.identity.Type
-```
+    ```powershell
+    # Sign in to your Azure subscription
+    $sub = Get-AzSubscription -ErrorAction SilentlyContinue
+    if(-not($sub))
+    {
+        Connect-AzAccount -Subscription
+    }
+    ```
 
-The output will be `SystemAssigned`.
+1. Provide an appropriate value for the variables and then execute the script.
+
+    ```powershell
+    $resourceGroup = "resourceGroupName"
+    $automationAccount = "automationAccountName"
+    ```
+
+1. Execute [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount).
+
+    ```powershell
+    # Removes all UAs, keeps SA
+    $output = Set-AzAutomationAccount `
+        -ResourceGroupName $resourceGroup `
+        -Name $automationAccount `
+        -AssignSystemIdentity 
+    
+    $output.identity.Type
+    ```
+
+    The output will be `SystemAssigned`.
 
 ## Remove using REST API
 
-Syntax and example steps are provided below.
+You can remove a user-assigned managed identity from the Automation account by using the following REST API call and example.
 
-### Syntax
+### Request body
 
-Scenario: System-assigned managed identity is enabled or is to be enabled. One of many user-assigned managed identities is to be removed. This example removed a user-assigned managed identity named `firstIdentity`.
+Scenario: System-assigned managed identity is enabled or is to be enabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
 
 ```json
 {
@@ -92,7 +92,7 @@ Scenario: System-assigned managed identity is enabled or is to be enabled. All u
 }
 ```
 
-Scenario: System-assigned managed identity is disabled or is to be disabled. One of many user-assigned managed identities is to be removed. This example removed a user-assigned managed identity named `firstIdentity`.
+Scenario: System-assigned managed identity is disabled or is to be disabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
 
 ```json
 {
@@ -116,7 +116,7 @@ Scenario: System-assigned managed identity is disabled or is to be disabled. All
 }
 ```
 
-The syntax of the API is as follows:
+The following is the service's REST API request URI to send the PATCH request.
 
 ```http
 https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
@@ -126,7 +126,7 @@ https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/
 
 Perform the following steps.
 
-1. Copy and paste the relevant body syntax into a file named `body_remove_ua.json`. Make any needed modifications, and then save the file on your local machine or in an Azure storage account.
+1. Copy and paste the request body, depending on which operation you want to perform, into a file named `body_remove_ua.json`. Make any required modifications, and then save the file on your local machine or in an Azure storage account.
 
 1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) cmdlet and follow the instructions.
 
@@ -137,14 +137,14 @@ Perform the following steps.
     {
         Connect-AzAccount -Subscription
     }
-    
-    # If you have multiple subscriptions, set the one to use
-    # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
     ```
 
-1. Revise the variable value below and then execute.
+1. Provide an appropriate value for the variables and then execute the script.
 
     ```powershell
+    $subscriptionID = "subscriptionID"
+    $resourceGroup = "resourceGroupName"
+    $automationAccount = "automationAccountName"
     $file = "path\body_remove_ua.json"
     ```
 
@@ -181,8 +181,6 @@ Perform the following steps.
 ## Remove using Azure Resource Manager template
 
 If you added the user-assigned managed identity for your Automation account using an Azure Resource Manager template, you can remove the user-assigned managed identity by modifying the template, and then re-running it.
-
-### Syntax snippets
 
 Scenario: System-assigned managed identity is enabled or is to be enabled. One of two user-assigned managed identities is to be removed. This syntax snippet removes **all** user-assigned managed identities **except for** the one passed as a parameter to the template.
 
