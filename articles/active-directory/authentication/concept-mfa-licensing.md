@@ -23,7 +23,7 @@ To protect user accounts in your organization, multi-factor authentication shoul
 
 ## Available versions of Azure AD Multi-Factor Authentication
 
-Azure AD Multi-Factor Authentication can be used, and licensed, in a few different ways depending on your organization's needs. You may already be entitled to use Azure AD Multi-Factor Authentication depending on the Azure AD, EMS, or Microsoft 365 license you currently have. For example, the first 50,000 monthly active users in Azure AD External Identities can use MFA and other Premium P1 or P2 featutes for free. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
+Azure AD Multi-Factor Authentication can be used, and licensed, in a few different ways depending on your organization's needs. You may already be entitled to use Azure AD Multi-Factor Authentication depending on the Azure AD, EMS, or Microsoft 365 license you currently have. For example, the first 50,000 monthly active users in Azure AD External Identities can use MFA and other Premium P1 or P2 features for free. For more information, see [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 The following table details the different ways to get Azure AD Multi-Factor Authentication and some of the features and use cases for each.
 
