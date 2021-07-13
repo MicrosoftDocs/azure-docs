@@ -3,7 +3,7 @@ title: Deploy Azure Virtual Desktop getting started feature - Azure
 description: A quickstart guide for how to quickly set up Azure Virtual Desktop with the Azure portal's getting started feature.
 author: Heidilohr
 ms.topic: quickstart
-ms.date: 07/15/2021
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
