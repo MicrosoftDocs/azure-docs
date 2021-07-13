@@ -41,11 +41,11 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - Join [FS-ISAC](https://www.fsisac.com/membership?utm_campaign=ThirdParty&utm_source=MSFT&utm_medium=ThreatFeed-Join) to get the credentials to access this feed.
 
-### Health intelligence sharing community (H-ISAC) :::image type="icon" source="media/threat-intelligence-integration/h-isac.png":::
+### Health intelligence sharing community (H-ISAC)
 
 - [Join the H-ISAC](https://h-isac.org/soltra/) to get the credentials to access this feed.
 
-### IBM X-Force :::image type="icon" source="media/threat-intelligence-integration/ibm.jpg":::
+### IBM X-Force
 
 - [Learn more about IBM X-Force integration](https://www.ibm.com/security/xforce)
 
@@ -53,10 +53,6 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn more about the IntSights integration with Azure Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel)
 - To connect Azure Sentinel to the IntSights TAXII Server, obtain the API Root, Collection ID, Username and Password from the IntSights portal after you configure a policy of the data you wish to send to Azure Sentinel.
-
-### Kaspersky Threat Data Feeds :::image type="icon" source="media/threat-intelligence-integration/kaspersky.png":::
-
-- Learn more about [Kaspersky Threat Data Feeds](https://www.kaspersky.com/enterprise-security/threat-intelligence).
 
 ### ThreatConnect :::image type="icon" source="media/threat-intelligence-integration/threat-connect.png":::
 
@@ -75,7 +71,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 - To download [ThreatStream Integrator and Extensions](https://www.anomali.com/products/threatstream), and the instructions for connecting ThreatStream intelligence to the Microsoft Graph Security API, see the [ThreatStream downloads](https://ui.threatstream.com/downloads) page.
 
-### AlienVault Open Threat Exchange (OTX) from AT&T Cybersecurity :::image type="icon" source="media/threat-intelligence-integration/att-cybersecurity.png":::
+### AlienVault Open Threat Exchange (OTX) from AT&T Cybersecurity
 
 - [AlienVault OTX](https://otx.alienvault.com/) makes use of Azure Logic Apps (playbooks) to connect to Azure Sentinel. See the [specialized instructions](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) necessary to take full advantage of the complete offering.
 
@@ -133,7 +129,7 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 - See [more information](https://techcommunity.microsoft.com/t5/azure-sentinel/enrich-azure-sentinel-security-incidents-with-the-riskiq/ba-p/1534412) on working with RiskIQ playbooks.
 - See the RiskIQ PassiveTotal Logic App [connector documentation](/connectors/riskiqpassivetotal/).
 
-### Virus Total :::image type="icon" source="media/threat-intelligence-integration/virus-total.png":::
+### Virus Total
 
 - Find and enable incident enrichment playbooks for [Virus Total](https://developers.virustotal.com/v3.0/reference) in the Azure Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Get-VirusTotal" and "Get-VTURL".
 - See the Virus Total Logic App [connector documentation](/connectors/virustotal/).
