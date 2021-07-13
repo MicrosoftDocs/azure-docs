@@ -392,7 +392,10 @@
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Deploy at scale
         displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent  
+        href: deploy-scale.md#azure-monitor-agent 
+      - name: Migrate from legacy agents
+        displayname: Migrate to Azure Monitor agent
+        href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: ./faq.yml#azure-monitor-agent

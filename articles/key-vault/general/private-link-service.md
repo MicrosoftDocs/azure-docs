@@ -240,7 +240,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 * Check to make sure the Private DNS Zone is not missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 
     2. Click Overview and check if there is an A record with the simple name of your key vault (i.e. fabrikam). Do not specify any suffix.
-    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 3600 (1 hour). 
+    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 600 (10 mins).
     4. Make sure you specify the correct private IP address. 
     
 * Check to make sure the A record has the correct IP Address. 

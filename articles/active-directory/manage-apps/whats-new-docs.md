@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 06/02/2021
+ms.date: 07/12/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -14,6 +14,20 @@ manager: CelesteDG
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## June 2021
+
+### Updated articles
+
+- [Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant](add-application-portal.md)
+- [Configure group owner consent to apps accessing group data](configure-user-consent-groups.md)
+- [Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant](add-application-portal-configure.md)
+- [Manage user assignment for an app in Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
+- [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
+- [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+
 
 ## May 2021
 
