@@ -68,7 +68,7 @@ For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software prov
 
 Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
 
-:::zone target="docs" pivot="install-provider"
+:::zone target="docs" pivot="install-register-provider"
 ### [Install using UI](#tab/UI)
 
 Run the provider setup file on each host, as described below:

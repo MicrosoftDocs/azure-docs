@@ -25,7 +25,7 @@ groups:
   title: Install Provider
   prompt: Choose one of the following
   pivots:
-  - id: install-provider
+  - id: install-register-provider
     title: Provider
 #Owner: kraigb
 - id: python-frameworks-01
