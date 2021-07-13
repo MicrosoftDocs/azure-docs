@@ -14,7 +14,7 @@
   - name: Tutorials
     items:
     - name: 0 - Get checklist
-      href: azure-stack-edge-gpu-deploy-checklist.md     
+      href: azure-stack-edge-gpu-deploy-checklist.md  
     - name: 1 - Order, prepare 
       href: azure-stack-edge-gpu-deploy-prep.md
       displayName: Azure CLI, az databoxedge device, az databoxedge order
