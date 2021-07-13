@@ -85,9 +85,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://sentry.io/organizations/<ORGANIZATION_SLUG>/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Sentry Client support team](mailto:support@sentry.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+		> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. View Sentry's [documentation](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation) for more information on finding these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App 
+Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 ### Create an Azure AD test user
@@ -116,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Sentry SSO
 
-To configure single sign-on on **Sentry** side, you need to send the **App Federation Metadata Url** to [Sentry support team](mailto:support@sentry.io). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Sentry** side, Navigate to your Org Settings > Auth (or go to https://sentry.io/settings/YOUR_ORG_SLUG/auth/) and click on "Configure" for Active Directory, the paste the App Federation Metadata URL from your Azure SAML configuration.
 
 ### Create Sentry test user
 
