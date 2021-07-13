@@ -93,8 +93,6 @@ items:
     items:
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-    - name: Additional FHIR settings
-      href: additional-settings.md
   
   - name: Using Azure Active Directory (AAD) for FHIR service
     expanded: true
@@ -112,7 +110,7 @@ items:
   items:
   - name: Security controls by Azure Policy
     href: ./security-controls-policy.md
-    
+
 - name: Resources
   items:
   - name: FAQ
