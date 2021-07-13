@@ -43,6 +43,10 @@ items:
       href: iot-data-flow.md
     - name: Mapping templates
       href: iot-mapping-templates.md
+    - name: How to use the device mapping template
+      href: how-to-use-device-mapping-iot.md
+    - name: How to use the FHIR mapping template
+      href: how-to-is-fhir-mapping-iot.md
     
     - name: Configure and display metrics
       href: iot-metrics-display.md 

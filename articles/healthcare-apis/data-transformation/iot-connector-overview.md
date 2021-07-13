@@ -56,7 +56,7 @@ At this point, Device resource, along with its associated Patient resource, is a
 > [!NOTE]
 >All identity look ups are cached once resolved to decrease load on the FHIR server. If you plan on reusing devices with multiple patients, it is advised you create a virtual device resource that is specific to the patient and send virtual device identifier in the message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR server, the outcome depends upon the value of Resolution Type set at the time of creation. When set to Lookup, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to Create, the IoT Connector service will create a bare-bones Device and Patient resources on the FHIR server.
+If no Device resource for a given device identifier exists in the FHIR server, the outcome depends upon the value of Resolution Type set at the time of creation. When set to Look up, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to Create, the IoT Connector service will create a bare-bones Device and Patient resources on the FHIR server.
 
 ## Persist
 
@@ -64,8 +64,13 @@ Once the Observation FHIR resource is generated in the Transform stage, the reso
 
 ## Next steps
 
-For more information about the IoT Connector service mapping templates, see 
+For more information about the IoT Connector mapping templates, see
 
 >[!div class="nextstepaction"]
->[Overview of IoT Connector mapping templates](overview-iot-mapping templates.md)
+>[How to use the device mapping template](how-to-device-mapping-iot.md)
+
+>[!div class="nextstepaction"]
+>[How to use the FHIR mapping template](how-to-fhir-mapping-iot.md)
+
+
 
