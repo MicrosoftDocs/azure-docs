@@ -84,6 +84,7 @@ Keep in mind the following points about Azure role assignments in Azure Storage:
 
 - When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or table.
 - If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure roles that are scoped to the storage account or a table.
+- The preview version of Storage Explorer in the Azure portal does not support using Azure AD credentials to view and modify table data. Storage Explorer in the Azure portal always uses the account keys to access data. To use Storage Explorer in the Azure portal, you must be assigned a role that includes **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## Next steps
 
