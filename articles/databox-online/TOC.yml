@@ -229,7 +229,7 @@
         href: azure-stack-edge-gpu-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
         href: azure-stack-edge-gpu-configure-tls-settings.md 
-    - name: About VMs (Preview)
+    - name: About virtual machines
       items:
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md

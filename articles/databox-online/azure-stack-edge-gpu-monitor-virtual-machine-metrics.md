@@ -20,7 +20,9 @@ This article describes how to monitor CPU and memory metrics for a virtual machi
 
 ## About VM metrics
 
-You can view CPU and memory metrics for a virtual machine in the Azure portal. The VM metrics are based on performance data collected from the Azure Stack Edge device. *QUERY: What agent/service is used to collect the data? This is guest OS data collected by what?*
+You can view CPU and memory metrics for a virtual machine in the Azure portal. 
+
+The VM metrics are based on performance data collected from the Azure Stack Edge device. VM memory usage is based on memory used during VM operations. *QUERY: CPU usage also? What agent/service is used to collect the data? This is guest OS data collected by what?*
 
 *QUERY: What's the sampling interval for the data?*
 
