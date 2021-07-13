@@ -7,11 +7,11 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
-# Create Azure Arc data controller from Azure Portal - Indirect connectivity mode
+# Create Azure Arc data controller from Azure portal - Indirect connectivity mode
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
