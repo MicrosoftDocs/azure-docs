@@ -89,9 +89,32 @@ As attackers often use the organization's own user and service accounts, data ab
 
 Embed data from the **IdentityInfo table** to fine-tune your analytics rules to fit your use cases, reducing false positives, and possibly speeding up your investigation process.
 
-The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user.
+For example:
 
-For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
+- To correlate security events with the **IdentityInfo** table in an an alert that's triggered if a server is accessed by someone outside the **IT** department:
+
+    ```kusto
+    SecurityEvent
+    | where EventID in ("4624","4672")
+    | where Computer == "My.High.Value.Asset"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.SubjectUserSid == $right.AccountSID
+    | where Department != "IT"
+    ```
+
+- To correlate Azure AD sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
+
+    ```kusto
+    SigninLogs
+    | where AppDisplayName == "GithHub.Com"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId
+    | where GroupMembership !contains "Developers"
+    ```
+
+The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 
