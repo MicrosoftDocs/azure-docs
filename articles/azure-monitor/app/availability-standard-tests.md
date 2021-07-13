@@ -7,15 +7,18 @@ ms.date: 07/12/2021
 
 # Standard test
 
-Standard test is a single request test that is similar to the [URL ping test](monitor-web-app-availability.md) but more advanced. In addition to validating whether an endpoint is responding and measuring the performance, Standard test also includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`,`HEAD`,`POST`, etc.), custom headers, and custom data associated with your HTTP request.
+Standard tests are a single request test that is similar to the [URL ping test](monitor-web-app-availability.md) but more advanced. In addition to validating whether an endpoint is responding and measuring the performance, Standard tests also includes SSL certificate validity, proactive lifetime check, HTTP request verb (for example `GET`,`HEAD`,`POST`, etc.), custom headers, and custom data associated with your HTTP request.
 
 > [!NOTE]
-> Standard ping tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
+> Standard tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
 > [!NOTE]
-> There are currently no additional charges for the preview feature Standard Ping tests. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using Standard Ping tests after the notice period, you will be billed at the applicable rate.
+> There are currently no additional charges for the preview feature Standard tests. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using Standard tests after the notice period, you will be billed at the applicable rate.
 
 To create an availability test, you need use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
+
+> [!TIP]
+> If you are currently using other availability tests, like URL ping tests, you may add Standard tests along side the others. If you would like to use Standard tests instead of one of your other tests, add a Standard test and delete your old test. 
 
 ## Create a Standard test
 
@@ -39,7 +42,7 @@ To create a standard test:
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
 |**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
 | **Custom headers** | Key value pairs that define the operating parameters. |
-| **HTTP request verb** | Indicate what action you would like to take with your request. IF your chosen verb is not available in the UI you can deploy a standard test using Azure Resource Monitor with the desired choice. |
+| **HTTP request verb** | Indicate what action you would like to take with your request. |
 | **Request body** | Custom data associated with your HTTP request. You can upload your own files, type in your content, or disable this feature. For raw body content, we support TEXT, JSON, HTML, XML, and JavaScript. |
 
 ## Success criteria

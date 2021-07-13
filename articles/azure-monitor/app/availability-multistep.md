@@ -14,6 +14,8 @@ You can monitor a recorded sequence of URLs and interactions with a website via 
 > </br>
 > Multi-step web tests **are not supported** in the [Azure Government](../../azure-government/index.yml) cloud.
 
+> [!NOTE]
+> Multi-step web tests are now considered classic tests and can be found under **Add Classic Test** in the Availability pane.
 
 ## Pre-requisites
 
