@@ -51,22 +51,22 @@ You can scope access to Azure queue resources at the following levels, beginning
 - **The subscription.** At this scope, a role assignment applies to all of the tables in all of the storage accounts in all of the resource groups in the subscription.
 - **A management group.** At this scope, a role assignment applies to all of the tables in all of the storage accounts in all of the resource groups in all of the subscriptions in the management group.
 
-For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](../articles/role-based-access-control/scope-overview.md).
+For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
 ### Azure built-in roles for tables
 
 Azure RBAC provides built-in roles for authorizing access to table data using Azure AD and OAuth. Built-in roles that provide permissions to tables in Azure Storage include:
 
-- [Storage Table Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-table-data-contributor): Use to grant read/write/delete permissions to Table storage resources.
-- [Storage Table Data Reader](../articles/role-based-access-control/built-in-roles.md#storage-table-data-reader): Use to grant read-only permissions to Table storage resources.
+- [Storage Table Data Contributor](../../role-based-access-control/built-in-roles.md#storage-table-data-contributor): Use to grant read/write/delete permissions to Table storage resources.
+- [Storage Table Data Reader](../../role-based-access-control/built-in-roles.md#storage-table-data-reader): Use to grant read-only permissions to Table storage resources.
 
-To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to table data](assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../articles/role-based-access-control/role-definitions-list.md).
+To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to table data](assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.md).
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 Only roles explicitly defined for data access permit a security principal to access table data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the table data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys.
 
-For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../articles/role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
+For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
 > Azure role assignments may take up to 30 minutes to propagate.
