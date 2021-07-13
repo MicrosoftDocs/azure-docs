@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 1. Locate the .pfx certificate file and copy it to your Mac. You can get the certificate to the Mac in several ways. For example, you can email the certificate file.
-1. Double-click the certificate to open the **Add Certificates** box, the click **Add** to begin the install.
+1. Double-click the certificate. You will either be asked to input the password and the certificate will automatically install, or the **Add Certificates** box will appear. On the **Add Certificates** box, click **Add** to begin the install.
 1. Select **login** from the dropdown.
 
    :::image type="content" source="./media/vpn-gateway-certificates-install-mac-client-cert-include/add-cert.png" alt-text="Screenshot showing Add Certificates box.":::
