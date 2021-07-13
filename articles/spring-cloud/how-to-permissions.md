@@ -490,7 +490,7 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
 ## See also
 * [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md)
 
-For more information about three methods that define custom permissions see:
+For more information about three methods that define custom permissions, see:
 * [Clone a role](../role-based-access-control/custom-roles-portal.md#clone-a-role)
 * [Start from scratch](../role-based-access-control/custom-roles-portal.md#start-from-scratch)
 * [Start from JSON](../role-based-access-control/custom-roles-portal.md#start-from-json)
