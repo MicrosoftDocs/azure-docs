@@ -182,24 +182,26 @@
     - name: Create integration account
       href: logic-apps-enterprise-integration-create-integration-account.md
       displayName: Azure CLI, az logic integration-account create, integration-account
-    - name: Trading partners
-      href: logic-apps-enterprise-integration-partners.md
-    - name: Agreements
-      href: logic-apps-enterprise-integration-agreements.md
-    - name: Schemas for XML validation
-      href: logic-apps-enterprise-integration-schemas.md
-    - name: Maps for XML transform
-      href: logic-apps-enterprise-integration-maps.md
-    - name: Certificates
-      href: logic-apps-enterprise-integration-certificates.md
-    - name: Artifact metadata
-      href: logic-apps-enterprise-integration-metadata.md
+      items:
+      - name: Trading partners
+        href: logic-apps-enterprise-integration-partners.md
+      - name: Agreements
+        href: logic-apps-enterprise-integration-agreements.md
+      - name: Schemas for XML validation
+        href: logic-apps-enterprise-integration-schemas.md
+      - name: Maps for XML transform
+        href: logic-apps-enterprise-integration-maps.md
+      - name: Certificates
+        href: logic-apps-enterprise-integration-certificates.md
+      - name: Artifact metadata
+        href: logic-apps-enterprise-integration-metadata.md
     - name: Receive and send B2B messages
       href: logic-apps-enterprise-integration-b2b.md
     - name: Exchange AS2 messages
       href: logic-apps-enterprise-integration-as2.md
-    - name: AS2 message settings
-      href: logic-apps-enterprise-integration-as2-message-settings.md
+      items:
+      - name: AS2 message settings
+        href: logic-apps-enterprise-integration-as2-message-settings.md
     - name: Exchange EDIFACT messages
       href: logic-apps-enterprise-integration-edifact.md
       items: 
@@ -222,14 +224,16 @@
       href: logic-apps-scenario-edi-send-batch-messages.md
     - name: Process flat files
       href: logic-apps-enterprise-integration-flatfile.md
-    - name: Transform XML
-      href: logic-apps-enterprise-integration-transform.md
-    - name: Process XML
-      href: logic-apps-enterprise-integration-xml.md
-    - name: Validate XML
-      href: logic-apps-enterprise-integration-xml-validation.md
-    - name: Transform JSON
-      href: logic-apps-enterprise-integration-liquid-transform.md
+    - name: XML/Json Transform 
+      items: 
+      - name: Transform XML
+        href: logic-apps-enterprise-integration-transform.md
+      - name: Process XML
+        href: logic-apps-enterprise-integration-xml.md
+      - name: Validate XML
+        href: logic-apps-enterprise-integration-xml-validation.md
+      - name: Transform JSON
+        href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
     - name: Build a disaster recovery plan
