@@ -99,12 +99,12 @@ For production environment, check out the Red Hat JBoss EAP Azure Quickstart ARM
 
 Stand-alone RHEL virtual machine with sample application:
 
-*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-standalone-rhel" target="_blank"> JBoss EAP on RHEL (stand-alone VM)</a>
+*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-standalone-rhel" target="_blank"> JBoss EAP on RHEL (stand-alone VM)</a>
 
 Clustered RHEL virtual machines with sample application:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-multivm-rhel" target="_blank"> JBoss EAP on RHEL (clustered VMs)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-multivm-rhel" target="_blank"> JBoss EAP on RHEL (clustered VMs)</a>
 
 Clustered RHEL Virtual Machine Scale Set with sample application:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP on RHEL (clustered Virtual Machine Scale Set)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP on RHEL (clustered Virtual Machine Scale Set)</a>
