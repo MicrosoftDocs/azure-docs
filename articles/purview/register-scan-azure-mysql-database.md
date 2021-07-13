@@ -32,22 +32,16 @@ Purview supports only SQL authentication for Azure MySQL databases.
 
 ### Set up authentication for a scan
 
-Authentication to scan Azure MySQL Database. If you need to create new authentication, you need to [authorize database access to SQL Database](../azure-sql/database/logins-create-manage.md). Purview supports SQL authentication for Azure MySQL databases.
+You will need **username** and **password** for the next steps.
 
-
-#### SQL authentication
-
-> [!Note]
-> Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
-
-You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure MySQL Database if you don't have this available. You will need **username** and **password** for the next steps.
+You can follow the instructions in [Create databases and users](articles/mysql/howto-create-users.md) to create a login for your Azure MySQL Database.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Database
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to setup your scan
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) of type SQL authentication using the **username** and **password** to setup your scan
 
 ## Register an Azure MySQL database data source
 
