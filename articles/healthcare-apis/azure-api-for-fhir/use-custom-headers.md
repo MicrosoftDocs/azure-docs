@@ -11,7 +11,7 @@ author: matjazl
 ms.date: 10/13/2019
 ---
 
-# Add data to audit logs by using custom HTTP headers
+# Add data to audit logs by using custom HTTP headers in Azure API for FHIR
 
 In the Azure Fast Healthcare Interoperability Resources (FHIR) API, a user might want to include additional information in the logs, which comes from the calling system.
 

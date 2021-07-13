@@ -1,29 +1,24 @@
 items:
-- name: Azure API for FHIR
+- name: FHIR service
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure API for FHIR
+  - name: About FHIR service
     href: overview.md
 
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Azure API for FHIR
-    expanded: false
+  - name: Deploy FHIR service
+    expanded: true
     items:
     - name: Using Portal
-      href: fhir-paas-portal-quickstart.md
-    - name: Using PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Using CLI
-      href: fhir-paas-cli-quickstart.md
+      href: fhir-portal-quickstart.md
     - name: Using ARM template
-      displayName: Resource Manager
-      href: fhir-paas-arm-template-quickstart.md
+      href: fhir-arm-template-quickstart.md
 
 - name: Tutorials
-  expanded: false
+  expanded: true
   items:
   - name: Deploy JavaScript application
     expanded: false
@@ -38,11 +33,9 @@ items:
       href: tutorial-web-app-write-web-app.md
   - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
-  - name: Use SMART on FHIR proxy
-    href: use-smart-on-fhir-proxy.md
   
   - name: Interoperability and Patient Access
-    expanded: false
+    expanded: true
     items:
     - name: CMS Interoperability and Patient Access rule introduction
       href: cms-tutorial-introduction.md
@@ -55,12 +48,12 @@ items:
     - name: Da Vinci Plan Net
       href: davinci-plan-net.md
 - name: How-to guides
-  expanded: false
+  expanded: true
   items:
   - name: Registering applications
     expanded: false
     items:
-    - name: Register applications for Azure API for FHIR overview
+    - name: Register applications for FHIR service
       href: fhir-app-registration.md
     - name: Resource application
       href: register-resource-azure-ad-client-app.md
@@ -74,23 +67,13 @@ items:
   - name: Configure settings
     expanded: false
     items:
-    - name: Configure another Azure API for FHIR settings
-      href: azure-api-for-fhir-additional-settings.md
-    - name: Configure Azure RBAC
-      href: configure-azure-rbac.md
-    - name: Configure Local RBAC
-      href: configure-local-rbac.md
-    - name: Configure database settings
-      href: configure-database.md
-    - name: Configure customer-managed keys
-      href: customer-managed-key.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-    - name: Configure Private Link
-      href: configure-private-link.md
+    - name: Additional FHIR settings
+      href: additional-settings.md
 
   - name: Search
-    expand: false
+    expanded: true
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -98,10 +81,10 @@ items:
       href: how-to-do-custom-search.md
     - name: How to run a reindex job
       href: how-to-run-a-reindex.md
-    - name: Search examples for Azure API for FHIR
+    - name: Search examples
       href: search-samples.md
   - name: Operations
-    expand: false
+    expanded: true
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
@@ -114,16 +97,16 @@ items:
   - name: Diagnostic logging and metrics
     expanded: false
     items:
-    - name: Enable Diagnostics Logging in Azure API for FHIR
+    - name: Enable Diagnostics Logging in FHIR service
       href: enable-diagnostic-logging.md
    
-  - name: Get a token for Azure API for FHIR - CLI
+  - name: Get a token for FHIR service - CLI
     href: get-healthcare-apis-access-token-cli.md
   
 - name: Concepts
   expanded: false
   items:
-  - name: Azure AD and Azure API for FHIR Overview
+  - name: Azure AD for FHIR service
     href: azure-ad-hcapi.md
   - name: Access token validation
     href: azure-ad-hcapi-token-validation.md
@@ -137,7 +120,7 @@ items:
 - name: Resources
   items:
   - name: FAQ
-    href: fhir-faq.yml
+    href: fhir-faq.md
   - name: Supported features
     href: fhir-features-supported.md
   - name: GitHub Projects
@@ -147,6 +130,3 @@ items:
   items:
   - name: Azure CLI
     href: /cli/azure/healthcareapis
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md

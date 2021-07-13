@@ -1,5 +1,5 @@
 ---
-title: 'Concepts: Mapping templates in Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR'
+title: Mapping templates in Azure IoT Connector for FHIR (preview) feature of FHIR service
 description: Learn to create two types of mapping templates in Azure IoT Connector for FHIR (preview). Device mapping template transforms device data into a normalized schema. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource.
 services: healthcare-apis
 author: ms-puneet-nagpal
@@ -10,7 +10,7 @@ ms.date: 04/05/2021
 ms.author: rabhaiya
 ---
 
-# Azure IoT Connector for FHIR (preview) mapping templates
+# IoT Connector for FHIR (preview) mapping templates
 This article details how to configure Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* using mapping templates.
 
 The Azure IoT Connector for FHIR requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
@@ -657,6 +657,6 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.yml)
+>[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.md)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

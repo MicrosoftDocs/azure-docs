@@ -277,5 +277,6 @@
         "redirect_url": "/azure/healthcare-apis/fhir/use-smart-on-fhir-proxy",
         "redirect_document_id": true
     }
+
   ]
 }

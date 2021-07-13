@@ -9,7 +9,7 @@ ms.date: 05/21/2021
 ms.author: cavoeg
 ---
 
-# FHIR search examples
+# FHIR search examples for Azure API for FHIR
 
 Below are some examples of using FHIR search operations, including search parameters and modifiers, chain and reverse chain search, composite search, viewing the next entry set for search results, and searching with a `POST` request. For more information about search, see [Overview of FHIR Search](overview-of-search.md).
    

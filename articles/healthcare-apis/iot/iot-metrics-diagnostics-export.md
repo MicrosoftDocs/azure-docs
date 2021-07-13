@@ -1,5 +1,5 @@
 ---
-title: Export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings
+title: Export IoT Connector Metrics through Diagnostic settings
 description: This article explains how to export Azure IoT Connector for FHIR (preview) Metrics through Diagnostic settings
 services: healthcare-apis
 author: msjasteppe
@@ -15,10 +15,10 @@ ms.author: jasteppe
 In this article, you'll learn how to export Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* Metrics logs. The feature that enables Metrics logging is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 > [!TIP]
-> Follow the guidance in [Enable Diagnostic Logging in Azure API for FHIR and Azure IoT Connector for FHIR](../fhir/enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) to set up audit logging.
+> Follow the guidance in [Enable Diagnostic Logging in FHIR service and Azure IoT Connector for FHIR](../fhir/enable-diagnostic-logging.md) to set up audit logging.
 
 ## Enable Metrics logging for the Azure IoT Connector for FHIR (preview)
-1. To enable Metrics logging for the Azure IoT Connector for FHIR, select your Azure API for FHIR service in the Azure portal 
+1. To enable Metrics logging for the Azure IoT Connector for FHIR, select your FHIR service service in the Azure portal 
 
 2. Navigate to **Diagnostic settings** 
 
@@ -34,7 +34,7 @@ In this article, you'll learn how to export Azure IoT Connector for Fast Healthc
     2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You'll need to create an event hub namespace and event hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You'll need to create your Logs Analytics Workspace before you can select this option.
 
-6. Select **Errors, Traffic, and Latency** for the Azure IoT Connector for FHIR.  Select any additional metric categories you want to capture for the Azure API for FHIR.
+6. Select **Errors, Traffic, and Latency** for the Azure IoT Connector for FHIR.  Select any additional metric categories you want to capture for the FHIR service.
 
 7. Select **Save**
 
@@ -53,6 +53,6 @@ Having access to Metrics logs is essential for monitoring and troubleshooting.  
 Check out frequently asked questions about the Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.yml)
+>[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.md)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

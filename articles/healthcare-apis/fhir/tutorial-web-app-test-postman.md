@@ -1,5 +1,5 @@
 ---
-title: Web App Tutorial - Test connecting to Azure API for FHIR
+title: Web App Tutorial - Test connecting to FHIR service
 description: These tutorials walk through an example of deploying a simple web application. This section of the tutorial walks through testing connecting to the FHIR server with Postman
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -12,10 +12,10 @@ ms.date: 01/03/2020
 ---
 
 # Testing the FHIR API
-In the previous two steps, you deployed the Azure API for FHIR and registered your client application. You are now ready to test that your Azure API for FHIR is set up with your client application. 
+In the previous two steps, you deployed the FHIR service and registered your client application. You are now ready to test that your FHIR service is set up with your client application. 
 
 ## Retrieve capability statement
-First we will get the capability statement for your Azure API for FHIR. 
+First we will get the capability statement for your FHIR service. 
 1. Open Postman
 1. Retrieve the capability statement by doing GET https://\<FHIR-SERVER-NAME>.azurehealthcareapis.com/metadata. In the image below the FHIR server name is **fhirserver**.
 
@@ -82,9 +82,9 @@ This POST will create a new patient in your FHIR server with the name James Tibe
 If you do the GET step above to retrieve a patient again, you will see James Tiberious Kirk listed in the output.
 
 ## Troubleshooting access issues
-If you ran into issues during any of these steps, review the documents we have put together on Azure Active Directory and the Azure API for FHIR. 
+If you ran into issues during any of these steps, review the documents we have put together on Azure Active Directory and the FHIR service. 
 
-* [Azure AD and Azure API for FHIR](azure-ad-hcapi.md) - This document outlines some of the basic principles of Azure Active Directory and how it interacts with the Azure API for FHIR.
+* [Azure AD and FHIR service](azure-ad-hcapi.md) - This document outlines some of the basic principles of Azure Active Directory and how it interacts with the FHIR service.
 * [Access token validation](azure-ad-hcapi-token-validation.md) - This how-to guide gives more specific details on access token validation and steps to take to resolve access issues.
 
 ## Next Steps

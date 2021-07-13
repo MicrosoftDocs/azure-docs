@@ -2,48 +2,16 @@ items:
 - name: Data Transformation
   href: index.yml
 
-
 - name: Export data
   expanded: true
   items:
-    - name: Configure settings for data export
+    - name: Configure settings for export
       href: configure-export-data.md
-    - name: Exporting data
+    - name: Export
       href: export-data.md
     - name: De-identified export
       href: de-identified-export.md
-    - name: Export data to Synapse
+    - name: Export to Synapse
       href: move-to-synapse.md
 - name: Convert data
-  expanded: true
-  items:
-    - name: $convert-data and FHIR Converter Extension Templates
-      href: convert-data.md
-
-
-
-- name: IoT Connector
-  expanded: true
-  items:
-    - name: Deploy Azure IoT Connector for FHIR (preview)
-      expanded: true
-      items:
-        - name: Using Portal
-          href: iot-fhir-portal-quickstart.md
-        - name: Using ARM template
-          href: iot-fhir-arm-template-quickstart.md
-    - name: Ingest data from IoT devices
-      expanded: true
-      items:
-        - name: Receive device data through Azure IoT Hub
-          href: device-data-through-iot-hub.md 
-    - name: Data flow
-      href: iot-data-flow.md
-    - name: Mapping templates
-      href: iot-mapping-templates.md
-    
-    - name: Configure and display metrics
-      href: iot-metrics-display.md 
-
-    - name: Troubleshooting guide
-      href: iot-troubleshoot-guide.md
+  href: convert-data.md

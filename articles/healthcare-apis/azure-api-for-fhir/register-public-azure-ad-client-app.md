@@ -10,7 +10,7 @@ ms.date: 02/07/2019
 ms.author: cavoeg
 ---
 
-# Register a public client application in Azure Active Directory
+# Register a public client application in Azure Active Directory for Azure API for FHIR
 
 In this article, you'll learn how to register a public application in Azure Active Directory.  
 
