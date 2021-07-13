@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 04/07/2021
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
@@ -17,12 +17,10 @@ You can create a data controller using Azure Data Studio through the deployment 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-At the current time, you can create a data controller using the method described in this article.
-
 ## Prerequisites
 
 - You need access to a Kubernetes cluster and have your kubeconfig file configured to point to the Kubernetes cluster you want to deploy to.
-- You need to [install the client tools](install-client-tools.md) including **Azure Data Studio** the Azure Data Studio extensions called **Azure Arc** and **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]**.
+- You need to [install the client tools](install-client-tools.md) including **Azure Data Studio** the Azure Data Studio extensions called **Azure Arc** and Azure CLI with the `arcdata` extension.
 - You need to log in to Azure in Azure Data Studio.  To do this: type CTRL/Command + SHIFT + P to open the command text window and type **Azure**.  Choose **Azure: Sign in**.   In the panel, that comes up click the + icon in the top right to add an Azure account.
 
 ## Use the Deployment Wizard to create Azure Arc data controller
@@ -36,11 +34,6 @@ Follow these steps to create an Azure Arc data controller using the Deployment w
 1. Use the default kubeconfig file or select another one.  Click **Next**.
 1. Choose a Kubernetes cluster context. Click **Next**.
 1. Choose a deployment configuration profile depending on your target Kubernetes cluster. **Click Next**.
-1. If you are using Azure Red Hat OpenShift or Red Hat OpenShift container platform, apply security context constraints. Follow the instructions at [Apply a security context constraint for Azure Arc enabled data services on OpenShift](how-to-apply-security-context-constraint.md).
-
-   >[!IMPORTANT]
-   >On Azure Red Hat OpenShift or Red Hat OpenShift container platform, you must apply the security context constraint before you create the data controller.
-
 1. Choose the desired subscription and resource group.
 1. Select an Azure location.
    
