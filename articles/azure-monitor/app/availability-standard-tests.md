@@ -2,7 +2,7 @@
 title: Availability Standard test - Azure Monitor Application Insights
 description: Set up Standard tests in Application Insights to check for availability of a website with a single request test. 
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ---
 
 # Standard test
@@ -29,7 +29,7 @@ To create a standard test:
     
     :::image type="content" source="./media/availability-standard-test/standard-test.png" alt-text="Screenshot of Availability pane with add standard test tab open." lightbox="./media/availability-standard-test/standard-test.png":::
 
-1. Input your test name, URL and and additional settings (explanation below), then select **Create**.
+1. Input your test name, URL and additional settings (explanation below), then select **Create**.
 
 
 |Setting | Explanation |
@@ -140,7 +140,7 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-To learn more about the end to end transaction diagnostics experience visit the [transaction diagnostics documentation](./transaction-diagnostics.md).
+To learn more about the end to end transaction diagnostics experience, visit the [transaction diagnostics documentation](./transaction-diagnostics.md).
 
 Select on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code level diagnostics.
 

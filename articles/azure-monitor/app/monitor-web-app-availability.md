@@ -2,7 +2,7 @@
 title: Monitor availability with URL ping tests- Azure Monitor 
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 
 ms.reviewer: sdash
 ---
@@ -14,7 +14,7 @@ The name "URL ping test" is a bit of a misnomer. To be clear, these tests are no
 In order to create an availability test, you need use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 
 > [!NOTE]
-> URL ping tests are now considered classic tests and can be found under **Add Classic Test** in the Availability pane. For more advanced features, see [Standard tests (preview)](availability-standard-tests.md)
+> URL ping tests are categorized as classic tests and can be found under **Add Classic Test** in the Availability pane. For more advanced features, see [Standard tests (preview)](availability-standard-tests.md)
  
 ## Create a test
 
@@ -134,7 +134,7 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-To learn more about the end to end transaction diagnostics experience visit the [transaction diagnostics documentation](./transaction-diagnostics.md).
+To learn more about the end to end transaction diagnostics experience, visit the [transaction diagnostics documentation](./transaction-diagnostics.md).
 
 Select on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code level diagnostics.
 
