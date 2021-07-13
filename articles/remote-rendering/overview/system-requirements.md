@@ -91,7 +91,6 @@ Make sure that your firewalls (on device, inside routers, etc.) don't block the 
 | 8266              | UDP      | Outgoing | Data transfer |
 | 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
 
-
 ## Software
 
 The following software must be installed:
@@ -117,7 +116,7 @@ For Unity 2019, version 2019.3 or 2019.4 LTS is supported. However to work with 
 
 ### Unity 2020
 
-For Unity 2020, use Unity 2020.3.
+For Unity 2020, use latest version of Unity 2020.3.
 
 > [!IMPORTANT]
 > When working with the OpenXR version of the plugin, it has to be verified that the *Universal Render Pipeline* (URP) has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
