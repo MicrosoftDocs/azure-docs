@@ -33,7 +33,7 @@ A managed identity from Azure Active Directory (Azure AD) allows your runbook to
 
 Here are some of the benefits of using managed identities:
 
-- You can use managed identities to authenticate to any Azure service that supports Azure AD authentication. They can be used for cloud and hybrid jobs. Hybrid jobs can use managed identities when run on a Hybrid Runbook Worker that's running on an Azure or non-Azure VM.
+- Using a managed identity instead of the Automation Run As account makes management simpler. You don't have to renew the certificate used by a Run As account.
 
 - Managed identities can be used without any additional cost.
 

@@ -15,15 +15,15 @@ This article discusses solutions to problems that you might encounter when you u
 
 ### Issue
 
-When working with a user assigned managed identity in your Automation account, you receive an error similar to: `Failed to get MSI token for account a123456b-1234-12a3-123a-aa123456aa0b`.
+When working with a user-assigned managed identity in your Automation account, you receive an error similar to: `Failed to get MSI token for account a123456b-1234-12a3-123a-aa123456aa0b`.
 
 ### Cause
 
-A likely cause is from using a user assigned managed identity before enabling a system assigned managed identity for your Automation account.
+Using a user-assigned managed identity before enabling a system-assigned managed identity for your Automation account.
 
 ### Resolution
 
-Enable a system assigned managed identity for your Automation account. Then use the user assigned managed identity.  
+Enable a system-assigned managed identity for your Automation account. Then use the user-assigned managed identity.  
 
 ## Scenario: Attempt to use managed identity with Automation account fails
 
