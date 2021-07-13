@@ -118,11 +118,11 @@ To set up a new appliance, you can use an OVF template (recommended) or PowerShe
     - Data disk 1 – 620 GB
     - Data disk 2 – 620 GB
 
-### Create Site Recovery appliance
+## Create azure Site Recovery replication appliance
 
 You can create the Site Recovery replication appliance by using the OVF template or through PowerShell.
 
-#### Create replication appliance through OVF template
+### Create replication appliance through OVF template
 
 We recommend this approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
 The OVF template spins up a machine with the required specifications.
@@ -134,7 +134,7 @@ Follow these steps:
 3. In the next screen, provide password for the administrator user.
 4.  Select **Finalize,** the system reboots and you can login with the administrator user account.
 
-#### Set up Azure Site Recovery appliance through PowerShell
+### Set up Azure Site Recovery appliance through PowerShell
 
 In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
