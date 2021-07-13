@@ -206,13 +206,13 @@ For some resource types, you need to contact support to have the 800 instance li
 * accounts/models
 * accounts/storageContainers
 
-## Microsoft.Storage
-
-* storageAccounts
-
 ## Microsoft.Sql
 
 * servers/databases
+
+## Microsoft.Storage
+
+* storageAccounts
 
 ## Microsoft.StreamAnalytics
 
