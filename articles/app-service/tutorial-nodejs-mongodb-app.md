@@ -448,7 +448,7 @@ module.exports = {
 
 There are three files you need to modify: the client model, the HTML template, and the component file. 
 
-Open _client/src/app/todo.ts_ and add a `done` property. When your done, your model show look like this:
+Open _client/src/app/todo.ts_ and add a `done` property. When you're done, your model show look like this:
 
 ```typescript
 export class Todo {
