@@ -430,7 +430,7 @@ The following sample creates a rule that can target any resource.
                 "autoMitigate": "[parameters('autoMitigate')]",
                 "checkWorkspaceAlertsStorageConfigured": "[parameters('checkWorkspaceAlertsStorageConfigured')]",
                 "actions": {
-                  "actionGroups": "[parameters('actionGroupId')]",
+                    "actionGroups": "[parameters('actionGroupId')]",
                     "customProperties": {
                         "key1": "value1",
                         "key2": "value2"
