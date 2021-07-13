@@ -84,3 +84,4 @@ Azure Firewall has the following known issues:
 - [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
+- [Learn module: Introduction to Azure Firewall](/learn/modules/introduction-azure-firewall/)
