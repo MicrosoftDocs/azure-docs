@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/09/2021
 
 ms.author: mimart
 author: msmimart
@@ -29,7 +29,9 @@ After you've added Google as one of your application's sign-in options, on the *
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [SAML/WS-Fed identity provider federation](direct-federation.md).
 
 > [!IMPORTANT]
-> **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](#deprecation-of-web-view-sign-in-support).
+>
+> - **Starting July 12, 2021**, if Azure AD B2B customers set up new Google integrations for use with self-service sign-up or for inviting external users for their custom or line-of-business applications, authentication could be blocked for Gmail users (with the error screen shown below in [What to expect](#what-to-expect)). This issue occurs only if you create Google integration for self-service sign-up user flows or invitations after July 12, 2021 and Gmail authentications in your custom or line-of-business applications haven’t been moved to system web-views. Because system web-views are enabled by default, most apps will not be affected. To avoid the issue, we strongly advise you to move Gmail authentications to system browsers before creating any new Google integrations for self-service sign-up. Please refer to [Action needed for embedded web-views](#action-needed-for-embedded-frameworks).
+> - **Starting September 30, 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](#deprecation-of-web-view-sign-in-support).
 
 ## What is the experience for the Google user?
 
