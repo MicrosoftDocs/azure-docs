@@ -43,7 +43,7 @@ You can also select the **Additional settings** tab to view the authentication s
 
 Notice that the box for entering **Allowed object IDs** is grayed out. This is because we use Azure RBAC for configuring role assignments in this case.
 
-If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server. For more information, see the [local RBAC assignment reference](configure-local-rbac.md).
+If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server.
 
 ## Fetch FHIR API capability statement
 
