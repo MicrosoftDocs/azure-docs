@@ -24,15 +24,15 @@ Available security content includes a built-in workbook and built-in analytics r
 
 ## Built in workbooks
 
-Use the following built-in workbooks for SAP to visualize and monitor data ingested via the SAP data connector.
+Use the following built-in workbooks to visualize and monitor data ingested via the SAP data connector. After deploying the SAP solution, SAP workbooks are found in the *My workbooks** tab.
 
 |Workbook name  |Description  |
 |---------|---------|
-|<a name="sap---system-applications-and-products-workbook"></a>**SAP - System Applications and Products workbook**     |         |
-|**SAP - Suspicious Privileges Operations**     |         |
-|**SAP - Attempts to Bypass SAP Security Mechanisms**     |         |
-|**SAP - Backdoor Creation**     |         |
-|**SAP - Data Exfiltration & Initial Access**     |         |
+|<a name="sap---system-applications-and-products-workbook"></a>**SAP - Audit log**     |Displays data about: <br><br>- General system health, including user sign-ins over time, events ingested by the system, message classes and IDs, and ABAP programs run <br>- Severities of events occurring in your system <br>- Authentication and authorization events occurring in your system |
+|**SAP - Suspicious Privileges Operations**     |  Displays data about: <br><br>- Sensitive and critical assignments <br>-   Actions and changes made to sensitive, privileged users <br>- Changes made to roles  |
+|**SAP - Attempts to Bypass SAP Security Mechanisms**     |  Displays data about: <br><br>- Executions of sensitive programs, code and function modules <br>- Configuration changes, including log deactivations <br>- Changes made in debug mode    |
+|**SAP - Backdoor Creation**     |    Displays data about: <br><br>- Internet Communication Framework (ICF) services, including activations and deactivations and data about new services and service handlers <br>- Insecure operations, including both function modules and programs <br>- Direct access to sensitive tables      |
+|**SAP - Data Exfiltration & Initial Access**     |   Displays data about: <br><br>- Spool, spool output, and download actions <br>-  Events and connections for non-authorized FTP servers, configurations for insecure FTP servers, dynamic RFC destinations, and HANA DB admin actions <br>- Multiple sign-ins by the same user, brute force attacks, and sign-ins from unexpected networks |
 |     |         |
 
 For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md) and [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md).
