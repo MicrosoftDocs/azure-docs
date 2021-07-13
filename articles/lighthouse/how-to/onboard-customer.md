@@ -146,7 +146,7 @@ Finally, create your authorizations by selecting **+ Add authorization**. For ea
 1. Select the **+ Select user** link to open the selection pane. You can use the search field to find the user you'd like to add. Once you've done so, click **Select**. The user's **Principal ID** will be automatically populated.
 1. Review the **Display name** field (populated based on the user you selected) and make changes, if desired.
 1. Select the **Role** to assign to this user.
-1. For **Access** type, select **Permanent** or **Eligible**. If you choose **Eligible**, you will need to specify options for maximum duration, multifactor authentication, and whether or not approval is required. For more information about these options, see [Create eligible authorizations](create-eligible-authorizations.md). The eligible authorizations feature is currently in public preview and has specific licensing requirements.
+1. For **Access** type, select **Permanent** or **Eligible**. If you choose **Eligible**, you will need to specify options for maximum duration, multifactor authentication, and whether or not approval is required. For more information about these options, see [Create eligible authorizations](create-eligible-authorizations.md). The eligible authorizations feature is currently in public preview, and can't be used with service principals.
 1. Select **Add** to create your authorization.
 
 :::image type="content" source="../media/add-authorization.png" alt-text="Screenshot of the Add authorization section in the Azure portal.":::
