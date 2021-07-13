@@ -281,8 +281,7 @@ For example, when the `TokenNotBeforeSkewInSeconds` is set to `120` seconds:
 
 ## Remove milliseconds from date and time
 
-You can specify whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). To remove the milliseconds, set the `RemoveMillisecondsFromDateTime
-` metadata key within the relying party. Possible values: `false` (default) or `true`.
+You can specify whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). To remove the milliseconds, set the `RemoveMillisecondsFromDateTime` metadata key within the relying party. Possible values: `false` (default) or `true`.
 
 ```xml
 <ClaimsProvider>
