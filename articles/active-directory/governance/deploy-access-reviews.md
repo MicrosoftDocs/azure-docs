@@ -81,7 +81,7 @@ The following videos may be useful as you learn about Access Reviews:
 
 You need a valid Azure AD Premium (P2) license for each person, other than Global Administrators or User Administrators, who will create or perform Access Reviews. For more information, see [Access Reviews license requirements](access-reviews-overview.md).
 
-You may also need other Identity Governance features, such as [Entitlement Lifecycle Management](entitlement-management-overview.md) or Privileged Identity Managements. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+You may also need other Identity Governance features, such as [Entitlement Lifecycle Management](entitlement-management-overview.md) or Privileged Identity Managements. In that case, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Plan the Access Reviews deployment project
 
