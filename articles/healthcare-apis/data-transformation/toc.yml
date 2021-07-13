@@ -30,6 +30,8 @@ items:
       items:
         - name: Using Portal
           href: iot-fhir-portal-quickstart.md
+        - name: Deploy the IoT Connector in the Azure portal
+          href: deploy-iot-connector-in-azure.md
         - name: Using ARM template
           href: iot-fhir-arm-template-quickstart.md
     - name: Ingest data from IoT devices
