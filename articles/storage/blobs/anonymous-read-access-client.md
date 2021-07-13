@@ -105,4 +105,4 @@ public static void DownloadBlobAnonymously()
 
 - [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md)
 - [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md)
-- [Authorizing access to Azure Storage](../common/storage-auth.md)
+- [Authorizing access to Azure Storage](../common/authorize-data-access.md)

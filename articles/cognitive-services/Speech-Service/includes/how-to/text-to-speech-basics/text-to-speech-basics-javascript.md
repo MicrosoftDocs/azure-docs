@@ -94,7 +94,7 @@ To start, create an `AudioConfig` to automatically write the output to a `.wav` 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path/to/file.wav");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path/to/file.wav");
 }
 ```
 
@@ -103,7 +103,7 @@ Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and t
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path-to-file.wav");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
@@ -131,7 +131,7 @@ In some cases, you may want to directly output synthesized speech directly to a 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const audioConfig = AudioConfig.fromDefaultSpeakerOutput();
+    const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(

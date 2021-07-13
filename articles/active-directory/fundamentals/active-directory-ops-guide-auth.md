@@ -37,7 +37,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Triage and investigate users flagged for risk and vulnerability reports from Azure AD Identity Protection | InfoSec Operations Team |
 
 > [!NOTE]
-> Azure AD Identity Protection requires an Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Azure AD Free and Azure AD Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection requires an Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Azure AD Free and Azure AD Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren't aligned with the recommendations above.
 

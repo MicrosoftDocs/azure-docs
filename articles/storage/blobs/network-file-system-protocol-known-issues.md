@@ -46,7 +46,7 @@ Windows client for NFS is not yet supported
 
 The following Blob Storage features aren't yet supported.
 
-- [Azure Active Directory (AD) security](../common/storage-auth-aad.md?toc=/azure/storage/blobs/toc.json)
+- [Azure Active Directory (AD) security](../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json)
 - [Azure Backup integration](../../backup/blob-backup-overview.md)
 - [Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json)
 - [Blob index tags](storage-blob-index-how-to.md)
