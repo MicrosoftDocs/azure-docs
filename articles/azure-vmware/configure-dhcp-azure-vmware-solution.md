@@ -1,11 +1,11 @@
 ---
 title: Configure DHCP for Azure VMware Solution
-description: Learn how to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
+description: Learn how to configure DHCP with either NSX-T Manager or the Azure portal for Azure VMware Solution.
 ms.topic: how-to
 ms.custom: contperf-fy22q1 
 ms.date: 07/16/2021
 
-# Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
+# Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager or the Azure portal for Azure VMware Solution.
 
 ---
 
