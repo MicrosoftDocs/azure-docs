@@ -125,7 +125,7 @@ With the prerequisites in place, the next step is to define the ARM deployment t
             },
             "resources": [
                 {
-                    "apiVersion": "2019-12-01-preview",
+                    "apiVersion": "2021-01-15",
                     "name": "[parameters('name')]",
                     "type": "Microsoft.Web/staticSites",
                     "location": "[parameters('location')]",
@@ -143,7 +143,19 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                     "sku": {
                         "Tier": "[parameters('sku')]",
                         "Name": "[parameters('skuCode')]"
-                    }
+                    },
+                    "resources":[
+                        {
+                            "apiVersion": "2021-01-15",
+                            "name": "appsettings",
+                            "type": "config",
+                            "location": "[parameters('location')]",
+                            "properties": "[parameters('appSettings')]",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/staticSites', parameters('name'))]"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
@@ -221,7 +233,7 @@ You need either Azure CLI or Azure PowerShell to deploy the template.
 
 ### Sign in to Azure
 
-To deploy a template sign in to either the Azure CLI or Azure PowerShell.
+To deploy a template, sign in to either the Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 
