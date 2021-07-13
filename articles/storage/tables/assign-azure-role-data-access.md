@@ -39,12 +39,12 @@ To assign a role scoped to a table, specify a string containing the scope of the
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/tableServices/default/tables/<table-name>
 ```
 
-The following example assigns the **Storage Table Data Contributor** role to a user, scoped to a table named *sample-table*. Make sure to replace the sample values and the placeholder values in brackets with your own values: 
+The following example assigns the **Storage Table Data Contributor** role to a user, scoped to a table. Make sure to replace the sample values and the placeholder values in brackets with your own values:
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
     -RoleDefinitionName "Storage Table Data Contributor" `
-    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/tableServices/default/tables/sample-table"
+    -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/tableServices/default/tables/<table>"
 ```
 
 For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
