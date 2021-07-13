@@ -71,9 +71,9 @@ To enter the device mapping properties associated with the IoT Connector, refer 
 
 ## Configure device mapping properties
 
-1.Under the **Device Mapping** tab, enter the device mapping JSON code associated with the IoT Connector.
+1. Under the **Device Mapping** tab, enter the device mapping JSON code associated with the IoT Connector.
 
-[ ![Configure device mapping](media/data-transformation/configure-device-mapping.png) ](media/data-transformation/configure-device-mapping.png#lightbox)
+   [ ![Configure device mapping](media/data-transformation/configure-device-mapping.png) ](media/data-transformation/configure-device-mapping.png#lightbox)
 2. To review and create the IoT Connector, select **Review + create**, or select **Next: Tags >**. 
 
 To enter the tagging properties associated with the IoT Connector, refer to the instructions in the following section.
@@ -82,7 +82,7 @@ To enter the tagging properties associated with the IoT Connector, refer to the 
 
 1. Under the **Tags** tab, enter the tag properties associated with the IoT Connector.
 
-[ ![Tag properties](media/data-transformation/tag-properties.png) ](media/data-transformation/tag-properties.png#lightbox)
+   [ ![Tag properties](media/data-transformation/tag-properties.png) ](media/data-transformation/tag-properties.png#lightbox)
 
 2. Enter a **Name**.
 3. Enter a **Value**.
