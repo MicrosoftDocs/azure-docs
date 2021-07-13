@@ -291,15 +291,11 @@
       - name: Device connections
         href: core/troubleshoot-connection.md
     - name: FAQ
-<<<<<<< HEAD
       href: core/howto-faq.yml
-=======
-      href: core/howto-faq.md
     - name: Manage your personal preferences
       href: core/howto-manage-preferences.md
     - name: Toggle live chat
       href: core/howto-show-hide-chat.md
->>>>>>> 8e4e1156e38f15cbfcae62253efb37fd546b07ed
 
 - name: Reference
   items:
