@@ -3,7 +3,7 @@ title: Azure Data Factory - Samples
 description: Provides details about samples that ship with the Azure Data Factory service.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -39,9 +39,9 @@ You can find the following Azure Resource Manager templates for Data Factory on 
 
 | Template | Description |
 | --- | --- |
-| [Copy from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Azure blob storage to Azure SQL Database |
-| [Copy from Salesforce to Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Salesforce account to the Azure blob storage. |
-| [Transform data by running Hive script on an Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Deploying this template creates an Azure data factory with a pipeline that transforms data by running the sample Hive script on an Azure HDInsight Hadoop cluster. |
+| [Copy from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-blob-to-sql-copy) |Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Azure blob storage to Azure SQL Database |
+| [Copy from Salesforce to Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-salesforce-to-blob-copy) |Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Salesforce account to the Azure blob storage. |
+| [Transform data by running Hive script on an Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-hive-transformation) |Deploying this template creates an Azure data factory with a pipeline that transforms data by running the sample Hive script on an Azure HDInsight Hadoop cluster. |
 
 ## Samples in Azure portal
 You can use the **Sample pipelines** tile on the home page of your data factory to deploy sample pipelines and their associated entities (datasets and linked services) in to your data factory.

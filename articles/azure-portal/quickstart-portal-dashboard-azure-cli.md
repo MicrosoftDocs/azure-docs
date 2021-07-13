@@ -2,13 +2,17 @@
 title: Create an Azure portal dashboard with Azure CLI
 description: "Quickstart: Learn how to create a dashboard in the Azure portal using the Azure CLI. A dashboard is a focused and organized view of your cloud resources."
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
 ---
 
 # Quickstart: Create an Azure portal dashboard with Azure CLI
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This
+article focuses on the process of using Azure CLI to create a dashboard.
+The dashboard shows the performance of a virtual machine (VM), as well as some static information
+and links.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -40,8 +44,8 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 > The password must be complex.
 > This is a new user name and password.
 > It's not, for example, the account you use to sign in to Azure.
-> For more information, see [username requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)
-and [password requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+> For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
+and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 The deployment starts and typically takes a few minutes to complete.
 After deployment completes, move on to the next section.
@@ -67,20 +71,20 @@ For more information, see [Microsoft portal dashboards template reference](/azur
 
 You can now deploy the template from within Azure CLI.
 
-1. Run the [az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) command to deploy the template:
+1. Run the [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) command to deploy the template:
 
    ```azurecli
    az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
       --input-path portal-dashboard-template-testvm.json --location centralus
    ```
 
-1. Check that the dashboard was created successfully by running the [az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) command:
+1. Check that the dashboard was created successfully by running the [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show) command:
 
    ```azurecli
    az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
    ```
 
-To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list):
+To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
 
 ```azurecli
 az portal dashboard list
@@ -92,27 +96,14 @@ You can also see all the dashboards for a resource group:
 az portal dashboard list --resource-group myResourceGroup
 ```
 
-You can update a dashboard by using the [az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) command:
+You can update a dashboard by using the [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update) command:
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Verify that you can see data about the virtual machine from within the Azure portal.
-
-1. In the Azure portal, select **Dashboard**.
-
-   ![Azure portal navigation to dashboard](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. On the dashboard page, select **Simple VM Dashboard**.
-
-   ![Navigate to Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Review the dashboard. You can see that some of the content is static, but there are also charts
-   that show the performance of the VM.
-
-   ![Review Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## Clean up resources
 
@@ -126,7 +117,7 @@ To remove the virtual machine and associated dashboard, delete the resource grou
 az group delete --name myResourceGroup
 ```
 
-To remove only the dashboard, use the [az portal dashboard delete](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_delete) command:
+To remove only the dashboard, use the [az portal dashboard delete](/cli/azure/portal/dashboard#az_portal_dashboard_delete) command:
 
 ```azurecli
 az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Dashboard"
@@ -134,4 +125,4 @@ az portal dashboard delete --resource-group myResourceGroup --name "Simple VM Da
 
 ## Next steps
 
-For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/ext/portal/portal/dashboard).
+For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/portal/dashboard).

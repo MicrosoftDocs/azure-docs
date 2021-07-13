@@ -1,7 +1,7 @@
 ---
 title: How to protect your resource hierarchy - Azure Governance
 description: Learn how to protect your resource hierarchy with hierarchy settings that include setting the default management group.
-ms.date: 02/05/2021
+ms.date: 04/09/2021
 ms.topic: conceptual
 ---
 # How to protect your resource hierarchy
@@ -42,7 +42,7 @@ with policy assignments or Azure role assignments more suited to a new subscript
 
 ### Set default management group in portal
 
-To configure this setting in Azure portal, follow these steps:
+To configure this setting in the Azure portal, follow these steps:
 
 1. Use the search bar to search for and select 'Management groups'.
 
@@ -62,8 +62,8 @@ To configure this setting in Azure portal, follow these steps:
 ### Set default management group with REST API
 
 To configure this setting with REST API, the
-[Hierarchy Settings](/rest/api/resources/hierarchysettings) endpoint is called. To do so, use the
-following REST API URI and body format. Replace `{rootMgID}` with the ID of your root management
+[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use
+the following REST API URI and body format. Replace `{rootMgID}` with the ID of your root management
 group and `{defaultGroupID}` with the ID of the management group to become the default management
 group:
 
@@ -97,7 +97,7 @@ child management groups.
 
 ### Set require authorization in portal
 
-To configure this setting in Azure portal, follow these steps:
+To configure this setting in the Azure portal, follow these steps:
 
 1. Use the search bar to search for and select 'Management groups'.
 
@@ -115,8 +115,8 @@ To configure this setting in Azure portal, follow these steps:
 ### Set require authorization with REST API
 
 To configure this setting with REST API, the
-[Hierarchy Settings](/rest/api/resources/hierarchysettings) endpoint is called. To do so, use the
-following REST API URI and body format. This value is a _boolean_, so provide either **true** or
+[Hierarchy Settings](/rest/api/managementgroups/hierarchysettings) endpoint is called. To do so, use
+the following REST API URI and body format. This value is a _boolean_, so provide either **true** or
 **false** for the value. A value of **true** enables this method of protecting your management group
 hierarchy:
 
@@ -138,6 +138,29 @@ hierarchy:
 
 To turn the setting back off, use the same endpoint and set
 **requireAuthorizationForGroupCreation** to a value of **false**.
+
+## PowerShell sample
+
+PowerShell doesn't have an 'Az' command to set the default management group or set require
+authorization, but as a workaround you can use the REST API with the PowerShell sample below:
+
+```powershell
+$root_management_group_id = "Enter the ID of root management group"
+$default_management_group_id = "Enter the ID of default management group (or use the same ID of the root management group)"
+
+$body = '{
+     "properties": {
+          "defaultManagementGroup": "/providers/Microsoft.Management/managementGroups/' + $default_management_group_id + '",
+          "requireAuthorizationForGroupCreation": true
+     }
+}'
+
+$token = (Get-AzAccessToken).Token
+$headers = @{"Authorization"= "Bearer $token"; "Content-Type"= "application/json"}
+$uri = "https://management.azure.com/providers/Microsoft.Management/managementGroups/$root_management_group_id/settings/default?api-version=2020-02-01"
+
+Invoke-RestMethod -Method PUT -Uri $uri -Headers $headers -Body $body
+```
 
 ## Next steps
 

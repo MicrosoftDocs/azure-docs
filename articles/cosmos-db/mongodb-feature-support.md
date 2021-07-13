@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 10/16/2019
-author: sivethe
-ms.author: sivethe
+author: gahl-levy
+ms.author: gahllevy
 ---
 
 # Azure Cosmos DB's API for MongoDB (3.2 version): supported features and syntax
@@ -77,8 +77,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 <a name="aggregation-pipeline"></a>
 
 ## Aggregation pipeline</a>
-
-Cosmos DB supports aggregation pipeline for MongoDB 3.2 in public preview. See the [Azure blog](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/) for instructions on how to onboard to the public preview.
 
 ### Aggregation commands
 
@@ -229,24 +227,24 @@ Following operators are supported with corresponding examples of their use. Cons
 }
 ```
 
-Operator | Example |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+| Operator | Example |
+| --- | --- |
+| $eq | `{ "Volcano Name": { $eq: "Rainier" } }` |
+| $gt | `{ "Elevation": { $gt: 4000 } }` | 
+| $gte | `{ "Elevation": { $gte: 4392 } }` | 
+| $lt | `{ "Elevation": { $lt: 5000 } }` | 
+| $lte | `{ "Elevation": { $lte: 5000 } }` | 
+| $ne | `{ "Elevation": { $ne: 1 } }` | 
+| $in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |
+| $nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` |
+| $or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` | 
+| $and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |
+| $not | `{ "Elevation": { $not: { $gt: 5000 } } }`| 
+| $nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |
+| $exists | `{ "Status": { $exists: true } }`|
+| $type | `{ "Status": { $type: "string" } }`| 
+| $mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` | 
+| $regex | `{ "Volcano Name": { $regex: "^Rain"} }`| 
 
 ### Notes
 

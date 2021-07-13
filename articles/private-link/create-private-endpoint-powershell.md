@@ -7,7 +7,8 @@ author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Quickstart: Create an Azure Private Endpoint using Azure PowerShell
@@ -140,6 +141,8 @@ New-AzVMConfig @parameters2 | Set-AzVMOperatingSystem -Windows @parameters3 | Se
 ## Create the virtual machine ##
 New-AzVM -ResourceGroupName 'CreatePrivateEndpointQS-rg' -Location 'eastus' -VM $vmConfig
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Create private endpoint
 

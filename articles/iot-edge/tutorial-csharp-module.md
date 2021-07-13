@@ -13,11 +13,13 @@ ms.custom: "mvc, devx-track-csharp"
 
 ---
 
-# Tutorial: Develop a C# IoT Edge module for Linux devices
+# Tutorial: Develop a C# IoT Edge module using Linux containers
 
-Use Visual Studio Code to develop C# code and deploy it to a Linux device running Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows](quickstart.md) or [Linux](quickstart-linux.md) quickstarts. In this tutorial, you learn how to:
+Use Visual Studio Code to develop C# code and deploy it to a device running Azure IoT Edge.
+
+You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the quickstarts. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -32,9 +34,9 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Prerequisites
 
-This tutorial demonstrates how to develop a module in **C#** using **Visual Studio Code** and deploy it to a **Linux device**. If you're developing modules for Windows devices, go to [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-windows.md) instead.
+This tutorial demonstrates how to develop a module in **C#** using **Visual Studio Code** and deploy it to an IoT Edge device. If you're developing modules using Windows containers, go to [Develop a C# IoT Edge module using Windows containers](tutorial-csharp-module-windows.md) instead.
 
-Use the following table to understand your options for developing and deploying C# modules to Linux:
+Use the following table to understand your options for developing and deploying C# modules using Linux containers:
 
 | C# | Visual Studio Code | Visual Studio |
 | -- | ------------------ | ------------- |
@@ -44,10 +46,10 @@ Use the following table to understand your options for developing and deploying 
 >[!NOTE]
 >Support for Linux ARM64 devices is available in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module for a Linux device](tutorial-develop-for-linux.md). After completing that tutorial, you already should have the following prerequisites:
+Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment, [Develop an IoT Edge module using Linux containers](tutorial-develop-for-linux.md). After completing that tutorial, you already should have the following prerequisites:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* A [Linux device running Azure IoT Edge](quickstart-linux.md).
+* A device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
@@ -55,7 +57,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 To complete these tutorials, prepare the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## Create a module project
 
@@ -90,6 +92,9 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 1. In the VS Code explorer, open the **.env** file.
 2. Update the fields with the **username** and **password** values from your Azure container registry.
 3. Save this file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 

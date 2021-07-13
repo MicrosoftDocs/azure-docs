@@ -1,6 +1,6 @@
 ---
 title: 'Modify gateway IP address settings: PowerShell'
-description: This article walks you through changing IP address prefixes for your local network gateway using PowerShell
+description: Learn how to change IP address prefixes for your local network gateway using PowerShell.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc

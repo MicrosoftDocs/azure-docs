@@ -38,7 +38,7 @@ To configure FastPath, the virtual network gateway must be either:
 
 While FastPath supports most configurations, it does not support the following features:
 
-* UDR on the gateway subnet: If you apply a UDR to the gateway subnet of your virtual network, the network traffic from your on-premises network will continue to be sent to the virtual network gateway.
+* UDR on the gateway subnet: This UDR has no impact on the network traffic that FastPath sends directly from your on-premises network to the virtual machines in Azure virtual network. 
 
 * VNet Peering: If you have other virtual networks peered with the one that is connected to ExpressRoute, the network traffic from your on-premises network to the other virtual networks (i.e. the so-called "Spoke" VNets) will continue to be sent to the virtual network gateway. The workaround is to connect all the virtual networks to the ExpressRoute circuit directly.
 

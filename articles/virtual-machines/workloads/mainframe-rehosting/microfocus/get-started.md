@@ -5,7 +5,8 @@ author: njray
 ms.author: sread
 ms.date: 03/30/2020
 ms.topic: article
-ms.service: multiple
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ---
 
 # Micro Focus dev/test environments on Azure

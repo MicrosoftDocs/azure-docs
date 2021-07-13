@@ -8,7 +8,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/15/2019
 ms.author: akjosh
-ms.reviewer: cynthn
+ms.reviewer: cynthn 
+ms.custom: devx-track-azurepowershell
 ---
 # Share gallery VM images across Azure tenants using PowerShell
 

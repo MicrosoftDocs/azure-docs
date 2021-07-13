@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app | Azure"
+title: "Quickstart: Add sign-in with Microsoft Identity to an ASP.NET Core web app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how an app implements Microsoft sign-in on an ASP.NET Core web app by using OpenID Connect
 services: active-directory
@@ -79,6 +79,8 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > [!div renderon="portal" class="sxs-lookup" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
 > We've configured your project with values of your app's properties, and it's ready to run.
@@ -93,11 +95,10 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the solution in Visual Studio 2019.
 > 1. Open the *appsettings.json* file and modify the following code:
 >
->    ```json
->    "ClientId": "Enter_the_Application_Id_here",
->    "TenantId": "common",
->    ```
 >
+
+ :::code language="json" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/appsettings.json" range="4,5,6":::
+
 >    - Replace `Enter_the_Application_Id_here` with the application (client) ID of the application that you registered in the Azure portal. You can find the **Application (client) ID** value on the app's **Overview** page.
 >    - Replace `common` with one of the following:
 >       - If your application supports **Accounts in this organizational directory only**, replace this value with the directory (tenant) ID (a GUID) or the tenant name (for example, `contoso.onmicrosoft.com`). You can find the **Directory (tenant) ID** value on the app's **Overview** page.
@@ -131,23 +132,9 @@ This section gives an overview of the code required to sign in users. This overv
 
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
-```csharp
-  public void ConfigureServices(IServiceCollection services)
-  {
-      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
-      services.AddControllersWithViews(options =>
-      {
-          var policy = new AuthorizationPolicyBuilder()
-              .RequireAuthenticatedUser()
-              .Build();
-          options.Filters.Add(new AuthorizeFilter(policy));
-      });
-      services.AddRazorPages()
-          .AddMicrosoftIdentityUI();
-  }
-```
+ :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="Configure_service_ref_for_docs_ms" highlight="3,4":::
+
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
 
@@ -161,21 +148,8 @@ The line that contains `.AddMicrosoftIdentityWebApp` adds Microsoft identity pla
 
 The `Configure()` method contains two important methods, `app.UseAuthentication()` and `app.UseAuthorization()`, that enable their named functionality. Also in the `Configure()` method, you must register Microsoft Identity Web routes with at least one call to `endpoints.MapControllerRoute()` or a call to `endpoints.MapControllers()`:
 
-```csharp
-app.UseAuthentication();
-app.UseAuthorization();
+ :::code language="csharp" source="~/sample-active-directory-aspnetcore-webapp-openidconnect-v2/Startup.cs" id="endpoint_map_ref_for_docs_ms":::
 
-app.UseEndpoints(endpoints =>
-{
-
-    endpoints.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-    endpoints.MapRazorPages();
-});
-
-// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
-```
 
 ### Attribute for protecting a controller or methods
 

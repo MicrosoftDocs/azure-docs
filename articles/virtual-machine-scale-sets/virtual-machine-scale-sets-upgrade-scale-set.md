@@ -5,10 +5,9 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Modify a virtual machine scale set
@@ -345,7 +344,7 @@ Some properties may be changed, with exceptions depending on the current value. 
 
 - **singlePlacementGroup** - If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it **may not** be modified to true.
 - **subnet** - The subnet of a scale set may be modified as long as the original subnet and the new subnet are in the same virtual network.
-- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#view-plan-properties). 
+- **imageReferenceSku** - Image reference SKU can be updated for endorsed [Linux distros](../virtual-machines/linux/endorsed-distros.md), Windows server/client images, and images without [plan information](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information). 
 
 ### Properties that require deallocation to change
 Some properties may only be changed to certain values if the VMs in the scale set are deallocated. These properties include:
@@ -412,7 +411,7 @@ Alternatively, you may want to change the image your scale set uses. For example
 ### Update the load balancer for your scale set
 Let's say you have a scale set with an Azure Load Balancer, and you want to replace the Azure Load Balancer with an Azure Application Gateway. The load balancer and Application Gateway properties for a scale set are part of a list, so you can use the commands to remove or add list elements instead of modifying the properties directly:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss

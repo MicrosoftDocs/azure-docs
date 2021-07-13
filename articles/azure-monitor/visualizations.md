@@ -27,10 +27,6 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Easy, collaborative-friendly authoring experience.
 - Templates support public GitHub-based template gallery.
 
-### Limitations
-- No automatic refresh.
-- No dense layout like dashboards, which make workbooks less useful as a single pane of glass. Intended more for providing deeper insights.
-
 
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
@@ -85,6 +81,9 @@ Here is a video walkthrough on creating dashboards.
 [Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
 
 ![Screenshot shows Grafana visualizations.](media/visualizations/grafana.png)
+
+> [!IMPORTANT]
+> The Internet Explorer browser and older Microsoft Edge browsers are not compatible with Grafana, you must use a chromium-based browser including Microsoft Edge. See [supported browsers for Grafana](https://grafana.com/docs/grafana/latest/installation/requirements/#supported-web-browsers).
 
 ### Advantages
 - Rich visualizations.

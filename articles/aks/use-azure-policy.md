@@ -170,5 +170,5 @@ For more information about how Azure Policy works:
 [azure-policy-addon]: ../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks
 [azure-policy-addon-remove]: ../governance/policy/concepts/policy-for-kubernetes.md#remove-the-add-on-from-aks
 [azure-policy-assign-policy]: ../governance/policy/concepts/policy-for-kubernetes.md#assign-a-built-in-policy-definition
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md

@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: how-to
 ms.date: 02/13/2021
-ms.author: albecker
+ms.author: albecker 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Update the storage type of a managed disk
@@ -33,7 +34,7 @@ $rgName = 'yourResourceGroup'
 # Name of the your virtual machine
 $vmName = 'yourVM'
 
-# Choose between Standard_LRS, StandardSDD_LRS and Premium_LRS based on your scenario
+# Choose between Standard_LRS, StandardSSD_LRS and Premium_LRS based on your scenario
 $storageType = 'Premium_LRS'
 
 # Premium capable size

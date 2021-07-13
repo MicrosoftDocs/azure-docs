@@ -1,8 +1,8 @@
 ---
 title: Azure Monitor view designer to workbooks conversion options
 description: Conversion options for transitioning from views to workbooks in Azure Monitor.
-author: austonli
-ms.author: aul
+author: shijatsu
+ms.author: shijain
 ms.topic: conceptual
 ms.date: 02/07/2020
 

@@ -1,6 +1,6 @@
 ---
 title: Deploy apps predictably with ARM
-description: Learn how to deploy multiple Azure App Service apps as a single unit and in a predictable manner using Azure Resource Management templates and PowerShell scripting.
+description: Learn how to deploy multiple Azure App Service apps as a single unit and in a predictable manner using Azure Resource Manager templates and PowerShell scripting.
 
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
@@ -25,7 +25,7 @@ In the tutorial, you will deploy an application that includes:
 In this tutorial, you will use the following tools. Since it’s not comprehensive discussion on tools, I’m going to stick to the end-to-end scenario and just give you a brief intro to each, and where you can find more information on it. 
 
 ### Azure Resource Manager templates (JSON)
-Every time you create an app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources. A complex template from the [Azure Marketplace](../marketplace/index.yml) can include the database, storage accounts, the App Service plan, the app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell. For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+Every time you create an app in Azure App Service, for example, Azure Resource Manager uses a JSON template to create the entire resource group with the component resources. A complex template from the [Azure Marketplace](../marketplace/index.yml) can include the database, storage accounts, the App Service plan, the app itself, alert rules, app settings, autoscale settings, and more, and all these templates are available to you through PowerShell. For more information on the Azure Resource Manager templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md)
 
 ### Azure SDK 2.6 for Visual Studio
 The newest SDK contains improvements to the Resource Manager template support in the JSON editor. You can use this to quickly create a resource group template from scratch or open an existing JSON template (such as a downloaded gallery template) for modification, populate the parameters file, and even deploy the resource group directly from an Azure Resource Group solution.
@@ -41,7 +41,7 @@ For more information, see [Using Azure PowerShell with Azure Resource Manager](.
 This [preview tool](https://resources.azure.com) enables you to explore the JSON definitions of all the resource groups in your subscription and the individual resources. In the tool, you can edit the JSON definitions of a resource, delete an entire hierarchy of resources, and create new resources.  The information readily available in this tool is very helpful for template authoring because it shows you what properties you need to set for a particular type of resource, the correct values, etc. You can even create your resource group in the [Azure Portal](https://portal.azure.com/), then inspect its JSON definitions in the explorer tool to help you templatize the resource group.
 
 ### Deploy to Azure button
-If you use GitHub for source control, you can put a [Deploy to Azure button](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) into your README.MD, which enables a turn-key deployment UI to Azure. While you can do this for any simple app, you can extend this to enable deploying an entire resource group by putting an azuredeploy.json file in the repository root. This JSON file, which contains the resource group template, will be used by the Deploy to Azure button to create the resource group. For an example, see the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) sample, which you will use in this tutorial.
+If you use GitHub for source control, you can put a [Deploy to Azure button](../azure-resource-manager/templates/deploy-to-azure-button.md) into your README.MD, which enables a turn-key deployment UI to Azure. While you can do this for any simple app, you can extend this to enable deploying an entire resource group by putting an azuredeploy.json file in the repository root. This JSON file, which contains the resource group template, will be used by the Deploy to Azure button to create the resource group. For an example, see the [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) sample, which you will use in this tutorial.
 
 ## Get the sample resource group template
 So now let’s get right to it.
@@ -247,8 +247,8 @@ In DevOps, repeatability and predictability are keys to any successful deploymen
 <a name="resources"></a>
 
 ## More resources
-* [Azure Resource Manager Template Language](../azure-resource-manager/templates/template-syntax.md)
-* [Authoring Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+* [Azure Resource Manager Template Language](../azure-resource-manager/templates/syntax.md)
+* [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md)
 * [Azure Resource Manager Template Functions](../azure-resource-manager/templates/template-functions.md)
 * [Deploy an application with Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md)
 * [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)

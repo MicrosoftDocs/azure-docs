@@ -28,9 +28,9 @@ Designing, building, and testing Azure application offers requires technical kno
 
 Review the following resources as you plan your Azure application offer for the commercial marketplace.
 
-- [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+- [Understand Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md)
 - Quickstarts:
-    - [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
+    - [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
     - [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     - [Publish application definition](../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
     - [Deploy service catalog app](../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
@@ -69,7 +69,7 @@ You can review the available tools in the [Azure Developer Tools](https://azure.
 
 ## Listing options
 
-After your offer is published, the listing options for your offer appear as a button in the upper-left corner of your offer’s listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the _Get It Now_ button. If you had chosen to offer a test drive, the _Test Drive_ button would also be shown.
+After your offer is published, the listing options for your offer appear as a button in the upper-left corner of your offer's listing page. For example, the following screenshot shows an offer listing page in Azure Marketplace with the _Get It Now_ button. If you had chosen to offer a test drive, the _Test Drive_ button would also be shown.
 
 :::image type="content" source="media/create-new-azure-app-offer/azure-app-listing-page.png" alt-text="Illustrates a listing page on Azure Marketplace.":::
 
@@ -137,17 +137,17 @@ To help create your offer more easily, prepare some of these items ahead of time
 
 - **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Search results summary**: Describe the purpose or function of your offer as a single sentence, in plain text with no line breaks, in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
-- **Short description**: Provide up to 256 characters of plain text. This summary will appear on your offer’s details page.
+- **Short description**: Provide up to 256 characters of plain text. This summary will appear on your offer's details page.
 - **Description**: This description will be displayed in the Azure Marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, customer need or pain that the offer addresses, any required disclosures, and a link to learn more.
 
     This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, which includes HTML markup and spaces. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description) and [HTML tags supported in the commercial marketplace offer descriptions](supported-html-tags.md).
 
 - **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online store. For best results, also use these keywords in your description. You don't need to include the offer **Name** and **Description**. That text is automatically included in search.
-- **Privacy policy link**: The URL for your company’s privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
+- **Privacy policy link**: The URL for your company's privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
 - **Useful links** (optional): You can provide links to various resources for users of your offer. For example, forums, FAQs, and release notes.
 - **Contact information**: You must designate the following contacts from your organization:
   - **Support contact**: Provide the name, phone, and email for Microsoft partners to use when your customers open tickets. You must also include the URL for your support website.
-  - **Engineering contact**: Provide the name, phone, and email for Microsoft to use directly when there are problems with your offer. This contact information isn’t listed in the commercial marketplace.
+  - **Engineering contact**: Provide the name, phone, and email for Microsoft to use directly when there are problems with your offer. This contact information isn't listed in the commercial marketplace.
   - **CSP Program contact** (optional): Provide the name, phone, and email if you opt in to the Cloud Solution Provider (CSP) program, so those partners can contact you with any questions. You can also include a URL to your marketing materials.
 - **Media – Logos**: Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
   - Large (from 216 x 216 to 350 x 350 px, required)
@@ -190,9 +190,9 @@ You define the preview audience using Azure subscription IDs, along with an opti
 
 ## Technical configuration
 
-For managed applications that emit metering events using the [Marketplace metering service APIs](partner-center-portal/marketplace-metering-service-apis.md), you must provide the identity that your service will use when emitting metering events.
+For managed applications that emit metering events using the [Marketplace metering service APIs](marketplace-metering-service-apis.md), you must provide the identity that your service will use when emitting metering events.
 
-This configuration is required if you want to use [Batch usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-batch-usage-event). In case you want to submit [usage event](partner-center-portal/marketplace-metering-service-apis.md#metered-billing-single-usage-event), you can also use the [instance metadata service](../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
+This configuration is required if you want to use [Batch usage event](marketplace-metering-service-apis.md#metered-billing-batch-usage-event). In case you want to submit [usage event](marketplace-metering-service-apis.md#metered-billing-single-usage-event), you can also use the [instance metadata service](../active-directory/managed-identities-azure-resources/overview.md) to get the [JSON web token (JWT) bearer token](partner-center-portal/pc-saas-registration.md#how-to-get-the-publishers-authorization-token)).
 
 - **Azure Active Directory tenant ID** (required): Inside the Azure portal, you must [create an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) for your Azure Active Directory (Azure AD) app, to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your Azure Active Directory. In the **Display name** column, select the app. Then look for **Properties**, and then for the **Directory (tenant) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`).
 - **Azure Active Directory application ID** (required): You also need your [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) and an authentication key. To find your application ID, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in your your Azure Active Directory. In the **Display name** column, select the app and then look for the **Application (client) ID** (for example `50c464d3-4930-494c-963c-1e951d15360e`). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
@@ -205,7 +205,7 @@ This configuration is required if you want to use [Batch usage event](partner-ce
 You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
 
 - **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](./cloud-solution-providers.md) for more information.
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. For detailed information on how to prepare your offer for evaluation, see [Co-sell option in the commercial marketplace](commercial-marketplace-co-sell.md). For details about IP co-sell requirements, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
+- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers' needs. For detailed information on how to prepare your offer for evaluation, see [Co-sell option in the commercial marketplace](./co-sell-configure.md). For details about IP co-sell requirements, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). For more information about marketing your offer through the Microsoft CSP partner channels, see [Cloud Solution Providers](cloud-solution-providers.md).
 
 To learn more, see [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

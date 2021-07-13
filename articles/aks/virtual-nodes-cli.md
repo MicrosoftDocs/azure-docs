@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/16/2021
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -241,7 +241,7 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm testvk --image=debian
+kubectl run -it --rm testvk --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Install `curl` in the pod using `apt-get`:
@@ -331,22 +331,22 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-group-create]: /cli/azure/group#az-group-create
-[az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-network-vnet-show]: /cli/azure/network/vnet#az-network-vnet-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az aks disable-addons]: /cli/azure/aks#az-aks-disable-addons
+[az-group-create]: /cli/azure/group#az_group_create
+[az-network-vnet-create]: /cli/azure/network/vnet#az_network_vnet_create
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-network-vnet-show]: /cli/azure/network/vnet#az_network_vnet_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_show
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-enable-addons]: /cli/azure/aks#az_aks_enable_addons
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[az aks disable-addons]: /cli/azure/aks#az_aks_disable_addons
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: ./cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-list]: /cli/azure/provider#az_provider_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [virtual-nodes-aks]: virtual-nodes.md
 [virtual-nodes-networking-aci]: ../container-instances/container-instances-virtual-network-concepts.md

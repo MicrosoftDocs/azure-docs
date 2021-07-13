@@ -3,9 +3,9 @@ title: Ingest into Azure Data Lake Storage Gen2
 description: Learn how to ingest data into Azure Data Lake Storage Gen2 in Azure Synapse Analytics
 services: synapse-analytics 
 author: djpmsft
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
+ms.subservice: pipeline 
 ms.topic: conceptual
-ms.subservice: 
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick

@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy env
 
-Shows the environment variables that can configure AzCopy's behavior.
+Shows the environment variables that can configure AzCopy's behavior. For a complete list of environment variables, see [AzCopy v10 configuration settings (Azure Storage)](storage-ref-azcopy-configuration-settings.md).
 
 ## Synopsis
 
@@ -28,7 +28,6 @@ azcopy env [flags]
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 - [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-- [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Options
 

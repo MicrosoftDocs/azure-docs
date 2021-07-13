@@ -3,7 +3,7 @@ title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurepowershell
 ---
 
 # Geolocation and IP address handling
@@ -17,7 +17,7 @@ By default IP addresses are temporarily collected, but not stored in Application
 When telemetry is sent to Azure, the IP address is used to do a geolocation lookup using [GeoLite2 from MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). The results of this lookup are used to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded and `0.0.0.0` is written to the `client_IP` field.
 
 * Browser telemetry: We temporarily collect the sender's IP address. IP address is calculated by the ingestion endpoint.
-* Server telemetry: The Application Insights telemetry module temporarily collects the client IP address. IP address isn't collected locally when the `X-Forwarded-For` header is set.
+* Server telemetry: The Application Insights telemetry module temporarily collects the client IP address. IP address isn't collected locally when the `X-Forwarded-For` header is set. When the incoming list of IPs has more than one IP address, the last IP is used to populate geolocation fields.
 
 This behavior is by design to help avoid unnecessary collection of personal data. Whenever possible, we recommend avoiding the collection of personal data. 
 
@@ -53,7 +53,7 @@ To enable IP collection and storage, the `DisableIpMasking` property of the Appl
 }
 ```
 
-### Portal 
+### Portal
 
 If you only need to modify the behavior for a single Application Insights resource, use the Azure portal. 
 
@@ -74,15 +74,14 @@ If you only need to modify the behavior for a single Application Insights resour
     > [!WARNING]
     > If you experience an error that says: **_The resource group is in a location that is not supported by one or more resources in the template. Please choose a different resource group._** Temporarily select a different resource group from the dropdown and then re-select your original resource group to resolve the error.
 
-5. Select **I agree** > **Purchase**. 
+5. Select **Review + create** > **Create**.
 
-    ![Checked box with words "I agree to the terms and conditions stated above" highlighted in red above a button with the word "Purchase" highlighted in red.](media/ip-collection/purchase.png)
-
-    In this case, nothing new is actually being purchased. We're only updating the configuration of the existing Application Insights resource.
+    > [!NOTE]
+    > If you see "Your deployment failed", look through your deployment details for the one with type "microsoft.insights/components" and check the status. If that one succeeds then the changes made to DisableIpMasking were deployed.
 
 6. Once the deployment is complete, new telemetry data will be recorded.
 
-    If you select and edit the template again, you'll only see the default template without the newly added property. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set, run the following PowerShell: 
+    If you select and edit the template again, you'll only see the default template without the newly added property. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set, run the following PowerShell:
     
     ```powershell
     # Replace `Fabrikam-dev` with the appropriate resource and resource group name.

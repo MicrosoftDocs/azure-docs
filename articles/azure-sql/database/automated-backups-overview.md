@@ -5,12 +5,12 @@ description: Azure SQL Database and Azure SQL Managed Instance automatically cre
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
-ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
+ms.reviewer: mathoma, danil
+ms.date: 03/10/2021
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -44,7 +44,7 @@ For a SQL Database the backup storage redundancy can be configured at the time o
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Configurable Backup Storage Redundancy for Azure SQL Database is currently available in public preview in Brazil South and generally available in Southeast Asia Azure region  only. This feature is not yet available for Hyperscale tier. 
+> Configurable Backup Storage Redundancy for Azure SQL Database is currently available in public preview in all Azure regions and generally available in Southeast Asia Azure region  only. This feature is not yet available for Hyperscale tier. 
 
 ### Backup usage
 
@@ -134,9 +134,12 @@ For both SQL Database and SQL Managed Instance, you can configure full backup lo
 
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
-## Storage costs
+## Backup storage costs
 
 The price for backup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
+
+> [!NOTE]
+> Azure invoice will show only the excess backup storage consumed, not the entire backup storage consumption. For example, in a hypothetical scenario, if you have provisioned 4TB of data storage, you will get 4TB of free backup storage space. In case that you have used the total of 5.8TB of backup storage space, Azure invoice will show only 1.8TB, as only excess backup storage used is charged.
 
 ### DTU model
 
@@ -192,6 +195,8 @@ Add a filter for **Service name**, and then select **sql database** in the drop-
 
   >[!NOTE]
   > Meters are only visible for counters that are currently in use. If a counter is not available, it is likely that the category is not currently being used. For example, managed instance counters will not be present for customers who do not have a managed instance deployed. Likewise, storage counters will not be visible for resources that are not consuming storage. 
+
+For more information, see [Azure SQL Database cost management](cost-management.md).
 
 ## Encrypted backups
 
@@ -363,7 +368,7 @@ For more information, see [Backup Retention REST API](/rest/api/sql/backupshortt
 ## Configure backup storage redundancy
 
 > [!NOTE]
-> Configurable storage redundancy for backups for SQL Managed Instance can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, public preview of this feature is currently available in Brazil South and it is generally available in Southeast Asia Azure region. 
+> Configurable storage redundancy for backups for SQL Managed Instance can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, public preview of this feature is currently available in all Azure regions and it is generally available in Southeast Asia Azure region. 
 
 A backup storage redundancy of a managed instance can be set during instance creation only. For a SQL Database it can be set when creating the database or can be updated for an existing database. The default value is geo-redundant storage. For differences in pricing between locally-redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
@@ -441,7 +446,7 @@ A full list of built-in policy definitions for SQL Database and Managed Instance
 To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure portal or Azure PowerShell. 
 
 > [!IMPORTANT]
-> Azure policies are not enforced when creating a database via T-SQL. To enforce data residency when creating a database using T-SQL, [use 'LOCAL' or 'ZONE' as input to BACKUP_STORAGE_REDUNDANCY paramater in CREATE DATABASE statement](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Azure policies are not enforced when creating a database via T-SQL. To enforce data residency when creating a database using T-SQL, [use 'LOCAL' or 'ZONE' as input to BACKUP_STORAGE_REDUNDANCY paramater in CREATE DATABASE statement](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Learn how to assign policies using the [Azure portal](../../governance/policy/assign-policy-portal.md) or [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
 
@@ -453,4 +458,5 @@ Learn how to assign policies using the [Azure portal](../../governance/policy/as
 - Get more information about how to [restore a database to a point in time by using PowerShell](scripts/restore-database-powershell.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](long-term-backup-retention-configure.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](long-term-backup-retention-configure.md).
+- To learn all about backup storage consumption on Azure SQL Managed Instance, see [Backup storage consumption on Managed Instance explained](https://aka.ms/mi-backup-explained).
 - To learn how to fine-tune backup storage retention and costs for Azure SQL Managed Instance, see [Fine tuning backup storage costs on Managed Instance](https://aka.ms/mi-backup-tuning).

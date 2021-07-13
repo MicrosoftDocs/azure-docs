@@ -5,8 +5,7 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-# Typically used by articles that include app registration, API permission, or
-# automated tool (e.g. script) configuration.
+# Typically used by articles that include app registration, API permission, or automated tool (e.g. script) configuration.
 ---
 #### [App registrations](#tab/app-reg-ga/) 
 

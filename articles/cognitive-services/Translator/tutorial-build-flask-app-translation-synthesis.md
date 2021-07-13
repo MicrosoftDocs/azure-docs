@@ -15,7 +15,7 @@ ms.custom: devx-track-python, devx-track-js
 
 # Tutorial: Build a Flask app with Azure Cognitive Services
 
-In this tutorial, you'll build a Flask web app that uses Azure Cognitive Services to translate text, analyze sentiment, and synthesize translated text into speech. Our focus is on the Python code and Flask routes that enable our application, however, we will help you out with the HTML and Javascript that pulls the app together. If you run into any issues let us know using the feedback button below.
+In this tutorial, you'll build a Flask web app that uses Azure Cognitive Services to translate text, analyze sentiment, and synthesize translated text into speech. Our focus is on the Python code and Flask routes that enable our application, however, we will help you out with the HTML and JavaScript that pulls the app together. If you run into any issues let us know using the feedback button below.
 
 Here's what this tutorial covers:
 
@@ -44,7 +44,7 @@ For those of you who want to deep dive after this tutorial here are a few helpfu
 
 Let's review the software and subscription keys that you'll need for this tutorial.
 
-* [Python 3.5.2 or later](https://www.python.org/downloads/)
+* [Python 3.6 or later](https://www.python.org/downloads/)
 * [Git tools](https://git-scm.com/downloads)
 * An IDE or text editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) or [Firefox](https://www.mozilla.org/firefox)
@@ -245,7 +245,7 @@ Now that you have an idea of how a simple Flask app works, let's:
 * Write some Python to call the Translator and return a response
 * Create a Flask route to call your Python code
 * Update the HTML with an area for text input and translation, a language selector, and translate button
-* Write Javascript that allows users to interact with your Flask app from the HTML
+* Write JavaScript that allows users to interact with your Flask app from the HTML
 
 ### Call the Translator
 
@@ -405,7 +405,7 @@ Let's update `index.html`.
    </div>
    ```
 
-The next step is to write some Javascript. This is the bridge between your HTML and Flask route.
+The next step is to write some JavaScript. This is the bridge between your HTML and Flask route.
 
 ### Create `main.js`  
 
@@ -478,11 +478,11 @@ In this section, you're going to do a few things:
 * Write some Python to call the Text Analytics API to perform sentiment analysis and return a response
 * Create a Flask route to call your Python code
 * Update the HTML with an area for sentiment scores, and a button to perform analysis
-* Write Javascript that allows users to interact with your Flask app from the HTML
+* Write JavaScript that allows users to interact with your Flask app from the HTML
 
 ### Call the Text Analytics API
 
-Let's write a function to call the Text Analytics API. This function will take four arguments: `input_text`, `input_language`, `output_text`, and `output_language`. This function is called whenever a user presses the run sentiment analysis button in your app. Data provided by the user from the text area and language selector, as well as the detected language and translation output are provided with each request. The response object includes sentiment scores for the source and translation. In the following sections, you're going to write some Javascript to parse the response and use it in your app. For now, let's focus on call the Text Analytics API.
+Let's write a function to call the Text Analytics API. This function will take four arguments: `input_text`, `input_language`, `output_text`, and `output_language`. This function is called whenever a user presses the run sentiment analysis button in your app. Data provided by the user from the text area and language selector, as well as the detected language and translation output are provided with each request. The response object includes sentiment scores for the source and translation. In the following sections, you're going to write some JavaScript to parse the response and use it in your app. For now, let's focus on call the Text Analytics API.
 
 1. Let's create a file called `sentiment.py` in the root of your working directory.
 2. Next, add this code to `sentiment.py`.
@@ -647,7 +647,7 @@ In this section, you're going to do a few things:
 * Write some Python to convert text-to-speech with the Text-to-speech API
 * Create a Flask route to call your Python code
 * Update the HTML with a button to convert text-to-speech, and an element for audio playback
-* Write Javascript that allows users to interact with your Flask app
+* Write JavaScript that allows users to interact with your Flask app
 
 ### Call the Text-to-Speech API
 

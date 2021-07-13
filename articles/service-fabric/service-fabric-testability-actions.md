@@ -2,7 +2,7 @@
 title: Simulate failures in Azure microservices 
 description: This article talks about the testability actions found in Microsoft Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 06/07/2017
+ms.date: 03/26/2021
 ms.custom: devx-track-csharp
 ---
 # Testability actions
@@ -28,6 +28,7 @@ For better quality validation, run the service and business workload while induc
 | InvokeQuorumLoss |Puts a given stateful service partition into quorum loss. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Graceful |
 | MovePrimary |Moves the specified primary replica of a stateful service to the specified cluster node. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Graceful |
 | MoveSecondary |Moves the current secondary replica of a stateful service to a different cluster node. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |Graceful |
+| MoveInstance | Moves the current instance of a stateless service to a different cluster node. | MoveInstanceAsync | Move-ServiceFabricInstance | Graceful |
 | RemoveReplica |Simulates a replica failure by removing a replica from a cluster. This will close the replica and will transition it to role 'None', removing all of its state from the cluster. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Graceful |
 | RestartDeployedCodePackage |Simulates a code package process failure by restarting a code package deployed on a node in a cluster. This aborts the code package process, which will restart all the user service replicas hosted in that process. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |Ungraceful |
 | RestartNode |Simulates a Service Fabric cluster node failure by restarting a node. |RestartNodeAsync |Restart-ServiceFabricNode |Ungraceful |

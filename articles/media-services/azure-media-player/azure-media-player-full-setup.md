@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
 ---
 
@@ -15,7 +15,7 @@ Azure Media Player is easy to set up. It only takes a few moments to get basic p
 
 ## Step 1: Include the JavaScript and CSS files in the head of your page ##
 
-With Azure Media Player, you can access the scripts from the CDN hosted version. It's often recommended now to put JavaScript before the end body tag `<body>` instead of the `<head>`, but Azure Meia Player includes an 'HTML5 Shiv', which needs to be in the head for older IE versions to respect the video tag as a valid element.
+With Azure Media Player, you can access the scripts from the CDN hosted version. It's often recommended now to put JavaScript before the end body tag `<body>` instead of the `<head>`, but Azure Media Player includes an 'HTML5 Shiv', which needs to be in the head for older IE versions to respect the video tag as a valid element.
 
 > [!NOTE]
 > If you're already using an HTML5 shiv like [Modernizr](https://modernizr.com/) you can include the Azure Media Player JavaScript anywhere. However make sure your version of Modernizr includes the shiv for video.
@@ -28,7 +28,7 @@ With Azure Media Player, you can access the scripts from the CDN hosted version.
 ```
 
 > [!IMPORTANT]
-> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player. For example, replace `latest` with `2.1.1`. Azure Media Player versions can be queried from [here](azure-media-player-changelog.md).
+> You should **NOT** use the `latest` version in production, as this is subject to change on demand. Replace `latest` with a version of Azure Media Player. For example, replace `latest` with `2.1.1`. Azure Media Player versions can be queried from [here](https://amp.azure.net/libs/amp/latest/docs/changelog.html).
 
 > [!NOTE]
 > Since the `1.2.0` release, it is no longer required to include the location to the fallback techs (it will automatically pick up the location from the relative path of the azuremediaplayer.min.js file). You can modify the location of the fallback techs by adding the following script in the `<head>` after the above scripts.
@@ -88,7 +88,7 @@ If your web page or application loads the video tag dynamically (ajax, appendChi
                // add an event listener
               this.addEventListener('ended', function() {
                 console.log('Finished!');
-            }
+            });
           }
     );
     myPlayer.src([{

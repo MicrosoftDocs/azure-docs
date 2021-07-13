@@ -8,7 +8,8 @@ ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing
+ms.author: xujing 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Azure Hybrid Benefit for Windows Server
@@ -62,7 +63,7 @@ az vm create \
 ```
 
 ### Template
-Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md)
+Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md)
 ```json
 "properties": {
     "licenseType": "Windows_Server",

@@ -244,4 +244,4 @@ For the Kubernetes-based IoT Edge setups on GPU devices, you'll need to configur
 
 ## Next steps
 
-- Learn more about how to [Configure GPU to use a module](azure-stack-edge-j-series-configure-gpu-modules.md).
+- Learn more about how to [Configure GPU to use a module](./azure-stack-edge-gpu-configure-gpu-modules.md).

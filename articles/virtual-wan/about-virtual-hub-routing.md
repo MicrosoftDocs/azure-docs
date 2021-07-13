@@ -1,13 +1,13 @@
 ---
 title: 'About virtual hub routing'
 titleSuffix: Azure Virtual WAN
-description: This article describes virtual hub routing
+description: Learn about Virtual WAN virtual hub routing.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/17/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 

@@ -36,7 +36,7 @@ To create custom roles, you need:
 
 ## List custom roles
 
-To list custom roles that are available for assignment, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). The following example lists all the custom roles in the current subscription.
+To list custom roles that are available for assignment, use [az role definition list](/cli/azure/role/definition#az_role_definition_list). The following example lists all the custom roles in the current subscription.
 
 ```azurecli
 az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -61,7 +61,7 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 
 ## List a custom role definition
 
-To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This is the same command you would use for a built-in role.
+To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az_role_definition_list). This is the same command you would use for a built-in role.
 
 ```azurecli
 az role definition list --name {roleName}
@@ -135,7 +135,7 @@ az role definition list --name "Virtual Machine Operator" --output json --query 
 
 ## Create a custom role
 
-To create a custom role, use [az role definition create](/cli/azure/role/definition#az-role-definition-create). The role definition can be a JSON description or a path to a file containing a JSON description.
+To create a custom role, use [az role definition create](/cli/azure/role/definition#az_role_definition_create). The role definition can be a JSON description or a path to a file containing a JSON description.
 
 ```azurecli
 az role definition create --role-definition {roleDefinition}
@@ -178,7 +178,7 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ## Update a custom role
 
-To update a custom role, first use [az role definition list](/cli/azure/role/definition#az-role-definition-list) to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use [az role definition update](/cli/azure/role/definition#az-role-definition-update) to save the updated role definition.
+To update a custom role, first use [az role definition list](/cli/azure/role/definition#az_role_definition_list) to retrieve the role definition. Second, make the desired changes to the role definition. Finally, use [az role definition update](/cli/azure/role/definition#az_role_definition_update) to save the updated role definition.
 
 ```azurecli
 az role definition update --role-definition {roleDefinition}
@@ -223,7 +223,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## Delete a custom role
 
-To delete a custom role, use [az role definition delete](/cli/azure/role/definition#az-role-definition-delete). To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+To delete a custom role, use [az role definition delete](/cli/azure/role/definition#az_role_definition_delete). To specify the role to delete, use the role name or the role ID. To determine the role ID, use [az role definition list](/cli/azure/role/definition#az_role_definition_list).
 
 ```azurecli
 az role definition delete --name {roleNameOrId}

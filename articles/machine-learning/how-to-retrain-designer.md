@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: keli19
 author: likebupt
-ms.date: 04/06/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.date: 03/06/2021
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Use pipeline parameters to retrain models in the designer
@@ -115,3 +115,5 @@ To make a REST call, you need an OAuth 2.0 bearer-type authentication header. Fo
 In this article, you learned how to create a parameterized training pipeline endpoint using the designer.
 
 For a complete walkthrough of how you can deploy a model to make predictions, see the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
+
+For how to publish and submit a run to pipeline endpoint using SDK, see [this article](how-to-deploy-pipelines.md).

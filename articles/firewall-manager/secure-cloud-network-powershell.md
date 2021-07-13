@@ -6,7 +6,8 @@ author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Secure your virtual hub using Azure PowerShell
@@ -26,7 +27,7 @@ In this tutorial, you learn how to:
 
 - PowerShell 7
 
-   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7).
+   This tutorial requires that you run Azure PowerShell locally on PowerShell 7. To install PowerShell 7, see [Migrating from Windows PowerShell 5.1 to PowerShell 7](/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7&preserve-view=true).
 - Az.Network version 3.2.0
 
     If you have Az.Network version 3.4.0 or later, you'll need to downgrade to use some of the commands in this tutorial. You can check the version of your Az.Network module with the command `Get-InstalledModule -Name Az.Network`. To uninstall the Az.Network module, run `Uninstall-Module -name az.network`. To install the Az.Network 3.2.0 module, run `Install-Module az.network -RequiredVersion 3.2.0 -force`.

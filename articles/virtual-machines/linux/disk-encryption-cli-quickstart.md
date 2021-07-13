@@ -21,7 +21,7 @@ If you choose to install and use the Azure CLI locally, this quickstart requires
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "eastus"
@@ -74,7 +74,7 @@ Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption), providing you
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"
 ```
 
-After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
+After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az_vm_encryption_show).
 
 ```azurecli-interactive
 az vm encryption show --name "myVM" -g "MyResourceGroup"

@@ -5,12 +5,12 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-# As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
-
+#Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 ---
+
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
 
 This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with an Azure CDN endpoint. 
@@ -100,13 +100,16 @@ To enable HTTPS on a custom domain, follow these steps:
 > This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Verizon** profiles. 
 >
  
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md). For **Azure CDN from Verizon**, any valid CA will be accepted. 
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure Front Door uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a non-allowed CA, your request will be rejected.  If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected. For Azure CDN from Verizon, any valid CA will be accepted.
 
 ### Prepare your Azure Key vault account and certificate
  
 1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as the Azure CDN profile and CDN endpoints that you want to enable custom HTTPS. Create an Azure Key Vault account if you don’t have one.
  
 2. Azure Key Vault certificates: If you have a certificate, upload it directly to your Azure Key Vault account. If you don't have a certificate, create a new certificate directly through Azure Key Vault.
+
+> [!NOTE]
+> The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### Register Azure CDN
 
@@ -142,21 +145,20 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 2. In the **Add access policy** page, select **None selected** next to **Select principal**. In the **Principal** page, enter **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**. Select **Microsoft.AzureFrontdoor-Cdn**.  Choose **Select**:
 
-2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Choose **Select**.
+3. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, choose **Microsoft.AzureFrontDoor-Cdn**. Choose **Select**.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Select service principal of Azure CDN" border="true":::
     
-3. Select **Certificate permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the certificates.
+4. Select **Certificate permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the certificates.
 
-4. Select **Secret permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the secrets:
+5. Select **Secret permissions**. Select the check boxes for **Get** and **List** to allow CDN permissions to get and list the secrets:
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="Select permissions for CDN to keyvault" border="true":::
 
-5. Select **Add**. 
+6. Select **Add**. 
 
 > [!NOTE]
-> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault. 
-
+> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault.
  
 ### Select the certificate for Azure CDN to deploy
  
@@ -168,15 +170,18 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 3. Under Certificate management type, select **Use my own certificate**. 
 
-    ![Configure your certificate](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-configure-your-certificate.png" alt-text="Screenshot of how to configure certificate for cdn endpoint.":::
 
-4. Select a key vault, certificate (secret), and certificate version.
+4. Select a key vault, Certificate/Secret, and Certificate/Secret version.
 
     Azure CDN lists the following information: 
     - The key vault accounts for your subscription ID. 
-    - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions. 
+    - The certificates/secrets under the selected key vault. 
+    - The available certificate/secret versions.
  
+    > [!NOTE]
+    > In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the certificate/secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
+   
 5. Select **On** to enable HTTPS.
   
 6. When you use your certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
@@ -230,7 +235,7 @@ DigiCert sends a verification email to the following email addresses. Verify tha
 * **hostmaster@your-domain-name.com**  
 * **postmaster@your-domain-name.com**  
 
-You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allow list. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allowlist. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -352,6 +357,11 @@ The following table shows the operation progress that occurs when you disable HT
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert. 
+
+8. *Do I need to re-enable HTTPS after the endpoint restarts?*
+
+    Yes. If you're using **Azure CDN from Akamai**, if the endpoint stops and restarts, you must re-enable the HTTPS setting if the setting was active before.
+
 
 ## Next steps
 

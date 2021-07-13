@@ -54,7 +54,7 @@ You can set these values using [Azure Resource Manager Templates](./azure-web-ap
 
 ## Enable Profiler for other clouds
 
-Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
 
 |App Setting    | US Government Cloud | China Cloud |   
 |---------------|---------------------|-------------|
@@ -79,4 +79,3 @@ Profiler's files can be deleted when using WebDeploy to deploy changes to your w
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-

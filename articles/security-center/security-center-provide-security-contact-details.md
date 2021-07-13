@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/09/2021
+ms.date: 04/07/2021
 ms.author: memildin
 
 ---
@@ -33,7 +33,7 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 |Release state:|General Availability (GA)|
 |Pricing:|Free|
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 
@@ -54,6 +54,8 @@ You can also manage your email notifications through the supplied REST API. For 
 
 This is an example request body for the PUT request when creating a security contact configuration:
 
+URI: https://management.azure.com/subscriptions/<SubscriptionId>/providers/Microsoft.Security/securityContacts/default?api-version=2020-01-01-preview
+
 ```json
 {
     "properties": {
@@ -64,7 +66,7 @@ This is an example request body for the PUT request when creating a security con
         },
         "alertNotifications": {
             "state": "On",
-            "minimalSeverity": "High"
+            "minimalSeverity": "Medium"
         },
         "phone": ""
     }

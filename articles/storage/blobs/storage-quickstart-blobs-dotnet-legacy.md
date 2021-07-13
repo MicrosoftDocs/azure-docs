@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob storage client library for .NET"
 description: In this quickstart, you learn how to use the Azure Blob storage client library for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
@@ -32,7 +32,7 @@ Additional resources:
 * [API reference documentation](/dotnet/api/overview/azure/storage)
 * [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
 * [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
-* [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+* [Samples](/samples/browse/?products=azure-blob-storage)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -397,5 +397,5 @@ To learn how to create a web app that uploads an image to Blob storage, continue
 > [!div class="nextstepaction"]
 > [Upload and process an image](storage-upload-process-images.md)
 
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/intro).
 * To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).

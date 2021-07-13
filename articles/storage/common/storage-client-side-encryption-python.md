@@ -146,7 +146,7 @@ Users can optionally enable a mode of operation where all uploads and downloads 
 ### Blob service encryption
 Set the encryption policy fields on the blockblobservice object. Everything else will be handled by the client library internally.
 
-# [Python v12](#tab/python)
+# [Python v12 SDK](#tab/python)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -178,7 +178,7 @@ blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ### Queue service encryption
 Set the encryption policy fields on the queueservice object. Everything else will be handled by the client library internally.
 
-# [Python v12](#tab/python)
+# [Python v12 SDK](#tab/python)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -211,7 +211,7 @@ In addition to creating an encryption policy and setting it on request options, 
 
 ### Using the resolver
 
-# [Python v12](#tab/python)
+# [Python v12 SDK](#tab/python)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
@@ -254,7 +254,7 @@ my_table_service.get_entity(
 ### Using attributes
 As mentioned above, a property may be marked for encryption by storing it in an EntityProperty object and setting the encrypt field.
 
-# [Python v12](#tab/python)
+# [Python v12 SDK](#tab/python)
 
 We are currently working to create code snippets reflecting version 12.x of the Azure Storage client libraries. For more information, see [Announcing the Azure Storage v12 Client Libraries](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 

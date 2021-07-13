@@ -70,7 +70,7 @@ This article shows you how to get Application Insights Profiler running on your 
     ```  
    b. If establishing remote access is a problem, you can use the [Azure CLI](/cli/azure/get-started-with-azure-cli) to run the following command:  
 
-    ```powershell
+    ```azurecli
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
     ```
 

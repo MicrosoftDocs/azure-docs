@@ -5,7 +5,7 @@ author: Bashar-MSFT
 ms.author: bahusse
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 04/26/2021
 ---
 # Restore a dropped Azure Database for PostgreSQL server
 
@@ -31,13 +31,13 @@ To restore a dropped Azure Database for PostgreSQL server, you need following:
 3. Select the **Delete PostgreSQL Server** event, then select the **JSON tab**. Copy the `resourceId` and `submissionTimestamp` attributes in JSON output. The resourceId is in the following format: `/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/deletedserver`.
 
 
- 4. Browse to the PostgreSQL [Create Server REST API Page](/rest/api/PostgreSQL/servers/create) and select the **Try It** tab highlighted in green. Sign in with your Azure account.
+ 1. Browse to the PostgreSQL [Create Server REST API Page](/rest/api/postgresql/singleserver/servers/create) and select the **Try It** tab highlighted in green. Sign in with your Azure account.
 
- 5. Provide the **resourceGroupName**, **serverName** (deleted server name), **subscriptionId** properties, based on the resourceId attribute JSON value captured in the preceding step 3. The api-version property is pre-populated and can be left as-is, as shown in the following image.
+ 2. Provide the **resourceGroupName**, **serverName** (deleted server name), **subscriptionId** properties, based on the resourceId attribute JSON value captured in the preceding step 3. The api-version property is pre-populated and can be left as-is, as shown in the following image.
 
     ![Create server using REST API](./media/howto-restore-dropped-server/create-server-from-rest-api-azure.png)
   
- 6. Scroll below on Request Body section and paste the following replacing the "Dropped server Location", "submissionTimestamp", and "resourceId". For "restorePointInTime", specify a value of "submissionTimestamp" minus **15 minutes** to ensure the command does not error out.
+ 3. Scroll below on Request Body section and paste the following replacing the "Dropped server Location"(e.g. CentralUS, EastUS etc.), "submissionTimestamp", and "resourceId". For "restorePointInTime", specify a value of "submissionTimestamp" minus **15 minutes** to ensure the command does not error out.
     
     ```json
     {
@@ -56,7 +56,7 @@ To restore a dropped Azure Database for PostgreSQL server, you need following:
     > [!Important]
     > There is a time limit of five days after the server was dropped. After five days, an error is expected since the backup file cannot be found.
     
-7. If you see Response Code 201 or 202, the restore request is successfully submitted. 
+4. If you see Response Code 201 or 202, the restore request is successfully submitted. 
 
     The server creation can take time depending on the database size and compute resources provisioned on the original server. The restore status can be monitored from Activity log by filtering for 
    - **Subscription** = Your Subscription

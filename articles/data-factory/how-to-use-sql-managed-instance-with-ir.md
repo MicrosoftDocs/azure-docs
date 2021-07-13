@@ -33,7 +33,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             - Inside the same virtual network as the managed instance, with **different subnet**.
             - Inside a different virtual network than the the managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
 
-            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](/azure/sql-database/sql-database-managed-instance-connect-app).
+            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Configure virtual network](#configure-virtual-network).
 

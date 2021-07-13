@@ -23,6 +23,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Install prerequisites
 
+- To enable monitoring you will require a connection string. A connection string is displayed on the Overview blade of your Application Insights resource. For more information, see page [Connection Strings](./sdk-connection-string.md?tabs=net#finding-my-connection-string).
+
 > [!NOTE]
 > As of April 2020, PowerShell Gallery has deprecated TLS 1.1 and 1.0.
 >
@@ -46,9 +48,10 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ```	
 
 ### Enable monitoring
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
 	
 		
@@ -65,9 +68,11 @@ $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.Applicati
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
 ### Enable monitoring
+
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
+
 
 
 
@@ -90,4 +95,3 @@ Do more with Application Insights Agent:
 
 - Review the [detailed instructions](status-monitor-v2-detailed-instructions.md) for an explanation of the commands found here.
 - Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.
-

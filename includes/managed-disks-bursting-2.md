@@ -5,15 +5,13 @@
  author: albecker1
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/04/2021
+ ms.date: 06/02/2021
  ms.author: albecker1
  ms.custom: include file
 ---
-## Disk-level bursting
-
 ### On-demand bursting (preview)
 
-Disks using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps.
+Premium SSDs using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps.
 
 If you expect your workloads to frequently run beyond the provisioned perf target, disk bursting won't be cost-effective. In this case, we recommend that you change your disk's performance tier to a [higher tier](../articles/virtual-machines/disks-performance-tiers.md) instead, for better baseline performance. Review your billing details and assess that against the traffic pattern of your workloads.
 
@@ -27,7 +25,7 @@ Before you enable on-demand bursting, understand the following:
 
 #### Billing
 
-Disks using the on-demand bursting model are charged an hourly burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target. Transaction costs are charged using the pay-as-you go model, based on uncached disk IOs, including both reads and writes that exceed provisioned targets. The following is an example of disk traffic patterns over a billing hour:
+Premium SSDs using the on-demand bursting model are charged an hourly burst enablement flat fee and transaction costs apply to any burst transactions beyond the provisioned target. Transaction costs are charged using the pay-as-you go model, based on uncached disk IOs, including both reads and writes that exceed provisioned targets. The following is an example of disk traffic patterns over a billing hour:
 
 Disk configuration: Premium SSD – 1 TiB (P30), Disk bursting enabled.
 
@@ -53,18 +51,29 @@ The burst transaction is accounted as the max number of transactions from either
 
 You can refer to the [Managed Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for details on pricing and use [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?service=storage) to make the assessment for your workload. 
 
+
+To enable on-demand bursting, see [Enable on-demand bursting](../articles/virtual-machines/disks-enable-bursting.md).
+
 ### Credit-based bursting
 
-Credit-based bursting is available for disk sizes P20 and smaller in all regions in Azure Public, Government, and China Clouds. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. VM-level bursting only uses credit-based bursting.
+For premium SSDs, credit-based bursting is available for disk sizes P20 and smaller. For standard SSDs, credit-based bursting is available for disk sizes E30 and smaller. For both standard and premium SSDs, credit-based bursting is available in all regions in Azure Public, Government, and China Clouds. By default, disk bursting is enabled on all new and existing deployments of supported disk sizes. VM-level bursting only uses credit-based bursting.
 
 ## Virtual machine-level bursting
 
 VM-level bursting only uses the credit-based model for bursting, it is enabled by default for all VMs that support it.
 
 VM-level bursting is enabled in all regions in the Azure Public Cloud on these supported sizes: 
+- [Dsv4-series](../articles/virtual-machines/dv4-dsv4-series.md)
+- [Dasv4-series](../articles/virtual-machines/dav4-dasv4-series.md)
+- [Ddsv4-series](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Esv4-series](../articles/virtual-machines/ev4-esv4-series.md)
+- [Easv4-series](../articles/virtual-machines/eav4-easv4-series.md)
+- [Edsv4-series](../articles/virtual-machines/edv4-edsv4-series.md)
+- [B-series](../articles/virtual-machines/sizes-b-series-burstable.md)
+- [Fsv2-series](../articles/virtual-machines/fsv2-series.md)
+- [Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
+- [Esv3-series](../articles/virtual-machines/ev3-esv3-series.md)
 - [Lsv2-series](../articles/virtual-machines/lsv2-series.md)
-- [Dv3 and Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)
-- [Ev3 and Esv3-series](../articles/virtual-machines/ev3-esv3-series.md)
 
 ## Bursting flow
 
@@ -114,7 +123,7 @@ Then the application needs to process a batched job that requires 192 MB/s. 2 MB
     - Max burst MB/s: 1,280
 - P50 OS Disk
     - Provisioned MB/s: 250 
-- 2 P10 Data Disks 
+- 2 P50 Data Disks 
     - Provisioned MB/s: 250
 
  After the initial boot up, an application is run on the VM and has a non-critical workload. This workload requires 30 MB/s that gets spread evenly across all the disks.

@@ -7,7 +7,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/22/2020
+ms.date: 04/16/2021
 ---
 
 # Add and Remove jobs in an Azure Stream Analytics cluster

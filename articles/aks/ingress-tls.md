@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller that uses Let's Encrypt for automatic TLS certificate generation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 04/23/2021
 
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates
@@ -30,7 +30,9 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 This article also assumes you have [a custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
-This article uses [Helm 3][helm] to install the NGINX ingress controller and cert-manager. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* and *jetstack* Helm repositories. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses [Helm 3][helm] to install the NGINX ingress controller on a [supported version of Kubernetes][aks-supported versions]. Make sure that you are using the latest release of Helm and have access to the *ingress-nginx* and *jetstack* Helm repositories. The steps outlined in this article may not be compatible with previous versions of the Helm chart, NGINX ingress controller, or Kubernetes.
+
+For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm]. For upgrade instructions, see the [Helm install docs][helm-install].
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -126,7 +128,6 @@ helm repo update
 # Install the cert-manager Helm chart
 helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
-  --version v0.16.1 \
   --set installCRDs=true \
   --set nodeSelector."kubernetes\.io/os"=linux \
   --set webhook.nodeSelector."kubernetes\.io/os"=linux \
@@ -142,7 +143,7 @@ Before certificates can be issued, cert-manager requires an [Issuer][cert-manage
 Create a cluster issuer, such as `cluster-issuer.yaml`, using the following example manifest. Update the email address with a valid address from your organization:
 
 ```yaml
-apiVersion: cert-manager.io/v1alpha2
+apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
@@ -269,7 +270,7 @@ In the following example, traffic to the address *hello-world-ingress.MY_CUSTOM_
 Create a file named `hello-world-ingress.yaml` using below example YAML. Update the *hosts* and *host* to the DNS name you created in a previous step.
 
 ```yaml
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -287,20 +288,29 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
-        path: /hello-world-one(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld-two
-          servicePort: 80
-        path: /hello-world-two(/|$)(.*)
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
-        path: /(.*)
+      - path: /hello-world-one(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
+      - path: /hello-world-two(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-two
+            port:
+              number: 80
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static
@@ -318,9 +328,13 @@ spec:
   - host: hello-world-ingress.MY_CUSTOM_DOMAIN
     http:
       paths:
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
+      - path:
+        pathType: Prefix
+        backend:
+          service:
+            name: aks-helloworld-one
+            port: 
+              number: 80
         path: /static(/|$)(.*)
 ```
 
@@ -422,7 +436,7 @@ You can also:
 - [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a static public IP address][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
-[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az-network-dns-record-set-a-add-record
+[az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/#az_network_dns_record_set_a_add_record
 [custom-domain]: ../app-service/manage-custom-dns-buy-domain.md#buy-an-app-service-domain
 [dns-zone]: ../dns/dns-getstarted-cli.md
 [helm]: https://helm.sh/
@@ -439,8 +453,8 @@ You can also:
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md
@@ -450,3 +464,4 @@ You can also:
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-supported versions]: supported-kubernetes-versions.md

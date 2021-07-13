@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 05/25/2020
 ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL versioning policy
@@ -16,13 +16,16 @@ This page describes the Azure Database for PostgreSQL versioning policy, and is 
 
 Azure Database for PostgreSQL supports the following database versions.
 
-| Version | Single Server | Flexible Server (Preview) |
-| ----- | :------: | :----: |
-| PostgreSQL 12 |  | X  | 
-| PostgreSQL 11 | X | X |
-| PostgreSQL 10 | X |  |
-| PostgreSQL 9.6 | X |  |
-| *PostgreSQL 9.5 (retired)* | X |  |
+| Version | Single Server | Flexible Server (Preview) | Hyperscale (Citus) |
+| ----- | :------: | :----: | :----: |
+| PostgreSQL 13 |  | X  | X\* |
+| PostgreSQL 12 |  | X  | X\* |
+| PostgreSQL 11 | X | X | X |
+| PostgreSQL 10 | X |  |  |
+| PostgreSQL 9.6 | X |  |  |
+| *PostgreSQL 9.5 (retired)* | X |  |  |
+
+(\* PostgreSQL 12 and 13 are available as a preview feature in Hyperscale (Citus).)
 
 ## Major version support
 Each major version of PostgreSQL will be supported by Azure Database for PostgreSQL from the date on which Azure begins supporting the version until the version is retired by the PostgreSQL community, as provided in the [PostgreSQL community versioning policy](https://www.postgresql.org/support/versioning/).
@@ -40,6 +43,7 @@ The table below provides the retirement details for PostgreSQL major versions. T
 | [PostgreSQL 10](https://www.postgresql.org/about/news/postgresql-10-released-1786/) | [Features](https://wiki.postgresql.org/wiki/New_in_postgres_10) | June 4, 2018	| November 10, 2022
 | [PostgreSQL 11](https://www.postgresql.org/about/news/postgresql-11-released-1894/) | [Features](https://www.postgresql.org/docs/11/release-11.html) | July 24, 2019	| November 9, 2023
 | [PostgreSQL 12](https://www.postgresql.org/about/news/postgresql-12-released-1976/) | [Features](https://www.postgresql.org/docs/12/release-12.html) | Sept 22, 2020 	| November 14, 2024
+| [PostgreSQL 13](https://www.postgresql.org/about/news/postgresql-13-released-2077/) | [Features](https://www.postgresql.org/docs/13/release-13.html) | May 25, 2021 	| November 13, 2025
 
 ## Retired PostgreSQL engine versions not supported in Azure Database for PostgreSQL
 

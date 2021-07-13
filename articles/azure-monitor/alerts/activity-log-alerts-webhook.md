@@ -25,13 +25,13 @@ The JSON payload contained in the POST operation differs based on the payload's 
 > [!NOTE]
 > Currently, the description that is part of the Activity log event is copied to the fired **"Alert Description"** property.
 >
-> In order to align the Activity Log payload with other alert types, Starting April 1, 2021 the fired alert property **"Description“** will contain the alert rule description instead.
+> In order to align the Activity Log payload with other alert types, Starting April 1, 2021 the fired alert property **"Description"** will contain the alert rule description instead.
 >
-> In preparation for this change, we created a new property **“Activity Log Event Description“** to the Activity Log fired Alert. This new property will be filled with the **"Description"** property that is already available for use. This means that the new field **“Activity Log Event Description“** will contain the description that is part of the Activity log event.
+> In preparation for this change, we created a new property **"Activity Log Event Description"** to the Activity Log fired Alert. This new property will be filled with the **"Description"** property that is already available for use. This means that the new field **"Activity Log Event Description"** will contain the description that is part of the Activity log event.
 >
-> Please review your alert rules, action rules, webhooks, logic app or any other configurations where you might be using the **“Description”** property from the fired alert and replace it with **“Activity Log Event Description”** property.
+> Please review your alert rules, action rules, webhooks, logic app or any other configurations where you might be using the **"Description"** property from the fired alert and replace it with **"Activity Log Event Description"** property.
 >
-> if your condition (in your action rules, webhooks, logic app or any other configurations) is currently based on the **"Description"** property for activity log alerts, you may need to modify it to be based on the **“Activity Log Event Description”** property instead.
+> if your condition (in your action rules, webhooks, logic app or any other configurations) is currently based on the **"Description"** property for activity log alerts, you may need to modify it to be based on the **"Activity Log Event Description"** property instead.
 >
 > In order to fill the new **"Description"** property, you can add a description in the alert rule definition.
 > ![Fired Activity Log Alerts](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
@@ -97,42 +97,42 @@ The JSON payload contained in the POST operation differs based on the payload's 
 
 ```json
 {
-	"schemaId":"Microsoft.Insights/activityLogs",
-	"data":{"status":"Activated",
-		"context":{
-			"activityLog":{
-				"channels":"Operation",
-				"correlationId":"2518408115673929999",
-				"description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
-				"eventSource":"Security",
-				"eventTimestamp":"2017-06-25T19:00:32.607+00:00",
-				"eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
-				"level":"Informational",
-				"operationName":"Microsoft.Security/locations/alerts/activate/action",
-				"operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
-				"properties":{
-					"attackers":"[\"IP Address: 01.02.03.04\"]",
-					"numberOfFailedAuthenticationAttemptsToHost":"456",
-					"accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
-					"wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
-					"actionTaken":"Detected",
-					"resourceType":"Virtual Machine",
-					"severity":"Medium",
-					"compromisedEntity":"LinuxVM1",
-					"remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
-					"attackedResourceType":"Virtual Machine"
-				},
-				"resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
-				"resourceGroupName":"contoso",
-				"resourceProviderName":"Microsoft.Security",
-				"status":"Active",
-				"subscriptionId":"12345-5645-123a-9867-123b45a6789",
-				"submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
-				"resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
-			}
-		},
-		"properties":{}
-	}
+  "schemaId":"Microsoft.Insights/activityLogs",
+  "data":{"status":"Activated",
+    "context":{
+      "activityLog":{
+        "channels":"Operation",
+        "correlationId":"2518408115673929999",
+        "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
+        "eventSource":"Security",
+        "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
+        "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "level":"Informational",
+        "operationName":"Microsoft.Security/locations/alerts/activate/action",
+        "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "properties":{
+          "attackers":"[\"IP Address: 01.02.03.04\"]",
+          "numberOfFailedAuthenticationAttemptsToHost":"456",
+          "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
+          "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
+          "actionTaken":"Detected",
+          "resourceType":"Virtual Machine",
+          "severity":"Medium",
+          "compromisedEntity":"LinuxVM1",
+          "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+          "attackedResourceType":"Virtual Machine"
+        },
+        "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "resourceGroupName":"contoso",
+        "resourceProviderName":"Microsoft.Security",
+        "status":"Active",
+        "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+        "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
+        "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+      }
+    },
+    "properties":{}
+  }
 }
 ```
 
@@ -140,42 +140,42 @@ The JSON payload contained in the POST operation differs based on the payload's 
 
 ```json
 {
-	"schemaId":"Microsoft.Insights/activityLogs",
-	"data":{
-		"status":"Activated",
-		"context":{
-			"activityLog":{
-				"channels":"Operation",
-				"claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
-				"caller":"Microsoft.Advisor",
-				"correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
-				"description":"A new recommendation is available.",
-				"eventSource":"Recommendation",
-				"eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
-				"httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
-				"eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
-				"level":"Informational",
-				"operationName":"Microsoft.Advisor/recommendations/available/action",
-				"properties":{
-					"recommendationSchemaVersion":"1.0",
-					"recommendationCategory":"HighAvailability",
-					"recommendationImpact":"Medium",
-					"recommendationName":"Enable Soft Delete to protect your blob data",
-					"recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
-					"recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
-				},
-				"resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
-				"resourceGroupName":"CONTOSO",
-				"resourceProviderName":"MICROSOFT.STORAGE",
-				"status":"Active",
-				"subStatus":"",
-				"subscriptionId":"12345-5645-123a-9867-123b45a6789",
-				"submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
-				"resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
-			}
-		},
-		"properties":{}
-	}
+  "schemaId":"Microsoft.Insights/activityLogs",
+  "data":{
+    "status":"Activated",
+    "context":{
+      "activityLog":{
+        "channels":"Operation",
+        "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+        "caller":"Microsoft.Advisor",
+        "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+        "description":"A new recommendation is available.",
+        "eventSource":"Recommendation",
+        "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+        "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+        "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+        "level":"Informational",
+        "operationName":"Microsoft.Advisor/recommendations/available/action",
+        "properties":{
+          "recommendationSchemaVersion":"1.0",
+          "recommendationCategory":"HighAvailability",
+          "recommendationImpact":"Medium",
+          "recommendationName":"Enable Soft Delete to protect your blob data",
+          "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+          "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
+        },
+        "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+        "resourceGroupName":"CONTOSO",
+        "resourceProviderName":"MICROSOFT.STORAGE",
+        "status":"Active",
+        "subStatus":"",
+        "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+        "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+        "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+      }
+    },
+    "properties":{}
+  }
 }
 ```
 
@@ -297,6 +297,6 @@ For specific schema details on all other activity log alerts, see [Overview of t
 ## Next steps
 * [Learn more about the activity log](../essentials/platform-logs-overview.md).
 * [Execute Azure automation scripts (Runbooks) on Azure alerts](https://go.microsoft.com/fwlink/?LinkId=627081).
-* [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
-* [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
-* [Use a logic app to send a message to an Azure queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
+* [Use a logic app to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
+* [Use a logic app to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.
+* [Use a logic app to send a message to an Azure queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app). This example is for metric alerts, but it can be modified to work with an activity log alert.

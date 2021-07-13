@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 04/30/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -43,7 +43,7 @@ Organizations that use Azure AD B2C as their customer identity and access manage
 
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
+* Complete the steps in [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
 * Basic understanding of the SAML protocol and familiarity with the application's SAML implementation.
 * A web application configured as a SAML application. For this tutorial, you can use a [SAML test application][samltest] that we provide.
 
@@ -58,6 +58,8 @@ There are three main components required for this scenario:
 If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available for testing:
 
 [SAML Test Application][samltest]
+
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
 ## Set up certificates
 
@@ -74,15 +76,35 @@ To build a trust relationship between your application and Azure AD B2C, both se
 
 | Usage | Required | Description |
 | --------- | -------- | ----------- |
-| SAML response signing | Yes | A certificate with a private key stored in Azure AD B2C. This certificate is used by Azure AD B2C to sign the SAML response sent to your application. Your application reads the Azure AD B2C metadata public key to validate the signature of the SAML response. |
+| SAML response signing | Yes  | A certificate with a private key stored in Azure AD B2C. This certificate is used by Azure AD B2C to sign the SAML response sent to your application. Your application reads the Azure AD B2C metadata public key to validate the signature of the SAML response. |
+| SAML assertion signing | Yes | A certificate with a private key stored in Azure AD B2C. This certificate is used by Azure AD B2C to sign the SAML response's assertion. The `<saml:Assertion>` part of the SAML response.  |
 
 In a production environment, we recommend using certificates issued by a public certificate authority. However, you can also complete this procedure with self-signed certificates.
 
-### Prepare a self-signed certificate for SAML response signing
+### Create a policy key
 
-You must create a SAML response signing certificate so that your application can trust the assertion from Azure AD B2C.
+To have a trust relationship between your application and Azure AD B2C, create a SAML response signing certificate. Azure AD B2C uses this certificate to sign the SAML response sent to your application. Your application reads the Azure AD B2C metadata public key to validate the signature of the SAML response. 
+
+> [!TIP]
+> You can use the policy key that you create in this section, for other purposes, such as sign-in the [SAML assertion](saml-service-provider-options.md#saml-assertions-signature). 
+
+### Obtain a certificate
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
+
+### Upload the certificate
+
+You need to store your certificate in your Azure AD B2C tenant.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. On the Overview page, select **Identity Experience Framework**.
+1. Select **Policy Keys** and then select **Add**.
+1. For **Options**, choose `Upload`.
+1. Enter a **Name** for the policy key. For example, `SamlIdpCert`. The prefix `B2C_1A_` is added automatically to the name of your key.
+1. Browse to and select your certificate .pfx file with the private key.
+1. Click **Create**.
 
 ## Enable your policy to connect with a SAML application
 
@@ -107,6 +129,7 @@ Locate the `<ClaimsProviders>` section and add the following XML snippet to impl
       </Metadata>
       <CryptographicKeys>
         <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
+        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
@@ -143,51 +166,6 @@ You can change the value of the `IssuerUri` metadata item in the SAML token issu
     </TechnicalProfile>
 ```
 
-#### Sign the Azure AD B2C IdP SAML Metadata (optional)
-
-You can instruct Azure AD B2C to sign its SAML IdP metadata document, if required by the application. To do so, generate and upload a SAML IdP metadata signing policy key as shown in [Prepare a self-signed certificate for SAML response signing](#prepare-a-self-signed-certificate-for-saml-response-signing). Then configure the `MetadataSigning` metadata item in the SAML token issuer technical profile. The `StorageReferenceId` must reference the policy key name.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlMetadataCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
-
-#### Sign the Azure AD B2C IdP SAML response element (optional)
-
-You can specify a certificate to be used to sign the SAML messages. The message is the `<samlp:Response>` element within the SAML response sent to the application.
-
-To specify a certificate, generate and upload a policy key as shown in [Prepare a self-signed certificate for SAML response signing](#prepare-a-self-signed-certificate-for-saml-response-signing). Then configure the `SamlMessageSigning` Metadata item in the SAML Token Issuer technical profile. The `StorageReferenceId` must reference the Policy Key name.
-
-```xml
-<ClaimsProvider>
-  <DisplayName>Token Issuer</DisplayName>
-  <TechnicalProfiles>
-    <!-- SAML Token Issuer technical profile -->
-    <TechnicalProfile Id="Saml2AssertionIssuer">
-      <DisplayName>Token Issuer</DisplayName>
-      <Protocol Name="SAML2"/>
-      <OutputTokenFormat>SAML2</OutputTokenFormat>
-        ...
-      <CryptographicKeys>
-        <Key Id="SamlMessageSigning" StorageReferenceId="B2C_1A_SamlMessageCert"/>
-        ...
-      </CryptographicKeys>
-    ...
-    </TechnicalProfile>
-```
 ## Configure your policy to issue a SAML Response
 
 Now that your policy can create SAML responses, you must configure the policy to issue a SAML response instead of the default JWT response to your application.

@@ -8,7 +8,7 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a budget with an ARM template
@@ -19,7 +19,7 @@ Budgets in Cost Management help you plan for and drive organizational accountabi
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ For more information about assigning permission to Cost Management data, see [As
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.consumption/create-budget/azuredeploy.json" :::
 
 One Azure resource is defined in the template:
 
@@ -73,7 +73,7 @@ One Azure resource is defined in the template:
 
 1. Select the following image to sign in to Azure and open a template. The template creates a budget.
 
-   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcreate-budget%2Fazuredeploy.json)
+   [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.consumption%2Fcreate-budget%2Fazuredeploy.json)
 
 2. Select or enter the following values.
 

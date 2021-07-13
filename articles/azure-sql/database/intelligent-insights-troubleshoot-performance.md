@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: troubleshooting
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, wiassaf
 ms.date: 1/14/2021
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights

@@ -39,6 +39,8 @@
     href: service-dependencies.md
   - name: Location conditions
     href: location-condition.md
+  - name: Filters for devices
+    href: concept-condition-filters-for-devices.md
   - name: What if tool
     href: what-if-tool.md
   - name: Continuous access evaluation

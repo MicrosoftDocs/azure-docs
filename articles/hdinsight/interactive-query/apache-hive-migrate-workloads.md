@@ -66,7 +66,7 @@ This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/disp
     > [!NOTE]
     > This utility uses client `beeline` to execute SQL scripts in `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql`.
     >
-    > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](../../azure-sql/database/connect-query-portal.md) require keyword `GO` after each command.
+    > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](../../azure-sql/database/connect-query-portal.md) require keyword `GO` after each command.
     >
     > If any script fails due to resource capacity or transaction timeouts, scale up the SQL Database.
 
@@ -125,6 +125,10 @@ HDInsight optionally integrates with Azure Active Directory using HDInsight Ente
 * `HiveCLI` is replaced with `Beeline`.
 
 Refer to [HDInsight 4.0 Announcement](../hdinsight-version-release.md) for additional changes.
+
+## Troubleshooting guide
+
+[HDInsight 3.6 to 4.0 troubleshooting guide for Hive workloads](./interactive-query-troubleshoot-migrate-36-to-40.md) provides answers to common issues faced when migrating Hive workloads from HDInsight 3.6 to HDInsight 4.0.
 
 ## Further reading
 

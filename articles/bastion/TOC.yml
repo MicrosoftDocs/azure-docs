@@ -7,11 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a host using VM settings
+  - name: Configure Bastion from VM settings
     href: quickstart-host-portal.md
 - name: Tutorials
   items:
-  - name: Create host & connect to Windows VM
+  - name: Configure Bastion & connect
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:
@@ -19,15 +19,19 @@
     href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
   - name: Leverage Bastion for remote working
     href: work-remotely-support.md
+  - name: Bastion FAQ
+    href: bastion-faq.md
+  - name: Configuration settings
+    href: configuration-settings.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: How-to guides
   items:
-  - name: Create a host
+  - name: Configure Bastion
     items:
     - name: Azure portal
       href: tutorial-create-host-portal.md
@@ -41,6 +45,10 @@
       href: bastion-connect-vm-ssh.md
     - name: RDP (Windows)
       href: bastion-connect-vm-rdp.md
+  - name: Upgrade a SKU
+    href: upgrade-sku.md
+  - name: Configure host scaling
+    href: configure-host-scaling.md
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
@@ -53,10 +61,14 @@
       href: bastion-vm-full-screen.md
   - name: Work with NSGs
     href: bastion-nsg.md
-  - name: Configure and access diagnostic logs
-    href: diagnostic-logs.md
-  - name: Monitor and manage sessions
-    href: session-monitoring.md
+  - name: Health monitoring
+    items:
+    - name: Monitoring Azure Bastion
+      href: howto-metrics-monitor-alert.md
+    - name: Configure and access diagnostic logs
+      href: diagnostic-logs.md
+    - name: Monitor and manage sessions
+      href: session-monitoring.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Reference
@@ -69,12 +81,12 @@
     href: /cli/azure/network/bastion
 - name: Resources
   items:
-  - name: Bastion FAQ
-    href: bastion-faq.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-bastion
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
   - name: Preview SLA

@@ -1,0 +1,109 @@
+<svg id="bb7fd9ed-45f5-4911-9bd1-6c540b8b3e5d" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="469" height="182.09" viewBox="0 0 469 182.09">
+  <defs>
+    <linearGradient id="a3318965-9a17-47cb-a076-2d8dd77b555b" x1="-87.66" y1="-45.57" x2="-87.66" y2="-55.62" gradientTransform="translate(669.97 244.26) scale(3)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b4b4b4"/>
+      <stop offset="0.26" stop-color="#c2c1c1"/>
+      <stop offset="1" stop-color="#e6e6e5"/>
+    </linearGradient>
+    <linearGradient id="ac6b307b-098f-4a87-a30d-c4756c921b52" x1="-225.4" y1="977.37" x2="-207.8" y2="1007.92" gradientTransform="matrix(1, 1.74, 1.74, -1, -1453.4, 1439.98)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#015ca2"/>
+      <stop offset="0.37" stop-color="#04508e"/>
+      <stop offset="1" stop-color="#1e3565"/>
+    </linearGradient>
+    <linearGradient id="ab34e734-58a6-441f-a978-eb2c1468bf51" x1="-2520.49" y1="-491.55" x2="-2499.11" y2="-454.05" gradientTransform="matrix(-1, -1.74, -1.74, 1, -3273.39, -3809.04)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#015ca2"/>
+      <stop offset="0.45" stop-color="#164884"/>
+      <stop offset="1" stop-color="#1e3565"/>
+    </linearGradient>
+    <linearGradient id="eade206a-3de7-4ec6-9315-9e0aa11f362f" x1="-67.2" y1="-397.54" x2="-65.75" y2="-389.3" gradientTransform="matrix(2, 0, 0, -2, 185.49, -704.55)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.26" stop-color="#75d0eb"/>
+      <stop offset="0.42" stop-color="#8ed6ed"/>
+      <stop offset="0.58" stop-color="#a5def1"/>
+      <stop offset="0.73" stop-color="#b6e4f5"/>
+      <stop offset="0.88" stop-color="#c2e8f6"/>
+      <stop offset="1" stop-color="#c6eaf7"/>
+    </linearGradient>
+    <linearGradient id="b793a871-aee1-49fb-8ac8-b842286da3cc" x1="-83.47" y1="-48.4" x2="-88.02" y2="-57.03" gradientTransform="translate(479.97 244.26) scale(3)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3186c7"/>
+      <stop offset="0.9" stop-color="#5fabdf"/>
+    </linearGradient>
+    <linearGradient id="a09bce1b-e13b-438a-8d72-0a98f3d0a80c" x1="-85.44" y1="-50.91" x2="-82.29" y2="-45.48" gradientTransform="translate(479.97 244.26) scale(3)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.1" stop-color="#5fabdf"/>
+      <stop offset="0.29" stop-color="#5ba9dd"/>
+      <stop offset="0.51" stop-color="#4fa0d8"/>
+      <stop offset="0.74" stop-color="#3c91ce"/>
+      <stop offset="0.88" stop-color="#3186c7"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <rect width="469" height="182.09" fill="#fff"/>
+    <rect x="8" y="13.03" width="452" height="159" fill="#fff" stroke="#010101"/>
+    <line x1="8" y1="35.65" x2="460" y2="35.65" fill="none" stroke="#010101"/>
+    <text transform="translate(56 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">Grant</text>
+    <text transform="translate(92.98 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.06em" style="isolation: isolate"> </text>
+    <text transform="translate(97.73 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">s</text>
+    <text transform="translate(103.89 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">t</text>
+    <text transform="translate(109.28 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">orage</text>
+    <text transform="translate(147.18 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.06em" style="isolation: isolate"> </text>
+    <text transform="translate(151.94 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">pe</text>
+    <text transform="translate(168.19 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">r</text>
+    <text transform="translate(173.8 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">missions</text>
+    <text transform="translate(230.09 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.06em" style="isolation: isolate"> </text>
+    <text transform="translate(234.84 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">t</text>
+    <text transform="translate(240.23 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">o</text>
+    <text transform="translate(248.79 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.06em" style="isolation: isolate"> </text>
+    <text transform="translate(253.54 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">Media</text>
+    <text transform="translate(294.7 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.06em" style="isolation: isolate"> </text>
+    <text transform="translate(299.45 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">Se</text>
+    <text transform="translate(314.87 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.04em" style="isolation: isolate">r</text>
+    <text transform="translate(321 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">vices</text>
+    <text transform="translate(353.02 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.06em" style="isolation: isolate"> </text>
+    <text transform="translate(357.77 30.14)" font-size="14" fill="#3d80c0" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" style="isolation: isolate">Account</text>
+    <rect x="370" y="50.03" width="74" height="105.92" fill="#fff"/>
+    <path d="M381.5,77.4h51v28.44a1.71,1.71,0,0,1-1.71,1.71H383.21a1.71,1.71,0,0,1-1.71-1.71Z" fill="url(#a3318965-9a17-47cb-a076-2d8dd77b555b)"/>
+    <path d="M383.21,66.54h47.58a1.73,1.73,0,0,1,1.71,1.71V77.4h-51V68.22A1.72,1.72,0,0,1,383.21,66.54Z" fill="#41beaf"/>
+    <path d="M388.43,80.7h37.11a.81.81,0,0,1,.78.81v4.2a.79.79,0,0,1-.78.81H388.43a.79.79,0,0,1-.78-.81v-4.2A.81.81,0,0,1,388.43,80.7Z" fill="#fff"/>
+    <path d="M388.46,89.09h37.11a.81.81,0,0,1,.78.81v4.19a.79.79,0,0,1-.78.81H388.46a.79.79,0,0,1-.78-.81V90a.82.82,0,0,1,.65-.94Z" fill="#41beaf"/>
+    <path d="M388.46,97.53h37.11a.81.81,0,0,1,.78.81v4.23a.79.79,0,0,1-.78.81H388.46a.79.79,0,0,1-.78-.81V98.34A.81.81,0,0,1,388.46,97.53Z" fill="#278378"/>
+    <text transform="translate(385.5 126.98)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" letter-spacing="-0.03em" style="isolation: isolate">S</text>
+    <text transform="translate(391.49 126.98)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">torage</text>
+    <text transform="translate(384.5 142.94)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" letter-spacing="0.02em" style="isolation: isolate">Accoun</text>
+    <text transform="translate(425.43 142.94)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">t</text>
+    <rect x="24" y="52.03" width="65" height="101.88" fill="#fff"/>
+    <path d="M57.5,69.49l8.76,5,6-3.52a17.59,17.59,0,0,0-23.93-6.74h-.07a17,17,0,0,0-3.9,3A20,20,0,0,1,57.5,69.49Z" fill="url(#ac6b307b-098f-4a87-a30d-c4756c921b52)"/>
+    <path d="M66.22,74.51l-.14,12,6.34,1.7a17.59,17.59,0,0,0-6.6-24l0,0h0A18.22,18.22,0,0,0,62,62.61,20.88,20.88,0,0,1,66.22,74.51Z" fill="#2f76bc"/>
+    <path d="M66.2,84.93l-9.1,5.26.14,7a17.61,17.61,0,0,0,17.54-17.6,17.41,17.41,0,0,0-.58-4.18A19.19,19.19,0,0,1,66.2,84.93Z" fill="#6a9dd3"/>
+    <path d="M57.1,90.19,48,84.93l-6,3.62a17.54,17.54,0,0,0,27.3,3.76A19.79,19.79,0,0,1,57.1,90.19Z" fill="url(#ab34e734-58a6-441f-a978-eb2c1468bf51)"/>
+    <path d="M48,84.93l.14-12.48L41.9,70.81a17.58,17.58,0,0,0,6.38,24A17,17,0,0,0,52.6,96.6,20.24,20.24,0,0,1,48,84.93Z" fill="#2f76bc"/>
+    <path d="M48.3,74.23l8.8-5.08a21.25,21.25,0,0,0-11.88-2.5,17.55,17.55,0,0,0-5.72,13,18.59,18.59,0,0,0,.62,4.64A20.62,20.62,0,0,1,48.3,74.23Z" fill="#6a9dd3"/>
+    <polygon points="66.2 84.94 66.2 74.42 57.1 69.16 47.98 74.42 47.98 84.94 57.1 90.19 66.2 84.94" fill="#c6eaf7"/>
+    <polygon points="57.1 79.78 57.1 90.19 47.98 84.94 47.98 74.45 57.1 79.78" fill="url(#eade206a-3de7-4ec6-9315-9e0aa11f362f)"/>
+    <polygon points="57.1 79.78 57.1 90.19 66.22 84.94 66.22 74.45 57.1 79.78" fill="#75d0eb"/>
+    <text transform="translate(38.5 108.98)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">Media</text>
+    <text transform="translate(34 124.94)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">Services</text>
+    <text transform="translate(34 140.9)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" letter-spacing="0.02em" style="isolation: isolate">Accoun</text>
+    <text transform="translate(74.93 140.9)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">t</text>
+    <rect x="180" y="50.03" width="74" height="105.92" fill="#fff"/>
+    <polygon points="193.45 90.69 216.79 105.84 240.55 90.67 243.55 94.11 216.79 111.36 190.45 94.14 193.45 90.69" fill="#75d0eb"/>
+    <polygon points="195.19 88.78 216.79 63.03 238.84 88.81 216.79 102.72 195.19 88.78" fill="#fff"/>
+    <polygon points="216.79 63.03 216.79 102.72 195.19 88.78 216.79 63.03" fill="#75d0eb"/>
+    <polygon points="216.79 63.03 216.79 102.72 238.84 88.81 216.79 63.03" fill="url(#b793a871-aee1-49fb-8ac8-b842286da3cc)"/>
+    <polygon points="216.79 83.53 238.84 88.81 216.79 102.72 216.79 83.53" fill="#53b1df"/>
+    <polygon points="216.79 102.72 195.19 88.78 216.79 83.53 216.79 102.72" fill="#a5def3"/>
+    <polygon points="216.79 111.36 243.55 94.11 240.55 90.67 216.79 105.84 216.79 111.36" fill="url(#a09bce1b-e13b-438a-8d72-0a98f3d0a80c)"/>
+    <path id="a6e2648f-357a-4e3d-8d86-97d09ef31d5b" data-name="a457e967-89a9-463c-b34c-bb9c02d950f4" d="M239,95.67a3.48,3.48,0,0,0,0-4.92h0l-6-6a3.49,3.49,0,0,0-4.92,0h0l-6,6a3.55,3.55,0,0,0,0,5h0l5,5a1,1,0,0,1,.27.69v9.3a1.07,1.07,0,0,0,.36.84l2.29,2.21a.76.76,0,0,0,1.06.06h0v0l2.19-2.19h0l1.32-1.32a.45.45,0,0,0,0-.63l-.93-.93a.47.47,0,0,1,0-.67h0l.93-.93a.47.47,0,0,0,0-.66l-.93-.93a.44.44,0,0,1-.06-.63l.06-.06.93-1a.45.45,0,0,0,0-.63l-1.32-1.32v-.48Zm-8.46-9.51a2,2,0,1,1-2,2h0a2,2,0,0,1,2-2Z" fill="#ffcb05"/>
+    <path id="a25c8877-9579-4aec-88a3-791a02c946d3" data-name="b1333fbd-c62d-4d9a-be31-37fbcb0e6c10" d="M229,111h0a.4.4,0,0,0,.58,0h0a.39.39,0,0,0,.13-.34V103a.5.5,0,0,0-.18-.39h0a.44.44,0,0,0-.59.1.43.43,0,0,0-.07.29v7.53A.45.45,0,0,0,229,111Z" fill="#f7921e" opacity="0.75" style="isolation: isolate"/>
+    <rect id="b9ca9d22-a6aa-42d2-be92-e696bc77f687" data-name="b945e567-958b-48d3-969c-884801e596ab" x="225.7" y="92.73" width="9.87" height="1.17" rx="0.54" fill="#f7921e" opacity="0.75" style="isolation: isolate"/>
+    <rect id="f983fc79-6911-4630-bd60-705be7f95e2b" data-name="a4507356-f798-4f73-85b4-1cfaf2664318" x="225.7" y="94.62" width="9.87" height="1.17" rx="0.54" fill="#f7921e" opacity="0.75" style="isolation: isolate"/>
+    <text transform="translate(192 126.98)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">Managed</text>
+    <text transform="translate(197 142.94)" font-size="12" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">Identity</text>
+    <path id="af6706b2-8495-4e7e-bc70-d2b030d7368c" data-name="f2a1c1f8-e806-4614-b892-7bf5dc2900f2" d="M89.19,103h90.74" fill="none" stroke="#010101"/>
+    <text transform="translate(123 99.06)" font-size="13" fill="#010101" font-family="SegoeUI, Segoe UI" letter-spacing="0.02em" style="isolation: isolate">use</text>
+    <text transform="translate(143.48 99.06)" font-size="13" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">s</text>
+    <path id="adf231a9-9754-49cc-b009-579da3dc880a" data-name="e11e767b-ecf1-4ec6-b1f6-c8185f6db5b4" d="M254.25,103H364.68" fill="none" stroke="#010101"/>
+    <polygon points="369.86 103.03 360.86 99.03 364.86 103.03 360.86 107.03 369.86 103.03" fill="#010101" stroke="#010101"/>
+    <text transform="translate(285 99.06)" font-size="13" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">to</text>
+    <text transform="translate(297.02 99.06)" font-size="13" fill="#010101" font-family="SegoeUI, Segoe UI" letter-spacing="0.15em" style="isolation: isolate"> </text>
+    <text transform="translate(302.55 99.06)" font-size="13" fill="#010101" font-family="SegoeUI, Segoe UI" style="isolation: isolate">access</text>
+  </g>
+</svg>

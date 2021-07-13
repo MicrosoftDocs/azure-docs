@@ -20,11 +20,6 @@ You can serve static content (HTML, CSS, JavaScript, and image files) directly f
 
 If you need a web server to render content, you can use [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
-> [!NOTE]
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
-
 ## Setting up a static website
 
 Static website hosting is a feature that you have to enable on the storage account.
@@ -107,6 +102,9 @@ If you want to use headers to control caching, see [Control Azure CDN caching be
 
 If you plan to host a website in multiple geographies, we recommend that you use a [Content Delivery Network](../../cdn/index.yml) for regional caching. Use [Azure Front Door](../../frontdoor/index.yml) if you want to serve different content in each region. It also provides failover capabilities. [Azure Traffic Manager](../../traffic-manager/index.yml) is not recommended if you plan to use a custom domain. Issues can arise because of how Azure Storage verifies custom domain names.
 
+## Permissions
+
+The permission to be able to enable static website is Microsoft.Storage/storageAccounts/blobServices/write or shared key.  Built in roles that provide this access include Storage Account Contributor.  
 
 ## Pricing
 

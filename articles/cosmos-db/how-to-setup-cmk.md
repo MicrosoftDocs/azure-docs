@@ -4,15 +4,13 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/19/2021
-ms.author: thweiss
+ms.date: 04/23/2021
+ms.author: thweiss 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!NOTE]
-> Using customer-managed keys with the Azure Cosmos DB [analytical store](analytical-store-introduction.md) currently requires additional configuration on your account. Please contact [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) for details.
 
 Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys**).
 
@@ -46,7 +44,7 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 - [How to use soft-delete with PowerShell](../key-vault/general/key-vault-recovery.md)
 - [How to use soft-delete with Azure CLI](../key-vault/general/key-vault-recovery.md)
 
-## Add an access policy to your Azure Key Vault instance
+## <a id="add-access-policy"></a> Add an access policy to your Azure Key Vault instance
 
 1. From the Azure portal, go to the Azure Key Vault instance that you plan to use to host your encryption keys. Select **Access Policies** from the left menu:
 
@@ -58,7 +56,14 @@ If you're using an existing Azure Key Vault instance, you can verify that these 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Selecting the right permissions":::
 
-1. Under **Select principal**, select **None selected**. Then, search for **Azure Cosmos DB** principal and select it (to make it easier to find, you can also search by principal ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` for any Azure region except Azure Government regions where the principal ID is `57506a73-e302-42a9-b869-6f12d9ec29e9`). Finally, choose **Select** at the bottom. If the **Azure Cosmos DB** principal isn't in the list, you might need to re-register the **Microsoft.DocumentDB** resource provider as described in the [Register the resource provider](#register-resource-provider) section of this article.
+1. Under **Select principal**, select **None selected**.
+
+1. Search for **Azure Cosmos DB** principal and select it (to make it easier to find, you can also search by principal ID: `a232010e-820c-4083-83bb-3ace5fc29d0b` for any Azure region except Azure Government regions where the principal ID is `57506a73-e302-42a9-b869-6f12d9ec29e9`). If the **Azure Cosmos DB** principal isn't in the list, you might need to re-register the **Microsoft.DocumentDB** resource provider as described in the [Register the resource provider](#register-resource-provider) section of this article.
+
+   > [!NOTE]
+   > This registers the Azure Cosmos DB first-party-identity in your Azure Key Vault access policy. To replace this first-party identity by your Azure Cosmos DB account managed identity, see [Using a managed identity in the Azure Key Vault access policy](#using-managed-identity).
+
+1. Choose **Select** at the bottom. 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Select the Azure Cosmos DB principal":::
 
@@ -221,6 +226,45 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a id="using-managed-identity"></a> Using a managed identity in the Azure Key Vault access policy
+
+This access policy ensures that your encryption keys can be accessed by your Azure Cosmos DB account. This is done by granting access to a specific Azure Active Directory (AD) identity. Two types of identities are supported:
+
+- Azure Cosmos DB's first-party identity can be used to grant access to the Azure Cosmos DB service.
+- Your Azure Cosmos DB account's [managed identity](how-to-setup-managed-identity.md) can be used to grant access to your account specifically.
+
+Because a system-assigned managed identity can only be retrieved after the creation of your account, you still need to initially create your account using the first-party identity, as described [above](#add-access-policy). Then:
+
+1. If this wasn't done during account creation, [enable a system-assigned managed identity](how-to-setup-managed-identity.md) on your account and copy the `principalId` that got assigned.
+
+1. Add a new access policy to your Azure Key Vault account, just as described [above](#add-access-policy), but using the `principalId` you copied at the previous step instead of Azure Cosmos DB's first-party identity.
+
+1. Update your Azure Cosmos DB account to specify that you want to use the system-assigned managed identity when accessing your encryption keys in Azure Key Vault. You can do this:
+
+   - by specifying this property in your account's Azure Resource Manager template:
+
+     ```json
+     {
+         "type": " Microsoft.DocumentDB/databaseAccounts",
+         "properties": {
+             "defaultIdentity": "SystemAssignedIdentity",
+             // ...
+         },
+         // ...
+     }
+     ```
+
+   - by updating your account with the Azure CLI:
+
+     ```azurecli
+     resourceGroupName='myResourceGroup'
+     accountName='mycosmosaccount'
+     
+     az cosmosdb update --resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
+     ```
+
+1. Optionally, you can then remove the Azure Cosmos DB first-party identity from your Azure Key Vault access policy.
+
 ## Key rotation
 
 Rotating the customer-managed key used by your Azure Cosmos account can be done in two ways.
@@ -252,7 +296,7 @@ Rotating the customer-managed key used by your Azure Cosmos account can be done 
     $account | Set-AzResource -Force
     ```
 
-The previous key or key version can be disabled after 24 hours, or after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore.
+The previous key or key version can be disabled after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore. No more activity should take place on the previous key or key version after 24 hours of key rotation.
     
 ## Error handling
 
@@ -292,7 +336,7 @@ This feature is currently available only for new accounts.
 
 ### Is it possible to use customer-managed keys in conjunction with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
 
-Yes, but this currently requires additional configuration on your account. Please contact [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) for details.
+Yes, Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account.
 
 ### Is there a plan to support finer granularity than account-level keys?
 

@@ -1,13 +1,13 @@
 ---
 title: 'Configure forced tunneling for Site-to-Site connections'
-description: How to redirect (force) all Internet-bound traffic back to your on-premises location.
+description: Learn how to redirect (force) all Internet-bound traffic back to your on-premises location.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
 
 ---

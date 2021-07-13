@@ -1,74 +1,80 @@
 ---
 title: "Cognitive Services: What's new in docs"
-description: "What's new in the Cognitive Services docs for February 1, 2020 - February 28, 2020."
+description: "What's new in the Cognitive Services docs for May 1, 2021 - May 31, 2021."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 03/08/2021
+ms.date: 06/14/2021
 ---
 
-# Cognitive Services docs: What's new for February 1, 2020 - February 28, 2020
+# Cognitive Services docs: What's new for May 1, 2021 - May 31, 2021
 
-Welcome to what's new in the Cognitive Services docs from February 1, 2020 through February 28, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from May 1, 2021 through May 31, 2021. This article lists some of the major changes to docs during this period.
+
+## Containers
+
+### New articles
+
+- [Install and run Translator containers](translator/containers/translator-how-to-install-container.md)
+- [Configure Translator Docker containers](translator/containers/translator-container-configuration.md)
+- [Container: Translator translate method](translator/containers/translator-container-supported-parameters.md)
+
+
+
+### Updated articles
+
+- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
 
 ## Form Recognizer
 
-### Updated articles
+### New articles
 
-- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool.md)
-
-## Immersive Reader
+- [Reference: Azure Form Recognizer client library v3.0.0 and REST API v2.0](/azure/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0)
 
 ### Updated articles
 
-- [Create an Immersive Reader resource and configure Azure Active Directory authentication](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Form Recognizer prebuilt business cards model](/azure/cognitive-services/form-recognizer/concept-business-cards)
+- [Quickstart: Get started with the client library SDKs or REST API](/azure/cognitive-services/form-recognizer/quickstarts/client-library)
+- [What's new in Form Recognizer](/azure/cognitive-services/form-recognizer/whats-new)
+- [Form Recognizer landing page](/azure/cognitive-services/form-recognizer)
 
-## Personalizer
+## Translator
 
 ### New articles
 
-- [Active and inactive events](/azure/cognitive-services/personalizer/concept-active-inactive-events.md)
-- [Create a Personalizer resource](/azure/cognitive-services/personalizer/how-to-create-resource.md)
-- [How to manage model and learning settings](/azure/cognitive-services/personalizer/how-to-manage-model.md)
-- [Terminology](/azure/cognitive-services/personalizer/terminology.md)
+- [Frequently asked questions—Translator API](translator/translator-faq.md)
 
 ### Updated articles
 
-- [Personalizer Troubleshooting](/azure/cognitive-services/personalizer/troubleshooting.md)
-- [Learning policy and settings](/azure/cognitive-services/personalizer/concept-active-learning.md)
-- [Reward scores indicate success of personalization](/azure/cognitive-services/personalizer/concept-rewards.md)
-- [Offline evaluation](/azure/cognitive-services/personalizer/concepts-offline-evaluation.md)
-- [How Personalizer works](/azure/cognitive-services/personalizer/how-personalizer-works.md)
-- [Analyze your learning loop with an offline evaluation](/azure/cognitive-services/personalizer/how-to-offline-evaluation.md)
-- [Configure Personalizer learning loop](/azure/cognitive-services/personalizer/how-to-settings.md)
-- [Where and how to use Personalizer](/azure/cognitive-services/personalizer/where-can-you-use-personalizer.md)
-- [Tutorial: Use Personalizer in Azure Notebook](/azure/cognitive-services/personalizer/tutorial-use-azure-notebook-generate-loop-data.md)
+#### Document Translation is now GA
+- [Get started with Document Translation](translator/document-translation/get-started-with-document-translation.md)
+- All nine reference pages have been updated to remove the preview parameter from the REST API endpoint.
+## Personalizer
+
+### Updated articles
+
+- [What's new in Personalizer](/azure/cognitive-services/personalizer/whats-new)
 
 ## Text Analytics
 
-### New articles
-
-- [Extract information in Excel using Text Analytics and Power Automate](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information.md)
-
 ### Updated articles
 
-- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [How to: Detect sentiment using the Text Analytics API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
-- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new.md)
-- [Quickstart: Use the Text Analytics client library](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md)
+- [Tutorial: Integrate Power BI with the Text Analytics Cognitive Service](/azure/cognitive-services/text-analytics/tutorials/tutorial-power-bi-key-phrases)
+- [Extract information in Excel using Text Analytics and Power Automate](/azure/cognitive-services/text-analytics/tutorials/extract-excel-information)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
+- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [What's new in the Text Analytics API?](/azure/cognitive-services/text-analytics/whats-new)
 
 ## Community contributors
 
 The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
 
-- [changeworld](https://github.com/changeworld) - Takashi Takebayashi (2)
-- [ctufts](https://github.com/ctufts) - Chris Tufts (1)
-- [girishnadiger-gep](https://github.com/girishnadiger-gep) - Girish Nadiger (1)
-- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (1)
-- [kevmcdonk](https://github.com/kevmcdonk) - Kevin McDonnell (1)
-- [yoichinak](https://github.com/yoichinak) - Yoichi Nakamura (1)
-
+- [enzocanoo](https://github.com/enzocanoo) - Enzo Cano (2)
+- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
+- [sassdawe](https://github.com/sassdawe) - DavidSass (1)
+- [SzymonSel](https://github.com/SzymonSel) - Szymon Seliga (1)
+- [thomash0815](https://github.com/thomash0815) (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

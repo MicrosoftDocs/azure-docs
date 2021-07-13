@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: aahi
-#As a potential customer, I want to know how to configure containers so I can reuse them.
+#Customer intent: As a potential customer, I want to know how to configure containers so I can reuse them.
 
 # SME: Brendan Walsh
 ---

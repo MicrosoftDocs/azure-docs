@@ -4,14 +4,10 @@ description: Learn how to retrieve the IP addresses of an Azure API Management s
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 04/13/2021
 ms.author: apimpm
 ---
 
@@ -102,4 +98,4 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * Azure Virtual Network is added to or removed from the service.
 * API Management service is switched between External and Internal VNet deployment mode.
 
-In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
+In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated. The regional IP address also changes when you enable, add, or remove [availability zones](zone-redundancy.md).

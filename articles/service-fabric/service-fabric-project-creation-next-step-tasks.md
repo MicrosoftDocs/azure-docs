@@ -54,7 +54,7 @@ Your application may contain sensitive information, such as storage connection s
 As with other platforms, a Service Fabric application usually goes through the following phases: design, development, testing, deployment, upgrading, maintenance, and removal. [This article](service-fabric-application-lifecycle.md) provides an overview of the APIs and how they are used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
 ## Learn about best practices
-Service Fabric has a number of articles describing [best practices](./service-fabric-best-practices-overview.md). Take advantage of this information to help ensure your cluster and application run as well as possible.
+Service Fabric has a number of articles describing [best practices](./service-fabric-best-practices-security.md). Take advantage of this information to help ensure your cluster and application run as well as possible.
 The topics covered include:
 * [Security](./service-fabric-best-practices-security.md)
 * [Networking](./service-fabric-best-practices-networking.md)
