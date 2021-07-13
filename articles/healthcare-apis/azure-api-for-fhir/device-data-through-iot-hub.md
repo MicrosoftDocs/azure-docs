@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Receive device data through Azure IoT Hub'
+title: Receive device data through Azure IoT Hub for Azure API for FHIR
 description: In this tutorial, you'll learn how to enable device data routing from IoT Hub into Azure API for FHIR through Azure IoT Connector for FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
@@ -10,7 +10,7 @@ ms.date: 11/13/2020
 ms.author: rabhaiya
 ---
 
-# Tutorial: Receive device data through Azure IoT Hub
+# Receive device data through Azure IoT Hub
 
 Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* provides you the capability to ingest data from Internet of Medical Things (IoMT) devices into Azure API for FHIR. The [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md) quickstart showed an example of device managed by Azure IoT Central [sending telemetry](iot-fhir-portal-quickstart.md#connect-your-devices-to-iot) to Azure IoT Connector for FHIR. Azure IoT Connector for FHIR can also work with devices provisioned and managed through Azure IoT Hub. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to Azure IoT Connector for FHIR.
 

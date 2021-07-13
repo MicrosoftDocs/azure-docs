@@ -193,7 +193,7 @@ In the table below, you'll find the IP address for the Azure region where the Az
 
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to export FHIR data. For more information, see [Secure Export to Azure Storage](./export-data.md#secure-export-to-azure-storage)
+> The above steps are similar to the configuration steps described in the document How to export FHIR data. For more information, see [Secure Export to Azure Storage](../data-transformation/export-data.md#secure-export-to-azure-storage)
 
 ### Verify
 

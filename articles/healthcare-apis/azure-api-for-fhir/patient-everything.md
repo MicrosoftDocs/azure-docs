@@ -38,7 +38,7 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | end | Specifying the end date will pull in resources where their clinical date is before the specified end date. If no end date is provided, all records after the start date are in scope. |
 
 > [!Note]
-> You must specify an ID for a specific patient. If you need all data for all patients, see [$export](export-data.md). 
+> You must specify an ID for a specific patient. If you need all data for all patients, see [$export](../data-transformation/export-data.md). 
 
 
 ## Examples of $patient-everything 

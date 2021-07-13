@@ -1,6 +1,6 @@
 ---
-title: Register the Azure Active Directory apps for Azure API for FHIR
-description: This tutorial explains which applications need to be registered for Azure API for FHIR and FHIR Server for Azure.
+title: Register the Azure Active Directory apps for FHIR service
+description: This tutorial explains which applications need to be registered for FHIR service and FHIR Server for Azure.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -11,9 +11,9 @@ author: matjazl
 ms.date: 10/13/2019
 ---
 
-# Register the Azure Active Directory apps for Azure API for FHIR
+# Register the Azure Active Directory apps for FHIR service
 
-You have several configuration options to choose from when you're setting up the Azure API for FHIR or the FHIR Server for Azure (OSS). For open source, you'll need to create your own resource application registration. For Azure API for FHIR, this resource application is created automatically.
+You have several configuration options to choose from when you're setting up the FHIR service or the FHIR Server for Azure (OSS). For open source, you'll need to create your own resource application registration. For FHIR service, this resource application is created automatically.
 
 ## Application registrations
 
@@ -22,7 +22,7 @@ In order for an application to interact with Azure AD, it needs to be registered
 1. Resource application registrations.
 1. Client application registrations.
 
-**Resource applications** are representations in Azure AD of an API or resource that is secured with Azure AD, specifically it would be the Azure API for FHIR. A resource application for Azure API for FHIR will be created automatically when you provision the service, but if you're using the open-source server, you'll need to [register a resource application](register-resource-azure-ad-client-app.md) in Azure AD. This resource application will have an identifier URI. It's recommended that this URI be the same as the URI of the FHIR server. This URI should be used as the `Audience` for the FHIR server. A client application can request access to this FHIR server when it requests a token.
+**Resource applications** are representations in Azure AD of an API or resource that is secured with Azure AD, specifically it would be the FHIR service. A resource application for FHIR service will be created automatically when you provision the service, but if you're using the open-source server, you'll need to [register a resource application](register-resource-azure-ad-client-app.md) in Azure AD. This resource application will have an identifier URI. It's recommended that this URI be the same as the URI of the FHIR server. This URI should be used as the `Audience` for the FHIR server. A client application can request access to this FHIR server when it requests a token.
 
 *Client applications* are registrations of the clients that will be requesting tokens. Often in OAuth 2.0, we distinguish between at least three different types of applications:
 
@@ -41,7 +41,7 @@ Based on your setup, please see the how-to-guides to register your applications
 * [Register a public client application](register-public-azure-ad-client-app.md)
 * [Register a service application](register-service-azure-ad-client-app.md)
 
-Once you have registered your applications, you can deploy the Azure API for FHIR.
+Once you have registered your applications, you can deploy the FHIR service.
 
 >[!div class="nextstepaction"]
->[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)
+>[Deploy FHIR service](fhir-portal-quickstart.md)

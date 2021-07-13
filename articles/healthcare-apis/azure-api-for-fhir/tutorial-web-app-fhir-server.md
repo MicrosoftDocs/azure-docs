@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 ---
 
-# Deploy JavaScript app to read data from FHIR service
+# Deploy JavaScript app to read data from Azure API for FHIR
 In this tutorial, you will deploy a small JavaScript app, which reads data from a FHIR service. The steps in this tutorial are:
 1. Deploy a FHIR server
 1. Register a public client application

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Connector for FHIR (preview) - Troubleshooting guide and how-to
+title: IoT Connector for FHIR (preview)
 description: How to troubleshoot common Azure IoT Connector for FHIR (preview) error messages and conditions and copying mapping files
 services: healthcare-apis
 author: msjasteppe
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: jasteppe
 ---
-# Azure IoT Connector for FHIR (preview) troubleshooting guide
+# IoT Connector for FHIR (preview) troubleshooting guide
 
 This article provides steps for troubleshooting common Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* error messages and conditions.  
 
