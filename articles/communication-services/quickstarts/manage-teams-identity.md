@@ -21,7 +21,6 @@ In this quickstart, you'll build a .NET console application to authenticate an A
 > [!NOTE]
 > When you're in a production environment, we recommend that you implement this exchange mechanism in back-end services, because requests for an exchange are signed with a secret.
 
-
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Communication Services resource and connection string. For more information, see [Create a Communication Services resource](./create-communication-resource.md).
@@ -36,7 +35,7 @@ The following sections will guide you through the steps for administrators, deve
 
 ## Administrator actions
 
-The Administrator role has extended permissions in Azure AD. Members of this role can provision resources and can read information from the Azure portal. In the following diagram, you can see all actions that have to be executed by Administrators.
+The Administrator role has extended permissions in Azure AD. Members of this role can set up resources and can read information from the Azure portal. In the following diagram, you can see all actions that have to be executed by Administrators.
 
 ![Administrator actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-admin-overview.png)
 
@@ -46,7 +45,7 @@ The Administrator role has extended permissions in Azure AD. Members of this rol
 1. The Contoso Administrator can optionally update.
 1. The Contoso Administrator enables the experience by [completing and submitting this form](https://forms.office.com/r/B8p5KqCH19).
 1. The Contoso Administrator creates or selects existing Communication Services, which will be used for authentication of the exchanging requests. Azure AD user tokens will be exchanged for Teams access tokens. For more information, see [Create and manage Communication Services resources](./create-communication-resource.md).
-1. The Fabrikam Administrator provisions a new service principal for Azure Communication Services in the Fabrikam tenant.
+1. The Fabrikam Administrator sets up a new service principal for Azure Communication Services in the Fabrikam tenant.
 1. The Fabrikam Administrator grants Azure Communication Services VoIP permission to the Contoso application. This step is required only if the Contoso application isn't verified.
 
 ### Step 1: Create an Azure AD application registration or select an Azure AD application 
@@ -55,7 +54,7 @@ Users must be authenticated against Azure AD applications with the Azure Communi
 
 The following application settings influence the experience:
 - The *Supported account types* property defines whether the application is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
-- *Redirect URI* defines the URI where authentication request is redirected after authentication. For this scenario, you can use **Public client/native (mobile & desktop)** and enter **`http://localhost`** as the URI.
+- *Redirect URI* defines the URI where the authentication request is redirected after authentication. For this scenario, you can use **Public client/native (mobile & desktop)** and enter **`http://localhost`** as the URI.
 
 For more detailed information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app#register-an-application). 
 
@@ -68,9 +67,9 @@ On the **Authentication** pane of your application, you can see a configured pla
 ### Step 3: (Optional) Update the publisher domain 
 On the **Branding** pane, you can update your publisher domain for the application. This is useful for multitenant applications, where the application will be marked as verified by Azure. For more information, see [Configure an application's publisher domain](/azure/active-directory/develop/howto-configure-publisher-domain).
 
-### Step 4: Define Azure Communication Services' VoIP permission in application
+### Step 4: Define the Azure Communication Services VoIP permission in the application
 
-Go to the details of the application, select the **Manifest** pane, and then look for the property *requiredResourceAccess*. It is an array of objects that define the application's permissions. Extend the manifest with the VoIP permissions for the first-party application Azure Communication Services. Add following object to the array:
+Go to the details of the application, select the **Manifest** pane, and then look for the property *requiredResourceAccess*. It's an array of objects that define the application's permissions. Extend the manifest with the VoIP permissions for the first-party application Azure Communication Services. Add following object to the array:
 
 > [!NOTE] 
 > Do not change the GUIDs in the snippet, because they uniquely identify the application and permissions.
@@ -87,7 +86,7 @@ Go to the details of the application, select the **Manifest** pane, and then loo
 }
 ```
 
-To persist the changes, select **Save**. You can now see the Azure Communication Services - VoIP permission on the **API Permissions** pane.
+To persist the changes, select **Save**. You can now see the *Azure Communication Services - VoIP* permission on the **API Permissions** pane.
 
 ### Step 5: Enable a custom Teams endpoint experience for the application
 
@@ -112,7 +111,7 @@ The Fabrikam Azure AD Administrator connects to the Azure tenant via PowerShell.
 Connect-AzureAD -TenantId "[Tenant_ID]"
 ```
 
-If you can't find the command, then the AzureAD module isn't installed in your PowerShell. Close PowerShell and run it with Administration rights. Then you can install the AzureAD package by using following command:
+If you can't find the command, the AzureAD module isn't installed in your PowerShell. Close PowerShell and run it with Administration rights. Then you can install the AzureAD package by using following command:
 
 ```azurepowershell
 Install-Module AzureAD
@@ -129,7 +128,7 @@ New-AzureADServicePrincipal -AppId "1fd5118e-2576-4263-8130-9503064c837a"
 
 ### Step 8: Provide Administrator consent
 
-If the Contoso application isn't verified, the Azure AD Administrator must grant permission to the Contoso application for Azure Communication Services' VoIP. The Fabrikam Azure AD Administrator provides consent via a unique URL. 
+If the Contoso application isn't verified, the Azure AD Administrator must grant permission to the Contoso application for Azure Communication Services VoIP. The Fabrikam Azure AD Administrator provides consent via a unique URL. 
 
 To construct an Administrator consent URL, the Fabrikam Azure AD Administrator does the following:
 
@@ -150,7 +149,7 @@ You can see that the status of the Azure Communication Services VoIP permission 
 
 ## Developer actions
 
-The Contoso developer needs to set up the *client application* to authenticate users. The developer then needs to create an endpoint on the back-end *server* to process the Azure AD user token after redirection. When the Azure AD user token is received, it is exchanged for the Teams access token and returned to the *client application*. 
+The Contoso developer needs to set up the *client application* to authenticate users. The developer then needs to create an endpoint on the back-end *server* to process the Azure AD user token after redirection. When the Azure AD user token is received, it's exchanged for the Teams access token and returned to the *client application*. 
 
 The developer's required actions are shown in following diagram:
 
@@ -193,7 +192,7 @@ dotnet add package Microsoft.Identity.Client
 From the project directory, do the following:
 
 1. Open the *Program.cs* file in a text editor.
-1. Add a `using` directive to include following namespaces: 
+1. Add a `using` directive to include the following namespaces: 
     - Azure.Communication
     - Azure.Communication.Identity
     - Microsoft.Identity.Client
@@ -273,7 +272,7 @@ Run the application from your application directory with the `dotnet run` comman
 dotnet run
 ```
 
-The output of the app describes each action that is completed:
+The output of the app describes each action that's completed:
 
 ```console
 Azure Communication Services - Teams access tokens quickstart
