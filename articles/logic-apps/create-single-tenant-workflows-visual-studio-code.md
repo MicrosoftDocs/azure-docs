@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 07/13/2021
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
@@ -215,43 +215,6 @@ Before you can create your logic app, create a local project so that you can man
    The Explorer pane shows your project, which now includes automatically generated project files. For example, the project has a folder that shows your workflow's name. Inside this folder, the **workflow.json** file contains your workflow's underlying JSON definition.
 
    ![Screenshot that shows the Explorer pane with project folder, workflow folder, and "workflow.json" file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
-
-1. If you're using macOS or Linux, set up access to your storage account by following these steps, which are required for locally running your project:
-
-   1. In your project's root folder, open the **local.settings.json** file.
-
-      ![Screenshot that shows Explorer pane and 'local.settings.json' file in your project.](./media/create-single-tenant-workflows-visual-studio-code/local-settings-json-files.png)
-
-   1. Replace the `AzureWebJobsStorage` property value with the storage account's connection string that you saved earlier, for example:
-
-      Before:
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-            "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-          }
-      }
-      ```
-
-      After:
-
-      ```json
-      {
-         "IsEncrypted": false,
-         "Values": {
-            "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=fabrikamstorageacct;AccountKey=<access-key>;EndpointSuffix=core.windows.net",
-           "FUNCTIONS_WORKER_RUNTIME": "dotnet"
-         }
-      }
-      ```
-
-      > [!IMPORTANT]
-      > For production scenarios, make sure that you protect and secure such secrets and sensitive information, for example, by using a key vault.
-
-   1. When you're done, make sure that you save your changes.
 
 <a name="enable-built-in-connector-authoring"></a>
 
