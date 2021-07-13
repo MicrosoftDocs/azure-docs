@@ -15,11 +15,11 @@ For information about the UR2 issues fixes and the installation instructions, se
 
 ### Support for Azure Stack HCI
 
-With MABS v3 UR2, you can backup Virtual Machines on Azure Stack HCI. Learn more. <link of Azure Stack HCI doc https://docs.microsoft.com/en-us/azure-stack/hci/ >
+With MABS v3 UR2, you can backup Virtual Machines on Azure Stack HCI. [Learn more](/azure-stack/hci).
 
 ### Support for VMware 7.0
 
-With MABS v3 UR2, you can back up VMware 7.0 VMs. Learn more. < https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm >
+With MABS v3 UR2, you can back up VMware 7.0 VMs. [Learn more](/azure/backup/backup-support-matrix-mabs-dpm).
 
 ### Support for SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volume (CSV)
 
