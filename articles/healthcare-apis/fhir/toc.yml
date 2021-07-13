@@ -1,11 +1,11 @@
+items:
 - name: Azure API for FHIR
   href: index.yml
 - name: Overview
   items:
   - name: About Azure API for FHIR
     href: overview.md
-  - name: About Azure IoT Connector for FHIR (preview)
-    href: overview.md#azure-iot-connector-for-fhir-preview
+
 - name: Quickstarts
   expanded: true
   items:
@@ -21,13 +21,7 @@
     - name: Using ARM template
       displayName: Resource Manager
       href: fhir-paas-arm-template-quickstart.md
-  - name: Deploy Azure IoT Connector for FHIR (preview)
-    expanded: false
-    items:
-    - name: Using Portal
-      href: iot-fhir-portal-quickstart.md
-    - name: Using ARM template
-      href: iot-fhir-arm-template-quickstart.md 
+
 - name: Tutorials
   expanded: false
   items:
@@ -46,11 +40,7 @@
     href: access-fhir-postman-tutorial.md
   - name: Use SMART on FHIR proxy
     href: use-smart-on-fhir-proxy.md
-  - name: Ingest data from IoT devices
-    expanded: false
-    items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md
+  
   - name: Interoperability and Patient Access
     expanded: false
     items:
@@ -80,6 +70,7 @@
       href: register-public-azure-ad-client-app.md
     - name: Service client application
       href: register-service-azure-ad-client-app.md
+
   - name: Configure settings
     expanded: false
     items:
@@ -95,10 +86,9 @@
       href: customer-managed-key.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-    - name: Configure Export
-      href: configure-export-data.md
     - name: Configure Private Link
       href: configure-private-link.md
+
   - name: Search
     expand: false
     items:
@@ -115,20 +105,6 @@
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
-    - name: Export data
-      expanded: false
-      items:
-      - name: Export data
-        href: export-data.md
-      - name: De-identified export
-        href: de-identified-export.md
-      - name: Move data to Synapse
-        href: move-to-synapse.md
-    - name: Convert data
-      expanded: false
-      items:
-      - name: $convert-data and FHIR Converter Extension Templates
-        href: convert-data.md
     - name: Patient-everything in FHIR
       href: patient-everything.md
     - name: $member-match operation
@@ -140,12 +116,10 @@
     items:
     - name: Enable Diagnostics Logging in Azure API for FHIR
       href: enable-diagnostic-logging.md
-    - name: Display and configure Azure IoT Connector for FHIR (preview) metrics
-      href: iot-metrics-display.md  
+   
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
-  - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
-    href: iot-troubleshoot-guide.md
+  
 - name: Concepts
   expanded: false
   items:
@@ -155,13 +129,7 @@
     href: azure-ad-hcapi-token-validation.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
-  - name: Azure IoT Connector for FHIR (preview) workings
-    expanded: false
-    items:
-    - name: Azure IoT Connector for FHIR (preview) data flow
-      href: iot-data-flow.md
-    - name: Azure IoT Connector for FHIR (preview) mapping templates
-      href: iot-mapping-templates.md
+  
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -174,8 +142,7 @@
     href: fhir-features-supported.md
   - name: GitHub Projects
     href: fhir-github-projects.md
-  - name: Partner ecosystem
-    href: partner-ecosystem.md
+    
 - name: Reference
   items:
   - name: Azure CLI

@@ -42,18 +42,16 @@ sections:
           
           * TableQuery TakeCount isn't limited to 1000.
           
-          * In terms of the REST API there are a number of endpoints/query options that aren't supported by Azure Cosmos DB Table API:
+          * In terms of the REST API the following endpoints/query options are supported by Azure Table storage but NOT supported by Azure Cosmos DB Table API:
           
-            | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |
+            | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation | Supported in Table Storage | Supported in Table API | 
             | ------------| ------------- | ---------- | ----------- |
-            | GET, PUT | `/?restype=service@comp=properties`| [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables |
-            | OPTIONS | `/<table-resource-name>` | [Pre-flight CORS table request](/rest/api/storageservices/preflight-table-request) | This is part of CORS which Azure Cosmos DB doesn't currently support. |
-            | GET | `/?restype=service@comp=stats` | [Get Table Service Stats](/rest/api/storageservices/get-table-service-stats) | Provides information how quickly data is replicating between primary and secondaries. This isn't needed in Cosmos DB as the replication is part of writes. |
-            | GET, PUT | `/mytable?comp=acl` | [Get Table ACL](/rest/api/storageservices/get-table-acl) and [Set Table ACL](/rest/api/storageservices/set-table-acl) | This gets and sets the stored access policies used to manage Shared Access Signatures (SAS). Although SAS is supported, they are set and managed differently. |
+            | GET, PUT | `/?restype=service@comp=properties`| [Set Table Service Properties](/rest/api/storageservices/set-table-service-properties) and [Get Table Service Properties](/rest/api/storageservices/get-table-service-properties) | This endpoint is used to set CORS rules, storage analytics configuration, and logging settings. CORS is currently not supported and analytics and logging are handled differently in Azure Cosmos DB than Azure Storage Tables | Yes | No |
+            | OPTIONS | `/<table-resource-name>` | [Pre-flight CORS table request](/rest/api/storageservices/preflight-table-request) | This is part of CORS which Azure Cosmos DB doesn't currently support. | Yes | No |
+            | GET | `/?restype=service@comp=stats` | [Get Table Service Stats](/rest/api/storageservices/get-table-service-stats) | Provides information how quickly data is replicating between primary and secondaries. This isn't needed in Cosmos DB as the replication is part of writes. | Yes | No |
+            | GET, PUT | `/mytable?comp=acl` | [Get Table ACL](/rest/api/storageservices/get-table-acl) and [Set Table ACL](/rest/api/storageservices/set-table-acl) | This gets and sets the stored access policies used to manage Shared Access Signatures (SAS). | Yes | No |
           
           * Azure Cosmos DB Table API only supports the JSON format, not ATOM.
-          
-          * While Azure Cosmos DB supports Shared Access Signatures (SAS) there are certain policies it doesn't support, specifically those related to management operations such as the right to create new tables.
           
           * For the .NET SDK in particular, there are some classes and methods that Azure Cosmos DB doesn't currently support.
           
