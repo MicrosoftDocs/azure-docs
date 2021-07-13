@@ -267,10 +267,9 @@ The following table lists all possible errors of the validation policies.
 * **Details** - Can be used to investigate errors. Not meant to be shared publicly.
 * **Public response** - Error returned to the client. Does not leak implementation details.
 
-> [!NOTE]
-> When a validation policy specifies the `prevent` action and produces an error, the response from API management includes an HTTP status code: 400 when the the policy is applied in the inbound section, and 502 when the policy is applied in the outbound section.
-   
-   
+When a validation policy specifies the `prevent` action and produces an error, the response from API management includes an HTTP status code: 400 when the the policy is applied in the inbound section, and 502 when the policy is applied in the outbound section.
+
+
 | **Name**   | **Type**                                                        | **Validation rule** | **Details**                                                                                                                                       | **Public response**                                                                                                                       | **Action**           |
 |----|----|---|---|---|----|
 | **validate-content** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
