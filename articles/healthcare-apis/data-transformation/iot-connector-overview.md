@@ -67,10 +67,10 @@ Once the Observation FHIR resource is generated in the Transform stage, the reso
 For more information about the IoT Connector mapping templates, see
 
 >[!div class="nextstepaction"]
->[How to use the device mapping template](how-to-device-mapping-iot.md)
+>[How to use the device mapping template](how-to-use-device-mapping-iot.md)
 
 >[!div class="nextstepaction"]
->[How to use the FHIR mapping template](how-to-fhir-mapping-iot.md)
+>[How to use the FHIR mapping template](how-to-use-fhir-mapping-iot.md)
 
 
 

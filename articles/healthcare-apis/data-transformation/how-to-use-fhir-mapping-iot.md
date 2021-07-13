@@ -30,10 +30,10 @@ The CodeValueFhirTemplate is currently the only template supported in FHIR mappi
 |**Codes[].Code**|The code for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Codes[].System**|The system for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
 |**Codes[].Display**|The display for the [Coding](http://hl7.org/fhir/datatypes-definitions.html#coding).
-|**Value**|The value to extract and represent in the observation. For more information, see [Value Type Templates](#valuetypes).
+|**Value**|The value to extract and represent in the observation. For more information, see [Value Type Templates](#value-type-templates).
 |**Components**|*Optional:* One or more components to create on the observation.
 |**Components[].Codes**|One or more [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) to apply to the component.
-|**Components[].Value**|The value to extract and represent in the component. For more information, see [Value Type Templates](#valuetypes).
+|**Components[].Value**|The value to extract and represent in the component. For more information, see [Value Type Templates](#value-type-templates).
 
 ### Value type templates
 
