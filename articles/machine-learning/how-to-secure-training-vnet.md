@@ -64,10 +64,6 @@ In this article you learn how to secure the following training compute resources
 * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
 * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Databricks cluster.
 
-### Azure HDInsight or virtual machine
-
-* Azure Machine Learning supports only virtual machines that are running Ubuntu.
-
 ## Limitations
 
 ### Azure Machine Learning compute cluster/instance
@@ -119,6 +115,8 @@ In this article you learn how to secure the following training compute resources
 * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
 
 ### Azure HDInsight or virtual machine
+
+* Azure Machine Learning supports only virtual machines that are running Ubuntu.
 
 ## Required public internet access
 
