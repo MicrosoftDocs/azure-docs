@@ -34,7 +34,7 @@ sample as a starter.
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
-   - **Blueprint name** Provide a name for your copy of the CAF migration landing zone blueprint
+   - **Blueprint name** Provide a name for your copy of the CAF Migration landing zone blueprint
      sample.
    - **Definition location** Use the ellipsis and select the management group to save your copy of
      the sample to.
@@ -90,10 +90,11 @@ provided to make each deployment of the copy of the blueprint sample unique.
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
        sample.
-    
+
    - Lock Assignment
 
-     Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. For more information, see
+     [blueprints resource locking](../../concepts/resource-locking.md).
 
    - Managed Identity
 
@@ -105,9 +106,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
      The parameters defined in this section are used by many of the artifacts in the blueprint
      definition to provide consistency.
 
-       - **Organization**: Enter your organization name such as Contoso or Fabrikam, must be unique.
-       - **AzureRegion**: Select one Azure Region for Deployment.
-       
+     - **Organization**: Enter your organization name such as Contoso or Fabrikam, must be unique.
+     - **AzureRegion**: Select one Azure Region for Deployment.
+
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -121,8 +122,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
 ## Artifact parameters table
 

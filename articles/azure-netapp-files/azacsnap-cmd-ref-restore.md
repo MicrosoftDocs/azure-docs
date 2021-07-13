@@ -13,11 +13,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
 ---
 
-# Restore using Azure Application Consistent Snapshot tool (preview)
+# Restore using Azure Application Consistent Snapshot tool
 
 This article provides a guide for running the restore command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
@@ -37,7 +37,7 @@ The `-c restore` command has the following options:
 - `--restore revertvolume` Reverts the target volume to a prior state based on the most recent snapshot.  Using this command as part of DR Failover into the paired DR region. This command **stops** storage replication from the primary site to the secondary site, and reverts the target DR volume(s) to their latest available snapshot on the DR volumes along with recommended filesystem mountpoints for the reverted DR volumes. This command should be run on the Azure Large Instance system **in the DR region** (that is, the target fail-over system).
     > [!NOTE]
     > The sub-command (`--restore revertvolume`) is only available for Azure Large Instance and is not available for Azure NetApp Files.
-- `--hanasid <SAP HANA SID>` is the SAP HANA SID being selected from the configuration file to apply the volume restore commands to.
+- `--dbsid <SAP HANA SID>` is the SAP HANA SID being selected from the configuration file to apply the volume restore commands to.
 
 - `[--configfile <config filename>]` is an optional parameter allowing for custom configuration file names.
 
@@ -64,7 +64,7 @@ volumes, otherwise the Production volumes could have clones created.
 ### Output of the `azacsnap -c restore --restore snaptovol` command (for Single-Node scenario)
 
 ```output
-> azacsnap --configfile DR.json -c restore --restore snaptovol --hanasid H80
+> azacsnap --configfile DR.json -c restore --restore snaptovol --dbsid H80
 * This program is designed for those customers who have previously installed the
   Production HANA instance in the Disaster Recovery Location either as a
   stand-alone instance or as part of a multi-purpose environment.

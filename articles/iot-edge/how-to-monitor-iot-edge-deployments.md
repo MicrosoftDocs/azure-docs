@@ -8,7 +8,6 @@ ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
-ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Monitor IoT Edge deployments
@@ -63,7 +62,7 @@ To make changes to your deployment, see [Modify a deployment](how-to-deploy-at-s
 
 ## Monitor a deployment with Azure CLI
 
-Use the [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) command to display the details of a single deployment:
+Use the [az iot edge deployment show](/cli/azure/iot/edge/deployment) command to display the details of a single deployment:
 
 ```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -81,7 +80,7 @@ Inspect the deployment in the command window. The **metrics** property lists a 
 * **reportedSuccessfulCount** - A device metric that specifies the number of IoT Edge devices in the deployment reporting success from the IoT Edge client runtime.
 * **reportedFailedCount** - A device metric that specifies the number of IoT Edge devices in the deployment reporting failure from the IoT Edge client runtime.
 
-You can show a list of device IDs or objects for each of the metrics with the [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) command:
+You can show a list of device IDs or objects for each of the metrics with the [az iot edge deployment show-metric](/cli/azure/iot/edge/deployment) command:
 
 ```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]

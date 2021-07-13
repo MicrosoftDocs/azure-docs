@@ -4,7 +4,7 @@ description: Learn how to configure an Azure Analysis Services server to use a g
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 

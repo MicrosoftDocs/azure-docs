@@ -6,7 +6,8 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
 ms.author: rabhaiya
-ms.date: 01/21/2021
+ms.date: 01/21/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Use an Azure Resource Manager (ARM) template to deploy Azure IoT Connector for FHIR (preview)

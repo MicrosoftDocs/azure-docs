@@ -57,7 +57,7 @@ After failover, do the following on the Azure VMs that are created.
 
 1. To connect to the VM over the internet, assign a public IP address to the VM. You can't use the same public IP address for the Azure VM that you used for your on-premises machine. [Learn more](../virtual-network/virtual-network-public-ip-address.md)
 2. Check that network security group (NSG) rules on the VM allow incoming connections to the RDP or SSH port.
-3. Check [Boot diagnostics](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
+3. Check [Boot diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
 
 
 > [!NOTE]

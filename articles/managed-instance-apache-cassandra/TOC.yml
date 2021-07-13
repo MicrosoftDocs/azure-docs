@@ -11,6 +11,8 @@
     - name: Create a cluster - CLI
       displayName: az managed-cassandra, cluster, datacenter, connect
       href: create-cluster-cli.md
+    - name: Create a multi-region cluster - CLI
+      href: create-multi-region-cluster.md         
     - name: Configure a hybrid cluster
       href: configure-hybrid-cluster.md       
     - name: Deploy Spark Cluster with Databricks
@@ -24,9 +26,21 @@
       href: compare-cosmosdb-managed-instance.md                
 - name: How-to guides
   items:
+    - name: Migration
+      items:
+        - name: Live migration
+          items:
+            - name: Using dual-write proxy
+              href: dual-write-proxy-migration.md          
+        - name: Offline migration
+          items:
+            - name: Using Apache Spark
+              href: spark-migration.md    
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           
+    - name: Required outbound network rules
+      href: network-rules.md
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
 - name: Reference
@@ -34,8 +48,8 @@
     - name: REST API
       items:
       - name: Cassandra clusters
-        href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandraclusters
+        href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-clusters
       - name: Cassandra data centers
-        href: /rest/api/cosmos-db-resource-provider/2021-03-01-preview/cassandradatacenters
+        href: /rest/api/cosmos-db-resource-provider/2021-04-01-preview/cassandra-data-centers
     - name: Azure CLI
-      href: /cli/azure/ext/cosmosdb-preview/managed-cassandra?view=azure-cli-latest&preserve-view=true
+      href: /cli/azure/managed-cassandra

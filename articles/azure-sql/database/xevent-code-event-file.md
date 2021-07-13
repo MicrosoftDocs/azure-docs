@@ -4,7 +4,7 @@ description: Provides PowerShell and Transact-SQL for a two-phase code sample th
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
@@ -98,7 +98,6 @@ $policySasStartTime  = '2017-10-01';
 
 $storageAccountLocation = 'YOUR_STORAGE_ACCOUNT_LOCATION';
 $storageAccountName     = 'YOUR_STORAGE_ACCOUNT_NAME';
-$contextName            = 'YOUR_CONTEXT_NAME';
 $containerName          = 'YOUR_CONTAINER_NAME';
 $policySasToken         = ' ? ';
 

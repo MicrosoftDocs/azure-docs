@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Migrate to Azure Machine Learning'
 description: Migrate from Studio (classic) to Azure Machine Learning for a modernized data science platform.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: xiaoharper
@@ -11,9 +11,9 @@ ms.author: zhanxia
 ms.date: 03/08/2021
 ---
 
-# Migrate to Azure Machine Learning
+# Migrate to Azure Machine Learning 
 
-In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning. At this time, to migrate resources, you must manually rebuild your experiments.
+In this article, you learn how to migrate Machine Learning Studio (classic) assets to [Azure Machine Learning](../index.yml). At this time, to migrate resources, you must manually rebuild your experiments.
 
 Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches. To learn more about the differences between Studio (classic) and Azure Machine Learning, see the [Assess Azure Machine Learning](#step-1-assess-azure-machine-learning) section.
 
@@ -27,7 +27,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 > * Step 2: Create a migration plan
 > * Step 3: Rebuild experiments and web services
 > * Step 4: Integrate client apps
-> * Step 5: Clean up Studio (classic) assets
+> * Step 5: Clean up ML Studio (classic) assets
 
 
 ## Step 1: Assess Azure Machine Learning
@@ -42,7 +42,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table below.
 
-4. [Create an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal).
+4. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md?tabs=azure-portal).
 
 ## Step 2: Create a migration plan
 
@@ -71,7 +71,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 ## Studio (classic) and designer module-mapping
 
-Consult the following table to see you which modules to use while rebuilding Studio (classic) experiments in the designer.
+Consult the following table to see which modules to use while rebuilding Studio (classic) experiments in the designer.
 
 
 > [!IMPORTANT]
@@ -104,7 +104,7 @@ Consult the following table to see you which modules to use while rebuilding Stu
 | Web Service | - Input </br> -   Output | - Input </br>  - Output|
 | Computer Vision| | - Apply Image Transformation </br> - Convert to Image Directory </br> - Init Image Transformation </br> - Split Image Directory  </br> - DenseNet Image Classification   </br>- ResNet Image Classification |
 
-For more information on how to use individual the designer modules, see the [designer module reference](../algorithm-module-reference/module-reference.md).
+For more information on how to use individual designer modules, see the [designer module reference](../algorithm-module-reference/module-reference.md).
 
 ### What if a designer module is missing?
 
@@ -130,7 +130,6 @@ In Azure Machine Learning, **datasets** are registered to the workspace and can 
 
 In Studio (classic), **experiments** contained the processing logic for your work. You created experiments with drag-and-drop modules.
 
-
 ![automobile-price-classic-experiment](./media/migrate-overview/studio-classic-experiment.png)
 
 In Azure Machine Learning, **pipelines** contain the processing logic for your work. You can create pipelines with either drag-and-drop modules or by writing code.
@@ -139,14 +138,13 @@ In Azure Machine Learning, **pipelines** contain the processing logic for your w
 
 ### Web service endpoint
 
-In Studio (classic), the **REQUEST/RESPOND API** was used for real-time prediction. The **BATCH EXECUTION API** was used for batch prediction or retraining.
+Studio (classic) used **REQUEST/RESPOND API** for real-time prediction and **BATCH EXECUTION API** for batch prediction or retraining.
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-In Azure Machine Learning, **real-time endpoints** are used for real-time prediction. **Pipeline endpoints** are used for  batch prediction or retraining.
+Azure Machine Learning uses **real-time endpoints** for real-time prediction and **pipeline endpoints** for batch prediction or retraining.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
-
 
 ## Next steps
 
@@ -158,9 +156,3 @@ In this article, you learned the high-level requirements for migrating to Azure 
 1. [Rebuild a Studio (classic) web service](migrate-rebuild-web-service.md).
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
 1. [Migrate Execute R Script](migrate-execute-r-script.md).
-
-
-
-
-
-

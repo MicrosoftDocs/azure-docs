@@ -6,7 +6,8 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 01/15/2021
 ms.author: rogarana
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an incremental snapshot for managed disks

@@ -210,4 +210,4 @@ They are as follows:
 
 ## Next steps
 
-To learn more about optimizing transactions, see [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL pool best practices, see [SQL pool best practices](sql-data-warehouse-best-practices.md).
+To learn more about optimizing transactions, see [Transactions best practices](sql-data-warehouse-develop-best-practices-transactions.md). To learn about other SQL pool best practices, see [SQL pool best practices](../sql/best-practices-dedicated-sql-pool.md).

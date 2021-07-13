@@ -129,6 +129,8 @@ In this section, you'll create a virtual machine that will be used to test the p
   
 6. Review the settings, and then select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
 
 In this section, you'll create a SQL server in Azure. 

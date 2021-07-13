@@ -1,14 +1,14 @@
 ---
-title: Plan and manage costs for Azure SQL Database
+title: Plan and manage costs
 description: Learn how to plan for and manage costs for Azure SQL Database by using cost analysis in the Azure portal.
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.custom: subject-cost-optimization
 ms.service: sql-database
+ms.subservice: service-overview
 ms.topic: how-to
 ms.date: 01/15/2021
 ---
-
 
 # Plan and manage costs for Azure SQL Database
 
@@ -34,7 +34,7 @@ Azure SQL Database supports two purchasing models: vCore and DTU. The way you ge
 
 ### Provisioned or serverless
 
-In the vCore purchasing model, Azure SQL Database also supports two types of compute tiers: provisioned throughput and serverless. The way you get charged for each compute tier varies so it's important to understand what works best for your workload when planning and considering costs. For details, see [vCore model overview - compute tiers](service-tiers-vcore.md#compute-tiers).
+In the vCore purchasing model, Azure SQL Database also supports two types of compute tiers: provisioned throughput and serverless. The way you get charged for each compute tier varies so it's important to understand what works best for your workload when planning and considering costs. For details, see [vCore model overview - compute tiers](service-tiers-sql-database-vcore.md#compute-tiers).
 
 In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates. For details, see [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md).
 

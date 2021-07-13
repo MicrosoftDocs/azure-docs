@@ -1,14 +1,15 @@
 ---
-title: Tutorial - Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry  
+title: Tutorial - Use Azure Time Series Insights to store and analyze your Azure IoT Plug and Play device telemetry
 description: Tutorial - Set up a Time Series Insights environment and connect your IoT hub to view and analyze telemetry from your IoT Plug and Play devices.
-author: lyrana
-ms.author: lyhughes
+author: deepakpalled
+ms.author: dpalled
+manager: diviso
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
+# Customer intent: As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
 
 # Tutorial: Create and configure a Time Series Insights Gen2 environment
@@ -23,7 +24,7 @@ In this tutorial, you
 > * Use the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) sample model files that you used for the temperature controller and thermostat devices.
 
 > [!NOTE]
-> This integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights Time Series Model might change. 
+> This integration between Time Series Insights and IoT Plug and Play is in preview. The way that DTDL device models map to the Time Series Insights Time Series Model might change.
 
 ## Prerequisites
 
@@ -34,10 +35,6 @@ At this point, you have:
 * An Azure IoT hub.
 * A Device Provisioning Service (DPS) instance linked to your IoT hub. The DPS instance should have an individual device enrollment for your IoT Plug and Play device.
 * A connection to your IoT hub from either a single-component device or a multiple-component device that streams simulated data.
-
-To avoid the requirement to install the Azure CLI locally, you can use Azure Cloud Shell to set up the cloud services.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prepare your event source
 
@@ -120,7 +117,7 @@ Next, you translate your DTDL device model to the asset model in Azure Time Seri
 
 ### Define your types
 
-You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, Time Series Insights attempts to automatically resolve time series instances based on your Time Series ID property values. All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances. 
+You can begin ingesting data into Azure Time Series Insights Gen2 without having predefined a model. When telemetry arrives, Time Series Insights attempts to automatically resolve time series instances based on your Time Series ID property values. All instances are assigned the *default type*. You need to manually create a new type to correctly categorize your instances.
 
 The following details outline the simplest method to synchronize your device DTDL models with your Time Series Model types:
 
@@ -136,7 +133,7 @@ The following details outline the simplest method to synchronize your device DTD
 |-----------|------------------|-------------|
 | `@id` | `id` | `dtmi:com:example:TemperatureController;1` |
 | `displayName`    | `name`   |   `Temperature Controller`  |
-| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |  
+| `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |
 |`contents` (array)| `variables` (object)  | See the following example.
 
 ![Screenshot showing D T D L to Time Series Model type.](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
@@ -158,7 +155,7 @@ Open a text editor and save the following JSON to your local drive.
           "kind": "numeric",
           "value": {
             "tsx": "coalesce($event.workingSet.Long, toLong($event.workingSet.Double))"
-          }, 
+          },
           "aggregation": {
             "tsx": "avg($value)"
           }

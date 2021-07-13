@@ -3,7 +3,7 @@ title: Delete resource group and resources
 description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Azure Resource Manager resource group and resource deletion
@@ -125,4 +125,4 @@ If you have the required access, but the delete request fails, it may be because
 ## Next steps
 
 * To understand Resource Manager concepts, see [Azure Resource Manager overview](overview.md).
-* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az-group-delete), and [REST API](/rest/api/resources/resourcegroups/delete).
+* For deletion commands, see [PowerShell](/powershell/module/az.resources/Remove-AzResourceGroup), [Azure CLI](/cli/azure/group#az_group_delete), and [REST API](/rest/api/resources/resourcegroups/delete).

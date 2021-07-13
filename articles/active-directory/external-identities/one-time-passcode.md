@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 04/06/2021
 
 ms.author: mimart
 author: msmimart
@@ -62,7 +62,7 @@ You can see whether a guest user authenticates using one-time passcodes by viewi
 ![Screenshot showing a one-time passcode user with Source value of OTP](media/one-time-passcode/guest-user-properties.png)
 
 > [!NOTE]
-> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
+> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update the user's authentication method, you can [reset their redemption status](reset-redemption-status.md).
 
 ### Example
 
@@ -74,7 +74,7 @@ Starting October 2021, the email one-time passcode feature will be turned on for
 
 > [!NOTE]
 >
-> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite them so they can sign in again using another authentication method.
+> If the email one-time passcode feature has been enabled in your tenant and you turn it off, any guest users who have redeemed a one-time passcode will not be able to sign in. You can [reset their redemption status](reset-redemption-status.md) so they can sign in again using another authentication method.
 
 ### To disable the email one-time passcode feature
 
@@ -112,7 +112,7 @@ However, if you'd prefer to opt out of the feature and allow it to be automatica
 
 ## Note for Azure US Government customers
 
-The email one-time passcode feature is disabled by default in the Azure US Government cloud.  
+The email one-time passcode feature is disabled by default in the Azure US Government cloud. Your partners will be unable to sign in unless this feature is enabled. Unlike the Azure public cloud, the Azure US Government cloud doesn't support redeeming invitations with self-service Azure Active Directory accounts.
 
  ![Email one-time passcode disabled](media/one-time-passcode/enable-email-otp-disabled.png)
 
@@ -120,7 +120,7 @@ To enable the email one-time passcode feature in Azure US Government cloud:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD global administrator.
 2. In the navigation pane, select **Azure Active Directory**.
-3. Select **Organizational relationships** > **Settings**.
+3. Select **Organizational relationships** > **All identity providers**.
 
    > [!NOTE]
    > - If you don't see **Organizational relationships**, search for "External Identities” in the search bar at the top.

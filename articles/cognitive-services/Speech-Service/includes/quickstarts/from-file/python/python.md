@@ -12,7 +12,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
-> * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
+> * [Create a LUIS application and get an endpoint key](../../../../get-started-intent-recognition.md)
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]

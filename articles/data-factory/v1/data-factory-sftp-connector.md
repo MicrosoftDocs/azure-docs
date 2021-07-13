@@ -208,7 +208,7 @@ For a full list of sections & properties available for defining activities, see 
 
 Whereas, the properties available in the typeProperties section of the activity vary with each activity type. For Copy activity, the type properties vary depending on the types of sources and sinks.
 
-[!INCLUDE [data-factory-file-system-source](../../../includes/data-factory-file-system-source.md)]
+[!INCLUDE [data-factory-file-system-source](includes/data-factory-file-system-source.md)]
 
 ## Supported file and compression formats
 See [File and compression formats in Azure Data Factory](data-factory-supported-file-and-compression-formats.md) article on details.

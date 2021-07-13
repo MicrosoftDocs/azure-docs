@@ -14,13 +14,13 @@ A namespace is a scoping container for all your Azure Relay components. Multiple
 
 ## Create a namespace in the Azure portal
 
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 Congratulations! You have now created a relay namespace.
 
 ## Next steps
 
-* [Relay FAQ](relay-faq.md)
+* [Relay FAQ](relay-faq.yml)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)
 

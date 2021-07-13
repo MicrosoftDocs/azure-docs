@@ -2,7 +2,7 @@
 title: Tutorial - Network planning checklist
 description: Learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 03/13/2021
+ms.date: 06/08/2021
 ---
 
 # Networking planning checklist for Azure VMware Solution 
@@ -47,7 +47,13 @@ The subnets:
 | Private cloud management  | `/26`  | `10.10.0.0/26`   |
 | HCX Mgmt Migrations       | `/26`  | `10.10.0.64/26`  |
 | Global Reach Reserved     | `/26`  | `10.10.0.128/26` |
-| ExpressRoute Reserved     | `/27`  | `10.10.0.192/27` |
+| NSX-T DNS Service         | `/32`  | `10.10.0.192/32` |
+| Reserved                  | `/32`  | `10.10.0.193/32` |
+| Reserved                  | `/32`  | `10.10.0.194/32` |
+| Reserved                  | `/32`  | `10.10.0.195/32` |
+| Reserved                  | `/30`  | `10.10.0.196/30` |
+| Reserved                  | `/29`  | `10.10.0.200/29` |
+| Reserved                  | `/28`  | `10.10.0.208/28` |
 | ExpressRoute peering      | `/27`  | `10.10.0.224/27` |
 | ESXi Management           | `/25`  | `10.10.1.0/25`   |
 | vMotion Network           | `/25`  | `10.10.1.128/25` |
@@ -80,11 +86,8 @@ The subnets:
 | On-premises vCenter network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter to Private Cloud vCenter   |     
 
 ## DHCP and DNS resolution considerations
-Applications and workloads running in a private cloud environment require name resolution and DHCP services for lookup and IP address assignments. A proper DHCP and DNS infrastructure are required to provide these services. You can configure a virtual machine to provide these services in your private cloud environment.  
 
-Use the DHCP service built-in to NSX or use a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
-
-For more details, see the [Provide DHCP services to NSX-T network segment](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment) article.
+[!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
 
 ## Next steps

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Metrics Advisor service encryption of data at rest.
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020

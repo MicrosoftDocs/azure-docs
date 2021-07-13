@@ -33,6 +33,7 @@ To successfully move a VM, you need to move the VM and all its supporting resour
 ```azurecli-interactive
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
+The `table` output isn't available if you use `--interactive`. Change the output to another option like `json`.
 
 To move a VM and its resources to another resource group, use [az resource move](/cli/azure/resource). The following example shows how to move a VM and the most common resources it requires. Use the **-ids** parameter and pass in a comma-separated list (without spaces) of IDs for the resources to move.
 

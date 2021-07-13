@@ -37,4 +37,4 @@ Hybrid Connections uses WebSockets on port 443 with TLS as the underlying transp
 ## Next steps
 To learn more about Azure Relay, visit these links:
 * [What is Azure Relay?](relay-what-is-it.md)
-* [Relay FAQ](relay-faq.md)
+* [Relay FAQ](relay-faq.yml)

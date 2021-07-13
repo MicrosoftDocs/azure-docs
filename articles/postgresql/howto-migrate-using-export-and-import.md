@@ -53,4 +53,4 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 
 ## Next steps
 - To migrate a PostgreSQL database using dump and restore, see [Migrate your PostgreSQL database using dump and restore](howto-migrate-using-dump-and-restore.md).
-- For more information about migrating databases to Azure Database for PostgreSQL, see the [Database Migration Guide](https://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for PostgreSQL, see the [Database Migration Guide](/data-migration/).

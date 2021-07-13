@@ -69,6 +69,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
   
 6. Review the settings, and then select **Create**.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Clean up resources
 
 When no longer needed, delete the resource group and all of the resources it contains:

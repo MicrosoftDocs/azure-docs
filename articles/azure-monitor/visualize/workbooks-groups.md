@@ -52,7 +52,7 @@ The workbook group item allows you to add a group of items to a workbook. As the
 - Editable
   - The group in the workbook allows you to add, remove, or edit the contents of the items in the group. This is most commonly used for layout and visibility purposes.
 - From template
-  - The group in the workbook loads from the contents of another template by its ID. The content of that template is loaded and merged into the workbook at runtime. In edit mode, you cannot modify any of the contents of the group, as they will just load again from the template next time the item loads.  
+  - The group in the workbook loads from the contents of another workbook by its ID. The content of that workbook is loaded and merged into the workbook at runtime. In edit mode, you cannot modify any of the contents of the group, as they will just load again from the template next time the item loads. When loading a group from a template, use the full Azure Resource ID of an existing workbook.
 
 ## Load types
 
@@ -136,7 +136,7 @@ To turn a larger template into multiple sub-templates:
 3. Move each item in the workbook you want to be in the sub-template into the group created in step 1.
 4. If the individual steps moved in step 3 had conditional visibilities, that will become the visibility of the outer group (like used in tabs). Remove them from the items inside the group and add that visibility setting to the group itself. Save here to avoid losing changes and/or export and save a copy of the json content.
 5. If you want that group to be loaded from a template, you can use the *Edit* toolbar button in the group. This will open just the content of that group as a workbook in a new window. You can then save it as appropriate and close this workbook view (don't close the browser, just that view to go back to the previous workbook you were editing).
-6. You can then change the group step to load from template and set the template ID field to the workbook/template you created in step 5. To work with workbooks IDs, the source needs to be a shared workbook resource ID. Press *Load* and the content of that group will now be loaded from that sub-template instead of saved inside this outer workbook.
+6. You can then change the group step to load from template and set the template ID field to the workbook/template you created in step 5. To work with workbooks IDs, the source needs to be the full Azure Resource ID of a shared workbook. Press *Load* and the content of that group will now be loaded from that sub-template instead of saved inside this outer workbook.
 
 ## Next steps
 - [Workbooks Overview](./workbooks-overview.md)

@@ -1,11 +1,11 @@
 ---
-title: Add a virtual machine scale set extension to a Service Fabric managed cluster node type (preview)
+title: Add a virtual machine scale set extension to a Service Fabric managed cluster node type
 description: Here's how to add a virtual machine scale set extension a Service Fabric managed cluster node type
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 5/10/2021
 ---
 
-# Add a virtual machine scale set extension to a Service Fabric managed cluster node type (preview)
+# Add a virtual machine scale set extension to a Service Fabric managed cluster node type
 
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. This enables you to add [virtual machine scale set extensions](../virtual-machines/extensions/overview.md) to your Service Fabric managed cluster node types.
 
@@ -53,4 +53,4 @@ For more information on configuring Service Fabric managed cluster node types, s
 To learn more about Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.md)
+> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.yml)

@@ -2,7 +2,7 @@
 title: Tutorial - Connect and monitor Azure Synapse Spark Application level metrics
 description: Tutorial - Learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector.
 services: synapse-analytics 
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics
@@ -147,7 +147,7 @@ You can use the client credentials flow to get an access token. To access the me
 | grant_type    | True     | Specifies the requested grant type. In a Client Credentials Grant flow, the value must be client_credentials. |
 | client_id     | True     | The application (service principal) ID of the application you registered in Azure portal or Azure CLI.        |
 | client_secret | True     | The secret generated for the application (service principal)                                                  |
-| resource      | True     | Synapse resource uri, should be https://dev.azuresynapse.net                                                  |
+| resource      | True     | Synapse resource uri, should be 'https://dev.azuresynapse.net'                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -185,13 +185,13 @@ Get latest metrics of the specified spark application by Prometheus API
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/metrics/executors/prometheus?format=html
 ```
 
-| Parameter          | Required | Description                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | True     | The workspace development endpoint, for example https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                    |
-| sparkPoolName      | True     | Name of the spark pool.                                                                   |
-| sessionId          | True     | Identifier for the session.                                                               |
-| sparkApplicationId | True     | Spark Application ID                                                                      |
+| Parameter          | Required | Description                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | True     | The workspace development endpoint, for example `https://myworkspace.dev.azuresynapse.net.` |
+| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                      |
+| sparkPoolName      | True     | Name of the spark pool.                                                                     |
+| sessionId          | True     | Identifier for the session.                                                                 |
+| sparkApplicationId | True     | Spark Application ID                                                                        |
 
 Sample Request: 
 
@@ -223,13 +223,13 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
 ```
 
-| Parameter          | Required | Description                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | True     | The workspace development endpoint, for example https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                    |
-| sparkPoolName      | True     | Name of the spark pool.                                                                   |
-| sessionId          | True     | Identifier for the session.                                                               |
-| sparkApplicationId | True     | Spark Application ID                                                                      |
+| Parameter          | Required | Description                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | True     | The workspace development endpoint, for example `https://myworkspace.dev.azuresynapse.net.` |
+| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                      |
+| sparkPoolName      | True     | Name of the spark pool.                                                                     |
+| sessionId          | True     | Identifier for the session.                                                                 |
+| sparkApplicationId | True     | Spark Application ID                                                                        |
 
 Sample Request
 

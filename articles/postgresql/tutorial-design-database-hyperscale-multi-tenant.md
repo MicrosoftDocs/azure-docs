@@ -59,6 +59,9 @@ CREATE TABLE campaigns (
 );
 ```
 
+>[!NOTE]
+> This article contains references to the term *blacklisted*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 Each campaign will pay to run ads. Add a table for ads too, by running the following code in psql after the code above:
 
 ```sql

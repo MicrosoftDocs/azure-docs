@@ -29,7 +29,7 @@ In this quickstart, you download and run a code sample that demonstrates how a .
 
 ## Prerequisites
 
-This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core) but will also work with .NET Core 5.0.
+This quickstart requires [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) but will also work with .NET 5.0 SDK.
 
 > [!div renderon="docs"]
 > ## Register and download the app
@@ -113,12 +113,10 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 >    ```
 >    In that code:
 >    - `Enter_the_Application_Id_Here` is the application (client) ID for the application that you registered.
+        To find the values for the application (client) ID and the directory (tenant) ID, go to the app's **Overview** page in the Azure portal.
 >    - Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
 >    - Replace `Enter_the_Client_Secret_Here` with the client secret that you created in step 1.
-
-> [!div renderon="docs"]
-> > [!TIP]
-> > To find the values for the application (client) ID and the directory (tenant) ID, go to the app's **Overview** page in the Azure portal. To generate a new key, go to the **Certificates & secrets** page.
+    To generate a new key, go to the **Certificates & secrets** page.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Admin consent
@@ -147,12 +145,11 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> In that URL:
->> * Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
->> * `Enter_the_Application_Id_Here` is the application (client) ID for the application that you registered.
+> In that URL:
+> * Replace `Enter_the_Tenant_Id_Here` with the tenant ID or tenant name (for example, `contoso.microsoft.com`).
+> * `Enter_the_Application_Id_Here` is the application (client) ID for the application that you registered.
 
-> [!NOTE]
-> You might see the error "AADSTS50011: No reply address is registered for the application" after you grant consent to the app by using the preceding URL. This error happens because this application and the URL don't have a redirect URI. You can ignore it.
+You might see the error "AADSTS50011: No reply address is registered for the application" after you grant consent to the app by using the preceding URL. This error happens because this application and the URL don't have a redirect URI. You can ignore it.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 4: Run the application
@@ -166,14 +163,12 @@ If you're using Visual Studio or Visual Studio for Mac, press **F5** to run the 
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
-
-> In that code:
-> * `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
+In that code:
+* `{ProjectFolder}` is the folder where you extracted the .zip file. An example is `C:\Azure-Samples\active-directory-dotnetcore-daemon-v2`.
 
 You should see a list of users in Azure Active Directory as result.
 
-> [!IMPORTANT]
-> This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to your project files. For security reasons, we recommend that you use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) in the GitHub repository for this sample.
+This quickstart application uses a client secret to identify itself as a confidential client. The client secret is added as a plain-text file to your project files. For security reasons, we recommend that you use a certificate instead of a client secret before considering the application as a production application. For more information on how to use a certificate, see [these instructions](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/#variation-daemon-application-using-client-credentials-with-certificates) in the GitHub repository for this sample.
 
 ## More information
 This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, what the main arguments are, and how to add sign-in to an existing .NET Core console application.
@@ -211,11 +206,11 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Element | Description |
-> |---------|---------|
-> | `config.ClientSecret` | The client secret created for the application in the Azure portal. |
-> | `config.ClientId` | The application (client) ID for the application registered in the Azure portal. You can find this value on the app's **Overview** page in the Azure portal. |
-> | `config.Authority`    | (Optional) The security token service (STS) endpoint for the user to authenticate. It's usually `https://login.microsoftonline.com/{tenant}` for the public cloud, where `{tenant}` is the name of your tenant or your tenant ID.|
+ | Element | Description |
+ |---------|---------|
+ | `config.ClientSecret` | The client secret created for the application in the Azure portal. |
+ | `config.ClientId` | The application (client) ID for the application registered in the Azure portal. You can find this value on the app's **Overview** page in the Azure portal. |
+ | `config.Authority`    | (Optional) The security token service (STS) endpoint for the user to authenticate. It's usually `https://login.microsoftonline.com/{tenant}` for the public cloud, where `{tenant}` is the name of your tenant or your tenant ID.|
 
 For more information, see the [reference documentation for `ConfidentialClientApplication`](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication).
 
@@ -228,9 +223,9 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Element| Description |
-> |---------|---------|
-> | `scopes` | Contains the requested scopes. For confidential clients, this value should use a format similar to `{Application ID URI}/.default`. This format indicates that the requested scopes are the ones that are statically defined in the app object set in the Azure portal. For Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`. For custom web APIs, `{Application ID URI}` is defined in the Azure portal, under **Application Registration (Preview)** > **Expose an API**. |
+|Element| Description |
+|---------|---------|
+| `scopes` | Contains the requested scopes. For confidential clients, this value should use a format similar to `{Application ID URI}/.default`. This format indicates that the requested scopes are the ones that are statically defined in the app object set in the Azure portal. For Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`. For custom web APIs, `{Application ID URI}` is defined in the Azure portal, under **Application Registration (Preview)** > **Expose an API**. |
 
 For more information, see the [reference documentation for `AcquireTokenForClient`](/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient).
 

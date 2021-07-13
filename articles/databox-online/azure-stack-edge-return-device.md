@@ -1,6 +1,6 @@
 ---
-title: Return your Azure Stack Edge Pro device | Microsoft Docs 
-description: Learn how to wipe the data and return your Azure Stack Edge Pro device, and then delete the resource associated with the device.
+title: Azure Stack Edge device return 
+description: Learn how to wipe the data and return your Azure Stack Edge device, and then delete the resource associated with the device.
 services: databox
 author: alkohli
 
@@ -11,11 +11,11 @@ ms.date: 03/03/2021
 ms.author: alkohli
 ---
 
-# Return your Azure Stack Edge Pro device
+# Return your Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to wipe the data and then return your Azure Stack Edge Pro device. After you've returned the device, you can also delete the resource associated with the device.
+This article describes how to wipe the data and then return your Azure Stack Edge device. After you've returned the device, you can also delete the resource associated with the device.
 
 In this article, you learn how to:
 
@@ -46,7 +46,7 @@ You can reset your device in the local web UI or in PowerShell. For PowerShell i
 
 To begin the return process, take the following steps.
 
-1. Go to your Azure Stack Edge Pro/Data Box Gateway resource in Azure portal. In the **Overview**, go to the command bar in the right pane and select **Return device**. 
+1. Go to your Azure Stack Edge/Data Box Gateway resource in Azure portal. In the **Overview**, go to the command bar in the right pane and select **Return device**. 
 
     ![Return device 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -77,11 +77,11 @@ To begin the return process, take the following steps.
 
     ![Return device 4](media/azure-stack-edge-return-device/return-device-4.png) 
 
-6. Once your device return details are captured, you can notify the Azure Stack Edge Pro operations team via an email. You can use your email application assuming the email application is installed and configured. You can also copy the data to create and send an email.
+6. Once your device return details are captured, you can notify the Azure Stack Edge operations team via an email. You can use your email application assuming the email application is installed and configured. You can also copy the data to create and send an email.
 
     ![Return device 5](media/azure-stack-edge-return-device/return-device-5.png) 
 
-7. Once the Azure Stack Edge Pro operations team receives the email, they will send you a reverse shipment label. When you receive this label, you can schedule the device pickup with the carrier. 
+7. Once the Azure Stack Edge operations team receives the email, they will send you a reverse shipment label. When you receive this label, you can schedule the device pickup with the carrier. 
 
 ## Schedule a pickup
 
@@ -98,20 +98,20 @@ To schedule a pickup, take the following steps.
     2. In your call, quote the reverse shipment tracking number as shown on your printed label.
     3. If the tracking number isn't quoted, UPS will require you to pay an extra charge during pickup.
 
-    Instead of scheduling the pickup, you can also drop off the Azure Stack Edge Pro at the nearest drop-off location.
+    Instead of scheduling the pickup, you can also drop off the Azure Stack Edge at the nearest drop-off location.
 
 ## Delete the resource
 
 After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
 
-- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge Pro operations team will contact you to confirm that the device was returned. You can then delete the resource associated with the device in the Azure portal.
+- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. You can then delete the resource associated with the device in the Azure portal.
 - If the device arrives significantly damaged, fines may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
 You can delete the device in the Azure portal:
 
 - After you place an order, and before the device is prepared by Microsoft.
-- After you return a device to Microsoft, and the Azure Stack Edge Pro operations team has called to confirm that the device was returned. The operations team doesn't call until the returned device passes the physical inspection at the Azure datacenter.
+- After you return a device to Microsoft, and the Azure Stack Edge operations team has called to confirm that the device was returned. The operations team doesn't call until the returned device passes the physical inspection at the Azure datacenter.
 
 If you've activated the device against another subscription or location, Microsoft will move your order to the new subscription or location within one business day. After the order is moved, you can delete this resource.
 
@@ -131,4 +131,4 @@ You're notified after the device and the associated resource is successfully del
 
 ## Next steps
 
-- Learn how to [Get a replacement Azure Stack Edge Pro device](azure-stack-edge-replace-device.md).
+- Learn how to [Get a replacement Azure Stack Edge device](azure-stack-edge-replace-device.md).

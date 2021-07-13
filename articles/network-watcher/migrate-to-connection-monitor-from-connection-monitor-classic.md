@@ -34,7 +34,10 @@ The migration helps produce the following results:
 	
 ## Prerequisites
 
-If you're using a custom workspace, ensure that Network Watcher is enabled in your subscription and in the region of your Log Analytics workspace. 
+1. If you're using a custom workspace, ensure that Network Watcher is enabled in your subscription and in the region of your Log Analytics workspace. If not you will see an error stating "Before you attempt migrate, please enable Network watcher extension in selection subscription and location of LA workspace selected."
+1. In case virtual machines used as sources in  connection monitor (classic) no longer have the Network Watcher extension enabled, you will see an error message stating "Connection monitors having following tests cannot be imported as one or more azure virtual machines don't have network watcher extension installed. Install network watcher extension and click refresh to import them."
+
+
 
 ## Migrate the connection monitors
 

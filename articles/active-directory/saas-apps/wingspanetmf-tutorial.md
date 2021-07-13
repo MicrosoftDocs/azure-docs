@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with Wingspan eTMF, perform the following s
     `https://<customer name>.<instance name>.mywingspan.com/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Wingspan eTMF Client support team](https://www.wingspan.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact Wingspan eTMF Client support team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with Wingspan eTMF, perform the following s
 
 ### Configure Wingspan eTMF Single Sign-On
 
-To configure single sign-on on **Wingspan eTMF** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Wingspan eTMF support team](https://www.wingspan.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Wingspan eTMF** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to Wingspan eTMF support team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -177,7 +177,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Wingspan eTMF test user
 
-In this section, you create a user called Britta Simon in Wingspan eTMF. Work with [Wingspan eTMF support team](https://www.wingspan.com/contact-us/) to add the users in the Wingspan eTMF platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Wingspan eTMF. Work with Wingspan eTMF support team to add the users in the Wingspan eTMF platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

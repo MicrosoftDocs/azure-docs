@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 04/06/2021
 ms.author: jeedes
 ---
 
@@ -54,7 +54,7 @@ To configure the integration of Workday into Azure AD, you need to add Workday f
 
 Configure and test Azure AD SSO with Workday using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Workday.
 
-To configure and test Azure AD SSO with Workday, perform following steps:
+To configure and test Azure AD SSO with Workday, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
@@ -69,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Workday** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -95,9 +95,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
     > Here we have mapped the Name ID with UPN (user.userprincipalname) as default. You need to map the Name ID with actual User ID in your Workday account (your email, UPN, etc.) for successful working of SSO.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-   ![The Certificate download link](common/certificatebase64.png)
+   ![The Certificate download link](common/metadataxml.png)
 
 1. To modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -141,55 +141,44 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Workday company site as an administrator.
 
-1. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
+1. In the **Search box**, search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
 
-    ![Edit Tenant Security](./media/workday-tutorial/IC782925.png "Edit Tenant Security")
-
-
-1. In the **SAML Setup** section, perform the following steps:
-
-    ![SAML Setup](./media/workday-tutorial/IC782926.png "SAML Setup")
-
-    a.  Select **Enable SAML Authentication**.
-
-    b.  Click **Add Row**.
-
-1. In the **SAML Identity Providers** section, please perform the following actions for the newly created row.
-
-    a. Perform following actions for the fields, that are shown below.
-
-    ![SAML Identity Providers 1](./media/workday-tutorial/IC7829271.png "SAML Identity Providers")
-
-    * In the **Identity Provider Name** textbox, type a provider name (for example: *SPInitiatedSSO*).
-
-    * In the Azure portal, on the **Set up Workday** section, copy the **Azure AD Identifier** value, and then paste it into the **Issuer** textbox.
-
-    * Open the downloaded **Certificate** from the Azure portal into Notepad and paste the content into the **x.509 Certificate** textbox.
-
-    b. Perform following actions for the fields, that are shown below.
-
-    ![SAML Identity Providers 2](./media/workday-tutorial/saml-identity-provider-2.png "SAML Identity Providers")
-
-    * Click on **Enable IDP Initiated Logout** checkbox.
-
-    * In the **Logout Response URL** textbox, type **http://www.workday.com**.
-
-    * In the **Logout Request URL** textbox, paste the **Logout URL** value, which you have copied from Azure portal.
-
-    * Click on **SP Initiated** checkbox.
-
-    * In the **Service Provider ID** textbox, type **http://www.workday.com**.
+    ![Edit Tenant Security](./media/workday-tutorial/search-box.png "Edit Tenant Security")
 
 
-    * Select **Do Not Deflate SP-initiated Authentication Request**.
+1. In the **SAML Setup** section, click on **Import Identity Provider**.
 
-    c. Perform following actions for the fields, that are shown below.
+    ![SAML Setup](./media/workday-tutorial/saml-setup.png "SAML Setup")
 
-    ![SAML Identity Providers 3](./media/workday-tutorial/saml-identity-provider-3.png "SAML Identity Providers")
+1. In **Import Identity Provider** section, perform the below steps:
 
-	* In the Azure portal, on the **Set up Workday** section, copy the **Login URL** value, and then paste it into the **IdP SSO Service URL** textbox.
+    ![Importing Identity Provider](./media/workday-tutorial/import-identity-provider.png)
 
-	* In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
+    a. Give the **Identity Provider Name** like `AzureAD` in the textbox.
+
+    b. In **Used for Environments** textbox, select the appropriate environment names from the dropdown.
+
+    c. Click on **Select files** to upload the downloaded **Federation Metadata XML** file.
+
+    d. Click on **OK** and then **Done**.
+
+1. After clicking **Done**, a new row will be added in the **SAML Identity Providers** and then you can add the below steps for the newly created row.
+
+    ![SAML Identity Providers.](./media/workday-tutorial/saml-identity-providers.png "SAML Identity Providers")
+
+    a. Click on **Enable IDP Initiated Logout** checkbox.
+
+    b. In the **Logout Response URL** textbox, type **http://www.workday.com**.
+
+    c. Click on **Enable Workday Initiated Logout** checkbox.
+
+    d. In the **Logout Request URL** textbox, paste the **Logout URL** value, which you have copied from Azure portal.
+
+    e. Click on **SP Initiated** checkbox.
+
+    f. In the **Service Provider ID** textbox, type **http://www.workday.com**.
+
+    g Select **Do Not Deflate SP-initiated Authentication Request**.
 
 1. Perform the following steps in the below image.
 
@@ -231,11 +220,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Workday Sign-on URL where you can initiate the login flow. 
+* Click on **Test this application** in Azure portal. This will redirect to Workday Sign-on URL where you can initiate the login flow. 
 
-2. Go to Workday Sign-on URL directly and initiate the login flow from there.
+* Go to Workday Sign-on URL directly and initiate the login flow from there.
 
-3. You can use Microsoft Access Panel. When you click the Workday tile in the Access Panel, you should be automatically signed in to the Workday for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Workday tile in the My Apps, you should be automatically signed in to the Workday for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

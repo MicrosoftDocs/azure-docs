@@ -1,7 +1,7 @@
 ---
 title: Shared device mode overview
 titleSuffix: Microsoft identity platform | Azure
-description: Learn about shared device mode to enable device sharing for your Frontline Workers.
+description: Learn about shared device mode to enable device sharing for your frontline workers.
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -18,18 +18,18 @@ ms.custom: aaddev
 
 # Overview of shared device mode
 
-Shared device mode is a feature of Azure Active Directory that allows you to build applications that support Frontline Workers and enable shared device mode on the devices deployed to them.
+Shared device mode is a feature of Azure Active Directory that allows you to build applications that support frontline workers and enable shared device mode on the devices deployed to them.
 
 >[!IMPORTANT]
 > Shared device mode for iOS [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-## What are Frontline Workers?
+## What are frontline workers?
 
-Frontline Workers are retail employees, maintenance and field agents, medical personnel, and other users that don't sit in front of a computer or use corporate email for collaboration. The following sections introduce the aspects and challenges of supporting Frontline Workers, followed by an introduction to the features provided by Microsoft that enable your application for use by an organization's Frontline Workers.
+Frontline workers are retail employees, maintenance and field agents, medical personnel, and other users that don't sit in front of a computer or use corporate email for collaboration. The following sections introduce the aspects and challenges of supporting frontline workers, followed by an introduction to the features provided by Microsoft that enable your application for use by an organization's frontline workers.
 
-### Challenges of supporting Frontline Workers
+### Challenges of supporting frontline workers
 
-Enabling Frontline Worker workflows includes challenges not usually presented by typical information workers. Such challenges can include high turnover rate and less familiarity with an organization's core productivity tools. To empower their Frontline Workers, organizations are adopting different strategies. Some are adopting a bring-your-own-device (BYOD) strategy in which their employees use business apps on their personal phone, while others provide their employees with shared devices like iPads or Android tablets.
+Enabling frontline worker workflows includes challenges not usually presented by typical information workers. Such challenges can include high turnover rate and less familiarity with an organization's core productivity tools. To empower their frontline workers, organizations are adopting different strategies. Some are adopting a bring-your-own-device (BYOD) strategy in which their employees use business apps on their personal phone, while others provide their employees with shared devices like iPads or Android tablets.
 
 ### Supporting multiple users on devices designed for one user
 
@@ -45,12 +45,12 @@ Azure Active Directory enables these scenarios with a feature called **shared de
 
 As mentioned, shared device mode is a feature of Azure Active Directory that enables you to:
 
-* Build applications that support Frontline Workers
-* Deploy devices to Frontline Workers and turn on shared device mode
+* Build applications that support frontline workers
+* Deploy devices to frontline workers and turn on shared device mode
 
-### Build applications that support Frontline Workers
+### Build applications that support frontline workers
 
-You can support Frontline Workers in your applications by using the Microsoft Authentication Library (MSAL) and [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) to enable a device state called *shared device mode*. When a device is in shared device mode, Microsoft provides your application with information to allow it to modify its behavior based on the state of the user on the device, protecting user data.
+You can support frontline workers in your applications by using the Microsoft Authentication Library (MSAL) and [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) to enable a device state called *shared device mode*. When a device is in shared device mode, Microsoft provides your application with information to allow it to modify its behavior based on the state of the user on the device, protecting user data.
 
 Supported features are:
 
@@ -65,15 +65,15 @@ Your users depend on you to ensure their data isn't leaked to another user. Shar
 
 For details on how to modify your applications to support shared device mode, see the [Next steps](#next-steps) section at the end of this article.
 
-### Deploy devices to Frontline Workers and turn on shared device mode
+### Deploy devices to frontline workers and turn on shared device mode
 
-Once your applications support shared device mode and include the required data and security changes, you can advertise them as being usable by Frontline Workers.
+Once your applications support shared device mode and include the required data and security changes, you can advertise them as being usable by frontline workers.
 
 An organization's device administrators are able to deploy their devices and your applications to their stores and workplaces through a mobile device management (MDM) solution like Microsoft Intune. Part of the provisioning process is marking the device as a *Shared Device*. Administrators configure shared device mode by deploying the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) and setting shared device mode through configuration parameters. After performing these steps, all applications that support shared device mode will use the Microsoft Authenticator application to manage its user state and provide security features for the device and organization.
 
 ## Next steps
 
-We support iOS and Android platforms for shared device mode. Review the documentation below for your platform to begin supporting Frontline Workers in your applications.
+We support iOS and Android platforms for shared device mode. Review the documentation below for your platform to begin supporting frontline workers in your applications.
 
 * [Supporting shared device mode for iOS](msal-ios-shared-devices.md)
 * [Supporting shared device mode for Android](msal-android-shared-devices.md)

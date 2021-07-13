@@ -7,10 +7,10 @@ ms.author: dobett
 ms.date: 12/23/2020
 ms.topic: how-to
 ms.service: iot-central
+
+# This topic applies to administrators and device developers.
 ---
 # Upload files from your devices to the cloud
-
-*This topic applies to administrators and device developers.*
 
 IoT Central lets you upload media and other files from connected devices to cloud storage. You configure the file upload capability in your IoT Central application, and then implement file uploads in your device code.
 

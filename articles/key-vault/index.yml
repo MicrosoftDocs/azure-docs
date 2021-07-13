@@ -90,7 +90,7 @@ conceptualContent:
         url: ./secrets/index.yml
         text: See more
   
-    - title: Managed HSM (preview)
+    - title: Managed HSM
       links:
         - url: ./managed-hsm/overview.md
           itemType: overview

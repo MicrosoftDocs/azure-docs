@@ -74,9 +74,9 @@ To learn more about each of the attributes, see the [Face detection and attribut
 
 ## Next steps
 
-In this guide, you learned how to use the various functionalities of face detection. Next, integrate these features into your app by following an in-depth tutorial.
+In this guide, you learned how to use the various functionalities of face detection. Next, integrate these features into an app to add face data from users.
 
-- [Tutorial: Create a WPF app to display face data in an image](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutorial: Add users to a Face service](../enrollment-overview.md)
 
 ## Related topics
 

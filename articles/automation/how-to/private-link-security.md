@@ -5,7 +5,8 @@ author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.subservice: 
+ms.subservice:  
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Automation

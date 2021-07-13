@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 05/24/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -24,13 +24,21 @@ zone_pivot_groups: b2c-policy-type
 
 The [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md) allows users to reset their own password using the **Forgot your password?** link. The password reset flow involves the following steps:
 
-1. From the sign-up and sign-in page, the user clicks the **Forgot your password?** link. Azure AD B2C initiates the password reset flow. 
-2. The user provides and verifies their email address with a Timed One Time Passcode.
+1. From the sign-up and sign-in page, the user clicks the **Forgot your password?** link. Azure AD B2C initiates the password reset flow.
+2. The user provides their email address and selects **Send verification code**. Azure AD B2C will then send the user a verification code.
+
+* The user needs to open the mail box and copy the verification code. The user then enters the verification code in Azure AD B2C password reset page, and selects **Verify code**.
+
+> [!NOTE]
+> After the email is verified, the user can still select **Change e-mail**, type the other email, and repeat the email verification from the beginning.
 3. The user can then enter a new password.
 
 ![Password reset flow](./media/add-password-reset-policy/password-reset-flow.png)
 
-The password reset flow applies to local accounts in Azure AD B2C that use an [email address](identity-provider-local.md#email-sign-in) or [username](identity-provider-local.md#username-sign-in) with a password for sign-in.
+The password reset flow applies to local accounts in Azure AD B2C that use an [email address](sign-in-options.md#email-sign-in) or [username](sign-in-options.md#username-sign-in) with a password for sign-in.
+
+> [!TIP]
+> The self-service password reset flow allows users to change their password when the user forgets their password and wants to reset it. Consider configuring a [password change flow](add-password-change-policy.md) to support cases where a user knows their password and wants to change it.
 
 A common practice after migrating users to Azure AD B2C with random passwords is to have the users verify their email addresses and reset their passwords during their first sign-in. It's also common to force the user to reset their password after an administrator changes their password; see [force password reset](force-password-reset.md) to enable this feature.
 
@@ -54,17 +62,17 @@ To enable self-service password reset for the sign-up or sign-in user flow:
 1. Select **User flows**.
 1. Select a sign-up or sign-in user flow (of type **Recommended**) that you want to customize.
 1. Under **Settings** in the left menu, select **Properties**.
-1. Under **Password complexity**, select **Self-service password reset**.
+1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
 1. Under **Customize** in the left menu, select **Page layouts**.
-1. In the **Page Layout Version**, choose **2.1.2 - Current** or above.
+1. In the **Page Layout Version**, choose **2.1.3** or above.
 1. Select **Save**.
 
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
-The following sections describe how to add a self-service password experience to a custom policy. The sample is based on the policy files included in the [custom policy starter pack](./custom-policy-get-started.md). 
+The following sections describe how to add a self-service password experience to a custom policy. The sample is based on the policy files included in the [custom policy starter pack](./tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack). 
 
 > [!TIP]
 > You can find a complete sample of the "sign-up or sign-in with password reset" policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/embedded-password-reset).
@@ -291,8 +299,10 @@ To let users of your application reset their password, you create a password res
 1. On the **Create a user flow** page, select the **Password reset** user flow. 
 1. Under **Select a version**, select **Recommended**, and then select **Create**.
 1. Enter a **Name** for the user flow. For example, *passwordreset1*.
-1. For **Identity providers**, enable **Reset password using email address**.
-1. Under **Application claims**, select **Show more** and choose the claims you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
+1. For **Identity providers**, enable **Reset password using username** or **Reset password using email address**.
+1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
+1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. 1. Under **Application claims**, select **Show more** and choose the claims you want returned in the authorization tokens sent back to your application. For example, select **User's Object ID**.
 1. Select **OK**.
 1. Select **Create** to add the user flow. A prefix of *B2C_1* is automatically appended to the name.
 
@@ -309,7 +319,7 @@ To let users of your application reset their password, you create a password res
 
 ### Create a password reset policy
 
-Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](custom-policy-get-started.md).
+Custom policies are a set of XML files you upload to your Azure AD B2C tenant to define user journeys. We provide starter packs with several pre-built policies including: sign-up and sign-in, password reset, and profile editing policy. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 

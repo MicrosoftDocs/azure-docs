@@ -87,6 +87,7 @@ When you pause a dedicated SQL pool (formerly SQL DW):
 - Data warehouse unit costs are zero for the duration of the pause.
 - Data storage is not affected and your data stays intact.
 - All running or queued operations are cancelled.
+- DMV counters are reset.
 
 When you resume a dedicated SQL pool (formerly SQL DW):
 

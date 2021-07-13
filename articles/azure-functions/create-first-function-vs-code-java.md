@@ -22,10 +22,12 @@ adobe-target-content: ./create-first-function-vs-code-java-uiex
 
 In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers:
++ [Gradle](./functions-create-first-java-gradle.md)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions)
++ [Maven](create-first-function-cli-java.md)
 
-> [!NOTE]
-> If Visual Studio Code isn't your preferred development tool, check out our similar tutorials for Java developers using [Maven](create-first-function-cli-java.md), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Configure your environment
 

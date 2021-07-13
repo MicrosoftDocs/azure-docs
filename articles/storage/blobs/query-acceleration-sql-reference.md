@@ -34,6 +34,11 @@ In the following example, for each row for which the WHERE *expression* returns 
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
 
+You can specify one or more specific columns as part of the SELECT expression (For example: `SELECT Title, Author, ISBN`). 
+
+> [!NOTE]
+> The maximum number of specific columns that you can use in the SELECT expression is 49. If you need your SELECT statement to return more than 49 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
+
 The following example returns an aggregate computation (For example: the average value of a particular column) over each of the rows for which *expression* returns true. 
 
 ```sql
@@ -117,8 +122,8 @@ The query acceleration SQL language supports the following standard SQL string f
 |[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Returns a character expression with lowercase character data converted to uppercase.|
 |[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Returns part of a character, binary, text, or image expression in SQL Server.|
 |[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Removes the space character char(32) or other specified characters from the start and end of a string.|
-|LEADING    |Description|
-|TRAILING    |Description|
+|LEADING    |Removes the space character char(32) or other specified characters from the start of a string.|
+|TRAILING    |Removes the space character char(32) or other specified characters from the end of a string.|
 
 Here's a few examples:
 
@@ -232,12 +237,12 @@ A SELECT statement may contain either one or more projection expressions or a si
 
 |Expression|Description|
 |--|--|
-|[COUNT(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returns the number of records which matched the predicate expression.|
-|[COUNT(expression)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returns the number of records for which expression is non-null.|
-|[AVERAGE(expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |Returns the average of the non-null values of expression.|
-|[MIN(expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |Returns the minimum non-null value of expression.|
-|[MAX(expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Returns the maximum non-null value of expression.|
-|[SUM(expression)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |Returns the sum of all non-null values of expression.|
+|[COUNT(\*)](/sql/t-sql/functions/count-transact-sql)    |Returns the number of records which matched the predicate expression.|
+|[COUNT(expression)](/sql/t-sql/functions/count-transact-sql)    |Returns the number of records for which expression is non-null.|
+|[AVERAGE(expression)](/sql/t-sql/functions/avg-transact-sql)    |Returns the average of the non-null values of expression.|
+|[MIN(expression)](/sql/t-sql/functions/min-transact-sql)    |Returns the minimum non-null value of expression.|
+|[MAX(expression](/sql/t-sql/functions/max-transact-sql)    |Returns the maximum non-null value of expression.|
+|[SUM(expression)](/sql/t-sql/functions/sum-transact-sql)    |Returns the sum of all non-null values of expression.|
 
 ### MISSING
 

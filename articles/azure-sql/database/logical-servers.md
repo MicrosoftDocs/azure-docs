@@ -4,12 +4,12 @@ titleSuffix: ""
 description: Learn about logical SQL servers used by Azure SQL Database and Azure Synapse Analytics, and how to manage them. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 03/12/2019
 ---
@@ -108,25 +108,25 @@ To create and manage servers, databases, and firewalls with the [Azure CLI](/cli
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Creates a database|
-|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Lists all databases managed by a server, or all databases in an elastic pool|
-|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Lists available service objectives and storage limits|
-|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Returns database usages|
-|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Gets a database
-|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Updates a database|
-|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Removes a database|
-|[az group create](/cli/azure/group#az-group-create)|Creates a resource group|
-|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Creates a server|
-|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|Lists servers|
-|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Returns  server usages|
-|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|Gets a server|
-|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|Updates a server|
-|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Deletes a server|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Creates a server firewall rule|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Lists the firewall rules on a server|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Shows the detail of a firewall rule|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Updates a firewall rule|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Deletes a firewall rule|
+|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Creates a database|
+|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Lists all databases managed by a server, or all databases in an elastic pool|
+|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Lists available service objectives and storage limits|
+|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Returns database usages|
+|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Gets a database
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Updates a database|
+|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Removes a database|
+|[az group create](/cli/azure/group#az_group_create)|Creates a resource group|
+|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Creates a server|
+|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Lists servers|
+|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list-usages)|Returns  server usages|
+|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Gets a server|
+|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Updates a server|
+|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Deletes a server|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Creates a server firewall rule|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lists the firewall rules on a server|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Shows the detail of a firewall rule|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Updates a firewall rule|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
 > [!TIP]
 > For an Azure CLI quickstart, see [Create a database in Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use the CLI to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use the CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
@@ -141,10 +141,10 @@ To create and manage servers, databases, and firewalls with Transact-SQL, use th
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Creates a new database in Azure SQL Database. You must be connected to the master database to create a new database.|
-|[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Creates a new data warehouse database in Azure Synapse. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies database or elastic pool. |
-|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Modifies a data warehouse database in Azure Synapse.|
+|[CREATE DATABASE (Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true) | Creates a new database in Azure SQL Database. You must be connected to the master database to create a new database.|
+|[CREATE DATABASE (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Creates a new data warehouse database in Azure Synapse. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifies database or elastic pool. |
+|[ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true&tabs=sqlpool)|Modifies a data warehouse database in Azure Synapse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for a database. If logged on to the master database for a server, returns information on all databases. For Azure Synapse, you must be connected to the master database.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Returns CPU, IO, and memory consumption for a database in Azure SQL Database. One row exists for every 15 seconds, even if there is no activity in the database.|

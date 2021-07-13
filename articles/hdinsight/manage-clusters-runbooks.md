@@ -33,16 +33,16 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 1. Type **AzureRM.Profile** in the box and hit enter to search. Select the available search result.
 1. On the **AzureRM.profile** screen, select **Import**. Check the box to update Azure modules and then select **OK**.
 
-    ![import AzureRM.profile module](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermprofile-module.png" alt-text="import AzureRM.profile module" border="false":::
 
 1. Return to the modules gallery by selecting **Modules gallery** under **Shared Resources**.
 1. Type **HDInsight**. Select **AzureRM.HDInsight**.
 
-    ![browse HDInsight modules](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/browse-modules-hdinsight.png" alt-text="browse HDInsight modules" border="true":::
 
 1. On the **AzureRM.HDInsight** panel, select **Import** and **OK**.
 
-    ![import AzureRM.HDInsight module](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermhdinsight-module.png" alt-text="import AzureRM.HDInsight module" border="true":::
 
 ## Create credentials
 
@@ -60,7 +60,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 1. Select **Create**.
 1. Repeat the same process for a new credential `ssh-password` with username `sshuser` and a password of your choice. Select **Create**. This credential is to store the SSH password for your cluster.
 
-    ![create credential](./media/manage-clusters-runbooks/create-credentials.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-credentials.png" alt-text="create credential" border="true":::
 
 ## Create a runbook to create a cluster
 
@@ -69,11 +69,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 1. On the **Create a runbook** panel, enter a name for the runbook, such as `hdinsight-cluster-create`. Select **Powershell** from the **Runbook type** dropdown.
 1. Select **Create**.
 
-    ![create runbook](./media/manage-clusters-runbooks/create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="create runbook" border="true":::
 
 1. Enter the following code on the **Edit PowerShell Runbook** screen and select **Publish**:
 
-    ![publish runbook](./media/manage-clusters-runbooks/publish-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/publish-runbook.png" alt-text="publish runbook" border="true":::
 
     ```powershell
     Param
@@ -149,7 +149,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 1. Select **Start** to execute the runbook immediately. You can also schedule runbooks to run periodically. See [Scheduling a runbook in Azure Automation](../automation/shared-resources/schedules.md)
 1. Enter the required parameters for the script and select **OK**. This will create a new HDInsight cluster with the name that you specified in the **CLUSTERNAME** parameter.
 
-    ![execute create cluster runbook](./media/manage-clusters-runbooks/execute-create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/execute-create-runbook.png" alt-text="execute create cluster runbook" border="true":::
 
 ### Delete a cluster
 

@@ -3,18 +3,20 @@ title: Azure Quickstart - Create a Managed HSM using an Azure Resource Manager t
 description: Quickstart showing how to create Azure an Azure Key Vault Managed HSM using Resource Manager template
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
-
+ms.author: mbaldwin
+ms.date: 09/15/2020
+ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: managed-hsm
-ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
-ms.date: 09/15/2020
-ms.author: mbaldwin
-
+tags:
+  - azure-resource-manager
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-arm
 #Customer intent: As a security admin who is new to Azure, I want to create a managed HSM using an Azure Resource Manager template.
-
 ---
+
 # Quickstart: Create an Key Vault Managed HSM using an Azure Resource Manager template
 
 Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguards cryptographic keys for your cloud applications, using **FIPS 140-2 Level 3** validated HSMs.  
@@ -45,7 +47,7 @@ For more information on login options via the CLI, see [sign in with Azure CLI](
 
 ## Create a manage HSM
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-managed-hsm-create/).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/managed-hsm-create/).
 
 The Azure resource defined in the template:
 
@@ -67,7 +69,7 @@ You may also need your tenant ID. To find it, use the Azure CLI [az ad user show
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-managed-hsm-create%2Fazuredeploy.json"><img src="../media/deploy-to-azure.svg" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2F%2Fmaster%2Fquickstarts%2Fmicrosoft.keyvault%2Fmanaged-hsm-create%2Fazuredeploy.json"><img src="../media/deploy-to-azure.svg" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.
 

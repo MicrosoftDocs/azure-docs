@@ -33,7 +33,7 @@ To complete this quickstart, make sure you have:
     - <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
   - If using macOS:
-    - An up-to-date version of <a href="/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>.
+    - An up-to-date version of <a href="/visualstudio/mac/installation?view=vsmac-2019&preserve-view=true" target="_blank">Visual Studio for Mac 8.1+</a>.
     - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
     - <a href="https://git-lfs.github.com/">Git LFS</a>.
 - The latest version of Xamarin.Android installed and running on your platform of choice. For a guide to installing Xamarin.Android, refer to the [Xamarin.Android Installation](/xamarin/android/get-started/installation/index) guides.

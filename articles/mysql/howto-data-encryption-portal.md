@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 # Data encryption for Azure Database for MySQL by using the Azure portal
 
+[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+
 Learn how to use the Azure portal to set up and manage data encryption for your Azure Database for MySQL.
 
 ## Prerequisites for Azure CLI

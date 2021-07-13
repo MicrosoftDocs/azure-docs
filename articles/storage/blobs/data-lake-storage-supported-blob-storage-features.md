@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 06/09/2021
 ms.author: normesta
 ---
 
@@ -35,7 +35,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Logging in Azure Monitor|Preview |Preview|[Monitoring Azure Storage](./monitor-blob-storage.md)|
 |Snapshots|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Blob snapshots](snapshots-overview.md)|
-|Static websites|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
+|Static websites|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 |Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
@@ -45,12 +45,14 @@ The following table shows how each Blob storage feature is supported with Data L
 |Anonymous public access |Generally available|Generally available| See [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).|
 |Customer-managed account failover|Not yet supported|Not yet supported|[Disaster recovery and account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Customer-provided keys|Not yet supported|Not yet supported|[Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md)|
-|Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes (preview)](encryption-scope-manage.md)|
+|Encryption scopes|Not yet supported|Not yet supported|[Create and manage encryption scopes](encryption-scope-manage.md)|
 |Change feed|Not yet supported|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
 |Object replication|Not yet supported|Not yet supported|[Configure object replication for block blobs](object-replication-configure.md)|
 |Blob versioning|Not yet supported|Not yet supported|[Enable and manage blob versioning](versioning-enable.md)|
+|Point-in-time restore|Not yet supported|Not yet supported|[Point-in-time restore for block blobs](point-in-time-restore-overview.md)|
+|Blob index tags|Not yet supported|Not yet supported|[Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)|
 
-<div id="preview-form"><sup>1</sup>To use snapshots, immutable storage, or static websites with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
+<div id="preview-form"><sup>1</sup>To use snapshots or immutable storage with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
 <div id="preview-form-2"><sup>2</sup>A custom domain name can map only to the blob service or static website endpoint. The Data Lake storage endpoint is not supported.</a>.  </div>
 
 ## See also

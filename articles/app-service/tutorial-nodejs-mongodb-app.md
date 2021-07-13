@@ -164,10 +164,10 @@ In this step, you connect your MEAN.js sample application to the Cosmos DB datab
 
 ### Retrieve the database key
 
-To connect to the Cosmos DB database, you need the database key. In the Cloud Shell, use the [`az cosmosdb list-keys`](/cli/azure/cosmosdb#az-cosmosdb-list-keys) command to retrieve the primary key.
+To connect to the Cosmos DB database, you need the database key. In the Cloud Shell, use the [`az cosmosdb keys list`](/cli/azure/cosmosdb#az_cosmosdb_keys_list) command to retrieve the primary key.
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup
+az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup
 ```
 
 The Azure CLI shows information similar to the following example:
@@ -198,7 +198,7 @@ module.exports = {
 };
 ```
 
-The `ssl=true` option is required because [Cosmos DB requires SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
+The `ssl=true` option is required because [Cosmos DB requires TLS/SSL](../cosmos-db/connect-mongodb-account.md#connection-string-requirements). 
 
 Save your changes.
 
@@ -281,7 +281,7 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 By default, the MEAN.js project keeps _config/env/local-production.js_ out of the Git repository. So for your Azure app, you use app settings to define your MongoDB connection string.
 
-To set app settings, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command in the Cloud Shell. 
+To set app settings, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command in the Cloud Shell. 
 
 The following example configures a `MONGODB_URI` app setting in your Azure app. Replace the *\<app-name>*, *\<cosmosdb-name>*, and *\<primary-master-key>* placeholders.
 
@@ -310,7 +310,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (5/5), done.
 Writing objects: 100% (5/5), 489 bytes | 0 bytes/s, done.
 Total 5 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'main'.
+remote: Updating branch 'master'.
 remote: Updating submodules.
 remote: Preparing deployment for commit id '6c7c716eee'.
 remote: Running custom deployment command...
@@ -321,7 +321,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      main -> main
+ * [new branch]      master -> master
 </pre>
 
 You may notice that the deployment process runs [Gulp](https://gulpjs.com/) after `npm install`. App Service does not run Gulp or Grunt tasks during deployment, so this sample repository has two additional files in its root directory to enable it: 
@@ -472,7 +472,7 @@ In the local terminal window, commit your changes in Git, then push the code cha
 
 ```bash
 git commit -am "added article comment"
-git push azure main
+git push azure master
 ```
 
 Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
@@ -487,7 +487,7 @@ If you added any articles earlier, you still can see them. Existing data in your
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
-To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az-webapp-log-tail) command in the Cloud Shell.
+To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log#az_webapp_log_tail) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup

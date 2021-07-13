@@ -17,7 +17,7 @@ This article answers some common questions about lead management for your commer
 
 #### Where can I get help in setting up my lead destination?
 
-See [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md) for an overview of how to connect your CRM system to your commercial marketplace offers. If you have an error, review the troubleshooting guidance below. For more support, submit a support ticket through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
+See [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md) for an overview of how to connect your CRM system to your commercial marketplace offers. If you have an error, review the troubleshooting guidance below. For more support, submit a support ticket through [Partner Center Help and support](https://go.microsoft.com/fwlink/?linkid=2165533). Then select **Offer creation** > **Your type of offer** > **Lead management configuration**.
 
 #### Am I required to configure a lead destination in order to publish an offer in the commercial marketplace?
 
@@ -57,7 +57,7 @@ Azure Blob storage is no longer supported as a lead destination, so you're missi
 
 #### I received an email from the commercial marketplace, but why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personal information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://aka.ms/marketplacepublishersupport).
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass personal information from the .edu domain. Submit a support ticket through [Partner Center Help and support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 #### I configured an Azure table as my lead destination. How can I view the leads?
 
@@ -118,4 +118,3 @@ Access your offer in Partner Center, and go to the **Offer setup** page > **Lead
 **Could not save the lead to Dynamics CRM. LastCRMError: The request channel timed out while waiting for a reply after 00:02:00. Increase the timeout value passed to the call to Request or increase the SendTimeout value on the Binding. The time allotted to this operation may have been a portion of a longer timeout.**  
 
 > Resolution: Sign in to Partner Center, check Offer setup >> Customer leads >> URL, check if it's a valid Dynamic CRM instance.
-

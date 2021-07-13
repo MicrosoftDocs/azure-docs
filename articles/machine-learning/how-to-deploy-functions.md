@@ -9,8 +9,8 @@ ms.author: vaidyas
 author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.topic: conceptual
-ms.custom: how-to, racking-python, devx-track-azurecli
+ms.topic: how-to
+ms.custom: racking-python, devx-track-azurecli
 
 ---
 

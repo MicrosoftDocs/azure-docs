@@ -52,7 +52,7 @@ You can enable either targeting the action against a subscription and resource g
     > [!NOTE]
     > The value for **Target ResourceGroup Names** is stored as the values for both `External_Start_ResourceGroupNames` and `External_Stop_ResourceGroupNames`. For further granularity, you can modify each of these variables to target different resource groups. For start action, use `External_Start_ResourceGroupNames`, and use `External_Stop_ResourceGroupNames` for stop action. VMs are automatically added to the start and stop schedules.
 
-## <a name="tags"></a>Scenario 2: Start/Stop VMS in sequence by using tags
+## <a name="tags"></a>Scenario 2: Start/Stop VMs in sequence by using tags
 
 In an environment that includes two or more components on multiple VMs supporting a distributed workload, supporting the sequence in which components are started and stopped in order is important. 
 
@@ -140,7 +140,7 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot of the Email/SMS message/Push/Voice page showing an example email address updated.":::
 
-    You can add additional actions to the action group. To learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
+    You can add additional actions to the action group. To learn more about action groups, see [action groups](../azure-monitor/alerts/action-groups.md)
 
 The following is an example email that is sent when the feature shuts down virtual machines.
 
