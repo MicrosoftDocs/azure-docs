@@ -34,6 +34,7 @@ In Azure Logic Apps, the on-premises data gateway supports the [on-premises conn
 * [Apache Impala](../../connectors/impala)
 * [BizTalk Server 2016](../../connectors/biztalk)
 * [File System](../../connectors/filesystem)
+* [HTTP with Azure AD](../../connectors/webcontents)
 * [IBM DB2](../../connectors/db2)
 * [IBM Informix](../../connectors/informix)
 * [IBM MQ](../../connectors/mq)
