@@ -1,71 +1,58 @@
 ---
-title: 'Quickstart: Deploy FHIR service using Azure portal'
-description: In this quickstart, you'll learn how to deploy FHIR service and configure settings using the Azure portal.
-services: healthcare-apis
-author: matjazl
+title: Deploy a FHIR service within Azure Healthcare APIs
+description: This article teaches users how to deploy a FHIR service in the Azure portal. 
+author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: quickstart 
-ms.date: 03/15/2020
-ms.author: zxue
+ms.topic: quickstart
+ms.date: 07/12/2021
+ms.author: ginle
 ---
 
-# Quickstart: Deploy FHIR service using Azure portal
+# Deploy a FHIR service within Azure Healthcare APIs
 
-In this quickstart, you'll learn how to deploy FHIR service using the Azure portal.
+In this quickstart, you’ll learn how to deploy the FHIR service within the Azure Healthcare APIs.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisite
 
-## Create new resource
+Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see [Deploy workspace in the Azure portal](../healthcare-apis-quickstart.md).
 
-Open the [Azure portal](https://portal.azure.com) and click **Create a resource**
+## Create a new FHIR service
 
-![Create a resource](media/quickstart-paas-portal/portal-create-resource.png)
+From the workspace, select **Deploy FHIR Services**.
 
-## Search for FHIR service
+[ ![Deploy FHIR service](media/fhir-service/deploy-fhir-services.png) ](media/fhir-service/deploy-fhir-services.png#lightbox)
 
-You can find FHIR service by typing "FHIR" into the search box:
+Select **+ Add FHIR Service**.
 
-:::image type="content" source="media/quickstart-paas-portal/portal-search-healthcare-apis.png" alt-text="Search for Healthcare APIs":::
+[ ![Add FHIR service](media/fhir-service/add-fhir-service.png) ](media/fhir-service/add-fhir-service.png#lightbox)
 
-## Create FHIR service account
+Enter an **Account name** for your FHIR service. Select the **FHIR version** (**STU3** or **R4**), and then select **Review + create**.
 
-Select **Create** to create a new FHIR service account:
+[ ![Create FHIR service](media/fhir-service/create-fhir-service.png) ](media/fhir-service/create-fhir-service.png#lightbox)
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Create FHIR service account":::
+Before you select **Create**, review the properties of the **Basics** and **Additional settings** of your FHIR service. If you need to go back and make changes, select **Previous**. Confirm that the **Validation success** message is displayed. 
 
-## Enter account details
-
-Select an existing resource group or create a new one, choose a name for the account, and finally click **Review + create**:
-
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="New healthcare api details":::
-
-Confirm creation and await FHIR API deployment.
+[ ![Validate FHIR service](media/fhir-service/validation-fhir-service.png) ](media/fhir-service/validation-fhir-service.png#lightbox)
 
 ## Additional settings (optional)
 
-You can also click **Next: Additional settings** to view the authentication settings. The default configuration for the FHIR service is to use Azure RBAC for assigning data plane roles. When configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription:
+You can also select the **Additional settings** tab to view the authentication settings. The default configuration for the Azure API for FHIR is to **use Azure RBAC for assigning data plane roles**. When it's configured in this mode, the "Authority" for the FHIR service will be set to the Azure Active Directory tenant of the subscription.
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Default Authentication settings":::
+[ ![Additional settings FHIR service](media/fhir-service/additional-settings-tab.png) ](media/fhir-service/additional-settings-tab.png#lightbox)
 
-Notice that the box for entering allowed object IDs is grayed out, since we use Azure RBAC for configuring role assignments in this case.
+Notice that the box for entering **Allowed object IDs** is grayed out. This is because we use Azure RBAC for configuring role assignments in this case.
 
 If you wish to configure the FHIR service to use an external or secondary Azure Active Directory tenant, you can change the Authority and enter object IDs for user and groups that should be allowed access to the server.
 
 ## Fetch FHIR API capability statement
 
-To validate that the new FHIR API account is provisioned, fetch a capability statement by pointing a browser to `https://<ACCOUNT-NAME>.azurehealthcareapis.com/metadata`.
-
-## Clean up resources
-
-When no longer needed, you can delete the resource group, FHIR service, and all related resources. To do so, select the resource group containing the FHIR service account, select **Delete resource group**, then confirm the name of the resource group to delete.
+To validate that the new FHIR API account is provisioned, fetch a capability statement by browsing to `https://<WORKSPACE NAME>-<ACCOUNT-NAME>.fhir.azurehealthcareapis.com/metadata`.
 
 ## Next steps
 
-In this quickstart guide, you've deployed the FHIR service into your subscription. To set additional settings in your FHIR service, proceed to the additional settings how-to guide. If you are ready to start using the FHIR service, read more on how to register applications.
+In this quickstart guide, you've deployed the FHIR service into your Azure Healthcare APIs workspace. To set another settings in your FHIR service, see the **additional settings how-to guide**. If you are ready to start using the FHIR service, see [Register the Azure Active Directory apps for the FHIR service](fhir-app-registration.md).
 
 >[!div class="nextstepaction"]
->[Additional settings in FHIR service](additional-settings.md)
+>[Overview of Heathcare APIs](../healthcare-apis-overview.md)
 
->[!div class="nextstepaction"]
->[Register Applications Overview](fhir-app-registration.md)
