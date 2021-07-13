@@ -171,7 +171,6 @@ For some resource types, you need to contact support to have the 800 instance li
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - By default, limited to 800 instances. That limit can be increased by contacting support.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
