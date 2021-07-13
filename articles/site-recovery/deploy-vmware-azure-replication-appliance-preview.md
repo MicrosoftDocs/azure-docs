@@ -118,11 +118,11 @@ To set up a new appliance, you can use an OVF template (recommended) or PowerShe
     - Data disk 1 – 620 GB
     - Data disk 2 – 620 GB
 
-### Create Site Recovery appliance
+## Create Azure Site Recovery replication appliance
 
 You can create the Site Recovery replication appliance by using the OVF template or through PowerShell.
 
-#### Create replication appliance through OVF template
+### Create replication appliance through OVF template
 
 We recommend this approach as Azure Site Recovery ensures all prerequisite configurations are handled by the template.
 The OVF template spins up a machine with the required specifications.
@@ -134,13 +134,17 @@ Follow these steps:
 3. In the next screen, provide password for the administrator user.
 4.  Select **Finalize,** the system reboots and you can login with the administrator user account.
 
-#### Set up Azure site recovery appliance through PowerShell
+### Set up Azure Site Recovery appliance through PowerShell
 
 In case of any organizational restrictions, you can manually set up the Site Recovery replication appliance through PowerShell. Follow these steps:
 
 1. Download the installers from [here](https://aka.ms/V2ARcmApplianceCreationPowershellZip) and place this folder on the Azure Site Recovery replication appliance.
 2. After successfully copying the zip folder, unzip and extract the components of the folder.
-3. Go to the path in which the folder is extracted to and execute the following PowerShell script: `DRInstaller.ps1` as administrator.
+3. Go to the path in which the folder is extracted to and execute the following PowerShell script as an administrator:
+
+    ```powershell
+    DRInstaller.ps1
+    ```
 
     Once you create the appliance, Microsoft Azure appliance configuration manager is launched automatically. Prerequisites such as internet connectivity, Time sync, system configurations and group policies (listed below) are validated.
 
@@ -177,7 +181,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
   |management.azure.com |Create Azure AD apps for the appliance to communicate with the Azure Site Recovery service. |
   |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
   |`*.vault.azure.net `|Manage secrets in the Azure Key Vault. Note: Ensure machines to replicate have access to this. |
-  |aka.ms |Allow access to aka links. Used for Azure Site Recovery appliance updates. |
+  |aka.ms |Allow access to also known as links. Used for Azure Site Recovery appliance updates. |
   |download.microsoft.com/download |Allow downloads from Microsoft download. |
   |`*.servicebus.windows.net `|Communication between the appliance and the Azure Site Recovery service. |
   |`*.discoverysrv.windowsazure.com `|Connect to Azure Site Recovery discovery service URL. |
@@ -241,41 +245,14 @@ Select **Prepare infrastructure** under **Getting started**, you can see that an
 
 Select  *1 appliance(s)*, you will be re-directed to Azure Site Recovery replication appliance view, where the list of appliances registered to this vault, is displayed.
 
-## Deploy replication appliance
-
-To set up a new appliance, you can follow either of the following methods:
-
-### Create appliance using pre-configured virtual machine image
-
-1. Download the OVF template to set up an appliance on your on-premises environment.
-
-    We recommend this approach as all prerequisite configurations are handled by the template.  
-
-    The OVF template spins up a machine with the required specifications.
-
-2. After the deployment is complete, power on the VM to accept Microsoft Evaluation license and click **Next**.
-3. In the next screen, provide the password for the administrator user.
-4. Select **Finalize**.
-
-  The system restarts and you can login with the administrator user account.
-
-### Set up appliance on a virtual machine or physical server through PowerShell
- In case of any organizational restrictions, you can manually set up the Azure Site Recovery replication appliance through PowerShell.  
-
-1. Ensure a machine with the required [hardware](#hardware-requirements) and [software](#software-requirements) configuration is created.
-2. [Download](https://aka.ms/V2ARcmApplianceCreationPowershellZip) the zip that contains the required installers and place this folder on the Azure Site Recovery replication appliance.
-3.	After successfully copying the zip folder, unzip and extract the components of the folder.
-4. Go to the path where the folder is extracted to and execute the following PowerShell script as an administrator:
-    ```powershell
-   DRInstaller.ps1
-   ```
-
 ## Sizing and capacity
 You can create and use multiple replication appliances in a vault.
 
 - You can perform discovery of all the machines in a vCenter server, using any of the replication appliances in the vault.
 
 - You can switch a protected machine, between different appliances in the same vault, given the selected appliance is healthy.
+
+For detailed information about how to use multiple appliances and failover a replication appliance, see [this article](switch-replication-appliance-preview.md)
 
 ## Next steps
 Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
