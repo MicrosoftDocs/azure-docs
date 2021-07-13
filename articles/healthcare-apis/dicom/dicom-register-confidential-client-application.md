@@ -25,7 +25,6 @@ To register a new confidential client application, refer to the steps below.
 
    [ ![Azure App registrations](media/dicom-azure-app-registrations.png) ](media/dicom-azure-app-registrations.png#lightbox)
 
-
 4. Enter a user-facing display name for the application.
 
    [ ![Azure register an application](media/dicom-registration-application-name.png) ](media/dicom-registration-application-name.png#lightbox)
@@ -40,7 +39,7 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select the **API permissions** blade.
 
-   :::image type="content" source="media/dicom-add-api-permissions.png" alt-text="Add API permissions" lightbox="dicom-add-api-permissions.png":::
+   [ ![Add API permissions](media/dicom-add-api-permissions.png) ](media/dicom-add-api-permissions.png#lightbox)
 
 2. Select **Add a permission**.
 
@@ -68,7 +67,7 @@ Now that you've registered your application, you must select which API permissio
 
 3. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
 
-   :::image type="content" source="media/dicom-client-secret-value-id.png" alt-text="Client secret value ID." lightbox="dicom-client-secret-value-id.png":::
+   [ ![Client secret value ID](media/dicom-client-secret-value-id.png) ](media/dicom-client-secret-value-id.png#lightbox)
 
    > [!NOTE]
    > The client secret string is visible only once in the Azure portal. When you navigate away from the Certificates & secrets web page and then return back to it, the Value string becomes masked. It's important to make a copy your client secret string immediately after it is generated. If you don't have a backup copy of your client secret, you must repeat the above steps to regenerate it.
