@@ -7,7 +7,6 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: [ "MVC", "fasttrack-edit"]
-zone_pivot_groups: migrate-hyper-v
 ---
 
 # Migrate Hyper-V VMs to Azure
