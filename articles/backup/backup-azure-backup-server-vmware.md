@@ -2,7 +2,7 @@
 title: Back up VMware VMs with Azure Backup Server
 description: In this article, learn how to use Azure Backup Server to back up VMware VMs running on a VMware vCenter/ESXi server.
 ms.topic: conceptual
-ms.date: 05/24/2020
+ms.date: 07/13/2021
 ---
 # Back up VMware VMs with Azure Backup Server
 
@@ -154,7 +154,7 @@ The Azure Backup Server needs a user account with permissions to access v-Center
 
 The following table captures the privileges that you need to assign to the user account that you create:
 
-| Privileges for vCenter 6.5 user account                          | Privileges for vCenter 6.7 user account                            |
+| Privileges for vCenter 6.5 user account                          | Privileges for vCenter 6.7 (and later) user account                            |
 |----------------------------------------------------------------------------|----------------------------------------------------------------------------|
 | Datastore cluster.Configure a datastore cluster                           | Datastore cluster.Configure a datastore cluster                           |
 | Datastore.AllocateSpace                                                    | Datastore.AllocateSpace                                                    |
