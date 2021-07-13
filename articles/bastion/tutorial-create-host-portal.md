@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ms.author: cherylmc
 
 ---
@@ -71,7 +71,9 @@ You can use the following example values when creating this configuration, or yo
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
+
+Sign in to the Azure portal.
 
 ## <a name="createhost"></a>Create a bastion host
 

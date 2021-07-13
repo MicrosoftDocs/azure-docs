@@ -1,35 +1,36 @@
 ---
-title: Deploy Azure Arc data controller | Direct connect mode
-description: Explains how to deploy the data controller in direct connect mode. 
-author: twright-msft
-ms.author: twright
+title: Create Azure Arc data controller | Direct connect mode
+description: Explains how to create the data controller in direct connect mode. 
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/04/2021
+ms.date: 07/13/2021
 ms.topic: overview
 ---
 
-#  Deploy Azure Arc data controller | Direct connect mode
+#  Create Azure Arc data controller in Direct connectivity mode using CLI
 
-This article describes how to deploy the Azure Arc data controller in direct connect mode during the current preview of this feature. 
-
-Currently you can create the Azure Arc data controller from Azure portal. Other tools for Azure Arc enabled data services do not support creating the data controller in direct connect mode. For details, see [Release notes](release-notes.md).
+This article describes how to create the Azure Arc data controller in **direct** connectivity mode using CLI, during the current preview of this feature. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Complete prerequisites
 
-Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](deploy-data-controller-direct-mode-prerequisites.md).
+Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
-From a high level, this article explains how to complete these tasks:
+Creating an Azure Arc data controller in **direct** connectivity mode involves the following steps:
 
-1. Create an Azure Arc enabled data services extension. 
+1. Create an Azure Arc-enabled data services extension. 
 1. Create a custom location.
-1. Deploy the data controller from the portal.
+1. Create the data controller.
 
-## Create an Azure Arc enabled data services extension
+> [!NOTE]
+> Currently, this step can only be performed from the portal. For details, see [Release notes](release-notes.md). 
+
+## Create an Azure Arc-enabled data services extension
 
 Use the k8s-extension CLI to create a data services extension.
 
@@ -79,12 +80,12 @@ az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --name "$EN
 
 Use the below command if you are deploying from your private repository:
 
-```
+```azurecli
 az k8s-extension create -c "<connected cluster name>" -g "<resource group>" --name "<extension name>" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --scope cluster --release-namespace "<namespace>" --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config imageCredentials.registry=<registry info> --config imageCredentials.username=<username> --config systemDefaultValues.image=<registry/repo/arc-bootstrapper:<imagetag>> --config-protected imageCredentials.password=$ENV:DOCKER_PASSWORD --debug
 ```
 
  For example
-```
+```azurecli
 az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name "arc-data-services" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --scope cluster --release-namespace "arc" --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config imageCredentials.registry=mcr.microsoft.com --config imageCredentials.username=arcuser --config systemDefaultValues.image=mcr.microsoft.com/arcdata/arc-bootstrapper:latest --config-protected imageCredentials.password=$ENV:DOCKER_PASSWORD --debug
 ```
 
@@ -122,7 +123,7 @@ kubectl get pods -n arc
 
 ## Create a custom location using custom location CLI extension
 
-A custom location is an Azure resource that is equivalent to a namespace in a Kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about custom locations in the [Custom locations on top of Azure Arc enabled Kubernetes documentation](../kubernetes/conceptual-custom-locations.md).
+A custom location is an Azure resource that is equivalent to a namespace in a Kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about custom locations in the [Custom locations on top of Azure Arc-enabled Kubernetes documentation](../kubernetes/conceptual-custom-locations.md).
 
 ### Set environment variables
 
@@ -163,7 +164,7 @@ After the extension and custom location are created, proceed to Azure portal to 
 
 1. Log into the Azure portal.
 1. Search for "Azure Arc data controller" in the Azure Marketplace and initiate the Create flow.
-1. In the **Prerequisites** section, ensure that the Azure Arc enabled Kubernetes cluster (direct mode) is selected and proceed to the next step.
+1. In the **Prerequisites** section, ensure that the Azure Arc-enabled Kubernetes cluster (direct mode) is selected and proceed to the next step.
 1. In the **Data controller details** section, choose a subscription and resource group.
 1. Enter a name for the data controller.
 1. Choose a configuration profile based on the Kubernetes distribution provider you are deploying to.
@@ -182,6 +183,6 @@ kubectl get datacontrollers -n arc
 
 ## Next steps
 
-[Create an Azure Arc enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
+[Create an Azure Arc-enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
 
 [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)
