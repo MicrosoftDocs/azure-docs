@@ -18,15 +18,15 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 1. To enable diagnostic logging DICOM service, select your DICOM service in the Azure portal 
 2. Select the **Activity log** blade, and then select **Diagnostic settings**.
 
-   :::image type="content" source="media/dicom-activity-log.png" alt-text="Azure activity log." lightbox="media/dicom-activity-log.png":::
+   [ ![Azure activity log](media/dicom-activity-log.png) ](media/dicom-activity-log.png#lightbox)
 
 3. Select **+ Add diagnostic setting**.
 
-   :::image type="content" source="media/add-diagnostic-settings.png" alt-text="Add Diagnostic settings." lightbox="media/add-diagnostic-settings.png":::
+   [ ![Add Diagnostic settings](media/add-diagnostic-settings.png) ](media/add-diagnostic-settings.png#lightbox)
 
 4. Enter the **Diagnostic settings name**.
 
-   :::image type="content" source="media/configure-diagnostic-settings.png" alt-text="Configure Diagnostic settings." lightbox="media/configure-diagnostic-settings.png":::
+[ ![Configure Diagnostic settings](media/configure-diagnostic-settings.png) ](media/configure-diagnostic-settings.png#lightbox)
 
 5. Select the **Category** and **Destination** details for accessing the diagnostic logs.
 
@@ -103,4 +103,4 @@ FHIR is the registered trademark of HL7 and is used with the permission of HL7.
 In this article, you learned how to enable audit logs for the DICOM service. For information about the Azure activity log, see
  
 >[!div class="nextstepaction"]
->[Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema)
+>[Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
