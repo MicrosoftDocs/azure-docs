@@ -147,13 +147,13 @@ Both system-assigned identity and any of the multiple user-assigned identity can
 ```
 
 ```xml
-<authentication-managed-identity resource="api://Client_id_of_Backend"/> <!--Your own Azure AD Application-->
+<authentication-managed-identity resource="Client_id_of_Backend"/> <!--Your own Azure AD Application-->
 ```
 
 #### Use managed identity and set header manually
 
 ```xml
-<authentication-managed-identity resource="api://Client_id_of_Backend"
+<authentication-managed-identity resource="Client_id_of_Backend"
    output-token-variable-name="msi-access-token" ignore-error="false" /> <!--Your own Azure AD Application-->
 <set-header name="Authorization" exists-action="override">
    <value>@("Bearer " + (string)context.Variables["msi-access-token"])</value>

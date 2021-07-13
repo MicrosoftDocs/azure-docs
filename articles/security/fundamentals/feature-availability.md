@@ -130,7 +130,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 |- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
-|- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
+|- [Watchlists](/azure/sentinel/watchlists) | GA | Not Available |
 | **Threat intelligence support** | | |
 | - [Threat Intelligence - TAXII data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |
 | - [Threat Intelligence Platform data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |
@@ -141,46 +141,46 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
 | - [Anomalous RDP Login Detection](../../sentinel/connect-windows-security-events.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
-| **Azure service connectors** | | |
-| - [Azure Activity Logs](../../sentinel/connect-azure-activity.md)                                  |   GA           |    GA         |
-| - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md)                |      GA        |       GA        |
-| - [Azure ADIP](../../sentinel/connect-azure-ad-identity-protection.md)                         |  GA            |        GA              |
-| - [Azure DDoS Protection](../../sentinel/connect-azure-ddos-protection.md)                |     GA         |       GA               |
-| - [Azure Defender](../../sentinel/connect-azure-security-center.md)                  |    GA          |        GA              |
-| - [Azure Defender for IoT](../../sentinel/connect-asc-iot.md)           |       GA       |  Not Available           |
-| - [Azure Firewall ](../../sentinel/connect-azure-firewall.md)                        |   GA           |        GA              |
-| - [Azure Information Protection](../../sentinel/connect-azure-information-protection.md)              |     Public Preview         |         Not Available             |
-| - [Azure Key Vault ](../../sentinel/connect-azure-key-vault.md)                           |       Public Preview         |         Not Available                       |
-| - [Azure Kubernetes Services (AKS)](../../sentinel/connect-azure-kubernetes-service.md)           |       Public Preview         |         Not Available                |
-| - [Azure SQL Databases](../../sentinel/connect-azure-sql-logs.md)                        |     GA         |         GA             |
-| - [Azure WAF](../../sentinel/connect-azure-waf.md)                                  |      GA        |      GA                |
-| **Windows connectors** | | |
-| - [Windows Firewall](../../sentinel/connect-windows-firewall.md)                                 |     GA         |   GA           |
-| - [Windows Security Events](../../sentinel/connect-windows-security-events.md)                                  |      GA        |         GA     |
-| **External connectors**| | |
-| - [Agari Phishing Defense and Brand Protection](../../sentinel/connect-agari-phishing-defense.md)       | Public Preview | Public Preview |
-| - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md)                            | Public Preview | Public Preview |
-| - [AI Vectra Detect](../../sentinel/connect-ai-vectra-detect.md)                                 | Public Preview | Public Preview |
-| - [Akamai Security Events](../../sentinel/connect-akamai-security-events.md)                           | Public Preview | Public Preview |
-| - [Alcide kAudit](../../sentinel/connect-alcide-kaudit.md)                                   | Public Preview | Not Available      |
-| - [Alsid for Active Directory](../../sentinel/connect-alsid-active-directory.md)                      | Public Preview | Not Available      |
-| - [Apache HTTP Server](../../sentinel/connect-apache-http-server.md)                               | Public Preview | Not Available      |
-| - [Aruba ClearPass](../../sentinel/connect-aruba-clearpass.md)                                  | Public Preview | Public Preview |
-| - [AWS](../../sentinel/connect-data-sources.md)                                             | GA             | GA             |
-| - [Barracuda CloudGen Firewall](../../sentinel/connect-barracuda-cloudgen-firewall.md)                      | GA             | GA             |
-| - [Barracuda Web App Firewall](../../sentinel/connect-barracuda.md)                       | GA             | GA             |
-| - [BETTER Mobile Threat Defense MTD](../../sentinel/connect-better-mtd.md)                 | Public Preview | Not Available      |
-| - [Beyond Security beSECURE](../../sentinel/connect-besecure.md)                        | Public Preview | Not Available      |
-| - [Blackberry CylancePROTECT](../../sentinel/connect-data-sources.md)                        | Public Preview | Public Preview |
-| - [Broadcom Symantec DLP](../../sentinel/connect-broadcom-symantec-dlp.md)                            | Public Preview | Public Preview |
-| - [Check Point](../../sentinel/connect-checkpoint.md)                                      | GA             | GA             |
-| - [Cisco ASA](../../sentinel/connect-cisco.md)                                        | GA             | GA             |
-| - [Cisco Meraki](../../sentinel/connect-cisco-meraki.md)                                     | Public Preview | Public Preview |
-| - [Cisco Umbrella](../../sentinel/connect-cisco-umbrella.md)                                   | Public Preview | Public Preview |
-| - [Cisco UCS](../../sentinel/connect-cisco-ucs.md)                                        | Public Preview | Public Preview |
-| - [Cisco Firepower EStreamer](../../sentinel/connect-data-sources.md)                          | Public Preview | Public Preview |
-| - [Citrix Analytics WAF](../../sentinel/connect-citrix-waf.md)                             | GA             | GA             |
-| - [Common Event Format (CEF)](../../sentinel/connect-common-event-format.md)                        | GA             | GA             |
+| **Azure service connectors** |  |  |
+| - [Azure Activity Logs](../../sentinel/connect-azure-activity.md) | GA | GA |
+| - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
+| - [Azure ADIP](../../sentinel/connect-azure-ad-identity-protection.md) | GA | GA |
+| - [Azure DDoS Protection](../../sentinel/connect-azure-ddos-protection.md) | GA | GA |
+| - [Azure Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
+| - [Azure Defender for IoT](../../sentinel/connect-asc-iot.md) | GA | Not Available |
+| - [Azure Firewall ](../../sentinel/connect-azure-firewall.md) | GA | GA |
+| - [Azure Information Protection](../../sentinel/connect-azure-information-protection.md) | Public Preview | Not Available |
+| - [Azure Key Vault ](../../sentinel/connect-azure-key-vault.md) | Public Preview | Not Available |
+| - [Azure Kubernetes Services (AKS)](../../sentinel/connect-azure-kubernetes-service.md) | Public Preview | Not Available |
+| - [Azure SQL Databases](../../sentinel/connect-azure-sql-logs.md) | GA | GA |
+| - [Azure WAF](../../sentinel/connect-azure-waf.md) | GA | GA |
+| **Windows connectors** |  |  |
+| - [Windows Firewall](../../sentinel/connect-windows-firewall.md) | GA | GA |
+| - [Windows Security Events](../../sentinel/connect-windows-security-events.md) | GA | GA |
+| **External connectors** |  |  |
+| - [Agari Phishing Defense and Brand Protection](../../sentinel/connect-agari-phishing-defense.md) | Public Preview | Public Preview |
+| - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
+| - [AI Vectra Detect](../../sentinel/connect-ai-vectra-detect.md) | Public Preview | Public Preview |
+| - [Akamai Security Events](../../sentinel/connect-akamai-security-events.md) | Public Preview | Public Preview |
+| - [Alcide kAudit](../../sentinel/connect-alcide-kaudit.md) | Public Preview | Not Available |
+| - [Alsid for Active Directory](../../sentinel/connect-alsid-active-directory.md) | Public Preview | Not Available |
+| - [Apache HTTP Server](../../sentinel/connect-apache-http-server.md) | Public Preview | Not Available |
+| - [Aruba ClearPass](../../sentinel/connect-aruba-clearpass.md) | Public Preview | Public Preview |
+| - [AWS](../../sentinel/connect-data-sources.md) | GA | GA |
+| - [Barracuda CloudGen Firewall](../../sentinel/connect-barracuda-cloudgen-firewall.md) | GA | GA |
+| - [Barracuda Web App Firewall](../../sentinel/connect-barracuda.md) | GA | GA |
+| - [BETTER Mobile Threat Defense MTD](../../sentinel/connect-better-mtd.md) | Public Preview | Not Available |
+| - [Beyond Security beSECURE](../../sentinel/connect-besecure.md) | Public Preview | Not Available |
+| - [Blackberry CylancePROTECT](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
+| - [Broadcom Symantec DLP](../../sentinel/connect-broadcom-symantec-dlp.md) | Public Preview | Public Preview |
+| - [Check Point](../../sentinel/connect-checkpoint.md) | GA | GA |
+| - [Cisco ASA](../../sentinel/connect-cisco.md) | GA | GA |
+| - [Cisco Meraki](../../sentinel/connect-cisco-meraki.md) | Public Preview | Public Preview |
+| - [Cisco Umbrella](../../sentinel/connect-cisco-umbrella.md) | Public Preview | Public Preview |
+| - [Cisco UCS](../../sentinel/connect-cisco-ucs.md) | Public Preview | Public Preview |
+| - [Cisco Firepower EStreamer](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
+| - [Citrix Analytics WAF](../../sentinel/connect-citrix-waf.md) | GA | GA |
+| - [Common Event Format (CEF)](../../sentinel/connect-common-event-format.md) | GA | GA |
 | - [CyberArk Enterprise Password Vault (EPV) Events](../../sentinel/connect-cyberark.md) | Public Preview | Public Preview |
 | - [ESET Enterprise Inspector](../../sentinel/connect-data-sources.md)                       | Public Preview | Not Available      |
 | - [Eset Security Management Center](../../sentinel/connect-data-sources.md)                  | Public Preview | Not Available      |
@@ -245,46 +245,77 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 > Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
 >
 
-| Connector | Azure  | Azure Government  |
-| ------------------------------------ | -------------- | ---------------------- |
-| **[Dynamics365](../../sentinel/connect-dynamics-365.md)**                               |              |                      |
-| - Office 365 GCC |Public Preview | -|
-| - Office 365 GCC High | -|Not Available |
-| - Office 365 DoD |- | Not Available|
-| **[Microsoft 365 Defender](../../sentinel/connect-microsoft-365-defender.md)**                             |              |                      |
-| - Office 365 GCC | Public Preview| -|
-| - Office 365 GCC High |- |Not Available |
-| - Office 365 DoD |- | Not Available|
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)**                                      |              |                      |
-| - Office 365 GCC | GA| -|
-| - Office 365 GCC High |-|GA |
-| - Office 365 DoD |- |GA |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)** <br>Shadow IT logs                                  |              |                      |
-| - Office 365 GCC | Public Preview| -|
-| - Office 365 GCC High |-|Public Preview |
-| - Office 365 DoD |- |Public Preview |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)**                  <br>Alerts                    |              |                      |
-| - Office 365 GCC | Public Preview| -|
-| - Office 365 GCC High |-|Public Preview |
-| - Office 365 DoD |- |Public Preview |
-| **[Microsoft Defender for Endpoint](../../sentinel/connect-microsoft-defender-advanced-threat-protection.md)**                                       |              |                      |
-| - Office 365 GCC | GA|- |
-| - Office 365 GCC High |- |Not Available |
-| - Office 365 DoD |- | Not Available|
-| **[Microsoft Defender for Identity](../../sentinel/connect-azure-atp.md)**                                        |              |                      |
-| - Office 365 GCC |Public Preview | -|
-| - Office 365 GCC High |- | Not Available |
-| - Office 365 DoD |- |Not Available |
-| **[Microsoft Defender for Office 365](../../sentinel/connect-office-365-advanced-threat-protection.md)**               |              |                      |
-| - Office 365 GCC |Public Preview |- |
-| - Office 365 GCC High |- |Not Available |
-| - Office 365 DoD | -|Not Available |
-| **[Office 365](../../sentinel/connect-office-365.md)**                                      |              |                      |
-| - Office 365 GCC | GA|- |
-| - Office 365 GCC High |- |GA |
-| - Office 365 DoD |- |GA |
-| | |
+| Connector | Azure | Azure Government |
+|--|--|--|
+| **[Dynamics365](../../sentinel/connect-dynamics-365.md)** |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Not Available |
+| - Office 365 DoD | - | Not Available |
+| **[Microsoft 365 Defender](../../sentinel/connect-microsoft-365-defender.md)** |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Not Available |
+| - Office 365 DoD | - | Not Available |
+| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)** |  |  |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)** <br>Shadow IT logs |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Public Preview |
+| - Office 365 DoD | - | Public Preview |
+| **[Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md)**                  <br>Alerts |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Public Preview |
+| - Office 365 DoD | - | Public Preview |
+| **[Microsoft Defender for Endpoint](../../sentinel/connect-microsoft-defender-advanced-threat-protection.md)** |  |  |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | Not Available |
+| - Office 365 DoD | - | Not Available |
+| **[Microsoft Defender for Identity](../../sentinel/connect-azure-atp.md)** |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Not Available |
+| - Office 365 DoD | - | Not Available |
+| **[Microsoft Defender for Office 365](../../sentinel/connect-office-365-advanced-threat-protection.md)** |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Not Available |
+| - Office 365 DoD | - | Not Available |
+| **[Office 365](../../sentinel/connect-office-365.md)** |  |  |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|  |  |
 
+## Azure Defender for IoT 
+
+Azure Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Azure Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Azure Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Azure Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Azure Defender for IoT product documentation](../../defender-for-iot/index.yml). 
+
+The following table displays the current Azure Defender for IoT feature availability in Azure, and Azure Government.
+
+### For organizations 
+
+| Feature | Azure | Azure Government |
+|--|--|--|
+| [On-premises device discovery and inventory](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
+| Cloud device discovery and inventory | Private Preview | Not Available |
+| [Vulnerability management](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
+| [Threats detection with IoT, and OT behavioral analytics](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
+| [Automatic Threat Intelligence Updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
+| **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
+| - [Forward alert information](../../defender-for-iot/how-to-forward-alert-information-to-partners.md) | GA | GA |
+| - [Configure Sentinel with Azure Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | Not Available |
+| - [SOC systems](../../defender-for-iot/integration-splunk.md) | GA | GA |
+| - [Ticketing system and CMDB (Service Now)](../../defender-for-iot/integration-servicenow.md) | GA | GA |
+| - [Sensor Provisioning](../../defender-for-iot/how-to-manage-sensors-on-the-cloud.md) | GA | GA |
+
+### For device builders 
+
+| Feature | Azure | Azure Government |
+|--|--|--|
+| [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
+| - [Configure Sentinel with Azure Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | Not Available |
+| **Standalone micro agent for Linux** |  |  |
+| - [Standalone micro agent overview](../../defender-for-iot/concept-standalone-micro-agent-overview.md) | Public Preview | Public Preview |
+| - [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
 
 ## Next steps
 
