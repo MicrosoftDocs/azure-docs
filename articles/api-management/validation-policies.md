@@ -269,9 +269,9 @@ The following table lists all possible errors of the validation policies.
 
 > [!NOTE]
 > When a validation policy specifies the `prevent` action and produces an error, the response from API management includes an HTTP status code: 400 when the the policy is applied in the inbound section, and 502 when the policy is applied in the outbound section.
-
-
-| **Name**                             | **Type**                                                        | **Validation rule** | **Details**                                                                                                                                       | **Public response**                                                                                                                       | **Action**           |
+   
+   
+| **Name**   | **Type**                                                        | **Validation rule** | **Details**                                                                                                                                       | **Public response**                                                                                                                       | **Action**           |
 |----|----|---|---|---|----|
 | **validate-content** |                                                                 |                     |                                                                                                                                                   |                                                                                                                                           |                      |
 | |RequestBody                                                     | SizeLimit           | Request's body is {size} bytes long and it exceeds the configured limit of {maxSize} bytes.                                                       | Request's body is {size} bytes long and it exceeds the limit of {maxSize} bytes.                                                          | detect / prevent |
