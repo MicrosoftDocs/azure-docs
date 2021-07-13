@@ -676,7 +676,7 @@ Supported tables currently are limited to those specified below. All data from t
 | MicrosoftHealthcareApisAuditLogs |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
-| OfficeActivity | Partial support – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
+| OfficeActivity | Partial support (relevant to government clouds only) – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
 | Operation | Partial support – some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
 | Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
 | PowerBIDatasetsWorkspace |  |
