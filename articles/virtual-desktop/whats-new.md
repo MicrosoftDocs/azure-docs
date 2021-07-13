@@ -56,9 +56,9 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 -	Version 1.0.2800.2800: This update was released March 2021 and it fixes a reverse connection issue.
 -	Version 1.0.2800.2700: This update was released February 2021 and it fixes an access denied orchestration issue.
 
-## FSLogix 2105
-FSLogix 2105 has been released and we recommend all customers upgrade. Updates include login time improvements and the ability to increase VHD(X) size by updating the SizeinMB setting.
-Looking for more details? Check out the [FSLogix 2105 Release Notes](https://aka.ms/fslogix/whatsnew/2105).
+## FSLogix updates
+
+Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
 ## June 2021
 
