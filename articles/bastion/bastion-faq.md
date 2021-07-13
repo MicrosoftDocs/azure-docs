@@ -39,12 +39,6 @@ No. You don't need an RDP or SSH client to access the RDP/SSH to your Azure virt
 
 No. You don't need to install an agent or any software on your browser or your Azure virtual machine. The Bastion service is agentless and doesn't require any additional software for RDP/SSH.
 
-### <a name="limits"></a>How many concurrent RDP and SSH sessions does each Azure Bastion support?
-
-Both RDP and SSH are a usage-based protocol. High usage of sessions will cause the bastion host to support a lower total number of sessions. The numbers below assume normal day-to-day workflows.
-
-[!INCLUDE [limits](../../includes/bastion-limits.md)]
-
 ### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
 At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
