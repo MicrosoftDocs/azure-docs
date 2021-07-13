@@ -294,7 +294,7 @@ where you're a contributor.
 
 > [!IMPORTANT]
 > Azure Resource Manager caches management group hierarchy details for up to 30 minutes.
-> As a result, moving a management group may not immediately be reflected in Portal. 
+> As a result, moving a management group may not immediately be reflected in the Azure portal. 
 
 ## Audit management groups using activity logs
 
