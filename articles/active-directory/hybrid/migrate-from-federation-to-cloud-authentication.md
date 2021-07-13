@@ -34,7 +34,7 @@ To learn how to configure staged rollout, see the [staged rollout interactive gu
 
 ## Migration process flow
 
-![Process flow for migrating to cloud auth](media/deploy-cloud-user-authentication/migration-process-flow.png)
+![Process flow for migrating to cloud auth](media/deploy-cloud-user-authentication/process-flow-migration.png)
 
 ## Prerequisites
 
