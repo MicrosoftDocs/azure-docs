@@ -246,7 +246,7 @@ Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials
 #### Azure Resource Manager
 Restricting access as explained above applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. To control these settings, you should restrict access to this resources using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
 
-Additionally, specific experiences (such as the LogicApp connector) query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well.
+Additionally, specific experiences (such as the LogicApp connector, Update Management solution and the Workspace Summary blade in the portal, showing the solutions dashboard) query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well.
 
 
 ## Review and validate your Private Link setup

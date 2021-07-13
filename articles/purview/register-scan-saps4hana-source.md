@@ -128,6 +128,8 @@ To create and run a new scan, do the following:
     f.  **Maximum memory available:** Maximum memory (in GB) available
         on customer's VM to be used by scanning processes. This is
         dependent on the size of SAP S/4HANA source to be scanned.
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-saps4hana-source/scan-saps-4-hana.png" alt-text="scan SAP S/4HANA" border="true":::
 
