@@ -28,7 +28,7 @@ Voice, video, and screen-sharing capabilities are provided via Azure Communicati
 
 ## Chat
 
-Optionally, you can also use custom Teams endpoints to integrate chat capabilities by using Graph APIs. For more information about Graph API, see [Send chatMessage in channel](https://docs.microsoft.com/graph/api/channel-post-messages). 
+Optionally, you can also use custom Teams endpoints to integrate chat capabilities by using Graph APIs. For more information about Graph API, see [Send chatMessage in channel](/graph/api/channel-post-messages). 
 
 
 ![Diagram of the process of enabling the chat feature for a custom Teams endpoint experience.](./media/teams-identities/teams-identity-chat-overview.png)
