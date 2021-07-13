@@ -28,7 +28,7 @@ You can also connect to threat intelligence sources from playbooks, in order to 
 
 To connect to TAXII threat intelligence feeds, follow the instructions to [connect Azure Sentinel to STIX/TAXII threat intelligence feeds](connect-threat-intelligence-taxii.md), together with the data supplied by each vendor linked below. You may need to contact the vendor directly to obtain the necessary data to use with the connector.
 
-### Anomali Limo
+### Anomali Limo :::image type="icon" source="media/threat-intelligence-integration/anomali.jpg" alt-text="Anomali logo":::
 
 - [See what you need to connect to Anomali Limo feed](https://www.anomali.com/resources/limo).
 
