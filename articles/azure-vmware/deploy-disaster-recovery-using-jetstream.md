@@ -68,8 +68,8 @@ Any of the following types can be used:
 - Azure VMware Solution attached file system, such as Azure NetApp Files
 
 
-| Item  | Description  |
-| --- | --- |
+| Item  | Description  |  
+| --- | --- |  
 | **vCenter Server**  | <ul><li>Supported version: 6.7</li><li>HTTPS port: If using a firewall, HTTPS port 443 must be open.</li><li>Connectivity: The JetStream DR Management Server Appliance FQDN must be reachable from vCenter, otherwise, the plug-in installation fails.</li><li>Time: The vCenter and JetStream DR MSA clocks must be synchronized.</li></ul>  |
 | **Distributed Resource Schedular (DRS)**  | It’s recommended on the compute cluster for resource balancing.  |
 | **Cluster**  | vSphere Hosts: VMs to be protected by JetStream DR must be part of a cluster.  |
