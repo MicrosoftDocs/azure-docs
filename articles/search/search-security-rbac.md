@@ -76,7 +76,25 @@ Several new roles are now in public preview.
 
 #### Step 1: Configure the search service
 
-Use [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). You'll use the Management REST API version 2021-04-01-Preview to enable role-based authorization for data plane operations.
+Use [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to set [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). There are no regional or tier requirements for using RBAC on Azure Cognitive Search. 
+
+You'll use the Management REST API version 2021-04-01-Preview to enable role-based authorization for data plane operations.
+
+Alternatively, you can use the Azure portal to update an existing search service:
+
+1. Open the portal with this syntax: `https://ms.portal.azure.com/?feature.enableRbac=true`.
+
+1. Navigate to your search service.
+
+1. Select **Keys** in the left navigation pane.
+
+1. Choose an API access control mechanism:
+
+   | Option | Description |
+   |--------|-------------|
+   | API Key | Default. Requires an admin or query API keys on the request header. |
+   | Role-based access control | Preview. Requires membership in a role assignment to complete the task. It also requires a search service configured for role-based access, and a request that includes an authorization header. |
+   | Both | Preview. Requests are valid using either the default API key or an authorization token. |
 
 #### Step 2: Assign users or groups
 
@@ -117,9 +135,3 @@ Additionally, for content-related operations in the portal, such as creating or 
 | Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, skillsets, synonyms, suggesters | Admin key if using an API, plus Azure RBAC Owner or Contributor if using the portal |
 | Query an index | Admin or query key if using an API, plus Azure RBAC Owner or Contributor if using the portal |
 | Query system information about objects, such as returning statistics, counts, and lists of objects | Admin key if using an API, plus Azure RBAC Owner or Contributor if using the portal | -->
-
-## Next steps
-
-+ [Manage using PowerShell](search-manage-powershell.md)
-+ [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md)
-+ [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
