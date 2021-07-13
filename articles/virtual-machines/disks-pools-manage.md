@@ -1,6 +1,6 @@
 ---
 title: Manage an Azure disk pool (preview)
-description: Learn how to manage an Azure disk pool.
+description: Learn how to add managed disks to an Azure disk pool or disable iSCSI support on a disk.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -9,11 +9,9 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-# Manage a disk pool (preview)
+# Manage an Azure disk pool (preview)
 
-Once you've deployed an Azure disk pool (preview), there are two management actions available to you. You can:
-- Add a disk to a disk pool
-- Disable iSCSI support on a disk
+This article covers how to add a managed disk to an Azure disk pool (preview) and how to disable iSCSI support on a disk that has been added to a disk pool.
 
 ## Prerequisites
 
@@ -25,7 +23,7 @@ Your disk must meet the following requirements in order to be added to the disk 
 - Must be either a premium SSD or an ultra disk in the same region and availability zone as the disk pool.
     - Ultra disks must have a disk sector size of 512 bytes.
 - Must be a shared disk, with a maxShares value of two or greater.
-- You must [provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool.](disks-pools-deploy.md#provide-storagepool-resource-provider-permission-to-the-disks-that-will-be-added-to-the-disk-pool).
+- You must [provide the StoragePool resource provider RBAC permissions to the disks that will be added to the disk pool](disks-pools-deploy.md#assign-storagepool-resource-provider-permissions).
 
 The following script adds an additional disk to the disk pool and exposes it over iSCSI. It keeps the existing disks in the disk pool without any change.
 
@@ -69,7 +67,7 @@ Update-AzDiskPoolIscsiTarget -Name $iscsiTargetName -DiskPoolName $diskPoolName 
 
 ## Disable iSCSI on a disk and remove it from the pool
 
-iSCSI support can be disabled on a disk to remove it from a disk pool. Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connection to the iSCSI LUN the disk is exposed as. When the disk is removed from the disk pool, it isn't deleted, hence there will not be any data loss. You can manually delete the disk if you don't want to incur further charges for having the disk and the data stored in the disk will be deleted.
+Before you disable iSCSI support on a disk, confirm there is no outstanding iSCSI connections to the iSCSI LUN the disk is exposed as. When a disk is removed from the disk pool, it isn't automatically deleted. This prevents any data loss but you will still be billed for storing data. If you don't need the data stored in a disk, you can manually delete the disk. This will delete the disk and all data stored on it and will prevent further charges.
 
 ```azurepowershell
 #Initialize input parameters
