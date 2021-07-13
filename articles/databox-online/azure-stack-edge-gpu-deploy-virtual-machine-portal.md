@@ -72,7 +72,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     ![Screenshot that shows Edge Services and Virtual machines.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
 
-1. Select **Virtual Machines** to go to the **Overview** page. Select **Enable** to enable virtual machine cloud management.<!--Is "Select enable" a one-time-only task, or is VM cloud management enabled by default?-->
+1. On the **Overview** page. Select **Enable** to enable virtual machine cloud management. 
 
     ![Screenshot that shows the Overview page with the Enable button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-2.png)
 
@@ -82,9 +82,9 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
     ![Screenshot that shows the Overview page with the Add image button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-3.png)
 
-1. On the **Add image** pane, input the following parameters. Select **Add**.
+1. On the **Add image** pane, make the following field entries. Then select **Add**.
 
-    |Parameter  |Description  |
+    |Field  |Description  |
     |---------|---------|
     |Download from storage blob    |Browse to the location of the storage blob in the storage account where you uploaded the VHD.         |
     |Download to    | Automatically set to the current device where you're deploying the VM.        |
