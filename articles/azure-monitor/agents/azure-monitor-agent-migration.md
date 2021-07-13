@@ -28,10 +28,10 @@ This article provides high-level guidance on when and how to migrate to the new 
 
 
 ## At-scale migration using policies
-1. Start by analyzing your current monitoring setup with MMA/OMS, using the below criteria:  
-	a) Sources (virtual machines, virtual machine scale sets, on-premise servers)
-	b) Data Sources (Perf. Counters, Windows Event Logs, Syslog)
-	c) Destinations (Log Analytics workspaces)
+1. Start by analyzing your current monitoring setup with MMA/OMS, using the below criteria:
+	- Sources (virtual machines, virtual machine scale sets, on-premise servers)
+	- Data Sources (Perf. Counters, Windows Event Logs, Syslog)
+	- Destinations (Log Analytics workspaces)
 2. [Create new data collection rule(s)](/rest/api/monitor/datacollectionrules/create#examples) as per above configuration. As a **best practice** you may want to have a separate DCR for Windows vs Linux sources, or separate DCRs for individual teams with different data collection needs.
 3. [Enable Managed Identity (System Assigned)](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#system-assigned-managed-identity) on target resources.
 4. Install the AMA extension and deploy DCR associations on all target resources using the [built-in policy initiative](../deploy-scale.md#built-in-policy-initiatives), and providing the above DCR as input parameter. 
