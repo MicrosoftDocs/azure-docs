@@ -61,7 +61,7 @@ The application should be designed to retry on any exception unless it is a know
 | 429 | Yes | It is safe to retry on a 429. This can be avoided by following the link for [too many requests](troubleshoot-request-rate-too-large.md).|
 | 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
 | 500 | Yes | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
-| 503 | Yes | [Service unavailable](troubleshoot-service-unavailable.md) |
+| 503 | Yes | [Service unavailable](troubleshoot-service-unavailable-java-sdk-v4-sql.md) |
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
