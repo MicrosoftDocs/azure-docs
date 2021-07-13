@@ -67,7 +67,7 @@ For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software prov
 
 Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
 
-### [Install using UI](#tab/UI)
+# [Install using UI](#tab/UI)
 
 Run the provider setup file on each host, as described below:
 
@@ -82,7 +82,9 @@ Run the provider setup file on each host, as described below:
     - Ensure **Connect directly to Azure Site Recovery without a proxy server** is selected, and then click **Next**.
     - Click **Finish**.
 
-### [Install using commands](#tab/commands) 
+---
+
+# [Install using commands](#tab/commands) 
 
 Run the following commands on each host, as described below:
 
@@ -126,6 +128,7 @@ Run the following commands on each host, as described below:
     ```
     "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure /proxyaddress http://127.0.0.1 /proxyport 8888 /proxyusername <username> /proxypassword <password>
     ```
+---
 
 After installing the provider on hosts, go to the Azure portal and in **Discover machines**, click **Finalize registration**.
 
