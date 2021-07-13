@@ -50,7 +50,7 @@ See the other articles in this series:
 
 
 > [!IMPORTANT]
-> If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) section.
+> If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information on using a compute instance, see [Secure Azure Machine Learning training](how-to-secure-training-vnet.md).
 
 ## Prerequisites
 
