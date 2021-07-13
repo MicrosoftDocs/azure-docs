@@ -22,15 +22,21 @@ Available security content includes a built-in workbook and built-in analytics r
 >
 
 
-## SAP - System Applications and Products workbook
+## Built in workbooks
 
-Use the [SAP - System Applications and Products](sap-deploy-solution.md#deploy-sap-security-content) workbook to visualize and monitor the data ingested via the SAP data connector.
+Use the following built-in workbooks for SAP to visualize and monitor data ingested via the SAP data connector.
 
-For example:
+|Workbook name  |Description  |
+|---------|---------|
+|**SAP - System Applications and Products workbook**     |         |
+|**SAP - Suspicious Privileges Operations**     |         |
+|**SAP - Attempts to Bypass SAP Security Mechanisms**     |         |
+|**SAP - Backdoor Creation**     |         |
+|**SAP - Data Exfiltration & Initial Access**     |         |
+|     |         |
 
-:::image type="content" source="media/sap/sap-workbook.png" alt-text="SAP - System Applications and Products workbook.":::
+For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md) and [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md).
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
 
 ## Built-in analytics rules
 
