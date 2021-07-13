@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 5/31/2021
+ms.date: 7/13/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -146,7 +146,7 @@ Two new roles, Knowledge Administrator and Knowledge Manager are now in general 
 **Service category:** B2B  
 **Product capability:** B2B/B2C
  
-You can now enable external users to self-service sign-up in Azure Active Directory using Microsoft accounts. [Learn more](../active-directory/external-identities/microsoft-account.md)
+You can now enable external users to self-service sign-up in Azure Active Directory using Microsoft accounts. [Learn more](../external-identities/microsoft-account.md)
  
 ---
 
@@ -230,7 +230,7 @@ The [device code flow](../develop/v2-oauth2-device-code.md) has been updated to 
 **Service category:** User Management  
 **Product capability:** User Management
  
-You can now view your users' last sign-in date and time stamp on the Azure portal. The information is available for each user on the user profile page. This information helps you identify inactive users and effectively manage risky events. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=/azure/active-directory/enterprise-users/context/ugr-context).
+You can now view your users' last sign-in date and time stamp on the Azure portal. The information is available for each user on the user profile page. This information helps you identify inactive users and effectively manage risky events. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=/azure/active-directory/enterprise-users/context/ugr-context).
  
 ---
 
@@ -1246,46 +1246,3 @@ To do so, sign-in to My Access (https://myaccess.microsoft.com/), navigate to "A
 The Logging and End-User Prompts for Risky Guest Users have been updated. Learn more in [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md).
  
 ---
-
-<<<<<<< HEAD
-=======
-### New Federated Apps available in Azure AD Application gallery - December 2020
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-In December 2020 we have added following 18 new applications in our App gallery with Federation support:
-
-[AwareGo](../saas-apps/awarego-tutorial.md), [HowNow SSO](https://gethownow.com/), [ZyLAB ONE Legal Hold](https://www.zylab.com/en/product/legal-hold), [Guider](http://www.guider-ai.com/), [Softcrisis](https://www.softcrisis.se/sv/), [Pims 365](https://omega.pims365.no/), [InformaCast](../saas-apps/informacast-tutorial.md), [RetrieverMediaDatabase](../saas-apps/retrievermediadatabase-tutorial.md), [vonage](../saas-apps/vonage-tutorial.md), [Count Me In - Operations Dashboard](../saas-apps/count-me-in-operations-dashboard-tutorial.md), [ProProfs Knowledge Base](../saas-apps/proprofs-knowledge-base-tutorial.md), [RightCrowd Workforce Management](../saas-apps/rightcrowd-workforce-management-tutorial.md), [JLL TRIRIGA](../saas-apps/jll-tririga-tutorial.md), [Shutterstock](../saas-apps/shutterstock-tutorial.md), [FortiWeb Web Application Firewall](../saas-apps/linkedin-talent-solutions-tutorial.md), [LinkedIn Talent Solutions](../saas-apps/linkedin-talent-solutions-tutorial.md), [Equinix Federation App](../saas-apps/equinix-federation-app-tutorial.md), [KFAdvance](../saas-apps/kfadvance-tutorial.md)
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
-
-For listing your application in the Azure AD app gallery, read the details here https://aka.ms/AzureADAppRequest
-
----
-
-### Navigate to Teams directly from My Access portal
-
-**Type:** Changed feature  
-**Service category:** User Access Management 
-**Product capability:** Entitlement Management
-
-You can now launch Teams directly from My Access portal. To do so, sign-in to [My Access](https://myaccess.microsoft.com/), navigate to **Access packages**, then go to the **Active** Tab to see all access packages you already have access to. When you expand the access package and hover on Teams, you can launch it by clicking on the **Open** button. 
-
-To learn more about using the My Access portal, go to [Request access to an access package in Azure AD entitlement management](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
-
----
-
-### Public preview - Second level manager can be set as alternate approver
-
-**Type:** Changed feature  
-**Service category:** User Access Management  
-**Product capability:** Entitlement Management
-
-An extra option is now available in the approval process in Entitlement Management. If you select Manager as approver for the First Approver, you'll have another option, Second level manager as alternate approver, available to choose in the alternate approver field. When you select this option, you need to add a fallback approver to forward the request to in case the system can't find the second level manager.
-
-For more information, go to [Change approval settings for an access package in Azure AD entitlement management](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
-
----
->>>>>>> bfc19b69a3ace39cefd0d73e9df7513c59e2fa11
