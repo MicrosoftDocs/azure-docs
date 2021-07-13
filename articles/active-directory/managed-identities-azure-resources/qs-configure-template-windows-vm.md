@@ -79,7 +79,7 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
 
 ### Assign a role the VM's system-assigned managed identity
 
-After you have enabled system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created. You can find detailed information to help you with this step in the [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md) article.
+After you enable a system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created. You can find detailed information to help you with this step in the [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md) article.
 
 
 ### Disable a system-assigned managed identity from an Azure VM
