@@ -254,14 +254,14 @@ The following sample creates a rule that can target any resource.
             "type": "bool",
             "defaultValue": true,
             "metadata": {
-                "description": "Specifies whether the alert will automatically resolves"
+                "description": "Specifies whether the alert will automatically resolve"
             }
         },
         "checkWorkspaceAlertsStorageConfigured": {
             "type": "bool",
             "defaultValue": false,
             "metadata": {
-                "description": "Specifies whether to check linked storage and fail creation is storage was not found"
+                "description": "Specifies whether to check linked storage and fail creation if the storage was not found"
             }
         },
         "resourceId": {
