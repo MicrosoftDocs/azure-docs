@@ -352,7 +352,7 @@ The reply URL for a SAML application is the endpoint at which the application ex
 </SPSSODescriptor>
 ```
 
-If you want to override the metadata provided in the `AssertionConsumerService` element or the URL isn't present in the metadata document, you can configure the URL in the manifest under the `replyUrlsWithType` property. The `BindingType` will be set to `HTTP-POST`.
+If the application's metadata `AssertionConsumerService` element is missing, or you want to override it, configure the application registration manifest `replyUrlsWithType` property. Azure AD B2C uses the `replyUrlsWithType` to redirect users after they're signed in using the `HTTP-POST` binding type.
 
 Using the SAML test application as an example, you'd set the `url` property of `replyUrlsWithType` to the value shown in the following JSON snippet.
 
@@ -378,7 +378,7 @@ The application usually provides this URL in the metadata document as the `Locat
 </IDPSSODescriptor>
 ```
 
-If you want to override the metadata provided in the `SingleLogoutService` element or the URL isn't present in the metadata document, you can configure it in the manifest under the `logoutUrl` property. The `BindingType` will be set to `HTTP-Redirect`.
+If the application's metadata `SingleLogoutService` element is missing, or you want to override it, configure the application registration manifest `logoutUrl` property. Azure AD B2C uses the `logoutURL` to redirect users after they're signed out using the `HTTP-Redirect` binding type.
 
 Using the SAML test application as an example, you'd set the `logoutUrl` property to `https://samltestapp2.azurewebsites.net/logout`:
 

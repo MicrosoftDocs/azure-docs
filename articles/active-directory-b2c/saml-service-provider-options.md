@@ -221,10 +221,10 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/g
 
 Replace the following values:
 
-* **tenant-name** with your tenant name
-* **policy-name** with your SAML relying party policy name
-* **app-identifier-uri** with the `identifierUris` in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`
-* **relay-state** (optional) with a value for the `RelayState` parameter, which will then get sent as-is to the service provider along with the SAML response
+* **tenant-name** with your tenant name.
+* **policy-name** with your SAML relying party policy name.
+* **app-identifier-uri** with the `identifierUris` in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`.
+* **relay-state** (optional) with a value for the `RelayState` parameter. This parameter contains additional information about the authentication request. Upon successful sign-in, Azure AD B2C passes the `RelayState` parameter with the SAML response to the relaying party application.
 
 ### Sample policy
 

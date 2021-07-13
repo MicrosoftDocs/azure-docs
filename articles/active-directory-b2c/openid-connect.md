@@ -284,8 +284,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | post_logout_redirect_uri | No | The URL that the user should be redirected to after successful sign out. If it isn't included, Azure AD B2C shows the user a generic message. Unless you provide an `id_token_hint`, you should not register this URL as a reply URL in your Azure AD B2C application settings. |
 | state | No | If a `state` parameter is included in the request, the same value will be sent in the response towards the `post_logout_redirect_uri`. The application should verify that the `state` values in the request and response are identical. |
 
-> [!NOTE]
-> This not only signs the user out of Azure AD B2C, but it also triggers *single sign-out* across all applications with an active user session. This happens for applications using OpenID Connect/OAuth2 as well as those using the SAML protocol (in both cases only for applications that use [custom policies](custom-policy-overview.md) however). For more information, see [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
+Note that sending a sign-out request in this way doesn't only sign the user out of Azure AD B2C, but it also triggers *single sign-out* across all applications with an active user session. This happens for applications using OpenID Connect/OAuth2 as well as those using the SAML protocol (in both cases only for applications that use [custom policies](custom-policy-overview.md) however). For more information, see [Single sign-out](session-behavior.md?pivots=b2c-custom-policy#single-sign-out).
 
 ### Secure your logout redirect
 
