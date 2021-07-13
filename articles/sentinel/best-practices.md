@@ -83,7 +83,7 @@ Discover key entities, such as accounts, URLs, IP address, host names, activitie
 
 Any generated incidents are displayed on the **Incidents** page, which serves as the central location for triage and early investigation. The **Incidents** page lists the title, severity, and related alerts, logs, and any entities of interest. Incidents also provide a quick jump into collected logs and any tools related to the incident.
 
-The **Incidents** page works together with the **Incidents graph**, an interactive tool that allows users to explore and dive deep into an alert to show the full scope of an attack. Users can then construct a timeline of events and discover the extent of a threat chain.
+The **Incidents** page works together with the **Investigation graph**, an interactive tool that allows users to explore and dive deep into an alert to show the full scope of an attack. Users can then construct a timeline of events and discover the extent of a threat chain.
 
 If you discover that the incident is a true positive, take action directly from the **Incidents** page to investigate logs, entities, and exploring the threat chain. After you've identified the threat and created a plan of action, use other tools in Azure Sentinel and [other Microsoft security services](best-practices.md#integrate-with-microsoft-security-services) to continue investigating.
 

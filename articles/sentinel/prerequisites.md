@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 07/13/2021
 ---
 
 # Pre-deployment activities and prerequisites for deploying Azure Sentinel
@@ -47,7 +47,7 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 - A [Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) is required to house all of the data that Azure Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Workspace best practices](#workspace-best-practices).
 
 > [!TIP]
-> When setting up your Azure Sentinel workspace, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) that's dedicated to Azure Sentinel and the resources that Azure Sentinel users, including the Log Analytics workspace, any playbooks, workbooks, and so on.
+> When setting up your Azure Sentinel workspace, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) that's dedicated to Azure Sentinel and the resources that Azure Sentinel users including the Log Analytics workspace, any playbooks, workbooks, and so on.
 >
 > A resource group allows for permissions to be assigned once, at the resource group level, with permissions applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Azure Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Azure Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
 >
@@ -60,11 +60,11 @@ Use the following best practice guidance when creating the Log Analytics workspa
 
 - **When naming your workspace**, include *Azure Sentinel* or some other indicator in the name, so that it's easily identified among your other workspaces.
 
-- **Use the same workspace for both Azure Sentinel and Azure Security Center**, so that all logs collected by Azure Security Center can also be ingested and used by Azure Sentinel. The default workspace created by Azure Security CEnter will not appear as an available workspace for Azure Sentinel.
+- **Use the same workspace for both Azure Sentinel and Azure Security Center**, so that all logs collected by Azure Security Center can also be ingested and used by Azure Sentinel. The default workspace created by Azure Security Center will not appear as an available workspace for Azure Sentinel.
 
 - **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
 
-- **Use a single workspace, unless you have a specific need for multiple tenants and workspaces**. Most Azure Sentinel features operating by using a single workspace per Azure Sentinel instance.
+- **Use a single workspace, unless you have a specific need for multiple tenants and workspaces**. Most Azure Sentinel features operate by using a single workspace per Azure Sentinel instance.
 
     Keep in mind that Azure Sentinel ingests all logs housed within the workspace. Therefore, if you have both security-related and non-security logs, or logs that should not be ingested by Azure Sentinel, create an additional workspace to store the non-Azure Sentinel logs and avoid unwanted costs.
 
