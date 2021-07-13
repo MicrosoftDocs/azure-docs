@@ -1,6 +1,6 @@
 ---
 title: Send events from Azure API Management to Event Grid
-description: In this quickstart, you enable Event Grid events for your API Management instance, then send  events to a sample application.
+description: In this quickstart, you enable Event Grid events for your Azure API Management instance, then send  events to a sample application.
 author: dlepow
 ms.topic: how-to
 ms.service: api-management
@@ -50,8 +50,6 @@ Once the deployment has succeeded (it might take a few minutes), open a browser 
 `https://<your-site-name>.azurewebsites.net`
 
 You should see the sample app rendered with no event messages displayed.
-
-:::image type="content" source="media/how-to-event-grid/event-grid-viewer.png" alt-text="New Event Grid viewer":::
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
