@@ -21,6 +21,8 @@ Before getting started, you should have already deployed the Azure Healthcare AP
 
 From the workspace, select **Deploy FHIR Services**.
 
+[ ![Deploy FHIR service](media/fhir-service/deploy-fhir-services.png) ](media/fhir-service/deploy-fhir-services.png#lightbox)
+
 Select **+ Add FHIR Service**.
 
 [ ![Add FHIR service](media/fhir-service/add-fhir-service.png) ](media/fhir-service/add-fhir-service.png#lightbox)
