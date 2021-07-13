@@ -456,4 +456,4 @@ You can troubleshoot the exception by using these steps:
 ## Next steps
 
 Learn more about the [differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md).
-Lear more about [token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+Learn more about [token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
