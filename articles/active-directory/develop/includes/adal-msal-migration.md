@@ -16,6 +16,7 @@ ms.author: henrymbugua
       **Web app**
       - [ADAL.NET to MSAL.NET](../msal-net-migration.md) 
       - [ADAL Node to MSAL Node](../msal-node-migration.md)
+      - [ADAL Java to MSAL Java](../migrate-adal-msal-java.md)
    :::column-end:::
    :::column span="":::
       **Web API**
@@ -33,7 +34,8 @@ ms.author: henrymbugua
    :::column-end:::
    :::column span="":::
       **Mobile app**
-      - [Xamarin apps using brokers to MSAL.NET](../msal-net-migration-ios-broker.md) 
+      - [Xamarin iOS using brokers to MSAL.NET](../msal-net-migration-ios-broker.md) 
+      - [Xamarin Android using brokers to MSAL.NET](../msal-net-migration-android-broker.md)
       - [ADAL.IOS / macOS to MSAL.iOS / macOS](../migrate-objc-adal-msal.md) 
       - [ADAL.Android to MSAL.Android](../migrate-android-adal-msal.md) 
    :::column-end:::
