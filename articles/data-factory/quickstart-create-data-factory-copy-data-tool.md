@@ -5,7 +5,7 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 06/04/2021
+ms.date: 07/05/2021
 ---
 
 # Quickstart: Use the Copy Data tool to copy data
@@ -50,9 +50,9 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. Select **Create**.
 
-1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
+1. After the creation is complete, you see the **Data Factory** page. Select **Open** on the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
     
 ## Start the Copy Data tool
 

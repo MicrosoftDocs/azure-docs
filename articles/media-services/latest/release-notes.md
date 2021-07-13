@@ -10,6 +10,7 @@ editor: ''
 
 ms.service: media-services
 ms.workload: na
+ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
@@ -28,6 +29,27 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 
 ## June 2021
+
+### Additional Live Event ingest heartbeat properties for improved diagnostics
+
+Additional live event ingest heartbeat properties have been added to the Event Grid message. This includes the following new fields to assist with diagnosing issues during live ingest.  The **ingestDriftValue** is helpful in scenarios where you need to monitor network latency from the source ingest encoder pushing into the live event. If this value drifts out too far, it can be an indication that the network latency is too high for a successful live streaming event.
+
+See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md) for more details.
+
+| New LiveEventIngestHeartbeat property | Description |
+| -------- | ---------- |
+| lastFragmentArrivalTime | The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
+| ingestDriftValue | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. Please note, this value is unrelated to the presence or absence of missing data in the last minute. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period.  This would be reported as 2 seconds of drift.  If the encoder is able to catch up and send all 60 seconds of data every minute you will see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps. |
+| transcriptionState |  The state of the live transcription feature.  This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value, or empty when disabled.|
+| transcriptionLanguage |  The BCP-47 language code used for this track if the tracktype is "audio". When transcriptionState is empty (off) this will have an empty value. All other non-audio tracks will also contain an empty value. |
+
+### Private links support is now GA
+
+Support for using Media Services with [private links](/azure/private-link/) is now GA and available in all Azure regions including Azure Government clouds.
+Azure Private Link enables you to access Azure PaaS Services and Azure hosted customer-owned/partner services over a Private Endpoint in your virtual network.
+Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
+
+For details on how to use Media Services with private links, see [Create a Media Services and Storage account with a Private Link](./security-private-link-how-to.md)
 
 ### New US West 3 region is GA
 
