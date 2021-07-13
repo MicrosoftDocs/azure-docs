@@ -19,7 +19,7 @@ When you have critical applications and business processes relying on Azure reso
 
 ## Monitoring data 
 
-App Service collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources). 
+App Service collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 See [Monitoring *App Service* data reference](monitor-app-service-reference.md) for detailed information on the metrics and logs metrics created by App Service.
 
