@@ -31,6 +31,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## July 2021
 
 - [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data)
+- [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
 
@@ -50,6 +51,10 @@ Watchlist templates currently include:
 - **Network Mapping**. A list of IP subnets and their respective organizational contexts.
 
 For more information, see [Use Azure Sentinel watchlists](watchlists.md).
+
+### Watchlists are in general availability
+
+The [watchlists](watchlists.md) feature is now generally available. Use watchlists to enrich alerts with business data, to create allowlists or blocklists against which to check access events, and to help investigate threats and reduce alert fatigue.
 
 ### Support for data residency in more geos
 
