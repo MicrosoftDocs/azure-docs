@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 # Migrate applications to the Microsoft Authentication Library (MSAL)
 
-You need to migrate your applications that are using the Azure Active Directory Authentication Library (ADAL). We recommend using the [Microsoft Authentication Library (MSAL)](msal-overview.md#languages-and-frameworks) for authentication and authorization of Azure AD entities. Here is why:
+You need to migrate your applications that are using the Azure Active Directory Authentication Library (ADAL). We recommend using the [Microsoft Authentication Library (MSAL)](msal-overview.md#languages-and-frameworks) for authentication and authorization of Azure AD entities. Here's why:
 
 - ADAL support will end June 30, 2022.
 - No new features have been added to ADAL since June 30, 2020.
