@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 07/10/2021
+ms.date: 07/13/2021
 ms.author: aersoy
 ---
 
@@ -23,12 +23,12 @@ To register a new confidential client application, refer to the steps below.
 2. Select the **App registrations** blade.
 3. Select **New registration**.
 
-   :::image type="content" source="media/dicom-azure-app-registrations.png" alt-text="Azure App registrations" lightbox="dicom-azure-app-registrations.png":::
+   [ ![Azure App registrations](media/dicom-azure-app-registrations.png) ](media/dicom-azure-app-registrations.png#lightbox)
 
 
 4. Enter a user-facing display name for the application.
 
-   :::image type="content" source="media/dicom-registration-application-name.png" alt-text="Azure register an application" lightbox="dicom-registration-application-name.png":::
+   [ ![Azure register an application](media/dicom-registration-application-name.png) ](media/dicom-registration-application-name.png#lightbox)
 
 5. For **Supported account types**, select who can use the application or access the API.
 6. (**Optional**) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it.
@@ -46,7 +46,7 @@ Now that you've registered your application, you must select which API permissio
 
    If you're using the Azure Healthcare APIs, you'll add a permission to the DICOM service by searching for **Azure API for DICOM** under **APIs my organization** uses. 
 
-   :::image type="content" source="media/dicom-search-apis-permissions.png" alt-text="Search API permissions" lightbox="dicom-search-apis-permissions.png":::
+   [ ![Search API permissions](media/dicom-search-apis-permissions.png) ](media/dicom-search-apis-permissions.png#lightbox)
 
    The search result for Azure API for DICOM will only return if you've already deployed the DICOM service in the workspace.
 
@@ -54,17 +54,17 @@ Now that you've registered your application, you must select which API permissio
 
 3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
 
-   :::image type="content" source="media/dicom-select-scopes.png" alt-text="Select permissions scopes." lightbox="dicom-select-scopes.png":::
+   [ ![Select permissions scopes](media/dicom-select-scopes.png) ](media/dicom-select-scopes.png#lightbox)
 
 ## Application secret
 
 1. Select **Certificates & secrets**, and then select **New client secret**.
 
-   :::image type="content" source="media/dicom-new-client-secret.png" alt-text="Certificates and secrets." lightbox="dicom-new-client-secret.png":::
+   [ ![Certificates and secrets](media/dicom-new-client-secret.png) ](media/dicom-new-client-secret.png#lightbox)
 
 2. Enter a **Description** for the client secret. Select the **Expires** drop-down menu to choose an expiration time frame, and then click **Add**.
 
-   :::image type="content" source="media/dicom-client-secret-description.png" alt-text="Client secret description." lightbox="dicom-client-secret-description.png":::
+   [ ![Client secret description](media/dicom-client-secret-description.png) ](media/dicom-client-secret-description.png#lightbox)
 
 3. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
 
