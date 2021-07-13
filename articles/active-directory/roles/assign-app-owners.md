@@ -39,7 +39,7 @@ In some cases, enterprise applications created from the application gallery incl
 5. Click **Select** to add the user account that you chose as an owner of the application.
 
 > [!NOTE]
-> If the user setting **Restrict access to Azure AD administration portal** is set to `Yes`, non-admin users will not be able to use the Azure portal to manage the applications they own. For more information about the actions that can be performed on owned enterprise applications, see [Owned enterprise applications](../fundamentals/users-default-permissions#owned-enterprise-applications). 
+> If the user setting **Restrict access to Azure AD administration portal** is set to `Yes`, non-admin users will not be able to use the Azure portal to manage the applications they own. For more information about the actions that can be performed on owned enterprise applications, see [Owned enterprise applications](../fundamentals/users-default-permissions.md#owned-enterprise-applications). 
 
 ## Next steps
 
