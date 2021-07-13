@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 07/12/2021
 ms.reviewer: sngun
 ms.custom: synapse-cosmos-db
 ---
@@ -15,7 +15,7 @@ ms.custom: synapse-cosmos-db
 
 Azure Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Azure Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
-Using [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, Azure Synapse Link enables no Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against your operational data at scale. Business analysts, data engineers and data scientists can now use Synapse Spark or Synapse SQL interchangeably to run near real-time business intelligence, analytics, and machine learning pipelines. You can achieve this without impacting the performance of your transactional workloads on Azure Cosmos DB. 
+Using [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, Azure Synapse Link enables no Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against your operational data at scale. Business analysts, data engineers and data scientists can now use Synapse Spark or Synapse SQL interchangeably to run near real-time business intelligence, analytics, and machine learning pipelines. You can achieve this without impacting the performance of your transactional workloads on Azure Cosmos DB.
 
 The following image shows the Azure Synapse Link integration with Azure Cosmos DB and Azure Synapse Analytics: 
 
@@ -142,6 +142,8 @@ The billing model of Azure Synapse Link includes the costs incurred by using the
 To learn more, see the following docs:
 
 * [Azure Cosmos DB analytical store overview](analytical-store-introduction.md)
+
+* Checkout the learn module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
 
 * [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
  
