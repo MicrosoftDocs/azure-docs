@@ -104,7 +104,7 @@ In both cases, you can still ensure that traffic into the target service passes 
 To compare and understand the differences, see the following table.
 
 >[!NOTE]
-> Microsoft recommends using Azure Private Link. Private Link offers better capabilities in terms of privately accessing PaaS from on-premises, in built data-exfiltration protection and mapping service to Private IP in your own network. For more information, see [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
+> Microsoft recommends using Azure Private Link. Private Link offers better capabilities in terms of privately accessing PaaS from on-premises, in built data-exfiltration protection and mapping service to Private IP in your own network. For more information, see [Azure Private Link](../private-link/private-link-overview.md)
 
 | Consideration                                                                                                                                    | Service Endpoints                                                                                                           | Private Endpoints                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
