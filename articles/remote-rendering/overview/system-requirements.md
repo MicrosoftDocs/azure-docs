@@ -114,6 +114,8 @@ Make sure to include the following modules in your Unity installation:
 
 For Unity 2019, version 2019.3 or 2019.4 LTS is supported. However to work with the OpenXR version of the plugin, a 2020-based version is required.
 
+ARR for Unity 2019 supports both the legacy **built-in XR** integration for Windows Mixed Reality and the new **XR SDK** plug-in framework.
+
 ### Unity 2020
 
 For Unity 2020, use latest version of Unity 2020.3.
@@ -121,6 +123,10 @@ For Unity 2020, use latest version of Unity 2020.3.
 > [!IMPORTANT]
 > When working with the OpenXR version of the plugin, it has to be verified that the *Universal Render Pipeline* (URP) has version 10.5.1 or higher. To check that, open the *Package Manager* from the Unity *Windows* menu and refer to the *Universal RP* section:
 > ![Version of the Universal RP](./media/unity-universal-rp-version-10-5-1.png)
+
+> [!IMPORTANT]
+> The **WMR version of Unity 2020.3** currently has a performance degradation with ARR. We are actively working on a fix. For a better experience, we suggest to either stay on Unity 2019.X until this has been sorted out or switch to the OpenXR version.
+
 
 ## Next steps
 
