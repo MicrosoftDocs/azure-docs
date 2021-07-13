@@ -37,7 +37,7 @@ If you're using the getting started feature in an environment with Active Direct
 
 If you're using the getting started feature in an environment without an identity provider, these are the extra requirements you should follow:
 
-- Your AD domain join UPN must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm), and you must use a unique user name that's not already in your Azure AD subscription.
+- Your AD domain join UPN must not include any keywords [that the username guideline list doesn't allow](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm?), and you must use a unique user name that's not already in your Azure AD subscription.
 - You must create a new host pool to add session hosts you create with the getting started feature. If you try to make a session host in an existing host pool, it won't work.
 
 ## For subscriptions with Azure AD DS or AD DS
