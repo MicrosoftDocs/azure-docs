@@ -77,6 +77,16 @@ Manual failover is available at no additional cost for IoT hubs created after Ma
 
 For step-by-step instructions, see [Tutorial: Perform manual failover for an IoT hub](tutorial-manual-failover.md)
 
+As noted previously in the **Caution** section, the Event Hub-compatible name and endpoint of the IoT Hub built-in Events endpoint change after manual failover. This is because the EventHub client doesn't have visibility into IoT Hub events. Note that the same is true for other cloud-based clients such as Functions and Azure Stream Analytics. To retrieve the endpoint and name, you can use the portal or leverage an included sample.
+
+### Use the portal
+
+For more information about using the portal to retrieve the Event Hub-compatible endpoint and the Event Hub-compatible name, see [Read from the built-in endpoint](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint).
+
+### Use the included sample
+
+You can leverage a sample located at [https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/iothub-connect-to-eventhubs) that shows how to use the IoT Hub connection string to recapture the EventHub compatible endpoint. The code example uses the connection string to get the new Event Hub endpoint and re-establish the connection. You must have Visual Studio installed.
+
 ### Running test drills
 
 Test drills should not be performed on IoT hubs that are being used in your production environments.
