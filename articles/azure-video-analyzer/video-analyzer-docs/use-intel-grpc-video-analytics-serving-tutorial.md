@@ -12,8 +12,7 @@ This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI
 
 This tutorial uses an Azure VM as an simulated IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
 
-> [!NOTE]
-> This tutorial requires the use of an x86-64 machine as your Edge device.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## Prerequisites
 
