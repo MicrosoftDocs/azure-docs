@@ -34,7 +34,7 @@ Purview supports only SQL authentication for Azure MySQL databases.
 
 You will need **username** and **password** for the next steps.
 
-You can follow the instructions in [CREATE DATABASES AND USERS](articles/mysql/howto-create-users.md) to create a login for your Azure MySQL Database.
+Follow the instructions in [CREATE DATABASES AND USERS](articles/mysql/howto-create-users.md) to create a login for your Azure MySQL Database.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
