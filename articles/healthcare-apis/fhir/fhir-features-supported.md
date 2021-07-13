@@ -12,7 +12,7 @@ ms.author: cavoeg
 
 # Supported FHIR Features
 
-The FHIR&reg; service in the Azure Healthcare APIs (hearby called the FHIR service) provides a fully managed deployment of the [open-source FHIR Server](https://github.com/microsoft/fhir-server) and is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR service.
+The FHIR&reg; service in the Azure Healthcare APIs (hear by called the FHIR service) provides a fully managed deployment of the [open-source FHIR Server](https://github.com/microsoft/fhir-server) and is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR service.
 
 ## FHIR version
 
@@ -73,7 +73,7 @@ The FHIR service uses [Azure Active Directory](https://azure.microsoft.com/servi
 
 ## Next steps
 
-In this article, you've read about the supported FHIR features in the FHIR service. Next deploy the FHIR serivce.
+In this article, you've read about the supported FHIR features in the FHIR service. Next deploy the FHIR service.
  
 >[!div class="nextstepaction"]
 >[Deploy FHIR service](fhir-portal-quickstart.md)
