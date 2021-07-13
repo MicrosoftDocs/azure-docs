@@ -341,13 +341,8 @@
     href: azure-monitor-sap-quickstart.md
   - name: Configure AMS - Azure PowerShell
     href: azure-monitor-sap-quickstart-powershell.md
-<<<<<<< HEAD
-  - name: Azure Monitor for SAP Solutions FAQ
-    href: azure-monitor-faq.yml
-=======
   - name: AMS FAQ
-    href: azure-monitor-faq.md
->>>>>>> 9faa8f442b52f0465da76d64c292ebeb76f09e10
+    href: azure-monitor-faq.yml
 - name: Reference
   items:
   - name: Azure CLI
