@@ -140,16 +140,6 @@ Two new roles, Knowledge Administrator and Knowledge Manager are now in general 
  
 ---
 
-### General availability - enable external users to self-service sign-up in AAD using MSA accounts
-
-**Type:** New feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-You can now enable external users to self-service sign-up in Azure Active Directory using Microsoft accounts. [Learn more](../external-identities/microsoft-account.md)
- 
----
-
 ### General availability - multi-camera support for Windows Hello
 
 **Type:** New feature  
@@ -885,16 +875,6 @@ Temporary Access Pass is a time-limited passcode that serves as strong credentia
 **Product capability:** B2B/B2C
 
 The next generation of B2C user flows now supports the [keep me signed in (KMSI)](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) functionality that allows customers to extend the session lifetime for the users of their web and native applications by using a persistent cookie.  feature keeps the session active even when the user closes and reopens the browser, and is revoked when the user signs out.
-
----
-
-### Public preview - External Identities Self-Service Sign-up in AAD using MSA accounts
-
-**Type:** New feature  
-**Service category:** B2B  
-**Product capability:** B2B/B2C
- 
-External users will can now use Microsoft Accounts to sign in to Azure AD first party and LOB apps. [Learn more](../external-identities/self-service-sign-up-overview.md).
 
 ---
 
