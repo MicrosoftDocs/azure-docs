@@ -15,7 +15,7 @@ In this quickstart, you'll learn how to deploy the IoT Connector in the Azure po
 
 ## Prerequisite
 
-Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see [Deploy workspace in the Azure portal](deploy-workspace-in-portal.md).
+Before getting started, you should have already deployed the Azure Healthcare APIs. For more information about deploying Azure Healthcare APIs, see **Deploy workspace in the Azure portal**.
 
 ## Deploy IoT Connector 
 
@@ -44,10 +44,10 @@ Before getting started, you should have already deployed the Azure Healthcare AP
 For more information about Event Hubs, see [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
 
 4. Enter a name for the Consumer Group.
-For more information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
+For more information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers.md).
 
 5. Enter a namespace for the IoT Connector.
-For more information about Event Hub namespaces,  see [Namespace](../../event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document].
+For more information about Event Hub namespaces,  see [Namespace](../../event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace.md) in the Features and terminology in Azure Event Hubs document].
 
 6. To review and create the IoT Connector, select **Review + create**, or select **Next: Destination >**. To enter the destination mapping properties associated with the IoT Connector, refer to the instructions in the following section. 
 
@@ -89,7 +89,7 @@ To enter the tagging properties associated with the IoT Connector, refer to the 
 4. Select **Review + create**.
 5. When you notice the green validation checkmark, select **Create** to deploy the IoT Connector.
 
-Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources).
+Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
 ## Next steps
 
