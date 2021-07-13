@@ -42,19 +42,19 @@ In the **Marketplace**, enter **Azure Healthcare APIs** in the search textbox.
 
 Select **Create** to create a new Azure Healthcare APIs account.
 
-[ ![Create workspace preview](media/create-workspace-preview.png) ](media/create-workspace-preview.png#lightbox)
+   [ ![Create workspace preview](media/create-workspace-preview.png) ](media/create-workspace-preview.png#lightbox)
 
 ## Enter Subscription and instance details
 
 1. Select a **Subscription** and **Resource group** from the drop-down lists or select **Create new**.
 
-[ ![Create workspace new](media/create-healthcare-api-workspace-new.png) ](media/create-healthcare-api-workspace-new.png#lightbox)
+   [ ![Create workspace new](media/create-healthcare-api-workspace-new.png) ](media/create-healthcare-api-workspace-new.png#lightbox)
 
 2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Do not use a hyphen "-" as it is an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
 3. (**Optional**) Select **Next: Tags >**. Enter a **Name** and **Value**, and then select **Next: Review + create**. 
 
-[ ![Tags](media/tags-new.png) ](media/tags-new.png#lightbox)
+   [ ![Tags](media/tags-new.png) ](media/tags-new.png#lightbox)
 
    Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](.././azure-resource-manager/management/tag-resources.md).
 
