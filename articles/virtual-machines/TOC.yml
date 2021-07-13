@@ -964,6 +964,8 @@
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
+  - name: Deploy a ZRS disk
+    href: disks-deploy-zrs.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
