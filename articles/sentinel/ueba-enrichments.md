@@ -242,28 +242,28 @@ The following table describes the user identity data included in the **IdentityI
 | **AccountUPN**                  | string   | The user principal name of the user account.     |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.   |
 | **AssignedRoles**               | dynamic  | The Azure AD roles the user account is assigned to.    |
-| **City**                        | string   | The city of the user account, as defined in Azure AD.   |
-| **Country**                     | string   | The country of the user account, as defined in Azure AD.   |
+| **City**                        | string   | The city of the user account.   |
+| **Country**                     | string   | The country of the user account.   |
 | **DeletedDateTime**             | datetime | The date and time the user was deleted.       |
-| **Department**                  | string   | The department of the user account, as defined in Azure AD.    |
+| **Department**                  | string   | The department of the user account.    |
 | **GivenName**                   | string   | The given name of the user account.     |
 | **GroupMembership**             | dynamic  | Azure AD Groups where the user account is a member.      |
 | **IsAccountEnabled**            | bool     | An indication as to whether the user account is enabled in Azure AD or not.    |
-| **JobTitle**                    | string   | The job title of the user account, as defined in Azure AD.    |
+| **JobTitle**                    | string   | The job title of the user account.    |
 | **MailAddress**                 | string   | The primary email address of the user account.    |
 | **Manager**                     | string   | The manager alias of the user account.     |
 | **OnPremisesDistinguishedName** | string   | The Azure AD distinguished name (DN). A distinguished name is a sequence of relative distinguished names (RDN), connected by commas. |
-| **Phone**                       | string   | The phone number of the user account, as defined in Azure AD.       |
+| **Phone**                       | string   | The phone number of the user account.       |
 | **SourceSystem**                | string   | The system where the user data originated.   |
-| **State**                       | string   | The geographical state of the user account, as defined in Azure AD.  |
-| **StreetAddress**               | string   | The office street address of the user account, as defined in Azure AD.    |
+| **State**                       | string   | The geographical state of the user account.  |
+| **StreetAddress**               | string   | The office street address of the user account.    |
 | **Surname**                     | string   | The surname of the user. account.      |
 | **TenantId**                    | string   |          The tenant ID of the user.   |
 | **TimeGenerated**               | datetime | The time when the event was generated (UTC).       |
 | **Type**                        | string   | The name of the table.          |
 | **UserState**                   | string   | The current state of the user account in Azure AD (Active/Disabled/Dormant/Lockout).  |
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC).     |
-| **UserType**                    | string   | The user type, as defined in Azure AD.         |
+| **UserType**                    | string   | The user type.         |
 
 
 ## Next steps
