@@ -38,7 +38,11 @@ During Preview, you must use the Azure portal if you want to specify the Standar
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
-Azure Bastion supports upgrading from a Basic to a Standard SKU. However, downgrading from Standard to Basic is not supported. To downgrade, you must delete and recreate Azure Bastion. The Standard SKU is in Preview. 
+Azure Bastion supports upgrading from a Basic to a Standard SKU. The Standard SKU is in Preview. 
+
+> [!NOTE]
+> Downgrading from a Standard SKU to a Basic SKU is not supported. To downgrade, you must delete and recreate Azure Bastion.
+>
 
 #### Configuration methods
 
