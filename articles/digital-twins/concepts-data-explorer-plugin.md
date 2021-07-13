@@ -34,7 +34,34 @@ You can invoke the plugin in a Kusto query with the following command. There are
 evaluate azure_digital_twins_query_request(<Azure-Digital-Twins-endpoint>, <Azure-Digital-Twins-query>) 
 ```
 
-The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API. 
+The plugin works by calling the [Azure Digital Twins query API](/rest/api/digital-twins/dataplane/query), and the [query language structure](concepts-query-language.md) is the same as when using the API, with two exceptions: 
+* The `*` wildcard in the `SELECT` clause is not supported. Instead, Azure Digital Twin queries that are executed using the plugin should use aliases in the `SELECT` clause.
+
+    For example, consider the below Azure Digital Twins query that is executed using the API:
+    
+    ```SQL
+    SELECT * FROM DIGITALTWINS
+    ```
+    
+    To execute that query when using the plugin, it should be rewritten like this:
+    
+    ```SQL
+    SELECT T FROM DIGITALTWINS T
+    ```
+* Column names returned by the plugin may not start with a `$`. Using aliases in the `SELECT` clause will also help to avoid this scenario.
+
+    For example, consider the below Azure Digital Twins query that is executed using the API:
+    
+    ```SQL
+    SELECT T.$dtId, T.Temperature FROM DIGITALTWINS T
+    ```
+    
+    To execute that query when using the plugin, it should be rewritten like this:
+    
+    ```SQL
+    SELECT T.$dtId as tid, T.Temperature FROM DIGITALTWINS T
+    ```
+
 
 >[!IMPORTANT]
 >The user of the plugin must be granted the **Azure Digital Twins Data Reader** role or the **Azure Digital Twins Data Owner** role, as the user's Azure AD token is used to authenticate. Information on how to assign this role can be found in [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#authorization-azure-roles-for-azure-digital-twins).

@@ -107,7 +107,7 @@ The private endpoint uses an IP address from your Azure VNet address space. Netw
 
 Configuring a private endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure, as well as avoid data exfiltration from your VNet.
 
-For instructions on how to set up Private Link for Azure Digital Twins, see [How-to: Enable private access with Private Link (preview)](./how-to-enable-private-link-portal.md).
+For instructions on how to set up Private Link for Azure Digital Twins, see [How-to: Enable private access with Private Link (preview)](./how-to-enable-private-link.md).
 
 ### Design considerations 
 

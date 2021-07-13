@@ -62,7 +62,7 @@ The goals of IT-governed and delegated access differ.
 
 Whichever you enact for your organization and scenarios you'll need to: 
 
-* **Control access to applications, data, and content**. This can be accomplished through a variety of methods, depending on your versions of [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) and [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
+* **Control access to applications, data, and content**. This can be accomplished through a variety of methods, depending on your versions of [Azure AD](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) and [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
 * **Reduce the attack surface**. [Privileged identity management](../privileged-identity-management/pim-configure.md), [data loss prevention (DLP),](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) and [encryption capabilities](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) reduce the attack surface.
 

@@ -152,6 +152,9 @@ The below table lists the properties supported by a delimited text source. You c
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
+> [!NOTE]
+> Data flow sources support for list of files is limited to 1024 entries in your file. To include more files, use wildcards in your file list.
+
 ### Source example
 
 The below image is an example of a delimited text source configuration in mapping data flows.
