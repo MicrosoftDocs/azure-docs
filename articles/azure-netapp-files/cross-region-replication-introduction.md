@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 07/12/2021
 ms.author: b-juche
 ms.custom: references_regions
 ---
@@ -54,11 +54,11 @@ Azure NetApp Files volume replication is supported between various [Azure region
 
 ## Service-level objectives
 
-Recovery Point Objectives (RPO), or the maximum tolerable data loss, is defined as twice the replication schedule.  The actual RPO observed might vary based on factors such as the total dataset size along with the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
+Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.   
 
-* For the replication schedule of 10 minutes, the maximum RPO is 20 minutes.  
-* For the hourly replication schedule, the maximum RPO is two hours.  
-* For the daily replication schedule, the maximum RPO is two days.  
+* For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.  
+* For the hourly replication schedule, the typical RPO is less than two hours.  
+* For the daily replication schedule, the typical RPO is less than two days.  
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
 
