@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 07/13/2021
 ---
 
 # Transform XML with maps in Azure Logic Apps with Enterprise Integration Pack
