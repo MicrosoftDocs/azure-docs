@@ -177,7 +177,7 @@ You cannot connect to GIT Enterprise because of permission issues. You can see e
 #### Cause
 
 * You have not configured Oauth for ADF. 
-* Your URL is misconfigured.
+* Your URL is misconfigured. The repoConfiguration will be type FactoryGitHubConfiguration. To make it GitHub Enterprise Server, you  provide the hostname property to your GitHub Enterprise Server host name, ex. https://github.<your-domain>.com.
 
 ##### Resolution
 
