@@ -30,13 +30,13 @@ This article shows you how to configure policy-based backups.  For manual backup
 A volume needs to have the following two types of policies for the policy-based backup feature to work:  
 
 * A *snapshot policy* that controls when snapshots are created for the volume.
-* A *backup policy* that controls which snapshots to use for backing up to Azure Blob storage.
+* A *backup policy* that controls which snapshots to use for backing up to Azure storage.
 
-A snapshot policy handles creating snapshots on the volume. It is used by the backup functionality to back up the snapshots to Azure Blob storage.   
+A snapshot policy handles creating snapshots on the volume. It is used by the backup functionality to back up the snapshots to Azure storage.   
 
 Backups are long-running operations. The system schedules backups based on the primary workload (which is given a higher priority) and runs backups in the background. Depending on the size of the volume being backed up, a backup can run in background for hours. There is no option to select the start time for backups. The service performs the backups based on the internal scheduling and optimization logic. 
 
-Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure Blob storage. The baseline snapshot is created with a name starting with `snapmirror`. This baseline snapshot will be deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry will appear in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot is not created. A baseline snapshot is created only when the volume has no prior backups.
+Assigning a policy creates a baseline snapshot that is the current state of the volume and transfers the snapshot to Azure storage. The baseline snapshot is created with a name starting with `snapmirror`. This baseline snapshot will be deleted automatically when the first scheduled backup is complete (based on the policy). If the backup policy is attached to a volume, the backup list will be empty until the baseline snapshot is transferred. When the backup is complete, the baseline backup entry will appear in the list of backups for the volume. After the baseline transfer, the list will be updated daily based on the policy. An empty list of backups indicates that the baseline backup is in progress. If a volume already has existing manual backups before you assign a backup policy, the baseline snapshot is not created. A baseline snapshot is created only when the volume has no prior backups.
 
 ## Configure and apply a snapshot policy  
 
@@ -78,7 +78,7 @@ You need to create a snapshot policy and associate the snapshot policy to the vo
 
 A backup policy enables a volume to be protected on a regularly scheduled interval.  
 
-You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended either by disabling the policy or by disabling backups at the volume level. Backups can also be completely disabled at the volume level, resulting in the clean-up of all the associated data in the Azure Blob storage. A backup policy cannot be deleted if it is attached to any volumes.
+You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended either by disabling the policy or by disabling backups at the volume level. Backups can also be completely disabled at the volume level, resulting in the clean-up of all the associated data in the Azure storage. A backup policy cannot be deleted if it is attached to any volumes.
 
 To enable a policy-based (scheduled) backup: 
 
@@ -94,7 +94,7 @@ To enable a policy-based (scheduled) backup:
 
     ![Screenshot that shows the Backup Policy window.](../media/azure-netapp-files/backup-policy-window-daily.png)
 
-    * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure Blob storage. 
+    * If you configure and attach a backup policy to the volume without attaching a snapshot policy, the backup does not function properly. There will be only a baseline snapshot transferred to the Azure storage. 
     * For each backup policy that you configure (for example, daily backups), ensure that you have a corresponding snapshot policy configuration (for example, daily snapshots).
     * Backup policy has a dependency on snapshot policy. If you haven’t created snapshot policy yet, you can configure both policies at the same time by selecting the **Create snapshot policy** checkbox on the Backup Policy window.   
 

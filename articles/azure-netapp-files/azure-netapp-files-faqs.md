@@ -334,11 +334,11 @@ If a problem occurs during a backup operation, Azure NetApp Files backup automat
 
 ### Can I change the location or storage tier of my backup vault?
 
-No, Azure NetApp Files automatically manages the backup data location within Azure Blob storage, and this location or Azure Blob storage tier cannot be modified by the user.
+No, Azure NetApp Files automatically manages the backup data location within Azure storage, and this location or Azure storage tier cannot be modified by the user.
 
 ### What types of security are provided for the backup data?
 
-Azure NetApp Files uses AES-256 bit encryption during the encoding of the received backup data. In addition, the encrypted data is securely transmitted to Azure Blob storage using HTTPS TLSv1.2 connections. Azure NetApp Files backup depends on the Azure Storage account’s built-in encryption at rest functionality for storing the backup data.
+Azure NetApp Files uses AES-256 bit encryption during the encoding of the received backup data. In addition, the encrypted data is securely transmitted to Azure storage using HTTPS TLSv1.2 connections. Azure NetApp Files backup depends on the Azure Storage account’s built-in encryption at rest functionality for storing the backup data.
 
 ### What happens to the backups when I delete a volume or my NetApp account? 
 

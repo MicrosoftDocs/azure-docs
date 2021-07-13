@@ -35,7 +35,7 @@ The following list summarizes manual backup behaviors:
 
 * You can create manual backups on a volume even if the volume is already backup-enabled and configured with backup policies.  However, there can be only one outstanding manual-backup request for the volume. If you assign a backup policy and if the baseline transfer is still in progress, then the creation of a manual backup will be blocked until the baseline transfer is complete.
 
-* Creating a manual backup generates a snapshot on the volume. The snapshot is then transferred to Azure Blob storage. This snapshot is not deleted automatically; you need to manually delete that snapshot.  However, deleting the snapshot generated for the latest manual backup is not allowed.  As such, after you create a subsequent manual backup, you can then clean up (delete) the snapshots generated for previous manual backups if you do not need to keep them. 
+* Creating a manual backup generates a snapshot on the volume. The snapshot is then transferred to Azure storage. This snapshot is not deleted automatically; you need to manually delete that snapshot.  However, deleting the snapshot generated for the latest manual backup is not allowed.  As such, after you create a subsequent manual backup, you can then clean up (delete) the snapshots generated for previous manual backups if you do not need to keep them. 
 
 ## Enable backup functionality
 
@@ -69,7 +69,7 @@ If you haven’t done so, enable the backup functionality for the volume before 
 
 4. Click **Create**. 
 
-    When you create a manual backup, a snapshot is also created on the volume using the same name you specified for the backup. This snapshot represents the current state of the active file system. It is transferred to Azure Blob storage. When the backup is complete, the manual backup entry will appear in the list of backups for the volume.
+    When you create a manual backup, a snapshot is also created on the volume using the same name you specified for the backup. This snapshot represents the current state of the active file system. It is transferred to Azure storage. When the backup is complete, the manual backup entry will appear in the list of backups for the volume.
 
 ![Screenshot that shows the New Backup window.](../media/azure-netapp-files/backup-new.png)
 
