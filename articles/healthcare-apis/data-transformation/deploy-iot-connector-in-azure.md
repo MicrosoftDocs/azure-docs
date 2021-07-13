@@ -41,13 +41,13 @@ Before getting started, you should have already deployed the Azure Healthcare AP
 2. Enter a name for the IoT Connector.
 
 3. Enter a name for the Event Hub.
-For more information about Event Hubs, see [Azure Event Hubs documentation](https://docs.microsoft.com/azure/event-hubs/).
+For more information about Event Hubs, see [Azure Event Hubs overview](https://docs.microsoft.com/azure/event-hubs/).
 
 4. Enter a name for the Consumer Group.
-For more information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers.md).
+For more information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
 
 5. Enter a namespace for the IoT Connector.
-For more information about Event Hub namespaces,  see [Namespace](../../event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace.md) in the Features and terminology in Azure Event Hubs document].
+For more information about Event Hub namespaces,  see [Namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-features?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document].
 
 6. To review and create the IoT Connector, select **Review + create**, or select **Next: Destination >**. To enter the destination mapping properties associated with the IoT Connector, refer to the instructions in the following section. 
 
@@ -73,7 +73,7 @@ To enter the device mapping properties associated with the IoT Connector, refer 
 
 1.Under the **Device Mapping** tab, enter the device mapping JSON code associated with the IoT Connector.
 
-   [ ![Configure device mapping](media/data-transformation/configure-device-mapping.png) ](media/data-transformation/configure-device-mapping.png#lightbox)
+[ ![Configure device mapping](media/data-transformation/configure-device-mapping.png) ](media/data-transformation/configure-device-mapping.png#lightbox)
 2. To review and create the IoT Connector, select **Review + create**, or select **Next: Tags >**. 
 
 To enter the tagging properties associated with the IoT Connector, refer to the instructions in the following section.
@@ -82,7 +82,7 @@ To enter the tagging properties associated with the IoT Connector, refer to the 
 
 1. Under the **Tags** tab, enter the tag properties associated with the IoT Connector.
 
-   [ ![Tag properties](media/data-transformation/tag-properties.png) ](media/data-transformation/tag-properties.png#lightbox)
+[ ![Tag properties](media/data-transformation/tag-properties.png) ](media/data-transformation/tag-properties.png#lightbox)
 
 2. Enter a **Name**.
 3. Enter a **Value**.
