@@ -277,6 +277,8 @@
           href: azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal.md
         - name: Disks
           href: azure-stack-edge-gpu-manage-virtual-machine-disks-portal.md
+        - name: Edge resource groups
+          href: azure-stack-edge-gpu-manage-edge-resource-groups-portal.md
         - name: VM sizes
           href: azure-stack-edge-gpu-manage-virtual-machine-resize-portal.md
         - name: Virtual switches
