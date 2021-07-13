@@ -19,7 +19,7 @@ This article provides information about how you can switch between replication a
 
 Typically, in the classic architecture, if you need to maintain the resiliency of your configuration server then the recommended action is to take regular manual backups of the machine. This is a highly cumbersome process, also prone to errors and misses.  
 
-This preview introduces a better way to make your appliances more resilient. If your appliance burns down or you need to balance the machines running on one appliance, just spin up another appliance and switch all your machines to the new appliance.
+This preview introduces a better way to make your appliances more resilient. If your replication appliance burns down or you need to balance the machines running on an appliance, just spin up another replication appliance and switch all your machines to the new appliance.
 
 
 ## Consideration for switching replication appliance
@@ -47,7 +47,7 @@ As an example, here is the scenario where replication appliance 1 (RA1) has fail
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
-3. Under  **Select machines**- select the applications/machines that you want to failover to another replication appliance (RA2). Select **Next**.
+3. Under  **Select machines**, select the applications/machines that you want to failover to another replication appliance (RA2). Select **Next**.
 
    ![Select machines for switching](./media/switch-replication-appliances/select-machines.png)
 
