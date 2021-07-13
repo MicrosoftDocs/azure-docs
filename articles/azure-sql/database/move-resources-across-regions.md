@@ -44,12 +44,15 @@ This article provides a general workflow for moving resources to a different reg
 1. Create a target server for each source server.
 1. Configure the firewall with the right exceptions by using [PowerShell](scripts/create-and-configure-database-powershell.md).  
 1. Configure the servers with the correct logins. If you're not the subscription administrator or SQL server administrator, work with the administrator to assign the permissions that you need. For more information, see [How to manage Azure SQL Database security after disaster recovery](active-geo-replication-security-configure.md).
-1. If your databases are encrypted with transparent data encryption and use your own encryption key in Azure Key Vault, ensure that the correct encryption material is provisioned in the target regions. For more information, see [Azure SQL transparent data encryption with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
-1. If database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require the cross-region traffic, which isn't desired or possible after the move.
-1. For server-level audits, ensure that:
+1. If your databases are encrypted with transparent data encryption and bring your own encryption key (BYOK or Customer-Managed Key) in Azure Key Vault, ensure that the correct encryption material is provisioned in the target regions. 
+2. The simplest way to do this is to add the encryption key from the existing key vault (that is being used as TDE Protector on source server) to the target server and then set the key as the TDE Protector on the target server
+For more information, see [Azure SQL transparent data encryption with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+To move the key vault to the new region, see [Move an Azure key vault across regions](https://docs.microsoft.com/en-us/azure/key-vault/general/move-region) 
+4. If database-level audit is enabled, disable it and enable server-level auditing instead. After failover, database-level auditing will require the cross-region traffic, which isn't desired or possible after the move.
+5. For server-level audits, ensure that:
    - The storage container, Log Analytics, or event hub with the existing audit logs is moved to the target region.
    - Auditing is configured on the target server. For more information, see [Get started with SQL Database auditing](../../azure-sql/database/auditing-overview.md).
-1. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you'll be able to access the older LTR backups in the source region by using the source server, even if the server is deleted.
+6. If your instance has a long-term retention policy (LTR), the existing LTR backups will remain associated with the current server. Because the target server is different, you'll be able to access the older LTR backups in the source region by using the source server, even if the server is deleted.
 
       > [!NOTE]
       > This will be insufficient for moving between the sovereign cloud and a public region. Such a migration will require moving the LTR backups to the target server, which is not currently supported.
