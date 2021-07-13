@@ -1,6 +1,6 @@
 ---
 title: User profile attributes in Azure Active Directory B2C
-description: Learn about the user resource type attributes that are supported by the Azure AD B2C directory user profile. Find out about built-in attributes, extensions, and how attributes map to Microsoft Graph.
+description: Learn about the user resource type attributes that are supported by the Azure AD B2C directory user profile. Find out about built-in attributes, extensions, and how attributes map to Microsoft Graph.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -8,14 +8,14 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
 # User profile attributes
 
-Your Azure Active Directory (Azure AD) B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store. 
+Your Azure Active Directory (Azure AD) B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number. You can extend the user profile with your own application data without requiring an external data store.
 
 Most of the attributes that can be used with Azure AD B2C user profiles are also supported by Microsoft Graph. This article describes supported Azure AD B2C user profile attributes. It also notes those attributes that are not supported by Microsoft Graph, as well as Microsoft Graph attributes that should not be used with Azure AD B2C.
 
@@ -55,12 +55,11 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |immutableId     |String|An identifier that is typically used for users migrated from on-premises Active Directory.|No|No|Persisted, Output|
 |legalAgeGroupClassification|String|Legal age group classification. Read-only and calculated based on ageGroup and consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult, and adult.|Yes|No|Persisted, Output|
 |legalCountry<sup>1</sup>  |String|Country/Region for legal purposes.|No|No|Persisted, Output|
-|mail            |String|The SMTP address for the user, for example, "bob@contoso.com". Read-only.|No|No|Persisted, Output|
 |mailNickName    |String|The mail alias for the user. Max length 64.|No|No|Persisted, Output|
 |mobile (mobilePhone) |String|The primary cellular telephone number for the user. Max length 64.|Yes|No|Persisted, Output|
 |netId           |String|Net ID.|No|No|Persisted, Output|
 |objectId        |String|A globally unique identifier (GUID) that is the unique identifier for the user. Example: 12345678-9abc-def0-1234-56789abcde. Read only, Immutable.|Read only|Yes|Input, Persisted, Output|
-|otherMails      |String collection|A list of other email addresses for the user. Example: ["bob@contoso.com", "Robert@fabrikam.com"].|Yes (Alternate email)|No|Persisted, Output|
+|otherMails      |String collection|A list of other email addresses for the user. Example: ["bob@contoso.com", "Robert@fabrikam.com"]. NOTE: Accent characters are not allowed.|Yes (Alternate email)|No|Persisted, Output|
 |password        |String|The password for the local account during user creation.|No|No|Persisted|
 |passwordPolicies     |String|Policy of the password. It's a string consisting of different policy name separated by comma. For example, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
 |physicalDeliveryOfficeName (officeLocation)|String|The office location in the user's place of business. Max length 128.|Yes|No|Persisted, Output|
@@ -68,13 +67,13 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |preferredLanguage    |String|The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: "en-US", or "es-ES".|No|No|Persisted, Output|
 |refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
 |signInNames ([Identities](#identities-attribute)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
-|signInNames.userName ([Identities](#identities-attribute)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
+|signInNames.userName ([Identities](#identities-attribute)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames. NOTE: Accent characters are not allowed in the username.|No|No|Input, Persisted, Output|
 |signInNames.phoneNumber ([Identities](#identities-attribute)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |signInNames.emailAddress ([Identities](#identities-attribute))|String|The unique email address of the local account user in the directory. Use this to create or get a user with a specific sign-in email address. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |state           |String|The state or province in the user's address. Max length 128.|Yes|Yes|Persisted, Output|
 |streetAddress   |String|The street address of the user's place of business. Max length 1024.|Yes|Yes|Persisted, Output|
 |strongAuthentication AlternativePhoneNumber<sup>1</sup>|String|The secondary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
-|strongAuthenticationEmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow.|Yes|No|Persisted, Output|
+|strongAuthenticationEmailAddress<sup>1</sup>|String|The SMTP address for the user. Example: "bob@contoso.com" This attribute is used for sign-in with username policy, to store the user email address. The email address then used in a password reset flow. Accent characters are not allowed in this attribute.|Yes|No|Persisted, Output|
 |strongAuthenticationPhoneNumber<sup>2</sup>|String|The primary telephone number of the user, used for multi-factor authentication.|Yes|No|Persisted, Output|
 |surname         |String|The user's surname (family name or last name). Max length 64.|Yes|Yes|Persisted, Output|
 |telephoneNumber (first entry of businessPhones)|String|The primary telephone number of the user's place of business.|Yes|No|Persisted, Output|
@@ -85,6 +84,16 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |userStateChangedOn (externalUserStateChangeDateTime)<sup>2</sup>|DateTime|Shows the timestamp for the latest change to the UserState property.|No|No|Persisted, Output|
 
 <sup>1 </sup>Not supported by Microsoft Graph<br><sup>2 </sup>For more information, see [MFA phone number attribute](#mfa-phone-number-attribute)<br><sup>3 </sup>Should not be used with Azure AD B2C
+
+## Required attributes
+
+To create a user account in the Azure AD B2C directory, provide the following required attributes: 
+
+- [Display name](#display-name-attribute)
+
+- [Identities](#display-name-attribute) - With at least one entity (a local or a federated account).
+
+- [Password profile](#password-policy-attribute)- If you create a local account, provide the password profile.
 
 ## Display name attribute
 
@@ -97,7 +106,7 @@ A customer account, which could be a consumer, partner, or citizen, can be assoc
 - **Local** identity - The username and password are stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
 - **Federated** identity - Also known as a *social* or *enterprise* accounts, the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
-A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password. 
+A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password.
 
 In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity](/graph/api/resources/objectidentity). The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities. The identities attribute can contain up to ten [objectIdentity](/graph/api/resources/objectidentity) objects. Each object contains the following properties:
 
@@ -107,29 +116,29 @@ In the Microsoft Graph API, both local and federated identities are stored in th
 |issuer|string|Specifies the issuer of the identity. For local accounts (where **signInType** is not `federated`), this property is the local B2C tenant default domain name, for example `contoso.onmicrosoft.com`. For social identity (where **signInType** is  `federated`) the value is the name of the issuer, for example `facebook.com`|
 |issuerAssignedId|string|Specifies the unique identifier assigned to the user by the issuer. The combination of **issuer** and **issuerAssignedId** must be unique within your tenant. For local account, when **signInType** is set to `emailAddress` or `userName`, it represents the sign-in name for the user.<br>When **signInType** is set to: <ul><li>`emailAddress` (or starts with `emailAddress` like `emailAddress1`) **issuerAssignedId** must be a valid email address</li><li>`userName` (or any other value), **issuerAssignedId** must be a valid [local part of an email address](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** represents the federated account unique identifier</li></ul>|
 
-The following **Identities** attribute, with a local account identity with a sign-in name, an email address as sign-in, and with a social identity. 
+The following **Identities** attribute, with a local account identity with a sign-in name, an email address as sign-in, and with a social identity.
 
- ```json
- "identities": [
-     {
-       "signInType": "userName",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "johnsmith"
-     },
-     {
-       "signInType": "emailAddress",
-       "issuer": "contoso.onmicrosoft.com",
-       "issuerAssignedId": "jsmith@yahoo.com"
-     },
-     {
-       "signInType": "federated",
-       "issuer": "facebook.com",
-       "issuerAssignedId": "5eecb0cd"
-     }
-   ]
- ```
+```json
+"identities": [
+  {
+    "signInType": "userName",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "johnsmith"
+  },
+  {
+    "signInType": "emailAddress",
+    "issuer": "contoso.onmicrosoft.com",
+    "issuerAssignedId": "jsmith@yahoo.com"
+  },
+  {
+    "signInType": "federated",
+    "issuer": "facebook.com",
+    "issuerAssignedId": "5eecb0cd"
+  }
+]
+```
 
-For federated identities, depending on the identity provider, the **issuerAssignedId** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account. 
+For federated identities, depending on the identity provider, the **issuerAssignedId** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account.
 
 ## Password profile property
 

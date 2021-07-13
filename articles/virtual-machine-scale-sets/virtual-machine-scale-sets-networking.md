@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
+ms.custom: mimckitt, devx-track-azurepowershell
 
 ---
 # Networking for Azure virtual machine scale sets
@@ -125,7 +125,7 @@ In general, Azure scale set virtual machines do not require their own public IP 
 However, some scenarios do require scale set virtual machines to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine, which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
 
 ### Creating a scale set with public IP per virtual machine
-To create a scale set that assigns a public IP address to each virtual machine with the CLI, add the **--public-ip-per-vm** parameter to the **vmss create** command. 
+To create a scale set that assigns a public IP address to each virtual machine with the CLI, add the **--public-ip-per-vm** parameter to the **vmss create** command.
 
 To create a scale set using an Azure template, make sure the API version of the Microsoft.Compute/virtualMachineScaleSets resource is at least **2017-03-30**, and add a **publicIpAddressConfiguration** JSON property to the scale set ipConfigurations section. For example:
 
@@ -138,7 +138,7 @@ To create a scale set using an Azure template, make sure the API version of the 
 }
 ```
 
-Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+Example template: [vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-public-ip-linux)
 
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
@@ -379,7 +379,7 @@ az vmss show \
 
 ## Make networking updates to specific instances
 
-You can make networking updates to specific virtual machine scale set instances. 
+You can make networking updates to specific virtual machine scale set instances.
 
 You can `PUT` against the instance to update the network configuration. This can be used to do things like add or remove network interface cards (NICs), or remove an instance from a backend pool.
 
@@ -390,8 +390,8 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
 The following example shows how to add a second IP Configuration to your NIC.
 
 1. `GET` the details for a specific virtual machine scale set instance.
-    
-    ``` 
+
+    ```
     GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
@@ -444,10 +444,10 @@ The following example shows how to add a second IP Configuration to your NIC.
       }
     }
     ```
- 
+
 2. `PUT` against the instance, updating to add the additional IP configuration. This is similar for adding additional `networkInterfaceConfiguration`.
 
-    
+
     ```
     PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```

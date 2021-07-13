@@ -1,12 +1,12 @@
 ---
 title: 'Copy and paste to and from a virtual machine: Azure Bastion'
-description: In this article, learn how copy and paste to and from an Azure VM using Bastion.
+description: Learn how copy and paste to and from an Azure VM using Bastion.
 services: bastion
 author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 05/04/2020
+ms.date: 03/22/2021
 ms.author: cherylmc
 # Customer intent: I want to copy and paste to and from VMs using Azure Bastion.
 
@@ -24,7 +24,7 @@ For browsers that support the advanced Clipboard API access, you can copy and pa
 
    ![Allow clipboard](./media/bastion-vm-manage/allow.png)
 
-Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard.
+Only text copy/paste is supported. For direct copy and paste, your browser may prompt you for clipboard access when the Bastion session is being initialized. **Allow** the web page to access the clipboard. If you are working from a Mac, the keyboard shortcut to paste is **SHIFT-CTRL-V**.
 
 ## <a name="to"></a>Copy to a remote session
 

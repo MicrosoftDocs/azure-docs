@@ -1,6 +1,6 @@
 ---
 title: 'Connect to a Linux VM using Azure Bastion'
-description: In this article, learn how to connect to Linux Virtual Machine by using Azure Bastion.
+description: Learn how to connect to Linux virtual machine by using Azure Bastion.
 services: bastion
 author: cherylmc
 

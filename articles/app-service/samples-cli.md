@@ -6,7 +6,7 @@ tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 07/07/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 ---
 # CLI samples for Azure App Service

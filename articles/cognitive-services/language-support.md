@@ -28,7 +28,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 * [Computer Vision](./computer-vision/language-support.md)
 * [Form Recognizer (Preview)](./form-recognizer/language-support.md)
 * [Ink Recognizer (Preview)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
-* [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
+* [Video Indexer](../azure-video-analyzer/video-analyzer-for-media-docs/language-identification-model.md#guidelines-and-limitations)
 
 ## Language
 
@@ -43,16 +43,6 @@ These Cognitive Services are language agnostic and don't have limitations based 
 * [Speech Service: Speech-to-Text](./speech-service/language-support.md#speech-to-text)
 * [Speech Service:Text-to-Speech](./speech-service/language-support.md#text-to-speech)
 * [Speech Service: Speech Translation](./speech-service/language-support.md#speech-translation)
-
-## Search
-
-* [Bing Custom Search](./bing-custom-search/language-support.md)
-* [Bing Image Search](./bing-image-search/language-support.md)
-* [Bing News Search](./bing-news-search/language-support.md)
-* [Bing Autosuggest](./bing-autosuggest/language-support.md)
-* [Bing Spell Check](./bing-spell-check/language-support.md)
-* [Bing Visual Search](./bing-visual-search/language-support.md)
-* [Bing Web Search](./bing-web-search/language-support.md)
 
 ## Decision
 

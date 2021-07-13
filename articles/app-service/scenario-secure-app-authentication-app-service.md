@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/09/2020
+ms.date: 06/28/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow the [ASP.NET Core quickstart](quickstart-dotnetcore.md) to create and publish a new web app to App Service.
 
-Whether you use an existing web app or create a new one, take note of the web app name and the name of the resource group that the web app is deployed to. You need these names throughout this tutorial. Throughout this tutorial, example names in procedures and screenshots contain *SecureWebApp*.
+Whether you use an existing web app or create a new one, take note of the web app name and the name of the resource group that the web app is deployed to. You need these names throughout this tutorial. 
 
 ## Configure authentication and authorization
 
@@ -50,19 +50,25 @@ In **Resource groups**, find and select your resource group. In **Overview**, se
 
 :::image type="content" alt-text="Screenshot that shows selecting your app's management page." source="./media/scenario-secure-app-authentication-app-service/select-app-service.png":::
 
-On your app's left menu, select **Authentication / Authorization**, and then enable App Service Authentication by selecting **On**.
+On your app's left menu, select **Authentication**, and then click **Add identity provider**.
 
-In **Action to take when request is not authenticated**, select **Log in with Azure Active Directory**.
+In the **Add an identity provider** page, select **Microsoft** as the **Identity provider** to sign in Microsoft and Azure AD identities.
 
-Under **Authentication Providers**, select **Azure Active Directory**. Select **Express**, and then accept the default settings to create a new Active Directory app. Select **OK**.
+For **App registration** > **App registration type**, select **Create new app registration**.
 
-:::image type="content" alt-text="Screenshot that shows Express authentication." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
+For **App registration** > **Supported account types**, select **Current tenant-single tenant**.
 
-On the **Authentication / Authorization** page, select **Save**.
+In the **App Service authentication settings** section, leave **Authentication** set to **Require authentication** and **Unauthenticated requests** set to **HTTP 302 Found redirect: recommended for websites**.
 
-When you see the notification with the message `Successfully saved the Auth Settings for <app-name> App`, refresh the portal page.
+At the bottom of the **Add an identity provider** page, click **Add** to enable authentication for your web app.
+
+:::image type="content" alt-text="Screenshot that shows configuring authentication." source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 You now have an app that's secured by the App Service authentication and authorization.
+
+> [!NOTE]
+> To allow accounts from other tenants, change the 'Issuer URL' to 'https://login.microsoftonline.com/common/v2.0' by editing your 'Identity Provider' from the 'Authentication' blade.
+>
 
 ## Verify limited access to the web app
 

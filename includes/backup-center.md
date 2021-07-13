@@ -1,9 +1,9 @@
 ---
-author: dcurwin
+author: v-amallick
 ms.service: backup
 ms.topic: include
 ms.date: 10/19/2020
-ms.author: dacurwin
+ms.author: v-amallick
 ---
 
 > [!NOTE]

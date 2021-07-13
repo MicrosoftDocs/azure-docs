@@ -12,6 +12,8 @@ ms.custom: devx-track-csharp
 ---
 # Tutorial: Create and deploy custom IoT Edge modules
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 In this article, we create three IoT Edge modules that receive messages from leaf IoT devices, run the data through your machine learning model, and then forward insights to IoT Hub.
 
 IoT Edge hub facilitates module to module communication. Using the IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages.
@@ -347,7 +349,7 @@ As mentioned previously, the writer module relies on the presence of a bind moun
    sudo mkdir -p /data/avrofiles
    ```
 
-1. Update directory permissions to make it writeable by the container.
+1. Update directory permissions to make it writable by the container.
 
    ```bash
    sudo chmod ugo+rw /data/avrofiles

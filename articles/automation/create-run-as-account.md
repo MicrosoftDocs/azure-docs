@@ -1,15 +1,17 @@
 ---
 title: Create an Azure Automation Run As account
-description: This article tells how to create a Run As account with PowerShell or from the Azure portal.
+description: This article tells how to create an Azure Automation Run As account with PowerShell or from the Azure portal.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/06/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
 ---
 
 # How to create an Azure Automation Run As account
 
 Run As accounts in Azure Automation provide authentication for managing resources on the Azure Resource Manager or Azure Classic deployment model using Automation runbooks and other Automation features. This article describes how to create a Run As or Classic Run As account from the Azure portal or Azure PowerShell.
+
+When you create the Run As or Classic Run As account in the Azure portal, by default it uses a self-signed certificate. If you want to use a certificate issued by your enterprise or third-party certification authority (CA), can use the [PowerShell script to create a Run As account](#powershell-script-to-create-a-run-as-account).
 
 ## Create account in Azure portal
 
@@ -40,6 +42,13 @@ The following list provides the requirements to create a Run As account in Power
 * An Automation account, which is referenced as the value for the `AutomationAccountName` and `ApplicationDisplayName` parameters.
 * Permissions equivalent to the ones listed in [Required permissions to configure Run As accounts](automation-security-overview.md#permissions).
 
+If you are planning to use a certificate from your enterprise or third-party certificate authority (CA), Automation requires the certificate to have the following configuration:
+
+   * Specify the provider **Microsoft Enhanced RSA and AES Cryptographic Provider**
+   * Marked as exportable
+   * Configured to use the SHA256 algorithm
+   * Saved in the `*.pfx` or `*.cer` format.
+
 To get the values for `AutomationAccountName`, `SubscriptionId`, and `ResourceGroupName`, which are required parameters for the PowerShell script, complete the following steps.
 
 1. Sign in to the Azure portal.
@@ -58,9 +67,8 @@ To get the values for `AutomationAccountName`, `SubscriptionId`, and `ResourceGr
 
 The PowerShell script includes support for several configurations.
 
-* Create a Run As account by using a self-signed certificate.
 * Create a Run As account and/or a Classic Run As account by using a self-signed certificate.
-* Create a Run As account and/or a Classic Run As account by using a certificate issued by your enterprise certification authority (CA).
+* Create a Run As account and/or a Classic Run As account by using a certificate issued by your enterprise or third-party certification authority (CA).
 * Create a Run As account and/or a Classic Run As account by using a self-signed certificate in the Azure Government cloud.
 
 1. Download and save the script to a local folder using the following command.
@@ -103,6 +111,6 @@ The PowerShell script includes support for several configurations.
 
 ## Next steps
 
-* To learn more about graphical authoring, see [Author graphical runbooks in Azure Automation](automation-graphical-authoring-intro.md).
 * To get started with PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+
 * To get started with a Python 3 runbook, see [Tutorial: Create a Python 3 runbook](learn/automation-tutorial-runbook-textual-python-3.md).

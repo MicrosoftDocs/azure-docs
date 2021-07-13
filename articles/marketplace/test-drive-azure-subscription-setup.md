@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 11/09/2020
+ms.date: 03/16/2020
 ---
 
 # Set up an Azure Marketplace subscription for hosted test drives
 
-This article explains how to set up an Azure Marketplace subscription and **Dynamics 365 for Customer Engagement** or **Dynamics 365 for Operations** environment for test drives.
+This article explains how to set up an Azure Marketplace subscription and **Dynamics 365 for Customer Engagement & Power Apps** or **Dynamics 365 for Operations** environment for test drives.
 
-## Set up for Dynamics 365 for Customer Engagement
+## Set up for Dynamics 365 for Customer Engagement & Power Apps
 
 1. Sign into the [Azure portal](https://portal.azure.com/) with an Admin account.
 2. Verify you are in the tenant associated with your Dynamics 365 test drive instance by hovering over your account icon in the upper right corner. If you are not in the correct tenant, select the account icon to switch into the correct tenant.
@@ -38,26 +38,18 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     5. Under Supported account types, select **Account in any organization directory and personal Microsoft accounts**.
     6. Select **Create** and wait for your app to be created.
     7. Once the app is created, note the **Application ID** displayed on the overview screen. You will need this value later when configuring your test drive.
-    8. To add a nativeclient redirect URI, select the **Authentication** blade. Under **Platform configuration**, select **Add Platform** > **Mobile** > **Desktop** application tile. Choose the **nativeclient** redirect URI and select **Configure**.
-
-        :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Adding a nativeclient redirect URI.":::
-
-    9. Under **Manage Application**, select **API permissions**.
-    10. Select **Add a permission** and then **Microsoft Graph API**.
-    11. Select the **Application** permission category and then the **Directory.Read.All** and **Directory.ReadWrite.All** permissions.
+    8. Under **Manage Application**, select **API permissions**.
+    9. Select **Add a permission** and then **Microsoft Graph API**.
+    10. Select the **Application** permission category and then the **User.ReadWrite.All**, **Directory.Read.All** and **Directory.ReadWrite.All** permissions.
 
         :::image type="content" source="./media/test-drive/microsoft-graph.png" alt-text="Setting the application permissions.":::
 
-    12. To add **Dynamics CRM - User impersonation** access for allow list Azure AD app, select **Add permission** again.
-
-        :::image type="content" source="./media/test-drive/request-api-permissions.png" alt-text="Requesting the application permissions.":::
-
-    13. Once the permission is added, select **Grant admin consent for Microsoft**.
-    14. From the message alert, select **Yes**.
+    11. Once the permission is added, select **Grant admin consent for Microsoft**.
+    12. From the message alert, select **Yes**.
 
         [![Shows the application permissions successfully granted.](media/test-drive/api-permissions-confirmation-customer.png)](media/test-drive/api-permissions-confirmation-customer.png#lightbox)
 
-    15. To generate a secret for the Azure AD App:
+    13. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
         3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
@@ -65,8 +57,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
 
-5. Sometimes it takes longer than expected to sync a user from Azure AD to a CRM instance. To aid with this, we added a process to force sync user, but it requires the Azure AD application to be allowlisted by Partner Center. To do this, see [User sync to Customer Engagement instance](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
-6. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
+5. Add the Service Principal role to the application to allow the Azure AD app to remove users from your Azure tenant.
     1. Open an Administrative-level PowerShell command prompt.
     2. Install-Module MSOnline (run this command if MSOnline is not installed).
     3. Connect-MsolService (this will display a popup window; sign in with the newly created org tenant).
@@ -76,7 +67,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
 
-7. Add the above created Azure app as an application user to your test drive CRM instance.
+6. Add the above created Azure app as an application user to your test drive CRM instance.
     1. Add a new user in **Azure Active Directory**. Only **Name** and **Username** values (belonging to the same tenant) are required to create this user, leave the other fields as default. Copy the username value.
     2. Sign into **CRM instance** and select **Setting** > **Security** > **Users**.
     3. Change the view to **Application Users**.
@@ -92,7 +83,8 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
         :::image type="content" source="./media/test-drive/security-roles-selection.png" alt-text="Selecting the role privileges.":::
 
-    10. Assign the application user the custom security role you created for your test drive.
+    10. Also, enable the **Act on Behalf of Another User** privilege.
+    11. Assign the application user the custom security role you created for your test drive.
 
 ## Set up for Dynamics 365 for Operations
 
@@ -125,7 +117,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     12. Once the permission is added, select **Grant admin consent for Microsoft**.
     13. From the message alert, select **Yes**.
 
-        [![Shows application permissions successfully granted.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
+        [![Shows the application permissions are successfully granted.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
 
     14. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.

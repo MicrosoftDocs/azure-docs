@@ -25,7 +25,7 @@ This quickstart describes the steps for creating a new API Management instance u
 
 Azure API Management instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
-First, create a resource group named *myResourceGroup* in the Central US location with the following [az group create](/cli/azure/group#az-group-create) command:
+First, create a resource group named *myResourceGroup* in the Central US location with the following [az group create](/cli/azure/group#az_group_create) command:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location centralus
@@ -33,7 +33,7 @@ az group create --name myResourceGroup --location centralus
 
 ## Create a new service
 
-Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az-apim-create) command and provide a service name and publisher details. The service name must be unique within Azure. 
+Now that you have a resource group, you can create an API Management service instance. Create one by using the [az apim create](/cli/azure/apim#az_apim_create) command and provide a service name and publisher details. The service name must be unique within Azure. 
 
 In the following example, *myapim* is used for the service name. Update the name to a unique value. Also update the name of the API publisher's organization and the email address to receive notifications. 
 
@@ -48,7 +48,7 @@ By default, the command creates the instance in the Developer tier, an economica
 > [!TIP]
 > It can take between 30 and 40 minutes to create and activate an API Management service in this tier. The previous command uses the `--no-wait` option so that the command returns immediately while the service is created.
 
-Check the status of the deployment by running the [az apim show](/cli/azure/apim#az-apim-show) command:
+Check the status of the deployment by running the [az apim show](/cli/azure/apim#az_apim_show) command:
 
 ```azurecli-interactive
 az apim show --name myapim --resource-group myResourceGroup --output table
@@ -74,7 +74,7 @@ When your API Management service instance is online, you're ready to use it. Sta
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and the API Management service instance.
+When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group and the API Management service instance.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -17,6 +17,10 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 
 ![ExpressRoute connection overview](./media/expressroute-introduction/expressroute-connection-overview.png)
 
+> [!NOTE]
+> In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
+> 
+
 ## Key benefits
 
 * Layer 3 connectivity between your on-premises network and the Microsoft Cloud through a connectivity provider. Connectivity can be from an any-to-any (IPVPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.

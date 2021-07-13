@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 06/25/2021
 ms.author: pafarley
 ---
 
@@ -23,19 +23,18 @@ This guide shows you how to use these REST APIs with cURL. You can also use an H
 ## Prerequisites
 
 - A Custom Vision resource in Azure. If you don't have one, go to the Azure portal and [create a new Custom Vision resource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). This feature doesn't currently support the Cognitive Service resource (all in one key).
-- An Azure Storage account with a blob container. Follow [Exercises 1 of the Azure Storage Lab](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) if you need help with this step.
-* [PowerShell version 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
+- An Azure Storage account with a blob container. Follow the [Storage quickstart](../../storage/blobs/storage-quickstart-blobs-portal.md) if you need help with this step.
+- [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 ## Set up Azure storage integration
 
 Go to your Custom Vision training resource on the Azure portal, select the **Identity** page, and enable system assigned managed identity.
 
-Next, go to your storage resource in the Azure portal. Go to the **Access control (IAM)** page and add a role assignment for each integration feature:
-* Select your Custom Vision training resource and assign the **Storage Blob Data Contributor** role if you plan to use the model backup feature. 
-* Then select your Custom Vision training resource and assign the **Storage Queue Data Contributor** if you plan to use the notification queue feature.
+Next, go to your storage resource in the Azure portal. Go to the **Access control (IAM)** page and select **Add role assignment (Preview)**. Then add a role assignment for either integration feature, or both:
+* If you plan to use the model backup feature, select the **Storage Blob Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
+* If you plan to use the notification queue feature, then select the **Storage Queue Data Contributor** role, and add your Custom Vision training resource as a member. Select **Review + assign** to complete.
 
-> [!div class="mx-imgBorder"]
-> ![Storage account add role assignment page](./media/storage-integration/storage-access.png)
+For help with role assignments, see [Assign Azure roles using the Azure portal](https://review.docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 ### Get integration URLs
 

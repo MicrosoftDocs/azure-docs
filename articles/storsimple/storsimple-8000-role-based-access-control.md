@@ -14,7 +14,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
-ms.author: alkohli
+ms.author: alkohli 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Azure role-based access control for StorSimple

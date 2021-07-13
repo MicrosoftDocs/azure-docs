@@ -20,12 +20,17 @@ From the settings tab of your Custom Vision project, you can select a domain for
 
 |Domain|Purpose|
 |---|---|
-|__General__| Optimized for a broad range of image classification tasks. If none of the other domains are appropriate, or if you're unsure of which domain to choose, select the General domain. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__General__| Optimized for a broad range of image classification tasks. If none of the other specific domains are appropriate, or if you're unsure of which domain to choose, select one of the General domains. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
 |__General [A1]__| Optimized for better accuracy with comparable inference time as General domain. Recommended for larger datasets or more difficult user scenarios. This domain requires more training time. ID: `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
+|__General [A2]__| Optimized for better accuracy with faster inference time than General[A1] and General domains. Recommended for most datasets. This domain requires less training time than General and General [A1] domains. ID: `2e37d7fb-3a54-486a-b4d6-cfc369af0018` |
 |__Food__|Optimized for photographs of dishes as you would see them on a restaurant menu. If you want to classify photographs of individual fruits or vegetables, use the Food domain. ID: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Landmarks__|Optimized for recognizable landmarks, both natural and artificial. This domain works best when the landmark is clearly visible in the photograph. This domain works even if the landmark is slightly obstructed by people in front of it. ID: `ca455789-012d-4b50-9fec-5bb63841c793`|
 |__Retail__|Optimized for images that are found in a shopping catalog or shopping website. If you want high-precision classifying between dresses, pants, and shirts, use this domain. ID: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Compact domains__| Optimized for the constraints of real-time classification on edge devices.|
+
+
+> [!NOTE]
+> The General[A1] and General[A2] domains can be used for a broad set of scenarios and are optimized for accuracy. Use the General[A2] model for better inference speed and shorter training time. For larger datasets, you may want to use General[A1] to render better accuracy than General[A2], though it requires more training and inference time. The General model requires more inference time than both General[A1] and General[A2].
 
 ## Object Detection
 

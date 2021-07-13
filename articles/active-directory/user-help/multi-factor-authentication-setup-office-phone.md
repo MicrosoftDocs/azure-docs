@@ -17,8 +17,10 @@ ms.author: curtand
 
 You can set up your office phone to act as your two-factor verification method.
 
->[!Note]
-> If the Office phone option is greyed out, it's possible that your organization doesn't allow you to use an office phone number for verification. In this case, you'll need to select another method or contact your administrator for more help.
+> [!Note]
+> If the **Office phone** option isn't available to select, it's possible that your organization doesn't allow you to use an office phone number for verification. In this case, you'll need to select another method or contact your administrator for more help. 
+> 
+> Combined Registration users won't see an option to use an extension with the **Office phone** option.
 
 ## Set up your office phone number as your verification method
 

@@ -7,7 +7,8 @@ ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/12/2020
-ms.author: manayar
+ms.author: manayar 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -118,7 +119,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 ### Azure CLI
-Use [az feature register](/cli/azure/feature#az-feature-register) to enable the preview for your subscription.
+Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name AutomaticExtensionUpgradePreview

@@ -2,15 +2,15 @@
 title: 'API authentication and authorization - Azure Time Series Insights | Microsoft Docs'
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
 ms.service: time-series-insights
-author: deepakpalled
+author: shreyasharmamsft
 ms.author: shresha
-manager: dpalled
-ms.reviewer: v-mamcge, jasonh, kfile
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, has-adal-ref
+ms.custom: seodec18, has-adal-ref, devx-track-azurecli
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
@@ -74,7 +74,7 @@ When your Azure Time Series Insights environment receives a request, first the c
 
 - To grant access via the [Azure portal](https://portal.azure.com/) UI, follow the instructions listed in the [Grant data access to an environment](concepts-access-policies.md) article. When selecting the user, you can search for the managed identity or app registration by its name or by ID.
 
-- To grant access using the Azure CLI, run the following command. Review the documentation [here](/cli/azure/ext/timeseriesinsights/tsi/access-policy) for the full list of commands available to manage access.
+- To grant access using the Azure CLI, run the following command. Review the documentation [here](/cli/azure/tsi/access-policy) for the full list of commands available to manage access.
 
    ```azurecli-interactive
    az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"

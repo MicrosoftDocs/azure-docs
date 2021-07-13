@@ -49,8 +49,6 @@ This template includes a sample connected waste bin device template, a simulated
     * **URL**. Optionally, you can choose your desired URL. You can change the URL later. 
     * **Pricing plan**. If you have an Azure subscription, enter your directory, Azure subscription, and region in the appropriate fields of the **Billing info** dialog box. If you don't have a subscription, select **Free** to enable 7-day trial subscription, and complete the required contact information.  
 
-    For more information about directories and subscriptions, see [Quickstart - Create an Azure IoT Central application](../core/quick-deploy-iot-central.md).
-
 1. At the bottom of the page, select **Create**. 
 
     ![Screenshot of Azure IoT Central Create New application dialog box.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
@@ -86,7 +84,7 @@ The dashboard consists of different tiles:
 
 * **Fill level KPI tile**: This tile displays a value reported by a *fill level* sensor in a waste bin. Fill level and other sensors, like *odor meter* or *weight* in a waste bin, can be remotely monitored. An operator can take action, like dispatching a trash collection truck. 
 
-* **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device location. Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
+* **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device [location](../core/howto-use-location-data.md). Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
 
      ![Screenshot of Connected Waste Management Template Dashboard map.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 

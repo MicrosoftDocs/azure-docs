@@ -6,7 +6,8 @@ author: malopMSFT
 ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Manage a Private Endpoint connection

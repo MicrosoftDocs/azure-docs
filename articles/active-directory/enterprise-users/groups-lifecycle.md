@@ -88,6 +88,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 > - When you first set up expiration, any groups that are older than the expiration interval are set to 35 days until expiration unless the group is automatically renewed or the owner renews it.
 > - When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
 > - Expiration notices for groups used in Teams appear in the Teams Owners feed.
+> - When you enable expiration for selected groups, you can add up to 500 groups to the list. If you need to add more than 500 groups, you can enable expiration for all your groups. In that scenario, the 500-group limitation doesn't apply.
 
 ## Email notifications
 
@@ -107,7 +108,7 @@ If the group you're restoring contains documents, SharePoint sites, or other per
 
 ## How to retrieve Microsoft 365 group expiration date
 
-In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example).
+In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
 
 > [!NOTE]
 > In order to manage group memberships on Access Panel, "Restrict access to Groups in Access Panel" needs to be set to "No" in Azure Active Directory Groups General Setting.
@@ -174,7 +175,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](/powershell/module/azuread/?view=azureadps-2.0-preview#groups).
+The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-# As a data scientist using Python, I want to get data into my pipeline and flowing between steps
+ms.topic: how-to
+ms.custom: contperf-fy20q4, devx-track-python, data4ml
+#Customer intent: As a data scientist using Python, I want to get data into my pipeline and flowing between steps.
 ---
 
 # Moving data into and between ML pipeline steps (Python)
@@ -24,13 +24,13 @@ This article will show you how to:
 - Split `Dataset` data into subsets, such as training and validation subsets
 - Create `OutputFileDatasetConfig` objects to transfer data to the next pipeline step
 - Use `OutputFileDatasetConfig` objects as input to pipeline steps
-- Create new `Dataset` objects from `OutputFileDatasetConfig` you wisƒh to persist
+- Create new `Dataset` objects from `OutputFileDatasetConfig` you wish to persist
 
 ## Prerequisites
 
 You'll need:
 
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -123,7 +123,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()],
     inputs=[test.as_named_input('test').as_download()]
 )
 
@@ -166,14 +166,6 @@ dataprep_step = PythonScriptStep(
     compute_target=cluster,
     arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
     )
-```
-
-You may choose to upload the contents of your `OutputFileDatasetConfig` object at the end of a run. In that case, use the `as_upload()` function along with your `OutputFileDatasetConfig` object, and specify whether to overwrite existing files in the destination. 
-
-```python
-#get blob datastore already registered with the workspace
-blob_store= ws.datastores['my_blob_store']
-OutputFileDatasetConfig(name="clean_data", destination=(blob_store, 'outputdataset')).as_upload(overwrite=False)
 ```
 
 > [!NOTE]
@@ -242,7 +234,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 Azure does not automatically delete intermediate data written with `OutputFileDatasetConfig`. To avoid storage charges for large amounts of unneeded data, you should either:
 
 * Programmatically delete intermediate data at the end of a pipeline run, when it is no longer needed
-* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)) 
+* Use blob storage with a short-term storage policy for intermediate data (see [Optimize costs by automating Azure Blob Storage access tiers](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
 * Regularly review and delete no-longer-needed data
 
 For more information, see [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md).

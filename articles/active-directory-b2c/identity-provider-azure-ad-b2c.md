@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
@@ -41,7 +41,7 @@ This article describes how to set up a federation with another Azure AD B2C tena
 
 To enable sign-in for users with an account from another Azure AD B2C tenant (for example, Fabrikam), in your Azure AD B2C (for example, Contoso):
 
-1. Create a [user flow](tutorial-create-user-flows.md), or a [custom policy](custom-policy-get-started.md).
+1. Create a [user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow), or a [custom policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Then create an application in the Azure AD B2C, as describe in this section. 
 
 To create an application.
@@ -59,6 +59,8 @@ To create an application.
     ```
 
     For example, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+
+    If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant.
 
 1. Under Permissions, select the **Grant admin consent to openid and offline_access permissions** check box.
 1. Select **Register**.
@@ -223,7 +225,7 @@ You can define Azure AD B2C as a claims provider by adding Azure AD B2C to the *
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Fabrikam** to sign in with the other Azure AD B2C tenant.
 

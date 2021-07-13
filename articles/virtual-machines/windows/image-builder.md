@@ -1,15 +1,15 @@
 ---
-title: Create a Windows VM with Azure Image Builder (preview)
+title: Create a Windows VM with Azure Image Builder 
 description: Create a Windows VM with the Azure Image Builder.
-author: cynthn
-ms.author: cynthn
-ms.date: 03/02/2020
+author: kof-f
+ms.author: kofiforson
+ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ---
-# Preview: Create a Windows VM with Azure Image Builder
+# Create a Windows VM with Azure Image Builder
 
 This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -27,25 +27,14 @@ You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> For Windows users, the Azure CLI examples below can be run on [Azure Cloud Shell](https://shell.azure.com) using Bash.
 
 
 ## Register the features
 
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+To use Azure Image Builder, you need to register the feature.
 
 Check your registration.
 
@@ -194,7 +183,7 @@ az resource delete \
 ```
 
 ## Start the image build
-Start the image building process using [az resource invoke-action](/cli/azure/resource#az-resource-invoke-action).
+Start the image building process using [az resource invoke-action](/cli/azure/resource#az_resource_invoke_action).
 
 ```azurecli-interactive
 az resource invoke-action \

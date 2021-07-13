@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 In this article you will learn the different options you can use when querying an anchor. We will go over the AnchorLocateCriteria class, its options and valid option combinations.
 
 ## Anchor locate criteria
-The [AnchorLocateCriteria class](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) helps you query the service for previously created anchors. One AnchorLocateCriteria object may be used per watcher at any time. Each AnchorLocateCriteria object must include **exactly one** of the following properties: [Identifiers](#identifiers), [NearAnchor](#nearanchor), or [NearDevice](#neardevice). Additional properties such as [Strategy](#strategy), [BypassCache](#bypasscache), and [RequestedCategories](#requestedcategories) can be set if desired. 
+The [AnchorLocateCriteria class](/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) helps you query the service for previously created anchors. One AnchorLocateCriteria object may be used per watcher at any time. Each AnchorLocateCriteria object must include **exactly one** of the following properties: [Identifiers](#identifiers), [NearAnchor](#nearanchor), or [NearDevice](#neardevice). Additional properties such as [Strategy](#strategy), [BypassCache](#bypasscache), and [RequestedCategories](#requestedcategories) can be set if desired. 
 
 ### Properties
 Define **exactly one** of the following properties in your watcher:
@@ -34,7 +34,7 @@ This property is specified using a NearAnchorCriteria object.
 #### NearDevice
 *Default Value: not set*
 
-Using NearDevice, you can specify that AnchorLocateCriteria restricts the set of requested anchors to those close to the device’s physical location. Any enabled sensors will be used to help discover anchors around your device. To have the best chance of finding anchors, you should configure SensorCapabilities to give the session access to all appropriate sensors. For more information on setting up and using this property, see [Coarse Relocalization - Azure Spatial Anchors | Microsoft Docs](https://docs.microsoft.com/azure/spatial-anchors/concepts/coarse-reloc) and *How to create and locate anchors using coarse relocalization* in [C#](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [Objective-C](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-unity), [Swift](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-swift), [Java](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-java), [C++/NDK](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-ndk), [C++/WinRT](https://docs.microsoft.com/azure/spatial-anchors/how-tos/set-up-coarse-reloc-cpp-winrt).
+Using NearDevice, you can specify that AnchorLocateCriteria restricts the set of requested anchors to those close to the device’s physical location. Any enabled sensors will be used to help discover anchors around your device. To have the best chance of finding anchors, you should configure SensorCapabilities to give the session access to all appropriate sensors. For more information on setting up and using this property, see [Coarse Relocalization - Azure Spatial Anchors | Microsoft Docs](./coarse-reloc.md) and *How to create and locate anchors using coarse relocalization* in [C#](../how-tos/set-up-coarse-reloc-unity.md), [Objective-C](../how-tos/set-up-coarse-reloc-unity.md), [Swift](../how-tos/set-up-coarse-reloc-swift.md), [Java](../how-tos/set-up-coarse-reloc-java.md), [C++/NDK](../how-tos/set-up-coarse-reloc-cpp-ndk.md), [C++/WinRT](../how-tos/set-up-coarse-reloc-cpp-winrt.md).
 This property is specified using a NearDeviceCriteria object.
 
 ### Additional properties
@@ -63,7 +63,7 @@ LocateStrategy Enum Value | Description
 ---------------|------------
 AnyStrategy | This strategy permits the system to use combinations of VisualInformation and Relationship strategies to find anchors. 
 VisualInformation|This strategy attempts to find anchors by matching visual information from the current surroundings to those of the anchor’s visual footprint. An anchor’s visual footprint refers to the visual information currently associated with the anchor. This visual information is typically but not exclusively gathered during anchor creation. Currently, this strategy is only permitted in conjunction with the NearDevice or Identifiers properties.
-Relationship|This strategy attempts to find anchors by making use of existing [connected anchors](https://docs.microsoft.com/azure/spatial-anchors/concepts/anchor-relationships-way-finding#connect-anchors). Currently, this strategy is only permitted in conjunction with the NearAnchor or Identifiers properties. When used with the Identifiers property, it is required that, in the same session, the user should have previously located an anchor(s) with already established connective relationships to the anchors whose IDs are specified in the Identifiers array. 
+Relationship|This strategy attempts to find anchors by making use of existing [connected anchors](./anchor-relationships-way-finding.md#connect-anchors). Currently, this strategy is only permitted in conjunction with the NearAnchor or Identifiers properties. When used with the Identifiers property, it is required that, in the same session, the user should have previously located an anchor(s) with already established connective relationships to the anchors whose IDs are specified in the Identifiers array. 
 
 
 ### Valid combinations of LocateStrategy and AnchorLocateCriteria properties 
@@ -84,4 +84,4 @@ NearDevice	| &check;    |   | &check;
 
 ## Next steps
 
-See [How to create and locate anchors using Azure Spatial Anchors](https://docs.microsoft.com/azure/spatial-anchors/create-locate-anchors-overview) for some more examples using the AnchorLocateCriteria class.
+See [How to create and locate anchors using Azure Spatial Anchors](../create-locate-anchors-overview.md) for some more examples using the AnchorLocateCriteria class.

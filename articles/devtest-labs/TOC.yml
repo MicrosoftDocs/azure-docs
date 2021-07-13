@@ -68,7 +68,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/devtest-labs-security-baseline?toc=/azure/devtest-labs/TOC.json
 - name: How-to guides
   items:
   - name: Configure a lab
@@ -319,4 +319,4 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
   - name: Frequently asked questions
-    href: devtest-lab-faq.md
+    href: devtest-lab-faq.yml

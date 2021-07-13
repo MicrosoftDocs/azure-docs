@@ -52,13 +52,13 @@ Once you've deployed an app, follow the steps below to enable the snapshot debug
 
 ## Enable Snapshot Debugger for other clouds
 
-Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide) through the Application Insights Connection String.
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide) through the Application Insights Connection String.
 
 |Connection String Property    | US Government Cloud | China Cloud |   
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-For more information about other connection overrides, see [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+For more information about other connection overrides, see [Application Insights documentation](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## Disable Snapshot Debugger
 
@@ -116,4 +116,3 @@ For an Azure App Service, you can set app settings within the Azure Resource Man
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png
-

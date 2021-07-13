@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: overview
-ms.date: 10/13/2020
+ms.date: 06/22/2021
 ms.author: cherylmc
 
 ---
@@ -50,9 +50,9 @@ Subscribe to the RSS feed and view the latest Azure Bastion feature updates on t
 
 ## FAQ
 
-[!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]
+For frequently asked questions, see the Bastion [FAQ](bastion-faq.md).
 
 ## Next steps
 
 * [Tutorial: Create an Azure Bastion host and connect to a Windows VM](tutorial-create-host-portal.md).
-* Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

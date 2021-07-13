@@ -1,8 +1,10 @@
 ---
-title: "Quickstart: Create a blueprint in the portal"
+title: 'Quickstart: Create a blueprint in the portal'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-portal
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
@@ -75,12 +77,12 @@ Manager template and role assignment on the new resource group.
 
    1. Change **Type** to **Built-in**. In **Search**, enter **tag**.
 
-   1. Change focus out of **Search** for the filtering to occur. Select **Append tag and its default
+   1. Change focus out of **Search** for the filtering to occur. Select **Append tag and its
       value to resource groups**.
 
    1. Select **Add** to add this artifact to the blueprint.
 
-1. Select the row of the policy assignment **Append tag and its default value to resource groups**.
+1. Select the row of the policy assignment **Append tag and its value to resource groups**.
 
 1. The window to provide parameters to the artifact as part of the blueprint definition opens and
    allows setting the parameters for all assignments (static parameters) based on this blueprint
@@ -166,7 +168,7 @@ Manager template and role assignment on the new resource group.
       }
       ```
 
-   1. Clear the **storageAccountType** check box and note that the drop-down list contains only
+   1. Clear the **storageAccountType** check box and note that the dropdown list contains only
       values included in the ARM template under **allowedValues**. Select the box to set it back to
       a dynamic parameter.
 
@@ -189,8 +191,8 @@ assignment to the new resource group. You can fix both by following these steps:
 
 1. Select **Blueprint definitions** from the page on the left.
 
-1. In the list of blueprints, right-click the one that you previously created and select **Edit
-   blueprint**.
+1. In the list of blueprints, select and hold (or right-click) the one that you previously created
+   and select **Edit blueprint**.
 
 1. In **Blueprint description**, provide some information about the blueprint and the artifacts that
    compose it. In this case, enter something like: **This blueprint sets tag policy and role
@@ -230,8 +232,8 @@ Publishing makes the blueprint available to be assigned to a subscription.
 
 1. Select **Blueprint definitions** from the page on the left.
 
-1. In the list of blueprints, right-click the one you previously created and select **Publish
-   blueprint**.
+1. In the list of blueprints, select and hold (or right-click) the one you previously created and
+   select **Publish blueprint**.
 
 1. In the pane that opens, provide a **Version** (letters, numbers, and hyphens with a maximum
    length of 20 characters), such as **v1**. Optionally, enter text in **Change notes**, such as
@@ -247,10 +249,10 @@ is saved to a subscription, it can only be assigned to that subscription.
 
 1. Select **Blueprint definitions** from the page on the left.
 
-1. In the list of blueprints, right-click the one that you previously created (or select the
-   ellipsis) and select **Assign blueprint**.
+1. In the list of blueprints, select and hold (or right-click) the one that you previously created
+   (or select the ellipsis) and select **Assign blueprint**.
 
-1. On the **Assign blueprint** page, in the **Subscription** drop-down list, select the
+1. On the **Assign blueprint** page, in the **Subscription** dropdown list, select the
    subscriptions that you want to deploy this blueprint to.
 
    If there are supported Enterprise offerings available from
@@ -262,7 +264,7 @@ is saved to a subscription, it can only be assigned to that subscription.
 
    1. Provide a **Display name** for the new subscription.
 
-   1. Select the available **Offer** from the drop-down list.
+   1. Select the available **Offer** from the dropdown list.
 
    1. Use the ellipsis to select the [management group](../management-groups/overview.md) that the
       subscription will be a child of.
@@ -286,8 +288,8 @@ is saved to a subscription, it can only be assigned to that subscription.
    blueprint. To learn more, see
    [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Leave the **Blueprint definition version** drop-down selection of **Published** versions on the
-   **v1** entry. (The default is the most recently published version.)
+1. Leave the **Blueprint definition version** dropdown list selection of **Published** versions on
+   the **v1** entry. (The default is the most recently published version.)
 
 1. For **Lock Assignment**, leave the default of **Don't Lock**. For more information, see
    [Blueprints resource locking](./concepts/resource-locking.md).
@@ -303,7 +305,7 @@ is saved to a subscription, it can only be assigned to that subscription.
    Value** to **ContosoIT**.
 
 1. For **ResourceGroup**, provide a **Name** of **StorageAccount** and a **Location** of **East US
-   2** from the drop-down list.
+   2** from the dropdown list.
 
    > [!NOTE]
    > For each artifact that you added under the resource group during blueprint definition, that
@@ -327,8 +329,8 @@ Now that the blueprint has been assigned to a subscription, verify the progress 
 
 1. Select **Assigned blueprints** from the page on the left.
 
-1. In the list of blueprints, right-click the one that you previously assigned and select **View
-   assignment details**.
+1. In the list of blueprints, select and hold (or right-click) the one that you previously assigned
+   and select **View assignment details**.
 
    :::image type="content" source="./media/create-blueprint-portal/view-assignment-details.png" alt-text="Screenshot of the blueprint assignment context menu with the 'View assignment details' option selected." border="false":::
 

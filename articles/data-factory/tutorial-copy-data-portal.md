@@ -1,12 +1,12 @@
 ---
 title: Use the Azure portal to create a data factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
@@ -85,7 +85,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-     ![New data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
 7. Under **Version**, select **V2**.
 8. Select **Git configuration** tab on the top, and select the **Configure Git later** check box.

@@ -18,6 +18,7 @@ Confidential computing infrastructure requires specific tools and software. This
 To leverage the power of enclaves and isolated environments, you'll need to use tools that support confidential computing. There are various tools that support enclave application development. For example, you can use these open-source frameworks: 
 
 - [The Open Enclave Software Development Kit (OE SDK)](#oe-sdk)
+- [The EGo Software Development Kit](#ego)
 - [The Confidential Consortium Framework (CCF)](#ccf)
 
 ## Overview
@@ -43,6 +44,10 @@ During application design, it's important to identify and determine what part of
 Use a library or framework supported by your provider if you want to write code that runs in an enclave. The [Open Enclave SDK](https://github.com/openenclave/openenclave) (OE SDK) is an open-source SDK that allows abstraction over different confidential computing-enabled hardware. 
 
 The OE SDK is built to be a single abstraction layer over any hardware on any CSP. The OE SDK can be used on top of Azure confidential computing virtual machines to create and run applications on top of enclaves.
+
+## EGo Software Development Kit <a id="ego"></a>
+
+[EGo](https://ego.dev/) is an open-source SDK that enables you to run applications written in the Go programming language inside enclaves. EGo builds on top of the OE SDK and comes with an in-enclave Go library for attestation and sealing. Many existing Go applications run on EGo without modifications.  
 
 ## Confidential Consortium Framework (CCF) <a id="ccf"></a>
 

@@ -6,9 +6,9 @@ ms.date: 05/06/2019
 ms.author: wolfma
 ---
 
-### Standard and neural voices
+### Neural and standard voices
 
-Use this table to determine **availability of standard voices** by region/endpoint:
+Use this table to determine **availability of neural and standard voices** by region/endpoint:
 
 | Region | Endpoint |
 |--------|----------|
@@ -29,26 +29,13 @@ Use this table to determine **availability of standard voices** by region/endpoi
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > [Voices in preview](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
-
-Use this table to determine **availability of neural voices** by region/endpoint:
-
-| Region | Endpoint |
-|--------|----------|
-| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
-| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
-| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
-| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
-| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 ### Custom voices
 

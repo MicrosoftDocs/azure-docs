@@ -22,7 +22,8 @@ Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure por
 
 [![Start Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
-When you start Log Analytics, the first thing you'll see is a dialog box with [example queries](../logs/example-queries.md). These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find a that does exactly what you need, or load one to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
+When you start Log Analytics, the first thing you'll see is a dialog box with [example queries](../logs/queries.md). These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find one that does exactly what you need, or load one to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
+
 Of course if you want to start with an empty script and write it yourself, you can close the example queries. Just click the **Queries** at the top of the screen if you want to get them back.
 
 ## Log Analytics interface
@@ -41,7 +42,7 @@ Controls for working with the query in the query window.
 | Save button | Save the query to the Query Explorer for the workspace. |
  Copy button | Copy a link to the query, the query text, or the query results to the clipboard. |
 | New alert rule button | Create a new tab with an empty query. |
-| Export button | Export the results of the query to a CSV file or the query to Power Query Formula Language format for use with Power Bi. |
+| Export button | Export the results of the query to a CSV file or the query to Power Query Formula Language format for use with Power BI. |
 | Pin to dashboard button | Add the results of the query to an Azure dashboard. |
 | Format query button | Arrange the selected text for readability. |
 | Example queries button | Open the example queries dialog box that is displayed when you first open Log Analytics. |

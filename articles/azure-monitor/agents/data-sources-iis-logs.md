@@ -56,6 +56,8 @@ IIS log records have a type of **W3CIISLog** and have the properties in the foll
 | sSiteName |Name of the IIS site. |
 | TimeGenerated |Date and time the entry was logged. |
 | TimeTaken |Length of time to process the request in milliseconds. |
+| csHost | Host name. |
+| csBytes | Number of bytes that the server received. |
 
 ## Log queries with IIS logs
 The following table provides different examples of log queries that retrieve IIS log records.

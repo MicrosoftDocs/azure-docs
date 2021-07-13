@@ -2,11 +2,12 @@
 title: Protecting private DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting private DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: asudbring
 ms.service: dns
+author: twooley
+ms.author: twooley
 ms.topic: how-to
-ms.date: 02/18/2020
-ms.author: allensu
+ms.date: 05/07/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to protect private DNS zones and records
@@ -31,7 +32,7 @@ The simplest way to assign Azure RBAC permissions is [via the Azure portal](../r
 
 Open **Access control (IAM)** for the resource group, select **Add**, then select the **Private DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 
-![Resource group level Azure RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/resource-group-rbac.png" alt-text="Screenshot of RBAC for private DNS resource group.":::
 
 Permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -64,7 +65,7 @@ For example, the resource group *myPrivateDNS* contains the zone *private.contos
 
 Zone-level Azure RBAC permissions can be granted via the Azure portal.  Open **Access control (IAM)** for the zone, select **Add**, then select the **Private DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 
-![DNS Zone level Azure RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-rbac.png" alt-text="Screenshot of RBAC for private DNS zone.":::
 
 Permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -97,9 +98,9 @@ Permissions are applied at the record set level.  The user is granted control to
 
 Record-set level Azure RBAC permissions can be configured via the Azure portal, using the **Access Control (IAM)** button in the record set page:
 
-![Screenshot shows the Access Control (I A M) button.](./media/dns-protect-private-zones-recordsets/rbac3.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-1.png" alt-text="Screenshot of RBAC for private DNS record set.":::
 
-![Screenshot shows Access Control with Add role assignment selected.](./media/dns-protect-private-zones-recordsets/rbac4.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/record-set-rbac-2.png" alt-text="Screenshot of role assignment for private DNS record set.":::
 
 Record-set level Azure RBAC permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -197,7 +198,7 @@ To prevent changes being made, apply a ReadOnly lock to the zone. This lock prev
 
 Zone level resource locks can be created via the Azure portal.  From the DNS zone page, select **Locks**, then select **+Add**:
 
-![Zone level resource locks via the Azure portal](./media/dns-protect-private-zones-recordsets/locks1.png)
+:::image type="content" source="./media/dns-protect-private-zones-recordsets/zone-locks.png" alt-text="Screenshot of locks for private DNS zone.":::
 
 Zone-level resource locks can also be created via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock):
 
@@ -213,7 +214,7 @@ $rsg = "<resource group name>"
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceType $rty -ResourceGroupName $rsg
 ```
 
-The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az-lock-create):
+The equivalent command is also [available via the Azure CLI](/cli/azure/lock#az_lock_create):
 
 ```azurecli-interactive
 # Lock a DNS zone

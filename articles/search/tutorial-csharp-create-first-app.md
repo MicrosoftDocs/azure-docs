@@ -107,7 +107,7 @@ For this sample, you are using publicly available hotel data. This data is an ar
 
     ```csharp
     {
-        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceUri": "<YOUR-SEARCH-SERVICE-URI>",
         "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
@@ -313,14 +313,16 @@ Delete the content of Index.cshtml in its entirety, and rebuild the file in the 
         {
             // Show the result count.
             <p class="sampleText">
-                @Model.resultList.Count Results
+                @Model.resultList.TotalCount Results
             </p>
 
-            @for (var i = 0; i < Model.resultList.Count; i++)
+            var results = Model.resultList.GetResults().ToList();
+
+            @for (var i = 0; i < results.Count; i++)
             {
                 // Display the hotel name and description.
-                @Html.TextAreaFor(m => m.resultList[i].Document.HotelName, new { @class = "box1" })
-                @Html.TextArea($"desc{i}", Model.resultList[i].Document.Description, new { @class = "box2" })
+                @Html.TextAreaFor(m => results[i].Document.HotelName, new { @class = "box1" })
+                @Html.TextArea($"desc{i}", results[i].Document.Description, new { @class = "box2" })
             }
         }
     }
@@ -508,7 +510,10 @@ The Azure Cognitive Search call is encapsulated in our **RunQueryAsync** method.
     {
         InitSearch();
 
-        var options = new SearchOptions() { };
+        var options = new SearchOptions() 
+        { 
+            IncludeTotalCount = true
+        };
 
         // Enter Hotel property names into this list so only these values will be returned.
         // If Select is empty, all values will be returned, which can be inefficient.
@@ -516,8 +521,7 @@ The Azure Cognitive Search call is encapsulated in our **RunQueryAsync** method.
         options.Select.Add("Description");
 
         // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
-        var searchResult = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
-        model.resultList = searchResult.Value.GetResults().ToList();
+        model.resultList = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);          
 
         // Display the results.
         return View("Index", model);

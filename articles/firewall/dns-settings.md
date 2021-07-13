@@ -5,13 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/16/2021
-ms.author: victorh
+ms.date: 05/26/2021
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure Firewall DNS settings
 
-You can configure a custom DNS server and enable DNS proxy for Azure Firewall. Configure these settings when you deploy the firewall, or configure them later from the **DNS settings** page.
+You can configure a custom DNS server and enable DNS proxy for Azure Firewall. Configure these settings when you deploy the firewall, or configure them later from the **DNS settings** page. By default, Azure Firewall uses Azure DNS and DNS Proxy is disabled.
 
 ## DNS servers
 
@@ -24,7 +25,7 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 
 1. Under Azure Firewall **Settings**, select **DNS Settings**.
 2. Under **DNS servers**, you can type or add existing DNS servers that have been previously specified in your virtual network.
-3. Select **Save**.
+3. Select **Apply**.
 
 The firewall now directs DNS traffic to the specified DNS servers for name resolution.
 
@@ -58,12 +59,14 @@ $azFw | Set-AzFirewall
 
 ## DNS proxy
 
-You can configure Azure Firewall to act as a DNS proxy. A DNS proxy is an intermediary for DNS requests from client virtual machines to a DNS server. If you configure a custom DNS server, then enable DNS proxy to avoid a DNS resolution mismatch, and enable FQDN (fully qualified domain name) filtering in the network rules.
+You can configure Azure Firewall to act as a DNS proxy. A DNS proxy is an intermediary for DNS requests from client virtual machines to a DNS server.
+
+If you want to enable FQDN (fully qualified domain name) filtering in network rules, enable DNS proxy and update the virtual machine configuration to use the firewall as a DNS proxy.
 
 :::image type="content" source="media/dns-settings/dns-proxy-2.png" alt-text="D N S proxy configuration using a custom D N S server.":::
 
+If you enable FQDN filtering in network rules, and you don't configure client virtual machines to use the firewall as a DNS proxy, then DNS requests from these clients might travel to a DNS server at a different time or return a different response compared to that of the firewall. DNS proxy puts Azure Firewall in the path of the client requests to avoid inconsistency.
 
-If you don't enable DNS proxy, then DNS requests from the client might travel to a DNS server at a different time or return a different response compared to that of the firewall. DNS proxy puts Azure Firewall in the path of the client requests to avoid inconsistency.
 
 When Azure Firewall is a DNS proxy, two caching function types are possible:
 
@@ -71,7 +74,13 @@ When Azure Firewall is a DNS proxy, two caching function types are possible:
 
 - **Negative cache**: DNS resolution results in no response or no resolution. The firewall caches this information for one hour.
 
-The DNS proxy stores all resolved IP addresses from FQDNs in network rules. As a best practice, use  FQDNs that resolve to one IP address.  
+The DNS proxy stores all resolved IP addresses from FQDNs in network rules. As a best practice, use  FQDNs that resolve to one IP address.
+
+### Policy inheritance
+
+ Policy DNS settings applied to a standalone firewall overrides the standalone firewall’s DNS settings. A child policy inherits all parent policy DNS settings, but it can override the parent policy.
+
+For example, to use FQDNs in network rule, DNS proxy should be enabled. But if a parent policy does **not** have DNS proxy enabled, the child policy won't support FQDNs in network rules unless you locally override this setting.
 
 ### DNS proxy configuration
 
@@ -158,4 +167,5 @@ $azFw | Set-AzFirewall
 
 ## Next steps
 
-[FQDN filtering in network rules](fqdn-filtering-network-rules.md)
+- [Azure Firewall DNS Proxy details](dns-details.md)
+- [FQDN filtering in network rules](fqdn-filtering-network-rules.md)

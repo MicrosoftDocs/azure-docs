@@ -1,17 +1,17 @@
 ---
 title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
-description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
+description: Set up Hadoop, Kafka, Spark, HBase, or Storm clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017,seodec18
+ms.custom: hdinsightactive,hdiseo17may2017,seodec18, devx-track-azurecli
 ms.date: 08/06/2020
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
 
-[!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
+[!INCLUDE [selector](includes/hdinsight-create-linux-cluster-selector.md)]
 
-Learn how to set up and configure Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, ML Services, or Apache Storm in HDInsight. Also, learn how to customize clusters and add security by joining them to a domain.
+Learn how to set up and configure Apache Hadoop, Apache Spark, Apache Kafka, Interactive Query, Apache HBase, or Apache Storm in HDInsight. Also, learn how to customize clusters and add security by joining them to a domain.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
@@ -26,18 +26,18 @@ The following table shows the different methods you can use to set up an HDInsig
 
 | Clusters created with | Web browser | Command line | REST API | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
-| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
-| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✅ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✅ |✅ |✅ |✅ |
+| [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
+| [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
+| [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✅ |✅ |&nbsp; |
+| [Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✅ |&nbsp; |&nbsp; |
 
 This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster.
 
 ## Basics
 
-![hdinsight create options custom quick](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="hdinsight create options custom quick":::
 
 ### Project details
 
@@ -72,7 +72,6 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 | [HBase](hbase/apache-hbase-overview.md) |Processing for large amounts of schemaless, NoSQL data |
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |In-memory caching for interactive and faster Hive queries |
 | [Kafka](kafka/apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
-| [ML Services](r-server/r-server-overview.md) |Various big data statistics, predictive modeling, and machine learning capabilities |
 | [Spark](spark/apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Storm](storm/apache-storm-overview.md) |Real-time event processing |
 
@@ -102,7 +101,7 @@ The SSH username has the following restrictions:
 
 ## Storage
 
-![Cluster storage settings: HDFS-compatible endpoints](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-storage.png" alt-text="Cluster storage settings: HDFS-compatible endpoints":::
 
 Although an on-premises installation of Hadoop uses the Hadoop Distributed File System (HDFS) for storage on the cluster, in the cloud you use storage endpoints connected to cluster. Using cloud storage means you can safely delete the HDInsight clusters used for computation while still retaining your data.
 
@@ -121,7 +120,7 @@ For more information on storage options with HDInsight, see [Compare storage opt
 
 During configuration, for the default storage endpoint you specify a blob container of an Azure Storage account or Data Lake Storage. The default storage contains application and system logs. Optionally, you can specify additional linked Azure Storage accounts and Data Lake Storage accounts that the cluster can access. The HDInsight cluster and the dependent storage accounts must be in the same Azure location.
 
-[!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
+[!INCLUDE [secure-transfer-enabled-storage-account](includes/hdinsight-secure-transfer.md)]
 
 > [!IMPORTANT]
 > Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster using a storage account with secure transfer already enabled.
@@ -160,7 +159,7 @@ Ambari is used to monitor HDInsight clusters, make configuration changes, and st
 
 ## Security + networking
 
-![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="hdinsight create options choose enterprise security package":::
 
 ### Enterprise security package
 
@@ -196,7 +195,7 @@ For more information, see [Managed identities in Azure HDInsight](./hdinsight-ma
 
 ## Configuration + pricing
 
-![HDInsight choose your node size](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png)
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration.png" alt-text="HDInsight choose your node size":::
 
 You're billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can't be de-allocated or put on hold.
 
@@ -206,10 +205,10 @@ Each cluster type has its own number of nodes, terminology for nodes, and defaul
 
 | Type | Nodes | Diagram |
 | --- | --- | --- |
-| Hadoop |Head node (2), Worker node (1+) |![HDInsight Hadoop cluster nodes](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |![HDInsight HBase cluster type setup](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
-| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |![HDInsight storm cluster type setup](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
-| Spark |Head node (2), Worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |![HDInsight spark cluster type setup](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
+| Hadoop |Head node (2), Worker node (1+) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png" alt-text="HDInsight Hadoop cluster nodes" border="false"::: |
+| HBase |Head server (2), region server (1+), master/ZooKeeper node (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png" alt-text="HDInsight HBase cluster type setup" border="false"::: |
+| Storm |Nimbus node (2), supervisor server (1+), ZooKeeper node (3) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png" alt-text="HDInsight storm cluster type setup" border="false"::: |
+| Spark |Head node (2), Worker node (1+), ZooKeeper node (3) (free for A1 ZooKeeper VM size) |:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png" alt-text="HDInsight spark cluster type setup" border="false"::: |
 
 For more information, see [Default node configuration and virtual machine sizes for clusters](hdinsight-supported-node-configuration.md) in "What are the Hadoop components and versions in HDInsight?"
 
@@ -217,7 +216,7 @@ The cost of HDInsight clusters is determined by the number of nodes and the virt
 
 Different cluster types have different node types, numbers of nodes, and node sizes:
 * Hadoop cluster type default:
-    * Two *head nodes*  
+    * Two *head nodes*
     * Four *Worker nodes*
 * Storm cluster type default:
     * Two *Nimbus nodes*

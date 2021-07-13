@@ -1,17 +1,17 @@
 ---
-title: Integrate Windows Virtual Desktop with Azure Advisor - Azure
-description: How to use Azure Advisor with your Windows Virtual Desktop deployment.
+title: Integrate Azure Virtual Desktop with Azure Advisor - Azure
+description: How to use Azure Advisor with your Azure Virtual Desktop deployment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/31/2021
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Use Azure Advisor with Windows Virtual Desktop
+# Use Azure Advisor with Azure Virtual Desktop
 
 Azure Advisor can help users resolve common issues on their own without having to file support cases. The recommendations reduce the need to submit help requests, saving you time and costs.
 
-This article will tell you how to set up Azure Advisor in your Windows Virtual Desktop deployment to help your users.
+This article will tell you how to set up Azure Advisor in your Azure Virtual Desktop deployment to help your users.
 
 ## What is Azure Advisor?
 
@@ -50,10 +50,8 @@ When you select a category, you'll go to its active recommendations page. On thi
 
 - Don't dismiss recommendations until you know why they're appearing and are sure it won't have a negative impact on you or your users. Always select **Learn more** to see what the issue is. If you resolve an issue by following the instructions in Azure Advisor, it will automatically disappear from the list. You're better off resolving issues than postponing them repeatedly.
 
-- Whenever you come across an issue in Windows Virtual Desktop, always check Azure Advisor first. Azure Advisor will give you directions for how to solve the problem, or at least point you towards a resource that can help.
+- Whenever you come across an issue in Azure Virtual Desktop, always check Azure Advisor first. Azure Advisor will give you directions for how to solve the problem, or at least point you towards a resource that can help.
 
 ## Next steps
 
 To learn how to resolve recommendations, see [How to resolve Azure Advisor recommendations](azure-advisor-recommendations.md).
-
-If you have suggestions for new recommendations, post it on our [Azure Advisor User Voice forum](https://windowsvirtualdesktop.uservoice.com/forums/930847-azure-advisor-recommendations).

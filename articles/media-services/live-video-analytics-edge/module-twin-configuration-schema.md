@@ -1,11 +1,13 @@
 ---
-title: Module twin JSON schema - Azure
-description: This topic describes module twin JSON schema of Live Video Analytics on IoT Edge.
+title: Module twin JSON schema in Live Video Analytics - Azure
+description: This topic describes module twin JSON schema of Azure Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Module twin JSON schema
+# Module twin JSON schema in Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For detailed explanation, see [Understand and use module twins in IoT Hub](../../iot-hub/iot-hub-devguide-module-twins.md)
 

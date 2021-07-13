@@ -23,7 +23,7 @@ Azure Machine Learning provides a default Docker base image. You can also use Az
 Run the code on either of these environments:
 
 * Azure Machine Learning compute instance (no downloads or installation necessary):
-  * Complete the [Set up environment and workspace](tutorial-1st-experiment-sdk-setup.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
+  * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
   * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **notebooks** > **fastai** > **train-pets-resnet34.ipynb** directory. 
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
@@ -48,13 +48,12 @@ ws = Workspace.from_config()
 
 ### Define your environment
 
-Create an `Environment` object and enable Docker.
+Create an `Environment` object.
 
 ```python
 from azureml.core import Environment
 
 fastai_env = Environment("fastai2")
-fastai_env.docker.enabled = True
 ```
 
 The specified base image in the following code supports the fast.ai library, which allows for distributed deep-learning capabilities. For more information, see the [fast.ai Docker Hub repository](https://hub.docker.com/u/fastdotai). 
@@ -101,7 +100,8 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 > Azure Machine Learning only supports Docker images that provide the following software:
 > * Ubuntu 16.04 or greater.
 > * Conda 4.5.# or greater.
-> * Python 3.5+.
+> * Python 3.6+.
+> * A POSIX compliant shell available at /bin/sh is required in any container image used for training. 
 
 For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 
 
@@ -139,7 +139,7 @@ print(compute_target.get_status().serialize())
 
 ## Configure your training job
 
-For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
+For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
 Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](how-to-set-up-training-targets.md).
 
@@ -168,5 +168,5 @@ run.wait_for_completion(show_output=True)
 
 ## Next steps
 In this article, you trained a model by using a custom Docker image. See these other articles to learn more about Azure Machine Learning:
-* [Track run metrics](how-to-track-experiments.md) during training.
+* [Track run metrics](how-to-log-view-metrics.md) during training.
 * [Deploy a model](how-to-deploy-custom-docker-image.md) by using a custom Docker image.

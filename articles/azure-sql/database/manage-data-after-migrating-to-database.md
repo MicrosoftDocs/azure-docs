@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Database
 description: Learn how to manage your single and pooled databases after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: joesackmsft
-ms.author: josack
-ms.reviewer: sstein
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 02/13/2019
 ---
 # New DBA in the cloud – Managing Azure SQL Database after migration

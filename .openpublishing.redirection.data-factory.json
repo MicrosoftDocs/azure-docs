@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/data-factory/compute-optimized-retire.md",
+            "redirect_url": "/azure/data-factory/concepts-data-flow-overview",
+            "redirect_document_id": false
+        }
+    ]
+}

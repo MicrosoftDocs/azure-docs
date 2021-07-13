@@ -16,11 +16,11 @@ Azure Security Center's features cover the two broad pillars of cloud security:
 
 - **Cloud security posture management (CSPM)** - Security Center is available for **free** to all Azure users. The free experience includes CSPM features such as secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these CSPM features to strengthen your hybrid cloud posture and track compliance with the built-in policies.
 
-- **Cloud workload protection (CWP)** - Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features as described on this page. In addition to the built-in policies, when you've enabled any Azure Defender plan, you can add custom policies and initiatives. You can add regulatory standards - such as NIST and Azure CIS - as well as the Azure Security Benchmark for a truly customized view of your compliance.
+- **Cloud workload protection (CWP)** - Security Center's integrated cloud workload protection platform (CWPP), **Azure Defender**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Azure Defender brings a range of additional security features as described on this page. In addition to the built-in policies, when you've enabled any Azure Defender plan, you can add custom policies and initiatives. You can add regulatory standards - such as NIST and Azure CIS - as well as the [Azure Security Benchmark](/security/benchmark/azure/introduction) for a truly customized view of your compliance.
 
 The Azure Defender dashboard in Security Center provides visibility and control of the CWP features for your environment:
 
-:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard" lightbox="./media/azure-defender/sample-defender-dashboard.png":::
+:::image type="content" source="./media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the Azure Defender dashboard." lightbox="./media/azure-defender/sample-defender-dashboard.png":::
 
 ## What resource types can Azure Defender secure?
 
@@ -37,6 +37,7 @@ When you enable Azure Defender from the **Pricing and settings** area of Azure S
 - [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Azure Defender for DNS](defender-for-dns-introduction.md)
+- [Azure Defender for open-source relational databases](defender-for-databases-introduction.md)
 
 Each of these plans is explained separately in the Security Center documentation.
 

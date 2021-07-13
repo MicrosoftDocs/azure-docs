@@ -1752,7 +1752,7 @@ Pass a comma delimited list of commands to the container.
     </xs:attribute>
     <xs:attribute name="Isolation" use="optional" type="xs:string">
       <xs:annotation>
-        <xs:documentation>Isolation mode for container. Valid values are default, process or hyperv (only supported for windows containers).</xs:documentation>
+        <xs:documentation>Isolation mode for container. Valid values are default, process or Hyper-V (only supported for Windows containers).</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="Hostname" use="optional" type="xs:string">
@@ -1812,7 +1812,7 @@ Use MSI token authentication (or a custom specified endpoint) to obtain a token 
 |default|false|
 
 #### Isolation
-Isolation mode for container. Valid values are default, process or hyperv (only supported for windows containers).
+Isolation mode for container. Valid values are default, process or Hyper-V (only supported for Windows containers).
 
 |Attribute|Value|
 |---|---|
@@ -5370,7 +5370,7 @@ Restricts the resources that can be used on the host and declares resource limit
     </xs:attribute>
     <xs:attribute name="MaximumIOps" type="xs:string" use="optional" default="0">
       <xs:annotation>
-        <xs:documentation>Maximum IO rate (read and write) in terms of IOps that can be used. Must be a positive integer.</xs:documentation>
+        <xs:documentation>Maximum IO rate (read and write) in terms of IOPS that can be used. Must be a positive integer.</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="MaximumIOBandwidth" type="xs:string" use="optional" default="0">
@@ -5462,7 +5462,7 @@ Usable percentage of available CPUs (Windows only). Must be a positive integer. 
 |default|0|
 
 #### MaximumIOps
-Maximum IO rate (read and write) in terms of IOps that can be used. Must be a positive integer.
+Maximum IO rate (read and write) in terms of IOPS that can be used. Must be a positive integer.
 
 |Attribute|Value|
 |---|---|
@@ -7211,6 +7211,26 @@ Base type that defines a Microsoft Azure Service Fabric service.
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
+            <xs:element name="TagsRequiredToPlace" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Declares tags required for placement of a service. </xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TagRequiredToPlace" type="xs:string" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="TagsRequiredToRun" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Declares tags required for placement and running of a service. <xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="TagRequiredToRun" type="xs:string" maxOccurs="unbounded"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
         </xs:sequence>
         <xs:attribute name="ServiceTypeName" use="required">
             <xs:annotation>
@@ -7297,6 +7317,22 @@ Declares scaling policies for a service. Useful for dynamically scaling the serv
 |Attribute|Value|
 |---|---|
 |name|ServiceScalingPolicies|
+|minOccurs|0|
+
+#### TagsRequiredToPlace
+Declares tags required for placement of a service. Useful for dynamically influencing service placement. 
+
+|Attribute|Value|
+|---|---|
+|name|TagsRequiredToPlace|
+|minOccurs|0|
+
+#### TagRequiredToRun
+Declares tags required for placement and running of a service. Useful for dynamically influencing service placement and running. 
+
+|Attribute|Value|
+|---|---|
+|name|TagRequiredToRun|
 |minOccurs|0|
 
 ## ServiceTypeExtensionPolicyPropertiesType complexType

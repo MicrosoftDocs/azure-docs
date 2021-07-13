@@ -148,4 +148,4 @@ For FAQs, see [Virtual Network Service Endpoint FAQs](./virtual-networks-faq.md#
 - [Secure an Azure Synapse Analytics to a virtual network](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
 - [Virtual Network Service Endpoint Policies](./virtual-network-service-endpoint-policies-overview.md)
-- [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/vnet-2subnets-service-endpoints-storage-integration)

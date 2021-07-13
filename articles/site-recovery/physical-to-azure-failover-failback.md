@@ -2,12 +2,9 @@
 title: Set up failover and failback for physical servers with Site Recovery 
 description: Learn how to fail over physical servers to Azure, and fail back to the on-premises site for disaster recovery with Azure Site Recovery
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
-ms.author: raynew
 ---
 
 # Fail over and fail back physical servers replicated to Azure

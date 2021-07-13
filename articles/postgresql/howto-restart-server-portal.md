@@ -1,8 +1,8 @@
 ---
 title: Restart server - Azure portal - Azure Database for PostgreSQL - Single Server
 description: This article describes how you can restart an Azure Database for PostgreSQL - Single Server using the Azure portal.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 12/20/2020

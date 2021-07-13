@@ -29,7 +29,7 @@ For security reasons and compliance requirements, routinely rotate your access k
 
    ![Regenerate Keys](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-You also can regenerate keys by using the [Azure CLI](/cli/azure/signalr/key#az-signalr-key-renew).
+You also can regenerate keys by using the [Azure CLI](/cli/azure/signalr/key#az_signalr_key_renew).
 
 ## Update configurations with new connection strings
 

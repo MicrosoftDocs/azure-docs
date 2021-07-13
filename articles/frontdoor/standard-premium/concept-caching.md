@@ -22,13 +22,17 @@ In this article, you'll learn how Front Door Standard/Premium (Preview) Routes a
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Request methods
+
+Only the GET request method can generate cached content in Azure Front Door. All other request methods are always proxied through the network.
+
 ## Delivery of large files
 
 Front Door Standard/Premium (Preview) delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the origin. After receiving a full or byte-range file request, the Front Door environment requests the file from the originS in chunks of 8 MB.
 
 After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection.
 
-For more information on the byte-range request, read [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+For more information on the byte-range request, read [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, pre-fetching is used to request chunks from the backend. This optimization relies on the origin's ability to support byte-range requests. If the origin doesn't support byte-range requests, this optimization isn't effective.
 
 ## File compression

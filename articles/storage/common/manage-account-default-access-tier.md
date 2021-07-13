@@ -1,14 +1,15 @@
 ---
 title: Manage the default access tier of an Azure Storage account
 description: Learn how to change the default access tier of a GPv2 or Blob Storage account
-author: mhopkins-msft
+author: tamram
 
-ms.author: mhopkins
+ms.author: tamram
 ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.reviewer: klaasl
+ms.reviewer: klaasl 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage the default access tier of an Azure Storage account
@@ -52,6 +53,19 @@ $accountName = ""
 
 #Change the storage account tier to hot
 Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Hot
+```
+
+# [Azure CLI](#tab/azurecli)
+
+The following Azure CLI script can be used to change the account tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name.
+
+```azurecli
+#Initialize the following with your resource group and storage account names
+$rgName = ""
+$accountName = ""
+
+#Change the storage account tier to hot
+az storage account update --resource-group $rgName --name $accountName --access-tier Hot
 ```
 
 ---

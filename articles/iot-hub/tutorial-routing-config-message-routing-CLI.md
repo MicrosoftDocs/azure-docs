@@ -2,11 +2,10 @@
 title: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI
 description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI. Depending on properties in the message, route to either a storage account or a Service Bus queue.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 04/04/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. I want to be able to set up the resource and the routing using the Azure CLI.
@@ -143,7 +142,7 @@ Now that the base resources are set up, you can configure the message routing.
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az-iot-hub-routing-endpoint-create). To create the message route for the endpoint, use [az iot hub route create](/cli/azure/iot/hub/route#az-iot-hub-route-create).
+To create a routing endpoint, use [az iot hub routing-endpoint create](/cli/azure/iot/hub/routing-endpoint#az_iot_hub_routing_endpoint_create). To create the message route for the endpoint, use [az iot hub route create](/cli/azure/iot/hub/route#az_iot_hub_route_create).
 
 ### Route to a storage account
 

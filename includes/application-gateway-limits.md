@@ -29,13 +29,15 @@ ms.author: victorh
 | Number of rewrite rule sets |400| |
 | Number of Header or URL configuration per rewrite rule set|40| |
 | Number of conditions per rewrite rule set|40| |
-| Concurrent WebSocket connections |Medium gateways 20k<br> Large gateways 50k| |
+| Concurrent WebSocket connections |Medium gateways 20k<sup>2</sup><br> Large gateways 50k<sup>2</sup>| |
 | Maximum URL length|32KB| |
-| Maximum header size for HTTP/2 |4KB| |
-| Maximum file upload size, Standard |2 GB | |
+| Maximum header size for HTTP/2 |16KB| |
+| Maximum file upload size, Standard |4 GB | |
 | Maximum file upload size WAF |V1 Medium WAF gateways, 100 MB<br>V1 Large WAF gateways, 500 MB<br>V2 WAF, 750 MB| |
 | WAF body size limit, without files|128 KB||
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions per Application Gateway|40||
 
 <sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.
+
+<sup>2</sup> Limit is per Application Gateway instance not per Application Gateway resource.

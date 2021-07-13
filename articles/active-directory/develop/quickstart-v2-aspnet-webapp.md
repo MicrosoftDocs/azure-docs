@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to an ASP.NET web app | Azure"
+title: "Quickstart: ASP.NET web app that signs in users"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, learn how to implement Microsoft sign-in on an ASP.NET web app by using OpenID Connect.
+description: Download and run a code sample that shows how an ASP.NET web app can sign in Azure AD users.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1"
-#Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts, from any Azure Active Directory instance.
+# Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---
 
-# Quickstart: Add Microsoft identity platform sign-in to an ASP.NET web app
+# Quickstart: ASP.NET web app that signs in Azure AD users
 
-In this quickstart, you download and run a code sample that demonstrates how an ASP.NET web app can sign in users from any Azure Active Directory (Azure AD) organization. 
+In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
 
 > [!div renderon="docs"]
 > The following diagram shows how the sample app works:
@@ -75,6 +75,8 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > Run the project by using Visual Studio 2019.
 > [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Download the code sample](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run

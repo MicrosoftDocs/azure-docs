@@ -80,7 +80,7 @@ When choosing an analyzer that produces whole-term tokens, the following analyze
 | [language analyzers](index-add-language-analyzers.md) | Preserves hyphens in compound words or strings, vowel mutations, and verb forms. If query patterns include dashes, using a language analyzer might be sufficient. |
 | [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Content of the entire field is tokenized as a single term. |
 | [whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separates on white spaces only. Terms that include dashes or other characters are treated as a single token. |
-| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the predefined [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
+| [custom analyzer](index-add-custom-analyzers.md) | (recommended) Creating a custom analyzer lets you specify both the tokenizer and token filter. The previous analyzers must be used as-is. A custom analyzer lets you pick which tokenizers and token filters to use. <br><br>A recommended combination is the [keyword tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) with a [lower-case token filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). By itself, the built-in [keyword analyzer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) does not lower-case any upper-case text, which can cause queries to fail. A custom analyzer gives you a mechanism for adding the lower-case token filter. |
 
 If you are using a web API test tool like Postman, you can add the [Test Analyzer REST call](/rest/api/searchservice/test-analyzer) to inspect tokenized output.
 
@@ -155,9 +155,9 @@ Whether you are evaluating analyzers or moving forward with a specific configura
 
 ### Use built-in analyzers
 
-Built-in or predefined analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. 
+Built-in analyzers can be specified by name on an `analyzer` property of a field definition, with no additional configuration required in the index. The following example demonstrates how you would set the `whitespace` analyzer on a field. 
 
-For other scenarios and to learn more about other built-in analyzers, see [Predefined analyzers list](./index-add-custom-analyzers.md#predefined-analyzers-reference). 
+For other scenarios and to learn more about other built-in analyzers, see [Built-in analyzers](./index-add-custom-analyzers.md#built-in-analyzers). 
 
 ```json
     {

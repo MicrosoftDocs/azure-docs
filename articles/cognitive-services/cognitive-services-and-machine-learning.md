@@ -21,7 +21,6 @@ Cognitive Services provides machine learning capabilities to solve general probl
 |[Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)|Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.|
 |[Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)|Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.|
 |[Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)|Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.|
-||||
 
 Use Cognitive Services when you:
 

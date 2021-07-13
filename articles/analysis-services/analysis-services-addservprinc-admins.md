@@ -4,7 +4,7 @@ description: Learn how to add an automation service principal to the Azure Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 05/14/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
@@ -99,7 +99,7 @@ A managed identity can also be added to the Analysis Services Admins list. For e
 
 In most parts of the Azure portal and APIs, managed identities are identified using their service principal object ID. However, Analysis Services requires that they be identified using their client ID. To obtain the client ID for a service principal, you can use the Azure CLI:
 
-```bash
+```azurecli
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
 ```
 

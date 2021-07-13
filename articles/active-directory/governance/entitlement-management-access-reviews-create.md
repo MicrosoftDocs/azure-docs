@@ -29,7 +29,7 @@ To reduce the risk of stale access, you should enable periodic reviews of users 
 
 To enable reviews of access packages, you must meet the prerequisites for creating an access package:
 - Azure AD Premium P2
-- Global administrator, User administrator, Catalog owner, or Access package manager
+- Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
@@ -51,7 +51,7 @@ This setting determines how often access reviews will occur.
 
 1. Set the **Duration** to define how many days each review of the recurring series will be open for input from reviewers. For example, you might schedule an annual review that starts on January 1st and is open for review for 30 days so that reviewers have until the end of the month to respond.
 
-1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer.
+1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer. You can also select **Manager (Preview)** if you want to designate the reviewee’s manager to be the reviewer. If you select this option, you need to add a **fallback** to forward the review to in case the manager cannot be found in the system. 
 
     ![Select Add reviewers](./media/entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
@@ -62,7 +62,21 @@ This setting determines how often access reviews will occur.
 
     ![Specify the reviewers](./media/entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
+1. If you selected **Manager (Preview)**, specify the fallback reviewer: 
+    1. Select **Add fallback reviewers**.
+    1. In the Select fallback reviewers pane, search for and select the user(s) you want to be fallback reviewer(s) for the reviewee’s manager.
+    1. When you've selected your fallback reviewer(s), click the **Select** button. 
+
+    ![Add the fallback reviewers](./media/entitlement-management-access-reviews/access-reviews-add-fallback-manager.png)
+
+1. Click **Show advanced access review settings (Preview)** to show additional settings. 
+    
+    ![Show the advanced review settings](./media/entitlement-management-access-reviews/access-reviews-advanced-settings.png)
+
 1. Click **Review + Create** if you are creating a new access package or **Update** if you are editing an access package, at the bottom of the page.
+
+> [!NOTE]
+> In Azure AD Entitlement Management, the result of an access package review is always auto-applied to the users assigned to the package, according to the setting selected in **If reviewers don’t respond**. When the review setting of **If reviewers don’t respond** is set to **No change**, this is equivalent to the system approving continued access for the users being reviewed. 
 
 ## View the status of the access review
 

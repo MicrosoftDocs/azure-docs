@@ -36,11 +36,11 @@ Create the device based application in Azure AD to enable Azure AD sign in. This
     > ![Add app registration details for name and redirect uri](./media/azure-maps-authentication/devicecode-app-registration.png)
 
 3. Navigate to **Authentication** and enable **Treat application as a public client**. This will enable device code authentication with Azure AD.
-    
+
     > [!div class="mx-imgBorder"]
     > ![Enable app registration as public client](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  To assign delegated API permissions to Azure Maps, go to the application. Then select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
+4. To assign delegated API permissions to Azure Maps, go to the application. Then select **API permissions** > **Add a permission**. Under **APIs my organization uses**, search for and select **Azure Maps**.
 
     > [!div class="mx-imgBorder"]
     > ![Add app API permissions](./media/how-to-manage-authentication/app-permissions.png)
@@ -54,23 +54,25 @@ Create the device based application in Azure AD to enable Azure AD sign in. This
 
 7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
 
-> [!Tip]
-> Use Microsoft Authentication Library (MSAL) to acquire access tokens. 
-> See recommendations on [Desktop app that calls web APIs: Code configuration](../active-directory/develop/scenario-desktop-app-configuration.md)
+    > [!Tip]
+    > Use Microsoft Authentication Library (MSAL) to acquire access tokens.
+    > See recommendations on [Desktop app that calls web APIs: Code configuration](../active-directory/develop/scenario-desktop-app-configuration.md)
 
 8. Compose the HTTP request with the acquired token from Azure AD, and sent request with a valid HTTP client.
 
 ### Sample request
+
 Here's a sample request body for uploading a simple Geofence represented as a circle geometry using a center point and a radius.
 
 ```http
-POST /mapData/upload?api-version=1.0&dataFormat=geojson
-Host: atlas.microsoft.com
+POST /mapData?api-version=2.0&dataFormat=geojson
+Host: us.atlas.microsoft.com
 x-ms-client-id: 30d7cc….9f55
 Authorization: Bearer eyJ0e….HNIVN
 ```
 
  The sample request body below is in GeoJSON:
+
 ```json
 {
     "type": "FeatureCollection",
@@ -88,23 +90,13 @@ Authorization: Bearer eyJ0e….HNIVN
 }
 ```
 
-### Sample response:
+### Sample response header
 
-Headers:
 ```http
-Location: https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0
-Access-Control-Expose-Headers: Location
+Operation-Location: https://us.atlas.microsoft.com/mapData/operations/{udid}?api-version=2.0
+Access-Control-Expose-Headers: Operation-Location
 ```
 
-Body:
-```json
-{
-  "operationId": "{operationId}",
-  "status": "Succeeded",
-  "created": "2020-01-02 1:02:03 AM +00:00",
-  "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{resourceId}?api-version=1.0"
-}
-```
 
 [!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 

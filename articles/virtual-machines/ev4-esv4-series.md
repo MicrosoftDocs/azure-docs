@@ -17,7 +17,7 @@ ms.date: 6/8/2020
 The Ev4 and Esv4-series runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
 
 > [!NOTE]
-> For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.md).
+> For frequently asked questions, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 
 ## Ev4-series
 
@@ -60,6 +60,7 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
+
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|

@@ -5,8 +5,8 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 08/28/2020
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 05/10/2021
 ms.author: victorh
 ---
 
@@ -18,7 +18,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -28,9 +28,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 This template creates an Azure Firewall and IP Groups, along with the necessary resources to support the Azure Firewall.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -50,17 +50,17 @@ Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, the network infrastructure, and two virtual machines.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
+   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 2. In the portal, on the **Create an Azure Firewall with IpGroups** page, type or select the following values:
-   - Subscription: Select from existing subscriptions 
+   - Subscription: Select from existing subscriptions
    - Resource group:  Select from existing resource groups or select **Create new**, and select **OK**.
    - Location: Select a location
-   - Virtual Network Name: Type a name for the new virtual network (VNet) 
-   - IP Group Name 1: Type name for IP Group 1 
-   - IP Group Name 2: Type name for IP Group 2 
-   - Admin Username: Type username for the administrator user account 
-   - Authentication: Select sshPublicKey or password 
+   - Virtual Network Name: Type a name for the new virtual network (VNet)
+   - IP Group Name 1: Type name for IP Group 1
+   - IP Group Name 2: Type name for IP Group 2
+   - Admin Username: Type username for the administrator user account
+   - Authentication: Select sshPublicKey or password
    - Admin Password: Type an administrator password or key
 
 3. Select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
