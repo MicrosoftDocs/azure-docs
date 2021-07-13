@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to manage disks on a VM running on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.
 ---
@@ -67,6 +67,7 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
     |Field  |Description  |
     |---------|---------|
     |Name     | A unique name within the resource group. The name cannot be changed after the data disk is created.     |
+    |Edge resource group |Enter the Edge resource group in which to store the new disk.|
     |Size| The size of your data disk in GiB. The maximum size of a data disk is determined by the VM size that you have selected. When provisioning a disk, you should also consider the actual space on your device and other VM workloads that are running that consume capacity.  |         
 
     ![Create a new disk blade](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-3.png)
@@ -81,7 +82,7 @@ Follow these steps to add a disk to a virtual machine deployed on your device.
 
     ![Notification for disk creation](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-5.png)
 
-1. Navigate back to the **Overview** page. The list of disks updates to display the newly created data disk.
+1. Navigate back to the virtual machine **Details** page. The list of disks updates to display the newly created data disk.
 
     ![Updated list of data disks](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/add-data-disk-6.png)
 
@@ -111,8 +112,6 @@ Follow these steps to change a disk associated with a virtual machine deployed o
 Follow these steps to attach an existing disk to the virtual machine deployed on your device.
 
 1. Go to the virtual machine to which you wish to attach the existing disk, and select **Disks** in the virtual machine **Details**.
-    
-    ![Select Disks ](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-1.png)
 
 1. In the **Disks** blade, under **Data Disks**, select **Attach an existing disk**.
 
@@ -124,7 +123,7 @@ Follow these steps to attach an existing disk to the virtual machine deployed on
 
     Select **Save** and proceed.
 
-1. You'll see a notification that the virtual machine is updated. After the VM is updated, navigate back to the **Overview** page. Refresh the page to view the newly attached disk in the list of data disks.
+1. You'll see a notification that the virtual machine is updated. After the VM is updated, navigate back to the virtual machine **Details** page. Refresh the page to view the newly attached disk in the list of data disks.
 
     ![View updated list of data disks on Overview page](./media/azure-stack-edge-gpu-manage-virtual-machine-disks-portal/list-data-disks-2.png)
 
