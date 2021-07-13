@@ -293,6 +293,18 @@ This is a known VMware issue in which the disk size indicated by snapshot become
 
 This happens when the NFC host buffer is out of memory. To resolve this issue, you need to move the VM (compute vMotion) to a different host, which has free resources.
 
+### Error Message: An internal error occurred. [File is larger than maximum file size supported (1012384)]
+This happens when the file size is larger than the maximum supported file size while creating the snapshot. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/1012384)
+
+### Error Message: An internal error occurred. [Cannot connect to the host (1004109)]
+This happens when ESXi hosts cannot connect to the network. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/1004109).
+
+### Error message: An error occurred while saving the snapshot: Invalid change tracker error code
+This error occurs when there's a problem with the underlying datastore on which the snapshot is being stored. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/2042742).
+
+### Error message: An error occurred while taking a snapshot: Unable to open the snapshot file.
+This error occurs when the size of the snapshot file created is larger than the available free space in the datastore where the VM is located. Follow the resolution given in this [document](https://go.microsoft.com/fwlink/?linkid=2166464).
+
 ## Replication cycle failed
 
 **Error ID:** 181008

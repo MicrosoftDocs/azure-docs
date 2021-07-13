@@ -34,9 +34,9 @@ Internet Information Services (IIS) logs counts of all request reaching IIS and 
 * This is probably a firewall issue. [Set firewall exceptions for Application Insights to send data](../../azure-monitor/app/ip-addresses.md).
 * IIS Server might be missing some prerequisites, like .NET Extensibility 4.5 or ASP.NET 4.5.
 
-*I [installed Status Monitor](./monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
+*I [installed Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) on my web server to monitor existing apps. I don't see any results.*
 
-* See [Troubleshooting Status Monitor](./monitor-performance-live-website-now.md#troubleshoot).
+* See [Troubleshooting Status Monitor](./status-monitor-v2-troubleshoot.md).
 
 > [!IMPORTANT]
 > [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
@@ -183,13 +183,13 @@ The data comes from scripts in the web pages.
 See [dependency telemetry](./asp-net-dependencies.md) and [exception telemetry](asp-net-exceptions.md).
 
 ## No performance data
-Performance data (CPU, IO rate, and so on) is available for [Java web services](java-2x-collectd.md), [Windows desktop apps](./windows-desktop.md), [IIS web apps and services if you install status monitor](./monitor-performance-live-website-now.md), and [Azure Cloud Services](./app-insights-overview.md). you'll find it under Settings, Servers.
+Performance data (CPU, IO rate, and so on) is available for [Java web services](java-2x-collectd.md), [Windows desktop apps](./windows-desktop.md), [IIS web apps and services if you install Application Insights Agent](./status-monitor-v2-overview.md), and [Azure Cloud Services](./app-insights-overview.md). you'll find it under Settings, Servers.
 
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
 * In your firewall, you might have to [open some TCP ports](./ip-addresses.md).
 * If you have to use a proxy to send out of your corporate network, set [defaultProxy](/previous-versions/dotnet/netframework-1.1/aa903360(v=vs.71)) in Web.config
-* Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://web.archive.org/web/20150129090641/http://support.microsoft.com/kb/2600217).
+* Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://www.microsoft.com/download/details.aspx?id=28936).
 
 ## I used to see data, but it has stopped
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).

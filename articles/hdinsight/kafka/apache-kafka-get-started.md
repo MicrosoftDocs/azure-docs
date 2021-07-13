@@ -14,7 +14,7 @@ ms.date: 04/29/2020
 
 In this Quickstart, you learn how to create an Apache Kafka cluster using the Azure portal. You also learn how to use included utilities to send and receive messages using Apache Kafka. For in depth explanations of available configurations, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For additional information regarding the use of the portal to create clusters, see [Create clusters in the portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
 The Apache Kafka API can only be accessed by resources inside the same virtual network. In this Quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Apache Kafka, you must first create a virtual network and then create the resources within the network. For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document. For more general information on planning virtual networks for HDInsight, see [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 

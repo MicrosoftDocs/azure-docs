@@ -54,8 +54,6 @@ landingContent:
             url: core/concepts-telemetry-properties-commands.md
       - linkListType: how-to-guide
         links:
-          - text: Connect an Azure Sphere device
-            url: core/howto-connect-sphere.md
           - text: Troubleshoot device connectivity
             url: core/troubleshoot-connection.md
   - title: Build integrated solutions
@@ -71,13 +69,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a dashboard
-            url: core/howto-create-personal-dashboards.md
+            url: core/howto-manage-dashboards.md
           - text: Analyze your device data
             url: core/howto-create-analytics.md
           - text: Export data to cloud destinations
             url: core/howto-export-data.md
-          - text: Move devices from IoT Hub
-            url: core/how-to-move-device-to-iot.md
       - linkListType: reference
         links:
           - text: REST API
@@ -94,10 +90,10 @@ landingContent:
             url: core/tutorial-use-device-groups.md
       - linkListType: how-to-guide
         links:
-          - text: Add, import, and export devices
-            url: core/howto-manage-devices.md
-          - text: Run a job
-            url: core/howto-run-a-job.md
+          - text: Manage devices individually
+            url: core/howto-manage-devices-individually.md
+          - text: Manage devices in bulk
+            url: core/howto-manage-devices-in-bulk.md
   - title: Administration
     linkLists:
       - linkListType: overview
@@ -110,8 +106,6 @@ landingContent:
             url: core/howto-administer.md
           - text: Manage users and roles
             url: core/howto-manage-users-roles.md 
-          - text: View your bill
-            url: core/howto-view-bill.md
           - text: Customize application UI
             url: core/howto-customize-ui.md  
       - linkListType: sample
@@ -135,6 +129,8 @@ landingContent:
             url: /learn/modules/manage-iot-central-apps-with-rest-api/
           - text: 'Learn module: Set up continuous data export from Azure IoT Central to a Power BI app'
             url: /learn/modules/continuously-export-data-from-iot-central-power-bi/
+          - text: 'Learn module: Connect an IoT Edge device to your IoT Central application'
+            url: /learn/modules/connect-iot-edge-device-to-iot-central/
 
 
 

@@ -28,12 +28,18 @@
       items:
       - name: Deploy Affirmed Private Network Service on Azure
         href: deploy-affirmed-private-network-service-solution.md
+  - name: Related
+    items:
+    - name: Azure Network Function Manager
+      href: ../network-function-manager/index.yml
   - name: Resources
     items:
+    - name: Azure private MEC product page
+      href: https://go.microsoft.com/fwlink/?linkid=2165610
+    - name: Network Function Manager product page
+      href: https://go.microsoft.com/fwlink/?linkid=2166098
     - name: Azure Marketplace
       href: https://azuremarketplace.microsoft.com/marketplace/
-    - name: Azure private MEC
-      href: https://go.microsoft.com/fwlink/?linkid=2165316
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=networking
     - name: Blog

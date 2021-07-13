@@ -1,9 +1,9 @@
 ---
 title: 'What is Affirmed Private Network Service on Azure?'
 description: Learn about Affirmed Private Network Service solutions on Azure for private LTE/5G networks.
-services: vnf-manager
+
 author: KumudD
-ms.service: vnf-manager
+ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
 ms.date: 06/16/2021
 ms.author: hollycl

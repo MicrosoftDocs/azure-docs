@@ -1,0 +1,88 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure SQL Database Hyperscale named replicas FAQ
+  description: Answers to common questions customers ask about a database in SQL Database in the Hyperscale service tier named replicas
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: 
+  ms.custom: 
+  ms.devlang: 
+  ms.topic: conceptual
+  author: yorek
+  ms.author: damauri
+  ms.reviewer:
+  ms.date: 06/09/2021
+    
+title: Azure SQL Database Hyperscale named replicas FAQ
+summary: |
+  [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+  
+  This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, referred to as just Hyperscale in the remainder of this FAQ. This article describes the scenarios that Hyperscale supports and the features that are compatible with Hyperscale.
+  
+  - This FAQ is intended for readers who have a brief understanding of the Hyperscale service tier named replicas and are looking to have their specific questions and concerns answered.
+  - For complete information on Hyperscale named replicas, see [Hyperscale Replicas named replica](service-tier-hyperscale-replicas.md#named-replica-in-preview). 
+  
+sections:
+  - name: General questions
+    questions:
+      - question: |
+          Can a named replica be used as a failover target?
+        answer: |
+          No, named replicas cannot be used as failover targets. Use HA replicas for that purpose.
+
+      - question: |
+          How can I distribute the read-only workload across my named replicas?
+        answer: |
+          Since every named replica may have a different service level objective and thus be used for different use cases, there is no built-in way to direct read-only traffic sent to the primary to the related named replicas. For example, you may have eight named replicas, and you may want to direct OLTP workload only to named replicas 1 to 4, while all the Power BI analytical workloads will use named replicas 5 and 6 and the data science workload will use replicas 7 and 8. Depending on which tool or programming language you use, strategies to distribute such workload may vary. One example of creating a workload routing solution to allow a REST backend to scale out is here: [OLTP scale-out sample](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout).
+
+      - question: |
+          Can a named replica be in a region different from the region of the primary replica?
+        answer: |
+          No, as named replicas use the same page servers of the primary replica, they must be in the same region.
+
+      - question: |
+          Can a named replica impact availability or performance of the primary replica?
+        answer: |
+          A named replica cannot impact the availability of the primary replica. Named replicas, under normal circumstances, are unlikely to impact primary's performances, but it can happen if there are intensive workloads running. Just like an HA replica, a named replica is kept in sync with the primary via the transaction log service. If a named replica, for any reason, is not able to consume the transaction log fast enough, it will start to ask to the primary replica to slow down (throttle) its log generation, so that it can catch up. While this behavior will not impact primary's availability, it will impact its performances. To avoid this situation, make sure that your named replicas have enough free resources – mainly CPU – so that they can process the transaction log without delay. For example, if the primary is processing numerous data changes, it is recommended to have the named replica with at least the same Service Level Objective of the primary, to avoid bottlenecking the CPU on the replicas and thus forcing the primary to slow down.
+
+      - question: |
+          What happens to named replicas if the primary replica is unavailable, for example because of planned maintenance?
+        answer: |
+          Named replicas will still be available for read-only access, as usual.
+
+      - question: |
+          How do I validate if I have successfully connected to secondary compute replica using SQL Server Management Studio (SSMS) or other client tools?
+        answer: |
+          You can execute the following T-SQL query:
+
+          ```sql
+          SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
+          ```
+
+          The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. The database context must be set to the name of the Hyperscale database, not to the `master` database.
+
+      - question: |
+          Can I create any object or indexes on my secondary compute replicas?
+        answer: |
+          No. Hyperscale databases have shared storage, meaning that all compute replicas see the same tables, indexes, and views. If you want additional indexes optimized for reads on secondary, you must add them on the primary.
+
+          You can still create and use temporary tables to store temporary data.
+
+      - question: |
+          How much delay is there going to be between the primary and secondary compute replicas?
+        answer: |
+          Data latency from the time a transaction is committed on the primary to the time it is readable on a secondary depends on current log generation rate, transaction size, load on the replica, and other factors. Typical data latency for small transactions is in tens of milliseconds, however there is no upper bound on data latency. Data on a given secondary replica is always transactionally consistent. However, at a given point in time data latency may be different for different secondary replicas. Workloads that need to read committed data immediately should run on the primary replica.
+
+      - question: |
+          How can I improve availability of named replicas?
+        answer: |
+          By default Named Replicas do not have any HA replica. However, as they behave like a regular (read-only) Azure SQL database, they can benefit from the [higher SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) provided by HA replicas. To set the number of HA replicas you can use the parameter `--ha-replicas` with [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create) or the parameter `--HighAvailabilityReplicaCount` with [PowerShell](/powershell/module/az.sql/set-azsqldatabase) or via the `highAvailabilityReplicaCount` property with the [REST API](/rest/api/sql/2021-02-01-preview/databases/create-or-update).
+          The number of HA replicas can be set during the creation of a named replica and can be changed – only via AZ CLI, PowerShell or REST API– anytime after the named replica has been created. Pricing of HA replicas for named replicas is the same of HA replicas for regular databases.
+    
+
+additionalContent: |
+
+  ## Next steps
+  
+  For more information about the Hyperscale service tier, see [Hyperscale service tier](service-tier-hyperscale.md).
+  For more information about the Hyperscale replicas, see [Hyperscale Replicas](service-tier-hyperscale-replicas.md).

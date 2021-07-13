@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 07/12/2021
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -74,7 +74,7 @@ To create NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volu
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
+        A volume name must be unique within each capacity pool. It must be at least three characters long. The name must begin with a letter. It can contain letters, numbers, underscores ('_'), and hyphens ('-') only.  
 
         You cannot use `default` or `bin` as the volume name.
 
@@ -181,6 +181,10 @@ You need to set the following attributes for LDAP users and LDAP groups:
 * Required attributes for LDAP groups:   
     `objectClass: posixGroup`, `gidNumber: 555`
 * All users and groups must have unique `uidNumber` and `gidNumber`, respectively. 
+
+Azure Active Directory Domain Services (AADDS) doesn’t allow you to modify POSIX attributes on users and groups created in the organizational AADDC Users OU. As a workaround, you can create a custom OU and create users and groups in the custom OU.
+
+If you are synchronizing the users and groups in your Azure AD tenancy to users and groups in the AADDC Users OU, you cannot move users and groups into a custom OU. Users and groups created in the custom OU will not be synchronized to your AD tenancy. For more information, see the [AADDS Custom OU Considerations and Limitations](../active-directory-domain-services/create-ou.md#custom-ou-considerations-and-limitations).
 
 ### Access Active Directory Attribute Editor 
 

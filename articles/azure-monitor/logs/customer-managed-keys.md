@@ -416,7 +416,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 - Behavior with Key Vault availability
   - In normal operation -- Storage caches AEK for short periods of time and goes back to Key Vault to unwrap periodically.
     
-  - Key Vault connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for the duration of the availablility issue and this overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
+  - Key Vault connection errors -- Storage handles transient errors (timeouts, connection failures, DNS issues) by allowing keys to stay in cache for the duration of the availability issue and this overcomes blips and availability issues. The query and ingestion capabilities continue without interruption.
     
 - Key Vault access rate -- The frequency that Azure Monitor Storage accesses Key Vault for wrap and unwrap operations is between 6 to 60 seconds.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 06/22/2021
 ms.author: alkohli
 ---
 
@@ -64,8 +64,8 @@ When you place a Data Box order, you can choose the self-managed shipping option
    - Order name
    - Company name
    - Company legal name (if different) 
-   - Tax ID 
-   - Address 
+   - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
+   - Address
    - Country 
    - Phone number 
    - Contact name of the person who will pick up the Data Box Disk (A government-issued photo ID will be required to validate the contact’s identity upon arrival.)   

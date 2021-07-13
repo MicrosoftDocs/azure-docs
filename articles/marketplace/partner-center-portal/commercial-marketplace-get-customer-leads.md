@@ -94,4 +94,4 @@ feedback](mailto:AzureMarketOnboard@microsoft.com) and suggestions to enable you
 
 ## Next steps
 
-- [Lead management FAQ and troubleshooting](../lead-management-faq.md)
+- [Lead management FAQ and troubleshooting](../lead-management-faq.yml)
