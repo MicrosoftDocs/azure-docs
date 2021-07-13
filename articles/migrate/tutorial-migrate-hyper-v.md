@@ -7,6 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: [ "MVC", "fasttrack-edit"]
+zone_pivot_groups: migrate-hyper-v
 ---
 
 # Migrate Hyper-V VMs to Azure
@@ -67,7 +68,7 @@ For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software prov
 
 Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
 
-:::zone target="docs" pivot="install-using-ui"
+:::zone target="docs" pivot="install-provider"
 ### [Install using UI](#tab/UI)
 
 Run the provider setup file on each host, as described below:
@@ -107,7 +108,7 @@ Run the following commands on each host, as described below:
 1. Register the Hyper-V host to Azure Migrate.
 
     ```
-    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r> 
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r
     ```
 
     **Configure proxy rules:** After the registration is complete, if you need to connect to the internet via a proxy, use the /proxyaddress and /proxyport parameters to specify the proxy address (in the form http://ProxyIPAddress) and proxy listening port.
@@ -125,7 +126,7 @@ Run the following commands on each host, as described below:
     **Configure proxy bypass rules:** After the registration, you can add a list of URLs or IP addresses that should bypass the proxy server. Use the /AddBypassUrls parameter to configure proxy bypass rules.
 
     ```
-    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /Credentials <key file path> /proxyaddress http://127.0.0.1 /proxyport 8888 /AddBypassUrls windowsazure.com
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /configure /proxyaddress http://127.0.0.1 /proxyport 8888 /proxyusername <username> /proxypassword <password>
     ```
 
     
