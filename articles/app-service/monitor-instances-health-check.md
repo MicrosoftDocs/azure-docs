@@ -9,6 +9,7 @@ ms.date: 12/03/2020
 ms.author: msangapu
 
 ---
+
 # Monitor App Service instances using Health check
 
 This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by re-routing requests away from unhealthy instances, and replacing instances if they remain unhealthy. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
