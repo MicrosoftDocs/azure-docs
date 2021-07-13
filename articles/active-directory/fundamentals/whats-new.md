@@ -196,8 +196,6 @@ For more information, see [Automate user provisioning to SaaS applications with 
  
 ---
 
-[1442671](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1442671&triage=true&fullScreen=false&_a=edit)
-
 ### New Federated Apps available in Azure AD Application gallery - June 2021
 
 **Type:** New feature  
