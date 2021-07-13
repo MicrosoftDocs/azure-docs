@@ -67,43 +67,19 @@ Any of the following types can be used:
 - Azure VMware Solution vSAN
 - Azure VMware Solution attached file system, such as Azure NetApp Files
 
-#### VMware vCenter Server
-- Supported version: 6.7
-- HTTPS port: If using a firewall, HTTPS port 443 must be open.
-- Connectivity: The JetStream DR Management Server Appliance FQDN must be reachable from vCenter, otherwise, the plug-in installation fails. 
-- Time: The vCenter and JetStream DR MSA clocks must be synchronized.
 
-#### Distributed Resource Scheduler (DRS)
-It’s recommended on the compute cluster for resource balancing. 
+| Item  | Description  |
+| --- | --- |
+| vCenter Server  | <ul><li>Supported version: 6.7</li><li>HTTPS port: If using a firewall, HTTPS port 443 must be open.</li><li>Connectivity: The JetStream DR Management Server Appliance FQDN must be reachable from vCenter, otherwise, the plug-in installation fails.</li><li>Time: The vCenter and JetStream DR MSA clocks must be synchronized.</li></ul>  |
+| Distrubuted Resource Schedular (DRS)  | It’s recommended on the compute cluster for resource balancing.  |
+| Cluster  | vSphere Hosts: VMs to be protected by JetStream DR must be part of a cluster.  |
+| vSphere Host  | <ul><li>Supported version: 6.7U1 (build #10302608) or later</li><li>Connectivity: vCenter Server FQDN must be reachable from the host, otherwise the host configuration fails.</li><li>Time: The vSphere hosts and JetStream DR MSA clocks must be synchronized.</li><li>CIM Service: The CIM server must be enabled, which is the default setting.</li></ul>  |
+| JetStream DR MSA  | <ul><li>CPU: 64 bit, 4 vCPUs</li><li>Memory: 4 GB</li><li>Disk space: 60 GB</li><li>Network: Static or dynamically assigned (DHCP) IP addresses can be used. The FQDN should be registered with DNS.</li><li>DNS: DNS name resolution for vSphere hosts and vCenter Server</li></ul>  |
+| JetStream DRVA  | <ul><li>CPU: Four cores</li><li>Memory: 8 GB</li><li>Network: Static or dynamically assigned (DHCP) IP addresses can be used.</li></ul>  |
+| Replication Log Store  | For optimal performance, the protected site should expose a low-latency, flash storage device that is shared by the hosts in the cluster. This device can be controlled by the JetStream DR software or provided by a third party. It's used as a repository for the replication log. DR Virtual Appliances (DRVA) and ESXi host(s) must have direct access to this storage over iSCSI.  |
+| Ports  | When JetStream DR software is installed, a range of ports are opened automatically on the source ESXi hosts. For most users, no more action is necessary. In cases where the on-premises/source setup has special firewall rules blocking these ports, you’ll need to manually open these ports.<br /><br />Port range: 32873-32878  |
 
-#### Cluster 
-vSphere Hosts
 
-#### vSphere Host
-- Supported version: 6.7U1 (build #10302608) or later
-- Connectivity: vCenter Server FQDN must be reachable from the host, otherwise the host configuration fails.
-- Time: The vSphere hosts and JetStream DR MSA clocks must be synchronized.
-- CIM Service: The CIM server must be enabled, which is the default setting.
-
-#### JetStream DR MSA
-- CPU: 64 bit, 4 vCPUs
-- Memory: 4 GB
-- Disk space: 60 GB
-- Network: Static or dynamically assigned (DHCP) IP addresses can be used. The FQDN should be registered with DNS.
-- DNS: DNS name resolution for vSphere hosts and vCenter Server
-
-#### JetStream DRVA
-- CPU: Four cores
-- Memory: 8 GB
-- Network: Static or dynamically assigned (DHCP) IP addresses can be used.
-
-#### Replication log store
-For optimal performance, the protected site should expose a low-latency, flash storage device that is shared by the hosts in the cluster. This device can be controlled by the JetStream DR software or provided by a third party. It's used as a repository for the replication log. DR Virtual Appliances (DRVA) and ESXi host(s) must have direct access to this storage over iSCSI.
-
-#### Ports
-When JetStream DR software is installed, a range of ports are opened automatically on the source ESXi hosts. For most users, no more action is necessary. In cases where the on-premises/source setup has special firewall rules blocking these ports, you’ll need to manually open these ports.
-
-Port range: 32873-32878
 
 ### Recovery site
 
@@ -111,29 +87,18 @@ An Azure VMware Solution “pilot light” cluster is established for failover r
 
 ### Network
 
-A network with the following characteristics must be established between the protected site and the recovery site:
+A network with the following characteristics must be established between the protected site and the recovery site.
 
-#### JetStream DR MSA
+| Items | Description |
+| --- | --- |
+| JetStream DR MSA  | A management network is required for the MSA. This network is used for access to the JetStream DR RESTful APIs and making other data path calls. If a private network is available for connecting to the object store, this private network should be added to the MSA VM as a separate network. If no private network is available, make sure the management network can be used to connect to the object store.<br /><br />A dedicated external network can be used for object store access; otherwise, data traffic will be sent over the management network.  | 
+| JetStream DRVA  | If the only network used is the management network, make sure it has access to both IO Filter and the object store. If multiple networks exist within the cluster, all must be attached to the DRVA VMs.  | 
+| Recovery from Object Cloud Virtual Appliance (RocVA)  | If the only network used is the management network, make sure it has access to both the ESXi host(s) and the object store. If multiple networks exist within the cluster, all must be attached to the RocVA VM. The RocVA is a temporary VM that gets created  automatically when needed for VM recovery, then removed when it is no longer needed.  | 
+| Object store / blob storage  | The object store/Blob Storage should be accessible to both the protected site and the recovery site.  | 
+| Replication log store  | DRVAs and ESXi host(s) must have direct access to this storage over iSCSI.  | 
 
-A management network is required for the MSA. This network is used for access to the JetStream DR RESTful APIs and making other data path calls. If a private network is available for connecting to the object store, this private network should be added to the MSA VM as a separate network. If no private network is available, make sure the management network can be used to connect to the object store.
 
-A dedicated external network can be used for object store access; otherwise, data traffic will be sent over the management network.
 
-#### JetStream DRVA
-
-If the only network used is the management network, make sure it has access to both IO Filter and the object store. If multiple networks exist within the cluster, all must be attached to the DRVA VMs.
-
-#### Recovery from Object Cloud Virtual Appliance (RocVA)
-
-If the only network used is the management network, make sure it has access to both the ESXi host(s) and the object store. If multiple networks exist within the cluster, all must be attached to the RocVA VM. The RocVA is a temporary VM that gets created  automatically when needed for VM recovery, then removed when it is no longer needed.
-
-#### Object store / blob storage
-
-The object store/Blob Storage should be accessible to both the protected site and the recovery site.
-
-#### Replication log store
-
-DRVAs and ESXi host(s) must have direct access to this storage over iSCSI.
 
 
 
