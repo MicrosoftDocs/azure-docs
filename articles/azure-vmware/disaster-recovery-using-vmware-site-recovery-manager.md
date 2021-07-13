@@ -91,7 +91,7 @@ The workflow diagrams shows the steps to take within the Azure portal and the VM
 
 1. From the **Disaster Recovery Solution** drop-down, select **VMware Site Recovery Manager (SRM) – vSphere Replication**. 
 
-   :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png" alt-text="From the Disaster Recovery Solution drop-down, select VMware Site Recovery Manager (SRM) – vSphere Replication." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png":::
+   :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with VMware Site Recovery Manager (SRM) - vSphere replication selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png":::
 
 1. Provide the License key, select agree with terms and conditions, and then select **Install**.
 
@@ -100,7 +100,7 @@ The workflow diagrams shows the steps to take within the Azure portal and the VM
    >
    >Microsoft doesn't manage and store your license. It is used only to enable VMware SRM.
    
-   :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-licence.png" alt-text="Provide the License key, select agree with terms and conditions, and then select Install." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-licence.png":::
+   :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-licence.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with the License key field selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-licence.png":::
 
 
 ## Install the vSphere Replication appliance
@@ -131,12 +131,12 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 1. Navigate to **Site Recovery**, check the status of both vSphere Replication and VMware SRM, and then select **OPEN Site Recovery** to launch the client.
 
-   :::image type="content" source="media/vmware-srm-vsphere-replication/open-site-recovery.png" alt-text="Navigate to Site Recovery, check the status of both vSphere Replication and VMware SRM, and then select OPEN Site Recovery to launch the client." border="true":::
+   :::image type="content" source="media/vmware-srm-vsphere-replication/open-site-recovery.png" alt-text="Screenshot showing vSphere Client with the vSphere Replication and Site Recovery Manager installation status as OK." border="true":::
 
 
 1. In the new tab that opens, select **NEW SITE PAIR** in the Site Recovery (SR) client.
    
-   :::image type="content" source="media/vmware-srm-vsphere-replication/new-site-pair.png" alt-text="In the new tab that opens, select NEW SITE PAIR in the Site Recovery (SR) client." border="true":::
+   :::image type="content" source="media/vmware-srm-vsphere-replication/new-site-pair.png" alt-text="Screenshot showing vSphere Client with the New Site Pair button selected for Site Recovery." border="true":::
 
 1. Enter the remote site details, and then select **NEXT**.
 
@@ -147,7 +147,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
    >
    >The remote user must have sufficient permissions to perform the pairings. An easy way to ensure this is to give that user the VRM administrator and SRM administrator roles in the remote vCenter. For a remote Azure VMware Solution private cloud, cloudadmin will already be configured with those roles.
 
-   :::image type="content" source="media/vmware-srm-vsphere-replication/pair-the-sites-specify-details.png" alt-text="Enter the remote site details, and then select NEXT." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-specify-details.png":::
+   :::image type="content" source="media/vmware-srm-vsphere-replication/pair-the-sites-specify-details.png" alt-text="Screenshot showing the Site details for the new site pair." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-specify-details.png":::
 
 1. Select **CONNECT** to accept the certificate for the remote vCenter.
 
@@ -155,7 +155,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 1. Select the appliances to pair and then select **NEXT**.
    
-   :::image type="content" source="media/vmware-srm-vsphere-replication/pair-the-sites-new-site.png" alt-text="Select the appliances to pair and then select NEXT." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-new-site.png":::
+   :::image type="content" source="media/vmware-srm-vsphere-replication/pair-the-sites-new-site.png" alt-text="Screenshot showing the vCenter Server and services details for the new site pair." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-new-site.png":::
 
 1. Select **CONNECT** to accept the certificates for the remote VMware SRM and the remote vCenter (again).
 
@@ -172,7 +172,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 1. Select **VIEW DETAILS** to open the panel for remote site pairing, which opens a dialog to sign in to the remote vCenter.
 
-   :::image type="content" source="media/vmware-srm-vsphere-replication/view-details-remote-pairing.png" alt-text="Select VIEW DETAILS to open the panel for remote site pairing, which opens a dialog to sign in to the remote vCenter." border="true" lightbox="media/vmware-srm-vsphere-replication/view-details-remote-pairing.png":::
+   :::image type="content" source="media/vmware-srm-vsphere-replication/view-details-remote-pairing.png" alt-text="Screenshot showing the new site pair details for Site Recovery Manager and vSphere Replication." border="true" lightbox="media/vmware-srm-vsphere-replication/view-details-remote-pairing.png":::
 
 1. Enter the username with sufficient permissions to do replication and site recovery and then select **LOG IN**. 
 
@@ -181,11 +181,14 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
    >[!NOTE] 
    >The user with sufficient permissions should have **VRM administrator** and **SRM administrator** roles in given to them in the remote vCenter. The user should also have access to the remote vCenter inventory, like folders and datastores. For a remote Azure VMware Solution private cloud, the cloudadmin user has the appropriate permissions and access. 
    
-   :::image type="content" source="media/vmware-srm-vsphere-replication/sign-into-remote-vcenter.png" alt-text="Enter the username with sufficient permissions to perform replication and site recovery and then select LOG IN." border="true":::
+   :::image type="content" source="media/vmware-srm-vsphere-replication/sign-into-remote-vcenter.png" alt-text="Screenshot showing the vCenter Server credentials." border="true":::
 
    You'll see a warning message indicating that the embedded VRS in the local VRM isn't running.  Azure VMware Solution does not use the embedded VRS in an Azure VMware Solution private cloud.  Instead, it uses VRS appliances. 
 
-   :::image type=" content" source=" media/vmware-srm-vsphere-replication/pair-the-sites-summary.png" alt-text=" After logging in, you'll see a warning message indicating that the embedded VRS in the local VRM is not running.  Azure VMware Solution does not use the embedded VRS in an Azure VMware Solution private cloud.  Instead, it uses VRS appliances." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-summary.png":::
+   :::image type=" content" source=" media/vmware-srm-vsphere-replication/pair-the-sites-summary.png" alt-text="Screenshot showing the site pair summary for Site Recovery Manager and vSphere Replication." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-summary.png":::
+
+
+
 
 
 ## SRM protection, reprotection, and failback
