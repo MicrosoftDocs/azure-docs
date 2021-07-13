@@ -130,7 +130,7 @@ dependencies {
 }
 ```
 
-If you are targeting Azure Spatial Anchors SDK 2.10.0 or later, include the following entry in repositories section of your project's build.gradle file. This will include the URL to Maven package feed that hosts Azure Spatial Anchors Android packages for SDK 2.10.0 or later: 
+If you are targeting Azure Spatial Anchors SDK 2.10.0 or later, include the following entry in the repositories section of your project's build.gradle file. This will include the URL to the Maven package feed that hosts Azure Spatial Anchors Android packages for SDK 2.10.0 or later: 
 ```
 repositories {
     ...
