@@ -32,19 +32,19 @@ For information about how to use the gateway with other services, see these arti
 In Azure Logic Apps, the on-premises data gateway supports the [on-premises connectors](../connectors/managed.md#on-premises-connectors) for these data sources:
 
 * [Apache Impala](/connectors/impala)
-* [BizTalk Server 2016](../../connectors/biztalk)
-* [File System](../../connectors/filesystem)
-* [HTTP with Azure AD](../../connectors/webcontents)
-* [IBM DB2](../../connectors/db2)
-* [IBM Informix](../../connectors/informix)
-* [IBM MQ](../../connectors/mq)
-* [MySQL](../../connectors/mysql)
-* [Oracle Database](../../connectors/oracle)
-* [PostgreSQL](../../connectors/postgresql)
-* [SAP](../../connectors/sap)
-* [SharePoint Server](../../connectors/sharepointonline)
-* [SQL Server](../../connectors/sql)
-* [Teradata](../../connectors/teradata)
+* [BizTalk Server 2016](/connectors/biztalk)
+* [File System](/connectors/filesystem)
+* [HTTP with Azure AD](/connectors/webcontents)
+* [IBM DB2](/connectors/db2)
+* [IBM Informix](/connectors/informix)
+* [IBM MQ](/connectors/mq)
+* [MySQL](/connectors/mysql)
+* [Oracle Database](/connectors/oracle)
+* [PostgreSQL](/connectors/postgresql)
+* [SAP](/connectors/sap)
+* [SharePoint Server](/connectors/sharepointonline)
+* [SQL Server](/connectors/sql)
+* [Teradata](/connectors/teradata)
 
 You can also create [custom connectors](../logic-apps/custom-connector-overview.md) that connect to data sources over HTTP or HTTPS by using REST or SOAP. Although the gateway itself doesn't incur extra costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
