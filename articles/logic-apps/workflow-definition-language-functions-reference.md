@@ -1087,7 +1087,7 @@ And returns this result: `"hello"`
 
 ### binary
 
-Return the binary version for a string.
+Return the base64-encoded binary version of a string.
 
 ```
 binary('<value>')
@@ -1100,16 +1100,24 @@ binary('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*binary-for-input-value*> | String | The binary version for the specified string |
+| <*binary-for-input-value*> | String | The base64-encoded binary version for the specified string |
 ||||
 
 *Example*
 
-This example converts the "hello" string to a binary string:
+This example converts the "hello" string to a base64-encoded binary string:
 
 ```
 binary('hello')
 ```
+
+And returns this result:
+
+`YCIwMTEwMTAwMDAxMTAwMTAxMDExMDExMDAwMTEwMTEwMDAxMTAxMTExImA=`
+
+This example converts the resulting base64-encoded to binary digits (bits).
+
+`base64ToBinary(binary('hello'))`
 
 And returns this result:
 
