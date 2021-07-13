@@ -36,8 +36,8 @@ Available actions:
 | Action         | Description          |                                                                                                                         
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | ignore | Skip validation. |
-| prevent | Block the request or response processing, log the verbose [validation error](#validation-errors), and return an error. Processing is interrupted when the first set of errors is detected. <br/><br/> When a validation policy applied in the inbound section produces an error, the response from API Management includes HTTP status code 400 and a verbose message. When a validation policy applied in the outbound section produces an error, the response includes HTTP status code 502 and a generic message.|
-| detect | Log validation errors, without interrupting request or response processing. |
+| prevent | Block the request or response processing, log the verbose [validation error](#validation-errors), and return an error. Processing is interrupted when the first set of errors is detected. 
+| detect | Log [validation errors](#validation-errors), without interrupting request or response processing. |
 
 ## Logs
 
@@ -266,6 +266,9 @@ The following table lists all possible errors of the validation policies.
 
 * **Details** - Can be used to investigate errors. Not meant to be shared publicly.
 * **Public response** - Error returned to the client. Does not leak implementation details.
+
+> [!NOTE]
+> When a validation policy specifies the `prevent` action and produces an error, the response from API management includes an HTTP status code: 400 when the the policy is applied in the inbound section, and 502 when the policy is applied in the outbound section.
 
 | **Name**                             | **Type**                                                        | **Validation rule** | **Details**                                                                                                                                       | **Public response**                                                                                                                       | **Action**           |
 |----|----|---|---|---|----|
