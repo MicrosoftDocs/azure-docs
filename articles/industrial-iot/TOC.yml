@@ -1,6 +1,8 @@
 
 - name: Azure Industrial IoT documentation
   href: index.yml
+- name: Azure Industrial IoT platform versions
+  href: industrial-iot-platform-versions.md
 - name: Overview
   items:
   - name: What is Industrial IoT?
