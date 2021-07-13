@@ -27,12 +27,13 @@ Review the following sections:
 - [Connectivity modes and their requirements](connectivity.md)
 
 Verify that you have:
-- installed the [arcdata CLI extension](install-arcdata-extension.md)
-- installed the other [client tools](install-client-tools.md)
-- access to the Kubernetes cluster
+- installed the [`arcdata` CLI extension](install-arcdata-extension.md).
+- installed the other [client tools](install-client-tools.md).
+- access to the Kubernetes cluster.
 - your `kubeconfig` file configured. It should point to the Kubernetes cluster you want to deploy to. Run the following command to verify the current context of your cluster you will be deploying to:
    ```console
    kubectl cluster-info
+   ```
 - an Azure subscription to which resources such as Azure Arc data controller, Azure Arc enabled SQL managed instance or Azure Arc enabled PostgreSQL Hyperscale server will be projected and billed to.
 
 
