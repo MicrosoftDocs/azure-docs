@@ -21,19 +21,22 @@ To deploy the DICOM service, you must have a workspace created in the Azure port
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Healthcare APIs Workspace**.
 
-   :::image type="content" source="./media/select-workspace-resource-group.png" alt-text="Select workspace resource group" lightbox="select-workspace-resource-group.png":::
+[ ![select workspace resource group](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
 2. Select **Deploy DICOM service**.
 
-    :::image type="content" source="./media/workspace-deploy-dicom-services.png" alt-text="Deploy DICOM service" lightbox="workspace-deploy-dicom-services.png":::
+    [ ![deploy dicom service](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
+
 
 3. Select **Add DICOM service**.
 
-   :::image type="content" source="./media/add-dicom-service.png" alt-text="Add DICOM service" lightbox="add-dicom-service.png":::
+    [ ![add dicom service](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
+
 
 4. Enter a name for the DICOM service, and then select **Review + create**. 
 
-   :::image type="content" source="./media/enter-dicom-service-name.png" alt-text="Enter DICOM service name" lightbox="enter-dicom-service-name.png":::
+    [ ![dicom service name](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
+
 
    (**Optional**) Select **Next: Tags >**.
 
@@ -43,11 +46,15 @@ To deploy the DICOM service, you must have a workspace created in the Azure port
 
 6. When the deployment process completes, select **Go to resource**.  
 
-   :::image type="content" source="./media/go-to-resource.png" alt-text="Go to resource":::
+   [ ![dicom go to resource](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
+
+
 
    The result of the newly deployed DICOM service is shown below.
 
-   :::image type="content" source="./media/results-deployed-dicom-service.png" alt-text="Result of newly deployed DICOM service":::
+   [ ![dicom finished deployment](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
+
+
 
 ## Next steps
 
