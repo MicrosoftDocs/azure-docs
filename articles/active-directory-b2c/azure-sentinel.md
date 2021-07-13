@@ -26,15 +26,19 @@ By utilizing Azure Sentinel in conjunction with Azure AD B2C, you can:
 
 In this tutorial, you’ll learn:
 1. How to transfer the B2C logs to Azure Monitor so they land in a Log Analytics workspace.
-1. Enable Azure Sentinel the LA workspace.
-1. Create a sample rule that will trigger an incident.
+1. Enable **Azure Sentinel** in that Log Analytics workspace.
+1. Create a sample rule in Sentinel that will trigger an incident.
 1. And lastly, configure some automated response.
 
 ## Deployment overview:
 
 ## Configure AAD B2C with Azure Monitor
 
-Follow steps 1 to 5 of the [Monitor Azure AD B2C with Azure monitor](./azure-monitor.md) to configure Azure AD B2C to send logs to Azure Monitor. 
+Azure AD B2C leverages Azure Active Directory monitoring. 
+The next steps will take through the process to enable ***Diagnostic settings*** in Azure Active Directory within your Azure AD B2C tenant.
+Diagnostic settings define where logs and metrics for a resource should be sent.
+
+Follow steps **1 to 5** of the [Monitor Azure AD B2C with Azure monitor](./azure-monitor.md) to configure Azure AD B2C to send logs to Azure Monitor. 
 
 ## Deploy an Azure Sentinel instance
 > [!IMPORTANT]
@@ -111,16 +115,16 @@ SigninLogs
 
 5.	Click Next in **Incident Settings (Preview)** and in **Automated Response**. You will configure and add the Automated Response later.
 
-6.	Select **Review and create** to review all the settings for your new alert rule. When the "Validation passed" message appears, select **Create** to initialize your alert rule.
+6.	Click Next get to the **Review and create** tab to review all the settings for your new alert rule. When the "Validation passed" message appears, select **Create** to initialize your alert rule.
 
     ![Rule6](./media/azure-sentinel/Rule6.png/)
 
 7.	View the rule and Incidents it generates.
-    - You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can enable, disable, or delete rules.
+    - You can find your newly created custom rule (of type "Scheduled") in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can ***edit***, ***enable***, ***disable***, or ***delete*** rules.
 
     ![Rule7](./media/azure-sentinel/Rule7.png/)
 
-- To view the results of our new B2C Non successful logins rule, go to the Incidents page, where you can triage, investigate, and remediate the threats.
+- To view the results of our new B2C Non successful logins rule, go to the **Incidents** page, where you can triage, investigate, and remediate the threats.
 
     An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
 
@@ -159,4 +163,6 @@ Once the Playbook is configured, you will have to just edit the existing rule an
 
 - Because no rule is perfect, if needed you can update the rule query to exclude false positives. For more information, see [Handle false positives in Azure Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/false-positives)
 
-- After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. [These workbooks](https://github.com/azure-ad-b2c/siem#workbooks) can be easily customized to your needs.
+- To help with data analysis and creation of rich visual reports, choose and download from a gallery of expertly created workbooks that surface insights based on your data. [These workbooks](https://github.com/azure-ad-b2c/siem#workbooks) can be easily customized to your needs.
+
+- Learn more about Sentinel in the [Azure Sentinel documentation](https://docs.microsoft.com/en-us/azure/sentinel/)
