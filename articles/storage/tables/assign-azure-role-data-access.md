@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common 
@@ -16,22 +16,14 @@ ms.custom: devx-track-azurepowershell
 
 # Assign an Azure role for access to table data (preview)
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access tables in Azure Storage (preview).
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access table data in Azure Storage (preview).
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual table. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article shows how to assign Azure roles for data access to tables.
+To learn more about using Azure AD to authorize access to table data, see [Authorize access to tables using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 > [!IMPORTANT]
 > Authorization with Azure AD for tables is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-## Azure roles for tables
-
-[!INCLUDE [storage-auth-rbac-roles-table-include](../../../includes/storage-auth-rbac-roles-table-include.md)]
-
-## Determine resource scope
-
-[!INCLUDE [storage-auth-resource-scope-table-include](../../../includes/storage-auth-resource-scope-table-include.md)]
 
 ## Assign an Azure role
 
