@@ -82,7 +82,6 @@ Run the provider setup file on each host, as described below:
     - Ensure **Connect directly to Azure Site Recovery without a proxy server** is selected, and then click **Next**.
     - Click **Finish**.
 
----
 
 # [Install using commands](#tab/commands) 
 
