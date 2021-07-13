@@ -39,7 +39,7 @@ Before you can successfully complete this tutorial, you must first:
 
 - Complete the steps in the [Get started](get-started-verifiable-credentials.md) tutorial.
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Have Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/). If you don't have one, follow the steps in [Create a free developer account](how-to-create-a-free-developer-account.md).
+- Have Azure AD with a P2 [license](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). If you don't have one, follow the steps in [Create a free developer account](how-to-create-a-free-developer-account.md).
 - Have an instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.
 
 ## Azure Active Directory
