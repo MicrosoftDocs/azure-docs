@@ -34,7 +34,7 @@ For more information on Load Balancer insights, see [Using Insights to monitor a
 
 ## Monitoring data 
 
-Load Balancer collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources). 
+Load Balancer collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 See [Monitoring Load Balancer data reference](monitor-load-balancer.md) for detailed information on the metrics and logs metrics created by Load Balancer.
 
