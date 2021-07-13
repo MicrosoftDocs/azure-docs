@@ -50,7 +50,7 @@ Watchlist templates currently include:
 - **High Value Assets**. A list of devices, resources, or other assets that have critical value in the organization.
 - **Network Mapping**. A list of IP subnets and their respective organizational contexts.
 
-For more information, see [Use Azure Sentinel watchlists](watchlists.md).
+For more information, see [Use Azure Sentinel watchlists](watchlists.md) and [Built-in watchlist schemas](watchlist-schemas.md).
 
 ### Watchlists are in general availability
 
