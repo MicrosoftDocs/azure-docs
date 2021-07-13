@@ -130,10 +130,67 @@ chmod 700 /root/.ssh/
 
 
 
-## Install and configure JetStream DR 
+## Install and configure JetStream DR MSA 
+
+1. Copy the OVA file to the workstation from which it can be deployed.
+
+2. From the vSphere Web Client, connect to the vCenter Server with user credentials with administrator rights to provision and manage VMs.
+
+3. Navigate to and select the OVA file that you downloaded and then select **Next**.
+
+   media/jetstream-disaster-recovery/jetstream-browse-ovf-template.png
+
+4. Provide a name for the management server VM and then select a datacenter.  Then select **Next**.
+
+   media/jetstream-disaster-recovery/jetstream-ovf-select-name-location.png
+
+5. Select a resource to run the management server VM template and then select **Next**.
+
+   media/jetstream-disaster-recovery/jetstream-select-compute-resource.png
+
+6. Review the template details and select **Next**.
+
+   media/jetstream-disaster-recovery/jetstream-ovf-template-details.png
+
+7. Review license terms. If you agree, select the checkbox and then select **Next**. The installation of JetStream DR management server VM on the selected host begins.
+
+   media/jetstream-disaster-recovery/jetstream-accept-license-agreement.png
+
+8. Specify the virtual disk format, VM storage policy, and the datastore. Then select **Next**.
+
+   media/jetstream-disaster-recovery/jetstream-select-storage.png
+
+9. Configure the network options and then select **Next**.
+
+   media/jetstream-disaster-recovery/jetstream-select-network.png
+
+10. Provide a hostname, the password information, and the network properties for the management server. The select **Next**.
+
+   >[!NOTE]
+   >The hostname must be a unique and fully qualified domain name (FQDN) that can be accessed by the vCenter Server. Also, if a root user password is not specified, the default value of *JetStream* is used. 
+
+   media/jetstream-disaster-recovery/jetstream-customize-ovf-template.png
+
+12. Review the settings and select **Finish**. 
+
+   media/jetstream-disaster-recovery/jetstream-ready-to-deploy.png
+
 
 
 ## Register vCenter Server with MSA
+
+After the MSA VM is deployed and reboots, you'll need to register the vCenter Server with the MSA.
+
+1. In vCenter, right-click the JetStream DR MSA VM and select **Open Console**.  The IP address of the JetStream DR MSA displays in the terminal. 
+
+2. Follow the instructions to register the vCenter Server and then sign into the JetStream DR MSA from a web browser.
+
+3. Provide the details of the primary site vCenter Server to register the JetStream DR plug-in.
+
+4. Once you see the confirmation of the successful registration, sign out of the vSphere Client and then sign into the JetStream DR plug-in.
+
+5. Navigate to the datacenter where the MSA was installed and then select the **Configuration** tab. The JetStream DR interface appears.
+
 
 
 ## Prepare cluster for protection
