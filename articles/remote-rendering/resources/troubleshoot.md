@@ -235,7 +235,7 @@ Coplanar surfaces can have a number of different causes:
 
 * Surfaces are duplicated and flipped to appear double-sided in renderers that use front-face or back-face culling.
 
-    Import via the [model conversion](../how-tos/conversion/model-conversion.md) determines the principal sidedness of the model. Double-sidedness is assumed as the default. The surface will be rendered as a thin wall with physically correct lighting from both sides. Single-sidedness can be implied by flags in the source asset, or explicitly forced during the [model conversion](../how-tos/conversion/model-conversion.md). Additionally but optionally, the [single sided mode](../overview/features/single-sided-rendering.md) can be set to "normal".
+    Import via the [model conversion](../how-tos/conversion/model-conversion.md) determines the principal sided-ness of the model. Double-sided-ness is assumed as the default. The surface will be rendered as a thin wall with physically correct lighting from both sides. Single-sided-ness can be implied by flags in the source asset, or explicitly forced during the [model conversion](../how-tos/conversion/model-conversion.md). Additionally but optionally, the [single sided mode](../overview/features/single-sided-rendering.md) can be set to "normal".
 
 * Objects intersect in the source assets.
 
