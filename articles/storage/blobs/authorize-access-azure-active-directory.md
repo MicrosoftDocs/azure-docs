@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -36,23 +36,45 @@ Native applications and web applications that make requests to the Azure Blob se
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob data. You can also define custom roles for access to blob data.
 
-When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### Resource scope
+
+Before you assign an Azure RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
+
+You can scope access to Azure blob resources at the following levels, beginning with the narrowest scope:
+
+- **An individual container.** At this scope, a role assignment applies to all of the blobs in the container, as well as container properties and metadata.
+- **The storage account.** At this scope, a role assignment applies to all containers and their blobs.
+- **The resource group.** At this scope, a role assignment applies to all of the containers in all of the storage accounts in the resource group.
+- **The subscription.** At this scope, a role assignment applies to all of the containers in all of the storage accounts in all of the resource groups in the subscription.
+- **A management group.** At this scope, a role assignment applies to all of the containers in all of the storage accounts in all of the resource groups in all of the subscriptions in the management group.
+
+For more information about scope for Azure RBAC role assignments, see [Understand scope for Azure RBAC](../../role-based-access-control/scope-overview.md).
 
 ### Azure built-in roles for blobs
 
-[!INCLUDE [storage-auth-rbac-roles-blob-include](../../../includes/storage-auth-rbac-roles-blob-include.md)]
+Azure RBAC provides a number of built-in roles for authorizing access to blob data using Azure AD and OAuth. Some examples of roles that provide permissions to data resources in Azure Storage include:
 
-To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
+- [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Use to set ownership and manage POSIX access control for Azure Data Lake Storage Gen2. For more information, see [Access control in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md).
+- [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Use to grant read/write/delete permissions to Blob storage resources.
+- [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Use to grant read-only permissions to Blob storage resources.
+- [Storage Blob Delegator](../../role-based-access-control/built-in-roles.md#storage-blob-delegator): Get a user delegation key to use to create a shared access signature that is signed with Azure AD credentials for a container or blob.
+
+To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.md).
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
+
+Only roles explicitly defined for data access permit a security principal to access blob data. Built-in roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the blob data within that account via Azure AD. However, if a role includes **Microsoft.Storage/storageAccounts/listKeys/action**, then a user to whom that role is assigned can access data in the storage account via Shared Key authorization with the account access keys. For more information, see [Choose how to authorize access to blob data in the Azure portal](../../storage/blobs/authorize-data-operations-portal.md).
+
+For detailed information about Azure built-in roles for Azure Storage for both the data services and the management service, see the **Storage** section in [Azure built-in roles for Azure RBAC](../../role-based-access-control/built-in-roles.md#storage). Additionally, for information about the different types of roles that provide permissions in Azure, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+
+> [!IMPORTANT]
+> Azure role assignments may take up to 30 minutes to propagate.
 
 ### Access permissions for data operations
 
 For details on the permissions required to call specific Blob service operations, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
-
-## Resource scope
-
-[!INCLUDE [storage-auth-resource-scope-blob-include](../../../includes/storage-auth-resource-scope-blob-include.md)]
 
 ## Access data with an Azure AD account
 
