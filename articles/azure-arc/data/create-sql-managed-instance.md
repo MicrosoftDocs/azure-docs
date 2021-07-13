@@ -72,10 +72,10 @@ Name    Replicas    ServerEndpoint    State
 sqldemo 1/1         10.240.0.4:32023  Ready
 ```
 
-If you are using AKS or `kubeadm` or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio. However, if you are using the quickstart VM, see the [Connect to Azure Arc enabled SQL Managed Instance](connect-managed-instance.md) article for special instructions.
+If you are using AKS or `kubeadm` or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio. However, if you are using the quickstart VM, see the [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md) article for special instructions.
 
 
 ## Next steps
-- [Connect to Azure Arc enabled SQL Managed Instance](connect-managed-instance.md)
+- [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)
 - [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
 - [Deploy Azure SQL managed instance using Azure Data Studio](create-sql-managed-instance-azure-data-studio.md)

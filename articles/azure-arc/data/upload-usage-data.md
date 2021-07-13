@@ -1,6 +1,6 @@
 ---
 title: Upload usage data to Azure Monitor
-description: Upload usage Azure Arc enabled data services data to Azure Monitor
+description: Upload usage Azure Arc-enabled data services data to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -17,7 +17,7 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 Periodically, you can export out usage information. The export and upload of this information creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc enabled data services.
+> During the preview period, there is no cost for using Azure Arc-enabled data services.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -41,7 +41,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
    az arcdata dc export --type usage --path usage.json
    ```
  
-   This command creates a `usage.json` file with all the Azure Arc enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
+   This command creates a `usage.json` file with all the Azure Arc-enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
 
 2. Upload the usage data using ```azdata upload``` command
 

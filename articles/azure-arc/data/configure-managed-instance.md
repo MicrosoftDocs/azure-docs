@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Arc enabled SQL managed instance
-description: Configure Azure Arc enabled SQL managed instance
+title: Configure Azure Arc-enabled SQL managed instance
+description: Configure Azure Arc-enabled SQL managed instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,9 +11,9 @@ ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
-# Configure Azure Arc enabled SQL managed instance
+# Configure Azure Arc-enabled SQL managed instance
 
-This article explains how to configure Azure Arc enabled SQL managed instance.
+This article explains how to configure Azure Arc-enabled SQL managed instance.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -21,7 +21,7 @@ This article explains how to configure Azure Arc enabled SQL managed instance.
 
 ### Configure using CLI
 
-You can edit the configuration of Azure Arc enabled SQL Managed Instances with the CLI. Run the following command to see configuration options. 
+You can edit the configuration of Azure Arc-enabled SQL Managed Instances with the CLI. Run the following command to see configuration options. 
 
 ```azurecli
 az sql mi-arc edit --help
@@ -41,7 +41,7 @@ az sql mi-arc show -n <NAME_OF_SQL_MI>
 
 ## Configure Server options
 
-You can configure server configuration settings for Azure Arc enabled SQL managed instance after creation time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
+You can configure server configuration settings for Azure Arc-enabled SQL managed instance after creation time. This article describes how to configure settings like enabling or disabling mssql Agent, enable specific trace flags for troubleshooting scenarios.
 
 To change any of these settings, follow these steps:
 
