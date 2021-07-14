@@ -40,10 +40,10 @@ To create a standard test:
 | **SSL certificate validation test** | You can verify the SSL certificate on your website to make sure it's correctly installed, valid, trusted, and doesn't give any errors to any of your users. |
 | **Proactive lifetime check** | This enables you to define a set time period before your SSL certificate expires. Once it expires, your test will fail. |
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
-|**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
+|**Test locations**|  The places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
 | **Custom headers** | Key value pairs that define the operating parameters. |
 | **HTTP request verb** | Indicate what action you would like to take with your request. |
-| **Request body** | Custom data associated with your HTTP request. You can upload your own files, type in your content, or disable this feature. For raw body content, we support TEXT, JSON, HTML, XML, and JavaScript. |
+| **Request body** | Custom data associated with your HTTP request. You can upload your own files, type in your content, or disable this feature. |
 
 ## Success criteria
 
