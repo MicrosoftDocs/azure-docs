@@ -90,25 +90,23 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 3. On the **Source data store** page, complete these steps:
 
-    1. Select  **Create new connection** to add a connection.
+    1. Select  **+ New connection** to add a connection.
 
     1. Select **Azure Blob Storage** from the gallery, and then select **Continue**:
 
         ![Select Azure Blog Storage](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    1. On the **New connection (Azure Blob Storage)** page, select your Azure subscription from **Azure subscription** list and your storage account from the **Storage account name** list. Test the connection and then select **Create**.
+    1. On the **New connection (Azure Blob Storage)** page, select your Azure subscription from the **Azure subscription** list and your storage account from the **Storage account name** list. Test the connection and then select **Create**.
 
     1. Select the newly created connection in the **Connection** block.
 
-    1. In the **Folder path** section, complete the following steps:
+    1. In the **File or folder** section, select **Browse** and choose the **source** folder, and then select **OK**.
 
-        1. Select **Browse** and choose the **source** folder, and then select **OK**.
-
-        1. Under **File loading behavior**, select **Incremental load: LastModifiedDate**.
-
-        1. Select **Binary copy** and then select **Next**:
+    1. Under **File loading behavior**, select **Incremental load: LastModifiedDate**, and choose **Binary copy**.
     
-    ![Screenshot that shows the Source data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
+    1. Select **Next**.
+
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png" alt-text="Screenshot that shows the 'Source data store' page.":::
 
 4. On the **Destination data store** page, complete these steps:
     1. Select the **AzureBlobStorage** connection that you created. This is the same storage account as the source data store.
@@ -116,8 +114,8 @@ Prepare your Blob storage for the tutorial by completing these steps:
     1. In the **Folder path** section, browse for and select the **destination** folder, and then select **OK**.
 
     1. Select **Next**.
-    
-    ![Screenshot that shows the Destination data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store.png)
+
+    :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page.png" alt-text="Screenshot that shows the 'Destination data store' page.":::
 
 5. On the **Settings** page, under **Task name**, enter **DeltaCopyFromBlobPipeline**, then select **Next**. Data Factory creates a pipeline with the specified task name.
 
@@ -127,7 +125,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
     ![Summary page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
 
-7. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
+7. On the **Deployment** page, select **Monitor** to monitor the pipeline (task).
 
     ![Deployment page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
 
@@ -135,7 +133,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
     ![Refresh the list and view activity run details](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
-9. There's only one activity (the copy activity) in the pipeline, so you see only one entry. For details about the copy operation, select the **Details** link (the eyeglasses icon) in the **Activity name** column. For details about the properties, see [Copy activity overview](copy-activity-overview.md).
+9. There's only one activity (the copy activity) in the pipeline, so you see only one entry. For details about the copy operation, on the **Activity runs** page, select the **Details** link (the eyeglasses icon) in the **Activity name** column. For details about the properties, see [Copy activity overview](copy-activity-overview.md).
 
     ![Copy activity in the pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
 
@@ -147,7 +145,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
     ![Create file1.txt and upload it to the source container](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
-11. To go back to the **Pipeline runs** view, select **All pipeline runs**, and wait for the same pipeline to be automatically triggered again.  
+11. To go back to the **Pipeline runs** view, select **All pipeline runs** link in the breadcrumb menu on the **Activity runs** page, and wait for the same pipeline to be automatically triggered again.  
 
 12. When the second pipeline run completes, follow the same steps mentioned previously to review the activity run details.  
 
@@ -157,7 +155,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 13. Create another empty text file and name it **file2.txt**. Upload this text file to the source container in your Blob storage account.
 
-14. Repeat steps 13 and 14 for the second text file. You'll see that only the new file (file2.txt) was copied from the source container to the destination container of your storage account during this pipeline run.  
+14. Repeat steps 11 and 12 for the second text file. You'll see that only the new file (file2.txt) was copied from the source container to the destination container of your storage account during this pipeline run.  
 
     You can also verify that only one file has been copied by using [Azure Storage Explorer](https://storageexplorer.com/) to scan the files:
 
