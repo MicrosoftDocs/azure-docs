@@ -1410,6 +1410,8 @@
         href: paloaltonetworks-aperture-tutorial.md
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
+      - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
+        href: palo-alto-networks-cloud-identity-engine---cloud-authentication-service-tutorial.md  
       - name: Palo Alto Networks - GlobalProtect
         href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
