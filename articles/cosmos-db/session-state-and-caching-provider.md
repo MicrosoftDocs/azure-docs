@@ -8,24 +8,25 @@ ms.topic: how-to
 ms.date: 07/14/2021
 ---
 
+# Overview
 
 The Azure Cosmos DB session and cache provider allows you to use Azure Cosmos DB and leverage its low latency and global scale capabilities for storing session state data and as a distributed cache within your application.
 
 ## What is session state?
 
-[Session state](/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#session-state) is user data that tracks a user browsing through a web application during a period of time, within the same browser. The session state expires (hence it's limited by a period of time), and it's limited to the interactions a particular browser is having (does not extend across browsers). It is considered ephemeral data, if it is not present it will not break the application. However, when it exists, it makes the experience faster for the user because the web application does not need to fetch it on every browser request for the same user.
+[Session state](/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#configure-session-state&preserve-view=true) is user data that tracks a user browsing through a web application during a period of time, within the same browser. The session state expires, and it's limited to the interactions a particular browser is having which does not extend across browsers. It is considered ephemeral data, if it is not present it will not break the application. However, when it exists, it makes the experience faster for the user because the web application does not need to fetch it on every browser request for the same user.
 
-It is often backed by some storage mechanism, that can in some cases, be external to the current web server and enable load balancing requests of the same browser across multiple web servers to achieve higher scalability.
+It is often backed by some storage mechanism, that can in some cases, be external to the current web server and enable load-balancing requests of the same browser across multiple web servers to achieve higher scalability.
 
-The simplest session state provider is the in-memory provider that only stores data on the local web server memory and requires the application to use [Application Request Routing](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) to make the browser session be sticky to a particular web server (all requests for that browser need to always land on the same web server). This provider works well on simple scenarios but the stickiness requirement can bring load balancing problems when web applications scale.
+The simplest session state provider is the in-memory provider that only stores data on the local web server memory and requires the application to use [Application Request Routing](/iis/extensions/planning-for-arr/using-the-application-request-routing-module). This makes the browser session sticky to a particular web server (all requests for that browser need to always land on the same web server). The provider works well on simple scenarios but the stickiness requirement can bring load-balancing problems when web applications scale.
 
-There are a number of external storage providers available, that can store the session data in a way that can be read and accessed by multiple web servers without requiring session stickiness and enable a higher scale.
+There are many external storage providers available, that can store the session data in a way that can be read and accessed by multiple web servers without requiring session stickiness and enable a higher scale.
 
 ## Session state scenarios
 
-Cosmos DB can be used as a session state provider through the extension package [Microsoft.Extensions.Caching.Cosmos](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Cosmos) leverages the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-standard.md), using a Container as an effective session storage based on a key/value approach where the key is the session identifier.
+Cosmos DB can be used as a session state provider through the extension package [Microsoft.Extensions.Caching.Cosmos](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Cosmos) uses the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-standard.md), using a Container as an effective session storage based on a key/value approach where the key is the session identifier.
 
-Once the package is added, you can leverage `AddCosmosCache` as part of your Startup process (services.AddSession and app.UseSession are [common initialization](/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#configure-session-state) steps required for any session state provider):
+Once the package is added, you can use `AddCosmosCache` as part of your Startup process (services.AddSession and app.UseSession are [common initialization](/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#configure-session-stat&preserve-view=true) steps required for any session state provider):
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -60,7 +61,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
-Where you specify the database and container where you want the session state to be stored and if you want to, optionally, create them if they don't exist.
+Where you specify the database and container you want the session state to be stored and optionally, create them if they don't exist.
 
 You can customize your SDK client configuration by using the `CosmosClientBuilder` or if your application is already using a `CosmosClient` for other operations with Cosmos DB, you can also inject it into the provider:
 
@@ -75,13 +76,13 @@ services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
 });
 ```
 
-After this, you can use ASP.NET Core sessions like with any other provider and leverage the HttpContext.Session object, keep in mind to always try and load your session information asynchronously as per the [ASP.NET recommendation](aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#load-session-state-asynchronously).
+After this, you can use ASP.NET Core sessions like with any other provider and use the HttpContext.Session object. Keep in mind to always try to load your session information asynchronously as per the [ASP.NET recommendations](/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#load-session-state-asynchronously&preserve-view=true).
 
 ##  Distributed cache scenarios
 
-Given that the Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](aspnet/core/performance/caching/distributed?view=aspnetcore-5.0), it can also be leveraged for any application that requires distributed cache, not just for web application requiring a performant and distributed session state provider.
+Given that the Cosmos DB provider implements the [IDistributedCache interface to act as a distributed cache provider](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true), it can also be used for any application that requires distributed cache, not just for web application that require a performant and distributed session state provider.
 
-Distributed caches require data consistency to provide independent instances to be able to share that cached data. When using the Cosmos DB provider you can:
+Distributed caches require data consistency to provide independent instances to be able to share that cached data. When using the Cosmos DB provider, you can:
 
 - Use your Cosmos DB account in **Session consistency** if you can enable [Application Request Routing](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) and make requests sticky to a particular instance.
 - Use your Cosmos DB account in **Bounded Staleness or Strong consistency** without requiring request stickiness. This provides the greatest scale in terms of load distribution across your instances.
@@ -129,6 +130,6 @@ services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
 ```
 
 ## Next steps
-1. To find more details on the Azure Cosmos DB session and cache provider see the [source code on Github](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/).
+1. To find more details on the Azure Cosmos DB session and cache provider see the [source code on GitHub](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/).
 2. [Try out](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/tree/master/sample) the Azure Cosmos DB session and cache provider by exploring a sample Explore an ASP.NET Core web application.
-3. Read more about [distributed caches](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0) in .NET.
+3. Read more about [distributed caches](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true) in .NET.
