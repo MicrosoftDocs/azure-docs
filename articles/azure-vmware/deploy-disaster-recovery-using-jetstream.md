@@ -10,7 +10,7 @@ ms.date: 07/15/2021
 
 # Deploy disaster recovery using JetStream
 
-[JetStream Disaster Recovery (DR)](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is installed in a VMware vSphere environment and managed through a vCenter plug-in appliance. It provides cloud-native Continuous Data Protection (CDP), which constantly replicates virtual machine (VM) I/O operations. Instead of capturing snapshots at regular intervals, it continuously captures and replicates data as it's written to the primary storage with minimal effect on running applications.  It allows you to quickly recover VMs and their data, reaching a lower recovery point objective (RPO).  
+[JetStream Disaster Recovery (DR)](https://www.jetstreamsoft.com/product-portfolio/jetstream-dr/) is installed in a VMware vSphere environment and managed through a vCenter plug-in appliance. It provides cloud-native Continuous Data Protection (CDP), which constantly replicates virtual machine (VM) I/O operations. Instead of capturing snapshots at regular intervals, it continuously captures and replicates data as it's written to the primary storage with minimal effect on running applications.  As a result, it allows you to quickly recover VMs and their data, reaching a lower recovery point objective (RPO).  
 
 With Azure VMware Solution, you can store data directly to a recovery cluster in vSAN or an attached file system like Azure NetApp Files. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform. 
 
