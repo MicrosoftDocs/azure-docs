@@ -62,7 +62,6 @@ You can display and search backups that are associated with a subscription under
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Register Azure NetApp Files backup](backup-register.md)
 * [Configure policy-based backups](backup-configure-policy-based.md)
 * [Configure manual backups](backup-configure-manual.md)
 * [Manage backup policies](backup-manage-policies.md)

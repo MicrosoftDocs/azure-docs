@@ -22,8 +22,8 @@ Azure NetApp Files backup supports *policy-based* (scheduled) backups and *manua
 
 This article shows you how to configure policy-based backups.  For manual backup configuration, see [Configure manual backups](backup-configure-manual.md).  
 
-> [!NOTE]
-> The Azure NetApp Files backup feature is currently in preview. Before using the feature for the first time, you need to [register](backup-register.md). 
+> [!IMPORTANT]
+> The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.
 
 ## About policy-based backups  
 
@@ -148,7 +148,6 @@ To enable the backup functionality for a volume:
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
-* [Register Azure NetApp Files backup](backup-register.md)
 * [Configure manual backups](backup-configure-manual.md)
 * [Manage backup policies](backup-manage-policies.md)
 * [Search backups](backup-search.md)

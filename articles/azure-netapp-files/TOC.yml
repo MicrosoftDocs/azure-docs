@@ -153,8 +153,6 @@
       href: cross-region-replication-delete.md
   - name: Manage Azure NetApp Files backup 
     items:
-    - name: Register Azure NetApp Files backup 
-      href: backup-register.md    
     - name: Configure backups
       items:
       - name: Configure policy-based backups 
