@@ -14,20 +14,24 @@ ms.author: ginle
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Azure Healthcare APIs is a fully managed health data platform that enables the rapid exchange and persistence of Protected Health Information (PHI) and health data through interoperable open industry standards like Fast Healthcare Interoperability Resources (FHIR®) and Digital Imaging and Communications in Medicine (DICOM®).
+The health data you work with is fragmented across multiple systems and formats. Managing this data is hard enough, trying to gain insight from it seems impossible. You need to find a way to bring all these disparate systems and data together. A unified approach to health data would enable you to discover operational and clinical insights, connect new end-user applications, or enable new research projects. Azure Healthcare APIs is a set of tools and connectors that enable you to improve healthcare through insights discovered by bringing disparate sets of PHI together and connecting it end-to-end with tools for machine learning, analytics, and AI.
 
-Our health data platform allows you to:
-* Transform and ingest data into FHIR. For example, you can transform health data from 
-legacy formats, such as HL7v2 or CDA, or from high frequency IoT data in device 
-proprietary formats to FHIR.
+Azure Healthcare APIs provides the following benefits:
+* Empower new workloads to leverage PHI by enabling the data to be collected and accessed in one place, in a consistent way.
+* Discover new insight by bringing disparate PHI together and connecting it end-to-end with tools for machine learning, analytics, and AI.
+* Build on a trusted cloud with confidence in how Protected Health Information is managed, stored, and made available.
+The new Microsoft Azure Healthcare APIs will, in addition to FHIR, supports other healthcare industry data standards, like DICOM, extending healthcare data interoperability. The business model, and infrastructure platform has been redesigned to accommodate the expansion and introduction of different and future Healthcare data standards. Customers can use health data of different types across healthcare standards under the same compliance umbrella. Tools have been built into the managed service that allow customers to transform data from legacy or device proprietary formats, to FHIR. Some of these tools have been previously developed and open-sourced; Others will be net new.
 
-* Connect your data stored in Healthcare APIs with services across the Azure ecosystem 
-and products across Microsoft to derive new insights through analytics and machine 
-learning and to enable new workflows.
- 
-* Manage advanced workloads with enterprise features that offer reliability, scalability, 
-and security to ensure that your data is protected, meets privacy and compliance 
-certifications required for the healthcare industry.
+Azure Healthcare APIs enables you to: 
+
+* Quickly connect disparate health data sources and formats such as structured, imaging, and device data and normalize it to be persisted in the cloud.
+
+* Transform and ingest data into FHIR. For example, you can transform health data from legacy formats, such as HL7v2 or CDA, or from high frequency IoT data in device proprietary formats to FHIR.
+
+* Connect your data stored in Healthcare APIs with services across the Azure ecosystem, like Synapse, and products across Microsoft, like Teams, to derive new insights through analytics and machine learning and to enable new workflows as well as connection to SMART on FHIR applications.
+
+* Manage advanced workloads with enterprise features that offer reliability, scalability, and security to ensure that your data is protected, meets privacy and compliance certifications required for the healthcare industry.
+
 
 ## What are the key differences between Azure Healthcare APIs and Azure API for FHIR?
 
