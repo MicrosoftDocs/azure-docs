@@ -3,7 +3,7 @@ title: Deploy and configure Azure VMware Solution
 description: Use the information gathered in the planning stage to deploy and configure Azure VMware Solution.
 ms.topic: how-to
 ms.custom: contperf-fy21q4, devx-track-azurecli
-ms.date: 07/07/2021
+ms.date: 07/09/2021
 ---
 
 # Deploy and configure Azure VMware Solution
@@ -37,7 +37,12 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 ## Connect to Azure Virtual Network with ExpressRoute
 
-In the planning phase, you defined whether you to use an *existing* or *new* ExpressRoute virtual network gateway.  
+In the planning phase, you defined whether to use an *existing* or *new* ExpressRoute virtual network gateway.  
+
+:::image type="content" source="media/connect-expressroute-vnet-workflow.png" alt-text="Diagram showing the workflow for connecting Azure Virtual Network to ExpressRoute in Azure VMware Solution." border="false":::
+
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
 
 ### Use a new ExpressRoute virtual network gateway
 
@@ -46,9 +51,9 @@ In the planning phase, you defined whether you to use an *existing* or *new* Exp
 
 | If | Then  |
 | --- | --- |
-| You don't already have a virtual network...     |  Create the following:<ul><li><a href="tutorial-configure-networking.md#create-a-virtual-network">Virtual network</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li></ul>        |
-| You already have a virtual network **without** a GatewaySubnet...   | Create the following: <ul><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li></ul>          |
-| You already have a virtual network **with** a GatewaySubnet... | [Create a virtual network gateway](tutorial-configure-networking.md#create-a-virtual-network-gateway)   |
+| You don't already have a virtual network...     |  Create the following:<ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network">Virtual network</a></li><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>        |
+| You already have a virtual network **without** a GatewaySubnet...   | Create the following: <ol><li><a href="../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet">GatewaySubnet</a></li><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>          |
+| You already have a virtual network **with** a GatewaySubnet... | Create the following: <ol><li><a href="tutorial-configure-networking.md#create-a-virtual-network-gateway">Virtual network gateway</a></li><li><a href="tutorial-configure-networking.md#connect-expressroute-to-the-virtual-network-gateway">Connect ExpressRoute to the gateway</a></li></ol>    |
 
 
 ### Use an existing virtual network gateway
