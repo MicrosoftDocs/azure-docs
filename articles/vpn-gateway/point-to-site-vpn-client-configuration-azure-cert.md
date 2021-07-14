@@ -57,7 +57,11 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ## <a name="installmac"></a>Mac (macOS)
 
- You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. Azure does not provide mobileconfig file for native Azure certificate authentication. The **Generic** folder contains all of the information that you need for configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder.<br>The Generic folder contains the following files:
+In order to connect to Azure, you must manually configure the native IKEv2 VPN client. Azure does not provide a *mobileconfig* file. You can find all of the information that you need for configuration in the **Generic** folder. 
+
+If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. On the VPN gateway, verify that the SKU is not Basic. Then, select IKEv2 and generate the zip file again to retrieve the Generic folder.
+
+The Generic folder contains the following files:
 
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type. 
 * **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.
@@ -66,7 +70,7 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
 ### Import root certificate file
 
-1. Copy to the root certificate file to your Mac. Double-click the file to open.
+1. Copy to the root certificate file to your Mac. Double-click the certificate. The certificate will either automatically install, or you will see the **Add Certificates** page.
 1. On the **Add Certificates** page, select **login** from the dropdown.
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/login.png" alt-text="Screenshot shows Add Certificates page with login selected.":::
@@ -74,7 +78,7 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
    :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/add.png" alt-text="Screenshot shows Add Certificates page with Add selected.":::
 
-### Verify certificates
+### Verify certificate install
 
 Verify that both the client and the root certificate are installed. The client certificate is used for authentication and is required. For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
