@@ -24,8 +24,8 @@ In this tutorial, we'll use these [sample DICOM files](https://github.com/micros
 |red-triangle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652|1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395|
 |blue-circle.dcm|1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420|1.2.826.0.1.3680043.8.498.77033797676425927098669402985243398207|1.2.826.0.1.3680043.8.498.13273713909719068980354078852867170114|
 
-[!NOTE]
-Each of these files represent a single instance and are part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
+>[!NOTE]
+>Each of these files represent a single instance and are part of the same study. Also, the green-square and red-triangle are part of the same series, while the blue-circle is in a separate series.
 
 ## Prerequisites
 
@@ -337,7 +337,7 @@ _Details:_
 
 This request deletes a single series (and all child instances) within a single study.
 
-> Delete is not part of the DICOM standard, but it's been added for convenience.
+Delete is not part of the DICOM standard, but it's been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}
@@ -351,7 +351,7 @@ _Details:_
 
 This request deletes a single study (and all child series and instances).
 
-> Delete is not part of the DICOM standard, but it has been added for convenience.
+Delete is not part of the DICOM standard, but it has been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}

@@ -24,7 +24,7 @@ To deploy the DICOM service, you must have a workspace created in the Azure port
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Healthcare APIs Workspace**.
 
-[ ![select workspace resource group](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
+   [ ![select workspace resource group](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
 2. Select **Deploy DICOM service**.
 

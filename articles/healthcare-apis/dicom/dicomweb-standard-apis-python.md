@@ -1,6 +1,6 @@
 ---
 title:  Using DICOMweb Standard APIs with Python - Azure Healthcare APIs 
-description: This tutorial describes how to use DICOMweb Standard APIs with cURL. 
+description: This tutorial describes how to use DICOMweb Standard APIs with Python. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
