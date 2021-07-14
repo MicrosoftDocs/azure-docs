@@ -454,20 +454,3 @@
       href: manage/review-enterprise-billing.md
     - name: Review subscription use
       href: manage/review-subscription-billing.md
-- name: Cloudyn
-  items:
-  - name: Overview
-  - name: Quickstarts
-  - name: Tutorials
-  - name: Concepts
-  - name: How-to guides
-  - name: Resources
-    items:
-    - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
-    - name: Cloudyn Pricing
-      href: https://azure.microsoft.com/pricing/details/cost-management
-    - name: Cloudyn Regional Availability
-      href: https://azure.microsoft.com/regions/services/
-    - name: Contact Cloudyn support
-      href: ./costs/open-support-request.md

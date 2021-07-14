@@ -157,7 +157,12 @@ You can create or modify a query and save it as your own query or share it with 
 
 ## Next steps
 
-In this article, you learned how to run a hunting investigation with Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to run a hunting investigation with Azure Sentinel. 
+
+For more information, see:
 
 - [Use notebooks to run automated hunting campaigns](notebooks.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
+
+Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
+

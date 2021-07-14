@@ -377,7 +377,6 @@
         "articles/managed-instance-apache-cassandra/**/*.md": "https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548",
         "articles/cost-management-billing/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/cost-management-billing/costs/**/*.md": "https://feedback.azure.com/forums/906772-cost-management",
-        "articles/cost-management-billing/cloudyn/**/*.md": "https://feedback.azure.com/forums/906772-cost-management?query=cloudyn",
         "articles/cost-management-billing/manage/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/cost-management-billing/reservations/**/*.md": "https://feedback.azure.com/forums/926206-azure-reservations",
         "articles/data-catalog/**/*.md": "https://feedback.azure.com/forums/906052-data-catalog",

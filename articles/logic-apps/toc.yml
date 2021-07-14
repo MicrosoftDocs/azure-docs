@@ -401,6 +401,8 @@
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
+  - name: Billing and pricing models
+    href: logic-apps-pricing.md
   - name: Architecture patterns
     items:
     - name: Basic enterprise integration
@@ -411,8 +413,6 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Pricing and billing models
-    href: logic-apps-pricing.md
   - name: Azure CLI
     href: /cli/azure/logic
   - name: Azure PowerShell
