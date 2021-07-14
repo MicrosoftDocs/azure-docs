@@ -43,7 +43,7 @@ VMs running in an organization's VMware‐based data center are continuously rep
 
 ### Cloud to cloud deployment
 
-In this configuration, Azure VMware Solution hosts the customer's primary environment in one data center and protects the VMs and their data by continuously replicating to another private cloud in another one of its data centers. If there is an incident, VMs and data are recovered in the second data center. This protection can be bi‐directional, with data center "A" protecting data center "B", and vice‐versa.
+In this configuration, Azure VMware Solution hosts the customer's primary environment in one data center. It protects the VMs and their data by continuously replicating to another private cloud in another of its data centers. If there is an incident, VMs and data are recovered in the second data center. This protection can be bi‐directional, with data center "A" protecting data center "B", and vice‐versa.
 
 :::image type="content" source="media/jetstream-disaster-recovery/jetstream-cloud-to-cloud-diagram.png" alt-text="Diagram showing the Azure VMware Solution private cloud to private cloud JetStream deployment." border="false":::
 
