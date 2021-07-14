@@ -66,7 +66,7 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Multiple Spool Output Executions**     |Identifies multiple spools for a user within a specific time-range. | Create and run multiple spool jobs of any type by a user. (SP01) <br><br>**Data sources**: SAPcon - Spool Output Log, SAPcon - Audit Log   |  Collection, Exfiltration, Credential Access       |
 |**SAP - Medium - Spool Takeover**     |Identifies a user printing a spool request that was created by someone else. | Create a spool request using one user, and then output it in using a different user. <br><br>**Data sources**: SAPcon -  Spool Log, SAPcon -  Spool Output Log, SAPcon - Audit Log   |  Collection, Exfiltration, Command and Control      |
 |**SAP - Low - Dynamic ABAP Program**     | Identifies the execution of dynamic ABAP programming. For example, when ABAP code was dynamically created, changed, or deleted. <br><br> Maintain excluded transaction codes in the [SAP - Transactions for ABAP Generations](#transactions) watchlist. | Create an ABAP Report that uses ABAP program generation commands, such as INSERT REPORT, and then run the report.  <br><br>**Data sources**: SAPcon - Audit Log      |    Discovery, Command and Control, Impact     |
-| | | | | |
+| | | | |
 
 ### Built-in SAP analytics rules for backdoor creation (persistency)
 
@@ -80,7 +80,7 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Execution of Obsolete or Insecure Function Module**     |Identifies the execution of an obsolete or insecure ABAP function module. <br><br>Maintain obsolete functions in the [SAP - Obsolete Function Modules](#modules) watchlist. Make sure to activate table logging changes for the `EUFUNC` table in the backend. (SE13)<br><br> **Note**: Relevant for production systems only.  | Run an obsolete or insecure function module directly using SE37. <br><br>**Data sources**: SAPcon -  Table Data Log   | Discovery, Command and Control |
 |**SAP - Medium - Sensitive Tables Direct Access By RFC Logon**     |Identifies a generic table access by RFC sign in. <br><br> Maintain tables in the [SAP - Sensitive Tables](#tables) watchlist.<br><br> **Note**: Relevant for production systems only.   | Open the table contents using SE11/SE16/SE16N.<br><br>**Data sources**: SAPcon -  Audit Log   |  Collection, Exfiltration, Credential Access     |
 |**SAP - Low - Sensitive Tables Direct Access By Dialog Logon**     |   Identifies generic table access via dialog sign-in.      |  Open table contents using `SE11`/`SE16`/`SE16N`. <br><br>**Data sources**: SAPcon - Audit Log      |    Discovery     |
-| | | | | |
+| | | | |
 
 
 ### Built-in SAP analytics rules for attempts to bypass SAP security mechanisms
@@ -102,7 +102,7 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Transaction is unlocked**     |Identifies unlocking of a transaction.         |     Unlock a transaction code using `SM01`/`SM01_DEV`/`SM01_CUS`. <br><br>**Data sources**: SAPcon - Audit Log   |  Persistence, Execution       |
 |**SAP - Low - Multiple Password Changes by User**     |   Identifies multiple password changes by user.      |   Change user password <br><br>**Data sources**: SAPcon - Audit Log      |    Credential Access     |
 |**SAP - Low - Dynamic RFC Destination**     |   Identifies the execution of RFC using dynamic destinations. | Execute an ABAP report that uses dynamic destinations (cl_dynamic_destination). For example, DEMO_RFC_DYNAMIC_DEST.   <br><br>**Data sources**: SAPcon - Audit Log      |    Collection, Exfiltration     |
-|     |         |         |         |
+| | | | |
 
 ### Built-in SAP analytics rules for suspicious privileges operations
 
