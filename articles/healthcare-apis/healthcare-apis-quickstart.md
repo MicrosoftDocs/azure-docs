@@ -12,10 +12,7 @@ ms.author: ginle
 # Deploy Healthcare APIs (preview) workspace using Azure portal
 
 > [!IMPORTANT]
-> This capability is in public preview, and it's provided without a service level agreement. 
-> It's not recommended for production workloads. Certain features might not be supported 
-> or might have constrained capabilities. For more information, see 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you’ll learn how to create a workspace by deploying an Azure Healthcare APIs 
 service using the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
