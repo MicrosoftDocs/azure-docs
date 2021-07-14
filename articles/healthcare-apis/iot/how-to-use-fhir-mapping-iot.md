@@ -37,7 +37,7 @@ The CodeValueFhirTemplate is currently the only template supported in FHIR mappi
 
 ### Value type templates
 
-Below are the currently supported value type templates. In the future, additional templates may be added.
+Below are the currently supported value type templates:
 
 #### SampledData
 
