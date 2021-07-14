@@ -1,26 +1,26 @@
 ---
 title: Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)
-description: Learn how to provision ANF volumes on-demand with Azure Kubernetes Service
+description: Learn how to provision Azure NetApp Files volumes on-demand with Azure Kubernetes Service
 services: container-service
 ms.topic: article
 ms.date: 05/10/2021
 
-#Customer intent: As a cluster operator or developer, I want to learn how to create on-demand ANF volumes that must be used as Kubernetes persistent volumes in an Azure Kubernetes Service (AKS) cluster
+#Customer intent: As a cluster operator or developer, I want to learn how to create on-demand volumes that must be used as Kubernetes persistent volumes in an Azure Kubernetes Service (AKS) cluster
 ---
 
 # Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create an [Azure NetApp Files][anf] volume to be used by pods in an Azure Kubernetes Service (AKS) cluster.
 
-[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Users have multiple options when it comes to using ANF volumes for AKS workloads:
+[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Users have multiple options when it comes to using Azure NetApp Files volumes for AKS workloads:
 
-* Create and use ANF volumes statically. In this scenario, the creation of ANF volumes is achieved external to AKS; ANF volumes are created using `az`/Azure UI and are then exposed to the Kubernetes plane by the creation of a `PersistentVolume`.
-* Create and use ANF volumes on-demand, for stateful AKS workloads. This is the preferred mode of operation for creating multiple ANF volumes directly via AKS and is achieved using NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a **fully managed** application-aware data management service that manages, protects, and moves data-rich workloads across AKS clusters. NetApp recommends Astra for customers who prioritize dynamic storage provisioning, data protection, disaster recovery, and migration for production workloads. Astra is the only supported option for storage and data management for AKS workloads when using ANF as the persistent storage provider. This document explains the steps involved to connect AKS clusters with Astra and provision ANF volumes.
+* Create and use volumes statically. In this scenario, the creation of volumes is achieved external to AKS; Azure NetApp Files volumes are created using `az`/Azure UI and are then exposed to the Kubernetes plane by the creation of a `PersistentVolume`.
+* Create and use volumes on-demand, for stateful AKS workloads. This is the preferred mode of operation for creating multiple volumes directly via AKS and is achieved using NetApp Astra. [Astra](https://cloud.netapp.com/astra) is a **fully managed** application-aware data management service that manages, protects, and moves data-rich workloads across AKS clusters. NetApp recommends Astra for customers who prioritize dynamic storage provisioning, data protection, disaster recovery, and migration for production workloads. Astra is the only supported option for storage and data management for AKS workloads when using Azure NetApp Files as the persistent storage provider. This document explains the steps involved to connect AKS clusters with Astra and provision Azure NetApp Files volumes.
 
 > [!NOTE]
 >  You can also choose to install [Trident](https://netapp-trident.readthedocs.io/) in a standalone manner without requiring Astra. To learn more, check out [Use Container Storage Interface (CSI) driver for Azure NetApp Files on Azure Kubernetes Service (AKS)][az-netappfiles-csi].
 
-If you would like to provision ANF volumes statically, read [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netappfiles-static].
+If you would like to provision Azure NetApp Files volumes statically, read [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netappfiles-static].
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
@@ -36,7 +36,7 @@ The following considerations apply when you use Azure NetApp Files with Astra:
 
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
 * Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist] or go to https://azure.microsoft.com/services/netapp/#getting-started. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
-* After the initial deployment of an AKS cluster, users can choose to provision ANF volumes statically or dynamically. This articles covers the latter workflow.
+* After the initial deployment of an AKS cluster, users can choose to provision volumes statically or dynamically. This articles covers the latter workflow.
 * AKS clusters must be running Kubernetes version 1.17 or later to be used with Astra. You will also need to ensure that node pools are online and running **Linux**. [Learn more about this step](https://docs.netapp.com/us-en/astra/get-started/set-up-microsoft-azure.html#aks-cluster-requirements).
 
 ## Configure Azure NetApp Files
@@ -84,7 +84,7 @@ az netappfiles pool create \
     --service-level Premium
 ```
 > [!NOTE]
-> ANF capacity pools can be defined to use the manual or auto QoS type. Astra supports auto QoS capacity pools. Manual QoS capacity pools aren't supported.
+> Capacity pools can be defined to use the manual or auto QoS type. Astra supports auto QoS capacity pools. Manual QoS capacity pools aren't supported.
 
 Create a subnet to [delegate to Azure NetApp Files][anf-delegate-subnet] using [az network vnet subnet create][az-network-vnet-subnet-create]. **This subnet must be in the same virtual network as your AKS cluster.**
 
@@ -156,7 +156,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes-csi/external-snaps
 
 ## Discover AKS clusters with Astra
 
-Now that you have a NetApp ANF account created and completed the AKS pre-flight checks, you are ready to go ahead and sign up for Astra. Once complete, you can discover AKS clusters, provision storage dynamically, and achieve more.
+Now that you have Azure NetApp Files account created and completed the AKS pre-flight checks, you are ready to go ahead and sign up for Astra. Once complete, you can discover AKS clusters, provision storage dynamically, and achieve more.
 
 ### Sign up for Astra
 
@@ -187,7 +187,7 @@ The next step is to confirm your selections. Once that is done, Astra will disco
 
 ## Deploy an app and create volumes
 
-You can now deploy applications and create ANF volumes directly through Kubernetes. As part of onboarding an AKS cluster to Astra, [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes, is installed for you. Users can create PersistentVolumeClaim (PVC) objects, which are requests for storage by a user. Upon the creation of a PersistentVolumeClaim, Trident automatically creates an ANF volume and makes it available for AKS workloads to consume.
+You can now deploy applications and create volumes directly through Kubernetes. As part of onboarding an AKS cluster to Astra, [Trident](https://netapp-trident.readthedocs.io/), NetApp's dynamic storage provisioner for Kubernetes, is installed for you. Users can create PersistentVolumeClaim (PVC) objects, which are requests for storage by a user. Upon the creation of a PersistentVolumeClaim, Trident automatically creates a volume and makes it available for AKS workloads to consume.
 
 In this example, you will be deploying WordPress using the [Helm chart](https://bitnami.com/stack/wordpress/helm).
 
@@ -196,7 +196,7 @@ $  helm repo add bitnami https://charts.bitnami.com/bitnami
 $  helm install wordpress bitnami/wordpress -n wordpress --create-namespace
 ```
 
-The application is made up of multiple components such as the WordPress and MariaDB services, statefulsets, and the PVCs to store data. Trident **automatically** creates ANF volumes for the PVCs and mounts them for the application to read/write into.
+The application is made up of multiple components such as the WordPress and MariaDB services, statefulsets, and the PVCs to store data. Trident **automatically** creates volumes for the PVCs and mounts them for the application to read/write into.
 
 ```console
 $   kubectl get all,pvc -n wordpress
@@ -222,7 +222,7 @@ persistentvolumeclaim/data-wordpress-mariadb-0   Bound    pvc-9c56d5d6-9bb8-4789
 persistentvolumeclaim/wordpress                  Bound    pvc-762e1b48-964a-4bfa-8dd4-eacb0333b6ce   100Gi      RWO            netapp-anf-perf-premium   13m
 ```
 
-Trident supports a number of features with ANF, such as:
+Trident supports a number of features with Azure NetApp Files, such as:
 
 * [Expanding volumes](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/vol-expansion.html)
 * [On-demand volume snapshots](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/snapshots.html)
