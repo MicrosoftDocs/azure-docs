@@ -60,7 +60,7 @@ For the Risky users, Risky sign-ins, and Risk detections reports in Identity Pro
 
 **Type:** New feature  
 **Service category:** Access Reviews  
-**Product capability:** 3rd Party Integration
+**Product capability:** Identity Governance
  
 Now group owners in Azure AD can create and manage Azure AD access reviews on their groups. This ability can be enabled by tenant administrators through Azure AD access review settings and is disabled by default. [Learn more](../governance/create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview).
  
@@ -72,7 +72,7 @@ Now group owners in Azure AD can create and manage Azure AD access reviews on th
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-When admins create access reviews of assignments to privileged roles, they can scope the reviews to only eligibly assigned users or aonly ctively assigned users. [Learn more](../privileged-identity-management/pim-how-to-start-security-review.md).
+When admins create access reviews of assignments to privileged roles, they can scope the reviews to only eligibly assigned users or only actively assigned users. [Learn more](../privileged-identity-management/pim-how-to-start-security-review.md).
  
 ---
 
