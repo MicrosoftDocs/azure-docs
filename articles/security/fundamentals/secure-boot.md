@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/10/2020
+ms.date: 06/24/2021
 ---
 
 # Secure Boot
@@ -51,6 +51,7 @@ Validating that the db and dbx digests are correct ensures:
 To learn more about what we do to drive platform integrity and security, see:
 
 - [Firmware security](firmware.md)
+- [Platform code integrity](code-integrity.md)
 - [Measured boot and host attestation](measured-boot-host-attestation.md)
 - [Project Cerberus](project-cerberus.md)
 - [Encryption at rest](encryption-atrest.md)

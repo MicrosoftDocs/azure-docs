@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Migrate projects at scale
-description: Learn how to effectively use Azure Migrate on delegated customer resources.
+description: Azure Lighthouse helps you effectively use Azure Migrate across delegated customer resources.
 ms.date: 05/11/2021
 ms.topic: how-to
 ---

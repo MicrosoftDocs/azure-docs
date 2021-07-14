@@ -9,7 +9,7 @@ ms.date: 01/15/2020
 
 # Run MapReduce jobs using HDInsight .NET SDK
 
-[!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
+[!INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
 Learn how to submit MapReduce jobs using HDInsight .NET SDK. HDInsight clusters come with a jar file with some MapReduce samples. The jar file is `/example/jars/hadoop-mapreduce-examples.jar`.  One of the samples is **wordcount**. You develop a C# console application to submit a wordcount job.  The job reads the `/example/data/gutenberg/davinci.txt` file, and outputs the results to `/example/data/davinciwordcount`.  If you want to rerun the application, you must clean up the output folder.
 

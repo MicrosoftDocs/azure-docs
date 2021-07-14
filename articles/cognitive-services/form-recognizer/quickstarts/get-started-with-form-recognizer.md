@@ -55,7 +55,7 @@ Extract text, tables, selection marks and structure from a document.
 
     :::image type="content" source="../media/label-tool/layout-2.jpg" alt-text="Connection settings of Layout Form Recognizer tool.":::
 
-5. Select source url, paste the following url of the sample document https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg click the Fetch button.
+5. Select source url, paste the following url of the sample document `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg` click the Fetch button.
 
 1. Click "Run Layout"
 The Form Recognizer sample labeling tool will call the Analyze Layout API and analyze the document.
@@ -83,7 +83,7 @@ Extract text, tables and key value pairs from invoices, sales receipts, identity
 4. Choose the file you would like to analyze from the below options:
 
     * A URL for an image of an invoice. You can use a [sample invoice document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
-    * A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-us-driver-license-wa.jpg) for this quickstart.
+    * A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg) for this quickstart.
     * A URL for an image of a receipt. You can use a [sample receipt image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
     * A URL for an image of a business card. You can use a [sample business card image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
 

@@ -20,7 +20,7 @@ No further action is required.
  
 Azure VMware Solution service will do maintenance work through May 23, 2021, to apply important updates to the vCenter server in your private cloud.  You'll receive a notification through Azure Service Health that includes the timeline of the maintenance for your private cloud.
  
-During this time, VMware vCenter will be unavailable and you won't be able to manage VMs (stop, start, create, or delete). It's recommended that, during this time, you don't plan any other activities like scaling up private cloud, creating new networks, and so on in your private cloud.
+During this time, VMware vCenter will be unavailable and you won't be able to manage VMs (stop, start, create, or delete). It's recommended that, during this time, you don't plan any other activities like scaling up private cloud, creating new networks, and so on, in your private cloud.
  
 There is no impact to workloads running in your private cloud.
 

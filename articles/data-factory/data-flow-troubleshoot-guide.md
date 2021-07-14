@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/22/2021
+ms.date: 07/08/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -120,6 +120,10 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
 
+### Error code: 4510
+- **Message**: Unexpected failure during execution. 
+- **Cause**: Since debug clusters work differently from job clusters, excessive debug runs could wear the cluster over time, which could cause memory issues and abrupt restarts.
+- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs instead because activity level run creates separate session without taxing main debug cluster.
 
 ### Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
@@ -477,6 +481,26 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: Invalid privacy configurations are provided.
 - **Recommendation**: Please update AdobeIntegration settings while only privacy 'GDPR' is supported.
 
+### Error code: DF-Executor-RemoteRPCClientDisassociated
+- **Message**: Remote RPC client disassociated. Likely due to containers exceeding thresholds, or network issues.
+- **Cause**: Data flow activity runs failed because of the transient network issue or because one node in spark cluster runs out of memory.
+- **Recommendation**: Use the following options to solve this problem:
+  - Option-1: Use a powerful cluster (both drive and executor nodes have enough memory to handle big data) to run data flow pipelines with setting "Compute type" to "Memory optimized". The settings are shown in the picture below.
+        
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Screenshot that shows the configuration of Compute type.":::   
+
+  - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#cluster-size).
+  
+  - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption is not too heavy.
+    
+      :::image type="content" source="media/data-flow-troubleshoot-guide/configure-partition.png" alt-text="Screenshot that shows the configuration of partitions.":::
+
+    > [!NOTE]
+    >  You need to evaluate the data size or the partition number of input data, then set reasonable partition number under "Optimize". For example, the cluster that you use in the data flow pipeline execution is 8 cores and the memory of each core is 20GB, but the input data is 1000GB with 10 partitions. If you directly run the data flow, it will meet the OOM issue because 1000GB/10 > 20GB, so it is better to set repartition number to 100 (1000GB/100 < 20GB).
+    
+  - Option-4: Tune and optimize source/sink/transformation settings. For example, try to copy all files in one container, and don't use the wildcard pattern. For more detailed information, reference [Mapping data flows performance and tuning guide](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance).
+
+
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
 	- **Message**: During Data Flow activity execution: Hit unexpected exception and execution failed.
@@ -516,7 +540,7 @@ You may encounter the following issues before the improvement, but after the imp
 
  Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
 
- After the improvement, any one of the three row delimiters: `\r`, `\n`, `\r\n` should be worked.
+ After the improvement, any one of the three-row delimiters: `\r`, `\n`, `\r\n` should  have worked.
  
  The following example shows you one pipeline behavior change after the improvement:
 

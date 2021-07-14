@@ -425,4 +425,4 @@ These properties are client specific, so you can configure `appInsights.defaultC
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../faq.md
+[FAQ]: ../faq.yml

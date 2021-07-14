@@ -72,7 +72,7 @@ Before assigning access to Purview managed identity, first identify your Azure K
 
 :::image type="content" source="media/manage-credentials/akv-permission-model.png" alt-text="Azure Key Vault Permission Model"::: 
 
-### Option 1 - Assign access using using Key Vault Access Policy  
+### Option 1 - Assign access using Key Vault Access Policy  
 
 Follow these steps only if permission model in your Azure Key Vault resource is set to **Vault Access Policy**:
 

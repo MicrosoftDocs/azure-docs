@@ -11,9 +11,9 @@ ms.author: zhanxia
 ms.date: 03/08/2021
 ---
 
-# Migrate to Azure Machine Learning
+# Migrate to Azure Machine Learning 
 
-In this article, you learn how to migrate Studio (classic) assets to Azure Machine Learning. At this time, to migrate resources, you must manually rebuild your experiments.
+In this article, you learn how to migrate Machine Learning Studio (classic) assets to [Azure Machine Learning](../index.yml). At this time, to migrate resources, you must manually rebuild your experiments.
 
 Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches. To learn more about the differences between Studio (classic) and Azure Machine Learning, see the [Assess Azure Machine Learning](#step-1-assess-azure-machine-learning) section.
 
@@ -27,7 +27,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 > * Step 2: Create a migration plan
 > * Step 3: Rebuild experiments and web services
 > * Step 4: Integrate client apps
-> * Step 5: Clean up Studio (classic) assets
+> * Step 5: Clean up ML Studio (classic) assets
 
 
 ## Step 1: Assess Azure Machine Learning

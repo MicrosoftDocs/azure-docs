@@ -8,8 +8,8 @@ ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: danimir 
-ms.author: danil
+author: misliplavo 
+ms.author: mlazic
 ms.reviewer: mathoma
 ms.date: 12/14/2018
 ---

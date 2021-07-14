@@ -1,13 +1,13 @@
 ---
 title: Storage configuration
-description: Explains Azure Arc enabled data services storage configuration options
+description: Explains Azure Arc-enabled data services storage configuration options
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: uc-msft
 ms.author: umajay
 ms.reviewer: mikeray
-ms.date: 10/12/2020
+ms.date: 07/13/2021
 ms.topic: conceptual
 ---
 
@@ -136,7 +136,7 @@ Some services in Azure Arc for data services depend upon being configured to use
 |**Controller SQL instance**|`<namespace>/logs-controldb`, `<namespace>/data-controldb`|
 |**Controller API service**|`<namespace>/data-controller`|
 
-At the time the data controller is provisioned, the storage class to be used for each of these persistent volumes is specified by either passing the --storage-class | -sc parameter to the `azdata arc dc create` command or by setting the storage classes in the control.json deployment template file that is used.
+At the time the data controller is provisioned, the storage class to be used for each of these persistent volumes is specified by either passing the --storage-class | -sc parameter to the `az arcdata dc create` command or by setting the storage classes in the control.json deployment template file that is used.
 
 The deployment templates that are provided out of the box have a default storage class specified that is appropriate for the target environment, but it can be overridden during deployment. See the detailed steps to [alter the deployment profile](create-data-controller.md) to change the storage class configuration for the data controller pods at deployment time.
 
@@ -156,10 +156,10 @@ Important factors to consider when choosing a storage class for the data control
 
 Each database instance has data, logs, and backup persistent volumes. The storage classes for these persistent volumes can be specified at deployment time. If no storage class is specified the default storage class will be used.
 
-When creating an instance using either `azdata arc sql mi create` or `azdata arc postgres server create`, there are two parameters that can be used to set the storage classes:
+When creating an instance using either `az sql mi-arc create` or `azdata arc postgres server create`, there are two parameters that can be used to set the storage classes:
 
 > [!NOTE]
-> Some of these parameters are in development and will become available on `azdata arc sql mi create` and `azdata arc postgres server create` in the upcoming releases.
+> Some of these parameters are in development and will become available on `az sql mi-arc create` and `azdata arc postgres server create` in the upcoming releases.
 
 |Parameter name, short name|Used for|
 |---|---|

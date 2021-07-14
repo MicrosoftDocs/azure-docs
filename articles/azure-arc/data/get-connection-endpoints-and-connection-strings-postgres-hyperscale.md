@@ -1,6 +1,6 @@
 --- 
-title: Get connection endpoints and form connection strings for your Arc enabled PostgreSQL Hyperscale server group
-titleSuffix: Azure Arc enabled data services
+title: Get connection endpoints and form the connection strings for your Arc enabled PostgreSQL Hyperscale server group
+titleSuffix: Azure Arc-enabled data services
 description: Get connection endpoints and form connection strings for your Arc enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
@@ -12,9 +12,9 @@ ms.date: 06/02/2021
 ms.topic: how-to
 ---
 
-# Get connection endpoints and form connection strings for your Arc enabled PostgreSQL Hyperscale server group
+# Get connection endpoints and form the connection strings for your Arc enabled PostgreSQL Hyperscale server group
 
-This article explains how you can retrieve the connection endpoints for your server group and how you form connection strings you will use with your applications and/or tools.
+This article explains how you can retrieve the connection endpoints for your server group and how you can form the connection strings which can be used with your applications and/or tools.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
