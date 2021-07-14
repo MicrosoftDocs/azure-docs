@@ -27040,6 +27040,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/import-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/understand-threat-intelligence",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/connect-threat-intelligence-tip",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
@@ -29533,6 +29543,16 @@
       "source_path_from_root": "/articles/storage/common/storage-quickstart-create-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/file-sync/file-sync-server-endpoint.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/file-sync/file-sync-offline-data-transfer.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
@@ -57392,6 +57412,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/app/monitor-performance-live-website-now.md",
       "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-reserve-public-ip-address-prefix.md",
+      "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
     }
   ]

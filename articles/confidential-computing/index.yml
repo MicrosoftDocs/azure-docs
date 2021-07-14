@@ -114,6 +114,9 @@ landingContent:
             url: ../attestation/overview.md
           - text: Confidential Inferencing ONNX Runtime
             url: https://aka.ms/confidentialinference
+          - text: Always Encrypted with secure enclaves in Azure SQL Database
+            url: ../azure-sql/database/always-encrypted-with-secure-enclaves-landing.yml
+           
   
 
 # Card
