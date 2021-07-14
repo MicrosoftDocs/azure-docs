@@ -327,6 +327,7 @@ As explained [above](#restore-operations), the following request body defines pr
           "originalStorageAccountOption": false,
           "encryptionDetails": {
             "encryptionEnabled": false
+          }
      }
  }
 ```
