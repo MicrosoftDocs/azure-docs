@@ -23,7 +23,7 @@ You can create a model in Azure Machine Learning or use a model built from an op
 
 ## Who is Azure Machine Learning for?
 
-Azure Machine Learning is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable setting.
+Azure Machine Learning is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable production environment.
 
 Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager (ARM) APIs, for building advanced ML tooling.
 
@@ -41,9 +41,9 @@ Machine learning projects often require a team with varied skillsets to build an
 
 Developers find familiar interfaces in Azure Machine Learning, such as:
 
-- [Python SDK]()
-- [Azure Resource Manager (ARM) REST APIs (preview)]()
-- [CLI v2 (preview)]()
+- [Python SDK](/python/api/overview/azure/ml/)
+- [Azure Resource Manager (ARM) REST APIs (preview)](/rest/api/azureml/)
+- [CLI v2 (preview)](/cli/azure/ml)
 
 ### Studio UI plus drag-and-drop designer
 
@@ -63,16 +63,22 @@ Plus, the designer has a drag-and-drop interface where you can train and deploy 
 
 ## Enterprise-readiness and security
 
-The Azure cloud platform integrates with Azure Machine Learning to provide a full  
+The Azure cloud platform integrates with Azure Machine Learning to add security to ML projects. 
 
-key points to hit:
+Security integrations include:
 
-- integration with other Azure services (namely Synapse, Arc)
-- general Azure security (private link, vnets, etc.)
+- Azure Virtual Networks (VNets) with network security groups 
+- Azure Key Vault where you can save security secrets, such as access information for storage accounts
+- Azure Container Registry set up behind a VNet
 
+See [Tutorial: Set up a secure workspace](tutorial-create-secure-workspace).
 
-See Tutorial: Set up a secure workspace.
+Other integrations with Azure support an ML project from end-to-end include:
 
+- Azure Synapse Analytics to process and stream data with Spark
+- Azure Arc, where you can run Azure services in a Kubernetes environment
+- Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
+- Azure App Service allowing you to deploy and manage ML-powered apps
 
 
 ## Machine learning project workflow
@@ -83,7 +89,7 @@ While the project lifecycle will vary by project, it may often look like this:
 
 ### Machine learning project lifecycle
 
-[project lifecycle diagram]
+![Machine learning project lifecycle diagram](./media/overview-what-is-azure-machine-learning/placeholder-ml-development-cycle.png)
 
 A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
 
@@ -152,6 +158,8 @@ To bring a model into production, it is deployed. Azure Machine Learning's manag
 *Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near-real-time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing once confidence in the new model is established.    
 
 See:
+ - [Deploy a model with a real-time managed endpoint](how-to-deploy-managed-online-endpoints.md)
+ - [Use batch endpoints for scoring](how-to-use-batch-endpoint.md) 
 
 
 ## MLOps: DevOps for machine learning 

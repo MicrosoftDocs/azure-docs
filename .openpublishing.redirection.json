@@ -23026,7 +23026,7 @@
     {
       "source_path_from_root": "/articles/machine-learning/service/overview-what-is-machine-learning.md",
       "redirect_url": "/azure/machine-learning/overview-what-is-machine-learning",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/compare-azure-ml-to-studio-classic.md",

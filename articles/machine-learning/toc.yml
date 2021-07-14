@@ -506,7 +506,7 @@
         href: how-to-deploy-and-where.md
       - name: Deploy with endpoints
         items: 
-          - name: Online
+          - name: Real-time
             items:
             - name: Deploy an ML model with a managed online endpoint
               href: how-to-deploy-managed-online-endpoints.md
