@@ -14,7 +14,7 @@ items:
     - name: Deploy Azure IoT Connector for FHIR (preview)
       expanded: true
       items:
-        - name: Using Portal
+        - name: Using portal
           href: deploy-iot-connector-in-azure.md
         - name: Using ARM template
           href: iot-fhir-arm-template-quickstart.md
