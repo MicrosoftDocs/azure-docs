@@ -27,7 +27,7 @@ This article will walk you through the process of deploying and accessing Azure 
 The following configurations are currently supported with Azure AD-joined VMs:
 
 - Personal desktops with local user profiles.
-- Pooled desktops used as a jump box. In this configuration, users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users should no save data on the VM.
+- Pooled desktops used as a jump box. In this configuration, users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users should not save data on the VM.
 - Pooled desktops or apps where users don't need to save data on the VM. For example, for applications that save data online or connect to a remote database.
 
 User accounts can be cloud-only or hybrid users from the same Azure AD tenant. External users are not supported at this time.
