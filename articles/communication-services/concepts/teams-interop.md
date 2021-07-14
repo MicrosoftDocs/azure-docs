@@ -31,7 +31,7 @@ Azure Communication Services supports two types of Teams interoperability depend
 Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
 
 ## Bring your own identity
-Bring your own identity (BYOI) is the most common and simplest model for using Azure Communication Services and Teams interoperability. You implement whatever authentication scheme you desire, your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts. Your Teams organization must be configured to allow anonymous users to join meeting; this can be configured using the Teams admin center or Teams PowerShell.
+Bring your own identity (BYOI) is the most common and simplest model for using Azure Communication Services and Teams interoperability. You implement whatever authentication scheme you desire, your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts. Your Teams organization must allow anonymous users to join meeting, which can be configured using the Teams admin center or Teams PowerShell.
 
 This capability is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. For example:
 
