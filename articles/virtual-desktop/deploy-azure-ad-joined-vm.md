@@ -27,7 +27,7 @@ This article will walk you through the process of deploying and accessing Azure 
 The following configurations are currently supported with Azure AD-joined VMs:
 
 - Personal desktops with local user profiles.
-- Pooled desktops used as a jump box where users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users should no save data on the VM.
+- Pooled desktops used as a jump box. In this configuration, users first access the Azure Virtual Desktop VM before connecting to a different PC on the network. Users should no save data on the VM.
 - Pooled desktops or apps where users don't need to save data on the VM. For example, for applications that save data online or connect to a remote database.
 
 User accounts can be cloud-only or hybrid users from the same Azure AD tenant. External users are not supported at this time.
@@ -37,7 +37,7 @@ User accounts can be cloud-only or hybrid users from the same Azure AD tenant. E
 > [!IMPORTANT]
 > During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
 
-You can deploy Azure AD-joined VMs directly from the Azure Portal when [creating a new host pool](create-host-pools-azure-marketplace.md) or [expanding an existing host pool](expand-existing-host-pool.md). On the Virtual Machines tab, select whether to join the VM to Active Directory or Azure Active Directory. Selecting **Azure Active Directory** gives you the option to **Enroll the VM with Intune** automatically so you can easily manage [Windows 10 ENT](/mem/intune/fundamentals/windows-virtual-desktop) and [Windows 10 ENT multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) VMs. Keep in mind that this option will join VMs to the same Azure AD tenant as the subscription you're in.
+You can deploy Azure AD-joined VMs directly from the Azure portal when [creating a new host pool](create-host-pools-azure-marketplace.md) or [expanding an existing host pool](expand-existing-host-pool.md). On the Virtual Machines tab, select whether to join the VM to Active Directory or Azure Active Directory. Selecting **Azure Active Directory** gives you the option to **Enroll the VM with Intune** automatically so you can easily manage [Windows 10 ENT](/mem/intune/fundamentals/windows-virtual-desktop) and [Windows 10 ENT multi-session](/mem/intune/fundamentals/windows-virtual-desktop-multi-session) VMs. Keep in mind that the Azure Active Directory option will join VMs to the same Azure AD tenant as the subscription you're in.
 
 > [!NOTE]
 > - Host pools should only contain VMs of the same domain join type. For example, AD-joined VMs should only be with other AD VMs, and vice-versa.
@@ -47,7 +47,7 @@ After you've created the host pool, you must assign user access. For Azure AD-jo
 
 Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
 
-To grant your users access to Azure AD-joined VMs, you must [configure role assignments for the VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm). You can assign the **Virtual Machine User Login** or **Virtual Machine Administrator Login** role either on the VMs, the resource group containing the VMs or the subscription. We recommend assigning the Virtual Machine User Login role to the same user group you used for the app group at the resource group level to make it apply to all the VMs in the host pool.
+To grant users access to Azure AD-joined VMs, you must [configure role assignments for the VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#configure-role-assignments-for-the-vm). You can assign the **Virtual Machine User Login** or **Virtual Machine Administrator Login** role either on the VMs, the resource group containing the VMs, or the subscription. We recommend assigning the Virtual Machine User Login role to the same user group you used for the app group at the resource group level to make it apply to all the VMs in the host pool.
 
 ## Access Azure AD-joined VMs
 
@@ -68,7 +68,7 @@ To enable access from Windows devices not joined to Azure AD, add **targetisaadj
 
 ### Connect using the other clients
 
-To access Azure AD-joined VMs using the web, Android, macOS, iOS and Microsoft Store clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
+To access Azure AD-joined VMs using the web, Android, macOS, iOS, and Microsoft Store clients, you must add **targetisaadjoined:i:1** as a [custom RDP property](customize-rdp-properties.md) to the host pool. These connections are restricted to entering user name and password credentials when signing in to the session host.
 
 ## User profiles
 
