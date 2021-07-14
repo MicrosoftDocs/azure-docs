@@ -42,7 +42,7 @@ A Basic SKU cluster means, most of the configurations are provided by the Servic
 
 ### I run custom script extensions on my Virtual Machine Scale Set, can I continue to do that with a managed Service Fabric resource?
 
-Yes, you can specify VM extensions on managed cluster node types. For more information, see [Add a scale set extension to a Service Fabric managed cluster node type](how-to-managed-cluster-vmss-extension.md).
+Yes, you can specify VM extensions on managed cluster node types. For more information, see [Add a scale set extension to a Service Fabric managed cluster node type](./how-to-managed-cluster-vmss-extension.md).
 
 ### I want to have an internal-only load balancer, is that possible?
 
@@ -54,7 +54,7 @@ Autoscaling is not currently supported.
 
 ### Can I deploy my cluster across availability zones?
 
-Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](.\how-to-managed-cluster-availability-zones.md).
+Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](./how-to-managed-cluster-availability-zones.md).
 
 ### Can I deploy stateless node types on a Service Fabric managed cluster? 
 
@@ -72,8 +72,8 @@ The local development experience remains unchanged from existing Service Fabric 
 
 ### Can I deploy my applications as an Azure Resource Manager resource?
 
-Yes. Support has been added to deploy applications as an Azure Resource Manager resource (in addition to deployment using PowerShell and CLI). To get started, see [Deploy a Service Fabric managed cluster application using ARM template](how-to-managed-cluster-app-deployment-template.md).
+Yes. Support has been added to deploy applications as an Azure Resource Manager resource (in addition to deployment using PowerShell and CLI). To get started, see [Deploy a Service Fabric managed cluster application using ARM template](./how-to-managed-cluster-app-deployment-template.md).
 
 ### Can I deploy applications with managed identities?
 
- Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](.\concepts-managed-identity.md).
+ Yes, applications with managed identities can be deployed to a Service Fabric managed cluster. For more information see, [Application managed identities](./concepts-managed-identity.md).
