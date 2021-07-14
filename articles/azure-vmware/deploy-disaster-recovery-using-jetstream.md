@@ -176,7 +176,7 @@ chmod 700 /root/.ssh/
 1. Provide a hostname, password information, and the network properties for the management server. Then select **Next**.
 
    >[!NOTE]
-   >The hostname must be a unique and fully qualified domain name (FQDN) that can be accessed by the vCenter Server. Also, if a root user password is not specified, the default value of *JetStream* is used. 
+   >The hostname must be a unique and fully qualified domain name (FQDN) that the vCenter Server can access. Also, if a root user password is not specified, the default value of *JetStream* is used. 
 
    :::image type="content" source="media/jetstream-disaster-recovery/jetstream-customize-ovf-template.png" alt-text="Screenshot showing where to customize the OVF template deployment properties.":::
 
