@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Manage endpoints and routes (portal)
+title: Manage endpoints and routes
 titleSuffix: Azure Digital Twins
-description: See how to set up and manage endpoints and event routes for Azure Digital Twins data using the Azure portal.
+description: See how to set up and manage endpoints and event routes for Azure Digital Twins data
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 7/22/2020
