@@ -238,7 +238,7 @@ While Microsoft aims to simplify VMware SRM and vSphere Replication installation
 
 ## SRM licenses
 
-You can install VMware SRM using evaluation license or a production license.  The evaluation license is valid for 60 days. After the evaluation period, you'll be required to obtain a production license of VMware SRM. 
+You can install VMware SRM using an evaluation license or a production license.  The evaluation license is valid for 60 days. After the evaluation period, you'll be required to obtain a production license of VMware SRM. 
 
 You can't use pre-existing on-premises VMware SRM licenses for your Azure VMware Solution private cloud. Work with your sales teams and VMware to acquire a new term-based production license of VMware SRM. 
 
