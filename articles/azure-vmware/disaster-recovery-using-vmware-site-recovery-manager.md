@@ -43,7 +43,7 @@ You can use SRM to implement different types of recovery, such as:
 >- Array-based replication and storage policy protection groups 
 >- VVOLs Protection Groups 
 >- SRM IP customization using SRM command-line tools
->- One to Many and Many to One topologies 
+>- One-to-Many and Many-to-One topology 
 
 
 ## Deployment workflow
@@ -85,7 +85,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Add-ons** > **Disaster recovery**.
 
-   The default CloudAdmin user in the Azure VMware Solution private cloud doesn't have sufficient privileges to install VMware SRM with vSphere replication. The installation process involves multiple steps outlined in the [Prerequisites](#prerequisites) section. Instead, you can install VMware SRM with vSphere Replication as an add-on service from your Azure VMware Solution private cloud.
+   The default CloudAdmin user in the Azure VMware Solution private cloud doesn't have sufficient privileges to install VMware SRM with vSphere replication or vSphere Replication. The installation process involves multiple steps outlined in the [Prerequisites](#prerequisites) section. Instead, you can install VMware SRM with vSphere Replication as an add-on service from your Azure VMware Solution private cloud.
 
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png" alt-text="Screenshot of Azure VMware Solution private cloud to install VMware SRM with vSphere Replication as an add-on" border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png":::
 
@@ -96,9 +96,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 1. Provide the License key, select agree with terms and conditions, and then select **Install**.
 
    >[!NOTE]
-   >If you don't provide the license key, SRM is installed in an Evaluation mode. 
-   >
-   >Microsoft doesn't manage and store your license. It is used only to enable VMware SRM.
+   >If you don't provide the license key, SRM is installed in an Evaluation mode. The license is used only to enable VMware SRM.
    
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-licence.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with the License key field selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-licence.png":::
 
@@ -107,7 +105,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 After the SRM appliance installs successfully, you'll need to install the replication server. Each replication server accommodates up to 200 protected VMs. Scale in or scale out as per your needs. 
 
-1. From the **Replication using** drop-down, select **vSphere Replication**.
+1. From the **Replication using** drop-down, on the **Disaster recovery** tab, select **vSphere Replication**.
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/vsphere-replication-1.png" alt-text="Screenshot showing the vSphere Replication selected for the Replication using option.":::
 
@@ -115,7 +113,7 @@ After the SRM appliance installs successfully, you'll need to install the replic
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/vsphere-replication-2.png" alt-text="Screenshot showing how to increase or decrease the number of replication servers.":::
 
-1. Once installed, verify that both SRM and the vSphere replication server are installed.
+1. Once installed, verify that both SRM and the replication server are installed.
 
    >[!TIP]
    >The Uninstall button indicates that both SRM and the vSphere replication server are currently installed.
@@ -134,18 +132,16 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
    :::image type="content" source="media/vmware-srm-vsphere-replication/open-site-recovery.png" alt-text="Screenshot showing vSphere Client with the vSphere Replication and Site Recovery Manager installation status as OK." border="true":::
 
 
-1. In the new tab that opens, select **NEW SITE PAIR** in the Site Recovery (SR) client.
+1. 3.	Select **NEW SITE PAIR** in the Site Recovery (SR) client in the new tab that opens.
    
    :::image type="content" source="media/vmware-srm-vsphere-replication/new-site-pair.png" alt-text="Screenshot showing vSphere Client with the New Site Pair button selected for Site Recovery." border="true":::
 
 1. Enter the remote site details, and then select **NEXT**.
 
    >[!NOTE]
-   >An Azure VMware Solution private cloud operates with an embedded Platform Services Controller (PSC), so there will only be one local vCenter to choose. 
+   >An Azure VMware Solution private cloud operates with an embedded Platform Services Controller (PSC), so only one local vCenter can be selected. If the remote vCenter is using an embedded Platform Service Controller (PSC), use the vCenter's FQDN (or its IP address) and port to specify the PSC. 
    >
-   >If the remote vCenter is using an embedded PSC, use the vCenter's FQDN (or its IP address) and port to specify the PSC. 
-   >
-   >The remote user must have sufficient permissions to perform the pairings. An easy way to ensure this is to give that user the VRM administrator and SRM administrator roles in the remote vCenter. For a remote Azure VMware Solution private cloud, cloudadmin will already be configured with those roles.
+   >The remote user must have sufficient permissions to perform the pairings. An easy way to ensure this is to give that user the VRM administrator and SRM administrator roles in the remote vCenter. For a remote Azure VMware Solution private cloud, cloudadmin is configured with those roles.
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/pair-the-sites-specify-details.png" alt-text="Screenshot showing the Site details for the new site pair." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-specify-details.png":::
 
@@ -165,7 +161,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
    If successful, the client displays another panel for the pairing. However, if unsuccessful, an alarm will be reported.
 
-1. At the bottom, in the right corner, select the double up arrow to expand the panel to show **Recent Tasks** and **Alarms**.
+1. At the bottom, in the right corner, select the double-up arrow to expand the panel to show **Recent Tasks** and **Alarms**.
 
    >[!NOTE]
    >The SR client sometimes takes a long time to refresh. If an operation seems to take too long or appears "stuck", select the refresh icon on the menu bar. 
@@ -179,17 +175,13 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
    For pairing, the login, which is often a different user, is a one-time action to establish pairing. The SR client requires this login every time the client is launched to work with the pairing.
 
    >[!NOTE] 
-   >The user with sufficient permissions should have **VRM administrator** and **SRM administrator** roles in given to them in the remote vCenter. The user should also have access to the remote vCenter inventory, like folders and datastores. For a remote Azure VMware Solution private cloud, the cloudadmin user has the appropriate permissions and access. 
+   >The user with sufficient permissions should have **VRM administrator** and **SRM administrator** roles given to them in the remote vCenter. The user should also have access to the remote vCenter inventory, like folders and datastores. For a remote Azure VMware Solution private cloud, the cloudadmin user has the appropriate permissions and access. 
    
    :::image type="content" source="media/vmware-srm-vsphere-replication/sign-into-remote-vcenter.png" alt-text="Screenshot showing the vCenter Server credentials." border="true":::
 
-   You'll see a warning message indicating that the embedded VRS in the local VRM isn't running.  Azure VMware Solution does not use the embedded VRS in an Azure VMware Solution private cloud.  Instead, it uses VRS appliances. 
+   You'll see a warning message indicating that the embedded VRS in the local VRM isn't running.  This is because Azure VMware Solution doesn't use the embedded VRS in an Azure VMware Solution private cloud.  Instead, it uses VRS appliances. 
 
    :::image type=" content" source=" media/vmware-srm-vsphere-replication/pair-the-sites-summary.png" alt-text="Screenshot showing the site pair summary for Site Recovery Manager and vSphere Replication." border="true" lightbox="media/vmware-srm-vsphere-replication/pair-the-sites-summary.png":::
-
-
-
-
 
 ## SRM protection, reprotection, and failback
 
@@ -295,11 +287,9 @@ VMware SRM is a Disaster Recovery solution from VMware.
 
 - For SRM-related issues in your on-premises environment, contact VMware for support.
 
-- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.  
+- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.   
 
 VMware and Microsoft support teams will engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
-
-
 
 ## References
 
