@@ -81,7 +81,7 @@ Typically models are developed as part of a project with an objective and goals.
 
 While the project lifecycle will vary by project, it may often look like this:
 
-**Project lifecycle diagram**
+### Machine learning project lifecycle
 
 [project lifecycle diagram]
 
