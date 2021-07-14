@@ -10,10 +10,10 @@ ms.author: cavoeg
 ---
 # Defining custom search parameters
 
-The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the FHIR service.
+The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service).
 
 > [!NOTE]
-> Each time you create, update, or delete a search parameter you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter to be used in production. Below we will outline how you can test search parameters before reindexing the entire FHIR server.
+> Each time you create, update, or delete a search parameter you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter to be used in production. Below we will outline how you can test search parameters before reindexing the entire FHIR service.
 
 ## Create new search parameter
 
@@ -64,7 +64,7 @@ POST {{FHIR_URL}}/SearchParameter
 ``` 
 
 > [!NOTE]
-> The new search parameter will appear in the capability statement of the FHIR server after you POST the search parameter to the database **and** reindex your database. Viewing the `SearchParameter` in the capability statement is the only way tell if a search parameter is supported in your FHIR server. If you can find the search parameter by searching for the search parameter but cannot see it in the capability statement, you still need to index the search parameter. You can POST multiple search parameters before triggering a reindex operation.
+> The new search parameter will appear in the capability statement of the FHIR service after you POST the search parameter to the database **and** reindex your database. Viewing the `SearchParameter` in the capability statement is the only way tell if a search parameter is supported in your FHIR service. If you can find the search parameter by searching for the search parameter but cannot see it in the capability statement, you still need to index the search parameter. You can POST multiple search parameters before triggering a reindex operation.
 
 Important elements of a `SearchParameter`:
 
@@ -82,7 +82,7 @@ Important elements of a `SearchParameter`:
 
 While you cannot use the search parameters in production until you run a reindex job, there are a few ways to test your search parameters before reindexing the entire database. 
 
-First, you can test your new search parameter to see what values will be returned. By running the command below against a specific resource instance (by inputting their ID), you'll get back a list of value pairs with the search parameter name and the value stored for the specific patient. This will include all of the search parameters for the resource and you can scroll through to find the search parameter you created. Running this command will not change any behavior in your FHIR server. 
+First, you can test your new search parameter to see what values will be returned. By running the command below against a specific resource instance (by inputting their ID), you'll get back a list of value pairs with the search parameter name and the value stored. This will include all of the search parameters for the resource and you can scroll through to find the search parameter you created. Running this command will not change any behavior in your FHIR service. 
 
 ```rest
 GET https://{{FHIR_URL}}/{{RESOURCE}}/{{RESOUCE_ID}}/$reindex
@@ -125,7 +125,7 @@ Once you see that your search parameter is displaying as expected, you can reind
 POST https://{{FHIR_URL}/{{RESOURCE}}/{{RESOURCE_ID}}/$reindex
 ```
 
-Running this, sets the indices for any search parameters for the specific resource that you defined for that resource type. This does make an update to the FHIR server. Now you can search and set the use partial indices header to true, which means that it will return results where any of the resources has the search parameter indexed, even if not all resources of that type have it indexed. 
+Running this, sets the indices for any search parameters for the specific resource that you defined for that resource type. This does make an update to the FHIR service. Now you can search and set the use partial indices header to true, which means that it will return results where any of the resources has the search parameter indexed, even if not all resources of that type have it indexed. 
 
 Continuing with our example above, you could index one patient to enable the US Core Race `SearchParameter`:
 
@@ -140,7 +140,7 @@ GET https://{{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
 
-After you have tested and are satisfied that your search parameter is working as expected, run or schedule your reindex job so the search parameters can be used in the FHIR server for production use cases.
+After you have tested and are satisfied that your search parameter is working as expected, run or schedule your reindex job so the search parameters can be used in the FHIR service for production use cases.
 
 ## Update a search parameter
 
@@ -211,7 +211,7 @@ Delete {{FHIR_URL}}/SearchParameter/{SearchParameter ID}
 
 ## Next steps
 
-In this article, you’ve learned how to create a search parameter. Next you can learn how to reindex your FHIR server.
+In this article, you’ve learned how to create a search parameter. Next you can learn how to reindex your FHIR service.
 
 >[!div class="nextstepaction"]
 >[How to run a reindex job](how-to-run-a-reindex.md)
