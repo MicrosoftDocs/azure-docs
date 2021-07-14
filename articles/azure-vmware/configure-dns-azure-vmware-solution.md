@@ -12,7 +12,7 @@ ms.date: 07/16/2021
 # Configure a DNS forwarder in the Azure portal
 
 >[!IMPORTANT]
->For private clouds created on or after July 1, 2021, you now have the ability to configure private DNS resolution.  For private clouds created before July 1, 2021, that need private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) and request Private DNS configuration. 
+>For Azure VMware Solution private clouds created on or after July 1, 2021, you now have the ability to configure private DNS resolution. For private clouds created before July 1, 2021, that need private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) and request Private DNS configuration. 
 
 By default, Azure VMware Solution management components such as vCenter can only resolve name records available through Public DNS. However, certain hybrid use cases require Azure VMware Solution management components to resolve name records from privately hosted DNS to properly function, including customer-managed systems such as vCenter and Active Directory.
 
