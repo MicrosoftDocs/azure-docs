@@ -65,7 +65,7 @@ On the **Register sources (Azure MySQL Database)** screen, do the following:
 
 :::image type="content" source="media/register-scan-azure-mysql/02-register-azure-mysql-name-connection.png" alt-text="register sources options" border="true":::
 
-Creating and running a scan
+## Creating and running a scan
 
 To create and run a new scan, do the following:
 
