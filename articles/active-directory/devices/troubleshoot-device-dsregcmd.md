@@ -193,7 +193,7 @@ This section can be ignored for Azure AD registered devices.
 
 - **AcquirePrtDiagnostics:** Set to "PRESENT" if acquire PRT diagnostic info is present in the logs.  
 This field is skipped if no diagnostics info is available.
-- **Previous Prt Attempt:** Local time in UTC at which the failed PRT attempt ocurred. 
+- **Previous Prt Attempt:** Local time in UTC at which the failed PRT attempt occurred.  
 - **Attempt Status:** Client error code returned (HRESULT).
 - **User Identity:** UPN of the user for whom the PRT attempt happened.
 - **Credential Type:** Credential used to acquire/refresh PRT. Common credential types are Password and NGC (Windows Hello).
@@ -335,8 +335,8 @@ The following example shows diagnostics tests are passing but the registration a
 
 This section displays the output of sanity checks performed on a device joined to the cloud.
 
-- **AadRecoveryEnabled:** If "YES", the keys stored in the device are not usable and the device is marked for recovery. The next sign in will trigger the recovery flow and re-register the device.
-- **KeySignTest:** If "PASSED" the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
+- **AadRecoveryEnabled:** If "YES", the keys stored in the device are not usable and the device is marked for recovery. The next sign-in will trigger the recovery flow and re-register the device.
+- **KeySignTest:** If "PASSED" the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign-in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
 
 #### Sample post-join diagnostics output
 
@@ -358,7 +358,7 @@ This section performs the prerequisite checks for the provisioning of Windows He
 > You may not see NGC prerequisite check details in dsregcmd /status if the user already successfully configured WHFB.
 
 - **IsDeviceJoined:** Set to "YES" if the device is joined to Azure AD.
-- **IsUserAzureAD:** Set to "YES" if the logged in user is present in Azure AD .
+- **IsUserAzureAD:** Set to "YES" if the logged in user is present in Azure AD.
 - **PolicyEnabled:** Set to "YES" if the WHFB policy is enabled on the device.
 - **PostLogonEnabled:** Set to "YES" if WHFB enrollment is triggered natively by the platform. If it's set to "NO", it indicates that Windows Hello for Business enrollment is triggered by a custom mechanism
 - **DeviceEligible:** Set to "YES" if the device meets the hardware requirement for enrolling with WHFB.

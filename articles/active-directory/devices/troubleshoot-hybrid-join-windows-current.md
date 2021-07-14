@@ -373,7 +373,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 ##### Other Errors
 
 - **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
-   - Reason: EventID 220 is present in User Device Registration event logs. Windows cannot access the computer object in Active Directory. A Windows error code may be included in the event. For error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317), these are related to replication issues in on-premises AD.
+   - Reason: EventID 220 is present in User Device Registration event logs. Windows cannot access the computer object in Active Directory. A Windows error code may be included in the event. For error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317), these error codes are related to replication issues in on-premises AD.
    - Resolution: Troubleshoot replication issues in AD. Replication issues may be transient and may go way after a period of time.
 
 ##### Federated join server Errors
@@ -416,9 +416,9 @@ Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/A
 
 3. “SSO state” section provides the current PRT status. 
 
-4. If the AzureAdPrt field is set to “NO” there was an error acquiring PRT from Azure AD. 
+4. If the AzureAdPrt field is set to “NO”, there was an error acquiring PRT from Azure AD. 
 
-5. If the AzureAdPrtUpdateTime is more than 4 hours there is likely an issue refreshing PRT. Lock and unlock the device to force PRT refresh and check if the time got updated.
+5. If the AzureAdPrtUpdateTime is more than 4 hours, there is likely an issue refreshing PRT. Lock and unlock the device to force PRT refresh and check if the time got updated.
 
 ```
 +----------------------------------------------------------------------+
@@ -444,7 +444,7 @@ Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/A
 > [!NOTE]
 >  Available from **Windows 10 May 2021 Update (version 21H1)**.
 
-"Attempt Status" field under AzureAdPrt Field will provide the status of previous PRT attempt along with other required debug information. For older Windows version this information needs to be extracted from AAD analytic and operational logs.
+"Attempt Status" field under AzureAdPrt Field will provide the status of previous PRT attempt along with other required debug information. For older Windows versions, this information needs to be extracted from AAD analytic and operational logs.
 
 ```
 +----------------------------------------------------------------------+
@@ -496,7 +496,7 @@ Reason(s):
 
 Resolution: 
 -  If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.
--  Events 1081 and 1088 (AAD operational logs) would contain the server error code and error description in case of errors from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section. First instance of Event 1022 (AAD analytic logs), preceding events 1081 or 1088, will contain the URL being accessed.
+-  Events 1081 and 1088 (AAD operational logs) would contain the server error code and error description for errors originating from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section. First instance of Event 1022 (AAD analytic logs), preceding events 1081 or 1088, will contain the URL being accessed.
 
 ---
 
@@ -508,7 +508,7 @@ Reason(s):
 > WS-Trust is required for federated authentication
 
 Resolution:
--  Events 1081 and 1088 (AAD operational logs) would contain the server error code and error description in case of errors from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section. First instance of Event 1022 (AAD analytic logs), preceding events 1081 or 1088, will contain the URL being accessed.
+-  Events 1081 and 1088 (AAD operational logs) would contain the server error code and error description for errors originating from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section. First instance of Event 1022 (AAD analytic logs), preceding events 1081 or 1088, will contain the URL being accessed.
 
 ---
 
@@ -525,8 +525,8 @@ Reason(s):
 -  Network connectivity issue to a required endpoint
 
 Resolution: 
--  In case of server error, Events 1081 and 1088 (AAD operational logs) would contain the error code and error description from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section.
--  In case of connectivity issue, Events 1022 (AAD analytic logs) and 1084 (AAD operational logs) will contain the URL being accessed and the sub-error code from network stack , respectively.
+-  For server errors, Events 1081 and 1088 (AAD operational logs) would contain the error code and error description from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section.
+-  For connectivity issues, Events 1022 (AAD analytic logs) and 1084 (AAD operational logs) will contain the URL being accessed and the sub-error code from network stack , respectively.
 
 ---
 **STATUS_NO_SUCH_LOGON_SESSION**    (-1073741729/ 0xc000005f)
@@ -536,7 +536,7 @@ Reason(s):
 
 Resolution:
 -  The domain of the user’s UPN must be added as a custom domain in AAD. Event 1144 (AAD analytic logs) will contain the UPN provided.
--  If the on-premises domain name is non-routable (jdoe@contoso.local)  configure Alternate Login ID (AltID). References: [prerequisites](hybrid-azuread-join-plan.md) [configuring-alternate-login-id](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
+-  If the on-premises domain name is non-routable (jdoe@contoso.local),  configure Alternate Login ID (AltID). References: [prerequisites](hybrid-azuread-join-plan.md) [configuring-alternate-login-id](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
 
 ---
 
@@ -551,7 +551,7 @@ Reason(s):
 Resolution:
 -  User’s UPN should be in the Internet-style login name, based on the Internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (AAD analytic logs) will contain the UPN provided.
 -  For Hybrid joined devices, ensure the domain controller is configured to return the UPN in the correct format. whoami /upn should display the configured UPN in the domain controller.
--  If the on-premises domain name is non-routable (jdoe@contoso.local)  configure Alternate Login ID (AltID). References: [prerequisites](hybrid-azuread-join-plan.md) [configuring-alternate-login-id](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
+-  If the on-premises domain name is non-routable (jdoe@contoso.local),  configure Alternate Login ID (AltID). References: [prerequisites](hybrid-azuread-join-plan.md) [configuring-alternate-login-id](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 
 
 ---
 
