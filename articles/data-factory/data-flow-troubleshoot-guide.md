@@ -396,7 +396,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Cosmos-DeleteDataFailed
 - **Message**: Failed to delete data from cosmos after 3 times retry.
-- **Cause**: The throughput on the Cosmos collection is small and leads to meet throttling or row data does not exist in Cosmos.
+- **Cause**: The throughput on the Cosmos collection is small and leads to meeting throttling or row data not existing in Cosmos.
 - **Recommendation**: Please take the following actions to solve this problem:
     1. If the error is 404, make sure that the related row data exists in the Cosmos collection. 
     1. If the error is throttling, please increase the Cosmos collection throughput or set it to the automatic scale.
