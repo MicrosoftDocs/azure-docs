@@ -89,7 +89,7 @@ az sig image-definition create \
 ```
 
 > [!NOTE]
-> For image definitions that will contain images descended from 3rd party images, the plan information must match exactly the plan information from the 3rd party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
 >
 
 ## Create the image version

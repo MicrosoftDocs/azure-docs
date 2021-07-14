@@ -71,7 +71,7 @@ az sig image-version show \
 
 ## Create the image definition 
 
-You need to create an image definition that matches the operating system, operating system state, and hyper-v generation of the image definition containing your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
+You need to create an image definition that matches the operating system, operating system state, and Hyper-V generation of the image definition containing your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -127,7 +127,7 @@ az sig image-definition create \
 ```
 
 > [!NOTE]
-> For image definitions that will contain images descended from 3rd party images, the plan information must match exactly the plan information from the 3rd party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
 >
 
 
