@@ -114,7 +114,7 @@ A cloud service swap usually is fast because it's only a configuration change in
 ## Next steps 
 
 * Review [deployment prerequisites](deploy-prerequisite.md) for Azure Cloud Services (extended support).
-* Review [frequently asked questions](faq.md) for Azure Cloud Services (extended support).
+* Review [frequently asked questions](faq.yml) for Azure Cloud Services (extended support).
 * Deploy an Azure Cloud Services (extended support) cloud service by using one of these options:
   * [Azure portal](deploy-portal.md)
   * [PowerShell](deploy-powershell.md)
