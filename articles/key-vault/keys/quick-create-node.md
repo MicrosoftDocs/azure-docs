@@ -234,7 +234,7 @@ async function main() {
   await deletePoller.pollUntilDone();
   console.log("Done.");
   
-  console.log("Purging your key from {keyVaultName} ...");
+  console.log(`Purging your key from ${keyVaultName} ...`);
   await client.purgeDeletedKey(keyName);
   
 }

@@ -48,11 +48,9 @@ In this article you learn how to secure the following inferencing resources in a
 
 ## Azure Kubernetes Service
 
-To use an AKS cluster in a virtual network, the following network requirements must be met:
+> [!IMPORTANT]
+> To use an AKS cluster in a virtual network, first follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
 
-> [!div class="checklist"]
-> * Follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../aks/configure-azure-cni.md#prerequisites).
-> * The AKS instance and the virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance too.
 
 To add AKS in a virtual network to your workspace, use the following steps:
 
@@ -222,6 +220,7 @@ az ml computetarget update aks \
                            --workspace-name myworkspace \
                            -g myresourcegroup
 ```
+
 
 For more information, see the [az ml computetarget create aks](/cli/azure/ml(v1)/computetarget/create#az_ml_computetarget_create_aks) and [az ml computetarget update aks](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_aks) reference.
 

@@ -66,7 +66,33 @@ sections:
           | 1 day | Onboard time - 28 days  |
           | Greater than 1 day, less than 31 days | Onboard time - 2 years  |
           | Greater than 31 days | Onboard time - 24 years   |
+
+      - question: |
+          What are the data retention and limitations of Metrics Advisor.
+        answer: |       
+          1. Data retention.
+          Metrics Advisor will keep at most **10,000** time intervals (what is an interval?) forward counting from current timestamp, no matter there's data available or not. Data falls out of the window will be deleted.  Data retention mapping to count of days for different metric granularity.
           
+          | Granularity(min) |	Retention(day) |
+          |------------------| ------------------|
+          |  1 | 6.94 |
+          |  5 | 34.72|
+          | 15 | 104.1|
+          | 60(=hourly) | 416.67 |
+          | 1440(=daily)|10000.00|
+          
+          2. Limitation on maximum time series count within one metric.
+
+          They may have multiple dimensions within one metric, and each dimension may have multiple values. The maximum dimension combination for one metric should not exceed **100k**.   
+          - Metrics Advisor resource admins and data feed owners will be notified when the **80%** limitation is reached on the data feed detail page. 
+          - If the metric has exceeded the limitation the data feed **will be paused** and wait for customers to take follow-up actions. It's suggested to split the data feed to multiple data feeds by using filtering. 
+
+          3. Limitation on maximum data points stored in one Metrics Advisor instance
+
+          Metrics Advisor counts on total data points from all data feeds that onboarded to the instance starting from the first ingestion timstamp. The maximum number of data points to be stored in one Metrics Advisor instance is **2 billion**. 
+          - Metrics Advisor resource admins and all users will be notified when the **80%** limitation is reached on the data feed list page and the add new data feed page. 
+          - If total data points has exceeded the limitation all data feeds **will be paused** and new feed onboarding **will be blocked** as well. It's suggested to delete unused data feeds or create a new Metrics Advisor resource within your subscription.
+      
       - question: |
           How do I detect spikes & dips as anomalies?
         answer: |

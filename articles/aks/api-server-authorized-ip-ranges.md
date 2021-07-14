@@ -135,7 +135,7 @@ To find IP ranges that have been authorized, use [az aks show][az-aks-show] and 
 az aks show \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --query apiServerAccessProfile.authorizedIpRanges'
+    --query apiServerAccessProfile.authorizedIpRanges
 ```
 
 ## Update, disable, and find authorized IP ranges using Azure portal

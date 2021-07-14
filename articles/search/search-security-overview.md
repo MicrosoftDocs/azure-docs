@@ -16,9 +16,9 @@ ms.custom: references_regions
 
 This article describes the security features in Azure Cognitive Search that protect data and operations.
 
-## Network access
+## Network traffic patterns
 
-A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you determine the appropriate controls for preventing unauthorized access.
+A search service is hosted on Azure and typically accessed over public network connections. Understanding the service's access patterns can help you design a security strategy that effectively deters unauthorized access to searchable content.
 
 Cognitive Search has three basic network traffic patterns:
 
@@ -28,9 +28,9 @@ Cognitive Search has three basic network traffic patterns:
 
 Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request (required). You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet.
 
-Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer, but the service itself writes to log files if you enable diagnostic logging through Azure Monitor. For indexers, read operations include document cracking and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
+Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include document cracking and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
-Internal requests include service-to-service calls, such as calls made to Cognitive Services that provides the built-in skills, or to Azure Private Link if you set up a private endpoint.
+Internal requests include service-to-service calls for tasks like diagnostic logging, encryption, authentication and authorization through Azure Active Directory, private endpoint connections, and requests made to Cognitive Services for built-in skills.
 
 ## Network security
 
@@ -121,7 +121,7 @@ Workarounds for solutions that require "row-level security" include creating a f
 
 Service Management operations are authorized through [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
-In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api).
+In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement).
 
 [Three basic roles](search-security-rbac.md) are defined for search service administration. The role assignments can be made using any supported methodology (portal, PowerShell, and so forth) and are honored service-wide. The Owner and Contributor roles can perform a variety of administration functions. You can assign the Reader role to users who only view essential information.
 

@@ -64,7 +64,7 @@ The following sections list best practices for identity and access security usin
 
 ## Centralize identity management
 
-In a [hybrid identity](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?) scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
+In a hybrid identity scenario we recommend that you integrate your on-premises and cloud directories. Integration enables your IT team to manage accounts from one location, regardless of where an account is created. Integration also helps your users be more productive by providing a common identity for accessing both cloud and on-premises resources.
 
 **Best practice**: Establish a single Azure AD instance. Consistency and a single authoritative sources will increase clarity and reduce security risks from human errors and configuration complexity.
 **Detail**: Designate a single Azure AD directory as the authoritative source for corporate and organizational accounts.

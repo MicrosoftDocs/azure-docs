@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: include
-ms.date: 11/09/2020
+ms.date: 07/07/2021
 ms.author: mbullwin
 ---
 
@@ -103,12 +103,12 @@ Create a client with your keys and endpoint, and use `client.create_data_feed()`
 def sample_create_data_feed():
     from azure.ai.metricsadvisor import MetricsAdvisorKeyCredential, MetricsAdvisorAdministrationClient
     from azure.ai.metricsadvisor.models import (
-        SQLServerDataFeed,
+        SqlServerDataFeedSource,
         DataFeedSchema,
         DataFeedMetric,
         DataFeedDimension,
-        DataFeedOptions,
-        DataFeedRollupSettings
+        DataFeedRollupSettings,
+        DataFeedMissingDataPointFillSettings
     )
     sql_server_connection_string = "<replace-with-your-sql-server-connection-string>"
     query = "<replace-with-metrics-advisor-sql-server-query>"
@@ -118,7 +118,7 @@ def sample_create_data_feed():
 
     data_feed = client.create_data_feed(
     name="My data feed",
-    source=SQLServerDataFeed(
+    source=SqlServerDataFeedSource(
         connection_string=sql_server_connection_string,
         query=query,
     ),
@@ -135,17 +135,16 @@ def sample_create_data_feed():
         timestamp_column="Timestamp"
     ),
     ingestion_settings=datetime.datetime(2019, 10, 1),
-    options=DataFeedOptions(
-        data_feed_description="cost/revenue data feed",
-        rollup_settings=DataFeedRollupSettings(
-            rollup_type="AutoRollup",
-            rollup_method="Sum",
-            rollup_identification_value="__CUSTOM_SUM__"
-        ),
-        missing_data_point_fill_settings=DataFeedMissingDataPointFillSettings(
-            fill_type="SmartFilling"
-        ),
-        access_mode="Private"
+    data_feed_description="cost/revenue data feed",
+    rollup_settings=DataFeedRollupSettings(
+        rollup_type="AutoRollup",
+        rollup_method="Sum",
+        rollup_identification_value="__CUSTOM_SUM__"
+    ),
+    missing_data_point_fill_settings=DataFeedMissingDataPointFillSettings(
+        fill_type="SmartFilling"
+    ),
+    access_mode="Private"
     )
 )
 
@@ -232,7 +231,7 @@ detection_config = client.create_detection_configuration(
     metric_id=metric_id,
     description="anomaly detection config for metric",
     whole_series_detection_condition=MetricDetectionCondition(
-        cross_conditions_operator="OR",
+        condition_operator="OR",
         change_threshold_condition=change_threshold_condition,
         hard_threshold_condition=hard_threshold_condition,
         smart_detection_condition=smart_detection_condition

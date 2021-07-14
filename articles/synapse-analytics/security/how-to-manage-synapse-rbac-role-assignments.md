@@ -28,7 +28,7 @@ This article shows how to add and delete Synapse RBAC role assignments.
 
 ## Open Synapse Studio  
 
-To assign a role to a user, group, service principal, or managed identity, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace. 
+To assign a role to a user, group, service principal, or managed identity, first [open the Synapse Studio](https://web.azuresynapse.net/) and log into your workspace. 
 
 ![Log in to workspace](./media/common/login-workspace.png) 
  

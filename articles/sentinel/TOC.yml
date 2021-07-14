@@ -47,8 +47,8 @@
       href: sentinel-solutions-catalog.md
   - name: Threat intelligence
     items:
-    - name: Import threat intelligence into Azure Sentinel
-      href: import-threat-intelligence.md
+    - name: Understand threat intelligence in Azure Sentinel
+      href: understand-threat-intelligence.md
     - name: Threat intelligence integrations
       href: threat-intelligence-integration.md
   - name: Threat detection
@@ -59,8 +59,6 @@
       href: soc-ml-anomalies.md
     - name: Multistage attacks (Fusion)
       href: fusion.md
-    - name: Watchlists
-      href: watchlists.md
   - name: Threat hunting
     href: hunting.md
   - name: SOAR
@@ -75,6 +73,8 @@
       href: bring-your-own-ml.md
 - name: How-tos
   items:
+  - name: Migrate to Azure Sentinel
+    href: migration.md
   - name: Collect data
     items:
     - name: Connect data sources
@@ -278,7 +278,13 @@
   - name: Discover and deploy solutions
     href: sentinel-solutions-deploy.md
   - name: Connect threat intelligence
-    href: connect-threat-intelligence.md
+    items:
+    - name: Connect threat intelligence platforms
+      href: connect-threat-intelligence-tip.md
+    - name: Connect to STIX/TAXII feeds
+      href: connect-threat-intelligence-taxii.md
+  - name: Work with threat indicators
+    href: work-with-threat-indicators.md
   - name: Monitor and visualize data
     items:
     - name: Visualize collected data
@@ -311,6 +317,8 @@
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
       href: create-incidents-from-alerts.md
+    - name: Use watchlists
+      href: watchlists.md
   - name: Hunt for threats
     items:
     - name: Hunt with Jupyter notebooks
@@ -391,10 +399,16 @@
       href: cef-name-mapping.md
     - name: Normalization
       items:
-      - name: Network normalization schema
-        href: normalization-schema.md
+      - name: Authentication normalization schema
+        href: authentication-normalization-schema.md
       - name: DNS normalization schema
         href: dns-normalization-schema.md
+      - name: Network normalization schema
+        href: normalization-schema.md
+      - name: Process event normalization schema
+        href: process-events-normalization-schema.md
+      - name: Registry event normalization schema
+        href: registry-event-normalization-schema.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks

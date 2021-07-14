@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 07/06/2021
 ms.author: lajanuar
 ---
 
@@ -175,7 +175,7 @@ That's it! You've created a program to translate documents in a blob container u
 [documenttranslation_client_library_docs]: https://aka.ms/azsdk/net/documenttranslation/docs
 [documenttranslation_docs]: overview.md
 [documenttranslation_rest_api]: reference/rest-api-guide.md
-[documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/samples/README.md
+[documenttranslation_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/translation/Azure.AI.Translation.Document/samples
 
 ### [Python](#tab/python)
 
@@ -254,7 +254,6 @@ That's it! You've created a program to translate documents in a blob container u
 [python-dt-client-library]: https://aka.ms/azsdk/python/documenttranslation/docs
 [python-rest-api]: reference/rest-api-guide.md
 [python-dt-product-docs]: overview.md
-[python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/samples
+[python-dt-samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/translation/azure-ai-translation-document/samples
 
 ---
- 

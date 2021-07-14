@@ -47,6 +47,8 @@ items:
     href: import-concepts.md
   - name: Import-related schema
     href: import-schema.md
+  - name: Device Update limits
+    href: device-update-limits.md
 
 - name: How-to guides
   items:

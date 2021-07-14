@@ -22,6 +22,9 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
 
+> [!NOTE]
+> The features and regional availability described in this article are also available to accounts that have a hierarchical namespace. 
+
 ## Redundancy in the primary region
 
 Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers two options for how your data is replicated in the primary region:
