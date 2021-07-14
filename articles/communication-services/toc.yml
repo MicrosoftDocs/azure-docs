@@ -17,10 +17,10 @@ items:
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
-      - name: Use managed identities
-        href: quickstarts/managed-identity.md
-      - name: Set up managed identities from CLI
-    href: quickstarts/managed-identity-from-cli.md
+      - name: Use Service Principals
+        href: quickstarts/identity/service-principal.md
+      - name: Set up Service Principals from CLI
+        href: quickstarts/identity/service-principal-from-cli.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -51,7 +51,7 @@ items:
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
-    - name: Join a service to a call
+    - name: Join a service to a call using Call Automation APIs
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
@@ -76,7 +76,7 @@ items:
     href: tutorials/building-app-start.md
   - name: Sign an HTTP request with an HMAC signature using C#
     href: tutorials/hmac-header-tutorial.md
-  - name: Sign and make requests to ACS' SMS API with Postman
+  - name: Sign and make requests to the SMS API with Postman
     href: tutorials/postman-tutorial.md
 - name: Concepts
   expanded: false
@@ -111,18 +111,20 @@ items:
     items:
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
-      - name: Voice and video concepts
+      - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
-      - name: Network requirements
+      - name: Call automation
+        href: concepts/voice-video-calling/call-automation-apis.md
+      - name: Call recording
+        href: concepts/voice-video-calling/call-recording.md
+      - name: Network recommendations
         href: concepts/voice-video-calling/network-requirements.md
       - name: Call flows
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
-      - name: Call automation APIs
-        href: concepts/voice-video-calling/call-automation-apis.md
-      - name: Call recording
-        href: concepts/voice-video-calling/call-recording.md
+      - name: Web best practices
+        href: concepts/best-practices.md
       - name: Known issues
         href: concepts/known-issues.md
   - name: UI Library
@@ -154,8 +156,6 @@ items:
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
-  - name: Best Practices
-    href: concepts/best-practices.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: Samples

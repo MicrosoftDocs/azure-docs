@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/06/2021
+ms.date: 06/25/2021
 ms.author: rogarana
 ms.subservice: files
 

@@ -54,7 +54,7 @@ Azure AD lets you choose which authentication methods can be used during the sig
 
 To enable the authentication method for passwordless phone sign-in, complete the following steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a *global administrator* account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with an *authentication policy administrator* account.
 1. Search for and select *Azure Active Directory*, then browse to **Security** > **Authentication methods** > **Policies**.
 1. Under **Microsoft Authenticator**, choose the following options:
    1. **Enable** - Yes or No
@@ -141,5 +141,5 @@ Currently, a device can only be registered in a single tenant. This limit means 
 To learn about Azure AD authentication and passwordless methods, see the following articles:
 
 - [Learn how passwordless authentication works](concept-authentication-passwordless.md)
-- [Learn about device registration](../devices/overview.md#getting-devices-in-azure-ad)
+- [Learn about device registration](../devices/overview.md)
 - [Learn about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

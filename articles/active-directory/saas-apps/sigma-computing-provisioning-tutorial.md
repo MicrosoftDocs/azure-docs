@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Sigma Computing for automatic user provisioning with
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Sigma Computing.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 6108a4de-4420-4baa-bc2f-1c39a1ebe81d
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Sigma Computing for automatic user provisioning

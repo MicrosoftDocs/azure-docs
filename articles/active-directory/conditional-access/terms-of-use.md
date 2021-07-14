@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 01/27/2020
+ms.date: 07/12/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -198,16 +198,10 @@ Users are only required to accept the terms of use policy once and they will not
 
 Users can review and see the terms of use policies that they have accepted by using the following procedure.
 
-1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. In the upper right corner, click your name and select **Profile**.
-
-    ![MyApps site with the user's pane open](./media/terms-of-use/tou14.png)
-
-1. On your Profile page, click **Review terms of use**.
-
-    ![Profile page for a user showing the Review terms of use link](./media/terms-of-use/tou13a.png)
-
-1. From there, you can review the terms of use policies you have accepted.
+1. Sign in to [https://myaccount.microsoft.com/](https://myaccount.microsoft.com/).
+1. Select **Settings & Privacy**.
+1. Select **Privacy**.
+1. Under **Organization's notice**, select **View** next to the terms of use statement you want to review.
 
 ## Edit terms of use details
 
@@ -239,7 +233,7 @@ You can edit some details of terms of use policies, but you can't modify an exis
     ![Edit terms of use pane showing name and expand options](./media/terms-of-use/edit-terms-use.png)
 
 5.	In the pane on the right, upload the pdf for the new version
-6.	There is also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version.
+6.	There is also a toggle option here **Require reaccept** if you want to require your users to accept this new version the next time they sign in. If you require your users to reaccept, next time they try to access the resource defined in your conditional access policy they will be prompted to accept this new version. If you don’t require your users to reaccept, their previous consent will stay current and only new users who have not consented before or whose consent expires will see the new version. Until the session expires, **Require reaccept** not require users to accept the new TOU. If you want to ensure reaccept delete and recreate or create a new TOU for this case.
 
     ![Edit terms of use re-accept option highlighted](./media/terms-of-use/re-accept.png)
 
@@ -400,12 +394,6 @@ A: The user counts in the terms of use report and who accepted/declined are stor
 **Q: Why do I see a different number of consents in the terms of use report vs. the Azure AD audit logs?**<br />
 A: The terms of use report is stored for the lifetime of that terms of use policy, while the Azure AD audit logs are stored for 30 days. Also, the terms of use report only displays the users current consent state. For example, if a user declines and then accepts, the terms of use report will only show that user's accept. If you need to see the history, you can use the Azure AD audit logs.
 
-**Q: If I edit the details for a terms of use policy, does it require users to accept again?**<br />
-A: No, if an administrator edits the details for a terms of use policy (name, display name, require users to expand, or add a language), it does not require users to reaccept the new terms.
-
-**Q: Can I update an existing terms of use policy document?**<br />
-A: Currently, you can't update an existing terms of use policy document. To change a terms of use policy document, you will have to create a new terms of use policy instance.
-
 **Q: If hyperlinks are in the terms of use policy PDF document, will end users be able to click them?**<br />
 A: Yes, end users are able to select hyperlinks to additional pages but links to sections within the document are not supported. Also, hyperlinks in terms of use policy PDFs do not work when accessed from the Azure AD MyApps/MyAccount portal.
 
@@ -431,7 +419,7 @@ A: You can [review previously accepted terms of use policies](#how-users-can-rev
 A: If you have configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q: What endpoints does the terms of use service use for authentication?**<br />
-A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allow list of URLs for enrollment, you will need to add these endpoints to your allow list, along with the Azure AD endpoints for sign-in.
+A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you will need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
 
 ## Next steps
 

@@ -213,3 +213,5 @@ Use the data ingested into Azure Sentinel to secure your environment with any of
 - [Detect threats](tutorial-detect-threats-built-in.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
+
+Also, learn about one example of creating a custom connector to monitor Zoom: [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).

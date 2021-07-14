@@ -117,6 +117,8 @@
           href: language-support.md#speech-to-text
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: Ingestion Client
+          href: ingestion-client.md
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
           href: faq-stt.yml
@@ -440,7 +442,7 @@
                 - name: Voice Assistants Samples (GitHub)
                   href: http://aka.ms/speech/va-samples
                 - name: Voice assistants FAQ
-                  href: faq-voice-assistants.md
+                  href: faq-voice-assistants.yml
                 - name: Custom Commands encryption of data at rest
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech
@@ -458,7 +460,7 @@
             - name: Resources
               items:
                 - name: Voice assistants FAQ
-                  href: faq-voice-assistants.md
+                  href: faq-voice-assistants.yml
         - name: Voice assistants on Windows
           items:
             - name: Overview of voice assistants on Windows
@@ -476,7 +478,7 @@
                 - name: 'Best practices for assistant experiences'
                   href: windows-voice-assistants-best-practices.md
                 - name: 'Samples and frequently asked questions'
-                  href: windows-voice-assistants-faq.md
+                  href: windows-voice-assistants-faq.yml
 - name: How-to guides
   items:
     - name: Enable logging

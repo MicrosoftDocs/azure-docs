@@ -23,7 +23,9 @@
   items:
   - name: Onboard your data
     href: how-tos/onboard-your-data.md
-  - name: Connect different data feed sources
+  - name: Create a credential entity
+    href: how-tos/credential-entity.md
+  - name: Connect different data sources
     href: data-feeds-from-different-sources.md
   - name: Manage data feeds
     href: how-tos/manage-data-feeds.md
@@ -45,6 +47,9 @@
   items:
     - name: Metrics Advisor key terms
       href:  glossary.md
+    - name: Cost management
+      href: cost-management.md
+      displayname: cost, pricing, price, billing, bill
 - name: Responsible use of AI
   items:
   - name: Transparency notes
