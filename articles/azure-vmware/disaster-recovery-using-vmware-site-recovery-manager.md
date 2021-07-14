@@ -61,7 +61,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 - [DNS resolution](/azure/azure-vmware/configure-dns-azure-vmware-solution) to on-premises SRM and virtual cloud appliances
 
    >[!NOTE]
-   >For private clouds created on or **before** July 1, 2021, you can configure private DNS resolution. For private clouds created before July 1, 2021, that need a private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request **Private DNS configuration**.
+   >For private clouds created on or after July 1, 2021, you can configure private DNS resolution. For private clouds created before July 1, 2021, that need a private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request **Private DNS configuration**.
 
 - ExpressRoute connectivity between on-premises and Azure VMware Solution - 2 Gbps
 
@@ -71,9 +71,9 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/two-private-clouds-different-regions.png" alt-text="Screenshot showing two Azure VMware Solution private clouds in separate regions.":::
  
-- ExpressRoute Global Reach connectivity between the source and target Azure VMware Solution private cloud
+- Connectivity between the source and target Azure VMware Solution private cloud
 
-   :::image type="content" source="media/vmware-srm-vsphere-replication/global-reach-connectity-to-on-premises.png" alt-text="Screenshot showing the ExpressRoute Global Reach connectivity.":::
+   :::image type="content" source="media/vmware-srm-vsphere-replication/global-reach-connectity-to-on-premises.png" alt-text="Screenshot showing the connectivity between the source and target private clouds.":::
 
  
 ## Install SRM in Azure VMware Solution
