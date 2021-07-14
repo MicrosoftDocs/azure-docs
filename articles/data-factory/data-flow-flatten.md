@@ -35,6 +35,28 @@ Similar to the select transformation, choose the projection of the new structure
 
 Refer to the inspect tab and data preview to verify your mapping output.
 
+## Rule-based mapping
+
+The flatten transformation supports rule-based mapping allowing you to create dynamic and flexible transformations that will flatten arrays based on rules and flatten structures based on hierarchy levels.
+
+![Flatten pattern](media/data-flow/flatten-pattern.png "Flatten patterns")
+
+### Matching condition
+
+Enter a pattern matching condition for the column or columns that you wish to flatten using either exact matching or patterns. Example: ```like(name,'cust%')```
+
+### Deep column traversal
+
+Optional setting that tells ADF to handle all subcolumns of a complex object individually instead of handling the complex object as a whole column.
+
+### Hierarchy level
+
+Choose the level of the hierarchy that you would like expand.
+
+### Name matches (regex)
+
+Optionally choose to express your name matching as a regular expression in this box, instead of using the matching condition above.
+
 ## Examples
 
 Refer to the following JSON object for the below examples of the flatten transformation

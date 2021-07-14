@@ -161,7 +161,7 @@ Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azu
 
 The following schemas are in use by Azure Machine Learning
 
-### AmlComputeJobEvents table
+### AmlComputeJobEvent table
 
 | Property | Description |
 |:--- |:---|
@@ -190,7 +190,7 @@ The following schemas are in use by Azure Machine Learning
 | JobErrorMessage | detailed message of Job error |
 | NodeId | ID of the node created where job is running |
 
-### AmlComputeClusterEvents table
+### AmlComputeClusterEvent table
 
 | Property | Description |
 |:--- |:--- |
@@ -233,7 +233,7 @@ The following schemas are in use by Azure Machine Learning
 | ClusterErrorCodes | Error code received during cluster creation or scaling |
 | CreationApiVersion | Api version used while creating the cluster |
 
-### AmlComputeClusterNodeEvents table
+### AmlComputeClusterNodeEvent table
 
 | Property | Description |
 |:--- |:--- |

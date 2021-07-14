@@ -12,7 +12,7 @@ ms.date: 05/25/2021
 
 # Deploy Red Hat JBoss Enterprise Platform (EAP) on Azure VMs and virtual machine scale sets using the Azure Marketplace offer
 
-The Azure Marketplace offers for [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/technologies/jboss-middleware/application-platform) on Azure [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/technologies/linux-platforms/enterprise-linux) is a joint solution from [Red Hat](https://www.redhat.com/) and Microsoft. Red Hat is a leading open-source solutions provider and contributor including the [Java](https://www.java.com/) standards, [OpenJDK](https://openjdk.java.net/), [MicroProfile](https://microprofile.io/), [Jakarta EE](https://jakarta.ee/), and [Quarkus](https://quarkus.io/). JBoss EAP is a leading Java application server platform that is Java EE Certified and Jakarta EE Compliant in both Web Profile and Full Platform. Every JBoss EAP release is tested and supported on a various market-leading operating systems, Java Virtual Machines (JVMs), and database combinations.  JBoss EAP and RHEL include everything you need to build, run, deploy, and manage enterprise Java applications in any environment.  It includes on-premises, virtual environments, and in private, public, or hybrid clouds. The joint solution by Red Hat and Microsoft includes integrated support and software licensing flexibility.
+The Azure Marketplace offers for [Red Hat JBoss Enterprise Application Platform](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) on Azure [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) is a joint solution from [Red Hat](https://www.redhat.com/) and Microsoft. Red Hat is a leading open-source solutions provider and contributor including the [Java](https://www.java.com/) standards, [OpenJDK](https://openjdk.java.net/), [MicroProfile](https://microprofile.io/), [Jakarta EE](https://jakarta.ee/), and [Quarkus](https://quarkus.io/). JBoss EAP is a leading Java application server platform that is Java EE Certified and Jakarta EE Compliant in both Web Profile and Full Platform. Every JBoss EAP release is tested and supported on a various market-leading operating systems, Java Virtual Machines (JVMs), and database combinations.  JBoss EAP and RHEL include everything you need to build, run, deploy, and manage enterprise Java applications in any environment.  It includes on-premises, virtual environments, and in private, public, or hybrid clouds. The joint solution by Red Hat and Microsoft includes integrated support and software licensing flexibility.
 
 ## JBoss EAP on Azure-Integrated support
 
@@ -109,7 +109,7 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 2. [Create a Public IP](/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address) to access the server and the application.
 3. [Create a Jump VM in the same Virtual Network (VNet)](/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine) in a different subnet (new subnet) in the same VNet and access the server via a Jump VM. The Jump VM can be used to expose the application.
 4. Expose the application using an [Application Gateway](/azure/application-gateway/quick-create-portal#create-an-application-gateway).
-5. Expose the application using an [External Load Balancer](/azure/load-balancer/tutorial-load-balancer-standard-manage-portal#create-a-standard-load-balancer) (ELB).
+5. Expose the application using an External Load Balancer (ELB).
 6. [Use Azure Bastion](/azure/bastion/bastion-overview) to access your RHEL VMs using your browser and the Azure portal. 
 
 ### 1. Create a Jump VM in a different Virtual Network and access the RHEL VM using Virtual Network Peering (recommended method)
@@ -139,7 +139,7 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 
 ### 4. Expose the application using an External Load Balancer
 
-1. [Create an Application Gateway](/application-gateway/quick-create-portal#create-an-application-gateway) - to access the ports of the RHEL VM, create an Application Gateway in a different subnet. The subnet must only contain the Application Gateway.
+1. [Create an Application Gateway](/azure/application-gateway/quick-create-portal#create-an-application-gateway) - to access the ports of the RHEL VM, create an Application Gateway in a different subnet. The subnet must only contain the Application Gateway.
 2. Set *Frontends* parameters - make sure you select Public IP or both and provide the required details. Under *Backends* section, select **Add a backend pool** option and add the RHEL VM to the backend pool of the Application Gateway.
 3. Set access ports - under *Configuration* section add routing rules to access the ports 8080 and 9990 of the RHEL VM.
 4. Copy Public IP of Application Gateway - once the Application Gateway is created with the required configurations, go to the  overview page and copy the Public IP of the Application Gateway.
@@ -148,7 +148,7 @@ These offer plans create all the Azure compute resources to run JBoss EAP setup 
 
 ### 5. Use an External Load Balancer (ELB) to access your RHEL VM/virtual machine scale sets
 
-1. [Create a Load Balancer](/load-balancer/tutorial-load-balancer-standard-manage-portal#create-a-standard-load-balancer) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
+1. [Create a Load Balancer](/azure/load-balancer/tutorial-load-balancer-standard-manage-portal#create-a-standard-load-balancer) to access the ports of the RHEL VM. Provide the required details to deploy the external Load Balancer and leave other configurations as default. Leave the SKU as Basic for the ELB configuration.
 2. Add Load Balancer rules - once the Load balancer has been created successfully, [create Load Balancer resources](/azure/load-balancer/tutorial-load-balancer-standard-manage-portal#create-load-balancer-resources), then add Load Balancer rules to access ports 8080 and 9990 of the RHEL VM.
 3. Add the RHEL VM to the backend pool of the Load Balancer - click on *Backend pools* under settings section and then select the backend pool you created in the step above. Select the VM corresponding to the option *Associated to* and then add the RHEL VM.
 4. To obtain the Public IP of the Load Balancer - go to the Load Balancer overview page and copy the Public IP of the Load Balancer.

@@ -6,7 +6,7 @@ author: timoklimmer
 ms.service: data-science-vm
 
 ms.author: tklimmer
-ms.date: 05/25/2021
+ms.date: 06/29/2021
 ms.topic: reference
 ---
 
@@ -15,6 +15,18 @@ ms.topic: reference
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## 2021-06-22
+
+New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
+
+Version: 21.06.22
+
+Main changes:
+
+- Updated to PyTorch 1.9.0
+- Fixed a bug where git was not available
+
 
 ## 2021-06-01
 
@@ -37,8 +49,6 @@ Removed several icons from desktop.
 ## 2021-05-22
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
-
-Selected version updates are:
 
 Version: 21.05.22
 
@@ -69,9 +79,6 @@ Removed Firefox, Apache Drill and Microsoft Integration Runtime.
 
 <br/>
 Dark mode, changed icons on desktop, wallpaper background change.
-
-<br/>
-Enabled the image for use in a Gen2 virtual machine.
 
 ## 2021-05-12
 
