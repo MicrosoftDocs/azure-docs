@@ -20,15 +20,15 @@ To call patient-everything, use the following command:
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything
 ```
-FHIR service validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
+The FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
-*  Resources that are directly referenced by the Patient resource (except link) 
-*  Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
-*  [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. This is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
+* Resources that are directly referenced by the Patient resource (except link) 
+* Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
+* [Device resources](https://www.hl7.org/fhir/device.html) that reference the Patient resource. This is limited to 100 devices. If the patient has more than 100 devices linked to them, only 100 will be returned. 
 
 
 ## Patient-everything parameters
-FHIR service supports the following query parameters. All of these parameters are optional:
+The FHIR service supports the following query parameters. All of these parameters are optional:
 
 |Query parameter        |  Description|
 |-----------------------|------------|
@@ -62,7 +62,7 @@ To use $patient-everything to query a patient’s “everything” since 2021-05
 GET {FHIRURL}/Patient/{ID}/$everything?_since=2021-05-27T05:00:00Z 
 ```
 
-If a Patient is found for each of these calls, you'll get back a 200 response with a Bundle of the corresponding resources.
+If a patient is found for each of these calls, you'll get back a 200 response with a `Bundle` of the corresponding resources.
 
 ## Next step
 Now that you know how to use the patient-everything operation, you can learn about more search options on the overview of search guide.
