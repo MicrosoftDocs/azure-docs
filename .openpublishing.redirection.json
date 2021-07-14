@@ -17323,12 +17323,12 @@
     {
       "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-apis-cli.md",
       "redirect_url": "/azure/digital-twins/how-to-manage-routes",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-portal.md",
       "redirect_url": "/azure/digital-twins/how-to-manage-routes",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
 
     {
