@@ -13,7 +13,7 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 This article describes the Azure App Service VNet Integration feature and how to set it up with apps in [Azure App Service](./overview.md). With [Azure Virtual Network][VNETOverview] (VNets), you can place many of your Azure resources in a non-internet-routable network. The VNet Integration feature enables your apps to access resources in or through a VNet. VNet Integration doesn't enable your apps to be accessed privately.
 
-Azure App Service has two variations on the VNet Integration feature:
+Azure App Service has two variations:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
@@ -65,7 +65,7 @@ Apps in App Service are hosted on worker roles. The Basic and higher pricing pla
 When regional VNet Integration is enabled, your app makes outbound through your VNet. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. If all traffic routing is enabled, all outbound traffic is sent into your VNet. If all traffic routing is not enabled, only private traffic (RFC1918) and service endpoints configured on the integration subnet will be sent into the VNet and outbound traffic to the internet will go through the same channels as normal.
 
 > [!NOTE]
-> Routing all traffic is currently not supported in Windows containers.
+> Route All is currently not supported in Windows containers.
 > 
 
 The feature supports only one virtual interface per worker. One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration. If you need an app to connect to an additional VNet, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
@@ -98,7 +98,7 @@ There are two types of routing to consider when configuring regional VNet Integr
 
 #### Application routing
 
-When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet.You configure this through the Route All setting. If Route All is disabled or not set, your app only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that Route All is enabled.
+When configuring application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your VNet. You configure this through the Route All setting. If Route All is disabled or not set, your app only routes private traffic into your VNet. If you want to route all of your outbound traffic into your VNet, make sure that Route All is enabled.
 
 > [!NOTE]
 > When Route All is enabled, all traffic is subject to the NSGs and UDRs that are applied to your integration subnet. When all traffic routing is enabled, outbound traffic is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
@@ -107,12 +107,12 @@ When configuring application routing, you can either route all traffic or only p
 
 You can use the following steps to enable Route All in your app through the portal: 
 
-REPLACE WITH UX FROM VNET INTEGRATION BLADE
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routealldisabled.png" alt-text="Route All disabled":::
 
 1. Go to the **VNet Integration** UI in your app portal.
-1. Set Route All** Enabled.
-
-    REPLACE WITH UX FROM VNET INTEGRATION BLADE
+1. Set **Route All** Enabled.
+    
+    :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallenabling.png" alt-text="Enable Route All":::
 
 1. Select **OK**.
 1. Select **Save**.
@@ -122,6 +122,9 @@ You can also configure Route All using CLI:
 ```azurecli-interactive
 az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
 ```
+
+The Route All configuration setting replaces and takes precedence over the legacy `WEBSITE_VNET_ROUTE_ALL` app setting.
+:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallappsetting.png" alt-text="Route All App Settting":::
 
 #### Network routing
 
