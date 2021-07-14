@@ -69,16 +69,18 @@ landingContent:
   
   - title: IoT connector
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: About IoT connector
+            url: ./iot/iot-connector-overview.md
       - linkListType: deploy
         links:
           - text: Deploy IoT Connector Using Portal
-            url: ./iot/iot-fhir-portal-quickstart.md
-          - text: Deploy IoT Connector Using ARM template
-            url: ./iot/iot-fhir-arm-template-quickstart.md
+            url: ./iot/deploy-iot-connector-in-azure.md
       - linkListType: tutorial
         links:
-          - text: IoT mapping templates
-            url: ./iot/iot-mapping-templates.md
+          - text: Receive device data through IoT Hub
+            url: ./iot/device-data-through-iot-hub.md
 
   - title: Transfer and Transform Data
     linkLists:

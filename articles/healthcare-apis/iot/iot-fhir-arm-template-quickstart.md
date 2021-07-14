@@ -18,8 +18,6 @@ In this quickstart, you'll learn how to use an Azure Resource Manager template (
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
 
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
-
 ## Prerequisites
 
 # [Portal](#tab/azure-portal)
@@ -51,10 +49,6 @@ The [template](https://raw.githubusercontent.com/microsoft/iomt-fhir/master/depl
 ## Deploy the template
 
 # [Portal](#tab/azure-portal)
-
-Select the following link to deploy the Azure IoT Connector for FHIR using the ARM template in the Azure portal:
-
-[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
 
 On the **Deploy FHIR service** page:
 
@@ -309,6 +303,6 @@ Understand different stages of data flow within Azure IoT Connector for FHIR.
 Learn how to configure IoT Connector using device and FHIR mapping templates.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR mapping templates](iot-mapping-templates.md)
+>[Azure IoT Connector for FHIR mapping templates](how-to-use-device-mapping-iot.md)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.
