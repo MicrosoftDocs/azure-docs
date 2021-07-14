@@ -71,7 +71,7 @@ Security integrations include:
 - Azure Key Vault where you can save security secrets, such as access information for storage accounts
 - Azure Container Registry set up behind a VNet
 
-See [Tutorial: Set up a secure workspace](tutorial-create-secure-workspace).
+See [Tutorial: Set up a secure workspace](tutorial-create-secure-workspace.md).
 
 Other integrations with Azure support an ML project from end-to-end include:
 
