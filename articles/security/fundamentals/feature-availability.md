@@ -130,7 +130,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 |- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
-|- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
+|- [Watchlists](/azure/sentinel/watchlists) | GA | Not Available |
 | **Threat intelligence support** | | |
 | - [Threat Intelligence - TAXII data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |
 | - [Threat Intelligence Platform data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |
