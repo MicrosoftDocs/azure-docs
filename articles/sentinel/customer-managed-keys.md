@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2020
+ms.date: 07/01/2021
 ms.author: yelevin
 
 ---
@@ -24,7 +24,9 @@ This article provides background information and steps to configure a [customer-
 ## Prerequisites
 
 - The CMK capability requires a Log Analytics dedicated cluster with at least a 1 TB/day commitment tier. Several workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
+
 - After you complete the steps in this guide and before you use the workspace, for onboarding confirmation, contact the [Azure Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
+
 - Learn about [Log Analytics Dedicated Cluster Pricing](../azure-monitor/logs/logs-dedicated-clusters.md#cluster-pricing-model).
 
 ## Considerations
@@ -110,10 +112,7 @@ Onboard the workspace to Azure Sentinel via the [Onboarding API](https://github.
 
 ## Key Encryption Key revocation or deletion
 
-In the event that a user revokes the key encryption key, either by deleting it or removing access for the dedicated cluster and Cosmos DB Resource Provider, Azure Sentinel will
-honor the change and behave as if the data is no longer available, within one hour. At this point, any operation that uses persistent storage resources such as
-data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain
-inaccessible. Inaccessible data is governed by the data-retention policy and will be purged in accordance with that policy.
+In the event that a user revokes the key encryption key (the CMK), either by deleting it or removing access for the dedicated cluster and Cosmos DB Resource Provider, Azure Sentinel will honor the change and behave as if the data is no longer available, within one hour. At this point, any operation that uses persistent storage resources such as data ingestion, persistent configuration changes, and incident creation, will be prevented. Previously stored data will not be deleted but will remain inaccessible. Inaccessible data is governed by the data-retention policy and will be purged in accordance with that policy.
 
 The only operation possible after the encryption key is revoked or deleted is account deletion.
 
@@ -131,15 +130,13 @@ In Key Vault, you can perform key rotation by creating a new version of the key:
 
 ![key rotation](./media/customer-managed-keys/key-rotation.png)
 
-You can disable the previous version of the key after 24 hours, or after the Azure Key Vault audit logs no longer show any activity that uses the previous
-version.
+You can disable the previous version of the key after 24 hours, or after the Azure Key Vault audit logs no longer show any activity that uses the previous version.
 
-After rotating a key, you must explicitly update the dedicated Log Analytics cluster resource in Log
-Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
+After rotating a key, you must explicitly update the dedicated Log Analytics cluster resource in Log Analytics with the new Azure Key Vault key version. For more information, see [Azure Monitor CMK rotation](../azure-monitor/logs/customer-managed-keys.md#key-rotation).
 
 ## Replacing a customer-managed key
 
-Azure Sentinel and Log Analytics support replacing a customer-managed key. In order to replace the key, create another key, either in the same key vault or in another key vault, and configure it according to the key creation instructions above. Then, update the dedicated Log Analytics cluster with the new key. Sentinel will detect the key change and will use it across all Azure Sentinel's data storage resources within one hour.
+Azure Sentinel does not support replacing a customer-managed key. You should use the [key rotation capability](#customer-managed-key-rotation) instead.
 
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

@@ -86,17 +86,17 @@ Create an ASP.NET web app by following these steps:
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
-1. In the search box above the list of Azure Marketplace resources, search for **Web App for Containers**, and select **Create**.
+1. Under **Popular services**, select **Create** under **Web App**.
 
-1. In **Web App Create**, choose your subscription and a **Resource Group**. You can create a new resource group if needed.
+1. In **Create Web App**, choose your subscription and a **Resource Group**. You can create a new resource group if needed.
 
-1. Provide an app name, such as *win-container-demo* and choose **Windows** for **Operating System**. Select **Next: Docker** to continue.
+1. Provide an app name, such as *win-container-demo*. Choose **Docker Container** for **Publish** and **Windows** for **Operating System**. Select **Next: Docker** to continue.
 
-   ![Create a Web App for Containers](media/quickstart-custom-container/create-web-app-continer.png)
+   ![Create a Web App for Containers](media/quickstart-custom-container/create-web-app-container.png)
 
 1. For **Image Source**, choose **Docker Hub** and for **Image and tag**, enter the repository name you copied in [Publish to Docker Hub](#publish-to-docker-hub).
 
-   ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-continer.png)
+   ![Configure your a Web App for Containers](media/quickstart-custom-container/configure-web-app-container.png)
 
     If you have a custom image elsewhere for your web application, such as in [Azure Container Registry](../container-registry/index.yml) or in any other private repository, you can configure it here.
 
@@ -297,7 +297,7 @@ In this Dockerfile, the parent image is one of the built-in Java containers of A
 1. Make sure the image tag begins with `<acr-name>.azurecr.io` and press **Enter**.
 1. When Visual Studio Code finishes pushing the image to your container registry, click **Refresh** at the top of the **REGISTRIES** explorer and verify the image is pushed successfully.
 
-    ![Screenshot shows the image deployed to Azure container registry.](./media/quickstart-docker/image-in-acr.png)
+    ![Screenshot shows the image deployed to Azure container registry.](./media/quickstart-docker/image-in-registry.png)
 
 ## Deploy to App Service
 

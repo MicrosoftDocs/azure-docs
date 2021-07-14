@@ -78,6 +78,8 @@
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
+  - name: Connect multiple private clouds in same region
+    href: connect-multiple-private-clouds-same-region.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -98,14 +100,14 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics 
       href: configure-alerts-for-azure-vmware-solution.md
-    - name: Back up and restore VMs with Azure Backup Server
-      items: 
-      - name: Back up VMware virtual machines 
-        href: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-      - name: Restore VMware virtual machines
-        href: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
-      - name: Monitor Azure Backup workloads 
-        href: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
+    - name: Attach disk pools to Azure VMware Solution hosts
+      href: attach-disk-pools-to-azure-vmware-solution-hosts.md
+    - name: Backup with Azure Backup Server
+      items:
+      - name: Set up Backup Server
+        href: set-up-backup-server-for-azure-vmware-solution.md
+      - name: Back up private cloud VMs with Backup Server
+        href: backup-azure-vmware-solution-virtual-machines.md
     - name: Disaster recovery using Azure Site Recovery
       items:
       - name: Prepare Azure

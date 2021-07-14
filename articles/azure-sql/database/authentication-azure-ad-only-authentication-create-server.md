@@ -36,7 +36,7 @@ The following section provides you with examples and scripts on how to create a 
 
 In our examples, we're enabling Azure AD-only authentication during server or managed instance creation, with a system assigned server admin and password. This will prevent server admin access when Azure AD-only authentication is enabled, and only allows the Azure AD admin to access the resource. It's optional to add parameters to the APIs to include your own server admin and password during server creation. However, the password cannot be reset until you disable Azure AD-only authentication.
 
-To change the properties of the server or managed instance, you will need to use a different API than the ones we're using in this guide to create the resources.
+To change the existing properties after server or managed instance creation, other existing APIs should be used. See [Managing Azure AD-only authentication using APIs](authentication-azure-ad-only-authentication.md#managing-azure-ad-only-authentication-using-apis) and [Configure and manage Azure AD authentication with Azure SQL](authentication-aad-configure.md) for more information.
 
 > [!NOTE]
 > If Azure AD-only authentication is set to false, which it is by default, a server admin and password will need to be included in all APIs during server or managed instance creation.
