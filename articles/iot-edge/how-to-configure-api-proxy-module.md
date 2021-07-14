@@ -16,12 +16,14 @@ monikerRange: ">=iotedge-2020-11"
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
-There are several scenarios where you might want to deploy multiple services on an IoT Edge device, all of which support HTTPS protocol and bind to port 443. This is especially relevant in hierarchical deployments of IoT Edge devices in ISA-95 based network isolated architectures such as those described in [Network isolate downstream devices](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices), as the clients on the child devices are not able to connect to the cloud directly. For example, to allow child IoT Edge devices to pull Docker images requires deploying a Docker registry module, and to allow uploading blobs requires deploying a Blob Storage module on the same IoT Edge device. Both these services use HTTPS for communication. The API Proxy enables such deployments on an IoT Edge device. Instead of each service, the API Proxy module binds to port 443 on the host device and routes the request to the right service module running on that device as per user configurable rules. The individual services are still responsible for handling the requests, including authenticating and authorization of the clients. Without the API Proxy, each service module would have to bind to a separate port on the host device, requiring tedious and error prone configuration change on each child device connecting to the parent IoT Edge device. 
+This article walks through the configuration options for the API proxy, so you can customize the module to support your gateway hierarchy requirements.
 
-This article walks through the configuration options for the API Proxy, so that you can customize the module to support your gateway hierarchy requirements.
+You might want to deploy multiple services on an IoT Edge device in several scenarios, all of which support the HTTPS protocol and bind to port 443. This is especially relevant in hierarchical deployments of IoT Edge devices in ISA-95-based network isolated architectures like those described in [Network isolate downstream devices](how-to-connect-downstream-iot-edge-device.md#network-isolate-downstream-devices) because the clients on the child devices can't connect directly to the cloud.
 
->[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
+For example, to allow child IoT Edge devices to pull Docker images requires deploying a Docker registry module. To allow uploading blobs requires deploying an Azure Blob Storage module on the same IoT Edge device. Both these services use HTTPS for communication. The API proxy enables such deployments on an IoT Edge device. Instead of each service, the API proxy module binds to port 443 on the host device and routes the request to the correct service module running on that device per user-configurable rules. The individual services are still responsible for handling the requests, including authenticating and authorizing the clients. Without the API proxy, each service module would have to bind to a separate port on the host device, requiring a tedious and error-prone configuration change on each child device that connects to the parent IoT Edge device. 
+
+> [!NOTE]
+> This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
 
 ## Deploy the proxy module
 
