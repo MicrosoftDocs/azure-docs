@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions
+  title: Azure Container Registry
   description: Answers for frequently asked questions related to the Azure Container Registry service 
   author: sajayantony
   ms.topic: article
   ms.date: 03/15/2021
   ms.author: sajaya
     
-title: Frequently asked questions about Azure Container Registry
+title: Frequently asked questions - Azure Container Registry
 summary: |
   This article addresses frequently asked questions and known issues about Azure Container Registry.
   
@@ -118,7 +118,8 @@ sections:
           az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
           ```
           
-          Note: You can add `-y` in the delete command to skip confirmation.
+          > [!NOTE] 
+          > You can add `-y` in the delete command to skip confirmation.
           
           For more information, see [Delete container images in Azure Container Registry](container-registry-delete.md).
           
@@ -310,7 +311,7 @@ sections:
           To troubleshoot common environment and registry issues, see [Check the health of an Azure container registry](container-registry-check-health.md).
           
       - question: |
-           docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
+           Docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)
         answer: |
            - If this error is a transient issue, then retry will succeed.
            - If `docker pull` fails continuously, then there could be a problem with the Docker daemon. The problem can generally be mitigated by restarting the Docker daemon. 
