@@ -20,15 +20,23 @@ Tasks for determining use and capacity
 
 #### Identify storage accounts with no or low use
 
-Use storage insights because it provides you with a unified view of all of your storage accounts. This is different than the storage account-specific view that you get when you use metrics from the account menu itself. Point to guidance for storage insights.
+Goal is to retire accounts not being used. 
+
+Capture screenshots from normestablobaccount. It has zero transactions and a bunch of storage.
 
 A great way to determine use is to scan for transaction volume and capacity.
 
-##### Transactions
+Use storage insights because it provides you with a unified view of all of your storage accounts. This is different than the storage account-specific view that you get when you use metrics from the account menu itself. Point to guidance for storage insights.
 
-Line all of them up and quickly see transactions in the overview page. If you see transactions below a certain threshold, you might deem the account has having low or no use. You can investigate the nature of transactions by clicking the account link to see transaction by storage account type. You can adjust the time frame to any thing you want. 
+##### Look at transactions
 
-If you see some small number of transactions and want to know what those are and who is performing the transaction ...
+To determine transactions line them up together on teh transactions page. Zero transactions is a sign that this account is not being used. 
+
+If zero transactions, move on to analyzing capacity. See capacity.
+
+If a small number of transactions, find out when they are occurring, what they are doing, and who is doing them.
+
+You can investigate the nature of transactions by clicking the account link to see transaction by storage account type. You can adjust the time frame to any thing you want. 
 
 You can look at what API was used in the "Transactions by API name" if you want. Some other ways to identity the nature of transactions is:
 
@@ -44,9 +52,11 @@ For example:
 - URI shows what the file is.
 - Identify the caller by how they authorized the call.
 
-Show log analytic query that pulls all this info together. See the section below about how to use the information in the identity fields to determine the source.
+See Audit activities for blob storage below for tips on how to drill into activity.
 
 ##### Capacity
+
+Look at capacity to see if there is data in the account. Accounts with zero capacity or little capacity being used are candidates.
 
 See capacity of them in the capacity page of Storage Analytics. Look for accounts that have low amount used capacity or accounts that have a flat amount used capacity over time.
 
@@ -54,7 +64,10 @@ Click into the account. Then click the "Capacity" tab. You'll see two tables "St
 
 Open up into either of those windows and adjust your time frame to find when the last time capacity was used in the account. If you're beyond the point that metrics are kept, then that means nothings been added in a long time. 
 
-A flat line over time indicates no usage or perhaps slight usage of the account. If you see a spike in capacity use, you can use logs to find more about what was uploaded. If you have a large amount of data in an account that sees no or little use over time, you might want to determine what is taking up so much space. You can't easily do that with metrics or logs.  You can however, use blob inventory to look into that - put steps here for blob inventory and show example.
+A flat line over time indicates no usage or perhaps slight usage of the account. If you see a spike in capacity use, you can use logs to find more about what was uploaded. 
+
+If you have a large amount of data in an account that sees no or little use over time, you might want to determine what is taking up so much space. You can't easily do that with metrics or logs.  You can however, use blob inventory to look into that - put steps here for blob inventory and show example.
+See blob inventory topic.
 
 #### Monitor the use of a container
 
@@ -76,9 +89,56 @@ Tasks for monitoring account activity
 
 #### Audit activities for Blob Storage
 
-This is about compliance auditing. Compliance auditing companies will often time be hired to audit a companies cloud platform based on controls. A popular control that relates to this scenario is about "access management". We need to use this section to discuss both data plane and control plane operations audit. The key elements of logs - who why what when.
+This is about compliance auditing. Compliance auditing companies will often time be hired to audit a companies cloud platform based on controls. A popular control that relates to this scenario is about "access management". We need to use this section to discuss both data plane and control plane operations audit. The key elements of logs - who, what, when.
+
+Fields that you can use:
+
+|Who|What|When|
+|---|---|--|
+|||
+
+##### Control plane audit
+
+In this case you'd like to determine the who, what, when.
+
+
+##### Data plane audit
 
 Need examples here of specific types of queries. What to put here?
+
+Open Logs from the Monitor menu.
+
+Choose the storage account from the "Select Scope" option
+
+Get a basic idea of what types of transactions are occurring in specific time frames by using query like this:
+
+```kusto
+StorageBlobLogs 
+| project TimeGenerated, OperationName, Category, AuthenticationType   
+```
+You can also use aggregates to determine how many of these transactions are attributed to certain things like categories, operation names, and auth types.
+
+For example by category:
+
+```kusto
+StorageBlobLogs 
+| summarize count() by Category
+```
+or by operation
+
+```kusto
+StorageBlobLogs 
+| summarize count() by OperationName
+```
+
+or by Auth type
+
+```kusto
+StorageBlobLogs 
+| summarize count() by AuthenticationType
+```
+
+If you get alot OAuth calls, you can try to determine who is making those calls
 
 #### Analyze traffic per source
 
