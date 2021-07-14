@@ -14,37 +14,55 @@ ms.custom: "monitoring"
 
 Intro goes here
 
-## Monitor use and capacity
+### Identify storage accounts with no or low use
 
-Tasks for determining use and capacity
+Look at the transaction volume and capacity of your accounts to find those accounts that aren't being used. You can use Storage Insights to find them. Storage Insights is a tool that gives you a unified view of the performance, capacity, and availability metrics of all your accounts. See [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md) to learn how to set that up.
 
-#### Identify storage accounts with no or low use
+### Examine transactions
 
-Goal is to retire accounts not being used. 
+In Storage Insights, sort results in descending order by **Transactions**. This image shows an account with very low usage over the time period. 
 
-Capture screenshots from normestablobaccount. It has zero transactions and a bunch of storage.
+> [!div class="mx-imgBorder"]
+> ![transaction volume in Storage Insights](./media/blob-storage-scenarios/storage-insights-transaction-volume.png)
 
-A great way to determine use is to scan for transaction volume and capacity.
+Before you retire an account with low use, you might want to know more about those small transactions. For example, when is the transaction occurring, what data is being written or read, and who is performing the transaction. That way, you can determine whether these transactions are critical or if you can work with the entities that perform these transactions to direct their queries to another account. 
 
-Use storage insights because it provides you with a unified view of all of your storage accounts. This is different than the storage account-specific view that you get when you use metrics from the account menu itself. Point to guidance for storage insights.
+You can investigate the nature of transactions by clicking the account link to see transaction by storage account type. 
 
-##### Look at transactions
+> [!div class="mx-imgBorder"]
+> ![Drill into transaction chart](./media/blob-storage-scenarios/storage-insights-account-link.png)
 
-To determine transactions line them up together on teh transactions page. Zero transactions is a sign that this account is not being used. 
+Over any given timeframe, you can see which storage service is receiving requests. The following image shows that `contoso1account` receives the vast majority of it's small number of requests in the Blob Storage service. Therefore, you can investigate the nature of transactions to that service.
 
-If zero transactions, move on to analyzing capacity. See capacity.
+> [!div class="mx-imgBorder"]
+> ![transaction by service type](./media/blob-storage-scenarios/storage-insights-transactions-by-storage-type.png)
 
-If a small number of transactions, find out when they are occurring, what they are doing, and who is doing them.
+To identity what types of request are being made to the account, drill into the **Transactions by API name** chart. This image shows that all of the requests being made to the account are listing operations and requests for account property information. There are no read and write transactions. This might lead you to believe that the account is not being used in a significant way. 
 
-You can investigate the nature of transactions by clicking the account link to see transaction by storage account type. You can adjust the time frame to any thing you want. 
+> [!div class="mx-imgBorder"]
+> ![Storage transaction APIs](./media/blob-storage-scenarios/storage-insights-transaction-apis.png)
 
-You can look at what API was used in the "Transactions by API name" if you want. Some other ways to identity the nature of transactions is:
+This image does show a spike of activity on `July 9 2021`. If you want to investigate further, you can use query resource logs to figure out who made those requests, what information was obtained. See the blah section for details about how to find and parse that information. 
 
-You can open up the transaction chart and modify it to show a separate line for ingress and a separate line for egress. This helps you figure out whether data is coming in or out.
+### Examine capacity
 
-You can use metrics to identity the nature of a transaction, but you'll have to look at logs to identity the exact content that was read, uploaded, or downloaded, and from what source this occurred. Therefore, zoom into spikes of activity and use that date or date range to query logs. These can be hints as to what is happening there.
+Have a look at your used capacity to see if theres any data in your account.  Choose the **Capacity** tab, and pick any time frame. This image shows about 5 Gib worth of files in the account. 
 
-For example:
+> [!div class="mx-imgBorder"]
+> ![Used storage capacity](./media/blob-storage-scenarios/storage-insights-capacity-used.png)
+
+However the charts reveal that over this period, the capacity level is unchanged. 
+
+> [!div class="mx-imgBorder"]
+> ![Used storage capacity over time](./media/blob-storage-scenarios/storage-insights-capacity-over-time.png)
+
+This points to a lack of activity. The charts show that there are only `9` files. Therefore, they are likely large files and you can examine them easily by using Storage Explorer in the browser. You can use resource logs if you want to identify the client that uploaded these files. See activity log section of this doc.  It appears that there are `108` small blobs. You can either browse them in Storage Explorer or you can set up a Blob Inventory policy to give you more resolution about each of those blobs. To identity the client that uploaded them, use resource logs. 
+
+## Monitor the use of a container
+
+This scenario is about clearly identifying container use. For example, ISV partners might build solutions that use blob storage to host data. For example, container A for customer A and container B for customer B. All data stored in separate container. If they want to charge their customers for data use, they need to clearly identify how much data is being used by container. 
+
+Another way to phrase this scenario is that customers want effective ways to meter costs in their Azure data estate. They want to identify costs and account for them at a granular level. For example: tagging, how much data is being queried or consumed by other departments. Keeping track of costs at folder or container level.
 
 - The time of the transaction (time)
 - OperationName - revealing if it is a read write or delete operation.
@@ -52,42 +70,15 @@ For example:
 - URI shows what the file is.
 - Identify the caller by how they authorized the call.
 
-See Audit activities for blob storage below for tips on how to drill into activity.
-
-##### Capacity
-
-Look at capacity to see if there is data in the account. Accounts with zero capacity or little capacity being used are candidates.
-
-See capacity of them in the capacity page of Storage Analytics. Look for accounts that have low amount used capacity or accounts that have a flat amount used capacity over time.
-
-Click into the account. Then click the "Capacity" tab. You'll see two tables "Storage capacity" and "Storage units". capacity is about usage in bytes and units is about number of blobs.
-
-Open up into either of those windows and adjust your time frame to find when the last time capacity was used in the account. If you're beyond the point that metrics are kept, then that means nothings been added in a long time. 
-
-A flat line over time indicates no usage or perhaps slight usage of the account. If you see a spike in capacity use, you can use logs to find more about what was uploaded. 
-
-If you have a large amount of data in an account that sees no or little use over time, you might want to determine what is taking up so much space. You can't easily do that with metrics or logs.  You can however, use blob inventory to look into that - put steps here for blob inventory and show example.
-See blob inventory topic.
-
-#### Monitor the use of a container
-
-This scenario is about clearly identifying container use. For example, ISV partners might build solutions that use blob storage to host data. For example, container A for customer A and container B for customer B. All data stored in separate container. If they want to charge their customers for data use, they need to clearly identify how much data is being used by container. 
-
-Another way to phrase this scenario is that customers want effective ways to meter costs in their Azure data estate. They want to identify costs and account for them at a granular level. For example: tagging, how much data is being queried or consumed by other departments. Keeping track of costs at folder or container level.
-
-##### Determine space used
+### Determine space used
 
 This is the solution with inventory - [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
 
-##### Determine transaction costs associated with the container.
+### Determine transaction costs associated with the container.
 
 Figure out a way to attribute transaction costs and other costs associated with container traffic for the purpose of departmental billing.
 
-## Monitor activity
-
-Tasks for monitoring account activity
-
-#### Audit activities for Blob Storage
+## Audit account activity
 
 This is about compliance auditing. Compliance auditing companies will often time be hired to audit a companies cloud platform based on controls. A popular control that relates to this scenario is about "access management". We need to use this section to discuss both data plane and control plane operations audit. The key elements of logs - who, what, when.
 
@@ -97,12 +88,12 @@ Fields that you can use:
 |---|---|--|
 |||
 
-##### Control plane audit
+### Control plane audit
 
 In this case you'd like to determine the who, what, when.
 
 
-##### Data plane audit
+### Data plane audit
 
 Need examples here of specific types of queries. What to put here?
 
@@ -140,7 +131,7 @@ StorageBlobLogs
 
 If you get alot OAuth calls, you can try to determine who is making those calls
 
-#### Analyze traffic per source
+### Analyze traffic per source
 
 Determine traffic by bytes or by operation from a source. Source could be any of these things:
 
@@ -157,7 +148,7 @@ Anonymous identity via shared key or SAS authorization
 
 An IP address can be shared by multiple users or applications. An agent could also be used. Lay out those challenges as well.
 
-##### Identify all sources
+#### Identify all sources
 
 // log analytic query to return all sources that have made requests
 
@@ -174,19 +165,16 @@ An IP address can be shared by multiple users or applications. An agent could al
 
 Provide guidance for converting values to find identity.
 
-##### Identity bytes read or written by source
+### Identity bytes read or written by source
 
 // Log Analytic query to return byte count for each source
 // Metrics?
 
-##### Identify operations by source
+### Identify operations by source
 
 // Log Analytic query to return operations for each user.
 // Metric?
 
-##### Other scenarios for traffic by source?
-
-// Content goes here.
 
 ## Optimize cost
 
