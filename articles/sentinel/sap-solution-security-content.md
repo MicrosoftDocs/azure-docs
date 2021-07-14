@@ -52,7 +52,7 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Multiple Logons by IP**     |  Identifies the sign-in of several users from same IP address within a scheduled time interval.       |    Sign in using several users through the same IP address. <br><br>**Data sources**: SAPcon - Audit Log | Initial Access        |
 |**SAP - Medium - Multiple Logons by User**     | Identifies sign-ins of the same user from several terminals within scheduled time interval.  <br><br>Available only via the Audit SAL method, for SAP versions 7.5 and higher.      |   Sign in using the same user, using different IP addresses.   <br><br>**Data sources**: SAPcon - Audit Log   |  PreAttack, Credential Access, Initial Access, Collection       |
 |**SAP - High - SPNego Attack**     | Identifies SPNego Replay Attack.       |  **Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement  |
-| | | | | |
+| | | | |
 
 ### Built-in SAP analytics rules for data exfiltration
 
