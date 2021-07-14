@@ -285,6 +285,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 #### Logs and configuration
 The Key Vault VM extension logs only exist locally on the VM and are most informative when it comes to troubleshooting
+
 |Location|Description|
 |--|--|
 | C:\WindowsAzure\Logs\WaAppAgent.log | Shows when an update to the extension occurred. |
