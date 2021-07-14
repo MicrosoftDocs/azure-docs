@@ -66,7 +66,7 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 > [!NOTE]
 > **DeviceAuthStatus** field was added in **Windows 10 May 2021 Update (version 21H1)**.
 
-- **DeviceAuthStatus:** Perfoms a check to determine device's health in Azure AD.  
+- **DeviceAuthStatus:** Performs a check to determine device's health in Azure AD.  
 "SUCCESS" if the device is present and Enabled in Azure AD.  
 "FAILED. Device is either disabled or deleted" if the device is either disabled or deleted, [More Info](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices).  
 "FAILED. ERROR" if the test was unable to run. This test requires network connectivity to Azure AD.  
@@ -141,7 +141,7 @@ This section lists the status of various attributes for the user currently logge
 - **CanReset:** Denotes if the Windows Hello key can be reset by the user.
 - **Possible values:** DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error.
 - **WorkplaceJoined:** Set to "YES" if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** Set to "YES" if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run from an elevated command prompt.
+- **WamDefaultSet:** Set to "YES" if a WAM default WebAccount is created for the logged in user. This field could display an error if dsregcmd /status is run from an elevated command prompt.
 - **WamDefaultAuthority:** Set to "organizations" for Azure AD.
 - **WamDefaultId:** Always "https://login.microsoft.com" for Azure AD.
 - **WamDefaultGUID:** The WAM provider's (Azure AD/Microsoft account) GUID for the default WAM WebAccount.
@@ -203,8 +203,7 @@ This field is skipped if no diagnostics info is available.
 - **HTTP Error:** WinHttp transport error code. WinHttp errors can be found [here](/windows/win32/winhttp/error-messages).
 - **HTTP Status:** HTTP status returned by the endpoint.
 - **Server Error Code:** Error code from server.  
-- **Server Errror Description:** Error message from server.
----
+- **Server Error Description:** Error message from server.
 - **RefreshPrtDiagnostics:** Set to "PRESENT" if acquire PRT diagnostic info is present in the logs.  
 This field is skipped if no diagnostics info is available.
 The diagnostic info fields are same as **AcquirePrtDiagnostics**

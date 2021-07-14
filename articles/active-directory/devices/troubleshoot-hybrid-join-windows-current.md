@@ -409,8 +409,8 @@ Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/A
 **To retrieve the PRT status:**
 
 1. Open a command prompt. 
-> [!NOTE] 
-> To get PRT status the command prompt should be run in the context of the logged in user 
+   > [!NOTE] 
+   > To get PRT status the command prompt should be run in the context of the logged in user 
 
 2. Type dsregcmd /status 
 
@@ -473,14 +473,14 @@ Use Event Viewer to locate the log entries logged by AAD CloudAP plugin during P
 
 1. Open the AAD event logs in event viewer. Located under Application and Services Log > Microsoft > Windows > AAD 
 
-> [!NOTE]
-> CloudAP plugin logs error events into the Operational logs while the info events are logged to the Analytic logs. Both Analytic and Operational log events are required to troubleshoot issues. 
+   > [!NOTE]
+   > CloudAP plugin logs error events into the Operational logs while the info events are logged to the Analytic logs. Both Analytic and Operational log events are required to troubleshoot issues. 
 
 2. Event 1006 in Analytic logs denotes the start of the PRT acquisition flow and Event 1007 in Analytic logs denotes the end of the PRT acquisition flow. All events in AAD logs (Analytic and Operational) between logged between the events 1006 and 1007 were logged as part of the PRT acquisition flow. 
 
 3. Event 1007 logs the final error code.
 
-:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/6.png" alt-text="Screenshot of the event viewer. Events with IDs 1006 and 1007 are circled in red and the final error code is highlighted." border="false":::
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/event-viewer-prt-acquire.png" alt-text="Screenshot of the event viewer. Events with IDs 1006 and 1007 are outlined in red and the final error code is highlighted." border="false":::
 
 ### Step 3: Follow additional troubleshooting, based on the found error code, from the list below
 
@@ -525,7 +525,7 @@ Reason(s):
 -  Network connectivity issue to a required endpoint
 
 Resolution: 
--  In case of server error, Events 1081 and 1088 (AAD operational logs) would contain the server error code and error description incase errors from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section.
+-  In case of server error, Events 1081 and 1088 (AAD operational logs) would contain the error code and error description from AAD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section.
 -  In case of connectivity issue, Events 1022 (AAD analytic logs) and 1084 (AAD operational logs) will contain the URL being accessed and the sub-error code from network stack , respectively.
 
 ---
@@ -585,7 +585,7 @@ Reason:
 
 Resolution: 
 -  Ensure that network proxy is not interfering and modifying the server response
--  Fix the mex configuration to return valid URLs in response.    
+-  Fix the MEX configuration to return valid URLs in response.    
 
 ---
 
