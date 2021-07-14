@@ -3,9 +3,9 @@ title: Configure DNS forwarder for Azure VMware Solution
 description: Learn how to configure DNS forwarder for Azure VMware Solution using the Azure portal. 
 ms.topic: how-to
 ms.custom: contperf-fy22q1
-ms.date: 07/16/2021
+ms.date: 07/15/2021
 
-#Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T DNS Service.> and <why?>  
+#Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T DNS Service.>  
 
 ---
 
