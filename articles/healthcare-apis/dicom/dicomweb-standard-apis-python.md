@@ -298,7 +298,7 @@ _Details:_
 * Headers:
    * Accept: application/dicom+json
 
-This series has two instances (green-square and red-triangle), so the response should return metatdata for both instances. Validate that the response has a status code of OK and that both instances metadata are returned.
+This series has two instances (green-square and red-triangle), so the response should return for both instances. Validate that the response has a status code of OK and that both instances metadata are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/metadata'
@@ -336,7 +336,7 @@ _Details:_
 * Headers:
   * Accept: application/dicom+json
 
-This code example should only return the metatdata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
+This code example should only return the metadata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/metadata'
