@@ -20,5 +20,5 @@ This brief document describes the modules and components supported under Pytorch
 |PyTorch|1.8.1+||
 |CUDA Toolkit|10.2, 11.1||
 |ONNX Runtime|1.7+||
-|torchtext, torchvision, torch-tb-profiler, torchaudio| - |For libraries that haven’t a 1.0 release, we support the specific versions that are compatible with the corresponding supported PyTorch version. For example, see these tables: [TorchVision](https://github.com/pytorch/vision#installation), [TorchText](https://github.com/pytorch/text#installation), [TorchAudio](https://github.com/pytorch/audio/#dependencies)|
+|torchtext, torchvision, torch-tb-profiler, torchaudio| - |For libraries that haven’t reached a 1.0 release, we support the specific versions that are compatible with the corresponding supported PyTorch version. For example, see these tables: [TorchVision](https://github.com/pytorch/vision#installation), [TorchText](https://github.com/pytorch/text#installation), [TorchAudio](https://github.com/pytorch/audio/#dependencies)|
 |torchserve|0.4.0+||
