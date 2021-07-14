@@ -52,7 +52,7 @@ Developers should use SDK for device and media operations.
 
 ### Request device permissions
 You can request device permissions using the SDK:
-- Application should use `DeviceManager.askDevicePermission` to get user consent to use devices ( audio and/or video )
+- Your application should use `DeviceManager.askDevicePermission` to request access to audio and/or video devices.
 - If user denies to grant permission to use audio and/or video, `DeviceManager.askDevicePermission` will return 'false' for a given modality type ( audio/video ) on subsequent calls, even after page is refreshed, in this scenario application must detect that user denied permission and instruct user to manually reset or explictly allow permission to a given device type.
 
 ## Next steps
