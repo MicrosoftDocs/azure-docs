@@ -39,7 +39,7 @@ If you would like to contact ASUS about purchasing dev kits, you can submit an i
 
 ## Next steps
 If you think you need more support, you can also try these options from Microsoft.
-- [Microsoft Q&A](https://docs.microsoft.com/en-us/answers/products/)
-- [Azure Support](https://azure.microsoft.com/en-us/support/plans/)
+- [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+- [Azure Support](https://azure.microsoft.com/support/plans/)
 
 
