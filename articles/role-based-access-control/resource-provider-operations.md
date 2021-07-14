@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 ms.custom: generated
 ---
 
@@ -956,6 +956,10 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/write | CreatesOrUpdates Azure Firewall NetworkRuleCollection |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/delete | Deletes Azure Firewall NetworkRuleCollection |
 > | Microsoft.Network/azureWebCategories/read | Gets Azure WebCategories |
+> | Microsoft.Network/azureWebCategories/getwebcategory/action | Looks up WebCategory |
+> | Microsoft.Network/azureWebCategories/classifyUnknown/action | Classifies Unknown WebCategory |
+> | Microsoft.Network/azureWebCategories/reclassify/action | Reclassifies WebCategory |
+> | Microsoft.Network/azureWebCategories/getMiscategorizationStatus/action | Gets Miscategorization Status |
 > | Microsoft.Network/bastionHosts/read | Gets a Bastion Host |
 > | Microsoft.Network/bastionHosts/write | Create or Update a Bastion Host |
 > | Microsoft.Network/bastionHosts/delete | Deletes a Bastion Host |
@@ -988,6 +992,15 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/ddosProtectionPlans/write | Creates a DDoS Protection Plan or updates a DDoS Protection Plan  |
 > | Microsoft.Network/ddosProtectionPlans/delete | Deletes a DDoS Protection Plan |
 > | Microsoft.Network/ddosProtectionPlans/join/action | Joins a DDoS Protection Plan. Not alertable. |
+> | Microsoft.Network/dnsForwardingRulesets/read | Gets a DNS Forwarding Ruleset, in JSON format |
+> | Microsoft.Network/dnsForwardingRulesets/write | Creates Or Updates a DNS Forwarding Ruleset |
+> | Microsoft.Network/dnsForwardingRulesets/delete | Deletes a DNS Forwarding Ruleset, in JSON format |
+> | Microsoft.Network/dnsForwardingRulesets/forwardingRules/read | Gets a DNS Forwarding Rule, in JSON format |
+> | Microsoft.Network/dnsForwardingRulesets/forwardingRules/write | Creates Or Updates a DNS Forwarding Rule, in JSON format |
+> | Microsoft.Network/dnsForwardingRulesets/forwardingRules/delete | Deletes a DNS Forwarding Rule, in JSON format |
+> | Microsoft.Network/dnsForwardingRulesets/virtualNetworkLinks/read | Gets the DNS Forwarding Ruleset Link to virtual network properties, in JSON format |
+> | Microsoft.Network/dnsForwardingRulesets/virtualNetworkLinks/write | Creates Or Updates DNS Forwarding Ruleset Link to virtual network properties, in JSON format |
+> | Microsoft.Network/dnsForwardingRulesets/virtualNetworkLinks/delete | Deletes DNS Forwarding Ruleset Link to Virtual Network |
 > | Microsoft.Network/dnsoperationresults/read | Gets results of a DNS operation |
 > | Microsoft.Network/dnsoperationstatuses/read | Gets status of a DNS operation  |
 > | Microsoft.Network/dnsResolvers/read | Gets the DNS Resolver Properties, in JSON format |
@@ -996,6 +1009,9 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/dnsResolvers/inboundEndpoints/read | Gets the DNS Resolver Inbound Endpoint, in JSON format |
 > | Microsoft.Network/dnsResolvers/inboundEndpoints/write | Creates Or Updates a DNS Resolver Inbound Endpoint, in JSON format |
 > | Microsoft.Network/dnsResolvers/inboundEndpoints/delete | Deletes a DNS Resolver Inbound Endpoint, in JSON format |
+> | Microsoft.Network/dnsResolvers/outboundEndpoints/read | Gets the DNS Resolver Outbound Endpoint Properties, in JSON format |
+> | Microsoft.Network/dnsResolvers/outboundEndpoints/write | Creates Or Updates a DNS Resolver Outbound Endpoint, in JSON format |
+> | Microsoft.Network/dnsResolvers/outboundEndpoints/delete | Deletes a DNS Resolver Outbound Endpoint description. |
 > | Microsoft.Network/dnszones/read | Get the DNS zone, in JSON format. The zone properties include tags, etag, numberOfRecordSets, and maxNumberOfRecordSets. Note that this command does not retrieve the record sets contained within the zone. |
 > | Microsoft.Network/dnszones/write | Create or update a DNS zone within a resource group.  Used to update the tags on a DNS zone resource. Note that this command can not be used to create or update record sets within the zone. |
 > | Microsoft.Network/dnszones/delete | Delete the DNS zone, in JSON format. The zone properties include tags, etag, numberOfRecordSets, and maxNumberOfRecordSets. |
@@ -1053,6 +1069,7 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/expressRouteCircuits/peerings/stats/read | Gets an ExpressRouteCircuit Peering Stat |
 > | Microsoft.Network/expressRouteCircuits/stats/read | Gets an ExpressRouteCircuit Stat |
 > | Microsoft.Network/expressRouteCrossConnections/read | Get Express Route Cross Connection |
+> | Microsoft.Network/expressRouteCrossConnections/serviceProviders/action | Backfill Express Route Cross Connection |
 > | Microsoft.Network/expressRouteCrossConnections/join/action | Joins an Express Route Cross Connection. Not alertable. |
 > | Microsoft.Network/expressRouteCrossConnections/peerings/read | Gets an Express Route Cross Connection Peering |
 > | Microsoft.Network/expressRouteCrossConnections/peerings/write | Creates an Express Route Cross Connection Peering or Updates an existing Express Route Cross Connection Peering |
@@ -1128,6 +1145,7 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
 > | Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
 > | Microsoft.Network/loadBalancers/backendAddressPools/queryInboundNatRulePortMapping/action | Query inbound Nat rule port mapping. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/updateAdminState/action | Update AdminStates of backend addresses of a pool |
 > | Microsoft.Network/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
 > | Microsoft.Network/loadBalancers/backendAddressPools/write | Creates a load balancer backend address pool or updates an existing load balancer backend address pool |
 > | Microsoft.Network/loadBalancers/backendAddressPools/delete | Deletes a load balancer backend address pool |
@@ -1184,6 +1202,7 @@ Azure service: [Application Gateway](../application-gateway/index.yml), [Azure B
 > | Microsoft.Network/networkIntentPolicies/read | Gets an Network Intent Policy Description |
 > | Microsoft.Network/networkIntentPolicies/write | Creates an Network Intent Policy or updates an existing Network Intent Policy |
 > | Microsoft.Network/networkIntentPolicies/delete | Deletes an Network Intent Policy |
+> | Microsoft.Network/networkIntentPolicies/join/action | Joins a Network Intent Policy. Not alertable. |
 > | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Microsoft.Network/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
 > | Microsoft.Network/networkInterfaces/join/action | Joins a Virtual Machine to a network interface. Not Alertable. |
@@ -1846,9 +1865,9 @@ Azure service: [Storage](../storage/index.yml)
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action | Changes ownership of the blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action | Modifies permissions of the blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Returns the result of the blob command |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Returns the result of reading blob tags |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Returns the result of writing blob tags |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/worm/write |  |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
 > | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
@@ -5246,6 +5265,8 @@ Azure service: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/administrators/delete | Delete Workspace Active Directory Administrator |
 > | Microsoft.Synapse/workspaces/auditingSettings/write | Create or Update SQL server auditing settings. |
 > | Microsoft.Synapse/workspaces/auditingSettings/read | Read default SQL server auditing settings. |
+> | Microsoft.Synapse/workspaces/azureADOnlyAuthentications/write | Create Or Update Azure AD only authentication for workspace and its sub resources. |
+> | Microsoft.Synapse/workspaces/azureADOnlyAuthentications/read | Status of Azure AD only authentication for workspace and its sub resources. |
 > | Microsoft.Synapse/workspaces/bigDataPools/write | Create or Update any Spark pools. |
 > | Microsoft.Synapse/workspaces/bigDataPools/read | Read any Spark pools. |
 > | Microsoft.Synapse/workspaces/bigDataPools/delete | Delete any Spark pools. |
@@ -5308,9 +5329,6 @@ Azure service: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/libraries/read | Read Library Artifacts |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/write | Update Managed Identity SQL Control Settings on the workspace |
 > | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/read | Get Managed Identity SQL Control Settings |
-> | Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints/read | Read Managed Private Endpoint. |
-> | Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints/delete | Delete any Managed Private Endpoint. |
-> | Microsoft.Synapse/workspaces/managedVirtualNetworks/managedPrivateEndpoints/write | Create or update any Managed Private Endpoint. |
 > | Microsoft.Synapse/workspaces/operationResults/read | Read any Async Operation Result. |
 > | Microsoft.Synapse/workspaces/operationStatuses/read | Read any Async Operation Status. |
 > | Microsoft.Synapse/workspaces/privateEndpointConnections/write | Create or Update Private Endpoint Connection |
@@ -7207,8 +7225,6 @@ Azure service: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Install Updates on device |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Upload certificate for device registration |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/generateCertificate/action | ArmApiDesc_action_generateCertificate_dataBoxEdgeDevices |
-> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/diagnosticProactiveLogCollectionSettings/action | ArmApiDesc_action_diagnosticProactiveLogCollectionSettings_dataBoxEdgeDevices |
-> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/diagnosticRemoteSupportSettings/action | ArmApiDesc_action_diagnosticRemoteSupportSettings_dataBoxEdgeDevices |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggerSupportPackage/action | ArmApiDesc_action_triggerSupportPackage_dataBoxEdgeDevices |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Lists or gets the alerts |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/alerts/read | Lists or gets the alerts |
@@ -7274,13 +7290,13 @@ Azure service: [Azure Stack Edge](../databox-online/azure-stack-edge-overview.md
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Creates or updates the triggers |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Deletes the triggers |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/operationResults/read | Lists or gets the operation result |
+> | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggerSupportPackage/operationResults/read | Lists or gets the operation result |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Lists or gets the update summary |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Lists or gets the share users |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/read | Lists or gets the share users |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/write | Creates or updates the share users |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Deletes the share users |
 > | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/operationResults/read | Lists or gets the operation result |
-> | Microsoft.DataBoxEdge/skus/read | Lists or gets the SKUs |
 
 ### Microsoft.DataCatalog
 
@@ -7605,6 +7621,9 @@ Azure service: [Azure Relay](../azure-relay/relay-what-is-it.md)
 > | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/listkeys/action | Get the Connection String to WcfRelay |
 > | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/regeneratekeys/action | Regenerate the Primary or Secondary key to the Resource |
 > | Microsoft.Relay/operations/read | Get Operations |
+> | **DataAction** | **Description** |
+> | Microsoft.Relay/namespaces/messages/send/action | Send messages |
+> | Microsoft.Relay/namespaces/messages/listen/action | Receive messages |
 
 ### Microsoft.ServiceBus
 
@@ -7849,6 +7868,9 @@ Azure service: [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 > | Microsoft.AzureActiveDirectory/b2cDirectories/read | View B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Delete B2C Directory resource |
 > | Microsoft.AzureActiveDirectory/b2ctenants/read | Lists all B2C tenants where the user is a member |
+> | Microsoft.AzureActiveDirectory/guestUsages/write | Create or update Guest Usages resource |
+> | Microsoft.AzureActiveDirectory/guestUsages/read | View Guest Usages resource |
+> | Microsoft.AzureActiveDirectory/guestUsages/delete | Delete Guest Usages resource |
 > | Microsoft.AzureActiveDirectory/operations/read | Read all API operations available for Microsoft.AzureActiveDirectory resource provider |
 
 ### Microsoft.ManagedIdentity
@@ -9437,6 +9459,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/register/action | Register a subscription to a resource provider. |
 > | microsoft.operationalinsights/register/action | Rergisters the subscription. |
 > | microsoft.operationalinsights/unregister/action | Unregisters the subscription. |
+> | microsoft.operationalinsights/querypacks/action | Perform Query Packs Actions. |
 > | microsoft.operationalinsights/availableservicetiers/read | Get the available service tiers. |
 > | Microsoft.OperationalInsights/clusters/read | Get Cluster |
 > | Microsoft.OperationalInsights/clusters/write | Create or updates a Cluster |
@@ -9445,6 +9468,13 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/linkTargets/read | Lists workspaces in soft deleted period. |
 > | microsoft.operationalinsights/locations/operationStatuses/read | Get Log Analytics Azure Async Operation Status. |
 > | microsoft.operationalinsights/operations/read | Lists all of the available OperationalInsights Rest API operations. |
+> | microsoft.operationalinsights/querypacks/write | Create or Update Query Packs. |
+> | microsoft.operationalinsights/querypacks/read | Get Query Packs. |
+> | microsoft.operationalinsights/querypacks/delete | Delete Query Packs. |
+> | microsoft.operationalinsights/querypacks/queries/action | Perform Actions on Queries in QueryPack. |
+> | microsoft.operationalinsights/querypacks/queries/write | Create or Update Query Pack Queries. |
+> | microsoft.operationalinsights/querypacks/queries/read | Get Query Pack Queries. |
+> | microsoft.operationalinsights/querypacks/queries/delete | Delete Query Pack Queries. |
 > | Microsoft.OperationalInsights/workspaces/write | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
 > | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
 > | Microsoft.OperationalInsights/workspaces/delete | Deletes a workspace. If the workspace was linked to an existing workspace at creation time then the workspace it was linked to is not deleted. |
@@ -9803,6 +9833,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsWorkspace/read | Read data from the PowerBIDatasetsWorkspace table |
 > | Microsoft.OperationalInsights/workspaces/query/PowerBIDatasetsWorkspacePreview/read | Read data from the PowerBIDatasetsWorkspacePreview table |
 > | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | Read data from the ProtectionStatus table |
+> | Microsoft.OperationalInsights/workspaces/query/PurviewDataSensitivityLogs/read | Read data from the PurviewDataSensitivityLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/PurviewScanStatusLogs/read | Read data from the PurviewScanStatusLogs table |
 > | Microsoft.OperationalInsights/workspaces/query/requests/read | Read data from the requests table |
 > | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | Read data from the SCCMAssessmentRecommendation table |
