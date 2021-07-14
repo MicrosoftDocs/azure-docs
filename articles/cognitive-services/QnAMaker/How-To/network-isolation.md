@@ -67,7 +67,7 @@ The App Service Environment (ASE) can be used to host QnA Maker App service. Fol
 
 The main reason for using an External ASE is so the QnAMaker service backend (authoring apis) can reach the App Service via the Internet. However, you can still protect it by adding inbound access restriction to allow only connections only from addresses associated with the ‘CognitiveServicesManagement’ service tag.
 
-If you still want to use an Internal ASE, you need to expose that specific QnA Maker app in the ASE on a public domain via the App Gateway DNS, TLS/SSL cert. For more information, see this [article on Enterprise deployment of App Services](azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment).
+If you still want to use an Internal ASE, you need to expose that specific QnA Maker app in the ASE on a public domain via the App Gateway DNS, TLS/SSL cert. For more information, see this [article on Enterprise deployment of App Services](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment).
 
     
 # [Custom question answering (preview release)](#tab/v2)
