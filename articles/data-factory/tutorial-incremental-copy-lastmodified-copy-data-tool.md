@@ -80,7 +80,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
     1. Under **Task type**, select **Built-in copy task**.
 
-    1. Under **Task cadence or Task schedule**, select **Tumbling window**.
+    1. Under **Task cadence or task schedule**, select **Tumbling window**.
 
     1. Under **Recurrence**, enter **15 Minute(s)**.
 
