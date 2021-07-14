@@ -70,7 +70,7 @@ Any of the following types can be used:
 
 | Item  | Description  |  
 | --- | --- |  
-| **vCenter Server**  | <ul><li>Supported version: 6.7</li><li>HTTPS port: If using a firewall, HTTPS port 443 must be open.</li><li>Connectivity: The JetStream DR Management Server Appliance FQDN must be reachable from vCenter, otherwise, the plug-in installation fails.</li><li>Time: The vCenter and JetStream DR MSA clocks must be synchronized.</li></ul>  |
+| **vCenter Server**  | <ul><li>Supported version: 6.7</li><li>HTTPS port: If using a firewall, HTTPS port 443 must be open.</li><li>Connectivity: The JetStream DR Management Server Appliance FQDN must be reachable from vCenter. Otherwise, the plug-in installation fails.</li><li>Time: The vCenter and JetStream DR MSA clocks must be synchronized.</li></ul>  |
 | **Distributed Resource Schedular (DRS)**  | It’s recommended on the compute cluster for resource balancing.  |
 | **Cluster**  | vSphere Hosts: VMs to be protected by JetStream DR must be part of a cluster.  |
 | **vSphere Host**  | <ul><li>Supported version: 6.7U1 (build #10302608) or later</li><li>Connectivity: vCenter Server FQDN must be reachable from the host, otherwise the host configuration fails.</li><li>Time: The vSphere hosts and JetStream DR MSA clocks must be synchronized.</li><li>CIM Service: The CIM server must be enabled, which is the default setting.</li></ul>  |
@@ -247,4 +247,3 @@ For demos on using JetStream DR to protect VMs, see [JetStream DR for Azure VMwa
    - [Failback to On-premises](https://vimeo.com/491884402/65ee817b60)
 
 - [JetStream DR for Azure VMware Solution Infrastructure Setup](https://vimeo.com/480574312/b5386a871c) (*technical details, no voice track*)
-
