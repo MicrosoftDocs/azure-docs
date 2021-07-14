@@ -55,7 +55,8 @@ The following are unsupported:
 - `LOAD_FILE(file_name)`: Not supported in the service.
 
 ### Supported
-- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
+- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB). Additionally, if you are using MySQL client version >= 8.0 you need to include `-–local-infile=1` parameter in your connection string.
+
 
 ## Functional limitations
 

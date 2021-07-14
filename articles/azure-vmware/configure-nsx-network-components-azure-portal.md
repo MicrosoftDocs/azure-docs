@@ -27,6 +27,9 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 >[!IMPORTANT]
 >You can still use NSX-T Manager for the advanced settings mentioned and other NSX-T features. 
 
+>[!IMPORTANT] 
+>For clouds created on or after July 1, 2021, the simplified view of NSX-T operations must be used to configure components on the default Tier-1 Gateway in your environment.
+
 ## Prerequisites
 Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment. 
 
@@ -50,7 +53,7 @@ You can create and configure an NSX-T segment from the Azure VMware Solution con
 
    - **Connected gateway** - *Selected by default and is read-only.*  Tier-1 gateway and type of segment information. 
 
-      - **T1** - Name of the Tier-1 gateway in NSX-T Manager. An Azure VMware Solution private cloud comes with an NSX-T Tier-0 gateway in Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  Segments created through the Azure VMware Solution console only connect to the default Tier-1 gateway, and the workloads of these segments get East-West and North-South connectivity. You can only create more Tier-1 gateways through NSX-T Manager. Tier-1 gateways created from the NSX-T Manager console are not visible in the Azure VMware Solution console. 
+      - **T1** - Name of the Tier-1 gateway in NSX-T Manager. A private cloud comes with an NSX-T Tier-0 gateway in Active/Active mode and a default NSX-T Tier-1 gateway in Active/Standby mode.  Segments created through the Azure VMware Solution console only connect to the default Tier-1 gateway, and the workloads of these segments get East-West and North-South connectivity. You can only create more Tier-1 gateways through NSX-T Manager. Tier-1 gateways created from the NSX-T Manager console are not visible in the Azure VMware Solution console. 
 
       - **Type** - Overlay segment supported by Azure VMware Solution.
 
@@ -86,7 +89,7 @@ To set up port mirroring in the Azure VMware Solution console, you'll:
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-vm-groups.png" alt-text="Screenshot showing how to create a VM group for port mirroring.":::
 
-1. Provide a name for the new VM group, select the desired VMs from the list, and then **OK**.
+1. Provide a name for the new VM group, select VMs from the list, and then **OK**.
 
 1. Repeat these steps to create the destination VM group.
 
@@ -134,7 +137,7 @@ When a DNS query is received, a DNS forwarder compares the domain name with the 
 
 1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **8.8.8.8**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing showing the required information needed to add an FQDN zone.":::
+   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
 
 1. Select **OK** to finish adding the default DNS zone and DNS service.
 

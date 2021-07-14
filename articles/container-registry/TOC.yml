@@ -159,7 +159,7 @@
           expanded: false
           items:
           - name: Scan with Azure Defender
-            href: ../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json
+            href: scan-images-defender.md
           - name: Scan with GitHub actions
             href: github-action-scan.md
     - name: Troubleshoot

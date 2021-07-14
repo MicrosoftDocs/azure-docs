@@ -13,8 +13,7 @@ This tutorial shows you how to use the [OpenVINO™ Model Server – AI Extensio
 
 This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#.
 
-> [!NOTE]
-> This tutorial requires the use of an x86-64 machine as your Edge device.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## Prerequisites
 

@@ -1,7 +1,7 @@
 ---
 title:  "Expose applications to the Internet using Application Gateway and Azure Firewall"
 description: How to expose applications to Internet using Application Gateway and Azure Firewall
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
+summary: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Learn how to train and deploy models and manage the machine learning lifecycle with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
+  description: Learn how to train and deploy models and manage the ML lifecycle (MLOps) with Azure Machine Learning. Tutorials, code examples, API references, and more. 
  
   services: machine-learning
   ms.service: machine-learning
@@ -14,35 +14,43 @@ metadata:
   ms.collection: collection
   ms.author: sgilley
   author: sdgilley
-  ms.date: 06/11/2021
+  ms.date: 07/09/21
   ms.custom: jordan-changes
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-  - title: 'Get started: Train models'
+  - title: 'Get started'
     linkLists:
-      - linkListType: tutorial
+      - linkListType: overview
+        links:
+          - text: What is Azure Machine Learning?
+            url: overview-what-is-azure-ml.md  
+      - linkListType: quickstart
         links:
           - text: Set up resources
             url: quickstart-create-resources.md           
+      - linkListType: tutorial
+        links:        
           - text: Train with the Python SDK
             url: tutorial-1st-experiment-hello-world.md      
           - text: Train with the v2 CLI (preview)
             url: how-to-train-cli.md   
 
-  - title: 'Other model training options'
+  - title: 'Train models'
     linkLists:
       - linkListType: how-to-guide
         links:            
-          - text: Optimize models with hyperparameter sweeps
+          - text: Tune hyperparameters for model training
             url: how-to-tune-hyperparameters.md
-          - text: Create multi-step ML pipelines
+          - text: Build pipelines from reuseable components
             url: how-to-create-machine-learning-pipelines.md
+      - linkListType: tutorial
+        links:             
           - text: Train with AutoML
-            url: tutorial-first-experiment-automated-ml.md                  
-          - text: Train with designer
-            url: tutorial-designer-automobile-price-train-score.md   
+            url: tutorial-first-experiment-automated-ml.md 
+          - text: Run training code in the cloud (v2 CLI preview)
+            url: how-to-train-cli.md                    
 
   - title: 'Deploy models'
     linkLists:
@@ -50,21 +58,39 @@ landingContent:
         links:
            - text: How to deploy a model
              url: how-to-deploy-and-where.md  
-           - text: Managed online scoring (preview)
+           - text: Real-time scoring with managed endpoints (preview)
              url: how-to-deploy-managed-online-endpoints.md
-           - text: Managed batch scoring (preview)
-             url: how-to-use-batch-endpoint.md
-            
+           - text: Batch scoring with managed endpoints (preview)
+             url: how-to-use-batch-endpoint.md          
   # MLOps
-  - title: 'Manage the ML lifecycle'
+  - title: 'Manage the ML lifecycle (MLOps)'
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Model management, lineage & monitoring
+            url: concept-model-management-and-deployment.md
       - linkListType: how-to-guide
         links:
-          - text: Track ML experiments
+          - text: Track, monitor, analyze training runs
             url: how-to-track-monitor-analyze-runs.md
-          - text: ML lifecycle management (MLOps)
-            url: concept-model-management-and-deployment.md
-            
+          - text: DevOps for a data ingestion pipeline
+            url: how-to-cicd-data-ingestion.md      
+
+  - title: 'Security for ML projects'      
+    linkLists:
+      - linkListType: concept
+        links:      
+          - text: Enterprise security & governance
+            url: concept-enterprise-security.md
+      - linkListType: tutorial
+        links:
+          - text: Create a secure workspace
+            url: tutorial-create-secure-workspace.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect to data sources
+            url: how-to-access-data.md
+
   - title: 'Reference docs'      
     linkLists:
       - linkListType: reference
@@ -73,15 +99,24 @@ landingContent:
             url: /python/api/overview/azure/ml/
           - text: REST API
             url: /rest/api/azureml/
-          - text: Machine learning CLI
+          - text: Machine Learning v2 CLI
             url: /cli/azure/ml
+
+  - title: 'Resources'      
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Python SDK code examples
+            url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+          - text: v2 CLI code examples (preview)
+            url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md          
   
   # Studio (classic) catch all
-  - title: 'Looking for Studio (classic)'
+  - title: 'Looking for ML Studio (classic)?'
     linkLists:
       - linkListType: overview
         links:
-          - text: Studio (classic) landing
+          - text: ML Studio (classic) documentation
             url: classic/index.yml
-          - text: Studio (classic) vs studio
+          - text: Azure Machine Learning vs Studio (classic) 
             url: overview-what-is-machine-learning-studio.md
