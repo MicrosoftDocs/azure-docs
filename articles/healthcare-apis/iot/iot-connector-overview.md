@@ -1,5 +1,5 @@
 ---
-title: What is the Iot Connector? - Azure Healthcare APIs
+title: What is the IoT Connector? - Azure Healthcare APIs
 description: In this article, you'll learn how to deploy the IoT Connector service in the Azure portal.
 services: healthcare-apis
 author: stevewohl
