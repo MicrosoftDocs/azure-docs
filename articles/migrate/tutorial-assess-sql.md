@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > If SQL Servers are running on non-VMware 
 platforms. [Assess the readiness of a SQL 
 Server data estate migrating to Azure SQL 
-Database using the Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb).
+Database using the Data Migration Assistant](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 
 ## Prerequisites
 
