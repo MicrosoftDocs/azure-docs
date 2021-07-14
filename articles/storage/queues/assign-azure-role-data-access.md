@@ -22,6 +22,9 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 
 To learn more about using Azure AD to authorize access to queue data, see [Authorize access to queues using Azure Active Directory](authorize-access-azure-active-directory.md).
 
+> [!NOTE]
+> This article shows how to assign an Azure role for access to queue data in a storage account. To learn about assigning roles for management operations in Azure Storage, see [Use the Azure Storage resource provider to access management resources](../common/authorization-resource-provider.md).
+
 ## Assign an Azure role
 
 You can use the Azure portal, PowerShell, or Azure CLI to assign a role for data access.
