@@ -27040,6 +27040,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/import-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/understand-threat-intelligence",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/connect-threat-intelligence-tip",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
