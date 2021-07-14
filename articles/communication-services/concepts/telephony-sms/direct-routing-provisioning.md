@@ -36,7 +36,7 @@ If everything set up correctly, you should see exchange of OPTIONS messages betw
 
 ## Voice routing considerations
 
-Azure Communication services direct routing has a routing mechanism that allows a call to be sent to a specific Session Border Controller (SBC) based on the called number pattern.
+Azure Communication Services direct routing has a routing mechanism that allows a call to be sent to a specific Session Border Controller (SBC) based on the called number pattern.
 When you add a direct routing configuration to a resource, all calls made from this resource’s instances (identities) will try a direct routing trunk first. The routing is based on a dialed number and a match in voice routes configured for the resource. If there is a match, the call goes through the direct routing trunk. If there is no match, the next step is to process the alternateCallerId parameter of callAgent.startCall method. If the resource is enabled for Voice Calling (PSTN) and has at least one number purchased from Microsoft, and if alternateCallerId matches one of a purchased number for the resource, the call is routed through the Voice Calling (PSTN) using Microsoft infrastructure. If alternateCallerId parameter does not match any of the purchased numbers, the call will fail. The diagram below demonstrates the Azure Communication Services voice routing logic.
 
 :::image type="content" source="../media/direct-routing-provisioning/voice-routing-diagram.png" alt-text="Communication Services outgoing voice routing.":::
