@@ -16,12 +16,12 @@ In this article, you will learn how to use [Azure role-based access control (Azu
 
 To grant users, service principals, or groups access to the DICOM data plane, select the **Access control (IAM)** blade. Select the**Role assignments** tab, and select **+ Add**.
 
-[ ![dicom access control](media/dicom-access-control.png) ](media/dicom-access-control.png#lightbox)
+[ ![dicom access control.](media/dicom-access-control.png) ](media/dicom-access-control.png#lightbox)
 
 
 In the **Role** selection, search for one of the built-in roles for the DICOM data plane:
 
-[ ![Add RBAC role assignment](media/rbac-add-role-assignment.png) ](media/rbac-add-role-assignment.png#lightbox)
+[ ![Add RBAC role assignment.](media/rbac-add-role-assignment.png) ](media/rbac-add-role-assignment.png#lightbox)
 
 You can choose between:
 

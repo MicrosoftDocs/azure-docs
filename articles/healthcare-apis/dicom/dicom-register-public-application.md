@@ -23,13 +23,13 @@ This quickstart guide provides general information about how to register an [app
 2. In the **Azure Active Directory** blade, select **App registrations**.
 3. Select **New registration**.
 
-   [ ![DICOM application registration in Azure portal](media/dicom-azure-app-registrations.png) ](media/dicom-azure-app-registrations.png#lightbox)
+   [ ![DICOM application registration in Azure portal.](media/dicom-azure-app-registrations.png) ](media/dicom-azure-app-registrations.png#lightbox)
 
 ## Application registration overview
 
 1. Provide the DICOM service application with a user-facing display name.
 
-   [ ![Azure register an application](media/dicom-registration-application-name.png) ](media/dicom-registration-application-name.png#lightbox)
+   [ ![Azure register an application.](media/dicom-registration-application-name.png) ](media/dicom-registration-application-name.png#lightbox)
 
 2. For **Supported account types**, select who can use the application or access the API.
 3. (**Optional**) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it.
@@ -41,7 +41,7 @@ To configure your [desktop](.././../active-directory/develop/scenario-desktop-ap
 
 1. In the [Azure portal](https://portal.azure.com), select the **App registrations** blade, and then select the **Authentication** blade.
 
-   [ ![Azure public application registration](media/dicom-authentication.png) ](media/dicom-authentication.png#lightbox)
+   [ ![Azure public application registration.](media/dicom-authentication.png) ](media/dicom-authentication.png#lightbox)
 
 2. In the **Advanced settings**, select **Yes**.
 
@@ -57,11 +57,11 @@ Similarly to the [confidential client application](dicom-register-confidential-c
 
 If you are using the DICOM service, you'll  add a permission to the Azure API for DICOM by searching for Azure Healthcare APIs under APIs my organization uses. You'll only be able to find this if you have already registered the Microsoft.HealthcareAPIs resource provider.
 
-[ ![My API permissions](media/dicom-request-my-api-permissions.png) ](media/dicom-request-my-api-permissions.png#lightbox)
+[ ![My API permissions.](media/dicom-request-my-api-permissions.png) ](media/dicom-request-my-api-permissions.png#lightbox)
 
 Select the permissions that you would like the DICOM service application to request.
 
-[ ![Request API permissions](media/dicom-request-api-permissions.png) ](media/dicom-request-api-permissions.png#lightbox)
+[ ![Request API permissions.](media/dicom-request-api-permissions.png) ](media/dicom-request-api-permissions.png#lightbox)
 
 ## Next steps
 

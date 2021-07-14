@@ -23,11 +23,11 @@ To register a new confidential client application, refer to the steps below.
 2. Select the **App registrations** blade.
 3. Select **New registration**.
 
-   [ ![Azure App registrations](media/dicom-azure-app-registrations.png) ](media/dicom-azure-app-registrations.png#lightbox)
+   [ ![Azure App registrations.](media/dicom-azure-app-registrations.png) ](media/dicom-azure-app-registrations.png#lightbox)
 
 4. Enter a user-facing display name for the application.
 
-   [ ![Azure register an application](media/dicom-registration-application-name.png) ](media/dicom-registration-application-name.png#lightbox)
+   [ ![Azure register an application.](media/dicom-registration-application-name.png) ](media/dicom-registration-application-name.png#lightbox)
 
 5. For **Supported account types**, select who can use the application or access the API.
 6. (**Optional**) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it.
@@ -53,21 +53,21 @@ Now that you've registered your application, you must select which API permissio
 
 3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
 
-   [ ![Select permissions scopes](media/dicom-select-scopes.png) ](media/dicom-select-scopes.png#lightbox)
+   [ ![Select permissions scopes.](media/dicom-select-scopes.png) ](media/dicom-select-scopes.png#lightbox)
 
 ## Application secret
 
 1. Select **Certificates & secrets**, and then select **New client secret**.
 
-   [ ![Certificates and secrets](media/dicom-new-client-secret.png) ](media/dicom-new-client-secret.png#lightbox)
+   [ ![Certificates and secrets.](media/dicom-new-client-secret.png) ](media/dicom-new-client-secret.png#lightbox)
 
 2. Enter a **Description** for the client secret. Select the **Expires** drop-down menu to choose an expiration time frame, and then click **Add**.
 
-   [ ![Client secret description](media/dicom-client-secret-description.png) ](media/dicom-client-secret-description.png#lightbox)
+   [ ![Client secret description.](media/dicom-client-secret-description.png) ](media/dicom-client-secret-description.png#lightbox)
 
 3. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
 
-   [ ![Client secret value ID](media/dicom-client-secret-value-id.png) ](media/dicom-client-secret-value-id.png#lightbox)
+   [ ![Client secret value ID.](media/dicom-client-secret-value-id.png) ](media/dicom-client-secret-value-id.png#lightbox)
 
    > [!NOTE]
    > The client secret string is visible only once in the Azure portal. When you navigate away from the Certificates & secrets web page and then return back to it, the Value string becomes masked. It's important to make a copy your client secret string immediately after it is generated. If you don't have a backup copy of your client secret, you must repeat the above steps to regenerate it.

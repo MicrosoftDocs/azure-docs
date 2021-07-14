@@ -1,5 +1,5 @@
 ---
-title:  Overview of a DICOM service - Azure Healthcare APIs
+title:  Overview of the DICOM service - Azure Healthcare APIs
 description: In this article, you'll learn concepts of DICOM, Medical Imaging, and DICOM service.
 author: stevewohl
 ms.service: healthcare-apis
@@ -9,7 +9,7 @@ ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
-# Overview of a DICOM service
+# Overview of the DICOM service
 
 This article describes the concepts of DICOM, Medical Imaging, and the DICOM service.
 

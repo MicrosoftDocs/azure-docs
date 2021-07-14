@@ -24,21 +24,21 @@ To deploy the DICOM service, you must have a workspace created in the Azure port
 
 1. On the **Resource group** page of the Azure portal, select the name of your **Healthcare APIs Workspace**.
 
-   [ ![select workspace resource group](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
+   [ ![select workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
 2. Select **Deploy DICOM service**.
 
-    [ ![deploy dicom service](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
+   [ ![deploy dicom service.](media/workspace-deploy-dicom-services.png) ](media/workspace-deploy-dicom-services.png#lightbox)
 
 
 3. Select **Add DICOM service**.
 
-    [ ![add dicom service](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
+   [ ![add dicom service.](media/add-dicom-service.png) ](media/add-dicom-service.png#lightbox)
 
 
 4. Enter a name for the DICOM service, and then select **Review + create**. 
 
-    [ ![dicom service name](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
+    [ ![dicom service name.](media/enter-dicom-service-name.png) ](media/enter-dicom-service-name.png#lightbox)
 
 
    (**Optional**) Select **Next: Tags >**.
@@ -49,13 +49,13 @@ To deploy the DICOM service, you must have a workspace created in the Azure port
 
 6. When the deployment process completes, select **Go to resource**.  
 
-   [ ![dicom go to resource](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
+   [ ![dicom go to resource.](media/go-to-resource.png) ](media/go-to-resource.png#lightbox)
 
 
 
    The result of the newly deployed DICOM service is shown below.
 
-   [ ![dicom finished deployment](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
+   [ ![dicom finished deployment.](media/results-deployed-dicom-service.png) ](media/results-deployed-dicom-service.png#lightbox)
 
 
 
