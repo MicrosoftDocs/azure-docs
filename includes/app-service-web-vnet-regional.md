@@ -71,7 +71,7 @@ az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enab
 
 #### Network routing
 
-You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without route all enabled in [application routing](#applicaiton-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
+You can use route tables to route outbound traffic from your app to wherever you want. Route tables affect your destination traffic. Without route all enabled in [application routing](#application-routing), only private traffic (RFC1918) is affected by your route tables. Common destinations can include firewall devices or gateways. Routes that are set on your integration subnet won't affect replies to inbound app requests. 
 
 If you want to route all outbound traffic on-premises, you can use a route table to send all outbound traffic to your ExpressRoute gateway. If you do route traffic to a gateway, be sure to set routes in the external network to send any replies back.
 

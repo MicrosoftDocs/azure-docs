@@ -88,7 +88,7 @@ When you scale up or down in size, the required address space is doubled for a s
 
 Since subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, you should use a /26 with 64 addresses.
 
-When you want your apps in plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing VNet Integration.
+When you want your apps in your plan to reach a VNet that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing VNet Integration.
 
 ### Routes
 
@@ -114,8 +114,7 @@ You can use the following steps to enable Route All in your app through the port
     
     :::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-routeallenabling.png" alt-text="Enable Route All":::
 
-1. Select **OK**.
-1. Select **Save**.
+1. Select **Yes**.
 
 You can also configure Route All using CLI:
 
@@ -351,3 +350,4 @@ New-AzResource @vNetParams
 [VNETRouteTables]: ../virtual-network/manage-route-table.md
 [installCLI]: /cli/azure/install-azure-cli
 [privateendpoints]: networking/private-endpoint.md
+[VNETnsg]: /azure/virtual-network/security-overview/
