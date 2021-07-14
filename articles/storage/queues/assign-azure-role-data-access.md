@@ -94,7 +94,7 @@ For information about assigning roles with PowerShell at the subscription, resou
 
 # [Template](#tab/template)
 
-To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template).
+To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 ---
 
