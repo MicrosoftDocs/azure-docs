@@ -27,6 +27,9 @@ You'll have four options to configure NSX-T components in the Azure VMware Solut
 >[!IMPORTANT]
 >You can still use NSX-T Manager for the advanced settings mentioned and other NSX-T features. 
 
+>[!IMPORTANT] 
+>For clouds created on or after July 1, 2021, the simplified view of NSX-T operations must be used to configure components on the default Tier-1 Gateway in your environment.
+
 ## Prerequisites
 Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment. 
 

@@ -210,7 +210,7 @@ See [Azure Cosmos DB global distribution](tutorial-global-distribution-sql-api.m
 The section on query execution metrics explains how to retrieve the server execution time of queries ( `totalExecutionTimeInMs`), so that you can differentiate between time spent in query execution and time spent in network transit.
 
 ### Indexing policy
-See [Configuring indexing policy](index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses Hash indexing for strings, which is effective for equality queries, but not for range queries/order by queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
+See [Configuring indexing policy](index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses range indexing for strings, which is effective for equality queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
 
 By default, Azure Cosmos DB will apply automatic indexing to all data. For high performance insert scenarios, consider excluding paths as this will reduce the RU cost for each insert operation. 
 
