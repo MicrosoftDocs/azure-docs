@@ -132,7 +132,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
    :::image type="content" source="media/vmware-srm-vsphere-replication/open-site-recovery.png" alt-text="Screenshot showing vSphere Client with the vSphere Replication and Site Recovery Manager installation status as OK." border="true":::
 
 
-1. 3.	Select **NEW SITE PAIR** in the Site Recovery (SR) client in the new tab that opens.
+1. Select **NEW SITE PAIR** in the Site Recovery (SR) client in the new tab that opens.
    
    :::image type="content" source="media/vmware-srm-vsphere-replication/new-site-pair.png" alt-text="Screenshot showing vSphere Client with the New Site Pair button selected for Site Recovery." border="true":::
 
