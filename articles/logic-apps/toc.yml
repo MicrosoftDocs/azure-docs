@@ -179,10 +179,10 @@
       href: logic-apps-gateway-connection.md
   - name: Develop for B2B scenarios
     items: 
-    - name: Create integration account
-      href: logic-apps-enterprise-integration-create-integration-account.md
-      displayName: Azure CLI, az logic integration-account create, integration-account
+    - name: Integration account and artifacts
       items:
+      - name: Create integration account
+        href: logic-apps-enterprise-integration-create-integration-account.md
       - name: Trading partners
         href: logic-apps-enterprise-integration-partners.md
       - name: Agreements
@@ -197,25 +197,30 @@
         href: logic-apps-enterprise-integration-metadata.md
     - name: Receive and send B2B messages
       href: logic-apps-enterprise-integration-b2b.md
-    - name: Exchange AS2 messages
-      href: logic-apps-enterprise-integration-as2.md
+    - name: AS2 messaging
       items:
+      - name: Exchange AS2 messages
+        href: logic-apps-enterprise-integration-as2.md
       - name: AS2 message settings
         href: logic-apps-enterprise-integration-as2-message-settings.md
-    - name: Exchange EDIFACT messages
-      href: logic-apps-enterprise-integration-edifact.md
+    - name: EDIFACT messaging
       items: 
+      - name: Exchange EDIFACT messages
+        href: logic-apps-enterprise-integration-edifact.md
       - name: EDIFACT encoding
         href: logic-apps-enterprise-integration-edifact-encode.md
       - name: EDIFACT decoding
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-    - name: Exchange RosettaNet messages
-      href: logic-apps-enterprise-integration-rosettanet.md
-    - name: Exchange X12 messages
-      href: logic-apps-enterprise-integration-x12.md
+    - name: RosettaNet messaging
       items: 
+      - name: Exchange RosettaNet messages
+        href: logic-apps-enterprise-integration-rosettanet.md
+    - name: X12 messaging
+      items: 
+      - name: Exchange X12 messages
+        href: logic-apps-enterprise-integration-x12.md
       - name: X12 encoding
         href: logic-apps-enterprise-integration-x12-encode.md
       - name: X12 decoding
@@ -224,7 +229,7 @@
       href: logic-apps-scenario-edi-send-batch-messages.md
     - name: Process flat files
       href: logic-apps-enterprise-integration-flatfile.md
-    - name: XML/Json Transform 
+    - name: XML and JSON transforms
       items: 
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
