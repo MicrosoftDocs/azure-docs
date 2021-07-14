@@ -54,7 +54,6 @@ In the current preview state, the following limitations apply to email as an alt
 
 * **Unsupported flows** - Some flows are currently not compatible with non-UPN emails, such as the following:
     * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
-    * B2B invites sent to a non-UPN email are not fully supported. After accepting an invite sent to a non-UPN email, sign-in with the non-UPN email may not work for the guest user on the resource tenant endpoint.
     * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity via alternate email.
 
 * **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
@@ -307,13 +306,17 @@ Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false
 Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
 ```
 
+## B2B guest user sign-in with an email address
+
+Email as an alternate login ID applies to [Azure AD business-to-business (B2B) collaboration](../external-identities/what-is-b2b.md) under a "bring your own sign-in identifiers" model. When email as an alternate login ID is enabled, Azure AD users can sign in with non-UPN email as a guest on the resource tenant endpoint. No action is required from the resource tenant to enable this functionality.
+
 ## Test user sign-in with an email address
 
 To test that users can sign in with email, go to [https://myprofile.microsoft.com][my-profile] and sign in with a non-UPN email, such as `balas@fabrikam.com`. The sign-in experience should look and feel the same as signing-in with the UPN.
 
 ## Troubleshoot
 
-If users have trouble signing-in with their email address, review the following troubleshooting steps:
+If users have trouble signing in with their email address, review the following troubleshooting steps:
 
 1. Make sure it's been at least 1 hour since email as an alternate login ID was enabled. If the user was recently added to a group for staged rollout policy, make sure it's been at least 24 hours since they were added to the group.
 1. If using HRD policy, confirm that the Azure AD *HomeRealmDiscoveryPolicy* has the *AlternateIdLogin* definition property set to *"Enabled": true* and the *IsOrganizationDefault* property set to *True*:
