@@ -2589,6 +2589,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux-conceptual.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux-view-log.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },     
+    {
+      "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/app-service/containers/index.yml",
       "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
