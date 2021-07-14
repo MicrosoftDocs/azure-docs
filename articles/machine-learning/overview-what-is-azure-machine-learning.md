@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 ms.author: cgronlun
 author: cjgronlund
-ms.date: 06/30/2021
+ms.date: 07/14/2021
 ms.custom: devx-track-python
 adobe-target: true
 ---
@@ -18,29 +18,52 @@ Azure Machine Learning is a cloud service for accelerating and managing the mach
 
 You can create a model in Azure Machine Learning or use a model built from an open-source platform, such as Pytorch, TensorFlow, or scikit-learn. MLOps tools help you monitor, retrain, and redeploy models. 
 
-
 > [!Tip]
 > **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. [Try the free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/). You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
 
 ## Who is Azure Machine Learning for?
 
-A full-featured machine learning platform, Azure Machine Learning provides tools for:
-- Data scientists
-- Machine learning engineers
+Azure Machine Learning is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable setting.
 
-Train and deploy models, and manage your machine learning project lifecycle
+Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager (ARM) APIs, for building advanced ML tooling.
 
-Secure workspaces
-Confidential data
-Scale
+Enterprises working in the Microsoft Azure cloud will find familiar security and role-based access control (RBAC) for infrastructure. You can set up a project to deny access to protected data and select operations.
 
-Enterprises...
+### Collaboration for machine learning teams
 
-Data scientists working at any stage of a machine learning project will find tools for 
+Machine learning projects often require a team with varied skillsets to build and maintain. Azure Machine Learning has tools that help enable collaboration, such as:
 
-For model building, from querying and cleaning data to computationally demanding deep learning training, harnessing 
+- Shared notebooks, compute resources, data, and environments
+- Tracking and auditability that shows who made changes and when
+- Asset versioning
 
-### Enterprise-readiness
+### Tools for developers
+
+Developers find familiar interfaces in Azure Machine Learning, such as:
+
+- [Python SDK]()
+- [Azure Resource Manager (ARM) REST APIs (preview)]()
+- [CLI v2 (preview)]()
+
+### Studio UI plus drag-and-drop designer
+
+The Azure Machine Learning studio is a graphical user interface for a project workspace. In the studio, you can:
+
+- View runs, metrics, logs, outputs, and so on.
+- Author and edit notebooks and files.
+- Manage common assets, such as
+    - Data credentials
+    - Compute
+    - Environments
+- Visualize run metrics, results, and reports.
+- Visualize pipelines authored through developer interfaces.
+- Author AutoML jobs.
+
+Plus, the designer has a drag-and-drop interface where you can train and deploy models. 
+
+## Enterprise-readiness and security
+
+The Azure cloud platform integrates with Azure Machine Learning to provide a full  
 
 key points to hit:
 
@@ -48,12 +71,8 @@ key points to hit:
 - general Azure security (private link, vnets, etc.)
 
 
+See Tutorial: Set up a secure workspace.
 
-### User interface (studio)
-
-key points to hit:
-
-- single pane for data science teams
 
 
 ## Machine learning project workflow
@@ -62,74 +81,104 @@ Typically models are developed as part of a project with an objective and goals.
 
 While the project lifecycle will vary by project, it may often look like this:
 
-**Example project lifecycle diagram**
+**Project lifecycle diagram**
 
 [project lifecycle diagram]
 
 A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user inferface, leverage versioned assets for jobs like environments and storage references, or 
 
-When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or https request.
+When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
 
-Models can be deployed to the managed inferencing solution, for both realtime and batch deployments, abstracting away the infrastructure management typically required for deploying models.
+Models can be deployed to the managed inferencing solution, for both real-time and batch deployments, abstracting away the infrastructure management typically required for deploying models.
 
-### Train models
+## Train models
 
-Training models typically involves data, an algorithm (via code), and an environment executed on compute to produce artifacts representing a model. Models are then packaged or otherwise embedded in applications or processes for meaningful prediction.
+In Azure Machine Learning, you can run your training script in the cloud or build a model from scratch. Customers often bring models they've built and trained in open-source frameworks, so they can operationalize them in the cloud. 
 
-While 
+### Open and interoperable
 
-key points to hit:
+Data scientists can use models in Azure Machine Learning that they've created in common Python frameworks, such as: 
 
-- embarassingly parallel tasks, training many models
-- 
+- PyTorch
+- TensorFlow
+- scikit-learn
+- XGBoost
+- LightGBM
 
-### Deploy models
+Other languages and frameworks are supported as well, including: 
+- R
+- .NET
 
-key points to hit:
+See [Open-source integration with Azure Machine Learning](concept-open-source.md).
 
-- abstract the infra management via managed endpoints/deployments
-    - no managing Kubernetes clusters needed
-    - 
-    - 
+### Automated featurization and algorithm selection (AutoML)
+
+In a repetitive, time-consuming process, in classical machine learning data scientists use prior experience and intuition to select the right data featurization and algorithm for training. Automated ML (AutoML) speeds this process and can be used through the studio UI or Python SDK.
+
+See [What is automated machine learning?](concept-automated-ml.md)
+
+### Hyperparameter optimization
+
+Hyperparameter optimization, or hyperparameter tuning, can be a tedious task. Azure Machine Learning can automate this task for arbitrary parameterized commands with little modification to your job definition. Results are visualized in the studio.
+
+See [How to tune hyperparameters](how-to-tune-hyperparameters.md).
+
+### Multinode distributed training
+
+Efficiency of training for deep learning and sometimes classical machine learning training jobs can be drastically improved via multinode distributed training. Azure Machine Learning compute clusters offer the latest GPU options.
+
+Supported via Azure Arc-attached Kubernetes (preview) and Azure ML compute clusters:
+
+- PyTorch
+- TensorFlow
+- MPI
+
+The MPI distribution can be used for Horovod or custom multinode logic. Additionally, Apache Spark is supported via Azure Synapse Analytics Spark clusters (preview).
+
+See [Distributed training with Azure Machine Learning](concept-distributed-training.md).
+
+### Embarrassingly parallel training
+
+Scaling a machine learning project may require scaling embarrassingly parallel model training. This pattern is common for scenarios like forecasting demand, where a model may be trained for many stores.
+
+## Deploy models
+
+To bring a model into production, it is deployed. Azure Machine Learning's managed endpoints abstract the required infrastructure for both batch or real-time (online) model scoring (inferencing).
+
+### Real-time and batch scoring (inferencing)
+
+*Batch scoring*, or *batch inferencing*, involves invoking an endpoint with a reference to data. The batch endpoint runs jobs asynchronously to process data in parallel on compute clusters and store the data for further analysis.
+
+*Real-time scoring*, or *online inferencing*, involves invoking an endpoint with one or more model deployments and receiving a response in near-real-time via HTTPs. Traffic can be split across multiple deployments, allowing for testing new model versions by diverting some amount of traffic initially and increasing once confidence in the new model is established.    
+
+See:
 
 
 ## MLOps: DevOps for machine learning 
 
-DevOps for machine learning models, often called MLOps, is a process for developing models for production settings. A model's lifecycle from training to deployment must be auditable if not reproducible.
-
-**Example model lifecycle diagram**
-
-[model lifecycle diagram]
-
-Notice that training a machine learning model
-
-Integration with `git`, code snapshots, and lineage between jobs and related assets allows for auditing of the model lifecycle - down to a specific commit, environment, and code.
+DevOps for machine learning models, often called MLOps, is a process for developing models for production. A model's lifecycle from training to deployment must be auditable if not reproducible.
 
 Learn more about [MLOps in Azure Machine Learning](concept-model-management-and-deployment.md).
 
-### CI/CD and complete solutions
+**Model lifecycle diagram**
 
-Developer experiences
+model-lifecycle.png
 
-key points to hit:
+### Integrations enabling MLOPs
 
-- CLI to CI/CD
-- Python SDK for full solutions
+Azure Machine Learning is built with the model lifecycle in mind. You can audit the model lifecycle down to a specific commit and environment. 
 
-### Capabilities for machine learning teams
+Some key features enabling MLOps include:
 
-[technical details tone]
+- `git` integration
+- MLflow integration
+- Machine learning pipeline scheduling
+- Azure Event Grid integration for custom triggers
+- Easy to use with CI/CD tools like GitHub Actions or Azure DevOps
 
-- Asset versioning
-    - 
-
-key points to hit:
-
-- asset versioning
-- tracking and audibility (who did what, when)
-- collaboration (shared notebooks, compute, data, environments)
-
-
+Also, Azure Machine Learning includes features for monitoring and auditing:
+- Job artifacts, such as code snapshots, logs, and other outputs
+- Lineage between jobs and assets, such as containers, data, and compute resources
 
 ## Next steps
 
@@ -137,4 +186,3 @@ Start using Azure Machine Learning:
 - [Set up an Azure Machine Learning workspace](/quickstart-create-resources.md)
 - [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
 - [Preview: Run model training jobs with the v2 CLI](how-to-train-cli.md)
-
