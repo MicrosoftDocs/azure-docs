@@ -12,7 +12,7 @@ ms.author: jaysoni
 
 # Common Key Vault Errors in Application Gateway
 
-This troubleshooting guide will help you to understand the details of the Key Vault error codes, its cause and the associated Key Vault resource which is causing the problem. It also includes step by step guide for the resolution of such misconfigurations.
+This troubleshooting guide will help you to understand the details of the Key Vault error codes, their cause and the associated Key Vault resource which is causing the problem. It also includes step by step guide for the resolution of such misconfigurations.
 
 > [!NOTE]
 > The logs for Key Vault Diagnostics in Application Gateway are generated at every four-hour interval. Therefore, in some cases, you may have to wait for the logs to be refreshed, if the diagnostic continues to show the error after you have fixed the configuration.
