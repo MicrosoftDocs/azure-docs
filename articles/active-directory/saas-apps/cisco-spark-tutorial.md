@@ -35,6 +35,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Cisco Webex supports **SP** initiated SSO.
 * Cisco Webex supports [**Automated user provisioning**](./cisco-webex-provisioning-tutorial.md).
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding Cisco Webex from the gallery
 
 To configure the integration of Cisco Webex into Azure AD, you need to add Cisco Webex from the gallery to your list of managed SaaS apps.
