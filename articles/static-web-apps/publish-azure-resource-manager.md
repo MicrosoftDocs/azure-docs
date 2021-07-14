@@ -5,7 +5,7 @@ services: static-web-apps
 author: petender
 ms.service: static-web-apps
 ms.topic:  tutorial
-ms.date: 05/10/2021
+ms.date: 07/13/2021
 ms.author: petender
 
 ---
@@ -34,7 +34,7 @@ In this tutorial, you learn to:
 
 ## Create a GitHub personal access token
 
-One of the required parameters in the ARM template is `repositoryToken`, which allows the ARM deployment process to interact with the GitHub repo holding the static site source code. 
+One of the parameters in the ARM template is `repositoryToken`, which allows the ARM deployment process to interact with the GitHub repo holding the static site source code. 
 
 1. From your GitHub Account Profile (in the upper right corner), select **Settings**.
 
@@ -53,7 +53,7 @@ One of the required parameters in the ARM template is `repositoryToken`, which a
 1. Copy the token value and paste it into a text editor for later use.
 
 > [!IMPORTANT]
-> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure KeyVault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template.
+> Make sure you copy this token and store it somewhere safe. Consider storing this token in [Azure Key Vault](../azure-resource-manager/templates/template-tutorial-use-key-vault.md) and access it in your ARM Template.
 
 ## Create a GitHub repo
 
@@ -118,11 +118,14 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                 },
                 "resourceTags": {
                     "type": "object"
+                },
+                "appSettings": {
+                    "type": "object"
                 }
             },
             "resources": [
                 {
-                    "apiVersion": "2019-12-01-preview",
+                    "apiVersion": "2021-01-15",
                     "name": "[parameters('name')]",
                     "type": "Microsoft.Web/staticSites",
                     "location": "[parameters('location')]",
@@ -140,7 +143,19 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                     "sku": {
                         "Tier": "[parameters('sku')]",
                         "Name": "[parameters('skuCode')]"
-                    }
+                    },
+                    "resources":[
+                        {
+                            "apiVersion": "2021-01-15",
+                            "name": "appsettings",
+                            "type": "config",
+                            "location": "[parameters('location')]",
+                            "properties": "[parameters('appSettings')]",
+                            "dependsOn": [
+                                "[resourceId('Microsoft.Web/staticSites', parameters('name'))]"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
@@ -159,9 +174,8 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                 "name": {
                     "value": "myfirstswadeployment"
                 },
-                "location": {
-                "type": "string",
-                "defaultValue": "Central US"
+                "location": { 
+                    "value": "Central US"
                 },   
                 "sku": {
                     "value": "Free"
@@ -193,6 +207,12 @@ With the prerequisites in place, the next step is to define the ARM deployment t
                         "Project": "Testing SWA with ARM",
                         "ApplicationName": "myfirstswadeployment"
                     }
+                },
+                "appSettings": {
+                    "value": {
+                        "MY_APP_SETTING1": "value 1",
+                        "MY_APP_SETTING2": "value 2"
+                    }
                 }
             }
         }
@@ -213,7 +233,7 @@ You need either Azure CLI or Azure PowerShell to deploy the template.
 
 ### Sign in to Azure
 
-To deploy a template sign in to either the Azure CLI or Azure PowerShell.
+To deploy a template, sign in to either the Azure CLI or Azure PowerShell.
 
 # [Azure CLI](#tab/azure-cli)
 
