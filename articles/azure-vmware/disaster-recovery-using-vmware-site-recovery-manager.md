@@ -85,7 +85,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Add-ons** > **Disaster recovery**.
 
-   The default CloudAdmin user in the Azure VMware Solution private cloud doesn't have sufficient privileges to install VMware SRM with vSphere replication or vSphere Replication. The installation process involves multiple steps outlined in the [Prerequisites](#prerequisites) section. Instead, you can install VMware SRM with vSphere Replication as an add-on service from your Azure VMware Solution private cloud.
+   The default CloudAdmin user in the Azure VMware Solution private cloud doesn't have sufficient privileges to install VMware SRM or vSphere Replication. The installation process involves multiple steps outlined in the [Prerequisites](#prerequisites) section. Instead, you can install VMware SRM with vSphere Replication as an add-on service from your Azure VMware Solution private cloud.
 
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png" alt-text="Screenshot of Azure VMware Solution private cloud to install VMware SRM with vSphere Replication as an add-on" border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-add-ons.png":::
 
@@ -103,7 +103,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 ## Install the vSphere Replication appliance
 
-After the SRM appliance installs successfully, you'll need to install the replication server. Each replication server accommodates up to 200 protected VMs. Scale in or scale out as per your needs. 
+After the SRM appliance installs successfully, you'll need to install the vSphere Replication appliances. Each replication server accommodates up to 200 protected VMs. Scale in or scale out as per your needs. 
 
 1. From the **Replication using** drop-down, on the **Disaster recovery** tab, select **vSphere Replication**.
 
@@ -113,10 +113,10 @@ After the SRM appliance installs successfully, you'll need to install the replic
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/vsphere-replication-2.png" alt-text="Screenshot showing how to increase or decrease the number of replication servers.":::
 
-1. Once installed, verify that both SRM and the replication server are installed.
+1. Once installed, verify that both SRM and the vSphere Replication appliances are installed.
 
    >[!TIP]
-   >The Uninstall button indicates that both SRM and the vSphere replication server are currently installed.
+   >The Uninstall button indicates that both SRM and the vSphere Replication appliances are currently installed.
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/vsphere-replication-3.png" alt-text="Screenshot showing that both SRM and the replication appliance are installed.":::
   
@@ -287,9 +287,9 @@ VMware SRM is a Disaster Recovery solution from VMware.
 
 - For SRM-related issues in your on-premises environment, contact VMware for support.
 
-- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.   
+- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.   
 
-VMware and Microsoft support teams will engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
+VMware and Microsoft support teams engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
 
 ## References
 
