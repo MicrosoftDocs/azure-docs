@@ -26230,6 +26230,12 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/faq.yml",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/tutorials/faq",
+      "redirect_document_id": true
+    },
+
+    {
       "source_path_from_root": "/articles/security/azure-security-antimalware.md",
       "redirect_url": "/azure/security/fundamentals/antimalware",
       "redirect_document_id": true
