@@ -48,6 +48,24 @@ This article describes how to create and manage a self-hosted integration runtim
 
    :::image type="content" source="media/manage-integration-runtimes/successfully-registered.png" alt-text="successfully registered.":::
 
+## Networking requirements
+
+Your self-hosted integration runtime machine will need connect to several resources to work correctly:
+
+1. The sources you want to scan using the self-hosted integration runtime.
+1. Any Azure Key Vault used to store credentials for the Purview resource.
+1. The managed Storage account and Event Hub resources created by Purview.
+
+The managed Storage and Event Hub resources can be found in your subscription under a resource group containing the name of your Purview resource. Azure Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime will need to be able to connect directly with these resources.
+
+Here are the domains and ports that will need to be allowed through corporate and machine firewalls.
+
+| Domain names                  | Outbound ports | Description                              |
+| ----------------------------- | -------------- | ---------------------------------------- |
+| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
+| `*.servicebus.windows.net` | 443            | Used by the self-hosted integration runtime to connect to the managed Event Hubs resource. |
+| Key Vault URI (found in the Azure Portal) | 443           | Required if any credentials are stored in Azure Key Vault. |
+
 ## Manage a self-hosted integration runtime
 
 You can edit a self-hosted integration runtime by navigating to **Integration runtimes** in the **Management center**, selecting the IR and then clicking on edit. You can now update the description, copy the key, or regenerate new keys.
