@@ -47,7 +47,7 @@ Azure Communication Services will raise the `microphoneMuteUnexpectedly` call di
 It's recommended to hang up the call ( `call.hangUp` ) when this situation occurs.
 
 ### Device management
-Developers should use SDK for device and media operations.
+You can use the Azure Communication Services SDK to manage your devices and media operations.
 - Your application shouldn't use native browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of the SDK. If you do, you'll have to manually dispose your media stream(s) before using `DeviceManager` or other device management APIs via the Communication Services SDK.
 
 ### Request device permissions
