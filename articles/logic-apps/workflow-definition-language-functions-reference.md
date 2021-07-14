@@ -1274,7 +1274,7 @@ concat('Hello', 'World')
 And returns this result: `"HelloWorld"`
   
 > [!NOTE]
-> The length of the result must not exceed a length of 104857600.
+> The length of the result must not exceed 104,857,600 characters.
 
 <a name="contains"></a>
 
@@ -2792,7 +2792,7 @@ join(createArray('a', 'b', 'c'), '.')
 And returns this result: `"a.b.c"`
   
 > [!NOTE]
-> The length of the result must not exceed a length of 104857600.
+> The length of the result must not exceed 104,857,600 characters.
 
 <a name="last"></a>
 
@@ -3427,7 +3427,7 @@ range(1, 4)
 And returns this result: `[1, 2, 3, 4]`
   
 > [!NOTE]
-> The parameter 'count' must be a positive integer no larger than '100000' and the sum of 'startIndex' and 'count' must be no larger than 2147483647.
+> The `count` parameter value must be a positive integer that doesn't exceed 100,000. The sum of the `startIndex` and `count` values must not exceed 2,147,483,647.
 
 <a name="replace"></a>
 
