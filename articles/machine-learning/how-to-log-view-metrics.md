@@ -49,7 +49,7 @@ Use the following methods in the logging APIs to influence the metrics visualiza
 ## Logging with MLflow
 
 We recommend logging model metrics and artifacts with MLflow as it's open source and it supports local mode to cloud portability. The following table and code examples show how to use MLflow to log metrics and artifacts from your training runs. 
-
+[Learn more about MLflow's logging methods and design patterns](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
 Be sure to install the `mlflow` and `azureml-mlflow` pip packages to your workspace. 
 
 ```conda
@@ -93,7 +93,7 @@ metrics.get('metric-name')
 # list of metrics in the order they were recorded
 ```
 
-You can access run information using MLflow through the run object's data and info properties. See the [MLflow.entities.Run object](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) documentation for more information 
+You can also access run information using MLflow through the run object's data and info properties. See the [MLflow.entities.Run object](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) documentation for more information 
 
 After run has completed, you can retrieve it using the MlFlowClient().
 ```python
@@ -103,8 +103,10 @@ from mlflow.tracking import MlflowClient
 
 client = MlflowClient()
 finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
+```
 You can view the metrics, parameters, and tags for the run in the data field of the run object.
 
+```python
 metrics = finished_mlflow_run.data.metrics
 tags = finished_mlflow_run.data.tags
 params = finished_mlflow_run.data.params
@@ -113,7 +115,7 @@ params = finished_mlflow_run.data.params
 >[!NOTE]
 > The metrics dictionary under `mlflow.entities.Run.data.metrics` only returns the most recently logged value for a given metric name. For example, if you log, in order, 1, then 2, then 3, then 4 to a metric called `sample_metric`, only 4 is present in the metrics dictionary for `sample_metric`.
 > 
-> To get all metrics logged for a particular metric name, you can use `MlFlowClient.get_metric_history()`.
+> To get all metrics logged for a particular metric name, you can use [`MlFlowClient.get_metric_history()`](https://www.mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient.get_metric_history).
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
