@@ -49,8 +49,46 @@ In the planning phase, you defined whether to use an *existing* or *new* Express
 
 ### Use an existing virtual network gateway
 
+<!-- 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
+-->
 
+1. Request an ExpressRoute authorization key:
+
+   <!-- 
+   [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
+   -->
+
+   1. In the Azure portal, navigate to the Azure VMware Solution private cloud. Select **Manage** > **Connectivity** > **ExpressRoute** and then select **+ Request an authorization key**.
+    
+      :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Screenshot showing how to request an ExpressRoute authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
+    
+   1. Provide a name for it and select **Create**.
+    
+      It may take about 30 seconds to create the key. Once created, the new key appears in the list of authorization keys for the private cloud.
+    
+      :::image type="content" source="../media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Screenshot showing the ExpressRoute Global Reach authorization key.":::
+      
+   1. Copy the authorization key and ExpressRoute ID. You'll need them to complete the peering. The authorization key disappears after some time, so copy it as soon as it appears.
+
+1. Navigate to the virtual network gateway you plan to use and select **Connections** > **+ Add**.
+
+1. On the **Add connection** page, provide values for the fields, and select **OK**. 
+
+   | Field | Value |
+   | --- | --- |
+   | **Name**  | Enter a name for the connection.  |
+   | **Connection type**  | Select **ExpressRoute**.  |
+   | **Redeem authorization**  | Ensure this box is selected.  |
+   | **Virtual network gateway** | The virtual network gateway your intent to use.  |
+   | **Authorization key**  | Paste the authorization key you copied earlier. |
+   | **Peer circuit URI**  | Paste the ExpressRoute ID you copied earlier.  |
+
+   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Screenshot showing the Add connection page to connect ExpressRoute to the virtual network gateway.":::
+
+The connection between your ExpressRoute circuit and your Virtual Network is created.
+
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Screenshot showing a successful virtual network gateway connection.":::
 
 ## Step 4. Validate the connection
 
