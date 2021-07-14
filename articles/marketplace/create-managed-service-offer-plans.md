@@ -106,6 +106,7 @@ Provide the following information for each **Authorization**. Select **+ Add aut
   > [!NOTE]
   > As applicable new built-in roles are added to Azure, they will become available here, although there may be some delay before they appear.
 - **Assignable Roles**: This option will appear only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to [managed identities](../active-directory/managed-identities-azure-resources/overview.md), which is required in order to [deploy policies that can be remediated](../lighthouse/how-to/deploy-policy-remediation.md). No other permissions normally associated with the User Access Administrator role will apply to this user.
+- **Approvers**: You may specify a list of users or user groups as approvers for an eligible authorization. Approvers will be notified when the approval is requested and has been granted. If none are provided, the authorization will activate automatically.
 
 > [!TIP]
 > To ensure you can [remove access to a delegation](../lighthouse/how-to/remove-delegation.md) if needed, include an **Authorization** with the **Role Definition** set to [Managed Services Registration Assignment Delete Role](../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.

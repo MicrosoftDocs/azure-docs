@@ -20,8 +20,11 @@ In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMw
 - [Third-party external DHCP server](#use-a-third-party-external-dhcp-server)
 
 >[!TIP]
->If you want to configure DHCP using a simplified view of NSX-T operations, see [Create a DHCP server or DHCP relay using the Azure portal](configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). The simplified view is targeted at users unfamiliar with NSX-T Manager. 
+>If you want to configure DHCP using a simplified view of NSX-T operations, see [Create a DHCP server or DHCP relay using the Azure portal](configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). 
 
+
+>[!IMPORTANT]
+>For clouds created on or after July 1, 2021, the simplified view of NSX-T operations must be used to configure DHCP on the default Tier-1 Gateway in your environment.
 
 
 >[!IMPORTANT]
@@ -84,6 +87,10 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
 ## Use a third-party external DHCP server
 
 If you want to use a third-party external DHCP server, you'll create a DHCP relay service in NSX-T Manager. You'll also specify the DHCP IP address range.
+
+
+>[!IMPORTANT]
+>For clouds created on or after July 1, 2021, the simplified view of NSX-T operations must be used to configure DHCP on the default Tier-1 Gateway in your environment.
 
 
 ### Create DHCP relay service
