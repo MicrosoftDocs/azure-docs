@@ -30,7 +30,7 @@ If your nodes are located in a private network, the port and URLs defined above 
 
 If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), you also need to allow traffic between nodes. See the documentation for each DSC resource to understand these network requirements.
 
-To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
 
 ## Update Management and Change Tracking and Inventory
 
