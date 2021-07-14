@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/14/2021
 ---
 
-# Overview
+# Use Azure Cosmos DB as an ASP.NET session state and caching provider
 
 The Azure Cosmos DB session and cache provider allows you to use Azure Cosmos DB and leverage its low latency and global scale capabilities for storing session state data and as a distributed cache within your application.
 
