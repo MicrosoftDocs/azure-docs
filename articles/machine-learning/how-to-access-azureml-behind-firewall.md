@@ -72,6 +72,10 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
+When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example IP address based UDR in the Azure portal:
+
+:::image type="content" source="./media/how-to-enable-virtual-network/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
+
 # [Service tag routes](#tab/servicetag)
 
 Create user-defined routes for the following service tags:
@@ -88,7 +92,7 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 ---
 
-When creating the UDR, set the __Next hop type__ to __Internet__. For information on configuring UDR, see [Route network traffic with a routing table](../virtual-network/tutorial-create-route-table-portal.md).
+For information on configuring UDR, see [Route network traffic with a routing table](../virtual-network/tutorial-create-route-table-portal.md).
 
 ### Outbound configuration
 
