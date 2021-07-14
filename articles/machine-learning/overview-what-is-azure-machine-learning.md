@@ -87,8 +87,6 @@ Typically models are developed as part of a project with an objective and goals.
 
 While the project lifecycle will vary by project, it may often look like this:
 
-### Machine learning project lifecycle
-
 ![Machine learning project lifecycle diagram](./media/overview-what-is-azure-machine-learning/placeholder-ml-development-cycle.png)
 
 A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
