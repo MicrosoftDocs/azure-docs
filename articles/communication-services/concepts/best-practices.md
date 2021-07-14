@@ -48,7 +48,7 @@ It's recommended to hang up the call ( `call.hangUp` ) when this situation occur
 
 ### Device management
 Developers should use SDK for device and media operations.
-- Application should not use browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of SDK. If it does so, please make sure it disposes stream before using DeviceManager or accessing any other device via ACS SDK.
+- Your application shouldn't use native browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of the SDK. If you do, you'll have to manually dispose your media stream(s) before using `DeviceManager` or other device management APIs via the Communication Services SDK.
 
 ### Request device permissions
 You can request device permissions using the SDK:
