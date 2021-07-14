@@ -106,7 +106,10 @@ items:
         displayName: Register and scan Azure Cosmos DB
       - name: Azure Database for MySQL
         href: register-scan-azure-mysql-database.md
-        displayName: Register and scan an Azure database for MySQL       
+        displayName: Register and scan an Azure database for MySQL
+      - name: Azure Database for PostgreSQL
+        href: register-scan-azure-postgresql.md
+        displayName: Register and scan an Azure database for PostgreSQL        
       - name: Azure Data Explorer
         href: register-scan-azure-data-explorer.md
         displayName: Register and scan Azure Data Explorer Kusto
