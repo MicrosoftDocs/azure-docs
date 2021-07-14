@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 06/02/2021
+ms.date: 07/12/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -14,6 +14,20 @@ manager: mtillman
 # Azure Active Directory application provisioning: What's new
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## June 2021
+
+### New articles
+
+- [Configure provisioning using Microsoft Graph APIs](application-provisioning-configuration-api.md)
+- [Understand how expression builder in Application Provisioning works](expression-builder.md)
+
+### Updated articles
+
+- [How Application Provisioning works in Azure Active Directory](how-provisioning-works.md)
+- [Plan cloud HR application to Azure Active Directory user provisioning](plan-cloud-hr-provision.md)
+- [How Azure Active Directory provisioning integrates with Workday](workday-integration-reference.md)
+
 
 ## May 2021
 

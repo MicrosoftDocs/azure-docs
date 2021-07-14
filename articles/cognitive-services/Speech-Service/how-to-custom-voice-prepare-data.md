@@ -39,7 +39,7 @@ This table lists data types and how each is used to create a custom text-to-spee
 | Data type | Description | When to use | Additional processing required |
 | --------- | ----------- | ----------- | --------------------------- |
 | **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
-| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a transcript (.txt) that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
+| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
 | **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
