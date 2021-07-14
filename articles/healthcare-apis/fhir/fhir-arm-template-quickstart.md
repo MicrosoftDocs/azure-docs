@@ -223,10 +223,7 @@ For a step-by-step tutorial that guides you through the process of creating an A
 
 ## Next steps
 
-In this quickstart guide, you've deployed the FHIR service into your subscription. To set additional settings in your FHIR service, proceed to the additional settings how-to guide. If you are ready to start using the FHIR service, read more on how to register applications.
-
->[!div class="nextstepaction"]
->[Additional settings in FHIR service](additional-settings.md)
+In this quickstart guide, you've deployed the FHIR service into your subscription. If you are ready to start using the FHIR service, read more on how to register applications.
 
 >[!div class="nextstepaction"]
 >[Register Applications Overview](fhir-app-registration.md)

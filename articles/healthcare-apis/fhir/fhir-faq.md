@@ -29,10 +29,6 @@ Yes, the data is stored in managed databases in Azure. The FHIR service in the A
 
 We currently support Microsoft Azure Active Directory as the identity provider.
 
-### How quickly will the Healthcare APIs be restored at the request of customers or when there is a regional or global service outage?
- 
-Customers may request that the Healthcare APIs be restored through the backup and restore procedure based on the service request priority. For customers that have the disaster recovery feature enabled, a fully operational environment is configured and activated in a secondary region and will be used as the primary region in the event of disaster. **Currently Healthcare APIs is in public preview; more details on our disaster recovery plan will be available by GA.**
-
 ### What FHIR version do you support?
 
 We support versions 4.0.0 and 3.0.1.
@@ -46,7 +42,7 @@ The FHIR service is our implementation of the FHIR specification that sits in th
 * The FHIR service has a limit of 4TB and is in public preview while the Azure API for FHIR supports more than 4TB and is GA.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
 * Chained searching and reverse chained searching does not have a limit on number of resources returned
-* The Azure API for FHIR has more platform features (such as Private Link, CMK) that are not yet available in the FHIR service in the Azure Healthcare APIs. More details will follow on these features by GA.
+* The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that are not yet available in the FHIR service in the Azure Healthcare APIs. More details will follow on these features by GA.
 
 ### What's the difference between 'FHIR service in the Azure Healthcare APIs' and the 'FHIR server'?
 
@@ -61,6 +57,8 @@ For a development standpoint, every feature that doesn't apply only to the manag
 We are expanding the global footprints of the Healthcare APIs continually based on customer demands. The FHIR service is currently available in 25 regions including two U.S. government regions: Australia East, Brazil South*, Canada Central, Central India*, East Asia*, East US 2, East US, Germany North**, Germany West Central, Germany North**, Japan East, Japan West*, Korea Central*, North Central US, North Europe, South Africa North, South Central US, Southeast Asia, Switzerland North, UK South, UK West, West Central US, West Europe, West US 2, USGov Virginia, USGov Arizona.
 
 *denotes private preview regions; ** denotes disaster recovery region only.
+
+For more information, please see the [support for geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=all).
 
 ### Where can I see what is releasing into the FHIR service?
 
@@ -115,22 +113,10 @@ Anonymized export is currently supported only on a full system export (/$export)
 
 ## Using the FHIR service
 
-### How do I enable log analytics for Azure Healthcare APIs?
-
-We enable audit and diagnostic logs and allow reviewing the logs from the Azure portal. For details on enabling audit logs and sample queries, check out [this section](enable-diagnostic-logging.md). If you want to include additional information in the logs, check out [using custom HTTP headers](use-custom-headers.md).
-
-Customers can also choose to export the logs to their designated locations such as an Azure Storage account. **Currently Healthcare APIs is in public preview; we will provide more details on logging by GA.**
-
 ### Where can I see some examples of using the FHIR service within a workflow?
 
 We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
 
 ### Where can I see an example of connecting a web application to FHIR service?
 
-We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to FHIR service.  
- 
-### Does the Healthcare APIs support encryption with customer managed keys (CMK)?
- 
-By default all data stored in the Healthcare APIs is encrypted by Microsoft managed keys. However, customers can choose to use their own keys for encryption when the Healthcare APIs are provisioned. **Currently Healthcare APIs is in public preview; we will provide more details on encryption with customer managed keys by GA.**
-
-For reference, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key for Azure API for FHIR, check out [this section](../azure-api-for-fhir/customer-managed-key.md).
+We have a [Health Architecture GitHub page](https://aka.ms/health-architectures) that contains example applications and scenarios. It illustrates how to connect a web application to FHIR service.

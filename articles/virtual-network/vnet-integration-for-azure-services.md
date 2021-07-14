@@ -101,6 +101,11 @@ Both approaches overcome the problem of [Source Network Address Translation (SNA
 
 In both cases, you can still ensure that traffic into the target service passes through a network firewall or NVA. This procedure is different for both approaches. When using service endpoints, you should configure the service endpoint on the **firewall** subnet, rather than the subnet where the source service is deployed. When using private endpoints you put a User Defined Route (UDR) for the private endpoint's IP address on the **source** subnet. Not in the subnet of the private endpoint.
 
+To compare and understand the differences, see the following table.
+
+>[!NOTE]
+> Microsoft recommends using Azure Private Link. Private Link offers better capabilities in terms of privately accessing PaaS from on-premises, in built data-exfiltration protection and mapping service to Private IP in your own network. For more information, see [Azure Private Link](../private-link/private-link-overview.md)
+
 | Consideration                                                                                                                                    | Service Endpoints                                                                                                           | Private Endpoints                                                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Scope at which level the configuration applies                                                                                                   | Entire service (for example, _all_ SQL Servers or Storage accounts of _all_ customers)                                      | Individual instance (for example, a specific SQL Server instance or Storage account _you_ own)                                                                    |

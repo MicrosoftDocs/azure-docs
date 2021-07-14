@@ -1,21 +1,18 @@
 ---
-title: Deploy workspace in the Azure portal
-description: In this article, you'll learn how to deploy a workspace in the Azure portal. 
+title: Deploy workspace in the Azure portal - Azure Healthcare APIs
+description: This document teaches users how to deploy a workspace in the Azure portal. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/21/2021
+ms.date: 07/12/2021
 ms.author: ginle
 ---
 
 # Deploy Healthcare APIs (preview) workspace using Azure portal
 
 > [!IMPORTANT]
-> This capability is in public preview, and it's provided without a service level agreement. 
-> It's not recommended for production workloads. Certain features might not be supported 
-> or might have constrained capabilities. For more information, see 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 In this article, you’ll learn how to create a workspace by deploying an Azure Healthcare APIs 
 service using the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
@@ -30,42 +27,37 @@ don’t have an Azure subscription, see [Create your free Azure account today](h
 
 In the Azure portal, select **Create a resource**.
 
-:::image type="content" source="media/create-resource.png" alt-text="Create resource.":::
+[ ![Create resource](media/create-resource.png) ](media/create-resource.png#lightbox)
 
 ## Search for Azure Healthcare APIs
 
 In the **Marketplace**, enter **Azure Healthcare APIs** in the search textbox.
 
-
-:::image type="content" source="media/search-for-heathcare-apis.png" alt-text="Search for Azure Healthcare APIs.":::
-
+[ ![Search for Healthcare APIs](media/search-for-healthcare-apis.png) ](media/search-for-healthcare-apis.png#lightbox)
 
 ## Create Azure Healthcare API account
 
 Select **Create** to create a new Azure Healthcare APIs account.
 
-
-:::image type="content" source="media/create-workspace-preview.png" alt-text="Create Azure Healthcare APIs account.":::
-
+   [ ![Create workspace preview](media/create-workspace-preview.png) ](media/create-workspace-preview.png#lightbox)
 
 ## Enter Subscription and instance details
 
 1. Select a **Subscription** and **Resource group** from the drop-down lists or select **Create new**.
 
-   :::image type="content" source="media/create-healthcare-api-workspace-new.png" alt-text="Create Azure Healthcare APIs workspace.":::
+   [ ![Create workspace new](media/create-healthcare-api-workspace-new.png) ](media/create-healthcare-api-workspace-new.png#lightbox)
 
-
-2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Do not use a hyphen "-" as it is an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview).
+2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Do not use a hyphen "-" as it is an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
 3. (**Optional**) Select **Next: Tags >**. Enter a **Name** and **Value**, and then select **Next: Review + create**. 
 
-   :::image type="content" source="media/tags-new.png" alt-text="Tags.":::
+   [ ![Tags](media/tags-new.png) ](media/tags-new.png#lightbox)
 
-   Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources).
+   Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](.././azure-resource-manager/management/tag-resources.md).
 
 4. Select **Create**.
 
-   :::image type="content" source="media/workspace-terms.png" alt-text="Terms.":::
+[ ![Workspace terms](media/workspace-terms.png) ](media/workspace-terms.png)
 
 
    **Optional**: You may select **Download a template for automation** of your newly created workspace.
@@ -80,10 +72,11 @@ Now that the workspace is created, you can:
 * Transform your data into different formats and secondary use through our conversion and de-identification APIs.
 * Deploy an IoT Connector to ingest data from your FHIR service.
 
-:::image type="content" source="media/healthcare-apis-deploy-services.png" alt-text="Healthcare APIs deploy services.":::
+[ ![Deploy different services](media/healthcare-apis-deploy-services.png) ](media/healthcare-apis-deploy-services.png)
+
 
 > [!NOTE]
-> You can deploy a FHIR Service or DICOM Service through the Azure Portal. If you would like to deploy an IoT Connector, see Deploying an IoT Connector using an ARM template.
+> You can deploy a FHIR Service or DICOM Service through the Azure Portal. If you would like to deploy an IoT Connector, see [Deploy Azure IoT Connector service using an ARM template](iot/iot-fhir-arm-template-quickstart.md).
 
 >[!div class="nextstepaction"]
 >[Workspace overview](workspace-overview.md)

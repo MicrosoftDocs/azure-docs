@@ -26,6 +26,8 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
+    - name: Subscribe to AKS events with Event Grid (Preview)
+      href: quickstart-event-grid.md
 - name: Tutorials
   items:
     - name: 1 - Prepare application for AKS
