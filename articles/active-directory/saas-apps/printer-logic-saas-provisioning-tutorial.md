@@ -3,8 +3,8 @@ title: 'Tutorial: Configure PrinterLogic SaaS for automatic user provisioning wi
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to PrinterLogic SaaS.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 001cfccf-b8a4-46e6-b355-94e8b694b122
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure PrinterLogic SaaS for automatic user provisioning

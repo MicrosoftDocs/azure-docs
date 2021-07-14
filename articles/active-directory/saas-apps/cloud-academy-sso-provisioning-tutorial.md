@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Cloud Academy - SSO for automatic user provisioning 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cloud Academy - SSO.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 224777cb-fc03-4e4a-8c8d-5befe1174233
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Cloud Academy - SSO for automatic user provisioning

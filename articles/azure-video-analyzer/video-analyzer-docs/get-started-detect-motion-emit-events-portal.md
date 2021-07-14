@@ -24,8 +24,7 @@ After you complete the setup steps, you'll be able to run the simulated live vid
    * [Deploy to an IoT Edge for Linux on Windows](deploy-iot-edge-linux-on-windows.md)
 * [Visual Studio Code](https://code.visualstudio.com/), with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension.
 
-> [!TIP] 
-> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
+[!INCLUDE [install-docker-prompt](./includes/common-includes/install-docker-prompt.md)]
 
 ## Prepare your IoT Edge device
 The Azure Video Analyzer module should be configured to run on the IoT Edge device with a non-privileged local user account. The module needs certain local folders for storing application configuration data. The RTSP camera simulator module needs video files with which it can synthesize a live video feed.

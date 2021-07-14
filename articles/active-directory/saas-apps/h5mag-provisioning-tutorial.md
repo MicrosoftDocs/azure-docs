@@ -3,8 +3,8 @@ title: 'Tutorial: Configure H5mag for automatic user provisioning with Azure Act
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to H5mag.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 87b4715b-c4b4-4e4b-aa25-21dfc5135a0a
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure H5mag for automatic user provisioning
