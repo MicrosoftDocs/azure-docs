@@ -85,7 +85,7 @@ ___
 2. Once created, assign that new Managed Identity the Reader role, at a minimum, under Application Gateway - Access Control (IAM).
 3. Finally, navigate to the desired Key Vault resource and set its Access Policies to grant GET Secret Permissions for this new Managed Identity. 
 
-[More information](../key-vault-certs.md#how-integration-works)
+[More information](./key-vault-certs.md#how-integration-works)
 </br></br>
 ___
 </br>
@@ -126,7 +126,7 @@ ___
 
 **Description:** The Subscription for Key Vault is disabled. 
 
-**Resolution:** Your Azure subscription can get disabled due to various reasons. Please refer to the guide for [Reactivating a disabled Azure subscription](../../cost-management-billing/manage/subscription-disabled.md) and take the necessary action.
+**Resolution:** Your Azure subscription can get disabled due to various reasons. Please refer to the guide for [Reactivating a disabled Azure subscription](../cost-management-billing/manage/subscription-disabled.md) and take the necessary action.
 </br></br>
 ___
 
