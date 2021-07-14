@@ -14,7 +14,7 @@ ms.custom: "monitoring"
 
 Intro goes here
 
-### Identify storage accounts with no or low use
+## Identify storage accounts with no or low use
 
 Look at the transaction volume and capacity of your accounts to find those accounts that aren't being used. You can use Storage Insights to find them. Storage Insights is a tool that gives you a unified view of the performance, capacity, and availability metrics of all your accounts. See [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md) to learn how to set that up.
 
