@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 07/13/2021
 
 ms.author: mimart
 author: msmimart
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 ## What are dynamic groups?
 Dynamic configuration of security group membership for Azure Active Directory (Azure AD) is available in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as userType, department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Read more about dynamic groups in [Dedicated groups in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
-The appropriate [Azure AD Premium P1 or P2 licensing](https://azure.microsoft.com/pricing/details/active-directory/) is required to create and use dynamic groups. Learn more in the article [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
+The appropriate [Azure AD Premium P1 or P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) is required to create and use dynamic groups. Learn more in the article [Create attribute-based rules for dynamic group membership in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## Creating an "all users" dynamic group
 You can create a group containing all users within a tenant using a membership rule. When users are added or removed from the tenant in the future, the group's membership is adjusted automatically.
@@ -72,5 +72,5 @@ The following image shows the rule syntax for a dynamic group modified to includ
 ## Next steps
 
 - [B2B collaboration user properties](user-properties.md)
-- [Adding a B2B collaboration user to a role](add-guest-to-role.md)
+- [Adding a B2B collaboration user to a role](./add-users-administrator.md)
 - [Conditional Access for B2B collaboration users](conditional-access.md)

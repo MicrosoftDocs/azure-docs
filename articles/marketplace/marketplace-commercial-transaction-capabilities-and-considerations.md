@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 07/05/2021
 ms.author: mingshen
 author: mingshen-ms
 ---
@@ -68,7 +68,7 @@ Depending on the transaction option used, subscription charges are as follows:
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop selling an offer or plan](./update-existing-offer.md#stop-selling-an-offer-or-plan).
+Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
 
 ### Free, Contact me, and bring-your-own-license (BYOL) pricing
 
@@ -173,7 +173,7 @@ Customers typically purchase using the Enterprise Agreement or a credit-card ena
 
 #### Billing questions and support
 
-For more information and legal policies, see the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For help with billing questions, contact [commercial marketplace publisher support](https://aka.ms/marketplacepublishersupport).
+For more information and legal policies, see the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For help with billing questions, contact [commercial marketplace publisher support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
 ## Transact requirements
 

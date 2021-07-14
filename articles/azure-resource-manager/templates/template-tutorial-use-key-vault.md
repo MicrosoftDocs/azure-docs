@@ -41,7 +41,7 @@ To complete this article, you need:
     openssl rand -base64 32
     ```
 
-    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 ## Prepare a key vault
 
@@ -102,7 +102,7 @@ Now you've prepared a key vault and a secret. The following sections show you ho
 
 ## Open a quickstart template
 
-Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template that's used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
+Azure Quickstart Templates is a repository for ARM templates. Instead of creating a template from scratch, you can find a sample template and customize it. The template that's used in this tutorial is called [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/vm-simple-windows/).
 
 1. In Visual Studio Code, select **File** > **Open File**.
 

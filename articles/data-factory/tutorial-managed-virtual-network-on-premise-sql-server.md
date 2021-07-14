@@ -12,8 +12,10 @@ ms.date: 05/06/2021
 
 This tutorial provides steps for using the Azure portal to setup Private Link Service and access on-premises SQL Server from Managed VNet using Private Endpoint.
 
-:::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="Screenshot that shows the access model of S Q L server." lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
+> [!NOTE]
+> The solution presented in this article describes SQL Server connectivity, but you can use a similar approach to connect and query other available [on-premises connectors](connector-overview.md) that are supported in Azure Data Factory.
 
+:::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="Screenshot that shows the access model of SQL server." lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
 
 ## Prerequisites
 
@@ -215,7 +217,7 @@ the page.
     <FQDN/IP> is your target SQL Server IP.<br/>
     
     > [!Note] 
-    > FQDN doesn’t work for on-premises SQL Server unless you add a record in Azure DNS zone.
+    > FQDN doesn't work for on-premises SQL Server unless you add a record in Azure DNS zone.
     
 3. Run below command and check the iptables in your backend server VMs. You can see one record in your iptables with your target IP.<br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**

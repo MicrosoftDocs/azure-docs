@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page # Required
   author: mikben
   ms.author: mikben
-  ms.date: 03/10/2021
+  ms.date: 06/30/2021
 
 landingContent:
   - title: About Azure Communication Services
@@ -45,16 +45,18 @@ landingContent:
             url: ../event-grid/event-schema-communication-services.md
           - text: Notifications
             url: concepts/notifications.md
+          - text: Best Practices
+            url: concepts/best-practices.md
           - text: Troubleshooting
             url: concepts/troubleshooting-info.md
   - title: Voice and video calling
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Add voice and video calling to your app
+          - text: Add voice calling to your app
             url: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - text: Use the Calling SDK
-            url: quickstarts/voice-video-calling/calling-client-samples.md
+          - text: Add video calling to your app
+            url: quickstarts/voice-video-calling/get-started-with-video-calling.md
       - linkListType: concept
         links:
           - text: Voice and video concepts

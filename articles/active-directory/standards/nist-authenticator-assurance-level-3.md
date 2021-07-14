@@ -41,9 +41,9 @@ We recommend using a multifactor cryptographic hardware authenticator to achieve
 
 Note that FIDO2 keys and Windows Hello for Business haven't been validated at the required FIPS 140 Security Level. So federal customers need to conduct risk assessment and evaluation before accepting these authenticators as AAL3.
 
-For detailed guidance, see [Plan a passwordless authentication deployment in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-deployment).
+For detailed guidance, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
 
-For more information on implementing Windows Hello for Business, see the [Windows Hello for Business deployment guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide).
+For more information on implementing Windows Hello for Business, see the [Windows Hello for Business deployment guide](/windows/security/identity-protection/hello-for-business/hello-deployment-guide).
 
 ## FIPS 140 validation
 
@@ -64,7 +64,7 @@ Single-factor and multifactor cryptographic hardware authenticators have differe
 
 Azure AD joined and Hybrid Azure AD joined devices meet this requirement when: 
 
-* You run [Windows in a FIPS-140 approved mode of operation](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation). 
+* You run [Windows in a FIPS-140 approved mode of operation](/windows/security/threat-protection/fips-140-validation). 
 
 * On a machine with a TPM that's FIPS 140 Level 1 Overall (or higher) with FIPS 140 Level 3 Physical Security. 
 
@@ -80,7 +80,7 @@ Check with your mobile device vendor to learn about your vendor's adherence with
 
 FIDO2 security keys, smart cards, and Windows Hello for Business can help you meet these requirements.
 
-* FIDO2 key providers are in various stages of FIPS certification, including some that have completed validation. We recommend you review the [list of supported FIDO2 key vendors](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#fido2-security-key-providers) and check with your provider for current FIPS validation status.
+* FIDO2 key providers are in various stages of FIPS certification, including some that have completed validation. We recommend you review the [list of supported FIDO2 key vendors](../authentication/concept-authentication-passwordless.md#fido2-security-key-providers) and check with your provider for current FIPS validation status.
 
 * Smart cards are a proven technology. Multiple vendor products meet FIPS requirements.
 
@@ -101,7 +101,7 @@ FIPS 140 requires the entire cryptographic boundary, including software, firmwar
 
 At the AAL3 level, NIST requires reauthentication every 12 hours, regardless of user activity. Reauthentication is also required after any period of inactivity that lasts 15 minutes or longer. Presentation of both factors is required.
 
-To meet the requirement for reauthentication regardless of user activity, Microsoft recommends configuring [user sign-in frequency](https://aka.ms/NIST/38) to 12 hours. 
+To meet the requirement for reauthentication regardless of user activity, Microsoft recommends configuring [user sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md) to 12 hours. 
 
 NIST also allows the use of compensating controls for confirming the subscriber's presence:
 
@@ -148,5 +148,3 @@ NIST allows the use of compensating controls for mitigating malware risk. Any In
 [Achieving NIST AAL1 by using Azure AD](nist-authenticator-assurance-level-1.md)
 
 [Achieving NIST AAL2 by using Azure AD](nist-authenticator-assurance-level-2.md)
-
-

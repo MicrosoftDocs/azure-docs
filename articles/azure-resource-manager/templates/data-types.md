@@ -4,7 +4,7 @@ description: Describes the data types that are available in Azure Resource Manag
 ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
-ms.date: 05/07/2021
+ms.date: 06/24/2021
 ---
 
 # Data types in ARM templates
@@ -38,6 +38,17 @@ Arrays start with a left bracket (`[`) and end with a right bracket (`]`). An ar
     ]
   }
 },
+
+"outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('exampleArray')]"
+  },
+  "firstExampleArrayElement": {
+    "type": "int",
+    "value": "[parameters('exampleArray')[0]]"
+  }
+}
 ```
 
 The elements of an array can be the same type or different types.
@@ -50,6 +61,17 @@ The elements of an array can be the same type or different types.
     true,
     "example string"
   ]
+}
+
+"outputs": {
+  "arrayOutput": {
+    "type": "array",
+    "value": "[variables('mixedArray')]"
+  },
+  "firstMixedArrayElement": {
+    "type": "string",
+    "value": "[variables('mixedArray')[0]]"
+  }
 }
 ```
 
@@ -131,4 +153,4 @@ The following example shows two secure parameters.
 
 ## Next steps
 
-To learn about the template syntax, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+To learn about the template syntax, see [Understand the structure and syntax of ARM templates](./syntax.md).

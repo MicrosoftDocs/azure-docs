@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 07/12/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -44,7 +44,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
-        A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
+        A volume name must be unique within each capacity pool. It must be at least three characters long. The name must begin with a letter. It can contain letters, numbers, underscores ('_'), and hyphens ('-') only. 
 
         You can't use `default` or `bin` as the volume name.
 
@@ -83,12 +83,19 @@ Before creating an SMB volume, you need to create an Active Directory connection
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Click **Protocol** and complete the following information:  
-    * Select **SMB** as the protocol type for the volume. 
-    * Select your **Active Directory** connection from the drop-down list.
-    * Specify the name of the shared volume in  **Share name**.
+    * Select **SMB** as the protocol type for the volume.  
+
+    * Select your **Active Directory** connection from the drop-down list.  
+    
+    * Specify a unique **share name** for the volume. This share name is used when you create mount targets. The requirements for the share name are as follows:   
+        - It must be unique within each subnet in the region. 
+        - It must start with an alphabetical character.
+        - It can contain only letters, numbers, or dashes (`-`). 
+        - The length must not exceed 80 characters.   
+        
     * If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
-        See [SMB Encryption FAQs](azure-netapp-files-faqs.md#smb-encryption-faqs) for additional information. 
+        See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
 
         The **SMB3 Protocol Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
 
@@ -164,7 +171,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Convert existing SMB volumes to use Continuous Availability](convert-smb-continuous-availability.md)
-* [SMB FAQs](azure-netapp-files-faqs.md#smb-faqs)
+* [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption)
 * [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
 * [Learn about virtual network integration for Azure services](../virtual-network/virtual-network-for-azure-services.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

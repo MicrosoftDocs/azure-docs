@@ -5,7 +5,6 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
@@ -26,6 +25,8 @@ In this article, you learn how to visualize real-time sensor data that your IoT 
   * An active Azure subscription
   * An Iot hub under your subscription
   * A client application that sends messages to your Iot hub
+
+* [Node.js](https://nodejs.org) version 10.6 or later. To check your node version run `node --version`.
 
 * [Download Git](https://www.git-scm.com/downloads)
 
@@ -50,7 +51,7 @@ Note down the name you choose, you'll need it later in this tutorial.
 IoT hubs are created with several default access policies. One such policy is the **service** policy, which provides sufficient permissions for a service to read and write the IoT hub's endpoints. Run the following command to get a connection string for your IoT hub that adheres to the service policy:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIotHub --policy-name service
+az iot hub connection-string show --hub-name YourIotHub --policy-name service
 ```
 
 The connection string should look similar to the following:

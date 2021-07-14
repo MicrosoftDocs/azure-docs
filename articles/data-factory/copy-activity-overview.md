@@ -4,7 +4,7 @@ description: Learn about the Copy activity in Azure Data Factory. You can use it
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 6/1/2021
 ms.author: jianleishen
 ---
 

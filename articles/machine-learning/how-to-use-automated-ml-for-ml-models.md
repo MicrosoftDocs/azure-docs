@@ -1,32 +1,31 @@
 ---
-title: Use AutoML to create models & deploy 
+title: Set up AutoML with the studio UI
 titleSuffix: Azure Machine Learning
-description: Create, review, and deploy automated machine learning models with the Azure Machine Learning studio.
+description: Learn how to set up AutoML training runs without a single line of code with Azure Machine Learning automated ML in the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 12/20/2020
+ms.date: 06/11/2021
 ms.topic: how-to
-ms.custom: automl
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Create, review, and deploy automated machine learning models with Azure Machine Learning
+# Set up no-code AutoML training with the studio UI 
 
+In this article, you learn how to set up AutoML training runs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
-In this article, you learn how to create, explore, and deploy automated machine learning models without a single line of code in Azure Machine Learning studio.
-
-Automated machine learning is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+Automated machine learning, AutoML, is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about how Azure Machine Learning implements automated machine learning](concept-automated-ml.md).
  
-For an end to end example, try the [tutorial for creating a classification model with Azure Machine Learning's automated ML interface](tutorial-first-experiment-automated-ml.md). 
+For an end to end example, try the [Tutorial: AutoML- train no-code classification models](tutorial-first-experiment-automated-ml.md). 
 
 For a Python code-based experience, [configure your automated machine learning experiments](how-to-configure-auto-train.md) with the Azure Machine Learning SDK.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
@@ -42,7 +41,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
  If this is your first time doing any experiments, you'll see an empty list and links to documentation. 
 
-Otherwise, you'll see a list of your recent automated machine learning experiments, including those created with the SDK. 
+Otherwise, you'll see a list of your recent automated  ML experiments, including those created with the SDK. 
 
 ## Create and run experiment
 
@@ -110,7 +109,7 @@ Otherwise, you'll see a list of your recent automated machine learning experimen
 
     Select **Next**.
 
-1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) for more information.
+1. On the **Task type and settings** form, select the task type: classification, regression, or forecasting. See [supported task types](concept-automated-ml.md#when-to-use-automl-classification-regression--forecasting) for more information.
 
     1. For **classification**, you can also enable deep learning.
     
@@ -171,10 +170,13 @@ The **Models** tab contains a list of the models created ordered by the metric s
 
 ### View training run details
 
-Drill down on any of the completed models to see training run details, like a model summary on the **Model** tab or performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
+Drill down on any of the completed models to see training run details. On the **Model** tab view details like a model summary and the hyperparameters used for the selected model. 
 
-[![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+[![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
 
+ You can also see model specific performance metric charts on the **Metrics** tab. [Learn more about charts](how-to-understand-automated-ml.md).
+
+![Iteration details](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
 On the Data transformation tab, you can see a diagram of what data preprocessing, feature engineering, scaling techniques and the machine learning algorithm that were applied to generate this model.
 

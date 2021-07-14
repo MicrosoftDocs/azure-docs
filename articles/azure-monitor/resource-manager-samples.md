@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Resource Manager template samples for Azure Monitor
 
-Azure Monitor can be deployed and configured at scale using [Azure Resource Manager template](../azure-resource-manager/templates/template-syntax.md). The following articles provide sample templates for different Azure Monitor features. These samples can be modified for your particular requirements and deployed using any standard method for deploying Resource Manager templates. 
+Azure Monitor can be deployed and configured at scale using [Azure Resource Manager template](../azure-resource-manager/templates/syntax.md). The following articles provide sample templates for different Azure Monitor features. These samples can be modified for your particular requirements and deployed using any standard method for deploying Resource Manager templates. 
 
 ## Deploying the sample templates
 The basic steps to use the samples are:

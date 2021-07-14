@@ -3,7 +3,7 @@ title: Remove VMs from Azure Automation Update Management
 description: This article tells how to remove machines managed with Update Management.
 services: automation
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 06/03/2021
 ms.custom: mvc
 ---
 # Remove VMs from Update Management

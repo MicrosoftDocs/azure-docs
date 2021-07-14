@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop host pool service updates - Azure
+title: Azure Virtual Desktop host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 author: Heidilohr
 ms.topic: tutorial
@@ -11,23 +11,23 @@ manager: femila
 # Tutorial: Create a host pool to validate service updates
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md).
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop environment. We highly recommend you create a validation host pool where service updates are applied first. This allows you to monitor service updates before the service applies them to your standard or non-validation environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your standard environment.
+Host pools are a collection of one or more identical virtual machines within Azure Virtual Desktop environment. We highly recommend you create a validation host pool where service updates are applied first. This allows you to monitor service updates before the service applies them to your standard or non-validation environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your standard environment.
 
 To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation host pool as they do to the standard host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
-You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service.md) or the [Windows Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
+You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service.md) or the [Azure Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
 
 >[!IMPORTANT]
->Windows Virtual Desktop with Azure Resource Management integration currently has trouble enabling and disabling validation environments. We'll update this article when we've resolved the issue.
+>Azure Virtual Desktop with Azure Resource Management integration currently has trouble enabling and disabling validation environments. We'll update this article when we've resolved the issue.
 
 ## Prerequisites
 
-Before you begin, follow the instructions in [Set up the Windows Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
+Before you begin, follow the instructions in [Set up the Azure Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
 
 ## Create your host pool
 
@@ -69,8 +69,8 @@ You can also use the Azure portal to enable your validation environment.
 To use the Azure portal to configure your validation host pool:
 
 1. Sign in to the Azure portal at <https://portal.azure.com>.
-2. Search for and select **Windows Virtual Desktop**.
-3. In the Windows Virtual Desktop page, select **Host pools**.
+2. Search for and select **Azure Virtual Desktop**.
+3. In the Azure Virtual Desktop page, select **Host pools**.
 4. Select the name of the host pool you want to edit.
 5. Select **Properties**.
 6. In the validation environment field, select **Yes** to enable the validation environment.
@@ -84,7 +84,7 @@ If there are any service updates, make sure you have at least a small group of u
 
 ## Next steps
 
-Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Windows Virtual Desktop deployment.
+Now that you've created a validation host pool, you can learn how to use Azure Service Health to monitor your Azure Virtual Desktop deployment.
 
 > [!div class="nextstepaction"]
 > [Set up service alerts](./set-up-service-alerts.md)

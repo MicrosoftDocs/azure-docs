@@ -40,15 +40,15 @@ The Azure Logic Apps service applies different pricing models, based on the reso
 
 * Logic app resources that you create and run in multi-tenant Azure Logic Apps use a [consumption (pay-for-use) pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing).
 
-* Logic app resources that you create and run in single-tenant Azure Logic Apps  use a [hosting plan pricing model](../logic-apps/logic-apps-pricing.md#standard-pricing).
+* Logic app resources that you create and run in single-tenant Azure Logic Apps use a [hosting plan pricing model](../logic-apps/logic-apps-pricing.md#standard-pricing).
 
-* Logic app resources that you create and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+* Logic app resources that you create and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) use the [ISE pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing).
 
 Here are other resources that incur costs when you create them for use with logic apps:
 
 * An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps for building B2B integrations. Integration accounts use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts) where the rate is based on the integration account type or *tier* that you use.
 
-* An [ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing) is a separate resource that you create as a deployment location for logic apps that need direct access to resources in a virtual network. ISEs use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing) where the rate is based on the ISE SKU that you create and other settings. However, data retention and storage consumption don't incur costs.
+* An [ISE](../logic-apps/logic-apps-pricing.md#ise-pricing) is a separate resource that you create as a deployment location for logic apps that need direct access to resources in a virtual network. ISEs use the [ISE pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing) where the rate is based on the ISE SKU that you create and other settings. However, data retention and storage consumption don't incur costs.
 
 * A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing) except when you use them in an ISE.
 
@@ -56,7 +56,7 @@ Here are other resources that incur costs when you create them for use with logi
 
 #### Storage operations and costs
 
-Azure Logic Apps uses [Azure Storage](/azure/storage/) for any storage operations. With multi-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. [Data retention and storage consumption](../logic-apps/logic-apps-pricing.md#data-retention) accrue costs using a [fixed pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For example, inputs and outputs from run history are kept in behind-the-scenes storage, which differs from storage resources that you independently create, manage, and access from your logic app.
+Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. With multi-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. [Data retention and storage consumption](../logic-apps/logic-apps-pricing.md#storage-operations) accrue costs using a [fixed pricing model](../logic-apps/logic-apps-pricing.md#storage-operations). For example, inputs and outputs from run history are kept in behind-the-scenes storage, which differs from storage resources that you independently create, manage, and access from your logic app.
 
 With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data. When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are separately listed in your Azure billing invoice.
 

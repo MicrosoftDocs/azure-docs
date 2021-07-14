@@ -67,6 +67,8 @@
     items:
     - name: Single-tenant overview
       href: single-tenant-overview-compare.md
+    - name: About the workflow designer (single-tenant)
+      href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
@@ -207,8 +209,8 @@
         href: logic-apps-enterprise-integration-edifact-decode.md
       - name: Handle EDIFACT files with UNH2.5 segment
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-      - name: Exchange RosettaNet messages
-        href: logic-apps-enterprise-integration-rosettanet.md
+    - name: Exchange RosettaNet messages
+      href: logic-apps-enterprise-integration-rosettanet.md
     - name: Exchange X12 messages
       href: logic-apps-enterprise-integration-x12.md
       items: 
@@ -332,8 +334,6 @@
       href: logic-apps-enterprise-integration-transform.md
     - name: Twilio
       href: ../connectors/connectors-create-api-twilio.md
-    - name: Wunderlist
-      href: ../connectors/connectors-create-api-wunderlist.md
     - name: X12
       href: logic-apps-enterprise-integration-x12.md
     - name: XML Validation
@@ -411,7 +411,7 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Pricing model & usage metering
+  - name: Pricing and billing models
     href: logic-apps-pricing.md
   - name: Azure CLI
     href: /cli/azure/logic
@@ -449,7 +449,7 @@
     href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
+  - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
