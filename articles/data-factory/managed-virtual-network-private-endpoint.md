@@ -157,6 +157,8 @@ To access on premises data sources from managed Virtual Network using Private En
 - Canada East
 - Central India
 - Central US
+- China East2
+- China North2
 - East Asia
 - East US
 - East US2
@@ -173,6 +175,9 @@ To access on premises data sources from managed Virtual Network using Private En
 - South East Asia
 - Switzerland North
 - UAE North
+- US Gov Arizona
+- US Gov Texas
+- US Gov Virginia
 - UK South
 - UK West
 - West Central US
