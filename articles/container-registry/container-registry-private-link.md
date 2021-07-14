@@ -2,7 +2,7 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 07/14/2021
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -24,13 +24,19 @@ This article shows how to configure a private endpoint for your registry using t
 * For testing, it's recommended to set up a VM in the virtual network. For steps to create a test virtual machine to access your registry, see [Create a Docker-enabled virtual machine](container-registry-vnet.md#create-a-docker-enabled-virtual-machine). 
 * To use the Azure CLI steps in this article, Azure CLI version 2.6.0 or later is recommended. If you need to install or upgrade, see [Install Azure CLI][azure-cli]. Or run in [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * If you don't already have a container registry, create one (Premium tier required) and [import](container-registry-import-images.md) a sample public image such as `mcr.microsoft.com/hello-world` from Microsoft Container Registry. For example, use the [Azure portal][quickstart-portal] or the [Azure CLI][quickstart-cli] to create a registry.
-* To configure registry access using a private link in a different Azure subscription, you need to register the resource provider for Azure Container Registry in that subscription. For example:
 
-  ```azurecli
-  az account set --subscription <Name or ID of subscription of private link>
+### Register container registry resource provider
 
-  az provider register --namespace Microsoft.ContainerRegistry
-  ``` 
+To configure registry access using a private link in a different Azure subscription or tenant, you need to [register the resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for Azure Container Registry in that subscription. Use the Azure portal, Azure CLI, or other tools.
+
+Example:
+
+```azurecli
+az account set --subscription <Name or ID of subscription of private link>
+
+az provider register --namespace Microsoft.ContainerRegistry
+``` 
+
 ## Set up private endpoint - portal (recommended)
 
 Set up a private endpoint when you create a registry, or add a private endpoint to an existing registry. 
@@ -86,7 +92,7 @@ Your private link is now configured and ready for use.
 
     | Setting | Value |
     | ------- | ----- |
-    |Connection method  | Select **Connect to an Azure resource in my directory**.|
+    |Connection method  | For this example, select **Connect to an Azure resource in my directory**.|
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.ContainerRegistry/registries**. |
     | Resource |Select the name of your registry|
