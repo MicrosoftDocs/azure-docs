@@ -10,7 +10,7 @@ ms.date: 07/07/2021
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts and how to set up and use an IoT Hub.
 ---
 
-# IoT Concepts
+# IoT concepts
 
 IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communications in both directions between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT Hub. 
 
