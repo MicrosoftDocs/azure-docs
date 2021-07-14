@@ -29,6 +29,32 @@ First, complete the setup steps in [How-to: Set up an instance and authenticatio
 
 To proceed, you will need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
+## Elements of authentication code
+
+This section describes recommended class-level variables and authentication code that will allow the function to access Azure Digital Twins. Add the variables and code to your function.
+
+* **Code to read the Azure Digital Twins service URL as an environment variable or configuration setting.** It's a good practice to read the service URL from an [environment variable](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal) or a configuration setting rather than hard-coding it in the function. If you're creating an Azure function, that code to set the environment variable might look like this: 
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+
+* **A static variable to hold an HttpClient instance.** HttpClient is relatively expensive to create, so you'll probably want to create it once with the authentication code to avoid creating it for every function invocation.
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+
+* **Managed identity credentials.**
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. Do *not* make this variable static inside your class.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+
+* **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.
+
+After these changes, your function code will look like the following example.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
+
+Now that your application is written, you can publish it to Azure.
+
 ## Common authentication methods with Azure.Identity
 
 `Azure.Identity` is a client library that provides several credential-obtaining methods that you can use to get a bearer token and authenticate with your SDK. Although this article gives examples in C#, you can view `Azure.Identity` for several languages, including...

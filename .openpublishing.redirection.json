@@ -17220,6 +17220,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/digital-twins/how-to-create-azure-function.md",
+      "redirect_url": "/azure/digital-twins/how-to-send-twin-to-twin-events",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/digital-twins/concepts-integration.md",
       "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
       "redirect_document_id": true
