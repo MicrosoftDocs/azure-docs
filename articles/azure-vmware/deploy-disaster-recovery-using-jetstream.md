@@ -77,7 +77,7 @@ Any of the following types can be used:
 | **JetStream DR MSA**  | <ul><li>CPU: 64 bit, 4 vCPUs</li><li>Memory: 4 GB</li><li>Disk space: 60 GB</li><li>Network: Static or dynamically assigned (DHCP) IP addresses can be used. The FQDN should be registered with DNS.</li><li>DNS: DNS name resolution for vSphere hosts and vCenter Server</li></ul>  |
 | **JetStream DRVA**  | <ul><li>CPU: 4 cores</li><li>Memory: 8 GB</li><li>Network: Static or dynamically assigned (DHCP) IP addresses can be used.</li></ul>  |
 | **Replication Log Store**  | For optimal performance, the protected site should expose a low-latency, flash storage device that the hosts share in the cluster. This device can be controlled by the JetStream DR software or provided by a third party. It's used as a repository for the replication log. The DRVA and ESXi host(s) must have direct access to this storage over iSCSI.  |
-| **Ports**  | When JetStream DR software is installed, a range of ports are opened automatically on the source ESXi hosts. For most users, no more action is necessary. In cases where the on-premises/source setup has special firewall rules blocking these ports, you’ll need to manually open these ports.<br /><br />Port range: 32873-32878  |
+| **Ports**  | When JetStream DR software is installed, a range of ports is opened automatically on the source ESXi hosts. For most users, no more action is necessary. However, in cases where the on-premises/source setup has special firewall rules blocking these ports, you'll need to open these ports manually.<br /><br />Port range: 32873-32878  |
 
 
 
