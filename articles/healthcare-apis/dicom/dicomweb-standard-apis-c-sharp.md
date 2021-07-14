@@ -200,7 +200,7 @@ _Details:_
 DicomWebResponse response = await client.RetrieveInstanceMetadataAsync(studyInstanceUid, seriesInstanceUid, sopInstanceUid);
 ```
 
-This response should only return the metatdata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
+This response should only return the metadata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
 
 ### Retrieve one or more frames from a single instance
 
