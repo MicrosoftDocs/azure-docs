@@ -18,7 +18,7 @@ By default, Azure VMware Solution management components such as vCenter can only
 
 Private DNS for Azure VMware Solution management components lets you define conditional forwarding rules for the desired domain name to a selected set of private DNS servers through the NSX-T DNS Service.
 
-This capability leverages the DNS Forwarder Service in NSX-T. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T DNS Service. The DNS Service conditionally forwards DNS queries for each zone based on the external DNS servers defined in that zone.
+This capability uses the DNS Forwarder Service in NSX-T. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T DNS Service. The DNS Service conditionally forwards DNS queries for each zone, which based on the external DNS servers defined in that zone.
 
 >[!NOTE]
 >The DNS Service is associated with up to five FQDN zones. Each FQDN zone is associated with up to three DNS servers.
@@ -59,24 +59,20 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
 
    You’ll see a message in the Notifications when the DNS zone has been created.
 
-1. Ignore the message about a default DNS zone. One is created for you as part of your private cloud
+1. Ignore the message about a default DNS zone. A DNS zone is created for you as part of your private cloud.
 
 1. Select the **DNS service** tab, select **Edit**.
 
    >[!IMPORTANT]
    >While certain operations in your private cloud may be performed from NSX-T Manager, you must edit the DNS service from the Simplified Networking experience in the Azure portal. 
 
-   --> [new image]
-
-1. From the FQDN zones drop-down, select the newly created FQDN and then select OK.
+1. From the **FQDN zones** drop-down, select the newly created FQDN and then select **OK**.
 
    It takes several minutes to complete and once finished you’ll see the *Completed* message from **Notifications**.
 
-   --> [new image]
-
    At this point, management components in your private cloud should be able to resolve DNS entries from the FQND zone provided to the NSX-T DNS Service. 
 
-1. Repeat the above steps for additional FQDN zones, including any applicable reverse lookup zones.
+1. Repeat the above steps for other FQDN zones, including any applicable reverse lookup zones.
 
 
 ## Verify name resolution operations
@@ -93,14 +89,14 @@ NSX-T Manager provides the DNS Forwarder Service statistics at the global servic
 
 1. Select **View Statistics** and then from the **Zone Statistics** drop-down, select your FQDN Zone.
 
-   The top half shows the statistics for the entire service, and the bottom half shows the statistics for your specified zone. In this example, you can see successful queries that were forwarded to the DNS services specified during the configuration of the FQDN zone.
+   The top half shows the statistics for the entire service, and the bottom half shows the statistics for your specified zone. In this example, you can see the forwarded queries to the DNS services specified during the configuration of the FQDN zone.
 
    :::image type="content" source="media/networking/nsxt-manager-dns-services-statistics.png" alt-text="Screenshot showing the DNS Forwarder statistics.":::
 
 
 ### PowerCLI
 
-The NSX-T Policy API provides the ability to perform nslookup commands from the NSX-T DNS Forwarder Service. The required cmdlets are part of the VMware.VimAutomation.Nsxt module in PowerCLI. The following example demonstrates output from version 12.3.0 of that module.
+The NSX-T Policy API lets you run nslookup commands from the NSX-T DNS Forwarder Service. The required cmdlets are part of the **VMware.VimAutomation.Nsxt** module in PowerCLI. The following example demonstrates output from version 12.3.0 of that module.
 
 1. Connect to your NSX-T Server. 
 
