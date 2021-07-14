@@ -231,7 +231,7 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
     rowKeyUpperBound[rowKeyUpperBound.Length - 1]++;
 
     // Create the enumeration query.
-    var queryResultsFilter = tableClient.Query<CustomResource>(filter: $"PartitionKey eq '{partitionKey}' and RowKey lt '{rowKeyUpperBound.ToString()}' and RowKey gt '{resourceType}'")
+    var queryResultsFilter = tableClient.Query<CustomResource>(filter: $"PartitionKey eq '{partitionKey}' and RowKey lt '{rowKeyUpperBound.ToString()}' and RowKey ge '{resourceType}'")
     
     var customResources = await queryResultsFilter.ToList().Select(customResource => JToken.Parse(customResource.Data));
 
