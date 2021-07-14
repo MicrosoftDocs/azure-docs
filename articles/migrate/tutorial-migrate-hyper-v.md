@@ -65,9 +65,9 @@ For migrating Hyper-V VMs, Azure Migrate:Server Migration installs software prov
 
 ## Install and register the provider
 
-Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. 
+Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate. To install and register the provider, follow the steps below using either the UI or commands:
 
-# [Install using UI](#tab/UI)
+# [Using UI](#tab/UI)
 
 Run the provider setup file on each host, as described below:
 
@@ -83,7 +83,7 @@ Run the provider setup file on each host, as described below:
     - Click **Finish**.
 
 
-# [Install using commands](#tab/commands) 
+# [Using commands](#tab/commands) 
 
 Run the following commands on each host, as described below:
 
@@ -113,13 +113,13 @@ Run the following commands on each host, as described below:
     **Configure proxy rules:** If you need to connect to the internet via a proxy, use the optional parameters /proxyaddress and /proxyport parameters to specify the proxy address (in the form http://ProxyIPAddress) and proxy listening port. For authenticated proxy, you can use the optional parameters /proxyusername and /proxypassword.
 
     ``` 
-    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r [/proxyaddress http://127.0.0.1] [/proxyport 8888] [/proxyusername username] [/proxypassword password]
+   "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r [/proxyaddress http://ProxyIPAddress] [/proxyport portnumber] [/proxyusername username] [/proxypassword password]
     ```
  
-    **Configure proxy bypass rules:** To configure proxy bypass rules, use the optional parameter /AddBypassUrls and provide bypass URL(s) for proxy seperated by ';' and run the following commands:
+    **Configure proxy bypass rules:** To configure proxy bypass rules, use the optional parameter /AddBypassUrls and provide bypass URL(s) for proxy separated by ';' and run the following commands:
 
     ```
-    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r [/proxyaddress http://127.0.0.1] [/proxyport 8888] [/proxyusername username] [/proxypassword password] [/AddBypassUrls URLs]
+    "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r [/proxyaddress http://ProxyIPAddress] [/proxyport portnumber] [/proxyusername username] [/proxypassword password] [/AddBypassUrls URLs]
     ```
     and
     ```
