@@ -4,7 +4,7 @@
   items: 
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
-      href: overview-what-is-azure-ml.md
+      href: overview-what-is-azure-machine-learning.md
     - name: What is Azure Machine Learning studio?
       displayName: AML, studio, designer
       href: overview-what-is-machine-learning-studio.md

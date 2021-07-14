@@ -85,7 +85,7 @@ While the project lifecycle will vary by project, it may often look like this:
 
 [project lifecycle diagram]
 
-A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user inferface, leverage versioned assets for jobs like environments and storage references, or 
+A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
 
 When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
 

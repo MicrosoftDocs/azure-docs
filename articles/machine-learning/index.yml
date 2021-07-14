@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Machine Learning?
-            url: overview-what-is-azure-ml.md  
+            url: overview-what-is-azure-machine-learning.md  
       - linkListType: quickstart
         links:
           - text: Set up resources

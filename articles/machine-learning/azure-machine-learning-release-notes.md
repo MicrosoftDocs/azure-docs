@@ -2665,4 +2665,4 @@ The [`PipelineEndpoint`](/python/api/azureml-pipeline-core/azureml.pipeline.core
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning](overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).

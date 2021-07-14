@@ -147,7 +147,7 @@ Commonly used services in bot applications that are not currently available in A
 
 For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
-### [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md)
+### [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md)
 
 For feature variations and limitations, see [Azure Machine Learning sovereign cloud parity](../machine-learning/reference-machine-learning-cloud-parity.md).
 

@@ -89,7 +89,7 @@ Learn more in these articles:
 
 Learn about the [latest architecture for Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 
-For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
+For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md).
 
 Start with [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).  Then use these resources to create your first experiment with your preferred method:
 
