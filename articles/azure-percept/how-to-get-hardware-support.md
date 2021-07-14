@@ -1,5 +1,5 @@
 ---
-title: How to get hardware support from ASUS
+title: How to get hardware support for Azure Percept DK hardware from ASUS
 description: This guide shows you how to contact ASUS for technical support for the Azure Percept DK hardware. 
 author: mimcco
 ms.author: mimcco
@@ -27,19 +27,18 @@ If you experience issues with the hardware, which can include missing and broken
     1. Select **AIOT & Industrial Solutions**.
     1. For **Product Series**, select **Intelligent Edge Computer**.
     1. For **Product Model**, select **Azure Percept DK** or **Azure Percept Audio**.
-    1. Select **Continue**
+    1. Select **Continue**.
 1. You'll be presented with a list of articles for common support issues. Select the article that best represents the issue you're experiencing.
 1. If none of the articles cover your issue, select the **See support** button for options on receiving direct support.
 
 ## Get support for business and sales questions
 If you would like to contact ASUS about purchasing dev kits, you can submit an inquiry and they'll connect you with the right people.
-1. Go to the [inquiry form](https://iot.asus.com/inquiry/)
-1. Fill out the needed fields and **Submit**
+1. Go to the [inquiry form](https://iot.asus.com/inquiry/).
+1. Fill out the needed fields and **Submit**.
 1. An ASUS representative will follow up.
 
 ## Next steps
 If you think you need more support, you can also try these options from Microsoft.
 - [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 - [Azure Support](https://azure.microsoft.com/support/plans/)
-
 
