@@ -182,7 +182,7 @@ For subsequent combinations of Spark and HBase versions, these artifacts are no 
 3. Run the following command (be sure to change the .jar name that corresponds to the .jar file you built):
 
     ```bash
-    spark-shell --jars /home/sshuser/shc/core/target/shc-core-1.1.3-2.4-s_2.11.jar,/usr/hdp/current/hbase-client/lib/*
+    spark-shell --jars /home/sshuser/shc/core/target/shc-core-1.1.3-2.4-s_2.11.jar,/usr/hdp/current/hbase-client/lib/shaded-clients/*
     ```
     
 4. Keep this Spark shell instance open and continue to the next section. 
