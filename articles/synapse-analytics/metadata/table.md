@@ -45,6 +45,8 @@ Spark provides two types of tables that Azure Synapse exposes in SQL automatical
 
 Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
 
+[!NOTE] Both Spark and Serverless SQL Pool support delta table format (preview). The metadata is not share among both engines, though. A Spark delta table metadata will not sync to the SQL engine. Please find more details here: [Self-help for serverless SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/resources-self-help-sql-on-demand#delta-lake)
+
 ### Share Spark tables
 
 The shareable managed and external Spark tables exposed in the SQL engine as external tables with the following properties:
