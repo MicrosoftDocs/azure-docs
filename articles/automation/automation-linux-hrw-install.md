@@ -40,7 +40,7 @@ The Hybrid Runbook Worker feature supports the following distributions. All oper
 
 * Amazon Linux 2012.09 to 2015.09
 * CentOS Linux 5, 6, 7, and 8
-* Oracle Linux 5, 6, 7, and 8
+* Oracle Linux 6, 7, and 8
 * Red Hat Enterprise Linux Server 5, 6, 7, and 8
 * Debian GNU/Linux 6, 7, and 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 18.04, and 20.04 LTS
