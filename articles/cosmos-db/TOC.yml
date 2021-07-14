@@ -745,6 +745,14 @@
               href: migrate-dotnet-v3.md
             - name: Migrate to .NET V2 SDK
               href: migrate-dotnet-v2.md
+        - name: Connectors
+          items:
+            - name: Kafka Connect
+              href: kafka-connector.md
+            - name: Kafka Connect - Source
+              href: kafka-connector-source.md
+            - name: Kafka Connect - Sink
+              href: kafka-connector-sink.md
         - name: Troubleshooting
           items:
             - name: Common errors
@@ -867,6 +875,10 @@
               href: certificate-based-authentication.md
             - name: Use Always Encrypted
               href: how-to-always-encrypted.md
+        - name: Client-side development
+          items:
+            - name: Session state and cache provider
+              href: session-state-and-caching-provider.md
         - name: Integrate with other Azure services
           items:
             - name: Change feed Ecommerce solution
@@ -1133,6 +1145,8 @@
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Databricks and Spark (offline)
+              href: mongodb-migrate-databricks.md  
             - name: Post-migration guide
               href: mongodb-post-migration.md
         - name: Upgrade to API version 4.0 or 3.6
@@ -1161,6 +1175,8 @@
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: mongodb/estimate-ru-capacity-planner.md
+        - name: Optimize write performance
+          href: mongodb/optimize-write-performance.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API

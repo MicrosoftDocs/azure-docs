@@ -2,7 +2,7 @@
 title: Release annotations for Application Insights | Microsoft Docs
 description: Learn how to create annotations to track deployment or other significant events with Application Insights.
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/02/2021
 
 ---
 
@@ -53,6 +53,25 @@ If you can't use one the deployment tasks in the previous section, then you need
 
     :::image type="content" source="./media/annotations/inline-script.png" alt-text="Screenshot of Azure CLI task settings with Script Type, Script Location, Inline Script, and Script Arguments highlighted." lightbox="./media/annotations/inline-script.png":::
 
+    Below is an example of metadata you can set in the optional releaseProperties argument using [build](/azure/devops/pipelines/build/variables#build-variables-devops-services) and [release](/azure/devops/pipelines/release/variables#default-variables---release) variables.
+    
+
+    ```powershell
+    -releaseProperties @{
+     "BuildNumber"="$(Build.BuildNumber)";
+     "BuildRepositoryName"="$(Build.Repository.Name)";
+     "BuildRepositoryProvider"="$(Build.Repository.Provider)";
+     "ReleaseDefinitionName"="$(Build.DefinitionName)";
+     "ReleaseDescription"="Triggered by $(Build.DefinitionName) $(Build.BuildNumber)";
+     "ReleaseEnvironmentName"="$(Release.EnvironmentName)";
+     "ReleaseId"="$(Release.ReleaseId)";
+     "ReleaseName"="$(Release.ReleaseName)";
+     "ReleaseRequestedFor"="$(Release.RequestedFor)";
+     "ReleaseWebUrl"="$(Release.ReleaseWebUrl)";
+     "SourceBranch"="$(Build.SourceBranch)";
+     "TeamFoundationCollectionUri"="$(System.TeamFoundationCollectionUri)" }
+    ```            
+
 1. Save.
 
 ## Create release annotations with Azure CLI
@@ -98,6 +117,7 @@ You can use the CreateReleaseAnnotation PowerShell script to create annotations 
 |aiResourceId | The Resource ID to the target Application Insights resource. | Example:<br> /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyRGName/providers/microsoft.insights/components/MyResourceName|
 |releaseName | The name to give the created release annotation. | | 
 |releaseProperties | Used to attach custom metadata to the annotation. | Optional|
+
 
 ## View annotations
 
@@ -149,7 +169,7 @@ You only need to install the extension once for your Azure DevOps organization. 
 
 Create a separate API key for each of your Azure Pipelines release templates.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](./app-insights-overview.md).
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](create-workspace-resource.md).
    
 1. Open the **API Access** tab and copy the **Application Insights ID**.
    

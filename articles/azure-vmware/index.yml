@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 05/11/2021 
+  ms.date: 07/02/2021 
 
 
 # card 1
@@ -136,6 +136,8 @@ landingContent:
             url: configure-site-to-site-vpn-gateway.md
           - text: Configure Windows Server Failover Cluster
             url: configure-windows-server-failover-cluster.md
+          - text: Connect multiple private clouds in same region 
+            url: connect-multiple-private-clouds-same-region.md            
 
 # card 5
   - title: Azure native integration
@@ -154,18 +156,18 @@ landingContent:
             url: deploy-traffic-manager-balance-workloads.md
           - text: Configure alerts and work with metrics 
             url: configure-alerts-for-azure-vmware-solution.md
+          - text: Attach disk pools to Azure VMware Solution hosts
+            url: attach-disk-pools-to-azure-vmware-solution-hosts.md
 
 # card 6 == backup and restore
-  - title: Backup and restore with Azure Backup Server
+  - title: Backup with Azure Backup Server
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Back up VMware VMs
-            url: ../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-          - text: Restore VMware VMs 
-            url: ../backup/restore-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-          - text: Monitor Azure Backup workloads 
-            url: ../backup/backup-azure-monitoring-built-in-monitor.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+        - text: Set up Backup Server
+          url: set-up-backup-server-for-azure-vmware-solution.md
+        - text: Back up private cloud VMs with Backup Server
+          url: backup-azure-vmware-solution-virtual-machines.md
 
 # card 7
   - title: VMware solutions

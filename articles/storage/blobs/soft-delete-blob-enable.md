@@ -87,7 +87,7 @@ az storage account blob-service-properties show --account-name <storage-account>
 Blob soft delete can also protect blobs and directories in accounts that have the hierarchical namespace feature enabled on them. 
 
 > [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, , and is available globally in all Azure regions.
+> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available globally in all Azure regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 >

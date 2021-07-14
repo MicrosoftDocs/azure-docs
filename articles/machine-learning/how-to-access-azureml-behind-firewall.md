@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/01/2021
+ms.date: 07/13/2021
 ms.custom: devx-track-python
 ---
 
@@ -39,7 +39,12 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 ### Inbound configuration
 
-When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from the IP addresses for Azure Batch management and Azure Machine Learning services.
+When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. When creating the user-defined routes for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
+
+> [!IMPORTANT]
+> Using service tags with user-defined routes is currently in preview and may not be fully supported. For more information, see [Virtual Network routing](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
+
+# [IP Address routes](#tab/ipaddress)
 
 For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
@@ -67,7 +72,16 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
-When adding a UDR for the IP addresses, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure portal:
+# [Service tag routes](#tab/servicetag)
+
+Create user-defined routes for the following service tags:
+
+* `AzureMachineLearning`
+* `BatchNodeManagement`
+
+---
+
+When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure portal:
 
 :::image type="content" source="./media/how-to-enable-virtual-network/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
 
@@ -215,8 +229,6 @@ The hosts in this section are used to install R packages, and are required durin
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
 
-> [!IMPORTANT]
-> Internally, the R SDK for Azure Machine Learning uses Python packages. So you must also allow Python hosts through the firewall.
 ## Next steps
 
 * [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md)
