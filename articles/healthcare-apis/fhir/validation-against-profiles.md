@@ -5,8 +5,8 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/07/2021
-ms.author: ginle
+ms.date: 07/14/2021
+ms.author: cavoeg
 ---
 
 # How to validate FHIR resources against profiles
