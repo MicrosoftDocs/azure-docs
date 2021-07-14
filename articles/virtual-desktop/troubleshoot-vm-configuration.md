@@ -16,9 +16,9 @@ Use this article to troubleshoot issues you're having when configuring the Azure
 
 ## Provide feedback
 
-Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Azure Virtual Desktop service with the product team and active community members.
+Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum) to discuss the Azure Virtual Desktop service with the product team and active community members.
 
-## VMs are not joined to the domain
+## VMs aren't joined to the domain
 
 Follow these instructions if you're having issues joining virtual machines (VMs) to the domain.
 
@@ -38,7 +38,7 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 
 ### Error: Timeout waiting for user input
 
-**Cause:** The account used to complete the domain join may have multi-factor authentication (MFA).
+**Cause:** The account used to complete the domain join may have multifactor authentication (MFA).
 
 **Fix:** Take one of the following actions to resolve.
 
@@ -64,20 +64,20 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 
 **Fix 2:** To update the DNS settings for the virtual network containing Azure AD DS, see [Update DNS settings for the Azure virtual network](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
-**Cause 3:** The network interface's DNS server settings do not point to the appropriate DNS server on the virtual network.
+**Cause 3:** The network interface's DNS server settings don't point to the appropriate DNS server on the virtual network.
 
 **Fix 3:** Take one of the following actions to resolve, following the steps in [Change DNS servers].
 - Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
 - Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
-## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader are not installed
+## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader aren't installed
 
 The recommended way to provision VMs is using the Azure portal creation template. The template automatically installs the Azure Virtual Desktop Agent and Azure Virtual Desktop Agent Boot Loader.
 
 Follow these instructions to confirm the components are installed and to check for error messages.
 
-1. Confirm that the two components are installed by checking in **Control Panel** > **Programs** > **Programs and Features**. If **Azure Virtual Desktop Agent** and **Azure Virtual Desktop Agent Boot Loader** are not visible, they aren't installed on the VM.
-2. Open **File Explorer** and navigate to **C:\Windows\Temp\ScriptLog.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components was not able to run in the security context provided.
+1. Confirm that the two components are installed by checking in **Control Panel** > **Programs** > **Programs and Features**. If **Azure Virtual Desktop Agent** and **Azure Virtual Desktop Agent Boot Loader** aren't visible, they aren't installed on the VM.
+2. Open **File Explorer** and navigate to **C:\Windows\Temp\ScriptLog.log**. If the file is missing, it indicates that the PowerShell DSC that installed the two components wasn't able to run in the security context provided.
 3. If the file **C:\Windows\Temp\ScriptLog.log** is present, open it and check for error messages.
 
 ### Error: Azure Virtual Desktop Agent and Azure Virtual Desktop Agent Boot Loader are missing. C:\Windows\Temp\ScriptLog.log is also missing
@@ -104,7 +104,7 @@ Follow these instructions to confirm the components are installed and to check f
 - Confirm account used for connecting to Azure Virtual Desktop has permissions on the Azure subscription or resource group to create host pools.
 - Confirm account doesn't have MFA.
 
-## Azure Virtual Desktop Agent is not registering with the Azure Virtual Desktop service
+## Azure Virtual Desktop Agent isn't registering with the Azure Virtual Desktop service
 
 When the Azure Virtual Desktop Agent is first installed on session host VMs (either manually or through the Azure Resource Manager template and PowerShell DSC), it provides a registration token. The following section covers troubleshooting issues that apply to the Azure Virtual Desktop Agent and the token.
 
@@ -132,7 +132,7 @@ When the Azure Virtual Desktop Agent is first installed on session host VMs (eit
 
 1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo.
 2. Run the **New-AzWvdRegistrationInfo** cmdlet to generate a new token.
-3. Confirm that the *-ExpriationTime* parameter is set to 3 days.
+3. Confirm that the *-ExpriationTime* parameter is set to three days.
 
 ### Error: Azure Virtual Desktop agent isn't reporting a heartbeat when running Get-AzWvdSessionHost
 
@@ -209,7 +209,7 @@ Examine the registry entries listed below and confirm that their values match. I
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
 2. Install the side-by-side stack using [Create a host pool with PowerShell](create-host-pools-powershell.md).
 
-## How to fix a Azure Virtual Desktop side-by-side stack that malfunctions
+## How to fix an Azure Virtual Desktop side-by-side stack that malfunctions
 
 There are known circumstances that can cause the side-by-side stack to malfunction:
 
@@ -293,11 +293,11 @@ If your operating system is Microsoft Windows 10, continue with the instructions
 
 ## Remote Desktop licensing mode isn't configured
 
-If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, "Remote Desktop licensing mode is not configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
+If you sign in to Windows 10 Enterprise multi-session using an administrative account, you might receive a notification that says, "Remote Desktop licensing mode isn't configured, Remote Desktop Services will stop working in X days. On the Connection Broker server, use Server Manager to specify the Remote Desktop licensing mode."
 
 If the time limit expires, an error message will appear that says, "The remote session was disconnected because there are no Remote Desktop client access licenses available for this computer."
 
-If you see either of these messages, this means the image doesn't have the latest Windows updates installed or that you are setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.
+If you see either of these messages, it means the image doesn't have the latest Windows updates installed or you're setting the Remote Desktop licensing mode through group policy. Follow the steps in the next sections to check the group policy setting, identify the version of Windows 10 Enterprise multi-session, and install the corresponding update.
 
 >[!NOTE]
 >Azure Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
@@ -340,7 +340,7 @@ To learn more about this policy, see [Allow log on through Remote Desktop Servic
 ## Next steps
 
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a host pool in a Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while creating a host pool in an Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
