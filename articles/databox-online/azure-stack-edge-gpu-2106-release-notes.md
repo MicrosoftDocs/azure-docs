@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ms.author: alkohli
 ---
 
@@ -25,7 +25,14 @@ This article applies to the **Azure Stack Edge 2106** release, which maps to sof
 
 The following new features are available in the Azure Stack Edge 2106 release. 
 
-- **OS fix for Multi-Access Edge Compute** - 
+- New [latest cumulative update (LCU) for June security fixes](https://support.microsoft.com/en-us/topic/june-8-2021-kb5003697-monthly-rollup-457aa997-18a0-46e9-8612-497f01ccaa54) was rolled into the updates package for Azure Stack Edge.
+- **Bug fixes for Multi-Access Edge Compute** - Multiple issues were fixed for MEC deployments.
+
+    - Issues related to guest VM health monitoring such as link flapping, errors in boot log, and reboots.
+    - Memory resource consumption over time.
+    - Mellanox driver, firmware, and tools.
+    - Tools to debug VM related issues and network health check.
+    - Issues that caused Single root I/O virtualization (SR-IOV) VM outbound packets or the traffic from LAN/WAN VM NetAdapters to be dropped.
 
 
 
@@ -35,7 +42,13 @@ The following table lists the issues that were release noted in previous release
 
 | No. | Feature | Issue | 
 | --- | --- | --- |
-|**1.**|VM |Issue description|
+|**1.**|MEC deployments |VM net adapter link status flaps at boot time and periodically.|
+|**2.**|MEC deployments |VFtoPF DHCP redirect flag when used on Mellanox network interfaces can cause the packets to be dropped.|
+|**3.**|MEC deployments |The Mellanox network interface driver, firmware, and tools need to be upgraded to version 2.60.|
+|**4.**|VM |The cmdlet `Get-VMInguestLogs` available for the collection of VM guest logs when connecting via the PowerShell interface of the device fails.|
+|**5.**|MEC deployments |When web proxy is configured, the web proxy bypass setting causes VM provisioning failure. |
+|**6.**|MEC deployments |For MEC/NFM deployments prior to the 2105 update, you may face this rare issue where traffic from LAN/WAN VM NetAdapters is dropped. In 2106, this issue is fixed by setting the enableIPForwarding to true on VM LAN/WAN network interfaces, regardless of whether the VMs were created before 2105 or after 2105 release.   |
+|**7.**|MEC deployments |Single root I/O virtualization (SR-IOV)  VM’s outbound packets may be dropped by the Mellanox network interfaces (Port 5 and Port 6 on the device) when a combination of Mellanox driver, SR-IOV Virtual Functions (VF) and vftopfDHCPRedirect feature is used. In 2106, the issue is fixed by disabling the vftopfDHCPRedirect feature.  |
 
 
 ## Known issues in 2106 release
@@ -44,7 +57,7 @@ The following table provides a summary of known issues in the 2106 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
+|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
 
 
 ## Known issues from previous releases
