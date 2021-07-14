@@ -111,6 +111,8 @@
           href: troubleshoot-audio-accessory-speech-module.md
         - name: Known issues
           href: known-issues.md
+        - name: Get hardware support
+          href: how-to-get-hardware-support.md
 
 - name: Reference
   items:

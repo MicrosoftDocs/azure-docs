@@ -1,6 +1,6 @@
 ---
-title: Billing & pricing models
-description: Overview about how pricing and billing models work in Azure Logic Apps
+title: Usage metering, billing, and pricing
+description: Learn how usage metering, billing, and pricing models work in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 07/10/2021
 ---
 
-# Pricing and billing models for Azure Logic Apps
+# Usage metering, billing, and pricing models for Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how billing and pricing models work for Azure Logic Apps and related resources. For information such as specific pricing rates, cost planning, or different hosting environments, review the following content:
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) helps you create and run automated integration workflows that can scale in the cloud. This article describes how metering, billing, and pricing models work for Azure Logic Apps and related resources. For information such as specific pricing rates, cost planning, or different hosting environments, review the following content:
 
-* [Specific Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps)
+* [Pricing rates for Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps)
 * [Plan and manage costs for Azure Logic Apps](plan-manage-costs.md)
 * [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md)
 

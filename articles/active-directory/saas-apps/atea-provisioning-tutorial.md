@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Atea for automatic user provisioning with Azure Acti
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Atea.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: b788328b-10fd-4eaa-a4bc-909d738d8b8b
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Atea for automatic user provisioning
