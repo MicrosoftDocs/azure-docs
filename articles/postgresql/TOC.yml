@@ -151,7 +151,7 @@
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
       - name: Threat protection with Azure Defender
-        href: ../security-center/defender-for-databases-introduction.md
+        href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
         href: concepts-aad-authentication.md
@@ -528,10 +528,12 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-      - name: TLS/SSL
+      - name: TLS/SSL/SCRAM
         items:
         - name: Connect using TLS/SSL
           href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Connect using SCRAM
+          href: flexible-server/how-to-connect-scram.md          
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -695,6 +697,8 @@
       items:
       - name: Azure portal
         href: howto-hyperscale-maintenance.md
+    - name: Restart server group
+      href: howto-hyperscale-restart.md
     - name: Monitor
       items:
       - name: Create alerts on metrics

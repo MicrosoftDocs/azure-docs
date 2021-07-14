@@ -5,7 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: overview
-ms.date: 09/30/2019
+ms.date: 06/08/2021
 ---
 
 # What is Azure Data Factory?

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/28/2021
+ms.date: 07/07/2021
 ms.reviewer: arvinh
 ---
 
@@ -20,10 +20,6 @@ Known issues to be aware of when working with app provisioning. You can provide 
 > This isn’t a comprehensive list of known issues. If you know of an issue that is not listed, provide feedback at the bottom of the page.
 
 ## Authorization 
-
-**Unable to save after successful connection test**
-
-If you can successfully test a connection, but can’t save, then you've exceeded the allowable storage limit for credentials. To learn more, see [Problem saving administrator credentials](./user-provisioning.md).
 
 **Unable to save**
 
@@ -56,6 +52,9 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 
 Directory extensions, appRoleAssignments, userType, and accountExpires are not supported as scoping filters.
 
+**Multi-value directory extensions**
+
+Multi-value directory extensions cannot be used in attribute mappings or scoping filters. 
 
 ## Service issues 
 

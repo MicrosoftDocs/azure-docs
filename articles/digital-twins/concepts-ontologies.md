@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # What is an ontology? 
 
-The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entity that exist in your environment.
+The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment.
 
 Sometimes, when your solution is tied to a particular industry, it can be easier and more effective to start with a set of models for that industry that already exist, instead of authoring your own model set from scratch. These pre-existing model sets are called **ontologies**. 
 

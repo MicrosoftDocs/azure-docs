@@ -40,7 +40,7 @@ If you still see a message  that the virtual machine needs to be onboarded, it m
 If you do not see the both extensions for your operating system in the list of installed extensions, then they need to be installed. If the extensions are listed but their status does not appear as *Provisioning succeeded*, then the extension should be removed and reinstalled.
 
 ### Do you have connectivity issues?
-For Windows machines, you can use the  *TestCloudConnectivity* tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It will return results and highlight where the test fails. 
+For Windows machines, you can use the  *TestCloudConnectivity* tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemDrive%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It will return results and highlight where the test fails. 
 
 ![TestCloudConnectivity tool](media/vminsights-troubleshoot/test-cloud-connectivity.png)
 

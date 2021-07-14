@@ -149,7 +149,7 @@ Try out the following utterance examples by using voice or text:
 - Expected response: Ok, setting an alarm for 9 am tomorrow
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing the test in a web-chat interface.](media/custom-commands/create-basic-test-chat.png)
+> ![Screenshot showing the test in a web-chat interface.](media/custom-commands/create-basic-test-chat-no-mic.png)
 
 > [!TIP]
 > In the test pane, you can select **Turn details** for information about how this voice input or text input was processed.

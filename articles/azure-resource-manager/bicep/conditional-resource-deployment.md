@@ -5,7 +5,7 @@ description: Describes how to conditionally deploy a resource in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/29/2021
 ---
 
 # Conditional deployment in Bicep
@@ -59,8 +59,6 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 ```
 
 When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. However, when `newOrExisting` is set to **existing**, the condition evaluates to false and the storage account isn't deployed.
-
-For a complete example template that uses the `condition` element, see [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-new-or-existing-conditions).
 
 ## Runtime functions
 

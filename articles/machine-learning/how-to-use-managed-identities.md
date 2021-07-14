@@ -213,7 +213,7 @@ from azureml.core.container_registry import RegistryIdentity
 
 identity = RegistryIdentity()
 identity.resource_id= "<UAI resource ID>"
-identity.client_id="<UAI client ID>”
+identity.client_id="<UAI client ID>"
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
@@ -253,7 +253,7 @@ ws = Workspace.create(name="workspace name",
 You can also use [an ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced) to create a workspace with user-assigned managed identity.
 
 > [!IMPORTANT]
-> If you bring your own associated resources, instead of having Azure Machine Learning service create them, you must grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) to make the assignments.
+> If you bring your own associated resources, instead of having Azure Machine Learning service create them, you must grant the managed identity roles on those resources. Use the [role assignment ARM template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) to make the assignments.
 
 For a workspace with [customer-managed keys for encryption](concept-data-encryption.md), you can pass in a user-assigned managed identity to authenticate from storage to Key Vault. Use argument
  __user-assigned-identity-for-cmk-encryption__ (CLI) or __user_assigned_identity_for_cmk_encryption__ (SDK) to pass in the managed identity. This managed identity can be the same or different as the workspace primary user assigned managed identity.

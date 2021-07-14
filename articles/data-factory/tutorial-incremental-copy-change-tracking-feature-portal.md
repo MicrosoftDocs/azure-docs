@@ -6,7 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/18/2021
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using the Azure portal
@@ -174,11 +174,12 @@ Install the latest Azure PowerShell modules by following  instructions in [How t
 	![deploying data factory tile](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-   ![Data factory home page](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
-11. In the **get started** page, switch to the **Edit** tab in the left panel as shown in the following image:
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
-    ![Create pipeline button](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+11. In the home page, switch to the **Manage** tab in the left panel as shown in the following image:
+
+    ![Screenshot that shows the Manage button.](media/doc-common-process/get-started-page-manage-button.png)
 
 ## Create linked services
 You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your Azure Storage account and your database in Azure SQL Database.

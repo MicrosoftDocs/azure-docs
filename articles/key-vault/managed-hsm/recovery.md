@@ -19,7 +19,7 @@ For more information about Managed HSM, see [Managed HSM overview](overview.md)
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 * [PowerShell module](/powershell/azure/install-az-ps).
-* [Azure CLI](/cli/azure/install-azure-cli)
+* The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A Managed HSM - you can create one using [Azure CLI](./quick-create-cli.md), or [Azure PowerShell](./quick-create-powershell.md)
 * The user will need the following permissions to perform operations on soft-deleted HSMs or keys:
 
