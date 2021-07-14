@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 03/30/2021
+ms.date: 07/13/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1272,6 +1272,9 @@ concat('Hello', 'World')
 ```
 
 And returns this result: `"HelloWorld"`
+  
+> [!NOTE]
+> The length of the result must not exceed 104,857,600 characters.
 
 <a name="contains"></a>
 
@@ -2787,6 +2790,9 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 And returns this result: `"a.b.c"`
+  
+> [!NOTE]
+> The length of the result must not exceed 104,857,600 characters.
 
 <a name="last"></a>
 
@@ -3419,6 +3425,9 @@ range(1, 4)
 ```
 
 And returns this result: `[1, 2, 3, 4]`
+  
+> [!NOTE]
+> The `count` parameter value must be a positive integer that doesn't exceed 100,000. The sum of the `startIndex` and `count` values must not exceed 2,147,483,647.
 
 <a name="replace"></a>
 

@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Cisco Umbrella User Management for automatic user pr
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cisco Umbrella User Management.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 1aa20f40-19ec-4213-9a3b-5eb2bcdd9bbd
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Cisco Umbrella User Management for automatic user provisioning
