@@ -52,11 +52,10 @@ Role assignments are cumulative and pervasive across all tools and client librar
 
 Azure resources have the concept of [control plane and data plane](../azure-resource-manager/management/control-plane-and-data-plane.md) categories of operations. The built-in roles for Cognitive Search apply to either one plane or the other.
 
-In Azure Cognitive Search, control plane operations include create, update, and delete services, manage API keys, adjust partitions and replicas, and so forth. The [Management REST API](/rest/api/searchmanagement/) and equivalent client libraries defines the operations applicable to the control plane.
-
-Data plane refers to operations against the search service endpoint, and all of the objects and data hosted on the service. Indexing, querying, and all associated actions target the data plane, which is accessed via the [Search REST API](/rest/api/searchservice/) and equivalent client libraries.
-
-Within the data plane, the client used to assign roles will determines how you specify the scope of the assignment. In the portal, the role assignment applies to the entire data plane of an individual search service, which encompasses all indexes, indexers, synonym maps, and so forth. Programmatically, you can assign control access to individual objects.
+| Category | Operations |
+|----------|------------|
+| Control plane | Operations include create, update, and delete services, manage API keys, adjust partitions and replicas, and so forth. The [Management REST API](/rest/api/searchmanagement/) and equivalent client libraries define the operations applicable to the control plane. |
+| Data plane | Operations against the search service endpoint, encompassing all objects and data hosted on the service. Indexing, querying, and all associated actions target the data plane, which is accessed via the [Search REST API](/rest/api/searchservice/) and equivalent client libraries. </br></br>Within the data plane, the client used to assign roles will determine how you specify the scope of the assignment. If you use the portal, the role assignment is scoped to the entire data plane of an individual search service, encompassesing all indexes, indexers, synonym maps, and so forth. In code, role assignments can be scoped to individual indexes and other objects. |
 
 ## How to assign roles
 
@@ -96,11 +95,11 @@ Alternatively, you can use the Azure portal to update an existing search service
 
 1. Choose an **API access control** mechanism:
 
-   | Option | Description |
-   |--------|-------------|
-   | API Key | Default. Requires an admin or query API keys on the request header. |
-   | Role-based access control | Preview. Requires membership in a role assignment to complete the task. It also requires a search service configured for role-based access, and a request that includes an authorization header. Choosing this option limits you to clients that support the 2021-04-30-preview REST API.|
-   | Both | Preview. Requests are valid using either the default API key or an authorization token. |
+   | Option | Status | Description |
+   |--------|--------|-------------|
+   | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
+   | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the 2021-04-30-preview REST API. |
+   | Both | Preview | Requests are valid using either an API key or an authorization token. |
 
 #### Step 2: Assign users or groups
 
