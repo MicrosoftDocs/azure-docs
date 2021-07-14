@@ -1,9 +1,9 @@
 ---
-title: Set up disaster recovery of physical on-premises servers with Azure Site Recovery 
+title: Set up disaster recovery of physical on-premises servers with Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for on-premises Windows and Linux servers, with the Azure Site Recovery service.
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 07/14/2021
 
 
 ---
@@ -15,7 +15,7 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 
 > [!div class="checklist"]
 > * Set up Azure and on-premises prerequisites
-> * Create a Recovery Services vault for Site Recovery 
+> * Create a Recovery Services vault for Site Recovery
 > * Set up the source and target replication environments
 > * Create a replication policy
 > * Enable replication for a server
@@ -32,7 +32,7 @@ To complete this tutorial:
 
 Before you begin, note that:
 
-- After failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs. 
+- After failover to Azure, physical servers can't be failed back to on-premises physical machines. You can only fail back to VMware VMs.
 - This tutorial sets up physical server disaster recovery to Azure with the simplest settings. If you want to learn about other options, read through our How To guides:
     - Set up the [replication source](physical-azure-set-up-source.md), including the Site Recovery configuration server.
     - Set up the [replication target](physical-azure-set-up-target.md).
@@ -52,7 +52,7 @@ Get a Microsoft [Azure account](https://azure.microsoft.com/).
 Make sure your Azure account has permissions for replication of VMs to Azure.
 
 - Review the [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) you need to replicate machines to Azure.
-- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions. 
+- Verify and modify [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) permissions.
 
 
 
@@ -99,24 +99,25 @@ Select what to replicate, and to replicate it to.
 
 Set up the configuration server, register it in the vault, and discover VMs.
 
-1. Click **Site Recovery** > **Prepare Infrastructure** > **Source**.
-2. If you don’t have a configuration server, click **+Configuration server**.
-3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
-4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for five days after you generate it.
+1. Click **Site Recovery** > **Prepare Infrastructure**.
+2. Ensure that you have done your deployment planning and run the deployment planner to estimate various requirements. Click **Next**.
+3. Select if your machines are virtual or physical in the **Are your machines virtualized?** option.
+4. If you don’t have a configuration server, click **+Configuration server**.
+5. If you’re enabling protection for virtual machines, then download the Configuration server virtual machine template.
+6. If you’re enabling protection for physical machines, then download the Site Recovery Unified Setup installation file. You will also need to download the vault registration key. You need it when you run Unified Setup. The key is valid for five days after you generate it.
 
    ![Screenshot showing the options to download the installation file and registration key.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### Register the configuration server in the vault
 
-Do the following before you start: 
+Do the following before you start:
 
 #### Verify time accuracy
 On the configuration server machine, make sure that the system clock is synchronized with a [Time Server](/windows-server/networking/windows-time-service/windows-time-service-top). It should match. If it's 15 minutes in front or behind, setup might fail.
 
 #### Verify connectivity
-Make sure the machine can access these URLs based on your environment: 
+Make sure the machine can access these URLs based on your environment:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
@@ -167,12 +168,12 @@ Enable replication for each server.
 3. In **Machine type**, select **Physical machines**.
 4. Select the process server (the configuration server). Then click **OK**.
 5. In **Target**, select the subscription and the resource group in which you want to create the Azure VMs after failover. Choose the deployment model that you want to use in Azure (classic or resource management).
-6. Select the Azure storage account you want to use for replicating data. 
+6. Select the Azure storage account you want to use for replicating data.
 7. Select the Azure network and subnet to which Azure VMs will connect, when they're created after failover.
-8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
-9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed. 
+8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine.
+9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed.
 10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
+11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected.
 12. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 
