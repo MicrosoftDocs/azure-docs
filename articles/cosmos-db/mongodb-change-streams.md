@@ -1,12 +1,12 @@
 ---
 title: Change streams in Azure Cosmos DB’s API for MongoDB
 description: Learn how to use change streams n Azure Cosmos DB’s API for MongoDB to get the changes made to your data.
-author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.author: rosouz
+author: gahl-levy
+ms.author: gahllevy
 ms.custom: devx-track-js, devx-track-csharp
 ---
 

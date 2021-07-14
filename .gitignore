@@ -26,3 +26,5 @@ AzureMigration.ps1
 !/.vscode/settings.json
 
 desktop.ini
+.fake
+.ionide

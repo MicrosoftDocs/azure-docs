@@ -1,5 +1,5 @@
 ---
-title: Register a service app in Azure AD - Azure API for FHIR
+title: Register a service app in Azure AD - FHIR service
 description: Learn how to register a service client application in Azure Active Directory. 
 services: healthcare-apis
 author: matjazl
@@ -39,7 +39,7 @@ Now that you have registered your application, you'll need to select which API p
 1. Select **API permissions**.
 1. Select **Add a permission**.
 
-    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare APIs** under **APIs my organization uses**. 
+    If you are using the FHIR service, you will add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare APIs** under **APIs my organization uses**. 
 
     If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
@@ -71,4 +71,4 @@ The service client needs a secret (password) to obtain a token.
 In this article, you've learned how to register a service client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)
+>[Access FHIR service with Postman](access-fhir-postman-tutorial.md)

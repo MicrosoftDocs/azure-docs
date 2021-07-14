@@ -308,7 +308,7 @@ For Databases services availability in Azure Government, see [Products available
 
 Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
 
-- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/fhir/customer-managed-key.md)
+- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
 
 ### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
 
@@ -601,7 +601,7 @@ Azure Traffic Manager supports Impact Level 5 workloads in Azure Government with
 
 Azure Virtual Network supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-### [Virtual NAT](../virtual-network/nat-overview.md) 
+### [Virtual NAT](../virtual-network/nat-gateway/nat-overview.md) 
 
 Virtual NAT supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 

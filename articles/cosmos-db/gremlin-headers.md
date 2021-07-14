@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: christopheranderson
-ms.author: chrande
+author: manishmsfte
+ms.author: mansha
 ---
 
 # Azure Cosmos DB Gremlin server response headers

@@ -38,7 +38,7 @@ Events from the motion detector node also trigger the signal gate processor node
 
 ### Video recording based on events from other sources  
 
-In this use case, signals from another IoT sensor can be used to trigger recording of video. The diagram below shows a graphical representation of a pipeline that addresses this use case. The JSON representation of the pipeline topology of such a pipeline can be found [here](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-files/topology.json).
+In this use case, signals from another IoT sensor can be used to trigger recording of video. The diagram below shows a graphical representation of a pipeline that addresses this use case. The JSON representation of the pipeline topology of such a pipeline can be found [here](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-hubMessage-file-sink/topology.json).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/event-based-video-recording/other-sources.png" alt-text="Event-based recording of live video when signaled by an external source.":::

@@ -1,5 +1,5 @@
 ---
-title: Register a resource app in Azure AD - Azure API for FHIR
+title: Register a resource app in Azure AD - FHIR service
 description: Register a resource (or API) app in Azure Active Directory, so that client applications can request access to the resource when authenticating.
 services: healthcare-apis
 author: matjazl
@@ -14,11 +14,11 @@ ms.author: cavoeg
 
 In this article, you'll learn how to register a resource (or API) application in Azure Active Directory. A resource application is an Azure Active Directory representation of the FHIR server API itself and client applications can request access to the resource when authenticating. The resource application is also known as the *audience* in OAuth parlance.
 
-## Azure API for FHIR
+## FHIR service
 
-If you are using the Azure API for FHIR, a resource application is automatically created when you deploy the service. As long as you are using the Azure API for FHIR in the same Azure Active Directory tenant as you are deploying your application, you can skip this how-to-guide and instead deploy your Azure API for FHIR to get started.
+If you are using the FHIR service, a resource application is automatically created when you deploy the service. As long as you are using the FHIR service in the same Azure Active Directory tenant as you are deploying your application, you can skip this how-to-guide and instead deploy your FHIR service to get started.
 
-If you are using a different Azure Active Directory tenant (not associated with your subscription), you can import the Azure API for FHIR resource application into your tenant with 
+If you are using a different Azure Active Directory tenant (not associated with your subscription), you can import the FHIR service resource application into your tenant with 
 PowerShell:
 
 ```azurepowershell-interactive

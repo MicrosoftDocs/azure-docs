@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Healthcare APIs documentation
-summary: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
+title: Azure Healthcare APIs (preview) documentation
+summary: Documentation for all of Azure Healthcare APIs (preview) services, including FHIR, DICOM, and Data Transformation.
 
 metadata:
   title: Azure Healthcare APIs documentation
@@ -22,31 +22,76 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Healthcare APIs?
+          - text: About Healthcare APIs
             url: healthcare-apis-overview.md
-      - linkListType: quickstart
+  - title: What is a workspace?
+    linkLists:
+      - linkListType: concept
         links:
-          - text: How to get started with Healthcare APIs
+          - text: About workspace
+            url: workspace-overview.md
+  - title: Deploy Healthcare APIs
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Getting started with Healthcare APIs
             url: healthcare-apis-quickstart.md
 
   - title: FHIR
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: About FHIR service
+            url: ./fhir/overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy FHIR service using Portal
+            url: ./fhir/fhir-portal-quickstart.md
       - linkListType: tutorial
         links:
-          - text: Deploy javascript app to read data from FHIR service
-            url: ./fhir/tutorial-web-app-fhir-server.md
-          
+          - text: Interoperability and Patient Access
+            url: ./fhir/cms-tutorial-introduction.md
+
   - title: DICOM
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: get-started
         links:
-          - text: Overview of DICOM
-            url: ./dicom/dicom-overview.md
+          - text: About DICOM service 
+            url: ./dicom/dicom-services-overview.md
+      - linkListType: deploy
+        links:
+          - text: Deploy DICOM Services using the Azure portal
+            url: ./dicom/deploy-dicom-services-in-azure.md
+      - linkListType: tutorial
+        links:
+          - text: Using DICOMweb Standard APIs with Python
+            url: ./dicom/dicomweb-standard-apis-python.md
+  
+  - title: IoT connector
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Deploy IoT Connector Using Portal
+            url: ./iot/iot-fhir-portal-quickstart.md
+          - text: Deploy IoT Connector Using ARM template
+            url: ./iot/iot-fhir-arm-template-quickstart.md
+      - linkListType: tutorial
+        links:
+          - text: IoT mapping templates
+            url: ./iot/iot-mapping-templates.md
 
   - title: Data Transformation
     linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Exporting your data
+            url: ./data-transformation/export-data.md
+          - text: Export data to Synapse
+            url: ./data-transformation/move-to-synapse.md
       - linkListType: concept
         links:
-          - text: C-CDA to FHIR conversion
-            url: ./data-transformation/ccda-to-fhir-conversion.md
-          
+          - text: $convert-data and FHIR Converter Extension Templates
+            url: ./data-transformation/convert-data.md
+
+ 
+            
