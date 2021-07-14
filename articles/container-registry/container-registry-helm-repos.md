@@ -2,7 +2,7 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 04/15/2021
+ms.date: 07/13/2021
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -22,8 +22,14 @@ Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm
 * Authenticate with your registry using the `helm registry login` command.
 * Use `helm chart` commands in the Helm CLI to push, pull, and manage Helm charts in a registry
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
+
+If you've previously stored and deployed charts using Helm 2 and Azure Container Registry, see:
+
+* [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/) in the Helm documentation.
+* [Migrate your registry to store OCI artifacts using Helm 3](#migrate-your-registry-to-store-oci-artifacts-using-helm-3), later in this article
+
 > [!NOTE]
-> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. A minimum of 3 months' notice will be provided in advance of command removal. If you've previously deployed Helm 2 charts, see [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/).
+> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. A minimum of 3 months' notice will be provided in advance of command removal. .
 
 ## Prerequisites
 
@@ -268,6 +274,72 @@ To delete a chart from the container registry, use the [az acr repository delete
 
 ```azurecli
 az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
+```
+
+## Migrate your container registry to store OCI artifacts using Helm 3
+
+If you previously set up your Azure container registry as a "classic" Helm chart repository using the Helm 2 client and the `az acr helm` commands, we recommend you [upgrade][helm-install] to the Helm 3 client and store the charts as OCI artifacts.
+
+> [!IMPORTANT]
+> After you complete the migration from a classic (index.yaml-based) Helm chart repository to OCI artifact repositories, use the `helm chart` and `helm registry` commands to manage the charts. The repsitories are no longer discoverable using Helm commands such as `helm search` and `helm repo list`. For more information about Helm command differences when storing charts as OCI artifacts, see the [Helm documentation](https://helm.sh).
+
+Ensure that you are using the Helm 3 client:
+
+```console
+helm version
+```
+
+Enable OCI support in the Helm 3 client:
+
+```console
+export HELM_EXPERIMENTAL_OCI=1
+```
+
+List the charts currently stored in the registry, here named *myregistry*:
+
+```console
+helm search repo myregistry
+```
+
+Output shows the charts and chart versions:
+
+```
+NAME                            CHART VERSION   APP VERSION     DESCRIPTION                                       
+myregistry/ingress-nginx        3.20.1          0.43.0          Ingress controller for Kubernetes...
+myregistry/wordpress            9.0.3           5.3.2           Web publishing platform for building...
+[...]
+```
+
+For each chart in the repo, pull the chart locally, and save it as an OCI artifact. Example:
+
+```console 
+helm pull myregisry/ingress-nginx --untar
+cd ingress-nginx
+helm chart save . myregistry.azurecr.io/ingress-nginx:3.20.1
+```
+
+Login to the registry:
+
+```azurecli
+az acr login --name myregistry
+```
+
+Push each chart to the registry:
+
+```console
+helm chart push myregistry.azurecr.io/ingress-nginx:v1
+```
+
+After pushing a chart using the Helm 3 client, confirm it is stored in the registry:
+
+```azurecli
+az acr repository list --name myregistry
+```
+
+After pushing all of the charts, optionally remove the classic chart repository from the registry. Doing so reduces storage in your registry:
+
+```console
+helm repo remove myregistry
 ```
 
 ## Next steps
