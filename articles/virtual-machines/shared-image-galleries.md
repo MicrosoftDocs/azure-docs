@@ -197,7 +197,6 @@ You can create Shared Image Gallery resource using templates. There are several 
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 ## Frequently asked questions 
 
