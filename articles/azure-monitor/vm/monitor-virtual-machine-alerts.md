@@ -1,5 +1,5 @@
 ---
-title: Monitor virtual machines with Azure Monitor - Alerts
+title: 'Monitor virtual machines with Azure Monitor: Alerts'
 description: Describes how to create alerts from virtual machines and their guest workloads by using Azure Monitor.
 ms.service: azure-monitor
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.date: 06/21/2021
 
 ---
 
-# Monitor virtual machines with Azure Monitor - Alerts
+# Monitor virtual machines with Azure Monitor: Alerts
 
 This article is part of the [Monitoring virtual machines (VMs) and their workloads in Azure Monitor](monitor-virtual-machine.md) scenario. It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. 
 
@@ -39,8 +39,8 @@ Metric rules for virtual machines can use the following data:
 ### Log alerts
 [Log alerts](../alerts/alerts-metric.md) can perform two different measurements of the result of a log query, each of which supports distinct scenarios for monitoring virtual machines:
 
-- [Metric measurements](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) creates a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. Metric measurements are ideal for non-numeric data such as Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
-- [Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) creates a single alert when a query returns at least a specified number of records. Number of results measurements are ideal for non-numeric data such as Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers. You might also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
+- [Metric measurements](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value): Creates a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. Metric measurements are ideal for non-numeric data such as Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
+- [Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows): Creates a single alert when a query returns at least a specified number of records. Number of results measurements are ideal for non-numeric data such as Windows and Syslog events collected by the [Log Analytics agent](../agents/log-analytics-agent.md) or for analyzing performance trends across multiple computers. You might also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
 
 ### Target resource and impacted resource
 
