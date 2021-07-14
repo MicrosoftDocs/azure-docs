@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/10/2021
+ms.date: 06/11/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -51,7 +51,7 @@ dotnet add package Microsoft.Identity.Web.UI
 
 ```dotnetcli
 Install-Package Microsoft.Identity.Web
-Install-Package Microsoft.Identity.Web 
+Install-Package Microsoft.Identity.Web.UI 
 ```
 
 ---
@@ -241,6 +241,12 @@ public IActionResult Claims()
 {
     return View();
 }
+```
+
+Add the following `using` declaration at the beginning of the class:
+
+```csharp
+using Microsoft.AspNetCore.Authorization;
 ```
 
 ## Add the app settings

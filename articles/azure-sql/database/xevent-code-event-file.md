@@ -98,7 +98,6 @@ $policySasStartTime  = '2017-10-01';
 
 $storageAccountLocation = 'YOUR_STORAGE_ACCOUNT_LOCATION';
 $storageAccountName     = 'YOUR_STORAGE_ACCOUNT_NAME';
-$contextName            = 'YOUR_CONTEXT_NAME';
 $containerName          = 'YOUR_CONTAINER_NAME';
 $policySasToken         = ' ? ';
 

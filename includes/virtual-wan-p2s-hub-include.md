@@ -5,16 +5,16 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/06/2020
+ ms.date: 06/23/2021
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-1. Under your virtual WAN, select Hubs and select **+New Hub**.
+1. On the page for your virtual WAN, on the left pane, select **Hubs**. On the **Hubs** page, select **+New Hub**.
 
    :::image type="content" source="media/virtual-wan-p2s-hub/new-hub.jpg" alt-text="new hub":::
 
-1. On the create virtual hub page, fill in the following fields.
+1. On the **Create virtual hub** page, complete the following fields:
 
    * **Region** - Select the region that you want to deploy the virtual hub in.
    * **Name** - Enter the name that you want to call your virtual hub.
@@ -22,7 +22,7 @@
 
    :::image type="content" source="media/virtual-wan-p2s-hub/create-hub.jpg" alt-text="create virtual hub":::
 
-1. On the Point-to-site tab, complete the following fields:
+1. On the **Point-to-site** tab, complete the following fields:
 
    * **Gateway scale units** - which represents the aggregate capacity of the User VPN gateway.
    * **Point to site configuration** - which you created in the previous step.

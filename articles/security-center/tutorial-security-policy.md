@@ -30,7 +30,7 @@ To view your security policies in Security Center:
 
 1. In the **Security Center** dashboard, select **Security policy**.
 
-    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="The policy management page":::
+    :::image type="content" source="./media/security-center-policies/security-center-policy-mgt.png" alt-text="The policy management page.":::
 
    In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
 
@@ -51,7 +51,7 @@ To view your security policies in Security Center:
 
     1. To view and edit the default initiative, select **View effective policy** and proceed as described below. 
 
-        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen":::
+        :::image type="content" source="./media/security-center-policies/policy-screen.png" alt-text="Effective policy screen.":::
 
        This **Security policy** screen reflects the action taken by the policies assigned on the subscription or management group you selected.
        
@@ -75,7 +75,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center.":::
 
 1. Select the subscription or management group for which you want to disable the recommendation (and policy).
 
@@ -88,7 +88,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. From the dropdown list, change the value for the corresponding policy to **Disabled**.
 
-   ![disable policy](./media/tutorial-security-policy/disable-policy.png)
+   ![disable policy.](./media/tutorial-security-policy/disable-policy.png)
 
 1. Select **Save**.
 
@@ -104,7 +104,7 @@ To enable a disabled policy and ensure it's assessed for your resources:
 
 1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
 
-    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center":::
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Starting the policy management process in Azure Security Center.":::
 
 1. Select the subscription or management group for which you want to enable the recommendation (and policy).
 
