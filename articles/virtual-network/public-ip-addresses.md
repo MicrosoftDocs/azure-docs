@@ -89,7 +89,7 @@ Basic SKU addresses:
 
 ## IP address assignment
 
- Standard public IPv4, Basic public IPv4, and Standard public IPv6 addresses all support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.  
+Standard public IPv4, Basic public IPv4, and Standard public IPv6 addresses all support **static** assignment.  The resource is assigned an IP address at the time it's created. The IP address is released when the resource is deleted.  
 
 > [!NOTE]
 > Even when you set the allocation method to **static**, you cannot specify the actual IP address assigned to the public IP address resource. Azure assigns the IP address from a pool of available IP addresses in the Azure location the resource is created in.
