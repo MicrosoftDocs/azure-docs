@@ -426,13 +426,13 @@ Here are the supported route filters. Use the detail in the *Filter text schema*
 | Filter name | Description | Filter text schema | Supported values | 
 | --- | --- | --- | --- |
 | True / False | Allows creating a route with no filtering, or disabling a route so no events are sent | `<true/false>` | `true` = route is enabled with no filtering <br> `false` = route is disabled |
-| Type | The [type of event](../articles/digital-twins/concepts-route-events.md#types-of-event-messages) flowing through your digital twin instance | `type = '<event-type>'` | Here are the possible event type values: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Type | The [type of event](concepts-route-events.md#types-of-event-messages) flowing through your digital twin instance | `type = '<event-type>'` | Here are the possible event type values: <br>`Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
 | Source | Name of Azure Digital Twins instance | `source = '<host-name>'`| Here are the possible host name values: <br> **For notifications**: `<your-Digital-Twins-instance>.api.<your-region>.digitaltwins.azure.net` <br> **For telemetry**: `<your-Digital-Twins-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>`|
 | Subject | A description of the event in the context of the event source above | `subject = '<subject>'` | Here are the possible subject values: <br>**For notifications**: The subject is `<twin-ID>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twin-ID>/relationships/<relationship-ID>`<br> **For telemetry**: The subject is the component path (if the telemetry is emitted from a twin component), such as `comp1.comp2`. If the telemetry is not emitted from a component, then its subject field is empty. |
 | Data schema | DTDL model ID | `dataschema = '<model-dtmi-ID>'` | **For telemetry**: The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2` <br>**For notifications (create/delete)**: Data schema can be accessed in the notification body at `$body.$metadata.$model`. <br>**For notifications (update)**: Data schema can be accessed in the notification body at `$body.modelId`|
 | Content type | Content type of data value | `datacontenttype = '<content-type>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
-| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Concepts: Event notifications](../articles/digital-twins/concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
+| Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [Concepts: Event notifications](concepts-event-notifications.md) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
 The following data types are supported as values returned by references to the data above:
 
@@ -467,11 +467,11 @@ Routing metrics such as count, latency, and failure rate can be viewed in the [A
 
 From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's navigation menu on the left to bring up the *Metrics* page.
 
-:::image type="content" source="../articles/digital-twins/media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins.":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins.":::
 
 From here, you can view the metrics for your instance and create custom views.
 
-For more on viewing Azure Digital Twins metrics, see [How-to: View metrics with Azure Monitor](../articles/digital-twins/troubleshoot-metrics.md).
+For more on viewing Azure Digital Twins metrics, see [How-to: View metrics with Azure Monitor](troubleshoot-metrics.md).
 
 ## Next steps
 
