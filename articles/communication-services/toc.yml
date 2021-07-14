@@ -76,7 +76,7 @@ items:
     href: tutorials/building-app-start.md
   - name: Sign an HTTP request with an HMAC signature using C#
     href: tutorials/hmac-header-tutorial.md
-  - name: Sign and make requests to ACS' SMS API with Postman
+  - name: Sign and make requests to the SMS API with Postman
     href: tutorials/postman-tutorial.md
 - name: Concepts
   expanded: false

@@ -22,7 +22,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install) version 11 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - [Spring boot framework v- 2.5.0](https://spring.io/projects/spring-boot)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this quickstart.
 - An Azure storage account and container, for details, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). You'll need to record your **connection string** and **container name** for this quickstart.
 - An [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) Web hook.
 
