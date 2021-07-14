@@ -50,7 +50,7 @@ Here is the list of parameters to use with the command to create an endpoint:
 |EndpointName|endpoint-name|Use a name that you would like to assign to the endpoint being created.|
 |EndpointType|endpoint-type|Type of endpoint that IoT Hub needs to connect with. Use literal value of "EventHub" for PowerShell and "eventhub" for CLI.|
 |EndpointResourceGroup|endpoint-resource-group|Resource group name for your Azure IoT Connector for FHIR's FHIR service resource. You can get this value from the Overview page of FHIR service.|
-|EndpointSubscriptionId|endpoint-subscription-id|Subscription Id for your Azure IoT Connector for FHIR's FHIR service resource. You can get this value from the Overview page of FHIR service.|
+|EndpointSubscriptionId|endpoint-subscription-id|Subscription ID for your Azure IoT Connector for FHIR's FHIR service resource. You can get this value from the Overview page of FHIR service.|
 |ConnectionString|connection-string|Connection string to your Azure IoT Connector for FHIR. Use the value you obtained in the previous step.|
 
 ### Add a message route
