@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 07/14/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -75,7 +75,7 @@ To ensure that the administrator fulfilling the assignment is who they say they 
 
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
-To require multi-factor authentication before activation, check the **Require Multi-Factor Authentication on activation** box in the Assignment tab of **Edit role setting**.
+To require multi-factor authentication before activation, select the **On activation, require Azure MFA** option in the Activation tab of **Edit role setting**. To require multi-factor authentication when the assignment , select the **Require Azure Multi-Factor Authentication on active assignment** option in the Assignment tab of **Edit role setting**.
 
 For more information, see [Multi-factor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 
