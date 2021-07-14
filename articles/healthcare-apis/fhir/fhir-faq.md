@@ -6,14 +6,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 04/30/2021
+ms.date: 07/14/2021
 ms.author: cavoeg
 ms.custom: references_regions
 ---
 
 # Frequently asked questions about the FHIR service
 
-This section covers some of the frequently asked questions about Healthcare APIs FHIR service.
+This section covers some of the frequently asked questions about the Azure Healthcare APIs FHIR service (hear by called the FHIR service).
 
 ## FHIR service: The Basics
 
@@ -41,12 +41,11 @@ The FHIR service is our implementation of the FHIR specification that sits in th
 
 * The FHIR service has a limit of 4TB and is in public preview while the Azure API for FHIR supports more than 4TB and is GA.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-* Chained searching and reverse chained searching does not have a limit on number of resources returned
 * The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that are not yet available in the FHIR service in the Azure Healthcare APIs. More details will follow on these features by GA.
 
-### What's the difference between 'FHIR service in the Azure Healthcare APIs' and the 'FHIR server'?
+### What's the difference between 'FHIR service in the Azure Healthcare APIs' and the open-source 'FHIR server'?
 
-The FHIR service is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates.
+The FHIR service in the Azure Healthcare APIs is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates.
 
 When you run the FHIR Server for Azure, you have direct access to the underlying services, but are responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
@@ -81,15 +80,11 @@ We do not allow custom FHIR resources. If you need a custom FHIR resource, you c
 
 ### Are [extensions](https://www.hl7.org/fhir/extensibility.html) supported on the FHIR service?
 
-We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you could save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fhealthcare-apis%2Ffhir%2Fhow-to-do-custom-search&data=04%7C01%7Cv-stevewohl%40microsoft.com%7Cc6a08c7f0c86433f248c08d925377d85%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637581742517376233%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Ws%2FVQ2N33sMagzs393hmR67M9dNaL6WCLXyxXtor6PM%3D&reserved=0). 
+We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you could save this as a structure definition resource. To search on extensions, you'll need to [define your own search parameters](how-to-do-custom-search.md). 
 
 ### What is the limit on _count?
 
 The current limit on _count is 1000. If you set _count to more than 1000, you'll receive a warning in the bundle that only 1000 records will be shown.
-
-### Are there any limitations on the Group Export functionality?
-
-For Group Export we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
 
 ### Can I post a bundle to the FHIR service?
 
@@ -97,19 +92,7 @@ We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-b
 
 ### How can I get all resources for a single patient in the FHIR service?
 
-We support the $patient-everything operation which will get you all data related to a single patient. 
-
-### What is the default sort when searching for resources in the FHIR service?
-
-We support sorting by strings and dates for single fields at a time. For more information about other supported search parameters, see [Overview of FHIR Search](overview-of-search.md).
-
-### How does $export work?
-
-$export is part of the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](../data-transformation/export-data.md).
-
-### Is de-identified export available at Patient and Group level as well?
-
-Anonymized export is currently supported only on a full system export (/$export), and not for Patient export (/Patient/$export). We are working on making it available at the Patient level as well.
+We support the [$patient-everything operation](patient-everything.md) which will get you all data related to a single patient. 
 
 ## Using the FHIR service
 
