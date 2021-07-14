@@ -29533,7 +29533,8 @@
       "source_path_from_root": "/articles/storage/common/storage-quickstart-create-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
       "redirect_document_id": true
-    },    {
+    },
+    {
       "source_path_from_root": "/articles/storage/file-sync/file-sync-server-endpoint.md",
       "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
       "redirect_document_id": true
