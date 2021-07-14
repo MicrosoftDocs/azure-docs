@@ -75,7 +75,7 @@ With a user-assigned managed identity, you can supply an identity that already h
 
 * Learn more about [Managed identities](../active-directory/managed-identities-azure-resources/overview.md)
 
-* Learn [Azure Key Vault basics](..azure/key-vault/general/basic-concepts.md)
+* Learn [Azure Key Vault basics](../key-vault/general/basic-concepts.md)
 
 ## 1. Set up Azure Key Vault
 
