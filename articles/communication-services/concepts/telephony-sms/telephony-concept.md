@@ -44,7 +44,7 @@ For cloud calling, outbound calls are billed at per-minute rates depending on th
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
-With this option, you can connect legacy on-premises telephony and your carrier of choice to Azure Communication services. It provides PSTN calling capabilities to your Communication Services application even if Voice Calling (PSTN) is not available in your country/region. 
+With this option, you can connect legacy on-premises telephony and your carrier of choice to Azure Communication Services. It provides PSTN calling capabilities to your Communication Services application even if Voice Calling (PSTN) is not available in your country/region. 
 
 ![Azure direct routing diagram.](../media/telephony-concept/sip-interface-diagram.png)
 
