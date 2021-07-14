@@ -69,13 +69,13 @@ Privileged Identity Management provides optional enforcement of Azure AD Multi-F
 
 In some cases, you might want to assign a user to a role for a short duration (one day, for example). In this case, the assigned users don't need to request activation. In this scenario, Privileged Identity Management can't enforce multi-factor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
-To ensure that the administrator fulfilling the assignment is who they say they are, you can enforce multi-factor authentication on active assignment by checking the **Require Multi-Factor Authentication on active assignment** box.
+To require multi-factor authentication when the assignment is active, select the **Require Azure Multi-Factor Authentication on active assignment** option in the Assignment tab of **Edit role setting**.
 
 ### Require Multi-Factor Authentication on activation
 
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multi-factor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
-To require multi-factor authentication before activation, select the **On activation, require Azure MFA** option in the Activation tab of **Edit role setting**. To require multi-factor authentication when the assignment , select the **Require Azure Multi-Factor Authentication on active assignment** option in the Assignment tab of **Edit role setting**.
+To require multi-factor authentication before activation can be completed, select the **On activation, require Azure MFA** option in the Activation tab of **Edit role setting**.
 
 For more information, see [Multi-factor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 
