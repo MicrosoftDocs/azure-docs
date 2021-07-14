@@ -408,7 +408,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-SQLDW-ExportErrorRowFailed
 - **Message**: Exception is happened while writing error rows to storage.
-- **Cause**: An exception is happened while writing error rows to storage.
+- **Cause**: An exception happened while writing error rows to the storage.
 - **Recommendation**: Please check your rejected data linked service configuration.
 
 ### Error code: DF-Executor-FieldNotExist
@@ -506,7 +506,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-MSSQL-ExportErrorRowFailed
 - **Message**: Exception is happened while writing error rows to storage.
-- **Cause**: An exception is happened while writing error rows to the storage.
+- **Cause**: An exception happened while writing error rows to the storage.
 - **Recommendation**: Check your rejected data linked service configuration.
 
 ### Error code: DF-Synapse-InvalidDatabaseType
@@ -562,7 +562,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Cosmos-InvalidAccountKey
 - **Message**: The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used.
-- **Cause**: Don't have enough permission to read/write Cosmos DB data.
+- **Cause**: There is not enough permission to read/write the Azure Cosmos DB data.
 - **Recommendation**: Use the Azure Cosmos DB to read-write the key.
 
 
