@@ -29,10 +29,6 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
 :::image type="content" source="media/networking/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
 
 
-## Prerequisites
-Virtual machines (VMs) created or migrated to the Azure VMware Solution private cloud should be attached to a network segment.
-
-
 ## Configure DNS forwarder
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones**. Then select **Add**.
