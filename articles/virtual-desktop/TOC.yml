@@ -10,6 +10,10 @@
     href: whats-new-azure-monitor.md
   - name: Azure Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
+- name: Quickstarts
+  items:
+  - name: Getting started with Azure Virtual Desktop
+    href: getting-started-feature.md
 - name: Tutorials
   items:
   - name: 1. Create a host pool with the Azure portal
