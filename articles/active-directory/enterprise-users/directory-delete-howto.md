@@ -93,7 +93,7 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 
 ## Enterprise apps with no way to delete
 
-If you find that there are still enterprise applications that you can't delete in the portal, you can use the following PowerShell commands to remove them.
+If you find that there are still enterprise applications that you can't delete in the portal, you can use the following PowerShell commands to remove them. For more information on this PowerShell command, see [Remove-AzureADServicePrincipal](https://docs.microsoft.com/en-us/powershell/module/azuread/remove-azureadserviceprincipal?view=azureadps-2.0).
 
 1. Open PowerShell as an administrator
 1. Run `Connect-AzAccount -tenant <TENANT_ID>`

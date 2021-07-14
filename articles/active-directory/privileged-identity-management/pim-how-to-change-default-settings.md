@@ -75,7 +75,7 @@ To require multifactor authentication when the assignment is active, select the 
 
 You can require users who are eligible for a role to prove who they are using Azure AD Multi-Factor Authentication before they can activate. Multifactor authentication ensures that the user is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
-To require multifactor authentication before activation can be completed, select the **On activation, require Azure MFA** option in the Activation tab of **Edit role setting**.
+To require multifactor authentication to activate the role assignment, select the **On activation, require Azure MFA** option in the Activation tab of **Edit role setting**.
 
 For more information, see [Multifactor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 
