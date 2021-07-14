@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 # Teams interoperability
 
 > [!IMPORTANT]
-> BYOI interoperability is in public preview and broadly available on request. To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
+> BYOI interoperability is in public preview and available to all Communication Services applications and Teams organizations.
 >
 > Microsoft 365 authenticated interoperability is in private preview, and restricted using service controls to Azure Communication Services early adopters. To join early access program, complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 >
@@ -31,7 +31,7 @@ Azure Communication Services supports two types of Teams interoperability depend
 Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
 
 ## Bring your own identity
-Bring your own identity (BYOI) is the most common and simplest model for using Azure Communication Services and Teams interoperability. You implement whatever authentication scheme you desire, your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts.
+Bring your own identity (BYOI) is the most common and simplest model for using Azure Communication Services and Teams interoperability. You implement whatever authentication scheme you desire, your app can join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts. Your Teams tenant must be configured to allow anonymous users to join meeting, which can be enabled or disabled using the Teams admin center or Teams PowerShell.
 
 This capability is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. For example:
 
