@@ -51,7 +51,7 @@ Developers should use SDK for device and media operations.
 - Application should not use browser APIs like `getUserMedia` or `getDisplayMedia` to acquire streams outside of SDK. If it does so, please make sure it disposes stream before using DeviceManager or accessing any other device via ACS SDK.
 
 ### Request device permissions
-Developers should use SDK to control request user permission
+You can request device permissions using the SDK:
 - Application should use `DeviceManager.askDevicePermission` to get user consent to use devices ( audio and/or video )
 - If user denies to grant permission to use audio and/or video, `DeviceManager.askDevicePermission` will return 'false' for a given modality type ( audio/video ) on subsequent calls, even after page is refreshed, in this scenario application must detect that user denied permission and instruct user to manually reset or explictly allow permission to a given device type.
 
