@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 07/14/2021
 ms.author: allensu 
 ms.custom: devx-track-azurepowershell
 
