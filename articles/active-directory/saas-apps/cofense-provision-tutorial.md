@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Cofense Recipient Sync for automatic user provisioni
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cofense Recipient Sync.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 84fe20ef-0de0-4f7c-9b42-6385f3d834db
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Cofense Recipient Sync for automatic user provisioning
