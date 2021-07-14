@@ -669,7 +669,7 @@ layout.addView(uiView);
 ```
 
 ## Record calls
-> [!NOTE]
+> [!WARNING]
 > Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling Android SDK has the `isRecordingActive` and `addOnIsRecordingActiveChangedListener` are part of the `Call`. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
 
 > [!NOTE]
@@ -728,7 +728,7 @@ When recording is stopped from the server, the event `handleCallOnIsRecordingCha
 
 
 ## Call transcription
-> [!NOTE]
+> [!WARNING]
 > Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling Android SDK has the `isTranscriptionActive` and `addOnIsTranscriptionActiveChangedListener` are part of the `Call` object. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
 	
 > [!NOTE]
