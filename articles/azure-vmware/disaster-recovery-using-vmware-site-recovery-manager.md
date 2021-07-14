@@ -29,9 +29,9 @@ The diagram shows the deployment of the primary Azure VMware Solution to seconda
 
 You can use SRM to implement different types of recovery, such as:
 
-- **Planned migration** commences when both primary and secondary Azure VMware Solution sites are running and fully functional. It's an orderly migration of virtual machines from the protected site to the recovery site where no data loss is expected when migrating workloads in an orderly fashion. 
+- **Planned migration** commences when both primary and secondary Azure Vmware Solution sites are running and fully functional. It's an orderly migration of virtual machines from the protected site to the recovery site where no data loss is expected when migrating workloads in an orderly fashion. 
 
-- **Disaster recovery** using SRM can be invoked when the protected Azure VMware Solution site goes offline unexpectedly. Site Recovery Manager orchestrates the recovery process with the replication mechanisms, to minimize data loss and system downtime.
+- **Disaster recovery** using SRM can be invoked when the protected Azure Vmware Solution site goes offline unexpectedly. Site Recovery Manager orchestrates the recovery process with the replication mechanisms to minimize data loss and system downtime.
 
    In Azure VMware Solution, only individual VMs can be protected on a host by using SRM in combination with vSphere Replication.
 
@@ -44,11 +44,11 @@ You can use SRM to implement different types of recovery, such as:
 >- VVOLs Protection Groups 
 >- SRM IP customization using SRM command-line tools
 >- One to Many and Many to One topologies 
->- SRM using VMware HCX based replication
+
 
 ## Deployment workflow
 
-The workflow diagrams shows the steps to take within the Azure portal and the VMware environments of Azure VMware Solution to achieve the end-to-end protection of VMs. 
+The workflow diagram shows the Primary Azure VMware Solution to secondary workflow. In addition, it shows steps to take within the Azure portal and the VMware environments of Azure VMware Solution to achieve the end-to-end protection of VMs. 
 
 :::image type="content" source="media/vmware-srm-vsphere-replication/site-recovery-manager-workflow.png" alt-text="Diagram showing the deployment workflow for VMware Site Recovery Manager on Azure VMware Solution." border="false":::
 
@@ -61,7 +61,7 @@ The workflow diagrams shows the steps to take within the Azure portal and the VM
 - [DNS resolution](/azure/azure-vmware/configure-dns-azure-vmware-solution) to on-premises SRM and virtual cloud appliances
 
    >[!NOTE]
-   >For private clouds created on or before July 1, 2021, you now have the ability to configure private DNS resolution. For private clouds created before July 1, 2021, that need private DNS resolution, open a [support ticket]() and request **Private DNS configuration**.
+   >For private clouds created on or **before** July 1, 2021, you can configure private DNS resolution. For private clouds created before July 1, 2021, that need a private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request **Private DNS configuration**.
 
 - ExpressRoute connectivity between on-premises and Azure VMware Solution - 2 Gbps
 
@@ -295,7 +295,7 @@ VMware SRM is a Disaster Recovery solution from VMware.
 
 - For SRM-related issues in your on-premises environment, contact VMware for support.
 
-- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Issues can include install and uninstall of SRM and scale up/down of vSphere Replication appliances. For all other SRM issues, contact VMware first. 
+- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.  
 
 VMware and Microsoft support teams will engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
 
