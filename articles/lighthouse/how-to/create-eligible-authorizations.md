@@ -64,11 +64,11 @@ The role can be any Azure built-in role that is supported for Azure delegated re
 
 ### Access policy
 
-The access policy defines the Multi-factor authorization (MFA) requirements, the length of time a user will be activated in the role before it expires, and whether approvers are required.
+The access policy defines the multifactor authentication requirements, the length of time a user will be activated in the role before it expires, and whether approvers are required.
 
-#### Multi-factor authorization (MFA)
+#### Multifactor authentication
 
-Specify whether or not to require Azure Multi-factor authorization (MFA) in order for an eligible role to be activated.
+Specify whether or not to require [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) in order for an eligible role to be activated.
 
 #### Maximum duration
 
@@ -86,7 +86,7 @@ If you don’t include any approvers, the user will be able to activate the elig
 
 To onboard your customer to Azure Lighthouse, you can publish Managed Services offers to Azure Marketplace. When [creating your offers in Partner Center](publish-managed-services-offers.md), you can now specify whether the **Access type** for each [Authorization](../../marketplace/create-managed-service-offer-plans.md#authorizations) should be **Active** or **Eligible**.
 
-When you select **Eligible**, the user in your authorization will be able to activate the role according to the access policy you configure. You must set a maximum duration between 30 minutes and 8 hours, and specify whether you’ll require Azure Multi-factor authorization (MFA). You can also add up to 10 approvers if you choose to use them, providing a display name and a principal ID for each one.
+When you select **Eligible**, the user in your authorization will be able to activate the role according to the access policy you configure. You must set a maximum duration between 30 minutes and 8 hours, and specify whether you’ll require Azure multifactor authentication. You can also add up to 10 approvers if you choose to use them, providing a display name and a principal ID for each one.
 
 Be sure to review the details in the [Eligible authorization elements](#eligible-authorization-elements) section when configuring your eligible authorizations in Partner Center.
 
@@ -288,7 +288,7 @@ Each entry within the `eligibleAuthorizations` parameter contains [three element
 
 `justInTimeAccessPolicy` specifies three elements:
 
-- `multiFactorAuthProvider` can either be set to **Azure**, which will require authentication using Azure Multi-factor authorization (MFA), or to **None** if no Multi-factor authorization will be required.
+- `multiFactorAuthProvider` can either be set to **Azure**, which will require authentication using Azure AD Multi-Factor Authentication, or to **None** if no multifactor authentication will be required.
 - `maximumActivationDuration` sets the total length of time for which the user will have the eligible role. This value must use the ISO 8601 duration format. The minimum value is PT30M (30 minutes) and the maximum value is PT8H (8 hours).
 - `managedByTenantApprovers` is optional. If you include it, it must contain one or more combinations of a principalId and a principalIdDisplayName who will be required to approve any activation of the eligible role.
 
