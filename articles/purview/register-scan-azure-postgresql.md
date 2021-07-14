@@ -15,7 +15,7 @@ ms.date: 06/30/2021
 This article describes how to register and scan an Azure database for PostgreSQL.
 
 
-## Supported Capabilities
+## Supported capabilities
 - **Full and incremental scans** to capture metadata and classification from Azure databases for PostgreSQL.
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
