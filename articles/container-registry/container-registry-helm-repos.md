@@ -131,7 +131,7 @@ mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0
 
 ## Authenticate with the registry
 
-Run the `helm registry login` command in the Helm 3 CLI to [authenticate with the registry](container-registry-authentication.md) using credentials appropriate for your scenario.
+Run the `helm registry login` command in the Helm 3 CLI to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, or a repository-scoped token.
 
 For example, create an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry. Then supply the service principal credentials to `helm registry login`. The following example supplies the password using an environment variable:
 
@@ -140,6 +140,9 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
   --username <service-principal-id> \
   --password-stdin
 ```
+
+> [!TIP]
+> You can also login to the registry with your [individual AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts.
 
 ## Push chart to registry
 
