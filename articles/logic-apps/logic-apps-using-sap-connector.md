@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 tags: connectors
 ---
 
@@ -179,64 +179,79 @@ If you're using SNC with SSO, make sure the data gateway service is running as a
 
 If you're enabling SNC through an external security product, copy the SNC library or files on the same computer where your data gateway is installed. Some examples of SNC products include [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, and NTLM. For more information about enabling SNC for the data gateway, see [Enable Secure Network Communications](#enable-secure-network-communications).
 
-### SNC prerequisites (ISE)
+> [!TIP]
+> Your SNC library and its dependencies must be compatible with your SAP environment. Confirm using the library version.
+> * You must use `sapgenpse.exe` specifically as the SAPGENPSE utility.
+> * If you use an on-premises data gateway, also copy these same binary files to the installation folder there.
+>  * You don't need to copy and set up PSE and SECUDIR for your on-premises data gateway if PSE is provided in your connection.
+>  * You can also use your on-premises data gateway to troubleshoot any library compatibility issues.
+
+#### SNC prerequisites (ISE)
 
 The ISE version of the SAP connector supports SNC X.509. You can enable SNC for your SAP ISE connections as follows.
 
-First, remove your existing SAP ISE connection. Sign in to the [Azure portal](https://portal.azure.com), then use one of the following methods.
+> [!IMPORTANT]
+> Before you redeploy an existing SAP connector to use SNC, you must delete all connections to the old connector. Multiple logic apps can use the same connection to SAP. As such, you must delete any SAP connections from all your logic apps. Then, you must delete the old connector.
 
-* To delete your connection from your logic app:
-  1. Open your workflow in the Logic Apps Designer.
-  1. In your logic app's menu, under **Development Tools**, select **API connections**.
-  1. On the **API connections** page, select your SAP connection.
-  1. On the connection's page menu, select **Delete**.
-  1. Accept the confirmation prompt to delete the connection.
-  1. Wait for the portal notification that the connection has been deleted.
-* To delete your connection from your ISE's API connections:
-  1. Open your ISE in the Azure portal.
-  1. In your ISE's menu, under **Settings**, select **API connections**.
-  1. On the **API connections** page, select your SAP connection.
-  1. On the connection's page menu, select **Delete**.
-  1. Accept the confirmation prompt to delete the connection.
-  1. Wait for the portal notification that the connection has been deleted.
+First, if you have already deployed the SAP connector without the SNC or SAPGENPSE libraries, delete all the connections and the connector.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Delete all connections to your SAP connector from your logic apps.
+    1. Open your logic app resource in the Azure portal.
+    1. In your logic app's menu, under **Development Tools**, select **API connections**.
+    1. On the **API connections** page, select your SAP connection.
+    1. On the connection's page menu, select **Delete**.
+    1. Accept the confirmation prompt to delete the connection.
+    1. Wait for the portal notification that the connection has been deleted.
+1. Or, delete connections to your SAP connector from your ISE's API connections.
+    1. Open your ISE resource in the Azure portal.
+    1. In your ISE's menu, under **Settings**, select **API connections**.
+    1. On the **API connections** page, select your SAP connection.
+    1. On the connection's page menu, select **Delete**.
+    1. Accept the confirmation prompt to delete the connection.
+    1. Wait for the portal notification that the connection has been deleted.
 
-Next, delete your SAP connector from your ISE's managed connectors:
-1. Open your ISE in the Azure portal.
+Next, delete the SAP connector from your ISE. You must delete all connections to this connector in all your logic apps before you can delete the connector. If you haven't already deleted all connections, see the previous set of steps.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open your ISE resource in the Azure portal again.
 1. In your ISE's menu, under **Settings**, select **Managed connectors**.
 1. On the **Managed connectors** page, select the checkbox for your SAP connector.
 1. In the toolbar, select **Delete**.
 1. Accept the confirmation prompt to delete the connector.
 1. Wait for the portal notification that the connector has been deleted.
 
-Next, redeploy the SAP connector in your ISE.
+Next, deploy or redeploy the SAP connector in your ISE:
 
 1. Prepare a new zip archive file to use in your SAP connector deployment. You must include the SNC library and the SAPGENPSE utility.
     1. Copy all SNC, SAPGENPSE, and NCo libraries to the root folder of your zip archive. Don't put these binaries in subfolders.
-    1. You must use the 64 bit SNC library. There is not support for 32 bit.
-    1. Your SNC library and its dependencies must be compatible with your SAP environment. Confirm using the library version.
-    1. You must use `sapgenpse.exe` specifically as the SAPGENPSE utility.
-    1. Copy these same binary files to the installation folder of your on-premises data gateway.
-    1. You don't need to copy and set up PSE and SECUDIR for your on-premises data gateway if PSE is provided in your connection.
-1. Follow the SAP connector deployment steps in [ISE prerequisites](#ise-prerequisites) with your new zip archive.
+    1. You must use the 64-bit SNC library. There is no support for 32-bit.
+    1. Your SNC library and its dependencies must be compatible with your SAP environment. For how to check compatibility, the [ISE prerequisites](#ise-prerequisites).
+1. Follow the deployment steps in [ISE prerequisites](#ise-prerequisites) with your new zip archive.
 
-Last, create a new connection in your logic app that uses SNC.
+Last, create new connections that use SNC in all your logic apps that use the SAP connector. For each:
 
 1. Open your workflow in the Logic Apps Designer again.
 1. Create or edit a step that uses the SAP connector.
-1. Enter all required and necessary SAP connection information.
-  1. The fields **SAP Username** and **SAP Password** are optional. If you don't provide a username and password, the connector uses the client certificate provided in a later step for authentication.
-  1. For **Use SNC**, select the checkbox to enable this setting.
-  1. For **SNC Library**, enter the name of your SNC library. For example, `sapcrypto.dll`.
-  1. For **SNC Partner Name**, enter the backend's SNC name. For example, `p:CN=DV3, OU=LA, O=MS, C=US`.
-  1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer.
-  1. For **PSE**, enter your SNC PSE as a base64-encoded binary. Make sure to use the following settings:
-      1. The PSE must contain the private client certificate, which thumbprint matches the public client certificate that you provided in the previous step.
-      1. The PSE may contain additional client certificates.
-      1. The PSE must have no PIN. If needed, set the PIN to empty.
-      1. If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. You can set the client public certificate parameter to specific certificates for each connection used in your ISE.
-      1. For certificate rotation, update the base64-encoded binary PSE for all connections that use SAP ISE X.509 in your ISE. The connector detects the PSE change and updates its own copy during the next connection request.
-1. Optionally, enter SNC settings for **SNC My Name**, **SNC Quality of Protection** as needed.
+1. Enter required information about your SAP connection. 
+    :::image type="content" source=".\media\logic-apps-using-sap-connector\ise-connector-settings.png" alt-text="Screenshot of Logic Apps Designer, showing SAP connection settings." lightbox=".\media\logic-apps-using-sap-connector\ise-connector-settings.png":::
+    > [!NOTE]
+    > The fields **SAP Username** and **SAP Password** are optional. If you don't provide a username and password, the connector uses the client certificate provided in a later step for authentication.
+1. Enable SNC. 
+    1. For **Use SNC**, select the checkbox.
+    1. For **SNC Library**, enter the name of your SNC library. For example, `sapcrypto.dll`.
+    1. For **SNC Partner Name**, enter the backend's SNC name. For example, `p:CN=DV3, OU=LA, O=MS, C=US`.
+    1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer.
+    1. Optionally, enter SNC settings for **SNC My Name**, **SNC Quality of Protection** as needed.
+    :::image type="content" source=".\media\logic-apps-using-sap-connector\ise-connector-settings-snc.png" alt-text="Screenshot of Logic Apps Designer, showing SNC configuration settings for a new SAP connection." lightbox=".\media\logic-apps-using-sap-connector\ise-connector-settings-snc.png":::
+1. Configure PSE settings. 
+    1. For **PSE**, enter your SNC PSE as a base64-encoded binary.
+    1. The PSE must contain the private client certificate, which thumbprint matches the public client certificate that you provided in the previous step.
+    1. The PSE may contain additional client certificates. 
+    1. The PSE must have no PIN. If needed, set the PIN to empty. 
+    1. For certificate rotation, update the base64-encoded binary PSE for all connections that use SAP ISE X.509 in your ISE. The connector detects the PSE change and updates its own copy during the next connection request.
+    > [!NOTE]
+    > If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. You can set the client public certificate parameter to specific certificates for each connection used in your ISE.
 1. Select **Create** to create your connection.
 1. On the Logic Apps Designer toolbar, select **Save** to save your changes.
 
