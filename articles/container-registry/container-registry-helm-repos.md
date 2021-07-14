@@ -2,7 +2,7 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 07/13/2021
+ms.date: 07/14/2021
 ---
 
 # Push and pull Helm charts to an Azure container registry
@@ -18,18 +18,39 @@ To store, manage, and install Helm charts, you use a Helm client and the Helm CL
 Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm 3, you:
 
 * Can create one or more Helm repositories in an Azure container registry
-* Store Helm 3 charts in a registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Azure Container Registry provides GA support for [OCI artifacts](container-registry-oci-artifacts.md), including Helm charts.
+* Store Helm charts in a registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Azure Container Registry provides GA support for [OCI artifacts](container-registry-oci-artifacts.md), including Helm charts.
 * Authenticate with your registry using the `az cr login` or `helm registry login` command.
 * Use `helm chart` commands in the Helm CLI to push, pull, and manage Helm charts in a registry
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
 
-If you've previously stored and deployed charts using Helm 2 and Azure Container Registry, see:
+### Feature support
 
-* [Migrating Helm v2 to v3](https://helm.sh/docs/topics/v2_v3_migration/) in the Helm documentation.
-* [Migrate your registry to store Helm OCI artifacts](#migrate-your-registry-to-store-helm-oci-artifacts), later in this article
+The following Azure Container Registry features to manage Helm charts are supported using the Helm 2 and Helm 3 clients.
+
+| Feature | Helm 2 | Helm 3 |
+| ---- | ---- | ---- |
+| Manage charts using `az acr helm` commands | :heavy_check_mark: | |
+| Store charts as OCI artifacts | | :heavy_check_mark:  |
+| Manage charts using `az acr repository` commands | | :heavy_check_mark:  |
+
 
 > [!NOTE]
-> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. A minimum of 3 months' notice will be provided in advance of command removal. .
+> As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. A minimum of 3 months' notice will be provided in advance of command removal.
+### Chart version compatibility
+
+The following Helm chart versions can be stored in Azure Container Registry and are installable by the Helm 2 and Helm 3 clients. 
+
+| Version | Helm 2 | Helm 3 |
+| ---- | ---- | ---- |
+| apiVersion v1 | :heavy_check_mark: | :heavy_check_mark: |
+| apiVersion v2 | | :heavy_check_mark: |
+
+### Migrate from Helm 2 to Helm 3
+
+If you've previously stored and deployed charts using Helm 2 and Azure Container Registry, and plan to migrate to Helm 3, see:
+
+* [Migrating Helm 2 to 3](https://helm.sh/docs/topics/v2_v3_migration/) in the Helm documentation.
+* [Migrate your registry to store Helm OCI artifacts](#migrate-your-registry-to-store-helm-oci-artifacts), later in this article
 
 ## Prerequisites
 
@@ -278,7 +299,7 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 
 ## Migrate your registry to store Helm OCI artifacts
 
-If you previously set up your Azure container registry as a classic Helm chart repository using Helm 2 and the `az acr helm` commands, we recommend that you [upgrade][helm-install] to the Helm 3 client and store the charts as OCI artifacts.
+If you previously set up your Azure container registry as a classic Helm chart repository using Helm 2 and the `az acr helm` commands, we recommend that you [upgrade][helm-install] to the Helm 3 client. Then, follow these steps to store the charts as OCI artifacts in your registry. 
 
 > [!IMPORTANT]
 > * After you complete migration from a classic (index.yaml-based) Helm chart repository to OCI artifact repositories, use the `helm chart` and `helm registry` commands to manage the charts. See previous sections in this article. 
