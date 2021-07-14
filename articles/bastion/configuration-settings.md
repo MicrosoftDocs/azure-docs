@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ms.author: cherylmc
 
 ---
