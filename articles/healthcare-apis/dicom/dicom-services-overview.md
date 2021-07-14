@@ -47,7 +47,7 @@ DICOM Service needs an Azure subscription to configure and run the required comp
 - **Azure Key Vault**: Stores critical security information.
 - **Storage Account**: Blob Storage that persists all Medical Imaging Server for DICOM data and metadata.
 - **Application Insights** (optional): Monitors performance of DICOM Service.
-- **Azure Container Instance** (optional): Hosts the DICOM Cast ervice for Azure API for FHIR integration.
+- **Azure Container Instance** (optional): Hosts the DICOM Cast service for Azure API for FHIR integration.
 - **Azure API for FHIR** (optional): Persists the DICOM metadata alongside other clinical data.
 
 ## Summary
