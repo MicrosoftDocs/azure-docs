@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ azdata arc postgres server create --help
 
 
 ## Collecting logs of the data controller and your server groups
-Read the article about [getting logs for Azure Arc enabled data services](troubleshooting-get-logs.md)
+Read the article about [getting logs for Azure Arc-enabled data services](troubleshooting-get-logs.md)
 
 
 
@@ -46,7 +46,7 @@ For example, let's troubleshoot a PostgreSQL Hyperscale server group that might 
 
 ### Install tools
 
-Install Azure Data Studio, `kubectl` and [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
+Install Azure Data Studio, `kubectl`, and Azure (`az`) CLI with the `arcdata` extension on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
 
 ### Update the PATH environment variable
 
@@ -92,7 +92,7 @@ Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
 
-The **TSG100 - The Azure Arc enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
+The **TSG100 - The Azure Arc-enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
 
 #### Run the scripts
@@ -103,7 +103,7 @@ View the output from the execution of the code cells for any potential issues.
 We'll add more details to the notebook over time about how to recognize common problems and how to solve them.
 
 ## Next step
-- Read about [getting logs for Azure Arc enabled data services](troubleshooting-get-logs.md)
+- Read about [getting logs for Azure Arc-enabled data services](troubleshooting-get-logs.md)
 - Read about [searching logs with Kibana](monitor-grafana-kibana.md)
 - Read about [monitoring with Grafana](monitor-grafana-kibana.md)
 - Create your own notebooks

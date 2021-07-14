@@ -154,6 +154,8 @@
         href: event-schema-subscriptions.md
       - name: Azure Cache for Redis
         href: event-schema-azure-cache.md
+      - name: Azure Kubernetes Service (Preview)
+        href: event-schema-aks.md
   - name: Partner Events
     items:
     - name: Overview of Partner Events
