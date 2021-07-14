@@ -521,4 +521,4 @@ To associate a new VM to the Capacity Reservation Group, the group must be expli
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about adding code to articles](code-in-docs.md)
+> [Learn about adding code to articles](availability.md)
