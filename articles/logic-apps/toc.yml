@@ -411,7 +411,7 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Pricing model & usage metering
+  - name: Pricing and billing models
     href: logic-apps-pricing.md
   - name: Azure CLI
     href: /cli/azure/logic
@@ -449,7 +449,7 @@
     href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
+  - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/

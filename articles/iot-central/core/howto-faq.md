@@ -120,7 +120,7 @@ If the device status is **Unassociated**, it means the device connecting to IoT 
 - A set of devices is added using **Import** on the **Devices** page without specifying the device template.
 - A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
 
-The operator can associate a device to a device template from the **Devices** page using the **Migrate** button. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices.md).
+The operator can associate a device to a device template from the **Devices** page using the **Migrate** button. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
 ## Where can I learn more about IoT Hub?
 

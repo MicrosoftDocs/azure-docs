@@ -93,7 +93,7 @@ You can include a `modelId` field in the body. Use this field to associate the d
 
 The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
 
-If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices.md).
+If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
 In [V2 applications](howto-faq.md#how-do-i-get-information-about-my-application), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
 
@@ -281,4 +281,4 @@ The device bridge only forwards messages to IoT Central, and doesn't send messag
 Now that you've learned how to deploy the IoT Central device bridge, here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Manage your devices](howto-manage-devices.md)
+> [Manage your devices](howto-manage-devices-individually.md)

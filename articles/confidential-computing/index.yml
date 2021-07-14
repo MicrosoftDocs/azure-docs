@@ -65,7 +65,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Confidential computing virtual machines FAQ 
-            url: faq.md
+            url: faq.yml
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
           - text: Availability

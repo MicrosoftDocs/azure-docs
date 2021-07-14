@@ -189,7 +189,7 @@ To register the desktop app group to a workspace:
      - A workspace, if you chose to create it.
      - If you chose to register the desktop app group, the registration will be completed.
      - Virtual machines, if you chose to create them, which are joined to the domain and registered with the new host pool.
-     - A download link for an Azure Resource Management template based on your configuration.
+     - A download link for an Azure Resource Manager template based on your configuration.
 
 After that, you're all done!
 

@@ -90,7 +90,7 @@
       displayName: classification
     - name: Investigate sensor detections in a device inventory
       href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-      displayName: classification, Windows registry, device, firmware, import
+      displayName: classification, Windows registry, device, firmware, import, bulk, delete
   - name: Work with the sensor device map
     href: how-to-work-with-the-sensor-device-map.md
     displayName: connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network
