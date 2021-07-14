@@ -574,7 +574,7 @@ localRenderer.dispose()
 ```
 
 ## Record calls
-> [!NOTE]
+> [!WARNING]
 > Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling iOS SDK has the `isRecordingActive` as part of the `Call` object and `didChangeRecordingState` is part of `CallDelegate` delegate. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling iOS SDK
@@ -623,7 +623,7 @@ let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
 When recording is stopped from the server, the event `didChangeRecordingState` will trigger and the value of `recordingFeature.isRecordingActive` will be `false`.
 
 ## Call transcription
-> [!NOTE]
+> [!WARNING]
 > Up until version 1.1.0 and beta release version 1.1.0-beta.1 of the ACS Calling iOS SDK has the `isTranscriptionActive` as part of the `Call` object and `didChangeTranscriptionState` is part of `CallDelegate` delegate. For new beta releases, those APIs have been moved as an extended feature of `Call` just like described below.
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling iOS SDK
