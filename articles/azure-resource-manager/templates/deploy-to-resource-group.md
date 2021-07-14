@@ -2,7 +2,8 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/13/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Resource group deployments with ARM templates
@@ -45,7 +46,7 @@ For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az_d
 az deployment group create \
   --name demoRGDeployment \
   --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -57,7 +58,7 @@ For the PowerShell deployment command, use [New-AzResourceGroupDeployment](/powe
 New-AzResourceGroupDeployment `
   -Name demoRGDeployment `
   -ResourceGroupName ExampleGroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
   -storageAccountType Standard_GRS `
 ```
 
@@ -296,7 +297,7 @@ From a resource group deployment, you can switch to the level of a subscription 
                     "resources": [
                         {
                             "type": "Microsoft.Resources/resourceGroups",
-                            "apiVersion": "2020-06-01",
+                            "apiVersion": "2020-10-01",
                             "name": "[parameters('newResourceGroupName')]",
                             "location": "[parameters('location')]",
                             "properties": {}

@@ -257,7 +257,7 @@ az network private-endpoint dns-zone-group create \
    --zone-name "searchServiceZone"
 ```
 
-For more information on creating private endpoints in PowerShell, see this [Private Link Quickstart](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli)
+For more information on creating private endpoints in PowerShell, see this [Private Link Quickstart](../private-link/create-private-endpoint-cli.md)
 
 ### Manage private endpoint connections
 

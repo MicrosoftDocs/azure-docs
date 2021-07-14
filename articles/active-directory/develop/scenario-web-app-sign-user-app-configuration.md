@@ -82,7 +82,7 @@ In ASP.NET Core, these settings are located in the [appsettings.json](https://gi
     // - "https://login.microsoftonline.com/" for Azure public cloud
     // - "https://login.microsoftonline.us/" for Azure US government
     // - "https://login.microsoftonline.de/" for Azure AD Germany
-    // - "https://login.chinacloudapi.cn/" for Azure AD China operated by 21Vianet
+    // - "https://login.partner.microsoftonline.cn/common" for Azure AD China operated by 21Vianet
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD audience among:
@@ -213,7 +213,7 @@ Here's the Python configuration file in [app_config.py](https://github.com/Azure
 
 ```Python
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-AUTHORITY = "https://login.microsoftonline.com/common""
+AUTHORITY = "https://login.microsoftonline.com/common"
 CLIENT_ID = "Enter_the_Application_Id_here"
 ENDPOINT = 'https://graph.microsoft.com/v1.0/users'
 SCOPE = ["User.ReadBasic.All"]

@@ -2,7 +2,7 @@
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 06/23/2021
 ---
 
 # Azure Backup architecture and components
@@ -87,6 +87,17 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 
 ![Image showing comparisons of backup methods](./media/backup-architecture/backup-method-comparison.png)
 
+## SAP HANA backup types
+
+The following table explains the different types of backups used for SAP HANA databases and how often they're used:
+
+| Backup type | Details | Usage |
+| --- | --- | --- |
+| **Full backup** | A full database backup backs up the entire database. This type of backup can be independently used to restore to a specific point. | At most, you can schedule one full backup per day. <br><br> You can choose to schedule a full backup on a daily or weekly interval. |
+| **Differential backup** | A differential backup is based on the most recent, previous full-data backup. <br><br> It captures only the data that's changed since the previous full backup. | At most, you can schedule one differential backup per day.  <br><br> You can't configure a full backup and a differential backup on the same day. |
+| **Incremental backup** | An incremental backup is based on the most recent, previous full/ differential/ incremental-data backup. <br><br> It captures only the data that's changed since this previous data backup. | At most, you can schedule one incremental backup per day. <br><br> You can't schedule both differential and incremental backups on a database, only one delta backup type can be scheduled. <br><br> You can't configure a full backup and a differential backup on the same day. |k
+| **Transaction log backup** | A log backup enables point-in-time restoration up to a specific second. | At most, you can configure transactional log backups every 15 minutes. |
+
 ## Backup features
 
 The following table summarizes the supported features for the different types of backup:
@@ -132,28 +143,12 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - Azure File share: How to [create](./backup-afs.md) and [modify](./manage-afs-backup.md#modify-policy) policy.
 - SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy.
 - MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy.
-- [Are there any limitations on scheduling backup based on the type of workload?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
-- [What happens to the existing recovery points if I change the retention policy?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+- [Are there any limitations on scheduling backup based on the type of workload?](./backup-azure-backup-faq.yml#are-there-limits-on-backup-scheduling-)
+- [What happens to the existing recovery points if I change the retention policy?](./backup-azure-backup-faq.yml#what-happens-when-i-change-my-backup-policy-)
 
 ## Architecture: Built-in Azure VM Backup
 
-1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
-1. During the first backup, a backup extension is installed on the VM if the VM is running.
-    - For Windows VMs, the VMSnapshot extension is installed.
-    - For Linux VMs, the VMSnapshot Linux extension is installed.
-1. The extension takes a storage-level snapshot.
-    - For Windows VMs that are running, Backup coordinates with the Windows Volume Shadow Copy Service (VSS) to take an app-consistent snapshot of the VM. By default, Backup takes full VSS backups. If Backup is unable to take an app-consistent snapshot, then it takes a file-consistent snapshot.
-    - For Linux VMs, Backup takes a file-consistent snapshot. For app-consistent snapshots, you need to manually customize pre/post scripts.
-    - Backup is optimized by backing up each VM disk in parallel. For each disk being backed up, Azure Backup reads the blocks on disk and stores only the changed data.
-1. After the snapshot is taken, the data is transferred to the vault.
-    - Only blocks of data that changed since the last backup are copied.
-    - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
-    - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](./backup-instant-restore-capability.md).
-
-You don't need to explicitly allow internet connectivity to back up your Azure VMs.
-
-![Backup of Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
+[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
 
 ## Architecture: Direct backup of on-premises Windows Server machines or Azure VM files or folders
 

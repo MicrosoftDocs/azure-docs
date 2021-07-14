@@ -2,21 +2,28 @@
 title: Create an Azure Blockchain Service member by using Azure Resource Manager template
 description: Learn how to create an Azure Blockchain Service member by using Azure Resource Manager template.
 services: azure-resource-manager
-ms.service: azure-resource-manager
+ms.date: 05/11/2021
 ms.topic: quickstart
-ms.custom: subject-armqs, references_regions
-ms.date: 09/16/2020
+ms.service: azure-resource-manager
+ms.custom:
+  - subject-armqs
+  - references_regions
+  - mode-arm
 ---
 
 # Quickstart: Create an Azure Blockchain Service member using an ARM template
 
-In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using an Azure Resource Manager template (ARM template). An Azure Blockchain Service member is a blockchain node in a private consortium blockchain network. When provisioning a member, you can create or join a consortium network. You need at least one member for a consortium network. The number of blockchain members needed by participants depends on your scenario. Consortium participants may have one or more blockchain members or they may share members with other participants. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
+In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using an Azure Resource Manager template (ARM template).
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+An Azure Blockchain Service member is a blockchain node in a private consortium blockchain network. When provisioning a member, you can create or join a consortium network. You need at least one member for a consortium network. The number of blockchain members needed by participants depends on your scenario. Consortium participants may have one or more blockchain members or they may share members with other participants. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.blockchain%2Fblockchain-asaservice%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -24,9 +31,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/blockchain-asaservice/).
 
-:::code language="json" source="~/quickstart-templates/201-blockchain-asaservice/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.blockchain/blockchain-asaservice/azuredeploy.json":::
 
 Azure resources defined in the template:
 
@@ -36,7 +43,7 @@ Azure resources defined in the template:
 
 1. Select the following link to sign in to Azure and open a template.
 
-    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-blockchain-asaservice%2Fazuredeploy.json)
+    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.blockchain%2Fblockchain-asaservice%2Fazuredeploy.json)
 
 1. Specify the settings for the Azure Blockchain Service member.
 

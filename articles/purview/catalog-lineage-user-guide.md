@@ -44,7 +44,7 @@ Data systems like Azure ML and Power BI report lineage into Azure Purview. These
 
 ## Get started with lineage
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE1XVQS]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWxTAK]
 
 Lineage in Purview includes datasets and processes. Datasets are also referred to as nodes while processes can be also called edges:
 

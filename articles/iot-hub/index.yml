@@ -137,7 +137,7 @@ landingContent:
          - text: Device Authentication using X.509 CA certs
            url: iot-hub-x509ca-overview.md
          - text: X.509 security with IoT Hub
-           url: iot-hub-security-x509-get-started.md
+           url: ./tutorial-x509-scripts.md
          - text: X.509 CA cert security concepts
            url: iot-hub-x509ca-concept.md
  - title: Use Azure CLI for Iot Hub

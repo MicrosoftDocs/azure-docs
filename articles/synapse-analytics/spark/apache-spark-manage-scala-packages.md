@@ -40,7 +40,7 @@ To add workspace packages:
 ## Pool libraries
 Once you have identified the Scala and Java packages that you would like to use for your Spark application, you can install them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
 
-You can update the Spark pool libraries by navigating to the Azure Synapse Studio or Azure portal. Here, you can select the workspace libraries to install. 
+You can update the Spark pool libraries by navigating to the Synapse Studio or Azure portal. Here, you can select the workspace libraries to install. 
 
 After the changes are saved, a Spark job will run the installation and cache the resulting environment for later reuse. Once the job is complete, new Spark jobs or notebook sessions will use the updated pool libraries. 
 
@@ -48,8 +48,8 @@ After the changes are saved, a Spark job will run the installation and cache the
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
 
-#### Manage packages from Azure Synapse Studio or Azure portal
-Spark pool libraries can be managed either from the Azure Synapse Studio or Azure portal. 
+#### Manage packages from Synapse Studio or Azure portal
+Spark pool libraries can be managed either from the Synapse Studio or Azure portal. 
 
 To update or add  libraries to a Spark pool:
 1. Navigate to your Azure Synapse Analytics workspace from the Azure portal.

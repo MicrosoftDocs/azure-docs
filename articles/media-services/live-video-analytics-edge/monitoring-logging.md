@@ -1,11 +1,13 @@
 ---
-title: Monitoring and logging - Azure
-description: This article provides an overview of monitoring and logging in Live Video Analytics on IoT Edge.
+title: Monitoring and logging in Live Video Analytics - Azure
+description: This article provides an overview of monitoring and logging in Azure Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
 
 ---
-# Monitoring and logging
+# Monitoring and logging in Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 In this article, you'll learn how to receive events for remote monitoring from the Live Video Analytics on IoT Edge module. 
 
@@ -307,7 +309,7 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
    In this case, in the Azure portal, go to the IoT hub and select **Metrics** in the left pane. You should see the metrics there.
 
 ### Log Analytics metrics collection
-Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along with [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), you can generate and [monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) such as used CPUPercent, MemoryUsedPercent, etc.   
+Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along with [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), you can generate and [monitor metrics](../../azure-monitor/essentials/metrics-supported.md) such as used CPUPercent, MemoryUsedPercent, etc.   
 
 > [!NOTE]
 > The configuration below does not collect logs, **only metrics**. It is feasible to extend the collector module to also collect and upload logs.
@@ -410,7 +412,7 @@ The module will now write debug logs in a binary format to the device storage pa
 
 ## FAQ
 
-If you have questions, see the [monitoring and metrics FAQ](faq.md#monitoring-and-metrics).
+If you have questions, see the [monitoring and metrics FAQ](/azure/media-services/live-video-analytics-edge/faq#monitoring-and-metrics).
 
 ## Next steps
 

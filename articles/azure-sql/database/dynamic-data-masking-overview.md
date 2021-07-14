@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 01/25/2021
+ms.date: 06/24/2021
 tags: azure-synpase
 ---
 # Dynamic data masking 
@@ -24,7 +24,7 @@ For example, a service representative at a call center might identify a caller b
 
 ## Dynamic data masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the **Dynamic Data Masking** blade under **Security** in your SQL Database configuration pane. This feature cannot be set using portal for SQL Managed Instance (use PowerShell or REST API). For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+You set up a dynamic data masking policy in the Azure portal by selecting the **Dynamic Data Masking** blade under **Security** in your SQL Database configuration pane. This feature cannot be set using portal for SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### Dynamic data masking policy
 
@@ -66,18 +66,19 @@ You can use the REST API to programmatically manage data masking policy and rule
 
 ### Data masking policies
 
-- [Create Or Update](/rest/api/sql/datamaskingpolicies/createorupdate): Creates or updates a database data masking policy.
-- [Get](/rest/api/sql/datamaskingpolicies/get): Gets a database data masking policy. 
+- [Create Or Update](/rest/api/sql/2014-04-01/datamaskingpolicies/createorupdate): Creates or updates a database data masking policy.
+- [Get](/rest/api/sql/2014-04-01/datamaskingpolicies/get): Gets a database data masking policy. 
 
 ### Data masking rules
 
-- [Create Or Update](/rest/api/sql/datamaskingrules/createorupdate): Creates or updates a database data masking rule.
-- [List By Database](/rest/api/sql/datamaskingrules/listbydatabase): Gets a list of database data masking rules.
+- [Create Or Update](/rest/api/sql/2014-04-01/datamaskingrules/createorupdate): Creates or updates a database data masking rule.
+- [List By Database](/rest/api/sql/2014-04-01/datamaskingrules/listbydatabase): Gets a list of database data masking rules.
 
 ## Permissions
 
 Dynamic data masking can be configured by the Azure SQL Database admin, server admin, or the role-based access control (RBAC) [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role.
 
-## Next steps
+## See also
 
-[Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)
+- [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking) for SQL Server.
+- Data Exposed episode about [Granular Permissions for Azure SQL Dynamic Data Masking](https://channel9.msdn.com/Shows/Data-Exposed/Granular-Permissions-for-Azure-SQL-Dynamic-Data-Masking) on Channel 9.

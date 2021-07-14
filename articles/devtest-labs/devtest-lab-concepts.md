@@ -2,7 +2,7 @@
 title: DevTest Labs concepts | Microsoft Docs
 description: Learn the basic concepts of DevTest Labs, and how it can make it easy to create, manage, and monitor Azure virtual machines
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 05/13/2021
 ---
 
 # DevTest Labs concepts
@@ -23,7 +23,7 @@ An Azure Claimable VM is a virtual machine that is available for use by any lab 
 A VM that is claimable is not initially assigned to any particular user, but will show up in every user's list under "Claimable virtual machines". After a VM is claimed by a user, it is moved up to their "My virtual machines" area and is no longer claimable by any other user.
 
 ## Environment
-In DevTest Labs, an environment refers to a collection of Azure resources in a lab. [This blog post](./devtest-lab-faq.md#blog-post) discusses how to create multi-VM environments from your Azure Resource Manager templates.
+In DevTest Labs, an environment refers to a collection of Azure resources in a lab. [This article](./devtest-lab-create-environment-from-arm.md) discusses how to create multi-VM environments from your Azure Resource Manager templates.
 
 ## Base images
 Base images are VM images with all the tools and settings preinstalled and configured to quickly create a VM. You can provision a VM by picking an existing base and adding an artifact to install your test agent. You can then save the provisioned VM as a base so that the base can be used without having to reinstall the test agent for each provisioning of the VM.
@@ -70,7 +70,7 @@ Since scopes are hierarchical, when a user has permissions at a certain scope, t
 ## Azure Resource Manager templates
 All of the concepts discussed in this article can be configured by using Azure Resource Manager templates, which let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
 
-[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
+[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

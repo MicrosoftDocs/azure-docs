@@ -7,7 +7,7 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 # Tutorial: Connect a virtual network to an ExpressRoute circuit
@@ -23,9 +23,11 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
 * You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
 
-* A single VNet can be linked to up to four ExpressRoute circuits. Use the steps in this article to create a new connection object for each ExpressRoute circuit you're connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
+* A single VNet can be linked to up to 16 ExpressRoute circuits. Use the steps in this article to create a new connection object for each ExpressRoute circuit you're connecting to. The ExpressRoute circuits can be in the same subscription, different subscriptions, or a mix of both.
 
 * If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on will also allow you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
+
+* In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add additional address spaces, up to 1,000, to the local or peered virtual networks.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

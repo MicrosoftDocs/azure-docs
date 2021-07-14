@@ -99,7 +99,7 @@ To configure Azure AD single sign-on with Mozy Enterprise, perform the following
     `https://<tenantname>.Mozyenterprise.com`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Mozy Enterprise Client support team](https://support.mozy.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Mozy Enterprise Client support team](https://www.safenames.net/about-us/contact-us) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

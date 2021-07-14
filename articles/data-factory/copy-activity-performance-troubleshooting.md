@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot copy activity performance
 description: Learn about how to troubleshoot copy activity performance in Azure Data Factory.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -192,7 +192,7 @@ Activity execution time varies when the dataset is based on different Integratio
 
     - WriteBatchSize is not large enough to fit schema row size. Try to enlarge the property for the issue.
 
-    - Instead of bulk inset, stored procedure is being used, which is expected to have worse performance. 
+    - Instead of bulk insert, stored procedure is being used, which is expected to have worse performance. 
 
 
 ### Timeout or slow performance when parsing large Excel file

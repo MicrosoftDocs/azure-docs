@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 06/04/2021
 ms.author: pafarley
 ---
 
@@ -16,6 +16,7 @@ ms.author: pafarley
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -107,6 +108,8 @@ The following method deletes the specified resource from the given resource grou
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
 
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](../../manage-resources.md).
+
 ## Run the application
 
 Run the application from your application directory with the `dotnet run` command.
@@ -117,7 +120,9 @@ dotnet run
 
 ## See also
 
-* [Azure Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management)
-* [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
-* [Authenticate requests to Azure Cognitive Services](../../authentication.md)
-* [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)
+* See **[Authenticate requests to Azure Cognitive Services](../../authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](../../what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](../../language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](../../cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](../../plan-manage-costs.md)** to estimate cost of using Cognitive Services.
+* See **[Cognitive Services Management SDK reference documentation](/dotnet/api/overview/azure/cognitiveservices/management)** for more details on the management SDK.

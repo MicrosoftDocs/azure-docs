@@ -24,6 +24,8 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) helps you identify anomalous Kubernetes behaviors and focus on Kubernetes breaches and incidents while reducing detection time. This article explains how to connect your Alcide kAudit solution to Azure Sentinel. The Alcide kAudit data connector allows you to easily bring your kAudit log data into Azure Sentinel, so that you can view it in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Integration between Alcide kAudit and Azure Sentinel makes use of REST API.
 
 > [!NOTE]
@@ -43,7 +45,7 @@ Alcide kAudit can export logs directly to Azure Sentinel.
 
 1. Select **Alcide kAudit** from the gallery, and then click the **Open connector page** button.
 
-1. Follow the step-by-step instructions provided in the [Alcide kAudit Installation Guide](https://get.alcide.io/hubfs/Azure%20Sentinel%20Integration%20with%20kAudit.pdf).
+1. Follow the step-by-step instructions provided in the [Alcide kAudit Installation Guide](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit).
 
 1. When asked for the Workspace ID and the Primary Key, you can copy them from the Alcide kAudit data connector page.
 

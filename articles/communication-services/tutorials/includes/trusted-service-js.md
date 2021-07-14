@@ -6,7 +6,7 @@ manager: nimag
 services: azure-communication-services
 
 ms.author: ddematheu2
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -72,7 +72,7 @@ We'll now proceed to install Azure Communication Services libraries.
 
 We'll use the `Identity` library to generate `User Access Tokens`.
 
-Use the `npm install` command to install the Azure Communication Services Identity client library for JavaScript.
+Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```console
 

@@ -7,7 +7,7 @@ author: KumudD
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 
 ms.assetid: 
 ms.service: virtual-network
@@ -256,7 +256,7 @@ To test network access to a storage account, deploy a VM to each subnet.
    |Image | Windows Server 2019 Datacenter - Gen1 |
    |Size | Select the VM Instance size you want to use |
    |Username|Enter a user name of your choosing.|
-   |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
    |Public inbound ports | Allow selected ports |
    |Select inbound ports | Leave default set to *RDP (3389)* |
 

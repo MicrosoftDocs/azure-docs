@@ -144,7 +144,7 @@ In Purview, there are several areas where the Catalog Administrators need to ens
 
 ### Plan and implement different integration points with Purview
 
-It’s likely that a mature organization already has an existing data catalog. The key question is whether to continue to use the existing technology and sync with Purview. Purview allows publishing information via the Atlas APIs but they really aren't intended to support this kind of scenario. Some organizations may decide initially to bootstrap the usage of Purview by migrating over the existing data assets from other data catalog solutions. This can be done via the Atlas APIs as a one-way approach. To synchronize between different catalog technologies should not be considered in the long-term design. What typically happened is that each business unit may continue to use the existing solutions for older data assets while Purview would be used to scan against newer data sources.
+It’s likely that a mature organization already has an existing data catalog. The key question is whether to continue to use the existing technology and sync with Purview or not. To handle syncing with existing products in an organization, Purview provides Atlas REST APIs. Atlas APIs provide a powerful and flexible mechanism handling both push and pull  scenarios. Information can be published to Purview using Atlas APIs for bootstrapping or to push latest updates from another system into Purview. The information available in Purview can also be read using Atlas APIs and then synced back to existing products. 
 
 For other integration scenarios such as ticketing, custom user interface, and orchestration you can use Atlas APIs and Kafka endpoints. In general, there are four integration points with Purview:
 
@@ -195,7 +195,7 @@ Once you have the agreed requirements and participated business units to onboard
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|1 Week|
 |Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from M365.|1-2 Weeks|
 |Get classification and sensitive insights|For reporting and insight in Purview, you can access this functionality to get various reports and provide presentation to management.|1 Day|
-|Onboard addition users using Purview managed users|This step will require the Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Purview.|1 Week|
+|Onboard additional users using Purview managed users|This step will require the Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Purview.|1 Week|
 
 ### Acceptance criteria
 

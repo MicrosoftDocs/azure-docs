@@ -18,13 +18,13 @@ Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log
 ## What can you do with Azure Monitor Logs?
 The following table describes some of the different ways that you can use Logs in Azure Monitor:
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Analyze** | Use [Log Analytics](./log-analytics-tutorial.md) in the Azure portal to write [log queries](./log-query-overview.md) and interactively analyze log data using a powerful analysis engine |
 | **Alert** | Configure a [log alert rule](../alerts/alerts-log.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the results of the query match a particular result. |
 | **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](../visualize/powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
 | **Insights** | Support [insights](../monitor-reference.md#insights-and-core-solutions) that provide a customized monitoring experience for particular applications and services.  |
-| **Retrieve** | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
+| **Retrieve** | Access log query results from a command line using [Azure CLI](/cli/azure/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
 | **Export** | Configure [automated export of log data](./logs-data-export.md) to Azure storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](./logicapp-flow-connector.md). |
 
 ![Logs overview](media/data-platform-logs/logs-overview.png)
@@ -45,7 +45,7 @@ You must create at least one workspace to use Azure Monitor Logs. A single works
 - See [Designing your Azure Monitor Logs deployment](design-logs-deployment.md) on considerations for creating multiple workspaces.
 
 ## Data structure
-Log queries retrieve their data from a Log Analytics workspace. Each workspace contains multiple tables are that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns that are shared by the rows of data provided by the data source. 
+Log queries retrieve their data from a Log Analytics workspace. Each workspace contains multiple tables that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns that are shared by the rows of data provided by the data source. 
 
 [![Azure Monitor Logs structure](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
 

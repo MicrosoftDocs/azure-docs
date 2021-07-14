@@ -53,7 +53,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# or F# in Visual Studio. For more information, see <a href="https://docs.microsoft.com/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
+        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# or F# in Visual Studio. For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
     :::column-end:::
     :::column:::
         <br>

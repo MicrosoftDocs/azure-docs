@@ -27,12 +27,13 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **Azure Security Benchmark Foundation** blueprint sample under _Other Samples_ and select **Use this
-   sample**.
+1. Find the **Azure Security Benchmark Foundation** blueprint sample under _Other Samples_ and
+   select **Use this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
 
-   - **Blueprint name**: Provide a name for your copy of the Azure Security Benchmark Foundation blueprint sample.
+   - **Blueprint name**: Provide a name for your copy of the Azure Security Benchmark Foundation
+     blueprint sample.
    - **Definition location**: Use the ellipsis and select the management group to save your copy of
      the sample to.
 
@@ -103,21 +104,26 @@ to make each deployment of the copy of the blueprint sample unique.
 
      The parameters defined in this section are used by many of the artifacts in the blueprint
      definition to provide consistency.
-    
-     - **Prefix for resources and resource groups**: This string is used as a prefix for all resource and resource group names
+
+     - **Prefix for resources and resource groups**: This string is used as a prefix for all
+       resource and resource group names
      - **Hub name**: Name for the hub
-     - **Log retention (days)**: Number of days that logs are retained; entering '0' retains logs indefinitely
-     - **Deploy hub**: Enter 'true' or 'false' to specify whether the assignment deploys the hub components of the architecture
+     - **Log retention (days)**: Number of days that logs are retained; entering '0' retains logs
+       indefinitely
+     - **Deploy hub**: Enter 'true' or 'false' to specify whether the assignment deploys the hub
+       components of the architecture
      - **Hub location**: Location for the hub resource group
-     - **Destination IP addresses**: Destination IP addresses for outbound connectivity; comma-separated list of IP addresses or IP range prefixes
+     - **Destination IP addresses**: Destination IP addresses for outbound connectivity;
+       comma-separated list of IP addresses or IP range prefixes
      - **Network Watcher name**: Name for the Network Watcher resource
      - **Network Watcher resource group name**: Name for the Network Watcher resource group
-     - **Enable DDoS protection**: Enter 'true' or 'false' to specify whether or not DDoS Protection is enabled in the virtual network
-     
-    > [!NOTE] 
-    > If Network Watcher is already enabled, it's recommended that you use the existing
-    > Network Watcher resource group. You must also provide the location for the existing Network
-    > Watcher resource group for the artifact parameter **Network Watcher resource group location**.
+     - **Enable DDoS protection**: Enter 'true' or 'false' to specify whether or not DDoS Protection
+       is enabled in the virtual network
+
+     > [!NOTE]
+     > If Network Watcher is already enabled, it's recommended that you use the existing Network
+     > Watcher resource group. You must also provide the location for the existing Network Watcher
+     > resource group for the artifact parameter **Network Watcher resource group location**.
 
    - Artifact parameters
 
@@ -132,8 +138,9 @@ to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
 ## Artifact parameters table
 
@@ -145,7 +152,7 @@ The following table provides a list of the blueprint parameters:
 |Hub resource group|Resource group|Resource group location|Locked - Uses hub location|
 |Azure Firewall template|Resource Manager template|Azure Firewall private IP address||
 |Azure Log Analytics and Diagnostics template|Resource Manager template|Log Analytics workspace location|Location where Log Analytics workspace is created; run `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` in Azure PowersShell to see available regions|
-|Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional)|Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
+|Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional) |Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
 |Azure Network Security Group template|Resource Manager template|Enable NSG flow logs|Enter 'true' or 'false' to enable or disable NSG flow logs|
 |Azure Virtual Network hub template|Resource Manager template|Virtual network address prefix|Virtual network address prefix for hub virtual network|
 |Azure Virtual Network hub template|Resource Manager template|Firewall subnet address prefix|Firewall subnet address prefix for hub virtual network|
@@ -178,8 +185,8 @@ Watcher resource group location** specifies the existing Network Watcher resourc
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the Azure Security Benchmark Foundation blueprint sample, visit the
-following article to learn about the architecture:
+Now that you've reviewed the steps to deploy the Azure Security Benchmark Foundation blueprint
+sample, visit the following article to learn about the architecture:
 
 > [!div class="nextstepaction"]
 > [Azure Security Benchmark Foundation blueprint - Overview](./index.md)

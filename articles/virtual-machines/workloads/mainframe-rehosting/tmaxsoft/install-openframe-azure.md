@@ -8,7 +8,7 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: mainframe-rehosting
 ---
 
 # Install TmaxSoft OpenFrame on Azure

@@ -28,24 +28,29 @@ To complete this tutorial's steps, you need to have access to a resource group f
 1. Select **Add** to create a workspace.
 
 ## Basics tab > Project Details
-1. **Basics** tab, under **Project Details**, fill in the following fields:
-      1. **Subscription** - Pick any subscription.
-      2. **Resource group** - Use any resource group.
-      3. **Resource group** - Leave this blank.
+Fill in the following fields:
 
+1. **Subscription** - Pick any subscription.
+1. **Resource group** - Use any resource group.
+1. **Managed Resource group** - Leave this blank.
 
 ## Basics tab > Workspace details
-1. In the **Basics** tab, under **Workspace details**, fill in the following fields:
-      1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
-      1. **Region** - Pick any region.
-      1. **Select Data Lake Storage Gen 2**
-        1. Click the button for **From subscription**.
-        1. By **Account name**, click **Create New** and name the new storage account **contosolake** or similar as this name must be unique.
-        1. By **File system name**, click **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
-        1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
+Fill in the following fields:
 
-### Completing the process
-5. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
+1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
+1. **Region** - Pick the region where you have placed your client applications/services (for example, Azure VM, Power BI, Azure Analysis Service) and storages that contain data (for example Azure Data Lake storage, Azure Cosmos DB analytical storage).
+
+> [!NOTE]
+> A workspace that is not colocated with the client applications or storage can be the root cause of many performance issues. If you data or the clients are placed in multiple regions, you can create separate workspaces in different regions colocated with your data and clients.
+
+Under **Select Data Lake Storage Gen 2**:
+
+1. By **Account name**, select **Create New** and name the new storage account **contosolake** or similar as the name must be unique.
+1. By **File system name**, select **Create New** and name it **users**. This will create a storage container called **users**. The workspace will use this storage account as the "primary" storage account to Spark tables and Spark application logs.
+1. Check the "Assign myself the Storage Blob Data Contributor role on the Data Lake Storage Gen2 account" box. 
+
+## Completing the process
+Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
 > [!NOTE]
 > To enable workspace features from an existing dedicated SQL pool (formerly SQL DW) refer to [How to enable a workspace for your dedicated SQL pool (formerly SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
@@ -55,16 +60,30 @@ To complete this tutorial's steps, you need to have access to a resource group f
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://portal.azure.com), in the **Overview** section of the Synapse workspace, select **Open** in the Open Synapse Studio box.
-* Go to the `https://web.azuresynapse.net` and sign in to your workspace.
+1. Open your Synapse workspace in the [Azure portal](https://portal.azure.com), in the **Overview** section of the Synapse workspace, select **Open** in the Open Synapse Studio box.
+1. Go to the `https://web.azuresynapse.net` and sign in to your workspace.
+
+    ![Log in to workspace](./security/media/common/login-workspace.png)
+
+> [!NOTE]
+> To sign into your workspace, there are two **Account selection methods**. One is from **Azure subscription**, the other is from **Enter manually**. If you have the Synapse Azure role or higher level Azure roles, you can use both methods to log into the workspace. If you don't have the related Azure roles, and you were granted as the Synapse RBAC role, **Enter manually** is the only way to log into the workspace. To learn more about the Synapse RBAC, refer to [What is Synapse role-based access control (RBAC)](./security/synapse-workspace-synapse-rbac.md).
 
 
+## Place sample data into the primary storage account
+We are going to use a small 100K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
 
+* Download this file to your computer: https://azuresynapsestorage.blob.core.windows.net/sampledata/NYCTaxiSmall/NYCTripSmall.parquet 
+* In Synapse Studio, navigate to the Data Hub. 
+* Select **Linked**.
+* Under the category **Azure Data Lake Storage Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
+* Select the container named **users (Primary)**.
+* Select **Upload** and select the `NYCTripSmall.parquet` file you downloaded.
 
+Once the parquet file is uploaded it is available through two equivalent URIs:
+* `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
+* `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
 
-
-
-
+In the examples that follow in this tutorial, make sure to replace **contosolake** in the UI with the name of the primary storage account that you selected for your workspace.
 
 
 

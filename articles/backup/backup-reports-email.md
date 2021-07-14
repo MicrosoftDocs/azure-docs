@@ -25,7 +25,7 @@ To configure email tasks via Backup Reports, perform the following steps:
 
 ## Authorize connections to Azure Monitor Logs and Office 365
 
-The logic app uses the [azuremonitorlogs](https://docs.microsoft.com/connectors/azuremonitorlogs/) connector for querying the LA workspace(s) and uses the [Office365 Outlook](https://docs.microsoft.com/connectors/office365connector/) connector for sending emails. You will need to perform a one-time authorization for these two connectors. 
+The logic app uses the [azuremonitorlogs](/connectors/azuremonitorlogs/) connector for querying the LA workspace(s) and uses the [Office365 Outlook](/connectors/office365connector/) connector for sending emails. You will need to perform a one-time authorization for these two connectors. 
  
 To perform the authorization, follow the steps below:
 
@@ -74,4 +74,4 @@ To troubleshoot this issue:
 If the issues persist, contact Microsoft support.
 
 ## Next steps
-[Learn more about Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports)
+[Learn more about Backup Reports](./configure-reports.md)

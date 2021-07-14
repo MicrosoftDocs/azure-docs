@@ -5,8 +5,8 @@ description: Learn how to configure dataset splits and cross-validation for auto
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, automl
+ms.topic: how-to
+ms.custom: automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
@@ -43,7 +43,7 @@ For this article you need,
 
 ## Default data splits and cross-validation in machine learning
 
-Use the [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object to define your experiment and training settings. In the following code snippet, notice that only the required parameters are defined, that is the parameters for `n_cross_validation` or `validation_ data` are **not** included.
+Use the [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object to define your experiment and training settings. In the following code snippet, notice that only the required parameters are defined, that is the parameters for `n_cross_validations` or `validation_data` are **not** included.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -58,7 +58,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-If you do not explicitly specify either a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`:
+If you do not explicitly specify either a `validation_data` or `n_cross_validations` parameter, automated ML applies default techniques depending on the number of rows provided in the single dataset `training_data`:
 
 |Training&nbsp;data&nbsp;size| Validation technique |
 |---|-----|
@@ -70,7 +70,7 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 In this case, you can either start with a single data file and split it into training data and validation data sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
 
 > [!NOTE]
-> The `validation_size` parameter is not supported in forecasting scenarios.
+> The `validation_data` parameter requires the `training_data` and `label_column_name` parameters to be set as well. You can only set one validation parameter, that is you can only specifiy either `validation_data` or `n_cross_validations`, not both.
 
 The following code example explicitly defines which portion of the provided data in `dataset` to use for training and validation.
 

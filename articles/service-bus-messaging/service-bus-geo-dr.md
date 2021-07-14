@@ -151,7 +151,7 @@ Note the following considerations to keep in mind with this release:
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute. Subscriptions and rules also count as entities.
 
-### Availability Zones
+## Availability Zones
 
 The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region. Service Bus manages three copies of messaging store (1 primary and 2 secondary). Service Bus keeps all the three copies in sync for data and management operations. If the primary copy fails, one of the secondary copies is promoted to primary with no perceived downtime. If the applications see transient disconnects from Service Bus, the retry logic in the SDK will automatically reconnect to Service Bus. 
 

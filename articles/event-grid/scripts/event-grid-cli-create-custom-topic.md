@@ -25,7 +25,7 @@ This script uses the following command to create the custom topic. Each command 
 
 | Command | Notes |
 |---|---|
-| [az eventgrid topic create](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Create an Event Grid custom topic. |
+| [az eventgrid topic create](/cli/azure/eventgrid/topic#az_eventgrid_topic_create) | Create an Event Grid custom topic. |
 
 
 ## Next steps

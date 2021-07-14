@@ -53,6 +53,9 @@ Cloud Services (extended support) deployment only supports the Stopped- Allocate
 ###	Do Cloud Services (extended support) deployments support scaling across clusters, availability zones, and regions?
 Cloud Services (extended support) deployments cannot scale across multiple clusters, availability zones and regions. 
 
+### How can I get the deployment ID for my Cloud Service (extended support)
+Deployment ID aka Private ID can be accessed using the [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API. It is also available on the Azure portal under the Role and Instances blade of the Cloud Service (extended support)
+
 ### Are there any pricing differences between Cloud Services (classic) and Cloud Services (extended support)?
 Cloud Services (extended support) uses Azure Key Vault and Basic (ARM) Public IP addresses. Customers requiring certificates need to use Azure Key Vault for certificate management ([learn more](https://azure.microsoft.com/pricing/details/key-vault/) about Azure Key Vault pricing.)  Each Public IP address for Cloud Services (extended support) is charged separately ([learn more](https://azure.microsoft.com/pricing/details/ip-addresses/) about Public IP Address pricing.) 
 ## Resources 
@@ -77,6 +80,8 @@ Template and parameter files are only used for deployment automation. Like Cloud
 ###	How does my application code change on Cloud Services (extended support)
 There are no changes required for your application code packaged in cspkg. Your existing applications will continue to work as before. 
 
+### Does Cloud Services (extended support) allow CTP package format?
+CTP package format is not supported in Cloud Services (extended support). However, it allows an enhanced package size limit of 800 MB
 
 ## Migration
 
@@ -86,7 +91,7 @@ No, Cloud Service (extended support) deployments are tied to a cluster like Clou
 ### When do I need to migrate? 
 Estimating the time required and complexity migration depends on a range of variables. Planning is the most effective step to understand the scope of work, blockers and complexity of migration.
 
-## Networking
+## Networking 
 
 ###	Why can’t I create a deployment without virtual network?
 Virtual networks are a required resource for any deployment on Azure Resource Manager. Cloud Services (extended support) deployment must live inside a virtual network. 
@@ -103,8 +108,14 @@ Cloud Services (extended support) supports dynamic & static IP allocation method
 ###	Why am I getting charged for IP addresses?
 Customers are billed for IP Address use on Cloud Services (extended support) just as users are billed for IP addresses associated with virtual machines. 
 
+### Can the reserved IP be updated after a successful deployment?
+A reserved IP cannot be added, removed or changed during deployment update or upgrade. If the IP addresses needs to be changed, please use a swappable Cloud Service or deploy two Cloud Services with a CName in Azure DNS\Traffic Manager so that the IP can be pointed to either of them.
+
 ### Can I use a DNS name with Cloud Services (extended support)? 
 Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments is `<userlabel>.<region>.cloudapp.azure.com`
+
+### Can I update or change the virtual network reference for an existing cloud service (extended support)? 
+No. Virtual network reference is mandatory during the creation of a cloud service. For an existing cloud  service, the virtual network reference cannot be changed. The virtual network address space itself can be  modified using VNet APIs. 
 
 ## Certificates & Key Vault
 
@@ -113,6 +124,12 @@ Cloud Services (extended support) has adopted the same process as other compute 
 
 ###	Can I use one Key Vault for all my deployments in all regions?
 No. Key Vault is a regional resource and customers need one Key Vault in each region. However, one Key Vault can be used for all deployments within a given region.
+
+### When specifying secrets/certificates to be installed to a Cloud Service, must the KeyVault resource be in the same Azure subscription as the Cloud Service resource?
+Yes. We do not allow cross subscription key vault references in Cloud Services to guard against escalation of privilege attacks through CS-ES. The subscription is not a boundary that CS-ES will cross for references to secrets.  The reason we do not allow cross subscription references is as an important final step to prevent malicious users from using CS-ES as a privilege escalation mechanism to access other users secrets. Subscription isn’t a security boundary, but defense in depth is a requirement. However, you can use the Key Vault extension to get cross subscription and cross region support for your certificates. Please refer to the documentation [here](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine)
+
+### When specifying secrets/certificates to be installed to a Cloud Service, must the KeyVault resource be in the same region as the Cloud Service resource?
+Yes. The reason that we enforce region boundaries is to prevent users from creating architectures that have cross region dependencies. Regional isolation is a key design principle of cloud based applications. However, you can use the Key Vault extension to get cross subscription and cross region support for your certificates. Please refer to the documentation [here](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-key-vault-virtual-machine)
 
 ## Next steps
 To start using Cloud Services (extended support), see [Deploy a Cloud Service (extended support) using PowerShell](deploy-powershell.md)

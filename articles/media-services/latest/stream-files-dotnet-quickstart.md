@@ -33,7 +33,7 @@ By the end of the tutorial you will be able to stream a video.
 ## Prerequisites
 
 - If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API.
 
 ## Download and configure the sample

@@ -5,13 +5,12 @@ description: Learn how to create Azure Machine Learning datasets to access your 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, data4ml
-ms.author: sihhu
-author: MayMSFT
-manager: cgronlun
+ms.topic: how-to
+ms.custom: contperf-fy21q1, data4ml
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
+ms.date: 07/06/2021
 
 # Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 
@@ -37,7 +36,7 @@ With Azure Machine Learning datasets, you can:
 
 To create and work with datasets, you need:
 
-* An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -47,10 +46,10 @@ To create and work with datasets, you need:
 
     **OR**
 
-    * Work on your own Jupyter notebook and install the SDK yourself with [these instructions](/python/api/overview/azure/ml/install).
+    * Work on your own Jupyter notebook and [install the SDK yourself](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Some dataset classes have dependencies on the [azureml-dataprep](/python/api/azureml-dataprep/) package, which is only compatible with 64-bit Python. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9), and CentOS (7). If you are using unsupported distros, please follow [this guide](/dotnet/core/install/linux) to install .NET Core 2.1 to proceed. 
+> Some dataset classes have dependencies on the [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) package, which is only compatible with 64-bit Python. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9), and CentOS (7). If you are using unsupported distros, please follow [this guide](/dotnet/core/install/linux) to install .NET Core 2.1 to proceed. 
 
 ## Compute size guidance
 
@@ -75,7 +74,7 @@ Create a FileDataset with the [Python SDK](#create-a-filedataset) or the [Azure 
 .
 ### TabularDataset
 
-A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas or Spark DataFrame so you can work with familiar data preparation and training libraries without having to leave your notebook. You can create a `TabularDataset` object from .csv, .tsv, .parquet, .jsonl files, and from [SQL query results](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
+A [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas or Spark DataFrame so you can work with familiar data preparation and training libraries without having to leave your notebook. You can create a `TabularDataset` object from .csv, .tsv, [.parquet](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-), [.jsonl files](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-json-lines-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none--invalid-lines--error---encoding--utf8--), and from [SQL query results](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 With TabularDatasets, you can specify a time stamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time. For an example, see [Tabular time series-related API demo with NOAA weather data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
@@ -86,7 +85,7 @@ Create a TabularDataset with [the Python SDK](#create-a-tabulardataset) or [Azur
 
 ## Access datasets in a virtual network
 
-If your workspace is in a virtual network, you must configure the dataset to skip validation. For more information on how to use datastores and datasets in a virtual network, see [Secure a workspace and associated resources](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+If your workspace is in a virtual network, you must configure the dataset to skip validation. For more information on how to use datastores and datasets in a virtual network, see [Secure a workspace and associated resources](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 <a name="datasets-sdk"></a>
 
@@ -112,7 +111,7 @@ To create datasets from a datastore with the Python SDK:
 
 Use the [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset. 
 
-If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to [use datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to [use datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -133,9 +132,11 @@ To reuse and share datasets across experiment in your workspace, [register your 
 
 ### Create a TabularDataset
 
-Use the [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. If you're reading from multiple files, results will be aggregated into one tabular representation. 
+Use the [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--) method on the `TabularDatasetFactory` class to read files in .csv or .tsv format, and to create an unregistered TabularDataset. To read in files from .parquet format, use the [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) method. If you're reading from multiple files, results will be aggregated into one tabular representation. 
 
-If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_delimited_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to use [datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
+See the [TabularDatasetFactory reference documentation](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) for information about supported file formats, as well as syntax and design patterns such as [multiline support](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--). 
+
+If your storage is behind a virtual network or firewall, set the parameter `validate=False` in your `from_delimited_files()` method. This bypasses the initial validation step, and ensures that you can create your dataset from these secure files. Learn more about how to use [datastores and datasets in a virtual network](how-to-secure-workspace-vnet.md#datastores-and-datasets).
 
 The following code gets the existing workspace and the desired datastore by name. And then passes the datastore and file locations to the `path` parameter to create a new TabularDataset, `weather_ds`.
 
@@ -188,9 +189,10 @@ After you create and [register](#register-datasets) your dataset, you can load i
 If you don't need to do any data wrangling or exploration, see how to consume datasets in your training scripts for submitting ML experiments in [Train with datasets](how-to-train-with-datasets.md).
 
 ### Filter datasets (preview)
+
 Filtering capabilities depends on the type of dataset you have. 
 > [!IMPORTANT]
-> Filtering datasets with the public preview method, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
+> Filtering datasets with the preview method, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
 > 
 **For TabularDatasets**, you can keep or remove columns with the [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) and [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) methods.
 
@@ -228,9 +230,60 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
 
+### Partition data (preview)
+
+You can partition a dataset by including the `partitions_format` parameter when creating a TabularDataset or FileDataset. 
+
+> [!IMPORTANT]
+> Creating dataset partitions is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capability, and may change at any time. 
+
+When you partition a dataset, the partition information of each file path is extracted into columns based on the specified format. The format should start from the position of first partition key until the end of file path. 
+
+For example, given the path `../Accounts/2019/01/01/data.jsonl` where the partition is by department name and time; the `partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.jsonl'` creates a string column 'Department' with the value 'Accounts' and a datetime column 'PartitionDate' with the value `2019-01-01`.
+
+If your data already has existing partitions and you want to preserve that format, include the `partitioned_format` parameter in your [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true--partition-format-none-) method to create a FileDataset. 
+
+To create a TabularDataset that preserves existing partitions, include the `partitioned_format` parameter in the [from_parquet_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) or the
+[from_delimited_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--) method.
+
+The following example,
+* Creates a FileDataset from partitioned files.
+* Gets the partition keys
+* Creates a new, indexed FileDataset using
+ 
+```Python
+
+file_dataset = Dataset.File.from_files(data_paths, partition_format = '{userid}/*.wav')
+ds.register(name='speech_dataset')
+
+# access partition_keys
+indexes = file_dataset.partition_keys # ['userid']
+
+# get all partition key value pairs should return [{'userid': 'user1'}, {'userid': 'user2'}]
+partitions = file_dataset.get_partition_key_values()
+
+
+partitions = file_dataset.get_partition_key_values(['userid'])
+# return [{'userid': 'user1'}, {'userid': 'user2'}]
+
+# filter API, this will only download data from user1/ folder
+new_file_dataset = file_dataset.filter(ds['userid'] == 'user1').download()
+```
+
+You can also create a new partitions structure for TabularDatasets with the [partitions_by()](/python/api/azureml-core/azureml.data.tabulardataset#partition-by-partition-keys--target--name-none--show-progress-true--partition-as-file-dataset-false-) method.
+
+```Python
+
+ dataset = Dataset.get_by_name('test') # indexed by country, state, partition_date
+
+# call partition_by locally
+new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'], target=DataPath(datastore, "repartition"))
+partition_keys = new_dataset.partition_keys # ['country']
+```
+
 ## Explore data
 
-After you're done wrangling your data,you can [register](#register-datasets) your dataset and then load it into your notebook for data exploration prior to model training.
+After you're done wrangling your data, you can [register](#register-datasets) your dataset, and then load it into your notebook for data exploration prior to model training.
 
 For FileDatasets, you can either **mount** or **download** your dataset, and apply the python libraries you'd normally use for data exploration. [Learn more about mount vs download](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -307,7 +360,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## Create datasets using Azure Resource Manager
 
-There are many templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datasets.
+There are many templates at [https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) that can be used to create datasets.
 
 For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 

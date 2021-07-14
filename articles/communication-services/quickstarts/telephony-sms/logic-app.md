@@ -7,14 +7,14 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 # Quickstart: Send SMS messages in Azure Logic Apps with Azure Communication Services
 
-By using the [Azure Communication Services SMS](../../overview.md) connector and [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), you can create automated workflows, or *logic apps*, that can send SMS messages. This quickstart shows how to automatically send text messages in response to a trigger event, which is the first step in a logic app workflow. A trigger event can be an incoming email message, a recurrence schedule, an [Azure Event Grid](../../../event-grid/overview.md) resource event, or any other [trigger that's supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+By using the [Azure Communication Services SMS](../../overview.md) connector and [Azure Logic Apps](../../../logic-apps/logic-apps-overview.md), you can create automated workflows that can send SMS messages. This quickstart shows how to automatically send text messages in response to a trigger event, which is the first step in a logic app workflow. A trigger event can be an incoming email message, a recurrence schedule, an [Azure Event Grid](../../../event-grid/overview.md) resource event, or any other [trigger that's supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 :::image type="content" source="./media/logic-app/azure-communication-services-connector.png" alt-text="Screenshot that shows the Azure portal, which is open to the Logic App Designer, and shows an example logic app that uses the Send SMS action for the Azure Communication Services connector.":::
 
@@ -69,11 +69,11 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
 
 1. When you're done, on the designer toolbar, select **Save**.
 
-Next, run your logic app for testing.
+Next, run your logic app workflow for testing.
 
 ## Test your logic app
 
-To manually start your logic app, on the designer toolbar, select **Run**. Or, you can wait for your logic app to trigger. In both cases, the logic app should send an SMS message to your specified destination phone number. For more information about running your logic app, review [how to run your logic app](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-your-logic-app)
+To manually start your workflow, on the designer toolbar, select **Run**. Or, you can wait for the trigger to fire. In both cases, the workflow should send an SMS message to your specified destination phone number. For more information, review [how to run your workflow](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#run-workflow).
 
 ## Clean up resources
 

@@ -28,7 +28,7 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
-- [Python 2.7.14+ or 3.4+](https://www.python.org/downloads/).
+- [Python 2.7 or 3.6+](https://www.python.org/downloads/).
 - [Git](https://git-scm.com/downloads).
 - [Python Driver for Apache Cassandra](https://github.com/datastax/python-driver).
 
@@ -36,7 +36,7 @@ In this quickstart, you create an Azure Cosmos DB Cassandra API account, and use
 
 Before you can create a document database, you need to create a Cassandra account with Azure Cosmos DB.
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## Clone the sample application
 
@@ -137,11 +137,14 @@ Now go back to the Azure portal to get your connection string information and co
 2. Run the following commands to install the required modules:
 
     ```python
-    python -m pip install cassandra-driver
+    python -m pip install cassandra-driver==3.20.2
     python -m pip install prettytable
     python -m pip install requests
     python -m pip install pyopenssl
     ```
+
+    > [!NOTE]
+    > We recommend Python driver version **3.20.2** for use with Cassandra API. Higher versions may cause errors.
 
 2. Run the following command to start your Python application:
 
@@ -161,11 +164,11 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

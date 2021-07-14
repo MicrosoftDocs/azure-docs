@@ -2,7 +2,7 @@
 title: Provision a pool in a virtual network
 description: How to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 06/09/2021
 ms.custom: seodec18
 ---
 
@@ -48,9 +48,13 @@ You might have requirements in your organization to redirect (force) internet-bo
 
 To ensure that the nodes in your pool work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) (UDR) for that subnet:
 
-- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR for each IP address used by the Batch service in the region where your Batch account exists. To obtain the list of IP addresses of the Batch service, see [Service tags on-premises](../virtual-network/service-tags-overview.md).
+- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR for each IP address used by the Batch service in the region where your Batch account exists. The IP addresses of the Batch service are found in the `BatchNodeManagement.<region>` service tag. To obtain the list of IP addresses, see [Service tags on-premises](../virtual-network/service-tags-overview.md).
 
-- Ensure that outbound traffic to Azure Storage (specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`) is not blocked by your on-premises network.
+- Ensure that outbound TCP traffic to the Azure Batch service on destination port 443 is not blocked by your on-premises network. These Azure Batch service destination IP addresses are the same as found in the `BatchNodeManagement.<region>` service tag as used for routes above.
+
+- Ensure that outbound TCP traffic to Azure Storage on destination port 443 (specifically, URLs of the form `*.table.core.windows.net`, `*.queue.core.windows.net`, and `*.blob.core.windows.net`) is not blocked by your on-premises network.
+
+- If you use virtual file mounts, review the [networking requirements](virtual-file-mount.md#networking-requirements) and ensure that no required traffic is blocked.
 
 When you add a UDR, define the route for each related Batch IP address prefix, and set **Next hop type** to **Internet**.
 

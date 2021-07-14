@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: In this quickstart, learn to restore a database backup to Azure SQL Managed Instance using SQL Server Management Studio (SSMS). 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: sstein, bonova
+author: misliplavo 
+ms.author: mlazic
+ms.reviewer: mathoma
 ms.date: 12/14/2018
 ---
 # Quickstart: Restore a database to Azure SQL Managed Instance with SSMS
@@ -36,7 +36,7 @@ This quickstart:
   - [Configure a point-to-site connection to SQL Managed Instance from on-premises](point-to-site-p2s-configure.md).
 
 > [!NOTE]
-> For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](../../storage/common/storage-sas-overview.md), see [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](../../storage/common/storage-sas-overview.md), see [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 ## Restore from a backup file
 

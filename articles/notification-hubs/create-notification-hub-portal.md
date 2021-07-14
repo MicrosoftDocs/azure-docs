@@ -3,15 +3,16 @@ title: Create an Azure notification hub using the Azure portal | Microsoft Docs
 description: In this tutorial, you learn how to create an Azure notification hub by using the Azure portal.
 services: notification-hubs
 author: sethmanheim
+ms.author: sethm
 manager: femila
-
+ms.reviewer: thsomasu
+ms.date: 08/04/2020
+ms.lastreviewed: 02/14/2019
+ms.topic: quickstart
 ms.service: notification-hubs
 ms.workload: mobile
-ms.topic: quickstart
-ms.date: 08/04/2020
-ms.author: sethm
-ms.reviewer: thsomasu
-ms.lastreviewed: 02/14/2019
+ms.custom:
+  - mode-portal
 ---
 
 # Quickstart: Create an Azure notification hub in the Azure portal

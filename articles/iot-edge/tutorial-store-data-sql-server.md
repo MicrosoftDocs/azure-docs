@@ -16,7 +16,7 @@ ms.custom: "mvc, devx-track-csharp"
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Deploy a SQL Server module to store data on a Linux device running Azure IoT Edge.
+Deploy a SQL Server module to store data on a device running Azure IoT Edge with Linux containers.
 
 Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge has basic storage capabilities to cache messages if a device goes offline, and then forward them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. Your IoT Edge devices can use local databases to perform more complex computing without having to maintain a connection to IoT Hub.
 
@@ -38,8 +38,8 @@ In this tutorial, you learn how to:
 Before beginning this tutorial, you should have gone through the previous tutorial to set up your development environment for Linux container development: [Develop IoT Edge modules for Linux devices](tutorial-develop-for-linux.md). By completing that tutorial, you should have the following prerequisites in place:
 
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-* An AMD64 device running Azure IoT Edge. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
-  * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can sign up to try [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/) in preview.
+* An AMD64 device running Azure IoT Edge with Linux containers. You can use the quickstarts to set up a [Linux device](quickstart-linux.md) or [Windows device](quickstart.md).
+  * ARM devices, like Raspberry Pis, cannot run SQL Server. If you want to use SQL on an ARM device, you can use [Azure SQL Edge](../azure-sql-edge/overview.md).
 * A container registry, like [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configured with the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configured to run Linux containers.
@@ -47,7 +47,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 This tutorial uses an Azure Functions module to send data to the SQL Server. To develop an IoT Edge module with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## Create a function project
 
@@ -82,6 +82,9 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 1. In the VS Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 

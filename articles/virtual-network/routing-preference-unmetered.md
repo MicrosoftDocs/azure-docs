@@ -6,7 +6,7 @@ documentationcenter: na
 author: KumudD
 manager: mtillman
 ms.service: virtual-network
-Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
+# Customer intent: As an Azure customer, I want to learn more about enabling routing preference for my CDN origin resources.
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -40,4 +40,4 @@ You can also enable routing preference for your storage account and publish a se
 
 * [Configure routing preference for a VM using the Azure PowerShell](configure-routing-preference-virtual-machine-powershell.md)
 * [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md)
-* [Configure routing preference for your storage account](/azure/storage/common/network-routing-preference)
+* [Configure routing preference for your storage account](../storage/common/network-routing-preference.md)

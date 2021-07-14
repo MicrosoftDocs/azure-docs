@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 03/18/2020 
+ms.date: 03/24/2021 
 ---
 
 # Analyze data with dedicated SQL pools
@@ -38,58 +38,64 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 1. Select the pool 'SQLPOOL1' (pool created in [STEP 1](./get-started-create-workspace.md) of this tutorial) in 'Connect to' drop down list above the script.
 1. Enter the following code:
     ```
-    CREATE TABLE [dbo].[Trip]
-    (
-        [DateID] int NOT NULL,
-        [MedallionID] int NOT NULL,
-        [HackneyLicenseID] int NOT NULL,
-        [PickupTimeID] int NOT NULL,
-        [DropoffTimeID] int NOT NULL,
-        [PickupGeographyID] int NULL,
-        [DropoffGeographyID] int NULL,
-        [PickupLatitude] float NULL,
-        [PickupLongitude] float NULL,
-        [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-        [DropoffLatitude] float NULL,
-        [DropoffLongitude] float NULL,
-        [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-        [PassengerCount] int NULL,
-        [TripDurationSeconds] int NULL,
-        [TripDistanceMiles] float NULL,
-        [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-        [FareAmount] money NULL,
-        [SurchargeAmount] money NULL,
-        [TaxAmount] money NULL,
-        [TipAmount] money NULL,
-        [TollsAmount] money NULL,
-        [TotalAmount] money NULL
-    )
-    WITH
-    (
-        DISTRIBUTION = ROUND_ROBIN,
-        CLUSTERED COLUMNSTORE INDEX
-    );
+	IF NOT EXISTS (SELECT * FROM sys.objects O JOIN sys.schemas S ON O.schema_id = S.schema_id WHERE O.NAME = 'NYCTaxiTripSmall' AND O.TYPE = 'U' AND S.NAME = 'dbo')
+	CREATE TABLE dbo.NYCTaxiTripSmall
+		(
+		 [DateID] int,
+		 [MedallionID] int,
+		 [HackneyLicenseID] int,
+		 [PickupTimeID] int,
+		 [DropoffTimeID] int,
+		 [PickupGeographyID] int,
+		 [DropoffGeographyID] int,
+		 [PickupLatitude] float,
+		 [PickupLongitude] float,
+		 [PickupLatLong] nvarchar(4000),
+		 [DropoffLatitude] float,
+		 [DropoffLongitude] float,
+		 [DropoffLatLong] nvarchar(4000),
+		 [PassengerCount] int,
+		 [TripDurationSeconds] int,
+		 [TripDistanceMiles] float,
+		 [PaymentType] nvarchar(4000),
+		 [FareAmount] numeric(19,4),
+		 [SurchargeAmount] numeric(19,4),
+		 [TaxAmount] numeric(19,4),
+		 [TipAmount] numeric(19,4),
+		 [TollsAmount] numeric(19,4),
+		 [TotalAmount] numeric(19,4)
+		)
+	WITH
+		(
+		DISTRIBUTION = ROUND_ROBIN,
+		 CLUSTERED COLUMNSTORE INDEX
+		 -- HEAP
+		)
+	GO
 
-    COPY INTO [dbo].[Trip]
-    FROM 'https://nytaxiblob.blob.core.windows.net/2013/Trip2013/QID6392_20171107_05910_0.txt.gz'
-    WITH
-    (
-        FILE_TYPE = 'CSV',
-        FIELDTERMINATOR = '|',
-        FIELDQUOTE = '',
-        ROWTERMINATOR='0X0A',
-        COMPRESSION = 'GZIP'
-    )
-    OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
+	COPY INTO dbo.NYCTaxiTripSmall
+	(DateID 1, MedallionID 2, HackneyLicenseID 3, PickupTimeID 4, DropoffTimeID 5,
+	PickupGeographyID 6, DropoffGeographyID 7, PickupLatitude 8, PickupLongitude 9, 
+	PickupLatLong 10, DropoffLatitude 11, DropoffLongitude 12, DropoffLatLong 13, 
+	PassengerCount 14, TripDurationSeconds 15, TripDistanceMiles 16, PaymentType 17, 
+	FareAmount 18, SurchargeAmount 19, TaxAmount 20, TipAmount 21, TollsAmount 22, 
+	TotalAmount 23)
+	FROM 'https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet'
+	WITH
+	(
+		FILE_TYPE = 'PARQUET'
+		,MAXERRORS = 0
+		,IDENTITY_INSERT = 'OFF'
+	)
     ```
 1. Click the Run button to execute the script.
-1. This script will finish in less than 60 seconds. It loads 2 million rows of NYC Taxi data into a table called **dbo.Trip**.
+1. This script will finish in less than 60 seconds. It loads 2 million rows of NYC Taxi data into a table called **dbo.NYCTaxiTripSmall**.
 
 ## Explore the NYC Taxi data in the dedicated SQL pool
 
 1. In Synapse Studio, go to the **Data** hub.
 1. Go to **SQLPOOL1** > **Tables**. 
-3. Right-click the **dbo.Trip** table and select **New SQL Script** > **Select TOP 100 Rows**.
+3. Right-click the **dbo.NYCTaxiTripSmall** table and select **New SQL Script** > **Select TOP 100 Rows**.
 4. Wait while a new SQL script is created and runs.
 5. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLPOOL1**.
 6. Replace the text of the SQL script with this code and run it.
@@ -98,7 +104,7 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
     SELECT PassengerCount,
           SUM(TripDistanceMiles) as SumTripDistance,
           AVG(TripDistanceMiles) as AvgTripDistance
-    FROM  dbo.Trip
+    FROM  dbo.NYCTaxiTripSmall
     WHERE TripDistanceMiles > 0 AND PassengerCount > 0
     GROUP BY PassengerCount
     ORDER BY PassengerCount;
@@ -107,9 +113,6 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
     This query shows how the total trip distances and average trip distance relate to the number of passengers.
 1. In the SQL script result window, change the **View** to **Chart** to see a visualization of the results as a line chart.
     
-    > [!NOTE]
-    > A workspace enabled dedicated SQL pool (formerly SQL DW) can be identified via the tool tip in the Data hub.
-
 ## Next steps
 
 > [!div class="nextstepaction"]

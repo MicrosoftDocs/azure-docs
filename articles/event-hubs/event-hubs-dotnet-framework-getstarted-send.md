@@ -89,7 +89,7 @@ In Visual Studio, create a new Visual C# Desktop App project using the **Console
 ## Receive events
 In this section, you write a .NET Framework console application that receives messages from an event hub using the [Event Processor Host](event-hubs-event-processor-host.md). The [Event Processor Host](event-hubs-event-processor-host.md) is a .NET class that simplifies receiving events from event hubs by managing persistent checkpoints and parallel receives from those event hubs. Using the Event Processor Host, you can split events across multiple receivers, even when hosted in different nodes. 
 
-[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
+[!INCLUDE [event-hubs-create-storage](./includes/event-hubs-create-storage.md)]
 
 ### Create a console application
 
@@ -203,7 +203,7 @@ Read the following articles:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md).
-- [Event Hubs FAQ](event-hubs-faq.md)
+- [Event Hubs FAQ](event-hubs-faq.yml)
 
 
 <!-- Links -->

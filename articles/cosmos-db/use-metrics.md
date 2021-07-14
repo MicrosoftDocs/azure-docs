@@ -1,13 +1,13 @@
 ---
 title: Monitor and debug with metrics in Azure Cosmos DB
 description: Use metrics in Azure Cosmos DB to debug common issues and monitor the database.
-author: kanshiG
-ms.author: govindk
+ms.author: esarroyo
+author: StefArroyo 
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 04/09/2021
 ms.custom: devx-track-csharp
 ---
 # Monitor and debug with metrics in Azure Cosmos DB
@@ -25,7 +25,7 @@ This article walks through common use cases and how Azure Cosmos DB metrics can 
 
    :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB performance metrics in Azure portal":::
 
-The following metrics are available from the **Metrics** pane: 
+The following metrics are available from the **Metrics** pane:
 
 * **Throughput metrics** - This metric shows the number of requests consumed or failed (429 response code) because the throughput or storage capacity provisioned for the container has exceeded.
 

@@ -21,53 +21,70 @@ landingContent:
       links:
         - text: What is Device Update for IoT Hub?
           url: understand-device-update.md
+  - title: Learn more
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+          - text: Create a device update account
+            url: create-device-update-account.md
+          - text: Provisioning Device Update Agent
+            url: device-update-agent-provisioning.md
+          - text: Add an update
+            url: import-update.md
+          - text: Create an update group
+            url: create-update-group.md
+          - text: Deploy an update
+            url: deploy-update.md
     - linkListType: concept
       links:
         - text: How device update uses Plug and Play
           url: device-update-plug-and-play.md
         - text: Understand device update authentication and authorization
           url: device-update-control-access.md
-        - text: Understand device update agent
+        - text: Understand Device Update agent
           url: device-update-agent-overview.md
-        - text: Understand device update importing
+        - text: Understand Device Update importing
           url: import-concepts.md
-        - text: Understand device update groups
+        - text: Understand Device Update groups
           url: device-update-groups.md
-  - title: Explore with the tutorials
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Device update on Raspberry Pi
-            url: device-update-raspberry-pi.md
-      - linkListType: tutorial
-        links:
-          - text: Device update on a simulator
-            url: device-update-simulator.md
-      - linkListType: tutorial
-        links:
-          - text: Device update on Ubuntu Server 18.04 x64 Package agent
-            url: device-update-ubuntu-agent.md
-  - title: Learn how to update devices
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create a device update account
-            url: create-device-update-account.md
-      - linkListType: how-to-guide
-        links:
-          - text: Import an update
-            url: import-update.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create an update group
-            url: create-update-group.md
-      - linkListType: how-to-guide
-        links:
-          - text: Deploy an update
-            url: deploy-update.md
+        - text: Understand Device Update limits
+          url: device-update-limits.md
   - title: Developer guide
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Build, run and modify device update agent
-            url: device-update-agent-provisioning.md        
+    - linkListType: how-to-guide
+      links:
+        - text: How to build and run Device Update Agent
+          url: device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent
+  - title: Get started
+    linkLists:
+    - linkListType: tutorial
+      links:
+          - text: Device update on a simulator
+            url: device-update-simulator.md
+          - text: Device update on Raspberry Pi
+            url: device-update-raspberry-pi.md
+          - text: Device update on Ubuntu Server 18.04 x64 Package agent
+            url: device-update-ubuntu-agent.md
+
+  - title: API and SDK reference
+    linkLists:
+    - linkListType: reference
+      links:
+      - text: REST API
+        url: /rest/api/deviceupdate/
+    - linkListType: reference
+      links:
+      - text: Control Plane - .NET
+        url:  /dotnet/api/overview/azure/iot/management
+      - text: Control Plane - Python
+        url:  /python/api/azure-mgmt-deviceupdate/
+    - linkListType: reference
+      links:
+      - text: Data Plane - .NET
+        url: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
+      - text: Data Plane - JavaScript
+        url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
+      - text: Data Plane - Java
+        url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
+      - text: Data Plane - Python
+        url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true

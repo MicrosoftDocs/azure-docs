@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 06/03/2021
 ms.author: jeedes
 ---
 
@@ -36,6 +36,9 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
 
 * Zscaler Private Access (ZPA) supports **SP** initiated SSO.
+* Zscaler Private Access (ZPA) supports [**Automated** user provisioning](zscaler-private-access-provisioning-tutorial.md).
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add Zscaler Private Access (ZPA) from the gallery
 
@@ -48,7 +51,7 @@ To configure the integration of Zscaler Private Access (ZPA) into Azure AD, you 
 1. In the **Add from the gallery** section, type **Zscaler Private Access (ZPA)** in the search box.
 1. Select **Zscaler Private Access (ZPA)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO
+## Configure and test Azure AD SSO for Zscaler Private Access (ZPA)
 
 Configure and test Azure AD SSO with Zscaler Private Access (ZPA) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Zscaler Private Access (ZPA).
 
@@ -71,13 +74,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** page, enter the values for the following fields:
-
-    1. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://samlsp.private.zscaler.com/auth/login?domain=<your-domain-name>`
+1. On the **Basic SAML Configuration** page, perform the following steps:
 
     1. In the **Identifier (Entity ID)** text box, type the URL:
     `https://samlsp.private.zscaler.com/auth/metadata`
+
+    1. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://samlsp.private.zscaler.com/auth/login?domain=<DOMAIN_NAME>`
 
 	> [!NOTE]
 	> The **Sign on URL** value is not real. Update the value with the actual Sign on URL. Contact [Zscaler Private Access (ZPA) Client support team](https://help.zscaler.com/zpa-submit-ticket) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -152,6 +155,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you create a user called Britta Simon in Zscaler Private Access (ZPA). Please work with [Zscaler Private Access (ZPA) support team](https://help.zscaler.com/zpa-submit-ticket) to add the users in the Zscaler Private Access (ZPA) platform.
 
+Zscaler Private Access (ZPA) also supports automatic user provisioning, you can find more details [here](zscaler-private-access-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -160,8 +165,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Zscaler Private Access (ZPA) Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Zscaler Private Access (ZPA) tile in the My Apps, this will redirect to Zscaler Private Access (ZPA) Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Zscaler Private Access (ZPA) tile in the My Apps, this will redirect to Zscaler Private Access (ZPA) Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure Zscaler Private Access (ZPA) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Zscaler Private Access (ZPA) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -27,7 +27,7 @@ Process pinning will work on HB-series VMs because we expose the underlying sili
 
 The following diagram shows the segregation of cores reserved for Azure Hypervisor and the HB-series VM.
 
-![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/hb-series-overview/segregation-cores.png)
+![Segregation of cores reserved for Azure Hypervisor and HB-series VM](./media/architecture/hb-segregation-cores.png)
 
 ## Hardware specifications
 

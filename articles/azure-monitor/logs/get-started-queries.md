@@ -11,7 +11,7 @@ ms.date: 10/24/2019
 # Get started with log queries in Azure Monitor
 
 > [!NOTE]
-> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data.  If you already know how to query in KQL, but just need to quickly create useful queries based on resource type(s), see the [saved example queries pane](../logs/example-queries.md).
+> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data.  If you already know how to query in KQL, but just need to quickly create useful queries based on resource type(s), see the [saved example queries pane](../logs/queries.md).
 
 In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
@@ -49,7 +49,7 @@ SecurityEvent
 The query shown above returns 10 results from the *SecurityEvent* table, in no specific order. This is a very common way to take a glance at a table and understand its structure and content. Let's examine how it's built:
 
 * The query starts with the table name *SecurityEvent* - this part defines the scope of the query.
-* The pipe (|) character separates commands, so the output of the first one in the input of the following command. You can add any number of piped elements.
+* The pipe (|) character separates commands, so the output of the first one is the input of the following command. You can add any number of piped elements.
 * Following the pipe is the **take** command, which returns a specific number of arbitrary records from the table.
 
 We could actually run the query even without adding `| take 10` - that would still be valid, but it could return up to 10,000 results.
@@ -85,7 +85,7 @@ SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-Descending is the default sorting order, so we typically omit the **desc** argument.The output will look like this:
+Descending is the default sorting order, so we typically omit the **desc** argument. The output will look like this:
 
 ![Top 10](media/get-started-queries/top10.png)
 
@@ -177,7 +177,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** keeps all original columns in the result set and defines additional ones. The following query uses **extend** to add the *EventCode* column. Note that this column may not display at the end of the table results in which case you would need to expand the details of a record to view it.
+**extend** keeps all original columns in the result set and defines additional ones. The following query uses **extend** to add the *EventCode* column. Note that this column may not display at the end of the table results, in which case you would need to expand the details of a record to view it.
 
 ```Kusto
 SecurityEvent

@@ -14,7 +14,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/23/2018
+ms.date: 05/30/2021
 ms.author: mathoma
 ms.reviewer: jroth
 ---
@@ -25,9 +25,29 @@ This topic includes overall security guidelines that help establish secure acces
 
 Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a virtual machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+In addition to the practices described in this topic, we recommend that you review and implement the security best practices from both traditional on-premises security practices, as well as virtual machine security best practices. 
 
-## Control access to the SQL virtual machine
+## Azure Defender for SQL 
+
+[Azure Defender for SQL](../../../security-center/defender-for-sql-introduction.md) enables Azure Security Center security features such as vulnerability assessments and security alerts. See [enable Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to learn more. 
+
+## Portal management
+
+After you've [registered your SQL Server VM with the SQL IaaS extension](sql-agent-extension-manually-register-single-vm.md), you can configure a number of security settings using the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as enabling Azure Key Vault integration, or SQL authentication. 
+
+Additionally, after you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) you can view Security Center features directly within the [SQL virtual machines resource](manage-sql-vm-portal.md) in the Azure portal, such as vulnerability assessments and security alerts. 
+
+See [manage SQL Server VM in the portal](manage-sql-vm-portal.md) to learn more. 
+
+## Azure Key Vault integration 
+
+There are multiple SQL Server encryption features, such as transparent data encryption (TDE), column level encryption (CLE), and backup encryption. These forms of encryption require you to manage and store the cryptographic keys you use for encryption. The Azure Key Vault service is designed to improve the security and management of these keys in a secure and highly available location. The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
+For comprehensive details, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [HADR configuration](hadr-cluster-best-practices.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
+
+See [Azure Key Vault integration](azure-key-vault-integration-configure.md) to learn more.
+
+
+## Access control 
 
 When you create your SQL Server virtual machine, consider how to carefully control who has access to the machine and to SQL Server. In general, you should do the following:
 
@@ -56,17 +76,15 @@ Finally, consider enabling encrypted connections for the instance of the SQL Ser
 
 ## Encryption
 
-Managed disks offer Server-Side Encryption, and Azure Disk Encryption. [Server-Side Encryption](../../../virtual-machines/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) uses either Bitlocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
+Managed disks offer Server-Side Encryption, and Azure Disk Encryption. [Server-Side Encryption](../../../virtual-machines/disk-encryption.md) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) uses either BitLocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
 
-## Use a non-default port
+## Non-default port
 
 By default, SQL Server listens on a well-known port, 1433. For increased security, configure SQL Server to listen on a non-default port, such as 1401. If you provision a SQL Server gallery image in the Azure portal, you can specify this port in the **SQL Server settings** blade.
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
 To configure this after provisioning, you have two options:
 
-- For Resource Manager VMs, you can select **Security** from the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource). This provides an option to change the port.
+- For Resource Manager VMs, you can select **Security** from the [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource). This provides an option to change the port.
 
   ![TCP port change in portal](./media/security-considerations-best-practices/sql-vm-change-tcp-port.png)
 
@@ -83,7 +101,7 @@ You don't want attackers to easily guess account names or passwords. Use the fol
 
 - Create a unique local administrator account that is not named **Administrator**.
 
-- Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Create a strong password](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password) article.
+- Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Create a strong password](https://support.microsoft.com/account-billing/how-to-create-a-strong-password-for-your-microsoft-account-f67e4ddd-0dbe-cd75-cebe-0cfda3cf7386) article.
 
 - By default, Azure selects Windows Authentication during SQL Server virtual machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should not be used or enabled. If you must have a SQL login, use one of the following strategies:
 
@@ -94,17 +112,22 @@ You don't want attackers to easily guess account names or passwords. Use the fol
 
   - If you must use the **SA** login, enable the login after provisioning and assign a new strong password.
 
-## Additional best practices
-
-In addition to the practices described in this topic, we recommend that you review and implement the security best practices from both traditional on-premises security practices, as well as virtual machine security best practices. 
-
-For more information about on-premises security practices, see [Security Considerations for a SQL Server Installation](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) and the [Security center](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
-
-For more information about virtual machine security, see the [virtual machines security overview](../../../security/fundamentals/virtual-machines-overview.md).
 
 
 ## Next steps
 
-If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server on Azure Virtual Machines](performance-guidelines-best-practices.md).
+If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server on Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
+
+
+To learn more, see the other articles in this series:
+
+- [Quick checklist](performance-guidelines-best-practices-checklist.md)
+- [VM size](performance-guidelines-best-practices-vm-size.md)
+- [Storage](performance-guidelines-best-practices-storage.md)
+- [Security](security-considerations-best-practices.md)
+- [HADR settings](hadr-cluster-best-practices.md)
+- [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
+
+

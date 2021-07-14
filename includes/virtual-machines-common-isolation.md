@@ -21,11 +21,8 @@ The current Isolated virtual machine offerings include:
 * Standard_E80ids_v4
 * Standard_E80is_v4
 * Standard_F72s_v2
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_M128ms
-* Standard_GS5
-* Standard_G5
+* Standard_DC8_v2
 
 
 > [!NOTE]
@@ -43,6 +40,7 @@ Isolated VM sizes have a hardware limited lifespan. Azure will issue reminders 1
 | Standard_GS5  | February 15, 2022 |
 | Standard_E64i_v3  | February 15, 2022 |
 | Standard_E64is_v3  | February 15, 2022 |
+| Standard_DC8_v2 | February 15, 2022 |
 
 
 ## FAQ
@@ -78,7 +76,7 @@ On contrary if isolation is required, our announcement will include the recommen
 | Date | Action |
 |---|---|
 | Feb 15, 2021<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 isolation retirement announcement |
-| Feb 15, 2022 | G5/GS5/E64i_v3/E64is_v3 isolation guarantee removed |
+| Feb 28, 2022 | G5/GS5/E64i_v3/E64is_v3 isolation guarantee removed |
 
 <sup>1</sup> Existing customer using these sizes will receive an announcement email with detailed instructions on the next steps.  
 

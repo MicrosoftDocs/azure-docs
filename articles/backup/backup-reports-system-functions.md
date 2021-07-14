@@ -9,23 +9,23 @@ ms.date: 03/01/2021
 
 Azure Backup provides a set of functions, called system functions or solution functions, that are available by default in your Log Analytics (LA) workspaces.
  
-These functions operate on data in the [raw Azure Backup tables](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. Users can pass parameters to these functions to filter the data that is returned by these functions. 
+These functions operate on data in the [raw Azure Backup tables](./backup-azure-reports-data-model.md) in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. Users can pass parameters to these functions to filter the data that is returned by these functions. 
 
 It's recommended to use system functions for querying your backup data in LA workspaces for creating custom reports, as they provide a number of benefits, as detailed in the section below.
 
 ## Benefits of using system functions
 
-* **Simpler queries**: Using functions helps you reduce the number of joins needed in your queries. By default, the functions return ‘flattened’ schemas, that incorporate all information pertaining to the entity (backup instance, job, vault, and so on) being queried. For example, if you need to get a list of successful backup jobs by backup item name and its associated container, a simple call to the **_AzureBackup_getJobs()** function will give you all of this information for each job. On the other hand, querying the raw tables directly would require you to perform multiple joins between [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) and [CoreAzureBackup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup) tables.
+* **Simpler queries**: Using functions helps you reduce the number of joins needed in your queries. By default, the functions return ‘flattened’ schemas, that incorporate all information pertaining to the entity (backup instance, job, vault, and so on) being queried. For example, if you need to get a list of successful backup jobs by backup item name and its associated container, a simple call to the **_AzureBackup_getJobs()** function will give you all of this information for each job. On the other hand, querying the raw tables directly would require you to perform multiple joins between [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) and [CoreAzureBackup](./backup-azure-reports-data-model.md#coreazurebackup) tables.
 
-* **Smoother transition from the legacy diagnostics event**: Using system functions helps you transition smoothly from the [legacy diagnostics event](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (AzureBackupReport in AzureDiagnostics mode) to the [resource-specific events](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users). All the system functions provided by Azure Backup allow you to specify a parameter that lets you choose whether the function should query data only from the resource-specific tables, or query data from both the legacy table and the resource-specific tables (with deduplication of records).
+* **Smoother transition from the legacy diagnostics event**: Using system functions helps you transition smoothly from the [legacy diagnostics event](./backup-azure-diagnostic-events.md#legacy-event) (AzureBackupReport in AzureDiagnostics mode) to the [resource-specific events](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users). All the system functions provided by Azure Backup allow you to specify a parameter that lets you choose whether the function should query data only from the resource-specific tables, or query data from both the legacy table and the resource-specific tables (with deduplication of records).
     * If you have successfully migrated to the resource-specific tables, you can choose to exclude the legacy table from being queried by the function.
     * If you are currently in the process of migration and have some data in the legacy tables which you require for analysis, you can choose to include the legacy table. When the transition is complete, and you no longer need data from the legacy table, you can simply update the value of the parameter passed to the function in your queries, to exclude the legacy table.
-    * If you are still using only the legacy table, the functions will still work if you choose to include the legacy table via the same parameter. However, it is recommended to [switch to the resource-specific tables](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) at the earliest.
+    * If you are still using only the legacy table, the functions will still work if you choose to include the legacy table via the same parameter. However, it is recommended to [switch to the resource-specific tables](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) at the earliest.
 
 * **Reduces possibility of custom queries breaking**: If Azure Backup introduces improvements to the schema of the underlying LA tables to accommodate future reporting scenarios, the definition of the functions will also be updated to take into account the schema changes. Thus, if you use system functions for creating custom queries, your queries will not break, even if there are changes in the underlying schema of the tables.
 
 > [!NOTE]
-> System functions are maintained by Microsoft and their definitions cannot be edited by users. If you require editable functions, you can create [saved functions](https://docs.microsoft.com/azure/azure-monitor/logs/functions) in LA.
+> System functions are maintained by Microsoft and their definitions cannot be edited by users. If you require editable functions, you can create [saved functions](../azure-monitor/logs/functions.md) in LA.
 
 ## Types of system functions offered by Azure Backup
 
@@ -385,4 +385,4 @@ Below are some sample queries to help you get started with using system function
     ````
 
 ## Next steps
-[Learn more about Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports)
+[Learn more about Backup Reports](./configure-reports.md)

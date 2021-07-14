@@ -20,11 +20,11 @@ This article uses virtual machines to host the downstream device and gateway. In
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you need an active Azure subscription.
+To complete the steps in this article, you need:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Custom application** template.
+- An [IoT Central application created](howto-create-iot-central-application.md) from the **Custom application** template. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 
 To follow the steps in this article, download the following files to your computer:
 
@@ -181,7 +181,7 @@ Your transparent gateway is now configured and ready to start forwarding telemet
 
 ## Provision a downstream device
 
-Currently, IoT Edge can't automatically provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device. To complete these steps, you need an environment with Python 3.5 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.5 pre-installed:
+Currently, IoT Edge can't automatically provision a downstream device to your IoT Central application. The following steps show you how to provision the `thermostat1` device. To complete these steps, you need an environment with Python 3.6 (or higher) installed and internet connectivity. The [Azure Cloud Shell](https://shell.azure.com/) has Python 3.7 pre-installed:
 
 1. Run the following command to install the `azure.iot.device` module:
 

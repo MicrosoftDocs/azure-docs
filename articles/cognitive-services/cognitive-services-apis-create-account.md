@@ -8,7 +8,7 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: aahi
 ---
 
@@ -37,7 +37,7 @@ At this time, the multi-service resource enables access to the following Cogniti
 * **Vision** - Computer Vision, Custom Vision, Form Recognizer, Face
 * **Speech** - Speech
 * **Language** - Language Understanding (LUIS), Text Analytics, Translator
-* **Decision** - Personalizer, Content Moderator
+* **Decision** - Content Moderator
 
 ### [Single-service resource](#tab/singleservice)
 
@@ -110,10 +110,12 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 2. Locate the resource group containing the resource to be deleted
 3. Right-click on the resource group listing. Select **Delete resource group**, and confirm.
 
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
+
 ## See also
 
-* [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](./what-are-cognitive-services.md)
-* [Create a new resource using the Azure Management client library](.\cognitive-services-apis-create-account-client-library.md)
-* [Natural language support](language-support.md)
-* [Docker container support](cognitive-services-container-support.md)
+* See **[Authenticate requests to Azure Cognitive Services](authentication.md)** on how to securely work with Cognitive Services.
+* See **[What are Azure Cognitive Services?](./what-are-cognitive-services.md)** to get a list of different categories within Cognitive Services.
+* See **[Natural language support](language-support.md)** to see the list of natural languages that Cognitive Services supports.
+* See **[Use Cognitive Services as containers](cognitive-services-container-support.md)** to understand how to use Cognitive Services on-prem.
+* See **[Plan and manage costs for Cognitive Services](plan-manage-costs.md)** to estimate cost of using Cognitive Services.

@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 07/31/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
 # Define machine learning pipelines in YAML
@@ -116,7 +116,7 @@ Steps define a computational environment, along with the files to run on the env
 | YAML key | Description |
 | ----- | ----- |
 | `script_name` | The name of the U-SQL script (relative to the `source_directory`). |
-| `compute_target` | The Azure Data Lake compute target to use for this step. |
+| `compute` | The Azure Data Lake compute target to use for this step. |
 | `parameters` | [Parameters](#parameters) to the pipeline. |
 | `inputs` | Inputs can be [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition), or [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
 | `outputs` | Outputs can be either [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) or [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
@@ -166,7 +166,7 @@ pipeline:
 
 | YAML key | Description |
 | ----- | ----- |
-| `compute_target` | The Azure Batch compute target to use for this step. |
+| `compute` | The Azure Batch compute target to use for this step. |
 | `inputs` | Inputs can be [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition), or [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
 | `outputs` | Outputs can be either [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) or [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `source_directory` | Directory that contains the module binaries, executable, assemblies, etc. |
@@ -220,7 +220,7 @@ pipeline:
 
 | YAML key | Description |
 | ----- | ----- |
-| `compute_target` | The Azure Databricks compute target to use for this step. |
+| `compute` | The Azure Databricks compute target to use for this step. |
 | `inputs` | Inputs can be [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition), or [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
 | `outputs` | Outputs can be either [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) or [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `run_name` | The name in Databricks for this run. |
@@ -274,7 +274,7 @@ pipeline:
 
 | YAML key | Description |
 | ----- | ----- |
-| `compute_target` | The Azure Data Factory compute target to use for this step. |
+| `compute` | The Azure Data Factory compute target to use for this step. |
 | `source_data_reference` | Input connection that serves as the source of data transfer operations. Supported values are [InputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding), [DataReference](#data-reference), [PortDataReference](/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference), [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata), [Dataset](/python/api/azureml-core/azureml.core.dataset%28class%29), [DatasetDefinition](/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition), or [PipelineDataset](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset). |
 | `destination_data_reference` | Input connection that serves as the destination of data transfer operations. Supported values are [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata) and [OutputPortBinding](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding). |
 | `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |

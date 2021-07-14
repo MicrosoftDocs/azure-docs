@@ -746,7 +746,7 @@ header. If the header is present, the response is from the listener.
 
 ## Next steps
 
-* [Relay FAQ](relay-faq.md)
+* [Relay FAQ](relay-faq.yml)
 * [Create a namespace](relay-create-namespace-portal.md)
 * [Get started with .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Node](relay-hybrid-connections-node-get-started.md)

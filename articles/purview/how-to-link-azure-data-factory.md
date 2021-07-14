@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 05/31/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -16,8 +16,8 @@ This document explains the steps required for connecting an Azure Data Factory a
 
 Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog to push lineage information. The current limit allows you to connect up ten Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview Data Catalog, do the following:
 
-1. Select **Management Center** on the left navigation pane.
-2. Under **External connections**, select **Data Factory connection**.
+1. Select **Management** on the left navigation pane.
+2. Under **Lineage connections**, select **Data Factory**.
 3. The Data Factory connection list appears.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/data-factory-connection.png" alt-text="Screen shot showing a data factory connection list." lightbox="./media/how-to-link-azure-data-factory/data-factory-connection.png":::
@@ -28,7 +28,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
     - **Disconnected**: The data factory has access to the catalog, but it's connected to another catalog. As a result, data lineage won't be reported to the catalog automatically.
     - **CannotAccess**: The current user doesn't have access to the data factory, so the connection status is unknown.
  >[!Note]
- >In order to view the Data Factory connections, you need to be assigned any one of Purview roles:
+ >To view the Data Factory connections, you need to be assigned any one of Purview roles. Role inheritance from Management group is **not supported**:
  >- Contributor
  >- Owner
  >- Reader
@@ -37,7 +37,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 ## Create new Data Factory connection
 
 >[!Note]
->In order to add or remove the Data Factory connections, you need to be assigned any one of Purview roles:
+>To add or remove the Data Factory connections, you need to be assigned any one of Purview roles. Role inheritance from Management group is **not supported**:
 >- Owner
 >- User Access Administrator
 >
@@ -45,8 +45,8 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 
 Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
 
-1. Select **Management Center** on the left navigation pane.
-2. Under **External connections**, select **Data Factory connection**.
+1. Select **Management** on the left navigation pane.
+2. Under **Lineage connections**, select **Data Factory**.
 3. On the **Data Factory connection** page, select **New**.
 
 4. Select your Data Factory account from the list and select **OK**. You can also filter by subscription name to limit your list.
@@ -142,32 +142,30 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Copy data to file-based sink with setting of max rows per file.
 - Add additional columns during copy.
 
+In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
+
+- CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
+- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
+
 ### Data Factory Data Flow support
 
 | Data store | Supported |
 | ------------------- | ------------------- | 
 | Azure Blob Storage | Yes |
+| Azure Cosmos DB (SQL API) \* | Yes | 
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
+| Azure Database for MySQL \* | Yes | 
+| Azure Database for PostgreSQL \* | Yes |
 | Azure SQL Database \* | Yes |
+| Azure SQL Managed Instance \* | Yes | 
 | Azure Synapse Analytics \* | Yes |
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
 ### Data Factory Execute SSIS Package support
 
-| Data store | Supported |
-| ------------------- | ------------------- |
-| Azure Blob Storage | Yes |
-| Azure Data Lake Storage Gen1 | Yes |
-| Azure Data Lake Storage Gen2 | Yes |
-| Azure File Storage | Yes |
-| Azure SQL Database \* | Yes |
-| Azure SQL Managed Instance \*| Yes |
-| Azure Synapse Analytics \* | Yes |
-| SQL Server \* | Yes |
-
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
+Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
 > [!Note]
 > Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).

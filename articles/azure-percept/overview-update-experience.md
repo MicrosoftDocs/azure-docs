@@ -5,16 +5,16 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/24/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# The Azure Percept DK update experience
+# Azure Percept DK update experience overview
 
-With Azure Percept DK, you have two options to update your dev kit OS and firmware: over-the-air (OTA) or via USB. OTA updating is an easy way keep devices up-to-date, while USB updating is a good option for when OTA is not possible or when you want to factory reset your device. To ensure you are able to take advantage of whichever update method is best for you, we have put together a collection of how-to guides to assist you. 
+With Azure Percept DK, you may update your dev kit OS and firmware over-the-air (OTA) or via USB. OTA updating is an easy way keep devices up-to-date through the [Device Update for IoT Hub](../iot-hub-device-update/index.yml) service. USB updates are available for users who are unable to use OTA updates or when a factory reset of the device is needed. Check out the following how-to guides to get started with Azure Percept DK device updates:
 
-- [How to set up Azure IoT Hub to to deploy over the air updates to your Azure Percept DK](./how-to-set-up-over-the-air-updates.md)
-- [How to update your Azure Percept DK over the air](./how-to-update-over-the-air.md)
+- [Set up Azure IoT Hub to deploy over-the-air (OTA) updates to your Azure Percept DK](./how-to-set-up-over-the-air-updates.md)
+- [Update your Azure Percept DK over-the-air (OTA)](./how-to-update-over-the-air.md)
 - [Update your Azure Percept DK over USB](./how-to-update-via-usb.md)
 
 ## Next steps

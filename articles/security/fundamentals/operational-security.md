@@ -162,7 +162,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 ## Azure Monitor
 
-The [Azure Monitor logs Security](../../security-center/security-center-monitoring.md) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. Azure Monitor logs Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
+The [Azure Monitor logs Security](../../security-center/security-center-remediate-recommendations.md) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. Azure Monitor logs Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
 
 -	Malware assessment
 -	Update assessment

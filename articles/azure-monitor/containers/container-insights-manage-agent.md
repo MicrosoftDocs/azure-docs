@@ -76,21 +76,6 @@ export azureAroV4ClusterResourceId="/subscriptions/<subscriptionId>/resourceGrou
 bash upgrade-monitoring.sh --resource-id $ azureAroV4ClusterResourceId
 ```
 
-See **Using service principal** in [Enable monitoring of Azure Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) for details on using a service principal with this command.
-
-### Upgrade agent on Azure Arc enabled Kubernetes
-
-Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster.
-
-```console
-curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
-export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
-```
-
-See **Using service principal** in [Enable monitoring of Azure Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) for details on using a service principal with this command.
-
-
 ## How to disable environment variable collection on a container
 
 Container insights collects environmental variables from the containers running in a pod and presents them in the property pane of the selected container in the **Containers** view. You can control this behavior by disabling collection for a specific container either during deployment of the Kubernetes cluster, or after by setting the environment variable *AZMON_COLLECT_ENV*. This feature is available from the agent version – ciprod11292018 and higher.  

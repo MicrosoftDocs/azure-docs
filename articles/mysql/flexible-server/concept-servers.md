@@ -10,6 +10,8 @@ ms.date: 09/21/2020
 
 # Server concepts in Azure Database for MySQL Flexible Server (Preview)
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
@@ -50,7 +52,14 @@ During the time server is stopped, no management operations can be performed on 
 
 ## How do I manage a server?
 
-You can manage Azure Database for MySQL Flexible Server by using the [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md).
+You can manage the creation, deletion, server parameter configuration (my.cnf), scaling, networking, security, high availability, backup & restore, monitoring of your Azure Database for MySQL Flexible Server by using the [Azure portal](./quickstart-create-server-portal.md) or the [Azure CLI](./quickstart-create-server-cli.md). In addition, following stored procedures are available in Azure Database for MySQL to perform certain database administration tasks required as SUPER user privilege is not supported on the server.
+
+|**Stored Procedure Name**|**Input Parameters**|**Output Parameters**|**Usage Note**|
+|-----|-----|-----|-----|
+|*mysql.az_kill*|processlist_id|N/A|Equivalent to [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the connection associated with the provided processlist_id after terminating any statement the connection is executing.|
+|*mysql.az_kill_query*|processlist_id|N/A|Equivalent to [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the statement the connection is currently executing. Leaves the connection itself alive.|
+|*mysql.az_load_timezone*|N/A|N/A|Loads [time zone tables](../howto-server-parameters.md#working-with-the-time-zone-parameter) to allow the `time_zone` parameter to be set to named values (ex. "US/Pacific").|
+
 
 ## Next steps
 

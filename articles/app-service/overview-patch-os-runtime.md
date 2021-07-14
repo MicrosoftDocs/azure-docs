@@ -57,7 +57,7 @@ When a new major or minor version is added, it is installed side by side with th
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
 az webapp config set --php-version 7.0 --resource-group <groupname> --name <appname>
 az webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=8.9.3 --resource-group <groupname> --name <appname>
-az webapp config set --python-version 3.4 --resource-group <groupname> --name <appname>
+az webapp config set --python-version 3.8 --resource-group <groupname> --name <appname>
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 

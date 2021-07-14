@@ -39,5 +39,5 @@ additionalContent: |
   ## Next steps
   Read the other FAQs:
 
-  - [Common questions about Recovery Services vaults](./backup-azure-backup-faq.md)
+  - [Common questions about Recovery Services vaults](./backup-azure-backup-faq.yml)
   - [Common questions about Azure VM backups](./backup-azure-vm-backup-faq.yml)

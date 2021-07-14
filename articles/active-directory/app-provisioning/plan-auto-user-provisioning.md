@@ -1,20 +1,19 @@
 ---
 title: Plan an automatic user provisioning deployment for Azure Active Directory
-description: Guidance for planning and executing automatic user provisioning
+description: Guidance for planning and executing automatic user provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/31/2020
+ms.date: 07/13/2021
 ms.author: kenwith
-ms.reviewer: arvindha, celested
-#customer intent: As an admin, I want to automate user provisioning to SaaS apps
+ms.reviewer: arvinh
 ---
 
-# Plan an automatic user provisioning deployment
+# Plan an automatic user provisioning deployment in Azure Active Directory
 
 Many organizations rely on software as a service (SaaS) applications such as ServiceNow, Zscaler, and Slack for end-user productivity. Historically IT staff have relied on manual provisioning methods such as uploading CSV files, or using custom scripts to securely manage user identities in each SaaS application. These processes are error prone, insecure, and hard to manage.
 
@@ -40,7 +39,7 @@ The key benefits of enabling automatic user provisioning are:
 
 ### Licensing
 
-Azure AD provides self-service integration of any application using templates provided in the application gallery menu. For a full list of license requirements, see [Azure AD licensing page](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD provides self-service integration of any application using templates provided in the application gallery menu. For a full list of license requirements, see [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 #### Application licensing
 

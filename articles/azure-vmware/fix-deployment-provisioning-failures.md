@@ -83,7 +83,7 @@ To copy the ExpressRoute ID:
 1. In the right pane, select the **ExpressRoute** tab.
 1. Select the copy icon for **ExpressRoute ID** and save the value to use in your support request.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Copy the ExpressRoute ID to the clipboard."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Screenshot that shows the ExpressRoute ID to copy to the clipboard."::: 
  
 ## Pre-validation failures
 

@@ -5,11 +5,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 02/12/2021
+ms.date: 07/13/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
-ms.reviewer: mal
 ms.custom:
   - it-pro
   - seo-update-azuread-jan"
@@ -21,8 +20,10 @@ ms.collection: M365-identity-device-management
 Here are some remedies for common problems with Azure Active Directory (Azure AD) B2B collaboration.
 
    > [!IMPORTANT]
-   > - **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+   >
+   > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
 
 ## I’ve added an external user but do not see them in my Global Address Book or in the people picker
 
@@ -34,6 +35,9 @@ The ability to search for existing guest users in the SharePoint Online (SPO) pe
 
 You can enable this feature by using the setting 'ShowPeoplePickerSuggestionsForGuestUsers' at the tenant and site collection level. You can set the feature using the Set-SPOTenant and Set-SPOSite cmdlets, which allow members to search all existing guest users in the directory. Changes in the tenant scope do not affect already provisioned SPO sites.
 
+## My guest invite settings and domain restrictions aren't being respected by SharePoint Online/OneDrive
+
+By default, SharePoint Online and OneDrive have their own set of external user options and do not use the settings from Azure AD.  You need to enable [SharePoint and OneDrive integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview) to ensure the options are consistent among those applications.
 ## Invitations have been disabled for directory
 
 If you are notified that you do not have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
@@ -58,6 +62,18 @@ If you are using federation authentication and the user does not already exist i
 
 To resolve this issue, the external user’s admin must synchronize the user’s account to Azure Active Directory.
 
+### External user has a proxyAddress that conflicts with a proxyAddress of an existing local user
+
+When we check whether a user is able to be invited to your tenant, one of the things we check for is for a collision in the proxyAddress. This includes any proxyAddresses for the user in their home tenant and any proxyAddress for local users in your tenant. For external users, we will add the email to the proxyAddress of the existing B2B user. For local users, you can ask them to sign in using the account they already have.
+
+## I can't invite an email address because of a conflict in proxyAddresses
+
+This happens when another object in the directory has the same invited email address as one of its proxyAddresses. To fix this conflict, remove the email from the [user](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true) object, and also delete the associated [contact](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true) object before trying to invite this email again.
+
+## The guest user object doesn't have a proxyAddress
+
+When inviting an external guest user, sometimes this will conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true). When this occurs, the guest user is created without a proxyAddress. This means that the user will not be able to redeem this account using [just-in-time redemption](redemption-experience.md#redemption-through-a-direct-link) or [email one-time passcode authentication](one-time-passcode.md#user-experience-for-one-time-passcode-guest-users).
+
 ## How does ‘\#’, which is not normally a valid character, sync with Azure AD?
 
 “\#” is a reserved character in UPNs for Azure AD B2B collaboration or external users, because the invited account user@contoso.com becomes user_contoso.com#EXT#@fabrikam.onmicrosoft.com. Therefore, \# in UPNs coming from on-premises aren't allowed to sign in to the Azure portal. 
@@ -69,6 +85,11 @@ External users can be added only to “assigned” or “Security” groups and 
 ## My external user did not receive an email to redeem
 
 The invitee should check with their ISP or spam filter to ensure that the following address is allowed: Invites@microsoft.com
+
+> [!NOTE]
+>
+> - For the Azure service operated by 21Vianet in China, the sender address is Invites@oe.21vianet.com.
+> - For the Azure AD Government cloud, the sender address is invites@azuread.us.
 
 ## I notice that the custom message does not get included with invitation messages at times
 
@@ -116,6 +137,15 @@ If you accidentally deleted the `aad-extensions-app`, you have 30 days to recove
 1. Run the PowerShell command `Restore-AzureADDeletedApplication -ObjectId {id}`. Replace the `{id}` portion of the command with the `ObjectId` from the previous step.
 
 You should now see the restored app in the Azure portal.
+
+## A guest user was invited successfully but the email attribute is not populating
+
+Let's say you inadvertently invite a guest user with an email address that matches a user object already in your directory. The guest user object is created, but the email address is added to the `otherMail` property instead of to the `mail` or `proxyAddresses` properties. To avoid this issue, you can search for conflicting user objects in your Azure AD directory by using these PowerShell steps:
+
+1. Open the Azure AD PowerShell module and run `Connect-AzureAD`.
+1. Sign in as a global administrator for the Azure AD tenant that you want to check for duplicate contact objects in.
+1. Run the PowerShell command `Get-AzureADContact -All $true | ? {$_.ProxyAddresses -match 'user@domain.com'}`.
+1. Run the PowerShell command `Get-AzureADContact -All $true | ? {$_.Mail -match 'user@domain.com'}`.
 
 ## Next steps
 

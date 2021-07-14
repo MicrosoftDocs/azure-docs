@@ -4,7 +4,7 @@ description: Create and deploy to Azure a simple HTTP triggered serverless funct
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ---
 
 # Quickstart: Create and deploy Azure Functions resources from an ARM template
@@ -17,7 +17,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Ffunction-app-create-dynamic%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -63,9 +63,9 @@ After you've created your project locally, you create the resources required to 
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/function-app-create-dynamic/).
 
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json":::
 
 The following four Azure resources are created by this template:
 
@@ -80,7 +80,7 @@ The following four Azure resources are created by this template:
 ```azurecli-interactive
 read -p "Enter a resource group name that is used for generating resource names:" resourceGroupName &&
 read -p "Enter the location (like 'eastus' or 'northeurope'):" location &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
 echo "Press [ENTER] to continue ..." &&
@@ -91,7 +91,7 @@ read
 ```powershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter a resource group name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (like 'eastus' or 'northeurope')"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri

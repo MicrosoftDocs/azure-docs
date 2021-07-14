@@ -39,7 +39,7 @@ To get started using Storm, see [Create and monitor an Apache Storm topology in 
 
 Storm runs topologies instead of the [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  jobs that you might be familiar with. Storm topologies are composed of multiple components that are arranged in a directed acyclic graph (DAG). Data flows between the components in the graph. Each component consumes one or more data streams, and can optionally emit one or more streams. The following diagram illustrates how data flows between components in a basic word-count topology:
 
-![Example of how components are arranged in a Storm topology](./media/apache-storm-overview/example-apache-storm-topology-diagram.png)
+:::image type="content" source="./media/apache-storm-overview/example-apache-storm-topology-diagram.png" alt-text="Example of how components are arranged in a Storm topology" border="false":::
 
 * Spout components bring data into a topology. They emit one or more streams into the topology.
 
@@ -53,7 +53,7 @@ The Nimbus node provides functionality similar to the Apache Hadoop JobTracker. 
 
 The default configuration for Apache Storm clusters is to have only one Nimbus node. Storm on HDInsight provides two Nimbus nodes. If the primary node fails, the Storm cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
 
-![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
+:::image type="content" source="./media/apache-storm-overview/storm-diagram-nimbus.png" alt-text="Diagram of nimbus, zookeeper, and supervisor" border="false":::
 
 ## Ease of use
 

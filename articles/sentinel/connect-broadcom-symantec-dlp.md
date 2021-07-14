@@ -21,6 +21,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Broadcom Symantec DLP connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your Broadcom Symantec DLP appliance to Azure Sentinel. The Broadcom Symantec DLP data connector allows you to easily connect your Symantec DLP logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This capability gives you more insight into your organization’s information, where it travels, and improves your security operation capabilities. Integration between Broadcom Symantec DLP and Azure Sentinel makes use of CEF-formatted Syslog, a Linux-based log forwarder, and the Log Analytics agent. It also uses a custom-built log parser based on a Kusto function.
 
 > [!NOTE]
@@ -30,7 +32,7 @@ This article explains how to connect your Broadcom Symantec DLP appliance to Azu
 
 - You must have read and write permissions on your Azure Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
 
 ## Send Broadcom Symantec DLP logs to Azure Sentinel
 

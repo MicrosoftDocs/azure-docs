@@ -25,7 +25,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [az lab vm start](/cli/azure/lab/vm#az-lab-vm-start) | Starts a virtual machine (VM) in a lab. This operation can take a while to complete. |
+| [az lab vm start](/cli/azure/lab/vm#az_lab_vm_start) | Starts a virtual machine (VM) in a lab. This operation can take a while to complete. |
 
 ## Next steps
 

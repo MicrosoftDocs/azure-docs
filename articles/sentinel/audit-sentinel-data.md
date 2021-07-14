@@ -128,7 +128,7 @@ For example, the following table lists selected operations found in Azure Activi
 |Update settings	|Microsoft.SecurityInsights/settings|
 | | |
 
-For more information, see [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema).
+For more information, see [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md).
 
 
 ## Auditing with LAQueryLogs
@@ -153,7 +153,7 @@ LAQueryLogs data includes information such as:
 
 1. The **LAQueryLogs** table isn't enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Azure Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
 
-    For more information, see [Audit queries in Azure Monitor logs](/azure/azure-monitor/logs/query-audit).
+    For more information, see [Audit queries in Azure Monitor logs](../azure-monitor/logs/query-audit.md).
 
 
 1. Then, query the data using KQL, like you would any other table.

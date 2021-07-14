@@ -66,7 +66,7 @@ Once matching events are generated, you should start to see the ETW events appea
 
 ### Step 4: Configure Log Analytics storage account collection
 
-Follow [these instructions](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostics-extension-logs#collect-logs-from-azure-storage) to collect the logs from Azure Storage. Once configured, the ETW event data should appear in Log Analytics under the **ETWEvent** table.
+Follow [these instructions](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) to collect the logs from Azure Storage. Once configured, the ETW event data should appear in Log Analytics under the **ETWEvent** table.
 
 ## Next steps
 - Use [custom fields](../logs/custom-fields.md) to create structure in your ETW events

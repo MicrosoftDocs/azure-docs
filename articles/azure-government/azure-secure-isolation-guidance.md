@@ -129,7 +129,7 @@ Azure AD enforces tenant isolation and implements robust measures to prevent acc
 - **Management plane** enables customers to manage the key vault or managed HSM itself, for example, create and delete key vaults or managed HSMs, retrieve key vault or managed HSM properties, and update access policies. For authorization, the management plane uses Azure RBAC with both key vaults and managed HSMs.
 - **Data plane** enables customers to work with the data stored in their key vaults and managed HSMs, including adding, deleting, and modifying their data. For vaults, stored data can include keys, secrets, and certificates. For managed HSMs, stored data is limited to cryptographic keys only. For authorization, the data plane uses [Key Vault access policy](../key-vault/general/assign-access-policy-portal.md) and [Azure RBAC for data plane operations](../key-vault/general/rbac-guide.md) with key vaults, or [managed HSM local RBAC](../key-vault/managed-hsm/access-control.md) with managed HSMs.
 
-When you create a key vault or managed HSM in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the [key vault](../key-vault/general/secure-your-key-vault.md) or [managed HSM](../key-vault/managed-hsm/access-control.md).
+When you create a key vault or managed HSM in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. All callers in both planes must register in this tenant and authenticate to access the [key vault](../key-vault/general/security-features.md) or [managed HSM](../key-vault/managed-hsm/access-control.md).
 
 Azure customers control access permissions and can extract detailed activity logs from the Azure Key Vault service. Azure Key Vault logs the following information:
 
@@ -159,13 +159,13 @@ Vaults enable support for [customer-managed keys](../security/fundamentals/encry
 
 Azure Key Vault can handle requesting and renewing certificates in vaults, including Transport Layer Security (TLS) certificates, enabling customers to enroll and automatically renew certificates from supported public Certificate Authorities. Azure Key Vault certificates support provides for the management of customer’s X.509 certificates, which are built on top of keys and provide an automated renewal feature. Certificate owner can [create a certificate](../key-vault/certificates/create-certificate.md) through Azure Key Vault or by importing an existing certificate. Both self-signed and Certificate Authority generated certificates are supported. Moreover, the Key Vault certificate owner can implement secure storage and management of X.509 certificates without interaction with private keys.
 
-When customers create a key vault in a resource group, they can [manage access](../key-vault/general/secure-your-key-vault.md) by using Azure AD, which enables customers to grant access at a specific scope level by assigning the appropriate Azure roles. For example, to grant access to a user to manage key vaults, customers can assign a predefined key vault Contributor role to the user at a specific scope, including subscription, resource group, or specific resource.
+When customers create a key vault in a resource group, they can [manage access](../key-vault/general/security-features.md) by using Azure AD, which enables customers to grant access at a specific scope level by assigning the appropriate Azure roles. For example, to grant access to a user to manage key vaults, customers can assign a predefined key vault Contributor role to the user at a specific scope, including subscription, resource group, or specific resource.
 
 > [!IMPORTANT]
 > Customers should control tightly who has Contributor role access to their key vaults.  If a user has Contributor permissions to a key vault management plane, the user can gain access to the data plane by setting a key vault access policy.
 >
 > *Additional resources:*
-> - How to **[secure access to a key vault](../key-vault/general/secure-your-key-vault.md)**
+> - How to **[secure access to a key vault](../key-vault/general/security-features.md)**
 
 #### Managed HSM
 
@@ -437,10 +437,10 @@ Table 5 summarizes available security guidance for customer virtual machines pro
 
 **Table 5.**  Security guidance for Azure virtual machines
 
-|VM|||Security guidance||
-|---|---|---|---|---|
-|**Windows**|[Secure policies](../virtual-machines/security-policy.md)|[Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md)|[Built-in security controls](../virtual-machines/windows/security-baseline.md)|[Security recommendations](../virtual-machines/security-recommendations.md)|
-|**Linux**|[Secure policies](../virtual-machines/security-policy.md)|[Azure Disk Encryption](../virtual-machines/linux/disk-encryption-overview.md)|[Built-in security controls](../virtual-machines/linux/security-baseline.md)|[Security recommendations](../virtual-machines/security-recommendations.md)|
+|VM|Security guidance|
+|---|---|
+|**Windows**|[Secure policies](../virtual-machines/security-policy.md) <br/>[Azure Disk Encryption](../virtual-machines/windows/disk-encryption-overview.md) <br/> [Built-in security controls](../virtual-machines/windows/security-baseline.md) <br/> [Security recommendations](../virtual-machines/security-recommendations.md)|
+|**Linux**|[Secure policies](../virtual-machines/security-policy.md) <br/> [Azure Disk Encryption](../virtual-machines/linux/disk-encryption-overview.md) <br/> [Built-in security controls](../virtual-machines/linux/security-baseline.md) <br/> [Security recommendations](../virtual-machines/security-recommendations.md)|
 
 #### Isolated Virtual Machines
 Azure Compute offers virtual machine sizes that are [isolated to a specific hardware type](../virtual-machines/isolation.md) and dedicated to a single customer. These VM instances allow customer workloads to be deployed on dedicated physical servers. Utilizing Isolated VMs essentially guarantees that a customer VM will be the only one running on that specific server node. Customers can also choose to further subdivide the resources on these Isolated VMs by using [Azure support for nested Virtual Machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
@@ -650,7 +650,7 @@ Transferring large volumes of data across the Internet is inherently unreliable.
 :::image type="content" source="./media/secure-isolation-fig13.png" alt-text="Block blob partitioning of data into individual blocks":::
 **Figure 13.**  Block blob partitioning of data into individual blocks
 
-Customers can upload blocks in any order and determine their sequence in the final block list commitment step. Customers can also upload a new block to replace an existing uncommitted block of the same block ID.
+Customers can upload blocks in any order and determine their sequence in the final blocklist commitment step. Customers can also upload a new block to replace an existing uncommitted block of the same block ID.
 
 #### Partition layer
 The partition layer is responsible for a) managing higher-level data abstractions (Blob, Table, Queue), b) providing a scalable object namespace, c) providing transaction ordering and strong consistency for objects, d) storing object data on top of the stream layer, and e) caching object data to reduce disk I/O. This layer also provides asynchronous geo-replication of data and is focused on replicating data across stamps. Inter-stamp replication is done in the background to keep a copy of the data in two locations for disaster recovery purposes.
@@ -745,7 +745,7 @@ Azure Disk encryption relies on two encryption keys for implementation, as descr
 
 The DEK, encrypted with the KEK, is stored separately and only an entity with access to the KEK can decrypt the DEK. Access to the KEK is guarded by Azure Key Vault where customers can choose to store their keys in [FIPS 140-2 validated hardware security modules](../key-vault/keys/hsm-protected-keys-byok.md).
 
-For [Windows VMs](../virtual-machines/windows/disk-encryption-faq.md), Azure Disk encryption selects the encryption method in BitLocker based on the version of Windows, e.g., XTS-AES 256 bit for Windows Server 2012 or greater. These crypto modules are FIPS 140-2 validated as part of the Microsoft [Windows FIPS validation program](/windows/security/threat-protection/fips-140-validation#modules-used-by-windows-server). For [Linux VMs](../virtual-machines/linux/disk-encryption-faq.md), Azure Disk encryption uses the decrypt default of aes-xts-plain64 with a 256-bit volume master key that is FIPS 140-2 validated as part of DM-Crypt validation obtained by suppliers of Linux IaaS VM images in Microsoft Azure Marketplace.
+For [Windows VMs](../virtual-machines/windows/disk-encryption-faq.yml), Azure Disk encryption selects the encryption method in BitLocker based on the version of Windows, e.g., XTS-AES 256 bit for Windows Server 2012 or greater. These crypto modules are FIPS 140-2 validated as part of the Microsoft [Windows FIPS validation program](/windows/security/threat-protection/fips-140-validation#modules-used-by-windows-server). For [Linux VMs](../virtual-machines/linux/disk-encryption-faq.yml), Azure Disk encryption uses the decrypt default of aes-xts-plain64 with a 256-bit volume master key that is FIPS 140-2 validated as part of DM-Crypt validation obtained by suppliers of Linux IaaS VM images in Microsoft Azure Marketplace.
 
 ##### *Server-side encryption for managed disks*
 [Azure managed disks](../virtual-machines/managed-disks-overview.md) are block-level storage volumes that are managed by Azure and used with Azure Windows and Linux virtual machines. They simplify disk management for Azure IaaS VMs by handling storage account management transparently for customers. Azure managed disks automatically encrypt customer data by default using [256-bit AES encryption](../virtual-machines/disk-encryption.md) that is FIPS 140-2 validated. For encryption key management, customers have the following choices:

@@ -62,7 +62,11 @@ Whether your IoT Edge device runs on Windows or Linux, you need to access the in
 
 If you're installing the IoT Edge runtime on a Linux device, configure the package manager to go through your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Once your package manager is configured, follow the instructions in [Install Azure IoT Edge runtime](how-to-install-iot-edge.md) as usual.
 
-### Windows devices
+### Windows devices using IoT Edge for Linux on Windows
+
+If you're installing the IoT Edge runtime using IoT Edge for Linux on Windows, IoT Edge is installed by default on your Linux virtual machine. No additional installation or update steps are required.
+
+### Windows devices using Windows containers
 
 If you're installing the IoT Edge runtime on a Windows device, you need to go through the proxy server twice. The first connection downloads the installer script file, and the second connection is during the installation to download the necessary components. You can configure proxy information in Windows settings, or include your proxy information directly in the PowerShell commands.
 
@@ -201,7 +205,17 @@ systemctl show --property=Environment aziot-identityd
 :::moniker-end
 <!--end 1.2-->
 
-#### Windows
+#### Windows using IoT Edge for Linux on Windows
+
+Log in to your IoT Edge for Linux on Windows virtual machine:
+
+```powershell
+Connect-EflowVm
+```
+
+Follow the same steps as the Linux section above to configure the IoT Edge daemon.
+
+#### Windows using Windows containers
 
 Open a PowerShell window as an administrator and run the following command to edit the registry with the new environment variable. Replace **\<proxy url>** with your proxy server address and port.
 
@@ -244,13 +258,13 @@ This step takes place once on the IoT Edge device during initial device setup.
 
 5. Save the changes to config.yaml and close the editor. Restart IoT Edge for the changes to take effect.
 
-   * Linux:
+   * Linux and IoT Edge for Linux on Windows:
 
       ```bash
       sudo systemctl restart iotedge
       ```
 
-   * Windows:
+   * Windows using Windows containers:
 
       ```powershell
       Restart-Service iotedge
@@ -338,7 +352,7 @@ With the environment variables included, your module definition should look like
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
-        "createOptions": ""
+        "createOptions": "{}"
     },
     "env": {
         "https_proxy": {
@@ -367,7 +381,7 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 
 If the proxy you're attempting to use performs traffic inspection on TLS-secured connections, it's important to note that authentication with X.509 certificates doesn't work. IoT Edge establishes a TLS channel that's encrypted end to end with the provided certificate and key. If that channel is broken for traffic inspection, the proxy can't reestablish the channel with the proper credentials, and IoT Hub and the IoT Hub device provisioning service return an `Unauthorized` error.
 
-To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allow list to avoid inspection.
+To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allowlist to avoid inspection.
 
 ## Next steps
 

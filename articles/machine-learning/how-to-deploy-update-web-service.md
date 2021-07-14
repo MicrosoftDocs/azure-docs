@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to refresh a web service that is already deployed in Azure Machine Learning. You can update settings such as model, environment, and entry script.
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
@@ -82,7 +82,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
-For more information, see the [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-update) documentation.
+For more information, see the [az ml service update](/cli/azure/ml(v1)/computetarget/create#az_ml_service_update) documentation.
 
 ## Next steps
 

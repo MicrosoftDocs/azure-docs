@@ -17,11 +17,11 @@ You can choose one of the following options to install the Unity package.
 
 ## Install Remote Rendering package using the Mixed Reality Feature Tool
 
-[The Mixed Reality Feature Tool](https://aka.ms/MRFeatureToolDocs) ([download](https://aka.ms/mrfeaturetool)) is a tool used to integrate Mixed Reality feature packages into Unity projects. The package is not part of the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), and it is not available from Unity's internal package registry.
+[The Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) ([download](https://aka.ms/mrfeaturetool)) is a tool used to integrate Mixed Reality feature packages into Unity projects. The package is not part of the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), and it is not available from Unity's internal package registry.
 
 To add the package to a project you need to:
 1. [Download the Mixed Reality Feature Tool](https://aka.ms/mrfeaturetool)
-1. Follow the [full instructions](https://aka.ms/MRFeatureToolDocs) on how to use the tool.
+1. Follow the [full instructions](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) on how to use the tool.
 1. On the **Discover Features** page tick the box for the **Microsoft Azure Remote Rendering** package and select the version of the package you wish to add to your project
 
 ![Mixed_Reality_feature_tool_package](media/mixed-reality-feature-tool-package.png)

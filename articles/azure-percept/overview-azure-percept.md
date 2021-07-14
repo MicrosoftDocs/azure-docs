@@ -1,11 +1,11 @@
 ---
 title: Azure Percept overview
 description: Learn more about the Azure Percept platform
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
@@ -17,30 +17,30 @@ The integration challenges one faces when attempting to deploy edge AI solutions
 
 - Identifying and selecting the right silicon to power the solutions.
 - Ensuring the collective security of the hardware, software, models, and data.
-- The ability to build and manage solutions that seamlessly work, at scale.
+- The ability to build and manage solutions that seamlessly work at scale.
 
 ## Components of Azure Percept
 
 The main components of Azure Percept are:
 
-1. AI hardware reference design and certification programs.
+- [Azure Percept DK.](./overview-azure-percept-dk.md)
 
-    - Provides the ecosystem of hardware developers with patterns and best practices for developing edge AI hardware that can be integrated easily with Azure AI and IoT services.
-
-2. Azure Percept DK (devkit).
-
-    - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders and customers.
+    - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders, and customers.
 
         > [!div class="nextstepaction"]
         > [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-3. Services and workflows to accelerate edge AI model and solution development.
+- Services and workflows that accelerate edge AI model and solution development.
 
     - Development workflows and pre-built models accessible from [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Model development services.
-    - Device management services for scale.
+    - Device management services for scaling.
     - End-to-end security.
+
+- AI hardware reference design and certification programs.
+
+    - Provides the ecosystem of hardware developers with patterns and best practices for developing edge AI hardware that can be integrated easily with Azure AI and IoT services.
 
 ## Next steps
 
-Get started with [Azure Percept DK](./overview-azure-percept-dk.md). 
+Learn more about [Azure Percept DK](./overview-azure-percept-dk.md) and [Azure Percept Studio](./overview-azure-percept-studio.md).

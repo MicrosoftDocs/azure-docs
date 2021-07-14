@@ -25,7 +25,7 @@ zone_pivot_groups: programming-languages-set-twenty-six
 #  - id: programming-language-python
 #    title: Python
 
-# As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+#Customer intent: As a device builder, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and using multiple components to send properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
 # Tutorial: Connect an IoT Plug and Play multiple component device applications running on Linux or Windows to IoT Hub

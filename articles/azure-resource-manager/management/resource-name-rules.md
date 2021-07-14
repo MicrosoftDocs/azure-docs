@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 07/08/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -11,7 +11,10 @@ This article summarizes naming rules and restrictions for Azure resources. For r
 
 This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
-Resource names are case-insensitive unless specifically noted in the valid characters column.
+Resource names are case-insensitive unless noted in the valid characters column.
+
+> [!NOTE]
+> When retrieving resource names using various APIs, returned values may display different case values than what is listed in the valid characters table.
 
 In the following tables, the term alphanumeric refers to:
 
@@ -163,8 +166,9 @@ In the following tables, the term alphanumeric refers to:
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
+> | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
-> | disks | resource group | 1-80 | Alphanumerics and underscores. |
+> | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications/versions | application | 32-bit integer | Numbers and periods. |
@@ -172,11 +176,25 @@ In the following tables, the term alphanumeric refers to:
 > | galleries / images / versions | image | 32-bit integer | Numbers and periods. |
 > | images | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | snapshots | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
-> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Windows VMs can't include period or end with hyphen.<br><br>Linux VMs can't end with period or hyphen. |
-> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Can't start with underscore. Can't end with period or hyphen. |
+> | virtualMachines | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VMs can't include period or end with hyphen.<br><br>Linux VMs can't end with period or hyphen. |
+> | virtualMachineScaleSets | resource group | 1-15 (Windows)<br>1-64 (Linux)<br><br>See note below. | Can't use space or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 
 > [!NOTE]
 > Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.
+
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | communicationServices | global | 1-63 | Alphanumerics, hyphens, and underscores. |
+
+## Microsoft.Consumption
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | budgets | subscription or resource group | 1-63 | Alphanumerics, hyphens, and underscores. |
 
 ## Microsoft.ContainerInstance
 
@@ -246,7 +264,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | workspaces | resource group | 3-30 | Alphanumerics, underscores, and hyphens |
+> | workspaces | resource group | 3-64 | Alphanumerics, underscores, and hyphens |
 
 ## Microsoft.DataFactory
 
@@ -390,7 +408,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | actionGroups | resource group | 1-260 | Can't use:<br>`/&%\?` <br><br>Can't end with space or period.  |
+> | actionGroups | resource group | 1-260 | Can't use:<br>`:<>+/&%\?` <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
 > | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` <br><br>Can't end with space or period.  |
 > | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` <br><br>Can't end with space or period.  |
@@ -701,10 +719,12 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  | 
 > | serverfarms | resource group | 1-40 | Alphanumerics and hyphens. |
-> | sites | global | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
+> | sites | global or per domain. See note below. | 2-60 | Contains alphanumerics and hyphens.<br><br>Can't start or end with hyphen. |
 > | sites / slots | site | 2-59 | Alphanumerics and hyphens. |
 
 > [!NOTE]
+> A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
+>
 > Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites.
 
 ## Next steps

@@ -86,7 +86,7 @@ To avoid sending duplicate generated control numbers
 to partners during a disaster event, 
 the recommendation is to increment the control numbers 
 in the secondary region agreements by using 
-[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn).
 
 ## Fall back to a primary region post-disaster event
 
@@ -96,7 +96,7 @@ To fall back to a primary region when it is available, follow these steps:
 
 2. Increment the generated control numbers for all the 
 primary region agreements by using 
-[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn).  
 
 3. Direct traffic from the secondary region to the primary region.
 
@@ -108,7 +108,7 @@ region for pulling run status from the primary region is enabled.
 Business continuity for EDI X12 documents is based on control numbers:
 
 > [!TIP]
-> You can also use the [X12 quick start template](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) 
+> You can also use the [X12 quick start template](https://azure.microsoft.com/resources/templates/logic-app-b2b-disaster-recovery-replication/) 
 > to create logic apps. Creating primary and secondary 
 > integration accounts are prerequisites to use the template. 
 > The template helps to create two logic apps, 

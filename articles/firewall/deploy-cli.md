@@ -131,6 +131,8 @@ az vm create \
     --admin-username azureadmin
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Deploy the firewall
 
 Now deploy the firewall into the virtual network.
