@@ -28,7 +28,7 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/t.com/free/).
 - Install [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), a lightweight, cross-platform code editor.
 - Azure Machine Learning Studio Visual Studio Code extension. For install instructions see the [Setup Azure Machine Learning Visual Studio Code extension guide](./how-to-setup-vs-code.md)
 - 2.0 CLI (preview). For installation instructions, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md)
@@ -65,9 +65,9 @@ The first thing you have to do to build an application in Azure Machine Learning
       team: ml-team
     ```
 
-    The template creates a workspace called `TeamWorkspace` in the `WestUS2` region. The rest of the options defined in the template provide friendly naming, descriptions, and tags for the workspace.
+    The specification file creates a workspace called `TeamWorkspace` in the `WestUS2` region. The rest of the options defined in the specification file provide friendly naming, descriptions, and tags for the workspace.
 
-1. Right-click the template file and select **Azure ML: Create Resource**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the 2.0 CLI. At this point, a request to Azure is made to create a new workspace and dependent resources in your account. After a few minutes, the new workspace appears in your subscription node.
+1. Right-click the specification file and select **Azure ML: Create Resource**. Creating a resource uses the configuration options defined in the YAML specification file and submits a job using the 2.0 CLI. At this point, a request to Azure is made to create a new workspace and dependent resources in your account. After a few minutes, the new workspace appears in your subscription node.
 1. Set `TeamWorkspace` as your default workspace. Doing so places resources and jobs you create in the workspace by default. Select the **Set Azure ML Workspace** button on the Visual Studio Code status bar and follow the prompts to set `TeamWorkspace` as your default workspace.
 
 For more information on workspaces, see [how to manage resources in VS Code](how-to-manage-resources-vscode.md).
@@ -95,11 +95,11 @@ A compute target is the computing resource or environment where you run training
     idle_time_before_scale_down: 120
     ```
 
-    The template creates a GPU cluster called `gpu-cluster` with at most 3 Standard_NC12 VM nodes that automatically scales down to 0 nodes after 120 seconds of inactivity.
+    The specification file creates a GPU cluster called `gpu-cluster` with at most 3 Standard_NC12 VM nodes that automatically scales down to 0 nodes after 120 seconds of inactivity.
 
     For more information on VM sizes, see [sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md).
 
-1. Right-click the template file and select **Azure ML: Create Resource**.
+1. Right-click the specification file and select **Azure ML: Create Resource**.
 
 After a few minutes, the new compute target appears in the *Compute > Compute clusters* node of your workspace.
 
@@ -107,7 +107,7 @@ After a few minutes, the new compute target appears in the *Compute > Compute cl
 
 During the training process, a TensorFlow model is trained by processing the training data and learning patterns embedded within it for each of the respective digits being classified.
 
-Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the template is defined in the *job.yml* file which looks like the following:
+Like workspaces and compute targets, training jobs are defined using resource templates. For this sample, the specification is defined in the *job.yml* file which looks like the following:
 
 ```yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
@@ -122,7 +122,7 @@ experiment_name: tensorflow-mnist-example
 description: Train a basic neural network with TensorFlow on the MNIST dataset.
 ```
 
-This template submits a training job called `tensorflow-mnist-example` to the recently created `gpu-cluster` computer target that runs the code in the *train.py* Python script. The environment used is one of the curated environments provided by Azure Machine Learning which contains TensorFlow and other software dependencies required to run the training script. For more information on curated environments, see [Azure Machine Learning curated environments](resource-curated-environments.md).
+This specification file submits a training job called `tensorflow-mnist-example` to the recently created `gpu-cluster` computer target that runs the code in the *train.py* Python script. The environment used is one of the curated environments provided by Azure Machine Learning which contains TensorFlow and other software dependencies required to run the training script. For more information on curated environments, see [Azure Machine Learning curated environments](resource-curated-environments.md).
 
 To submit the training job:
 

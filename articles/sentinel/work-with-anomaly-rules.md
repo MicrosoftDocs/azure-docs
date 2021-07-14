@@ -25,7 +25,7 @@ ms.author: yelevin
 
 ## View SOC-ML anomaly rule templates
 
-Azure Sentinel’s SOC-ML anomalies feature provides [built-in anomaly templates](tutorial-detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
+Azure Sentinel’s [SOC-ML anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](tutorial-detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules must be activated before they will generate anomalies, which you can find in the **Anomalies** table in the **Logs** section.
 
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
@@ -98,7 +98,7 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
 1. Set the **Time range** filter to **Last 24 hours**.
 
-1. Enter the following in the query window (in place of "Type your query here..."):
+1. Copy the Kusto query below and paste it in the query window (where it says "Type your query here or..."):
 
     ```kusto
     Anomalies 

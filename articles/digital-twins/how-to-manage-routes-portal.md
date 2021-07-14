@@ -23,11 +23,11 @@ In Azure Digital Twins, you can route [event notifications](concepts-event-notif
 
 This article walks you through the process of creating endpoints and routes using the [Azure portal](https://portal.azure.com).
 
-Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](concepts-cli.md). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
+Alternatively, you can also manage endpoints and routes with the [Event Routes APIs](/rest/api/digital-twins/dataplane/eventroutes), the [SDKs](concepts-apis-sdks.md#overview-data-plane-apis), or the [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). For a version of this article that uses these mechanisms instead of the portal, see [How-to: Manage endpoints and routes (APIs and CLI)](how-to-manage-routes-apis-cli.md).
 
 ## Prerequisites
 
-* You'll need an **Azure account**, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+* You'll need an **Azure account**, which [can be set up for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
@@ -77,7 +77,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 1. Finish creating your endpoint by selecting _Save_.
 
 >[!IMPORTANT]
-> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [How-to: Enable a managed identity for routing events (preview)](./how-to-enable-managed-identities-portal.md).
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [How-to: Route events with a managed identity](how-to-route-with-managed-identity.md).
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
@@ -99,9 +99,36 @@ Now the event grid, event hub, or Service Bus topic is available as an endpoint 
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](concepts-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+#### Set up storage resources
 
-For instructions on how to do this with these tools, see the [APIs and CLI](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
+Before setting the dead-letter location, you must have a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a [container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) set up in your Azure account. 
+
+You'll provide the URI for this container when creating the endpoint later. The dead-letter location will be provided to the endpoint as a container URI with a [SAS token](../storage/common/storage-sas-overview.md). That token needs `write` permission for the destination container within the storage account. The fully formed **dead letter SAS URI** will be in the format of: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`.
+
+Follow the steps below to set up these storage resources in your Azure account, to prepare to set up the endpoint connection in the next section.
+
+1. Follow the steps in [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) to create a **storage account** in your Azure subscription. Make a note of the storage account name to use it later.
+2. Follow the steps in [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to create a **container** within the new storage account. Make a note of the container name to use it later.
+3. Next, create a **SAS token** for your storage account that the endpoint can use to access it. Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
+4. In the storage account page, choose the _Shared access signature_ link in the left navigation bar to start setting up the SAS token.
+
+    :::image type="content" source="./media/how-to-manage-routes-portal/generate-sas-token-1.png" alt-text="Screenshot of the storage account page in the Azure portal." lightbox="./media/how-to-manage-routes-portal/generate-sas-token-1.png":::
+
+1. On the *Shared access signature page*, under *Allowed services* and *Allowed resource types*, select whatever settings you want. You'll need to select at least one box in each category. Under *Allowed permissions*, choose **Write** (you can also select other permissions if you want).
+1. Set whatever values you want for the remaining settings.
+1. When you're finished, select the _Generate SAS and connection string_ button to generate the SAS token. 
+
+    :::image type="content" source="./media/how-to-manage-routes-portal/generate-sas-token-2.png" alt-text="Screenshot of the storage account page in the Azure portal showing all the setting selection to generate a SAS token." lightbox="./media/how-to-manage-routes-portal/generate-sas-token-2.png"::: 
+
+1. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values, and use the *Copy to clipboard* icon to copy the **SAS token** value. Save it to use later.
+
+    :::image type="content" source="./media/how-to-manage-routes-portal/copy-sas-token.png" alt-text="Screenshot of the storage account page in the Azure portal highlighting how to copy the SAS token to use in the dead-letter secret." lightbox="./media/how-to-manage-routes-portal/copy-sas-token.png":::
+
+#### Create the dead-letter endpoint
+
+In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+
+For instructions on how to do this with these tools, see the [APIs and CLI](how-to-manage-routes-apis-cli.md#create-the-dead-letter-endpoint) version of this article.
 
 ## Create an event route
 

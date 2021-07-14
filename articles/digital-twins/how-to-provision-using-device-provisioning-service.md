@@ -76,7 +76,7 @@ When a new device is provisioned using Device Provisioning Service, a new twin f
 Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal](../iot-dps/quick-setup-auto-provision.md).
 
 The following Azure CLI command will create a Device Provisioning Service. You'll need to specify a Device Provisioning Service name, resource group, and region. To see what regions support Device Provisioning Service, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
-The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
+The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the [Azure CLI installed on your machine](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az iot dps create --name <Device-Provisioning-Service-name> --resource-group <resource-group-name> --location <region>
@@ -84,29 +84,22 @@ az iot dps create --name <Device-Provisioning-Service-name> --resource-group <re
 
 ### Add a function to use with Device Provisioning Service
 
-Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to use with the Device Provisioning Service. This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device.
+Inside your function app project that you created in the [Prerequisites section](#prerequisites), you'll create a new function to use with the Device Provisioning Service. This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device.
 
 Start by opening the function app project in Visual Studio on your machine and follow the steps below.
 
-#### Step 1: Add a new function 
+1. First, create a new function of type *HTTP-trigger* in the function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
-Add a new function of type *HTTP-trigger* to the function app project in Visual Studio.
+2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png" alt-text="Screenshot of the Visual Studio view to add Azure function of type Http Trigger to a function app project." lightbox="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png":::
+3. In the newly created function code file, paste in the following code, rename the function to *DpsAdtAllocationFunc.cs*, and save the file.
 
-#### Step 2: Fill in function code
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
-Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
+4. Publish the project with the *DpsAdtAllocationFunc.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-In the newly created function code file, paste in the following code, rename the function to *DpsAdtAllocationFunc.cs*, and save the file.
-
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
-
-#### Step 3: Publish the function app to Azure
-
-Publish the project with *DpsAdtAllocationFunc.cs* function to the function app in Azure.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) section of the *How-to: Set up a function in Azure to process data* article.
 
 ### Create Device Provisioning enrollment
 
@@ -131,7 +124,7 @@ After creating the enrollment, the **Primary Key** for the enrollment will be us
 
 ### Set up the device simulator
 
-This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located in the [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/) that you downloaded in the [Prerequisites](#prerequisites) section.
+This sample uses a device simulator that includes provisioning using the Device Provisioning Service. The device simulator is located in the [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/) that you downloaded in the [Prerequisites section](#prerequisites).
 
 #### Upload the model
 
@@ -186,7 +179,7 @@ You should see the device being registered and connected to IoT Hub, and then st
 
 ### Validate
 
-As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](concepts-cli.md) command to find the twin of the device in the Azure Digital Twins instance you created.
+As a result of the flow you've set up in this article, the device will be automatically registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) command to find the twin of the device in the Azure Digital Twins instance you created.
 
 ```azurecli-interactive
 az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
@@ -229,13 +222,13 @@ To do this,
 
 #### Configure event hub with function app
 
-Next, configure the Azure function app that you set up in the [prerequisites](#prerequisites) section to work with your new event hub. You'll do this by setting an environment variable inside the function app with the event hub's connection string.
+Next, configure the Azure function app that you set up in the [Prerequisites section](#prerequisites) to work with your new event hub. You'll do this by setting an environment variable inside the function app with the event hub's connection string.
 
 1. Open the policy that you just created and copy the **Connection string-primary key** value.
 
     :::image type="content" source="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png" alt-text="Screenshot of the Azure portal showing how to copy the connection string-primary key." lightbox="media/how-to-provision-using-device-provisioning-service/event-hub-sas-policy-connection-string.png":::
 
-2. Add the connection string as a variable in the function app settings with the following Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
+2. Add the connection string as a variable in the function app settings with the following Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the [Azure CLI installed on your machine](/cli/azure/install-azure-cli).
 
     ```azurecli-interactive
     az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-App-Service-function-app-name>
@@ -243,29 +236,24 @@ Next, configure the Azure function app that you set up in the [prerequisites](#p
 
 ### Add a function to retire with IoT Hub lifecycle events
 
-Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire an existing device using IoT Hub lifecycle events.
+Inside your function app project that you created in the [Prerequisites section](#prerequisites), you'll create a new function to retire an existing device using IoT Hub lifecycle events.
 
 For more about lifecycle events, see [IoT Hub Non-telemetry events](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [Azure Event Hubs trigger for Azure Functions](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Start by opening the function app project in Visual Studio on your machine and follow the steps below.
 
-#### Step 1: Add a new function
-     
-Add a new function of type *Event Hub Trigger* to the function app project in Visual Studio.
+1. First, create a new function of type *Event Hub Trigger* in the function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png" alt-text="Screenshot of the Visual Studio window showing how to add an Azure function of type Event Hub Trigger in a function app project." lightbox="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png":::
+2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
 
-#### Step 2: Fill in function code
+3. In the newly created function code file, paste in the following code, rename the function to *DeleteDeviceInTwinFunc.cs*, and save the file.
 
-In the newly created function code file, paste in the following code, rename the function to `DeleteDeviceInTwinFunc.cs`, and save the file.
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
+4. Publish the project with the *DeleteDeviceInTwinFunc.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-#### Step 3: Publish the function app to Azure
-
-Publish the project with *DeleteDeviceInTwinFunc.cs* function to the function app in Azure.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) section of the *How-to: Set up a function in Azure to process data* article.
 
 ### Create an IoT Hub route for lifecycle events
 
@@ -274,7 +262,7 @@ Now you'll set up an IoT Hub route, to route device lifecycle events. In this ca
 First, you'll need to create an event hub endpoint in your IoT hub. Then, you'll add a route in IoT hub to send lifecycle events to this event hub endpoint.
 Follow these steps to create an event hub endpoint:
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to the IoT hub you created in the [prerequisites](#prerequisites) section and select **Message routing** in the menu options on the left.
+1. In the [Azure portal](https://portal.azure.com/), navigate to the IoT hub you created in the [Prerequisites section](#prerequisites) and select **Message routing** in the menu options on the left.
 2. Select the **Custom endpoints** tab.
 3. Select **+ Add** and choose **Event hubs** to add an event hubs type endpoint.
 
@@ -322,7 +310,7 @@ Follow the steps below to delete the device in the Azure portal:
 
 It might take a few minutes to see the changes reflected in Azure Digital Twins.
 
-Use the following [Azure Digital Twins CLI](concepts-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
+Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
 ```azurecli-interactive
 az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"

@@ -30,8 +30,10 @@ landingContent:
             url: ../video-analyzer-for-media-docs/video-indexer-overview.md            
       - linkListType: quickstart
         links:
-          - text: Get started with Azure Video Analyzer 
+          - text: Get started using an ARM template
             url: get-started-detect-motion-emit-events.md
+          - text: Get started using the Portal
+            url: get-started-detect-motion-emit-events-portal.md
         
   - title: Record video based on events
     linkLists:

@@ -22,7 +22,7 @@ Devices interact with an IoT Central application using the following primitives:
 - _Properties_ are state values that a device reports to IoT Central. For example, the current firmware version of the device. You can also have writable properties that IoT Central can update on the device such as a target temperature.
 - _Commands_ are called from IoT Central to control the behavior a device. For example, your IoT Central application might call a command to reboot a device.
 
-A solution builder is responsible for configuring dashboards and views in the IoT Central web UI to visualize telemetry, manage properties, and call commands.
+A solution builder is responsible for configuring dashboards and device views in the IoT Central web UI to visualize telemetry, manage properties, and call commands.
 
 ## Types of device
 

@@ -7,7 +7,6 @@ keywords: azure iot device management, azure iot hub device management, device m
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
 ---
