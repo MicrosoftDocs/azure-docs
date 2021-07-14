@@ -73,14 +73,4 @@ landingContent:
             url: patient-everything.md
           - text: $member-match operation
             url: tutorial-member-match.md
- 
-  - title: Tutorials for FHIR service
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Deploy javascript app to read data from FHIR service
-            url: tutorial-web-app-fhir-server.md
-          - text: Access FHIR API with Postman
-            url: access-fhir-postman-tutorial.md
-
   
