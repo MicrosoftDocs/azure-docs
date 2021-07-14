@@ -81,11 +81,11 @@ Defender for IoT provides basic dissectors for common protocols. You can build y
 
 This kit contains the header files needed for development. The development process requires basic steps and optional advanced steps, described in this SDK.
 
-Contact support.microsoft.com for information on receiving header files and other resources.
+Contact ms-horizon-support@microsoft.com for information on receiving header files and other resources.
 
 ## About the environment and setup 
 
-### Requirements 
+### Requirements
 
 - The preferred development environment is Linux. If you are developing in a Windows environment, consider using a VM with a Linux System.
 
