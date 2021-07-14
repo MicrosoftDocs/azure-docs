@@ -51,12 +51,12 @@ Deploy a DICOM service to bring medical imaging data into the cloud from any DIC
 FHIR service includes FHIR APIs and endpoints in Azure for data access and storage in FHIR data 
 format. A FHIR service manages Protected Health Information (PHI) in a secure and compliant cloud 
 environment. Deploying a FHIR service allows you to bring together clinical heath data from multiple 
-systems into the Azure Cloud based on the [FHIR](https://www.hl7.org/fhir/index.html) interoperable data standard published by HL7. For more information, see [About Azure API for FHIR](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview).
+systems into the Azure Cloud based on the [FHIR](https://www.hl7.org/fhir/index.html) interoperable data standard published by HL7. For more information, see [About FHIR service](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview).
 
 ## IoT Connector
 
 The Azure IoT Connector for FHIR feature enables you to quickly set up a service to ingest Internet of 
-Medical Things (IoMT) data into Azure API for FHIR in a scalable, secure, and compliant manner. For 
+Medical Things (IoMT) data into the FHIR service in a scalable, secure, and compliant manner. For 
 more information, see [Azure IoT Connector for FHIR (preview)](https://docs.microsoft.com/azure/healthcare-apis/fhir/overview#azure-iot-connector-for-fhir-preview).
 
 For instructions on how to deploy an IoT Connector using a scripted template, see [Deploying an IoT 
