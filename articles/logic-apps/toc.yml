@@ -67,6 +67,8 @@
     items:
     - name: Single-tenant overview
       href: single-tenant-overview-compare.md
+    - name: About the workflow designer (single-tenant)
+      href: designer-overview.md
     - name: Create single-tenant workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
@@ -399,6 +401,8 @@
         href: logic-apps-enterprise-integration-b2b.md
 - name: Reference
   items:
+  - name: Billing and pricing models
+    href: logic-apps-pricing.md
   - name: Architecture patterns
     items:
     - name: Basic enterprise integration
@@ -409,8 +413,6 @@
     href: /connectors/
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Pricing model & usage metering
-    href: logic-apps-pricing.md
   - name: Azure CLI
     href: /cli/azure/logic
   - name: Azure PowerShell
@@ -447,7 +449,7 @@
     href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
+  - name: Pricing for Azure Logic Apps
     href: https://azure.microsoft.com/pricing/details/logic-apps/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/

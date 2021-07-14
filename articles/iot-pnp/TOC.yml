@@ -55,8 +55,6 @@
   items:
   - name: Install and use IoT explorer
     href: howto-use-iot-explorer.md
-  - name: Install and use DTDL authoring tools
-    href: howto-use-dtdl-authoring-tools.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
   - name: Convert a device to IoT Plug and Play

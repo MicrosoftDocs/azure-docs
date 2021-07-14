@@ -108,6 +108,9 @@ Cloud Services (extended support) supports dynamic & static IP allocation method
 ###	Why am I getting charged for IP addresses?
 Customers are billed for IP Address use on Cloud Services (extended support) just as users are billed for IP addresses associated with virtual machines. 
 
+### Can the reserved IP be updated after a successful deployment?
+A reserved IP cannot be added, removed or changed during deployment update or upgrade. If the IP addresses needs to be changed, please use a swappable Cloud Service or deploy two Cloud Services with a CName in Azure DNS\Traffic Manager so that the IP can be pointed to either of them.
+
 ### Can I use a DNS name with Cloud Services (extended support)? 
 Yes. Cloud Services (extended support) can also be given a DNS name. With Azure Resource Manager, the DNS label is an optional property of the public IP address that is assigned to the Cloud Service. The format of the DNS name for Azure Resource Manager based deployments is `<userlabel>.<region>.cloudapp.azure.com`
 
