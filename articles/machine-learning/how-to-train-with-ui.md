@@ -23,7 +23,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Understanding of what a job is in Azure Machine Learning. See [Introducing jobs](how-to-train-cli.md#introducing-jobs)
+* Understanding of what a job is in Azure Machine Learning. See [Introducing jobs](how-to-train-cli.md#introducing-jobs).
 
 ## Get started
 
@@ -50,7 +50,7 @@ The first step in the job creation UI is to select the compute target on which y
 | --- | --- | 
 | Compute instance | [What is an Azure Machine Learning compute instance?](concept-compute-instance.md) | 
 | Compute cluster | [What is a compute cluster?](how-to-create-attach-compute-cluster.md#what-is-a-compute-cluster) | 
-| Attached Kubernetes cluster | [Configure Azure Arc enabled machine learning (preview)](how-to-attach-arc-kubernetes.md).) | 
+| Attached Kubernetes cluster | [Configure Azure Arc enabled machine learning (preview)](how-to-attach-arc-kubernetes.md). | 
 
 1. Select a compute type
 1. Select an existing compute resource. The dropdown shows the node information and SKU type to help your choice.
