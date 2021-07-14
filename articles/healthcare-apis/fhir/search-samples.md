@@ -1,6 +1,6 @@
 ---
-title: Search examples for Azure API for FHIR
-description: How to search using different search parameters, modifiers, and other FHIR search tools
+title: Search examples for FHIR service
+description: How to search using different search parameters, modifiers, and other search tools for FHIR
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir

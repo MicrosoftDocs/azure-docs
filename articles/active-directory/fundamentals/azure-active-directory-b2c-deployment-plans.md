@@ -29,7 +29,7 @@ To help organizations understand the business requirements and respect complianc
 
 ## Plan an Azure AD B2C deployment
 
-This phase includes the following capabilities.
+This phase includes the following capabilities:
 
 | Capability | Description |
 |:------------|:------------|
@@ -87,7 +87,7 @@ Define clear expectations and follow up plans to meet key milestones:
 
 ## Implement an Azure AD B2C deployment
 
-This phase includes the following capabilities.
+This phase includes the following capabilities:
 
 | Capability | Description |
 |:-------------|:--------------|

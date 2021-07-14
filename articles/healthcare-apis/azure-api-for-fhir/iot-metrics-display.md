@@ -1,5 +1,5 @@
 ---
-title: Display and configure Azure IoT Connector for FHIR (preview) metrics
+title: Display and configure IoT Connector for FHIR (preview) metrics
 description: This article explains how to display and configure Azure IoT Connector for FHIR (preview) metrics.
 services: healthcare-apis
 author: msjasteppe
@@ -10,7 +10,7 @@ ms.date: 11/13/2020
 ms.author: jasteppe
 ---
 
-# Display and configure Azure IoT Connector for FHIR (preview) metrics 
+# Display and configure IoT Connector for FHIR (preview) metrics 
 
 In this article, you'll learn how to display and configure Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* metrics.
 

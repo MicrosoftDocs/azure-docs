@@ -143,7 +143,7 @@ Below is the code that you can input into **index.html**. You will need to updat
 From here, you can go back to your web application resource and open the URL found on the Overview page. Log in to see the patient James Tiberious Kirk that you previously created.
 
 ## Next Steps
-You have successfully deployed the Azure API for FHIR, registered a public client application, tested access, and created a small web application. Check out the Azure API for FHIR supported features as a next step.
+You have successfully deployed the FHIR service, registered a public client application, tested access, and created a small web application. Check out the FHIR service supported features as a next step.
 
 >[!div class="nextstepaction"]
 >[Supported Features](fhir-features-supported.md)

@@ -1,6 +1,6 @@
 ---
-title: Use patient-everything in Azure API for FHIR
-description: This article explains how to use the patient-everything operation in the Azure API for FHIR
+title: Patient-everything
+description: This article explains how to use the patient-everything operation
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.date: 06/04/2021
 ms.author: cavoeg
 ---
 
-# Patient-everything in FHIR
+# Using $patient-everything in FHIR service
 
 The [$patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a patient with access to their entire record or for a provider or other user to perform a bulk data download. This operation is used to return all the information related to one or more patients described in the resource or context on which this operation is invoked.  
 
@@ -20,7 +20,7 @@ To call patient-everything, use the following command:
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything
 ```
-The Azure API for FHIR validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
+FHIR service validates that it can find the patient matching the provided patient ID. If a result is found, the response will be a bundle of type “searchset” with the following information: 
 * [Patient resource](https://www.hl7.org/fhir/patient.html) 
 *  Resources that are directly referenced by the Patient resource (except link) 
 *  Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html)
@@ -28,7 +28,7 @@ The Azure API for FHIR validates that it can find the patient matching the provi
 
 
 ## Patient-everything parameters
-The Azure API for FHIR supports the following query parameters. All of these parameters are optional:
+FHIR service supports the following query parameters. All of these parameters are optional:
 
 |Query parameter        |  Description|
 |-----------------------|------------|

@@ -11,7 +11,7 @@ author: caitlinv39
 ms.date: 01/03/2020
 ---
 
-# Testing the FHIR API
+# Testing the FHIR API on Azure API for FHIR
 In the previous two steps, you deployed the Azure API for FHIR and registered your client application. You are now ready to test that your Azure API for FHIR is set up with your client application. 
 
 ## Retrieve capability statement

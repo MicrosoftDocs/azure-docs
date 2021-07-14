@@ -1,5 +1,5 @@
 ---
-title:  How to do custom search in Azure API for FHIR 
+title:  How to do custom search in FHIR service 
 description: This article describes how you can define your own custom search parameters to be used in the database. 
 author: ginalee-dotcom
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.author: cavoeg
 ---
 # Defining custom search parameters
 
-The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the Azure API for FHIR.
+The FHIR specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the FHIR service.
 
 > [!NOTE]
 > Each time you create, update, or delete a search parameter you’ll need to run a [reindex job](how-to-run-a-reindex.md) to enable the search parameter to be used in production. Below we will outline how you can test search parameters before reindexing the entire FHIR server.
@@ -74,9 +74,9 @@ Important elements of a `SearchParameter`:
 
 * **base**: Describes which resource(s) the search parameter applies to. If the search parameter applies to all resources, you can use `Resource`; otherwise, you can list all the relevant resources.
  
-* **type**: Describes the data type for the search parameter. Type is limited by the support for the Azure API for FHIR. This means that you cannot define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it is a supported combination.
+* **type**: Describes the data type for the search parameter. Type is limited by the support for the FHIR service. This means that you cannot define a search parameter of type Special or define a [composite search parameter](overview-of-search.md) unless it is a supported combination.
 
-* **expression**: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it is not required by the specification. This is because you need either the expression or the xpath syntax and the Azure API for FHIR ignores the xpath syntax.
+* **expression**: Describes how to calculate the value for the search. When describing a search parameter, you must include the expression, even though it is not required by the specification. This is because you need either the expression or the xpath syntax and the FHIR service ignores the xpath syntax.
 
 ## Test search parameters
 

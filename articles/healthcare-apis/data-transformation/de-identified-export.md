@@ -1,5 +1,5 @@
 ---
-title: Exporting de-identified data (preview) for Azure API for FHIR
+title: Exporting de-identified data (preview) for FHIR service
 description: This article describes how to set up and use de-identified export
 author: ranvijaykumar
 ms.service: healthcare-apis
@@ -18,7 +18,7 @@ The $export command can also be used to export de-identified data from the FHIR 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
 > [!Note] 
-> Right now the Azure API for FHIR only supports de-identified export at the system level ($export).
+> Right now the FHIR service only supports de-identified export at the system level ($export).
 
 |Query parameter            | Example |Optionality| Description|
 |---------------------------|---------|-----------|------------|

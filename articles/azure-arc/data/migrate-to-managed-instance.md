@@ -1,6 +1,6 @@
 ---
-title: Migrate a database from SQL Server to Azure Arc enabled SQL Managed Instance
-description: Migrate database from SQL Server to Azure Arc enabled SQL Managed Instance
+title: Migrate a database from SQL Server to Azure Arc-enabled SQL Managed Instance
+description: Migrate database from SQL Server to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,7 +11,7 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ---
 
-# Migrate: SQL Server to Azure Arc enabled SQL Managed Instance
+# Migrate: SQL Server to Azure Arc-enabled SQL Managed Instance
 
 This scenario walks you through the steps for migrating a database from a SQL Server instance to Azure SQL managed instance in Azure Arc via two different backup and restore methods.
 
@@ -19,7 +19,7 @@ This scenario walks you through the steps for migrating a database from a SQL Se
 
 ## Use Azure blob storage
 
-Use Azure blob storage for migrating to Azure Arc enabled SQL Managed Instance.
+Use Azure blob storage for migrating to Azure Arc-enabled SQL Managed Instance.
 
 This method uses Azure Blob Storage as a temporary storage location that you can back up to and then restore from.
 
@@ -184,8 +184,8 @@ GO
 
 ## Next steps
 
-[Learn more about Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+[Learn more about Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
 
 [Start by creating a Data Controller](create-data-controller.md)
 
-[Already created a Data Controller? Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Already created a Data Controller? Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)
