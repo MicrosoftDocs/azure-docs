@@ -25,7 +25,7 @@ This article applies to the **Azure Stack Edge 2106** release, which maps to sof
 
 The following new features are available in the Azure Stack Edge 2106 release. 
 
-- New [latest cumulative update (LCU) for June security fixes](https://support.microsoft.com/en-us/topic/june-8-2021-kb5003697-monthly-rollup-457aa997-18a0-46e9-8612-497f01ccaa54) was rolled into the updates package for Azure Stack Edge.
+- **Windows updates and security fixes** - The [latest cumulative update (LCU) for Windows and June security fixes](https://support.microsoft.com/en-us/topic/june-8-2021-kb5003697-monthly-rollup-457aa997-18a0-46e9-8612-497f01ccaa54) were rolled into the updates package for Azure Stack Edge.
 - **Bug fixes for Multi-Access Edge Compute** - Multiple issues were fixed for MEC deployments.
 
     - Issues related to guest VM health monitoring such as link flapping, errors in boot log, and reboots.
