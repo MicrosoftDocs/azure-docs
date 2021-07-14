@@ -1,6 +1,6 @@
 ---
-title: $validate FHIR resources against profiles on FHIR service
-description: $validate FHIR resources against profiles
+title: $validate FHIR resources against profiles on the FHIR service in Azure Healthcare APIs
+description: $validate FHIR resources against profiles in the FHIR service
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
