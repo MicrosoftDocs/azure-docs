@@ -108,8 +108,7 @@ The NSX-T Policy API lets you run nslookup commands from the NSX-T DNS Forwarder
 1. Obtain a proxy to the DNS Forwarder's nslookup service.
 
    ```powershell
-   $nslookup = Get-NsxtPolicyService -Name      
-   com.vmware.nsx_policy.infra.tier_1s.dns_forwarder.nslookup
+   $nslookup = Get-NsxtPolicyService -Name com.vmware.nsx_policy.infra.tier_1s.dns_forwarder.nslookup
    ```
 
 1. Perform lookups from the DNS Forwarder Service.
