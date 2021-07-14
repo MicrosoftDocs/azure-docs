@@ -22,21 +22,21 @@ Before getting started, you should have already deployed the Azure Healthcare AP
 1. In the [Azure portal](https://portal.azure.com), browse to the **Resource group** page.
 2. Select the name of your Healthcare APIs workspace.
 
-   [ ![Select workspace resource group](media/data-transformation/select-workspace-resource-group.png) ](media/data-transformation/select-workspace-resource-group.png#lightbox)
+   [ ![Select workspace resource group](media/iot/select-workspace-resource-group.png) ](media/iot/select-workspace-resource-group.png#lightbox)
 
 3. Under Services, select the **IoT Connector** blade.
 
-   [ ![IoT Connector](media/data-transformation/iot-connector-blade.png) ](media/data-transformation/iot-connector-blade.png#lightbox)
+   [ ![IoT Connector](media/iot/iot-connector-blade.png) ](media/iot/iot-connector-blade.png#lightbox)
 
 4. Next, select **Add IoT Connector**.
 
-   [ ![Add IoT Connector](media/data-transformation/add-iot-connector.png) ](media/data-transformation/add-iot-connector.png#lightbox)
+   [ ![Add IoT Connector](media/iot/add-iot-connector.png) ](media/iot/add-iot-connector.png#lightbox)
 
 ## Configure IoT Connector to ingest data
 
 1. Under the **Basics** tab, enter the Instance Details.
 
-   [ ![IoT configure instance details](media/data-transformation/basics-instance-details.png) ](media/data-transformation/basics-instance-details.png#lightbox)
+   [ ![IoT configure instance details](media/iot/basics-instance-details.png) ](media/iot/basics-instance-details.png#lightbox)
 
 2. Enter a name for the IoT Connector.
 
@@ -55,7 +55,7 @@ For more information about Event Hub namespaces,  see [Namespace](https://docs.m
 
 1. Under the **Destination** tab, enter the destination mapping properties associated with the IoT Connector.
 
-   [ ![Configure destination properties](media/data-transformation/configure-destination-properties.png) ](media/data-transformation/configure-destination-properties.png#lightbox)
+   [ ![Configure destination properties](media/iot/configure-destination-properties.png) ](media/iot/configure-destination-properties.png#lightbox)
 
 2. Enter the name of the **FHIR Server**.
 
@@ -73,7 +73,7 @@ To enter the device mapping properties associated with the IoT Connector, refer 
 
 1. Under the **Device Mapping** tab, enter the device mapping JSON code associated with the IoT Connector.
 
-   [ ![Configure device mapping](media/data-transformation/configure-device-mapping.png) ](media/data-transformation/configure-device-mapping.png#lightbox)
+   [ ![Configure device mapping](media/iot/configure-device-mapping.png) ](media/iot/configure-device-mapping.png#lightbox)
 2. To review and create the IoT Connector, select **Review + create**, or select **Next: Tags >**. 
 
 To enter the tagging properties associated with the IoT Connector, refer to the instructions in the following section.
@@ -82,7 +82,7 @@ To enter the tagging properties associated with the IoT Connector, refer to the 
 
 1. Under the **Tags** tab, enter the tag properties associated with the IoT Connector.
 
-   [ ![Tag properties](media/data-transformation/tag-properties.png) ](media/data-transformation/tag-properties.png#lightbox)
+   [ ![Tag properties](media/iot/tag-properties.png) ](media/iot/tag-properties.png#lightbox)
 
 2. Enter a **Name**.
 3. Enter a **Value**.
