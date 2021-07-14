@@ -70,7 +70,7 @@ DICOM File Size Limit: there is a size limit of 2 GB for a DICOM file by default
 | 200 (OK)                     | All the SOP instances in the request have been stored. |
 | 202 (Accepted)               | Some instances in the request have been stored but others have failed. |
 | 204 (No Content)             | No content was provided in the store transaction request. |
-| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform the expected UID format. |
+| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform to the expected UID format. |
 | 401 (Unauthorized)           | The client is not authenticated. |
 | 406 (Not Acceptable)         | The specified `Accept` header is not supported. |
 | 409 (Conflict)               | None of the instances in the store transaction request have been stored. |
@@ -217,7 +217,7 @@ The following `Accept` headers are supported for retrieving frames:
 
 ### Retrieve transfer syntax
 
-When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the below formats for transcoding to succeed; otherwise, transcoding may fail:
+When the requested transfer syntax is different from original file, the original file is transcoded to requested transfer syntax. The original file needs to be one of the formats below for transcoding to succeed; otherwise, transcoding may fail:
 
 * 1.2.840.10008.1.2 (Little Endian Implicit)
 * 1.2.840.10008.1.2.1 (Little Endian Explicit)
@@ -251,9 +251,9 @@ Retrieving metadata will not return attributes with the following value represen
 
 ### Retrieve metadata cache validation for (study, series, or instance)
 
-Cache validation is supported using the `ETag` mechanism. In the response of a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
+Cache validation is supported using the `ETag` mechanism. In the response to a metadata request, ETag is returned as one of the headers. This ETag can be cached and added as `If-None-Match` header in the later requests for the same metadata. Two types of responses are possible if the data exists:
 
-* Data has not changed since the last request: HTTP 304 (Not Modified) response will be sent with no body.
+* Data has not changed since the last request: HTTP 304 (Not Modified) response will be sent with no response body.
 * Data has changed since the last request: HTTP 200 (OK) response will be sent with updated ETag. Required data will also be returned as part of the body.
 
 ### Retrieve response status codes
@@ -261,8 +261,8 @@ Cache validation is supported using the `ETag` mechanism. In the response of a m
 | Code                         | Description |
 | :--------------------------- | :---------- |
 | 200 (OK)                     | All requested data has been retrieved. |
-| 304 (Not Modified)           | The requested data has not modified since the last request. Content is not added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
-| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform the expected UID format or the requested transfer-syntax encoding is not supported. |
+| 304 (Not Modified)           | The requested data has not been modified since the last request. Content is not added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
+| 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform to the expected UID format, or the requested transfer-syntax encoding is not supported. |
 | 401 (Unauthorized)           | The client is not authenticated. |
 | 404 (Not Found)              | The specified DICOM resource could not be found. |
 | 406 (Not Acceptable)         | The specified `Accept` header is not supported. |
@@ -298,7 +298,7 @@ The following parameters for each query are supported:
 | `includefield=`  | `{attributeID}`<br/>`all`   | 0...N         | The additional attributes to return in the response. Both, public and private tags are supported.<br/>When `all` is provided. Refer to [Search Response](#search-response) for more information about which attributes will be returned for each query type.<br/>If a mixture of {attributeID} and 'all' is provided, the server will default to using 'all'. |
 | `limit=`         | {value}                       | 0..1          | Integer value to limit the number of values returned in the response.<br/>Value can be between the range 1 >= x <= 200. Defaulted to 100. |
 | `offset=`        | {value}                       | 0..1          | Skip {value} results.<br/>If an offset is provided larger than the number of search query results, a 204 (no content) response will be returned. |
-| `fuzzymatching=` | `true` \| `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It will do a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" will all match. However "ohn" will not match. |
+| `fuzzymatching=` | `true` \| `false`             | 0..1          | If true fuzzy matching is applied to PatientName attribute. It will do a prefix word match of any name part inside PatientName value. For example, if PatientName is "John^Doe", then "joh", "do", "jo do", "Doe" and "John Doe" will all match. However, "ohn" will not match. |
 
 #### Searchable attributes
 
@@ -389,7 +389,7 @@ The response will be an array of DICOM datasets. Depending on the resource, by *
 | (0028, 0100) | BitsAllocated |
 | (0028, 0008) | NumberOfFrames |
 
-If includefield=all, the below attributes are included along with default attributes. Along with default attributes, this is the full list of attributes supported at each resource level.
+If includefield=all, the below attributes are included along with default attributes. Along with the default attributes, this is the full list of attributes supported at each resource level.
 
 #### Other study tags
 
@@ -416,7 +416,7 @@ If includefield=all, the below attributes are included along with default attrib
 | (0008, 0021) | SeriesDate |
 | (0008, 0031) | SeriesTime |
 
-The below attributes are returned:
+The following attributes are returned:
 
 * All the match query parameters and UIDs in the resource url.
 * IncludeField attributes supported at that resource level. 
@@ -430,16 +430,16 @@ The query API returns one of the following status codes in the response:
 
 | Code                      | Description |
 | :------------------------ | :---------- |
-| 200 (OK)                  | The response payload contains all the matching resource. |
+| 200 (OK)                  | The response payload contains all the matching resources. |
 | 204 (No Content)          | The search completed successfully but returned no results. |
 | 400 (Bad Request)         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
 | 401 (Unauthorized)        | The client is not authenticated. |
 | 503 (Service Unavailable) | The service is unavailable or busy. Please try again later. |
 
-### Additional notes
+### Extra notes
 
 * Querying using the `TimezoneOffsetFromUTC` (`00080201`) is not supported.
-* The query API will not return 413 (request entity too large). If the requested query response limit is outside of the acceptable range, a bad request will be returned. Anything requested within the acceptable range, will be resolved.
+* The query API will not return 413 (request entity too large). If the requested query response limit is outside of the acceptable range, a bad request will be returned. Anything requested within the acceptable range will be resolved.
 * When target resource is study/series, there is a potential for inconsistent study/series level metadata across multiple instances. For example, two instances could have different patientName. In this case, the latest will win, and you can search only on the latest data.
 * Paged results are optimized to return the matched *newest* instance first. This may result in duplicate records in subsequent pages if newer data matching the query was added.
 * Matching is case in-sensitive and accent in-sensitive for PN VR types.
@@ -455,7 +455,7 @@ This transaction is not part of the official DICOMweb&trade; Standard. It uses t
 | DELETE | ../studies/{study}/series/{series}                      | Delete all instances for a specific series within a study. |
 | DELETE | ../studies/{study}/series/{series}/instances/{instance} | Delete a specific instance within a series. |
 
-Parameters `study`, `series` and `instance` correspond to the DICOM attributes StudyInstanceUID, SeriesInstanceUID and SopInstanceUID respectively.
+Parameters `study`, `series`, and `instance` correspond to the DICOM attributes StudyInstanceUID, SeriesInstanceUID, and SopInstanceUID respectively.
 
 There are no restrictions on the request's `Accept` header, `Content-Type` header or body content.
 
@@ -478,7 +478,7 @@ The response body will be empty. The status code is the only useful information 
 
 ### Next Steps
 
-For more information about DICOM Services, see 
+For information about the DICOM service, see 
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Services](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)

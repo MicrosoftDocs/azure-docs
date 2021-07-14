@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/21/2021
+ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
@@ -46,7 +46,7 @@ To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consu
 
 ### Next Steps
 
-This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the  DICOM Service. For more information about DICOM Service, see
+This how-to guide describes how to consume Change Feed. Change Feed allows you to monitor the history of the DICOM service. For information about the DICOM service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)
