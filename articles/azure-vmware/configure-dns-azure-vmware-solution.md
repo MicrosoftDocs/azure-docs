@@ -57,7 +57,7 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
 
 1. Ignore the message about a default DNS zone. A DNS zone is created for you as part of your private cloud.
 
-1. Select the **DNS service** tab, select **Edit**.
+1. Select the **DNS service** tab and then select **Edit**.
 
    >[!IMPORTANT]
    >While certain operations in your private cloud may be performed from NSX-T Manager, you must edit the DNS service from the Simplified Networking experience in the Azure portal. 
