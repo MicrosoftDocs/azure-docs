@@ -28,9 +28,12 @@ The diagram shows the deployment workflow of Azure VMware Solution.
 
 ## Step 3. Connect to Azure Virtual Network with ExpressRoute
 
-In the planning phase, you defined whether you to use an *existing* or *new* ExpressRoute virtual network gateway.  
+In the planning phase, you defined whether to use an *existing* or *new* ExpressRoute virtual network gateway.  
 
 :::image type="content" source="media/connect-expressroute-vnet-workflow.png" alt-text="Diagram showing the workflow for connecting Azure Virtual Network to ExpressRoute in Azure VMware Solution." border="false":::
+
+>[!IMPORTANT]
+>[!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)] 
 
 ### Use a new ExpressRoute virtual network gateway
 

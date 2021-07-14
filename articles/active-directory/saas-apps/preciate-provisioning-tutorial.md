@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Preciate for automatic user provisioning with Azure 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Preciate.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: fa640971-87e7-49f2-933b-bc7c95fe51e2
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Preciate for automatic user provisioning

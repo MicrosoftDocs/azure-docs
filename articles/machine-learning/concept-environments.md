@@ -108,4 +108,3 @@ To update the package, specify a version number to force image rebuild, for exam
 
 * Learn how to [create and use environments](how-to-use-environments.md) in Azure Machine Learning.
 * See the Python SDK reference documentation for the [environment class](/python/api/azureml-core/azureml.core.environment%28class%29).
-* See the R SDK reference documentation for [environments](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

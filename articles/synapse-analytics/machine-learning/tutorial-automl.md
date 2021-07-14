@@ -7,7 +7,7 @@ ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 11/20/2020
+ms.date: 7/9/2021
 author: nelgson
 ms.author: negust
 ---
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 ## Prerequisites
 
 - An [Azure Synapse Analytics workspace](../get-started-create-workspace.md). Ensure that it has an Azure Data Lake Storage Gen2 storage account configured as the default storage. For the Data Lake Storage Gen2 file system that you work with, ensure that you're the *Storage Blob Data Contributor*.
-- An Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Quickstart: Create a dedicated SQL pool by using Synapse Studio](../quickstart-create-sql-pool-studio.md).
+- An Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Quickstart: Create a serverless Apache Spark pool using Synapse Studio](../quickstart-create-apache-spark-pool-studio.md).
 - An Azure Machine Learning linked service in your Azure Synapse Analytics workspace. For details, see [Quickstart: Create a new Azure Machine Learning linked service in Azure Synapse Analytics](quickstart-integrate-azure-machine-learning.md).
 
 ## Sign in to the Azure portal
@@ -51,8 +51,8 @@ For this tutorial, you need a Spark table. The following notebook creates one:
 
 To open the wizard:
 
-1. Right-click the Spark table that you created in the previous step. Then select **Machine Learning** > **Train a new model**.
-![Screenshot of the Spark table, with Machine Learning and Train a new model highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+1. Right-click the Spark table that you created in the previous step. Then select **Machine Learning** > **Enrich with new model**.
+![Screenshot of the Spark table, with Machine Learning and Enrich with new model highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
 
 1. Provide configuration details for creating an automated machine learning experiment run in Azure Machine Learning. This run trains multiple models. The best model from a successful run is registered in the Azure Machine Learning model registry.
 
