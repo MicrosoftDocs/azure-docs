@@ -107,30 +107,19 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 
 | Table | Description |
 |:---|:---|
-| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
+| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters.|
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
-| ModelsChangeEvent | Event when ML model is either created, modified or deleted. |
-| ModelsReadEvent | Event when a ML model is read. |
-| ModelsActionEvent | Event when Packaging of models and assets happen into a ready-to-build package. |
-| DeploymentReadEvent | Event when a model deployment read happens on any compute target (ACI/AKS). |
-| DeploymentEventACI | Event when a model deployment happens on ACI. |
-| DeploymentEventAKS | Event when a model deployment happens on AKS. |
-| InferencingOperationAKS | Event for inference or related operation on AKS compute type (very chatty). |
-| InferencingOperationACI | Event for inference or related operation on ACI compute type (very chatty). |
-| EnvironmentChangeEvent | Event when Environment changes are detected. |
-| EnvironmentReadEvent | Event when Environment configs are read (very chatty). |
-| DataLabelChangeEvent | Event when data label(s) is either created, deleted or rejected. |
-| DataLabelReadEvent | Event when data label(s) is read. |
-| ComputeInstanceEvent | Event when Compute Instance is accessed (read/ write/ delete) (very chatty). |
-| DataStoreChangeEvent | Event when a ML datastore is created or modified or deleted. |
-| DataStoreReadEvent | Event when a  ML datastore is read. |
-| DataSetChangeEvent | Event when a registered or unregistered ML dataset is either created, modified or deleted. |
-| DataSetReadEvent | Event when a registered or unregistered ML dataset is read. |
-| PipelineChangeEvent | Event for pipeline draft or endpoint or module creates or updates or deletes. |
-| PipelineReadEvent | Event for pipeline draft or endpoint or module reads. |
-| RunEvent | Event when ML experiments or a run is created or deleted. |
-| RunReadEvent | Events from jobs running on Azure Machine Learning compute. |
+| AmlComputeInstanceEvent | Events when ML Compute Instance is accessed (read/write). Category includes:ComputeInstanceEvent (very chatty). |
+| AmlDataLabelEvent | Events when data label(s) or its projects is accessed (read, created, or deleted). Category includes:DataLabelReadEvent,DataLabelChangeEvent.  |
+| AmlDataSetEvent | Events when a registered or unregistered ML dataset is accessed (read, created, or deleted). Category includes:DataSetReadEvent,DataSetChangeEvent. |
+| AmlDataStoreEvent | Events when ML datastore is accessed (read, created, or deleted). Category includes:DataStoreReadEvent,DataStoreChangeEvent. |
+| AmlDeploymentEvent | Events when a model deployment happens on ACI or AKS. Category includes:DeploymentReadEvent,DeploymentEventACI,DeploymentEventAKS. |
+| AmlInferencingEvent | Events for inference or related operation on AKS or ACI compute type. Category includes:InferencingOperationACI (very chatty),InferencingOperationAKS (very chatty). |
+| AmlModelsEvent | Events when ML model is accessed (read, created, or deleted). Incudes events when packaging of models and assets happen into a ready-to-build packages. Category includes:ModelsReadEvent,ModelsActionEvent .|
+| AmlPipelineEvent | Events when ML pipeline draft or endpoint or module are accessed (read, created, or deleted).Category includes:PipelineReadEvent,PipelineChangeEvent. |
+| AmlRunEvent | Events when ML experiments are accessed (read, created, or deleted). Category includes:RunReadEvent,RunEvent. |
+| AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
 
 
 > [!IMPORTANT]
