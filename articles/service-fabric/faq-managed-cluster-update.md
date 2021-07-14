@@ -3,7 +3,7 @@ title: Common questions about Service Fabric managed clusters
 description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
 ms.topic: troubleshooting
 ms.author: micraft
-author: micraft
+author: craftyhouse
 ms.date: 7/14/2021
 ms.custom: references_regions
 ---
