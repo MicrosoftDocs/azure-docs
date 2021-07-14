@@ -18,14 +18,13 @@ By default, Azure VMware Solution management components such as vCenter can only
 
 Private DNS for Azure VMware Solution management components lets you define conditional forwarding rules for the desired domain name to a selected set of private DNS servers through the NSX-T DNS Service.
 
-This capability uses the DNS Forwarder Service in NSX-T. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T DNS Service. The DNS Service conditionally forwards DNS queries for each zone, which based on the external DNS servers defined in that zone.
+This capability uses the DNS Forwarder Service in NSX-T. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T DNS Service. The DNS Service conditionally forwards DNS queries for each zone based on the external DNS servers defined in that zone.
 
 >[!NOTE]
 >The DNS Service is associated with up to five FQDN zones. Each FQDN zone is associated with up to three DNS servers.
 
 
 ## Architecture
-
 
 :::image type="content" source="media/networking/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
 
@@ -36,19 +35,16 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
 
 ## Configure DNS forwarder
 
-
-
-1. In your Azure VMware Solution private cloud, under Workload Networking, select DNS > DNS zones > Add.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones**. Then select **Add**.
 
    >[!NOTE]
    >The default DNS zone is created for you during the private cloud creation.
-
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
 1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **8.8.8.8**. Then select **OK**.
 
-   It takes several minutes to complete and you can follow the progress from **Notifications**.
+   It takes several minutes to complete, and you can follow the progress from **Notifications**.
 
    :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
 
@@ -68,9 +64,9 @@ Virtual machines (VMs) created or migrated to the Azure VMware Solution private 
 
 1. From the **FQDN zones** drop-down, select the newly created FQDN and then select **OK**.
 
-   It takes several minutes to complete and once finished you’ll see the *Completed* message from **Notifications**.
+   It takes several minutes to complete and once finished, you'll see the *Completed* message from **Notifications**.
 
-   At this point, management components in your private cloud should be able to resolve DNS entries from the FQND zone provided to the NSX-T DNS Service. 
+   At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
 
 1. Repeat the above steps for other FQDN zones, including any applicable reverse lookup zones.
 
