@@ -104,7 +104,13 @@ Example `subscription.json`:
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Quickstart: In-depth MRTK walkthrough](in-depth-mrtk-walkthrough.md)
+
+> [!div class="nextstepaction"]
 > [Concepts: SDK overview](../concepts/sdk-overview.md)
 
 > [!div class="nextstepaction"]
 > [FAQ](../faq.md)
+
+> [!div class="nextstepaction"]
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

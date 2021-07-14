@@ -28,7 +28,7 @@ For registry troubleshooting guidance, see:
 
 ### Can I create an Azure Container Registry using a Resource Manager template?
 
-Yes. Here is [a template](https://azure.microsoft.com/resources/templates/101-container-registry/) that you can use to create a registry.
+Yes. Here is [a template](https://azure.microsoft.com/resources/templates/container-registry/) that you can use to create a registry.
 
 ### Is there security vulnerability scanning for images in ACR?
 
@@ -473,10 +473,11 @@ The browser might not be able to send the request for fetching repositories or t
 
 * Lack of network connectivity
 * Firewall
+* An approved private endpoint with public network access disabled that enforces virtual network isolation
 * Ad blockers
 * DNS errors
 
-Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
+Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the container registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 ### Why does my pull or push request fail with disallowed operation?
 

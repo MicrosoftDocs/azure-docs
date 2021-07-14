@@ -81,6 +81,12 @@
     items:
     - name: Encode and stream a remote file CLI
       href: stream-files-cli-quickstart.md
+    - name: Use a Key Vault key to encrypt data
+      href: security-encrypt-data-managed-identity-cli-tutorial.md
+    - name: Access storage with a Managed Identity
+      href: security-access-storage-managed-identity-cli-tutorial.md
+    - name: Give a Function App access to Media Services account
+      href: security-function-app-managed-identity-cli-tutorial.md
   - name: Node.js
     items:
     - name: Encode and stream a remote file Node.js
@@ -91,6 +97,8 @@
     items:
     - name: Python Basic Encoding
       href: encode-basic-encoding-python-quickstart.md
+    - name: Event-based Face Redaction
+      href: face-redaction-event-based-python-quickstart.md
   - name: Azure portal
     items:
     - name: Customer managed keys or BYOK tutorial
@@ -219,7 +227,9 @@
     - name: Streaming policies 
       href: stream-streaming-policy-concept.md          
     - name: Content key policies 
-      href: drm-content-key-policy-concept.md                    
+      href: drm-content-key-policy-concept.md   
+    - name: Key delivery IP allowlist
+      href: drm-content-protection-key-delivery-ip-allow.md                   
   - name: Monitoring
     items:
       - name: Monitor with Azure Monitor
@@ -255,6 +265,9 @@
         href: job-error-codes-reference.md
   - name: High availability
     items:
+    - name: Availability Zones
+      displayName: Availability, Availability Zones, AZ, az, HA, high availability
+      href: concept-availability-zones.md
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: architecture-high-availability-encoding-concept.md
@@ -443,6 +456,9 @@
       href: asset-publish-cli-how-to.md
   - name: Security
     items:
+    - name: Security Baseline
+      href: https://docs.microsoft.com/security/benchmark/azure/baselines/media-services-security-baseline
+      displayName: security, baseline
     - name: Azure RBAC
       href: security-rbac-concept.md
     - name: Roll storage access keys
@@ -455,6 +471,15 @@
       href: security-trusted-storage-rest-tutorial.md
     - name: Customer managed keys with REST API
       href: security-customer-managed-keys-rest-postman-tutorial.md
+    - name: Use a Key Vault key to encrypt data
+      href: security-encrypt-data-managed-identity-cli-tutorial.md
+    - name: Access storage with a Managed Identity
+      href: security-access-storage-managed-identity-cli-tutorial.md
+    - name: Give a Function App access to Media Services account
+      href: security-function-app-managed-identity-cli-tutorial.md
+    - name: Create a Media Services and Storage account with a Private Link
+      href: security-private-link-how-to.md
+      displayName: security, private link, links, firewall
   - name: Use media players
     items:
     - name: Azure Media Player full set up

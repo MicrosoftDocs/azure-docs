@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Train your first machine learning model - Python"
+title: "Tutorial: Train a first Python machine learning model "
 titleSuffix: Azure Machine Learning
-description: Part 2 of the Azure Machine Learning get-started series shows how to train a machine learning model.
+description: How to train a machine learning model in Azure Machine Learning. This is part 2 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python, contperf-fy21q3
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 ---
 
 # Tutorial: Train your first machine learning model (part 2 of 3)
 
-This tutorial shows you how to train a machine learning model in Azure Machine Learning.
+This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
 
-This tutorial is *part 2 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work that you completed in [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series.
+ In [Part 1: Run "Hello world!"](tutorial-1st-experiment-hello-world.md) of the series, you learned how to use a control script to run a job in the cloud.  
 
 In this tutorial, you take the next step by submitting a script that trains a machine learning model. This example will help you understand how Azure Machine Learning eases consistent behavior between local debugging and remote runs.
 
@@ -45,8 +45,27 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
 1. Create a *model.py* file in the **src** subfolder. Copy this code into the file:
 
-    :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/IDE-users/src/model.py":::
-
+    ```python
+    import torch.nn as nn
+    import torch.nn.functional as F
+    class Net(nn.Module):
+        def __init__(self):
+            super(Net, self).__init__()
+            self.conv1 = nn.Conv2d(3, 6, 5)
+            self.pool = nn.MaxPool2d(2, 2)
+            self.conv2 = nn.Conv2d(6, 16, 5)
+            self.fc1 = nn.Linear(16 * 5 * 5, 120)
+            self.fc2 = nn.Linear(120, 84)
+            self.fc3 = nn.Linear(84, 10)
+        def forward(self, x):
+            x = self.pool(F.relu(self.conv1(x)))
+            x = self.pool(F.relu(self.conv2(x)))
+            x = x.view(-1, 16 * 5 * 5)
+            x = F.relu(self.fc1(x))
+            x = F.relu(self.fc2(x))
+            x = self.fc3(x)
+            return x
+    ```
 1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
 
 1. Next, define the training script, also in the **src** subfolder. This script downloads the CIFAR10 dataset by using PyTorch `torchvision.dataset` APIs, sets up the network defined in *model.py*, and trains it for two epochs by using standard SGD and cross-entropy loss.
@@ -111,10 +130,6 @@ The training code is taken from [this introductory example](https://pytorch.org/
 1. You now have the following folder structure:
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-train/directory-structure.png" alt-text="Directory structure shows train.py in src subdirectory":::
-    
-
-> [!div class="nextstepaction"]
-> [I created the training scripts](?success=create-scripts#test-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=create-scripts)
 
 
 ## <a name="test-local"></a> Test locally
@@ -124,9 +139,6 @@ Select **Save and run script in terminal** to run the *train.py* script directly
 After the script completes, select **Refresh** above the file folders. You'll see the new data folder called **get-started/data** Expand this folder to view the downloaded data.  
 
 :::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-with-data.png" alt-text="Screenshot of folders shows new data folder created by running the file locally.":::
-
-> [!div class="nextstepaction"]
-> [I ran the code locally](?success=test-local#create-local) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-local)
 
 
 ## <a name="create-local"></a> Create the control script
@@ -159,6 +171,9 @@ if __name__ == "__main__":
     print(aml_url)
 ```
 
+> [!TIP]
+> If you used a different name when you created your compute cluster, make sure to adjust the name in the code `compute_target='cpu-cluster'` as well.
+
 ### Understand the code changes
 
 :::row:::
@@ -177,10 +192,6 @@ if __name__ == "__main__":
       Adds the environment to [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
    :::column-end:::
 :::row-end:::
-
-> [!div class="nextstepaction"]
-> [I created the control script](?success=control-script#submit) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=control-script)
-
 
 ## <a name="submit"></a> Submit the run to Azure Machine Learning
 
@@ -219,11 +230,6 @@ Finished Training
 >
 > Select the **...** at the end of the folder, then select **Move** to move **data** to the **get-started** folder.  
 
-
-
-> [!div class="nextstepaction"]
-> [I submitted the run](?success=test-w-environment#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=test-w-environment)
-
 ## <a name="log"></a> Log training metrics
 
 Now that you have a model training in Azure Machine Learning, start tracking some performance metrics.
@@ -233,8 +239,58 @@ The current training script prints metrics to the terminal. Azure Machine Learni
 ### Modify *train.py* to include logging
 
 1. Modify your *train.py* script to include two more lines of code:
-
-  :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/code/pytorch-cifar10-train-with-logging/train.py":::
+    
+    ```python
+    import torch
+    import torch.optim as optim
+    import torchvision
+    import torchvision.transforms as transforms
+    from model import Net
+    from azureml.core import Run
+    # ADDITIONAL CODE: get run from the current context
+    run = Run.get_context()
+    # download CIFAR 10 data
+    trainset = torchvision.datasets.CIFAR10(
+        root='./data',
+        train=True,
+        download=True,
+        transform=torchvision.transforms.ToTensor()
+    )
+    trainloader = torch.utils.data.DataLoader(
+        trainset,
+        batch_size=4,
+        shuffle=True,
+        num_workers=2
+    )
+    if __name__ == "__main__":
+        # define convolutional network
+        net = Net()
+        # set up pytorch loss /  optimizer
+        criterion = torch.nn.CrossEntropyLoss()
+        optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+        # train the network
+        for epoch in range(2):
+            running_loss = 0.0
+            for i, data in enumerate(trainloader, 0):
+                # unpack the data
+                inputs, labels = data
+                # zero the parameter gradients
+                optimizer.zero_grad()
+                # forward + backward + optimize
+                outputs = net(inputs)
+                loss = criterion(outputs, labels)
+                loss.backward()
+                optimizer.step()
+                # print statistics
+                running_loss += loss.item()
+                if i % 2000 == 1999:
+                    loss = running_loss / 2000
+                    # ADDITIONAL CODE: log loss metric to AML
+                    run.log('loss', loss)
+                    print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
+                    running_loss = 0.0
+        print('Finished Training')
+    ```
 
 2. **Save** this file, then close the tab if you wish.
 
@@ -243,11 +299,11 @@ The current training script prints metrics to the terminal. Azure Machine Learni
 In *train.py*, you access the run object from _within_ the training script itself by using the `Run.get_context()` method and use it to log metrics:
 
 ```python
-# in train.py
+# ADDITIONAL CODE: get run from the current context
 run = Run.get_context()
 
 ...
-
+# ADDITIONAL CODE: log loss metric to AML
 run.log('loss', loss)
 ```
 
@@ -258,10 +314,6 @@ compare metrics.
 - Equipped with a UI so you can visualize training performance in the studio.
 - Designed to scale, so you keep these benefits even as you run hundreds of experiments.
 
-> [!div class="nextstepaction"]
-> [I modified train.py ](?success=modify-train#log) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=modify-train)
-
-
 ### <a name="submit-again"></a> Submit the run to Azure Machine Learning
 
 Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. 
@@ -270,13 +322,9 @@ This time when you visit the studio, go to the **Metrics** tab where you can now
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 
-> [!div class="nextstepaction"]
-> [I resubmitted the run](?success=resubmit-with-logging#next-steps) [I ran into an issue](https://www.research.net/r/7CTJQQN?issue=resubmit-with-logging)
-
 ## Next steps
 
-In this session, you upgraded from a basic "Hello world!" script to a more realistic training script that required a specific Python environment to run. You saw how to take a local Conda environment to the cloud with Azure Machine Learning environments. Finally, you
-saw how in a few lines of code you can log metrics to Azure Machine Learning.
+In this session, you upgraded from a basic "Hello world!" script to a more realistic training script that required a specific Python environment to run. You saw how to use curated Azure Machine Learning environments. Finally, you saw how in a few lines of code you can log metrics to Azure Machine Learning.
 
 There are other ways to create Azure Machine Learning environments, including [from a pip requirements.txt](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) file or [from an existing local Conda environment](/python/api/azureml-core/azureml.core.environment.environment#from-existing-conda-environment-name--conda-environment-name-).
 

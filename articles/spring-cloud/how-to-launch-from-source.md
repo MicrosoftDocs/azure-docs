@@ -1,7 +1,7 @@
 ---
 title: "How to - Launch your Spring Cloud application from source code"
 description: In this quickstart, learn how to launch your Azure Spring Cloud application directly from your source code
-author: MikeDodaro
+author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/03/2020
@@ -73,8 +73,8 @@ The service instance will take about five minutes to deploy.
 Set your default resource group name and Azure Spring Cloud instance name using the following commands:
 
 ```azurecli
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
+az config set defaults.group=<service group name>
+az config set defaults.spring-cloud=<service instance name>
 ```
 
 ## Create the Azure Spring Cloud application

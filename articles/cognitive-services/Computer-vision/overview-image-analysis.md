@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
 ---

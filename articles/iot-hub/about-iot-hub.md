@@ -5,7 +5,7 @@ author: robinsh
 ms.author: robinsh
 ms.date: 05/03/2021
 ms.topic: overview
-ms.custom:  [mvc, amqp, mqtt, 'role: Direction', 'role: System Architecture']
+ms.custom:  [mvc, amqp, mqtt, 'role: Direction', 'role: System Architecture', 'contentperf:fy21q3']
 ms.service: iot-hub
 services: iot-hub
 ---

@@ -1,11 +1,11 @@
 ---
 title: Working with the change feed support in Azure Cosmos DB 
 description: Use Azure Cosmos DB change feed support to track changes in documents, event-based processing like triggers, and keep caches and analytic systems up-to-date 
-author: TheovanKraay
-ms.author: thvankra
+author: timsander1
+ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 06/07/2021
 ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
 ---
@@ -72,9 +72,9 @@ Change feed is available for each logical partition key within the container, an
 
 * The change feed includes inserts and update operations made to items within the container. You can capture deletes by setting a "soft-delete" flag within your items (for example, documents) in place of deletes. Alternatively, you can set a finite expiration period for your items with the [TTL capability](time-to-live.md). For example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process the changes within a shorter time interval than the TTL expiration period.
 
-* Each change to an item appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. See [using change feed with change feed processor](change-feed-processor.md).
-
 * Only the most recent change for a given item is included in the change log. Intermediate changes may not be available.
+
+* Each change included in the change log appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor provides automatic checkpointing and "at least once" semantics. [using change feed with change feed processor](change-feed-processor.md).
 
 * The change feed is sorted by the order of modification within each logical partition key value. There is no guaranteed order across the partition key values.
 

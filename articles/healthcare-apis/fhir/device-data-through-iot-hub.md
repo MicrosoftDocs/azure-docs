@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
 ms.date: 11/13/2020
-ms.author: punagpal
+ms.author: rabhaiya
 ---
 
 # Tutorial: Receive device data through Azure IoT Hub

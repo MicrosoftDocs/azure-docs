@@ -1,7 +1,7 @@
 ---
 title:  Java and base OS for Azure Spring Cloud microservice apps
 description: Principles for maintaining healthy Java and base operating system for Azure Spring Cloud microservice apps
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -52,4 +52,4 @@ Azul Systems will continuously scan for changes to base operating systems and ke
 ## Next steps
 
 * [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)
-* [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure)

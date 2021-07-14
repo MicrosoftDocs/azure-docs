@@ -62,6 +62,10 @@ landingContent:
         links:
           - text: DobiMigrate getting started guide
             url: ./validated-partners/data-management/dobimigrate-quick-start-guide.md
+          - text: Komprise getting started guide
+            url: ./validated-partners/data-management/komprise-quick-start-guide.md
+          - text: StorageX getting started guide
+            url: ./validated-partners/data-management/storagex-quick-start-guide.md
                      # Card
   - title: Primary and secondary storage partners
     linkLists:
@@ -69,4 +73,6 @@ landingContent:
         links:
           - text: Validated partners for primary and secondary storage
             url: .\validated-partners\primary-secondary-storage\partner-overview.md
+          - text: ISV file services
+            url: .\validated-partners\primary-secondary-storage\isv-file-services.md
       
