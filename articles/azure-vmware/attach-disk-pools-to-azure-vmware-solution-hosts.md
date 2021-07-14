@@ -38,7 +38,7 @@ You can only connect the disk pool to an Azure VMware Solution private cloud in 
 
    - If you select ultra disks, use Ultra Performance for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
 
-   - If you select premium SSDs, use Standard (1 Gbps) for the Azure VMware Solution private cloud.
+   - If you select premium SSDs, use Standard (1 Gbps) for the Azure VMware Solution private cloud.  You must use Standard\_DS##\_v3 to host iSCSI.  If you encounter quota issues, request an increase in [vCPU quota limits](../azure-portal/supportability/per-vm-quota-requests.md) per Azure VM series for Dsv3 series.
 
 - Disk pool as the backing storage deployed and exposed as an iSCSI target with each disk as an individual LUN. For details, see [Deploy an Azure disk pool](../virtual-machines/disks-pools-deploy.md).
 
@@ -162,3 +162,5 @@ Now that you've attached a disk pool to your Azure VMware Solution hosts, you ma
 - [Disabling iSCSI support on a disk](/azure/virtual-machines/disks-pools-deprovision#disable-iscsi-support). If you disable iSCSI support on a disk pool, you effectively can no longer use a disk pool.
 
 - [Moving disk pools to a different subscription](../virtual-machines/disks-pools-move-resource.md). Move an Azure disk pool to a different subscription, which involves moving the disk pool itself, contained disks, managed resource group, and all the resources. 
+
+- [Troubleshooting disk pools](../virtual-machines/disks-pools-troubleshoot.md). Review the common failure codes related to Azure disk pools (preview). It also provides possible resolutions and some clarity on disk pool statuses.
