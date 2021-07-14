@@ -82,17 +82,17 @@ landingContent:
           - text: Receive device data through IoT Hub
             url: ./iot/device-data-through-iot-hub.md
 
-  - title: Data Transformation
+  - title: Transfer and Transform Data
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Exporting your data
+          - text: Export data
             url: ./data-transformation/export-data.md
           - text: Export data to Synapse
             url: ./data-transformation/move-to-synapse.md
       - linkListType: concept
         links:
-          - text: $convert-data and FHIR Converter Extension Templates
+          - text: Convert data
             url: ./data-transformation/convert-data.md
 
  

@@ -1,7 +1,7 @@
 items:
-- name: Azure API for FHIR
+- name: Azure API for FHIR documentation
   href: ./azure-api-for-fhir/index.yml
-- name: Azure Healthcare APIs (preview)
+- name: Azure Healthcare APIs (preview) documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -16,7 +16,7 @@ items:
       href: ./dicom/index.yml
     - name: IoT connector
       href: ./iot/index.yml
-    - name: Data transformation 
+    - name: Transfer and Transform Data
       href: ./data-transformation/index.yml
 - name: Quickstarts
   expanded: true

@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Change Feed Overview
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 The Change Feed provides logs of all the changes that occur in the DICOM Service. The Change Feed provides ordered, guaranteed, immutable, and read-only logs of these changes. The Change Feed offers the ability to go through the history of the DICOM Service and acts upon the creates and deletes in the service.
 
 Client applications can read these logs at any time, either in streaming or in batch mode. The Change Feed enables you to build efficient and scalable solutions that process change events that occur in your DICOM Service.

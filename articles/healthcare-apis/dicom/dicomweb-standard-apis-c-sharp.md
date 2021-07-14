@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Using DICOMweb&trade; Standard APIs with C#
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 This tutorial uses C# to demonstrate working with the DICOM Service.
 
 In this tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:

@@ -130,10 +130,6 @@
       "grp-iot-edge": {
         "dest": "destiotedge",
         "moniker_range": ">=iotedge-2018-06"
-      },
-      "healthcare-apis": {
-        "dest": "desthealthcareapis",
-        "moniker_range": "azureapiforfhir || healthcareapi-1.0.0"
       }
     },
     "overwrite": [],
