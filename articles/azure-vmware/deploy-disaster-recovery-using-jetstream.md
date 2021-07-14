@@ -173,7 +173,7 @@ chmod 700 /root/.ssh/
 
    
 
-1. Provide a hostname, the password information, and the network properties for the management server. The select **Next**.
+1. Provide a hostname, password information, and the network properties for the management server. Then select **Next**.
 
    >[!NOTE]
    >The hostname must be a unique and fully qualified domain name (FQDN) that can be accessed by the vCenter Server. Also, if a root user password is not specified, the default value of *JetStream* is used. 
