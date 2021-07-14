@@ -45,7 +45,7 @@ The administrator can configure the behavior and appearance of an IoT Central ap
 
 - [Change application name and URL](howto-administer.md#change-application-name-and-url)
 - [Customize the UI](howto-customize-ui.md)
-- [Move an application to a different pricing plans](howto-faq.md#how-do-i-move-from-a-free-to-a-standard-pricing-plan)
+- [Move an application to a different pricing plans](howto-faq.yml#how-do-i-move-from-a-free-to-a-standard-pricing-plan-)
 - [Configure file uploads](howto-configure-file-uploads.md)
 
 ## Export an application
@@ -55,7 +55,7 @@ An administrator can:
 - Create a copy of an application if you just need a duplicate copy of your application. For example, you may need a duplicate copy for testing.
 - Create an application template from an existing application if you plan to create multiple copies.
 
-To learn more, see [Export your Azure IoT application](howto-use-app-templates.md).
+To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) .
 
 ## Migrate to a new version
 
@@ -69,14 +69,13 @@ An administrator can use IoT Central metrics to assess the health of connected d
 
 To view the metrics, an administrator can use charts in the Azure portal, a REST API, or PowerShell or Azure CLI queries.
 
-To learn more, see [Monitor the overall health of an IoT Central application](howto-monitor-application-health.md).
+To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
 ## Tools
 
 Many of the tools you use as an administrator are available in the **Administration** section of each IoT Central application. You can also use the following tools to complete some administrative tasks:
 
-- [Azure CLI](howto-manage-iot-central-from-cli.md)
-- [Azure PowerShell](howto-manage-iot-central-from-powershell.md)
+- [Azure command line](howto-manage-iot-central-from-cli.md)
 - [Azure portal](howto-manage-iot-central-from-portal.md)
 
 ## Next steps

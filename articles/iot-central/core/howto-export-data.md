@@ -26,7 +26,7 @@ For example, you can:
 
 ## Prerequisites
 
-To use data export features, you must have a [V3 application](howto-faq.md#how-do-i-get-information-about-my-application), and you must have the [Data export](howto-manage-users-roles.md) permission.
+To use data export features, you must have a [V3 application](howto-faq.yml#how-do-i-get-information-about-my-application-), and you must have the [Data export](howto-manage-users-roles.md) permission.
 
 If you have a V2 application, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
 
@@ -171,7 +171,7 @@ In addition to seeing the status of your exports in IoT Central, you can use [Az
 - Number of messages successfully exported to destinations.
 - Number of errors encountered.
 
-To learn more, see [Monitor the overall health of an IoT Central application](howto-monitor-application-health.md).
+To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
 ## Destinations
 

@@ -1,7 +1,7 @@
 ---
 title: Introduction to Azure Spring Cloud
 description: Learn the features and benefits of Azure Spring Cloud to deploy and manage Java Spring applications in Azure.
-author: bmitchell287
+author: brendm
 ms.service: spring-cloud
 ms.topic: overview
 ms.date: 12/02/2020

@@ -34,7 +34,7 @@ Application Insights SDKs are available for a range of application types: web se
 ## What data does it collect?
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at run time](./monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](./javascript.md), which loads into the end user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at run time](./status-monitor-v2-overview.md). There are different SDKs for different application types. There's also an [SDK for web pages](./javascript.md), which loads into the end user's browser along with the page.
   
   * Each SDK has a number of [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
@@ -309,6 +309,6 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [java]: ./java-in-process-agent.md
 [platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ./monitor-performance-live-website-now.md
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
 
