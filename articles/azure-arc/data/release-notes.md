@@ -50,7 +50,7 @@ The `azdata arc dc export` command is no longer functional. Use `az arcdata dc e
 
 #### Required property: `infrastructure`
 
-The `infrastructure` property is a new required property when deploying a data controller.  Adjust your yaml files, azdata/az scripts, and ARM templates to account for specifying this property value.  Allowed values are `alibaba`, `aws`, `azure`, `gpc`, `onpremises`, `other`.
+The `infrastructure` property is a new required property when deploying a data controller.  Adjust your yaml files, azdata/az scripts, and ARM templates to account for specifying this property value.  Allowed values are `alibaba`, `aws`, `azure`, `gcp`, `onpremises`, `other`.
 
 #### Kibana login
 
