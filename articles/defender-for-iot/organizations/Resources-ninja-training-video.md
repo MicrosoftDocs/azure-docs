@@ -1,11 +1,13 @@
 ---
-title: Tech Community Ninja Training
+title: Tech Community Ninja training
 description: Follow Defender for IoT training sessions
 ms.date: 07/10/2021
 ms.topic: reference
 ---
 
-# View Tech Community training videos
+# View Tech Community training sessions
+
+This article provides links to Defender for IoTm training sessions.
 
 ## About the training
 
@@ -23,7 +25,7 @@ The modules are organized into groups, for example:
 
 Access the training at the following location:
 
-https://aka.ms/Microsoft_Azure_Defender_for_IoT_Ninja_Training
+[Defender for IoT Training](https://go.microsoft.com/fwlink/?linkid=2167929)
 
 ## Next steps
 
