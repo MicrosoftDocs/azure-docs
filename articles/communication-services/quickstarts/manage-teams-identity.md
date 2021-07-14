@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
 
-In this quickstart, you'll build a .NET console application to authenticate an Azure Active Directory (Azure AD) user token by using the Microsoft Authentication Library (MSAL). You'll then exchange that token for a Teams access token with the Azure Communication Services (ACS) Identity SDK. The Teams access token can then be used by the Azure Communication Services Calling SDK to build a custom Teams endpoint.
+In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving an Azure Active Directory (Azure AD) user token. You'll then exchange that token for a Teams access token with the Azure Communication Services (ACS) Identity SDK. The Teams access token can then be used by the ACS Calling SDK to build a custom Teams endpoint.
 
 > [!NOTE]
 > When you're in a production environment, we recommend that you implement this exchange mechanism in back-end services, because requests for an exchange are signed with a secret.
@@ -111,7 +111,7 @@ The Fabrikam Azure AD Administrator connects to the Azure tenant via PowerShell.
 Connect-AzureAD -TenantId "[Tenant_ID]"
 ```
 
-If you can't find the command, the AzureAD module isn't installed in your PowerShell. Close PowerShell and run it with Administration rights. Then you can install the AzureAD package by using following command:
+If you receive a "command isn't found" error, the AzureAD module isn't installed in PowerShell. Close PowerShell, and then reopen it as an administrator. You can now install the AzureAD package by running the following command:
 
 ```azurepowershell
 Install-Module AzureAD
