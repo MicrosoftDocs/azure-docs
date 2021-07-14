@@ -2589,6 +2589,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux-conceptual.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux-view-log.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },     
+    {
+      "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/app-service/containers/index.yml",
       "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
@@ -27037,6 +27062,16 @@
     {
       "source_path_from_root": "/articles/sentinel/microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md",
       "redirect_url": "/azure/sentinel/microsoft-365-defender-sentinel-integration#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/import-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/understand-threat-intelligence",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/connect-threat-intelligence-tip",
       "redirect_document_id": false
     },
     {
