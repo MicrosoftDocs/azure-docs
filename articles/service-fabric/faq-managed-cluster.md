@@ -2,9 +2,9 @@
 title: Common questions about Service Fabric managed clusters 
 description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
 ms.topic: troubleshooting
-ms.author: pepogors
-author: peterpogorski
-ms.date: 5/10/2021
+ms.author: micraft
+author: micraft
+ms.date: 7/14/2021
 ms.custom: references_regions
 ---
 
@@ -54,7 +54,7 @@ Autoscaling is not currently supported.
 
 ### Can I deploy my cluster across availability zones?
 
-Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](.\service-fabric-cross-availability-zones.md).
+Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](.\how-to-managed-cluster-availability-zones.md).
 
 ### Can I deploy stateless node types on a Service Fabric managed cluster? 
 
@@ -62,7 +62,7 @@ Yes, Service Fabric managed clusters support stateless node types for any second
 
 ### Can I select between automatic and manual upgrades for my cluster runtime?
 
-Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./service-fabric-cluster-upgrade.md).
+Yes, you can select between automatic and manual upgrades. For more information, see [cluster upgrades](./how-to-managed-cluster-upgrades.md).
 
 ## Applications
 
