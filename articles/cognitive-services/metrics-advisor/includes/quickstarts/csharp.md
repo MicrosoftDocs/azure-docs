@@ -30,7 +30,7 @@ ms.author: mbullwin
 
 ### Install the client library 
 
-Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.MetricsAdvisor`. Select version `1.0.0-beta.4`, and then **Install**. 
+Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Azure.AI.MetricsAdvisor`. Select version `1.0.0`, and then **Install**. 
 
 In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `metrics-advisor-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
 
@@ -59,11 +59,11 @@ Build succeeded.
 If you are using an IDE other than Visual Studio you can install the Metrics Advisor client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.4
+dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0
 ```
 
 > [!TIP]
-> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.0.0-beta.4/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples), which contains the code examples in this quickstart.
+> Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.0.0/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/samples), which contains the code examples in this quickstart.
 
 From the project directory, open the *program.cs* file and add the following `using` directives:
 

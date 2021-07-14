@@ -47,7 +47,7 @@ The benefits of deploying Conditional Access are:
 
 See [Conditional Access license requirements](overview.md).
 
-If additional features are required, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+If additional features are required, you might also need related licenses. For more information, see [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ### Prerequisites
 

@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 06/28/2021
+ms.date: 07/13/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -97,8 +97,8 @@ Refer to the following document to reconfigure a managed identity if you have mo
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
-| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| System assigned | Preview | Preview | Not available | Preview |
+| User assigned | Preview | Preview | Not available | Preview |
 
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
@@ -498,8 +498,8 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | User assigned | ![Available][check] | Not available | Not available | Not available |
 
 
-> [!Note]
-> Microsoft Power BI also [supports managed identities](../../stream-analytics/powerbi-output-managed-identity.md).
+> [!NOTE]
+> You can use Managed Identities to authenticate an [Azure Stream analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
 
 
 [check]: media/services-support-managed-identities/check.png "Available"

@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Twingate for automatic user provisioning with Azure 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Twingate.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 39476198-1ade-4c22-b880-111f4c30d823
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Twingate for automatic user provisioning
