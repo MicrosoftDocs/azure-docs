@@ -57,10 +57,10 @@ This identity model is ideal for augmenting a Teams deployment with a fully cust
 Building an Azure Communication Services app using Microsoft 365 identities requires:
 1. Azure Communication Services resource in Azure
 2. Azure Active Directory application
-3. Application authorization from end user or it's admin in Azure Active Directory
+3. Application authorization from the end-user or an admin in Azure Active Directory
 4. Authentication of the end user's Microsoft 365 identity
 
-Authentication and authorization of the end user is through [Microsoft Authentication Library flows (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
+Authentication and authorization of the end-users are performed through [Microsoft Authentication Library flows (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
 
 ![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identities/teams-identity-calling-overview.png)
 
