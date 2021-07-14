@@ -16,8 +16,6 @@ IoT Connector is an optional feature of Azure Healthcare APIs that provides the 
 
 This article provides an overview of data flow in Azure API for IoT Connector. You'll learn about different data processing stages within the IoT Connector service that transforms device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
-[ ![IoT Connector flow diagram](media/data-transformation/iot-connector-data-flow.png) ](media/data-transformation/iot-connector-data-flow.png#lightbox)
-
 Below are the different stages that data goes through once it is received by Azure API for IoT Connector.
 
 ## Ingest
