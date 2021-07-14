@@ -87,7 +87,7 @@ Distributed caches require data consistency to provide independent instances to 
 - Use your Cosmos DB account in **Session consistency** if you can enable [Application Request Routing](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) and make requests sticky to a particular instance.
 - Use your Cosmos DB account in **Bounded Staleness or Strong consistency** without requiring request stickiness. This provides the greatest scale in terms of load distribution across your instances.
 
-To use the Cosmos DB provider as a distributed cache, it needs to be registered in `ConfiguredService`s with the `services.AddCosmosCache` call. Once that is done, any constructor in the application can ask for the cache by referencing `IDistributedCache` and it will receive the instance injected by [dependency injection(/dotnet/core/extensions/dependency-injection) to be used:
+To use the Cosmos DB provider as a distributed cache, it needs to be registered in `ConfiguredService`s with the `services.AddCosmosCache` call. Once that is done, any constructor in the application can ask for the cache by referencing `IDistributedCache` and it will receive the instance injected by [dependency injection](/dotnet/core/extensions/dependency-injection) to be used:
 
 ```csharp
 public class MyBusinessClass
@@ -130,6 +130,6 @@ services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
 ```
 
 ## Next steps
-1. To find more details on the Azure Cosmos DB session and cache provider see the [source code on GitHub](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/).
-2. [Try out](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/tree/master/sample) the Azure Cosmos DB session and cache provider by exploring a sample Explore an ASP.NET Core web application.
-3. Read more about [distributed caches](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true) in .NET.
+- To find more details on the Azure Cosmos DB session and cache provider see the [source code on GitHub](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/).
+- [Try out](https://github.com/Azure/Microsoft.Extensions.Caching.Cosmos/tree/master/sample) the Azure Cosmos DB session and cache provider by exploring a sample Explore an ASP.NET Core web application.
+- Read more about [distributed caches](/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0&preserve-view=true) in .NET.
