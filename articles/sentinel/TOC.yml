@@ -25,10 +25,14 @@
     href: powerbi.md
 - name: Concepts
   items:
+  - name: Azure Sentinel prerequisites
+    href: prerequisites.md
   - name: Best practices
     items:
-    - name: Pre-deployment best practices
-      href: prerequisites.md
+    - name: Workspace architecture considerations
+      href: workspace-architecture-best-practices.md
+    - name: Sample workspace designs
+      href: sample-workspace-designs.md
     - name: General best practices
       href: best-practices.md
     - name: Data collection best practices
