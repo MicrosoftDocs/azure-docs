@@ -29,7 +29,7 @@ FList and trial offers receive one-time use benefits. Transact offers are eligib
 
 The minimum requirement to publish in the online stores is an MPNID, so these benefits are available to all partners regardless of MPN competency status or partner type. Every partner is empowered to grow your business through the commercial marketplace as a platform.
 
-You will get support in understanding the resources available to you and in implementing best practices, which you can also [review on your own](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+You will get support in understanding the resources available to you and in implementing best practices, which you can also [review on your own](https://onedrive.live.com/view.aspx?resid=6C423AE231DA44BB!1039&ithint=file%2cdocx&authkey=!AFs7CHF5_XGje3k).
 
 Detailed descriptions of all program benefits can be found in this [Marketplace Rewards program presentation](https://aka.ms/marketplacerewards).
 
