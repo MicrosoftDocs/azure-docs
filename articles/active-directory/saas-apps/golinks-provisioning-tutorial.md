@@ -3,8 +3,8 @@ title: 'Tutorial: Configure GoLinks for automatic user provisioning with Azure A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GoLinks.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: b8a62f41-861f-417a-8925-70b892d9a4de
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure GoLinks for automatic user provisioning

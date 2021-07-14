@@ -3,8 +3,8 @@ title: 'Tutorial: Configure LogMeIn for automatic user provisioning with Azure A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to LogMeIn.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: cf38e6ad-6391-4e5d-98f7-fbdaf3de54f5
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure LogMeIn for automatic user provisioning
