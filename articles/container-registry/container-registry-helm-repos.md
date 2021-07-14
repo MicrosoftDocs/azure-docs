@@ -31,14 +31,15 @@ The following Azure Container Registry features to manage Helm charts are suppor
 | ---- | ---- | ---- |
 | Manage charts using `az acr helm` commands | :heavy_check_mark: | |
 | Store charts as OCI artifacts | | :heavy_check_mark:  |
-| Manage charts using `az acr repository` commands | | :heavy_check_mark:  |
+| Manage charts using Helm CLI and `az acr repository` commands | | :heavy_check_mark:  |
 
 
 > [!NOTE]
 > As of Helm 3, [az acr helm][az-acr-helm] commands for use with the Helm 2 client are being deprecated. A minimum of 3 months' notice will be provided in advance of command removal.
+
 ### Chart version compatibility
 
-The following Helm chart versions can be stored in Azure Container Registry and are installable by the Helm 2 and Helm 3 clients. 
+The following Helm [chart versions](https://helm.sh/docs/topics/charts/#the-apiversion-field) can be stored in Azure Container Registry and are installable by the Helm 2 and Helm 3 clients. 
 
 | Version | Helm 2 | Helm 3 |
 | ---- | ---- | ---- |
@@ -302,7 +303,7 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 If you previously set up your Azure container registry as a classic Helm chart repository using Helm 2 and the `az acr helm` commands, we recommend that you [upgrade][helm-install] to the Helm 3 client. Then, follow these steps to store the charts as OCI artifacts in your registry. 
 
 > [!IMPORTANT]
-> * After you complete migration from a classic (index.yaml-based) Helm chart repository to OCI artifact repositories, use the `helm chart` and `helm registry` commands to manage the charts. See previous sections in this article. 
+> * After you complete migration from a classic (index.yaml-based) Helm chart repository to OCI artifact repositories, use the Helm CLI and `az acr repository` commands to manage the charts. See previous sections in this article. 
 > * The Helm OCI artifact repositories are not discoverable using Helm commands such as `helm search` and `helm repo list`. For more information about Helm command differences when storing charts as OCI artifacts, see the [Helm documentation](https://helm.sh).
 
 Ensure that you are using the Helm 3 client:
