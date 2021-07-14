@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 7/15/2021
 ms.author: gasinh
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 ::: zone pivot="b2c-custom-policy"
