@@ -29,9 +29,9 @@ The diagram shows the deployment of the primary Azure VMware Solution to seconda
 
 You can use SRM to implement different types of recovery, such as:
 
-- **Planned migration** commences when both primary and secondary Azure Vmware Solution sites are running and fully functional. It's an orderly migration of virtual machines from the protected site to the recovery site where no data loss is expected when migrating workloads in an orderly fashion. 
+- **Planned migration** commences when both primary and secondary Azure VMware Solution sites are running and fully functional. It's an orderly migration of virtual machines from the protected site to the recovery site where no data loss is expected when migrating workloads in an orderly fashion. 
 
-- **Disaster recovery** using SRM can be invoked when the protected Azure Vmware Solution site goes offline unexpectedly. Site Recovery Manager orchestrates the recovery process with the replication mechanisms to minimize data loss and system downtime.
+- **Disaster recovery** using SRM can be invoked when the protected Azure VMware Solution site goes offline unexpectedly. Site Recovery Manager orchestrates the recovery process with the replication mechanisms to minimize data loss and system downtime.
 
    In Azure VMware Solution, only individual VMs can be protected on a host by using SRM in combination with vSphere Replication.
 
@@ -71,7 +71,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/two-private-clouds-different-regions.png" alt-text="Screenshot showing two Azure VMware Solution private clouds in separate regions.":::
  
-- Connectivity between the source and target Azure VMware Solution private cloud, such as ExpressRoute Global Reach.
+- Connectivity, like ExpressRoute Global Reach, between the source and target Azure VMware Solution private cloud.
 
    :::image type="content" source="media/vmware-srm-vsphere-replication/global-reach-connectity-to-on-premises.png" alt-text="Screenshot showing the connectivity between the source and target private clouds.":::
 
