@@ -2,7 +2,7 @@
 title: Deliver events using private link service
 description: This article describes how to work around the limitation of not able to deliver events using private link service. 
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 07/01/2021
 ---
 
 # Deliver events using private link service
@@ -31,7 +31,7 @@ To deliver events to event hubs in your Event Hubs namespace using managed ident
 To deliver events to Service Bus queues or topics in your Service Bus namespace using managed identity, follow these steps:
 
 1. Enable system-assigned identity: [system topics](enable-identity-system-topics.md), [custom topics, and domains](enable-identity-custom-topics-domains.md). 
-1. [Add the identity to the **Azure Service Bus Data Sender**](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) role on the Service Bus namespace
+1. [Add the identity to the **Azure Service Bus Data Sender**](../service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) role on the Service Bus namespace
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Service Bus namespace](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure the event subscription](managed-service-identity.md) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
 
@@ -40,7 +40,7 @@ To deliver events to Storage queues using managed identity, follow these steps:
 
 1. Enable system-assigned identity: [system topics](enable-identity-system-topics.md), [custom topics, and domains](enable-identity-custom-topics-domains.md). 
 1. [Add the identity to the **Storage Queue Data Message Sender**](../storage/common/storage-auth-aad-rbac-portal.md) role on Azure Storage queue.
-1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Service Bus queue or topic as an endpoint to use the system-assigned identity.
+1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses a Storage queue as an endpoint to use the system-assigned identity.
 
 
 ## Next steps

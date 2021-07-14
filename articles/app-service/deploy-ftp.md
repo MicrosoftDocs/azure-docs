@@ -6,7 +6,7 @@ ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 02/26/2021
 ms.reviewer: dariac
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 

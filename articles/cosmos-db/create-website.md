@@ -31,9 +31,9 @@ The resulting deployment has a fully functional web application that can connect
 
 ## Step 1: Deploy the template
 
-First, select the **Deploy to Azure** button below to open the Azure portal to create a custom deployment. You can also view the Azure Resource Management template from the [Azure Quickstart Templates Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+First, select the **Deploy to Azure** button below to open the Azure portal to create a custom deployment. You can also view the Azure Resource Manager template from the [Azure Quickstart Templates Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-webapp%2Fazuredeploy.json)
 
 Once in the Azure portal, select the subscription to deploy into and select or create a new resource group. Then fill in the following values.
 
@@ -113,5 +113,5 @@ Lastly, we need to deploy the web application from GitHub into the App Service. 
 
 Congratulations! You've deployed Azure Cosmos DB, Azure App Service, and a sample web application that automatically has the connection info necessary to connect to Cosmos DB, all in a single operation and without having to cut and paste sensitive information. Using this template as a starting point, you can modify it to deploy your own web applications the same way.
 
-* For the Azure Resource Manager Template for this sample go to [Azure Quickstart Templates Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-webapp)
+* For the Azure Resource Manager Template for this sample go to [Azure Quickstart Templates Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)
 * For the source code for the sample app go to [Cosmos DB To Do App on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app).

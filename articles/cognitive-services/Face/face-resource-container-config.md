@@ -9,11 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2021
 ms.author: aahi
 ---
 
-# Configure Face Docker containers
+# Configure Face Docker containers (Retiring)
+
+> [!IMPORTANT]
+> The Face container preview is no longer accepting applications and the container has been deprecated as of April 29th 2021. The Face container will be fully retired on July 26th 2021.
 
 The **Face** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 

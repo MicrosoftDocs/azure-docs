@@ -170,7 +170,7 @@ This method makes the current iteration of the model available for querying. You
 * Replace `{projectId}` with your own project ID.
 * Replace `{iterationId}` with the ID returned in the previous step.
 * Replace `{publishedName}` with the name you'd like to assign to your prediction model.
-* Replace `{predictionId}` with your own prediction resource ID. You can find it on your prediction resource's **Overview** tab in the Azure portal, listed as **Subscription ID**.
+* Replace `{predictionId}` with your own prediction resource ID. You can find the prediction resource ID on the resource's **Properties** tab in the Azure portal, listed as **Resource ID**.
 * Optionally use other URL parameters. See the [Publish Iteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fdded5) API.
 
 ## Test the prediction endpoint

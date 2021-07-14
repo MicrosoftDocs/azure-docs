@@ -12,16 +12,11 @@ ms.custom:  [amqp, mqtt]
 monikerRange: ">=iotedge-2020-11"
 ---
 
-# Connect a downstream IoT Edge device to an Azure IoT Edge gateway (Preview)
+# Connect a downstream IoT Edge device to an Azure IoT Edge gateway
 
 [!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
-
->[!NOTE]
->This feature requires IoT Edge version 1.2, which is in public preview, running Linux containers.
->
->This article reflects the latest preview release of IoT Edge version 1.2. Make sure that your device is running version [1.2.0-rc4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc4) or newer. For steps to get the latest preview version on your device, see [Install Azure IoT Edge for Linux (version 1.2)](how-to-install-iot-edge.md) or [Update IoT Edge to version 1.2](how-to-update-iot-edge.md#special-case-update-from-10-or-11-to-12).
 
 In a gateway scenario, an IoT Edge device can be both a gateway and a downstream device. Multiple IoT Edge gateways can be layered to create a hierarchy of devices. The downstream (or child) devices can authenticate and send or receive messages through their gateway (or parent) device.
 
@@ -76,15 +71,20 @@ You can also create or manage parent/child relationships for existing devices.
 
 # [Azure CLI](#tab/azure-cli)
 
-The [azure-iot](/cli/azure/ext/azure-iot) extension for the Azure CLI provides commands to manage your IoT resources. You can manage the parent/child relationship of IoT and IoT Edge devices when you create new device identities or by editing existing devices.
+The [azure-iot](/cli/azure/iot) extension for the Azure CLI provides commands to manage your IoT resources. You can manage the parent/child relationship of IoT and IoT Edge devices when you create new device identities or by editing existing devices.
 
-The [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) set of commands allow you to manage the parent/child relationships for a given device.
+The [az iot hub device-identity](/cli/azure/iot/hub/device-identity) set of commands allow you to manage the parent/child relationships for a given device.
 
 The `create` command includes parameters for adding children devices and setting a parent device at the time of device creation.
 
 Additional device-identity commands, including `add-children`,`list-children`, and `remove-children` or `get-parent` and `set-parent`, allow you to manage the parent/child relationships for existing devices.
 
 ---
+
+>[!NOTE]
+>If you wish to establish parent-child relationships programmatically, you can use the C#, Java, or Node.js [IoT Hub Service SDK](../iot-hub/iot-hub-devguide-sdks.md).
+>
+>Here is an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
 
 ## Prepare certificates
 
@@ -123,7 +123,7 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 1. Install the **root CA certificate** on this IoT Edge device.
 
    ```bash
-   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem
+   sudo cp <path>/<root ca certificate>.pem /usr/local/share/ca-certificates/<root ca certificate>.pem.crt
    ```
 
 1. Update the certificate store.
@@ -141,7 +141,11 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
    ```
 
    >[!TIP]
-   >If the config file doesn't exist on your device yet, use `/etc/aziot/config.toml.edge.template` as a template to create one.
+   >If the config file doesn't exist on your device yet, use the following command to create it based on the template file:
+   >
+   >```bash
+   >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   >```
 
 1. Find the **Hostname** section in the config file. Uncomment the line that contains the `hostname` parameter, and update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge device.
 
@@ -155,13 +159,13 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
 1. Find the **Trust bundle cert** section. Uncomment and update the `trust_bundle_cert` parameter with the file URI to the root CA certificate on your device.
 
-1. While this feature is in public preview, you need to configure your IoT Edge device to use the public preview version of the IoT Edge agent when it starts up.
+1. Verify your IoT Edge device will use the correct version of the IoT Edge agent when it starts up.
 
-   Find the **Default Edge Agent** section and update the image value to the public preview image:
+   Find the **Default Edge Agent** section and verify the image value is IoT Edge version 1.2. If not, update it:
 
    ```toml
    [agent.config]
-   image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
+   image: "mcr.microsoft.com/azureiotedge-agent:1.2"
    ```
 
 1. Find the **Edge CA certificate** section in the config file. Uncomment the lines in this section and provide the file URI paths for the certificate and key files on the IoT Edge device.
@@ -193,21 +197,6 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 
    >[!TIP]
    >The IoT Edge check tool uses a container to perform some of the diagnostics check. If you want to use this tool on downstream IoT Edge devices, make sure they can access `mcr.microsoft.com/azureiotedge-diagnostics:latest`, or have the container image in your private container registry.
-
-## Configure runtime modules for public preview
-
-While this feature is in public preview, you need to configure your IoT Edge device to use the public preview versions of the IoT Edge runtime modules. The previous section provides steps for configuring edgeAgent at startup. You also need to configure the runtime modules in deployments for your device.
-
-1. Configure the edgeHub module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
-
-1. Configure the following environment variables for the edgeHub module:
-
-   | Name | Value |
-   | - | - |
-   | `experimentalFeatures__enabled` | `true` |
-   | `experimentalFeatures__nestedEdgeEnabled` | `true` |
-
-1. Configure the edgeAgent module to use the public preview image: `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4`.
 
 ## Network isolate downstream devices
 
@@ -243,6 +232,8 @@ For each gateway device in a lower layer, network operators need to:
 The IoT Edge device at the top layer of a gateway hierarchy has a set of required modules that must be deployed to it, in addition to any workload modules you may run on the device.
 
 The API proxy module was designed to be customized to handle most common gateway scenarios. This article provides and example to set up the modules in a basic configuration. Refer to [Configure the API proxy module for your gateway hierarchy scenario](how-to-configure-api-proxy-module.md) for more detailed information and examples.
+
+# [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 1. Select **IoT Edge** from the navigation menu.
@@ -330,6 +321,109 @@ The API proxy module was designed to be customized to handle most common gateway
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
 
+# [Azure CLI](#tab/azure-cli)
+
+1. In the [Azure Cloud Shell](https://shell.azure.com/), create a deployment JSON file. For example:
+
+   ```json
+   {
+       "modulesContent": {
+           "$edgeAgent": {
+               "properties.desired": {
+                   "modules": {
+                       "dockerContainerRegistry": {
+                           "settings": {
+                               "image": "registry:latest",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"
+                           },
+                           "type": "docker",
+                           "version": "1.0",
+                           "env": {
+                               "REGISTRY_PROXY_REMOTEURL": {
+                                   "value": "The URL for the container registry you want this registry module to map to. For example, https://myregistry.azurecr"
+                               },
+                               "REGISTRY_PROXY_USERNAME": {
+                                   "value": "Username to authenticate to the container registry."
+                               },
+                               "REGISTRY_PROXY_PASSWORD": {
+                                   "value": "Password to authenticate to the container registry."
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always"
+                       },
+                       "IoTEdgeAPIProxy": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-api-proxy:1.0",
+                               "createOptions": "{\"HostConfig\": {\"PortBindings\": {\"443/tcp\": [{\"HostPort\":\"443\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {
+                               "NGINX_DEFAULT_PORT": {
+                                   "value": "443"
+                               },
+                               "DOCKER_REQUEST_ROUTE_ADDRESS": {
+                                   "value": "registry:5000"
+                               }
+                           },
+                           "status": "running",
+                           "restartPolicy": "always",
+                           "version": "1.0"
+                       }
+                   },
+                   "runtime": {
+                       "settings": {
+                           "minDockerVersion": "v1.25"
+                       },
+                       "type": "docker"
+                   },
+                   "schemaVersion": "1.1",
+                   "systemModules": {
+                       "edgeAgent": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
+                               "createOptions": "{}"
+                           },
+                           "type": "docker"
+                       },
+                       "edgeHub": {
+                           "settings": {
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2",
+                               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                           },
+                           "type": "docker",
+                           "env": {},
+                           "status": "running",
+                           "restartPolicy": "always"
+                       }
+                   }
+               }
+           },
+           "$edgeHub": {
+               "properties.desired": {
+                   "routes": {
+                       "route": "FROM /messages/* INTO $upstream"
+                   },
+                   "schemaVersion": "1.1",
+                   "storeAndForwardConfiguration": {
+                       "timeToLiveSecs": 7200
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   This deployment file configures the API proxy module to listen on port 443. To prevent port binding collisions, the file configures the edgeHub module to not listen on port 443. Instead, the API proxy module will route any edgeHub traffic on port 443.
+
+1. Enter the following command to create a deployment to an IoT Edge device:
+
+   ```azurecli
+   az iot edge set-modules --device-id <device_id> --hub-name <iot_hub_name> --content ./<deployment_file_name>.json
+   ```
+
+---
+
 ### Deploy modules to lower layer devices
 
 IoT Edge devices in lower layers of a gateway hierarchy have one required module that must be deployed to them, in addition to any workload modules you may run on the device.
@@ -340,7 +434,7 @@ Before discussing the required proxy module for IoT Edge devices in gateway hier
 
 If your lower layer devices can't connect to the cloud, but you want them to pull module images as usual, then the top layer device of the gateway hierarchy must be configured to handle these requests. The top layer device needs to run a Docker **registry** module that is mapped to your container registry. Then, configure the API proxy module to route container requests to it. Those details are discussed in the earlier sections of this article. In this configuration, the lower layer devices should not point to cloud container registries, but to the registry running in the top layer.
 
-For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:latest`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:latest`.
+For example, instead of calling `mcr.microsoft.com/azureiotedge-api-proxy:1.0`, lower layer devices should call `$upstream:443/azureiotedge-api-proxy:1.0`.
 
 The **$upstream** parameter points to the parent of a lower layer device, so the request will route through all the layers until it reaches the top layer which has a proxy environment routing container requests to the registry module. The `:443` port in this example should be replaced with whichever port the API proxy module on the parent device is listening on.
 
@@ -362,7 +456,7 @@ name = "edgeAgent"
 type = "docker"
 
 [agent.config]
-image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2.0-rc4"
+image: "{Parent FQDN or IP}:443/azureiotedge-agent:1.2"
 ```
 
 If you are using a local container registry, or providing the container images manually on the device, update the config file accordingly.

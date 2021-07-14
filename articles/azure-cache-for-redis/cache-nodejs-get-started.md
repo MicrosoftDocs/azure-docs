@@ -22,26 +22,31 @@ If you want to skip straight to the code, see the [Node.js quickstart](https://g
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [node_redis](https://github.com/mranney/node_redis), which you can install with the command `npm install redis`. 
+- [node_redis](https://github.com/mranney/node_redis), which you can install with the command `npm install redis`.
 
 For examples of using other Node.js clients, see the individual documentation for the Node.js clients listed at [Node.js Redis clients](https://redis.io/clients#nodejs).
 
 ## Create a cache
+
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
+Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
-Add environment variables for your **HOST NAME** and **Primary** access key. You will use these variables from your code instead of including the sensitive information directly in your code.
-
+```powershell
+set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
+set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
+
+```powershell
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## Connect to the cache
 
-The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Cache for Redis using TLS. The following example shows how to connect to Azure Cache for Redis using the TLS endpoint of 6380. 
+The latest builds of [node_redis](https://github.com/mranney/node_redis) provide support for connecting to Azure Cache for Redis using TLS. The following example shows how to connect to Azure Cache for Redis using the TLS endpoint of 6380.
 
 ```js
 var redis = require("redis");
@@ -51,7 +56,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-Don't create a new connection for each operation in your code. Instead, reuse connections as much as possible. 
+Don't create a new connection for each operation in your code. Instead, reuse connections as much as possible.
 
 ## Create a new Node.js app
 
@@ -101,7 +106,7 @@ testCache();
 
 Run the script with Node.js.
 
-```
+```powershell
 node redistest.js
 ```
 
@@ -111,12 +116,12 @@ In the example below, you can see the `Message` key previously had a cached valu
 
 ## Clean up resources
 
-If you will be continuing to the next tutorial, you can keep the resources created in this quickstart and reuse them.
+If you continue to the next tutorial, can keep the resources created in this quickstart and reuse them.
 
-Otherwise, if you are finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges. 
+Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
 >
 
 Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
@@ -125,7 +130,7 @@ In the **Filter by name** text box, enter the name of your resource group. The i
 
 ![Delete Azure Resource group](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-You will be asked to confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
+You'll be asked to confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
 
 After a few moments, the resource group and all of its contained resources are deleted.
 

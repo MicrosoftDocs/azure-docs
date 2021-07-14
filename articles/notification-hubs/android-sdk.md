@@ -188,8 +188,8 @@ also have the connection strings that are necessary to send notifications to a d
 
 1. Create a **NotificationHubListener** object, which handles intercepting the messages from Azure Notification Hubs.
 
-   ```csharp
-   public class CustomNotificationListener implements NotificationHubListener {
+   ```java
+   public class CustomNotificationListener implements NotificationListener {
 
       @override
       public void onNotificationReceived(Context context, RemoteMessage message) {
@@ -223,7 +223,7 @@ also have the connection strings that are necessary to send notifications to a d
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity\_main);
       NotificationHub.setListener(new CustomNotificationListener());
-      NotificationHub.initialize(this.getApplication(), “Connection-String”, "Hub Name");
+      NotificationHub.start(this.getApplication(), “Connection-String”, "Hub Name");
 
    }
    ```

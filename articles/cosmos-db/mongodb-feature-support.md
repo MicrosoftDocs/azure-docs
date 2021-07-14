@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 10/16/2019
-author: sivethe
-ms.author: sivethe
+author: gahl-levy
+ms.author: gahllevy
 ---
 
 # Azure Cosmos DB's API for MongoDB (3.2 version): supported features and syntax
@@ -77,8 +77,6 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 <a name="aggregation-pipeline"></a>
 
 ## Aggregation pipeline</a>
-
-Cosmos DB supports aggregation pipeline for MongoDB 3.2 in public preview. See the [Azure blog](https://azure.microsoft.com/blog/azure-cosmosdb-extends-support-for-mongodb-aggregation-pipeline-unique-indexes-and-more/) for instructions on how to onboard to the public preview.
 
 ### Aggregation commands
 

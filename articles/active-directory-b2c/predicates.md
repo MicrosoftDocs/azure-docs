@@ -74,7 +74,6 @@ The IsLengthRange method checks whether the length of a string claim value is wi
 | Maximum | Yes | The maximum number of characters that can be entered. |
 | Minimum | Yes | The minimum number of characters that must be entered. |
 
-
 The following example shows a IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
 ```xml
@@ -220,7 +219,6 @@ The **PredicateReference** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the predicate validation.  |
-
 
 ## Configure password complexity
 
@@ -420,7 +418,7 @@ In your claim type, add **PredicateValidationReference** element and specify the
   <UserInputType>DateTimeDropdown</UserInputType>
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
- ```
+```
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.topic: how-to
 
 This article walks you through programmatically creating and managing policies. Azure Policy
 definitions enforce different rules and effects over your resources. Enforcement makes sure that
-resources stay compliant with your corporate standards and service level agreements.
+resources stay compliant with your corporate standards and service-level agreements.
 
 For information about compliance, see [getting compliance data](get-compliance-data.md).
 
@@ -162,9 +162,10 @@ Use the following procedure to create a policy definition.
    Replace the preceding {subscriptionId} with the ID of your subscription or {managementGroupId}
    with the ID of your [management group](../../management-groups/overview.md).
 
-   For more information about the structure of the query, see [Azure Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate)
+   For more information about the structure of the query, see
+   [Azure Policy Definitions - Create or Update](/rest/api/policy/policydefinitions/createorupdate)
    and
-   [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   [Policy Definitions - Create or Update At Management Group](/rest/api/policy/policydefinitions/createorupdateatmanagementgroup).
 
 Use the following procedure to create a policy assignment and assign the policy definition at the
 resource group level.

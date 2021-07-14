@@ -10,7 +10,7 @@ To assist with creating Azure Resource Manager templates, you can export a templ
 
 Resource Manager enables you to pick one or more resources for exporting to a template. You can focus on exactly the resources you need in the template.
 
-This article shows how to export templates through the portal. You can also use [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resources/resourcegroups/exporttemplate).
+This article shows how to export templates through the portal. You can also use [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## Choose the right export option
 
@@ -117,7 +117,7 @@ You can export the template that was used to deploy existing resources. The temp
 
 ## Next steps
 
-- Learn how to export templates with [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resources/resourcegroups/exporttemplate).
-- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+- Learn how to export templates with [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), or [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

@@ -71,7 +71,7 @@
             - name: Security controls by Azure Policy
               href: ./security-controls-policy.md
             - name: Security baseline
-              href: security-baseline.md
+              href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/TOC.json
       - name: Backends
         href: backends.md 
       - name: Subscriptions
@@ -107,8 +107,10 @@
               href: import-soap-api.md
             - name: Import a SOAP API and convert to REST
               href: restify-soap-api.md
-            - name: Import an API App
-              href: import-api-app-as-api.md
+            - name: Import a WebSocket API
+              href: websocket-api.md
+            - name: Import a Web App
+              href: import-app-service-as-api.md
             - name: Import a Function App
               href: import-function-app-as-api.md
             - name: Import a Logic App
@@ -131,8 +133,13 @@
               href: configure-custom-domain.md
             - name: Deploy to multiple Azure regions
               href: api-management-howto-deploy-multi-region.md
+            - name: Enable zone redundancy
+              displayName: Availability zones
+              href: zone-redundancy.md
             - name: Provision a self-hosted gateway
               href: api-management-howto-provision-self-hosted-gateway.md
+            - name: Deploy an Azure API Management gateway on Azure Arc
+              href: how-to-deploy-self-hosted-gateway-azure-arc.md
             - name: Deploy a self-hosted gateway to Azure Kubernetes Service
               href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
             - name: Deploy a self-hosted gateway to Kubernetes
@@ -163,7 +170,7 @@
               href: api-management-using-with-vnet.md
             - name: Connect to an internal virtual network
               href: api-management-using-with-internal-vnet.md
-            - name: Integrate Application Gateway in an internal VNET
+            - name: Integrate Application Gateway in an internal virtual network
               href: api-management-howto-integrate-internal-vnet-appgateway.md
             - name: Mutual Certificate authentication
               href: api-management-howto-mutual-certificates.md
@@ -173,48 +180,74 @@
               href: api-management-howto-manage-protocols-ciphers.md
       - name: Customize developer experience
         items:
-            - name: Understand the developer portal
-              href: api-management-howto-developer-portal.md
-            - name: Migrate from deprecated to new developer portal
-              href: developer-portal-deprecated-migration.md
-            - name: Authenticate with Azure AD
-              href: api-management-howto-aad.md
-            - name: Authenticate with Azure AD B2C
-              href: api-management-howto-aad-b2c.md
-            - name: Delegated authentication
-              href: api-management-howto-setup-delegation.md
-            - name: E-mail notifications and templates
-              href: api-management-howto-configure-notifications.md
-            - name: Enable console OAuth support
-              href: api-management-howto-oauth2.md
-            - name: Deprecated portal - customize the portal
-              href: api-management-customize-styles.md
-            - name: Deprecated portal - modify pages and layouts
-              href: api-management-modify-content-layout.md
-            - name: Deprecated portal - customize with templates
-              href: api-management-developer-portal-templates.md
-      - name: Deprecated portal templates
-        items:
-            - name: Data model reference
-              href: api-management-template-data-model-reference.md
-            - name: Page controls
-              href: api-management-page-controls.md
-            - name: Templates
-              href: api-management-developer-portal-templates-reference.md
-            - name: APIs
-              href: api-management-api-templates.md
-            - name: Products
-              href: api-management-product-templates.md
-            - name: Applications
-              href: api-management-application-templates.md
-            - name: Issues
-              href: api-management-issue-templates.md
-            - name: User profile
-              href: api-management-user-profile-templates.md
-            - name: Pages
-              href: api-management-page-templates.md
-            - name: Template resources
-              href: api-management-template-resources.md
+            - name: Use the developer portal
+              items:
+                  - name: Understand the developer portal
+                    href: api-management-howto-developer-portal.md
+                  - name: Frequently asked questions
+                    href: developer-portal-faq.md
+                  - name: Automate portal deployments
+                    href: automate-portal-deployments.md
+                  - name: Migrate from deprecated to new developer portal
+                    href: developer-portal-deprecated-migration.md
+                  - name: Authenticate with Azure AD
+                    href: api-management-howto-aad.md
+                  - name: Authenticate with Azure AD B2C
+                    href: api-management-howto-aad-b2c.md
+                  - name: Delegate authentication
+                    href: api-management-howto-setup-delegation.md
+                  - name: Enable console OAuth support
+                    href: api-management-howto-oauth2.md
+                  - name: E-mail notifications and templates
+                    href: api-management-howto-configure-notifications.md
+                  - name: Integrate Application Insights
+                    href: developer-portal-integrate-application-insights.md
+                  - name: Integrate Google Tag Manager
+                    href: developer-portal-integrate-google-tag-manager.md
+            - name: Self-host developer portal 
+              items:  
+                - name: Create self-hosted portal
+                  href: developer-portal-self-host.md
+                - name: Alternative approaches to self-hosting
+                  href: developer-portal-alternative-processes-self-host.md
+                - name: Implement widgets
+                  href: developer-portal-implement-widgets.md
+                - name: Contribute widgets
+                  href: developer-portal-widget-contribution-guidelines.md
+                - name: Use community widgets
+                  href: developer-portal-use-community-widgets.md
+                - name: Test self-hosted portal
+                  href: developer-portal-testing.md
+            - name: Deprecated portal
+              items:
+                - name: Deprecated portal - customize the portal
+                  href: api-management-customize-styles.md
+                - name: Deprecated portal - modify pages and layouts
+                  href: api-management-modify-content-layout.md
+                - name: Deprecated portal - customize with templates
+                  href: api-management-developer-portal-templates.md
+            - name: Deprecated portal templates
+              items:
+                - name: Data model reference
+                  href: api-management-template-data-model-reference.md
+                - name: Page controls
+                  href: api-management-page-controls.md
+                - name: Templates
+                  href: api-management-developer-portal-templates-reference.md
+                - name: APIs
+                  href: api-management-api-templates.md
+                - name: Products
+                  href: api-management-product-templates.md
+                - name: Applications
+                  href: api-management-application-templates.md
+                - name: Issues
+                  href: api-management-issue-templates.md
+                - name: User profile
+                  href: api-management-user-profile-templates.md
+                - name: Pages
+                  href: api-management-page-templates.md
+                - name: Template resources
+                  href: api-management-template-resources.md
       - name: Define policies
         items:
             - name: Set or edit policies
@@ -262,6 +295,8 @@
               href: howto-use-analytics.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
+            - name: Send events to Event Grid
+              href: how-to-event-grid.md
             - name: Log requests with Azure Application Insights
               href: api-management-howto-app-insights.md
             - name: Configure cloud metrics and logs for self-hosted gateway
@@ -305,24 +340,28 @@
         href: ./policy-reference.md
       - name: Resource log schema
         href: gateway-log-schema-reference.md
+      - name: Event Grid schema
+        href: ../event-grid/event-schema-api-management.md?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json  
 - name: Resources
   items:
       - name: FAQ
-        href: api-management-faq.md
+        href: api-management-faq.yml
       - name: Pricing
         href: https://aka.ms/apimpricing
+      - name: Product updates
+        href: https://aka.ms/apimupdates
+      - name: Release notes
+        href: https://aka.ms/apim/releases
       - name: Regional availability
         href: https://azure.microsoft.com/regions/services/
-      - name: Roadmap
-        href: https://aka.ms/apimroadmap
-      - name: Feature requests
-        href: https://aka.ms/apimwish
       - name: Videos
-        href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
+        href: https://azure.microsoft.com/documentation/videos/index/?service=api-management
       - name: Microsoft Q&A question page
         href: /answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
+      - name: Additional resources
+        href: https://aka.ms/apimlove
       - name: API design guidance
         href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance

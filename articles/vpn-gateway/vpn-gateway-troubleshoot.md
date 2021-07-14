@@ -1,12 +1,13 @@
 ---
-title: 'Azure VPN Gateway: Troubleshoot configurations and connections'
+title: 'Troubleshoot configurations and connections'
+titleSuffix: Azure VPN Gateway
 description: This article helps link you to articles to troubleshoot your VPN Gateway configuration, connection, and to validate throughput.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 01/31/2018
+ms.date: 04/28/2021
 ms.author: cherylmc
 
 ---

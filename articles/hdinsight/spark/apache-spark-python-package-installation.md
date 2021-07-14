@@ -53,7 +53,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
     -   `anaconda` specifies the package_spec as anaconda to install Anaconda packages in the virtual environment.
     
     ```bash
-    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
+    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda=4.3 --yes
     ```
 
 2. Install external Python packages in the created virtual environment if needed. Run script actions on your cluster for all nodes with below script to install external Python packages. You need to have sudo privilege here to write files to the virtual environment folder.

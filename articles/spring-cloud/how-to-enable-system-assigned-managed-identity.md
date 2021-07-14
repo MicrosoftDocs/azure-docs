@@ -1,7 +1,7 @@
 ---
 title: Enable system-assigned managed identity for Azure Spring Cloud application
 description: How to enable system-assigned managed identity for application.
-author:  MikeDodaro
+author:  brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
@@ -19,7 +19,7 @@ This article shows how to enable and disable system-assigned managed identities 
 
 ## Prerequisites
 If you're unfamiliar with managed identities for Azure resources, see [overview section](../active-directory/managed-identities-azure-resources/overview.md).
-You'll need a deployed Azure Spring Cloud instance. Follow the [Quickstart to deploy by using the Azure CLI](spring-cloud-quickstart.md).
+You'll need a deployed Azure Spring Cloud instance. Follow the [Quickstart to deploy by using the Azure CLI](./quickstart.md).
 
 ## Add a system-assigned identity
 Creating an app with a system-assigned identity requires setting an additional property on the application.

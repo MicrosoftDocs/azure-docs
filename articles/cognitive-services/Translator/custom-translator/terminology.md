@@ -1,20 +1,20 @@
 ---
-title: Terminology - Custom Translator
+title: Key terms - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: List of the terms used in the Custom Translator articles.
+description: List of key terms used in Custom Translator articles.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/17/2020
+ms.date: 04/02/2021
 ms.author: lajanuar
 ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review and understand the terms in multiple articles.
 ---
 
-# Custom Translator Terminology
+# Custom Translator key terms
 
-The following table presents a list of terms that you may find as you work with the [Custom Translator](https://portal.customtranslator.azure.ai).
+The following table presents a list of key terms that you may find as you work with the [Custom Translator](https://portal.customtranslator.azure.ai).
 
 | Word or Phrase|Definition|
 |------------------|-----------|

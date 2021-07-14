@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot common errors in Azure Cosmos DB's API for Mongo DB
 description: This doc discusses the ways to troubleshoot common issues encountered in Azure Cosmos DB's API for MongoDB.
-author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
-ms.author: chrande
+author: gahl-levy
+ms.author: gahllevy
 
 ---
 
@@ -33,7 +33,7 @@ The following article describes common errors and solutions for deployments usin
 | 112 | WriteConflict | The multi-document transaction failed due to a conflicting multi-document transaction | Retry the multi-document transaction until it succeeds. |
 | 115 | CommandNotSupported | The request attempted is not supported. | Additional details should be provided in the error. If this functionality is important for your deployments, create a support ticket in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and the Azure Cosmos DB team will get back to you. |
 | 11000 | DuplicateKey | The shard key (Azure Cosmos DB partition key) of the document you're inserting already exists in the collection or a unique index field constraint has been violated. | Use the update() function to update an existing document. If the unique index field constraint has been violated, insert or update the document with a field value that does not exist in the shard/partition yet. Another option would be to use a field containing a combination of the id and shard key fields. |
-| 16500 | TooManyRequests  | The total number of request units consumed is more than the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput assigned to a container or a set of containers from the Azure portal or you can retry the operation. If you enable SSR (server-side retry), Azure Cosmos DB automatically retries the requests that fail due to this error. |
+| 16500 | TooManyRequests  | The total number of request units consumed is more than the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput assigned to a container or a set of containers from the Azure portal or you can retry the operation. If you enable [SSR (server-side retry)](prevent-rate-limiting-errors.md), Azure Cosmos DB automatically retries the requests that fail due to this error. |
 | 16501 | ExceededMemoryLimit | As a multi-tenant service, the operation has gone over the client's memory allotment. This is only applicable to Azure Cosmos DB API for MongoDB version 3.2. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Example: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | Unrecognized pipeline stage name. | The stage name in your aggregation pipeline request was not recognized. | Ensure that all aggregation pipeline names are valid in your request. |
 | - | MongoDB wire version issues | The older versions of MongoDB drivers are unable to detect the Azure Cosmos account's name in the connection strings. | Append `appName=@accountName@` at the end of your connection string, where `accountName` is your Azure Cosmos DB account name. |

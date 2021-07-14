@@ -10,7 +10,7 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 3/18/2021
 ms.author: sudbalas
-ms.custom: "devx-track-azurepowershell"
+ms.custom: "devx-track-azurepowershell, devx-track-azurecli"
 #Customer intent: As an Azure Key Vault administrator, I want to back up a secret, key, or certificate in my key vault.
 ---
 # Azure Key Vault backup
@@ -126,10 +126,10 @@ Connect-AzAccount
 Set-AzContext -Subscription '{AZURE SUBSCRIPTION ID}'
 
 ## Back up a certificate in Key Vault
-Backup-AzKeyVaultCertificate -VaultName '{Certificate Name}' -Name '{Key Vault Name}'
+Backup-AzKeyVaultCertificate -VaultName '{Key Vault Name}' -Name '{Certificate Name}'
 
 ## Back up a key in Key Vault
-Backup-AzKeyVaultKey -VaultName '{Key Name}' -Name '{Key Vault Name}'
+Backup-AzKeyVaultKey -VaultName '{Key Vault Name}' -Name '{Key Name}'
 
 ## Back up a secret in Key Vault
 Backup-AzKeyVaultSecret -VaultName '{Key Vault Name}' -Name '{Secret Name}'

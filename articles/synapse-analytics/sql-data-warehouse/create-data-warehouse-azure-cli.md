@@ -2,13 +2,13 @@
 title: 'Quickstart: Create a Synapse SQL pool with Azure CLI'
 description: Quickly create a Synapse SQL pool with a server-level firewall rule using the Azure CLI.
 services: synapse-analytics
-author: gaursa
+author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw 
 ms.date: 11/20/2020
-ms.author: gaursa
-ms.custom: azure-synapse
+ms.author: jrasnick
+ms.custom: azure-synapse, devx-track-azurecli
 ---
 # Quickstart: Create a Synapse SQL pool with Azure CLI
 
@@ -71,43 +71,43 @@ Create the SQL pool. This example uses DW100c as the service objective, which is
 > [!NOTE]
 > You need a previously created workspace. For more information, see [Quickstart: Create an Azure synapse workspace with Azure CLI](../quickstart-create-workspace-cli.md).
 
-Use the [az synapse sql pool create](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_create) command to create the SQL pool:
+Use the [az synapse sql pool create](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_create) command to create the SQL pool:
 
 ```azurecli
 az synapse sql pool create --resource-group myResourceGroup --name mySampleDataWarehouse \
    --performance-level "DW1000c" --workspace-name testsynapseworkspace
 ```
 
-For more information on the parameter options, see [az synapse sql pool](/cli/azure/ext/synapse/synapse/sql/pool).
+For more information on the parameter options, see [az synapse sql pool](/cli/azure/synapse/sql/pool).
 
-You can see your SQL pools by using the [az synapse sql pool list](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_list) command:
+You can see your SQL pools by using the [az synapse sql pool list](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_list) command:
 
 ```azurecli
 az synapse sql pool list --resource-group myResourceGroup --workspace-name testsynapseworkspace
 ```
 
-Use the [az synapse sql pool update](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_update) command to update an existing pool:
+Use the [az synapse sql pool update](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_update) command to update an existing pool:
 
 ```azurecli
 az synapse sql pool update --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Use the [az synapse sql pool pause](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_pause) command to pause your pool:
+Use the [az synapse sql pool pause](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_pause) command to pause your pool:
 
 ```azurecli
 az synapse sql pool pause --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-Use the [az synapse sql pool resume](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_resume) command to start a paused pool:
+Use the [az synapse sql pool resume](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_resume) command to start a paused pool:
 
 ```azurecli
 az synapse sql pool resume --resource-group myResourceGroup --name mySampleDataWarehouse \
    --workspace-name testsynapseworkspace
 ```
 
-To remove an existing SQL pool, use the [az synapse sql pool delete](/cli/azure/ext/synapse/synapse/sql/pool#ext_synapse_az_synapse_sql_pool_delete) command:
+To remove an existing SQL pool, use the [az synapse sql pool delete](/cli/azure/synapse/sql/pool#az_synapse_sql_pool_delete) command:
 
 ```azurecli
 az synapse sql pool delete --resource-group myResourceGroup --name mySampleDataWarehouse \

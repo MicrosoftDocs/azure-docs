@@ -19,6 +19,7 @@ All SQL data warehouse users can now access and use an existing dedicated SQL po
 ## Prerequisites
 Before you enable the Synapse workspace features on your data warehouse, you must ensure that you've the following
 - Rights to create and manage the SQL resources that are hosted on the SQL logical server.
+- Write permissions on the host SQL Server. 
 - Rights to create Azure Synapse resources.
 - An Azure Active Directory admin identified on the logical server
 

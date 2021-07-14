@@ -267,25 +267,25 @@ Azure Logic Apps is the orchestrator of all process of collection and actions. I
 
 ### Workflow
 
-In this workflow, you build a logic app that regularly monitors ExpressRoute gateways. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
+For this logic app, you build a workflow that regularly monitors ExpressRoute gateways. If new items exist, the workflow sends an email for each item. When you're done, your workflow looks like this example at a high level:
 
 :::image type="content" source="./media/custom-route-alert-portal/logic-apps-workflow.png" alt-text="Logic Apps workflow":::
 
 ### 1. Create a logic app
 
-In **Logic app designer**, create a logic app  using the **Blank Logic App** template. For steps, see [Create Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app).
+In **Logic app designer**, create a logic app using the **Blank Logic App** template. For steps, see [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 :::image type="content" source="./media/custom-route-alert-portal/blank-template.png" alt-text="Blank template":::
 
 ### 2. Add a trigger
 
-Every logic app is started by a trigger. A trigger fires when a specific event happens, or when a specific condition is met. Each time the trigger fires, the Azure Logic Apps engine creates a logic app instance that starts and runs your workflow.
+Every workflow starts with a trigger. A trigger fires when a specific event happens, or when a specific condition is met. Each time the trigger fires, Azure Logic Apps creates and runs a new workflow instance.
 
-To regularly run a logic app that is based on a predefine time schedule, add the built-in **Recurrence: Schedule** to your workflow. In the search box, type **schedule**. Select **Triggers**. From the Triggers list, select **Recurrence Schedule**.
+To regularly run a workflow that is based on a predefined time schedule, add the built-in **Recurrence** trigger to your workflow. In the search box, type **schedule**. Select the **Schedule** icon. From the Triggers list, select **Recurrence**.
 
 :::image type="content" source="./media/custom-route-alert-portal/schedule.png" alt-text="Recurrence: Schedule":::
 
-In the Recurrence Schedule trigger, you can set the time zone and a recurrence for repeating that workflow. Together, the interval and frequency define the schedule for your logic app's trigger. To establish a reasonable minimum recurrence frequency, consider the following factors:
+In the Recurrence trigger, you can set the time zone and a recurrence for repeating that workflow. Together, the interval and frequency define the schedule for your workflow's trigger. To establish a reasonable minimum recurrence frequency, consider the following factors:
 
 * The PowerShell script in the Automation runbook takes time to complete. The runtime depends on the number of ExpressRoute gateways to monitor. A too short recurrence frequency will cause job queuing.
 
@@ -299,7 +299,7 @@ At the end of the workflow configuration, you can check the consistency of the r
 
 ### <a name="job"></a>3. Create a job
 
-A logic app accesses other apps, services, and the platform though connectors. The next step in this workflow is to select a connector to access the Azure Automation account that was defined earlier.
+A logic app workflow accesses other apps, services, and the platform though connectors. The next step is to select a connector to access the Azure Automation account that was defined earlier.
 
 1. In **Logic Apps Designer**, below **Recurrence**, select **New step**. Under **Choose an action** and the the search box, select **All**.
 2. In the search box, type **Azure Automation** and search. Select **Create job**. **Create job** will be used to fire the automation runbook that was created earlier.
@@ -330,7 +330,7 @@ A logic app accesses other apps, services, and the platform though connectors. T
 
 ### <a name="parse"></a>5. Parse the JSON
 
-The information contained in the output from the 'Azure Automation Create job action' (previous steps) generates a JSON object. Logic Apps **Parse JSON** is a built-in action to create user-friendly tokens from the properties and their values in JSON content. You can then use those properties in your workflow.
+The information contained in the output from the 'Azure Automation Create job action' (previous steps) generates a JSON object. The built-in **Parse JSON** action creates user-friendly tokens from the properties and their values in JSON content. You can then use those properties in your workflow.
 
 1. Add an action. Under the **Get job output ->action**, select **New step**.
 2. In the **Choose an action** search box, type "parse json" to search for connectors that offer this action. Under the **Actions** list, select the **Parse JSON** action for the data operations that you want to use.

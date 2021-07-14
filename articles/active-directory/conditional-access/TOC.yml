@@ -39,6 +39,8 @@
     href: service-dependencies.md
   - name: Location conditions
     href: location-condition.md
+  - name: Filters for devices
+    href: concept-condition-filters-for-devices.md
   - name: What if tool
     href: what-if-tool.md
   - name: Continuous access evaluation
@@ -121,7 +123,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

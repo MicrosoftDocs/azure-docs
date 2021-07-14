@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/09/2021
+ms.date: 04/14/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
@@ -18,21 +18,27 @@ ms.custom: cog-serv-seo-aug-2020
 
 The Text Analytics API is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis, including: sentiment analysis, opinion mining, key phrase extraction, language detection, and named entity recognition.
 
-The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) or [version 3.1-preview](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/), or the [client library](quickstarts/client-libraries-rest-api.md).
+The API is a part of [Azure Cognitive Services](../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API [version 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) or [version 3.1](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1), or the [client library](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
+This documentation contains the following types of articles:
+* [Quickstarts](./quickstarts/client-libraries-rest-api.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* [How-to guides](./how-tos/text-analytics-how-to-call-api.md) contain instructions for using the service in more specific or customized ways.
+* [Concepts](text-analytics-user-scenarios.md) provide in-depth explanations of the service's functionality and features.
+* [Tutorials](./tutorials/tutorial-power-bi-key-phrases.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Sentiment analysis
 
-Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) and find out what people think of your brand or topic by mining the text for clues about positive or negative sentiment. 
+Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) (SA) and find out what people think of your brand or topic by mining the text for clues about positive or negative sentiment. 
 
 The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises [using a container](how-tos/text-analytics-how-to-install-containers.md).
 
-Starting in the v3.1 preview, opinion mining is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
+Starting in the v3.1, opinion mining (OM) is a feature of Sentiment Analysis. Also known as Aspect-based Sentiment Analysis in Natural Language Processing (NLP), this feature provides more granular information about the opinions related to words (such as the attributes of products or services) in text.
 
 ## Key phrase extraction
 
-Use [key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md) to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will return the main talking points: "food" and "wonderful staff".
+Use [key phrase extraction](how-tos/text-analytics-how-to-keyword-extraction.md) (KPE) to quickly identify the main concepts in text. For example, in the text "The food was delicious and there were wonderful staff", Key Phrase Extraction will return the main talking points: "food" and "wonderful staff".
 
 ## Language detection
 
@@ -42,6 +48,10 @@ Language detection can [detect the language an input text is written in](how-tos
 
 Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, quantities, Well-known entities are also recognized and linked to more information on the web.
 
+## Text Analytics for health
+
+Text Analytics for health is a feature of the Text Analytics API service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records. 
+
 ## Deploy on premises using Docker containers
 
 [Use Text Analytics containers](how-tos/text-analytics-how-to-install-containers.md) to deploy API features on-premises. These docker containers enable you to bring the service closer to your data for compliance, security or other operational reasons. Text Analytics offers the following containers:
@@ -49,11 +59,11 @@ Named Entity Recognition (NER) can [Identify and categorize entities](how-tos/te
 * sentiment analysis
 * key phrase extraction (preview)
 * language detection (preview)
-* Text Analytics for health (preview)
+* Text Analytics for health
 
 ## Asynchronous operations
 
-The `/analyze` endpoint enables you to use select features of the Text Analytics API [asynchronously](how-tos/text-analytics-how-to-call-api.md), such as NER and key phrase extraction.
+The `/analyze` endpoint enables you to use many features of the Text Analytics API [asynchronously](how-tos/text-analytics-how-to-call-api.md). Named Entity Recognition (NER), Key phrase extraction (KPE), Sentiment Analysis (SA), Opinion Mining (OM) are available as part of `/analyze` endpoint. It allows clubbing of these features in a single call. It allows sending up to 125,000 characters per document. Pricing is same as regular Text Analytics.
 
 ## Typical workflow
 

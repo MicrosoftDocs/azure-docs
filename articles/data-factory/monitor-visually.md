@@ -1,8 +1,8 @@
 ---
 title: Visually monitor Azure Data Factory 
 description: Learn how to visually monitor Azure data factories
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual

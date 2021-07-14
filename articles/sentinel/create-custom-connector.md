@@ -79,7 +79,7 @@ For examples of useful Logstash plugins, see:
 
 ## Connect with Logic Apps
 
-Use an [Azure Logic App](../logic-apps/index.yml) to create a serverless, custom connector for Azure Sentinel.
+Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom connector for Azure Sentinel.
 
 > [!NOTE]
 > While creating serverless connectors using Logic Apps may be convenient, using Logic Apps for your connectors may be costly for large volumes of data.
@@ -122,8 +122,6 @@ For examples of how you can create a custom connector for Azure Sentinel using L
 - [Palo Alto Prisma Logic App connector using a webhook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) (Azure Sentinel GitHub community)
 - [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600) (blog)
 - [Ingesting AlienVault OTX threat indicators into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
-- [Sending Proofpoint TAP logs to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-proofpoint-tap-logs-to-azure-sentinel/ba-p/767727) (blog)
-
 
 ## Connect with PowerShell
 
@@ -215,3 +213,5 @@ Use the data ingested into Azure Sentinel to secure your environment with any of
 - [Detect threats](tutorial-detect-threats-built-in.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
+
+Also, learn about one example of creating a custom connector to monitor Zoom: [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).

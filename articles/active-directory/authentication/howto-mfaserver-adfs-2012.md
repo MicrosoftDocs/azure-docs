@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/11/2018
+ms.date: 06/01/2021
 
 ms.author: justinha
 author: justinha
@@ -95,7 +95,7 @@ Follow these steps to edit the MultiFactorAuthenticationAdfsAdapter.config file:
 There are two options for configuring the Web Service SDK. The first is with a username and password, the second is with a client certificate. Follow these steps for the first option, or skip ahead for the second.  
 
 1. Set the value for **WebServiceSdkUsername** to an account that is a member of the PhoneFactor Admins security group. Use the &lt;domain&gt;&#92;&lt;user name&gt; format.  
-2. Set the value for **WebServiceSdkPassword** to the appropriate account password.
+2. Set the value for **WebServiceSdkPassword** to the appropriate account password. The special character "&" cannot be used in the **WebServiceSdkPassword**.
 
 ### Configure the Web Service SDK with a client certificate
 
@@ -168,4 +168,4 @@ To help with troubleshooting issues with the MFA Server AD FS Adapter use the st
 
 ## Related topics
 
-For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.md)
+For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.yml)

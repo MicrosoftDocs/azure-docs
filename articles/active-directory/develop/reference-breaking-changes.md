@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 2/22/2021
+ms.date: 6/4/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -31,9 +31,23 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
+### The device code flow UX will now include an app confirmation prompt
+
+**Effective date**: June 2021.
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
+
+As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
+
+The prompt that appears looks like this:
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+
 ### Conditional Access will only trigger for explicitly requested scopes
 
-**Effective date**: March 2021
+**Effective date**: August 2021, with gradual rollout starting in April. 
 
 **Endpoints impacted**: v2.0
 
@@ -45,6 +59,8 @@ In order to reduce the number of unnecessary Conditional Access prompts, Azure A
 
 Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter. 
 
+This change will be made for all apps except those with an observed dependency on this behavior.  Developers will receive outreach if they are exempted from this change, as them may have a dependency on the additional conditional access prompts. 
+
 **Examples**
 
 An app has consent for `user.read`, `files.readwrite`, and `tasks.read`. `files.readwrite` has Conditional Access policies applied to it, while the other two do not. If an app makes a token request for `scope=user.read`, and the currently signed in user has not passed any Conditional Access policies, then the resulting token will be for the `user.read` and `tasks.read` permissions. `tasks.read` is included because the app has consent for it, and it does not require a Conditional Access policy to be enforced. 
@@ -53,8 +69,19 @@ If the app then requests `scope=files.readwrite`, the Conditional Access require
 
 If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional access policies needed for `files.readwrite`, and again issue a token with all three permissions in it. 
 
-
 ## May 2020
+
+### Bug fix: Azure AD will no longer URL encode the state parameter twice
+
+**Effective date**: May 2021
+
+**Endpoints impacted**: v1.0 and v2.0
+
+**Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
+
+A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
+
+Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
 
 ### Azure Government endpoints are changing
 

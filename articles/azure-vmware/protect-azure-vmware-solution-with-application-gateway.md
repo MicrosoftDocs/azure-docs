@@ -1,11 +1,11 @@
 ---
-title: Use Azure Application Gateway to protect your web apps on Azure VMware Solution
+title: Protect web apps on Azure VMware Solution with Azure Application Gateway
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution.
 ms.topic: how-to
 ms.date: 02/10/2021
 ---
 
-# Use Azure Application Gateway to protect your web apps on Azure VMware Solution
+# Protect web apps on Azure VMware Solution with Azure Application Gateway
 
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that lets you manage traffic to your web applications. It's offered in both Azure VMware Solution v1.0 and v2.0. Both versions tested with web apps running on Azure VMware Solution.
 
@@ -21,7 +21,7 @@ This article shows you how to use Application Gateway in front of a web server f
 ## Topology
 The diagram shows how Application Gateway is used to protect Azure IaaS virtual machines (VMs), Azure virtual machine scale sets, or on-premises servers. Application Gateway treats Azure VMware Solution VMs as on-premises servers. 
 
-![Diagram showing how Application Gateway protects Azure IaaS virtual machines (VMs), Azure virtual machine scale sets, or on-premises servers.](media/protect-azure-vmware-solution-with-application-gateway/app-gateway-protects.png)
+:::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-protects.png" alt-text="Diagram showing how Application Gateway protects Azure IaaS virtual machines (VMs), Azure virtual machine scale sets, or on-premises servers.":::
 
 > [!IMPORTANT]
 > Azure Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs.

@@ -40,7 +40,7 @@ You can use either private IP addresses or public IP addresses to configure the 
     * The subnets used for routing can be either private IP addresses or public IP addresses.
     * The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
     * If a /125 subnet is used, it is split into two /126 subnets. 
-      * The first /126 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
+      * The first /126 subnet is used for the primary link and the second /126 subnet is used for the secondary link.
       * For each of the /126 subnets, you must use the first IP address of the /126 subnet on your router. Microsoft uses the second IP address of the /126 subnet to set up a BGP session.
       * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 

@@ -165,7 +165,7 @@ additionalContent:
             - text: Blueprint functions
               url: ./blueprints/reference/blueprint-functions.md
             - text: Azure CLI
-              url: /cli/azure/ext/blueprint/blueprint
+              url: /cli/azure/blueprint
             - text: Azure PowerShell
               url: /powershell/module/az.blueprint/#blueprint
             - text: Azure PowerShell
@@ -178,7 +178,7 @@ additionalContent:
         - title: Azure Resource Graph
           links:
             - text: Azure CLI
-              url: /cli/azure/ext/resource-graph/graph
+              url: /cli/azure/graph
             - text: Azure PowerShell
               url: /powershell/module/az.resourcegraph/#resourcegraph
             - text: Azure SDK for .NET

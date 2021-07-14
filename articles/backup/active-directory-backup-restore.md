@@ -18,7 +18,13 @@ This article outlines the proper procedures for backing up and restoring Active 
 
 - Make sure at least one domain controller is backed up. If you back up more than one domain controller, make sure all the ones holding the [FSMO (Flexible Single Master Operation) roles](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) are backed up.
 
-- Back up Active Directory frequently. The backup should never be more than the tombstone lifetime (by default 60 days), because objects older than the tombstone lifetime will be "tombstoned" and no longer considered valid.
+- Back up Active Directory frequently. The backup age should never be older than the tombstone lifetime (TSL) because objects older than the TSL will be "tombstoned" and no longer considered valid.
+  - The default TSL, for domains built on Windows Server 2003 SP2 and later, is 180 days.
+  - You can verify the configured TSL by using the following PowerShell script:
+
+    ```powershell
+    (Get-ADObject $('CN=Directory Service,CN=Windows NT,CN=Services,{0}' -f (Get-ADRootDSE).configurationNamingContext) -Properties tombstoneLifetime).tombstoneLifetime
+    ```
 
 - Have a clear disaster recovery plan that includes instructions on how to restore your domain controllers. To prepare for restoring an Active Directory forest, read the [Active Directory Forest Recovery Guide](/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide).
 

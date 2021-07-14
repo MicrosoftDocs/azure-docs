@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse in enterprise scenarios
 description: The capabilities of Azure Lighthouse can be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
-ms.date: 03/12/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,7 @@ For most organizations, management is easier with a single Azure AD tenant. Havi
 
 Some organizations may need to use multiple Azure AD tenants. This might be a temporary situation, as when acquisitions have taken place and a long-term tenant consolidation strategy hasn't been defined yet. Other times, organizations may need to maintain multiple tenants on an ongoing basis due to wholly independent subsidiaries, geographical or legal requirements, or other considerations.
 
-In cases where a multi-tenant architecture is required, Azure Lighthouse can help centralize and streamline management operations. By using [Azure delegated resource management](azure-delegated-resource-management.md), users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
+In cases where a multi-tenant architecture is required, Azure Lighthouse can help centralize and streamline management operations. By using [Azure delegated resource management](architecture.md), users in one managing tenant can perform [cross-tenant management functions](cross-tenant-management-experience.md) in a centralized, scalable manner.
 
 ## Tenant management architecture
 
@@ -33,7 +33,7 @@ In most enterprise scenarios, you’ll want to delegate a full subscription to A
 
 Either way, be sure to [follow the principle of least privilege when defining which users will have access to delegated resources](recommended-security-practices.md#assign-permissions-to-groups-using-the-principle-of-least-privilege). Doing so helps to ensure that users only have the permissions needed to perform the required tasks and reduces the chance of inadvertent errors.
 
-Azure Lighthouse only provides logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants.  Users and groups in the managing tenant should continue to use multi-factor authentication when performing management operations on managed tenant resources.
+Azure Lighthouse only provides logical links between a managing tenant and managed tenants, rather than physically moving data or resources. Furthermore, the access always goes in only one direction, from the managing tenant to the managed tenants. Users and groups in the managing tenant should continue to use multifactor authentication when performing management operations on managed tenant resources.
 
 Enterprises with internal or external governance and compliance guardrails can use [Azure Activity logs](../../azure-monitor/essentials/platform-logs-overview.md) to meet their transparency requirements. When enterprise tenants have established managing and managed tenant relationships, users in each tenant can view logged activity to see actions taken by users in the managing tenant.
 
@@ -56,4 +56,4 @@ Continuing with that example, Tenant A users with the appropriate permissions ca
 ## Next steps
 
 - Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
-- Learn about [Azure delegated resource management](azure-delegated-resource-management.md).
+- Learn more about [how Azure Lighthouse works](architecture.md).

@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 04/02/2021
 ---
 
 # How to create, import, and export glossary terms
@@ -29,7 +29,7 @@ To create a new glossary term, do the following steps:
 
 5. Set the **Status** for the term. New terms default to **Draft** status.
 
-   :::image type="content" source="media/how-to-create-import-export-glossary/new-term-options.png" alt-text="Screenshot of the status choices." border="true":::
+   :::image type="content" source="media/how-to-create-import-export-glossary/overview-tab.png" alt-text="Screenshot of the status choices.":::
 
    These status markers are metadata associated with the term. Currently you can set the following status on each term:
 
@@ -87,9 +87,10 @@ You should be able to export terms from glossary as long as the selected terms b
 
 2. Select **Export** to download the selected terms.
 
- > [!Important]
-   > If the terms in a hierarchy belong to different term templates then you need to split them in different .CSV files for import. Also, updating a parent of a term is currently not supported using import process.
+   :::image type="content" source="media/how-to-create-import-export-glossary/select-term-template-for-export.png" lightbox="media/how-to-create-import-export-glossary/select-term-template-for-export.png" alt-text="Screenshot of the Glossary terms page, select file for Export.":::
 
+   > [!Important]
+   > If the terms in a hierarchy belong to different term templates then you need to split them into different .CSV files for import. Also, updating a parent of a term is currently not supported using import process.
 
 ## Next steps
 

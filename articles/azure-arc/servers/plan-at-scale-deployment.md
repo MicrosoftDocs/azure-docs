@@ -1,7 +1,7 @@
 ---
 title: How to plan and deploy Azure Arc enabled servers
 description: Learn how to enable a large number of machines to Azure Arc enabled servers to simplify configuration of essential security, management, and monitoring capabilities in Azure.
-ms.date: 03/18/2021
+ms.date: 04/21/2021
 ms.topic: conceptual
 ---
 
@@ -78,7 +78,7 @@ Phase 3 sees administrators or system engineers enable automation of manual task
 |-----|-------|---------|
 |Create a Resource Health alert |If a server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it is offline, the network connection has been blocked, or the agent is not running. Develop a plan for how you’ll respond and investigate these incidents and use [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when they start.<br><br> Specify the following when configuring the alert:<br> **Resource type** = **Azure Arc enabled servers**<br> **Current resource status** = **Unavailable**<br> **Previous resource status** = **Available** | One hour |
 |Create an Azure Advisor alert | For the best experience and most recent security and bug fixes, we recommend keeping the Azure Arc enabled servers agent up to date. Out-of-date agents will be identified with an [Azure Advisor alert](../../advisor/advisor-alerts-portal.md).<br><br> Specify the following when configuring the alert:<br> **Recommendation type** = **Upgrade to the latest version of the Azure Connected Machine Agent** | One hour |
-|[Assign Azure policies](../../governance/policy/assign-policy-portal.md) to your subscription or resource group scope |Assign the **Enable Azure Monitor for VMs** [policy](../../azure-monitor/vm/vminsights-enable-policy.md) (and others that meet your needs) to the subscription or resource group scope. Azure Policy allows you to assign policy definitions that install the required agents for Azure Monitor for VMs across your environment.| Varies |
+|[Assign Azure policies](../../governance/policy/assign-policy-portal.md) to your subscription or resource group scope |Assign the **Enable Azure Monitor for VMs** [policy](../../azure-monitor/vm/vminsights-enable-policy.md) (and others that meet your needs) to the subscription or resource group scope. Azure Policy allows you to assign policy definitions that install the required agents for VM insights across your environment.| Varies |
 |[Enable Update Management for your Arc enabled servers](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines registered with Arc enabled servers. | 15 minutes |
 
 ## Next steps

@@ -4,14 +4,14 @@ description: Learn how to configure a Node.js app in the native Windows instance
 ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
 
 # Configure a Node.js app for Azure App Service
 
-Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build automation enabled. If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
+Node.js apps must be deployed with all the required NPM dependencies. The App Service deployment engine automatically runs `npm install --production` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) [with build automation enabled](deploy-zip.md#enable-build-automation). If you deploy your files using [FTP/S](deploy-ftp.md), however, you need to upload the required packages manually.
 
 This guide provides key concepts and instructions for Node.js developers who deploy to App Service. If you've never used Azure App Service, follow the [Node.js quickstart](quickstart-nodejs.md) and [Node.js with MongoDB tutorial](tutorial-nodejs-mongodb-app.md) first.
 
@@ -115,7 +115,7 @@ app.listen(port, () => {
 
 ## Customize build automation
 
-If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or zip packages [with build automation enabled](deploy-zip.md#enable-build-automation), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `npm install` without any flags, which includes npm `preinstall` and `postinstall` scripts and also installs `devDependencies`.
@@ -143,9 +143,34 @@ For more information on how App Service runs and builds Node.js apps in Linux, s
 
 The Node.js containers come with [PM2](https://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
 
-- [Run custom command](#run-custom-command)
-- [Run npm start](#run-npm-start)
-- [Run with PM2](#run-with-pm2)
+|Tool|Purpose|
+|--|--|
+|[Run with PM2](#run-with-pm2)|**Recommended** -  Production or staging use. PM2 provides a full-service app management platform.|
+|[Run npm start](#run-npm-start)|Development use only.|
+|[Run custom command](#run-custom-command)|Either development or staging.|
+
+
+### Run with PM2
+
+The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
+
+- *bin/www*
+- *server.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
+
+You can also configure a custom start file with the following extensions:
+
+- A *.js* file
+- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
+
+To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+```
 
 ### Run custom command
 
@@ -176,27 +201,6 @@ To use a custom *package.json* in your project, run the following command in the
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
 ```
 
-### Run with PM2
-
-The container automatically starts your app with PM2 when one of the common Node.js files is found in your project:
-
-- *bin/www*
-- *server.js*
-- *app.js*
-- *index.js*
-- *hostingstart.js*
-- One of the following [PM2 files](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* and *ecosystem.config.js*
-
-You can also configure a custom start file with the following extensions:
-
-- A *.js* file
-- A [PM2 file](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) with the extension *.json*, *.config.js*, *.yaml*, or *.yml*
-
-To add a custom start file, run the following command in the [Cloud Shell](https://shell.azure.com):
-
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
-```
 
 ## Debug remotely
 
@@ -233,7 +237,7 @@ process.env.NODE_ENV
 
 ## Run Grunt/Bower/Gulp
 
-By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git or Zip deployment with build automation enabled. If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
+By default, App Service build automation runs `npm install --production` when it recognizes a Node.js app is deployed through Git, or through Zip deployment [with build automation enabled](deploy-zip.md#enable-build-automation). If your app requires any of the popular automation tools, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) to run it.
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -312,7 +316,7 @@ fi
 
 ## Detect HTTPS session
 
-In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 Popular web frameworks let you access the `X-Forwarded-*` information in your standard app pattern. In [Express](https://expressjs.com/), you can use [trust proxies](https://expressjs.com/guide/behind-proxies.html). For example:
 
@@ -376,6 +380,6 @@ When a working Node.js app behaves differently in App Service or has errors, try
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end

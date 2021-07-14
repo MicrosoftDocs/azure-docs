@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
-ms.author: matjazl
+ms.author: chrupa
 ---
 
 # What is Azure API for FHIR&reg;?

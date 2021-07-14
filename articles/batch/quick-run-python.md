@@ -1,9 +1,13 @@
 ---
 title: Quickstart - Use Python API to run an Azure Batch job
 description: In this quickstart, you run an Azure Batch sample job and tasks using the Batch Python client library. Learn the key concepts of the Batch service.
-ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: [seo-python-october2019, mvc, devx-track-python]
+ms.topic: quickstart
+ms.custom:
+  - seo-python-october2019
+  - mvc
+  - devx-track-python
+  - mode-api
 ---
 
 # Quickstart: Use Python API to run an Azure Batch job

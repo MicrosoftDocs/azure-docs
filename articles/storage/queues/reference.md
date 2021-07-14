@@ -1,8 +1,8 @@
 ---
 title: Azure Queue Storage reference
 description: Find Azure Queue Storage API reference, README files, and client library packages.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.reviewer: ripohane
 ms.date: 09/10/2020
 ms.topic: conceptual

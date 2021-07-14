@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/11/2021
 ms.reviewer: andalmia
 ms.author: banders 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create Azure subscriptions programmatically

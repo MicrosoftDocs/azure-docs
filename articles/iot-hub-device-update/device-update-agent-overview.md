@@ -79,7 +79,7 @@ mostly no-ops. The implementation of the Simulator Update Handler can be found b
 Note: The InstalledCriteria field in
 the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the
 content. This is the same hash that is present in the [Import Manifest
-Object](import-update.md#create-device-update-import-manifest). [Learn
+Object](import-update.md#create-a-device-update-import-manifest). [Learn
 More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
 
 ### `SWUpdate` Update Handler

@@ -1,5 +1,5 @@
 ---
-title: Register SAP ECC source and setup scans (preview) in Azure Purview
+title: Register SAP ECC source and setup scans in Azure Purview
 description: This article outlines how to register SAP ECC source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
 ---
-# Register and scan SAP ECC source (preview)
+# Register and scan SAP ECC source
 
 This article outlines how to register an SAP ECC source in Purview and
 set up a scan.
@@ -43,7 +43,7 @@ instance and fetches **Lineage** between data assets.
 
     :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="pre-requisite" border="true":::
 
-5.  The connector reads metadata from SAP using the Java Connector (JCo)
+5.  The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html)
     3.0 API. Hence make sure the Java Connector is available on your
     virtual machine where self-hosted integration runtime is installed.
     Make sure that you are using the correct JCo distribution for your
@@ -129,6 +129,8 @@ To create and run a new scan, do the following:
     f.  **Maximum memory available:** Maximum memory(in GB) available on
         customer's VM to be used by scanning processes. This is
         dependent on the size of SAP ECC source to be scanned.
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
 
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
 

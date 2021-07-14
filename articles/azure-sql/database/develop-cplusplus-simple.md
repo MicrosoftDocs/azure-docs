@@ -7,9 +7,9 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: cpp
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++

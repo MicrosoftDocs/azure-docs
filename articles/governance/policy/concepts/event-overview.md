@@ -10,7 +10,7 @@ Azure Policy events enable applications to react to state changes. This integrat
 the need for complicated code or expensive and inefficient polling services. Instead, events are
 pushed through [Azure Event Grid](../../../event-grid/index.yml) to subscribers such as
 [Azure Functions](../../../azure-functions/index.yml),
-[Azure Logic Apps](../../../logic-apps/index.yml), or even to your own custom http listener.
+[Azure Logic Apps](../../../logic-apps/index.yml), or even to your own custom HTTP listener.
 Critically, you only pay for what you use.
 
 Azure Policy events are sent to the Azure Event Grid, which provides reliable delivery services to
@@ -34,7 +34,7 @@ for a full tutorial.
 
 ## Available Azure Policy events
 
-Event grid uses [event subscriptions](../../../event-grid/concepts.md#event-subscriptions) to route
+Event Grid uses [event subscriptions](../../../event-grid/concepts.md#event-subscriptions) to route
 event messages to subscribers. Azure Policy event subscriptions can include three types of events:
 
 | Event type | Description |
@@ -47,7 +47,7 @@ event messages to subscribers. Azure Policy event subscriptions can include thre
 
 Azure Policy events contain all the information you need to respond to changes in your data. You can
 identify an Azure Policy event when the `eventType` property starts with "Microsoft.PolicyInsights".
-Additional information about the usage of Event Grid event properties is documented in  
+Additional information about the usage of Event Grid event properties is documented in
 [Event Grid event schema](../../../event-grid/event-schema.md).
 
 | Property | Type | Description |

@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
 ms.author: robinsh
-ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to show me how to use OpenSSL to self-sign device certificates.
 ---
 
@@ -77,13 +77,13 @@ openssl x509 -req -days 365 -in device2.csr -signkey device2.key -out device2.cr
 ## Step 7 - Retrieve the thumbprint for certificate 1
 
 ```bash
-openssl x509 -in device.crt -text -fingerprint
+openssl x509 -in device.crt -noout -fingerprint
 ```
 
 ## Step 8 - Retrieve the thumbprint for certificate 2
 
 ```bash
-openssl x509 -in device2.crt -text -fingerprint
+openssl x509 -in device2.crt -noout -fingerprint
 ```
 
 ## Step 9 - Create a new IoT device

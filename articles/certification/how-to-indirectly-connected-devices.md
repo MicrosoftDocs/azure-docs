@@ -18,7 +18,7 @@ ms.service: certification
 
 # Device bundles and indirectly connected devices
 
-To support devices that interact with Azure through a device, SaaS or PaaS offerings, our submission portal (https://www.certify.azure.com), and device catalog (https://devicecatalog.azure.com) enable concepts of bundling and dependencies to promote and enable these device combinations access to our Azure Certified Device program.
+To support devices that interact with Azure through a device, SaaS or PaaS offerings, our submission portal (https://certify.azure.com/), and device catalog (https://devicecatalog.azure.com) enable concepts of bundling and dependencies to promote and enable these device combinations access to our Azure Certified Device program.
 
 Depending on your product line and services offered, your situation may require a combination of these steps:
 

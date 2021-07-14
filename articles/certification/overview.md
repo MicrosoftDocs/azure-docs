@@ -1,27 +1,27 @@
 ---
 title: Overview of the Azure Certified Device program
-description: An overview of the Azure Certified Device program for our partners and customers
-author: nikuntjo
+description: An overview of the Azure Certified Device program for our partners and customers. Use these resources to start the device certification process. Find out how to certify your device, from IoT device requirements to publishing your device.
+author: nkuntjoro
 ms.author: nikuntjo
 ms.topic: overview 
-ms.date: 03/03/2021
+ms.date: 04/09/2021
 ms.custom: template-overview
 ms.service: certification
 ---
 
-# What is Azure Certified Device?
+# What is the Azure Certified Device program?
 
-Thank you for your interest in the Azure Certified Device program! This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
+Thank you for your interest in the Azure Certified Device program! Azure Certified Device is a free program that enables you to differentiating, certify, and promote your IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
 
 ## Our certification promise
 
 The Azure Certified Device program ensures customer solutions work great on Azure. It is a program that utilizes tools, services, and a catalog to share industry knowledge with our community of builders within the IoT ecosystem to help builders and customers alike.
 
-The three tenets of this program are:
+Across the device certification process, the three tenets of this program are:
 
 - **Giving customers confidence:** Customers can confidently purchase Azure certified devices that carry the Microsoft promise.
 
-- **Matchmaking customers with the right devices for them:** Device builders can set themselves apart with certification that highlights their unique capabilities, and customers can easily find the products that fit their needs.
+- **Matchmaking customers with the right devices for them:** Device builders can set themselves apart with certification that highlights their unique capabilities, and customers can easily find IoT qualified devices that fit their needs.
 
 - **Promoting certified devices:** Device builders get increased visibility, contact with customers, and usage of Microsoft’s Azure Certified Device brand.
 
@@ -29,12 +29,12 @@ The three tenets of this program are:
 
 The Azure Certified Device program serves two different audiences.
 
-1. **Device builders**: Easily differentiate your IoT device capabilities and gain access to a worldwide audience looking to reliably purchase devices built to run on Azure. Use the Azure Certified Device Catalog to increase product visibility and connect with customers by certifying your device.
-1.  **Solution builders**: Confidently find and purchase IoT devices built to run on Azure, knowing they meet specific capabilities. Easily search and select the right certified device for your IoT solution on the [Azure Certified Device catalog](https://devicecatalog.azure.com/).
+1. **Device builders**: Do you build IoT devices? Easily differentiate your IoT device capabilities and gain access to a worldwide audience looking to reliably purchase devices built to run on Azure. Use the Azure Certified Device Catalog to increase product visibility and connect with customers by certifying your device and show it meets specific IoT device requirements.
+1.  **Solution builders**: Wondering what are IoT qualified devices? Confidently find and purchase IoT devices built to run on Azure, knowing they meet specific IoT requirements. Easily search and select the right certified device for your IoT solution on the [Azure Certified Device catalog](https://devicecatalog.azure.com/).
 
-## Our certification programs
+## Our certification programs and IoT device requirements.
 
-There are four different certifications available now! Each certification is focused on delivering a different customer value. Depending on the type of device and your target audience, you can choose which certification(s) is most applicable for you to apply for. Select the titles of each program to learn more about the program requirements.
+There are four different certifications available now! Each certification is focused on delivering a different customer value. Depending on the type of device and your target audience, you can choose which certification(s) is most applicable for you to apply for. Select the titles of each program to learn more about the program and IoT requirements.
 
 | Certification program         |  Overview                      |
 ------------------------------|-------------------------------------------------|
@@ -45,12 +45,16 @@ There are four different certifications available now! Each certification is foc
 
 ## How to certify your device
 
-Certifying a device involves four major steps on the [Azure Certified Device portal](https://certify.azure.com):
+Certifying a device involves several major steps on the [Azure Certified Device portal](https://certify.azure.com):
 
-1. Creating your project
-1. Providing hardware capability information
-1. Validating device functionality
-1. Submitting and completing the review process
+1. Select the right certification for your device based on the IoT device requirements.
+1. Create your project in the [Azure Certified Device portal](https://certify.azure.com).
+1. Add device details including hardware capability information to begin the device certification process.
+1. Validate device functionality
+1. Submit and complete the review process
+
+> [!Note]
+> The review process can take up to a week to complete, though sometimes may take longer.
 
 Once you have certified your device, you then can optionally complete two of the following activities: 
 
@@ -59,7 +63,7 @@ Once you have certified your device, you then can optionally complete two of the
 
 ## Next steps
 
-Ready to get started with your certification journey? View our resources below to begin certifying your device!
+Ready to get started with your certification journey? View our resources below to start the device certification process!
 
 - [Starting the certification process](tutorial-00-selecting-your-certification.md)
-- If you have additional questions or feedback, contact [the Azure Certified Device team](mailto:iotcert@microsoft.com).
+- If you have other questions or feedback, contact [the Azure Certified Device team](mailto:iotcert@microsoft.com).

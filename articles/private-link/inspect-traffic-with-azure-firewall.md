@@ -12,6 +12,9 @@ ms.author: allensu
 ---
 # Use Azure Firewall to inspect traffic destined to a private endpoint
 
+> [!NOTE]
+> If you want to secure traffic to private endpoints in Azure Virtual WAN using secured virtual hub, see [Secure traffic destined to private endpoints in Azure Virtual WAN](../firewall-manager/private-link-inspection-secure-virtual-hub.md).
+
 Azure Private Endpoint is the fundamental building block for Azure Private Link. Private endpoints enable Azure resources deployed in a virtual network to communicate privately with private link resources.
 
 Private endpoints allow resources access to the private link service deployed in a virtual network. Access to the private endpoint through virtual network peering and on-premises network connections extend the connectivity.
@@ -168,7 +171,7 @@ Replace the following parameters in the steps with the information below:
     | **Administrator account** |  |
     | Authentication type | Select **Password**. |
     | Username | Enter a username of your choosing. |
-    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/linux/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/linux/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
@@ -192,6 +195,8 @@ Replace the following parameters in the steps with the information below:
 6. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 
 7. When you see the **Validation passed** message, select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Deploy the Firewall
 

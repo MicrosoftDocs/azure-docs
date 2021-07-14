@@ -1,9 +1,9 @@
 ---
 title: Integrate with Azure Private Link Service
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
-author: ShaneBala-keyvault
-ms.author: sudbalas
-ms.date: 11/17/2020
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 03/31/2021
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
@@ -230,7 +230,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
     1. You must have a Private DNS Zone resource with the exact name: privatelink.vaultcore.azure.net. 
     2. To learn how to set this up please see the following link. [Private DNS Zones](../../dns/private-dns-privatednszone.md)
     
-* Check to make sure the Private DNS Zone is not linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
+* Check to make sure the Private DNS Zone is linked to the Virtual Network. This may be the issue if you are still getting the public IP address returned. 
     1. If the Private Zone DNS is not linked to the virtual network, the DNS query originating from the virtual network will return the public IP address of the key vault. 
     2. Navigate to the Private DNS Zone resource in the Azure portal and click the virtual network links option. 
     4. The virtual network that will perform calls to the key vault must be listed. 
@@ -240,7 +240,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 * Check to make sure the Private DNS Zone is not missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 
     2. Click Overview and check if there is an A record with the simple name of your key vault (i.e. fabrikam). Do not specify any suffix.
-    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 3600 (1 hour). 
+    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 600 (10 mins).
     4. Make sure you specify the correct private IP address. 
     
 * Check to make sure the A record has the correct IP Address. 

@@ -12,7 +12,7 @@ ms.service: iot-hub-device-update
 
 Device Update for IoT Hub supports two forms of updates – image-based and package-based.
 
-Package-based updates are targeted updates that alter only a specific component or application on the device. This leads to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
+Package-based updates are targeted updates that alter only a specific component or application on the device. Package-based updates lead to lower consumption of bandwidth and helps reduce the time to download and install the update. Package updates typically allow for less downtime of devices when applying an update and avoid the overhead of creating images.
 
 This end-to-end tutorial walks you through updating Azure IoT Edge on Ubuntu Server 18.04 x64 by using the Device Update package agent. Although the tutorial demonstrates updating IoT Edge, using similar steps you could update other packages such as the container engine it uses.
 
@@ -35,7 +35,7 @@ In this tutorial you will learn how to:
 ## Prepare a device
 ### Using the Automated Deploy to Azure Button
 
-For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/using-cloud-init.md)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 18.04 LTS virtual machine. It installs both the Azure IoT Edge runtime and the Device Update package agent and then automatically configures the device with provisioning information using the device connection string for an IoT Edge device (prerequisite) that you supply. This avoids the need to start an SSH session to complete setup.
+For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/using-cloud-init.md)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 18.04 LTS virtual machine. It installs both the Azure IoT Edge runtime and the Device Update package agent and then automatically configures the device with provisioning information using the device connection string for an IoT Edge device (prerequisite) that you supply. The Azure Resource Manager template also avoids the need to start an SSH session to complete setup.
 
 1. To begin, click the button below:
 
@@ -70,7 +70,7 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
 1. Verify that the deployment has completed successfully. Allow a few minutes after deployment completes for the post-installation and configuration to finish installing IoT Edge and the Device Package update agent.
 
-   A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name, this should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+   A virtual machine resource should have been deployed into the selected resource group.  Take note of the machine name that should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     The **DNS Name** can be obtained from the **Overview** section of the newly deployed virtual machine within the Azure portal.
 
@@ -82,13 +82,13 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
     `ssh <adminUsername>@<DNS_Name>`
 
 ### (Optional) Manually prepare a device
-The following manual steps to install and configure the device are equivalent to those that were automated by this [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt). They can be used to prepare a physical device.
+Similar to the steps automated by the [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), following are manual steps to install and configure the device. These steps can be used to prepare a physical device.
 
 1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
    > The Device Update package agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
    >
-   > Although not covered in this tutorial, the [IoT Identity Service daemon can be installed standalone on Linux-based IoT devices](https://azure.github.io/iot-identity-service/packaging.html). The sequence of installation matters. The Device Update package agent must be installed _after_ the IoT Identity Service. Otherwise, the package agent will not be registered as an authorized component to establish a connection to IoT Hub.
+   > Although not covered in this tutorial, the [IoT Identity Service daemon can be installed standalone on Linux-based IoT devices](https://azure.github.io/iot-identity-service/installation.html). The sequence of installation matters. The Device Update package agent must be installed _after_ the IoT Identity Service. Otherwise, the package agent will not be registered as an authorized component to establish a connection to IoT Hub.
 
 1. Then, install the Device Update agent .deb packages.
 
@@ -106,9 +106,9 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Edge' on the left navigation pane find your IoT Edge device and navigate to the Device Twin.
+2. From 'IoT Edge' on the left navigation pane, find your IoT Edge device and navigate to the Device Twin or Module Twin.
 
-3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
 
 4. Add a new Device Update tag value as shown below.
 
@@ -120,7 +120,7 @@ Read the license terms prior to using a package. Your installation and use of a 
 
 ## Import update
 
-1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in Github and click the "Assets" drop-down.
+1. Go to [Device Update releases](https://github.com/Azure/iot-hub-device-update/releases) in GitHub and click the "Assets" drop-down.
 
 3. Download the `Edge.package.update.samples.zip` by clicking on it.
 
@@ -145,7 +145,7 @@ This update will update the `aziot-identity-service` and the `aziot-edge` packag
 
 8. Select "Submit" to start the import process.
 
-9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, the import process may complete in a few minutes but could take longer.
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
@@ -204,11 +204,11 @@ This update will update the `aziot-identity-service` and the `aziot-edge` packag
 
 1. Select Refresh to view the latest status details. Continue this process until the status changes to Succeeded.
 
-You have now completed a successful end-to-end package update using Device Update for IoT Hub on a Ubuntu Server 18.04 x64 device. 
+You have now completed a successful end-to-end package update using Device Update for IoT Hub on an Ubuntu Server 18.04 x64 device. 
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and the IoT Edge device (if you created the VM via the Deploy to Azure button). You can do so, by going to each individual resource and selecting "Delete". Note that you need to clean up a device update instance before cleaning up the device update account.
+When no longer needed, clean up your device update account, instance, IoT Hub, and the IoT Edge device (if you created the VM via the Deploy to Azure button). You can do so, by going to each individual resource and selecting "Delete". You need to clean up a device update instance before cleaning up the device update account.
 
 ## Next steps
 

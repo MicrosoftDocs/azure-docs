@@ -220,7 +220,7 @@ In the [Azure portal](https://portal.azure.com) search for **support** in the se
 See the following Commvault documentation for further detail:
 
 - [Commvault User Guide](https://documentation.commvault.com/commvault/v11/article?p=37684_1.htm)
-- [Commvault Azure Architecture Guide](https://www.commvault.com/resources/public-cloud-architecture-guide-for-microsoft-azure-v11-sp16)
+- [Commvault Azure Architecture Guide](https://documentation.commvault.com/commvault/v11/others/pdf/public-cloud-architecture-guide-for-microsoft-azure11-19.pdf)
 
 ### Marketplace offerings
 

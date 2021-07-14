@@ -1,8 +1,8 @@
 ---
 title: Azure Function Activity in Azure Data Factory 
 description: Learn how to use the Azure Function activity to run an Azure Function in a Data Factory pipeline
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual

@@ -2,7 +2,8 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/13/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Subscription deployments with ARM templates
@@ -87,7 +88,7 @@ To deploy to a subscription, use the subscription-level deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \

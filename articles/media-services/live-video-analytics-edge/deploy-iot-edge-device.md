@@ -1,11 +1,13 @@
 ---
-title: Deploy Live Video Analytics on an IoT Edge device - Azure
-description: This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
+title: Deploy Azure Live Video Analytics on an IoT Edge device 
+description: This article lists the steps that will help you deploy Azure Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 ms.topic: how-to
 ms.date: 09/09/2020
 
 ---
-# Deploy Live Video Analytics on an IoT Edge device
+# Deploy Azure Live Video Analytics on an IoT Edge device
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
@@ -33,7 +35,7 @@ See [Create custom Azure Resource Manager role](create-custom-azure-resource-man
 
 ### Set up a premium streaming endpoint
 
-If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
+If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/stream-streaming-endpoint-concept.md#types).  
 
 This is an optional step. You can use this Azure CLI command to do so:
 

@@ -17,7 +17,7 @@ In this quickstart, you will learn how to send messages from a command-line app 
 
 This quickstart can be run on macOS, Windows, or Linux.
 
-* [.NET Core SDK](https://www.microsoft.com/net/download/core)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * A text editor or code editor of your choice.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

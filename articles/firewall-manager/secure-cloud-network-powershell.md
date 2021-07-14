@@ -6,7 +6,8 @@ author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
 ms.date: 10/22/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Secure your virtual hub using Azure PowerShell

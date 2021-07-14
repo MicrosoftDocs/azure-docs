@@ -44,13 +44,14 @@ This table lists accepted data types, when each data type should be used, and th
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
-| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
-| [Related text](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Audio + Human-labeled transcripts](#audio-and-human-labeled-transcript-data) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
+| [Plain text](#plain-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Pronunciation](#pronunciation-data-for-training) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
 
 > [!TIP]
-> When you train a new model, start with [related text](#related-text-data-for-training). This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
+> When you train a new model, start with [text](#plain-text-data-for-training). This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
 
 > [!NOTE]
 > Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data. Even if a base model supports training with audio data, the service might use only part of the audio. Still it will use all the transcripts.
@@ -63,48 +64,19 @@ Files should be grouped by type into a dataset and uploaded as a .zip file. Each
 
 ## Upload data
 
-To upload your data, navigate to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. From the portal, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
+To upload your data, navigate to <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech portal</a>. After creating a project, navigate to **Speech datasets** tab, and click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
-![Screenshot that highlights the Audio upload option from the Speech Portal.](./media/custom-speech/custom-speech-select-audio.png)
-
-Each dataset you upload must meet the requirements for the data type that you choose. Your data must be correctly formatted before it's uploaded. Correctly formatted data ensures it will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
+Firstly you need to specify whether the dataset is to be used for **Training** or **Testing**. And there are multiple types of data that can be uploaded and used for **Training** or **Testing**. Each dataset you upload must meet the requirements for the data type that you choose. Your data must be correctly formatted before it's uploaded. Correctly formatted data ensures it will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
 
 After your dataset is uploaded, you have a few options:
 
-* You can navigate to the **Testing** tab and visually inspect audio only or audio + human-labeled transcription data.
-* You can navigate to the **Training** tab and use audio + human transcription data or related text data to train a custom model.
+* You can navigate to the **Train custom models** tab to train a custom model.
+* You can navigate to the **Test models** tab to visually inspect quality with audio only data or evaluate accuracy with audio + human-labeled transcription data.
 
-## Audio data for testing
 
-Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regards to a specific model's performance. If you're looking to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio--human-labeled-transcript-data-for-testingtraining).
+## Audio and human-labeled transcript data
 
-Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
-
-| Property                 | Value                 |
-|--------------------------|-----------------------|
-| File format              | RIFF (WAV)            |
-| Sample rate              | 8,000 Hz or 16,000 Hz |
-| Channels                 | 1 (mono)              |
-| Maximum length per audio | 2 hours               |
-| Sample format            | PCM, 16-bit           |
-| Archive format           | .zip                  |
-| Maximum archive size     | 2 GB                  |
-
-[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
-
-> [!TIP]
-> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training, divide it into several .zip files and upload them separately. Later, you can choose to train from *multiple* datasets. However, you can only test from a *single* dataset.
-
-Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX </a> to verify audio properties or convert existing audio to the appropriate formats. Below are some examples of how each of these activities can be done through the SoX command line:
-
-| Activity | Description | SoX command |
-|----------|-------------|-------------|
-| Check audio format | Use this command to check<br>the audio file format. | `sox --i <filename>` |
-| Convert audio format | Use this command to convert<br>the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
-
-## Audio + human-labeled transcript data for testing/training
-
-To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
+Audio + human-labeled transcript data can be used for both training and testing purposes. To improve the acoustic aspects like slight accents, speaking styles, background noises, or to measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high-quality transcripts are uploaded.
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. While audio with low recording volume or disruptive background noise is not helpful, it should not hurt your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
@@ -149,20 +121,11 @@ See [Set up your Azure account](custom-speech-overview.md#set-up-your-azure-acco
 
 Not all base models support training with audio data. If the base model does not support it, the service will ignore the audio and just train with the text of the transcriptions. In this case, training will be the same as training with related text. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
 
-## Related text data for training
+## Plain text data for training
 
-Product names or features that are unique, should include related text data for training. Related text helps ensure correct recognition. Two types of related text data can be provided to improve recognition:
+Domain related sentences can be used to improve accuracy when recognizing product names, or industry-specific jargon. Sentences can be provided as a single text file. To improve accuracy, use text data that is closer to the expected spoken utterances. 
 
-| Data type | How this data improves recognition |
-|-----------|------------------------------------|
-| Sentences (utterances) | Improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
-| Pronunciations | Improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
-
-Sentences can be provided as a single text file or multiple text files. To improve accuracy, use text data that is closer to the expected spoken utterances. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>.
-
-Training with related text usually completes within a few minutes.
-
-### Guidelines to create a sentences file
+Training with plain text usually completes within a few minutes.
 
 To create a custom model using sentences, you'll need to provide a list of sample utterances. Utterances _do not_ need to be complete or grammatically correct, but they must accurately reflect the spoken input you expect in production. If you want certain terms to have increased weight, add several sentences that include these specific terms.
 
@@ -182,14 +145,13 @@ Additionally, you'll want to account for the following restrictions:
 * Don't use special characters or UTF-8 characters above `U+00A1`.
 * URIs will be rejected.
 
-### Guidelines to create a pronunciation file
+## Pronunciation data for training
 
-If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition.
-
+If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. 
 > [!IMPORTANT]
 > It is not recommended to use custom pronunciation files to alter the pronunciation of common words.
 
-This includes examples of a spoken utterance, and a custom pronunciation for each:
+Pronunciations should be provided as a single text file. This includes examples of a spoken utterance, and a custom pronunciation for each:
 
 | Recognized/displayed form | Spoken form |
 |--------------|--------------------------|
@@ -214,9 +176,37 @@ Use the following table to ensure that your related data file for pronunciations
 | # of pronunciations per line | 1 |
 | Maximum file size | 1 MB (1 KB for free tier) |
 
+## Audio data for testing
+
+Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regards to a specific model's performance. If you're looking to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio-and-human-labeled-transcript-data).
+
+Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
+
+| Property                 | Value                 |
+|--------------------------|-----------------------|
+| File format              | RIFF (WAV)            |
+| Sample rate              | 8,000 Hz or 16,000 Hz |
+| Channels                 | 1 (mono)              |
+| Maximum length per audio | 2 hours               |
+| Sample format            | PCM, 16-bit           |
+| Archive format           | .zip                  |
+| Maximum archive size     | 2 GB                  |
+
+[!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
+
+> [!TIP]
+> When uploading training and testing data, the .zip file size cannot exceed 2 GB. If you require more data for training, divide it into several .zip files and upload them separately. Later, you can choose to train from *multiple* datasets. However, you can only test from a *single* dataset.
+
+Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX </a> to verify audio properties or convert existing audio to the appropriate formats. Below are some examples of how each of these activities can be done through the SoX command line:
+
+| Activity | Description | SoX command |
+|----------|-------------|-------------|
+| Check audio format | Use this command to check<br>the audio file format. | `sox --i <filename>` |
+| Convert audio format | Use this command to convert<br>the audio file to single channel, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
+
 ## Next steps
 
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
-* [Train your model](how-to-custom-speech-train-model.md)
-* [Deploy your model](./how-to-custom-speech-train-model.md)
+* [Train custom model](how-to-custom-speech-train-model.md)
+* [Deploy model](./how-to-custom-speech-train-model.md)

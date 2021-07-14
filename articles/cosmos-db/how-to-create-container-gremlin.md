@@ -1,13 +1,13 @@
 ---
 title: Create a container in Azure Cosmos DB Gremlin API
 description: Learn how to create a container in Azure Cosmos DB Gremlin API by using Azure portal, .NET and other SDKs. 
-author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/16/2020
-ms.author: mjbrown 
-ms.custom: devx-track-azurecli, devx-track-csharp
+author: manishmsfte
+ms.author: mansha 
+ms.custom: devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB Gremlin API

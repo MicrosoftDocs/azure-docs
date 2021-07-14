@@ -23,8 +23,6 @@ landingContent:
         links:
           - text: What is Industrial IoT (IIoT)?
             url: overview-what-is-industrial-iot.md
-          - text: What is the Industrial IoT (IIoT) Platform?
-            url: overview-what-is-industrial-iot-platform.md
           - text: What is the OPC Publisher?
             url: overview-what-is-opc-publisher.md
 

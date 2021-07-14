@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 8/11/2020
+ms.date: 07/06/2021
 ms.author: lajanuar
 ---
 
@@ -30,20 +30,20 @@ Microsoft Translator is served out of multiple datacenter locations. Currently t
 
 * **Americas:** East US, South Central US, West Central US, and West US 2 
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
-* **Europe:** North Europe, West Europe, Switzerland North<sup>1,2</sup>, and Switzerland West<sup>1,2</sup>
+* **Europe:** North Europe, West Europe
 
-Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
+Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. If there is a datacenter failure, the request may be routed outside of the geography.
 
-To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired geographical endpoint:
+To force the request to be handled by a specific geography, change the Global endpoint in the API request to the desired geographical endpoint:
 
-|Description|Azure geography|Base URL (geographical endpoint)|
-|:--|:--|:--|
-|Azure|Global (non-regional)|	api.cognitive.microsofttranslator.com|
-|Azure|United States|	api-nam.cognitive.microsofttranslator.com|
-|Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
-|Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
+|Geography|Base URL (geographical endpoint)|
+|:--|:--|
+|Global (non-regional)|    api.cognitive.microsofttranslator.com|
+|United States|    api-nam.cognitive.microsofttranslator.com|
+|Europe|    api-eur.cognitive.microsofttranslator.com|
+|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|
 
-<sup>1</sup> Customer with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’ then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
+<sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’, then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
 ```curl
 // Pass secret key and region using headers to a custom endpoint
 curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
@@ -52,7 +52,7 @@ curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translat
 -H "Content-Type: application/json" \
 -d "[{'Text':'Hello'}]" -v
 ```
-<sup>2</sup>Custom Translator is not currently available in Switzerland.
+<sup>2</sup> Custom Translator is not currently available in Switzerland.
 
 ## Authentication
 
@@ -90,7 +90,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### Authenticating with a regional resource
 
 When you use a [regional translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-There are 2 headers that you need to call the Translator.
+There are two headers that you need to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -112,7 +112,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 When you use a Cognitive Service’s multi-service resource. This allows you to use a single secret key to authenticate requests for multiple services. 
 
-When you use a multi-service secret key, you must include two authentication headers with your request. There are 2 headers that you need to call the Translator.
+When you use a multi-service secret key, you must include two authentication headers with your request. There are two headers that you need to call the Translator.
 
 |Headers|Description|
 |:-----|:----|
@@ -153,7 +153,7 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ## Virtual Network support
 
-The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, please see [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
+The Translator service is now available with Virtual Network (VNET) capabilities in all regions of the Azure public cloud. To enable Virtual Network, *See* [Configuring Azure Cognitive Services Virtual Networks](../../cognitive-services-virtual-networks.md?tabs=portal). 
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
@@ -192,6 +192,7 @@ For example, a customer with a free trial subscription would receive the followi
     }
 }
 ```
+
 The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes are:
 
 | Code | Description |
@@ -228,12 +229,12 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 403000| The operation is not allowed.|
 | 403001| The operation is not allowed because the subscription has exceeded its free quota.|
 | 405000| The request method is not supported for the requested resource.|
-| 408001| The translation system requested is being prepared. Please retry in a few minutes.|
+| 408001| The translation system requested is being prepared. Retry in a few minutes.|
 | 408002| Request timed out waiting on incoming stream. The client did not produce a request within the time that the server was prepared to wait. The client may repeat the request without modifications at any later time.|
 | 415000| The Content-Type header is missing or invalid.|
 | 429000, 429001, 429002| The server rejected the request because the client has exceeded request limits.|
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
-| 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
+| 503000| Service is temporarily unavailable. Retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
 ## Metrics 
 Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
@@ -250,6 +251,6 @@ This table lists available metrics with description of how they are used to moni
 | TotalErrors| Number of calls with error response.|
 | BlockedCalls| Number of calls that exceeded rate or quota limit.|
 | ServerErrors| Number of calls with server internal error(5XX).|
-| ClientErrors| Number of calls with client side error(4XX).|
+| ClientErrors| Number of calls with client-side error(4XX).|
 | Latency| Duration to complete request in milliseconds.|
 | CharactersTranslated| Total number of characters in incoming text request.|

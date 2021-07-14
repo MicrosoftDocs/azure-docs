@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 03/18/2021 
+ms.date: 04/04/2021 
 ---
 
 # Get Started with Azure Synapse Analytics
@@ -27,3 +27,4 @@ Follow the steps *in order* as shown below and you'll take a tour through many o
 * [STEP 7 - Visualize data with Power BI](get-started-visualize-power-bi.md)
 * [STEP 8 - Monitor activities](get-started-monitor.md)
 * [STEP 9 - Explore the Knowledge center](get-started-knowledge-center.md)
+* [STEP 10 - Add an administrator](get-started-add-admin.md)

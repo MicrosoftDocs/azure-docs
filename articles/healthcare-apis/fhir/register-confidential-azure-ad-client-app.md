@@ -6,8 +6,8 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.author: matjazl
+ms.date: 04/08/2021
+ms.author: cavoeg
 ---
 
 # Register a confidential client application in Azure Active Directory
@@ -24,7 +24,7 @@ To register a new confidential client application, refer to the steps below.
 
 1. Select **App registrations**. 
 
-    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-new-app-registration.png" alt-text="Azure portal. New App Registration.":::
 
 1. Select **New registration**.
 
@@ -34,7 +34,7 @@ To register a new confidential client application, refer to the steps below.
 
 1. (Optional) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it now.
 
-    ![New Confidential Client App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="New Confidential Client App Registration.":::
 
 1. Select **Register**.
 
@@ -44,7 +44,7 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **API permissions**.
 
-    ![Confidential client. API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="Confidential client. API Permissions.":::
 
 1. Select **Add a permission**.
 
@@ -65,11 +65,11 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **Certificates & secrets**, and then select **New client secret**. 
 
-    ![Confidential client. Application Secret](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png" alt-text="Confidential client. Application Secret.":::
 
-1. Enter a **Description** for the client secret. Select the Expires (In 1 year, In 2 years, or Never), and then click **Add**.
+1. Enter a **Description** for the client secret. Select the **Expires** drop-down menu to choose an expiration time frame, and then click **Add**.
 
-   ![Add a client secret](media/how-to-aad/add-a-client-secret.png)
+   :::image type="content" source="media/how-to-aad/add-a-client-secret.png" alt-text="Add a client secret.":::
 
 1. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
 

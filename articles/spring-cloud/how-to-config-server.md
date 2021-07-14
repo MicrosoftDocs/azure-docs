@@ -19,7 +19,7 @@ Spring Cloud Config provides server and client-side support for an externalized 
 
 ## Prerequisites
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](spring-cloud-quickstart.md).
+* An already provisioned and running Azure Spring Cloud service. To set up and launch an Azure Spring Cloud service, see [Quickstart: Launch a Java Spring application by using the Azure CLI](./quickstart.md).
 
 ## Restriction
 
@@ -237,12 +237,46 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
    ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
-## Delete your app configuration
+## Delete your configuration
 
-After you've saved a configuration file, the **Delete app configuration** button appears in the **Configuration** tab. Selecting this button will erase your existing settings completely. You should select it if you want to connect your Config Server instance to another source, such as moving from GitHub to Azure DevOps.
+You can select the **Reset** button that appears in the **Config Server** tab to erase your existing settings completely. Delete the config server settings if you want to connect your Config Server instance to another source, such as moving from GitHub to Azure DevOps.
 
+## Config Server Refresh
+When properties are changed, services consuming those properties need to be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Alternatively, in Azure Spring Cloud you can automatically refresh values from the config server by letting the config client to poll for changes based on a refresh internal.
+
+- First include spring-cloud-starter-azure-spring-cloud-client in the dependency section of your pom.xml.
+
+  ```xml
+  <dependency>
+      <groupId>com.microsoft.azure</groupId>
+      <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+      <version>2.4.0</version>
+  </dependency>
+  ```
+
+- Second enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 5 seconds, which is the minimum value you can set for refresh interval.
+By default auto-refresh is set to false and refresh-interval is set to 60 seconds.
+
+  ``` yml
+  spring:
+    cloud:
+      config:
+        auto-refresh: true
+        refresh-interval: 5
+  ```
+
+- Finally add @refreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 5 seconds.
+
+  ``` java
+  @RestController
+  @RefreshScope
+  public class HelloController {
+      @Value("${timeout:4000}")
+      private String connectTimeout;    
+  }
+  ```
 
 
 ## Next steps
 
-In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](spring-cloud-howto-scale-manual.md).
+In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](./how-to-scale-manual.md).

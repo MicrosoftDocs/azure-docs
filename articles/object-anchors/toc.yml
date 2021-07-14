@@ -22,6 +22,12 @@
       href: quickstarts/get-started-unity-hololens.md
     - name: HoloLens with MRTK
       href: quickstarts/get-started-unity-hololens-mrtk.md
+    - name: In-depth MRTK walkthrough
+      href: quickstarts/in-depth-mrtk-walkthrough.md
+    - name: Upgrade to Unity 2020
+      href: quickstarts/upgrade-unity-quickstart-to-2020.md
+    - name: Starting a new Unity HoloLens app
+      href: quickstarts/new-unity-hololens-app.md
   - name: Create HoloLens DirectX app
     href: quickstarts/get-started-hololens-directx.md
 - name: Samples
@@ -30,17 +36,25 @@
     href: https://github.com/Azure/azure-object-anchors
 - name: References
   items:
+  - name: Conversion SDK for .NET
+    href: /dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre
   - name: Runtime SDK for Unity
     href: /dotnet/api/Microsoft.Azure.ObjectAnchors/
   - name: Runtime SDK for HoloLens C++/WinRT
     href: /cpp/api/object-anchors/winrt/
 - name: Resources
   items:
-  - name: Release notes
-    href: https://github.com/Azure/azure-object-anchors/releases
   - name: Azure Mixed Reality Resource Management REST API
     href: /rest/api/mixedreality/
+  - name: Detect a difficult object
+    href: detect-difficult-object.md
   - name: FAQ
     href: faq.md
+  - name: Model conversion error codes
+    href: model-conversion-error-codes.md
+  - name: Release notes
+    href: https://github.com/Azure/azure-object-anchors/releases
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-object-anchors
+  - name: Visualize a converted model
+    href: visualize-converted-model.md

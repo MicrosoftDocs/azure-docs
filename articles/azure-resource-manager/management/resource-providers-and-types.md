@@ -3,7 +3,7 @@ title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
 ms.date: 03/15/2021 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Azure resource providers and types
@@ -310,7 +310,7 @@ West US
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/template-syntax.md). 
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/syntax.md). 
 * To view the resource provider template schemas, see [Template reference](/azure/templates/).
 * For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

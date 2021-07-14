@@ -35,7 +35,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Azure resources page listing resources that can be managed](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Select **Role settings**.
+1. Select **Settings**.
 
     ![Role settings page listing Azure resource roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -43,7 +43,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Role setting details page listing several assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Select **Edit** to open the **Role settings** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
+1. Select **Edit** to open the **Edit role setting** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
 
     ![Edit role settings page with Activation tab open](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
