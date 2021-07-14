@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 07/14/2021
 ---
 
-# Use Azure role-based authentication in Azure Cognitive Search
+# Use role-based authorization in Azure Cognitive Search
 
-Azure provides a global [role-based authorization (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use this role authorization model in the following ways:
+Azure provides a global [role-based access control (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use role authorization in the following ways:
 
-+ Grant service admin rights that work against any client calling [Azure Resource Manager](../azure-resource-manager/management/overview.md). Roles range from full access (Owner), to read-only access to service information (Reader).
++ Grant search service admin rights that work against any client calling [Azure Resource Manager](../azure-resource-manager/management/overview.md). Roles range from full access (Owner), to read-only access to service information (Reader).
 
-+ (Preview only) Grant permissions for inbound calls to a search service for data plane operations, such as creating, deleting, or querying indexes.
++ (Preview only) Grant permissions for inbound data plane operations, such as creating or querying indexes.
 
 + Grant outbound indexer access to external Azure data sources, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md) to run the search service under. For a search service that runs under a managed identity, you can assign roles on external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
 
@@ -25,11 +25,9 @@ This article focuses on roles for control plane and data plane operations. For m
 
 A few RBAC scenarios are **not** supported, and these include:
 
-+ Inbound requests to the search service using generally available roles. Currently, roles for the data plane are in public preview.
++ [Custom roles](../role-based-access-control/custom-roles.md)
 
-+ [Custom roles](../role-based-access-control/custom-roles.md) are not supported.
-
-+ User-identity access over search results (sometimes referred to as row-level security or document-level security) is not supported.
++ User identity access over search results (sometimes referred to as row-level security or document-level security)
 
   > [!Tip]
   > For document-level security, a workaround is to use [security filters](search-security-trimming-for-azure-search.md) to trim results by user identity, removing documents for which the requestor should not have access.
@@ -47,8 +45,8 @@ Role assignments are cumulative and pervasive across all tools and client librar
 | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Stable | Control plane | Same level of access as Owner, minus the ability to assign roles. |
 | [Reader](../role-based-access-control/built-in-roles.md#reader) | Stable | Control plane | Limited access to partial service information. In the portal, the Reader role can access information in the service Overview page, in the Essentials section and under the Monitoring tab. All other tabs and pages are off limits. </br></br>This role has access to service information: resource group, service status, location, subscription name and ID, tags, URL, pricing tier, replicas, partitions, and search units. </br></br>This role also has access to service metrics: search latency, percentage of throttled requests, average queries per second. </br></br>There is no access to content (indexes or synonym maps) or content metrics (storage consumed, number of objects). |
 | [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) | Preview | Control plane | Provides full access to search service and object definitions, but no access to indexed data. This role is intended for service administrators who need more information than what the Reader role provides, but who should not have access to index or synonym map content.|
-| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Preview | Data plane | Provides full access to index data, but nothing else. This role is for developers or index owners who are responsible for creating and loading indexes and synonym maps, but who should not have access to search service information. In the portal, this assignment applies to all indexes on the service. Programmatically, you can set the scope of an assignment on top-level resources (indexers, indexers, synonym maps, and so forth). |
-| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Preview | Data plane | Provides read-only access to index data. This role is for users who run queries against an index. In the portal, this assignment applies to all indexes on the service. Programmatically, you can set the scope of an assignment on top-level resources (indexers, indexers, synonym maps, and so forth). |
+| [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor) | Preview | Data plane | Provides full access to index data, but nothing else. This role is for developers or index owners who are responsible for creating and loading indexes and synonym maps, but who should not have access to search service information. In the portal, this assignment applies to all indexes on the service. Programmatically, you can set the scope of an assignment to top-level resources (indexers, indexers, synonym maps, and so forth). |
+| [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader) | Preview | Data plane | Provides read-only access to index data. This role is for users who run queries against an index. In the portal, this assignment applies to all indexes on the service. Programmatically, you can set the scope to top-level resources (indexers, indexers, synonym maps, and so forth). |
 
 ## Scope: control plane and data plane
 
@@ -58,7 +56,7 @@ In Azure Cognitive Search, control plane operations include create, update, and 
 
 Data plane refers to operations against the search service endpoint, and all of the objects and data hosted on the service. Indexing, querying, and all associated actions target the data plane, which is accessed via the [Search REST API](/rest/api/searchservice/) and equivalent client libraries.
 
-Within the data plane, the client used to assign roles will determine scope. In the portal, the scope is the entire data plane of an individual search service. Programmatically, you can assign vary access by object.
+Within the data plane, the client used to assign roles will determines how you specify the scope of the assignment. In the portal, the role assignment applies to the entire data plane of an individual search service, which encompasses all indexes, indexers, synonym maps, and so forth. Programmatically, you can assign control access to individual objects.
 
 ## How to assign roles
 
@@ -70,7 +68,7 @@ For just the preview roles described above, you will need to also configure your
 
 Stable roles refer to those that are generally available. Currently, these roles are used to control access to service information and admin operations. None of these roles will grant access rights to the search service endpoint itself. For search solutions having hard requirements on generally available features, continue to [use API keys](search-security-api-keys.md) to control access to indexes, indexers, data sources, skillsets, and synonym maps.
 
-+ Stable roles: Owner, Contributor, Reader
++ Stable roles: [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Reader](../role-based-access-control/built-in-roles.md#reader)
 + Applies to: Control plane (or service administration)
 
 No service configuration is required. To assign roles, use one of the [approaches supported for Azure roles](/role-based-access-control/role-assignments-steps.md).
@@ -79,7 +77,7 @@ No service configuration is required. To assign roles, use one of the [approache
 
 Several new roles are now in public preview.
 
-+ Preview roles: Search Service Contributor, Search Index Data Contributor, Search Index Data Reader
++ Preview roles: [Search Service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor), [Search Index Data Contributor](../role-based-access-control/built-in-roles.md#search-index-data-contributor), [Search Index Data Reader](../role-based-access-control/built-in-roles.md#search-index-data-reader)
 + Applies to: Control plane and data plane operations
 
 There are no regional, tier, or pricing restrictions for using RBAC on Azure Cognitive Search.
