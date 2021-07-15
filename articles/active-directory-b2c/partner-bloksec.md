@@ -132,7 +132,7 @@ To get started, you'll need:
 |Property  |Value  |
 |:---------|:---------|
 |Name     |Enter BlokSec yuID – Passwordless or a name of your choice|
-|Metadata URL|https://api.bloksec.io/oidc/.well-known/openid-configuration|         |
+|Metadata URL|https://api.bloksec.io/oidc/.well-known/openid-configuration|         
 |Client ID|The application ID from the BlokSec admin UI captured in **Part 1**|
 |Client Secret|The application Secret from the BlokSec admin UI captured in **Part 1**|
 |Scope|OpenID email profile|
