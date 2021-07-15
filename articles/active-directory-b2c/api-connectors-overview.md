@@ -36,13 +36,13 @@ An API connector provides Azure AD B2C with the information needed to call API e
 
 There are two places in a user flow where you can enable an API connector:
 
-- After signing in with an identity provider
+- After federating with an identity provider during sign-up
 - Before creating the user
 
 > [!IMPORTANT]
 > In both of these cases, the API connectors are invoked during user **sign-up**, not sign-in.
 
-### After signing in with an identity provider
+### After federating with an identity provider during sign-up
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account. The following are examples of API connector scenarios you might enable at this step:
 

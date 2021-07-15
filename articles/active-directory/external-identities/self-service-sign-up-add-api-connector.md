@@ -102,7 +102,7 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 
 6. Select **Save**.
 
-## After signing in with an identity provider
+## After federating with an identity provider during sign-up
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes.
 
