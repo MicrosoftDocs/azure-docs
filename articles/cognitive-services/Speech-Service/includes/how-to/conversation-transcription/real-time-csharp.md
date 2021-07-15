@@ -95,9 +95,9 @@ The following sample code demonstrates how to transcribe conversations in real t
 
 This sample code does the following:
 
-* Creates an `AudioStreamReader` from the sample `.wav` file to transcribe.
+* Creates an `AudioConfig` from the sample `.wav` file to transcribe.
 * Creates a `Conversation` using `CreateConversationAsync()`.
-* Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events
+* Creates a `ConversationTranscriber` using the constructor, and subscribes to the necessary events.
 * Adds participants to the conversation. The strings `voiceSignatureStringUser1` and `voiceSignatureStringUser2` should come as output from the steps above from the function `GetVoiceSignatureString()`.
 * Joins the conversation and begins transcription.
 
