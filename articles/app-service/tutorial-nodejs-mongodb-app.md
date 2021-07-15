@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/mean-todoapp.git
 ```
 
 > [!NOTE]
-> For information on how the sample app is create, see [https://github.com/Azure-Samples/mean-todoapp](https://github.com/Azure-Samples/mean-todoapp).
+> For information on how the sample app is created, see [https://github.com/Azure-Samples/mean-todoapp](https://github.com/Azure-Samples/mean-todoapp).
 
 ### Run the application
 

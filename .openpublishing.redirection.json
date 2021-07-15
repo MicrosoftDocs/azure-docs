@@ -2589,6 +2589,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/quickstart-nodejs-uiex.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux-conceptual.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux-view-log.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/app-service/webjobs-create-ieux.md",
+      "redirect_url": "/azure/app-service/webjobs-create",
+      "redirect_document_id": false
+    },     
+    {
+      "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
+      "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/app-service/containers/index.yml",
       "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
@@ -27040,6 +27065,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/import-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/understand-threat-intelligence",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-threat-intelligence.md",
+      "redirect_url": "/azure/sentinel/connect-threat-intelligence-tip",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
@@ -29533,6 +29568,16 @@
       "source_path_from_root": "/articles/storage/common/storage-quickstart-create-account.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/file-sync/file-sync-server-endpoint.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/file-sync/file-sync-offline-data-transfer.md",
+      "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/files/storage-how-to-recover-deleted-account.md",
@@ -57392,6 +57437,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/app/monitor-performance-live-website-now.md",
       "redirect_url": "/azure/azure-monitor/app/status-monitor-v2-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ipv6-reserve-public-ip-address-prefix.md",
+      "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
       "redirect_document_id": true
     }
   ]
