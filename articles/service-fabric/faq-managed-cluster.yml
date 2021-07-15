@@ -3,9 +3,9 @@ metadata:
   title: Common questions about Service Fabric managed clusters 
   description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
   ms.topic: troubleshooting
-  ms.author: pepogors
-  author: peterpogorski
-  ms.date: 5/10/2021
+  ms.author: micraft
+  author: micraft
+  ms.date: 7/14/21
   ms.custom: references_regions
     
 title: Service Fabric managed clusters frequently asked questions
@@ -23,7 +23,7 @@ sections:
       - question: |
           What regions are supported?
         answer: |
-          Service Fabric managed clusters are supported in all public cloud regions.
+          Service Fabric managed clusters are supported in all cloud regions.
 
       - question: |
           Can I do an in-place migration of my existing Service Fabric cluster to a managed cluster resource?
@@ -55,7 +55,7 @@ sections:
       - question: |
           I want to have an internal-only load balancer, is that possible?
         answer: |
-          No. It isn't currently possible to have an internal-only load balancer. We recommended locking down the Network Security Group (NSG) rules to block any undesired inbound/outbound traffic.
+          It isn't currently possible to have an internal-only load balancer. We recommended locking down the Network Security Group (NSG) rules to block any undesired inbound/outbound traffic.
 
       - question: |
           Can I autoscale my cluster?
@@ -65,7 +65,7 @@ sections:
       - question: |
           Can I deploy my cluster across availability zones?
         answer: |
-          Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](.\service-fabric-cross-availability-zones.md).
+          Yes, Service Fabric managed clusters which span availability zones are supported in Azure regions which support availability zones. For more information, see [Service Fabric managed clusters across availability zones](./how-to-managed-cluster-availability-zones.md).
           
       - question: |
           Can I deploy stateless node types on a Service Fabric managed cluster? 
