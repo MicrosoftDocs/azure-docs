@@ -18,7 +18,7 @@ sections:
       - question: |
           What types of Load Balancer exist?
         answer: |
-          Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For more information, see [Load Balancer Types](components.md#frontend-ip-configurations). 
+          Internal load balancers which balance traffic within a VNET and external load balancers which balance traffic to and from an internet connected endpoint. For more information, see [Load Balancer Types](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). 
           
           For both these types, Azure offers a Basic SKU and Standard SKU that have different functional, performance, security and health tracking capabilities. These differences are explained in our [SKU Comparison](skus.md) article.
           
