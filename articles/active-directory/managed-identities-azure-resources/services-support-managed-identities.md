@@ -187,7 +187,7 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 Refer to the following list to configure managed identity for Azure Digital Twins (in regions where available):
 
-- [Azure portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
+- [Azure portal](../../digital-twins/how-to-route-with-managed-identity.md)
 
 ### Azure Event Grid
 
