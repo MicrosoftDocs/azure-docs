@@ -10,14 +10,25 @@ ms.date: 06/02/2021
 ---
 
 # Monitoring Azure Kubernetes Service (AKS) - Configuration
+This article is part of the Monitoring AKS in Azure Monitor scenario. It describes how to configure monitoring for your AKS cluster.
+## Create Log Analytics workspace
+The first step in any Azure Monitor implementation is creating one or more Log Analytics workspaces. The number that you create, their location, and their configuration will depend on your particular environment and business requirements. 
 
-## Prerequisites
+See [Create a Log Analytics workspace in the Azure portal](../logs/quick-create-workspace.md) for details on creating a workspace. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for criteria to consider when designing your workspace deployment. 
 
-### Create Log Analytics workspace
-The first step in any Azure Monitor implementation is creating one or more Log Analytics workspaces. The number that you create, their location, and their configuration will depend on your particular environment and business requirements. See [Create a Log Analytics workspace in the Azure portal](../logs/quick-create-workspace.md) for details on creating a workspace. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for criteria to consider when designing your workspace deployment. 
+
+## Enable container insights
+[Container insights](container-insights-overview.md) is a feature of Azure Monitor that monitors the performance of managed Kubernetes clusters hosted on AKS in addition to other cluster configurations. Enabling Container insights for your cluster deploys a containerized version of the Log Analytics agent that sends data to Logs and Metrics.
+
+See [New AKS cluster](container-insights-enable-new-cluster.md) to enable container insights when a cluster is created. See [Existing AKS cluster](container-insights-enable-existing-clusters.md) to enable container insights for an existing cluster.
+
+
+## Configure collection from Prometheus
+Container insights allows you to collect Prometheus metrics into your Log Analytics workspace without requiring a Prometheus server. See [Configure scraping of Prometheus metrics with Container insights](container-insights-prometheus-integration.md#view-prometheus-metrics-in-grafana) for details on performing this configuration.
+
 
 ## Collect resource logs
-The logs for AKS control plane components are implemented as [Azure resource logs](../essentials/resource-logs.md). See [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md) to create a diagnostic setting for your AKS cluster to send these logs to your Log Analytics workspace. 
+The logs for AKS control plane components are implemented in Azure as [Azure resource logs](../essentials/resource-logs.md). See [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md) to create a diagnostic setting for your AKS cluster to send these logs to your Log Analytics workspace. 
 
 When you create a diagnostic setting, you select one or categories that define which data is collected from the resource. The following table lists the categories for AKS clusters and which Kubernetes logs they represent. Only specify log categories that you’ll use since you’ll incur ingestion and retention costs for any logs that you collect in the workspace. 
 
@@ -32,18 +43,6 @@ When you create a diagnostic setting, you select one or categories that define w
 | kube-controller-manager | Gain deeper visibility of issues that may arise between Kubernetes and the Azure control plane. A typical example is the AKS cluster having a lack of permissions to interact with Azure. |
 | kube-scheduler          | |
 | AllMetrics              | Includes all platform metrics. Sends these values to Log Analytics workspace where it can be evaluated with other data using log queries.
-
-
-## Enable container insights
-[Container insights](container-insights-overview.md) is a feature of Azure Monitor that monitors the performance of managed Kubernetes clusters hosted on AKS in addition to other cluster configurations. Enabling Container insights for your cluster deploys a containerized version of the Log Analytics agent that sends data to Logs and Metrics.
-
-See [New AKS cluster](container-insights-enable-new-cluster.md) to enable container insights when a cluster is created. See [Existing AKS cluster](container-insights-enable-existing-clusters.md) to enable container insights for an existing cluster.
-
-
-## Configure collection from Prometheus
-Container insights allows you to collect Prometheus metrics into your Log Analytics workspace without requiring a Prometheus server. See [Configure scraping of Prometheus metrics with Container insights](container-insights-prometheus-integration.md#view-prometheus-metrics-in-grafana) for details on performing this configuration.
-
-
 
 
 ## Next steps
