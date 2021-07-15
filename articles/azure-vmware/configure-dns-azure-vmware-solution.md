@@ -42,7 +42,7 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
 
    It takes several minutes to complete, and you can follow the progress from **Notifications**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
+   :::image type="content" source="media/networking/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
 
    >[!IMPORTANT]
    >While NSX-T allows spaces and other non-alphanumeric characters in a DNS zone name, certain NSX resources such as a DNS Zone are mapped to an Azure resource whose names don’t permit certain characters. 
