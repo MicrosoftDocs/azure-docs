@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 > [!IMPORTANT]
 > BYOI interoperability is in public preview and broadly available on request. To enable/disable [Teams tenant interoperability](../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 >
-> Microsoft 365 authenticated interoperability is in private preview, and restricted using service controls to Azure Communication Services early adopters. To enable/disable the custom Teams endpoint experience, complete [this form](https://forms.office.com/r/B8p5KqCH19).
+> Microsoft 365 authenticated interoperability is in private preview, and restricted using service controls to Azure Communication Services early adopters. To join early access program, complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 >
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -50,16 +50,17 @@ Your custom application should consider user authentication and other security m
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a Web application.
 
 ## Microsoft 365 Teams identity
-Authenticating the end user's Microsoft 365 account and authorizing your application through Azure Active Directory allows for a deeper level of interoperability with Microsoft Teams. These applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users. When interacting in a meeting or call, users of the native Teams app will observe your application's end users having the appropriate display name, profile picture, call history, and other Microsoft 365 attributes.
+Authenticating the end user's Microsoft 365 account and authorizing your application through Azure Active Directory allows for a deeper level of interoperability with Microsoft Teams. These applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users. When interacting in a meeting or call, users of the native Teams app will observe your application's end users having the appropriate display name, profile picture, call history, and other Microsoft 365 attributes. Chat functionality is currently available via Graph API.
 
 This identity model is ideal for augmenting a Teams deployment with a fully custom user experience. For example, an application can be used to answer phone calls on behalf of the end user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.  
 
-Building an Azure Communication Services app that Microsoft 365 resources requires:
-1. Authentication of the end user's Microsoft 365 credentials
-2. Authorization from the end user
-3. Application authorization from the end user's Azure Active Directory tenant
+Building an Azure Communication Services app using Microsoft 365 identities requires:
+1. Azure Communication Services resource in Azure
+2. Azure Active Directory application
+3. Application authorization from the end-user or an admin in Azure Active Directory
+4. Authentication of the end user's Microsoft 365 identity
 
-Authentication and authorization of the end user is through [Microsoft Authentication Library flows (MSAL)](../../active-directory/develop/msal-overview.md). The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
+Authentication and authorization of the end-users are performed through [Microsoft Authentication Library flows (MSAL)](../../active-directory/develop/msal-overview.md). The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
 
 ![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identities/teams-identity-calling-overview.png)
 

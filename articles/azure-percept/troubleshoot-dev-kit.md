@@ -80,11 +80,21 @@ sudo journalctl -u hostapd.service -u wpa_supplicant.service -u ztpd.service -u 
 |```sudo docker image prune``` |[removes all dangling images](https://docs.docker.com/engine/reference/commandline/image_prune/) |
 |```sudo watch docker ps``` <br> ```watch ifconfig [interface]``` |check docker container download status |
 
-## USB updates
+## USB update errors
 
 |Error:                                    |Solution:                                               |
 |------------------------------------------|--------------------------------------------------------|
 |LIBUSB_ERROR_XXX during USB flash via UUU |This error is the result of a USB connection failure during UUU updating. If the USB cable is not properly connected to the USB ports on the PC or the Percept DK carrier board, an error of this form will occur. Try unplugging and reconnecting both ends of the USB cable and jiggling the cable to ensure a secure connection. This almost always solves the issue. |
+
+## Clearing hard drive space on the Azure Percept DK
+There are two components that take up the hard drive space on the Azure Percept DK, the docker container logs and the docker containers themselves. To ensure the container logs do not take up all fo the hard space, the Azure Percept DK has log rotation built in. This will rotate out any old logs as new logs get generated.
+
+For situations where the number of docker containers cause hard drive space issues you can delete unused containers by following these steps:
+1. [SSH into the dev kit](./how-to-ssh-into-percept-dk.md)
+1. Run this command:
+    `docker system prune`
+
+This will remove all unused containers, networks, images and optionally, volumes. [Go to this page](https://docs.docker.com/engine/reference/commandline/system_prune/) for more details.
 
 ## Azure Percept DK carrier board LED states
 

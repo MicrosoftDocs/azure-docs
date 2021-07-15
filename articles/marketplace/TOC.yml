@@ -311,13 +311,15 @@
           href: iot-edge-plan-technical-configuration.md
   - name: Managed Service offers
     items:
-    - name: Plan a Managed Service offer
+    - name: Plan the offer
       href: plan-managed-service-offer.md
-    - name: Create a Managed Service offer
+    - name: Create the offer
       href: create-managed-service-offer.md
-    - name: Configure Managed Service listing
+    - name: Properties
+      href: create-managed-service-offer-properties.md
+    - name: Offer listing
       href: create-managed-service-offer-listing.md
-    - name: Add a preview audience
+    - name: Preview audience
       href: create-managed-service-offer-preview.md
     - name: Create plans
       href: create-managed-service-offer-plans.md

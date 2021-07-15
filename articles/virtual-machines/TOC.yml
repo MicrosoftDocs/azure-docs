@@ -800,8 +800,6 @@
         href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
         href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
-      - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
@@ -964,6 +962,8 @@
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
+  - name: Deploy a ZRS disk
+    href: disks-deploy-zrs.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
