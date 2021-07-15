@@ -121,4 +121,4 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 - [Assign Azure AD roles to groups](groups-assign-role.md)
 - [Use Azure AD groups to manage role assignments](groups-concept.md)
-- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.md)
+- [Troubleshoot Azure AD roles assigned to groups](groups-faq-troubleshooting.yml)

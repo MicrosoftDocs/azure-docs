@@ -278,14 +278,14 @@
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
+      displayName: benchmark, coremark
       items:
       - name: Linux
-        displayName: Benchmark scores, score, acu
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
-        displayName: Benchmark scores, score, acu
         href: ./windows/compute-benchmark-scores.md
   - name: Dedicated hosts
+    displayName: sole-tenant, sole tenant, isolated, isolation
     items:
     - name: Overview
       displayName: Dedicated hosts, ADH
@@ -800,8 +800,6 @@
         href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
       - name: Create an Image Version in a Shared Image Gallery
         href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
-      - name: Create a VM from Image Version
-        href: https://azure.microsoft.com/resources/templates/vm-from-sig/
     - name: Ansible
       href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
     - name: Troubleshoot shared images
@@ -964,10 +962,29 @@
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
+  - name: Deploy a ZRS disk
+    href: disks-deploy-zrs.md
   - name: Shared disks
     href: disks-shared.md
   - name: Enable shared disks
     href: disks-shared-enable.md
+  - name: Disk pools
+    items:
+    - name: Overview
+      displayName: Disk pools overview
+      href: disks-pools.md
+    - name: Plan for disk pools
+      href: disks-pools-planning.md
+    - name: Deploy a disk pool
+      href: disks-pools-deploy.md
+    - name: Move a disk pool to a different subscription
+      href: disks-pools-move-resource.md
+    - name: Manage a disk pool
+      href: disks-pools-manage.md
+    - name: Deprovision a disk pool
+      href: disks-pools-deprovision.md
+    - name: Troubleshoot a disk pool
+      href: disks-pools-troubleshoot.md
   - name: Encryption
     items:
     - name: Disk encryption overview
@@ -1306,7 +1323,7 @@
   - name: Optimize network throughput
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: Best practices
-    href: /virtual-network/concepts-and-best-practices.md?context=/azure/virtual-machines/context/context
+    href: /azure/virtual-network/concepts-and-best-practices
   - name: Create virtual network
     href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
   - name: Filter network traffic
@@ -1932,4 +1949,3 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
-

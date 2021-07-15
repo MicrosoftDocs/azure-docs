@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/17/2021
+ms.date: 07/14/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -38,7 +38,7 @@ The two tabs below show the features of Azure Security Center that are available
 |Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
 |Third-party vulnerability assessment|✔|-|✔|No|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
-
+||||||
 
 ### [**Linux machines**](#tab/features-linux)
 
@@ -62,6 +62,7 @@ The two tabs below show the features of Azure Security Center that are available
 |Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
 |Third-party vulnerability assessment|✔|-|✔|No|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
+||||||
 
 --- 
 
@@ -79,15 +80,16 @@ The following table provides a matrix of:
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
-| Endpoint Protection| Platforms | Security Center Installation | Security Center Discovery |
-|------|------|-----|-----|
-| Microsoft Defender Antivirus| Windows Server 2016 or later| No, Built in to OS| Yes |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
-| Trend Micro – Deep Security | Windows Server Family  | No | Yes |
-| Symantec v12.1.1100+| Windows Server Family  | No | Yes |
-| McAfee v10+ | Windows Server Family  | No | Yes |
-| McAfee v10+ | Linux Server Family  | No | Yes |
-| Sophos V9+| Linux Server Family  | No | Yes |
+| Endpoint Protection                                       | Platforms                                              | Security Center Installation | Security Center Discovery |
+|-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
+| Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No, Built in to OS           | Yes                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension                | Yes                       |
+| Trend Micro – Deep Security                               | Windows Server Family                                  | No                           | Yes                       |
+| Symantec v12.1.1100+                                      | Windows Server Family                                  | No                           | Yes                       |
+| McAfee v10+                                               | Windows Server Family                                  | No                           | Yes                       |
+| McAfee v10+                                               | Linux Server Family                                    | No                           | Yes                       |
+| Sophos V9+                                                | Linux Server Family                                    | No                           | Yes                       |
+|                                                           |                                                        |                              |                           |
 
 > [!NOTE]
 > Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
@@ -96,7 +98,7 @@ For information about when recommendations are generated for each of these prote
 
 ## Feature support in government and sovereign clouds
 
-| Feature/Service                                                                                                                                                             | Azure          | US Government                  | Azure China   |
+| Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
 | **Security Center free features**                                                                                                                                           |                |                                |               |
 | - [Continuous export](/azure/security-center/continuous-export)                                                                                                             | GA             | GA                             | GA            |
@@ -119,9 +121,9 @@ For information about when recommendations are generated for each of these prote
 | - [Azure Defender for SQL servers on machines](/azure/security-center/defender-for-sql-introduction)                                                                        | GA             | GA                             | Not Available |
 | - [Azure Defender for open-source relational databases](/azure/security-center/defender-for-databases-introduction)                                                         | GA             | Not Available                  | Not Available |
 | - [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction)                                                                                | GA             | Not Available                  | Not Available |
-| - [Azure Defender for Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                                                  | GA             | Public Preview                 | Not Available |
+| - [Azure Defender for Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                                                  | GA             | GA                             | GA            |
 | - [Azure Defender for Storage](/azure/security-center/defender-for-storage-introduction) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             | Not Available |
-| - [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                       | Public Preview | Not Available                  | Not Available |
+| - [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  | Not Available |
 | - [Kubernetes workload protection](/azure/security-center/kubernetes-workload-protections)                                                                                  | GA             | GA                             | GA            |
 | **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |               |
 | - [Just-in-time VM access](/azure/security-center/security-center-just-in-time)                                                                                             | GA             | GA                             | GA            |
@@ -138,7 +140,7 @@ For information about when recommendations are generated for each of these prote
 
 <sup><a name="footnote1" /></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
-<sup><a name="footnote2" /></a>2</sup> Vulnerability scans of container registries on Azure Gov can only be performed with the scan on push feature.
+<sup><a name="footnote2" /></a>2</sup> Vulnerability scans of container registries on the Azure Government cloud can only be performed with the scan on push feature.
 
 <sup><a name="footnote3" /></a>3</sup> Requires Azure Defender for container registries.
 
@@ -158,4 +160,4 @@ For information about when recommendations are generated for each of these prote
 
 - Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
-- Review the [platforms that support security center](security-center-os-coverage.md).
+- Review the [platforms that support Security Center](security-center-os-coverage.md).

@@ -68,8 +68,10 @@
           href: quickstart-create-automation-account-template.md
         - name: Managed identity
           items:
-            - name: Enable managed identity
+            - name: Using system-assigned managed identity
               href: enable-managed-identity-for-automation.md
+            - name: Using user-assigned managed identity
+              href: add-user-assigned-identity.md
             - name: Disable managed identity
               href: disable-managed-identity-for-automation.md
             - name: Troubleshoot managed identity
@@ -214,8 +216,6 @@
                   href: automation-dsc-config-from-server.md
                 - name: Convert configurations to composite resources
                   href: automation-dsc-create-composite.md
-                - name: Remediate non-compliant servers
-                  href: automation-dsc-remediate.md 
         - name: Change tracking and inventory
           items:
             - name: Overview

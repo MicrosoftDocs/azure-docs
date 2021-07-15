@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: tchladek
-ms.date: 05/31/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -32,6 +32,24 @@ You can also use custom Teams endpoints to optionally integrate chat capabilitie
 
 
 ![Process to enable chat feature for custom Teams endpoint experience](./media/teams-identities/teams-identity-chat-overview.png)
+
+## Azure Communication Services permissions
+
+### Delegated permissions
+
+|   Permission    |  Display String   |  Description | Admin Consent Required | Microsoft Account supported |
+|:-----------------------------|:-----------------------------------------|:-----------------|:---------------|:---------------|
+| _https://auth.msft.communication.azure.com/VoIP_ |   Manage calls in Teams. | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
+
+### Application permissions
+
+None.
+
+### Roles granting consent on behalf of company
+
+- Global admin
+- Application admin (only in private preview)
+- Cloud application admin (only in private preview)
 
 ## Next steps
 

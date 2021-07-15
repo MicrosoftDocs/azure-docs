@@ -177,9 +177,9 @@ You cannot connect to GIT Enterprise because of permission issues. You can see e
 #### Cause
 
 * You have not configured Oauth for ADF. 
-* Your URL is misconfigured.
+* Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet)
 
-##### Resolution
+#### Resolution 
 
 You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
  
@@ -260,6 +260,25 @@ When pipeline is in progress/queued stage, you have to monitor the pipeline and 
  
 #### Resolution
 You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](https://docs.microsoft.com/azure/data-factory/monitor-visually). Then, you can follow [ADF CI/CD Best Practices](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) to guide you further. 
+
+### Perform **UNIT TESTING** during ADF development and deployment
+
+#### Issue
+You want to perform unit testing during development and deployment of ADF pipelines.
+
+#### Cause
+During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically re-testing all your ADF pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines for Azure Data Factory can significantly improve quality. In long run, tested ADF pipeline artifacts are reused saving you cost and time.  
+ 
+#### Resolution
+Because customers may have different unit testing requirements with different skill sets, usual practice is to follow following steps:
+
+1. Setup Azure DevOps CI/CD project or develop  .NET/PYTHON/REST type SDK driven test strategy.
+2. For CI/CD, create build artifact containing all scripts and deploy resources in release pipeline. For SDK driven approach, develop Test units using PyTest in Python,  C# **Nunit** using .NET  SDK and so on.
+3. Run unit tests as part of release pipeline or independently with ADF Python/PowerShell/.NET/REST SDK. 
+
+For example, you want to delete duplicates in a file and then store curated file as table in a database. To test the pipeline, you set up a CI/CD project using Azure DevOps.
+You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests for making sure table data is what you expected. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are satisfied with the results, you can finally publish the pipeline to a production data factory. 
+
 
 ## Next steps
 
