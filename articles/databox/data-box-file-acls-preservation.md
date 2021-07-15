@@ -76,6 +76,8 @@ To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such
 
 When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
 
+
+
 ```console
 robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
 ```
@@ -98,6 +100,43 @@ where
 |`/log+:<LogFile>`  |Appends the output to the existing log file.|
 
 For more information on these `robocopy` parameters, see [Tutorial: Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
+
+> [!NOTE]
+> If you use `/copyall` to copy your data, the source ACLs on directories and files are transferred to Azure Files. If you only had read-access on your source data and could not modify the source data, you'll have read-access only on the data in the storage account. Use `/copyall` only if you intend to copy all the ACLs on the directories and files along with the data.
+
+Here are some of the common scenarios you'll use when copying data using `robocopy`.
+
+- **Copy only data to Data Box, no ACLs on directories and files**
+
+    Use the `/dcopy:DAT` option to only copy data, attributes, timestamps. ACLs on directories and files are not copied.
+
+- **Copy data and ACLs on directories and files to Data Box**
+
+    Use `/copyall` to copy all the source data including all the ACLs on directories and files.
+
+- **List the filesystem on Data Box using robocopy**
+
+    Use this command to list directory contents:
+
+    `robocopy <source-dir> NULL /l /s /xx /njh /njs /fp /B`
+
+    Note that the File Explorer doesn't allow you to list these files.
+    
+- **Copy or delete folders and files on Data Box**
+
+    Use this command to copy a single file:
+
+    `robocopy <source-dir> <destination-dir> <file-name> /B`
+
+    Use this command to delete a single file:
+
+    `robocopy <source-dir> <destination-dir> <file-name> /purge /B`
+
+    In the above command, the `<source-dir>` should not have the file: `<file-name>`. Then, the above command syncs the destination with the source, resulting in the removal of the file from the destination.
+
+    Note that the File Explorer may not allow you to perform the above operations.
+
+For more information, see [](/windows-server/administration/windows-commands/robocopy.md).
 
 ### Linux data copy tool
 
