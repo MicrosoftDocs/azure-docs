@@ -64,10 +64,12 @@
     items:
     - name: Configure DHCP  
       href: configure-dhcp-azure-vmware-solution.md
-    - name: Configure DHCP on L2 stretched VMware HCX networks
+    - name: Configure DHCP on L2 stretched networks
       href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Configure NSX components using Azure 
-      href: configure-nsx-network-components-azure-portal.md
+    - name: Configure DNS forwarder 
+      href: configure-dns-azure-vmware-solution.md
+    - name: Configure port mirroring  
+      href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure GitHub Enterprise Server
       href: ./configure-github-enterprise-server.md
     - name: Enable public internet access
