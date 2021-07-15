@@ -36,7 +36,7 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
    >[!NOTE]
    >The default DNS zone is created for you during the private cloud creation.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-dns-zones.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
+   :::image type="content" source="media/networking/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
 1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **8.8.8.8**. Then select **OK**.
 
@@ -58,9 +58,13 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
    >[!IMPORTANT]
    >While certain operations in your private cloud may be performed from NSX-T Manager, you must edit the DNS service from the Simplified Networking experience in the Azure portal. 
 
+   :::image type="content" source="media/networking/configure-dns-forwarder-2.png" alt-text="Screenshot showing the DNS service tab with the Edit button selected.":::   
+
 1. From the **FQDN zones** drop-down, select the newly created FQDN and then select **OK**.
 
    It takes several minutes to complete and once finished, you'll see the *Completed* message from **Notifications**.
+
+   :::image type="content" source="media/networking/configure-dns-forwarder-3.png" alt-text="Screenshot showing the selected FQDN for the DNS service.":::
 
    At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
 
@@ -95,7 +99,7 @@ The NSX-T Policy API lets you run nslookup commands from the NSX-T DNS Forwarder
    >[!TIP]
    >You can obtain the IP address of your NSX-T Server from the Azure portal under **Manage** > **Identity**.
    >
-   >:::image type="content" source="media/configure-nsx-network-components-azure-portal/nsxt-workload-networking-configure-dns-service-information.png" alt-text="Screenshot showing the NSX-T Server IP address.":::
+   >:::image type="content" source="media/networking/configure-dns-forwarder-4.png" alt-text="Screenshot showing the NSX-T Server IP address.":::
  
    ```powershell
    Connect-NsxtServer -Server 10.103.64.3
