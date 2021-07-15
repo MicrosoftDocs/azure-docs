@@ -234,7 +234,7 @@ Content-type: application/json
 
 | Parameter                                          | Type              | Required | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | String            | Yes      | The version of the API.                                                                                                                                                                                                                                                                |
+| version                                            | String            | Yes      | The version of your API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user.  |
@@ -255,7 +255,7 @@ Content-type: application/json
 
 | Parameter   | Type   | Required | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | String | Yes      | The version of the API.                                                    |
+| version     | String | Yes      | The version of your API.                                                    |
 | action      | String | Yes      | Value must be `ShowBlockPage`                                              |
 | userMessage | String | Yes      | Message to display to the user.                                            |
 

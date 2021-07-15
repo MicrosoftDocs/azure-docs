@@ -255,9 +255,10 @@ Content-type: application/json
 
 | Parameter                                          | Type              | Required | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| version     | String | Yes      | The version of your API.                                                    |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.  |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user.                                               |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user.  |
 
 ### Example of a blocking response
 
@@ -275,7 +276,7 @@ Content-type: application/json
 
 | Parameter   | Type   | Required | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | String | Yes      | The version of the API.                                                    |
+| version     | String | Yes      | The version of your API.                                                    |
 | action      | String | Yes      | Value must be `ShowBlockPage`                                              |
 | userMessage | String | Yes      | Message to display to the user.                                            |
 
