@@ -49,7 +49,7 @@ These are the supported types of endpoints that you can create for your instance
 
 For more information on the different endpoint types, see [Choose between Azure messaging services](../event-grid/compare-messaging-services.md).
 
-This section explains how to create one of these endpoints in the [Azure portal](https://portal.azure.com) and the Azure CLI. You can also manage endpoints with the [DigitalTwinsEndpoint control plane APIs](/rest/api/digital-twins/controlplane/endpoints).
+This section explains how to create an endpoint using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/dt/endpoint?view=azure-cli-latest&preserve-view=true). You can also manage endpoints with the [DigitalTwinsEndpoint control plane APIs](/rest/api/digital-twins/controlplane/endpoints).
 
 ### Prerequisite: Create endpoint resources
 
@@ -166,42 +166,38 @@ You'll provide the URI for this container when creating the endpoint later. The 
 Follow the steps below to set up these storage resources in your Azure account, to prepare to set up the endpoint connection in the next section.
 
 1. Follow the steps in [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) to create a **storage account** in your Azure subscription. Make a note of the storage account name to use it later.
-2. Follow the steps in [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to create a **container** within the new storage account. Make a note of the container name to use it later.
+1. Follow the steps in [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to create a **container** within the new storage account. Make a note of the container name to use it later.
 
 ##### Create a SAS token
 
+Next, create a **SAS token** for your storage account that the endpoint can use to access it.
+
 # [Portal](#tab/portal)
 
-3. Next, create a **SAS token** for your storage account that the endpoint can use to access it. Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
-4. In the storage account page, choose the _Shared access signature_ link in the left navigation bar to start setting up the SAS token.
+1. Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
+1. In the storage account page, choose the _Shared access signature_ link in the left navigation bar to start setting up the SAS token.
 
     :::image type="content" source="./media/how-to-manage-routes/generate-sas-token-1.png" alt-text="Screenshot of the storage account page in the Azure portal." lightbox="./media/how-to-manage-routes/generate-sas-token-1.png":::
 
-5. On the *Shared access signature page*, under *Allowed services* and *Allowed resource types*, select whatever settings you want. You'll need to select at least one box in each category. Under *Allowed permissions*, choose **Write** (you can also select other permissions if you want).
-6. Set whatever values you want for the remaining settings.
-7. When you're finished, select the _Generate SAS and connection string_ button to generate the SAS token. 
+1. On the *Shared access signature page*, under *Allowed services* and *Allowed resource types*, select whatever settings you want. You'll need to select at least one box in each category. Under *Allowed permissions*, choose **Write** (you can also select other permissions if you want).
+1. Set whatever values you want for the remaining settings.
+1. When you're finished, select the _Generate SAS and connection string_ button to generate the SAS token. 
 
     :::image type="content" source="./media/how-to-manage-routes/generate-sas-token-2.png" alt-text="Screenshot of the storage account page in the Azure portal showing all the setting selection to generate a SAS token." lightbox="./media/how-to-manage-routes/generate-sas-token-2.png"::: 
 
-8. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values, and use the *Copy to clipboard* icon to copy the **SAS token** value. Save it to use later.
+1. This will generate several SAS and connection string values at the bottom of the same page, underneath the setting selections. Scroll down to view the values, and use the *Copy to clipboard* icon to copy the **SAS token** value. Save it to use later.
 
     :::image type="content" source="./media/how-to-manage-routes/copy-sas-token.png" alt-text="Screenshot of the storage account page in the Azure portal highlighting how to copy the SAS token to use in the dead-letter secret." lightbox="./media/how-to-manage-routes/copy-sas-token.png":::
 
-#### Create the dead-letter endpoint
-
-In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
-
-For instructions on how to do this with these tools, see the CLI version of this section.
-
 # [CLI](#tab/cli)
 
-3. Retrieve your storage account keys using the following command and copy the value for either one of your keys:
+1. Retrieve your storage account keys using the following command and copy the value for either one of your keys:
 
     ```azurecli
     az storage account keys list --account-name <storage-account-name>
     ```
 
-4. Select an expiration date and generate the SAS token for your storage account using the following command:
+1. Select an expiration date and generate the SAS token for your storage account using the following command:
 
     ```azurecli
     az storage account generate-sas --account-name <storage-account-name> --account-key <storage-account-key> --expiry <expiration-date> --services bfqt --resource-types o --permissions w
@@ -213,8 +209,18 @@ For instructions on how to do this with these tools, see the CLI version of this
     > This command includes "**b**lob", "**f**ile", "**q**ueue", and "**t**able" *services*; an "**o**bject" *resource type*; and allows "**w**rite" *permissions*.
     >
     > For more information about the `az storage account generate-sas` command and its parameters, see the [Azure CLI reference](/cli/azure/storage/account?view=azure-cli-latest&preserve-view=true#az_storage_account_generate_sas).
-    
+
+---
+
 #### Create the dead-letter endpoint
+
+# [Portal](#tab/portal)
+
+In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+
+For instructions on how to do this with the Azure CLI, switch to the CLI tab for this section.
+
+# [CLI](#tab/cli)
 
 To create an endpoint that has dead-lettering enabled, add the following dead letter parameter to the [az dt endpoint create](/cli/azure/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) command for the [Azure Digital Twins CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
@@ -285,7 +291,7 @@ Here is an example of a dead-letter message for a [twin create notification](con
 
 ## Create an event route
 
-To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Concepts: Routing Azure Digital Twins events](concepts-route-events.md).
+To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. A single route can allow multiple notifications and event types to be selected. Read more about event routes in [Concepts: Routing Azure Digital Twins events](concepts-route-events.md).
 
 **Prerequisite**: You need to create endpoints as described earlier in this article before you can move on to creating a route. You can proceed to creating an event route once your endpoints are finished setting up.
 
@@ -294,23 +300,19 @@ To actually send data from Azure Digital Twins to an endpoint, you'll need to de
 >
 > If you are scripting this flow, you may want to account for this by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
 
-To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. Event routes are used to connect event flow, throughout the system and to downstream services.
-
 A route definition can contain these elements:
 * The route name you want to use
 * The name of the endpoint you want to use
 * A filter that defines which events are sent to the endpoint
     - To disable the route so that no events are sent, use a filter value of `false`
     - To enable a route that has no specific filtering, use a filter value of `true`
-    - For details on any other type of filter, see the [Filter events](#filter-events) section below.
+    - For details on any other type of filter, see the [Filter events](#filter-events) section below
 
 If there is no route name, no messages are routed outside of Azure Digital Twins. 
 If there is a route name and the filter is `true`, all messages are routed to the endpoint. 
 If there is a route name and a different filter is added, messages will be filtered based on the filter.
 
-A single route can allow multiple notifications and event types to be selected.
-
-Event routes can be created with the [Azure portal](https://portal.azure.com), Azure Digital Twins [EventRoutes data plane APIs](/rest/api/digital-twins/dataplane/eventroutes), or [az dt route CLI commands](/cli/azure/dt/route?view=azure-cli-latest&preserve-view=true). The rest of this section walks through the creation process.
+Event routes can be created with the [Azure portal](https://portal.azure.com), [EventRoutes data plane APIs](/rest/api/digital-twins/dataplane/eventroutes), or [az dt route CLI commands](/cli/azure/dt/route?view=azure-cli-latest&preserve-view=true). The rest of this section walks through the creation process.
 
 # [Portal](#tab/portal2)
 
@@ -334,9 +336,9 @@ Routes can be managed using the [az dt route](/cli/azure/dt/route?view=azure-cli
 
 For more information about using the CLI and what commands are available, see [Concepts: Azure Digital Twins CLI command set](concepts-cli.md).
 
-# [API & SDK](#tab/apisdk)
+# [.NET SDK](#tab/sdk2)
 
-One way to define event routes is with the [data plane APIs](concepts-apis-sdks.md#overview-data-plane-apis). The samples in this section use the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+One way to define event routes is with the [data plane APIs](concepts-apis-sdks.md#overview-data-plane-apis). This section shows how to create an event route using the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 `CreateOrReplaceEventRouteAsync` is the SDK call that is used to add an event route. Here is an example of its usage:
 
@@ -375,7 +377,7 @@ To add an event filter while you are creating an event route, use the "Add an ev
 
 You can either select from some basic common filter options, or use the advanced filter options to write your own custom filters.
 
-#### Use the basic filters
+### Use the basic filters
 
 To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you want to send to your endpoint. 
 
@@ -397,7 +399,7 @@ This will auto-populate the filter text box with the text of the filter you've s
     :::column-end:::
 :::row-end:::
 
-#### Use the advanced filters
+### Use the advanced filters
 
 Alternatively, you can use the advanced filter option to write your own custom filters.
 
@@ -411,17 +413,17 @@ To create an event route with advanced filter options, toggle the switch for the
     :::column-end:::
 :::row-end:::
 
-Here are the supported route filters. The detail in the *Filter text schema* column is the text that can be entered into the filter box.
-
 # [API](#tab/api)
 
-To add a filter, you can use a PUT request to `https://<Your-Azure-Digital-Twins-host-name>/eventRoutes/<event-route-name>?api-version=2020-10-31` with the following body:
+You can use the APIs to write custom filters. To add a filter, you can use a PUT request to `https://<Your-Azure-Digital-Twins-host-name>/eventRoutes/<event-route-name>?api-version=2020-10-31` with the following body:
 
 :::code language="json" source="~/digital-twins-docs-samples/api-requests/filter.json":::
 
-Here are the supported route filters. Use the detail in the *Filter text schema* column to replace the `<filter-text>` placeholder in the request body above.
-
 ---
+
+### Supported route filters
+
+Here are the supported route filters.
 
 | Filter name | Description | Filter text schema | Supported values | 
 | --- | --- | --- | --- |
