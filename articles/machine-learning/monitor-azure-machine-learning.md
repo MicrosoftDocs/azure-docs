@@ -116,7 +116,7 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlDataStoreEvent | Events when ML datastore is accessed (read, created, or deleted). Category includes:DataStoreReadEvent,DataStoreChangeEvent. |
 | AmlDeploymentEvent | Events when a model deployment happens on ACI or AKS. Category includes:DeploymentReadEvent,DeploymentEventACI,DeploymentEventAKS. |
 | AmlInferencingEvent | Events for inference or related operation on AKS or ACI compute type. Category includes:InferencingOperationACI (very chatty),InferencingOperationAKS (very chatty). |
-| AmlModelsEvent | Events when ML model is accessed (read, created, or deleted). Incudes events when packaging of models and assets happen into a ready-to-build packages. Category includes:ModelsReadEvent,ModelsActionEvent .|
+| AmlModelsEvent | Events when ML model is accessed (read, created, or deleted). Includes events when packaging of models and assets happen into a ready-to-build packages. Category includes:ModelsReadEvent,ModelsActionEvent .|
 | AmlPipelineEvent | Events when ML pipeline draft or endpoint or module are accessed (read, created, or deleted).Category includes:PipelineReadEvent,PipelineChangeEvent. |
 | AmlRunEvent | Events when ML experiments are accessed (read, created, or deleted). Category includes:RunReadEvent,RunEvent. |
 | AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
