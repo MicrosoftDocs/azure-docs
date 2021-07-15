@@ -23,23 +23,27 @@ The Change Feed is accessed using REST APIs. These APIs along with sample usage 
 The following C# code example shows how to consume Change Feed using the DICOM client package.
 
 ```csharp
-public async Task<IReadOnlyList<ChangeFeedEntry>> RetrieveChangeFeedAsync(long offset, CancellationToken cancellationToken)
+const int limit = 10;
+ 
+using HttpClient httpClient = new HttpClient { BaseAddress = new Uri("<URL>") };
+using CancellationTokenSource tokenSource = new CancellationTokenSource();
+ 
+int read;
+List<ChangeFeedEntry> entries = new List<ChangeFeedEntry>();
+DicomWebClient client = new DicomWebClient(httpClient);
+do
 {
-    var _dicomWebClient = new DicomWebClient(
-                    new HttpClient { BaseAddress = dicomWebConfiguration.Endpoint },
-                    sp.GetRequiredService<RecyclableMemoryStreamManager>(),
-                    tokenUri: null);
-    DicomWebResponse<IReadOnlyList<ChangeFeedEntry>> result = await _dicomWebClient.GetChangeFeed(
-    $"?offset={offset}&limit={DefaultLimit}&includeMetadata={true}",
-    cancellationToken);
-
-    if (result?.Value != null)
+    read = 0;
+    DicomWebAsyncEnumerableResponse<ChangeFeedEntry> result = await client.GetChangeFeed(
+        $"?offset={entries.Count}&limit={limit}&includeMetadata={true}",
+        tokenSource.Token);
+ 
+    await foreach (ChangeFeedEntry entry in result)
     {
-            return result.Value;
+        read++;
+        entries.Add(entry);
     }
-
-    return Array.Empty<ChangeFeedEntry>();
-}
+} while (read > 0);
 ```
 
 To view and access the **ChangeFeedRetrieveService.cs** code example, see [Consume Change Feed](https://github.com/microsoft/dicom-server/blob/main/converter/dicom-cast/src/Microsoft.Health.DicomCast.Core/Features/DicomWeb/Service/ChangeFeedRetrieveService.cs).
