@@ -22,7 +22,7 @@ The following two examples show how to:
 
 Performance is a consideration when migrating from the standard SKU. IDPS and TLS inspection are compute intensive operations. The premium SKU uses a more powerful VM SKU which scales to a maximum throughput of 30Gbps comparable with the standard SKU. The 30 Gbps throughput is supported when configured with IDPS in alert mode. Use of IDPS in deny mode and TLS inspection increases CPU consumption. Degradation in max throughput might occur. 
 
-The firewall throughput might be lower than 30 Gbps when you have one or more signatures to **Alert and Deny** configured or application rules with **TLS inspection** enabled. Microsoft recommends customers perform full scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
+The firewall throughput might be lower than 30 Gbps when you have one or more signatures set to **Alert and Deny** or application rules with **TLS inspection** enabled. Microsoft recommends customers perform full scale testing in their Azure deployment to ensure the firewall service performance meets your expectations.
 
 ## Migrate an existing policy using Azure PowerShell
 
