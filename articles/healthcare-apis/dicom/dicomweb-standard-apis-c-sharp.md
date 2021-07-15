@@ -51,7 +51,7 @@ In your application, install the following NuGet packages:
 
 ## Create a DicomWebClient
 
-After you've deployed your DICOM service, you'll create a DicomWebClient. Run the following code snippet to create DicomWebClient, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously. If you haven't already obtained a token, see Get access token for the DICOM service using Azure CLI document.
+After you've deployed your DICOM service, you'll create a DicomWebClient. Run the following code snippet to create DicomWebClient, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md).
 
 ```c#
 string webServerUrl ="{Your DicomWeb Server URL}"
