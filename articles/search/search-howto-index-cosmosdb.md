@@ -242,6 +242,12 @@ SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup FROM Food f GROUP BY f.foodGroup
 ```
 
+Although there is a workaround to support [SQL query pagination with the DISTINCT keyword by using the ORDER BY clause](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination#continuation-tokens), it is not compatible with Azure Cognitive Search. The query will return a single JSON value, but Azure Cognitive Search expects a JSON object.
+```sql
+-- The following query returns a single JSON value and isn't supported by Azure Cognitive Search
+SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
+```
+
 ### Step 3 - Create a target search index 
 
 [Create a target Azure Cognitive Search index](/rest/api/searchservice/create-index) if you don’t have one already. The following example creates an index with an ID and description field:

@@ -249,7 +249,7 @@ To check which applications have HRD policy configured, use the **Get-AzureADPol
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-#### Step 5: You're done!
+#### Step 5: You're done
 
 Try the application to check that the new policy is working.
 

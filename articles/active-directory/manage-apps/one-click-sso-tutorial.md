@@ -74,5 +74,5 @@ The one-click SSO feature is designed to configure single sign-on for Azure Mark
 
 ## Additional resources
 
-* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [What is the My Apps Secure Sign-in browser extension?](../user-help/my-apps-portal-end-user-access.md)
+- [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md)
+- [What is the My Apps Secure Sign-in browser extension?](../user-help/my-apps-portal-end-user-access.md)

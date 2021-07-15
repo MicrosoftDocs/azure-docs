@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 06/24/2021
+ms.date: 07/15/2021
 ---
 
 
@@ -55,7 +55,7 @@ For more information, see the [Azure Security Center product documentation](/azu
 The following table displays the current Security Center feature availability in Azure and Azure Government.
 
 
-| Feature/Service                                                                                                                                                             | Azure          | US Government                  |
+| Feature/Service                                                                                                                                                             | Azure          | Azure Government               |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
 | **Security Center free features**                                                                                                                                           |                |                                |
 | - [Continuous export](/azure/security-center/continuous-export)                                                                                                             | GA             | GA                             |
@@ -78,9 +78,9 @@ The following table displays the current Security Center feature availability in
 | - [Azure Defender for SQL servers on machines](/azure/security-center/defender-for-sql-introduction)                                                                        | GA             | GA                             |
 | - [Azure Defender for open-source relational databases](/azure/security-center/defender-for-databases-introduction)                                                         | GA             | Not Available                  |
 | - [Azure Defender for Key Vault](/azure/security-center/defender-for-key-vault-introduction)                                                                                | GA             | Not Available                  |
-| - [Azure Defender for Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                                                  | GA             | Public Preview                 |
+| - [Azure Defender for Resource Manager](/azure/security-center/defender-for-resource-manager-introduction)                                                                  | GA             | GA                             |
 | - [Azure Defender for Storage](/azure/security-center/defender-for-storage-introduction) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
-| - [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)                                       | Public Preview | Not Available                  |
+| - [Threat protection for Cosmos DB](/azure/security-center/other-threat-protections#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  |
 | - [Kubernetes workload protection](/azure/security-center/kubernetes-workload-protections)                                                                                  | GA             | GA                             |
 | **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                          |                |                                |
 | - [Just-in-time VM access](/azure/security-center/security-center-just-in-time)                                                                                             | GA             | GA                             |
@@ -130,7 +130,7 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 |- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
-|- [Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview | Not Available |
+|- [Watchlists](/azure/sentinel/watchlists) | GA | GA |
 | **Threat intelligence support** | | |
 | - [Threat Intelligence - TAXII data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |
 | - [Threat Intelligence Platform data connector](../../sentinel/import-threat-intelligence.md)  | Public Preview | Not Available |

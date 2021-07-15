@@ -412,6 +412,8 @@
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
+        - name: Train with the job creation UI
+          href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
           - name: Configure & submit training run 
@@ -705,8 +707,6 @@
       href: reference-online-endpoint-yaml.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Feature availability across regions
-      href: reference-machine-learning-cloud-parity.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
@@ -730,6 +730,8 @@
       href: /legal/machine-learning/conda-licensing  
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Feature availability across regions
+      href: reference-machine-learning-cloud-parity.md
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
     - name: Microsoft Learn
