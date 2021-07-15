@@ -94,13 +94,13 @@ To get started, you'll need:
 
 3. Complete the application details as follows and submit:  
 
-|Property  |Value  |
-|---------|---------|
-|Name         |Azure AD B2C or your desired application name|
-|SSO type         | OIDC|
-|Logo URI     |[https://bloksec.io/assets/AzureB2C.png/](https://bloksec.io/assets/AzureB2C.png/) a link to the image of your choice|
-|Redirect URIs     | https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/oauth2/authresp<BR>**For Example**: [https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp](https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp) <BR><BR>If you use a custom domain, enter  https://**your-domain-name**/**your-tenant-name**.onmicrosoft.com/oauth2/authresp. <BR> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.         |
-|Post log out redirect URIs  |https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/**{policy}**/oauth2/v2.0/logout <BR> [Send a sign-out request](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect#send-a-sign-out-request). |
+   |Property  |Value  |
+   |---------|---------|
+   |  Name         |Azure AD B2C or your desired application name|
+   |SSO type         | OIDC|
+   |Logo URI     |[https://bloksec.io/assets/AzureB2C.png/](https://bloksec.io/assets/AzureB2C.png/) a link to the image of your choice|
+   |Redirect URIs     | https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/oauth2/authresp<BR>**For Example**:      [https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp](https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp) <BR><BR>If you use a custom domain, enter  https://**your-domain-name**/**your-tenant-name**.onmicrosoft.com/oauth2/authresp. <BR> Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.         |
+   |Post log out redirect URIs  |https://**your-B2C-tenant-name**.b2clogin.com/**your-B2C-tenant-name**.onmicrosoft.com/**{policy}**/oauth2/v2.0/logout <BR> [Send a sign-out request](https://docs.microsoft.com/azure/active-directory-b2c/openid-connect#send-a-sign-out-request). |
 
 4. Once saved, select the newly created Azure AD B2C application to open the application configuration, select **Generate App Secret**.
 
@@ -203,9 +203,6 @@ For additional information, review the following articles:
 
 >[!NOTE]
 >In Azure Active Directory B2C, [**custom policies**](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview).
-
->[!IMPORTANT]
->Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy).
 
 ### Part 2 - Create a policy key
 
