@@ -30,10 +30,15 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
+- [Defender for Office 365 events now available in the M365 Defender connector](#defender-for-office-365-events-now-available-in-the-m365-defender-connector)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
+
+### Defender for Office 365 events now available in the M365 Defender connector
+
+In addition to those from Microsoft Defender for Endpoint, you can now ingest raw [advanced hunting events](/microsoft-365/security/defender/advanced-hunting-overview) from [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/overview) through the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md). [Learn more](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
 ### Support for ADX cross-resource queries (Public preview)
 

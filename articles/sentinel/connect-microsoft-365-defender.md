@@ -25,6 +25,8 @@ ms.author: yelevin
 >
 > **Microsoft Defender for Endpoint** was formerly known as **Microsoft Defender Advanced Threat Protection** or **MDATP**.
 >
+> **Microsoft Defender for Office 365** was formerly known as **Office 365 Advanced Threat Protection**.
+>
 > You may see the old names still in use for a period of time.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
@@ -64,23 +66,37 @@ For more information about incident integration and advanced hunting event colle
     | where ProviderName == "Microsoft 365 Defender"
     ```
 
-1. If you want to collect advanced hunting events from Microsoft Defender for Endpoint, the  following types of events can be collected from their corresponding advanced hunting tables.
+1. If you want to collect advanced hunting events from Microsoft Defender for Endpoint or Microsoft Defender for Office 365, the following types of events can be collected from their corresponding advanced hunting tables.
 
     1. Mark the check boxes of the tables with the event types you wish to collect:
 
+       # [Defender for Endpoint](#tab/MDE)
+
        | Table name | Events type |
        |-|-|
-       | DeviceInfo | Machine information (including OS information) |
-       | DeviceNetworkInfo | Network properties of machines |
-       | DeviceProcessEvents | Process creation and related events |
-       | DeviceNetworkEvents | Network connection and related events |
-       | DeviceFileEvents | File creation, modification, and other file system events |
-       | DeviceRegistryEvents | Creation and modification of registry entries |
-       | DeviceLogonEvents | Sign-ins and other authentication events |
-       | DeviceImageLoadEvents | DLL loading events |
-       | DeviceEvents | Additional events types |
-       | DeviceFileCertificateInfo | Certificate information of signed files |
+       | **[DeviceInfo](/microsoft-365/security/defender/advanced-hunting-deviceinfo-table.md)** | Machine information, including OS information |
+       | **[DeviceNetworkInfo](/microsoft-365/security/defender/advanced-hunting-devicenetworkinfo-table.md)** | Network properties of devices, including physical adapters, IP and MAC addresses, as well as connected networks and domains |
+       | **[DeviceProcessEvents](/microsoft-365/security/defender/advanced-hunting-deviceprocessevents-table.md)** | Process creation and related events |
+       | **[DeviceNetworkEvents](/microsoft-365/security/defender/advanced-hunting-devicenetworkevents-table.md)** | Network connection and related events |
+       | **[DeviceFileEvents](/microsoft-365/security/defender/advanced-hunting-devicefileevents-table.md)** | File creation, modification, and other file system events |
+       | **[DeviceRegistryEvents](/microsoft-365/security/defender/advanced-hunting-deviceregistryevents-table.md)** | Creation and modification of registry entries |
+       | **[DeviceLogonEvents](/microsoft-365/security/defender/advanced-hunting-devicelogonevents-table.md)** | Sign-ins and other authentication events on devices |
+       | **[DeviceImageLoadEvents](/microsoft-365/security/defender/advanced-hunting-deviceimageloadevents-table.md)** | DLL loading events |
+       | **[DeviceEvents](/microsoft-365/security/defender/advanced-hunting-deviceevents-table.md)** | Multiple event types, including events triggered by security controls such as Windows Defender Antivirus and exploit protection |
+       | **[DeviceFileCertificateInfo](/microsoft-365/security/defender/advanced-hunting-DeviceFileCertificateInfo-table.md)** | Certificate information of signed files obtained from certificate verification events on endpoints |
        |
+
+       # [Defender for Office 365](#tab/MDO)
+
+       | Table name | Events type |
+       |-|-|
+       | **[EmailAttachmentInfo](/microsoft-365/security/defender/advanced-hunting-emailattachmentinfo-table.md)** | Information about files attached to emails |
+       | **[EmailEvents](/microsoft-365/security/defender/advanced-hunting-emailevents-table.md)** | Microsoft 365 email events, including email delivery and blocking events |
+       | **[EmailPostDeliveryEvents](/microsoft-365/security/defender/advanced-hunting-emailpostdeliveryevents-table.md)** | Security events that occur post-delivery, after Microsoft 365 has delivered the emails to the recipient mailbox |
+       | **[EmailUrlInfo](/microsoft-365/security/defender/advanced-hunting-emailurlinfo-table.md)** | Information about URLs on emails |
+       |
+
+       ---
 
     1. Click **Apply Changes**.
 
