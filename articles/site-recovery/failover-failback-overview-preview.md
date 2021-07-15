@@ -2,7 +2,7 @@
 title: About failover and failback in Azure Site Recovery - Preview
 description: Learn about failover and failback in Azure Site Recovery - Preview
 ms.topic: conceptual
-ms.date: 06/29/2021
+ms.date: 07/15/2021
 
 ---
 # About on-premises disaster recovery failover/failback - Preview
@@ -17,7 +17,7 @@ Failover and failback in Site Recovery has four stages:
 
 - **Stage 1: Fail over from on-premises**: After setting up replication to Azure for on-premises machines, when your on-premises site goes down, you fail those machines over to Azure. After failover, Azure VMs are created from replicated data.
 - **Stage 2: Reprotect Azure VMs**: In Azure, you reprotect the Azure VMs so that they start replicating back to the on-premises site. The on-premises VM (if available) is turned off during reprotection, to help ensure data consistency.
-- **Stage 3: Fail over from Azure**: When your on-premises site is running as normal again, you run another failover, this time to fail back Azure VMs to your on-premises site. You can fail back to the original location from which you failed over, or to an alternate location.
+- **Stage 3: Fail over from Azure**: When your on-premises site is running as normal again, you run another failover, this time to fail back Azure VMs to your on-premises site. You can fail back to the original location from which you failed over, or to an alternate location. This activity is referred as *planned failover*.
 - **Stage 4: Reprotect on-premises machines**: After failing back, again enable replication of the on-premises machines to Azure.
 
 ## Failover
@@ -61,14 +61,8 @@ Site Recovery provides different failover options.
 
 ## Failover processing
 
-vmware-azure-tutorial-failover-failback-preview
-
 In some scenarios, failover requires additional processing that takes around 8 to 10 minutes to complete. You might notice longer test failover times for:
 
-* VMware VMs running a Mobility service version older than 9.8.
-* Physical servers.
-* VMware Linux VMs.
-* Hyper-V VMs protected as physical servers.
 * VMware VMs that don't have the DHCP service enabled.
 * VMware VMs that don't have the following boot drivers: storvsc, vmbus, storflt, intelide, atapi.
 
@@ -88,7 +82,7 @@ During failover, you can select a number of recovery point options.
 > [!NOTE]
 > Recovery points can't be migrated to another Recovery Services vault.
 
-## Reprotection/failback
+## Reprotection/planned failover
 
 After failover to Azure, the replicated Azure VMs are in an unprotected state.
 
@@ -96,29 +90,24 @@ After failover to Azure, the replicated Azure VMs are in an unprotected state.
 - After machines are replicating from Azure to on-premises, you can run a failover from Azure to your on-premises site.
 - After machines are running on-premises again, you can enable replication so that they replicate to Azure for disaster recovery.
 
-**Failback works as follows**:
+**Planned failover works as follows**:
 
-- To fail back, a VM needs at least one recovery point in order to fail back. In a recovery plan, all VMs in the plan need at least one recovery point.
-- We recommend that you use the **Latest** recovery point to fail back (this is a crash-consistent point).
-	- There is an app-consistent recovery point option. In this case, a single VM recovers to its latest available app-consistent recovery point. For a recovery plan with a replication group, each replication group recovers to its common available recovery point.
+- To fail back to on-premises, a VM needs at least one recovery point in order to fail back. In a recovery plan, all VMs in the plan need at least one recovery point.
+- As this is a planned failover activity, you will be allowed to select the type of recovery point you want to fail back to. We recommend that you use a crash-consistent point.
+	- There is also an app-consistent recovery point option. In this case, a single VM recovers to its latest available app-consistent recovery point. For a recovery plan with a replication group, each replication group recovers to its common available recovery point.
 	- App-consistent recovery points can be behind in time, and there might be loss in data.
 - During failover from Azure to the on-premises site, Site Recovery shuts down the Azure VMs. When you commit the failover, Site Recovery removes the failed back Azure VMs in Azure.
-- After failover is complete, mobility agent in the Azure VM will be registered with RCM automatically. If registration fails, a critical health issue will be raised on the failed over VM. After issue is resolved, registration will be automatically triggered. You can manually complete the registration after resolving the errors.
-
->[!NOTE]
-> - If your on-premises environment is not ready or if you face any challenges, you can cancel the failover.
-> - Only planned failover can be cancelled. Failover from on-premises to Azure cannot be cancelled.
-
 
 
 ## VMware/physical reprotection/failback
 
-To reprotect and fail back VMware machines and physical servers from Azure to on-premises, ensure that you have a healthy Azure Site Recovery replication appliance.
+To reprotect and fail back VMware machines and physical servers from Azure to on-premises, ensure that you have a healthy appliance.
 
 **Appliance selection**
 
-- You can select any of the Azure Site Recovery replication appliances registered under a vault to re-protect to on-premises. You do not require a PowerShell in Azure for re-protect operation and a scale-out MT for Linux VMs.
-- Replication appliance doesn’t require additional network connection/ports (as compared with forward protection) during failback. Same appliance can be used for forward and backward protections if in healthy state. It should not impact performance of replications.
+- You can select any of the Azure Site Recovery replication appliances registered under a vault to re-protect to on-premises. You do not require a separate Process server in Azure for re-protect operation and a scale-out Master Target server for Linux VMs.
+- Replication appliance doesn’t require additional network connection/ports (as compared with forward protection) during failback. Same appliance can be used for forward and backward protections if it is in healthy state. It should not impact the performance of the replications.
+- Ensure that the data store or the host selected is the one where appliance is situated and can be accessed by the appliance selected.
   > [!NOTE]
   > Storage vMotion of replication appliance is not supported after re-protect operation.
 
@@ -126,8 +115,7 @@ To reprotect and fail back VMware machines and physical servers from Azure to on
 **Re-protect job**
 
 - If this is a new re-protect operation, then by default, a new log storage account will be automatically created by Azure Site Recovery in the target region. Retention disk is not required.
-- During entire operation (initial replication and differential replication), data will be continuously replicated, compressed and then sent to on-premises source machine.
-- In case of ALR and OLR, retrieve original configurations of VM.
+- In case of Alternate Location Recovery and Original Location Recovery, the original configurations of source machines will be retrieved.
   > [!NOTE]
   > - Static IP address can’t be retained in case of Alternate location re-protect (ALR) or Original location re-protect (OLR).
   > - fstab, LVMconf would be changed.
@@ -137,18 +125,32 @@ To reprotect and fail back VMware machines and physical servers from Azure to on
 
 - Any failed re-protect job can be retried. During retry, you can choose any healthy replication appliance.
 
-When you reprotect Azure VMs to on-premises, you can specify that you want to fail back to the original location, or to an alternate location.
+When you reprotect Azure machines to on-premises, you will be notified that you are failing back to the original location, or to an alternate location.
 
 - **Original location recovery**: This fails back from Azure to the same source on-premises machine if it exists. In this scenario, only changes are replicated back to on-premises.
-  - **Data store selection during OLR**: The Data store attached to the source machine will be automatically selected.
+  - **Data store selection during OLR**: The data store attached to the source machine will be automatically selected.
 - **Alternate location recovery**: If the on-premises machine doesn't exist, you can fail back from Azure to an alternate location. When you reprotect the Azure VM to on-premises, the on-premises machine is created. Full data replication occurs from Azure to on-premises. [Review](concepts-types-of-failback.md) the requirements and limitations for location failback.
   - **Data store selection during ALR**: Any data store managed by vCenter on which the appliance is situated and is accessible (read and write permissions) by the appliance can be chosen (original/new). You can choose cache storage account used for re-protection.
 
+- After failover is complete, mobility agent in the Azure VM will be registered with Site Recovery Services automatically. If registration fails, a critical health issue will be raised on the failed over VM. After issue is resolved, registration will be automatically triggered. You can manually complete the registration after resolving the errors.
+
+
+## Cancel failover
+
+If your on-premises environment is not ready or if you face any challenges, you can cancel the failover.
+
+Once you have initiated the planned failover and it completes successfully, your on-premises environment becomes  available for usage. But after the completion of the operation, if you want to fail over to a different recovery point, then you can cancel the failover.
+
+
+- Only planned failover can be canceled.
+
+- You can cancel a planned failover from the **Replicated items** page in your Recovery Services vault.
+
+- After the failover is canceled, your machines in Azure are turned back on, and replication once again starts from Azure to on-premises.
+
 
 ## Next steps
-- Fail over [specific VMware VMs](vmware-azure-tutorial-failover-failback.md)
-- Fail over [specific Hyper-V VMs](hyper-v-azure-failover-failback-tutorial.md).
-- [Create](site-recovery-create-recovery-plans.md) a recovery plan.
-- Fail over [VMs in a recovery plan](site-recovery-failover.md).
-- [Prepare for](vmware-azure-failback.md) VMware reprotection and failback.
-- Fail back [Hyper-V VMs](hyper-v-azure-failback.md).
+- [Failover VMware VMs to Azure (preview)](vmware-azure-tutorial-failover-failback-preview.md#run-a-failover-to-azure)
+- [Planned failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#planned-failover-from-azure-to-on-premises)
+- [Re-protect (preview)](vmware-azure-tutorial-failover-failback-preview.md#re-protect-the-on-premises-machine-to-azure-after-successful-planned-failover)
+- [Cancel failover (preview)](vmware-azure-tutorial-failover-failback-preview.md#cancel-planned-failover)
