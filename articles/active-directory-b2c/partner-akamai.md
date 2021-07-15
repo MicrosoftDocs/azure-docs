@@ -60,14 +60,14 @@ Akamai WAF integration includes the following components:
 
 ### Create and configure property 
 
-1. Create a new property using [these instructions](https://control.akamai.com/wh/CUSTOMER/AKAMAI/en-US/WEBHELP/property-manager/property-manager-help/GUID-14BB87F2-282F-4C4A-8043-B422344884E6.html).
+1. [Create a new property](https://control.akamai.com/wh/CUSTOMER/AKAMAI/en-US/WEBHELP/property-manager/property-manager-help/GUID-14BB87F2-282F-4C4A-8043-B422344884E6.html).
 
 2. Configure the property settings as:  
 
 | Property | Value |
 |:---------------|:---------------|
 |Property version | Select Standard or Enhanced TLS (preferred) |
-|Property hostnames | Add a property hostname. This is the name of your custom domain, for example: login.domain.com. <BR> <BR> Create or modify a certificate with the appropriate settings for the custom domain name. For more information, see [this](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
+|Property hostnames | Add a property hostname. This is the name of your custom domain, for example: login.domain.com. <BR> Create or modify a certificate with the appropriate settings for the custom domain name. For more information, see [this](https://learn.akamai.com/en-us/webhelp/property-manager/https-delivery-with-property-manager/GUID-9EE0EB6A-E62B-4F5F-9340-60CBD093A429.html). |
 
 3. Set the origin server property configuration settings as:
 
