@@ -76,12 +76,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Identifier** |
     |-----|
-    | `https://<CUSTOMER_NAME>.infer.smarthub.ai` |
-    | `https://<CUSTOMER_NAME>.infer.smarthubai.net` |
+    | `https://<CUSTOMER_NAME>.infer.smarthub.ai/api/auth/<TENANT>/saml/metadata` |
+    | `https://<CUSTOMER_NAME>.infer.smarthubai.net/api/auth/<TENANT>/saml/metadata` |
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<CUSTOMER_NAME>.smarthubai.net/api/auth/<TENANT>
-    /saml/callback`
+    b. In the **Reply URL** text box, type a URL using one of the following patterns:
+
+    | **Reply URL** |
+    |-----|
+    | `https://<CUSTOMER_NAME>.smarthub.ai/api/auth/<TENANT>/saml/callback` |
+    | `https://<CUSTOMER_NAME>.smarthubai.net/api/auth/<TENANT>/saml/callback` |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
