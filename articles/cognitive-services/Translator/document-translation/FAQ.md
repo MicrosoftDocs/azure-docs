@@ -13,7 +13,7 @@ ms.date: 07/15/2021
 ms.author: lajanuar
 ---
 
-# Frequently asked questions—Translator API
+# Frequently asked questions — Document Translation
 
 ## When to specify source language of the document in the request?
 
