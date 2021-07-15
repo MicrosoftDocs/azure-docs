@@ -56,6 +56,7 @@ The following architecture diagram shows the implementation.
 
 Request a demo tenant with BlokSec by filling out [the form](https://bloksec.com/request-a-demo/). In the message field indicates that you would like to onboard with Azure AD B2C. Download and install the free BlokSec yuID mobile app from the app store. Once your demo tenant has been prepared, you'll receive an email. On your mobile device where the BlokSec application is installed, select the link to register your admin account with your yuID app.
 
+::: zone pivot="b2c-user-flow"
 ## Prerequisites
 
 To get started, you'll need:
@@ -67,6 +68,23 @@ To get started, you'll need:
 - A BlokSec [trial account](https://bloksec.com/).
 
 - If you haven't already done so, [register](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) a web application, [and enable ID token implicit grant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications#enable-id-token-implicit-grant).
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+## Prerequisites
+
+To get started, you'll need:
+
+- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+
+- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
+
+- A BlokSec [trial account](https://bloksec.com/).
+
+- If you haven't already done so, [register](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) a web application, [and enable ID token implicit grant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications#enable-id-token-implicit-grant).
+
+- Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy).
+::: zone-end
 
 ### Part 1 - Create an application registration in BlokSec
 
