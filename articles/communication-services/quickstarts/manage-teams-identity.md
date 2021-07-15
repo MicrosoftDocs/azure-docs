@@ -56,7 +56,7 @@ The following application settings influence the experience:
 - The *Supported account types* property defines whether the application is single tenant ("Accounts in this organizational directory only") or multitenant ("Accounts in any organizational directory"). For this scenario, you can use multitenant.
 - *Redirect URI* defines the URI where the authentication request is redirected after authentication. For this scenario, you can use **Public client/native (mobile & desktop)** and enter **`http://localhost`** as the URI.
 
-For more detailed information, see [Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app#register-an-application). 
+For more detailed information, see [Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md#register-an-application). 
 
 When the application is registered, you'll see an identifier in the overview. This identifier, *Application (client) ID*, is used in the following steps:
 
@@ -65,7 +65,7 @@ When the application is registered, you'll see an identifier in the overview. Th
 On the **Authentication** pane of your application, you can see a configured platform for *Public client/native(mobile & desktop)* with a redirect URI pointing to *localhost*. At the bottom of the pane, you'll see an *Allow public client flows* toggle control, which for this quickstart should be set to **Yes**.
 
 ### Step 3: (Optional) Update the publisher domain 
-On the **Branding** pane, you can update your publisher domain for the application. This is useful for multitenant applications, where the application will be marked as verified by Azure. For more information, see [Configure an application's publisher domain](/azure/active-directory/develop/howto-configure-publisher-domain).
+On the **Branding** pane, you can update your publisher domain for the application. This is useful for multitenant applications, where the application will be marked as verified by Azure. For more information, see [Configure an application's publisher domain](../../active-directory/develop/howto-configure-publisher-domain.md).
 
 ### Step 4: Define the Communication Services VoIP permission in the application
 
@@ -160,7 +160,7 @@ The developer's required actions are shown in following diagram:
 
 By using the Microsoft Authentication Library, developers can acquire Azure AD user tokens from the Microsoft Identity platform endpoint to authenticate users and access secure web APIs. It can be used to provide secure access to Communication Services. The MSAL supports many different application architectures and platforms, including .NET, JavaScript, Java, Python, Android, and iOS.
 
-For more information about setting up environments in public documentation, see [Microsoft Authentication Library overview](/azure/active-directory/develop/msal-overview).
+For more information about setting up environments in public documentation, see [Microsoft Authentication Library overview](../../active-directory/develop/msal-overview.md).
 
 > [!NOTE]
 > The following sections describe how to exchange the Azure AD access token for the Teams access token for the console application in .NET.
