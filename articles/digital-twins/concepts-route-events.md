@@ -56,7 +56,7 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-To create an endpoint, you can use the Azure Digital Twins [REST APIs, CLI commands, or the Azure portal](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins).
+To [create an endpoint](how-to-manage-routes.md#create-an-endpoint-for-azure-digital-twins), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
 
 When defining an endpoint, you'll need to provide:
 * The endpoint's name
@@ -72,7 +72,7 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-To create an event route, you can use the Azure Digital Twins [REST APIs, CLI commands, or the Azure portal](how-to-manage-routes.md#create-an-event-route).
+To [create an event route](how-to-manage-routes.md#create-an-event-route), you can use the Azure Digital Twins REST APIs, CLI commands, or the Azure portal.
 
 Here is an example of creating an event route within a client application, using the `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) call: 
 
