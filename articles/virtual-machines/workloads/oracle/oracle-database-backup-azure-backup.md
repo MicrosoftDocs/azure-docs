@@ -82,46 +82,6 @@ Perform the following steps for each database on the VM:
     ```bash
     $ . oraenv
     ```
-    
-1. Start the Oracle listener if it's not already running. The listener only needs to be started once.
-
-    ```output
-    $ lsnrctl start
-    ```
-
-    The output should look similar to the following example:
-
-    ```bash
-    LSNRCTL for Linux: Version 19.0.0.0.0 - Production on 18-SEP-2020 03:23:49
-
-    Copyright (c) 1991, 2019, Oracle.  All rights reserved.
-
-    Starting /u01/app/oracle/product/19.0.0/dbhome_1/bin/tnslsnr: please wait...
-
-    TNSLSNR for Linux: Version 19.0.0.0.0 - Production
-    System parameter file is /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/listener.ora
-    Log messages written to /u01/app/oracle/diag/tnslsnr/vmoracle19c/listener/alert/log.xml
-    Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=vmoracle19c.eastus.cloudapp.azure.com)(PORT=1521)))
-    Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
-
-    Connecting to (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=vmoracle19c.eastus.cloudapp.azure.com)(PORT=1521)))
-    STATUS of the LISTENER
-    ------------------------
-    Alias                     LISTENER
-    Version                   TNSLSNR for Linux: Version 19.0.0.0.0 - Production
-    Start Date                18-SEP-2020 03:23:49
-    Uptime                    0 days 0 hr. 0 min. 0 sec
-    Trace Level               off
-    Security                  ON: Local OS Authentication
-    SNMP                      OFF
-    Listener Parameter File   /u01/app/oracle/product/19.0.0/dbhome_1/network/admin/listener.ora
-    Listener Log File         /u01/app/oracle/diag/tnslsnr/vmoracle19c/listener/alert/log.xml
-    Listening Endpoints Summary...
-     (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=vmoracle19c.eastus.cloudapp.azure.com)(PORT=1521)))
-    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
-    The listener supports no services
-    The command completed successfully
-    ```
 
 1.   Add the Azure Files share as an additional database archive log file destination
      
