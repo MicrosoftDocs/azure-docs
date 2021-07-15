@@ -1,16 +1,16 @@
 ---
-title: How to create plans for your Managed Service offer on Azure Marketplace
-description: Learn how to create plans for your Managed Service offer on Azure Marketplace using Microsoft Partner Center.
+title: Create plans for a Managed Service offer on Azure Marketplace
+description: Create plans for a Managed Service offer on Azure Marketplace.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 07/12/2021
 ---
 
-# How to create plans for your Managed Service offer
+# Create plans for a Managed Service offer
 
 Managed Service offers sold through the Microsoft commercial marketplace must have at least one plan. You can create a variety of plans with different options within the same offer. These plans (sometimes referred to as SKUs) can differ in terms of version, monetization, or tiers of service. For detailed guidance on plans, see [Plans and pricing for commercial marketplace offers](./plans-pricing.md).
 
@@ -105,6 +105,11 @@ The package file is validated upon upload. If there is an issue with package val
 - The package file contains the required **.json** files.
 - The ARM template is configured correctly. For help in troubleshooting the template refer to [Onboarding a Lighthouse customer](../lighthouse/how-to/onboard-customer.md#troubleshooting)
 
+## Updating an offer
+
+After your offer is published, you can [publish an updated version of your offer](update-existing-offer.md) at any time. For example, you may want to update the template with addition role definitions. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](../lighthouse/how-to/view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to review the changes and decide whether they want to update to the new version.
+
 ## Next steps
 
-[Review and publish](review-publish-offer.md)
+- Exit plan setup and continue with optional [Co-sell with Microsoft](./co-sell-overview.md), or
+- [Review and publish your offer](review-publish-offer.md)
