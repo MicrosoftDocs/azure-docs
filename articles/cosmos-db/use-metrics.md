@@ -17,7 +17,7 @@ Azure Cosmos DB provides insights for throughput, storage, consistency, availabi
 
 This article walks through common use cases and how Azure Cosmos DB insights can be used to analyze and debug these issues. By default, the metric insights are collected every five minutes and are kept for seven days.
 
-## View metrics from Azure portal
+## View insights from Azure portal
 
 1. Sign into [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
 
@@ -29,7 +29,7 @@ This article walks through common use cases and how Azure Cosmos DB insights can
 
 1. Open the **Insights (Preview)** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and account management metrics for ever container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
 
-   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB performance metrics in Azure portal":::
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB performance metrics in Azure portal" lightbox="./media/use-metrics/performance-metrics.png" :::
 
 1. The following metrics are available from the **Insights** pane:
 
@@ -55,13 +55,13 @@ To get started, head to the [Azure portal](https://portal.azure.com) and navigat
 
 The most common error status code is 429 (rate limiting/throttling). This error means that requests to Azure Cosmos DB are more than the provisioned throughput. The most common solution to this problem is to [scale up the RUs](./set-throughput.md) for the given collection.
 
-:::image type="content" source="media/use-metrics/request-count.png" alt-text="Number of requests per minute":::
+:::image type="content" source="media/use-metrics/request-count.png" alt-text="Number of requests per minute" lightbox= "media/use-metrics/request-count.png":::
 
 ## Determine the throughput consumption by a partition key range
 
 Having a good cardinality of your partition keys is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partition key range IDs, navigate to the **Insights (Preview)** pane. Open the **Throughput** tab, the normalized RU/s consumption across different partition key ranges is shown in the chart.
 
-:::image type="content" source="media/use-metrics/throughput-consumption-partition-key-range.png" alt-text="Normalized throughput consumption by partition key range IDs":::
+:::image type="content" source="media/use-metrics/throughput-consumption-partition-key-range.png" alt-text="Normalized throughput consumption by partition key range IDs" lightbox=:::
 
 With the help of this chart, you can identify if there is a hot partition. An uneven throughput distribution may cause *hot* partitions, which can result in throttled requests and may require repartitioning. After identifying which partition key is causing the skew in distribution, you may have to repartition your container with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partitioning-overview.md).
 
@@ -69,7 +69,7 @@ With the help of this chart, you can identify if there is a hot partition. An un
 
 It's important to determine the storage distribution of any partitioned container by data usage, index usage, and document usage. You can minimize the index usage, maximize the data usage and optimize your queries. To get this data, navigate to the **Insights (Preview)** pane and open the **Storage** tab:
 
-:::image type="content" source="media/use-metrics/data-index-consumption.png" alt-text="Data, index, and document consumption":::
+:::image type="content" source="media/use-metrics/data-index-consumption.png" alt-text="Data, index, and document consumption" lightbox="media/use-metrics/data-index-consumption.png" :::
 
 ## Compare data size against index size
 
