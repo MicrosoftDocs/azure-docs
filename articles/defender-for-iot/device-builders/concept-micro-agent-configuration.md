@@ -13,7 +13,7 @@ The micro agent configuration is controlled by a set of customizable module twin
 
 You can configure the agent to the settings that best suit your needs. For example, you can automatically exclude some events, or to minimize power consumption.
 
-Immediately after changing any configurations, the collector will send the data. After the data is sent, the changes will be applied,and all the collectors will restart. 
+Immediately after changing any configurations, the collector will send the data. After the data is sent, the changes will be applied, and all the collectors will restart. 
 
 ## Event based collectors configurations 
 
@@ -21,9 +21,9 @@ These configurations include process, and network activity collectors.
 
 | Process name | Setting option | Description | Default setting |
 | -- | -- | -- | -- |
-| **Priority** | High, Medium, or Low | Define frequency of sending | Medium |
-| **Aggregation mode** | True, or False | indicate whether to process event aggregation for an identical event  | True |
-| **Cache size** | cycle FIFO | The number of events collected in between sends | 256 |
+| **Priority** | High, Medium, or Low | Define frequency of sending. | Medium |
+| **Aggregation mode** | True, or False | Whether to process event aggregation for an identical event.  | True |
+| **Cache size** | cycle FIFO | The number of events collected in between the data is sent. | 256 |
 | **Enable/Disable collector** | Enable, or Disable | Whether or not the collector is operational. | Enable |
 
 ## Trigger based collectors configurations 
@@ -32,7 +32,7 @@ These configurations include system information, and baseline collectors.
 
 | Process name | Setting option | Description | Default setting |
 | -- | -- | -- | -- |
-| **Interval** | High, Medium, or Low | frequency of sending | Low |
+| **Interval** | High, Medium, or Low | The frequency in which data is sent. | Low |
  **Enable/Disable collector** | Enable, or Disable | Whether or not the collector is operational. | Enable |
 
 ## General configuration 
