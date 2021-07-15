@@ -4,7 +4,7 @@ description: Enable Private Links for your managed disks with Azure CLI. Allowin
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 06/29/2021
+ms.date: 07/15/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
@@ -150,5 +150,7 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 ## Next steps
 
+- Upload a VHD to Azure or copy a managed disk to another region - [Azure CLI](disks-upload-vhd-to-managed-disk-cli.md) or [Azure PowerShell module](../windows/disks-upload-vhd-to-managed-disk-powershell.md)
+- Download a VHD - [Windows](../windows/download-vhd.md) or [Linux](download-vhd.md)
 - [FAQ on Private Links](/azure/virtual-machines//faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)
