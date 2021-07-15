@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions - Document Translation
 titleSuffix: Azure Cognitive Services
-description: Get answers to frequently asked questions about Document Translation in the Translator servive from Azure Cognitive Services.
+description: Get answers to frequently asked questions about Document Translation in the Translator service from Azure Cognitive Services.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -15,9 +15,11 @@ ms.author: lajanuar
 
 # Document Translation FAQ
 
+This article contains answers to frequently asked questions about Document Translation.
+
 <table>
   <tr><td>
-    <strong>When should I specify the source language of the document in the request?</strong><br/>
+    <strong>  When should I specify the source language of the document in the request?</strong><br/>
 If the language of the content in the source document is known, its recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don’t specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
    </td></tr>
 <tr><td>
