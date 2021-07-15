@@ -92,7 +92,7 @@ To use the Cosmos DB provider as a distributed cache, it needs to be registered 
 ```csharp
 public class MyBusinessClass
 {
-    private readonly IDistributedCache this.cache;
+    private readonly IDistributedCache cache;
 
     public MyBusinessClass(IDistributedCache cache)
     {
