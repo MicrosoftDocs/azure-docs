@@ -392,6 +392,8 @@
       href: custom-domain.md
     - name: Web Application Firewall partners
       items:
+      - name: Akamai
+        href: partner-akamai.md
       - name: Cloudflare
         href: partner-cloudflare.md
     - name: Configure web API domains 
