@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Common questions about Service Fabric managed clusters 
+  title: Service Fabric managed clusters FAQ
   description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
   ms.topic: troubleshooting
   ms.author: micraft
@@ -43,6 +43,11 @@ sections:
           What is the difference between a Basic, and Standard SKU cluster?
         answer: |
           A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](./overview-managed-cluster.md#service-fabric-managed-cluster-skus).
+      
+      - question: |
+          Where can I see planned features or suggest one?
+        answer: |
+          Please see our github project for [managed clusters](https://github.com/microsoft/service-fabric/projects/17)      
           
   - name: Cluster Deployment and Management
     questions:
