@@ -45,15 +45,15 @@ In your application, install the following NuGet packages:
 
 ## Create a DicomWebClient
 
-After you've deployed your DICOM service, you'll create a DicomWebClient. Run the following code snippet to create DicomWebClient, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously.
+After you've deployed your DICOM service, you'll create a DicomWebClient. Run the following code snippet to create DicomWebClient, which we'll be using for the rest of this tutorial. Ensure you have both NuGet packages installed as mentioned previously. If you haven't already obtained a token, see Get access token for the DICOM service using Azure CLI document.
 
 ```c#
 string webServerUrl ="{Your DicomWeb Server URL}"
 var httpClient = new HttpClient();
 httpClient.BaseAddress = new Uri(webServerUrl);
 IDicomWebClient client = new DicomWebClient(httpClient);
+client.HttpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", “{Your token value}”); 
 ```
-
 With the DicomWebClient, we can now perform the Store, Retrieve, Search, and Delete operations.
 
 ## Store DICOM Instances (STOW)
