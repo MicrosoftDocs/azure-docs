@@ -93,7 +93,7 @@
     {
       "source_path_from_root": "/articles/iot-pnp/howto-manage-models.md",
       "redirect_url": "/azure/iot-develop/concepts-model-discovery",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-iot-pnp-cli.md",
@@ -103,7 +103,7 @@
     {
       "source_path_from_root": "/articles/iot-pnp/howto-install-iot-explorer.md",
       "redirect_url": "/azure/iot-fundamentals/howto-use-iot-explorer",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-install-pnp-cli.md",
@@ -263,7 +263,7 @@
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-components.md",
       "redirect_url": "/azure/iot-develop/concepts-modeling-guide",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-certification-program.md",
@@ -278,7 +278,7 @@
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-embedded-c.md",
       "redirect_url": "/azure/iot-develop/quickstart-connect-device?pivots=programming-language-embedded-c",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-dtdl-authoring-tools.md",
