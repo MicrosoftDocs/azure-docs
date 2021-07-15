@@ -58,7 +58,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 - Azure VMware Solution private cloud deployed as a secondary region.
 
-- [DNS resolution](/azure/azure-vmware/configure-dns-azure-vmware-solution) to on-premises SRM and virtual cloud appliances.
+- DNS resolution to on-premises SRM and virtual cloud appliances.
 
    >[!NOTE]
    >For private clouds created on or after July 1, 2021, you can configure private DNS resolution. For private clouds created before July 1, 2021, that need a private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request **Private DNS configuration**.
