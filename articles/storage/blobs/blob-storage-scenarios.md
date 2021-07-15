@@ -16,7 +16,7 @@ Intro goes here
 
 ## Identify storage accounts with no or low use
 
-You can identify accounts with little or no activity by using Storage Insights; a tool that lists the transaction volume and used capacity of all your accounts. To set that up, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md).
+You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. To set that up, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md).
 
 ### Analyze transaction volume
 
@@ -46,14 +46,14 @@ Choose the **Capacity** tab, to see if there is any data in the account. The fol
 > [!div class="mx-imgBorder"]
 > ![Used storage capacity](./media/blob-storage-scenarios/storage-insights-capacity-used.png)
 
-Interestingly, the charts reveal a lack of activity. 
+Interestingly, the charts reveal a lack of activity over the specific time period. 
 
 > [!div class="mx-imgBorder"]
 > ![Used storage capacity over time](./media/blob-storage-scenarios/storage-insights-capacity-over-time.png)
 
-The charts show that there are `9` files in file shares, and `108` blobs. To examine files and blobs, you can browse them in Storage Explorer. For large numbers of blobs, consider generating a report by using a [Blob Inventory policy](blob-inventory.md). 
+The **Storage units** chart shows `9` and `108` blobs. You can use Storage Explorer to examine them. For large numbers of blobs, consider generating a report by using a [Blob Inventory policy](blob-inventory.md). 
 
-If you want to identify the client that uploaded any given file or blob, you can query resource logs. See the [Audit account activity](#audit-account-activity) section of this article for examples. 
+If you want to identify the client that uploaded a file or blob, you can query resource logs. See the [Audit account activity](#audit-account-activity) section of this article for examples. 
 
 ## Monitor the use of a container
 
@@ -151,14 +151,14 @@ An IP address can be shared by multiple users or applications. An agent could al
 
 // Guidance here for more clearly identifying sources. For example - translating IDs to UPNs etc.
 
-    |Auth method| log entry|
-    |--|--|
-    | AAD user | RequesterUserName|
-    | AAD service principal | RequesterUpn |
-    | AAD user-assigned managed identity | ? |
-    | AAD system-assigned managed identity | ? |
-    | Shared Key | ? |
-    | SAS token | ? |
+|Auth method| log entry|
+|--|--|
+| AAD user | RequesterUserName|
+| AAD service principal | RequesterUpn |
+| AAD user-assigned managed identity | ? |
+| AAD system-assigned managed identity | ? |
+| Shared Key | ? |
+| SAS token | ? |
 
 Provide guidance for converting values to find identity.
 
@@ -215,7 +215,7 @@ Get-QueryCsv $ctx $inventoryContainer $blob $query $true
 
 This option is available only for accounts that have the hierarchical namespace feature enabled on them.
 
-1. Create and configure a Synapse workspace. See [Quickstart: Create a Synapse workspace](../../azure/synapse-analytics/quickstart-create-workspace.md).
+1. Create and configure a Synapse workspace. See [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md).
 
 2. Query logs. See [Query JSON files using serverless SQL pool in Azure Synapse Analytics](../../synapse-analytics/sql/query-json-files.md).
 
