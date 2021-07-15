@@ -65,13 +65,13 @@ You'll need a Spark table for this tutorial.
 
 ## Open the Cognitive Services wizard
 
-1. Right-click the Spark table created in the previous procedure. Select **Machine Learning** > **Predict with a model** to open the wizard.
+1. Right-click the Spark table created in the previous procedure. Select **Machine Learning** > **Enrich with existing model** to open the wizard.
 
-   ![Screenshot that shows selections for opening the scoring wizard.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d2.png)
+   ![Screenshot that shows selections for opening the scoring wizard.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00d.png)
 
 2. A configuration panel appears, and you're asked to select a Cognitive Services model. Select **Text analytics - Sentiment Analysis**.
 
-   ![Screenshot that shows selection of a Cognitive Services model.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00e2.png)
+   ![Screenshot that shows selection of a Cognitive Services model.](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00e.png)
 
 ## Provide authentication details
 
