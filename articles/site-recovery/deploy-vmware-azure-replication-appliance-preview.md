@@ -45,7 +45,7 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 |IP address type | Static|
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the configuration server is a VMware VM)|
-|**Internet access**  (the server needs access to the following URLs, directly or via proxy) <br> https://management.azure.com <br> https://secure.aadcdn.microsoftonline-p.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> *.services.visualstudio.com (Optional) <br> https://www.live.com <br> https://www.microsoft.com <br>|OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.<br> |
+|**Internet access**  (the server needs access to the following URLs, directly or via proxy) <br> `management.azure.com` <br> `secure.aadcdn.microsoftonline-p.com` <br> `login.live.com` <br> `graph.windows.net` <br> `login.windows.net` <br> `*.services.visualstudio.com (Optional)` <br> `www.live.com` <br> `www.microsoft.com` <br>|OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.<br> |
 |https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.|
 
 > [!NOTE]
@@ -67,15 +67,10 @@ If you just created a free Azure account, you're the owner of your subscription.
 **Here are the required key vault permissions**:
 
 - Microosoft.OffAzure/*
-
 - Microsoft.KeyVault/register/action
-
 - Microsoft.KeyVault/vaults/read
-
 - Microsoft.KeyVault/vaults/keys/read
-
 - Microsoft.KeyVault/vaults/secrets/read
-
 - Microsoft.Recoveryservices/*
 
 **Follow these  steps to assign the required permissions**:
