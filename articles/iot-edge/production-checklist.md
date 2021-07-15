@@ -352,7 +352,7 @@ For the most efficient IoT Edge deployment scenario, consider integrating your p
 
 ### Restrict access to your container registry
 
-Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private, not public, container registry to manage container images.
+Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private container registry to manage container images.
 
 In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
 
@@ -375,11 +375,11 @@ To authenticate using a service principal, provide the service principal ID and 
 
 ### Limit container access to host resources
 
-A compromised IoT Edge module has the potential to consume enough of the host resources that it causes a denial of service (DoS) condition, effectively shutting down the system. The IoT Edge platform does not limit resources for modules by default, since knowing how much resource a given module needs to run optimally requires testing.
+To balance shared host resources across modules, we recommend putting limits on resource consumption per module. These limits prevent any one module from over-consuming host resources to the extent that other modules or applications are shut off. The IoT Edge platform does not limit resources for modules by default, since knowing how much resource a given module needs to run optimally requires testing.
 
-Docker provides some constraints that you can use to limit resources, including memory and CPU usage, for particular modules. For more information, see [Runtime options with memory, CPUs, and GPUs](https://docs.docker.com/config/containers/resource_constraints/).
+Docker provides some constraints that you can use to limit resources like memory and CPU usage. For more information, see [Runtime options with memory, CPUs, and GPUs](https://docs.docker.com/config/containers/resource_constraints/).
 
-These constraints can be applied to individual modules by using create options in deployment manifests. For example: 
+These constraints can be applied to individual modules by using create options in deployment manifests. For example:
 
 ```json
 "createOptions": {
