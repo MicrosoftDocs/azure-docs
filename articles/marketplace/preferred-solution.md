@@ -22,7 +22,7 @@ The Microsoft preferred solution badge is visible in the online stores of the co
 
 ## How does the badge benefit customers?
 
-Offers with the Microsoft preferred solution badge have been validated by a team of Microsoft experts, have a focus on specific solution areas, and have proven to generate business impact, technology transformation, or cross-organizational improvements for customers. This badge allows customers browsing in [Microsoft AppSource](https://appsource.microsoft.com/en-us/home) and [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/home) to visually identify those offers.
+Offers with the Microsoft preferred solution badge have been validated by a team of Microsoft experts, have a focus on specific solution areas, and have proven to generate business impact, technology transformation, or cross-organizational improvements for customers. This badge allows customers browsing in Microsoft AppSource and Azure Marketplace to visually identify those offers.
 
 ## How does the badge benefit partners?
 
