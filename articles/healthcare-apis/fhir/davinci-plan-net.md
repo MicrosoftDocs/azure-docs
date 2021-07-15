@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 ---
 
 # Da Vinci Plan Net
