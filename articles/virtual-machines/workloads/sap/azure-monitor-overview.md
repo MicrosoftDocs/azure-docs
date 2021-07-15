@@ -119,7 +119,7 @@ Azure Monitor for SAP Solutions is a free product (no license fee). You're respo
 
 ## Next steps
 
-Learn more about Azure monitor for SAP solutions providers.
+Learn more about Azure Monitor for SAP Solutions providers.
 
 > [!div class="nextstepaction"]
 > [Azure monitor for SAP solutions providers](azure-monitor-providers.md)

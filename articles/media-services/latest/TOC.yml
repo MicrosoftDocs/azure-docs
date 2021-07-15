@@ -456,6 +456,9 @@
       href: asset-publish-cli-how-to.md
   - name: Security
     items:
+    - name: Security Baseline
+      href: /security/benchmark/azure/baselines/media-services-security-baseline
+      displayName: security, baseline
     - name: Azure RBAC
       href: security-rbac-concept.md
     - name: Roll storage access keys

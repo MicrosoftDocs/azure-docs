@@ -38,7 +38,7 @@ The following table shows how each Blob storage feature is supported with Data L
 |Snapshots|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Blob snapshots](snapshots-overview.md)|
 |Static websites|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 |Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Store business-critical blob data with immutable storage](immutable-storage-overview.md)|
-|Container soft delete|Preview|Preview|[Soft delete for containers (preview)](soft-delete-container-overview.md)|
+|Container soft delete|Preview|Preview|[Soft delete for containers](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
 |Custom domains|Preview<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Blob soft delete|Preview|Preview|[Soft delete for blobs](./soft-delete-blob-overview.md)|

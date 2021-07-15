@@ -1192,10 +1192,10 @@
         - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
           displayName: failover cluster instance, fci, availability group, ag, always on
-        - name: Collect baseline 
-          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1235,8 +1235,6 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Enable SQL vulnerability assessments
-          href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
         - name: Install SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:

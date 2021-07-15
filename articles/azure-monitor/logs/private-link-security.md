@@ -100,8 +100,9 @@ As a local bypass to the All or Nothing behavior, you can select not to update y
 
 That approach isn't recommended for production environments.
 
+## Limits and additional considerations
 
-### Consider limits
+### AMPLS limits
 
 The AMPLS object has the following limits:
 * A VNet can only connect to **one** AMPLS object. That means the AMPLS object must provide access to all the Azure Monitor resources the VNet should have access to.
@@ -224,7 +225,7 @@ Go to the Azure portal. In your resource's menu, there's a menu item called **Ne
 > [!NOTE]
 > Starting August 16, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't associated with an AMPLS, will stop accepting queries from any network.
 
-![LA Network Isolation](./media/private-link-security/ampls-log-analytics-lan-network-isolation-6.png)
+![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
 
 ### Connected Azure Monitor Private Link scopes
 Here you can review and configure the resource's connections to Azure Monitor Private Links scopes. Connecting to scopes (AMPLSs) allows traffic from the virtual network connected to each AMPLS to reach this resource, and has the same effect as connecting it from the scope as we did in [Connecting Azure Monitor resources](#connect-azure-monitor-resources). To add a new connection, select **Add** and select the Azure Monitor Private Link Scope. Select **Apply** to connect it. Your resource can connect to 5 AMPLS objects, as mentioned in [Restrictions and limitations](#restrictions-and-limitations).
@@ -245,7 +246,7 @@ Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials
 #### Azure Resource Manager
 Restricting access as explained above applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. To control these settings, you should restrict access to this resources using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
 
-Additionally, specific experiences (such as the LogicApp connector) query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well.
+Additionally, specific experiences (such as the LogicApp connector, Update Management solution and the Workspace Summary blade in the portal, showing the solutions dashboard) query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well.
 
 
 ## Review and validate your Private Link setup
@@ -375,7 +376,8 @@ For more information on bringing your own storage account, see [Customer-owned s
 ## Restrictions and limitations
 
 ### AMPLS
-The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [Consider limits](#consider-limits) for a deeper review of these limits.
+
+The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](#ampls-limits) for a deeper review of these limits.
 
 ### Agents
 

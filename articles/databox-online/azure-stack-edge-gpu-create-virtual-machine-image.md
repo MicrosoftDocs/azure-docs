@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 07/08/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -24,7 +24,7 @@ There's a required workflow for preparing a custom VM image. For the image sourc
 
 Complete the following prerequisite before you create your VM image:
 
-- [Download AzCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy). AzCopy gives you a fast way to copy an OS disk to an Azure Storage account.
+- [Download AzCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy). AzCopy gives you a fast way to copy an OS disk to an Azure Storage account.
 
 ---
 
@@ -37,7 +37,7 @@ The steps for preparing a custom VM image vary for a Windows or Linux VM.
 
 Do the following steps to create a Windows VM image:
 
-1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).  
+1. Create a Windows virtual machine in Azure. For portal instructions, see [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md). For PowerShell instructions, see [Tutorial: Create and manage Windows VMs with Azure PowerShell](../virtual-machines/windows/tutorial-manage-vm.md).  
 
    The virtual machine must be a Generation 1 VM. The OS disk that you use to create your VM image must be a fixed-size VHD of any size that Azure supports. For VM size options, see [Supported VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes).
 
@@ -97,9 +97,9 @@ To use your custom VM image to deploy VMs on your device, you must download the 
 
 To download the OS disk for the VM to an Azure storage account, do the following steps:
 
-1. [Stop the VM in the portal](/azure/virtual-machines/windows/download-vhd#stop-the-vm). You need to do this to deallocate the OS disk even if your Windows VM was shut down after you ran `sysprep` to generalize it.
+1. [Stop the VM in the portal](../virtual-machines/windows/download-vhd.md#stop-the-vm). You need to do this to deallocate the OS disk even if your Windows VM was shut down after you ran `sysprep` to generalize it.
 
-1. [Generate a download URL for the OS disk](/azure/virtual-machines/windows/download-vhd#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
+1. [Generate a download URL for the OS disk](../virtual-machines/windows/download-vhd.md#generate-download-url), and make a note of the URL. By default, the URL expires after 3600 seconds (1 hour). You can increase that time if needed.
       
 1. Download the VHD to your Azure Storage account using one of these methods:
    
@@ -151,7 +151,7 @@ To create the target URI for your prepared VHD, do the following steps:
 
 To copy your VHD to a blob container using AzCopy, do the following steps:
 
- 1. [Download AZCopy](/azure/storage/common/storage-use-azcopy-v10#download-azcopy) if you haven't done that already.
+ 1. [Download AZCopy](../storage/common/storage-use-azcopy-v10.md#download-azcopy) if you haven't done that already.
  
  1. In PowerShell, navigate to the directory where you stored azcopy.exe, and run the following command:
 

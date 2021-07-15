@@ -374,6 +374,8 @@
       href: partner-onfido.md
   - name: Secure access to legacy and on-premises apps
     items:
+    - name: Datawiza
+      href: partner-datawiza.md
     - name: Ping Identity
       href: partner-ping-identity.md
     - name: Strata
