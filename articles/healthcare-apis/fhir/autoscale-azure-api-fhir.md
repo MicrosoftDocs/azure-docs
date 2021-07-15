@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/15/2021
 ms.author: zxue
 ---
 
@@ -19,15 +19,25 @@ By default, the Azure API for FHIR is set to manual scale. This option works wel
 
 With autoscale, customers can run various workloads and the throughput RU/s are scaled up and down automatically without manual adjustments.
 
-It is important to note that the throughput RU/s are subject to the limits of the minimum/maximum values.
-
-* The maximum throughput values are calculated by the managed service when the autoscale feature is enabled. If it is needed, customers can request to increase the maximum value.
-
-* The minimum values at any time will be 10% of the maximum specified, or 4,000 RU, or the current storage in GB * 100 RU/s, whichever is larger. When the service is idle, the throughput RU/s are maintained at the minimum value, and not zero.
-
 ## How to enable autoscale?
 
 To enable the autoscale feature, which is not available from the Azure portal, customers can create a one-time support ticket to request it. The Microsoft support team will enable the autoscale feature based on the support priority.
+
+## How to adjust the maximum throughput RU/s?
+
+When autoscale is enabled, the system calculates and sets the initial Tmax value. The scalability is governed by the maximum throughput RU/s value, or Tmax, and runs between 0.1 *Tmax (or 10% Tmax) and Tmax RU/s.
+
+You can increase the max RU/s or Tmax value and go as high as the service supports. When the service is busy, the throughput RU/s are scaled up to Tmax valu. When the service is idle, the throughput RU/s are scaled down to 10% Tmax value.
+
+You can also decrease the max RU/s or Tmax value. When you lower the max RU/s, the minimum value you can set it to is: MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 400), rounded to the nearest 1000 RU/s.
+
+* **Example 1**: You have 1 GB data and the highest provisioned RU/s is 10,000. The minimum value is Max(**4000**, 10,000/10, 1x400) = 4000. The first number, **4000**, is used.
+
+* **Example 2**: You have 20 GB data and the highest provisioned RU/s is 100,000. The minimum value is Max(4000, **100,000/10**, 20x400) = 10,000. The second number, **100,000/10=10,000**, is used.
+
+* **Example 3**: You have 80 GB data and the highest provisioned RU/s is 300,000. The minimum value is Max(4000, 300,000/10, **80x400**) = 32,000. The third number, **80x400=32,000**, is used.
+
+You can request to adjust the max RU/s or Tmax value through a support ticket.
 
 ## What is the cost impact of autoscale?
 
