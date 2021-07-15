@@ -347,10 +347,10 @@ For the most efficient IoT Edge deployment scenario, consider integrating your p
 ## Security considerations
 
 * **Important**
-  * Restrict access to your container registry
+  * Manage access to your container registry
   * Limit container access to host resources
 
-### Restrict access to your container registry
+### Manage access to your container registry
 
 Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private container registry to manage container images.
 
@@ -375,22 +375,11 @@ To authenticate using a service principal, provide the service principal ID and 
 
 ### Limit container access to host resources
 
-To balance shared host resources across modules, we recommend putting limits on resource consumption per module. These limits prevent any one module from over-consuming host resources to the extent that other modules or applications are shut off. The IoT Edge platform does not limit resources for modules by default, since knowing how much resource a given module needs to run optimally requires testing.
+To balance shared host resources across modules, we recommend putting limits on resource consumption per module. These limits ensure that one module can't consume too much memory or CPU usage and prevent other processes from running on the device. The IoT Edge platform does not limit resources for modules by default, since knowing how much resource a given module needs to run optimally requires testing.
 
 Docker provides some constraints that you can use to limit resources like memory and CPU usage. For more information, see [Runtime options with memory, CPUs, and GPUs](https://docs.docker.com/config/containers/resource_constraints/).
 
-These constraints can be applied to individual modules by using create options in deployment manifests. For example:
-
-```json
-"createOptions": {
-  "HostConfig": {
-    "memory": "300m",
-    "cpus": "1.5"
-  }
-}
-```
-
-For more information about setting create options, see [Create a container](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+These constraints can be applied to individual modules by using create options in deployment manifests. For more information, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
 ## Next steps
 
