@@ -173,5 +173,5 @@ View all [Cognitive Services](../index.yml).
 ## Next Steps
 * [Text Translation reference](reference/v3-0-reference.md)
 * [Document Translation reference](document-translation/reference/rest-api-guide.md)
-* [Custom Translator reference](custom-translator/how-to-create-project.md)
+* [Custom Translator overview](custom-translator/overview.md)
 
