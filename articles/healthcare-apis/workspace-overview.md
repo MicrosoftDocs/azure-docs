@@ -79,7 +79,7 @@ amount of access to users that they need to perform their jobs. Furthermore, it 
 has access to Azure resources, what they can do with those resources, and what areas they have access 
 to. For more information, see [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/) documentation.
 
-## Next steps
+## Next steps today
 
 To start working with the Azure Healthcare APIs, follow the 5-minute quick start to deploying a workspace.
 
