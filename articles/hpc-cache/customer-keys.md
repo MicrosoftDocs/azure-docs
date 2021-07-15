@@ -4,7 +4,7 @@ description: How to use Azure Key Vault with Azure HPC Cache to control encrypti
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 ms.author: v-erkel
 ---
 
@@ -139,10 +139,7 @@ After a few minutes, the new Azure HPC Cache appears in your Azure portal. Go to
 
 > [!TIP]
 > The cache might appear in the resources list before the "deployment underway" messages clear. Check your resources list after a minute or two instead of waiting for a success notification.
-
-This two-step process is necessary because the Azure HPC Cache instance needs an identity to pass to the Azure Key Vault for authorization. The cache identity doesn't exist until after its initial creation steps are complete. If you provided a user-assigned managed identity when you created the cache, there's no authorization step afterward.
-
-> [!NOTE]
+>
 > You must authorize encryption within 90 minutes after creating the cache. If you don't complete this step, the cache will time out and fail. A failed cache has to be re-created, it can't be fixed.
 
 The cache shows the status **Waiting for key**. Click the **Enable encryption** button at the top of the page to authorize the cache to access the specified key vault.

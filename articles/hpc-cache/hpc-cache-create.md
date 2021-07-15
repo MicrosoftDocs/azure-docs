@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 ms.author: v-erkel 
 ms.custom: devx-track-azurepowershell
 ---
@@ -138,7 +138,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 ![screenshot of Azure HPC Cache instance in Azure portal](media/hpc-cache-new-overview.png)
 
 > [!NOTE]
-> If your cache uses customer-managed encryption keys, and you need to do the manual authorization step, the cache might appear in the resources list before the deployment status changes to complete. As soon as the cache's status is **Waiting for key** you can [authorize it](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) to use the key vault.
+> If your cache uses customer-managed encryption keys and requires a manual authorization step after creation, the cache might appear in the resources list before its deployment status changes to complete. As soon as the cache's status is **Waiting for key** you can [authorize it](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) to use the key vault.
 
 ## [Azure CLI](#tab/azure-cli)
 
