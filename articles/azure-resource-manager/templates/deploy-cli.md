@@ -238,7 +238,7 @@ params="prefix=start suffix=end"
 
 az deployment group create \
   --resource-group testgroup \
-  --template-file <path-to-bicep> \
+  --template-file <path-to-template> \
   --parameters $params
 ``` 
 
