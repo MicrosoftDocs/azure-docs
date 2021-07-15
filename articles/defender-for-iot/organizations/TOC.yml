@@ -198,7 +198,7 @@
   items:
   - name: Tech Community Training sessions
     displayName: training, videos 
-    href: Resources-ninja-training-video.md
+    href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
