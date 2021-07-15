@@ -231,16 +231,17 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 ::: zone-end
 
-## REST API platform
+## Development of your REST API 
 
-Your REST API can be based on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
+Your REST API can be developed on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
 
 The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API calls will arrive from an Azure data center IP address.
 
+You can use serverless cloud functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md) for ease of development.
+
+Your should design your REST API service and its underlying components (such as the database and file system) to be highly available.
+
 [!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
-
-Design your REST API service and its underlying components (such as the database and file system) to be highly available.
-
 
 ## Next steps
 
