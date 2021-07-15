@@ -102,7 +102,6 @@ Perform the following steps for each database on the VM:
    sqlplus / as sysdba
    ```
 
-
 1.  Start the database if it's not already running. 
    
     ```bash
