@@ -349,4 +349,4 @@ The message includes some useful information, including these items:
 After your cache appears in the **Resources** list, you can move to the next step.
 
 * [Define storage targets](hpc-cache-add-storage.md) to give your cache access to your data sources.
-* If you use customer-managed encryption keys and need to [authorize Azure Key Vault encryption](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) from the cache's overview page to complete your cache setup, read [Use customer-managed encryption keys](customer-keys.md) for details. You must do this step before you can add storage.
+* If you use customer-managed encryption keys and need to [authorize Azure Key Vault encryption](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache-if-needed) from the cache's overview page to complete your cache setup, follow the guidance in [Use customer-managed encryption keys](customer-keys.md). You must do this step before you can add storage.
