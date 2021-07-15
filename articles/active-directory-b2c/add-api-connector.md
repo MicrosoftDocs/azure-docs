@@ -19,7 +19,7 @@ zone_pivot_groups: b2c-policy-type
 As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md) to modify your sign-up experiences. 
 
 ::: zone pivot="b2c-user-flow"
-You can create an API endpoint using one of our [samples](api-connector-samples.md#api-connectors-rest-api-samples).
+You can create an API endpoint using one of our [samples](api-connector-samples.md#api-connector-rest-api-samples).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -556,7 +556,7 @@ To return the promo code claim back to the relying party application, add an out
 
 ### Using serverless cloud functions
 
-Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connectors-rest-api-samples), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
+Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connector-rest-api-samples), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -581,7 +581,7 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ### Using serverless cloud functions
 
-Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connectors-rest-api-samples), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
+Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connector-rest-api-samples), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -605,7 +605,7 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ::: zone pivot="b2c-user-flow"
 
-- Get started with our [samples](api-connector-samples.md#api-connectors-rest-api-samples).
+- Get started with our [samples](api-connector-samples.md#api-connector-rest-api-samples).
 - [Secure your API Connector](secure-rest-api.md)
 
 ::: zone-end
