@@ -24,7 +24,7 @@ These configurations include process, and network activity collectors.
 | **Priority** | High, Medium, or Low | Define frequency of sending. | Medium |
 | **Aggregation mode** | True, or False | Whether to process event aggregation for an identical event.  | True |
 | **Cache size** | cycle FIFO | The number of events collected in between the data is sent. | 256 |
-| **Disable collector** | Enable, or Disable | Whether or not the collector is operational. | False |
+| **Disable collector** | True, or False | Whether or not the collector is operational. | False |
 
 ## Trigger based collectors configurations 
 
@@ -33,7 +33,7 @@ These configurations include system information, and baseline collectors.
 | Setting Name | Setting option | Description | Default setting |
 | -- | -- | -- | -- |
 | **Interval** | High, Medium, or Low | The frequency in which data is sent. | Low |
- **Enable/Disable collector** | Enable, or Disable | Whether or not the collector is operational. | Enable |
+| **Disable collector** | True, or False | Whether or not the collector is operational. | False |
 
 ## General configuration 
 
