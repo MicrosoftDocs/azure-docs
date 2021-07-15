@@ -187,7 +187,7 @@ For additional information, review the following articles:
 >In Azure Active Directory B2C, [**custom policies**](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview).
 
 >[!IMPORTANT]
->Complete the steps in the [**Get started with custom policies in Active Directory B2C**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy).
+>Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy).
 
 ### Part 2 - Create a policy key
 
