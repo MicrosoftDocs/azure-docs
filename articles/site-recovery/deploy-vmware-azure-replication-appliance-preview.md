@@ -3,7 +3,7 @@ title: Deploy Azure Site Recovery replication appliance - Preview
 description: This article describes support and requirements when deploying the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery - Preview
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/29/2021
+ms.date: 07/15/2021
 ---
 
 # Deploy Azure Site Recovery replication appliance - Preview
@@ -48,27 +48,19 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 IP address type | Static
 Ports | 443 (Control channel orchestration)<br>9443 (Data transport)
 NIC type | VMXNET3 (if the configuration server is a VMware VM)
-**Internet access**  (the server needs access to the following URLs, directly or via proxy):|
-\*.backup.windowsazure.com | Used for replicated data transfer and coordination
-\*.blob.core.windows.net | Used to access storage account that stores replicated data. You can provide the specific URL of your cache storage account.
-\*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
-https:\//login.microsoftonline.com | Used for replication management operations and coordination
-time.nist.gov | Used to check time synchronization between system and global time
-time.windows.com | Used to check time synchronization between system and global time
-https:\//management.azure.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> *.services.visualstudio.com (Optional) </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
+**Internet access**  (the server needs access to the following URLs, directly or via proxy)|OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
+https://management.azure.com <br>
+https://secure.aadcdn.microsoftonline-p.com <br>
+https://login.live.com <br>
+https://graph.windows.net <br>
+https://login.windows.net <br>
+*.services.visualstudio.com (Optional) <br>
+https://www.live.com <br>
+https://www.microsoft.com <br>
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.
 
 > [!NOTE]
 > If you have [private links connectivity](hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://management.azure.com, https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
-
-## Required software
-<needs detailed review>
-
-**Component** | **Requirement**
---- | ---
-VMware vSphere PowerCLI | Not required for versions 9.14 and higher
-MYSQL | MySQL should be installed. You can install manually, or Site Recovery can install it. For more information, see [configure settings](vmware-azure-deploy-configuration-server.md#configure-settings).
-
 
 
 ## Prepare Azure account
@@ -81,15 +73,31 @@ To create and register the Azure Site Recovery replication appliance, you need a
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner for the required permissions.
 
-Use the following steps to assign the required permissions::
+## Prerequisites
+
+**Here are the required key vault permissions**:
+
+- Microosoft.OffAzure/*
+
+- Microsoft.KeyVault/register/action
+
+- Microsoft.KeyVault/vaults/read
+
+- Microsoft.KeyVault/vaults/keys/read
+
+- Microsoft.KeyVault/vaults/secrets/read
+
+- Microsoft.Recoveryservices/*
+
+**Use the following steps to assign the required permissions**:
 
 1. In the Azure portal, search for **Subscriptions**, and under **Services**, select **Subscriptions** search box to search for the Azure subscription.
 
-2. In the Subscriptions page, select the subscription in which you created the Recovery Services vault.
+2. In the **Subscriptions** page, select the subscription in which you created the Recovery Services vault.
 
 3. In the subscription, select **Access control** (IAM) > **Check access**. In **Check access**, search for the relevant user account.
 
-4. In **Add a role assignment**, Select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
+4. In **Add a role assignment**, select **Add,** select the Contributor or Owner role, and select the account. Then Select **Save**.
 
   To register the appliance, your Azure account needs permissions to register AAD apps.
 
@@ -194,15 +202,7 @@ In case of any organizational restrictions, you can manually set up the Site Rec
 
 7. After saving connectivity details, Select **Continue** to proceed to registration with Microsoft Azure.
 
-    **Prerequisites for successful registration of appliance with Azure**:
-
-    You need an account with permissions to register Azure Active Directory (AAD) apps.
-
-    - To enable, navigate to Azure portal > **Azure Active Directory** > **Users** > **User Settings**.
-    - In **User settings**, verify that Azure AD users can register applications (set to *Yes* by default).
-    - In case the **App registrations** setting is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the *Application Developer* role to an account to allow the registration of AAD App. [Learn more](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
-
-8. Ensure the prerequisites are met, proceed with registration.
+8. Ensure the [prerequisites](#prerequisites) are met, proceed with registration.
 
     - **Friendly name of appliance** : Provide a friendly name with which you want to track this appliance in the Azure portal under recovery services vault infrastructure.
 
