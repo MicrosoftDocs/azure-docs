@@ -236,5 +236,6 @@ az disk-pool iscsi-target update --name $targetName \
 
 ## Next steps
 
-- [Attach disk pools to Azure VMware Solution hosts (Preview)](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md)
+- If you encounter any issues deploying a disk pool, see [Troubleshoot Azure disk pools (preview)](disks-pools-troubleshoot.md).
+- [Attach disk pools to Azure VMware Solution hosts (Preview)](../azure-vmware/attach-disk-pools-to-azure-vmware-solution-hosts.md).
 - [Manage a disk pool](disks-pools-manage.md).
