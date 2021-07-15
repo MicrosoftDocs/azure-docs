@@ -102,18 +102,18 @@ This article describes how to create one or more access reviews for privileged A
     
 4. Use the **Action to apply on denied guest users** list to specify what happens for guest users that are denied:
 
-<kbd> ![Upon completion settings - Action to apply on denied guest users](./media/pim-how-to-start-security-review/action-to-apply-on-denied-guest-users.png) </kbd>
+    <kbd> ![Upon completion settings - Action to apply on denied guest users](./media/pim-how-to-start-security-review/action-to-apply-on-denied-guest-users.png) </kbd>
 
 
 5. You can send notifications to additional users or groups (Preview) to receive review completion updates. This feature allows for stakeholders other than the review creator to be updated on the progress of the review. To use this feature, select **Select User(s) or Group(s)** and add an additional user or group upon you want to receive the status of completion.
 
-  <kbd>  ![Upon completion settings - Add additional users to receive notifications](./media/pim-how-to-start-security-review/upon-completion-settings-additional-receivers.png) </kbd>
+    <kbd>  ![Upon completion settings - Add additional users to receive notifications](./media/pim-how-to-start-security-review/upon-completion-settings-additional-receivers.png) </kbd>
 
 ### Advanced settings
 
 1. To specify additional settings, expand the **Advanced settings** section.
 
- <kbd> ![Advanced settings for show recommendations, require reason on approval, mail notifications, and reminders](./media/pim-how-to-start-security-review/advanced-settings.png) </kbd>
+    <kbd> ![Advanced settings for show recommendations, require reason on approval, mail notifications, and reminders](./media/pim-how-to-start-security-review/advanced-settings.png) </kbd>
 
 1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
 
