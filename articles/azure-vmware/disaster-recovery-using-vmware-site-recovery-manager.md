@@ -285,11 +285,12 @@ If you no longer require SRM, you must uninstall it in a clean manner. Before yo
 
 VMware SRM is a Disaster Recovery solution from VMware.  
 
-- For SRM-related issues in your on-premises environment, contact VMware for support.
+Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances. 
 
-- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.   
+For all other issues, such as configuration, replication etc contact VMware for support.
 
-VMware and Microsoft support teams engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
+VMware and Microsoft support teams will engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
+
 
 ## References
 
