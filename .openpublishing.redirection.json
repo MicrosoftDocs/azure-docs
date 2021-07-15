@@ -13430,6 +13430,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/configure-nsx-network-components-azure-portal.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
       "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
       "redirect_document_id": false
@@ -17319,11 +17324,18 @@
       "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
+
     {
-      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-apis-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
+    },
+
     {
       "source_path_from_root": "/articles/digital-twins/how-to-use-parser.md",
       "redirect_url": "/azure/digital-twins/how-to-parse-models",
@@ -19112,6 +19124,11 @@
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
       "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-device-sdk-c-serializer.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-sdk-c-intro",
       "redirect_document_id": false
     },
     {
@@ -26160,6 +26177,111 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/cost-management.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/cost-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/data-feeds-from-different-sources",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/encryption.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/encryption",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/glossary.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/glossary",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/overview.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/whats-new.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/alerts.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/alerts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/anomaly-feedback.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/anomaly-feedback",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/configure-metrics.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/configure-metrics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/credential-entity.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/credential-entity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/diagnose-an-incident.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/diagnose-an-incident",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/further-analysis.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/further-analysis",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/manage-data-feeds.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/manage-data-feeds",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/metrics-graph.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/metrics-graph",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/how-tos/onboard-your-data.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/how-tos/onboard-your-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/quickstarts/rest-api-and-client-library.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/quickstarts/rest-api-and-client-library",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/quickstarts/web-portal.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/quickstarts/web-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/tutorials/enable-anomaly-notification.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/tutorials/enable-anomaly-notification",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/tutorials/write-a-valid-query.md",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/tutorials/write-a-valid-query",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/faq.yml",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/metrics-advisor/index.yml",
+      "redirect_url": "/azure/applied-ai-services/metrics-advisor",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/azure-security-antimalware.md",
       "redirect_url": "/azure/security/fundamentals/antimalware",
       "redirect_document_id": true
@@ -29608,7 +29730,7 @@
       "source_path_from_root": "/articles/storage/storage-analytics.md",
       "redirect_url": "/azure/storage/common/storage-analytics",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path_from_root": "/articles/storage/common/storage-auth.md",
       "redirect_url": "/azure/storage/common/authorize-data-access",
@@ -41658,6 +41780,11 @@
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-claims-mapping.md",
       "redirect_url": "/azure/active-directory/b2b/claims-mapping",
       "redirect_document_id": true
+    },
+	{
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-device-disappearance.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/reference-connect-device-disappearance",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-b2c.md",
@@ -56307,6 +56434,11 @@
     {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-by-use-nested-virtualization.md",
       "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-by-use-nested-virtualization",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
+      "redirect_url": "/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
     },
     {
