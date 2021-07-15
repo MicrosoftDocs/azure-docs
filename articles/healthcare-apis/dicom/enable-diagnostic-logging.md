@@ -11,11 +11,11 @@ ms.author: aersoy
 
 # Enable Diagnostic Logging in the DICOM service
 
-In this article, you will learn how to enable diagnostic logging in Azure API for FHIR and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements (such as HIPAA) is a must. The feature in DICOM service enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
+In this article, you will learn how to enable diagnostic logging in DICOM service and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements is a must. The feature in DICOM service enables diagnostic logs is the [Diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 ## Enable audit logs
 
-1. To enable diagnostic logging DICOM service, select your DICOM service in the Azure portal 
+1. To enable diagnostic logging DICOM service, select your DICOM service in the Azure portal.
 2. Select the **Activity log** blade, and then select **Diagnostic settings**.
 
    [ ![Azure activity log.](media/dicom-activity-log.png) ](media/dicom-activity-log.png#lightbox)
@@ -96,8 +96,6 @@ MicrosoftHealthcareApisAuditLogs
 ## Conclusion
 
 Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. 
- 
-FHIR is the registered trademark of HL7 and is used with the permission of HL7.
 
 ## Next steps
 In this article, you learned how to enable audit logs for the DICOM service. For information about the Azure activity log, see
