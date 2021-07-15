@@ -170,7 +170,7 @@ Add additional capabilities to your apps and workflows by utilizing other Cognit
 
 View all [Cognitive Services](../index.yml). 
 
-## Next Steps
+## Next steps
 * [Text Translation reference](reference/v3-0-reference.md)
 * [Document Translation reference](document-translation/reference/rest-api-guide.md)
 * [Custom Translator overview](custom-translator/overview.md)
