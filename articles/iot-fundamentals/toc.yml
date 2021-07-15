@@ -16,6 +16,8 @@
   items:
     - name: Use smartphone device app
       href: iot-phone-app-how-to.md
+    - name: Use IoT Explorer
+      href: howto-use-iot-explorer.md
 - name: Security
   items:
   - name: Recommendations
