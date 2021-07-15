@@ -21,7 +21,7 @@ The first test that we'll focus on is testing the FHIR service against the [Da V
 
 ## Define search parameters
 
-As part of the Da Vinci Plan-Net IG, you'll need to define six [new search parameters](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-do-custom-search) for the Healthcare Service, Insurance Plan, Practitioner Role, Organization, and Organization Affiliation resources. All six of these are tested in the capability statement:
+As part of the Da Vinci Plan-Net IG, you'll need to define six [new search parameters](how-to-do-custom-search) for the Healthcare Service, Insurance Plan, Practitioner Role, Organization, and Organization Affiliation resources. All six of these are tested in the capability statement:
 
 * [Healthcare Service Coverage Area](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-healthcareservice-coverage-area.html)
 * [Insurance Plan Coverage Area](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-insuranceplan-coverage-area.html)
@@ -37,7 +37,7 @@ The rest of the search parameters needed for the Da Vinci Plan-Net IG are define
 
 ## Store profiles
 
-Outside of defining search parameters, you need to load the [required profiles and extensions](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-against-profiles#storing-profiles) to pass this test. There are nine profiles used as part of the Da Vinci Plan-Net IG:
+Outside of defining search parameters, you need to load the [required profiles and extensions](validation-against-profiles) to pass this test. There are nine profiles used as part of the Da Vinci Plan-Net IG:
 
 * [Plan-Net Endpoint](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-Endpoint.html)
 * [Plan-Net Healthcare Service](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-HealthcareService.html)
