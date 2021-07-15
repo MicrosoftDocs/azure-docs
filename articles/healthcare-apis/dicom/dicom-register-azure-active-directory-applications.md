@@ -15,10 +15,7 @@ You have several options to choose from when you're setting up the DICOM service
 
 ## Application registrations
 
-For an application to interact with Azure AD, it must be registered. In the context of the DICOM Service, there are two kinds of application registrations to discuss.
-
-* Resource application registrations
-* Client application registrations
+For an application to interact with Azure AD, it must be registered. In the context of the DICOM Service, there are three types of client application registrations to discuss.
 
 ## Client applications
 
