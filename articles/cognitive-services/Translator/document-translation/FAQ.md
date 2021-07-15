@@ -13,23 +13,19 @@ ms.date: 07/15/2021
 ms.author: lajanuar
 ---
 
-# Frequently asked questions — Document Translation
+# Document Translation FAQ
 
-## When should I specify the source language of the document in the request?
-
+**When should I specify the source language of the document in the request?**
 If the language of the content in the source document is known, its recommended to specify the source language in the request to get a better translation. If the document has content in multiple languages or the language is unknown, then don’t specify the source language in the request. Document translation automatically identifies language for each text segment and translates.
 
-## To what extent are the layout, structure, and formatting maintained?
-
+**To what extent are the layout, structure, and formatting maintained?**
 While translating text from the source to the target language, the overall length of translated text may differ from source.  This could result in reflow of text across pages.
 The same fonts may not be available both in source and target language. In general, the same font style is applied in target language to retain formatting closer to source.
 
-## Will the text embedded in an image within a document gets translated?
-
+**Will the text embedded in an image within a document gets translated?**
 No. The text embedded in an image within a document will not get translated.
 
-## Does document translation translate content from scanned documents?
-
+**Does document translation translate content from scanned documents?**
 No. Document translation doesn’t translate content from scanned documents.
 
 
