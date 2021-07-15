@@ -16,8 +16,6 @@ You deploy an on-premises replication appliance when you use [Azure Site Recover
 - The replication appliance coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture-preview.md) about the Azure Site Recovery replication appliance components and processes.
 
-<< as discussed earlier, we need to mention about the capacity for each replication appliance>>
-
 ## Hardware requirements
 
 **Component** | **Requirement**
@@ -41,23 +39,14 @@ IIS | - No pre-existing default website <br> - No pre-existing website/applicati
 FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 
 ## Network requirements
-<needs detailed review>
 
-**Component** | **Requirement**
---- | ---
-IP address type | Static
-Ports | 443 (Control channel orchestration)<br>9443 (Data transport)
-NIC type | VMXNET3 (if the configuration server is a VMware VM)
-**Internet access**  (the server needs access to the following URLs, directly or via proxy)|OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.
-https://management.azure.com <br>
-https://secure.aadcdn.microsoftonline-p.com <br>
-https://login.live.com <br>
-https://graph.windows.net <br>
-https://login.windows.net <br>
-*.services.visualstudio.com (Optional) <br>
-https://www.live.com <br>
-https://www.microsoft.com <br>
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.
+|**Component** | **Requirement**|
+|--- | ---|
+|IP address type | Static|
+|Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
+|NIC type | VMXNET3 (if the configuration server is a VMware VM)|
+|**Internet access**  (the server needs access to the following URLs, directly or via proxy) <br> https://management.azure.com <br> https://secure.aadcdn.microsoftonline-p.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> *.services.visualstudio.com (Optional) <br> https://www.live.com <br> https://www.microsoft.com <br>|OVF setup needs access to these additional URLs. They're used for access control and identity management by Azure Active Directory.<br> |
+|https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also approved, if necessary.|
 
 > [!NOTE]
 > If you have [private links connectivity](hybrid-how-to-enable-replication-private-endpoints.md) to Site Recovery vault, you do not need any additional internet access for the Configuration Server. An exception to this is while setting up the CS machine using OVA template, you will need access to following URLs over and above private link access - https://management.azure.com, https://www.live.com and https://www.microsoft.com. If you do not wish to allow access to these URLs, please set up the CS using Unified Installer.
@@ -89,7 +78,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 - Microsoft.Recoveryservices/*
 
-**Use the following steps to assign the required permissions**:
+**Follow these  steps to assign the required permissions**:
 
 1. In the Azure portal, search for **Subscriptions**, and under **Services**, select **Subscriptions** search box to search for the Azure subscription.
 
@@ -101,7 +90,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
   To register the appliance, your Azure account needs permissions to register AAD apps.
 
-  Follow these steps to assign required permissions:
+  **Follow these steps to assign required permissions**:
 
   - In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**. In **User settings**, verify that Azure AD users can register applications (set to Yes by default).
 
