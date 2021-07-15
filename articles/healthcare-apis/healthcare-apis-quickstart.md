@@ -31,7 +31,7 @@ In the Azure portal, select **Create a resource**.
 
 ## Search for Azure Healthcare APIs
 
-In the **Marketplace**, enter **Azure Healthcare APIs** in the search textbox.
+In the searchbox, enter **Azure Healthcare APIs**.
 
 [ ![Search for Healthcare APIs](media/search-for-healthcare-apis.png) ](media/search-for-healthcare-apis.png#lightbox)
 
@@ -69,8 +69,9 @@ Now that the workspace is created, you can:
 
 * Deploy FHIR services
 * Deploy DICOM services
+* Deploy an IoT Connector and ingest data to your FHIR service.
 * Transform your data into different formats and secondary use through our conversion and de-identification APIs.
-* Deploy an IoT Connector to ingest data from your FHIR service.
+
 
 [ ![Deploy different services](media/healthcare-apis-deploy-services.png) ](media/healthcare-apis-deploy-services.png)
 
