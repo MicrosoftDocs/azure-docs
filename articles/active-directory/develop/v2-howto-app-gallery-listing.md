@@ -286,6 +286,8 @@ The timeline for the process of listing an OpenID Connect application in the gal
 
 ![Timeline for listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/timeline2.png)
 
+The timeline for the process of listing a SCIM provisioning application in the gallery is variable and depends on numerous factors. 
+
 ### Escalations
 
 For any escalations, send email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com), and we'll respond as soon as possible.

@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Smallstep SSH for automatic user provisioning with A
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Smallstep SSH.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 1f37bd8a-4706-4385-b42e-5507912066f1
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Smallstep SSH for automatic user provisioning

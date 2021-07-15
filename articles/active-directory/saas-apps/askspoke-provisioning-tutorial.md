@@ -3,8 +3,8 @@ title: "Tutorial: Configure askSpoke for automatic user provisioning with Azure 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to askSpoke.
 services: active-directory
 documentationcenter: ""
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: f9458aac-f576-49ce-aba4-fc8302ed6360
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/02/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure askSpoke for automatic user provisioning
