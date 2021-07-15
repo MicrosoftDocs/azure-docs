@@ -520,6 +520,8 @@ For Linux function apps, run the following Azure CLI command to update the Node 
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
+To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
+
 ## Dependency management
 In order to use community libraries in your JavaScript code, as is shown in the below example, you need to ensure that all dependencies are installed on your Function App in Azure.
 
