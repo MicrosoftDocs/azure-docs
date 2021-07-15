@@ -16,47 +16,44 @@ Intro goes here
 
 ## Identify storage accounts with no or low use
 
-Look at the transaction volume and capacity of your accounts to find those accounts that aren't being used. You can use Storage Insights to find them. Storage Insights is a tool that gives you a unified view of the performance, capacity, and availability metrics of all your accounts. See [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md) to learn how to set that up.
+You can identify accounts with little or no activity by using Storage Insights; a tool that lists the transaction volume and used capacity of all your accounts. To set that up, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md).
 
-### Examine transactions
+### Analyze transaction volume
 
-In Storage Insights, sort results in descending order by **Transactions**. This image shows an account with very low usage over the time period. 
+From the [Storage Insights view in Azure monitor](../../azure-monitor/insights/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with very low transaction volume over the specified period. 
 
 > [!div class="mx-imgBorder"]
 > ![transaction volume in Storage Insights](./media/blob-storage-scenarios/storage-insights-transaction-volume.png)
 
-Before you retire an account with low use, you might want to know more about those small transactions. For example, when is the transaction occurring, what data is being written or read, and who is performing the transaction. That way, you can determine whether these transactions are critical or if you can work with the entities that perform these transactions to direct their queries to another account. 
-
-You can investigate the nature of transactions by clicking the account link to see transaction by storage account type. 
-
-> [!div class="mx-imgBorder"]
-> ![Drill into transaction chart](./media/blob-storage-scenarios/storage-insights-account-link.png)
-
-Over any given timeframe, you can see which storage service is receiving requests. The following image shows that `contoso1account` receives the vast majority of it's small number of requests in the Blob Storage service. Therefore, you can investigate the nature of transactions to that service.
+Click the account link to learn more about these transactions. In this example, most requests are made to the Blob Storage service. 
 
 > [!div class="mx-imgBorder"]
 > ![transaction by service type](./media/blob-storage-scenarios/storage-insights-transactions-by-storage-type.png)
 
-To identity what types of request are being made to the account, drill into the **Transactions by API name** chart. This image shows that all of the requests being made to the account are listing operations and requests for account property information. There are no read and write transactions. This might lead you to believe that the account is not being used in a significant way. 
+To determine what sorts of requests are being made, drill into the **Transactions by API name** chart. 
 
 > [!div class="mx-imgBorder"]
 > ![Storage transaction APIs](./media/blob-storage-scenarios/storage-insights-transaction-apis.png)
 
-This image does show a spike of activity on `July 9 2021`. If you want to investigate further, you can use query resource logs to figure out who made those requests, what information was obtained. See the blah section for details about how to find and parse that information. 
+In this example, all requests are listing operations or requests for account property information. That reveals that users are only examining the contents of the account or the account configuration properties. There are no read and write transactions. This might lead you to believe that the account is not being used in a significant way. 
 
-### Examine capacity
+The image above does show a spike of activity on `July 9 2021`. This might or might not be relevant to your investigation. However, if you want to identify the user or client who is making these requests or what information is being requested, you can query resource logs. See the [Audit account activity](#audit-account-activity) section of this article for examples. 
 
-Have a look at your used capacity to see if theres any data in your account.  Choose the **Capacity** tab, and pick any time frame. This image shows about 5 Gib worth of files in the account. 
+### Analyze used capacity
+
+Choose the **Capacity** tab, to see if there is any data in the account. The following image shows that the `contoso1account` account is storing about 5 GiB worth of data.
 
 > [!div class="mx-imgBorder"]
 > ![Used storage capacity](./media/blob-storage-scenarios/storage-insights-capacity-used.png)
 
-However the charts reveal that over this period, the capacity level is unchanged. 
+Interestingly, the charts reveal a lack of activity. 
 
 > [!div class="mx-imgBorder"]
 > ![Used storage capacity over time](./media/blob-storage-scenarios/storage-insights-capacity-over-time.png)
 
-This points to a lack of activity. The charts show that there are only `9` files. Therefore, they are likely large files and you can examine them easily by using Storage Explorer in the browser. You can use resource logs if you want to identify the client that uploaded these files. See activity log section of this doc.  It appears that there are `108` small blobs. You can either browse them in Storage Explorer or you can set up a Blob Inventory policy to give you more resolution about each of those blobs. To identity the client that uploaded them, use resource logs. 
+The charts show that there are `9` files in file shares, and `108` blobs. To examine files and blobs, you can browse them in Storage Explorer. For large numbers of blobs, consider generating a report by using a [Blob Inventory policy](blob-inventory.md). 
+
+If you want to identify the client that uploaded any given file or blob, you can query resource logs. See the [Audit account activity](#audit-account-activity) section of this article for examples. 
 
 ## Monitor the use of a container
 
