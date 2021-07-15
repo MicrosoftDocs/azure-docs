@@ -27,7 +27,7 @@ You'll create the source and destination VMs or VM groups. The source group has 
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **Port mirroring** > **VM groups** > **Add**.
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-vm-groups.png" alt-text="Screenshot showing how to create a VM group for port mirroring.":::
+   :::image type="content" source="media/networking/add-port-mirroring-vm-groups.png" alt-text="Screenshot showing how to create a VM group for port mirroring.":::
 
 1. Provide a name for the new VM group, select VMs from the list, and then **OK**.
 
@@ -42,7 +42,7 @@ You'll create a port mirroring profile that defines the traffic direction for th
 
 1. Select **Port mirroring** > **Port mirroring** > **Add** and then provide:
 
-   :::image type="content" source="media/configure-nsx-network-components-azure-portal/add-port-mirroring-profile.png" alt-text="Screenshot showing the information required for the port mirroring profile.":::
+   :::image type="content" source="media/networking/add-port-mirroring-profile.png" alt-text="Screenshot showing the information required for the port mirroring profile.":::
 
    - **Port mirroring name** - Descriptive name for the profile.
 
