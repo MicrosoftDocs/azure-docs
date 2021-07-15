@@ -41769,6 +41769,11 @@
       "redirect_url": "/azure/active-directory/b2b/claims-mapping",
       "redirect_document_id": true
     },
+	{
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-device-disappearance.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/reference-connect-device-disappearance",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-b2c.md",
       "redirect_url": "/azure/active-directory/b2b/compare-with-b2c",
