@@ -7,7 +7,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -32,7 +33,7 @@ Learn how to create an ExpressRoute circuit by deploying an Azure Resource Manag
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 
-[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/101-expressroute-circuit-create/) to create an ExpressRoute circuit.
+[Azure Quickstart templates](https://azure.microsoft.com/resources/templates/) has a good collection of Resource Manager template. You use one of the [existing templates](https://azure.microsoft.com/resources/templates/expressroute-circuit-create/) to create an ExpressRoute circuit.
 
 [!code-json[create-azure-expressroute-circuit](~/quickstart-templates/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json)]
 
@@ -46,8 +47,7 @@ To create an ExpressRoute Circuit by deploying a template:
     $circuitName = Read-Host -Prompt "Enter a circuit name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${circuitName}rg"
-    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-expressroute-circuit-create/azuredeploy.json"
-
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/expressroute-circuit-create/azuredeploy.json"
     $serviceProviderName = "Equinix"
     $peeringLocation = "Silicon Valley"
     $bandwidthInMbps = 500

@@ -2,7 +2,8 @@
 title: Deploy a Service Fabric managed cluster application using ARM template
 description: Deploy an application to a Azure Service Fabric managed cluster using an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Deploy a Service Fabric managed cluster application using ARM template
 
@@ -172,6 +173,17 @@ To delete an application that was deployed by using the application resource mod
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+
+## Migration from classic to managed clusters
+
+If you are migrating application(s) from classic to managed clusters you will need to make sure to validate types are correctly specified or you will encounter errors. 
+
+The following items are called out specifically due to frequency of usage, but not not meant to be an exclusive list of differences. 
+
+* upgradeReplicaSetCheckTimeout is now an integer for managed, but a string on classic SFRP. 
+
+See [managed clusters applications resource types](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json) for full list of properties and types
 
 ## Next steps
 

@@ -15,6 +15,8 @@ ms.author: pafarley
 
 # Video moderation with the Review tool
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 Use Content Moderator's machine-assisted [video moderation](video-moderation-api.md) and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
 
 ## View videos under review

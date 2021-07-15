@@ -9,32 +9,31 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 06/07/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with xMatters OnDemand
 
-In this tutorial, you learn how to integrate xMatters OnDemand with Azure Active Directory (Azure AD).
-Integrating xMatters OnDemand with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate xMatters OnDemand with Azure Active Directory (Azure AD). When you integrate xMatters OnDemand with Azure AD, you can:
 
-* You can control in Azure AD who has access to xMatters OnDemand.
-* You can enable your users to be automatically signed-in to xMatters OnDemand (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to xMatters OnDemand.
+* Enable your users to be automatically signed-in to xMatters OnDemand with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with xMatters OnDemand, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
-* xMatters OnDemand single sign-on enabled subscription
+* xMatters OnDemand single sign-on enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* xMatters OnDemand supports **IDP** initiated SSO
+* xMatters OnDemand supports **IDP** initiated SSO.
 
-## Adding xMatters OnDemand from the gallery
+## Add xMatters OnDemand from the gallery
 
 To configure the integration of xMatters OnDemand into Azure AD, you need to add xMatters OnDemand from the gallery to your list of managed SaaS apps.
 
@@ -44,7 +43,6 @@ To configure the integration of xMatters OnDemand into Azure AD, you need to add
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **xMatters OnDemand** in the search box.
 1. Select **xMatters OnDemand** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for xMatters OnDemand
 
@@ -59,36 +57,36 @@ To configure and test Azure AD SSO with xMatters OnDemand, perform the following
 	1. **[Create xMatters OnDemand test user](#create-xmatters-ondemand-test-user)** - to have a counterpart of Britta Simon in xMatters OnDemand that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **xMatters OnDemand** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using one of the following patterns:
 
 	| Identifier |
 	| ---------- |
-	| `https://<companyname>.au1.xmatters.com.au/` |
-	| `https://<companyname>.cs1.xmatters.com/` |
-	| `https://<companyname>.xmatters.com/` |
+	| `https://<COMPANY_NAME>.au1.xmatters.com.au/` |
+	| `https://<COMPANY_NAME>.cs1.xmatters.com/` |
+	| `https://<COMPANY_NAME>.xmatters.com/` |
 	| `https://www.xmatters.com` |
-	| `https://<companyname>.xmatters.com.au/` |
+	| `https://<COMPANY_NAME>.xmatters.com.au/` |
 
     b. In the **Reply URL** text box, type a URL using one of the following patterns:
 
 	| Reply URL |
 	| ---------- |
-	|  `https://<companyname>.au1.xmatters.com.au` |
-	| `https://<companyname>.xmatters.com/sp/<instancename>` |
-	| `https://<companyname>.cs1.xmatters.com/sp/<instancename>` |
-	| `https://<companyname>.au1.xmatters.com.au/<instancename>` |
+	| `https://<COMPANY_NAME>.au1.xmatters.com.au` |
+	| `https://<COMPANY_NAME>.xmatters.com/sp/<INSTANCE_NAME>` |
+	| `https://<COMPANY_NAME>.cs1.xmatters.com/sp/<INSTANCE_NAME>` |
+	| `https://<COMPANY_NAME>.au1.xmatters.com.au/<INSTANCE_NAME>` |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand Client support team](https://www.xmatters.com/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -128,18 +126,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-
 ## Configure xMatters OnDemand SSO
 
-1. In a different web browser window, sign in to your XMatters OnDemand company site as an administrator.
+1. In a different web browser window, sign in to your xMatters OnDemand company site as an administrator.
 
 2. Click on **Admin**, and then click **Company Details**.
 
-    ![Admin page](./media/xmatters-ondemand-tutorial/admin.png "Admin")
+    ![Admin page](./media/xmatters-ondemand-tutorial/admin.png "Admin page")
 
 3. On the **SAML Configuration** page, perform the following steps:
 
-    ![SAML configuration section ](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML configuration")
+    ![SAML configuration section ](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML configuration section")
 
     a. Select **Enable SAML**.
 
@@ -157,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create xMatters OnDemand test user
 
-1. Sign in to your **XMatters OnDemand** tenant.
+1. Sign in to your **xMatters OnDemand** tenant.
 
 2. Go to the **Users Icon** > **Users** and then click **Add Users**.
 
@@ -167,13 +164,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Add a User](./media/xmatters-ondemand-tutorial/add-user-2.png "Add a User")
 
-
-
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options.
 
-* Click on Test this application in Azure portal and you should be automatically signed in to the xMatters OnDemand for which you set up the SSO
+* Click on Test this application in Azure portal and you should be automatically signed in to the xMatters OnDemand for which you set up the SSO.
 
 * You can use Microsoft My Apps. When you click the xMatters OnDemand tile in the My Apps, you should be automatically signed in to the xMatters OnDemand for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 

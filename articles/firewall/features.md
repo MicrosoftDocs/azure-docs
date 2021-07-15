@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 04/02/2021
+ms.date: 06/11/2021
 ms.author: victorh
 ---
 
@@ -54,7 +54,7 @@ For more information about Availability Zones, see [Regions and Availability Zon
 
 ## Unrestricted cloud scalability
 
-Azure Firewall can scale up as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+Azure Firewall can scale out as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
 
 ## Application FQDN filtering rules
 

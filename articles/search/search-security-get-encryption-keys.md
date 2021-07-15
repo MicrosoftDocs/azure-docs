@@ -1,5 +1,5 @@
 ---
-title: Get encryption key information
+title: Find encryption key information
 titleSuffix: Azure Cognitive Search
 description: Retrieve the encryption key name and version used in an index or synonym map so that you can manage the key in Azure Key Vault.
 
@@ -8,28 +8,45 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/01/2020
+ms.date: 06/21/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Get customer-managed key information from indexes and synonym maps
+# Find encrypted objects and information
 
-In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used, use the REST API or an SDK to retrieve the **encryptionKey** property from an index or synonym map definition. 
+In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used in Azure Key Vault, use the REST API or an Azure SDK to retrieve the **encryptionKey** property from the object definition in your search service.
 
-We recommend that you [enable logging](../key-vault/general/logging.md) on Key Vault so that you can monitor key usage.
+Objects that are not encrypted with a customer-managed key will have an empty **encryptionKey** property. Otherwise, you might see a definition similar to the following example.
+
+```json
+"encryptionKey": {
+"keyVaultUri": "https://demokeyvault.vault.azure.net",
+"keyVaultKeyName": "myEncryptionKey",
+"keyVaultKeyVersion": "eaab6a663d59439ebb95ce2fe7d5f660",
+"accessCredentials": {
+    "applicationId": "00000000-0000-0000-0000-000000000000",
+    "applicationSecret": "myApplicationSecret"
+    }
+}
+```
+
+The **encryptionKey** construct is the same for all encrypted objects. It's a first-level property, on the same level as the object name and description.
 
 ## Get the admin API key
 
-To get object definitions from a search service, you will need to authenticate with admin rights. The easiest way to get the admin API key is through the portal.
+Before you can retrieve object definitions from a search service, you will need to provide an admin API key. Admin API keys are required on requests that query for object definitions and metadata. The easiest way to get the admin API key is through the portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and open the search service overview page.
 
 1. On the left side, click **Keys** and copy an admin API. An admin key is required for index and synonym map retrieval.
 
-For the remaining steps, switch to PowerShell and the REST API. The portal does not show synonym maps, nor the encryption key properties of indexes.
+For the remaining steps, switch to PowerShell and the REST API. The portal does not show encryption key information for any object.
 
-## Use PowerShell and REST
+## Retrieve object properties
 
-Run the following commands to set up the variables and get object definitions.
+Use PowerShell and REST to run the following commands to set up the variables and get object definitions. 
+
+Alternatively, you can also use the Azure SDKs for [.NET](/dotnet/api/azure.search.documents.indexes.searchindexclient.getindexes), [Python](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient), [JavaScript](/javascript/api/@azure/search-documents/searchindexclient), and [Java](/java/api/com.azure.search.documents.indexes.searchindexclient.getindex).
 
 ```powershell
 <# Connect to Azure #>
@@ -60,7 +77,9 @@ Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
 ## Next steps
 
-Now that you know which encryption key and version is used, you can manage the key in Azure Key Vault or check other configuration settings.
+We recommend that you [enable logging](../key-vault/general/logging.md) on Azure Key Vault so that you can monitor key usage.
+
+For more information about using Azure Key or configuring customer managed encryption:
 
 + [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell.md)
 

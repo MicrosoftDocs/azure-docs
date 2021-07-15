@@ -1,14 +1,15 @@
 ---
 title: Image Builder - Create a Windows Virtual Desktop image
 description: Create an Azure VM image of Windows Virtual Desktop using Azure Image Builder in PowerShell.
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
 ms.reviewer: cynthn
 ms.date: 05/12/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
-ms.subservice: image-builder
+ms.subservice: image-builder 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create a Windows Virtual Desktop image using Azure VM Image Builder and PowerShell
@@ -71,20 +72,13 @@ This article is intended to be a copy and paste exercise.
 You must have the latest Azure PowerShell CmdLets installed, see [here](/powershell/azure/overview) for install details.
 
 ```PowerShell
-# Register for Azure Image Builder Feature
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-# If they do not saw registered, run the commented out code below.
+# If they do not show as registered, run the commented out code below.
 
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
@@ -163,8 +157,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 ```
 
 > [!NOTE] 
-> If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see this article to resolve: https://docs.microsoft.com/azure/role-based-access-control/troubleshooting.
-
+> If you see this error: 'New-AzRoleDefinition: Role definition limit exceeded. No more role definitions can be created.' see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md).
 
 
 ## Create the Shared Image Gallery 

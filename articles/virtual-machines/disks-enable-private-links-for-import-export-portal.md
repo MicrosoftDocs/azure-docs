@@ -2,9 +2,9 @@
 title: Azure portal - Restrict import/export access to managed disks with Private Links
 description: Enable Private Links for your managed disks with Azure portal. Allowing you to securely export and import disks within your virtual network.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -86,5 +86,5 @@ You've now completed configuring Private Links that you can use when importing/e
 
 ## Next steps
 
-- [FAQ for Private Links](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [FAQ for Private Links](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

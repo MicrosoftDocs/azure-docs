@@ -35,13 +35,13 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. From the Azure Sentinel navigation menu, select **Analytics**.
 
-1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create &#10132; Scheduled query rule** at the top of the screen.
+1. Select a scheduled query rule and click **Edit**. Or create a new rule by clicking **Create > Scheduled query rule** at the top of the screen.
 
 1. Click the **Set rule logic** tab.
 
-1. In the **Alert enhancement** section, select **Custom details**.
+1. In the **Alert enrichment (Preview)** section, expand **Custom details**.
 
-    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enhancement.png" alt-text="Find and select custom details":::
+    :::image type="content" source="media/surface-custom-details-in-alerts/alert-enrichment.png" alt-text="Find and select custom details":::
 
 1. In the now-expanded **Custom details** section, add key-value pairs corresponding to the details you want to surface:
 
@@ -59,7 +59,7 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
     > [!NOTE]
     > 
-    >**Service limits**
+    > **Service limits**
     > - You can define **up to 20 custom details** in a single analytics rule.
     >
     > - The size limit for all custom details, collectively, is **2 KB**.

@@ -2,9 +2,9 @@
 title: Disk metrics
 description: Examples of disk bursting metrics
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ---

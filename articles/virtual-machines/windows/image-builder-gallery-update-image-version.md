@@ -1,37 +1,24 @@
 ---
-title: Create a new image version from an existing image version using Azure Image Builder (preview)
-description: Create a new VM image version from an existing image version using Azure Image Builder in Windows.
-author: cynthn
-ms.author: cynthn
+title: Create a new Windows image version from an existing image version using Azure Image Builder 
+description: Create a new Windows VM image version from an existing image version using Azure Image Builder.
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
-ms.colletion: windows
+ms.collection: windows
 ---
-# Preview: Create a new VM image version from an existing image version using Azure Image Builder in Windows
+# Create a new Windows VM image version from an existing image version using Azure Image Builder
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the features
-To use Azure Image Builder during the preview, you need to register the new feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
-```
+To use Azure Image Builder, you need to register the feature.
 
 Check your registration.
 
@@ -58,7 +45,7 @@ az provider register -n Microsoft.Network
 
 If you used [Create an image and distribute to a Shared Image Gallery](image-builder-gallery.md) to create your Shared Image Gallery, you've already created the variables we need. If not, please setup some variables to be used for this example.
 
-For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
+Image builder will only support creating custom images in the same Resource Group as the source managed image. Update the resource group name in this example to be the same resource group as your source managed image.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -131,6 +118,7 @@ Submit the image configuration to the VM Image Builder Service.
 ```azurecli-interactive
 az resource create \
     --resource-group $sigResourceGroup \
+    --location $location \
     --properties @helloImageTemplateforSIGfromWinSIG.json \
     --is-full-object \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
