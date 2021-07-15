@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2021
+ms.date: 07/15/2021
 ms.author: bagol
 
 ---
@@ -21,9 +21,14 @@ ms.author: bagol
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 
+> [!IMPORTANT]
+>
+> Noted features in this article are currently in  **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 ## Prerequisites
 
-Before you can use UEBA data in your investigations, you must [enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel](enable-entity-behavior-analytics.md). 
+Before you can use UEBA data in your investigations, you must [enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel](enable-entity-behavior-analytics.md).
 
 Start looking for machine powered insights about one week after enabling UEBA.
 
@@ -99,6 +104,24 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 
 > [!TIP]
 > You can also run the **Anomalous Failed Logon** [hunting query](hunting.md) to monitor all of an organization's anomalous failed logins. Use the results from the query to start investigations into possible password spray attacks.
+>
+
+## URL detonation in the Investigation graph (Public preview)
+
+When there are URLs in the logs ingested into Azure Sentinel, those URLs are automatically detonated to help accelerate the triage process. The Investigation graph includes a node for the detonated URL, as well as the following details:
+
+- **DetonationVerdict**. The high-level, Boolean determination from detonation. For example, **Bad** means that the side was classified as hosting malware or phishing content.
+- **DetonationFinalURL**. The final, observed landing page URL, after all redirects from the original URL.
+- **DetonationScreenshot**. A screenshot of what the page looked like at the time that the alert was triggered. Select the screenshot to enlarge.
+
+For example:
+
+:::image type="content" source="media/investigate-with-ueba/url-detonation-example.png" alt-text="Sample URL detonation shown in the Investigation graph.":::
+
+> [!TIP]
+> If you don't see URLs in your logs, check that URL logging, also known as threat logging, is enabled for your secure web gateways, web proxies, firewalls, or legacy IDS/IPS.
+>
+> You can also create custom logs to channel specific URLs of interest into Azure Sentinel for further investigation.
 >
 
 ## Next steps
