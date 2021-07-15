@@ -72,7 +72,6 @@ Starting with Windows 10 version 2004, you can use Azure AD groups to manage adm
 > [!NOTE]
 > Starting in the Windows 10 20H2 update, we recommend using [Local Users and Groups](/windows/client-management/mdm/policy-csp-localusersandgroups) policy instead of the Restricted Groups policy.
 
-
 Currently, there's no UI in Intune to manage these policies and they need to be configured using [Custom OMA-URI Settings](/mem/intune/configuration/custom-settings-windows-10). A few considerations for using either of these policies: 
 
 - Adding Azure AD groups through the policy requires the group's SID that can be obtained by executing the [Microsoft Graph API for Groups](/graph/api/resources/group). The SID is defined by the property `securityIdentifier` in the API response.
@@ -84,6 +83,7 @@ Currently, there's no UI in Intune to manage these policies and they need to be 
 - Managing local administrators using Azure AD groups is not applicable to Hybrid Azure AD joined or Azure AD Registered devices.
 
 - While the Restricted Groups policy existed prior to Windows 10 version 2004, it did not support Azure AD groups as members of a device's local administrators group. 
+- Azure AD groups deployed to a device with either of the two policies do not apply to remote desktop connections. To control remote desktop permissions for Azure AD joined devices, you need to add the individual user's SID to the appropriate group. 
 
 > [!IMPORTANT]
 > Windows sign-in with Azure AD supports evaluation of up to 20 groups for administrator rights. We recommend having no more than 20 Azure AD groups on each device to ensure that administrator rights are correctly assigned. This limitation also applies to nested groups. 
