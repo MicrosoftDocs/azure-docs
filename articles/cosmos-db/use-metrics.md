@@ -61,7 +61,7 @@ The most common error status code is 429 (rate limiting/throttling). This error 
 
 Having a good cardinality of your partition keys is essential for any scalable application. To determine the throughput distribution of any partitioned container broken down by partition key range IDs, navigate to the **Insights (Preview)** pane. Open the **Throughput** tab, the normalized RU/s consumption across different partition key ranges is shown in the chart.
 
-:::image type="content" source="media/use-metrics/throughput-consumption-partition-key-range.png" alt-text="Normalized throughput consumption by partition key range IDs" lightbox=:::
+:::image type="content" source="media/use-metrics/throughput-consumption-partition-key-range.png" alt-text="Normalized throughput consumption by partition key range IDs" lightbox="media/use-metrics/throughput-consumption-partition-key-range.png":::
 
 With the help of this chart, you can identify if there is a hot partition. An uneven throughput distribution may cause *hot* partitions, which can result in throttled requests and may require repartitioning. After identifying which partition key is causing the skew in distribution, you may have to repartition your container with a more distributed partition key. For more information about partitioning in Azure Cosmos DB, see [Partition and scale in Azure Cosmos DB](./partitioning-overview.md).
 
