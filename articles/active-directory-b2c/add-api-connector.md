@@ -281,7 +281,7 @@ Content-type: application/json
 
 **End-user experience with a blocking response**
 
-  :::image type="content" source="media/add-api-connector/blocking-page-response.png" alt-text="An example image of what the end-user experience looks like after an API returns a blocking response.":::
+:::image type="content" source="media/add-api-connector/blocking-page-response.png" alt-text="An example image of what the end-user experience looks like after an API returns a blocking response.":::
 
 ### Example of a validation-error response
 
