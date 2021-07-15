@@ -148,6 +148,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
 - Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
 - Hyperscale databases are not supported. 
+- Memory-optimized tables are not supported.
+- If the hub and member databases are in a virtual network, Data Sync won't work because the sync app, which is responsible for running sync between hub and members, does not support accessing the hub or member databases inside a customer's private link. This limitation still applies when customer also uses the Data Sync Private Link feature. 
 
 #### Unsupported data types
 

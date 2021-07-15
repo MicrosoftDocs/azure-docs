@@ -29,7 +29,7 @@ If you are not ready to make your data available for model training, but want to
 
 To create and train with datasets, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -124,7 +124,7 @@ The following example,
 * Mounts the input dataset to the compute target.
 
 > [!Note]
-> If you are using a custom Docker base image, you will need to install fuse via `apt-get install -y fuse` as a dependency for dataset mount to work. Learn how to [build a custom build image](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
+> If you are using a custom Docker base image, you will need to install fuse via `apt-get install -y fuse` as a dependency for dataset mount to work. Learn how to [build a custom build image](./how-to-deploy-custom-container.md).
 
 For the notebook example , see [How to configure a training run with data input and output](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 

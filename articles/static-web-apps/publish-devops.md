@@ -96,7 +96,6 @@ In this tutorial, you learn to:
           app_location: '/'
           api_location: 'api'
           output_location: ''
-        env:
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 

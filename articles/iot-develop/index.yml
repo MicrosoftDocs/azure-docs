@@ -50,5 +50,5 @@ landingContent:
           url: quickstart-devkit-renesas-rx65n-2mb.md
         - text: Connect a Renesas RX65N Cloud Kit to Azure IoT
           url: quickstart-devkit-renesas-rx65n-cloud-kit.md
-        - text: Connect an ST Microelectronics B-L475E/L4S5I-IOT01A to Azure IoT
+        - text: Connect an STMicroelectronics B-L475E/L4S5I-IOT01A to Azure IoT
           url: quickstart-devkit-stm-b-l475e.md

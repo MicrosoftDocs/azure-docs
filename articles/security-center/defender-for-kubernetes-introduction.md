@@ -33,7 +33,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for Kubernetes** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
 |||
 
 ## What are the benefits of Azure Defender for Kubernetes?
@@ -64,7 +64,7 @@ We recommend deploying both, for the most complete protection possible.
 If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 ### Does AKS allow me to install custom VM extensions on my AKS nodes?
-For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent. 
+For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
 
 AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
 
