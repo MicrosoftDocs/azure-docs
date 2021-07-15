@@ -140,7 +140,7 @@
   - name: Authorization basics
     displayName: AuthZ basics
     items:
-    - name: Custom RBAC for app developers
+    - name: RBAC for app developers
       href: custom-rbac-for-developers.md
   - name: App scenarios and authentication flows
     displayName: Auth flows
