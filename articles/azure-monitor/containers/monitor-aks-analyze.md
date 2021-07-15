@@ -21,7 +21,7 @@ Below is the bottoms-up strategy which is commonly used by large scale clusters.
 :::image type="content" source="media/monitor-aks/layers.png" alt-text="AKS layers":::
 
 ## Level 1 - Cluster level components
-Cluster level components include the following components to monitor.
+Cluster level includes the following components.
 
 | Component | Monitoring |
 |:---|:---|
@@ -40,7 +40,7 @@ Use Node workbooks provided by Container Insights to analyze disk capacity and I
 For troubleshooting scenarios, you may need to access the AKS nodes directly for maintenance or immediate log collection. For security purposes, the AKS nodes aren't exposed to the internet but you can `kubectl debug` to SSH to the AKS nodes. See [Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting](../../aks/ssh.md) for details on this process.
 
 ## Level 2 - Managed AKS components
-Control plane components including the API servers, cloud control, and kubelet. 
+Managed AKS level includes the following components.
 
 | Component | Monitoring |
 |:---|:---|
@@ -56,8 +56,9 @@ Use the Kubelet workbook to view the health and performance of each kubelet. See
 :::image type="content" source="media/monitor-aks/container-insights-kubelet-workbook.png" alt-text="Container insights kubelet workbook" lightbox="media/monitor-aks/container-insights-kubelet-workbook.png":::
 
 
+
 ## Level 3 - Kubernetes objects and workloads
-This level includes Kubernetes objects such as containers and deployments and the workloads running on them.
+Kubernetes objects and workloads level include the following components.
 
 | Component | Monitoring requirements |
 |:---|:---|
@@ -99,6 +100,23 @@ Application Insights provides complete monitoring of applications running on AKS
 - [Node.js](../app/nodejs.md)
 - [Python](../app/opencensus-python.md)
 - [Other platforms](../app/platforms.md)
+
+
+## Analyze resource logs
+Retrieve resource logs using log queries in Log Analytics. They're all stored in the AzureDiagnostics table, and you can identify different logs with the **Category** column. For example, retrieve **kube-apiserver** logs with the following query.
+
+
+```kusto
+AzureDiagnostics 
+| where Category == "kube-audit"
+```
+
+Retrieve **kube-audit** with the following command.
+
+```kusto
+AzureDiagnostics 
+| where Category == "kube-apiserver"
+```
 
 ## Next steps
 
