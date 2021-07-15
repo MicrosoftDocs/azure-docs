@@ -11,7 +11,7 @@ This article describes the different Linux OS dependencies for the Defender for 
 
 The table below shows the dependencies for each component in it. 
 
-| -- | -- | -- | -- | -- |
+| Component | Dependency | Type | Required by IoT SDK | Notes |
 |--|--|--|--|--|
 | **Core** |  |  |  |  |
 |  | libcurl-openssl (libcurl) | Library | ✔ |  |
