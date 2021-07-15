@@ -126,7 +126,7 @@ landingContent:
             url: configure-dhcp-azure-vmware-solution.md
           - text: Configure DHCP on L2 stretched networks
             url: configure-l2-stretched-vmware-hcx-networks.md
-          - text: Configure DNS
+          - text: Configure DNS forwarder
             url: configure-dns-azure-vmware-solution.md
           - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
