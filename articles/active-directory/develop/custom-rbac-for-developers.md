@@ -28,7 +28,7 @@ Role-based access control (RBAC) allows certain users or groups to have specific
 
 ## What are roles?
 
-Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an application developer grants permissions to *roles*, and not to individual users or groups. An administrator can then assign roles to different users and groups to control who has access to what content and functionality.
+Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an application developer defines roles rather than authorizing individual users or groups. An administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
 RBAC helps you, as an app developer, manage resources, and what users can do with those resources. RBAC also allows an app developer to control what areas of an app users have access to. While admins can control which users have access to an app using the *User assignment required* property, developers need to account for specific users within the app and what users can do within the app.
 
