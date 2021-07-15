@@ -11,9 +11,9 @@ author: tfitzmac
 
 The [Azure Resource Manager template (ARM template) test toolkit](https://aka.ms/arm-ttk) checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with the suggested changes. By using the test toolkit, you can learn how to avoid common problems in template development.
 
-The test toolkit provides a [set of default tests](test-cases.md). These tests are recommendations but not requirements. You can decide which tests are relevant to your goals and customize which tests are run.
+The test toolkit provides a [set of default tests](template-test-cases.md). These tests are recommendations but not requirements. You can decide which tests are relevant to your goals and customize which tests are run.
 
-This article describes how to run the test toolkit and how to add or remove tests. For descriptions of the default tests, see [toolkit test cases](test-cases.md).
+This article describes how to run the test toolkit and how to add or remove tests. For descriptions of the default tests, see [toolkit test cases](template-test-cases.md).
 
 The toolkit is a set of PowerShell scripts that can be run from a command in PowerShell or CLI.
 
@@ -164,7 +164,7 @@ To test one file in that folder, add the `-File` parameter. However, the folder 
 Test-AzTemplate -TemplatePath $TemplateFolder -File cdn.json
 ```
 
-By default, all tests are run. To specify individual tests to run, use the `-Test` parameter. Provide the name of the test. For the names, see [Test cases for toolkit](test-cases.md).
+By default, all tests are run. To specify individual tests to run, use the `-Test` parameter. Provide the name of the test. For the names, see [Test cases for toolkit](template-test-cases.md).
 
 ```powershell
 Test-AzTemplate -TemplatePath $TemplateFolder -Test "Resources Should Have Location"
@@ -292,5 +292,5 @@ The next example shows how to run the tests.
 
 ## Next steps
 
-* To learn about the default tests, see [Default test cases for ARM template test toolkit](test-cases.md).
+* To learn about the default tests, see [Default test cases for ARM template test toolkit](template-test-cases.md).
 * For a Microsoft Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test/).

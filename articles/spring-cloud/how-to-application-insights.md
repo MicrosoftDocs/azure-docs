@@ -31,6 +31,9 @@ Application Insights provide many observable perspectives, including:
 * Live Metrics
 * Availability
 
+> [!NOTE]
+> This preview feature is not supported in Mooncake and new regions like UAE yet.
+
 ## Enable Java In-Process Agent for Application Insights
 
 Enable Java In-Process Agent preview feature using the following procedure.
@@ -163,8 +166,8 @@ Azure Spring Cloud has enabled a hot-loading mechanism to adjust the settings of
 
 | Azure Spring Cloud | Application Insights                                         |
 | ------------------ | ------------------------------------------------------------ |
-| `App`                | * __Application Map__/Role<br />* __Live Metrics__/Role<br />* __Failures__/Roles/Cloud Role<br />* __Performance__/Roles/Could Role |
-| `App Instance`       | * __Application Map__/Role Instance<br />* __Live Metrics__/Service Name<br />* __Failures__/Roles/Cloud Instance<br />* __Performance__/Roles/Could Instance |
+| `App`              | * __Application Map__/Role<br />* __Live Metrics__/Role<br />* __Failures__/Roles/Cloud Role<br />* __Performance__/Roles/Could Role |
+| `App Instance`     | * __Application Map__/Role Instance<br />* __Live Metrics__/Service Name<br />* __Failures__/Roles/Cloud Instance<br />* __Performance__/Roles/Could Instance |
 
 The name `App Instance` from Azure Spring Cloud will be changed or generated in the following scenarios:
 

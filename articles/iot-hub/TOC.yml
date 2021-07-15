@@ -4,6 +4,8 @@
   items:
     - name: What is Azure IoT Hub?
       href: about-iot-hub.md
+    - name: IoT concepts
+      href: iot-concepts.md 
 - name: Quickstarts
   expanded: true
   items:

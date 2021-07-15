@@ -1,13 +1,13 @@
 ---
 title: Upload logs to Azure Monitor
-description: Upload logs for Azure Arc enabled data services to Azure Monitor
+description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
@@ -17,7 +17,7 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 Periodically, you can export logs and then upload them to Azure. Exporting and uploading logs also creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc enabled data services.
+> During the preview period, there is no cost for using Azure Arc-enabled data services.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -209,12 +209,12 @@ With the environment variables set, you can upload logs to the log workspace.
 
 ## Upload logs to Azure Monitor
 
- To upload logs for your Azure Arc enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
+ To upload logs for your Azure Arc-enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
-1. Log in to to the Azure Arc data controller with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
+1. Log in to to the Azure Arc data controller with Azure (`az`)  CLI with the `arcdata` extension.
 
    ```console
-   azdata login
+   az arcdata login
    ```
 
    Follow the prompts to set the namespace, the administrator username, and the password. 
@@ -222,13 +222,13 @@ With the environment variables set, you can upload logs to the log workspace.
 1. Export all logs to the specified file:
 
    ```console
-   azdata arc dc export --type logs --path logs.json
+   az arcdata dc export --type logs --path logs.json
    ```
 
 2. Upload logs to an Azure monitor log analytics workspace:
 
    ```console
-   azdata arc dc upload --path logs.json
+   az arcdata dc upload --path logs.json
    ```
 
 ## View your logs in Azure portal
@@ -251,9 +251,9 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc upload --path metrics.json
 ```
 
 Make the script file executable

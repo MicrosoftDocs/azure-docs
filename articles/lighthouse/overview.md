@@ -1,7 +1,7 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-ms.date: 07/09/2021
+ms.date: 07/13/2021
 ms.topic: overview
 ---
 
@@ -33,7 +33,7 @@ Azure Lighthouse includes multiple ways to help streamline engagement and manage
 - **Managed Service offers in Azure Marketplace**: [Offer your services to customers](concepts/managed-services-offers.md) through private or public offers, and automatically onboard them to Azure Lighthouse.
 
 > [!TIP]
-> A similar offering, [Microsoft 365 Lighthouse](https://techcommunity.microsoft.com/t5/small-and-medium-business-blog/announcing-microsoft-365-lighthouse-for-managed-service/ba-p/1698181), will help IT Partners onboard, monitor and manage their Microsoft 365 customers at scale. Microsoft 365 Lighthouse is currently in private preview.
+> A similar offering, [Microsoft 365 Lighthouse](/microsoft-365/lighthouse/m365-lighthouse-overview), helps service providers onboard, monitor, and manage their Microsoft 365 customers at scale. Microsoft 365 Lighthouse is currently in preview.
 
 ## Pricing and availability
 

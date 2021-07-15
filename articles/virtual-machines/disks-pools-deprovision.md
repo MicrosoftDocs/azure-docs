@@ -41,7 +41,7 @@ When you delete a disk pool, all the resources in the managed resource group are
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Search for **Disk pool** and select it, then select the disk pool you want to delete.
-1. Select **Delete** at the top of the blade.
+1. Select **Delete** at the top of the pane.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -59,7 +59,7 @@ az disk-pool delete --name "myDiskPool" --resource-group "myResourceGroup"
 
 ## Disable iSCSI support
 
-If you disable iSCSI support on a disk pool, you effectively can no longer connect to a disk pool.
+If you disable iSCSI support on a disk pool, you can no longer connect to a disk pool.
 
 When you first enable iSCSI support on a disk pool, an iSCSI target is created as the endpoint for the iSCSI connection. You can disable iSCSI support on the disk pool by deleting the iSCSI target. Each disk pool can only have one iSCSI target configured.
 
@@ -69,7 +69,7 @@ You can re-enable iSCSI support on an existing disk pool. iSCSI support cannot b
 
 1. Search for **Disk pool** and select your disk pool.
 1. Select **iSCSI** under **Settings**.
-1. Uncheck **Enable iSCSI** and select **Save**.    
+1. Clear the **Enable iSCSI** checkbox and select **Save**.    
 
 # [PowerShell](#tab/azure-powershell)
 
