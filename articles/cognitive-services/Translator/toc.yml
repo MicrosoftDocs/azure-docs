@@ -90,6 +90,8 @@
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md
+    - name: FAQ
+      href: document-translation/faq.md   
     - name: Client libraries and SDKs
       href: document-translation/client-sdks.md
     - name: Quickstart
