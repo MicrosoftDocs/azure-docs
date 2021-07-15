@@ -179,6 +179,8 @@
         href: containers/monitor-aks.md
       - name: Configure monitoring
         href: containers/monitor-aks-configure.md
+      - name: Monitoring tools
+        href: containers/monitor-aks-tools.md
       - name: Analyze data
         href: containers/monitor-aks-analyze.md
       - name: Create alerts
@@ -1123,7 +1125,7 @@
     - name: Monitor Persistent Volumes (PVs)
       href: containers/container-insights-persistent-volumes.md
     - name: Reports tab
-      href: insights/container-insights-reports.md
+      href: containers/container-insights-reports.md
     - name: View live data
       items:
       - name: Live Data overview

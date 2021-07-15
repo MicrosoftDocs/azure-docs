@@ -13,7 +13,7 @@ See [Monitoring AKS](monitor-aks.md) for details on collecting and analyzing mon
 
 ## Metrics
 
-The following table lists the platform metrics collected for AKS.  
+The following table lists the platform metrics collected for AKS.  Follow each link for a detail list of the metrics for each particular type.
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
@@ -46,25 +46,26 @@ The following tables lists [dimensions](/azure/azure-monitor/platform/data-platf
 
 ## Resource logs
 
-The following table lists the resource log categories you can collect for AKS. For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+The following table lists the resource log categories you can collect for AKS. For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema). When sent to a Log Analytics workspace with a diagnostic setting, the logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table with 
 
 | Category                | Description |
 |:---|:---|
 | cluster-autoscale       | Understand why the AKS cluster is scaling up or down, which may not be expected. This information is also useful to correlate time intervals where something interesting may have happened in the cluster. |
 | guard                   | Managed Azure Active Directory and Azure RBAC audits. For managed Azure AD, this includes token in and user info out. For Azure RBAC, this includes access reviews in and out. |
-| kube-apiserver          | |
+| kube-apiserver          | Logs from the API server. |
 | kube-audit              | Audit log data for every audit event including get, list, create, update, delete, patch, and post. |
 | kube-audit-admin        | Subset of the kube-audit log category. Significanly reduces the number of logs by excluding the get and list audit events from the log. |
 | kube-controller-manager | Gain deeper visibility of issues that may arise between Kubernetes and the Azure control plane. A typical example is the AKS cluster having a lack of permissions to interact with Azure. |
-| kube-scheduler          | |
+| kube-scheduler          | Logs from the scheduler. |
 | AllMetrics              | Includes all platform metrics. Sends these values to Log Analytics workspace where it can be evaluated with other data using log queries.
 
 ## Azure Monitor Logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to AKS and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs tables relevant to AKS and available for query by Log Analytics. 
 
 |Resource Type | Notes |
 |-------|-----|
+| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) | Resource logs. Diagnostic settings that sends to Log Analytics workspace is required.  |
 | [ContainerImageInventory](/azure/azure-monitor/reference/tables/containerimageinventory) | Inventory of container images and their attributes that were discovered by the agent. |
 | [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) |Inventory of containers and their attributes that are monitored by the agent. |
 | [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) | Log lines collected from stdout and stderr streams for containers. |

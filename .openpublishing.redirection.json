@@ -60679,6 +60679,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/insights/container-insights-reports.md",
+      "redirect_url": "/azure/azure-monitor/containers/container-insights-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/view-metrics.md",
+      "redirect_url": "/azure/azure-monitor/containers/monitor-aks-analyze",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false

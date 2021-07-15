@@ -292,7 +292,7 @@ Azure Network Policy Manager includes informative Prometheus metrics that allow 
 
 ## Workbooks
 
-Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that allow you to analyze cluster performance. See [Workbooks in Container insights](../insights/container-insights-reports.md) for a description of the workbooks available for Container insights.
+Workbooks combine text, log queries, metrics, and parameters into rich interactive reports that allow you to analyze cluster performance. See [Workbooks in Container insights](container-insights-reports.md) for a description of the workbooks available for Container insights.
 
 
 ## Next steps

@@ -57,9 +57,8 @@ To view the metrics for your AKS cluster:
 
 The above example shows the metrics for the average number of pods for the *myAKSCluster*.
 
-For a list of the platform metrics collected for AKS, see [Monitoring *AKS* data reference metrics](monitor-aks-reference.md#metrics).
+For a list of the platform metrics collected for AKS, see [Metrics](monitor-aks-reference.md#metrics) and [[Metric dimensions](monitor-aks-reference.md#metric-dimensions)] in the Monitoring AKS data reference.
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Analyzing logs
 
