@@ -16,15 +16,20 @@ ms.date: 07/15/2021
 
 By default, Azure VMware Solution management components such as vCenter can only resolve name records available through Public DNS. However, certain hybrid use cases require Azure VMware Solution management components to resolve name records from privately hosted DNS to properly function, including customer-managed systems such as vCenter and Active Directory.
 
-Private DNS for Azure VMware Solution management components lets you define conditional forwarding rules for the desired domain name to a selected set of private DNS servers through the NSX-T DNS Service.
+Private DNS for Azure VMware Solution management components lets you define conditional forwarding rules for the desired domain name to a selected set of private DNS servers through the NSX-T DNS Service. 
 
 This capability uses the DNS Forwarder Service in NSX-T. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T DNS Service. The DNS Service conditionally forwards DNS queries for each zone based on the external DNS servers defined in that zone.
 
 >[!NOTE]
 >The DNS Service is associated with up to five FQDN zones. Each FQDN zone is associated with up to three DNS servers.
 
+>[!TIP]
+>If desired, you can also use the conditional forwarding rules for workload segments by configuring virtual machines on those segments to use the NSX-T DNS Service IP address as their DNS server.
+
 
 ## Architecture
+
+The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments.
 
 :::image type="content" source="media/networking/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
 
@@ -34,7 +39,8 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones**. Then select **Add**.
 
    >[!NOTE]
-   >The default DNS zone is created for you during the private cloud creation.
+   >For private clouds created on or after July 1, 2021, the default DNS zone is created for you during the private cloud creation.
+
 
    :::image type="content" source="media/networking/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
@@ -117,4 +123,13 @@ The NSX-T Policy API lets you run nslookup commands from the NSX-T DNS Forwarder
    $response = $nslookup.get('TNT86-T1', 'vc01.contoso.corp')
    ```
 
-  The first parameter in the command is the ID for your private cloud’s T1 gateway, which you can obtain from the DNS service tab in the Azure portal.
+  The first parameter in the command is the ID for your private cloud's T1 gateway, which you can obtain from the DNS service tab in the Azure portal.
+
+1. Obtain a raw answer from the lookup using the following properties of the response.
+
+   ```powershell
+   $response.dns_answer_per_enforcement_point.raw_answer
+   ; (()) DiG 9.10.3-P4-Ubuntu (()) @10.103.64.192 -b 10.103.64.192 vc01.contoso.corp +timeout=5 +tries=3 +nosearch ; (1 server found) ;; global options: +cmd ;; Got answer: ;; -))HEADER((- opcode: QUERY, status: NOERROR, id: 10684 ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1  ;; OPT PSEUDOSECTION: ; EDNS: version: 0, flags:; udp: 4096 ;; QUESTION SECTION: ;vc01.contoso.corp.  IN A  ;; ANSWER SECTION: vc01.contoso.corp. 3046 IN A 172.21.90.2  ;; Query time: 0 msec ;; SERVER: 10.103.64.192:53(10.103.64.192) ;; WHEN: Thu Jul 01 23:44:36 UTC 2021 ;; MSG SIZE  rcvd: 62
+   ```
+
+   In this example, you can see an answer for the query of vc01.contoso.corp showing an A record with the address 172.21.90.2. Also, this example shows a cached response from the DNS Forwarder Service, so your output may vary slightly.
