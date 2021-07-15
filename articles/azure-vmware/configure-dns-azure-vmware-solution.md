@@ -16,15 +16,20 @@ ms.date: 07/15/2021
 
 By default, Azure VMware Solution management components such as vCenter can only resolve name records available through Public DNS. However, certain hybrid use cases require Azure VMware Solution management components to resolve name records from privately hosted DNS to properly function, including customer-managed systems such as vCenter and Active Directory.
 
-Private DNS for Azure VMware Solution management components lets you define conditional forwarding rules for the desired domain name to a selected set of private DNS servers through the NSX-T DNS Service.
+Private DNS for Azure VMware Solution management components lets you define conditional forwarding rules for the desired domain name to a selected set of private DNS servers through the NSX-T DNS Service. 
 
 This capability uses the DNS Forwarder Service in NSX-T. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T DNS Service. The DNS Service conditionally forwards DNS queries for each zone based on the external DNS servers defined in that zone.
 
 >[!NOTE]
 >The DNS Service is associated with up to five FQDN zones. Each FQDN zone is associated with up to three DNS servers.
 
+>[!TIP]
+>If desired, you can also use the conditional forwarding rules for workload segments by configuring virtual machines on those segments to use the NSX-T DNS Service IP address as their DNS server.
+
 
 ## Architecture
+
+The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments.
 
 :::image type="content" source="media/networking/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
 
@@ -34,7 +39,8 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones**. Then select **Add**.
 
    >[!NOTE]
-   >The default DNS zone is created for you during the private cloud creation.
+   >For private clouds created on or after July 1, 2021, the default DNS zone is created for you during the private cloud creation.
+
 
    :::image type="content" source="media/networking/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
