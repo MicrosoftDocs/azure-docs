@@ -124,5 +124,5 @@ For more information, see the following SDK overviews:
 
 To get started with Azure Communication Services:
 
-- [Create Azure Communication Resources](../quickstarts/create-communication-resource.md)
+- [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md)
 - Generate [User Access Tokens](../quickstarts/access-tokens.md)
