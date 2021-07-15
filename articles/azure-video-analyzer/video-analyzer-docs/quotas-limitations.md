@@ -55,7 +55,9 @@ Following are the limitations on how different nodes can be connected together i
 ### Supported cameras
 You can only use IP Cameras that support RTSP protocol. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
 
-Further, you should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
+You should configure these cameras to use H.264 video and AAC audio. Other codecs are currently not supported.
+
+Video Analyzer supports RTSP streams where media and control traffic are [interleaved into a single TCP connection](https://www.informit.com/articles/article.aspx?p=169578&seqNum=3) (UDP is not supported).
 
 ### Support for video AI
 The HTTP or gRPC extension processors only support sending of image/video frame data with an external AI module. Thus, running inferencing on audio data is not supported. As a result, processor nodes in pipeline topologies that have an RTSP source node as one of the `inputs` also make use of an `outputSelectors` property to ensure that only video is passed into the processor. See this [topology](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json) as an example.
