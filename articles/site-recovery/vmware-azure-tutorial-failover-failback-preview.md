@@ -152,7 +152,7 @@ After successfully enabling replication and initial replication, recovery points
 
 ## Next steps
 
-After failover, reprotect the Azure VMs to on-premises. Then, after the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
+After failover, reprotect the Azure VMs to on-premises. After the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
 
 > [!div class="nextstepaction"]
 > [Reprotect Azure VMs](vmware-azure-reprotect.md)
