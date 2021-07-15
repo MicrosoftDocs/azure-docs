@@ -62,7 +62,7 @@ After custom domain for Azure AD B2C is successfully configured using Azure Fron
 
 1. Create a new property using [these instructions](https://control.akamai.com/wh/CUSTOMER/AKAMAI/en-US/WEBHELP/property-manager/property-manager-help/GUID-14BB87F2-282F-4C4A-8043-B422344884E6.html).
 
-2. After the property is created, configure it using the steps below. 
+2. Configure the property settings as:  
 
 | Property | Value |
 |:---------------|:---------------|
@@ -97,7 +97,7 @@ Create a CNAME record in your DNS such as login.domain.com that points to the Ed
 Check the following to ensure all traffic to Azure AD B2C is now going through the custom domain:
 
 - Make sure all incoming requests to Azure AD B2C custom domain are routed via Akamai WAF and using valid TLS connection.
-- Ensure all cookies are set correctly by Azure AD B2C for the custom domain
+- Ensure all cookies are set correctly by Azure AD B2C for the custom domain.
 - The Akamai WAF dashboard available under Security Center console display charts for all traffic passing through the WAF along with any attack traffic.
 
 ## Next steps
