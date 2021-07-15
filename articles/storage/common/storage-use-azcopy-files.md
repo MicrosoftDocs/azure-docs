@@ -46,7 +46,7 @@ This section contains the following examples:
 > * Upload a specific file
 
 > [!TIP]
-> You can tweak your upload operation by using optional flags. Here's a few examples.
+> You can tweak your upload operation by using optional flags. Here's a few examples.  
 >
 > |Scenario|Flag|
 > |---|---|
