@@ -2,7 +2,7 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Virtual Machines
+  - name: Virtual machines
     tocHref: /azure/virtual-machines/index
     topicHref: /azure/virtual-machines/index
     items:
