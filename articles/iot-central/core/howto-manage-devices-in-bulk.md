@@ -184,15 +184,17 @@ To bulk-register devices in your application:
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-1.png" alt-text="Screenshot showing import action settings.":::
 
-1. Select the CSV file that has the list of Device IDs to be imported.
+1. Select an organization to assign the devices to. All the devices you're importing are assigned to the same organization. To assign devices to different organizations, create multiple import files, one for each organization.
 
-1. Device import starts once the file has been uploaded. You can track the import status in the Device Operations panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
+1. Select the CSV file that has the list of device IDs to be imported.
 
-1. Once the import completes, a success message is shown in the Device Operations panel.
+1. Device import starts once the file has been uploaded. You can track the import status in the **Device Operations** panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
+
+1. Once the import completes, a success message is shown in the **Device Operations** panel.
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/bulk-import-2.png" alt-text="Screenshot showing import success.":::
 
-If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
+If the device import operation fails, you see an error message on the **Device Operations** panel. A log file capturing all the errors is generated that you can download.
 
 ## Export devices
 
@@ -208,7 +210,7 @@ To bulk export devices from your application:
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/export-1.png" alt-text="Screenshot showing export action settings.":::
 
-1. The export process starts. You can track the status using the Device Operations panel.
+1. The export process starts. You can track the status using the **Device Operations** panel.
 
 1. When the export completes, a success message is shown along with a link to download the generated file.
 

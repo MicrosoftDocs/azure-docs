@@ -16,7 +16,7 @@ manager: corywink
 
 This article describes how you can add, edit, and delete users in your Azure IoT Central application. The article also describes how to manage roles in your application.
 
-To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically added to the **Administrator** role for that application.
+To access and use the **Administration** section, you must be in the **App Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically added to the **App Administrator** role for that application.
 
 ## Add users
 
@@ -30,6 +30,8 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 1. To add a user, on the **Users** page, choose **+ Assign user**.
 
+1. If your application uses [organizations](howto-create-organizations.md), choose an organization to assign to the user from the **Organization** drop-down menu.
+
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 
     :::image type="content" source="media/howto-manage-users-roles/add-user-pnp.png" alt-text="Screenshot to add a user and select a role.":::
@@ -40,9 +42,9 @@ For more information, see [Microsoft account help](https://support.microsoft.com
   > [!NOTE]
   > If a user is deleted from Azure Active Directory and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
 
-### Edit the roles that are assigned to users
+### Edit the roles and organizations that are assigned to users
 
-Roles can't be changed after they're assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
+Roles and organizations can't be changed after they're assigned. To change the role or organization that's assigned to a user, delete the user, and then add the user again with a different role or organization.
 
 > [!NOTE]
 > The roles assigned are specific to the IoT Central application and cannot be managed from the Azure Portal.
@@ -57,29 +59,41 @@ Roles enable you to control who within your organization is allowed to do variou
 
 :::image type="content" source="media/howto-manage-users-roles/manage-roles-pnp.png" alt-text="Screenshot to Manage roles selection.":::
 
-
 ### Administrator
 
-Users in the **Administrator** role can manage and control every part of the application, including billing.
+Users in the **App Administrator** role can manage and control every part of the application, including billing.
 
-The user who creates an application is automatically assigned to the **Administrator** role. There must always be at least one user in the **Administrator** role.
+The user who creates an application is automatically assigned to the **App Administrator** role. There must always be at least one user in the **App Administrator** role.
 
 ### Builder
 
-Users in the **Builder** role can manage every part of the app, but can't make changes on the Administration or Continuous Data Export tabs.
+Users in the **App Builder** role can manage every part of the app, but can't make changes on the Administration or Continuous Data Export tabs.
 
 ### Operator
 
-Users in the **Operator** role can monitor device health and status. They aren't allowed to make changes to device templates or to administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs.
+Users in the **App Operator** role can monitor device health and status. They aren't allowed to make changes to device templates or to administer the application. Operators can add and delete devices, manage device sets, and run analytics and jobs.
+
+### Org Administrator
+
+IoT Central adds this role automatically when you add an organization to your application. This role restricts organization administrators from accessing some application-wide capabilities such as billing, branding, colors, API tokens, and enrollment group information.
+
+### Org Operator
+
+IoT Central adds this role automatically when you add an organization to your application. This role restricts organization operators from accessing some application-wide capabilities.
 
 ## Create a custom role
 
-If your solution requires finer-grained access controls, you can create roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Administration** section of your application. Then select **+ New role**, and add a name and description for your role. Select the permissions your role requires and then select **Save**.
+If your solution requires finer-grained access controls, you can create roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Administration** section of your application, and choose one of these options:
+
+- Navigate to an existing role and select **Copy**. This option lets you start with an existing role definition that you can then customize.
+- Select **+ New role**, and add a name and description for your role. This option lets you create a role definition from scratch.
+
+> [!WARNING]
+> If you make a copy of an organizational role and then add permissions, you won't be able to use the role as an organizational role.
 
 You can add users to your custom role in the same way that you add users to a built-in role.
 
 :::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role.":::
-
 
 ### Custom role options
 
