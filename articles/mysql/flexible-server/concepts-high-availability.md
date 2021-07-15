@@ -15,7 +15,9 @@ ms.date: 01/29/2021
 > [!IMPORTANT] 
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
-Azure Database for MySQL Flexible Server (Preview), allows configuring high availability with automatic failover using **zone redundant** high availability option. When deployed in a zone redundant configuration, flexible server automatically provisions and manages a standby replica in a different availability zone. Using storage level replication, the data is **semi synchronously replicated** to the standby server, it is advised to use primary keys on all the tables to reduce replication latency. Azure Database for MySQL Flexible Server High availability also uses [Zone-redundant storage (ZRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region) which copies your data synchronously across three Azure availability zones in the primary region in the availability zones in the region to ensure zero data loss after a failover. The failover is fully transparent from the client application and doesn't require any user actions. The standby server is not available for any read or write operations but is a passive standby to enable fast failover. The failover times typically ranges from 60-120 seconds.
+Azure Database for MySQL Flexible Server (Preview), allows configuring high availability with automatic failover using zone redundant high availability option. When deployed in a zone redundant configuration, flexible server automatically provisions and manages a standby replica in a different availability zone.
+
+When the flexible server is created with zone redundant high availability enabled, the data and log files are hosted in a [Zone-redundant storage (ZRS)]((https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-the-primary-region). Using storage level replication available with ZRS, the data and log files are synchronously replicated to the standby server to ensure zero data loss. The failover is fully transparent from the client application and doesn't require any user actions. The recovery of the standby server to come online during failover is dependent on the binary log application on the standby. It is therefore advised to use primary keys on all the tables to reduce failover time. The standby server is not available for any read or write operations but is a passive standby to enable fast failover. The failover times typically ranges from 60-120 seconds.
 
 Zone redundant high availability configuration enables automatic failover during planned events such as user-initiated scale compute operations, and unplanned events such as underlying hardware and software faults, network failures, and even availability zone failures.
 
@@ -46,12 +48,12 @@ Here are some advantages for using zone redundancy HA feature:
 - Automatic backups are snapshot-based, performed from the primary database server and stored in a zone redundant storage.
 - In the event of failover, Azure Database for MySQL flexible server automatically fails over to the standby replica if high availability is enabled. The high availability setup monitors the primary server and bring it back online.
 - Clients always connect to the primary database server.
-- If there is a database crash or node failure, restarting is attempted on the same node. At the same time, High Availability triggers the automatic failover. If the restarting succeeds before the failover finishes, the failover operation will be canceled.
+- If there is a database crash or node failure, the flexible server VM is restarted on the same node. At the same time, an automatic failover is triggered. If flexible server VM restart is successful before the failover finishes, the failover operation will be canceled.
 - Ability to restart the server to pick up any static server parameter changes.
 
 ## Steady-state operations
 
-Applications are connected to the primary server using the database server name. The standby replica information is not exposed for direct access. Commits and writes are acknowledged after flushing the log files at the Primary Server's Zone-redundant storage (ZRS) storage. Due to the sync replication technology used in ZRS storages, applications can expect minor latency for writes and commits.
+Applications are connected to the primary server using the database server name. The standby replica information is not exposed for direct access. Commits and writes are acknowledged after flushing the log files at the Primary Server's Zone-redundant storage (ZRS) storage. Due to the sync replication technology used in ZRS storage, applications can expect minor latency for writes and commits.
 
 ## Failover process 
 For business continuity, you need to have a failover process for planned and unplanned events. 
