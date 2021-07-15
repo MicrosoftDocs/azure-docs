@@ -84,13 +84,13 @@ Create a CNAME record in your DNS such as login.domain.com that points to the Ed
 
 ### Configure Akamai WAF
 
-1. Configure Akamai WAF using [these instructions](https://learn.akamai.com/en-us/webhelp/kona-site-defender/kona-site-defender-quick-start/GUID-6294B96C-AE8B-4D99-8F43-11B886E6C39A.html#GUID-6294B96C-AE8B-4D99-8F43-11B886E6C39A).
+1. [Configure Akamai WAF](https://learn.akamai.com/en-us/webhelp/kona-site-defender/kona-site-defender-quick-start/GUID-6294B96C-AE8B-4D99-8F43-11B886E6C39A.html#GUID-6294B96C-AE8B-4D99-8F43-11B886E6C39A).
 
 2. Ensure that **Rule Actions** for all items listed under the **Attack Group** are set to **Deny**.
 
 ![Image shows rule action set to deny](./media/partner-akamai/rule-action-deny.png)
 
-  See [this tutorial](https://control.akamai.com/dl/security/GUID-81C0214B-602A-4663-839D-68BCBFF41292.html) to learn more about how the control works and configuration options.
+Learn more about [how the control works and configuration options](https://control.akamai.com/dl/security/GUID-81C0214B-602A-4663-839D-68BCBFF41292.html).
 
 ### Test the settings
 
