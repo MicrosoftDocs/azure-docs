@@ -34,7 +34,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 Additional live event ingest heartbeat properties have been added to the Event Grid message. This includes the following new fields to assist with diagnosing issues during live ingest.  The **ingestDriftValue** is helpful in scenarios where you need to monitor network latency from the source ingest encoder pushing into the live event. If this value drifts out too far, it can be an indication that the network latency is too high for a successful live streaming event.
 
-See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md#LiveEventIngestHeartbeat) for more details.
+See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md#liveeventingestheartbeat) for more details.
 
 ### Private links support is now GA
 
