@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 # Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Logic Apps
 In this tutorial, you learn how to respond to Azure Service Bus events that are received via Azure Event Grid by using Azure Logic Apps. 
 
-[!INCLUDE [service-bus-event-grid-prerequisites](../../includes/service-bus-event-grid-prerequisites.md)]
+[!INCLUDE [service-bus-event-grid-prerequisites](./includes/service-bus-event-grid-prerequisites.md)]
 
 ## Receive messages by using Logic Apps
 In this step, you create an Azure logic app that receives Service Bus events via Azure Event Grid. 

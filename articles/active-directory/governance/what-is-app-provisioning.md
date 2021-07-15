@@ -7,8 +7,8 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2020
-ms.subservice: hybrid
+ms.date: 06/21/2021
+ms.subservice: compliance
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---

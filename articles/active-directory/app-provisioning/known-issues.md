@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/28/2021
+ms.date: 07/07/2021
 ms.reviewer: arvinh
 ---
 
@@ -20,10 +20,6 @@ Known issues to be aware of when working with app provisioning. You can provide 
 > This isn’t a comprehensive list of known issues. If you know of an issue that is not listed, provide feedback at the bottom of the page.
 
 ## Authorization 
-
-**Unable to save after successful connection test**
-
-If you can successfully test a connection, but can’t save, then you've exceeded the allowable storage limit for credentials. To learn more, see [Problem saving administrator credentials](./user-provisioning.md).
 
 **Unable to save**
 
@@ -56,6 +52,9 @@ Attribute-mapping expressions can have a maximum of 10,000 characters.
 
 Directory extensions, appRoleAssignments, userType, and accountExpires are not supported as scoping filters.
 
+**Multi-value directory extensions**
+
+Multi-value directory extensions cannot be used in attribute mappings or scoping filters. 
 
 ## Service issues 
 
@@ -102,7 +101,7 @@ The following applications and directories are not yet supported.
 
 **AD DS - (user / group writeback from Azure AD, using the on-prem provisioning preview)**
    - When a user is managed by Azure AD Connect, the source of authority is on-prem Active Directory. Therefore, user attributes cannot be changed in Azure AD. This preview does not change the source of authority for users managed by Azure AD Connect.
-   - Attempting to use Azure AD Connect and the on-prem provisioning to provision groups / users into AD DS can lead to creation of a loop, where Azure AD Connect can overwrite a change that was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group / user writeback.  Upvote the  UserVoice feedback [here](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) to track the status of the preview. Alternatively, you can use [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016) for user / group writeback from Azure AD to AD.
+   - Attempting to use Azure AD Connect and the on-prem provisioning to provision groups / users into AD DS can lead to creation of a loop, where Azure AD Connect can overwrite a change that was made by the provisioning service in the cloud. Microsoft is working on a dedicated capability for group / user writeback.  Upvote the  UserVoice feedback [here](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/16887037-enable-user-writeback-to-on-premise-ad-from-azure) to track the status of the preview. Alternatively, you can use [Microsoft Identity Manager](/microsoft-identity-manager/microsoft-identity-manager-2016) for user / group writeback from Azure AD to AD.
 
 **Connectors other than SQL**
    - The Azure AD ECMA Connector Host is officially supported for generic SQL (GSQL) connector. While it is possible to use other connectors such as the web services connector or custom ECMA connectors, it is **not yet supported**.

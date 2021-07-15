@@ -111,7 +111,7 @@ These views confirm that your models, twins, and graph were re-uploaded to the n
 
 If you have endpoints or routes in your original instance, you'll need to re-create them in your new instance. If you don't have any endpoints or routes in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#relink-connected-resources).
 
-Otherwise, follow the steps in [How-to: Manage endpoints and routes](how-to-manage-routes-portal.md) using the new instance. Keep these pointers in mind:
+Otherwise, follow the steps in [How-to: Manage endpoints and routes](how-to-manage-routes.md) using the new instance. Keep these pointers in mind:
 
 * You do *not* need to re-create the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the "Prerequisites" section in the endpoint instructions. You just need to re-create the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.
@@ -134,7 +134,7 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Personal or company apps outside of Azure, such as the client app created in [Tutorial: Code a client app](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs.
-* Azure AD app registrations do *not* need to be re-created. If you're using an [app registration](how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
+* Azure AD app registrations do *not* need to be re-created. If you're using an [app registration](./how-to-create-app-registration-portal.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
 
 After you finish this step, your new instance in the target region should be a copy of the original instance.
 

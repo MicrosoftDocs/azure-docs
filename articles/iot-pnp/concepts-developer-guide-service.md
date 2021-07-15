@@ -73,4 +73,3 @@ Now that you've learned about device modeling, here are some additional resource
 - [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](/rest/api/iothub/device)
 - [IoT Plug and Play modeling guide](concepts-modeling-guide.md)
-- [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)

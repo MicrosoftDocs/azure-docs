@@ -38,7 +38,7 @@ Developers may find this tool especially useful in the following scenarios:
 * **Exploration**: Use the explorer to learn about Azure Digital Twins and the way it represents your real-world environment. Import sample models and graphs that you can view and edit to familiarize yourself with the service. For guided steps to get started using Azure Digital Twins Explorer, see [Quickstart: Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 * **Development**: Use the explorer to view and validate your twin graph, as well as investigate specific properties of models, twins, and relationships. Make ad hoc modifications to your graph and its data. For detailed instructions on how to use each feature, see [How-to: Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
-The explorer's main purpose is to help you visualize and understand your graph, and update your graph as needed. For large-scale solutions and for work that should be repeated or automated, consider using the [APIs and SDKs](how-to-use-apis-sdks.md) to interact with your instance through code instead.
+The explorer's main purpose is to help you visualize and understand your graph, and update your graph as needed. For large-scale solutions and for work that should be repeated or automated, consider using the [APIs and SDKs](./concepts-apis-sdks.md) to interact with your instance through code instead.
 
 [!INCLUDE [digital-twins-access-explorer.md](../../includes/digital-twins-access-explorer.md)]
 

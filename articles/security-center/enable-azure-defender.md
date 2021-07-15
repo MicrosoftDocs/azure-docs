@@ -49,14 +49,14 @@ To enable all Security Center features including threat protection capabilities,
 
         The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
 
-        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page"::: 
+        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page."::: 
 
     1. From the **Select subscriptions and workspaces to enable Azure Defender on** list, select the subscriptions and workspaces to upgrade and select **Upgrade** to enable Azure Defender.
 
        - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
        - If you select a workspace that's eligible for a free trial, the next step will begin a trial.
 
-        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Upgrade all selected workspaces and subscriptions from the getting started page":::
+        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Upgrade all selected workspaces and subscriptions from the getting started page.":::
 
 
 ## Disable Azure Defender
@@ -67,7 +67,7 @@ If you need to disable Azure Defender for a subscription, the procedure is the s
 1. Select the relevant subscription.
 1. If your subscription has Azure Defender enabled, open **Azure Defender plans** and select **Azure Defender off**.
 
-    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Enable or disable Azure Defender":::
+    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Enable or disable Azure Defender.":::
 
 1. Select **Save**.
 

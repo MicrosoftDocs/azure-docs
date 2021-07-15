@@ -123,7 +123,7 @@ IoT Hub on Azure Stack Hub is free during public preview. For more information, 
 
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
-* [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md)
+* [Quickstart: Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs)
 
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
 
