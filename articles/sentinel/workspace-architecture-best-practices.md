@@ -21,7 +21,7 @@ When planning your Azure Sentinel workspace deployment, you must also design you
 
 For more information, see [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
-## Tenancy and workspace considerations
+## Tenancy considerations
 
 While fewer workspaces are simpler to manage, you may have specific needs for multiple tenants and workspaces. For example, many organizations have a cloud environment that contains multiple [Azure Active Directory (Azure AD) tenants](/azure/active-directory/develop/quickstart-create-new-tenant), resulting from mergers and acquisitions or due to identity separation requirements.
 
@@ -98,24 +98,9 @@ To start validating your compliance, assess your data sources, and how and where
 > If you are sending data to a geography or region that is different from your Azure Sentinel workspace, regardless of whether or not the sending resource resides in Azure, consider using a workspace in the same geography or region.
 >
 
-## Technical considerations when creating your workspace
+## Region considerations
 
-Use the following best practice guidance when creating the Log Analytics workspace you'll use for Azure Sentinel:
-
-- **When naming your workspace**, include *Azure Sentinel* or some other indicator in the name, so that it's easily identified among your other workspaces.
-
-- **Use the same workspace for both Azure Sentinel and Azure Security Center**, so that all logs collected by Azure Security Center can also be ingested and used by Azure Sentinel. The default workspace created by Azure Security Center will not appear as an available workspace for Azure Sentinel.
-
-- **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
-
-
-
-
-### Working with multiple regions
-
-If you need to send data from an Azure resource that resides in a different region that your Azure Sentinel workspace, you'll need to consider bandwidth costs incurred for data moving in and out of Azure datacenters, or between datacenters.
-
-While transferring data into Azure (ingress) doesn't incur costs, transferring data from (egress) an Azure datacenter to another datacenter does incur bandwidth costs.
+Use separate Azure Sentinel instances for each region. While Azure Sentinel can be used in multiple regions, you may have requirements to separate data by team, region, or site, or regulations and controls that make multi-region models impossible or more complex than needed. Using separate instances and workspaces for each region helps to avoid bandwidth / egress costs for moving data across regions.
 
 Consider the following when working with multiple regions:
 
@@ -128,65 +113,68 @@ Consider the following when working with multiple regions:
     - [Bandwidth pricing](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)
     - [Data transfers charges using Log Analytics ](/azure/azure-monitor/logs/manage-cost-storage).
 
-<!--	-	There are no bandwidth costs when the logs are collected using Diagnostics settings, like Azure AD, Azure Activity, Azure SQL, or Azure Firewall as stated here. At the time of writing this article, where bandwidth costs apply, the first 5GB/month are free.-->
-
-
-This effectively means that, if you decide to collect logs from Virtual Machines in one region (e.g., East US) and send them to an Azure Sentinel workspace in a different region (West US), you will be charged ingress costs for the data transfer. Keep in mind that the Log Analytics agent compresses the data in transit, so the size charged for bandwidth will be somewhat lower than the size of the logs in Azure Sentinel.
-
-Also, if you are collecting Syslog and CEF logs from multiple sources around the world, you could setup a Syslog collector in the same region as your Azure Sentinel workspace to avoid bandwidth costs, provided that compliance is not a concern.
-
-Whether bandwidth costs justify creating a separate Azure Sentinel workspace or not will depend on the volume of data you transfer between regions. We recommend using the Azure Pricing Calculator to estimate these costs. Here are a couple of examples:
-
--	Transferring a total of 1TB of data per month from East US to West US would cost $20.38, whereas transferring 1TB of data per month from East US to West Europe would cost $50.95.
--	Transferring a total 50TB of data per month would cost $1,023.90 and $2,559.75, respectively.
-As you can see, creating a separate workspace could make sense in cases of very large volumes of data. 
-
-Summary of Connectors
-Connectors where Bandwidth costs apply when the source is in a different region from the Azure Sentinel Workspace:
-•	Windows Security Events (for Azure Windows VMs)
-•	CEF (Azure Linux VM)
-•	Syslog (Azure Linux VM)
-•	DNS
-•	Windows Event Forwarding
-•	Windows Firewall
-•	3rd party connectors based on a Syslog or CEF collector VM located on Azure*
-•	Any other potential connector that relies on the Log Analytics agent or Azure Monitor agent
-Connectors where Bandwidth costs do not apply:
-•	Azure Active Directory
-•	Azure Active Directory Identity Protection
-•	Azure Activity
-•	Azure DDoS Protection
-•	Azure Defender
-•	Azure Defender for IoT
-•	Azure Firewall
-•	Azure Information Protection
-•	Azure Key Vault
-•	Azure Kubernetes Service (AKS)
-•	Azure SQL Databases
-•	Azure Storage Account
-•	Azure Web Application Firewall (WAF)
-•	Dynamics 365
-•	Microsoft 365 Defender, as well as Microsoft Defender for Endpoint, Microsoft Defender for Identity, Microsoft Defender for Office 365
-•	Microsoft Cloud App Security
-•	Microsoft Threat Intelligence
-•	Office 365
-•	Threat Intelligence TAXII (unless you connect a TAXII server located in Azure)
-•	Threat Intelligence Platforms 
-•	3rd party connectors based on API connections, or based on a Syslog or CEF on-premises collector 
-•	Any other potential connector that relies on Azure Monitor Diagnostics settings
-*Create your Azure collector VMs in the same region as the Azure Sentinel workspace
-
-
-
-If you are deploying Azure Sentinel in multiple regions, consider the following best practice recommendations:
-
 - Use templates for your analytics rules, custom queries, workbooks, and other resources to make your deployments more efficient. Deploy the templates instead of manually deploying each resource in each region.
 
-- Use separate Azure Sentinel instances for each region. While Azure Sentinel can be used in multiple regions, you may have requirements to separate data by team, region, or site, or regulations and controls that make multi-region models impossible or more complex than needed.
+For example, if you decide to collect logs from Virtual Machines in East US and send them to an Azure Sentinel workspace in West US, you'll be charged ingress costs for the data transfer. Since the Log Analytics agent compresses the data in transit, the size charged for the bandwidth may be lower than the size of the logs in Azure Sentinel.
 
-    Using separate instances and workspaces for each region helps to avoid bandwidth / egress costs for moving data across regions.
+If you're collecting Syslog and CEF logs from multiple sources around the world, you may want to set up a Syslog collector in the same region as your Azure Sentinel workspace to avoid bandwidth costs, provided that compliance is not a concern.
+
+Understanding whether bandwidth costs justify separate Azure Sentinel workspaces depend on the volume of data you need to transfer between regions. Use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) to estimate your costs.
 
 For more information, see [Data residency in Azure](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/).
+
+<!--	-	There are no bandwidth costs when the logs are collected using Diagnostics settings, like Azure AD, Azure Activity, Azure SQL, or Azure Firewall as stated here. At the time of writing this article, where bandwidth costs apply, the first 5GB/month are free. Summary of Connectors-->
+
+## Access considerations
+
+You may have situations planned where different teams will need access to the same data. For example, your SOC team must have access to all Azure Sentinel data, while operations and applications teams will need access to only specific parts. Independent security teams may also need to access Azure Sentinel features, but with varying sets of data.
+
+Combine [resource-context RBAC](resource-context-rbac.md) and [table-level RBAC](/azure/azure-monitor/logs/manage-access#table-level-azure-rbac) to provide your teams with a wide range of access options that should support most use cases.
+
+### Resource-context RBAC
+
+The following image shows a simplified version of a workspace architecture where security and operations teams need access to different sets of data, and resource-context RBAC is used to provide the required permissions.
+
+:::image type="content" source="media/resource-context-rbac/resource-context-rbac-sample.png" alt-text="Sample architecture for resource-context RBAC.":::
+
+In this image, the Azure Sentinel workspace is placed in a separate subscription to better isolate permissions.
+
+> [!NOTE]
+> Another option would be to place Azure Sentinel under a separate management group that's dedicated to security, which would ensure that only minimal permission assignments are inherited. Within the security team, several groups are assigned permissions according to their functions. Because these teams have access to the entire workspace, they'll have access to the full Azure Sentinel experience, restricted only by the Azure Sentinel roles they're assigned. For more information, see [Permissions in Azure Sentinel](roles.md).
+>
+
+In addition to the security subscription, a separate subscription is used for the applications teams to host their workloads. The applications teams are granted access to their respective resource groups, where they can manage their resources. This separate subscription and resource-context RBAC allows these teams to view logs generated by any resources they have access to, even when the logs are stored in an workspace where they *don't* have direct access. The applications teams can access their logs via the **Logs** area of the Azure portal, to show logs for a specific resource, or via Azure Monitor, to show all of the logs they can access at the same time.
+
+Azure resources have built-in support for resource-context RBAC, but may require additional fine-tuning when working with non-Azure resources. For more information, see [Explicitly configure resource-context RBAC](resource-context-rbac.md#explicitly-configure-resource-context-rbac).
+
+### Table-level RBAC
+
+Table-level RBAC enables you to define specific data types (tables) to be accessible only to a specified set of users.
+
+For example, consider if the organization whose architecture is described in the image above must also grant access to Office 365 logs to an internal audit team. In this case, they might use table-level RBAC to grant the audit team with access to the entire **OfficeActivity** table, without granting permissions to any other table.
+
+### Access considerations with multiple workspaces
+
+If you have different entities, subsidiaries, or geographies within your organization, each with their own security teams that need access to Azure Sentinel, use separate workspaces for each entity or subsidiary. Implement the separate workspaces within a single Azure AD tenant, or across multiple tenants using Azure Lighthouse. 
+
+Your central SOC team may also use an additional, optional Azure Sentinel workspace to manage centralized artifacts such as analytics rules or workbooks.
+
+For more information, see [Working with multiple workspaces](#working-with-multiple-workspaces).
+
+## Technical best practices for creating your workspace
+
+Use the following best practice guidance when creating the Log Analytics workspace you'll use for Azure Sentinel:
+
+- **When naming your workspace**, include *Azure Sentinel* or some other indicator in the name, so that it's easily identified among your other workspaces.
+
+- **Use the same workspace for both Azure Sentinel and Azure Security Center**, so that all logs collected by Azure Security Center can also be ingested and used by Azure Sentinel. The default workspace created by Azure Security Center will not appear as an available workspace for Azure Sentinel.
+
+- **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
+
+
+
+
+
 
 
 <!-- make sure this info is in roles>
