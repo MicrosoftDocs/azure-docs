@@ -108,7 +108,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
-using Microsoft.CognitiveServices.Speech.Transcription;
+using Microsoft.CognitiveServices.Speech.Audio;
 
 public static async Task TranscribeConversationsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
 {
@@ -120,7 +120,7 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
     config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
     var stopRecognition = new TaskCompletionSource<int>();
 
-    using (var audioInput = AudioStreamReader.OpenWavFile(filepath))
+    using (var audioInput = AudioConfig.FromWavFileInput(filepath))
     {
         var meetingID = Guid.NewGuid().ToString();
         using (var conversation = await Conversation.CreateConversationAsync(config, meetingID))
