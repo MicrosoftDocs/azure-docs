@@ -36,7 +36,7 @@ ms.author: henrymbugua
       **Mobile app**
       - [Xamarin iOS using brokers to MSAL.NET](../msal-net-migration-ios-broker.md) 
       - [Xamarin Android using brokers to MSAL.NET](../msal-net-migration-android-broker.md)
-      - [ADAL.IOS / macOS to MSAL.iOS / macOS](../migrate-objc-adal-msal.md) 
+      - [ADAL.iOS to MSAL.iOS](../migrate-objc-adal-msal.md) 
       - [ADAL.Android to MSAL.Android](../migrate-android-adal-msal.md) 
    :::column-end:::
    :::column span="":::
