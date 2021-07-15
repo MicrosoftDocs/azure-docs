@@ -21,18 +21,6 @@
   items:
   - name: Microsoft Learn - Bicep
     href: learn-bicep.md
-- name: Concepts
-  items:
-  - name: Best practices
-    href: best-practices.md
-  - name: Patterns
-    items:
-    - name: Overview
-      href: patterns-overview.md
-    - name: Configuration set
-      href: patterns-configuration-set.md
-    - name: Shared variable file
-      href: patterns-shared-variable-file.md
 - name: How to
   expanded: true
   items:
@@ -94,6 +82,16 @@
         displayName: assign role
     - name: Linter
       href: linter.md
+    - name: Best practices
+      href: best-practices.md
+    - name: Patterns
+      items:
+      - name: Overview
+        href: patterns-overview.md
+      - name: Configuration set
+        href: patterns-configuration-set.md
+      - name: Shared variable file
+        href: patterns-shared-variable-file.md
   - name: Deploy
     items:
     - name: Predeployment checks
