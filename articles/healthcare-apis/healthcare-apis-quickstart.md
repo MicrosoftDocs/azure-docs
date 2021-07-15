@@ -14,8 +14,7 @@ ms.author: ginle
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you’ll learn how to create a workspace by deploying an Azure Healthcare APIs 
-service using the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
+In this article, you’ll learn how to create a workspace by deploying Azure Healthcare APIs through the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
 
 
 ## Prerequisite
@@ -31,7 +30,7 @@ In the Azure portal, select **Create a resource**.
 
 ## Search for Azure Healthcare APIs
 
-In the **Marketplace**, enter **Azure Healthcare APIs** in the search textbox.
+In the searchbox, enter **Azure Healthcare APIs**.
 
 [ ![Search for Healthcare APIs](media/search-for-healthcare-apis.png) ](media/search-for-healthcare-apis.png#lightbox)
 
@@ -69,14 +68,11 @@ Now that the workspace is created, you can:
 
 * Deploy FHIR services
 * Deploy DICOM services
+* Deploy an IoT Connector and ingest data to your FHIR service.
 * Transform your data into different formats and secondary use through our conversion and de-identification APIs.
-* Deploy an IoT Connector to ingest data from your FHIR service.
+
 
 [ ![Deploy different services](media/healthcare-apis-deploy-services.png) ](media/healthcare-apis-deploy-services.png)
-
-
-> [!NOTE]
-> You can deploy a FHIR Service or DICOM Service through the Azure Portal. If you would like to deploy an IoT Connector, see [Deploy Azure IoT Connector service using an ARM template](iot/iot-fhir-arm-template-quickstart.md).
 
 >[!div class="nextstepaction"]
 >[Workspace overview](workspace-overview.md)
