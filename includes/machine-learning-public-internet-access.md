@@ -5,7 +5,7 @@ author: lobrien
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 ms.author: larryfr
 ms.custom: include file
 ---
@@ -19,7 +19,6 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | * | AzureActiveDirectory | Azure Active Directory authentication. |
 | Outbound | * | AzureMachineLearning | Azure Machine Learning. |
 | Outbound | * | AzureResourceManager | Azure Resource Manager. |
-| Outbound | 443 | BatchNodeManagement | Azure Machine Learning compute instance and compute cluster. |
 | Outbound | 443 | Storage.region | Azure Storage Account. |
 | Outbound | 443 | AzureFrontDoor.FirstParty | Azure Front Door. | 
 | Outbound | 443 | ContainerRegistry.region | Azure Container Registry. Only needed when using custom Docker images. Including small modifications (such as extra packages) to base images provided by Microsoft. |
