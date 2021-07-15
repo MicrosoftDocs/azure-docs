@@ -81,7 +81,7 @@ Use the following procedure to view events:
 
     Each row includes the time, access package Id, the name of the operation, the object Id, UPN, and the display name of the user who started the operation.  Additional details are included in JSON.   
 
-1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application roles, then you can select the workbook named *Application role assignment activity*.
+1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application role, then you can select the workbook named *Application role assignment activity*.
 
     ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
