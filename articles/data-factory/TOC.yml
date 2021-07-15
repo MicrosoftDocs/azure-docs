@@ -478,6 +478,8 @@
       href: delete-activity.md
     - name: Copy data tool
       href: copy-data-tool.md
+    - name: Metadata driven copy data
+      href: copy-data-tool-metadata-driven.md
     - name: Format and compression support
       href: supported-file-formats-and-compression-codecs.md
       displayName: zip

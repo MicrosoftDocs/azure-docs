@@ -1,8 +1,8 @@
 ---
 title: Upsert data into Azure Cosmos DB Cassandra API from Spark
 description: This article details how to upsert into tables in Azure Cosmos DB Cassandra API from Spark
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra

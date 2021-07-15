@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 06/15/2021
+ms.date: 07/11/2021
 ---
 
 # What's new in Azure Sentinel
@@ -28,13 +28,54 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+## July 2021
+
+- [Watchlists are in general availability](#watchlists-are-in-general-availability)
+- [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
+- [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
+
+### Watchlists are in general availability
+
+The [watchlists](watchlists.md) feature is now generally available. Use watchlists to enrich alerts with business data, to create allowlists or blocklists against which to check access events, and to help investigate threats and reduce alert fatigue.
+
+### Support for data residency in more geos
+
+Azure Sentinel now supports full data residency in the following additional geos:
+
+Brazil, Norway, South Africa, Korea, Germany, United Arab Emirates (UAE), and Switzerland.
+
+See the [complete list of supported geos](quickstart-onboard.md#geographical-availability-and-data-residency) for data residency.
+
+### Bidirectional sync in Azure Defender connector
+
+The Azure Defender connector now supports bi-directional syncing of alerts' status between Defender and Azure Sentinel. When you close a Sentinel incident containing a Defender alert, the alert will automatically be closed in the Defender portal as well.
+
+See this [complete description of the updated Azure Defender connector](connect-azure-security-center.md).
+
 ## June 2021
 
+- [Upgrades for normalization and the Azure Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
 - [Updated service-to-service connectors](#updated-service-to-service-connectors)
 - [Export and import analytics rules (Public preview)](#export-and-import-analytics-rules-public-preview)
 - [Alert enrichment: alert details (Public preview)](#alert-enrichment-alert-details-public-preview)
-- [Upgrades for normalization and the Azure Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
 - [More help for playbooks!](#more-help-for-playbooks)
+- [New documentation reorganization](#new-documentation-reorganization)
+
+### Upgrades for normalization and the Azure Sentinel Information Model
+
+The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
+
+In this month's update, we've enhanced our normalization documentation, providing new levels of detail and full DNS, process event, and authentication normalization schemas.
+
+For more information, see:
+
+- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
+- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
+- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
+- [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
+- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)
+
 
 ### Updated service-to-service connectors
 
@@ -58,18 +99,6 @@ In addition to enriching your alert content with entity mapping and custom detai
 
 For more information, see [Customize alert details in Azure Sentinel](customize-alert-details.md).
 
-### Upgrades for normalization and the Azure Sentinel Information Model
-
-The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
-
-
-In this month's update, we've enhanced our normalization documentation, providing new levels of detail and a full DNS normalization schema.
-
-For more information, see:
-
-- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
 
 ### More help for playbooks!
 
@@ -78,6 +107,13 @@ Two new documents can help you get started or get more comfortable with creating
 - [Use triggers and actions in playbooks](playbook-triggers-actions.md) explains the difference between the **incident trigger** and the **alert trigger** and which to use when, and shows you some of the different actions you can take in playbooks in response to incidents, including how to access the information in [custom details](playbook-triggers-actions.md#work-with-custom-details).
 
 Playbook documentation also explicitly addresses the multi-tenant MSSP scenario.
+
+### New documentation reorganization
+
+This month we've reorganized our [Azure Sentinel documentation](index.yml), restructuring into intuitive categories that follow common customer journeys. Use the filtered docs search and updated landing page to navigate through Azure Sentinel docs.
+
+:::image type="content" source="media/whats-new/new-docs.png" alt-text="New Azure Sentinel documentation reorganization." lightbox="media/whats-new/new-docs.png":::
+
 
 ## May 2021
 

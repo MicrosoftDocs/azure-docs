@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 07/07/2021
 
 ms.author: justinha
 author: justinha
@@ -299,7 +299,7 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
 
 ## Configure Multi-Factor Authentication
 
-For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](howto-mfa-getstarted.md#create-conditional-access-policy) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](howto-mfa-getstarted.md#plan-conditional-access-policies) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## Install and configure the NPS extension
 

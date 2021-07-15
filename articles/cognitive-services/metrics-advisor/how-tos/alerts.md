@@ -54,27 +54,65 @@ After you select **OK**, a Teams hook will be created. You can use it in any ale
 
 ### Web hook
 
-> [!Note]
-> * Use the **POST** request method.
-> * The request body wil be similar to:  
-    `{"timestamp":"2019-09-11T00:00:00Z","alertSettingGuid":"49635104-1234-4c1c-b94a-744fc920a9eb"}`
-> * When a web hook is created or modified, the API will be called as a test with an empty request body. Your API needs to return a 200 HTTP code.
+A web hook is another notification channel by using an endpoint that is provided by the customer. Any anomaly detected on the time series will be notified through a web hook. There're several steps to enable a web hook as alert notification channel within Metrics Advisor. 
 
-A web hook is the entry point for all the information available from the Metrics Advisor service, and calls a user-provided API when an alert is triggered. All alerts can be sent through a web hook.
+**Step1.** 	Enable Managed Identity in your Metrics Advisor resource
+
+A system assigned managed identity is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). The managed identity is authenticated with Azure AD, so you don’t have to store any credentials in code. 
+
+Go to Metrics Advisor resource in Azure portal, and select "Identity", turn it to "on" then Managed Identity is enabled. 
+
+**Step2.** Create a web hook in Metrics Advisor workspace
+
+Log in to you workspace and select "Hooks" tab, then select "Create hook" button. 
+
 
 To create a web hook, you will need to add the following information:
 
 |Parameter |Description  |
 |---------|---------|
-|Endpoint     | The API address to be called when an alert is triggered.        |
+|Endpoint     | The API address to be called when an alert is triggered. **MUST be Https**.       |
 |Username / Password | For authenticating to the API address. Leave this black if authentication isn't needed.         |
 |Header     | Custom headers in the API call.        |
+|Certificate identifier in Azure Key vaults| If accessing the endpoint needs to be authenticated by a certificate, the certificate should be stored in Azure Key vaults. Input the identifier here.
+
+> [!Note]
+> When a web hook is created or modified, the endpoint will be called as a test with **an empty request body**. Your API needs to return a 200 HTTP code to successfully pass the validation.
 
 :::image type="content" source="../media/alerts/create-web-hook.png" alt-text="web hook creation window.":::
 
-When a notification is pushed through a web hook, you can use the following APIs to get details of the alert. Set the *timestamp* and *alertSettingGuid* in your API service, which is being pushed to, then use the following queries: 
-- `query_alert_result_anomalies`
-- `query_alert_result_incidents`
+- Request method is  **POST**
+- Timeout 30s
+- Retry for 5xx error, ignore other error. Will not follow 301/302 redirect request.
+- Request body: 
+```
+{
+"value": [{
+	"hookId": "b0f27e91-28cf-4aa2-aa66-ac0275df14dd",
+	"alertType": "Anomaly",
+	"alertInfo": {
+		"anomalyAlertingConfigurationId": "1bc6052e-9a2a-430b-9cbd-80cd07a78c64",
+		"alertId": "172536dbc00",
+		"timestamp": "2020-05-27T00:00:00Z",
+		"createdTime": "2020-05-29T10:04:45.590Z",
+		"modifiedTime": "2020-05-29T10:04:45.590Z"
+	},
+	"callBackUrl": "https://kensho2-api.azurewebsites.net/alert/anomaly/configurations/1bc6052e-9a2a-430b-9cbd-80cd07a78c64/alerts/172536dbc00/incidents"
+}]
+}
+```
+
+**Step3. (optional)** Store your certificate in Azure Key vaults and get identifier
+As mentioned, if accessing the endpoint needs to be authenticated by a certificate, the certificate should be stored in Azure Key vaults. 
+
+- Check [Set and retrieve a certificate from Azure Key Vault using the Azure portal](../../../key-vault/certificates/quick-create-portal.md)
+- Click on the certificate you've added, then you're able to copy the "Certificate identifier". 
+- Then select "Access policies" and "Add access policy", grant "get" permission for "Key permissions", "Secrete permissions" and "Certificate permissions". Select principal as the name of your Metrics Advisor resource. Select "Add" and "Save" button in "Access policies" page. 
+
+**Step4.** Receive anomaly notification
+When a notification is pushed through a web hook, you can  fetch incidents data by calling the "callBackUrl" in Webhook Request. Details for this api:
+
+-   [/alert/anomaly/configurations/{configurationId}/alerts/{alertId}/incidents](https://westus2.dev.cognitive.microsoft.com/docs/services/MetricsAdvisor/operations/getIncidentsFromAlertByAnomalyAlertingConfiguration)
 
 By using web hook and Azure Logic Apps, it's possible to send email notification **without an SMTP server configured**. Refer to the tutorial of [enable anomaly notification in Metrics Advisor](../tutorials/enable-anomaly-notification.md#send-notifications-with-logic-apps-teams-and-smtp) for detailed steps.
 

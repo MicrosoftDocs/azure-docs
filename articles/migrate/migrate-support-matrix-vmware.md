@@ -73,7 +73,9 @@ Support | Details
 
 ## SQL Server instance and database discovery requirements
 
-[Software inventory](how-to-discover-applications.md) identifies SQL Server instances. Using this information, the appliance attempts to connect to respective SQL Server instances through the Windows authentication or SQL Server authentication credentials that are provided in the appliance configuration manager. After the appliance is connected, it gathers configuration and performance data for SQL Server instances and databases. SQL Server configuration data is updated once every 24 hours. Performance data is captured every 30 seconds.
+[Software inventory](how-to-discover-applications.md) identifies SQL Server instances. Using this information, the appliance attempts to connect to respective SQL Server instances through the Windows authentication or SQL Server authentication credentials that are provided in the appliance configuration manager. Appliance can connect to only those SQL Server instances to which it has network line of sight, whereas software inventory by itself may not need network line of sight.
+
+After the appliance is connected, it gathers configuration and performance data for SQL Server instances and databases. SQL Server configuration data is updated once every 24 hours. Performance data is captured every 30 seconds.
 
 Support | Details
 --- | ---
@@ -100,7 +102,7 @@ Support | Details
 Support | Details
 --- | --- 
 **Supported servers** | Currently supported only for servers in your VMware environment.
-**Windows servers** | Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
+**Windows servers** | Windows Server 2019<br />Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br />Microsoft Windows Server 2008 (32-bit)
 **Linux servers** | Red Hat Enterprise Linux 7, 6, 5<br /> Ubuntu Linux 16.04, 14.04<br /> Debian 8, 7<br /> Oracle Linux 7, 6<br /> CentOS 7, 6, 5<br /> SUSE Linux Enterprise Server 11 and later
 **Server requirements** | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Servers must have PowerShell version 2.0 or later installed.
 **Discovery method** |  Dependency information between servers is gathered by using VMware Tools installed on the server running vCenter Server. The appliance gathers the information from the server by using vSphere APIs. No agent is installed on the server, and the appliance doesn’t connect directly to servers. WMI should be enabled and available on Windows servers.
