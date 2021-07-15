@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-[!INCLUDE active-directory-b2c-advanced-audience-warning]
+
 
 ::: zone-end
 
@@ -167,6 +167,14 @@ You should now see BlokSec as a new OIDC Identity provider listed within your B2
 9. The browser will be redirected to the BlokSec login page. Enter the account name registered during User registration. The user will receive a push notification to their mobile device where the BlokSec yuID application is installed; upon opening the notification, the user will be presented with an authentication challenge
 
 10. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.  
+
+## Next steps 
+
+For additional information, review the following articles:
+
+- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+
+- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows?pivots=b2c-custom-policy)
 
 ::: zone-end
 
