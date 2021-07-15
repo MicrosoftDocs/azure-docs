@@ -34,7 +34,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](/python/api/azureml-core/azureml.core.run%28class%29).
 
-### Logging run metrics 
+## Logging run metrics 
 
 Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](./resource-limits-quotas-capacity.md#metrics) for these logged metrics. 
 
@@ -46,7 +46,7 @@ Use the following methods in the logging APIs to influence the metrics visualiza
 |Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 |Log image|`run.log_image(name='food', path='./breadpudding.jpg', plot=None, description='desert')`|Use this method to log an image file or a matplotlib plot to the run. These images will be visible and comparable in the run record|
 
-### Logging with MLflow
+## Logging with MLflow
 Use MLFlowLogger to log metrics.
 
 ```python
@@ -65,9 +65,7 @@ mlf_logger = MLFlowLogger(experiment_name=run.experiment.name, tracking_uri=mlfl
 mlf_logger._run_id = run.id
 ```
 
-## View run metrics
-
-## Via the SDK
+## View run metrics via the SDK
 You can view the metrics of a trained model using ```run.get_metrics()```. See the example below. 
 
 ```python

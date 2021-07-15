@@ -28,7 +28,7 @@ properties from related resource types. Here is the list of tables available in 
 |Resource Graph table |Can `join` other tables? |Description |
 |---|---|---|
 |Resources |Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
-|ResourceContainers |Yes |Includes subscription (in preview -- `Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|ResourceContainers |Yes |Includes subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |Yes (preview) |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Yes (preview) |Includes resources _related_ to `Microsoft.AlertsManagement`. |
 |ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |

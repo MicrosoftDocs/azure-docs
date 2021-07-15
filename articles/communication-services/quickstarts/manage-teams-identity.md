@@ -42,6 +42,8 @@ The Administrator role has extended permissions in AAD. Members of this role can
 
 1. Contoso's Admin creates or selects existing *Application* in Azure Active Directory. Property *Supported account types* defines whether users from different tenant can authenticate to the *Application*. Property *Redirect URI* redirects successful authentication request to Contoso's *Server*.
 1. Contoso's Admin extends *Application*'s manifest with Azure Communication Services' VoIP permission. 
+1. Contoso's Admin allows public client flow for the *Application*
+1. Contoso's Admin can optionality update
 1. Contoso's Admin enables experience via [this form](https://forms.office.com/r/B8p5KqCH19)
 1. Contoso's Admin creates or selects existing Communication Services, that will be used for authentication of the exchanging requests. AAD user tokens will be exchanged for Teams access tokens. You can read more about creation of [new Azure Communication Services resources here](./create-communication-resource.md).
 1. Fabrikam's Admin provisions new service principal for Azure Communication Services in the Fabrikam's tenant
@@ -55,7 +57,7 @@ The following application settings influence the experience:
 - Property *Supported account types* defines whether the *Application* is single tenant ("Accounts in this organizational directory only") or multi-tenant ("Accounts in any organizational directory"). For this scenario, you can use multi-tenant.
 - *Redirect URI* defines URI where authentication request is redirected after authentication. For this scenario, you can use "Public client/native(mobile & desktop)" and fill in "http://localhost" as URI.
 
-[Here you can find detailed documentation.](/azure/active-directory/develop/quickstart-register-app#register-an-application). 
+[Here you can find detailed documentation.](../../active-directory/develop/quickstart-register-app.md#register-an-application). 
 
 When the *Application* is registered, you'll see an identifier in the overview. This identifier will be used in followings steps: **Application (client) ID**.
 
@@ -63,8 +65,8 @@ When the *Application* is registered, you'll see an identifier in the overview. 
 
 In the *Authentication* pane of your *Application*, you can see Configured platform for *Public client/native(mobile & desktop)* with Redirect URI pointing to *localhost*. In the bottom of the screen, you can find toggle *Allow public client flows*, which for this quickstart will be set to **Yes**.
 
-### 3. Verify application (Optional)
-In the *Branding* pane, you can verify your platform within Microsoft identity platform. This one time process will remove requirement for Fabrikam's admin to give admin consent to this application. You can find details on how to verify your application [here](/azure/active-directory/develop/howto-configure-publisher-domain).
+### 3. Update publisher domain (Optional)
+In the *Branding* pane, you can update your publisher domain for the *Application*. This is useful for multitenant applications, where the application will be marked as verified by Azure. You can find details on how to verify publisher and how to update domain of your application [here](../../active-directory/develop/howto-configure-publisher-domain.md).
 
 ### 4. Define Azure Communication Services' VoIP permission in application
 
@@ -159,7 +161,7 @@ Contoso's developer needs to set up *Client application* for authentication of u
 
 Microsoft Authentication Library (MSAL) enables developers to acquire AAD user tokens from the Microsoft identity platform endpoint to authenticate users and access secure web APIs. It can be used to provide secure access to Azure Communication Services. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
-You can find more details how to set up different environments in public documentation. [Microsoft Authentication Library (MSAL) overview](/azure/active-directory/develop/msal-overview).
+You can find more details how to set up different environments in public documentation. [Microsoft Authentication Library (MSAL) overview](../../active-directory/develop/msal-overview.md).
 
 > [!NOTE]
 > Following sections describes how to exchange AAD access token for Teams access token for console application in .NET.

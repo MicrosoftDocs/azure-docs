@@ -81,7 +81,7 @@ Defender for IoT provides basic dissectors for common protocols. You can build y
 
 This kit contains the header files needed for development. The development process requires basic steps and optional advanced steps, described in this SDK.
 
-Contact <support@cyberx-labs.com> for information on receiving header files and other resources.
+Contact support.microsoft.com for information on receiving header files and other resources.
 
 ## About the environment and setup 
 

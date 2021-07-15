@@ -5,7 +5,7 @@
  author: SnehaGunda
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 05/19/2021
+ ms.date: 07/02/2021
  ms.author: sngun
  ms.custom: include file
 ---

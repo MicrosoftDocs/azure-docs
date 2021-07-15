@@ -155,7 +155,7 @@
   - name: Defender-IoT-micro-agent for Azure RTOS API
     displayNAme: prototype, disable
     href: azure-rtos-security-module-api.md
-  - name: Frequently asked questions- agent
+  - name: Frequently asked questions
     displayName: FAQ, embedded, dependencies, data, quota, internet, 
     href: resources-agent-frequently-asked-questions.md
   - name: Azure Roadmap

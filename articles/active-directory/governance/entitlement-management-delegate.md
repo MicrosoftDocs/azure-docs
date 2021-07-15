@@ -115,7 +115,10 @@ The following table lists the tasks that the entitlement management roles can do
 
 ## Required roles to add resources to a catalog
 
-A Global administrator can add or remove any group (cloud-created security groups or cloud-created Microsoft 365 Groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog, except for a group configured as assignable to a directory role. Note that a user administrator can manage access packages in a catalog that includes groups configured as assignable to a directory role.  For more information on role-assignable groups, reference [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible.md).
+A Global administrator can add or remove any group (cloud-created security groups or cloud-created Microsoft 365 Groups), application, or SharePoint Online site in a catalog. A User administrator can add or remove any group or application in a catalog, except for a group configured as assignable to a directory role.  For more information on role-assignable groups, reference [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible.md).
+
+> [!NOTE]
+> Users that have been assigned the User administrator role will no longer be able to create catalogs or manage access packages in a catalog they do not own. If users in your organization have been assigned the User administrator role to configure catalogs, access packages, or policies in entitlement management, you should instead assign these users the **Identity Governance administrator** role.
 
 For a user who isn't a global administrator, to add groups, applications, or SharePoint Online sites to a catalog, that user must have *both* an Azure AD directory role or ownership of the resource, and a and catalog owner entitlement management role for the catalog. The following table lists the role combinations that are required to add resources to a catalog. To remove resources from a catalog, you must have the same roles.
 
