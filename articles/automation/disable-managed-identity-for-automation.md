@@ -31,6 +31,8 @@ Syntax and example steps are provided below.
 
 The following request body disables the system-assigned managed identity and removes any user-assigned managed identities.
 
+PATCH
+
 ```json
 { 
  "identity": { 
@@ -40,15 +42,20 @@ The following request body disables the system-assigned managed identity and rem
 
 ```
 
-The following request body disables the system-assigned managed identity and keeps any user-assigned managed identities.
+If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity you need to specify each user-assigned identity using comma-delimited list as in the following example:
+
+PATCH
 
 ```json
 { 
- "identity": { 
-   "type": "UserAssigned" 
-  } 
+"identity" : {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/firstIdentity": {},
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/secondIdentity": {}
+        }
+    }
 }
- 
 ```
 
 The following is the service's REST API request URI to send the PATCH request.

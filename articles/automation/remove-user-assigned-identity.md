@@ -71,6 +71,8 @@ You can remove a user-assigned managed identity from the Automation account by u
 
 Scenario: System-assigned managed identity is enabled or is to be enabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
 
+PATCH
+
 ```json
 {
   "identity": {
@@ -84,6 +86,8 @@ Scenario: System-assigned managed identity is enabled or is to be enabled. One o
 
 Scenario: System-assigned managed identity is enabled or is to be enabled. All user-assigned managed identities are to be removed.
 
+PUT
+
 ```json
 {
   "identity": {
@@ -93,6 +97,8 @@ Scenario: System-assigned managed identity is enabled or is to be enabled. All u
 ```
 
 Scenario: System-assigned managed identity is disabled or is to be disabled. One of many user-assigned managed identities is to be removed. This example removes a user-assigned managed identity named `firstIdentity`.
+
+PATCH
 
 ```json
 {
@@ -107,6 +113,8 @@ Scenario: System-assigned managed identity is disabled or is to be disabled. One
 ```
 
 Scenario: System-assigned managed identity is disabled or is to be disabled. All user-assigned managed identities are to be removed.
+
+PUT
 
 ```json
 {
