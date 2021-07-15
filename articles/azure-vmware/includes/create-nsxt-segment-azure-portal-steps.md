@@ -15,7 +15,7 @@ ms.date: 07/16/2021
 
 2. Provide the details for the new logical segment and select **OK**.
 
-   :::image type="content" source="../media/configure-nsx-network-components-azure-portal/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new NSX-T segment in the Azure portal.":::
+   :::image type="content" source="../media/networking/add-new-nsxt-segment.png" alt-text="Screenshot showing how to add a new NSX-T segment in the Azure portal.":::
 
    - **Segment name** - Name of the segment that is visible in vCenter.
 
