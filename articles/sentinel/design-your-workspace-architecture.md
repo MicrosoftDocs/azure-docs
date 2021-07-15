@@ -32,7 +32,7 @@ The following image shows a full decision tree flow chart to help you understand
 
 [ ![Azure Sentinel workspace design decision tree.](media/best-practices/workspace-decision-tree.png) ](media/best-practices/workspace-decision-tree.png#lightbox)
 
-The following sections provide a full-text version of this decision tree.
+The following sections provide a full-text version of this decision tree, as well as additional considerations referenced from the decision tree image.
 
 ### Step 1: New or existing workspace?
 
@@ -42,16 +42,15 @@ Are you planning to enable Azure Sentinel on an existing workspace?
 
 - **If you'll be using an existing workspace**, and will be consuming more than 100 GB/day of non-SOC data, we do *not* recommend using an existing workspace for Azure Sentinel for the sake of cost efficiency.
 
-    If the amount of non-SOC data you'll be ingesting is less than 100 GB/day, continue evaluating with [step 2](#step-2-keeping-data-in-different-azure-geographies), but consider you selection in step 6 when this question arises again.
+    If the amount of non-SOC data you'll be ingesting is less than 100 GB/day, continue evaluating with [step 2](#step-2-keeping-data-in-different-azure-geographies), but consider you selection in step 5 when this question arises again.
 
 ### Step 2: Keeping data in different Azure geographies?
 
 Do you have regulatory requirements to keep data in different Azure geographies?
 
-If so, use a separate Azure Sentinel workspace for each Azure region that has compliance requirements.
+If so, use a separate Azure Sentinel workspace for each Azure region that has compliance requirements, and your decision tree ends here.
 
 For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
-
 ### Step 3: Do you have multiple Azure tenants?
 
 - **If you have only a single tenant**, continue directly with step 4.
@@ -62,7 +61,7 @@ For more information, see [Region considerations](workspace-architecture-best-pr
 
     - **If you *are* collecting tenant-specific logs**, use a separate Azure Sentinel tenant for each Azure AD tenant.
 
-        <a name="ref1"></a>[Flow chart reference 1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant.
+        <a name="ref1"></a>[Decision tree reference #1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant.
 
         Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages:
 
