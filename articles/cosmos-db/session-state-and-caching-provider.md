@@ -5,7 +5,7 @@ author: StefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 ---
 
 # Use Azure Cosmos DB as an ASP.NET session state and caching provider
