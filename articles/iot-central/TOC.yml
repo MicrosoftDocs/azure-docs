@@ -250,8 +250,6 @@
           href: core/howto-connect-powerbi.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
-        - name: Connect your application with Dynamics 365 Field Services
-          href: government/how-to-configure-connected-field-services.md
     - name: Use the REST API
       items:
         - name: Authenticate and authorize REST API calls
@@ -291,7 +289,7 @@
       - name: Device connections
         href: core/troubleshoot-connection.md
     - name: FAQ
-      href: core/howto-faq.md
+      href: core/howto-faq.yml
     - name: Manage your personal preferences
       href: core/howto-manage-preferences.md
     - name: Toggle live chat
