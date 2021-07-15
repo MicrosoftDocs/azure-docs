@@ -12,10 +12,10 @@ ms.date: 07/15/2021
 
 You can quickly create, build, and deploy cloud-based "serverless" apps by using the services and capabilities in Azure, such as Azure Logic Apps and Azure Functions. When you use Azure Logic Apps, you can quickly and easily build workflows using low-code or no-code approaches to simplify orchestrating combined tasks. You can integrate different services, cloud, on-premises, or hybrid, without coding those interactions, having to maintain glue code, or learn new APIs or specifications. When you use Azure Functions, you can speed up development by using an event-driven model. You can use triggers that respond to events by automatically running your own code. You can use bindings to seamlessly integrate other services.
 
-This article shows how to build an example serverless app by using an Azure Quickstart template. This template creates an Azure resource group project, which contains an Azure Resource Manager deployment template. This template defines a basic logic app resource where a predefined a workflow calls a predefined Azure function. The workflow definition includes the following components:
+This article shows how to create an example serverless app that runs in multi-tenant Azure by using an Azure Quickstart template. The template creates an Azure resource group project that includes an Azure Resource Manager deployment template. This template defines a basic logic app resource where a predefined a workflow includes a call to an Azure function that you define. The workflow definition includes the following components:
 
 * A Request trigger that receives HTTP requests. To start this trigger, you send a request to the trigger's URL.
-* An Azure Functions action that calls a predefined function that's powered by an Azure web app.
+* An Azure Functions action that calls an Azure function that you can later define.
 * A Response action that returns an HTTP response containing the result from the function.
 
 For more information, review the following articles:
@@ -60,11 +60,12 @@ For more information, review the following articles:
 To get started, create an Azure resource group project as a container for your serverless app. In Azure, a *resource group* is a logical collection that you use to organize the resources for an entire app. You can then manage and deploy these resources as a single asset. For a serverless app in Azure, a resource group includes the resources from Azure Logic Apps *and* Azure Functions. For more information, review [Resource Manager terminology](../azure-resource-manager/management/overview.md#terminology).
 
 1. Open Visual Studio, and sign in with your Azure account, if prompted.
+
 1. If the start window opens, select **Create a new project**.
 
    ![Screenshot showing Visual Studio start window with "Create a new project" selected.](./media/logic-apps-serverless-get-started-vs/start-window.png)
 
-1. Otherwise, from the **File** menu, select **New** > **Project**.
+1. If the start window doesn't open, from the **File** menu, select **New** > **Project**.
 
    ![Screenshot showing "File" menu open with "New" menu and "Project" selected.](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
@@ -86,7 +87,7 @@ To get started, create an Azure resource group project as a container for your s
 
    ![Screenshot showing your created project and solution.](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
-1. Next, deploy your solution to Azure. You must complete this deployment step before you can open and review your logic app's workflow using the designer in Visual Studio.
+1. Next, deploy your solution to Azure. You must complete this deployment step before you can open, review, and edit your logic app's workflow using the designer in Visual Studio.
 
 ## Deploy your solution
 
@@ -100,94 +101,60 @@ Before you can open your logic app using the designer in Visual Studio, you have
 
    1. After the window detects your current subscription, confirm your Azure subscription, or select a different subscription if you want.
 
-   1. Create a new resource group in Azure. Under **Resource group**, select **<**Create New...**>**. Provide the following information.
+   1. Create a new resource group in Azure. From the **Resource group** list, select **Create New**.
+
+      ![Screenshot showing "Deploy to Resource Group" window with "Create New" selected.](./media/logic-apps-serverless-get-started-vs/create-resource-group-start.png)
+
+   1. After the **Create Resource Group** window opens, provide the following information:
 
       | Property | Description |
       |----------|-------------|
-      | Resource group name | The name to use for your resource group |
+      | Resource group name | The name to give your resource group |
       | Resource group location | The Azure datacenter region to host your logic app resource |
       |||
 
-      The following example shows information for creating a resource group in the West US region.
+      This example continues by creating a resource group in the West US region.
 
       ![Screenshot showing "Create Resource Group" window with new resource group information.](./media/logic-apps-serverless-get-started-vs/create-resource-group.png)
 
-   1. Finish creating and deploying your solution.
+   1. Finish creating and deploying your solution, for example:
 
-For example, ![Deployment settings](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+      ![Deployment settings](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
-1. If the **Edit Parameters** box appears, provide the resource names 
-to use for your logic app and your Azure function app at deployment, 
-and then save your settings. Make sure you use a globally unique name 
-for your function app.
+1. If the **Edit Parameters** window appears, provide the resource names to use for your deployed logic app resource and function app resource, and then save your changes.
 
-   ![Provide names for your logic app and function app](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
+   > [!IMPORTANT]
+   > Make sure to use globally unique names for your logic app and function app.
 
-   When Visual Studio starts deployment to your specified resource group, 
-   your solution's deployment status appears in the Visual Studio **Output** window. 
-   After deployment finishes, your logic app is live in the Azure portal.
+   ![Screenshot showing the "Edit Parameters" window with names for your logic app resource and function app resource.](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
 
-## Edit your logic app in Visual Studio
+   When Visual Studio starts deployment to your resource group, your solution's deployment status appears in the Visual Studio **Output** window. After deployment finishes, your logic app is live in the Azure portal.
 
-To edit your logic app after deployment, open your logic app by using the workflow designer in Visual Studio.
+## Open and edit your deployed logic app
 
-1. In Solution Explorer, from the shortcut menu of the azuredeploy.json file, 
-select **Open With Logic App Designer**.
+1. In Solution Explorer, from the **azuredeploy.json** file's shortcut menu, select **Open With Logic App Designer**.
 
-   ![Open azuredeploy.json in Logic App Designer](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+   ![Screenshot showing the "azuredeploy.json" shortcut menu with "Open With Logic App Designer" selected.](./media/logic-apps-serverless-get-started-vs/open-designer.png)
 
    > [!TIP]
-   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+   > If you don't have this command in Visual Studio 2019, confirm that Visual Studio has the latest updates.
 
-1. After the **Logic App Properties** box appears, 
-under **Subscription**, select your Azure subscription if it's not already selected. Under **Resource Group**, 
-select the resource group and location where you deployed your solution, 
-and then select **OK**.
+1. After the workflow designer opens, you can continue by editing the workflow or adding steps. When you're done, remember to save your changes to the **azuredeploy.json** file.
 
-   ![Logic app properties](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
+   ![Screenshot showing the logic app workflow in the designer.](./media/logic-apps-serverless-get-started-vs/opened-logic-app-workflow.png)
 
-   After the workflow designer opens, you can continue adding steps or change the workflow, and save your updates.
+## Create an Azure Functions project
 
-   ![Opened logic app in the workflow designer](./media/logic-apps-serverless-get-started-vs/opened-logic-app.png)
-
-## Create your Azure Functions project
-
-To create your Functions project and function by using JavaScript, 
-Python, F#, PowerShell, Batch, or Bash, follow the steps in 
-[Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). 
-To develop your Azure function by using C# inside your solution, 
-use a C# class library by following the steps in 
-[Publish a .NET class library as a Function App](https://azure.microsoft.com/blog/).
+To create a C#-based Azure function from within your solution, use a C# class library by following the steps in [Publish a .NET class library as a Function App](https://azure.microsoft.com/blog/). Otherwise, to create an Azure Functions project and function using JavaScript, Python, F#, PowerShell, Batch, or Bash, follow the steps in [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md).
 
 ## Deploy functions from Visual Studio
 
-Your deployment template deploys any Azure functions that you have in your solution 
-from the Git repo that's specified by variables in the azuredeploy.json file. 
-If you create and author your Functions project in your solution, you can check 
-that project into Git source control (for example, GitHub or Azure DevOps) 
-and then update the `repo` variable so that the template deploys your Azure function.
+The deployment template in your solution can deploy any Azure functions that exist in your solution from the Git repo that's specified by variables in the **azuredeploy.json** file. If you create and author your Functions project in your solution, you can check the project into Git source control, such as GitHub or Azure DevOps, and then update the `repo` variable in the **azuredeploy.json** file so that the template deploys your Azure function.
 
 ## Manage logic apps and view run history
 
-For logic apps already deployed in Azure, you can still edit, 
-manage, view run history for, and disable those apps from Visual Studio.
-
-1. From the **View** menu in Visual Studio, open **Cloud Explorer**.
-
-1. Under **All subscriptions**, select the Azure subscription 
-associated with the logic apps that you want to manage, and then select **Apply**.
-
-1. Under **Logic Apps**, select your logic app. From that app's shortcut menu, 
-select **Open with Logic App Editor**.
-
-   > [!TIP]
-   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
-
-You can now download the already published logic app into your resource group project. 
-So, although you might have started a logic app in the Azure portal, you can still import 
-and manage that app in Visual Studio. For more information, see 
-[Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+If you have logic app resources already deployed in Azure, you can edit, manage, view run history, and disable those apps from Visual Studio. For more information, review [Manage logic apps with Visual Studio](manage-logic-apps-with-visual-studio.md).
 
 ## Next steps
 
-* [Manage logic apps with Visual Studio](manage-logic-apps-with-visual-studio.md)
+* For another example using Azure Logic Apps and Azure Functions, review [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage](tutorial-process-email-attachments-workflow.md).
