@@ -62,10 +62,10 @@ This scenario is about clearly identifying container use. For example, ISV partn
 Another way to phrase this scenario is that customers want effective ways to meter costs in their Azure data estate. They want to identify costs and account for them at a granular level. For example: tagging, how much data is being queried or consumed by other departments. Keeping track of costs at folder or container level.
 
 - The time of the transaction (time)
-- OperationName - revealing if it is a read write or delete operation.
-- CallerIpAddress can help you determine which client performed the operation.
-- URI shows what the file is.
-- Identify the caller by how they authorized the call.
+- OperationName - revealing if it is a read write or delete operation
+- CallerIpAddress can help you determine which client performed the operation
+- URI shows what the file is
+- Identify the caller by how they authorized the call
 
 ### Determine space used
 
