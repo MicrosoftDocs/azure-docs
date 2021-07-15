@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Video Analyzer - Azure
 description: This article covers troubleshooting steps for Azure Video Analyzer.
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 07/01/2021
 ---
 
