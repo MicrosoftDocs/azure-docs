@@ -168,7 +168,7 @@ Add additional capabilities to your apps and workflows by utilizing other Cognit
 * [Speech](../speech-service/language-support.md) 
 * [Text Analytics ](../text-analytics/language-support.md) 
 
-View all [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services). 
+View all [Cognitive Services](../index.yml). 
 
 ## Next Steps
 * [Text Translation reference](/reference/v3-0-reference.md)
