@@ -38,7 +38,7 @@ This capability uses the DNS Forwarder Service in NSX-T. A DNS service and defau
 
    :::image type="content" source="media/networking/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
-1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **8.8.8.8**. Then select **OK**.
+1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **10.0.0.53**. Then select **OK**.
 
    It takes several minutes to complete, and you can follow the progress from **Notifications**.
 
