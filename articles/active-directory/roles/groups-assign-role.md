@@ -66,7 +66,7 @@ $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Helpdesk 
 ### Create a role assignment
 
 ```powershell
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
+$roleAssignment = New-AzureADMSRoleAssignment -directoryScopeId '/' -RoleDefinitionId $roleDefinition.Id -PrincipalId $group.Id 
 ```
 
 ## Microsoft Graph API
