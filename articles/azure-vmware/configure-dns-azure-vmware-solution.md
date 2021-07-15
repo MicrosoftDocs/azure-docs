@@ -61,8 +61,12 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
 
 1. Select the **DNS service** tab and then select **Edit**.
 
+   >[!TIP]
+   >For private clouds created on or after July 1, 2021, you can ignore the message about a default DNS zone as one is created for you during private cloud creation.
+
+
    >[!IMPORTANT]
-   >While certain operations in your private cloud may be performed from NSX-T Manager, you must edit the DNS service from the Simplified Networking experience in the Azure portal. 
+   >While certain operations in your private cloud may be performed from NSX-T Manager, for private clouds created on or after July 1, 2021, you _must_ edit the DNS service from the Simplified Networking experience in the Azure portal for any configuration changes made to the default Tier-1 Gateway.  
 
    :::image type="content" source="media/networking/configure-dns-forwarder-2.png" alt-text="Screenshot showing the DNS service tab with the Edit button selected.":::   
 
@@ -98,7 +102,7 @@ NSX-T Manager provides the DNS Forwarder Service statistics at the global servic
 
 ### PowerCLI
 
-The NSX-T Policy API lets you run nslookup commands from the NSX-T DNS Forwarder Service. The required cmdlets are part of the **VMware.VimAutomation.Nsxt** module in PowerCLI. The following example demonstrates output from version 12.3.0 of that module.
+The NSX-T Policy API lets you run nslookup commands from the NSX-T DNS Forwarder Service. The required cmdlets are part of the `VMware.VimAutomation.Nsxt` module in PowerCLI. The following example demonstrates output from version 12.3.0 of that module.
 
 1. Connect to your NSX-T Server. 
 
