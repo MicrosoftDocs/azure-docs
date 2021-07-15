@@ -94,7 +94,7 @@ $output
 
 The output should look similar to the following:
 
-:::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Output from set-azautomationaccount sommand.":::
+:::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Output from set-azautomationaccount command.":::
 
 For additional output, execute: `$output.identity | ConvertTo-Json`.
 
