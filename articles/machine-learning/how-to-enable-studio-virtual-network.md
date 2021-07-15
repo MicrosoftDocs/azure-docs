@@ -49,9 +49,6 @@ See the other articles in this series:
 [1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > **5. Enable studio functionality**
 
 
-> [!IMPORTANT]
-> If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information on using a compute instance, see [Secure Azure Machine Learning training](how-to-secure-training-vnet.md).
-
 ## Prerequisites
 
 + Read the [Network security overview](how-to-network-security-overview.md) to understand common virtual network scenarios and architecture.
