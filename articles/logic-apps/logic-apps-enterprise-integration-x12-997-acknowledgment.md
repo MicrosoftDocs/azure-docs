@@ -1,13 +1,13 @@
 ---
 title: "X12 997 Acknowledgment | Microsoft Docs"
-description: Validate EDI and generate acknowledgements with X12 message decoder in Azure Logic Apps with Enterprise Integration Pack
+description: X12 Acknowledgement for X12 message processing in Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: praveensri
-ms.author: praveensri
+ms.author: psrivas
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/15/2021
 ---
 
 # X12 997 Acknowledgment
