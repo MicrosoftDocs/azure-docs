@@ -102,7 +102,7 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-install-iot-explorer.md",
-      "redirect_url": "/azure/iot-develop/howto-use-iot-explorer",
+      "redirect_url": "/azure/iot-fundamentals/howto-use-iot-explorer",
       "redirect_document_id": true
     },
     {
@@ -162,8 +162,8 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-node.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device-node",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-develop",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-service-csharp.md",
@@ -352,8 +352,8 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/connect-web.md",
-      "redirect_url": "/azure/iot-develop/connect-web",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-develop",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/concepts-modeling-guide.md",

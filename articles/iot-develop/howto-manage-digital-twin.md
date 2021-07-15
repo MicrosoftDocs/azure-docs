@@ -190,4 +190,4 @@ Now that you've learned about digital twins, here are some additional resources:
 
 - [Interact with a device from your solution](quickstart-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](howto-use-iot-explorer.md)
+- [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md)

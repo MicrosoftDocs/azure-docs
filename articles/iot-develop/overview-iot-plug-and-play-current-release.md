@@ -24,7 +24,7 @@ To learn more about how IoT Plug and Play devices work with DTDL, see [IoT Plug 
 
 - Azure IoT explorer 0.12.0.
 
-    To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
+    To learn more, see [Install and use Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md).
 
 - VS Code extension 1.0.0.
 

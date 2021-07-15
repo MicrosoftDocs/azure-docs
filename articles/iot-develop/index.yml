@@ -46,7 +46,7 @@ landingContent:
           url: quickstart-devkit-stm-b-l475e.md
   - title: Build device solutions
     linkLists:
-    - linkListType: Tutorials
+    - linkListType: tutorial
       links:
         - text: Connect a sample device to IoT Hub
           url: quickstart-connect-device.md
@@ -54,7 +54,7 @@ landingContent:
           url: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
   - title: Device development framework
     linkLists:
-    - linkListType: Concept
+    - linkListType: concept
       links: 
         - text: Overview of device types
           url: concepts-iot-device-types.md
