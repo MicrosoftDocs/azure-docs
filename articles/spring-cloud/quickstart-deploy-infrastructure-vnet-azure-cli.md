@@ -141,7 +141,7 @@ To deploy the Azure Spring Cloud cluster using the Azure CLI script, follow thes
 1. Add the required extensions to Azure CLI.
 
    ```azurecli
-   az extension add --name spring-cloud --version 2.3.0
+   az extension add --name spring-cloud
    ```
 
 1. Choose a deployment location from the regions where Azure Spring Cloud is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all).
