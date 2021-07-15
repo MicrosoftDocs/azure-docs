@@ -20,7 +20,7 @@ When integrating a REST API within an Azure AD external identities self-service 
 
 ## Prerequisites
 
-Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md) guide.
+Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](secure-api-connector.md) guide.
 
 You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure AD will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
 
@@ -36,7 +36,7 @@ To configure an API Connector with HTTP basic authentication, follow these steps
 3. Select **API connectors**, and then select the **API Connector** you want to configure.
 4. For the **Authentication type**, select **Basic**.
 5. Provide the **Username**, and **Password** of your REST API endpoint.
-    :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Providing basic authentication configuration for an API connector.":::
+    :::image type="content" source="media/secure-api-connector/api-connector-config.png" alt-text="Providing basic authentication configuration for an API connector.":::
 6. Select **Save**.
 
 ## HTTPS client certificate authentication
@@ -74,7 +74,7 @@ To configure an API Connector with client certificate authentication, follow the
 4. For the **Authentication type**, select **Certificate**.
 5. In the **Upload certificate** box, select your certificate's .pfx file with a private key.
 6. In the **Enter Password** box, type the certificate's password.
-  :::image type="content" source="media/add-api-connector/api-connector-upload-cert.png" alt-text="Providing certificate authentication configuration for an API connector.":::
+  :::image type="content" source="media/secure-api-connector/api-connector-upload-cert.png" alt-text="Providing certificate authentication configuration for an API connector.":::
 7. Select **Save**.
 
 ### Perform authorization decisions 
@@ -86,7 +86,7 @@ It's recommended you set reminder alerts for when your certificate will expire. 
 
 To upload a new certificate to an existing API connector, select the API connector under **API connectors** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and whose start date has passed will automatically be used by Azure AD.
 
-  :::image type="content" source="media/add-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
+  :::image type="content" source="media/secure-api-connector/api-connector-renew-cert.png" alt-text="Providing a new certificate to an API connector when one already exists.":::
 
 ## API key authentication
 
