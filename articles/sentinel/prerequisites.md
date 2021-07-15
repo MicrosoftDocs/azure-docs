@@ -12,7 +12,7 @@ ms.date: 07/13/2021
 
 # Pre-deployment activities and prerequisites for deploying Azure Sentinel
 
-This article describes the pre-deployment activities, prerequisites, and architectural best practices for deploying Azure Sentinel.
+This article introduces the pre-deployment activities and prerequisites for deploying Azure Sentinel.
 
 ## Pre-deployment activities
 
@@ -20,11 +20,25 @@ Before deploying Azure Sentinel, we recommend identifying the key business use c
 
 1. Determine which [data sources](connect-data-sources.md) you need and the data size requirements to help you accurately project your deployment's budget and timeline. You might determine this information during your business use case review, or by evaluating a current SIEM that you already have in place. If you already have a SIEM in place, analyze your data to understand which data sources provide the most value and should be ingested into Azure Sentinel.
 
-1. After the business use cases, data sources, and data size requirements have been identified, [start planning your budget](azure-sentinel-billing.md). Use a budget for your Azure Sentinel workspace to help ensure a smooth deployment, without stalls or unplanned costs. Your budget should cover the cost of:
+1. Design your Azure Sentinel workspace. Consider parameters such as:
 
-    - Data ingestion for both Azure Sentinel and Azure Log Analytics
-    - Playbooks that will be deployed
-    - Any [long-term retention solutions](store-logs-in-azure-data-explorer.md) you may have planned.
+    - Whether you'll use a single tenant or multiple tenants
+    - Any compliance requirements you have for data collection and storage
+    - How to control access to Azure Sentinel data
+
+    For more information, see [Workspace architecture best practices](workspace-architecture-best-practices.md) and [Sample workspace designs](sample-workspace-designs.md).
+
+1. After the business use cases, data sources, and data size requirements have been identified, [start planning your budget](azure-sentinel-billing.md), considering cost implications for each planned scenario.
+
+    Make sure that your budget covers the cost of data ingestion for both Azure Sentinel and Azure Log Analytics, any playbooks that will be deployed, and so on.
+
+    For more information, see:
+
+    - [Azure Sentinel costs and billing](azure-sentinel-billing.md)
+    - [Azure Sentinel pricing](https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/)
+    - [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/)
+    - [Logic apps (playbooks) pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/)
+    - [Integrating Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md)
 
 1. Nominate an engineer or architect lead the deployment, based on requirements and timelines. This individual should lead the deployment and be the main point of contact on your team.
 
@@ -53,85 +67,6 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 >
 > To implement additional access control to resources by tiers, use additional resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.
 >
-
-## Workspace best practices
-
-Use the following best practice guidance when creating the Log Analytics workspace you'll use for Azure Sentinel:
-
-- **When naming your workspace**, include *Azure Sentinel* or some other indicator in the name, so that it's easily identified among your other workspaces.
-
-- **Use the same workspace for both Azure Sentinel and Azure Security Center**, so that all logs collected by Azure Security Center can also be ingested and used by Azure Sentinel. The default workspace created by Azure Security Center will not appear as an available workspace for Azure Sentinel.
-
-- **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
-
-- **Use a single workspace, unless you have a specific need for multiple tenants and workspaces**. Most Azure Sentinel features operate by using a single workspace per Azure Sentinel instance.
-
-    Keep in mind that Azure Sentinel ingests all logs housed within the workspace. Therefore, if you have both security-related and non-security logs, or logs that should not be ingested by Azure Sentinel, create an additional workspace to store the non-Azure Sentinel logs and avoid unwanted costs.
-
-    The following image shows an architecture where security and non-security logs go to separate workspaces, with Azure Sentinel ingesting only the security-related logs.
-
-    :::image type="content" source="media/best-practices/separate-workspaces-for-different-logs.png" alt-text="Separate workspaces for security-related logs and non-security logs.":::
-
-### Multiple tenants and working across workspaces
-
-If you are using Azure Sentinel across multiple tenants, such as if you're a managed security service provider (MSSP), use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Azure Sentinel instances in different tenants.
-
-- To reference data that's held in other Azure Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md).
-- To simplify incident management and investigation, [condense and list all incidents from each Azure Sentinel instance in a single location](multiple-workspace-view.md).
-
-The best time to use cross-workspace queries is when valuable information is stored in a different workspace, subscription or tenant, and can provide value to your current action. For example, the following code shows a sample cross-workspace query:
-
-```Kusto
-union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Update
-| where TimeGenerated >= ago(1h)
-| where UpdateState == "Needed"
-| summarize dcount(Computer) by Classification
-```
-
-For more information, see [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md).
-
-### Working with multiple regions
-
-If you are deploying Azure Sentinel in multiple regions, consider the following best practice recommendations:
-
-- Use templates for your analytics rules, custom queries, workbooks, and other resources to make your deployments more efficient. Deploy the templates instead of manually deploying each resource in each region.
-
-- Use separate Azure Sentinel instances for each region. While Azure Sentinel can be used in multiple regions, you may have requirements to separate data by team, region, or site, or regulations and controls that make multi-region models impossible or more complex than needed.
-
-    Using separate instances and workspaces for each region helps to avoid bandwidth / egress costs for moving data across regions.
-
-For more information, see [Data residency in Azure](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/).
-
-
-<!-- make sure this info is in roles>
-| Security Analysts                                                                                                                                                                                                                            |                  |                                      |                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------ | ------------------------------------ |
-| Azure Sentinel Responder                                                                                                                                                                                                                    |                  |                                      |                                      |
-| Azure Sentinel’s Resource Group	View data                                                                                                                                                                                                   | incidents       | workbooks                           | and other Azure Sentinel resources. |
-| Manage incidents (assign                                                                                                                                                                                                                     | dismiss         | etc.)                               |                                      |
-| Logic Apps Contributor	Azure Sentinel’s Resource Group                                                                                                                                                                                      |                  |                                      |                                      |
-| (or RG where Playbooks are stored)	Attach Playbooks to Analytics Rules and Automation Rules. Run Playbooks. NOTE: this will also allow playbook modification by analysts                                                                     |                  |                                      |                                      |
-| Security Engineers                                                                                                                                                                                                                           |                  |                                      |                                      |
-| Azure Sentinel Contributor	Sentinel’s Resource Group	View data                                                                                                                                                                              | incidents       | workbooks                           | and other Azure Sentinel resources. |
-| Manage incidents (assign                                                                                                                                                                                                                     | dismiss         | etc.).                              |                                      |
-| Create and edit workbooks                                                                                                                                                                                                                    | analytics rules | and other Azure Sentinel resources. |                                      |
-| Logic Apps Contributor	Azure Sentinel’s Resource Group (or RG where Playbooks are stored)	Attach Playbooks to Analytics Rules and Automation Rules. Run and Modify Playbooks. NOTE: this will also allow playbook modification by analysts. |                  |                                      |                                      |
-| Service Principal	Azure Sentinel Contributor	Azure Sentinel’s Resource Group	Automated configuration management tasks                                                                                                                        |                  |                                      |                                      |
-•	When designating permissions for Azure Sentinel usage, Azure Sentinel Responder, Azure Sentinel Reader, Azure Sentinel Contributor will be needed by the users depending on their role within the product. Additional roles related to Azure services outside of Azure Sentinel, Azure Monitor, and Azure Log Analytics may be needed if ingesting data or monitoring those services. Azure AD roles may be required, such as global admin or security admin, when setting up data connectors for services in other Microsoft portals.
-</--> 
-
-
-## Consider cost and data retention plans
-
-When structuring your Azure Sentinel instance, consider Azure Sentinel's cost and billing structure.
-
-For more information, see:
-
-- [Azure Sentinel costs and billing](azure-sentinel-billing.md)
-- [Azure Sentinel pricing](https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/)
-- [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/)
-- [Logic apps (playbooks) pricing](https://azure.microsoft.com/en-us/pricing/details/logic-apps/)
-- [Integrating Azure Data Explorer for long-term log retention](store-logs-in-azure-data-explorer.md)
 
 ## Next steps
 
