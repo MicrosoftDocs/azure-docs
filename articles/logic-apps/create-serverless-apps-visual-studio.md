@@ -63,29 +63,29 @@ To get started, create an Azure resource group project as a container for your s
 
 1. If the start window opens, select **Create a new project**.
 
-   ![Screenshot showing Visual Studio start window with "Create a new project" selected.](./media/create-serverless-app-visual-studio/start-window.png)
+   ![Screenshot showing Visual Studio start window with "Create a new project" selected.](./media/create-serverless-apps-visual-studio/start-window.png)
 
 1. If the start window doesn't open, from the **File** menu, select **New** > **Project**.
 
-   ![Screenshot showing "File" menu open with "New" menu and "Project" selected.](./media/create-serverless-app-visual-studio/create-new-project-visual-studio.png)
+   ![Screenshot showing "File" menu open with "New" menu and "Project" selected.](./media/create-serverless-apps-visual-studio/create-new-project-visual-studio.png)
 
 1. After the **Create a new project** window opens, in the search box, find and select the **Azure Resource Group** project template for either C# or Visual Basic. When you're ready, select **Next**. This example continues with C#.
 
-   ![Screenshot showing "Create a new project" window and search box with "resource group" along with "Azure Resource Group" project template selected.](./media/create-serverless-app-visual-studio/start-window-find-project-template.png)
+   ![Screenshot showing "Create a new project" window and search box with "resource group" along with "Azure Resource Group" project template selected.](./media/create-serverless-apps-visual-studio/start-window-find-project-template.png)
 
 1. After the **Configure your new project** window opens, provide information about your project, such as the name. When you're done, select **Create**.
 
-   ![Screenshot showing "Configure your new project" window and project details.](./media/create-serverless-app-visual-studio/start-window-create-new-project-details.png)
+   ![Screenshot showing "Configure your new project" window and project details.](./media/create-serverless-apps-visual-studio/start-window-create-new-project-details.png)
 
 1. When the **Select Azure Template** window opens, from the **Show templates from this location** list, select **Azure QuickStart (github.com/Azure/azure-quickstart-templates)** as the templates location.
 
 1. In the search box, enter `logic-app-and-function-app`. From the results, select the template named **quickstarts\microsoft.logic\logic-app-and-function-app**. When you're done, select **OK**.
 
-   ![Screenshot showing the "Select Azure Template" window with "Azure Quickstart" selected as the templates location and "quickstarts\microsoft.logic\logic-app-and-function-app" selected.](./media/create-serverless-app-visual-studio/select-template.png)
+   ![Screenshot showing the "Select Azure Template" window with "Azure Quickstart" selected as the templates location and "quickstarts\microsoft.logic\logic-app-and-function-app" selected.](./media/create-serverless-apps-visual-studio/select-template.png)
 
    Visual Studio creates your resource group project, including the solution container for your project.
 
-   ![Screenshot showing your created project and solution.](./media/create-serverless-app-visual-studio/create-serverless-solution.png)
+   ![Screenshot showing your created project and solution.](./media/create-serverless-apps-visual-studio/create-serverless-solution.png)
 
 1. Next, deploy your solution to Azure. You must complete this deployment step before you can open, review, and edit your logic app's workflow using the designer in Visual Studio.
 
@@ -95,7 +95,7 @@ Before you can open your logic app using the designer in Visual Studio, you have
 
 1. In Solution Explorer, from your resource project's shortcut menu, select **Deploy** > **New**.
 
-   ![Screenshot showing Solution Explorer with project shortcut menu opened, "Deploy" menu opened, and "New" selected.](./media/create-serverless-app-visual-studio/deploy.png)
+   ![Screenshot showing Solution Explorer with project shortcut menu opened, "Deploy" menu opened, and "New" selected.](./media/create-serverless-apps-visual-studio/deploy.png)
 
 1. After the **Deploy to Resource Group** window opens, follow these steps to provide the deployment information:
 
@@ -103,7 +103,7 @@ Before you can open your logic app using the designer in Visual Studio, you have
 
    1. Create a new resource group in Azure. From the **Resource group** list, select **Create New**.
 
-      ![Screenshot showing "Deploy to Resource Group" window with "Create New" selected.](./media/create-serverless-app-visual-studio/create-resource-group-start.png)
+      ![Screenshot showing "Deploy to Resource Group" window with "Create New" selected.](./media/create-serverless-apps-visual-studio/create-resource-group-start.png)
 
    1. After the **Create Resource Group** window opens, provide the following information:
 
@@ -115,18 +115,18 @@ Before you can open your logic app using the designer in Visual Studio, you have
 
       This example continues by creating a resource group in the West US region.
 
-      ![Screenshot showing "Create Resource Group" window with new resource group information.](./media/create-serverless-app-visual-studio/create-resource-group.png)
+      ![Screenshot showing "Create Resource Group" window with new resource group information.](./media/create-serverless-apps-visual-studio/create-resource-group.png)
 
    1. Finish creating and deploying your solution, for example:
 
-      ![Deployment settings](./media/create-serverless-app-visual-studio/deploy-to-resource-group.png)
+      ![Deployment settings](./media/create-serverless-apps-visual-studio/deploy-to-resource-group.png)
 
 1. If the **Edit Parameters** window appears, provide the resource names to use for your deployed logic app resource and function app resource, and then save your changes.
 
    > [!IMPORTANT]
    > Make sure to use globally unique names for your logic app and function app.
 
-   ![Screenshot showing the "Edit Parameters" window with names for your logic app resource and function app resource.](./media/create-serverless-app-visual-studio/logic-function-app-name-parameters.png)
+   ![Screenshot showing the "Edit Parameters" window with names for your logic app resource and function app resource.](./media/create-serverless-apps-visual-studio/logic-function-app-name-parameters.png)
 
    When Visual Studio starts deployment to your resource group, your solution's deployment status appears in the Visual Studio **Output** window. After deployment finishes, your logic app is live in the Azure portal.
 
@@ -134,14 +134,14 @@ Before you can open your logic app using the designer in Visual Studio, you have
 
 1. In Solution Explorer, from the **azuredeploy.json** file's shortcut menu, select **Open With Logic App Designer**.
 
-   ![Screenshot showing the "azuredeploy.json" shortcut menu with "Open With Logic App Designer" selected.](./media/create-serverless-app-visual-studio/open-designer.png)
+   ![Screenshot showing the "azuredeploy.json" shortcut menu with "Open With Logic App Designer" selected.](./media/create-serverless-apps-visual-studio/open-designer.png)
 
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, confirm that Visual Studio has the latest updates.
 
 1. After the workflow designer opens, you can continue by editing the workflow or adding steps. When you're done, remember to save your changes to the **azuredeploy.json** file.
 
-   ![Screenshot showing the logic app workflow in the designer.](./media/create-serverless-app-visual-studio/opened-logic-app-workflow.png)
+   ![Screenshot showing the logic app workflow in the designer.](./media/create-serverless-apps-visual-studio/opened-logic-app-workflow.png)
 
 ## Create an Azure Functions project
 
