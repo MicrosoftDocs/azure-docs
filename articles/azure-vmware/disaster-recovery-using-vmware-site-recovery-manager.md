@@ -287,7 +287,7 @@ VMware SRM is a Disaster Recovery solution from VMware.
 
 Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances within Azure VMware Solution. 
 
-For all other issues, such as configuration, replication etc contact VMware for support.
+For all other issues, such as configuration and replication, contact VMware for support.
 
 VMware and Microsoft support teams will engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
 
