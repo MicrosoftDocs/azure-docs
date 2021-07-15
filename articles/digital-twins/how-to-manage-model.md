@@ -96,7 +96,7 @@ This section describes considerations and strategies for updating your models.
 Before making updates to your models, it's recommended to think holistically about your entire solution and the impact of the model changes you're about to make. Models in an Azure Digital Twins solution are often interconnected, so it's important to be aware of cascading changes where updating one model requires updating several others. Updating models will impact the twins that use the models, and can also affect ingress and processing code, client applications, and automated reports.
 
 Here are some recommendations to help you manage your model transitions smoothly:
-* Instead of thinking in terms of individual models, consider evolving the ontology you use to keep models and their relationships up-to-date together.
+* Instead of thinking in terms of individual models, consider evolving your entire model set when appropriate to keep models and their relationships up-to-date together.
 * Treat models like source code and manage them in source control. Apply the same rigor and attention to models and model changes that you apply to other code in your solution.
 
 When you're ready to proceed with updating your models, the rest of this section describes the strategies you can use to implement the updates.
