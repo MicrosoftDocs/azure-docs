@@ -232,19 +232,19 @@ This phase includes the following capabilities:
 |  Monitoring  |[Monitor Azure AD B2C with Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor). Watch [this video](https://www.youtube.com/watch?v=Mu9GQy-CbXI&list=PL3ZTgFEc7LyuJ8YRSGXBUVItCPnQz3YX0&index=1)|
 | Auditing and Logging | [Access and review audit logs](https://docs.microsoft.com/azure/active-directory-b2c/view-audit-logs)
 
-## Additional information
+## More information
 
-Refer to these guides to accelerate Azure AD B2C deployments and monitor the service at scale:
+To accelerate Azure AD B2C deployments and monitor the service at scale, see these articles:
 
-- [Manage Azure AD B2C with Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started)
+- [Manage Azure AD B2C with Microsoft Graph](../../active-directory-b2c/microsoft-graph-get-started.md)
 
-- [Manage Azure AD B2C user accounts with Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-operations)
+- [Manage Azure AD B2C user accounts with Microsoft Graph](../../active-directory-b2c/microsoft-graph-operations.md)
 
-- [Deploy custom policies with Azure Pipelines](https://docs.microsoft.com/azure/active-directory-b2c/deploy-custom-policies-devops)
+- [Deploy custom policies with Azure Pipelines](../../active-directory-b2c/deploy-custom-policies-devops.md)
 
-- [Manage Azure AD B2C custom policies with Azure PowerShell](https://docs.microsoft.com/azure/active-directory-b2c/manage-custom-policies-powershell)
+- [Manage Azure AD B2C custom policies with Azure PowerShell](../../active-directory-b2c/manage-custom-policies-powershell.md)
 
-- [Monitor Azure AD B2C with Azure Monitor](https://docs.microsoft.com/azure/active-directory-b2c/azure-monitor)
+- [Monitor Azure AD B2C with Azure Monitor](../../active-directory-b2c/azure-monitor.md)
 
 ## Next steps
 
