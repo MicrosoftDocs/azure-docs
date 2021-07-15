@@ -127,7 +127,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 
 ### Create a certificate
 
-#### Option 1: Use Azure Key Vault 
+#### Option 1: Use Azure Key Vault (recommended)
 
 To create a certificate, you can use [Azure Key Vault](../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
 - **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
@@ -529,7 +529,7 @@ The following XML snippet is an example of a RESTful technical profile configure
 ## Next steps
 
 ::: zone pivot="b2c-user-flow"
-- Get started with our [samples](code-samples.md#api-connectors).
+- Get started with our [samples](api-connector-samples.md#api-connectors).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"

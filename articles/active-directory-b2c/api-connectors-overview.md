@@ -248,7 +248,7 @@ Design your REST API service and its underlying components (such as the database
 
 - Learn how to [add an API connector to a user flow](add-api-connector.md)
 - Learn how to [Secure your API Connector](secure-rest-api.md)
-- Get started with our [samples](code-samples.md#api-connectors)
+- Get started with our [samples](api-connector-samples.md#api-connectors)
 
 ::: zone-end
 

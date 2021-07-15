@@ -16,12 +16,10 @@ zone_pivot_groups: b2c-policy-type
 
 # Add an API connector to a sign-up user flow
 
-As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md). 
+As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md) to modify your sign-up experiences. 
 
 ::: zone pivot="b2c-user-flow"
-<!-- 
-In this scenario, the REST API validates whether email address' domain is fabrikam.com, or fabricam.com. The user-provided display name is greater than five characters. Then returns the job title with a static value.  -->
-
+You can create an API endpoint using one of our [samples](api-connector-samples.md#api-connectors).
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -97,7 +95,7 @@ Custom attributes exist in the **extension_\<extensions-app-id>_CustomAttribute*
 Additionally, the claims are typically sent in all request:
 - **UI Locales ('ui_locales')** -  An end-user's locale(s) as configured on their device. This can be used by your API to return internationalized responses.
 - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Values include:
-  - `postFederationSignup` - corresponds to "After signing in with an identity provider"
+  - `postFederationSignup` - corresponds to "After federating with an identity provider during sign-up"
   - `postAttributeCollection` - corresponds to "Before creating the user"
 - **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens.
 - **Email Address ('email')** or [**identities ('identities')**](/graph/api/resources/objectidentity) - these claims can be used by your API to identify the end-user that is authenticating to the application.
@@ -114,14 +112,14 @@ Follow these steps to add an API connector to a sign-up user flow.
 4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
-   - **After signing in with an identity provider**
+   - **After federating with an identity provider during sign-up**
    - **Before creating the user**
 
     :::image type="content" source="media/add-api-connector/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
 
 6. Select **Save**.
 
-## After federating with an identity provider 
+## After federating with an identity provider during sign-up
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account.
 
@@ -558,7 +556,7 @@ To return the promo code claim back to the relying party application, add an out
 
 ### Using serverless cloud functions
 
-Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
+Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -567,7 +565,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements some authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at lest the [Premium plan](../azure-functions/functions-scale.md)
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md)
  
 ### Use logging
 
@@ -583,7 +581,7 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ### Using serverless cloud functions
 
-Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
+Serverless functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -591,7 +589,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements some authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience. *The timeout is 10 seconds*. If your API doesn't reply within that timeframe or replies with an invalid response, Azure AD B2C will attempt to call your API two more times.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at lest the [Premium plan](../azure-functions/functions-scale.md)
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md)
  
 ### Use logging
 
@@ -607,7 +605,7 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ::: zone pivot="b2c-user-flow"
 
-- Get started with our [samples](code-samples.md#api-connectors).
+- Get started with our [samples](api-connector-samples.md#api-connectors).
 - [Secure your API Connector](secure-rest-api.md)
 
 ::: zone-end
