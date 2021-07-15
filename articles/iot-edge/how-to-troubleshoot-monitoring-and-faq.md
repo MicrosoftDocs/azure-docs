@@ -40,11 +40,15 @@ When modules aren't running in the same network namespace, this mechanism will f
 
 ### Verify that *httpSettings__enabled* environment variable isn't set to *false*
 
-The built-in metrics endpoints use http protocol. They won't be available, even within the module network, if http is explicitly disabled via the environment variable setting.
+The built-in metrics endpoints exposed by IoT Edge system modules use http protocol. They won't be available, even within the module network, if http is explicitly disabled via the environment variable setting on Edge Hub or Edge Agent modules.
 
 ### Set *NO_PROXY* environment variable if using http proxy server
 
 For more information, see [proxy considerations](how-to-collect-and-transport-metrics.md#proxy-considerations).
+
+### Update Moby-engine
+
+On Linux hosts, ensure you're using a recent version of the container engine. We recommend updating to the latest version by following the [installation instructions](how-to-install-iot-edge.md#install-a-container-engine).
 
 ## How do I collect logs along with metrics?
 
