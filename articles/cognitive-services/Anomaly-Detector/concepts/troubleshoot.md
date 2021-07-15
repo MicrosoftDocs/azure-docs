@@ -30,6 +30,7 @@ This article provides guidance on how to troubleshoot and remediate common error
 | `StorageReadError`         | 403             |                                                | Same as `StorageWriteError`.                                 |
 | `UnexpectedError`          | 500             |                                                | Please contact us with detailed error information. You could take the support options from [this document](/azure/cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/anomaly-detector/context/context) or email us at [AnomalyDetector@microsoft.com](mailto:AnomalyDetector@microsoft.com)           |
 
+
 ### Train a Multivariate Anomaly Detection Model
 
 | Error Code               | HTTP Error Code | Error Message                                                | Comment                                                      |
@@ -51,6 +52,12 @@ This article provides guidance on how to troubleshoot and remediate common error
 | Error Code      | HTTP Error Code | Error Message             | Comment                                                      |
 | --------------- | --------------- | ------------------------- | ------------------------------------------------------------ |
 | `ModelNotExist` | 404             | The model does not exist. | The model with corresponding model ID does not exist. Please check the model ID in the request URL. |
+
+### List Multivariate Models
+
+| Error Code      | HTTP Error Code | Error Message             | Comment                                                      |
+| --------------- | --------------- | ------------------------- | ------------------------------------------------------------ |
+|`InvalidRequestParameterError`| 400             | Invalid values for $skip or $top … | Please check whether the values for the two parameters are numerical. $skip and $top are used to list the models with pagination. Because the API only returns 10 most recently updated models, you could use $skip and $top to get models updated earlier. | 
 
 ### Anomaly Detection with a Trained Model
 
