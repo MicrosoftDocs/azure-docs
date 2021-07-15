@@ -37,9 +37,13 @@ The following image shows an architecture where security and non-security logs g
 
 If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration) that work only within their own Azure AD tenant.
 
-Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Azure Sentinel instances in different tenants.
+Some examples of such data connectors include:
 
-[Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
+- [Office 365](connect-office-365.md)
+- [Azure Azure AD](connect-azure-active-directory.md)
+- [Azure Defender for IoT](connect-asc-iot.md)
+- [Azure AD Identity Protection](connect-azure-ad-identity-protection.md)
+- [Microsoft 365 Defender](connect-microsoft-365-defender.md)
 
 For example, the following image shows a recommended architecture for a customer that has two Azure AD tenants, and needs to connect data sources that include Office 365, Azure AD, Azure Firewall, and an on-premises Palo Alto Firewall.
 
@@ -50,6 +54,11 @@ In this example:
 - Resources that are attached to an Azure AD tenant send their logs to a local Azure Sentinel workspace located in the same Azure AD tenant.
 - Partner resources based on API or agent integration, such as the Palo Alto Firewall, can connect to any of the workspaces in the environment.
 
+Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage multiple Azure Sentinel instances in different tenants. 
+
+> [!NOTE]
+> [Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
+>
 
 ### Working with multiple workspaces
 
@@ -88,6 +97,7 @@ To start validating your compliance, assess your data sources, and how and where
 >
 > If you are sending data to a geography or region that is different from your Azure Sentinel workspace, regardless of whether or not the sending resource resides in Azure, consider using a workspace in the same geography or region.
 >
+
 ## Technical considerations when creating your workspace
 
 Use the following best practice guidance when creating the Log Analytics workspace you'll use for Azure Sentinel:
@@ -102,6 +112,71 @@ Use the following best practice guidance when creating the Log Analytics workspa
 
 
 ### Working with multiple regions
+
+If you need to send data from an Azure resource that resides in a different region that your Azure Sentinel workspace, you'll need to consider bandwidth costs incurred for data moving in and out of Azure datacenters, or between datacenters.
+
+While transferring data into Azure (ingress) doesn't incur costs, transferring data from (egress) an Azure datacenter to another datacenter does incur bandwidth costs.
+
+Consider the following when working with multiple regions:
+
+- Egress costs generally apply when the [Log Analytics or Azure Monitor agent](connect-windows-security-events.md) is required to collect logs, such as on virtual machines.
+
+- Internet egress is also charged, which may not affect you unless you export data outside your Log Analytics workspace. For example, you may incur internet egress charges if you export your Log Analytics data to an on-premises server.
+
+- Bandwidth costs vary depending on the source and destination region and collection method. For more information, see:
+
+    - [Bandwidth pricing](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)
+    - [Data transfers charges using Log Analytics ](/azure/azure-monitor/logs/manage-cost-storage).
+
+<!--	-	There are no bandwidth costs when the logs are collected using Diagnostics settings, like Azure AD, Azure Activity, Azure SQL, or Azure Firewall as stated here. At the time of writing this article, where bandwidth costs apply, the first 5GB/month are free.-->
+
+
+This effectively means that, if you decide to collect logs from Virtual Machines in one region (e.g., East US) and send them to an Azure Sentinel workspace in a different region (West US), you will be charged ingress costs for the data transfer. Keep in mind that the Log Analytics agent compresses the data in transit, so the size charged for bandwidth will be somewhat lower than the size of the logs in Azure Sentinel.
+
+Also, if you are collecting Syslog and CEF logs from multiple sources around the world, you could setup a Syslog collector in the same region as your Azure Sentinel workspace to avoid bandwidth costs, provided that compliance is not a concern.
+
+Whether bandwidth costs justify creating a separate Azure Sentinel workspace or not will depend on the volume of data you transfer between regions. We recommend using the Azure Pricing Calculator to estimate these costs. Here are a couple of examples:
+
+-	Transferring a total of 1TB of data per month from East US to West US would cost $20.38, whereas transferring 1TB of data per month from East US to West Europe would cost $50.95.
+-	Transferring a total 50TB of data per month would cost $1,023.90 and $2,559.75, respectively.
+As you can see, creating a separate workspace could make sense in cases of very large volumes of data. 
+
+Summary of Connectors
+Connectors where Bandwidth costs apply when the source is in a different region from the Azure Sentinel Workspace:
+•	Windows Security Events (for Azure Windows VMs)
+•	CEF (Azure Linux VM)
+•	Syslog (Azure Linux VM)
+•	DNS
+•	Windows Event Forwarding
+•	Windows Firewall
+•	3rd party connectors based on a Syslog or CEF collector VM located on Azure*
+•	Any other potential connector that relies on the Log Analytics agent or Azure Monitor agent
+Connectors where Bandwidth costs do not apply:
+•	Azure Active Directory
+•	Azure Active Directory Identity Protection
+•	Azure Activity
+•	Azure DDoS Protection
+•	Azure Defender
+•	Azure Defender for IoT
+•	Azure Firewall
+•	Azure Information Protection
+•	Azure Key Vault
+•	Azure Kubernetes Service (AKS)
+•	Azure SQL Databases
+•	Azure Storage Account
+•	Azure Web Application Firewall (WAF)
+•	Dynamics 365
+•	Microsoft 365 Defender, as well as Microsoft Defender for Endpoint, Microsoft Defender for Identity, Microsoft Defender for Office 365
+•	Microsoft Cloud App Security
+•	Microsoft Threat Intelligence
+•	Office 365
+•	Threat Intelligence TAXII (unless you connect a TAXII server located in Azure)
+•	Threat Intelligence Platforms 
+•	3rd party connectors based on API connections, or based on a Syslog or CEF on-premises collector 
+•	Any other potential connector that relies on Azure Monitor Diagnostics settings
+*Create your Azure collector VMs in the same region as the Azure Sentinel workspace
+
+
 
 If you are deploying Azure Sentinel in multiple regions, consider the following best practice recommendations:
 
