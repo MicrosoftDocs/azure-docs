@@ -15,7 +15,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Configure Azure Active Directory B2C with BlokSec for Passwordless authentication
+# Tutorial: Configure Azure Active Directory B2C with BlokSec for passwordless authentication
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
