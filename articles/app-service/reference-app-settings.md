@@ -80,6 +80,7 @@ The following environment variables are related to app deployment. For variables
 
 | Setting name| Description |
 |-|-|
+| `DEPLOYMENT_BRANCH`| For [local Git](deploy-local-git.md) or [cloud Git](deploy-continuous-deployment.md) deployment (such as GitHub), set to the branch in Azure you want to deploy to. By default, it is `master`. |
 | `WEBSITE_RUN_FROM_PACKAGE`| Set to `1` to run the app from a local ZIP package, or set to the URL of an external URL to run the app from a remote ZIP package. For more information, see [Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md). |
 | `WEBSITE_USE_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. |
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
