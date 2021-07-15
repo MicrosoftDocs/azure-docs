@@ -138,12 +138,13 @@ This section guides you through the steps to configure the Azure AD provisioning
    |name.givenName|String|
    |name.familyName|String|
    |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:area|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|String|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:location|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:position|String|
    |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:startAt|String|
@@ -178,6 +179,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Looop.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
+
+## Change log
+
+* 07/15/2021 - Enterprise extension user attributes **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**, **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber** and **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager** have been added.
+* 07/15/2021 - Custom extension user attributes **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department** and **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id** have been removed.
 
 ## Additional resources
 
