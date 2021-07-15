@@ -83,6 +83,7 @@ Use the following procedure to view events:
 
 1. If you would like to see if there have been changes to application role assignments for an application that were not due to access package assignments, such as by a global administrator directly assigning a user to an application roles, then you can select the workbook named *Application role assignment activity*.
 
+    ![View app role assignments](./media/entitlement-management-access-package-incompatible/workbook-ara.png)
 
 ## Create custom Azure Monitor queries using the Azure portal
 You can create your own queries on Azure AD audit events, including entitlement management events.  
