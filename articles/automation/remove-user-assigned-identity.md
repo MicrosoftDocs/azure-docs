@@ -27,7 +27,7 @@ You can remove a user-assigned managed identity from the Azure portal no matter 
 
 The user-assigned managed identity is removed and no longer has access to the target resource.
 
-## Remove using Powershell
+## Remove using PowerShell
 
 Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation/set-azautomationaccount) to remove all user-assigned managed identities and retain an existing system-assigned managed identity.
 
