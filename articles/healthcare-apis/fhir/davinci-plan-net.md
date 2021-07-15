@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 06/25/2021
+ms.date: 07/14/2021
 ---
 
 # Da Vinci Plan Net
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
+In this tutorial, we'll walk through setting up the the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing the Azure API for FHIR against the [Da Vinci Plan-Net capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to missing search parameters and missing profiles.
+The first test that we'll focus on is testing the FHIR service against the [Da Vinci Plan-Net capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to missing search parameters and missing profiles.
 
 ## Define search parameters
 
@@ -33,7 +33,7 @@ As part of the Da Vinci Plan-Net IG, you'll need to define six [new search param
 > [!NOTE]
 > In the raw JSON for these search parameters, the name is set to `Plannet_sp_<Resource Name>_<SearchParameter Name>`. The Touchstone test is expecting that the name for these will be only the `SearchParameter Name` (coverage-area, plan-type, or network).
 
-The rest of the search parameters needed for the Da Vinci Plan-Net IG are defined by the base specification and are already available in the Azure API for FHIR without any additional updates.
+The rest of the search parameters needed for the Da Vinci Plan-Net IG are defined by the base specification and are already available in the FHIR service without any additional updates.
 
 ## Store profiles
 
@@ -74,7 +74,7 @@ The next test we'll walk through is the [query capabilities test](https://touchs
 
 ## Next steps
 
-In this tutorial, we walked through setting up the Azure API for FHIR to pass the Touchstone tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide. Next, you can learn about all the Azure API for FHIR features.
+In this tutorial, we walked through setting up the Azure API for FHIR to pass the Touchstone tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide. Next, you can learn about all the FHIR service features.
 
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
