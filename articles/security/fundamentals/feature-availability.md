@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 ---
 
 
@@ -55,7 +55,7 @@ For more information, see the [Azure Security Center product documentation](/azu
 The following table displays the current Security Center feature availability in Azure and Azure Government.
 
 
-| Feature/Service                                                                                                                                                             | Azure          | US Government                  |
+| Feature/Service                                                                                                                                                             | Azure          | Azure Government               |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
 | **Security Center free features**                                                                                                                                           |                |                                |
 | - [Continuous export](/azure/security-center/continuous-export)                                                                                                             | GA             | GA                             |
