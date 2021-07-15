@@ -34,14 +34,15 @@ You'll need the workspace ID and workspace key for the Log Analytics workspace t
 
 Intune is a Microsoft product that allows you to centrally manage the Log Analytics workspace configuration settings that are applied to one or more of your devices. Follow these steps to configure your devices through Intune:
 
-1. Sign in to Intune.
-2. Navigate to **Settings** > **Connected Sources**.
-3. Create or edit a policy based on the Surface Hub template.
-4. Navigate to the Azure Operational Insights section of the policy, and add the Log Analytics *Workspace ID* and *Workspace Key* to the policy.
-5. Save the policy.
-6. Associate the policy with the appropriate group of devices.
+1. Sign in to [Microsoft Endpoint Manager Admin Center](https://endpoint.microsoft.com/)
+2. Navigate to **Devices** > **Configuration profiles**.
+3. Create a new Windows 10 profile and choose templates.
+4. From the list of templates choose **Device restrictions (Windows 10 Team)**
+5. Enter in a name and description for the profile
+6. Under the Azure operational insights section, Enable the setting and provide the Log Analytics *Workspace ID* and *Workspace Key* the policy
+7. Assign the policy to your group of Surface Hub devices and save the policy
 
-   ![Intune policy](./media/surface-hubs/intune.png)
+   ![Intune policy](./media/surface-hubs/memac-shub-insights.png)
 
 Intune then syncs the Log Analytics settings with the devices in the target group, enrolling them in your Log Analytics workspace.
 
