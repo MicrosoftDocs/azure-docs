@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 07/14/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -68,7 +68,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
    [Troubleshoot VM image uploads](azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md).
 
-1. In the Azure portal, go to the Azure Stack Edge resource for your device. Go to **Edge services** > **Virtual machines**.
+1. In the Azure portal, go to the Azure Stack Edge resource for your device. Then go to **Edge services** > **Virtual machines**.
 
     ![Screenshot that shows Edge Services and Virtual machines.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-1.png)
 
@@ -117,7 +117,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
 Follow these steps to create a VM after you've created a VM image.
 
-1. On the **Virtual machines** page, select **Add virtual machine**.
+1. On the **Overview** page for **Virtual machines**, select **+ Add virtual machine**.
 
     ![Screenshot that shows the Overview page and the Add virtual machine button.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-1.png)
 
