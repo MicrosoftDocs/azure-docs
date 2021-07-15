@@ -16,7 +16,14 @@ ms.author: aersoy
 
 This tutorial uses cURL to demonstrate working with the DICOM Service.
 
-In this tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+In this tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+
+* blue-circle.dcm
+* dicom-metadata.csv
+* green-square
+* red-triangle 
+
+The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
