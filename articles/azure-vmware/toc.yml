@@ -163,7 +163,7 @@
   - name: FAQ
     items:
     - name: General
-      href: ./faq.yml
+      href: /azure/azure-vmware/faq
     - name: Customer communication
       href: /azure/azure-vmware/faq#customer-communication
     - name: Configuration and setup 
