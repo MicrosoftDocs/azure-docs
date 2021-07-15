@@ -162,7 +162,7 @@ The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Trans
 |Ukrainian| `uk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
-## Add additional capabilities to your translation solutions
+## Other Cognitive Services
 Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
 * [Computer Vision](../computer-vision/language-support.md) 
 * [Speech](../speech-service/language-support.md) 
