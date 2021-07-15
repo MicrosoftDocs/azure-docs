@@ -121,6 +121,10 @@ The [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling
 
 To enable this feature, you add an application setting named `SCALE_CONTROLLER_LOGGING_ENABLED` to your function app settings. To learn how, see [Configure scale controller logs](configure-monitoring.md#configure-scale-controller-logs).
 
+## Azure Monitor metrics
+
+In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). To learn more, see [Using Azure Monitor Metric with Azure Functions](monitor-metrics.md).
+
 ## Report issues
 
 To report an issue with Application Insights integration in Functions, or to make a suggestion or request, [create an issue in GitHub](https://github.com/Azure/Azure-Functions/issues/new).

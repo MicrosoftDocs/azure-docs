@@ -15,6 +15,7 @@ ms.author: yingqunpku
 
 MVAD detects anomalies from a group of metrics, and we call each metric a **variable** or a time series.
 
+* You could download the sample data file from Microsoft to check the accepted schema from: [https://aka.ms/AnomalyDetector/MVADSampleData](https://aka.ms/AnomalyDetector/MVADSampleData)
 * Each variable must have two and only two fields, `timestamp` and `value`, and should be stored in a comma-separated values (CSV) file.
 * The column names of the CSV file should be precisely `timestamp` and `value`, case-sensitive.
 * The `timestamp` values should conform to ISO 8601; the `value` could be integers or decimals with any number of decimal places.

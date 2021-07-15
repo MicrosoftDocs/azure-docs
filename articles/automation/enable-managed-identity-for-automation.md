@@ -267,10 +267,11 @@ New-AzRoleAssignment `
 
 ## Authenticate access with system-assigned managed identity
 
-After you enable the system-assigned managed identity for your Automation account and give the identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
+After you enable the managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference. Replace `SubscriptionID` with your actual subscription ID and then execute the following command:
 
 ```powershell
 Connect-AzAccount -Identity
+$AzureContext = Set-AzContext -SubscriptionId "SubscriptionID"
 ```
 
 > [!NOTE]

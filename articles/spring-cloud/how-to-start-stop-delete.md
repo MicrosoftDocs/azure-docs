@@ -1,7 +1,7 @@
 ---
 title: Start, stop, and delete your Azure Spring Cloud application | Microsoft Docs
 description:  How to start, stop, and delete your Azure Spring Cloud application
-author: bmitchell287
+author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019

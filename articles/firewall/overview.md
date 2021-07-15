@@ -77,6 +77,7 @@ Azure Firewall has the following known issues:
 |Removing RuleCollectionGroups using ARM templates not supported.|Removing a RuleCollectionGroup using ARM templates is not supported and results in failure.|This is not a supported operation.|
 |DNAT rule for allow *any* (*) will SNAT traffic.|If a DNAT rule allows *any* (*) as the Source IP address, then an implicit Network rule will match VNet-VNet traffic and will always SNAT the traffic.|This is a current limitation.|
 |Adding a DNAT rule to a secured virtual hub with a security provider is not supported.|This results in an asynchronous route for the returning DNAT traffic, which goes to the security provider.|Not supported.|
+| Error encountered when creating more than 2000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource manager limit). | This is a current limitation. |
 
 
 ## Next steps
@@ -84,3 +85,4 @@ Azure Firewall has the following known issues:
 - [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
+- [Learn module: Introduction to Azure Firewall](/learn/modules/introduction-azure-firewall/)
