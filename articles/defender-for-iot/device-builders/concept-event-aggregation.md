@@ -1,7 +1,7 @@
 ---
 title: Micro agent event collection (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 06/29/2021
+ms.date: 07/15/2021
 ms.topic: conceptual
 ---
 

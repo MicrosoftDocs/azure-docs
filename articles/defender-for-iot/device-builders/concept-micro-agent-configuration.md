@@ -1,13 +1,19 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 07/07/2021
+ms.date: 07/15/2021
 ms.topic: conceptual
 ---
 
 # Micro agent configurations (Preview)
 
-The collector sends all collected data immediately after a configuration change is made. The configuration change is applied after the data transfer is complete.
+This article describes the different types of configurations that the micro agent support. Customers have the ability to configure the micro agent to fit the needs of their devices, and network environments.  
+
+The micro agent configuration is controlled by a set of customizable module twin properties that can be adjusted to control the behavior of the agent. 
+
+You can configure the agent to the settings that best suit your needs. For example, you can automatically exclude some events, or to minimize power consumption.
+
+Immediately after changing any configurations, the collector will send the data. After the data is sent, the changes will be applied,and all the collectors will restart. 
 
 ## Event based collectors configurations 
 
@@ -40,49 +46,3 @@ Define the frequency in which messages are sent for each priority level. The def
 | High | 30 (.5 hours) |
 
 To reduce the amount of messages sent to cloud, each priority should be set as a multiple of the one below it. For example, High: 60 minutes, Medium: 120 minutes, Low: 480 minutes.
-
-## Default module twin 
-
-
-
-```bash
-{ 
-
-   "reported":{ 
-
-      "Process_MessageFrequency":{ 
-
-         "value":"Medium", 
-
-         "status":"success" 
-
-      }, 
-
-      "NetworkActivity_MessageFrequency":{ 
-
-         "value":"Medium", 
-
-         "status":"success" 
-
-      }, 
-
-      "Baseline_MessageFrequency":{ 
-
-         "value":"Low", 
-
-         "status":"success" 
-
-      }, 
-
-      "SystemInformation_MessageFrequency":{ 
-
-         "value":"Low", 
-
-         "status":"success" 
-
-      }, 
-
-   } 
-
-} 
-```
