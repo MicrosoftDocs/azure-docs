@@ -2,11 +2,10 @@
 title: Understand Azure IoT Hub message format | Microsoft Docs
 description: Developer guide - describes the format and expected content of IoT Hub messages.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 07/01/2021
 ms.author: asrastog
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---

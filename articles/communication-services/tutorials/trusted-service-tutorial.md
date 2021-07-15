@@ -1,13 +1,13 @@
 ---
 title: Build a trusted user access service using Azure Functions in Azure Communication Services
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to create a trusted user access service for Communication services with Azure Functions
+description: Learn how to create a trusted user access service for Communication Services with Azure Functions
 author: ddematheu2
 manager: chpalm
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---

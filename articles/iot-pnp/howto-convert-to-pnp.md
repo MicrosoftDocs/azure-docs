@@ -290,4 +290,4 @@ rc = mosquitto_connect(mosq, HOST, PORT, 10);
 
 ## Next steps
 
-Now that you know how to convert an existing device to be an IoT Plug and Play device, a suggested next step is to [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md) to help you build a DTDL model.
+Now that you know how to convert an existing device to be an IoT Plug and Play device, a suggested next step is to read the [IoT Plug and Play modeling guide](concepts-modeling-guide.md).

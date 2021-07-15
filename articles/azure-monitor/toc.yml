@@ -107,6 +107,8 @@
     href: cli-samples.md
   - name: Azure PowerShell
     href: powershell-samples.md
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: Concepts
   items:
   - name: What can you monitor?
@@ -158,8 +160,20 @@
     items:
     - name: Monitor Azure resource
       href: essentials/monitor-azure-resource.md
-    - name: Monitor Azure virtual machines
-      href: vm/monitor-vm-azure.md
+    - name: Monitor virtual machines
+      items:
+      - name: Overview
+        href: vm/monitor-virtual-machine.md
+      - name: Configure monitoring
+        href: vm/monitor-virtual-machine-configure.md
+      - name: Analyze data
+        href: vm/monitor-virtual-machine-analyze.md
+      - name: Monitor security
+        href: vm/monitor-virtual-machine-security.md
+      - name: Create alerts
+        href: vm/monitor-virtual-machine-alerts.md
+      - name: Monitor workloads
+        href: vm/monitor-virtual-machine-workloads.md
       displayname: VM
   - name: Deploy
     items:
@@ -378,7 +392,10 @@
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Deploy at scale
         displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent  
+        href: deploy-scale.md#azure-monitor-agent 
+      - name: Migrate from legacy agents
+        displayname: Migrate to Azure Monitor agent
+        href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -765,9 +782,6 @@
               href: app/status-monitor-v2-troubleshoot.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
-            - name: Status Monitor (legacy)
-              displayname: IIS monitoring, on premises monitoring, on prem 
-              href: app/monitor-performance-live-website-now.md
         - name: Java
           href: app/java-on-premises.md
     - name: OpenTelemetry
@@ -793,9 +807,11 @@
       items:
       - name: Overview
         href: app/availability-overview.md
-      - name: URL tests
+      - name: URL ping tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
+      - name: Standard tests
+        href: app/availability-standard-tests.md
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md
@@ -1056,8 +1072,6 @@
         href: vm/vminsights-health-troubleshoot.md
     - name: Analyze data with log queries
       href: vm/vminsights-log-search.md
-    - name: Alerts
-      href: vm/vminsights-alerts.md
     - name: Monitor changes
       href: vm/vminsights-change-analysis.md
     - name: Visualize data with workbooks

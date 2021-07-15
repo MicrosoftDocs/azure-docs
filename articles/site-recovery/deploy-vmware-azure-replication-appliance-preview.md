@@ -126,7 +126,7 @@ To set up a new appliance, you can use an OVF template (recommended) or PowerShe
     - Data disk 1 – 620 GB
     - Data disk 2 – 620 GB
 
-## Create azure Site Recovery replication appliance
+## Create Azure Site Recovery replication appliance
 
 You can create the Site Recovery replication appliance by using the OVF template or through PowerShell.
 

@@ -57,6 +57,7 @@ You can verify the DNS resolution for other Azure Migrate artifacts using a simi
 
 If the DNS resolution is incorrect, follow these steps:  
 
+**Recommended** for testing: You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses.
 - If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
 - If you use Azure-provided DNS servers, refer to the below section for further troubleshooting.  
 

@@ -148,7 +148,7 @@ LTS and MTS JDK releases have quarterly security updates, bug fixes, and critica
 
 ### How long will Java 8 and Java 11 LTS versions be supported?
 
-See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 
 * Java 8 LTS will be supported until December 2030.
 * Java 11 LTS will be supported until September 2027.

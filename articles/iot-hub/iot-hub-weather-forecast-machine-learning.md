@@ -7,7 +7,6 @@ keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
 ---

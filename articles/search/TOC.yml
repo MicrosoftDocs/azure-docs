@@ -306,7 +306,7 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-    - name: Troubleshoot indexer issues
+    - name: Troubleshooting guidance
       href: search-indexer-troubleshooting.md
     - name: Troubleshoot indexer errors and warnings
       href: cognitive-search-common-errors-warnings.md
@@ -344,6 +344,8 @@
           href: search-howto-index-cosmosdb-gremlin.md
       - name: Azure Data Lake Storage Gen2
         href: search-howto-index-azure-data-lake-storage.md
+      - name: Azure MySQL
+        href: search-howto-index-mysql.md
       - name: Azure SQL
         items:
         - name: Azure SQL Databases
@@ -486,14 +488,10 @@
     href: /azure/templates/microsoft.search/searchservices
   - name: REST
     items:
-    - name: Search API (Stable)
+    - name: Search API
       href: /rest/api/searchservice
-    - name: Search API (Preview)
-      href: /rest/api/searchservice/index-preview
-    - name: Management API (Stable)
+    - name: Management API
       href: /rest/api/searchmanagement
-    - name: Management API (Preview)
-      href: /rest/api/searchmanagement/index-preview
   - name: .NET
     items:
     - name: Search API

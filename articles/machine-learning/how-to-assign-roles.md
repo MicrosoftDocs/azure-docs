@@ -450,6 +450,42 @@ Allows you to define a role scoped only to labeling data:
 }
 ```
 
+### Labeling Team Lead
+
+Allows you to review and reject the labeled dataset and view labeling insights. In addition to it, this role also allows you to perform the role of a labeler.
+
+`labeling_team_lead_custom_role.json` :
+```json
+{
+    "properties": {
+        "roleName": "Labeling Team Lead",
+        "description": "Team lead for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## Troubleshooting
 
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):

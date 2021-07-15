@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 3/31/2021
+ms.date: 7/8/2021
 ---
 
 # Hyperscale service tier
@@ -65,7 +65,7 @@ Hyperscale service tier is only available in [vCore model](service-tiers-vcore.m
 
 - **Compute**:
 
-  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to high-availabilty and named replicas automatically. We create a primary replica and one secondary [high-availability replica](service-tier-hyperscale-replicas.md) per Hyperscale database by default.  Users may adjust the total number of high-availability replicas from 0-4, depending on the needed [SLA](https://azure.microsoft.com/support/legal/sla/sql-database/). 
+  The Hyperscale compute unit price is per replica. The [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) price is applied to high-availabilty and named replicas automatically. We create a primary replica and one secondary [high-availability replica](service-tier-hyperscale-replicas.md) per Hyperscale database by default.  Users may adjust the total number of high-availability replicas from 0-4, depending on the needed [SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/). 
 
 - **Storage**:
 
@@ -141,7 +141,7 @@ GO
 
 As in all other service tiers, Hyperscale guarantees data durability for committed transactions regardless of compute replica availability. The extent of downtime due to the primary replica becoming unavailable depends on the type of failover (planned vs. unplanned), and on the presence of at least one high-availability replica. In a planned failover (i.e. a maintenance event), the system either creates the new primary replica before initiating a failover, or uses an existing high-availability replica as the failover target. In an unplanned failover (i.e. a hardware failure on the primary replica), the system uses a high-availability replica as a failover target if one exists, or creates a new primary replica from the pool of available compute capacity. In the latter case, downtime duration is longer due to extra steps required to create the new primary replica.
 
-For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/).
+For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
 ## Disaster recovery for Hyperscale databases
 
@@ -220,6 +220,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We'r
 | Query Performance Insights | Query Performance Insights is currently not supported for Hyperscale databases. |
 | Shrink Database | DBCC SHRINKDATABASE or DBCC SHRINKFILE isn't currently supported for Hyperscale databases. |
 | Database integrity check | DBCC CHECKDB isn't currently supported for Hyperscale databases. DBCC CHECKFILEGROUP and DBCC CHECKTABLE may be used as a workaround. See [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) for details on data integrity management in Azure SQL Database. |
+| Elastic Jobs | Using a Hyperscale database as the Job database is not supported. However, elastic jobs can target Hyperscale databases in the same way as any other Azure SQL database. |
 
 ## Next steps
 

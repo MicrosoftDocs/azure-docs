@@ -21,6 +21,7 @@ Below are SDKs/scenarios not supported in the Public Preview:
 - [Certificate/secret based Azure AD](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) isn't recommended for production. Use Managed Identities instead. 
 - On by default Codeless monitoring (for languages) for App Service, VM/Virtual machine scale sets, Azure Functions etc.
 - [Availability tests](availability-overview.md).
+- [Profiler](profiler-overview.md).
 
 ## Prerequisites to enable Azure AD authentication ingestion
 
@@ -54,12 +55,16 @@ Below are SDKs/scenarios not supported in the Public Preview:
 ### [ASP.NET and .NET](#tab/net)
 
 > [!NOTE]
-> Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta2).
+> Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta3).
 
 Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
 - `DefaultAzureCredential` is recommended for local development.
+- `ManagedIdentityCredential` is recommended for system-assigned and user-assigned managed identities.
+    - For system-assigned, use the default constructor without parameters.
+    - For user-assigned, provide the clientId to the constructor.
 - `ClientSecretCredential` is recommended for service principals. 
+    - Provide the tenantId, clientId, and clientSecret to the constructor.
 
 Below is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
 
@@ -265,7 +270,7 @@ tracer = Tracer(
 
 After the Azure AD authentication is enabled, you can choose to disable local authentication. This will allow you to ingest telemetry authenticated exclusively by Azure AD and impacts data access (for example, through API Keys). 
 
-You can disable local authentication by using the Azure portal or programmatically.
+You can disable local authentication by using the Azure portal, Azure policy, or programmatically.
 
 ### Azure portal
 
@@ -280,6 +285,60 @@ You can disable local authentication by using the Azure portal or programmatical
 1. Once your resource has disabled local authentication, you'll see the corresponding info in the **Overview** pane.
 
     :::image type="content" source="./media/azure-ad-authentication/overview.png" alt-text="Screenshot of overview tab with the disabled(click to change) highlighted.":::
+
+### Azure policy 
+
+Azure policy for ‘DisableLocalAuth’ will deny from users to create a new Application Insights resource without this property setting to ‘true’. The policy name is ‘Application Insights components should block non-AAD auth ingestion’.
+
+To apply this policy to your subscription, [create a new policy assignment and assign the policy](../..//governance/policy/assign-policy-portal.md).
+
+Below is the policy template definition:
+```JSON
+{
+    "properties": {
+        "displayName": "Application Insights components should block non-AAD auth ingestion",
+        "policyType": "BuiltIn",
+        "mode": "Indexed",
+        "description": "Improve Application Insights security by disabling log ingestion that are not AAD-based.",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Monitoring"
+        },
+        "parameters": {
+            "effect": {
+                "type": "String",
+                "metadata": {
+                    "displayName": "Effect",
+                    "description": "The effect determines what happens when the policy rule is evaluated to match"
+                },
+                "allowedValues": [
+                    "audit",
+                    "deny",
+                    "disabled"
+                ],
+                "defaultValue": "audit"
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Insights/components"
+                    },
+                    {
+                        "field": "Microsoft.Insights/components/DisableLocalAuth",
+                        "notEquals": "true"                        
+                    }
+                ]
+            },
+            "then": {
+                "effect": "[parameters('effect')]"
+            }
+        }
+    }
+}
+```
 
 ### Programmatic enablement 
 

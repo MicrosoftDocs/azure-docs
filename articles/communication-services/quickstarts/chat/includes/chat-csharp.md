@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -19,7 +19,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
 
 ## Setting up

@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Contentful for automatic user provisioning with Azur
 description: Learn how to automatically provision and deprovision user accounts from Azure Active Directory (Azure AD) to Contentful.
 services: active-directory
 documentationcenter: ''
-author: zchia
+author: twimmers
 manager: beatrizd
 
 ms.assetid: 3b761984-a9a0-4519-b23e-563438978de5
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2020
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Contentful for automatic user provisioning

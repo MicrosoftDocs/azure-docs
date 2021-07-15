@@ -27,9 +27,17 @@ This article explains how you can access your SAP resources from Logic Apps usin
 
     * If you're running your logic app in a Premium-level [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), see the [ISE prerequisites](#ise-prerequisites).
 
-* An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Logic Apps. For information about what SAP servers you can use with the connector, see [SAP compatibility](#sap-compatibility).
+* An [SAP application server](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) or [SAP message server](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) that you want to access from Azure Logic Apps. For information about the SAP servers that support this connector, review [SAP compatibility](#sap-compatibility).
 
-    * You must configure your SAP server to allow the use of RFC. For more information, see the following SAP note: [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
+  > [!IMPORTANT]
+  > Make sure that you set up your SAP server and user account to allow using RFC. For more information, which includes the supported user account types 
+  > and the minimum required authorization for each action type (RFC, BAPI, IDOC), review the following SAP note: 
+  > [460089 - Minimum authorization profiles for external RFC programs](https://launchpad.support.sap.com/#/notes/460089). 
+  > 
+  > * For RFC actions, the user account additionally needs access to function modules `RFC_GROUP_SEARCH` and `DD_LANGU_TO_ISOLA`.
+  > * For BAPI actions, the user account also needs access to the following function modules: `BAPI_TRANSACTION_COMMIT`, `BAPI_TRANSACTION_ROLLBACK`, `RPY_BOR_TREE_INIT`, `SWO_QUERY_METHODS` and `SWO_QUERY_API_METHODS`.
+  > * For IDOC actions, the user account also needs access to the following function modules: `IDOCTYPES_LIST_WITH_MESSAGES`, `IDOCTYPES_FOR_MESTYPE_READ`, `INBOUND_IDOCS_FOR_TID`, `OUTBOUND_IDOCS_FOR_TID`, `GET_STATUS_FROM_IDOCNR`, and `IDOC_RECORD_READ`.
+  > * For the **Read Table** action, the user account also needs access to *either* following function module: `RFC BBP_RFC_READ_TABLE` or `RFC_READ_TABLE`.
 
 * Message content to send to your SAP server, such as a sample IDoc file. This content must be in XML format and include the namespace of the [SAP action](#actions) you want to use. You can [send IDocs with a flat file schema by wrapping them in an XML envelope](#send-flat-file-idocs).
 
@@ -125,7 +133,7 @@ These prerequisites apply if you're running your logic app in a Premium-level IS
 
    1. On the **Add a new managed connector** pane, in the **SAP package** box, paste the URL for the .zip file that has the SAP assemblies. Again, make sure to include the SAS token.
  
-  1. Select **Create** to finish creating your  ISE connector.
+  1. Select **Create** to finish creating your ISE connector.
 
 1. If your SAP instance and ISE are in different virtual networks, you also need to [peer those networks](../virtual-network/tutorial-connect-virtual-networks-portal.md) so they are connected.
 
@@ -133,7 +141,10 @@ These prerequisites apply if you're running your logic app in a Premium-level IS
 
 These are the prerequisites for the SAP client library that you're using with the connector.
 
-* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.22.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions of SAP NCo might experience issues when more than one IDoc message is sent at the same time. This condition blocks all later messages sent to the SAP destination, which causes the messages to time out.
+* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.24.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions of SAP NCo might experience the following issues:
+  * When more than one IDoc message is sent at the same time, this condition blocks all later messages that are sent to the SAP destination, causing messages to time out.
+  * Session activation might fail due to a leaked session. This condition might block calls sent by SAP to the logic app workflow trigger.
+  * The on-premises data gateway (June 2021 release) depends on the `SAP.Middleware.Connector.RfcConfigParameters.Dispose()` method in SAP NCo to free up resources.
 
 * You must have the 64-bit version of the SAP client library installed, because the data gateway only runs on 64-bit systems. Installing the unsupported 32-bit version results in a "bad image" error.
 
@@ -1309,7 +1320,7 @@ When strong typing is used (**Safe Typing** isn't enabled), the schema maps the 
 <xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
 ```
 
-When you send messages using strong typing, the DATS and TIMS response complies to the matching XML type format:
+When you send messages using strong typing, the DATS and TIMS response complies with the matching XML type format:
 
 ```xml
 <DATE>9999-12-31</DATE>
@@ -1430,7 +1441,7 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
 
   * For send scenarios, data gateway clusters in failover mode are supported. 
 
-  * Data gateway clusters in load balancing mode aren't supported by stateful [SAP actions](#actions). These actions include **\[BAPI - RFC] Create stateful session**, **\[BAPI] commit transaction**, **\[BAPI] Rollback transaction**, **\[BAPI - RFC] Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+  * Data gateway clusters in load-balancing mode aren't supported by stateful [SAP actions](#actions). These actions include **\[BAPI - RFC] Create stateful session**, **\[BAPI] commit transaction**, **\[BAPI] Rollback transaction**, **\[BAPI - RFC] Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
 
   * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
@@ -1512,10 +1523,10 @@ For more information about the SAP connector, see the [connector reference](/con
 :::row-end:::
 :::row:::
     :::column span="1":::
-        [**[BAPI] Roll back transaction**](/connectors/sap/#[bapi]-roll-back-transaction-(preview))
+        [**[BAPI] Rollback transaction**](/connectors/sap/#[bapi]-roll-back-transaction-(preview))
     :::column-end:::
     :::column span="3":::
-        Roll back the BAPI transaction for the session.
+        Rollback the BAPI transaction for the session.
     :::column-end:::
 :::row-end:::
 :::row:::

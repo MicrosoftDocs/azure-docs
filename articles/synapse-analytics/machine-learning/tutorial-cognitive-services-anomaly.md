@@ -7,7 +7,7 @@ ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 11/20/2020
+ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
 ---
