@@ -21,7 +21,7 @@ ms.author: lajanuar
 
 **Auto Language Detection:** Automatically detect the language of the source text while using Text Translation or Document Translation.
 
-**Dictionary:** Use the [Dictionary Lookup](/reference/v3-0-dictionary-lookup.md) or [Dictionary Examples](/reference/v3-0-dictionary-examples.md) operations from the Text Translation feature to display alternative translations from or to English and examples of words in context.
+**Dictionary:** Use the [Dictionary Lookup](reference/v3-0-dictionary-lookup.md) or [Dictionary Examples](reference/v3-0-dictionary-examples.md) operations from the Text Translation feature to display alternative translations from or to English and examples of words in context.
 
 | Language | Language code | Cloud – Text Translation and Document Translation| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
 |:-|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -120,7 +120,7 @@ ms.author: lajanuar
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
 ## Transliteration
-The [Transliterate operation](/reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
+The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
 
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
@@ -171,7 +171,7 @@ Add additional capabilities to your apps and workflows by utilizing other Cognit
 View all [Cognitive Services](../index.yml). 
 
 ## Next Steps
-* [Text Translation reference](/reference/v3-0-reference.md)
-* [Document Translation reference](/document-translation/reference/rest-api-guide.md)
-* [Custom Translator reference](/custom-translator/how-to-create-project.md)
+* [Text Translation reference](reference/v3-0-reference.md)
+* [Document Translation reference](document-translation/reference/rest-api-guide.md)
+* [Custom Translator reference](custom-translator/how-to-create-project.md)
 
