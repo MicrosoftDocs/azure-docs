@@ -13,7 +13,7 @@ ms.date: 07/14/2021
 
 Azure Data Factory receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
-- The la  releases
+- The latest releases
 - Known issues
 - Bug fixes
 - Deprecated functionality
