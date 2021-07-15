@@ -106,9 +106,11 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 > You can also run the **Anomalous Failed Logon** [hunting query](hunting.md) to monitor all of an organization's anomalous failed logins. Use the results from the query to start investigations into possible password spray attacks.
 >
 
-## URL detonation in the Investigation graph (Public preview)
+## URL detonation (Public preview)
 
-When there are URLs in the logs ingested into Azure Sentinel, those URLs are automatically detonated to help accelerate the triage process. The Investigation graph includes a node for the detonated URL, as well as the following details:
+When there are URLs in the logs ingested into Azure Sentinel, those URLs are automatically detonated to help accelerate the triage process. 
+
+The Investigation graph includes a node for the detonated URL, as well as the following details:
 
 - **DetonationVerdict**. The high-level, Boolean determination from detonation. For example, **Bad** means that the side was classified as hosting malware or phishing content.
 - **DetonationFinalURL**. The final, observed landing page URL, after all redirects from the original URL.
