@@ -32,7 +32,6 @@ Azure FileStorage accounts support SMB Multichannel (preview), which increases t
 ## Prerequisites
 
 - [Create a FileStorage account](./storage-how-to-create-file-share.md).
-- If you intend to use the Azure PowerShell module, [install the 3.0.1-preview version of the module](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview).
 
 ## Getting started
 
@@ -74,8 +73,6 @@ Once you have created a FileStorage account, you can follow the instructions to 
 If the SMB Multichannel option is not visible under **File share settings** or you get a failed to update setting error while updating the configuration, please make sure that your subscription is registered and your account is in one of the [supported regions](#regional-availability) with supported account type and replication.
 
 # [PowerShell](#tab/azure-powershell)
-
-To enable SMB Multichannel using the Azure PowerShell module, you must [install the 3.0.1-preview version](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview) of the module.
 
 Set the variables `$resourceGroupName` and `$storageAccountName` to your resource group and storage account before running these PowerShell commands.
 
