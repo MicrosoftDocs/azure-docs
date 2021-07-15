@@ -271,7 +271,7 @@ productDirectory:
       imageSrc: ./media/index/metrics-advisor.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/metrics-advisor/index.yml
+      url: applied-ai-services/metrics-advisor/index.yml
     # Card
     - title: Personalizer
       summary: An AI service that delivers a personalized user experience
