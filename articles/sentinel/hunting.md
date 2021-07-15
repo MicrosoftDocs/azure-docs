@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2021
+ms.date: 07/14/2021
 ms.author: yelevin
 ---
 
@@ -23,13 +23,12 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> Upgrades to the **hunting dashboard** are currently in **PREVIEW**. Items below relating to this upgrade will be marked as "(preview)". See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The cross-resource query experience and upgrades to the **hunting dashboard** (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-
-As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Azure Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that weren't detected by your security apps or even by your scheduled analytics rules, Azure Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network.
+As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Azure Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that weren't detected by your security apps or even by your scheduled analytics rules, Azure Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 
 For example, one built-in query provides data about the most uncommon processes running on your infrastructure. You wouldn't want an alert about each time they are run - they could be entirely innocent - but you might want to take a look at the query on occasion to see if there's anything unusual.
 
@@ -55,9 +54,10 @@ Use queries before, during, and after a compromise to take the following actions
 
 
 > [!TIP]
-> Use community resources, such as the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find additional queries and data sources.
+> - Now in public preview, you can also create hunting and livestream queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) in the Azure Monitor documentation.
 >
-
+> - Use community resources, such as the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find additional queries and data sources.
+>
 
 ## Use the hunting dashboard (Public preview)
 
@@ -110,8 +110,7 @@ Notebooks give you a kind of virtual sandbox environment, complete with its own 
 For more information, see [Use Jupyter Notebook to hunt for security threats](notebooks.md).
 
 
-
-## Hunting language and useful operators
+## Useful operators and functions
 
 Hunting queries are built in [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), a powerful query language with IntelliSense language that gives you the power and flexibility you need to take hunting to the next level.
 
@@ -139,7 +138,9 @@ The following operators are especially helpful in Azure Sentinel hunting queries
 
 - **find** - Find rows that match a predicate across a set of tables.
 
-## Create a new query
+- **adx() (function, preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Azure Sentinel hunting experience and Log Analytics. For more information see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
+
+## Save a query
 
 Create or modify a query and save it as your own query or share it with users who are in the same tenant.
 
