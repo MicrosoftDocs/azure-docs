@@ -81,7 +81,7 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
     ```
 
     >[!NOTE]
-    >The agent does not support setting proxy authentication in this preview.
+    >The agent does not support setting proxy authentication.
     >
 
 3. After installing the agent, you need to configure it to communicate with the Azure Arc service by running the following command:

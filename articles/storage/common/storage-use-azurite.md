@@ -4,7 +4,7 @@ description: The Azurite open-source emulator provides a free local environment 
 author: twooley
 
 ms.author: twooley
-ms.date: 07/15/2020
+ms.date: 07/15/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -554,9 +554,13 @@ Azurite supports read-access geo-redundant replication (RA-GRS). For storage res
 
 ### Table support
 
-Support for tables in Azurite is currently under development and open to contribution! For the latest progress, check the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
+Support for tables in Azurite is currently in preview. For more information, see the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
 
 Support for durable functions requires tables.
+
+> [!IMPORTANT]
+>
+> Azurite support for Table Storage is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Azurite is open-source
 
