@@ -1,12 +1,13 @@
 ---
 title: "X12 TA1 Acknowledgment Error Codes | Microsoft Docs"
+description: X12 TA1 Acknowledgement error code in Logic Apps X12 message processing with Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: praveensri
 ms.author: psrivas
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/15/2021
 ---
 
 # X12 TA1 Acknowledgment Error Codes
