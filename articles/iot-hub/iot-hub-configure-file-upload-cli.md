@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
+ms.date: 07/15/2021
 ms.author: robinsh
 ---
 
@@ -60,8 +60,13 @@ To configure file uploads from your devices, you need the connection string for 
 az storage account show-connection-string --name {your storage account name} \
   --resource-group {your storage account resource group}
 ```
+The connection string will be similar to the following:
 
-Make a note of the **connectionString** value. You need it in the following steps.
+```output
+  DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName={your storage account name};AccountKey={your storage account key}
+```
+
+Make a note of the connection string. You need it in the following steps.
 
 You can either use an existing blob container for your file uploads or create a new one:
 
@@ -94,11 +99,95 @@ The configuration requires the following values:
 
 * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
 
-Use the following Azure CLI commands to configure the file upload settings on your IoT hub:
+* **Authentication type**: The type of authentication for IoT Hub to use with Azure storage. This setting determines how your IoT hub authenticates and authorizes with Azure Storage. The default is key-based; however, system-defined and user-defined managed identities can also be used. Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. To learn how to configure managed identities, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). After you've configured one or more managed identities on your Azure Storage account and IoT hub, you can set one to use for authentication with Azure storage using Azure CLI.
 
-<!--Robinsh this is out of date, add cloud powershell -->
+    > [!NOTE]
+    > The authentication type setting configures how your IoT hub authenticates with your Azure Storage account. Devices always authenticate with Azure Storage using the SAS URI that they get from the IoT hub. 
 
-In a bash shell, use:
+
+Use the following Azure CLI commands to configure the file upload settings on your IoT hub. These commands are shown separately here for clarity, but, typically, you would issue a single command with all the required parameters for your scenario. Include quotes where they appear in the command line. Don't include the braces.
+
+The following command configures the storage account and blob container.
+
+```azurecli
+az iot hub update --name {your iot hub name} \
+    --fileupload-storage-connectionstring "{your storage account connection string}" \
+    --fileupload-storage-container-name "{your container name}" 
+```
+
+The following command sets the SAS URI time to live to the default (one hour).
+
+```azurecli
+az iot hub update --name {your iot hub name} \
+    --fileupload-sas-ttl 1 
+```
+
+The following command enables file notifications and sets the file notification properties to their default values. (The file upload notification time to live is set to one hour.)
+
+```azurecli
+az iot hub update --name {your iot hub name} \
+    --fileupload-notifications true  \
+    --fileupload-notification-max-delivery-count 10 \
+    --fileupload-notification-ttl 1 \
+    --set properties.messagingEndpoints.fileNotifications.lockDurationAsIso8601=PT0H1M0S
+```
+
+The following command configures key-based authentication:
+
+az iot hub update --name {your iot hub name} \
+    --fileupload-storage-auth-type keyBased
+```
+
+The following command configures authentication using the IoT hub's system-assigned managed identity. You must first enable the system-assigned managed identity for IoT hub and grant it the correct RBAC role on your Azure storage account. To learn how, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
+
+```azurecli
+az iot hub update --name {your iot hub name} \
+    --fileupload-storage-auth-type identityBased \
+    --fileupload-storage-identity [system] 
+```
+
+The following commands retrieve the user-assigned managed identities configured on your IoT hub and configures authentication with a user-assigned managed identity. To use a user-assigned managed identity for authentication with Azure Storage, it must both be configured on your IoT hub and configured and granted an appropriate RBAC role on your Azure Storage account. To learn how, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md)].
+
+To query for user-assigned managed identities on your IoT hub.
+
+```azurecli
+az iot hub show --name {your iot hub name} --query properties.identity.userAssignedIdentities
+```
+
+The command returns a collection of the user-assigned managed identities configured on your IoT hub. The following shows the output for a single user-assigned managed identity.
+
+```output
+{
+  "/subscriptions/<your subscription ID>/resourcegroups/<your resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your user-assigned managed identity name>": {
+    "clientId": "<client ID GUID>",
+    "principalId": "<principal ID GUID>"
+  }
+}
+```
+
+The following command configures authentication to use the user-assigned identity above.
+
+```azurecli
+az iot hub update --name {your iot hub name} \
+    --fileupload-storage-auth-type identityBased \
+    --fileupload-storage-identity  "/subscriptions/{}your subscription ID}/resourcegroups/{your resource group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{your user-assigned managed identity name}"
+```
+
+You can review the settings on your IoT hub using the following command:
+
+```azurecli
+az iot hub show --name {your iot hub name}
+```
+
+To review only the file upload settings, use the following command:
+
+```azurecli
+az iot hub show --name {your iot hub name}
+    --query '[properties.storageEndpoints, properties.enableFileUploadNotifications, properties.messagingEndpoints.fileNotifications]'
+
+```
+
+For most situations using the named parameters in the Azure CLI commands is best; however, you can also configure file upload settings with the `--set` parameter. The following commands can help you understand how. 
 
 ```azurecli
 az iot hub update --name {your iot hub name} \
@@ -130,13 +219,6 @@ az iot hub show --name {your iot hub name}
 
 For more information about the file upload capabilities of IoT Hub, see [Upload files from a device](iot-hub-devguide-file-upload.md).
 
-Follow these links to learn more about managing Azure IoT Hub:
+To learn more about managed identities, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
 
-* [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
-* [Monitor your IoT hub](monitor-iot-hub.md)
-
-To further explore the capabilities of IoT Hub, see:
-
-* [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
-* [Secure your IoT solution from the ground up](../iot-fundamentals/iot-security-ground-up.md)
+For examples and steps to upload a file from a device to your IoT hub using the Azure IoT device SDKs, see [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md).
