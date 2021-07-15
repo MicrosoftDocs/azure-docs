@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/06/2021
+ms.date: 07/15/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
@@ -384,7 +384,7 @@ Recognized entity: last week, entity category: DateTime, entity sub-category: Da
 ```
 
 
-### Personally Identifiable Information Recognition
+## Personally Identifiable Information (PII) recognition
 
 Create a new function called `recognizePiiEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `PiiEntityCollection` object will contain a list of `PiiEntity` if successful, or an `errorMessage` if not. It will also
 contain the redacted text, which consists of the input text with all identifiable entities replaced with `*****`.
