@@ -85,4 +85,4 @@
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support and help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
+    href: ../../cognitive-services/cognitive-services-support-options.md?context=/azure/cognitive-services/metrics-advisor/context/context
