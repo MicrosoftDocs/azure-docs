@@ -132,15 +132,16 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY" />
 	```
 
-1. Open the file named *_Layout.cshtml* in the project's "Views/Shared" folder. On line 19, change "Application name" to "Intellipix." The line should look like this:
+1. Open the file named *_Layout.cshtml* in the project's **Views/Shared** folder. On line 19, change "Application name" to "Intellipix." The line should look like this:
 
 	```C#
 	@Html.ActionLink("Intellipix", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 	```
 
-	In an ASP.NET MVC project, *_Layout.cshtml* is a special view that serves as a template for other views. You typically define header and footer content that is common to all views in this file.
+	> [!NOTE]
+    > In an ASP.NET MVC project, *_Layout.cshtml* is a special view that serves as a template for other views. You typically define header and footer content that is common to all views in this file.
 
-1. Right-click the project's "Models" folder and use the **Add -> Class...** command to add a class file named *BlobInfo.cs* to the folder. Then replace the empty **BlobInfo** class with the following class definition:
+1. Right-click the project's **Models** folder and use the **Add -> Class...** command to add a class file named *BlobInfo.cs* to the folder. Then replace the empty **BlobInfo** class with the following class definition:
 
 	```C#
 	public class BlobInfo
@@ -151,7 +152,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 	}
 	```
 
-1. Open *HomeController.cs* in the project's "Controllers" folder and add the following `using` statements to the top of the file:
+1. Open *HomeController.cs* from the project's **Controllers** folder and add the following `using` statements to the top of the file:
 
 	```C#
 	using ImageResizer;
@@ -193,7 +194,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 	}
 	```
 
-	The new **Index** method enumerates the blobs in the "photos" container and passes an array of **BlobInfo** objects representing those blobs to the view through ASP.NET MVC's **ViewBag** property. In a moment, you'll modify the view to enumerate these objects and display a collection of photo thumbnails. The classes used to access your storage account and enumerate the blobs&mdash;**[CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?WT.mc_id=academiccontent-github-cxa)**, **[CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?WT.mc_id=academiccontent-github-cxa)**, and **[CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?WT.mc_id=academiccontent-github-cxa)**&mdash;come from the WindowsAzure.Storage package you installed through NuGet.
+	The new **Index** method enumerates the blobs in the `"photos"` container and passes an array of **BlobInfo** objects representing those blobs to the view through ASP.NET MVC's **ViewBag** property. Later, you'll modify the view to enumerate these objects and display a collection of photo thumbnails. The classes you'll use to access your storage account and enumerate the blobs&mdash;**[CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?WT.mc_id=academiccontent-github-cxa)**, **[CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?WT.mc_id=academiccontent-github-cxa)**, and **[CloudBlobContainer](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?WT.mc_id=academiccontent-github-cxa)**&mdash;come from the **WindowsAzure.Storage** package you installed through NuGet.
 
 1. Add the following method to the **HomeController** class in *HomeController.cs*:
 
@@ -243,7 +244,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 	}
 	```
 
-	This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the "photos" container, creates a thumbnail image from the original image using the `ImageResizer` package you installed in the previous section, and stores the thumbnail image as a blob in the "thumbnails" container.
+	This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the `"photos"` container, creates a thumbnail image from the original image using the `ImageResizer` package, and stores the thumbnail image as a blob in the `"thumbnails"` container.
 
 1. Open *Index.cshmtl* in the project's **Views/Home** folder and replace its contents with the following code and markup:
 
@@ -292,23 +293,23 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 
 	The language used here is [Razor](http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The ```@foreach``` statement in the middle of the file enumerates the **BlobInfo** objects passed from the controller in **ViewBag** and creates HTML ```<img>``` elements from them. The ```src``` property of each element is initialized with the URI of the blob containing the image thumbnail.
 
-1. Download and unzip the photos.zip file from the GitHub sample data repository: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/storage-lab-tutorial. You should have an assortment of different photos.
+1. Download and unzip the _photos.zip_ file from the [GitHub sample data repository](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/storage-lab-tutorial). This is an assortment of different photos you can use to test the app.
 
-1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click the **Upload a Photo** button and upload one of the images you downloaded. Confirm that a thumbnail version of the photo appears on the page:
+1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click **Upload a Photo** and upload one of the images you downloaded. Confirm that a thumbnail version of the photo appears on the page.
 
     ![Intellipix with one photo uploaded](Images/one-photo-uploaded.png)
 
-1. Upload a few more images from the "photos" folder. Confirm that they appear on the page, too:
+1. Upload a few more images from your **photos** folder. Confirm that they appear on the page, too:
 
     ![Intellipix with three photos uploaded](Images/three-photos-uploaded.png)
 
-1. Right-click in your browser and select **View page source** to view the source code for the page. Find the ```<img>``` elements representing the image thumbnails. Observe that the URLs assigned to the images refer directly to blobs in blob storage. This is because you set the containers' **Public access level** to **Blob**, which makes the blobs inside them publicly accessible.
+1. Right-click in your browser and select **View page source** to view the source code for the page. Find the ```<img>``` elements representing the image thumbnails. Observe that the URLs assigned to the images refer directly to blobs in blob storage. This is because you set the containers' **Public access level** to **Blob**, which makes the blobs inside publicly accessible.
 
-1. Return to the Azure Storage Explorer (or restart it if you didn't leave it running) and click the "photos" container under your storage account. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.
+1. Return to Azure Storage Explorer (or restart it if you didn't leave it running) and select the `"photos"` container under your storage account. The number of blobs in the container should equal the number of photos you uploaded. Double-click one of the blobs to download it and see the image stored in the blob.
 
     ![Contents of the "photos" container](Images/photos-container.png)
 
-1. Open the "thumbnails" container in Storage Explorer. Open one of the blobs to view the thumbnail images generated from the image uploads.
+1. Open the `"thumbnails"` container in Storage Explorer. Open one of the blobs to view the thumbnail images generated from the image uploads.
 
 The app doesn't yet offer a way to view the original images that you uploaded. Ideally, clicking an image thumbnail should display the original image. You'll add that feature next.
 
@@ -317,8 +318,8 @@ The app doesn't yet offer a way to view the original images that you uploaded. I
 
 In this section, you'll use a free, open-source JavaScript library to add a lightbox viewer that enables users to see the original images they've uploaded (rather than just the image thumbnails). The files are provided for you. All you have to do is integrate them into the project and make a minor modification to *Index.cshtml*.
 
-1. Download the _lightbox.css_ and _lightbox.js_ files from the GitHub code repository: https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/storage-lab-tutorial
-1. In Solution Explorer, right-click your project's "Scripts" folder and use the **Add -> Existing Item...** command to import *lightbox.js*.
+1. Download the _lightbox.css_ and _lightbox.js_ files from the [GitHub code repository](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/ComputerVision/storage-lab-tutorial).
+1. In Solution Explorer, right-click your project's **Scripts** folder and use the **Add -> Existing Item...** command to import *lightbox.js*.
 
 1. Right-click the project's "Content" folder and use the **Add -> Existing Item...** command to import *lightbox.css*.
 1. Download and unzip the _buttons.zip_ file from the GitHub data files repository: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/storage-lab-tutorial. You should have four button images.
