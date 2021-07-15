@@ -4,7 +4,6 @@ metadata:
   description: Frequently asked questions about Service Fabric managed clusters, including capabilities, use cases, and common scenarios.
   ms.topic: troubleshooting
   ms.author: micraft
-  author: micraft
   ms.date: 7/14/21
   ms.custom: references_regions
     
