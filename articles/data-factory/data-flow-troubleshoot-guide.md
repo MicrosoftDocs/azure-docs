@@ -489,7 +489,7 @@ This article explores common troubleshooting methods for mapping data flows in A
         
       :::image type="content" source="media/data-flow-troubleshoot-guide/configure-compute-type.png" alt-text="Screenshot that shows the configuration of Compute type.":::   
 
-  - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance#cluster-size).
+  - Option-2: Use larger cluster size (for example, 48 cores) to run your data flow pipelines. You can learn more about cluster size through this document: [Cluster size](./concepts-data-flow-performance.md#cluster-size).
   
   - Option-3: Repartition your input data. For the task running on the data flow spark cluster, one partition is one task and runs on one node. If data in one partition is too large, the related task running on the node needs to consume more memory than the node itself, which causes failure. So you can use repartition to avoid data skew, and ensure that data size in each partition is average while the memory consumption is not too heavy.
     
@@ -498,7 +498,7 @@ This article explores common troubleshooting methods for mapping data flows in A
     > [!NOTE]
     >  You need to evaluate the data size or the partition number of input data, then set reasonable partition number under "Optimize". For example, the cluster that you use in the data flow pipeline execution is 8 cores and the memory of each core is 20GB, but the input data is 1000GB with 10 partitions. If you directly run the data flow, it will meet the OOM issue because 1000GB/10 > 20GB, so it is better to set repartition number to 100 (1000GB/100 < 20GB).
     
-  - Option-4: Tune and optimize source/sink/transformation settings. For example, try to copy all files in one container, and don't use the wildcard pattern. For more detailed information, reference [Mapping data flows performance and tuning guide](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance).
+  - Option-4: Tune and optimize source/sink/transformation settings. For example, try to copy all files in one container, and don't use the wildcard pattern. For more detailed information, reference [Mapping data flows performance and tuning guide](./concepts-data-flow-performance.md).
 
 
 ## Miscellaneous troubleshooting tips

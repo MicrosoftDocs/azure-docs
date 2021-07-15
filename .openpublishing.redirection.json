@@ -17324,11 +17324,18 @@
       "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
+
     {
-      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-apis-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
+    },
+
     {
       "source_path_from_root": "/articles/digital-twins/how-to-use-parser.md",
       "redirect_url": "/azure/digital-twins/how-to-parse-models",
@@ -19117,6 +19124,11 @@
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
       "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-device-sdk-c-serializer.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-sdk-c-intro",
       "redirect_document_id": false
     },
     {
@@ -56422,6 +56434,11 @@
     {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-by-use-nested-virtualization.md",
       "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-by-use-nested-virtualization",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
+      "redirect_url": "/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
     },
     {
