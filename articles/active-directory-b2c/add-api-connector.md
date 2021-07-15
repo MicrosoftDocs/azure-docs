@@ -223,7 +223,9 @@ A continuation response indicates that the user flow should continue to the next
 
 In a continuation response, the API can return claims. If a claim is returned by the API, the claim does the following:
 
-- Overrides any value that has already been assigned to the claim from the attribute collection page.
+- Overrides any value that has already been provided by a user in the attribute collection page.
+
+To write claims to the directory on sign-up that shouldn't be collected from the user, you should still select the claims under **User attributes** of the user flow, which will by default ask the user for values, but you can use [custom JavaScript or CSS](customize-ui-with-html.md) to hide the input fields from an end user.
 
 See an example of a [continuation response](#example-of-a-continuation-response).
 
