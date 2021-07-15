@@ -13,7 +13,7 @@ ms.author: lajanuar
 ---
 # Translator language support
 
-**Translation - Cloud:** Cloud translation isavailable in all languages for the Translate operation of Text Translation and for Document Translation. 
+**Translation - Cloud:** Cloud translation is available in all languages for the Translate operation of Text Translation and for Document Translation. 
 
 **Translation – Containers:** Language support for Containers.
 
@@ -168,7 +168,7 @@ Add additional capabilities to your apps and workflows by utilizing other Cognit
 * [Speech](../speech-service/language-support.md) 
 * [Text Analytics ](../text-analytics/language-support.md) 
 
-View all [Cognitive Services](.../index.yml). 
+View all [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services). 
 
 ## Next Steps
 * [Text Translation reference](/reference/v3-0-reference.md)
