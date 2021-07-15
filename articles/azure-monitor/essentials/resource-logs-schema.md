@@ -52,7 +52,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Container Instances | [Logging for Azure Container Instances](../../container-instances/container-instances-log-analytics.md#log-schema) |
-| Container Registry | [Logging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
 | Content Delivery Network | [Azure Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -72,7 +72,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | IoT Hub | [IoT Hub Operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-control-plane-logs.md#log-event-schema) |
-| Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
 | Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Media Services | [Media services monitoring schemas](../../media-services/latest/monitoring/monitor-media-services-data-reference.md#schemas) |
 | Network Security Groups |[Log analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
