@@ -118,6 +118,8 @@ Syntax and example steps are provided below.
 
 The sample body syntax below enables a system-assigned managed identity if not already enabled and assigns two existing user-assigned managed identities to the existing Automation account.
 
+PATCH
+
 ```json
 {
   "identity": {

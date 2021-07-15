@@ -18,8 +18,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account.md).
 
-- The system-assigned managed identity and the target Azure resources that your runbook manages using that identity must be in the same Azure subscription.
-
 - The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
 
 - An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
@@ -108,6 +106,8 @@ Syntax and example steps are provided below.
 
 The body syntax below enables a system-assigned managed identity to an existing Automation account. However, this syntax will remove any existing user-assigned managed identities associated with the Automation account.
 
+PATCH
+
 ```json
 { 
  "identity": { 
@@ -116,14 +116,21 @@ The body syntax below enables a system-assigned managed identity to an existing 
 }
 ```
 
-Use the syntax below to keep any existing user-assigned managed identities associated with the Automation account.
+If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity you need to specify each user-assigned identity using comma-delimited list as in the following example:
+
+PATCH
 
 ```json
 { 
- "identity": { 
-   "type": "SystemAssigned, UserAssigned" 
-  } 
+  "identity" : {
+    "type": "SystemAssigned, UserAssigned",
+    "userAssignedIdentities": {
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmkID": {},
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cmkID2": {}
+    }
+  }
 }
+
 ```
 
 The syntax of the API is as follows:
