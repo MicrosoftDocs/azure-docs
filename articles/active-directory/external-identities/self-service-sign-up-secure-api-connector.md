@@ -19,8 +19,7 @@ ms.collection: M365-identity-device-management
 When integrating a REST API within an Azure AD external identities self-service sign-up user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD, can make calls to your endpoint. This article will explore how to secure REST API. 
 
 ## Prerequisites
-
-Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](secure-api-connector.md) guide.
+Complete the steps in the [Walkthrough: Add an API connector to a sign-up user flow](self-service-sign-up-add-api-connector.md) guide.
 
 You can protect your API endpoint by using either HTTP basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure AD will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
 
@@ -90,7 +89,7 @@ To upload a new certificate to an existing API connector, select the API connect
 
 ## API key authentication
 
-Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development by requiring the caller to include a unique key as an HTTP header or HTTP query parameter. For [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL** of your API connector. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
+Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development by requiring the caller to include a unique key as an HTTP header or HTTP query parameter. For [Azure Functions](../../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL** of your API connector. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
 
 This is not a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can select 'basic' authentication in the API connector configuration and use temporary values for `username` and `password` that your API can disregard while you implement proper authorization.
 

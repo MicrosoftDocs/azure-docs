@@ -32,7 +32,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
-7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-api-connector.md).
+7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](self-service-sign-up-secure-api-connector.md).
 
     :::image type="content" source="media/self-service-sign-up-add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
 
@@ -300,7 +300,7 @@ Ensure that:
 * Your API is following the API request and response contracts as outlined above. 
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims that it depends on.
-* Your API implements some authentication method outlined in [secure your API Connector](secure-rest-api.md).
+* Your API implements some authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md)
  
