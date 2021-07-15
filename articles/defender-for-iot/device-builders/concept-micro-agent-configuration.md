@@ -21,7 +21,7 @@ These configurations include process, and network activity collectors.
 
 | Setting Name | Setting option | Description | Default setting |
 | -- | -- | -- | -- |
-| **Priority** | High, Medium, or Low | Define frequency of sending. | Medium |
+| **Interval** | High, Medium, or Low | Define frequency of sending. | Medium |
 | **Aggregation mode** | True, or False | Whether to process event aggregation for an identical event.  | True |
 | **Cache size** | cycle FIFO | The number of events collected in between the data is sent. | 256 |
 | **Disable collector** | True, or False | Whether or not the collector is operational. | False |
