@@ -40,17 +40,7 @@ FHIR&trade; is becoming an important standard for clinical data and provides ext
 
 ## Deploy DICOM service to Azure
 
-DICOM service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required. The diagram below depicts all of the resources created within your resource group.
-
-[ ![DICOM deployment architecture.](media/dicom-deployment-architecture.png) ](media/dicom-deployment-architecture.png#lightbox)
-
-- **Azure SQL**: Indexes a subset of the Medical Imaging Server for DICOM metadata to support queries and to maintain a queryable log of changes.
-- **App Service Plan**: Hosts the Medical Imaging Server for DICOM.
-- **Azure Key Vault**: Stores critical security information.
-- **Storage Account**: Blob Storage that persists all Medical Imaging Server for DICOM data and metadata.
-- **Application Insights** (optional): Monitors performance of DICOM Service.
-- **Azure Container Instance** (optional): Hosts the DICOM Cast service for Azure API for FHIR integration.
-- **Azure API for FHIR** (optional): Persists the DICOM metadata alongside other clinical data.
+DICOM service needs an Azure subscription to configure and run the required components. These components are, by default, created inside of an existing or new Azure Resource Group to simplify management. Additionally, an Azure Active Directory account is required. For each instance of DICOM service, we create a combination of isolated and multi-tenant resource.
 
 ## Summary
 
