@@ -48,7 +48,7 @@ SMB over QUIC is available in public preview on the following images:
 - Windows Server 2022 Datacenter: Azure Edition (Desktop experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-SMB over QUIC enables users to access files when working remotely without a VPN, by tunneling SMB traffic over the QUIC protocol.  To learn more, see [SMB over QUIC](https://aka.ms/smboverquic).  
+SMB over QUIC enables users to access files when working remotely without a VPN, by tunneling SMB traffic over the QUIC protocol.  To learn more, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).  
 
 ### Azure Extended Network
 
@@ -57,7 +57,7 @@ Azure Extended Network is available in public preview on the following images:
 - Windows Server 2022 Datacenter: Azure Edition (Desktop experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-Azure Extended Network enables you to stretch an on-premises subnet into Azure to let on-premises virtual machines keep their original on-premises private IP addresses when migrating to Azure. To learn more, see [Azure Extended Network](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-extended-network).  
+Azure Extended Network enables you to stretch an on-premises subnet into Azure to let on-premises virtual machines keep their original on-premises private IP addresses when migrating to Azure. To learn more, see [Azure Extended Network](/windows-server/manage/windows-admin-center/azure/azure-extended-network).  
 
 
 ## Getting started with Windows Server Azure Edition
