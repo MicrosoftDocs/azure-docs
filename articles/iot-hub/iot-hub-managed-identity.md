@@ -116,10 +116,10 @@ az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resou
 ```
 ## User-assigned managed identity 
 In this section, you learn how to add and remove a user-assigned managed identity from an IoT hub using Azure portal.
-1.	First you need to create a user-assigned managed identity as a standalone resource. You can follow the instructions [here](./../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity) to create a user-assigned managed identity.
+1.	First you need to create a user-assigned managed identity as a standalone resource. To do so, you can follow the instructions in [Create a user-assigned managed identity](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
 2.	Go to your IoT hub, navigate to the **Identity** in the IoT Hub portal.
 3.	Under **User-Assigned** tab, click **Add user-assigned managed identity**. Choose the user-assigned managed identity you want to add to your hub and then click **Select**. 
-4.	You can remove a user-assigned identity from an IoT hub. Choose the user-assigned identity you want to remove, and click **Remove** button. Note you are only removing it from IoT hub, and this removal does not delete the user-assigned identity as a resource. To delete the user-assigned identity as a resource, follow the instructions [here](./../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#delete-a-user-assigned-managed-identity).
+4.	You can remove a user-assigned identity from an IoT hub. Choose the user-assigned identity you want to remove, and click **Remove** button. Note you are only removing it from IoT hub, and this removal does not delete the user-assigned identity as a resource. To delete the user-assigned identity as a resource, follow the instructions in [Delete a user-assigned managed identity](./../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#delete-a-user-assigned-managed-identity).
 
     :::image type="content" source="./media/iot-hub-managed-identity/user-assigned.png" alt-text="Screenshot showing how to add user-assigned managed identity for an IoT hub":::        
 
@@ -226,7 +226,7 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 3.	Select **Event Hubs Data Sender as role**.
 
     > [!NOTE] 
-    > For storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) as **role**. For service bus, select **Service bus Data Sender** as **role**.
+    > For storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/blobs/assign-azure-role-data-access.md)) as **role**. For service bus, select **Service bus Data Sender** as **role**.
 
 4.  For user-assigned, choose **User-assigned managed identity** under **Assign access to**. Select your subscription and your user-assigned managed identity in the drop-down list. Click the **Save** button.
 
@@ -271,6 +271,9 @@ IoT Hub's [file upload](iot-hub-devguide-file-upload.md) feature allows devices 
 6. On the page that shows up, select the container that you intend to use in your blob storage, configure the **File notification settings, SAS TTL, Default TTL, and Maximum delivery count** as desired. Choose the preferred authentication type, and click **Save**.
 
     :::image type="content" source="./media/iot-hub-managed-identity/file-upload.png" alt-text="IoT Hub file upload with msi":::
+
+    > [!NOTE]
+    > In the file upload scenario, both hub and your device need to connect with your storage account. The steps above are for connecting your IoT hub to your storage account with desired authentication type. You still need to connect your device to storage using the SAS URI. Today the SAS URI is generated using connection string. We'll add support to generate SAS URI with managed identity soon. Please follow the steps in [file upload](iot-hub-devguide-file-upload.md).
 
 ### Bulk device import/export
 

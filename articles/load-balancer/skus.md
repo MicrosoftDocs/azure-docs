@@ -34,7 +34,7 @@ Standalone VMs, availability sets, and virtual machine scale sets can be connect
 | **[Health probes](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probedown)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |
 | **Availability Zones** | Zone-redundant and zonal frontends for inbound and outbound traffic. | Not available |
-| **Diagnostics** | [Azure Monitor multi-dimensional metrics](./load-balancer-standard-diagnostics.md) | [Azure Monitor logs](./load-balancer-monitor-log.md) |
+| **Diagnostics** | [Azure Monitor multi-dimensional metrics](./load-balancer-standard-diagnostics.md) | [Azure Monitor logs](./monitor-load-balancer.md) |
 | **HA Ports** | [Available for Internal Load Balancer](./load-balancer-ha-ports-overview.md) | Not available |
 | **Secure by default** | Closed to inbound flows unless allowed by a network security group. Internal traffic from the virtual network to the internal load balancer is allowed. | Open by default. Network security group optional. |
 | **Outbound Rules** | [Declarative outbound NAT configuration](./load-balancer-outbound-connections.md#outboundrules) | Not available |

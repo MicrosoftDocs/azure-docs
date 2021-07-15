@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Azure Active Directory B2C ISV partners
 
-Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Azure AD B2C, you can integrate with ISV partners to enable Multi-Factor authentication (MFA) methods, do role-based access control, enable identity verification and proofing, improve security with bot detection and fraud protection, and meet Payment Services Directive 2 (PSD2) Secure Customer Authentication (SCA) requirements. Use our detailed sample walkthroughs to learn how to integrate apps with the ISV partners.
+Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Azure AD B2C, you can integrate with ISV partners to enable multifactor authentication (MFA) methods, do role-based access control, enable identity verification and proofing, improve security with bot detection and fraud protection, and meet Payment Services Directive 2 (PSD2) Secure Customer Authentication (SCA) requirements. Use our detailed sample walkthroughs to learn how to integrate apps with the ISV partners.
 
 >[!NOTE]
 >The [Azure Active Directory B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) also provides sample custom policies from the community.
@@ -39,6 +39,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a bloksec logo](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) is a decentralized identity platform that provides organizations with true passwordless authentication, tokenless MFA, and real-time consent-based services. |
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
 | ![Screenshot of a itsme logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 |![Screenshot of a Keyless logo.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) is a passwordless authentication provider that provides authentication in the form of a facial biometric scan and eliminates fraud, phishing, and credential reuse.
@@ -63,6 +64,7 @@ Microsoft partners with the following ISVs to provide secure hybrid access to on
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
+| ![Screenshot of a Datawiza logo](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md) enables SSO and granular access control for your applications and extends Azure AD B2C to protect on-premises legacy applications.  |
 | ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |
 | ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
 | ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |

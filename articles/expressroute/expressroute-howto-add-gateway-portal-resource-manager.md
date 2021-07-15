@@ -84,7 +84,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     | Public IP address name | Provide a name for the public IP address. |
 
     > [!IMPORTANT]
-    > If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) for **SKU**.
+    > If you plan to use IPv6-based private peering over ExpressRoute, please refer to the [PowerShell documentation](./expressroute-howto-add-gateway-resource-manager.md) for creating your gateway with a Public IP address of type Standard, Static.
     > 
     > 
 

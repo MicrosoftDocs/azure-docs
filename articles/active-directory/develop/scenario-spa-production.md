@@ -1,9 +1,9 @@
 ---
-title: Move single-page app to production 
+title: Move single-page app to production
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (move to production)
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -24,7 +24,7 @@ Now that you know how to acquire a token to call web APIs, here are some things 
 
 ## Deploy your app
 
-Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter3) for learning how to deploy your SPA and Web API projects with Azure Storage and Azure App Services, respectively. 
+Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter3) for learning how to deploy your SPA and Web API projects with Azure Storage and Azure App Services, respectively.
 
 ## Code samples
 

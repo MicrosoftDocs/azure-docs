@@ -4,7 +4,7 @@ titleSuffix: Azure Applied AI Services
 description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key value pairs from documents.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/11/2021
@@ -38,12 +38,12 @@ To complete this quickstart, you must have:
 
 ## Try it out
 
-To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-2.1.azurewebsites.net/).
+To try out the Form Recognizer Sample Labeling Tool online, go to the [FOTT website](https://fott-2-1.azurewebsites.net/).
 
 ### [v2.1](#tab/v2-1)
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://fott-2.1.azurewebsites.net/)
+> [Try Prebuilt Models](https://fott-2-1.azurewebsites.net/)
 
 ### [v2.0](#tab/v2-0)
 
@@ -59,7 +59,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott-2-1.azurewebsites.net/).
 
 1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](deploy-label-tool.md) how-to guide.
 
@@ -80,7 +80,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
 ### [v2.1](#tab/v2-1)
 
 ```console
- docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest
+ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1
 ```
 
 ### [v2.0](#tab/v2-0)
@@ -96,7 +96,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
 ### [v2.1](#tab/v2-1)
 
 ```console
- docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest eula=accept
+ docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 eula=accept
 ```
 
 ### [v2.0](#tab/v2-0)

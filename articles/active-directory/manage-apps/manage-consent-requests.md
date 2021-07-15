@@ -2,20 +2,20 @@
 title: Managing consent to applications and evaluating consent requests in Azure Active Directory
 description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.author: iangithinji
+ms.author: davidmu
 ms.reviewer: phsignor
 ---
 
 # Managing consent to applications and evaluating consent requests
 
-Microsoft [recommends](../../security/fundamentals/steps-secure-identity.md#restrict-user-consent-operations) disabling end-user consent to applications. This will centralize the decision-making process with your organization's security and identity administrator team.
+Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent for only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
 
 After end-user consent is disabled or restricted, there are several important considerations to ensure your organization stays secure while still allowing business critical applications to be used. These steps are crucial to minimize impact on your organization's support team and IT administrators, while preventing the use of unmanaged accounts in third-party applications.
 
@@ -89,28 +89,34 @@ The following list provides some recommendations to consider when evaluating a r
 ## Granting consent as an administrator
 
 ### Granting tenant-wide admin consent
+
 See [Grant tenant-wide admin consent to an application](grant-admin-consent.md) for step-by-step instructions for granting tenant-wide admin consent from the Azure portal, using Azure AD PowerShell, or from the consent prompt itself.
 
 ### Granting consent on behalf of a specific user
+
 Instead of granting consent for the entire organization, an administrator can also use the [Microsoft Graph API](/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For more information, see [Get access on behalf of a user](/graph/auth-v2-user).
 
 ## Limiting user access to applications
+
 Users' access to applications can still be limited even when tenant-wide admin consent has been granted. For more information on how to require user assignment to an application, see [methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
 For more a broader overview including how to handle additional complex scenarios, see [using Azure AD for application access management](what-is-access-management.md).
 
 ## Disable all future user consent operations to any application
+
 Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalf. To learn more about application consent, and why you may or may not want to consent, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md).
 
 To disable all future user consent operations in your entire directory, follow these steps:
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-4.  Select **Users and groups** in the navigation menu.
-5.  Select **User settings**.
-6.  Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
+
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+4. Select **Users and groups** in the navigation menu.
+5. Select **User settings**.
+6. Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
 
 ## Next steps
+
 * [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md#before-you-begin-protect-privileged-accounts-with-mfa)
 * [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 * [Configure how end-users consent to applications](configure-user-consent.md)

@@ -50,7 +50,7 @@ When you choose **Managed Identity**, to set up the connection, you must first g
 When authentication method selected is **Account Key**, you need to get your access key and store in the key vault:
 
 1. Navigate to your ADLS Gne2 storage account
-1. Select **Settings > Access keys**
+1. Select **Security + networking > Access keys**
 1. Copy your *key* and save it somewhere for the next steps
 1. Navigate to your key vault
 1. Select **Settings > Secrets**

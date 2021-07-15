@@ -24,11 +24,12 @@ DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch netwo
 
       :::image type="content" source="media/manage-dhcp/hcx-find-destination-network.png" alt-text="Screenshot of a network extension in VMware vSphere Client" lightbox="media/manage-dhcp/hcx-find-destination-network.png":::
 
-1. In the Azure VMware Solution NSX-T Manager, select **Networking** > **Segments** > **Segment Profiles**.
+1. In NSX-T Manager, select **Networking** > **Segments** > **Segment Profiles**.
 
 1. Select **Add Segment Profile** and then **Segment Security**.
 
    :::image type="content" source="media/manage-dhcp/add-segment-profile.png" alt-text="Screenshot of how to add a segment profile in NSX-T" lightbox="media/manage-dhcp/add-segment-profile.png":::
+
 1. Provide a name and a tag, and then set the **BPDU Filter** toggle to ON and all the DHCP toggles to OFF.
 
    :::image type="content" source="media/manage-dhcp/add-segment-profile-bpdu-filter-dhcp-options.png" alt-text="Screenshot showing the BPDU Filter toggled on and the DHCP toggles off" lightbox="media/manage-dhcp/add-segment-profile-bpdu-filter-dhcp-options.png":::

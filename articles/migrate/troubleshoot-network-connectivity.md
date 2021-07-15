@@ -6,7 +6,7 @@ ms.author: v-ssudhir
 ms.manager: deseelam
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/21/2021
+ms.date: 06/15/2021
 
 ---
 
@@ -57,6 +57,7 @@ You can verify the DNS resolution for other Azure Migrate artifacts using a simi
 
 If the DNS resolution is incorrect, follow these steps:  
 
+**Recommended** for testing: You can manually update your source environment DNS records by editing the DNS hosts file on your on-premises appliance with the private link resource FQDNs and their associated private IP addresses.
 - If you use a custom DNS, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
 - If you use Azure-provided DNS servers, refer to the below section for further troubleshooting.  
 
@@ -117,3 +118,147 @@ This is a non-exhaustive list of items that can be found in advanced or complex 
 - Custom gateway (NAT) solutions may impact how traffic is routed, including traffic from DNS queries.
 
 For more information, review the [troubleshooting guide for Private Endpoint connectivity problems.](../private-link/troubleshoot-private-endpoint-connectivity.md)  
+
+## Common issues while using Azure Migrate with private endpoints
+In this section, we will list some of the commonly occurring issues and suggest do-it-yourself troubleshooting steps to remediate the problem.
+
+### Appliance registration fails with the error ForbiddenToAccessKeyVault
+Azure Key Vault create or update operation failed for <_KeyVaultName_> due to the error <_ErrorMessage_>
+#### Possible causes:
+This issue can occur if the Azure account being used to register the appliance doesn’t have the required permissions or the Azure Migrate appliance cannot access the Key Vault.
+#### Remediation:
+**Steps to troubleshoot Key Vault access issues:**
+1. Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
+2. Ensure that the user trying to register the appliance has access to the Key Vault and has an access policy assigned in the Key Vault>Access Policy section. [Learn more](../key-vault/general/assign-access-policy-portal.md)
+- [Learn more](./migrate-appliance.md#appliance---vmware) about the required Azure roles and permissions.
+
+**Steps to troubleshoot connectivity issues to the Key Vault:**
+If you have enabled the appliance for private endpoint connectivity, use the following steps to troubleshoot network connectivity issues:
+- Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the Key Vault private endpoint has been created) over a private link. The Key Vault private endpoint will be created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Migrate > Properties** page.
+![Azure Migrate properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)  
+
+- Ensure that the appliance has network connectivity to the Key Vault over a private link. To validate the private link connectivity, perform a DNS resolution of the Key Vault resource endpoint from the on-premises server hosting the appliance and ensure that it resolves to a private IP address.
+- Go to **Azure Migrate: Discovery and assessment> Properties** to find the details of private endpoints for resources like the Key Vault created during the key generation step.  
+
+    ![Azure Migrate server assessment properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
+- Select **Download DNS settings** to download the DNS mappings.
+
+    ![Download DNS settings](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)  
+
+- Open the command line and run the following nslookup command to verify network connectivity to the Key Vault URL mentioned in the DNS settings file.   
+
+    ```console
+    nslookup <your-key-vault-name>.vault.azure.net
+    ```
+
+    If you run the ns lookup command to resolve the IP address of a key vault over a public endpoint, you will see a result that looks like this:
+
+    ```console
+    c:\ >nslookup <your-key-vault-name>.vault.azure.net
+
+    Non-authoritative answer:
+    Name:    
+    Address:  (public IP address)
+    Aliases:  <your-key-vault-name>.vault.azure.net
+    ```
+
+    If you run the ns lookup command to resolve the IP address of a key vault over a private endpoint, you will see a result that looks like this:
+
+    ```console
+    c:\ >nslookup your_vault_name.vault.azure.net
+
+    Non-authoritative answer:
+    Name:    
+    Address:  10.12.4.20 (private IP address)
+    Aliases:  <your-key-vault-name>.vault.azure.net
+              <your-key-vault-name>.privatelink.vaultcore.azure.net
+    ```
+
+    The nslookup command should resolve to a private IP address as mentioned above. The private IP address should match the one listed in the DNS settings file.
+
+If the DNS resolution is incorrect, follow these steps:
+1. Manually update the source environment DNS records by editing the DNS hosts file on the on-premises appliance with the DNS mappings and the associated private IP addresses. This option is recommended for testing.
+
+   ![DNS hosts file](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
+
+2. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
+3. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
+
+After you’ve verified the connectivity, retry the registration process.
+
+### Start Discovery fails with the error AgentNotConnected
+The appliance could not initiate discovery as the on-premises agent is unable to communicate to the Azure Migrate service endpoint: <_URLname_> in Azure.
+
+![Agent not connected error](./media/how-to-use-azure-migrate-with-private-endpoints/agent-not-connected-error.png)  
+
+#### Possible causes:
+This issue can occur if the appliance is unable to reach the service endpoint(s) mentioned in the error message.
+#### Remediation:
+Ensure that the appliance has connectivity either directly or via proxy and can resolve the service endpoint provided in the error message.  
+
+If you have enabled the appliance for private endpoint connectivity, ensure that the appliance is connected to the Azure virtual network over a private link and can resolve the service endpoint(s) provided in the error message.
+
+**Steps to troubleshoot private link connectivity issues to Azure Migrate service endpoints:**
+
+If you have enabled the appliance for private endpoint connectivity, use the following steps to troubleshoot network connectivity issues:
+
+- Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the private endpoints have been created) over a private link. Private endpoints for the Azure Migrate services are created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Migrate > Properties** page.
+
+![Azure Migrate properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)   
+
+- Ensure that the appliance has network connectivity to the service endpoint URLs and other URLs, mentioned in the error message, over a private link connection. To validate private link connectivity, perform a DNS resolution of the URLs from the on-premises server hosting the appliance and ensure that it resolves to private IP addresses.
+- Go to **Azure Migrate: Discovery and assessment> Properties** to find the details of private endpoints for the service endpoints created during the key generation step.  
+    ![Azure Migrate server assessment properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
+- Select **Download DNS settings** to download the DNS mappings.
+
+    ![Download DNS settings](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)   
+
+|**DNS mappings containing Private endpoint URLs**  | **Details** |
+|--- | ---|
+|*.disc.privatelink.test.migration.windowsazure.com | Azure Migrate Discovery service endpoint
+|*.asm.privatelink.test.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
+|*.hub.privatelink.test.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.vault.azure.net | Key Vault endpoint
+|*.blob.core.windows.net | Storage account endpoint for dependency and performance data  
+
+In addition to the URLs above, the appliance needs access to the following URLs over Internet, directly or via proxy.
+
+| **Other public cloud URLs <br> (Public endpoint URLs)** | **Details** |
+|--- | ---|
+|*.portal.azure.com | Navigate to the Azure portal
+|*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Azure Active Directory
+|management.azure.com | For triggering Azure Resource Manager deployments
+|*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring
+|aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services
+|download.microsoft.com/download | Allow downloads from Microsoft download center    
+
+- Open the command line and run the following nslookup command to verify privatelink connectivity to the URLs listed in the DNS settings file. Repeat this step for all URLs in the DNS settings file.
+
+    _**Illustration**: verifying private link connectivity to the discovery service endpoint_
+
+    ```console
+    nslookup 04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+    ```
+    If the request can reach the discovery service endpoint over a private endpoint, you will see a result that looks like this:
+
+    ```console
+    nslookup 04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+
+    Non-authoritative answer:
+    Name:    
+    Address:  10.12.4.23 (private IP address)
+    Aliases:  04b8c9c73f3d477e966c8d00f352889c-agent.cus.disc.privatelink.prod.migration.windowsazure.com
+              prod.cus.discoverysrv.windowsazure.com
+    ```
+
+    The nslookup command should resolve to a private IP address as mentioned above. The private IP address should match the one listed in the DNS settings file.
+
+If the DNS resolution is incorrect, follow these steps:
+1. Manually update the source environment DNS records by editing the DNS hosts file on the on-premises appliance with the DNS mappings and the associated private IP addresses. This option is recommended for testing.
+
+   ![DNS hosts file](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
+
+2. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
+3. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
+
+After you’ve verified the connectivity, retry the discovery process.

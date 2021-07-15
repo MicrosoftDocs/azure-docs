@@ -448,4 +448,4 @@ az group delete -n bridge-edge-resources
 
 ## Next steps
 
-To learn more about the IoT Plug and Play bridge, visit the [IoT Plug and Play bridge](https://github.com/Azure/iot-plug-and-play-bridge) GitHub repository.
+To learn how to extend the IoT Plug and Play bridge to support additional device protocols, see [Extend the IoT Plug and Play bridge](howto-author-pnp-bridge-adapter.md).
