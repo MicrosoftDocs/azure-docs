@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/15/2021
-author: sayantanroy83
+author: smannepalle
 ms.author: sroy
 ---
 
