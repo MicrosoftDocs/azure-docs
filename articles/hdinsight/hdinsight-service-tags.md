@@ -63,6 +63,7 @@ If your cluster is located in a region listed in this table, you only need to ad
 | Korea | Korea Central | HDInsight.KoreaCentral |
 | &nbsp; | Korea South | HDInsight.KoreaSouth |
 | India | Central India | HDInsight.CentralIndia |
+| &nbsp; | JIO India West | HDInsight.JioIndiaWest |
 | &nbsp; | South India | HDInsight.SouthIndia |
 | South Africa | South Africa North | HDInsight.SouthAfricaNorth |
 | UAE | UAE North | HDInsight.UAENorth |
@@ -77,6 +78,7 @@ If your cluster is located in a region listed in this table, you only need to ad
 | &nbsp; | UK West | HDInsight.UKWest |
 | United States | North Central US | HDInsight.NorthCentralUS |
 | &nbsp; | West US 2 | HDInsight.WestUS2 |
+| &nbsp; | West US 3 | HDInsight.WestUS3 |
 | &nbsp; | West Central US | HDInsight.WestCentralUS |
 | Canada | Canada East | HDInsight.CanadaEast |
 | &nbsp; | Canada Central | HDInsight.CanadaCentral |
