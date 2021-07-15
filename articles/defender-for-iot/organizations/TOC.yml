@@ -177,6 +177,8 @@
       href: integration-servicenow.md
     - name: Splunk integration
       href: integration-splunk.md
+    - name: Qradar integration
+      href: integration-qradar.md
 - name: Reference
   items:
   - name: Work with Defender for IoT APIs
