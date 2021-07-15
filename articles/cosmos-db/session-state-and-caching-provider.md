@@ -101,7 +101,7 @@ public class MyBusinessClass
     
     public async Task SomeOperationAsync()
     {
-        string someCachedValue = await this.cache.GetAsync("someKey");
+        string someCachedValue = await this.cache.GetStringAsync("someKey");
         /* Use the cache */
     }
 }

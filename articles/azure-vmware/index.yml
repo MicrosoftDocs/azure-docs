@@ -46,7 +46,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: General
-          url: ./faq.yml
+          url: /azure/azure-vmware/faq
         - text: Customer communication
           url: /azure/azure-vmware/faq#customer-communication
         - text: Configuration and setup 
