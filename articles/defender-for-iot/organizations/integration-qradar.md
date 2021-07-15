@@ -25,7 +25,7 @@ To configure the Syslog listener to work with QRadar:
 
 1. Sign in to QRadar.
 
-1. From the left pane select **Admin** > **Data Sources**.
+1. From the left pane, select **Admin** > **Data Sources**.
 
    [:::image type="content" source="media/integration-qradar/log.png" alt-text="Select log sources from the available options.":::](media/integration-qradar/log.png#lightbox)
 
@@ -60,7 +60,7 @@ To configure the Syslog listener to work with QRadar:
 
 ## Deploying Defender for IoT platform QID
 
-QID is an event identifier in QRadar. All of Defender for IoT platform reports are tagged under the same event (XSense Alert).
+QID is an event identifier in QRadar. All of Defenders for IoT platform reports are tagged under the same event (XSense Alert).
 
 **To deploy Xsense QID**:
 
@@ -68,13 +68,13 @@ QID is an event identifier in QRadar. All of Defender for IoT platform reports a
 
 1. Create a file named `xsense_qids`.
 
-1. In the file, type the following: `,XSense Alert,XSense Alert Report From <XSense Name>,5,7001`.
+1. In the file, using the following command: `,XSense Alert,XSense Alert Report From <XSense Name>,5,7001`.
 
 1. Execute: `sudo /opt/qradar/bin/qidmap_cli.sh -i -f <path>/xsense_qids`. The message that the QID was deployed successfully appears.
 
 ## Setting Up QRadar forwarding rules
 
-In the Defender for IoT appliance, configure a Qradar forwarding rule. You must then map the rule on the on-premises management console.
+In the Defender for IoT appliance, configure a Qradar forwarding rule. Map the rule on the on-premises management console.
 
 **To define QRadar notifications in the Defender for IoT appliance**:
 
@@ -157,9 +157,9 @@ All the XSense reports from now on are tagged as XSense Alerts.
 
 You can change the name of the platform at any time.
 
-When building sites and assigning appliances to zones in the on-premises management console, you should assign each appliance a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line. 
+When building sites, and assigning appliances to zones in the on-premises management console, you should assign each appliance a significant name. For example, “Motorcycles PL Unit 2” means that this appliance is protecting unit #2 in the Motorcycles production line. 
 
-It is important to pick a meaningful name for your appliance, because the appliance's name is passed on to the logs. When reviewing logs, each alert has a sensor attached to it. You will be able to identify which sensor is related to each alert based on it's name.
+It is important to pick a meaningful name for your appliance, because the appliance's name is passed on to the logs. When reviewing logs, each alert has a sensor attached to it. You will be able to identify which sensor is related to each alert based on its name.
 
 **To change the appliance name**:
 
