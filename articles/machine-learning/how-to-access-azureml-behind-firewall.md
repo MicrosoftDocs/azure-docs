@@ -117,8 +117,8 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
-    | \*.update.code.visualstudio.com*</br></br>*.vo.msecnd.net* | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
-    | raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/* | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+    | **.update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+    | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
     
 
     For __Protocol:Port__, select use __http, https__.
@@ -244,9 +244,8 @@ The hosts in this section are used to install Visual Studio Code packages to est
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| \*.update.code.visualstudio.com*</br></br>*.vo.msecnd.net* | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
-| raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/* |Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
-<!-- | *github.com/Microsoft/vscode-tools-for-ai/tree/master/azureml_remote_websocket_server/\**</br></br>*raw.githubusercontent.com/Microsoft/vscode-tools-for-ai/tree/master/azureml_remote_websocket_server/\** | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. -->
+|  **.update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
 ## Next steps
 
