@@ -1,5 +1,11 @@
 ---
 title: Troubleshoot getting started feature Azure Virtual Desktop
+description: How to troubleshoot issues with the Azure Virtual Desktop getting started feature.
+author: Heidilohr
+ms.topic: troubleshooting
+ms.date: 07/16/2021
+ms.author: helohr
+manager: femila
 ---
 
 # Troubleshoot the Azure Virtual Desktop getting started feature
@@ -20,8 +26,6 @@ The resource group that ends in "-deployment" runs these templates:
 >[!NOTE]
 >The easy-button-prerequisite-user-setup-linked-template is optional and will only appear if you created a validation user.
 
-![Graphical user interface, application Description automatically generated](media/d636a3811239ee03ab90386283ac8677.png)
-
 The resource group that ends in "-wvd" runs these templates:
 
 - NSG-linkedTemplate
@@ -30,30 +34,22 @@ The resource group that ends in "-wvd" runs these templates:
 - wvd-resources-linked-template
 - easy-button-wvdsetup-linked-template
 
-![Graphical user interface, application Description automatically generated](media/a5cd081278e4fb4380eccab2c7ca9568.png)
-
 The resource group that ends in "-prerequisite" runs these templates:
 
 - easy-button-prerequisite-resources-linked-template
-
-![Graphical user interface, text, application Description automatically generated](media/a500d711b474c22676d89c5b0cd0114d.png)
 
 >[!NOTE]
 >This resource group is optional, and will only appear if your subscription doesn't have Azure AD DS or AD DS.
 
 ## No subscriptions
 
-![Text Description automatically generated](media/b2444fa3c59ef9d0ecf7d7408621bba5.png)
-
-In this issue, you see an error message that says "no subscriptions" when opening the getting started tool. This happens when you try to open the tool without an active Azure subscription.
+In this issue, you see an error message that says "no subscriptions" when opening the getting started feature. This happens when you try to open the feature without an active Azure subscription.
 
 To fix this issue, check to see if your subscription or the affected user has an active Azure subscription. If they don't, assign the user the Owner Role-based Access Control (RBAC) role on their subscription.
 
 ## You don’t have permissions
 
-![Graphical user interface, text, application Description automatically generated](media/4426fa8aebf1aa9bcd06e703c75b0c19.png)
-
-This issue happens when you open the getting started tool and get an error message that says, "You don't have permissions." This message appears when the user running the tool doesn't have Owner permissions on their active Azure subscription.
+This issue happens when you open the getting started feature and get an error message that says, "You don't have permissions." This message appears when the user running the feature doesn't have Owner permissions on their active Azure subscription.
 
 To fix this issue, sign in with an Azure account that has Owner permissions, then assign the Owner RBAC role to the affected account.
 
@@ -61,39 +57,29 @@ To fix this issue, sign in with an Azure account that has Owner permissions, the
 
 This issue is when you open the **Virtual machine** tab and see that the fields under "Do you want users to share this machine?" are grayed out. This issue then prevents you from changing the image type, selecting an image to use, or changing the VM size.
 
-![Graphical user interface, text, application Description automatically generated](media/35dc44c3ace5b09a8f6313bbe3e30cd9.png)
-
-This issue happens when you run the tool with a prefix that was already used to start a deployment. When the tool creates a deployment, it creates an object to represent the deployment in Azure. Certain values in the object, like the image, become attached to that object to prevent multiple objects from using the same images.
+This issue happens when you run the feature with a prefix that was already used to start a deployment. When the feature creates a deployment, it creates an object to represent the deployment in Azure. Certain values in the object, like the image, become attached to that object to prevent multiple objects from using the same images.
 
 To fix this issue, you can either delete all resource groups with the existing prefix or use a new prefix.
 
 ## Username must not include reserved words
 
-This error occurs while input in being entered.
+This issue happens when the getting started feature won't accept the new username you enter into the field.
 
-![Graphical user interface, text, application Description automatically generated](media/ab71a238b3cfd8b9200c4f17ea7792b5.png)
+This error message appears because Azure doesn't allow certain words in usernames for public endpoints. For a full list of blocked words, see [Resolve reserved resource name errors](../azure-resource-manager/templates/error-reserved-resource-name.md).
 
-**Cause:** Azure security best practices dictate that certain words are not allow througH public endpoints. Full list is available [here](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/error-reserved-resource-name).
-
-**Resolution:** Add additional prefixes or suffixes to the blocked reserved word (e.g. AVDAdmin, instead of Admin).
+To resolve this issue, either try a new word or add letters to the blocked word to make it unique. For example, if the word "admin" is blocked, try using "AVDadmin" instead.
 
 ## The value must be between 12 and 72 characters long
 
-This error occurs when entering a password that does not meet the length requirements for Azure.
+This error message appears when entering a password that is either too long or too short to meet the character length requirement. Azure password length and complexity requirements even apply to fields that you later use in Windows, which has less strict requirements.
 
-![Graphical user interface, text, application, email Description automatically generated](media/b3b223c5e6993589752b8108ecd796e4.png)
+To resolve this issue, make sure you use an account that follows Azure's password guidelines.
 
-**Cause:** Any Azure field that stores secure text is subject to Azure requirements for complexity. This includes fields that are later used in Windows, which have less complex requirements.
+## Error messages for easy-button-prerequisite-user-setup-linked-template
 
-**Resolution:** Use an account with password complexity equivalent or greater than what Azure enforces.
+If the AD DS VM you're using already has an extension named Microsoft.Powershell.DSC associated with it, you'll see an error message that looks like this:
 
-## Failures in easy-button-prerequisite-user-setup-linked-template
-
-![Graphical user interface, text, application Description automatically generated](media/e9c1fc8ebe8f7f411c376095ee194ca9.png)
-
-**Operation details:**
-
-```
+```azure
 "error": {
         "code": "DeploymentFailed",
         "message": "At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.",
@@ -107,28 +93,13 @@ This error occurs when entering a password that does not meet the length require
 
 ```
 
-**Cause**:
+To resolve this issue, uninstall the Microsoft.Powershell.DSC extension, then run the getting started feature again.
 
-This error occurs when the AD DS VM already has an extension of type
-Microsoft.Powershell.DSC associated with it.
+## Error messages for easy-button-prerequisite-job-linked-template
 
-![Graphical user interface, text, application, email Description automatically generated](media/4f92fea31a48523ebe85cf019f0750ed.png)
+If you see an error message like this, that means the resource operation for the easy-button-prerequisite-job-linked-template template didn't complete successfully:
 
-**Resolution**:
-
-Uninstall the extension of type Microsoft.Powershell.DSC and run the Getting
-started wizard.
-
-![Graphical user interface, text, application Description automatically generated](media/2b0c59ce31f0a05773e9b89fdc38c097.png)
-
-Failure in **easy-button-prerequisite-job-linked-template**
------------------------------------------------------------
-
-![Table Description automatically generated with medium confidence](media/69bdc5396968ab304c4b8c82805a0070.png)
-
-**Operation details:**
-
-```
+```azure
 {
     "status": "Failed",
     "error": {
@@ -145,61 +116,44 @@ Failure in **easy-button-prerequisite-job-linked-template**
 
 ```
 
-The resource operation completed with terminal provisioning state 'Failed'
+To make sure this is the issue you're dealing with:
 
-**Troubleshooting steps:**
+1. Select **easy-button-prerequisite-job-linked-template**, then select **Ok** on the error message window that pops up.
 
-Click on **easy-button-prerequisite-job-linked-template** and then on the failed step. Confirm the error message.
+2. Go to **\<prefix\>-deployment resource group** and select **resourceSetupRunbook**.
 
-Navigate to the **\<prefix\>-deployment resource group** and click on the **resourceSetupRunbook**.
+3. Select the status, which should say **Failed**.
 
-![Chart Description automatically generated with low confidence](media/a375462e51ae0fbe08861ccd87b82965.png)
+4. Select the **Exception** tab. You should see an error message that looks like this:
+   
+   ```azure
+   The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Error while creating and adding validation user <your-username-here> to group <your-resource-group-here>
+   ```
 
-Click on the **Failed.**
+There currently isn't a way to fix this issue permanently. As a workaround, run The Azure Virtual Desktop getting started feature again, but this time don't create a validation user. After that, create your new users with the manual process only.
 
-![Graphical user interface, text, application, email Description automatically generated](media/bba1f148aa253664e7055b512cb1d6d9.png)
+### Validate that the domain administrator UPN exists for a new profile
 
-Select the **Exception** tab.
+To check if the UPN address is causing the issue with the template:
 
-The running command stopped because the preference variable "ErrorActionPreference" or common parameter is set to Stop: Error while creating and adding validation user ssb\@Yasminecorp.onmicrosoft.com to group WVDValidationUsers
+1. Select **easy-button-prerequisite-job-linked-template** and then on the failed step. Confirm the error message.
 
-**Resolution:**
+2. Navigate to the **\<prefix\>-deployment resource group** and click on the **resourceSetupRunbook**.
 
-Creation of the validation user failed. This is a known bug 33328817. As a workaround run The Azure Virtual Desktop getting started feature again but this time without creating validation user. Then use the manual process to create users.
+3. Select the status, which should say **Failed**.
 
-Validating if domain administrator \<UPN\> exists already in case of new subscription.
+4. Select the **Output** tab.
 
-**Troubleshooting steps:**
+If the UPN exists on your new subscription, there are two potential causes for the issue:
 
-Click on **easy-button-prerequisite-job-linked-template** and then on the failed step. Confirm the error message.
+- The getting started feature didn't create the domain administrator profile, because the user already exists. To resolve this, run the getting started feature again, but this time enter a username that doesn't already exist in your identity provider.
+- The getting started feature didn't create the validation user profile. To resolve this issue, run the getting started feature again, but this time don't create any validation users. After that, create new users with the manual process only.
 
-Navigate to the **\<prefix\>-deployment resource group** and click on the **resourceSetupRunbook**.
+## Error messages for easy-button-inputvalidation-job-linked-template
 
-![Chart Description automatically generated with low confidence](media/a375462e51ae0fbe08861ccd87b82965.png)
+If there's an issue with the easy-button-inputvalidation-job-linked-template template, you'll see an error message that looks like this:
 
-Click on the **Failed.**
-
-![Text Description automatically generated](media/359bb613fa65a2c11c14a2941e2d0f00.png)
-
-Select the **Output** tab.
-
-Validating if domain administrator \<UPN\> exists already in case of new subscription.
-
-**Resolution 1:**
-
-Creation of the domain administrator user failed. This is likely due to the user already existing. As a workaround run the getting started wizard again but this time make sure to enter an username that does not exist in your identity provider.
-
-**Resolution 2:**
-
-Creation of the validation user failed. This is a known bug 33328817. As a workaround run The Azure Virtual Desktop getting started feature again but this time without creating validation user. Then use the manual process to create users.
-
-## Failure in easy-button-inputvalidation-job-linked-template
-
-![Graphical user interface, text, application, chat or text message Description automatically generated](media/120c7a3bbbcd9a79ffe01454f7d3e588.png)
-
-**Operation details:**
-
-```
+```azure
 {
     "status": "Failed",
     "error": {
@@ -209,35 +163,27 @@ Creation of the validation user failed. This is a known bug 33328817. As a worka
 }
 ```
 
-**Troubleshooting steps:**
+To make sure this is the issue you've encountered:
 
-Open the \<prefix\>-deployment resource group and look for **inputValidationRunbook.**
+1. Open the \<prefix\>-deployment resource group and look for **inputValidationRunbook.**
 
 ![Graphical user interface, text, application, email Description automatically generated](media/7ce89568bf22be8be3b1c7ed852c0654.png)
 
-Under recent jobs there will be a job with failed status. Click on **Failed**.
+2. Under recent jobs there will be a job with failed status. Click on **Failed**.
 
 ![Chart Description automatically generated with low confidence](media/0d0dce68aa8cd67fe2b46a1aa450a2fe.png)
 
-This will open the details of the job. Click on **Exception**.
+1. In the **job details** window, select **Exception**.
 
-![Graphical user interface, text, application, email Description automatically generated](media/1bc7d713dbd69f3d086a9707e61f8c27.png)
+This error happens when the Azure admin UPN you entered isn't correct. To resolve this issue, make sure you're entering the correct username and password are correct, then try again.
 
-**Cause**:
+## Multiple VMExtensions per handler not supported
 
-The Azure administrator credential (**Azure admin UPN**) are not correct. Either password or username are incorrect and The Azure Virtual Desktop getting started feature block deployment.
+When you run the getting started feature on a subscription that has Azure AD DS or AD DS, then the feature will use a Microsoft.Powershell.DSC extension to create validation users and configure FSLogix. However, Windows VMs in Azure can't run more than one of the same type of extension at the same time.
 
-The setup process for MSIX app attach file share has only one difference when compared to the FSLogix profiles share. That difference is the type of permissions that must be granted on the files share. MSIX app attach requires read-only permissions on the files share.
+If you try to run multiple versions of Microsoft.Powershell.DSC, you'll get an error message that looks like this:
 
-Below are the steps for the different storage fabrics. Select article based on what storage is being used in the Azure Virtual Desktop environment.
-
-### Multiple VMExtensions per handler not supported for OS type 'Windows'
-
-![Graphical user interface, text, application Description automatically generated](media/5e86503ad02cdc497214125c55ed7e1b.png)
-
-**Operation details:**
-
-```
+```azure
 {
     "status": "Failed",
     "error": {
@@ -247,21 +193,13 @@ Below are the steps for the different storage fabrics. Select article based on w
 }
 ```
 
-**Cause:**
-
-When ran on an Existing setup with AD DS as identity provider Quickstart will use a Microsoft.Powershell.DSC to create validation users and configure FSLogix. However, Windows VMs in Azure cannot have multiple DSC extensions of the same type Microsoft.Powershell.DSC.
-
-**Resolution:**
-
-Prior to running Quickstart remove any Microsoft.Powershell.DSC from the domain controller VM.
+To resolve this issue, before you run the getting started feature, make sure to remove any currently running instance of Microsoft.Powershell.DSC from the domain controller VM.
 
 ## Failure in easy-button-prerequisitecompletion-job-linked-template
 
-![A screenshot of a computer Description automatically generated with medium confidence](media/0e91a75ba9bc09ac26ce49f972c3a32f.png)
+The user group for the validation users is located in the "USERS" container. However, the user group must be synced to Azure AD in order to work properly. If it isn't, you'll get an error message that looks like this:
 
-**Operation details:**
-
-```
+```azure
 {
     "status": "Failed",
     "error": {
@@ -271,19 +209,14 @@ Prior to running Quickstart remove any Microsoft.Powershell.DSC from the domain 
 }
 ```
 
-**Troubleshooting steps:**
+To make sure the issue is caused by the validation user group not syncing, open the \<prefix\>-prerequisites resource group and look for a file named **prerequisiteSetupCompletionRunbook**. Select the runbook, then select **All Logs**.
 
-Open the \<prefix\>-prerequisites resource group and look for **prerequisiteSetupCompletionRunbook.** Review **All Logs.**
+To resolve this issue:
 
-![A screenshot of a computer Description automatically generated with medium confidence](media/0b87cc96be6809121669e5d6835ab9ca.png)
+1. Enable syncing with Azure AD for the "USERS" container.
 
-![A picture containing text, screenshot, monitor, indoor Description automatically generated](media/61cbe771c2132db2950dee144d5c33c9.png)
+2. Create the AVDValidationUsers group in an organization unit that's syncing with Azure.
 
-**Cause:** The validation users’ group will be created in the USERS container. The Validation group must be synced to Azure AD for the process to be completed
-successfully**.**
+## Next steps
 
-**Resolution:**
-
-1.  Enable synch for USERS container
-
-2.  Pre-create the AVDValidationUsers group into an organization unit (OU) that is being synced to Azure.
+Learn more about the getting started feature at [Deploy Azure Virtual Desktop with the getting started feature](getting-started-feature.md).
