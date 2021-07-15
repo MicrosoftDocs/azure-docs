@@ -338,7 +338,7 @@ For more information about using the CLI and what commands are available, see [C
 
 # [.NET SDK](#tab/sdk2)
 
-One way to define event routes is with the [data plane APIs](concepts-apis-sdks.md#overview-data-plane-apis). This section shows how to create an event route using the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+This section shows how to create an event route using the [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
 
 `CreateOrReplaceEventRouteAsync` is the SDK call that is used to add an event route. Here is an example of its usage:
 
