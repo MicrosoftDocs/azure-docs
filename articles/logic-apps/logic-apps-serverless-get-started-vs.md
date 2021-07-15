@@ -66,9 +66,9 @@ To get started, create an Azure resource group project as a container for your s
 
 1. Otherwise, from the **File** menu, select **New** > **Project**.
 
-   ![Screenshot showing "File" menu with "New", "Project" selected.](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
+   ![Screenshot showing "File" menu open with "New" menu and "Project" selected.](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. After the **Create a new project** window opens, in the search box, find and select the **Azure Resource Group** project template for either C# or Visual Basic. This example continues with C#.
+1. After the **Create a new project** window opens, in the search box, find and select the **Azure Resource Group** project template for either C# or Visual Basic. When you're ready, select **Next**. This example continues with C#.
 
    ![Screenshot showing "Create a new project" window and search box with "resource group" along with "Azure Resource Group" project template selected.](./media/logic-apps-serverless-get-started-vs/start-window-find-project-template.png)
 
@@ -86,23 +86,35 @@ To get started, create an Azure resource group project as a container for your s
 
    ![Screenshot showing your created project and solution.](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
 
-1. Next, deploy your solution to Azure. You must complete this deployment step before you can open the deployment template and review the resources for your serverless app.
+1. Next, deploy your solution to Azure. You must complete this deployment step before you can open and review your logic app's workflow using the designer in Visual Studio.
 
 ## Deploy your solution
 
-Before you can open your logic app using the workflow designer in Visual Studio, 
-you must have an Azure resource group that's already deployed in Azure. The designer 
-can then create connections to resources and services in your logic app. For this task, 
-follow these steps to deploy your solution from Visual Studio to the Azure portal:
+Before you can open your logic app using the designer in Visual Studio, you have to deploy your app to Azure. The designer can then create connections to the services and resources used in your logic app's workflow.
 
 1. In Solution Explorer, from your resource project's shortcut menu, select **Deploy** > **New**.
 
-   ![Create new deployment for resource group](./media/logic-apps-serverless-get-started-vs/deploy.png)
+   ![Screenshot showing Solution Explorer with project shortcut menu opened, "Deploy" menu opened, and "New" selected.](./media/logic-apps-serverless-get-started-vs/deploy.png)
 
-1. If they're not already selected, select your Azure subscription and the
-resource group to which you want to deploy. Then, select **Deploy**.
+1. After the **Deploy to Resource Group** window opens, follow these steps to provide the deployment information:
 
-   ![Deployment settings](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+   1. After the window detects your current subscription, confirm your Azure subscription, or select a different subscription if you want.
+
+   1. Create a new resource group in Azure. Under **Resource group**, select **<**Create New...**>**. Provide the following information.
+
+      | Property | Description |
+      |----------|-------------|
+      | Resource group name | The name to use for your resource group |
+      | Resource group location | The Azure datacenter region to host your logic app resource |
+      |||
+
+      The following example shows information for creating a resource group in the West US region.
+
+      ![Screenshot showing "Create Resource Group" window with new resource group information.](./media/logic-apps-serverless-get-started-vs/create-resource-group.png)
+
+   1. Finish creating and deploying your solution.
+
+For example, ![Deployment settings](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
 1. If the **Edit Parameters** box appears, provide the resource names 
 to use for your logic app and your Azure function app at deployment, 
