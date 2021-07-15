@@ -3,8 +3,8 @@ title: Azure IoT glossary of terms | Microsoft Docs
 description: Developer guide - a glossary explaining some of the common terms used in the Azure IoT articles.
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-hub
-services: iot-hub
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/08/2021
 ---
@@ -373,7 +373,7 @@ Azure IoT solution accelerators package together multiple Azure services into so
 
 In [IoT Hub](#iot-hub), [jobs](../iot-hub/iot-hub-devguide-jobs.md) let you schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). IoT Hub also uses jobs to [import to and export](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
 
-In IoT Central, [jobs](../iot-central/core/howto-run-a-job.md) let you manage your connected devices in bulk by setting properties and calling commands. IoT Central jobs also let you update [cloud properties](#cloud-property) in bulk.
+In IoT Central, [jobs](../iot-central/core/howto-manage-devices-in-bulk.md) let you manage your connected devices in bulk by setting properties and calling commands. IoT Central jobs also let you update [cloud properties](#cloud-property) in bulk.
 
 ## L
 

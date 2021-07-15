@@ -226,8 +226,8 @@
           href: core/howto-connect-rigado-cascade-500.md
     - name: Build integrated solutions
       items:
-        - name: Add tiles to your dashboard
-          href: core/howto-add-tiles-to-your-dashboard.md
+        - name: Create dashboards
+          href: core/howto-manage-dashboards.md
         - name: Use location data
           href: core/howto-use-location-data.md
         - name: Configure rules
@@ -250,8 +250,6 @@
           href: core/howto-connect-powerbi.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
-        - name: Connect your application with Dynamics 365 Field Services
-          href: government/how-to-configure-connected-field-services.md
     - name: Use the REST API
       items:
         - name: Authenticate and authorize REST API calls
@@ -264,10 +262,10 @@
           href: core/howto-manage-jobs-with-rest-api.md
     - name: Manage your devices
       items:
-        - name: Add and remove devices
-          href: core/howto-manage-devices.md
-        - name: Run a job
-          href: core/howto-run-a-job.md
+        - name: Manage devices individually
+          href: core/howto-manage-devices-individually.md
+        - name: Manage devices in bulk
+          href: core/howto-manage-devices-in-bulk.md
     - name: Administer your solution
       items:
         - name: Change application settings
@@ -276,34 +274,26 @@
           href: core/howto-manage-users-roles.md
         - name: Customize application UI
           href: core/howto-customize-ui.md
-        - name: Export your application
-          href: core/howto-use-app-templates.md
         - name: Migrate V2 to V3 application
           href: core/howto-migrate.md
-        - name: Monitor application health
-          href: core/howto-monitor-application-health.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
-        - name: Manage from the Azure portal
+        - name: Manage and monitor in the Azure portal
           href: core/howto-manage-iot-central-from-portal.md
         - name: Manage from command line
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-    - name: Personalize your solution
-      items:
-        - name: Create a personal dashboard
-          href: core/howto-create-personal-dashboards.md
-        - name: Manage your personal preferences
-          href: core/howto-manage-preferences.md
-        - name: Toggle live chat
-          href: core/howto-show-hide-chat.md
     - name: Troubleshoot
       items:
       - name: Device connections
         href: core/troubleshoot-connection.md
     - name: FAQ
-      href: core/howto-faq.md
+      href: core/howto-faq.yml
+    - name: Manage your personal preferences
+      href: core/howto-manage-preferences.md
+    - name: Toggle live chat
+      href: core/howto-show-hide-chat.md
 
 - name: Reference
   items:

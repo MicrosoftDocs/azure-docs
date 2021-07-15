@@ -28,7 +28,7 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    ```powershell
    $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
    $ProgressPreference = 'SilentlyContinue'
-   ​Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
 
 1. Install IoT Edge for Linux on Windows on your device.
@@ -109,10 +109,9 @@ For more information, use the command `Get-Help Get-EflowVm -full`.
 
 ## Get-EflowVmAddr
 
-The **Get-EflowVmAddr** command is used to query the virtual machine's current IP and MAC address. This command exists to account for the fact that the IP and MAC address can change over time. 
+The **Get-EflowVmAddr** command is used to query the virtual machine's current IP and MAC address. This command exists to account for the fact that the IP and MAC address can change over time.
 
 For additional information, use the command `Get-Help Get-EflowVmAddr -full`.
-
 
 ## Get-EflowVmFeature
 
@@ -123,7 +122,6 @@ The **Get-EflowVmFeature** command returns the status of the enablement of IoT E
 | feature | **DpsTpm** | Feature name to toggle. |
 
 For more information, use the command `Get-Help Get-EflowVmFeature -full`.
-
 
 ## Get-EflowVmName
 
@@ -163,8 +161,8 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | scopeId | The scope ID for an existing DPS instance. | Scope ID for provisioning an IoT Edge device (**DpsTPM**, **DpsX509**, or **DpsSymmetricKey**). |
 | symmKey | The primary key for an existing DPS enrollment or the primary key of an existing IoT Edge device registered using symmetric keys | Symmetric key for provisioning an IoT Edge device (**DpsSymmetricKey**). |
 | registrationId | The registration ID of an existing IoT Edge device | Registration ID for provisioning an IoT Edge device (**DpsSymmetricKey**). |
-| identityCertPath | Directory path; must be in a folder that can be owned by the `iotedge` service | Absolute destination path of the identity certificate on your virtual machine for provisioning an IoT Edge device (**ManualX509**, **DpsX509**). |
-| identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your virtual machine for provisioning an IoT Edge device (**ManualX509**, **DpsX509**). |
+| identityCertPath | Directory path | Absolute destination path of the identity certificate on your Windows host machine (**ManualX509**, **DpsX509**). |
+| identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
 
 For more information, use the command `Get-Help Provision-EflowVm -full`.
 

@@ -48,7 +48,7 @@ The following regions and maximum resources are available to container groups wi
 | South India | 4 | 16 | N/A | N/A | 50 | K80 |
 | Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A |
 | UK South | 4 | 16 | 4 | 16 | 50 | N/A |
-| UK West | 4 | 16 | 4 | 16 | 50 | N/A |
+| UK West | 4 | 16 | N/A | N/A | 50 | N/A |
 | UAE North | 4 | 16 | N/A | N/A | 50 | N/A |
 | West Central US| 4 | 16 | 4 | 16 | 50 | N/A |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |

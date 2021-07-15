@@ -1,7 +1,6 @@
 - name: Azure Machine Learning Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items: 
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
@@ -56,7 +55,6 @@
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
     - name: Studio
-      expanded: true
       items: 
         - name: Automated ML (UI)
           items: 
@@ -92,7 +90,9 @@
             - name: "Use automated ML"
               href: tutorial-power-bi-automated-model.md
         - name: "Part 2: Consume in Power BI"
-          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context        
+          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context 
+    - name: "Create a secure workspace"
+      href: "tutorial-create-secure-workspace.md"       
 - name: Samples
   items: 
     - name: Jupyter Notebooks
@@ -412,6 +412,8 @@
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
+        - name: Train with the job creation UI
+          href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
           - name: Configure & submit training run 
@@ -493,9 +495,6 @@
           - name: Featurization in automated ML (Python)
             displayName: automl, feature engineering, feature importance, BERT
             href: how-to-configure-auto-features.md
-          - name: Use automated ML in ML pipelines (Python)
-            displayName: machine learning automl
-            href: how-to-use-automlstep-in-pipelines.md
           - name: Understand charts and metrics
             href: how-to-understand-automated-ml.md
           - name: Use ONNX model in .NET application
@@ -629,6 +628,9 @@
             href: how-to-create-machine-learning-pipelines.md
           - name: Moving data into and between ML pipeline steps (Python)
             href: how-to-move-data-in-out-of-pipelines.md
+          - name: Use automated ML in ML pipelines (Python)
+            displayName: machine learning automl
+            href: how-to-use-automlstep-in-pipelines.md
           - name: Deploy ML pipelines (Python)
             href: how-to-deploy-pipelines.md
           - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
@@ -705,8 +707,6 @@
       href: reference-online-endpoint-yaml.md
     - name: Machine learning pipeline YAML reference
       href: reference-pipeline-yaml.md
-    - name: Feature availability across regions
-      href: reference-machine-learning-cloud-parity.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
@@ -730,6 +730,8 @@
       href: /legal/machine-learning/conda-licensing  
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Feature availability across regions
+      href: reference-machine-learning-cloud-parity.md
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
     - name: Microsoft Learn

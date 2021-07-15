@@ -66,7 +66,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
 1. Select **Manage** > **Connectivity** and select the **HCX** tab to identify the Azure VMware Solution HCX Manager's IP address.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Screenshot of the VMware HCX IP address." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Screenshot showing the VMware HCX IP address." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
 1. Select **Manage** > **Identity**.
 
@@ -75,7 +75,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
    > [!TIP]
    > The vCenter password was defined when you set up the private cloud. It's the same password you'll use to sign in to Azure VMware Solution HCX Manager. You can select **Generate a new password** to generate new vCenter and NSX-T passwords.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot showing the private cloud vCenter and NSX Manager URLs and credentials." border="true":::
 
 1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin\@vsphere.local** user credentials
 
@@ -89,7 +89,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
 1. Navigate to and select the OVA file that you downloaded and then select **Open**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Screenshot of browsing to an OVF template." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Screenshot showing the Deploy OVF Template dialog and browsing to an OVF template." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 1. Select a name and location, and select a resource or cluster where you're deploying the VMware HCX Connector. Then review the details and required resources and select **Next**.
 
@@ -101,7 +101,7 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
 1. In **Customize template**, enter all required information and then select **Next**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot of the boxes for customizing a template." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/customize-template.png" alt-text="Screenshot showing the Customize template settings for the OVF template." lightbox="media/tutorial-vmware-hcx/customize-template.png":::
 
 1. Verify the configuration, and then select **Finish** to deploy the VMware HCX Connector OVA.
 
@@ -149,7 +149,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
 
 After the services restart, you'll see vCenter showing as green on the screen that appears. Both vCenter and SSO must have the appropriate configuration parameters, which should be the same as the previous screen.
 
-:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::
+:::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot showing the dashboard with the vCenter status as green." lightbox="media/tutorial-vmware-hcx/activation-done.png":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Activate HCX](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) video.
 
@@ -178,7 +178,7 @@ You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution wi
 
    You'll see a screen showing that your VMware HCX Cloud Manager in Azure VMware Solution and your on-premises VMware HCX Connector are connected (paired).
 
-   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot that shows the pairing of the HCX Manager in Azure VMware Solution and the VMware HCX Connector.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot showing the site pairing of the HCX Manager in Azure VMware Solution and the VMware HCX Connector.":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Site Pairing](https://www.youtube.com/embed/jXOmYUnbWZY?rel=0&amp;vq=hd720) video.
 
@@ -195,11 +195,11 @@ You'll create four network profiles:
 
 1. Under **Infrastructure**, select **Interconnect** > **Multi-Site Service Mesh** > **Network Profiles** > **Create Network Profile**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Screenshot of selections for starting to create a network profile." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/network-profile-start.png" alt-text="Screenshot showing where to create a network profile in the vSphere Client." lightbox="media/tutorial-vmware-hcx/network-profile-start.png":::
 
 1. For each network profile, select the network and port group, provide a name, and create the segment's IP pool. Then select **Create**.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot of details for a new network profile.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="Screenshot showing the details for a new network profile.":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Network Profile](https://www.youtube.com/embed/O0rU4jtXUxc) video.
 
