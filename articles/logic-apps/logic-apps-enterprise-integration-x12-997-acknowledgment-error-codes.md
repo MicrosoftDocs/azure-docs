@@ -1,13 +1,13 @@
 ---
 title: "X12 997 Acknowledgment Error Codes | Microsoft Docs"
-description: Validate EDI and generate acknowledgements with X12 message decoder in Azure Logic Apps with Enterprise Integration Pack
+description: X12 Acknowledgement error code for X12 message processing in Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: praveensri
-ms.author: praveensri
+ms.author: psrivas
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 07/15/2021
 ---
 # X12 997 Acknowledgment Error Codes
 This topic lists the error codes used within the segments of an X12 997 acknowledgment. For more information about these segments, see [X12 997 Acknowledgment](./logic-apps-enterprise-integration-x12-997-acknowledgment.md).  
