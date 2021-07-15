@@ -42,7 +42,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 
    It could take up to 45 minutes to install HCX Advanced. Once installed, the HCX Manager URL and the HCX keys needed for the HCX on-premises connector site pairing displays on the **Migration using HCX** tab.
 
-   :::image type="content" source="media/vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/deployed-hcx-migration-using-hcx-tab.png" alt-text="Screenshot showing the Migration using HCX tab under Connectivity.":::
 
 
 ## Download and deploy the VMware HCX Connector OVA 
