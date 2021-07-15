@@ -111,6 +111,10 @@ using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Transcription;
 
+class transcribe_conversation
+{
+// all your other code
+
 public static async Task TranscribeConversationsAsync(string voiceSignatureStringUser1, string voiceSignatureStringUser2)
 {
     var subscriptionKey = "your-subscription-key";
@@ -187,5 +191,6 @@ public static async Task TranscribeConversationsAsync(string voiceSignatureStrin
             }
         }
     }
+}
 }
 ```
