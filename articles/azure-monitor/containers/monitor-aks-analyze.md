@@ -21,11 +21,10 @@ Below is the bottoms-up strategy which is commonly used by large scale clusters.
 :::image type="content" source="media/monitor-aks/layers.png" alt-text="AKS layers":::
 
 ## Level 1 - Cluster level components
-The first step in analyzing the health and performance of your AKS cluster is understanding the health and performance of virtual machine scale set (VMSS) that it's running on. Before deploying any pods or workloads, you should analyze this critical information.
+Cluster level components include the following components to monitor.
 
-
-| Component | Monitoring | Details |
-|:---|:---|:---|
+| Component | Monitoring |
+|:---|:---|
 | Node |  Understand the readiness status and performance of CPU, memory, and disk for each node and proactively monitor their usage trends before deploying any workloads. |
 
 
