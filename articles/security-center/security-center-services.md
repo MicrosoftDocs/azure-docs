@@ -96,7 +96,7 @@ For information about when recommendations are generated for each of these prote
 
 ## Feature support in government and sovereign clouds
 
-| Feature/Service                                                                                                                                                             | Azure          | US Government                  | Azure China   |
+| Feature/Service                                                                                                                                                             | Azure          | Azure Government               | Azure China   |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
 | **Security Center free features**                                                                                                                                           |                |                                |               |
 | - [Continuous export](/azure/security-center/continuous-export)                                                                                                             | GA             | GA                             | GA            |
