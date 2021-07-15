@@ -2,7 +2,7 @@
 title: Micro agent Linux dependencies (Preview)  
 description: This article describes the different Linux OS dependencies for the Defender for IoT micro agent. 
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 07/15/2021
 ---
 
 # Micro agent Linux dependencies (Preview)
@@ -11,8 +11,8 @@ This article describes the different Linux OS dependencies for the Defender for 
 
 The table below shows the dependencies for each component in it. 
 
-|--|--|--|--|--|
 | -- | -- | -- | -- | -- |
+|--|--|--|--|--|
 | **Core** |  |  |  |  |
 |  | libcurl-openssl (libcurl) | Library | ✔ |  |
 |  | libssl | Library | ✔ |  |
@@ -21,7 +21,8 @@ The table below shows the dependencies for each component in it.
 |  | libuv1 | Library |  |  |
 |  | sudo | Package |  |  |
 |  | uuid-runtime | Package |  |  |
-| **System information collector** | uname | System call |  |  |
+| **System information collector** |  |  |  |  |
+|  | uname | System call |  |  |
 | **Baseline collector** |  |  |  |  |
 |  | BusyBox | Linux compilation flag |  |  |
 |  | Bash | Linux compilation flag |  |  |
