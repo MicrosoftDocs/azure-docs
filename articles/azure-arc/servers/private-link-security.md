@@ -2,7 +2,7 @@
 title: Use Azure Private Link to securely connect networks to Azure Arc
 description: Learn how to use Azure Private Link to securely connect networks to Azure Arc.
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 07/15/2021
 ---
 
 # Use Azure Private Link to securely connect networks to Azure Arc
@@ -255,7 +255,7 @@ If you’re only planning to use Private Links to support a few machines or serv
 
 ### Configure a new Arc enabled server to use Private link
 
-When connecting a machine or server with Azure Arc enabled servers for the first time, you can optionally connect it to a Private Link Scope.
+When connecting a machine or server with Azure Arc enabled servers for the first time, you can optionally connect it to a Private Link Scope. The following steps are 
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
@@ -263,7 +263,7 @@ When connecting a machine or server with Azure Arc enabled servers for the first
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 
-1. On the **Select a method** page, select the **Add servers using interactive script** tile, and then select **Generate script**.
+1. On the **Add servers with Azure Arc** page, select either the **Add a single server** or **Add multiple servers** depending on your deployment scenario, and then select **Generate script**.
 
 1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored. This location can be the same or different, as the resource group's location.
 
@@ -274,11 +274,13 @@ When connecting a machine or server with Azure Arc enabled servers for the first
     1. In the **Resource group** drop-down list, select the resource group the machine will be managed from.
     1. In the **Region** drop-down list, select the Azure region to store the machine or server metadata.
     1. In the **Operating system** drop-down list, select the operating system that the script is configured to run on.
-    1. Under **Network Connectivity**, select **Private endpoint** and select the Azure Arc Private Link Scope created in Part 1 from the list.
+    1. Under **Network Connectivity**, select **Private endpoint (preview)** and select the Azure Arc Private Link Scope created in Part 1 from the drop-down list.
 
        :::image type="content" source="./media/private-link-security/arc-enabled-servers-create-script.png" alt-text="Selecting Private Endpoint connectivity option" border="true":::
 
     1. Select **Next: Tags**.
+
+1. If you selected **Add multiple servers**, on the **Authentication** page, select the service principal created for Arc enabled servers from the drop down list. If you have not created a service principal for Arc enabled servers, first review [how to create a service principal](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to familiarize yourself with permissions required and the steps to create one. Select **Next: Tags** to continue.
 
 1. On the **Tags** page, review the default **Physical location tags** suggested and enter a value, or specify one or more **Custom tags** to support your standards.
 
@@ -286,7 +288,9 @@ When connecting a machine or server with Azure Arc enabled servers for the first
 
 1. On the **Download and run script** page, review the summary information, and then select **Download**. If you still need to make changes, select **Previous**.
 
-After downloading the script, run it on your machine or server using a privileged (administrator or root) account. Depending on your network configuration, you may need to download the agent on a computer with internet access and transfer it to your machine or server. The Windows agent can be downloaded from [https://aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent) and the Linux agent can be downloaded from [https://packages.microsoft.com](https://packages.microsoft.com). Look for the latest version of the **azcmagent** under your OS distribution directory and installed with your local package manager.
+After downloading the script, you have to run it on your machine or server using a privileged (administrator or root). Depending on your network configuration, you may need to download the agent from a computer with internet access and transfer it to your machine or server, and then modify the script with the path to the agent. 
+
+The Windows agent can be downloaded from [https://aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent) and the Linux agent can be downloaded from [https://packages.microsoft.com](https://packages.microsoft.com). Look for the latest version of the **azcmagent** under your OS distribution directory and installed with your local package manager. 
 
 The script will return status messages letting you know if onboarding was successful after it completes.
 
