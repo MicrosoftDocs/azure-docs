@@ -14,7 +14,7 @@ ms.author: gasinh
 ms.subservice: B2C
 ---
 
-# Tutorial: Configure Akamai Web Application Firewall with Azure Active Directory B2C
+# Tutorial: Configure Akamai with Azure Active Directory B2C
 
 In this sample tutorial, learn how to enable [Akamai Web Application Firewall (WAF)](https://www.akamai.com/us/en/resources/web-application-firewall.jsp) solution for Azure Active Directory (AD) B2C tenant using custom domains. Akamai WAF helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
 
@@ -71,8 +71,8 @@ Akamai WAF integration includes the following components:
 
 3. Set the origin server property configuration settings as:
 
-|Property| Value
-|:-----------|:-----------
+|Property| Value |
+|:-----------|:-----------|
 | Origin type | Your origin |
 | Origin server hostname | yourafddomain.azurefd.net |
 | Forward host header | Origin hostname |
