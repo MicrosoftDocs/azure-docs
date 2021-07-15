@@ -7,20 +7,20 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 06/07/2021
+ms.date: 07/14/2021
 ---
 
 # Da Vinci PDex
 
-In this tutorial, we'll walk through setting up the Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
+In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
 
 > [!NOTE]
-> For all these tests, we'll run them against the JSON tests. The Azure API for FHIR supports both JSON and XML, but it doesn’t have separate endpoints to access JSON or XML. Because of this, all the XML tests will fail. If you want to view the capability statement in XML you simply pass the \_format parameter: \`GET
+> For all these tests, we'll run them against the JSON tests. The FHIR service supports both JSON and XML, but it doesn’t have separate endpoints to access JSON or XML. Because of this, all the XML tests will fail. If you want to view the capability statement in XML you simply pass the \_format parameter: \`GET
 {fhirurl}/metadata?\_format=xml\`
 
 ## Touchstone capability statement
 
-The first set of tests that we'll focus on is testing the Azure API for FHIR against the PDex IG capability statement. This includes three tests:
+The first set of tests that we'll focus on is testing the FHIR service against the PDex IG capability statement. This includes three tests:
 
 * The first test validates the basic capability statement against the IG requirements and will pass without any updates.
 
@@ -52,7 +52,7 @@ The final test we'll walk through is testing patient-everything. For this test, 
 
 ## Next steps
 
-In this tutorial, we walked through how to pass the Payer Exchange tests in Touchstone. Next, you can learn about all the Azure API for FHIR features.
+In this tutorial, we walked through how to pass the Payer Exchange tests in Touchstone. Next, you can learn how to test the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
 >[!div class="nextstepaction"]
->[Supported features](fhir-features-supported.md)  
+>[Da Vinci Plan Net](davinci-plan-net.md)  
