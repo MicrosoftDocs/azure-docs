@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 07/15/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
@@ -18,7 +18,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
-| [Role-based authorization (preview)](search-security-rbac.md) | Use new built-in roles for improved granularity over service administration and new support for data plane operations like creating and querying an index. | Public preview, using Azure portal or the Management REST API version 2021-04-01-Preview and Search REST API version 2021-04-30-Preview.|
+| [Role-based authorization (preview)](search-security-rbac.md) | Use new built-in roles to control access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview, using Azure portal or the Management REST API version 2021-04-01-Preview, and Search REST API version 2021-04-30-Preview.|
 | [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) service operations to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview |
 
 ## May 2021
