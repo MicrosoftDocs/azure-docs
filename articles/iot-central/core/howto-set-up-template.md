@@ -86,7 +86,7 @@ To view component ID, select **Edit identity** on any of the component interface
 
 :::image type="content" source="media/howto-set-up-template/component.png" alt-text="Screenshot that shows a component interface for Sensor controller device template.":::
 
-:::image type="content" source="media/howto-set-up-template/view-component-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
+:::image type="content" source="media/howto-set-up-template/view-component-id.png" alt-text="Screenshot that shows model id for device template component interface.":::
 
 To learn more, see the [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
 
