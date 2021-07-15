@@ -102,7 +102,7 @@ where
 For more information on these `robocopy` parameters, see [Tutorial: Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
 
 > [!NOTE]
-> If you use `/copyall` to copy your data, the source ACLs on directories and files are transferred to Azure Files. If you only had read-access on your source data and could not modify the source data, you'll have read-access only on the data in the storage account. Use `/copyall` only if you intend to copy all the ACLs on the directories and files along with the data.
+> If you use `/copyall` to copy your data, the source ACLs on directories and files are transferred to Azure Files. If you only had read-access on your source data and could not modify the source data, you'll have read-access only on the data in the Data Box. Use `/copyall` only if you intend to copy all the ACLs on the directories and files along with the data.
 
 Here are some of the common scenarios you'll use when copying data using `robocopy`.
 
