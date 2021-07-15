@@ -58,17 +58,27 @@ For more information, see [Region considerations](workspace-architecture-best-pr
 
 - **If you have multiple Azure tenants**, consider whether you're collecting logs that are specific to a tenant boundary, such as Office 365 or Microsoft 365 Defender.
 
-    If not, continue directly with step 5. However, if you're collecting logs that are specific to a tenant boundary, use a separate Azure Sentinel tenant for each Azure AD tenant.
+    - **If you don't have any tenant-specific logs**, continue directly with step 5.
 
-    <a name="ref1"></a>Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant. Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages:
+    - **If you *are* collecting tenant-specific logs**, use a separate Azure Sentinel tenant for each Azure AD tenant.
 
-    - Data collected by custom connectors will be ingested into custom tables, and therefore can’t leverage all the built-in rules and workbooks.
-    - Custom tables are not supported by some of the built-in features, such as UEBA and machine learning rules.
-    - Additional cost and effort required for the custom connectors, such as using Azure Functions and Logic Apps.
+        <a name="ref1"></a>[Flow chart reference 1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant.
 
-    If any of these disadvantages are not a concern for your organization, continue with step 4. 
+        Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages:
 
-### Step 4:
+        - Data collected by custom connectors will be ingested into custom tables, and therefore can’t leverage all the built-in rules and workbooks.
+
+        - Custom tables are not supported by some of the built-in features, such as UEBA and machine learning rules.
+
+        - Additional cost and effort required for the custom connectors, such as using Azure Functions and Logic Apps.
+
+        If any of these disadvantages are not a concern for your organization, continue with step 4. 
+
+### Step 4: Splitting billing / charge-back?
+
+If you need to split your billing or charge-back, consider whether the usage reporting or manual cross-charge works for you.
+
+- **If usage reporting or manual cross-charge works for you**, continue with step 6
 
 ### Decision tree notes
 
