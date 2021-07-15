@@ -1,7 +1,7 @@
 ---
-title: Secure a Restful service in your Azure AD B2C
+title: Secure APIs used as API connectors in Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Secure your custom REST APIs used as API connectors in Azure AD B2C.
+description: Secure your custom RESTful APIs used as API connectors in Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -15,7 +15,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Secure your API Connectors in Azure AD B2C
+# Secure your API used an API connector in Azure AD B2C user flows
 
 When integrating a REST API within an Azure AD B2C user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD B2C, can make calls to your endpoint. This article will explore how to secure REST API. 
 

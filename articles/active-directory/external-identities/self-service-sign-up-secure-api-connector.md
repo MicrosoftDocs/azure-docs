@@ -1,6 +1,6 @@
 ---
-title: Add API connectors to self-service sign-up flows - Azure AD
-description: Secure your custom REST APIs used as API connectors in self-service sign-up user flows.
+title: Secure APIs used as API connectors in Azure AD self-service sign-up user flows
+description: Secure your custom RESTful APIs used as API connectors in self-service sign-up user flows.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -14,7 +14,7 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Secure your API Connector 
+# Secure your API used an API connector in Azure AD External Identities self-service sign-up user flows
 
 When integrating a REST API within an Azure AD external identities self-service sign-up user flow, you must protect your REST API endpoint with authentication. The REST API authentication ensures that only services that have proper credentials, such as Azure AD, can make calls to your endpoint. This article will explore how to secure REST API. 
 
