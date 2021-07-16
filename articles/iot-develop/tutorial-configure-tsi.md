@@ -6,8 +6,8 @@ ms.author: dpalled
 manager: diviso
 ms.date: 10/14/2020
 ms.topic: tutorial
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 
 # Customer intent: As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---

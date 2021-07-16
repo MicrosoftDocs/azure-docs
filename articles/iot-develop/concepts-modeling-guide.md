@@ -5,8 +5,8 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 03/09/2021
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 
 #Customer intent: As a device builder, I want to understand how to design and author a DTDL model for an IoT Plug and Play device.
 

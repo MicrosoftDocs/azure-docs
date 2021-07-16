@@ -5,8 +5,8 @@ author: prashmo
 ms.author: prashmo
 ms.date: 12/17/2020
 ms.topic: how-to
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ---
 
 # Manage IoT Plug and Play digital twins

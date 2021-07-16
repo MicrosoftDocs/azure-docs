@@ -5,8 +5,8 @@ author: rido-min
 ms.author: rmpablos
 ms.date: 07/22/2020
 ms.topic: reference
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ms.custom: mvc
 ---
 

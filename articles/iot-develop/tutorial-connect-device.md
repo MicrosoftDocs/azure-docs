@@ -5,8 +5,8 @@ author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-seven
 
 #- id: programming-languages-set-twenty-seven
