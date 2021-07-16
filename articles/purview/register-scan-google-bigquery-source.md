@@ -65,7 +65,7 @@ On the Register sources (Google BigQuery) screen, do the following:
 
 3.  Select a collection or create a new one (Optional)
 
-4.  Finish to register the data source.
+4.  Click on **Register**.
     :::image type="content" source="media/register-scan-google-bigquery-source/configure-sources.png" alt-text="configure BigQuery source" border="true":::
 
 ## Creating and running a scan
