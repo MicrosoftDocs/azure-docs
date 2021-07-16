@@ -27,7 +27,7 @@ For more information, review the following articles:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Download and install the following tools, if you don't already have them:
 

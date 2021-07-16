@@ -18,38 +18,43 @@ For more introductory information, visit the Azure pages for [Azure Logic Apps](
 
 ## Azure Logic Apps
 
-This service provides simplified ways to design, develop, and orchestrate automated integration event-driven workflows that run and scale in the cloud. You can use the visual designer to quickly model business processes as workflows. 
+This service provides simplified ways to design, develop, and orchestrate automated event-driven integration workflows that run and scale in the cloud. With Azure Logic Apps, you can use a visual designer to quickly model business processes as workflows. A workflow always starts with a trigger as the first step. Following the trigger, one or more actions run subsequent operations in the workflow. These operations can include various combinations of actions, including conditional logic and data conversions.
 
-You can create logic app workflows that run in either multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or a dedicated integration service environment (ISE). Each have their own capabilities, benefits, and billing models.
+To connect your workflows to other Azure services, Microsoft services, cloud-based environments, and on-premises environments without writing any code, you can add prebuilt triggers and actions to your workflows by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors/), all managed by Microsoft. Each connector is actually a proxy or wrapper around an API, which lets the underlying service communicate with Azure Logic Apps. For example, the Office 365 Outlook connector offers a trigger named **When a new email arrives**. For serverless apps and solutions, you can use Azure Logic Apps to orchestrate multiple functions created in Azure Functions. By doing so, you can easily call various functions as a single process, especially when the process requires working with an external API or system.
 
+If no connector is available to meet your needs, you can use the built-in HTTP operation or Request trigger to communicate with any service endpoint. Or, you can create your own connector using an existing API.
 
-To connect your workflows to other Azure services, Microsoft services, cloud-based environments, and on-premises environments  - all without writing code, add prebuilt triggers and actions to your workflows by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors/). Every workflow starts with a event-driven trigger as the first step. For example, the Office 365 Outlook connector offers a trigger named **When a new email arrives**. If the trigger successfully fires, workflows can run various combinations of actions, including conditional logic and data conversions.
+Based on the logic app resource type that you choose, the associated workflow runs in either multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or a dedicated integration service environment (ISE). Each have their own capabilities, benefits, and billing models. The Azure portal provides the fastest way to get started creating logic app workflows. However, you can also use other tools such as Visual Studio Code, Visual Studio, Azure PowerShell, and others. For more information, review [What is Azure Logic Apps](logic-apps-overview.md)?
 
-Each connector is managed by Microsoft and is actually a proxy or wrapper around an API, which lets the underlying service communicate with Azure Logic Apps. If no connector is available to meet your needs, you can use a built-in operation, such as the HTTP action or Request trigger to communicate with any service endpoint, or you can create your own connector using an existing API.
+To get started with Azure Logic Apps, try a [quickstart to create your first logic app workflow in the Azure portal](quickstart-create-first-logic-app-workflow.md). Or, try these [steps that create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md).
 
-To deploy to Azure, just push the button to save your workflow. 
+For other information, review the following documentation:
 
-Azure Logic Apps is a great choice when orchestrating different Azure Functions in a process, especially when the process requires interacting with an external system or API.
-
-Although the Azure portal provides the fastest way to get started creating workflows, you can also  is using  can directly create workflows using the Azure portal, 
-
-
-To get started with Azure Logic Apps, start with [creating your first logic app](quickstart-create-first-logic-app-workflow.md). For more technical information about Azure Logic Apps, see the [developer reference](logic-apps-workflow-definition-language.md).
+* [What is Azure Logic Apps?](logic-apps-overview.md)
+* [About connectors in Azure Logic Apps](../connectors/apis-list.md)
+* [Connectors - Azure Logic Apps, Microsoft Power Automate, Microsoft Power Apps](/connectors/connectors)
+* [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+* [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
 
 ## Azure Functions
 
-Azure Functions is a service for easily running pieces of code or "functions" in the cloud. You can write only the code necessary for the current problem, without worrying about an entire app or the infrastructure required. Functions can make development even more productive, and you can use your development language of choice, such as C#, F#, Node.js, Python, or PHP. You pay only for the time your code runs and Azure scales as necessary.
+This service provides a simplified way to write and run pieces of code or *functions* in the cloud. You can write only the code you need for the current problem, without setting up a complete app or the required infrastructure, which makes development faster and more productive. Use your chosen development language, such as C#, Java, JavaScript, PowerShell, Python, and TypeScript. You're billed only for the duration when your code runs, and Azure scales as necessary.
 
-To get started with Azure Functions, start with [Create your first Azure Function](../azure-functions/functions-get-started.md). For more technical information about Functions, see the [developer reference](../azure-functions/functions-reference.md).
+To get started with Azure Functions, try [creating your first Azure function in the Azure portal](../azure-functions/functions-create-function-app-portal.md).
 
-## How can I build and deploy serverless apps in Azure?
+For other information, review the following documentation:
+
+* [What is Azure Functions?](../azure-functions/functions-overview.md)
+* [Getting started with Azure Functions](../azure-functions/functions-get-started.md)
+* [Supported languages in Azure Functions](../azure-functions/supported-languages.md)
+* [Azure Functions hosting options](../azure-functions/functions-scale.md)
+* [Azure Functions pricing](../azure-functions/pricing.md)
+
+## Get started with serverless apps in Azure
 
 Azure provides rich tools for developing, deploying, and managing serverless apps. You can create serverless apps using the Azure portal, Visual Studio, or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md). After you build your app, you can [deploy that app quickly with Azure Resource Manager templates](logic-apps-deploy-azure-resource-manager-templates.md). Azure also provides monitoring, which you can access through the Azure portal, through the API or SDKs, or with integrated tooling for Azure Monitor logs and Application Insights.
 
-create-serverless-app-visual-studio
-
 ## Next steps
 
-* [Build a serverless app in Visual Studio](create-serverless-app-visual-studio.md)
+* [Create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md)
 * [Create a customer insights dashboard with serverless](logic-apps-scenario-social-serverless.md)
-* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)
