@@ -326,6 +326,7 @@ namespace Function1
                         log.LogInformation($"Got BlobCreated event data, blob URI {storageBlobCreatedEventData.Url}");
                     }
                 }
+                // Handle the custom contoso event
                 else if (eventGridEvent.EventType == "Contoso.Items.ItemReceived")
                 {
                     var contosoEventData = eventGridEvent.Data.ToObjectFromJson<ContosoItemReceivedEventData>();
