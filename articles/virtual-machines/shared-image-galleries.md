@@ -23,7 +23,7 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 - Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
-Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
+Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within and outside your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
