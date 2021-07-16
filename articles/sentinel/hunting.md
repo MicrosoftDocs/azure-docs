@@ -130,7 +130,7 @@ The query language is powerful and has many available operators, some useful one
 
 **find** - Find rows that match a predicate across a set of tables.
 
-**adx() (function, preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Azure Sentinel hunting experience and Log Analytics. For further information see [here]().
+**adx() (preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Azure Sentinel hunting experience and Log Analytics. For further information see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
 ## Save a query
 
