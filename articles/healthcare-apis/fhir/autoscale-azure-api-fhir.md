@@ -29,13 +29,13 @@ When autoscale is enabled, the system calculates and sets the initial Tmax value
 
 You can increase the max RU/s or Tmax value and go as high as the service supports. When the service is busy, the throughput RU/s are scaled up to Tmax value. When the service is idle, the throughput RU/s are scaled down to 10% Tmax value.
 
-You can also decrease the max RU/s or Tmax value. When you lower the max RU/s, the minimum value you can set it to is: MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 400), rounded to the nearest 1000 RU/s.
+You can also decrease the max RU/s or Tmax value. When you lower the max RU/s, the minimum value you can set it to is: MAX (4000, highest max RU/s ever provisioned / 10, current storage in GB * 400), rounded to the nearest 1000 RU/s.
 
-* **Example 1**: You have 1 GB data and the highest provisioned RU/s is 10,000. The minimum value is Max(**4000**, 10,000/10, 1x400) = 4000. The first number, **4000**, is used.
+* **Example 1**: You have 1 GB data and the highest provisioned RU/s is 10,000. The minimum value is Max (**4000**, 10,000/10, 1x400) = 4000. The first number, **4000**, is used.
 
-* **Example 2**: You have 20 GB data and the highest provisioned RU/s is 100,000. The minimum value is Max(4000, **100,000/10**, 20x400) = 10,000. The second number, **100,000/10=10,000**, is used.
+* **Example 2**: You have 20 GB data and the highest provisioned RU/s is 100,000. The minimum value is Max (4000, **100,000/10**, 20x400) = 10,000. The second number, **100,000/10=10,000**, is used.
 
-* **Example 3**: You have 80 GB data and the highest provisioned RU/s is 300,000. The minimum value is Max(4000, 300,000/10, **80x400**) = 32,000. The third number, **80x400=32,000**, is used.
+* **Example 3**: You have 80 GB data and the highest provisioned RU/s is 300,000. The minimum value is Max (4000, 300,000/10, **80x400**) = 32,000. The third number, **80x400=32,000**, is used.
 
 You can request to adjust the max RU/s or Tmax value through a support ticket.
 
