@@ -224,7 +224,7 @@
         href: logic-apps-enterprise-integration-x12-ta1-acknowledgment-error-codes.md
       - name: X12 997 Acknowledgment
         href: logic-apps-enterprise-integration-x12-997-acknowledgment.md
-      - name: X12 997 Acknowledgment Error codes
+      - name: X12 997 Acknowledgment error codes
         href: logic-apps-enterprise-integration-x12-997-acknowledgment-error-codes.md
     - name: Batch and send EDI messages
       href: logic-apps-scenario-edi-send-batch-messages.md
