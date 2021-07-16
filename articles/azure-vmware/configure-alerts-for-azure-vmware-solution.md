@@ -10,7 +10,7 @@ ms.date: 04/02/2021
 In this article, you'll learn how to configure [Azure Action Groups](../azure-monitor/alerts/action-groups.md) in [Microsoft Azure Alerts](../azure-monitor/alerts/alerts-overview.md) to receive notifications of triggered events that you define. You'll also learn about using [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) to gain deeper insights into your Azure VMware Solution private cloud.
 
 >[!NOTE]
->Incidents of host failure and restoration will automatically be sent to the Owners of the Azure subscription that holds the Azure Vmware Solution private cloud(s).
+>Incidents affecting availability of an Azure VMware Solution host and its corresponding restoration will automatically be sent to the Account Administrator, Service Administrator (Classic Permission), Co-Admins (Classic Permission), and Owners (RBAC Role) of the subscription(s) containing Azure VMware Solution private clouds.
 
 ## Supported metrics and activities
 
