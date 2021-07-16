@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 06/10/2021
+ms.date: 07/15/2021
 ms.custom: references_regions
 ---
 
@@ -53,7 +53,6 @@ The information in the rest of this document provides information on what featur
 | Jupyter, JupyterLab Integration                                            | GA                   | YES                | YES         |
 | Virtual Network (VNet) support                                             | Public Preview       | YES                | YES         |
 | **SDK support** |  |  | | 
-| [R SDK support](https://azure.github.io/azureml-sdk-for-r/reference/index.html)                                                              | Public Preview       | YES                | YES         |
 | [Python SDK support](/python/api/overview/azure/ml/)                                                         | GA                   | YES                | YES         |
 | **[Security](concept-enterprise-security.md)** |   | | | 
 | Virtual Network (VNet) support for training                                | GA                   | YES                | YES         |
@@ -97,9 +96,8 @@ The information in the rest of this document provides information on what featur
 | [Batch inferencing](tutorial-pipeline-batch-scoring-classification.md)                                                          | GA                   | YES                | YES         |
 | [Data Box Edge with FPGA](how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server)                                                    | Public Preview       | NO                 | NO          |
 | **Other** |   | | |
-| [Open Datasets](/azure/open-datasets/samples)                                                              | Public Preview       | YES                | YES         |
+| [Open Datasets](../open-datasets/samples.md)                                                              | Public Preview       | YES                | YES         |
 | [Custom Cognitive Search](how-to-deploy-model-cognitive-search.md)                                                    | Public Preview       | YES                | YES         |
-| [Many Models Solution Accelerator](https://github.com/microsoft/solution-accelerator-many-models)                                                                | Public Preview       | NO                 | NO          |
 
 
 ### Azure Government scenarios
@@ -162,11 +160,10 @@ The information in the rest of this document provides information on what featur
 | R and Python support                                                       | GA               | YES       | N/A        |
 | Virtual Network support                                                    | Public Preview   | NO        | N/A        |
 | **Compute instance** |    | | |
-| Managed compute Instances for integrated Notebooks                         | GA               | NO        | N/A        |
+| Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
 | Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
 | **SDK support** |    | | |
-| R SDK support                                                              | Public Preview   | YES       | N/A        |
 | Python SDK support                                                         | GA               | YES       | N/A        |
 | **Security** |   | | |
 | Virtual Network (VNet) support for training                                | GA               | YES       | N/A        |
@@ -212,7 +209,6 @@ The information in the rest of this document provides information on what featur
 | **Other** |    | | |
 | Open Datasets                                                              | Public Preview   | YES       | N/A        |
 | Custom Cognitive Search                                                    | Public Preview   | YES       | N/A        |
-| Many Models                                                                | Public Preview   | NO        | N/A        |
 
 
 

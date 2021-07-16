@@ -183,7 +183,7 @@ This role also grants the ability to consent for delegated permissions and appli
 
 ## Application Developer
 
-Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also grants permission to consent on one's own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Users assigned to this role are added as owners when creating new application registrations or enterprise applications.
+Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also grants permission to consent on one's own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Users assigned to this role are added as owners when creating new application registrations.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
