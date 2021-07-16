@@ -10,7 +10,7 @@ ms.topic: reference
 ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
-ms.date: 06/10/2021
+ms.date: 07/15/2021
 ms.custom: references_regions
 ---
 
@@ -160,7 +160,7 @@ The information in the rest of this document provides information on what featur
 | R and Python support                                                       | GA               | YES       | N/A        |
 | Virtual Network support                                                    | Public Preview   | NO        | N/A        |
 | **Compute instance** |    | | |
-| Managed compute Instances for integrated Notebooks                         | GA               | NO        | N/A        |
+| Managed compute Instances for integrated Notebooks                         | GA               | YES        | N/A        |
 | Jupyter, JupyterLab Integration                                            | GA               | YES       | N/A        |
 | Virtual Network (VNet) support                                             | Public Preview   | YES       | N/A        |
 | **SDK support** |    | | |
