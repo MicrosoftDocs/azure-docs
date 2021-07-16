@@ -10,7 +10,7 @@ ms.date: 06/02/2021
 ---
 
 # Monitoring Azure Kubernetes Service (AKS) - Analyze data
-This article is part of the Monitoring AKS in Azure Monitor scenario. This article describes the different features of Azure Monitor that allow you to analyze the health and performance of your AKS clusters. It's broken down into the layers described in [Layers of monitoring](monitor-aks.md#lasyers-of-monitoring).
+This article is part of the Monitoring AKS in Azure Monitor scenario. This article describes the different features of Azure Monitor that allow you to analyze the health and performance of your AKS clusters. It's broken down into the layers described in [Layers of monitoring](monitor-aks.md#layers-of-monitoring).
 
 
 ## Layers of monitoring
