@@ -9,6 +9,8 @@ ms.date: 04/02/2021
 
 In this article, you'll learn how to configure [Azure Action Groups](../azure-monitor/alerts/action-groups.md) in [Microsoft Azure Alerts](../azure-monitor/alerts/alerts-overview.md) to receive notifications of triggered events that you define. You'll also learn about using [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md) to gain deeper insights into your Azure VMware Solution private cloud.
 
+>[!NOTE]
+>Owners of the subscription that Azure VMware Solution private clouds are deployed to will automatically receive email alerts for host failure and restoration.
 
 ## Supported metrics and activities
 
