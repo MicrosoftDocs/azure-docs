@@ -29,7 +29,7 @@ Follow the steps below to set up a serial connection to your Azure Percept DK th
 
 1. Connect the [USB to TTL serial cable](https://www.adafruit.com/product/954) to the three GPIO pins on the motherboard as shown below.
 
-    :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/apdk-GPIO-pins.jpg" alt-text="Carrier board serial pin connections.":::
+    :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/apdk-gpio-pins.jpg" alt-text="Carrier board serial pin connections.":::
 
 1. Power on your dev kit and connect the USB side of the serial cable to your PC.
 
