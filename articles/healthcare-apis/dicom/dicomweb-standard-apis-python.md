@@ -43,7 +43,7 @@ After you've deployed an instance of the DICOM service, retrieve the URL for you
 1. Sign into the [Azure portal](https://ms.portal.azure.com/).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service.
-1. If you haven't already obtained a token, see Get access token for the DICOM service using Azure CLI document. 
+2. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
 For this code, we'll be accessing an Public Preview Azure service. It is important that you don't upload any private health information (PHI).
 
@@ -57,12 +57,14 @@ First, import the necessary Python libraries.
 
 We've chosen to implement this example using the synchronous `requests` library. For asynchronous support, consider using `httpx` or another async library. Additionally, we're importing two supporting functions from `urllib3` to support working with `multipart/related` requests.
 
+Additionally, we're importing `DefaultAzureCredential` to log into Azure and get a token.
 
 ```python
 import requests
 import pydicom
 from pathlib import Path
 from urllib3.filepost import encode_multipart_formdata, choose_boundary
+from azure.identity import DefaultAzureCredential
 ```
 
 ### Configure user-defined variables to be used throughout
@@ -73,11 +75,30 @@ Replace all variable values wrapped in { } with your own values. Additionally, v
 dicom_service_name = "{server-name}"
 path_to_dicoms_dir = "{path to the folder that includes green-square.dcm and other dcm files}"
 
-base_url = f"https://{dicom_service_name}.azurewebsites.net"
+base_url = f"https://{dicom_service_name}.dicom.azurehealthcareapis.com"
 
 study_uid = "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"; #StudyInstanceUID for all 3 examples
 series_uid = "1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"; #SeriesInstanceUID for green-square and red-triangle
 instance_uid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395"; #SOPInstanceUID for red-triangle
+```
+
+### Authenticate to Azure and get a token
+
+`DefaultAzureCredential` allows us to get a variety of ways to get tokens to log into the service. We will use the `AzureCliCredential` to get a token to log into the service. There are other credential providers such as `ManagedIdentityCredential` and `EnvironmentCredential` that are also possible to use. In order to use the AzureCliCredential, you must have logged into Azure from the CLI prior to running this code. (See [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md) for more information.) Alternatively, you can simply copy and paste the token retrieved while logging in from the CLI.
+
+> [!NOTE]
+> `DefaultAzureCredential` returns several different Credential objects. We reference the `AzureCliCredential` as the 5th item in the returned collection. This may not be consistent. If so, uncomment the `print(credential.credential)` line. This will list all the items. Find the correct index, recalling that Python uses zero-based indexing.
+
+> [!NOTE]
+> If you have not logged into Azure using the CLI, this will fail. You must be logged into Azure from the CLI for this to work. 
+
+```python
+from azure.identity import DefaultAzureCredential
+credential = DefaultAzureCredential()
+
+#print(credential.credentials) # this can be used to find the index of the AzureCliCredential
+token = credential.credentials[4].get_token('https://dicom.healthcareapis.azure.com')
+bearer_token = f'Bearer {token.token}'
 ```
 
 ### Create supporting methods to support `multipart\related`
@@ -105,6 +126,20 @@ Creates a `requests` session, called `client`, that will be used to communicate 
 ```python
 client = requests.session()
 ```
+
+### Verify authentication is configured correctly
+
+Call the changefeed API endpoint, which will return a 200 if authentication is successful.
+
+```python
+headers = {"Authorization":bearer_token}
+url= f'{base_url}/changefeed'
+
+response = client.get(url,headers=headers)
+if (response.status_code != 200):
+    print('Error! Likely not authenticated!')
+```
+
 ## Uploading DICOM Instances (STOW)
 
 The following examples highlight persisting DICOM files.
@@ -120,7 +155,7 @@ _Details:_
 * Headers:
     * Accept: application/dicom+json
     * Content-Type: multipart/related; type="application/dicom"
-     * Authorization: Bearer $token"
+    * Authorization: Bearer $token"
 
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
@@ -134,7 +169,7 @@ Some programming languages and tools behave differently. For instance, some of t
 #upload blue-circle.dcm
 filepath = Path(path_to_dicoms_dir).joinpath('blue-circle.dcm')
 
-# Hack. Need to open up and read through file and load bytes into memory 
+# Read through file and load bytes into memory 
 with open(filepath,'rb') as reader:
     rawfile = reader.read()
 files = {'file': ('dicomfile', rawfile, 'application/dicom')}
@@ -142,7 +177,7 @@ files = {'file': ('dicomfile', rawfile, 'application/dicom')}
 #encode as multipart_related
 body, content_type = encode_multipart_related(fields = files)
 
-headers = {'Accept':'application/dicom+json', "Content-Type":content_type}
+headers = {'Accept':'application/dicom+json', "Content-Type":content_type, "Authorization":bearer_token}
 
 url = f'{base_url}/studies'
 response = client.post(url, body, headers=headers, verify=False)
@@ -160,6 +195,7 @@ _Details:_
 * Headers:
     * Accept: application/dicom+json
     * Content-Type: multipart/related; type="application/dicom"
+    * Authorization: Bearer $token"
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
@@ -181,7 +217,7 @@ files = {'file_red': ('dicomfile', rawfile_red, 'application/dicom'),
 #encode as multipart_related
 body, content_type = encode_multipart_related(fields = files)
 
-headers = {'Accept':'application/dicom+json', "Content-Type":content_type}
+headers = {'Accept':'application/dicom+json', "Content-Type":content_type, "Authorization":bearer_token}
 
 url = f'{base_url}/studies'
 response = client.post(url, body, headers=headers, verify=False)
@@ -196,6 +232,7 @@ _Details:_
 * Headers:
    *  Accept: application/dicom+json
    *  Content-Type: application/dicom
+   *  Authorization: Bearer $token"
 * Body:
     * Contains a single DICOM file as binary bytes.
 
@@ -207,7 +244,7 @@ filepath = Path(path_to_dicoms_dir).joinpath('blue-circle.dcm')
 with open(filepath,'rb') as reader:
     body = reader.read()
 
-headers = {'Accept':'application/dicom+json', 'Content-Type':'application/dicom'}
+headers = {'Accept':'application/dicom+json', 'Content-Type':'application/dicom', "Authorization":bearer_token}
 
 url = f'{base_url}/studies'
 response = client.post(url, body, headers=headers, verify=False)
@@ -227,12 +264,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
+   * Authorization: Bearer $token"
 
 All three of the dcm files that we uploaded previously are part of the same study so the response should return all three instances. Validate that the response has a status code of OK and that all three instances are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}'
-headers = {'Accept':'multipart/related; type="application/dicom"; transfer-syntax=*'}
+headers = {'Accept':'multipart/related; type="application/dicom"; transfer-syntax=*', "Authorization":bearer_token}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
@@ -266,13 +304,14 @@ _Details:_
 * Path: ../studies/{study}/metadata
 * Method: GET
 * Headers:
-   * `Accept: application/dicom+json`
+   * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 All three of the `.dcm` files that we uploaded previously are part of the same study so the response should return the metadata for all three instances. Validate that the response has a status code of OK and that all the metadata is returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/metadata'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
@@ -286,12 +325,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
+   * Authorization: Bearer $token"
 
 This series has two instances (green-square and red-triangle), so the response should return both instances. Validate that the response has a status code of OK and that both instances are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}'
-headers = {'Accept':'multipart/related; type="application/dicom"; transfer-syntax=*'}
+headers = {'Accept':'multipart/related; type="application/dicom"; transfer-syntax=*', "Authorization":bearer_token}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
@@ -305,12 +345,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 This series has two instances (green-square and red-triangle), so the response should return for both instances. Validate that the response has a status code of OK and that both instances metadata are returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/metadata'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
@@ -324,12 +365,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom; transfer-syntax=*
+   * Authorization: Bearer $token"
 
 This code example should only return the instance red-triangle. Validate that the response has a status code of OK and that the instance is returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/instances/{instance_uid}'
-headers = {'Accept':'application/dicom; transfer-syntax=*'}
+headers = {'Accept':'application/dicom; transfer-syntax=*', "Authorization":bearer_token}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
@@ -343,12 +385,13 @@ _Details:_
 * Method: GET
 * Headers:
   * Accept: application/dicom+json
+  * Authorization: Bearer $token"
 
 This code example should only return the metadata for the instance red-triangle. Validate that the response has a status code of OK and that the metadata is returned.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/metadata'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
@@ -361,6 +404,7 @@ _Details:_
 * Path: ../studies/{study}/series{series}/instances/{instance}/frames/1,2,3
 * Method: GET
 * Headers:
+   * Authorization: Bearer $token"
    * `Accept: multipart/related; type="application/octet-stream"; transfer-syntax=1.2.840.10008.1.2.1` (Default) or
    * `Accept: multipart/related; type="application/octet-stream"; transfer-syntax=*` or
    * `Accept: multipart/related; type="application/octet-stream";`
@@ -369,7 +413,7 @@ This code example should return the only frame from the red-triangle. Validate t
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/instances/{instance_uid}/frames/1'
-headers = {'Accept':'multipart/related; type="application/octet-stream"; transfer-syntax=*'}
+headers = {'Accept':'multipart/related; type="application/octet-stream"; transfer-syntax=*', "Authorization":bearer_token}
 
 response = client.get(url, headers=headers) #, verify=False)
 ```
@@ -389,12 +433,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 Validate that the response includes one study and that the response code is OK.
 
 ```python
 url = f'{base_url}/studies'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 params = {'StudyInstanceUID':study_uid}
 
 response = client.get(url, headers=headers, params=params) #, verify=False)
@@ -409,12 +454,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 Validate that the response includes one series and that the response code is OK.
 
 ```python
 url = f'{base_url}/series'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 params = {'SeriesInstanceUID':series_uid}
 
 response = client.get(url, headers=headers, params=params) #, verify=False)
@@ -429,12 +475,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 Validate that the response includes one series and that the response code is OK.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/series'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 params = {'SeriesInstanceUID':series_uid}
 
 response = client.get(url, headers=headers, params=params) #, verify=False)
@@ -449,12 +496,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 Validate that the response includes one instance and that the response code is OK.
 
 ```python
 url = f'{base_url}/instances'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 params = {'SOPInstanceUID':instance_uid}
 
 response = client.get(url, headers=headers, params=params) #, verify=False)
@@ -469,12 +517,13 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 Validate that the response includes one instance and that the response code is OK.
 
 ```python
 url = f'{base_url}/studies/{study_uid}/instances'
-headers = {'Accept':'application/dicom+json'}
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
 params = {'SOPInstanceUID':instance_uid}
 
 response = client.get(url, headers=headers, params=params) #, verify=False)
@@ -489,6 +538,7 @@ _Details:_
 * Method: GET
 * Headers:
    * Accept: application/dicom+json
+   * Authorization: Bearer $token"
 
 Validate that the response includes one instance and that the response code is OK.
 
@@ -514,14 +564,15 @@ This request deletes a single instance within a single study and single series.
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances/{instance}
 * Method: DELETE
-* Headers: No special headers needed
+* Headers:
+   * Authorization: Bearer $token
 
 This request deletes the red-triangle instance from the server. If it's successful, the response status code contains no content.
 
 ```python
-#headers = {'Accept':'anything/at+all'}
+headers = {"Authorization":bearer_token}
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}/instances/{instance_uid}'
-response = client.delete(url) 
+response = client.delete(url, headers=headers) 
 ```
 
 ### Delete a specific series within a study
@@ -531,14 +582,15 @@ This request deletes a single series (and all child instances) within a single s
 _Details:_
 * Path: ../studies/{study}/series/{series}
 * Method: DELETE
-* Headers: No special headers needed
+* Headers:
+   * Authorization: Bearer $token
 
 This code example deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code won't content.
 
 ```python
-#headers = {'Accept':'anything/at+all'}
+headers = {"Authorization":bearer_token}
 url = f'{base_url}/studies/{study_uid}/series/{series_uid}'
-response = client.delete(url) 
+response = client.delete(url, headers=headers) 
 ```
 
 ### Delete a specific study
@@ -548,12 +600,13 @@ This request deletes a single study (and all child series and instances).
 _Details:_
 * Path: ../studies/{study}
 * Method: DELETE
-* Headers: No special headers needed
+* Headers:
+   * Authorization: Bearer $token
 
 ```python
-#headers = {'Accept':'anything/at+all'}
+headers = {"Authorization":bearer_token}
 url = f'{base_url}/studies/{study_uid}'
-response = client.delete(url) 
+response = client.delete(url, headers=headers) 
 ```
 
 ### Next Steps
