@@ -64,6 +64,7 @@ Here are the domains and ports that will need to be allowed through corporate an
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
 | `*.servicebus.windows.net` | 443            | Used by the self-hosted integration runtime to connect to the managed Event Hubs resource. |
+| `*.queue.windows.net` | 443            | Queues used by purview to run the scan process. |
 | Key Vault URI (found in the Azure Portal) | 443           | Required if any credentials are stored in Azure Key Vault. |
 
 ## Manage a self-hosted integration runtime
