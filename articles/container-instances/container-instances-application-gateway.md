@@ -1,13 +1,13 @@
 ---
 title: Static IP address for container group
-description: Create a container group in a virtual network and use an Azure application gateway to expose a static frontend IP address to a containerized web app 
+description: Create a container group in a virtual network and use an Azure application gateway to expose a static frontend IP address to a containerized web app
 ms.topic: article
 ms.date: 03/16/2020
 ---
 
 # Expose a static IP address for a container group
 
-This article shows one way to expose a static, public IP address for a [container group](container-instances-container-groups.md) by using an Azure [application gateway](../application-gateway/overview.md). Follow these steps when you need a static entry point for an external-facing containerized app that runs in Azure Container Instances. 
+This article shows one way to expose a static, public IP address for a [container group](container-instances-container-groups.md) by using an Azure [application gateway](../application-gateway/overview.md). Follow these steps when you need a static entry point for an external-facing containerized app that runs in Azure Container Instances.
 
 In this article you use the Azure CLI to create the resources for this scenario:
 
@@ -26,7 +26,7 @@ In a typical case, you might already have an Azure virtual network. If you don't
 
 If you need one, create an Azure resource group. For example:
 
-```azureci
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -64,9 +64,9 @@ az network public-ip create \
 
 ## Create container group
 
-Run the following [az container create][az-container-create] to create a container group in the virtual network you configured in the previous step. 
+Run the following [az container create][az-container-create] to create a container group in the virtual network you configured in the previous step.
 
-The group is deployed in the *myACISubnet* subnet and contains a single instance named *appcontainer* that pulls the `aci-helloworld` image. As shown in other articles in the documentation, this image packages a small web app written in Node.js that serves a static HTML page. 
+The group is deployed in the *myACISubnet* subnet and contains a single instance named *appcontainer* that pulls the `aci-helloworld` image. As shown in other articles in the documentation, this image packages a small web app written in Node.js that serves a static HTML page.
 
 ```azurecli
 az container create \
@@ -114,14 +114,14 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ACI_IP" 
+  --servers "$ACI_IP"
 ```
 
 
-It can take up to 15 minutes for Azure to create the application gateway. 
+It can take up to 15 minutes for Azure to create the application gateway.
 
 ## Test public IP address
-  
+
 Now you can test access to the web app running in the container group behind the application gateway.
 
 Run the [az network public-ip show][az-network-public-ip-show] command to retrieve the frontend public IP address of the gateway:
@@ -142,7 +142,7 @@ To view the running web app when successfully configured, navigate to the gatewa
 
 ## Next steps
 
-* See a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) to create a container group with a WordPress container instance as a backend server behind an application gateway.
+* See a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet) to create a container group with a WordPress container instance as a backend server behind an application gateway.
 * You can also configure an application gateway with a certificate for SSL termination. See the [overview](../application-gateway/ssl-overview.md) and the [tutorial](../application-gateway/create-ssl-portal.md).
 * Depending on your scenario, consider using other Azure load-balancing solutions with Azure Container Instances. For example, use [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) to distribute traffic across multiple container instances and across multiple regions. See this [blog post](https://aaronmsft.com/posts/azure-container-instances/).
 

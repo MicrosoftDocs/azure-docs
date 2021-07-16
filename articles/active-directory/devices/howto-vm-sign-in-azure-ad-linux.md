@@ -6,13 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 06/30/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
 ms.collection: M365-identity-device-management
 ---
 # Preview: Login to a Linux virtual machine in Azure with Azure Active Directory using SSH certificate-based authentication
@@ -50,8 +50,9 @@ The following Linux distributions are currently supported during the preview of 
 The following Azure regions are currently supported during the preview of this feature:
 
 - Azure Global
-- Azure Government
-- Azure China
+
+> [!Note]
+> The preview of this feature will be supported in Azure Government and Azure China by June of 2021.
  
 It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
 
@@ -67,24 +68,24 @@ VM network configuration must permit outbound access to the following endpoints 
 
 For Azure Global
 
-- https://packages.microsoft.com – For package installation and upgrades.
-- http://169.254.169.254 – Azure Instance Metadata Service endpoint.
-- https://login.microsoftonline.com – For PAM (pluggable authentication modules) based authentication flows.
-- https://pas.windows.net – For Azure RBAC flows.
+- `https://packages.microsoft.com` – For package installation and upgrades.
+- `http://169.254.169.254` – Azure Instance Metadata Service endpoint.
+- `https://login.microsoftonline.com` – For PAM (pluggable authentication modules) based authentication flows.
+- `https://pas.windows.net` – For Azure RBAC flows.
 
 For Azure Government
 
-- https://packages.microsoft.com – For package installation and upgrades.
-- http://169.254.169.254 – Azure Instance Metadata Service endpoint.
-- https://login.microsoftonline.us – For PAM (pluggable authentication modules) based authentication flows.
-- https://pasff.usgovcloudapi.net – For Azure RBAC flows.
+- `https://packages.microsoft.com` – For package installation and upgrades.
+- `http://169.254.169.254` – Azure Instance Metadata Service endpoint.
+- `https://login.microsoftonline.us` – For PAM (pluggable authentication modules) based authentication flows.
+- `https://pasff.usgovcloudapi.net` – For Azure RBAC flows.
 
 For Azure China
 
-- https://packages.microsoft.com – For package installation and upgrades.
-- http://169.254.169.254 – Azure Instance Metadata Service endpoint.
-- https://login.chinacloudapi.cn – For PAM (pluggable authentication modules) based authentication flows.
-- https://pas.chinacloudapi.cn – For Azure RBAC flows.
+- `https://packages.microsoft.com` – For package installation and upgrades.
+- `http://169.254.169.254` – Azure Instance Metadata Service endpoint.
+- `https://login.chinacloudapi.cn` – For PAM (pluggable authentication modules) based authentication flows.
+- `https://pas.chinacloudapi.cn` – For Azure RBAC flows.
 
 ### Virtual machine
 
@@ -184,12 +185,18 @@ There are multiple ways you can configure role assignments for VM, as an example
 
 To configure role assignments for your Azure AD enabled Linux VMs:
 
-1. Navigate to the virtual machine to be configured.
-1. Select **Access control (IAM)** from the menu options.
-1. Select **Add**, **Add role assignment** to open the Add role assignment pane.
-1. In the **Role** drop-down list, select the role **Virtual Machine Administrator Login** or **Virtual Machine User Login**.
-1. In the **Select** field, select a user, group, service principal, or managed identity. If you do not see the security principal in the list, you can type in the **Select** box to search the directory for display names, email addresses, and object identifiers.
-1. Select **Save**, to assign the role.
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | **Virtual Machine Administrator Login** or **Virtual Machine User Login** |
+    | Assign access to | User, group, service principal, or managed identity |
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 After a few moments, the security principal is assigned the role at the selected scope.
  
@@ -354,7 +361,7 @@ az ssh vm --ip 10.11.123.456
 For customers who are using previous version of Azure AD login for Linux that was based on device code flow, complete the following steps.
 
 1. Uninstall the AADLoginForLinux extension on the VM.
-   1. Using Azure CLI: `az vm extension delete -g MyResourceGroup -n MyVm -n AADLoginForLinux`
+   1. Using Azure CLI: `az vm extension delete -g MyResourceGroup --vm-name MyVm -n AADLoginForLinux`
 1. Enable System assigned managed identity on your VM.
    1. Using Azure CLI: `az vm identity assign -g myResourceGroup -n myVm`
 1. Install the AADSSHLoginForLinux extension on the VM
@@ -366,6 +373,9 @@ For customers who are using previous version of Azure AD login for Linux that wa
                 --resource-group myResourceGroup \
                 --vm-name myVM
       ```
+## Using Azure Policy to ensure standards and assess compliance
+
+Use Azure policy to ensure Azure AD login is enabled for your new and existing Linux virtual machines and assess compliance of your environment at scale on your Azure policy compliance dashboard. With this capability, you can use many levels of enforcement: you can flag new and existing Linux VMs within your environment that do not have Azure AD login enabled. You can also use Azure policy to deploy the Azure AD extension on new Linux VMs that do not have Azure AD login enabled, as well as remediate existing Linux VMs to the same standard. In addition to these capabilities, you can also use policy to detect and flag Linux VMs that have non-approved local accounts created on their machines. To learn more, review [Azure policy](https://www.aka.ms/AzurePolicy).
 
 ## Troubleshoot sign-in issues
 
@@ -429,10 +439,6 @@ Solution 2: Perform these actions:
 ### Virtual machine scale set Connection Issues
 
 Virtual machine scale set VM connections may fail if the virtual machine scale set instances are running an old model. Upgrading virtual machine scale set instances to the latest model may resolve issues, especially if an upgrade has not been done since the Azure AD Login extension was installed. Upgrading an instance applies a standard virtual machine scale set configuration to the individual instance.
-
-### Other limitations
-
-Users that inherit access rights through nested groups or role assignments aren't currently supported. The user or group must be directly assigned the required role assignments. For example, the use of management groups or nested group role assignments won't grant the correct permissions to allow the user to sign in.
 
 ## Preview feedback
 

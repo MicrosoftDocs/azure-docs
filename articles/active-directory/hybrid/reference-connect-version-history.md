@@ -87,12 +87,13 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
    - Added member attribute to the 'Out to AD - Group SOAInAAD - Exchange' rule to limit members in written back groups to 50k
  - Updated Sync Rules to support Group Writeback v2
    -If the “In from AAD - Group SOAInAAD” rule is cloned and AADConnect is upgraded.
-     -The updated rule will be disabled by default and so the targetWritebackType will be null.
+     - The updated rule will be disabled by default and so the targetWritebackType will be null.
      - AADConnect will writeback all Cloud Groups (including Azure Active Directory Security Groups enabled for writeback) as Distribution Groups.
    -If the “Out to AD - Group SOAInAAD” rule is cloned and AADConnect is upgraded.
      - The updated rule will be disabled by default. However, a new sync rule “Out to AD - Group SOAInAAD - Exchange” which is added will be enabled.
      - Depending on the Cloned Custom Sync Rule's precedence, AADConnect will flow the Mail and Exchange attributes.
      - If the Cloned Custom Sync Rule does not flow some Mail and Exchange attributes, then new Exchange Sync Rule will add those attributes.
+     - Note that Group Writeback V2 is in private preview at this moment and not publicly available.
  - Added support for [Selective Password hash Synchronization](./how-to-connect-selective-password-hash-synchronization.md)
  - Added the new [Single Object Sync cmdlet](./how-to-connect-single-object-sync.md). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
  -  Azure AD Connect now supports the Hybrid Identity Administrator role for configuring the service.
@@ -260,7 +261,6 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 ### New features and improvements
 - We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from Azure AD to Azure AD Domain Services.
 - We added support for reliable sessions between the authentication agent and service bus.
-- This release enforces TLS 1.2 for communication between authentication agent and cloud services.
 - We added a DNS cache for websocket connections between authentication agent and cloud services.
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 

@@ -12,6 +12,8 @@ ms.custom: references_regions, devx-track-azurecli
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure CLI.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites

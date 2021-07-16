@@ -23,6 +23,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
 
+* For example to check the current subscription quota of the smallest supported virtual machine familly SKU "Standard DSv3":
+
+    ```azurecli-interactive
+    LOCATION=eastus
+    az vm list-usage -l $LOCATION \
+    --query "[?contains(name.value, 'standardDSv3Family')]" \
+    -o table
+    ```
+
 ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
 ### Verify your permissions

@@ -1,8 +1,9 @@
 ---
 title: Monitor delegation changes in your managing tenant
-description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 02/18/2021
-ms.topic: how-to
+description: Learn how to monitor all Azure Lighthouse delegation activity to your managing tenant. 
+ms.date: 05/11/2021
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor delegation changes in your managing tenant
@@ -175,6 +176,6 @@ else {
 
 ## Next steps
 
-- Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
+- Learn how to [onboard customers to Azure Lighthouse](onboard-customer.md).
 - Learn about [Azure Monitor](../../azure-monitor/index.yml) and the [Azure activity log](../../azure-monitor/essentials/platform-logs-overview.md).
 - Review the [Activity Logs by Domain](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) sample workbook to learn how to display Azure Activity logs across subscriptions with an option to filter them by domain name.

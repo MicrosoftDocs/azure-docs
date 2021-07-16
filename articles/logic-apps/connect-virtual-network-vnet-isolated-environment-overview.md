@@ -1,28 +1,38 @@
 ---
-title: Access to Azure virtual networks
-description: Overview about how integration service environments (ISEs) help logic apps access Azure virtual networks (VNETs)
+title: Overview - Access to Azure virtual networks
+description: Learn about accessing Azure virtual networks (VNETs) from Azure Logic Apps using an integration service environment (ISE)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 05/16/2021
 ---
 
-# Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
+# Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
 
-Sometimes, your logic apps need access to secured resources, such as virtual machines (VMs) and other systems or services, that are inside or connected to an [Azure virtual network](../virtual-network/virtual-networks-overview.md). To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). An ISE is an instance of the Logic Apps service that uses dedicated resources and runs separately from the "global" multi-tenant Logic Apps service. Data in an ISE stays in the [same region where you create and deploy that ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Sometimes, your logic app workflows need access to protected resources, such as virtual machines (VMs) and other systems or services, that are inside or connected to an Azure virtual network. To directly access these resources from workflows that usually run in multi-tenant Azure Logic Apps, you can create and run your logic apps in an *integration service environment* (ISE) instead. An ISE is actually an instance of Azure Logic Apps that runs separately on dedicated resources, apart from the global multi-tenant Azure environment.
 
-For example, some Azure virtual networks use private endpoints, which you can set up through [Azure Private Link](../private-link/private-link-overview.md), to provide access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, partner services, or customer services that are hosted on Azure. If your logic apps need access to virtual networks that use private endpoints, you must create, deploy, and run those logic apps inside an ISE.
+For example, some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, partner services, or customer services that are hosted on Azure. If your logic app workflows require access to virtual networks that use private endpoints, you have these options:
 
-When you create an ISE, Azure *injects* or deploys that ISE into your Azure virtual network. You can then use this ISE as the location for the logic apps and integration accounts that need access.
+* If you want to develop workflows using the **Logic App (Consumption)** resource type, and your workflows need to use private endpoints, you *must* create, deploy, and run your logic apps in an ISE. For more information, review [Connect to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
+* If you want to develop workflows using the **Logic App (Standard)** resource type, and your workflows need to use private endpoints, you don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+For more information, review the [differences between multi-tenant Azure Logic Apps and integration service environments](logic-apps-overview.md#resource-environment-differences).
+
+## How an ISE works with a virtual network
+
+When you create an ISE, you select the Azure virtual network where you want Azure to *inject* or deploy your ISE. When you create logic apps and integration accounts that need access to this virtual network, you can select your ISE as the host location those logic apps and integration accounts. Inside the ISE, logic apps run on dedicated resources separately from others in the multi-tenant Azure Logic Apps environment. Data in an ISE stays in the [same region where you create and deploy that ISE](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
+
+For more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, review [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](../logic-apps/customer-managed-keys-integration-service-environment.md).
 
 This overview provides more information about [why you'd want to use an ISE](#benefits), the [differences between the dedicated and multi-tenant Logic Apps service](#difference), and how you can directly access resources that are inside or connected your Azure virtual network.
 
 <a name="benefits"></a>
 
-## Why use an ISE?
+## Why use an ISE
 
 Running logic apps in your own separate dedicated instance helps reduce the impact that other Azure tenants might have on your apps' performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). An ISE also provides these benefits:
 
@@ -98,13 +108,13 @@ When you create your ISE, you can select the Developer SKU or Premium SKU. This 
   > This SKU has no service-level agreement (SLA), scale up capability, 
   > or redundancy during recycling, which means that you might experience delays or downtime. Backend updates might intermittently interrupt service.
 
-  For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). To learn how billing works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+  For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). To learn how billing works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing).
 
 * **Premium**
 
   Provides an ISE that you can use for production and performance testing. The Premium SKU includes SLA support, built-in triggers and actions, Standard connectors, Enterprise connectors, a single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account, scale up capability, and redundancy during recycling for a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps).
 
-  For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). To learn how billing works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing).
+  For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). To learn how billing works for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing).
 
 <a name="endpoint-access"></a>
 
@@ -118,13 +128,14 @@ When you create your ISE, you can choose to use either internal or external acce
 * **Internal**: Private endpoints permit calls to logic apps in your ISE where you can view and access inputs and outputs from logic apps' runs history *only from inside your virtual network*.
 
   > [!IMPORTANT]
-  > If you need to use these webhook-based triggers, use external endpoints, *not* internal endpoints, when you create your ISE:
+  > If you need to use these webhook-based triggers, and the service is outside your virtual network and 
+  > peered virtual networks, use external endpoints, *not* internal endpoints, when you create your ISE:
   > 
   > * Azure DevOps
   > * Azure Event Grid
   > * Common Data Service
   > * Office 365
-  > * SAP (ISE version)
+  > * SAP (multi-tenant version)
   > 
   > Also, make sure that you have network connectivity between the private endpoints and the computer from 
   > where you want to access the run history. Otherwise, when you try to view your logic app's run history, 
@@ -144,13 +155,13 @@ To determine whether your ISE uses an internal or external access endpoint, on y
 
 ## Pricing model
 
-Logic apps, built-in triggers, built-in actions, and connectors that run in your ISE use a fixed pricing plan that differs from the consumption-based pricing plan. For more information, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Logic apps, built-in triggers, built-in actions, and connectors that run in your ISE use a fixed pricing plan that differs from the consumption-based pricing plan. For more information, see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 <a name="create-integration-account-environment"></a>
 
 ## Integration accounts with ISE
 
-You can use integration accounts with logic apps inside an integration service environment (ISE). However, those integration accounts must use the *same ISE* as the linked logic apps. Logic apps in an ISE can reference only those integration accounts that are in the same ISE. When you create an integration account, you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For limits information, see [Integration account limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+You can use integration accounts with logic apps inside an integration service environment (ISE). However, those integration accounts must use the *same ISE* as the linked logic apps. Logic apps in an ISE can reference only those integration accounts that are in the same ISE. When you create an integration account, you can select your ISE as the location for your integration account. To learn how pricing and billing work for integration accounts with an ISE, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For limits information, see [Integration account limits](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## Next steps
 

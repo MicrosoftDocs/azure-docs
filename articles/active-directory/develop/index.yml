@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Microsoft identity platform documentation
-summary: The Microsoft identity platform is an authentication service, open-source libraries, and application management tools. Learn to create modern, standards-based authentication solutions with our quickstarts, tutorials, and code samples. Build applications your users and customers sign in to using their Microsoft identities or social accounts, and authorize access to your APIs or Microsoft APIs like Microsoft Graph.
+summary: The Microsoft identity platform for developers is an authentication service, open-source libraries, and application management tools. Learn to create modern, standards-based authentication solutions with our quickstarts, tutorials, and code samples. Build applications your users and customers sign in to using their Microsoft identities or social accounts, and authorize access to your APIs or Microsoft APIs like Microsoft Graph.
 
 metadata:
    ms.topic: landing-page
-   ms.date: 10/07/2020
+   ms.date: 05/11/2021
    author: mmacy
    ms.author: marsma
    ms.service: active-directory
@@ -51,9 +51,11 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Angular
-            url: quickstart-v2-angular.md
+            url: tutorial-v2-angular-auth-code.md
           - text: JavaScript
-            url: quickstart-v2-javascript-auth-code.md
+            url: tutorial-v2-javascript-auth-code.md
+          - text: React
+            url: tutorial-v2-react.md
   - title: Web app
     linkLists:
       - linkListType: get-started
@@ -118,13 +120,9 @@ landingContent:
             url: ../managed-identities-azure-resources/overview.md
           - text: Managed identities and Azure VMs
             url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
-  - title: New in docs
+  - title: New in identity platform docs
     linkLists:
       - linkListType: whats-new
         links:
           - text: "What's new in docs?" # 9/26/2020
             url: whats-new-docs.md
-          - text: "Microsoft Identity Web library overview" # 10/07/2020
-            url: microsoft-identity-web.md
-          - text: "Tutorial: Blazor Server" # 9/26/2020
-            url: tutorial-blazor-server.md

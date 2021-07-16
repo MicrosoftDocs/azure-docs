@@ -5,7 +5,7 @@ author: dcstwh
 ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 06/19/2021
 ---
 
 # Pipelines and activities in Azure Data Factory
@@ -398,3 +398,6 @@ See the following tutorials for step-by-step instructions for creating pipelines
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
+
+How to achieve CI/CD (continuous integration and delivery) using Azure Data Factory
+- [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md)

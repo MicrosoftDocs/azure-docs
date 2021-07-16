@@ -42,9 +42,9 @@ With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The 
 
     Run **stunnel GUI Start** to start the server.
 
-    Right-click the taskbar icon for the stunnel server and click **Show Log Window**.
+    Right-click the taskbar icon for the stunnel server and select **Show Log Window**.
 
-    On the stunnel Log Window menu, click **Configuration** > **Edit Configuration** to open the current configuration file.
+    On the stunnel Log Window menu, select **Configuration** > **Edit Configuration** to open the current configuration file.
 
     Add the following entry for *redis-cli.exe* under the **Service definitions** section. Insert your actual cache name in place of `yourcachename`. 
 
@@ -57,7 +57,7 @@ With Azure Cache for Redis, only the TLS port (6380) is enabled by default. The 
 
     Save and close the configuration file. 
   
-    On the stunnel Log Window menu, click **Configuration** > **Reload Configuration**.
+    On the stunnel Log Window menu, select **Configuration** > **Reload Configuration**.
 
 
 ## Connect using the Redis command-line tool.

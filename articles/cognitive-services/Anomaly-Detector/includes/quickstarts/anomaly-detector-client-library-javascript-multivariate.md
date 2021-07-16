@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for JavaScript to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector) | [Sample code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
+[Library reference documentation](/javascript/api/overview/azure/ai-anomaly-detector-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/anomalydetector/ai-anomaly-detector) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-anomaly-detector) | [Sample code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/anomalydetector/ai-anomaly-detector/samples/v3/javascript/sample_multivariate_detection.js)
 
 ## Prerequisites
 
@@ -56,6 +56,10 @@ const { AzureKeyCredential } = require('@azure/core-auth');
 ```
 
 Create variables your resource's Azure endpoint and key. Create another variable for the example data file.
+
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
+   
 
 ```javascript
 const apiKey = "YOUR_API_KEY";
@@ -170,6 +174,9 @@ while (result_status != 'READY'){
 
 ## Export model
 
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+
 To export your trained model use the `exportModel` function.
 
 ```javascript
@@ -199,6 +206,14 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## Next steps
 
-* [Anomaly Detector multivariate best practices](../../concepts/best-practices-multivariate.md)
+* [What is the Anomaly Detector API?](../../overview-multivariate.md)
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

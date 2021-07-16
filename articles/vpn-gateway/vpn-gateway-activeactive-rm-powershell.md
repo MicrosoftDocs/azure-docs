@@ -9,7 +9,8 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.reviewer: cherylmc
+ms.reviewer: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure active-active S2S VPN connections with Azure VPN Gateways

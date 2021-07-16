@@ -13,7 +13,7 @@ ms.custom: [amqp, 'Role: Cloud Development']
 
 # Read device-to-cloud messages from the built-in endpoint
 
-By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
+By default, messages are routed to the built-in service-facing endpoint (**messages/events**) that is compatible with [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671 and [AMQP over WebSockets](http://docs.oasis-open.org/amqp-bindmap/amqp-wsb/v1.0/cs01/amqp-wsb-v1.0-cs01.html) on port 443. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
 
 | Property            | Description |
 | ------------------- | ----------- |
@@ -58,10 +58,10 @@ The SDKs you can use to connect to the built-in Event Hub-compatible endpoint th
 
 | Language | SDK | Example |
 | -------- | --- | ------ |
-| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Quickstart](quickstart-send-telemetry-dotnet.md) |
-| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Quickstart](quickstart-send-telemetry-java.md) |
-| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Quickstart](quickstart-send-telemetry-node.md) |
-| Python | https://pypi.org/project/azure-eventhub/ | [Quickstart](quickstart-send-telemetry-python.md) |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) |
+| Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) |
+| Python | https://pypi.org/project/azure-eventhub/ | [Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-python) |
 
 The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 
@@ -76,7 +76,7 @@ The product integrations you can use with the built-in Event Hub-compatible endp
 
 * For more information about IoT Hub endpoints, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md).
 
-* The [Quickstarts](quickstart-send-telemetry-node.md) show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. 
+* The [Quickstarts](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) show you how to send device-to-cloud messages from simulated devices and read the messages from the built-in endpoint. 
 
 For more detail, see the [Process IoT Hub device-to-cloud messages using routes](tutorial-routing.md) tutorial.
 

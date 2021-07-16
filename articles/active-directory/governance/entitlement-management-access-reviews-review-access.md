@@ -29,8 +29,7 @@ Azure AD entitlement management simplifies how enterprises manage access to grou
 
 To review users' active access package assignments, you must meet the prerequisites to do an access review:
 - Azure AD Premium P2
-- Global administrator
-- Designated User administrator, Catalog owner, or Access package manager
+- Global administrator, Identity Governance administrator, User administrator, Catalog owner, or Access package manager
 
 For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 

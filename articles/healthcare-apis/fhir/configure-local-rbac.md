@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 03/15/2020
-ms.author: matjazl
+ms.author: zxue
 ---
 # Configure local RBAC for FHIR 
 

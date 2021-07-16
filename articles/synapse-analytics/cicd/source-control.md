@@ -10,14 +10,14 @@ ms.author: liud
 ms.reviewer: pimorano
 ---
 
-# Source control in Azure Synapse Studio
+# Source control in Synapse Studio
 
-By default, Azure Synapse Studio authors directly against the Synapse service. If you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
+By default, Synapse Studio authors directly against the Synapse service. If you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
 
 This article will outline how to configure and work in a Synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
 
 > [!NOTE]
-> Azure Synapse Studio git integration is not available in the Azure Government Cloud.
+> Synapse Studio git integration is not available in the Azure Government Cloud.
 
 ## Configure Git repository in Synapse Studio 
 
@@ -171,7 +171,7 @@ By default, Synapse Studio generates the workspace templates and saves them into
 }
 ```
 
-Azure Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
+Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
 
 
 ### Publish code changes

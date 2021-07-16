@@ -5,7 +5,8 @@ ms.service: data-factory
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 02/10/2021
+ms.date: 06/16/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create and configure a self-hosted integration runtime
@@ -39,15 +40,13 @@ Here is a high-level summary of the data-flow steps for copying with a self-host
 
 ![The high-level overview of data flow](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
-1. A data developer creates a self-hosted integration runtime within an Azure data factory by using the Azure portal or the PowerShell cmdlet.
+1. A data developer first creates a self-hosted integration runtime within an Azure data factory by using the Azure portal or the PowerShell cmdlet.  Then the data developer creates a linked service for an on-premises data store, specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
 
-2. The data developer creates a linked service for an on-premises data store. The developer does so by specifying the self-hosted integration runtime instance that the service should use to connect to data stores.
+2. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
 
-3. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.
+3. Azure Data Factory communicates with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, Data Factory queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
 
-4. Azure Data Factory communicates with the self-hosted integration runtime to schedule and manage jobs. Communication is via a control channel that uses a shared [Azure Relay](../azure-relay/relay-what-is-it.md#wcf-relay) connection. When an activity job needs to be run, Data Factory queues the request along with any credential information. It does so in case credentials aren't already stored on the self-hosted integration runtime. The self-hosted integration runtime starts the job after it polls the queue.
-
-5. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
+4. The self-hosted integration runtime copies data between an on-premises store and cloud storage. The direction of the copy depends on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services like Azure Blob storage over a secure HTTPS channel.
 
 ## Prerequisites
 
@@ -70,6 +69,9 @@ Installation of the self-hosted integration runtime on a domain controller isn't
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
   - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the `JAVA_HOME` environment variable is set to the JRE folder (and not just the JDK folder).
 
+>[!NOTE]
+>If you are running in government cloud, please review [Connect to government cloud.](../azure-government/documentation-government-get-started-connect-with-ps.md)
+
 ## Setting up a self-hosted integration runtime
 
 To create and set up a self-hosted integration runtime, use the following procedures.
@@ -91,29 +93,30 @@ To create and set up a self-hosted integration runtime, use the following proced
     Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
-
+> [!NOTE]
+> Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).
 ### Create a self-hosted IR via Azure Data Factory UI
 
 Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
-1. On the **Let's get started** page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
-   ![The home page Manage button](media/doc-common-process/get-started-page-manage-button.png)
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
 
 1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   ![Create an integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Create an integration runtime":::
 
 1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
 
 1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
-   ![Create a selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
+   :::image type="content" source="media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png" alt-text="Create a selfhosted IR":::
 
 1. Enter a name for your IR, and select **Create**.
 
 1. On the **Integration runtime setup** page, select the link under **Option 1** to open the express setup on your computer. Or follow the steps under **Option 2** to set up manually. The following instructions are based on manual setup:
 
-   ![Integration runtime setup](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
+   :::image type="content" source="media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png" alt-text="Integration runtime setup":::
 
     1. Copy and paste the authentication key. Select **Download and install integration runtime**.
 
@@ -121,17 +124,17 @@ Use the following steps to create a self-hosted IR using Azure Data Factory UI.
 
     1. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved earlier, and select **Register**.
 
-       ![Register the integration runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
+       :::image type="content" source="media/create-self-hosted-integration-runtime/register-integration-runtime.png" alt-text="Register the integration runtime":::
 
     1. On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**.
 
 1. After the self-hosted integration runtime is registered successfully, you see the following window:
 
-    ![Successful registration](media/create-self-hosted-integration-runtime/registered-successfully.png)
+    :::image type="content" source="media/create-self-hosted-integration-runtime/registered-successfully.png" alt-text="Successful registration":::
 
 ### Set up a self-hosted IR on an Azure VM via an Azure Resource Manager template
 
-You can automate self-hosted IR setup on an Azure virtual machine by using the [Create self host IR template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). The template provides an easy way to have a fully functional self-hosted IR inside an Azure virtual network. The IR has high-availability and scalability features, as long as you set the node count to 2 or higher.
+You can automate self-hosted IR setup on an Azure virtual machine by using the [Create self host IR template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vms-with-selfhost-integration-runtime). The template provides an easy way to have a fully functional self-hosted IR inside an Azure virtual network. The IR has high-availability and scalability features, as long as you set the node count to 2 or higher.
 
 ### Set up an existing self-hosted IR via local PowerShell
 
@@ -169,7 +172,7 @@ Here are details of the application's actions and arguments:
 
 1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
 2. Select **Download**, select the 64-bit version, and select **Next**. The 32-bit version isn't supported.
-3. Run the Managed Identity file directly, or save it to your hard drive and run it.
+3. Run the MSI file directly, or save it to your hard drive and run it.
 4. On the **Welcome** window, select a language and select **Next**.
 5. Accept the Microsoft Software License Terms and select **Next**.
 6. Select **folder** to install the self-hosted integration runtime, and select **Next**.
@@ -188,6 +191,9 @@ Here are details of the application's actions and arguments:
     2. Optionally, select **Show authentication key** to see the key text.
 
     3. Select **Register**.
+
+> [!NOTE]
+> Release Notes are available on the same [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Service account for Self-hosted integration runtime
 
@@ -232,7 +238,7 @@ When processor usage is high and available memory is low on the self-hosted IR, 
 
 When the processor and available RAM aren't well utilized, but the execution of concurrent jobs reaches a node's limits, scale up by increasing the number of concurrent jobs that a node can run. You might also want to scale up when activities time out because the self-hosted IR is overloaded. As shown in the following image, you can increase the maximum capacity for a node:  
 
-![Increase the number of concurrent jobs that can run on a node](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png" alt-text="Increase the number of concurrent jobs that can run on a node":::
 
 ### TLS/SSL certificate requirements
 
@@ -255,15 +261,18 @@ Here are the requirements for the TLS/SSL certificate that you use to secure com
 >
 > Data movement in transit from a self-hosted IR to other data stores always happens within an encrypted channel, regardless of whether or not this certificate is set.
 
+### Credential Sync
+If you don't store credentials or secret values in an Azure Key Vault, the credentials or secret values will be stored in the machines where your self-hosted integration runtime locates. Each node will have a copy of credential with certain version. In order to make all nodes work together, the version number should be the same for all nodes. 
+
 ## Proxy server considerations
 
 If your corporate network environment uses a proxy server to access the internet, configure the self-hosted integration runtime to use appropriate proxy settings. You can set the proxy during the initial registration phase.
 
-![Specify the proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/specify-proxy.png" alt-text="Specify the proxy":::
 
 When configured, the self-hosted integration runtime uses the proxy server to connect to the cloud service's source and destination (which use the HTTP or HTTPS protocol). This is why you select **Change link** during initial setup.
 
-![Set the proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/set-http-proxy.png" alt-text="Set the proxy":::
 
 There are three configuration options:
 
@@ -282,7 +291,7 @@ After you register the self-hosted integration runtime, if you want to view or u
 
 You can use the configuration manager tool to view and update the HTTP proxy.
 
-![View and update the proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/view-proxy.png" alt-text="View and update the proxy":::
 
 > [!NOTE]
 > If you set up a proxy server with NTLM authentication, the integration runtime host service runs under the domain account. If you later change the password for the domain account, remember to update the configuration settings for the service and restart the service. Because of this requirement, we suggest that you access the proxy server by using a dedicated domain account that doesn't require you to update the password frequently.
@@ -327,7 +336,7 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
 > [!IMPORTANT]
 > Don't forget to update both diahost.exe.config and diawp.exe.config.
 
-You also need to make sure that Microsoft Azure is in your company's allow list. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+You also need to make sure that Microsoft Azure is in your company's allowlist. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Possible symptoms for issues related to the firewall and proxy server
 
@@ -364,7 +373,7 @@ There are two firewalls to consider:
 - The *corporate firewall* that runs on the central router of the organization
 - The *Windows firewall* that is configured as a daemon on the local machine where the self-hosted integration runtime is installed
 
-![The firewalls](media/create-self-hosted-integration-runtime/firewall.png)
+:::image type="content" source="media/create-self-hosted-integration-runtime/firewall.png" alt-text="The firewalls":::
 
 At the corporate firewall level, you need to configure the following domains and outbound ports:
 
@@ -384,15 +393,18 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 
 ### Get URL of Azure Relay
 
-One required domain and port that need to be put in the allow list of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
+One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
 
 1. Go to ADF portal and select your self-hosted integration runtime.
 2. In Edit page, select **Nodes**.
 3. Select **View Service URLs** to get all FQDNs.
 
-   ![Azure Relay URLs](media/create-self-hosted-integration-runtime/Azure-relay-url.png)
+   :::image type="content" source="media/create-self-hosted-integration-runtime/Azure-relay-url.png" alt-text="Azure Relay URLs":::
 
-4. You can add these FQDNs in the allow list of firewall rules.
+4. You can add these FQDNs in the allowlist of firewall rules.
+
+> [!NOTE]
+> For the details related to Azure Relay connections protocol, see [Azure Relay Hybrid Connections protocol](../azure-relay/relay-hybrid-connections-protocol.md).
 
 ### Copy data from a source to a sink
 

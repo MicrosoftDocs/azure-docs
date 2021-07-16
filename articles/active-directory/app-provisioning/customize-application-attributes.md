@@ -1,15 +1,16 @@
 ---
-title: Tutorial - Customize Azure Active Directory attribute mappings
-description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
+title: Tutorial - Customize Azure Active Directory attribute mappings in Application Provisioning
+description: Learn what attribute mappings for Software as a Service (SaaS) apps in Azure Active Directory Application Provisioning are how you can modify them to address your business needs.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 07/07/2021
 ms.author: kenwith
+ms.reviewer: arvinh
 ---
 
 # Tutorial - Customize user provisioning attribute-mappings for SaaS applications in Azure Active Directory
@@ -145,15 +146,14 @@ For SCIM applications, the attribute name must follow the pattern shown in the e
 
 These instructions are only applicable to SCIM-enabled applications. Applications such as ServiceNow and Salesforce are not integrated with Azure AD using SCIM, and therefore they don't require this specific namespace when adding a custom attribute.
 
-Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery.  
+Custom attributes can't be referential attributes, multi-value or complex-typed attributes. Custom multi-value and complex-typed extension attributes are currently supported only for applications in the gallery. The custom extension schema header is omitted in the example below as it is not sent in requests from the Azure AD SCIM client. This issue will be fixed in the future and the header will be sent in the request.  
  
 **Example representation of a user with an extension attribute:**
 
 ```json
    {
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
      "userName":"bjensen",
      "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",

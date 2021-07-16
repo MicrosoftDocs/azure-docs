@@ -2,11 +2,12 @@
 title: Deploy a Service Fabric managed cluster application using ARM template
 description: Deploy an application to a Azure Service Fabric managed cluster using an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 5/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Deploy a Service Fabric managed cluster application using ARM template
 
-You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#azure-service-fabric-resources).
+You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
 Managing your applications as resources in Resource Manager can help you gain improvements in these areas:
 
@@ -48,7 +49,7 @@ After the storage account is created, you create a blob container where the appl
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
 * Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 * Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 The example in the following screenshot uses anonymous read access for blobs.
@@ -172,6 +173,17 @@ To delete an application that was deployed by using the application resource mod
     ```powershell
     Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
     ```
+
+
+## Migration from classic to managed clusters
+
+If you are migrating application(s) from classic to managed clusters you will need to make sure to validate types are correctly specified or you will encounter errors. 
+
+The following items are called out specifically due to frequency of usage, but not not meant to be an exclusive list of differences. 
+
+* upgradeReplicaSetCheckTimeout is now an integer for managed, but a string on classic SFRP. 
+
+See [managed clusters applications resource types](/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json) for full list of properties and types
 
 ## Next steps
 

@@ -43,8 +43,8 @@ There are several blockchain resource management templates you can use to deploy
 
 If you are starting to develop a new solution or are in an evaluation phase, consider the following alternatives based on your scenario requirements.
 
-- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart?tab=Overview)
-- [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.hyperledger-besu-quickstart?tab=Overview)
+- [Quorum template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.quorum-dev-quickstart)
+- [Besu template from Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/consensys.hyperledger-besu-quickstart)
 
 ### How to migrate to an alternative
 

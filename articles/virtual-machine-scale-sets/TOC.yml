@@ -149,7 +149,7 @@
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
     - name: Azure VMs with no temp disk
-      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      href: ../virtual-machines/azure-vms-no-temp-disk.yml
       maintainContext: true
     - name: Azure VM sizes naming conventions
       href: ../virtual-machines/vm-naming-conventions.md
@@ -413,6 +413,42 @@
     href: /azure/templates/microsoft.compute/virtualmachinescalesets
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
-    href: ./policy-reference.md
+    href: ../virtual-machines/policy-reference.md
 - name: Resources
-  items: 
+  items:
+  - name: Cloud adoption framework
+    href: /azure/cloud-adoption-framework/get-started/
+  - name: Architecture center
+    href: /azure/architecture/
+  - name: Migration tools
+    href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
+  - name: Microsoft Q&A
+    href: /answers/topics/azure-virtual-machines.html
+  - name: Azure Quickstart templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Common CLI commands
+    href: ../virtual-machines/linux/cli-manage.md
+  - name: Common PowerShell commands
+    href: ../virtual-machines/windows/ps-common-ref.md
+  - name: Common networking PowerShell commands
+    href: ../virtual-machines/windows/ps-common-network-ref.md
+  - name: VM template description
+    href: ../virtual-machines/windows/template-description.md
+  - name: FAQ
+    items:
+    - name: Linux
+      href: ../virtual-machines/linux/faq.yml
+    - name: Windows
+      href: ../virtual-machines/windows/faq.yml
+- name: Support and troubleshooting
+  href: vmss-support-help.md
