@@ -402,8 +402,8 @@
         href: logic-apps-data-operations-code-samples.md
       - name: Monitor social media
         href: logic-apps-scenario-social-serverless.md
-      - name: Build a serverless app - Visual Studio
-        href: logic-apps-serverless-get-started-vs.md        
+      - name: Create a serverless app - Visual Studio
+        href: create-serverless-apps-visual-studio.md
       - name: Add error and exception handling
         href: logic-apps-scenario-error-and-exception-handling.md
       - name: B2B processing
