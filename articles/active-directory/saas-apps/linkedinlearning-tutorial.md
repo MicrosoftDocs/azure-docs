@@ -149,11 +149,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Settings](./media/linkedinlearning-tutorial/fields.png "Settings")
 
-1. Navigate to **SSO settings** tab, click **Upload XML file** to upload the **Federation Metadata XML** file which you have downloaded from the Azure Portal.
+1. Navigate to **SSO settings** tab, click **Upload XML file** to upload the **Federation Metadata XML** file which you have downloaded from the Azure portal.
 
     ![Certificate file](./media/linkedinlearning-tutorial/upload-file.png "Certificate file")
 
-1. Fill the required fields manually which you have copied from Azure Portal under **SSO settings** tab.
+1. Fill the required fields manually which you have copied from the Azure portal under **SSO settings** tab.
 
     ![Entering Values](./media/linkedinlearning-tutorial/certificate.png "Entering Values")
 
