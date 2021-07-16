@@ -45,7 +45,7 @@ Each search parameter has a defined [data types](https://www.hl7.org/fhir/search
 
 ### Common search parameters
 
-There are [common search parameters](https://www.hl7.org/fhir/search.html#all) that apply to all resources. These are listed below, along with their support within the FHIR service:
+There are [common search parameters](https://www.hl7.org/fhir/search.html#all) that apply to all resources. These are listed below, along with their support:
 
 | **Common search parameter** | **Azure API for FHIR** | **FHIR service in Azure Healthcare APIs** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -55,7 +55,7 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 | _type                       | Yes                  | Yes                       |
 | _security                   | Yes                  | Yes                       |
 | _profile                    | Yes                  | Yes                       |
-| _has                        | Partial              | Yes                       | Support for _has is in MVP in the Azure API for FHIR and the OSS version backed by Cosmos DB. More details are included under the chaining section below. |
+| _has                        | Yes.                 | Yes                       |  |
 | _query                      | No                   | No                        |
 | _filter                     | No                   | No                        |
 | _list                       | No                   | No                        |
@@ -64,7 +64,7 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 
 ### Resource-specific parameters
 
-With the FHIR service, we support almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
+With the FHIR service in the Azure Healthcare APIs, we support almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
 
 * [STU3 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json)
 
@@ -79,12 +79,12 @@ GET {{FHIR_URL}}/metadata
 To see the search parameters in the capability statement, navigate to `CapabilityStatement.rest.resource.searchParam` to see the search parameters for each resource and `CapabilityStatement.rest.searchParam` to find the search parameters for all resources.
 
 > [!NOTE]
-> The FHIR service does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own [search parameters](how-to-do-custom-search.md).
+> The FHIR service in the Azure Healthcare APIs does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own [search parameters](how-to-do-custom-search.md).
 
 ### Composite search parameters
 Composite search allows you to search against value pairs. For example, if you were searching for a height observation where the person was 60 inches, you would want to make sure that a single component of the observation contained the code of height **and** the value of 60. You wouldn't want to get an observation where a weight of 60 and height of 48 was stored, even though the observation would have entries that qualified for value of 60 and code of height, just in different component sections. 
 
-With the FHIR service, we support the following search parameter type pairings:
+With the FHIR service for the Azure Healthcare APIs, we support the following search parameter type pairings:
 
 * Reference, Token
 * Token, Date
@@ -100,7 +100,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 
  ### Modifiers & prefixes
 
-[Modifiers](https://www.hl7.org/fhir/search.html#modifiers) allow you to modify the search parameter. Below is an overview of all the FHIR modifiers and the support in the FHIR service. 
+[Modifiers](https://www.hl7.org/fhir/search.html#modifiers) allow you to modify the search parameter. Below is an overview of all the FHIR modifiers and the support: 
 
 | **Modifiers** | **Azure API for FHIR** | **FHIR service in Azure Healthcare APIs** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -117,7 +117,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 |  :above (token) | No                 | No                        |
 |  :not-in (token) | No                | No                        |
 
-For search parameters that have a specific order (numbers, dates, and quantities), you can use a [prefix](https://www.hl7.org/fhir/search.html#prefix) on the parameter to help with finding matches. The FHIR service supports all prefixes.
+For search parameters that have a specific order (numbers, dates, and quantities), you can use a [prefix](https://www.hl7.org/fhir/search.html#prefix) on the parameter to help with finding matches. The FHIR service in the Azure Healthcare APIs supports all prefixes.
 
  ### Search result parameters
 To help manage the returned resources, there are search result parameters that you can use in your search. For details on how to use each of the search result parameters, refer to the [HL7](https://www.hl7.org/fhir/search.html#return) website. 
@@ -135,7 +135,7 @@ To help manage the returned resources, there are search result parameters that y
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |
 
-By default, the FHIR service is set to lenient handling. This means that the server will ignore any unknown or unsupported parameters. If you want to use strict handling, you can use the **Prefer** header and set `handling=strict`.
+By default, the FHIR service in the Azure Healthcare APIs is set to lenient handling. This means that the server will ignore any unknown or unsupported parameters. If you want to use strict handling, you can use the **Prefer** header and set `handling=strict`.
 
  ## Chained & reverse chained searching
 
@@ -145,14 +145,12 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
-> [!NOTE]
-> In the Azure API for FHIR and the open source backed by Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 100 items. If there are more than 100 items found, you’ll receive the following error message: “Subqueries in a chained expression can't return more than 100 results, please use a more selective criteria.” To get a successful query, you’ll need to be more specific in what you are looking for.
 
 ## Pagination
 
 As mentioned above, the results from a search will be a paged bundle. By default, the search will return 10 results per page, but this can be increased (or decreased) by specifying `_count`. Within the bundle, there will be a self link that contains the current result of the search. If there are additional matches, the bundle will contain a next link. You can continue to use the next link to get the subsequent pages of results. `_count` is limited to 1000 items or less. 
 
-Currently, the FHIR service only supports the next link in bundles, and it doesn’t support first, last, or previous links.
+Currently, the FHIR service in the Azure Healthcare APIs only supports the next link in bundles, and it doesn’t support first, last, or previous links.
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
-title: What are Azure Healthcare APIs?
+title: What is the Azure Healthcare APIs?
 description: This article is an overview of the Azure Healthcare APIs. 
 services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 06/21/2021
+ms.date: 07/09/2021
 ms.author: ginle
 ---
 
@@ -17,16 +17,15 @@ ms.author: ginle
 The Azure Healthcare APIs is a fully managed health data platform that enables the rapid exchange and persistence of Protected Health Information (PHI) and health data through interoperable open industry standards like Fast Healthcare Interoperability Resources (FHIR®) and Digital Imaging and Communications in Medicine (DICOM®).
 
 Our health data platform allows you to:
-
-• Transform and ingest data into FHIR. For example, you can transform health data from 
+* Transform and ingest data into FHIR. For example, you can transform health data from 
 legacy formats, such as HL7v2 or CDA, or from high frequency IoT data in device 
 proprietary formats to FHIR.
 
-• Connect your data stored in Healthcare APIs with services across the Azure ecosystem 
+* Connect your data stored in Healthcare APIs with services across the Azure ecosystem 
 and products across Microsoft to derive new insights through analytics and machine 
 learning and to enable new workflows.
  
-• Manage advanced workloads with enterprise features that offer reliability, scalability, 
+* Manage advanced workloads with enterprise features that offer reliability, scalability, 
 and security to ensure that your data is protected, meets privacy and compliance 
 certifications required for the healthcare industry.
 
@@ -53,11 +52,11 @@ For more information about the DICOM Service, see "Overview of DICOM".
 For the secure exchange of FHIR data, Healthcare APIs offers a few incremental capabilities
 that available in the Azure API for FHIR. 
 
-• Support for Transactions: In Healthcare APIs, the FHIR service supports transaction 
+* Support for Transactions: In Healthcare APIs, the FHIR service supports transaction 
 bundles. For more information about transaction bundles, visit HL7.org and refer to 
 batch/transaction interactions.
  
-• Chained Search Improvements: Chained Search & Reserve Chained Search are no longer
+* Chained Search Improvements: Chained Search & Reserve Chained Search are no longer
 limited by 100 items per sub query.
 
 It’s worth noting that the Azure IoT Connector for FHIR (formerly known as IoMT) is still 

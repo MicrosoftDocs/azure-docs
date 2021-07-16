@@ -29,6 +29,7 @@ To start the Copy Data tool, click the **Ingest** tile on the home page of your 
 
 ![Screenshot that shows the home page - link to Copy Data tool.](./media/doc-common-process/get-started-page.png)
 
+After you launch copy data tool, you will see two types of the tasks: one is **built-in copy task** and another is **metadata driven copy task**. The built-in copy task leads you to create a pipeline within five minutes to replicate data without learning about Azure Data Factory entities.  The metadata driven copy task to ease your journey of creating parameterized pipelines and external control table in order to manage to copy large amounts of objects (for example, thousands of tables) at scale. You can see more details in [metadata driven copy data](copy-data-tool-metadata-driven.md).
 
 ## Intuitive flow for loading data into a data lake
 This tool allows you to easily move data from a wide variety of sources to destinations in minutes with an intuitive flow:  

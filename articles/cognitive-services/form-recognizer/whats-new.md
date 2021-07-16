@@ -15,7 +15,13 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD036 -->
 # What's new in Azure Form Recognizer
 
-Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates. 
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+
+## July 2021
+
+### System-assigned managed identity support 
+
+ You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including those protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
 
 ## June 2021
 

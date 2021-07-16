@@ -130,12 +130,12 @@
     - name: Authorization
       items:
       - name: Authorizing data operations
-        href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
         - name: Authorize with Azure AD
           items:
           - name: Authorize with Azure roles
-            href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            href: authorize-access-azure-active-directory.md
           - name: Authorize with conditions
             href: ../common/storage-auth-abac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Actions and attributes for conditions
@@ -175,10 +175,10 @@
         href: data-protection-overview.md
       - name: Soft delete for containers
         href: soft-delete-container-overview.md
-      - name: Versioning
-        href: versioning-overview.md
       - name: Soft delete for blobs
         href: soft-delete-blob-overview.md
+      - name: Versioning
+        href: versioning-overview.md
       - name: Point-in-time restore
         href: point-in-time-restore-overview.md
       - name: Snapshots

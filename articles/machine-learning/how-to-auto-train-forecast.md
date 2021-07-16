@@ -110,7 +110,7 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
-Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-overfitting).
 
 ## Configure experiment
 

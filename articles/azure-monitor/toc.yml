@@ -392,7 +392,10 @@
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Deploy at scale
         displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent  
+        href: deploy-scale.md#azure-monitor-agent 
+      - name: Migrate from legacy agents
+        displayname: Migrate to Azure Monitor agent
+        href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -779,9 +782,6 @@
               href: app/status-monitor-v2-troubleshoot.md
             - name: API reference
               href: app/status-monitor-v2-api-reference.md
-            - name: Status Monitor (legacy)
-              displayname: IIS monitoring, on premises monitoring, on prem 
-              href: app/monitor-performance-live-website-now.md
         - name: Java
           href: app/java-on-premises.md
     - name: OpenTelemetry
