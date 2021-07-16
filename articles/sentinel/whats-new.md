@@ -30,9 +30,18 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
+- [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
-- [Bidirectional sync in Azure Defender connector](#bidirectional-sync-in-azure-defender-connector)
+- [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
+
+### Support for ADX cross-resource queries (Public preview)
+
+The hunting experience in Azure Sentinel now supports [ADX cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md#cross-query-your-log-analytics-or-application-insights-resources-and-azure-data-explorer).
+ 
+Although Log Analytics remains the primary data storage location for performing analysis with Azure Sentinel, there are cases where ADX is required to store data due to cost, retention periods, or other factors. This capability enables customers to hunt over a wider set of data and view the results in the [Azure Sentinel hunting experiences](hunting.md), including hunting queries, [livestream](livestream.md), and the Log Analytics search page.
+
+To query data stored in ADX clusters, use the adx() function to specify the ADX cluster, database name, and desired table. You can then query the output as you would any other table. See more information in the pages linked above.
 
 ### Watchlists are in general availability
 
@@ -46,7 +55,7 @@ Brazil, Norway, South Africa, Korea, Germany, United Arab Emirates (UAE), and Sw
 
 See the [complete list of supported geos](quickstart-onboard.md#geographical-availability-and-data-residency) for data residency.
 
-### Bidirectional sync in Azure Defender connector
+### Bidirectional sync in Azure Defender connector (Public preview)
 
 The Azure Defender connector now supports bi-directional syncing of alerts' status between Defender and Azure Sentinel. When you close a Sentinel incident containing a Defender alert, the alert will automatically be closed in the Defender portal as well.
 
