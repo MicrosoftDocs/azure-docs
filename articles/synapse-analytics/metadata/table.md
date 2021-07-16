@@ -2,13 +2,13 @@
 title: Shared metadata tables
 description: Azure Synapse Analytics provides a shared metadata model where creating a table in serverless Apache Spark pool will make it accessible from serverless SQL pool and dedicated SQL pool without duplicating the data. 
 services: sql-data-warehouse 
-author: MikeRys 
 ms.service:  synapse-analytics 
 ms.topic: overview 
 ms.subservice: metadata
-ms.date: 05/01/2020 
-ms.author: mrys 
-ms.reviewer: jrasnick
+ms.date: 07/15/2021
+author: jocaplan
+ms.author: jocaplan 
+ms.reviewer: jrasnick, wiassaf
 ms.custom: devx-track-csharp
 ---
 
@@ -45,7 +45,8 @@ Spark provides two types of tables that Azure Synapse exposes in SQL automatical
 
 Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
 
-[!NOTE] Both Spark and Serverless SQL Pool support delta table format (preview). The metadata is not share among both engines, though. A Spark delta table metadata will not sync to the SQL engine. Please find more details here: [Self-help for serverless SQL pool](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/resources-self-help-sql-on-demand#delta-lake)
+> [!NOTE] 
+> Currently, only Parquet formats are synced to serverless SQL pool. A Spark delta table metadata will not sync to the SQL engine, even though Delta table uses Parquet as the snapshot's storage format. 
 
 ### Share Spark tables
 
