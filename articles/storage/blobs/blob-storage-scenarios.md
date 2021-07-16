@@ -14,11 +14,15 @@ ms.custom: "monitoring"
 
 Intro goes here
 
-## Identify storage accounts with no or low use
+## Monitor use and capacity
+
+Put something here.
+
+### Identify storage accounts with no or low use
 
 You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. To set that up, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md).
 
-### Analyze transaction volume
+#### Analyze transaction volume
 
 From the [Storage Insights view in Azure monitor](../../azure-monitor/insights/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with very low transaction volume over the specified period. 
 
@@ -39,7 +43,7 @@ In this example, all requests are listing operations or requests for account pro
 
 The image above does show a spike of activity on `July 9 2021`. This might or might not be relevant to your investigation. However, if you want to identify the user or client who is making these requests or what information is being requested, you can query resource logs. See the [Audit account activity](#audit-account-activity) section of this article for examples. 
 
-### Analyze used capacity
+#### Analyze used capacity
 
 Choose the **Capacity** tab, to see if there is any data in the account. The following image shows that the `contoso1account` account is storing about 5 GiB worth of data.
 
@@ -55,35 +59,14 @@ The **Storage units** chart shows `9` and `108` blobs. You can use Storage Explo
 
 If you want to identify the client that uploaded a file or blob, you can query resource logs. See the [Audit account activity](#audit-account-activity) section of this article for examples. 
 
-## Monitor the use of a container
+### Monitor use of a container
 
-This scenario is about clearly identifying container use. For example, ISV partners might build solutions that use blob storage to host data. For example, container A for customer A and container B for customer B. All data stored in separate container. If they want to charge their customers for data use, they need to clearly identify how much data is being used by container. 
-
-Another way to phrase this scenario is that customers want effective ways to meter costs in their Azure data estate. They want to identify costs and account for them at a granular level. For example: tagging, how much data is being queried or consumed by other departments. Keeping track of costs at folder or container level.
-
-- The time of the transaction (time)
-- OperationName - revealing if it is a read write or delete operation
-- CallerIpAddress can help you determine which client performed the operation
-- URI shows what the file is
-- Identify the caller by how they authorized the call
-
-### Determine space used
-
-This is the solution with inventory - [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
-
-### Determine transaction costs associated with the container.
-
-Figure out a way to attribute transaction costs and other costs associated with container traffic for the purpose of departmental billing.
+If you want to bill customers for the use of a container, you can use Azure Storage blob inventory to take an inventory of blobs and the size of the blobs. For guidance, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
 
 ## Audit account activity
 
 This is about compliance auditing. Compliance auditing companies will often time be hired to audit a companies cloud platform based on controls. A popular control that relates to this scenario is about "access management". We need to use this section to discuss both data plane and control plane operations audit. The key elements of logs - who, what, when.
 
-Fields that you can use:
-
-|Who|What|When|
-|---|---|--|
-|||
 
 ### Control plane audit
 
