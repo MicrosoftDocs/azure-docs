@@ -2,14 +2,20 @@ items:
 - name: IoT connector
   href: index.yml
 
+- name: Overview
+  expanded: true
+  items:
+    - name: About IoT connector
+      href: iot-connector-overview.md
+      
 - name: Quickstarts
   expanded: true
   items:
     - name: Deploy Azure IoT Connector for FHIR (preview)
       expanded: true
       items:
-        - name: Using Portal
-          href: iot-fhir-portal-quickstart.md
+        - name: Using portal
+          href: deploy-iot-connector-in-azure.md
         - name: Using ARM template
           href: iot-fhir-arm-template-quickstart.md
 
@@ -20,8 +26,10 @@ items:
       href: device-data-through-iot-hub.md 
     - name: IoT data flow
       href: iot-data-flow.md
-    - name: IoT mapping templates
-      href: iot-mapping-templates.md
+    - name: Use device mapping templates
+      href: how-to-use-device-mapping-iot.md
+    - name: Use FHIR mapping templates
+      href: how-to-use-fhir-mapping-iot.md
     - name: Configure and display metrics
       href: iot-metrics-display.md 
 

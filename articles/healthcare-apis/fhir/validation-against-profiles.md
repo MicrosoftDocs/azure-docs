@@ -1,12 +1,12 @@
 ---
-title: $validate FHIR resources against profiles on FHIR service
-description: $validate FHIR resources against profiles
+title: $validate FHIR resources against profiles on the FHIR service in Azure Healthcare APIs
+description: $validate FHIR resources against profiles in the FHIR service
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/07/2021
-ms.author: ginle
+ms.date: 07/14/2021
+ms.author: cavoeg
 ---
 
 # How to validate FHIR resources against profiles
@@ -15,7 +15,7 @@ HL7 FHIR defines a standard and interoperable way to store and exchange healthca
 
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) describes additional context, such as constraints or extensions, on a resource represented as a `StructureDefinition`. The HL7 FHIR standard defines a set of base resources, and these standard base resources have generic definitions. FHIR profile allows you to narrow down and customize resource definitions using constraints and extensions.
 
-FHIR service allows validating resources against profiles to see if the resources conform to the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles when creating and updating resources.
+The FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article walks through the basics of FHIR profile, and how to use `$validate` for validating resources against the profiles when creating and updating resources.
 
 ## FHIR profile: the basics
 
@@ -65,7 +65,7 @@ A custom profile is a set of additional constraints on top of a base profile, re
 > [!NOTE]
 > Custom profiles must build on top of the base resource and cannot conflict with the base resource. For example, if an element has a cardinality of 1..1, the custom profile cannot make it optional.
 
-Custom profiles also specified by various Implementation Guides. Some common Implementation Guides are:
+Custom profiles are also specified by various Implementation Guides. Some common Implementation Guides are:
 
 |Name |URL
 |---- |----
@@ -81,10 +81,10 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 For storing profiles to the server, you can do a `POST` request:
 
 ```rest
-POST http://<your FHIR service base URL>/{Resource}
+POST http://<your FHIR service base URL>/StructureDefinition
 ```
 
-In which the field `{Resource}` will be replaced by `StructureDefinition`, and you would have your `StructureDefinition` resource `POST`ed to the server in `JSON` or `XML` format. For example, if you would like to store `us-core-allergyintolerance` profile, you would do:
+For example, if you would like to store `us-core-allergyintolerance` profile, you would do:
 
 ```rest
 POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
@@ -207,7 +207,7 @@ This will return the `StructureDefinition` resource for US Core Goal profile, th
 ...
 ```
 
-Our FHIR server does not return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
+The FHIR service does not return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
 
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`
@@ -215,7 +215,7 @@ Our FHIR server does not return `StructureDefinition` instances for the base pro
 
 ### Profiles in the capability statement
 
-The `Capability Statement` lists all possible behaviors of your FHIR server to be used as a statement of the server functionality, such as Structure Definitions and Value Sets. FHIR service updates the capability statement with information on the uploaded and stored profiles in the forms of:
+The `Capability Statement` lists all possible behaviors of your FHIR service to be used as a statement of the server functionality, such as Structure Definitions and Value Sets. The FHIR service updates the capability statement with information on the uploaded and stored profiles in the forms of:
 
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
@@ -260,9 +260,9 @@ You will be returned with a `CapabilityStatement` that includes the following in
 
 ## Validating resources against the profiles
 
-FHIR resources, such as `Patient` or `Observation`, can express their conformance to specific profiles. This allows our FHIR server to **validate** given resources against the associated profiles or the specified profiles. Validating a resource against profiles means checking if your resource conforms to the profiles, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide.
+FHIR resources, such as `Patient` or `Observation`, can express their conformance to specific profiles. This allows the FHIR service to **validate** given resources against the associated profiles or the specified profiles. Validating a resource against profiles means checking if your resource conforms to the profiles, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide.
 
-There are two ways for you to validate your resource. First, you can use `$validate` operation against a resource that is already in the FHIR server. Second, you can `POST` it to the server as part of a resource `Update` or `Create` operation. In both cases, you can decide via your FHIR server configuration what to do when the resource does not conform to your desired profile.
+There are two ways for you to validate your resource. First, you can use `$validate` operation against a resource that is already in the FHIR service. Second, you can `POST` it to the server as part of a resource `Update` or `Create` operation. In both cases, you can decide via your FHIR service configuration what to do when the resource does not conform to your desired profile.
 
 ### Using $validate
 
@@ -391,7 +391,7 @@ x-ms-profile-validation: true
 
 ## Next steps
 
-In this article, you have learned about FHIR profiles, and how to validate resources against profiles using $validate. To learn about FHIR service's other supported features, check out:
+In this article, you have learned about FHIR profiles, and how to validate resources against profiles using $validate. To learn about the FHIR service's other supported features, check out:
 
 >[!div class="nextstepaction"]
 >[FHIR supported features](fhir-features-supported.md)
