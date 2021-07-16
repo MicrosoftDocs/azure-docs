@@ -178,7 +178,7 @@ The second argument of `DeltaTable.convertToDeltaLake` function represents the p
 ## Limitations
 
 - This feature is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
-- Currently, both the Spark pool and serverless SQL pool in Azure Synapse Analytics support Delta Lake format. Currently serverless SQL pools do not support updating Delta Lake files. Only tables in Parquet format are shared from Spark pools to a serverless SQL pool. For more information, see [Shared Spark tables](../metadata/table.md#shared-spark-tables).
+- Currently, both the Spark pool and serverless SQL pool in Azure Synapse Analytics support Delta Lake format. Serverless SQL pools do not support updating Delta Lake files. Only tables in Parquet format are shared from Spark pools to a serverless SQL pool. For more information, see [Shared Spark tables](../metadata/table.md#shared-spark-tables).
 
 ## Next steps
 
