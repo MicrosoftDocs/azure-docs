@@ -288,7 +288,7 @@ When connecting a machine or server with Azure Arc enabled servers for the first
 
 1. On the **Download and run script** page, review the summary information, and then select **Download**. If you still need to make changes, select **Previous**.
 
-After downloading the script, you have to run it on your machine or server using a privileged (administrator or root). Depending on your network configuration, you may need to download the agent from a computer with internet access and transfer it to your machine or server, and then modify the script with the path to the agent. 
+After downloading the script, you have to run it on your machine or server using a privileged (administrator or root) account. Depending on your network configuration, you may need to download the agent from a computer with internet access and transfer it to your machine or server, and then modify the script with the path to the agent. 
 
 The Windows agent can be downloaded from [https://aka.ms/AzureConnectedMachineAgent](https://aka.ms/AzureConnectedMachineAgent) and the Linux agent can be downloaded from [https://packages.microsoft.com](https://packages.microsoft.com). Look for the latest version of the **azcmagent** under your OS distribution directory and installed with your local package manager. 
 
