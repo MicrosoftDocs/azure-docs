@@ -168,4 +168,4 @@ To install the SQL Server IaaS extension to SQL Server on Azure VMs, see the art
 
 For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Virtual Machines?](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
-To learn more, see [frequently asked questions](frequently-asked-questions-faq.yml). 
+To learn more, see [frequently asked questions](frequently-asked-questions-faq.yml).
