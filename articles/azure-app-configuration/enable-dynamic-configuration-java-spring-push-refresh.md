@@ -88,7 +88,7 @@ management.endpoints.web.exposure.include= "appconfiguration-refresh"
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
 
 > [!NOTE]
-> The Primary token name should be store in App Configuration and Primary token secret should be stored in App Configuration as a Key Vault Reference for added security.
+> The Primary token name should be stored in App Configuration as a key, and then the Primary token secret should be stores as an App Configuration Key Vault Reference for added security.
 
 ## Build and run the app locally
 
