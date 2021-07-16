@@ -105,7 +105,7 @@ When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
 ## Known limitations
 
-- No support for single-line object and arrays. For example, `['a', 'b', 'c']` is not supported. For more information, see [Arrays](/data-types#arrays), [Objects](/data-types#objects).
+- No support for single-line object and arrays. For example, `['a', 'b', 'c']` is not supported. For more information, see [Arrays](data-types#arrays), [Objects](data-types#objects).
 - No support for breaking long lines into multiple lines.  For example:
 
     ```bicep
