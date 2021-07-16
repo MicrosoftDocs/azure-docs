@@ -25,7 +25,7 @@ The gallery is a top-level resource that provides full Azure role-based access c
 The Shared Image Gallery feature has multiple resource types. We will be using or building these in this article:
 
 
-[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 <br>
 
