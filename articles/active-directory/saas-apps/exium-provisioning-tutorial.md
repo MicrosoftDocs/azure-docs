@@ -23,7 +23,7 @@ ms.author: Zhchia
 This tutorial describes the steps you need to perform in both Exium and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Exium](https://exium.net/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Exium
 > * Remove users in Exium when they do not require access anymore
@@ -105,7 +105,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Exium in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Exium for update operations. If you choose to change the [matching target attribute](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), you will need to ensure that the Exium API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported For Filtering|
+   |Attribute|Type|Supported for filtering|
    |---|---|---|
    |userName|String|&check;|
    |displayName|String|
@@ -128,7 +128,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to Exium in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Exium for update operations. Select the **Save** button to commit any changes.
 
-      |Attribute|Type|Supported For Filtering|
+      |Attribute|Type|Supported for filtering|
       |---|---|---|
       |displayName|String|&check;|
       |members|Reference|
