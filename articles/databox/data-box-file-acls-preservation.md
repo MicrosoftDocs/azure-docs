@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 07/16/2021
 ms.author: alkohli
 ---
 
@@ -76,8 +76,6 @@ To copy data to your Data Box via SMB, use an SMB-compatible file copy tool such
 
 When using the `/copyall` or `/dcopy:DAT` option, make sure the required Backup Operator privileges aren't disabled. For more information, see [Use the local web UI to administer your Data Box and Data Box Heavy](./data-box-local-web-ui-admin.md). 
 
-
-
 ```console
 robocopy <Source> <Target> * /copyall /e /dcopy:DAT /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /log+:<LogFile>
 ```
@@ -103,6 +101,8 @@ For more information on these `robocopy` parameters, see [Tutorial: Copy data to
 
 > [!NOTE]
 > If you use `/copyall` to copy your data, the source ACLs on directories and files are transferred to Azure Files. If you only had read-access on your source data and could not modify the source data, you'll have read-access only on the data in the Data Box. Use `/copyall` only if you intend to copy all the ACLs on the directories and files along with the data.
+
+#### Use robocopy to list, copy, modify files on Data Box
 
 Here are some of the common scenarios you'll use when copying data using `robocopy`.
 
