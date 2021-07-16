@@ -648,16 +648,29 @@ az group delete --name myResourceGroup
 
 What you learned:
 
+::: zone pivot="container-linux"
+
 > [!div class="checklist"]
 > * Deploy a custom image to a private container registry
 > * Deploy and the custom image in App Service
-::: zone pivot="container-linux"
 > * Update and redeploy the image
-::: zone-end
 > * Access diagnostic logs
-::: zone pivot="container-linux"
 > * Connect to the container using SSH
 ::: zone-end
+
+::: zone pivot="container-linux"
+
+> [!div class="checklist"]
+> * Push a custom Docker image to Azure Container Registry
+> * Deploy the custom image to App Service
+> * Configure environment variables
+> * Pull image into App Service using a managed identity
+> * Access diagnostic logs
+> * Enable CI/CD from Azure Container Registry to App Service
+> * Connect to the container using SSH
+
+::: zone-end
+
 
 In the next tutorial, you learn how to map a custom DNS name to your app.
 
