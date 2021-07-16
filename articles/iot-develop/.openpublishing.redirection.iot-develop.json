@@ -287,17 +287,17 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-use-iot-pnp-bridge.md",
-      "redirect_url": "https://github.com/Azure/iot-plug-and-play-bridge/pnpbridge/docs/quick_start.md",
+      "redirect_url": "https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/quick_start.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-build-deploy-extend-pnp-bridge.md",
-      "redirect_url": "https://github.com/Azure/iot-plug-and-play-bridge/pnpbridge/docs/build_deploy.md",
+      "redirect_url": "https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/build_deploy.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-author-pnp-bridge-adapter.md",
-      "redirect_url": "https://github.com/Azure/iot-plug-and-play-bridge/pnpbridge/docs/author_adapter.md",
+      "redirect_url": "https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/author_adapter.md",
       "redirect_document_id": false
     },
     {
