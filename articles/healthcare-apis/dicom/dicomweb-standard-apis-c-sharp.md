@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 07/15/2021
+ms.date: 07/16/2021
 ms.author: aersoy
 ---
 
@@ -18,10 +18,10 @@ This tutorial uses C# to demonstrate working with the DICOM service.
 
 In this tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
 
-* blue-circle
+* blue-circle.dcm
 * dicom-metadata.csv
-* green-square
-* red-triangle 
+* green-square.dcm
+* red-triangle.dcm
 
 The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 

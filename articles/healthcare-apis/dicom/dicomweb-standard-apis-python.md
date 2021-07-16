@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 07/10/2021
+ms.date: 07/16/2021
 ms.author: aersoy
 ---
 
@@ -16,7 +16,14 @@ ms.author: aersoy
 
 This tutorial uses Python to demonstrate working with the DICOM Service.
 
-In the tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+In the tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+
+* blue-circle.dcm
+* dicom-metadata.csv
+* green-square.dcm
+* red-triangle.dcm
+
+ The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
