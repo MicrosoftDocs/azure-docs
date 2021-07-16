@@ -108,7 +108,7 @@ DFfromNativeCassandra
 ```
 
 > [!NOTE]
-> The `spark.cassandra.output.batch.size.rows` and `spark.cassandra.output.concurrent.writes` values and the number of workers in your Spark cluster are important configurations to tune in order to avoid [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/). Rate limiting happens when requests to Azure Cosmos DB exceed provisioned throughput or [request units](./request-units.md) (RUs). You might need to adjust these settings, depending on the number of executors in the Spark cluster and potentially the size (and therefore RU cost) of each record being written to the target tables.
+> The `spark.cassandra.output.batch.size.rows` and `spark.cassandra.output.concurrent.writes` values and the number of workers in your Spark cluster are important configurations to tune in order to avoid [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-extensions-java-sample-v4/azure-cosmos-cassandra-extensions-java-sample-v4/). Rate limiting happens when requests to Azure Cosmos DB exceed provisioned throughput or [request units](./request-units.md) (RUs). You might need to adjust these settings, depending on the number of executors in the Spark cluster and potentially the size (and therefore RU cost) of each record being written to the target tables.
 
 ## Troubleshoot
 
