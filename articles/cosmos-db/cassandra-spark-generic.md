@@ -51,6 +51,12 @@ As an example, if we have 5 workers and a value of `spark.cassandra.output.concu
 
 Increasing the number of executors can increase the number of threads in a given job, which can in turn increase throughput. However, the exact impact of this can be variable depending on the job, while controlling throughput with number of workers is more deterministic. You can also determine the exact cost of a given request by profiling it to get the Request Unit (RU) charge. This will help you to be more accurate when provisioning throughput for your table or keyspace. Have a look at our article [here](./find-request-unit-charge-cassandra.md) to understand how to get request unit charges at a per request level. 
 
+### Scaling throughput in the database
+
+The Cassandra Spark connector will saturate throughput in Azure Cosmos DB very efficiently. As a result, even with effective retries, you will need to ensure you have sufficient throughput (RUs) provisioned at the table or keyspace level to prevent rate limiting related errors. The minimum setting of 400 RUs in a given table or keyspace will not be sufficient. Even at minimum throughput configuration settings, the Spark connector can write at a rate corresponding to around **6000 request units** or more.
+
+If the RU setting required for data movement using Spark is higher than what is required for your steady state workload, you can easily scale throughput up and down systematically in Azure Cosmos DB to meet the needs of your workload for a given time period. Read our article on [elastic scale in Cassandra API](manage-scale-cassandra.md) to understand the different options for scaling programmatically and dynamically. 
+
 > [!NOTE]
 > The guidance above assumes a reasonably uniform distribution of data. If you have a significant skew in the data (that is, an inordinately large number of reads/writes to the same partition key value), then you might still experience bottlenecks, even if you have a large number of [request units](./request-units.md) provisioned in your table. Request units are divided equally among physical partitions, and heavy data skew can cause a bottleneck of requests to a single partition.
     
