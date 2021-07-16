@@ -60,7 +60,7 @@
     items:
     - name: Create an account with ARM
       href: media-services-arm-template-quickstart.md   
-      displayName: ARM, ARM Template 
+      displayName: ARM, ARM Template, Azure Resource Manager, Azure Resource Manager Template
 - name: Tutorials
   items:
   - name: .NET
@@ -619,7 +619,7 @@
       displayName: Go, Go SDK, SDK, Go reference, Go docs, Go Documentation, Go library, go package
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
-    displayName: ARM, ARM template, template, Terraform, deployment, deploy, deployment template
+    displayName: ARM, ARM template, Azure Resource Manager, Azure Resource Manager template, template, Terraform, deployment, deploy, deployment template
   - name: Standard Encoder schemas
     items:
     - name: Input metadata
