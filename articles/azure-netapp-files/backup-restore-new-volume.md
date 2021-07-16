@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 08/15/2021
 ms.author: b-juche
 ---
 # Restore a backup to a new volume
@@ -28,13 +28,17 @@ Restoring a backup creates a new volume with the same protocol type. This articl
 
 ## Steps
 
-1. Select **Volumes**.
-2. Navigate to **Backups**.
-3. From the backup list, select the backup to restore. Click the three dots (`…`) to the right of the backup, then click **Restore to new volume** from the Action menu.   
+1. Select **Volumes**. Navigate to **Backups**.
+
+    > [!NOTE]
+    > If a volume is deleted but the backup policy wasn’t disabled before the volume deletion, all the backups related to the volume are retained in the Azure storage, and you can find them under the associated NetApp account.  See [Search backups at NetApp account level](backup-search.md#search-backups-at-netapp-account-level).
+
+
+1. From the backup list, select the backup to restore. Click the three dots (`…`) to the right of the backup, then click **Restore to new volume** from the Action menu.   
 
     ![Screenshot that shows the option to restore backup to a new volume.](../media/azure-netapp-files/backup-restore-new-volume.png)
 
-4. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and click **Review + Create** to begin restoring the backup to a new volume.   
+3. In the Create a Volume page that appears, provide information for the fields in the page as applicable, and click **Review + Create** to begin restoring the backup to a new volume.   
 
     * The **Protocol** field is pre-populated from the original volume and cannot be changed.    
         However, if you restore a volume from the backup list at the NetApp account level, you need to specify the Protocol field. The Protocol field must match the protocol of the original volume. Otherwise, the restore operation will fail with the following error:  

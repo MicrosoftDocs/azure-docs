@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 08/15/2021
 ms.author: b-juche
 ---
 # Delete backups of a volume 
