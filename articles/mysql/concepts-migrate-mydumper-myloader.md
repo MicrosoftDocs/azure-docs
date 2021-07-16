@@ -42,11 +42,11 @@ Before you begin migrating your MySQL database, you need to:
 
     * Update the package index on the Azure VM running Linux by running the following command:
         ```bash
-        $ sudo apt update
+        sudo apt update
         ```
     * Install the mysql client package by running the following command:
         ```bash
-        $ sudo apt install mysql-client
+        sudo apt install mysql-client
         ```
 
 ## Install mydumper/myloader
@@ -56,7 +56,7 @@ To install mydumper/myloader, do the following steps.
 1. Depending on your OS distribution, download the appropriate package for mydumper/myloader, running the following command:
 2. 
     ```bash
-    $ wget https://github.com/maxbube/mydumper/releases/download/v0.10.1/mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
+    wget https://github.com/maxbube/mydumper/releases/download/v0.10.1/mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
     ```
 
     > [!Note]
@@ -65,7 +65,7 @@ To install mydumper/myloader, do the following steps.
 3. To install the .deb package for mydumper, run the following command:
 
     ```bash
-    $ dpkg -i mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
+    dpkg -i mydumper_0.10.1-2.$(lsb_release -cs)_amd64.deb
     ```
 
     > [!Tip]
@@ -76,7 +76,7 @@ To install mydumper/myloader, do the following steps.
 * To create a backup using mydumper, run the following command:
 
     ```bash
-    $ mydumper --host=<servername> --user=<username> --password=<Password> --outputdir=./backup --rows=100000 --compress --build-empty-files --threads=16 --compress-protocol --trx-consistency-only --ssl  --regex '^(<Db_name>\.)' -L mydumper-logs.txt
+     mydumper --host=<servername> --user=<username> --password=<Password> --outputdir=./backup --rows=100000 --compress --build-empty-files --threads=16 --compress-protocol --trx-consistency-only --ssl  --regex '^(<Db_name>\.)' -L mydumper-logs.txt
     ```
 
 This command uses the following variables:
@@ -100,7 +100,7 @@ This command uses the following variables:
 * To restore the database that you backed up using mydumper, run the following command:
 
     ```bash
-    $ myloader --host=<servername> --user=<username> --password=<Password> --directory=./backup --queries-per-transaction=500 --threads=16 --compress-protocol --ssl --verbose=3 -e 2>myloader-logs.txt
+     myloader --host=<servername> --user=<username> --password=<Password> --directory=./backup --queries-per-transaction=500 --threads=16 --compress-protocol --ssl --verbose=3 -e 2>myloader-logs.txt
     ```
 
 This command uses the following variables:
