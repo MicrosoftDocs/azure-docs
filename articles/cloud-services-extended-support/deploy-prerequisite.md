@@ -107,11 +107,7 @@ Deployments that utilized the old diagnostics plugins need the settings removed 
 ```
 ## Access Control
 
-<<<<<<< HEAD
-The subsciption containing networking resources needs to have [network contributor](/azure/role-based-access-control/built-in-roles#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](/azure/role-based-access-control/built-in-roles)
-=======
 The subsciption containing networking resources needs to have [network contributor](../role-based-access-control/built-in-roles.md#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](../role-based-access-control/built-in-roles.md)
->>>>>>> 09071d6fc82f9cf01f525cc28d05aae7bbd3938b
 
 ## Key Vault creation 
 

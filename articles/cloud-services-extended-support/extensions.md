@@ -49,10 +49,5 @@ To know more about Azure Antimalware, please visit [here](../security/fundamenta
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
-<<<<<<< HEAD
 - Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
-=======
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
-- Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
->>>>>>> 09071d6fc82f9cf01f525cc28d05aae7bbd3938b
