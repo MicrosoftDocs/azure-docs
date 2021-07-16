@@ -2,30 +2,30 @@
 title:  Store Helm charts
 description: Learn how to store Helm charts for your Kubernetes applications using repositories in Azure Container Registry
 ms.topic: article
-ms.date: 07/14/2021
+ms.date: 07/16/2021
 ---
 
 # Push and pull Helm charts to an Azure container registry
 
 To quickly manage and deploy applications for Kubernetes, you can use the [open-source Helm package manager][helm]. With Helm, application packages are defined as [charts](https://helm.sh/docs/topics/charts/), which are collected and stored in a [Helm chart repository](https://helm.sh/docs/topics/chart_repository/).
 
-This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands. In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
+This article shows you how to host Helm charts repositories in an Azure container registry, using Helm 3 commands and storing charts as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). In many scenarios, you would build and upload your own charts for the applications you develop. For more information on how to build your own Helm charts, see the [Chart Template Developer's Guide][develop-helm-charts]. You can also store an existing Helm chart from another Helm repo.
 
 ## Helm 3 or Helm 2?
 
-To store, manage, and install Helm charts, you use a Helm client and the Helm CLI. Major releases of the Helm client include Helm 3 and Helm 2. For details on the version differences, see the [version FAQ](https://helm.sh/docs/faq/). 
+To store, manage, and install Helm charts, you use commands in the Helm CLI. Major Helm releases include Helm 3 and Helm 2. For details on the version differences, see the [version FAQ](https://helm.sh/docs/faq/). 
 
 Helm 3 should be used to host Helm charts in Azure Container Registry. With Helm 3, you:
 
 * Can create one or more Helm repositories in an Azure container registry
-* Store Helm charts in a registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Azure Container Registry provides GA support for [OCI artifacts](container-registry-oci-artifacts.md), including Helm charts.
-* Authenticate with your registry using the `az cr login` or `helm registry login` command.
-* Use `helm chart` commands in the Helm CLI to push, pull, and manage Helm charts in a registry
+* Store Helm charts in your registry as [OCI artifacts](container-registry-image-formats.md#oci-artifacts). Azure Container Registry provides GA support for OCI artifacts, including Helm charts.
+* Authenticate with your registry using the `helm registry login` or `az cr login` command.
+* Use `helm chart` commands to push, pull, and manage Helm charts in a registry
 * Use `helm install` to install charts to a Kubernetes cluster from a local repository cache.
 
 ### Feature support
 
-The following Azure Container Registry features to manage Helm charts are supported using the Helm 2 and Helm 3 clients.
+Azure Container Registry supports specific Helm chart management features depending on whether you are using Helm 3 (current) or Helm 2 (deprecated).
 
 | Feature | Helm 2 | Helm 3 |
 | ---- | ---- | ---- |
@@ -48,7 +48,7 @@ The following Helm [chart versions](https://helm.sh/docs/topics/charts/#the-apiv
 
 ### Migrate from Helm 2 to Helm 3
 
-If you've previously stored and deployed charts using Helm 2 and Azure Container Registry, and plan to migrate to Helm 3, see:
+If you've previously stored and deployed charts using Helm 2 and Azure Container Registry, we recommend migrating to Helm 3. See:
 
 * [Migrating Helm 2 to 3](https://helm.sh/docs/topics/v2_v3_migration/) in the Helm documentation.
 * [Migrate your registry to store Helm OCI artifacts](#migrate-your-registry-to-store-helm-oci-artifacts), later in this article
@@ -70,7 +70,7 @@ Use the `helm version` command to verify that you have installed Helm 3:
 helm version
 ```
 
-Set the following environment variable to enable OCI support in the Helm 3 client. Currently, this support is experimental. 
+Set the following environment variable to enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change. 
 
 ```console
 export HELM_EXPERIMENTAL_OCI=1
@@ -131,7 +131,7 @@ mycontainerregistry.azurecr.io/helm/hello-world:v1       hello-world       0.1.0
 
 ## Authenticate with the registry
 
-Run the `helm registry login` command in the Helm 3 CLI to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, or a repository-scoped token.
+Run  `helm registry login` to authenticate with the registry. You may pass [registry credentials](container-registry-authentication.md) appropriate for your scenario, such as service principal credentials, or a repository-scoped token.
 
 For example, create an Azure Active Directory [service principal with pull and push permissions](container-registry-auth-service-principal.md#create-a-service-principal) (AcrPush role) to the registry. Then supply the service principal credentials to `helm registry login`. The following example supplies the password using an environment variable:
 
@@ -303,11 +303,13 @@ az acr repository delete --name mycontainerregistry --image helm/hello-world:v1
 
 ## Migrate your registry to store Helm OCI artifacts
 
-If you previously set up your Azure container registry as a classic Helm chart repository using Helm 2 and the `az acr helm` commands, we recommend that you [upgrade][helm-install] to the Helm 3 client. Then, follow these steps to store the charts as OCI artifacts in your registry. 
+If you previously set up your Azure container registry as a chart repository using Helm 2 and the `az acr helm` commands, we recommend that you [upgrade][helm-install] to the Helm 3 client. Then, follow these steps to store the charts as OCI artifacts in your registry. 
 
 > [!IMPORTANT]
-> * After you complete migration from a classic (index.yaml-based) Helm chart repository to OCI artifact repositories, use the Helm CLI and `az acr repository` commands to manage the charts. See previous sections in this article. 
-> * The Helm OCI artifact repositories are not discoverable using Helm commands such as `helm search` and `helm repo list`. For more information about Helm command differences when storing charts as OCI artifacts, see the [Helm documentation](https://helm.sh).
+> * After you complete migration from a Helm 2-style (index.yaml-based) chart repository to OCI artifact repositories, use the Helm CLI and `az acr repository` commands to manage the charts. See previous sections in this article. 
+> * The Helm OCI artifact repositories are not discoverable using Helm commands such as `helm search` and `helm repo list`. For more information about Helm commands used to store charts as OCI artifacts, see the [Helm documentation](https://helm.sh/docs/topics/registries/).
+
+### Enable OCI support
 
 Ensure that you are using the Helm 3 client:
 
@@ -315,11 +317,13 @@ Ensure that you are using the Helm 3 client:
 helm version
 ```
 
-Enable OCI support in the Helm 3 client:
+Enable OCI support in the Helm 3 client. Currently, this support is experimental and subject to change.
 
 ```console
 export HELM_EXPERIMENTAL_OCI=1
 ```
+
+### List current charts
 
 List the charts currently stored in the registry, here named *myregistry*:
 
@@ -336,6 +340,8 @@ myregistry/wordpress            9.0.3           5.3.2           Web publishing p
 [...]
 ```
 
+### Save charts as OCI artifacts
+
 For each chart in the repo, pull the chart locally, and save it as an OCI artifact. Example:
 
 ```console 
@@ -343,6 +349,8 @@ helm pull myregisry/ingress-nginx --untar
 cd ingress-nginx
 helm chart save . myregistry.azurecr.io/ingress-nginx:3.20.1
 ```
+
+### Push charts to registry
 
 Login to the registry:
 
@@ -356,13 +364,13 @@ Push each chart to the registry:
 helm chart push myregistry.azurecr.io/ingress-nginx:v1
 ```
 
-After pushing a chart using the Helm 3 client, confirm it is stored in the registry:
+After pushing a chart, confirm it is stored in the registry:
 
 ```azurecli
 az acr repository list --name myregistry
 ```
 
-After pushing all of the charts, optionally remove the classic chart repository from the registry. Doing so reduces storage in your registry:
+After pushing all of the charts, optionally remove the Helm 2-style chart repository from the registry. Doing so reduces storage in your registry:
 
 ```console
 helm repo remove myregistry
@@ -378,18 +386,15 @@ helm repo remove myregistry
 [helm]: https://helm.sh/
 [helm-install]: https://helm.sh/docs/intro/install/
 [develop-helm-charts]: https://helm.sh/docs/chart_template_guide/
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [aks-quickstart]: ../aks/kubernetes-walkthrough.md
 [acr-bestpractices]: container-registry-best-practices.md
-[az-configure]: /cli/azure/reference-index#az_configure
 [az-acr-login]: /cli/azure/acr#az_acr_login
 [az-acr-helm]: /cli/azure/acr/helm
 [az-acr-repository]: /cli/azure/acr/repository
 [az-acr-repository-show]: /cli/azure/acr/repository#az_acr_repository_show
 [az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az_acr_repository_show_manifests
 [acr-tasks]: container-registry-tasks-overview.md
