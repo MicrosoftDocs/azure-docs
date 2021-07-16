@@ -71,13 +71,11 @@ create-dns-zone-notification.png
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-2.png" alt-text="Screenshot showing the DNS service tab with the Edit button selected.":::   
 
-1. From the **FQDN zones** drop-down, select the newly created FQDN and then select **OK**.
-
-   It takes several minutes to complete and once finished, you'll see the *Completed* message from **Notifications**.
+1. From the **FQDN zones** drop-down, select the newly created FQDN, and enter the IP address.  Then select **OK**.
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-3.png" alt-text="Screenshot showing the selected FQDN for the DNS service.":::
 
-   At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
+   It takes several minutes to complete and once finished, you'll see the *Completed* message from **Notifications**. At this point, management components in your private cloud should be able to resolve DNS entries from the FQDN zone provided to the NSX-T DNS Service. 
 
 1. Repeat the above steps for other FQDN zones, including any applicable reverse lookup zones.
 
