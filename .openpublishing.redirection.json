@@ -21727,6 +21727,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-serverless-get-started-vs.md",
+      "redirect_url": "/azure/logic-apps/create-serverless-apps-visual-studio",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/index.yml",
       "redirect_url": "/azure/machine-learning/",
       "redirect_document_id": false
