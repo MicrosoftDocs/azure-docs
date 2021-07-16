@@ -302,9 +302,11 @@ Ensure that:
 * Your API is following the API request and response contracts as outlined above. 
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims that it depends on.
-* Your API implements some authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
+* Your API implements an authentication method outlined in [secure your API Connector](self-service-sign-up-secure-api-connector.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../../azure-functions/functions-scale.md)
+* Ensure high availability of your API.
+* Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
 * Your endpoints must comply with the Azure AD TLS and cipher security requirements. For more information, see [TLS and cipher suite requirements](../../active-directory-b2c/https-cipher-tls-requirements.md). 
  
 ### Use logging

@@ -566,10 +566,14 @@ Ensure that:
 * Your API is following the API request and response contracts as outlined above. 
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims that it depends on.
-* Your API implements some authentication method outlined in [secure your API Connector](secure-rest-api.md).
+* Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md)
- 
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
+* Ensure high availability of your API.
+* Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
+  
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
+
 ### Use logging
 
 In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
@@ -584,15 +588,16 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ### Using serverless cloud functions
 
-Serverless cloud functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](api-connector-samples.md#api-connector-rest-api-samples), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, data stores, and other cloud services for complex scenarios.
+Serverless cloud functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md), provide a simple, highly available, high performant way to create API endpoints to use as API connectors.
 
 ### Best practices
 Ensure that:
-* The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims that it depends on.
-* Your API implements some authentication method outlined in [secure your API Connector](secure-rest-api.md).
-* Your API responds as quickly as possible to ensure a fluid user experience. *The timeout is 10 seconds*. If your API doesn't reply within that timeframe or replies with an invalid response, Azure AD B2C will attempt to call your API two more times.
+* Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
+* Your API responds as quickly as possible to ensure a fluid user experience. 
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md)
+* Ensure high availability of your API.
+* Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
 
 [!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
  
