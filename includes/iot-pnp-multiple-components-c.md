@@ -56,7 +56,7 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ## Download the code
 
-If you completed the [Quickstart: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)](../articles/iot-pnp/quickstart-connect-device.md) you've already downloaded the code.
+If you completed the [Tutorial: Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub (C)](../articles/iot-pnp/tutorial-connect-device.md) you've already downloaded the code.
 
 In this tutorial, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
 
