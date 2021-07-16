@@ -130,6 +130,7 @@ sections:
           Can I shrink or downsize my managed disks?
         answer: |
           No. This feature is not supported currently.
+          Even though you take a snapshot of a disk , You cannot create a new disk out of it which is downsized than the original .
 
       - question: |
           Can I break a lease on my disk?
