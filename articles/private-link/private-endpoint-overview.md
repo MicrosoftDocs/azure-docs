@@ -49,41 +49,49 @@ Here are some key details about private endpoints:
 ## Private link resource 
 A private link resource is the destination target of a given private endpoint. The following is a list of available private link resource types: 
  
-|Private link resource name  |Resource type   |Subresources  |
-|---------|---------|---------|
-|**Private Link Service** (Your own service)   |  Microsoft.Network/privateLinkServices       | empty |
-|**Azure Automation** |  Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
-|**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure Synapse Analytics** | Microsoft.Synapse/workspaces    |  Sql, SqlOnDemand, Dev        | 
-|**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
-|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake File System Gen2 (dfs, dfs_secondary)       |
-|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts    | Sql, MongoDB, Cassandra, Gremlin, Table|
-|**Azure Database for PostgreSQL -Single server** | Microsoft.DBforPostgreSQL/servers    | postgresqlServer |
-|**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
-|**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
-|**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
-|**Azure Key Vault** | Microsoft.KeyVault/vaults    | vault |
-|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | management |
-|**Azure Search** | Microsoft.Search/searchService| searchService|  
-|**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | registry |
-|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStores |
-|**Azure Backup** | Microsoft.RecoveryServices/vaults    | vault |
-|**Azure Event Hub** | Microsoft.EventHub/namespaces    | namespace |
-|**Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
-|**Azure Relay** | Microsoft.Relay/namespaces | namespace |
-|**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
-|**Azure Event Grid** | Microsoft.EventGrid/domains    | domain |
-|**Azure App Service** | Microsoft.Web/sites    | sites |
-|**Azure App Service Slots** | Microsoft.Web/sites    | sites-`<slot name>` |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
-|**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
-|**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
-|**Cognitive Services** | (Microsoft.CognitiveServices/accounts    | account |
-|**Azure File Sync** | Microsoft.StorageSync/storageSyncServices    | Afs |
-    
-  
-
-  
+| Private link resource name | Resource type | Sub-resources |
+| **Azure App Configuration** | Microsoft.Appconfiguration/configurationStores | configurationStores |
+| **Azure Automation** | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
+| **Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table |
+| **Azure Batch** | Microsoft.Batch/batchAccounts | batchaccount |
+| **Azure Cache for Redis** | Microsoft.Cache/Redis | cacheaccount |
+| **Azure Cache for Redis Enterprise** | Microsoft.Cache/redisEnterprise | cacheaccount |
+| **Cognitive Services** | Microsoft.CognitiveServices/accounts | account |
+| **Azure Managed Disks** | Microsoft.Compute/diskAccesses | manageddisk |
+| **Azure Container Registry** | Microsoft.ContainerRegistry/registries | registry |
+| **Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters | management |
+| **Azure Data Factory** | Microsoft.DataFactory/factories | datafactory |
+| **Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers | mariadbServer |
+| **Azure Database for MySQL** | Microsoft.DBforMySQL/servers | mysqlServer |
+| **Azure Database for PostgreSQL - Single server** | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| **Azure IoT Hub** | Microsoft.Devices/IotHubs | iotHub |
+| **Microsoft Digital Twins** | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
+| **Azure Event Grid** | Microsoft.EventGrid/domains | domain |
+| **Azure Event Grid** | Microsoft.EventGrid/topics  | topic |
+| **Azure Event Hub** | Microsoft.EventHub/namespaces | namespace |
+| **Azure API for FHIR** | Microsoft.HealthcareApis/services | service |
+| **Azure Keyvault HSM** | Microsoft.Keyvault/managedHSMs | HSM |
+| **Azure Key Vault** | Microsoft.KeyVault/vaults | vault |
+| **Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces | amlworkspace |
+| **Azure Migrate** | Microsoft.Migrate/assessmentProjects | project |
+| **Application Gateway** | Microsoft.Network/applicationgateways | applicationgateway |
+| **Private Link Service** (Your own service) |  Microsoft.Network/privateLinkServices | empty |
+| **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | powerbi |
+| **Azure Purview** | Microsoft.Purview/accounts | account |
+| **Azure Backup** | Microsoft.RecoveryServices/vaults | vault |
+| **Azure Relay** | Microsoft.Relay/namespaces | namespace |
+| **Microsoft Search** | Microsoft.Search/searchServices | searchservice |
+| **Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
+| **SignalR** | Microsoft.SignalRService/SignalR | signalR |
+| **SignalR** | Microsoft.SignalRService/webPubSub | signalR |
+| **Azure SQL Database** | Microsoft.Sql/servers | Sql Server (sqlServer) |
+| **Azure Storage** | Microsoft.Storage/storageAccounts | Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary) |
+| **Azure File Sync** | Microsoft.StorageSync/storageSyncServices | Afs |
+| **Azure Synapse** | Microsoft.Synapse/privateLinkHubs | synapse |
+| **Azure Synapse Analytics** | Microsoft.Synapse/workspaces | Sql, SqlOnDemand, Dev | 
+| **Azure App Service** | Microsoft.Web/hostingEnvironments | hostingenvironment |
+| **Azure App Service** | Microsoft.Web/sites | site |
+| **Azure App Service** | Microsoft.Web/staticSites | staticSite |
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
