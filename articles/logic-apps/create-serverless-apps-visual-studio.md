@@ -1,6 +1,6 @@
 ---
 title: Create an example serverless app with Visual Studio
-description: Using a Azure quickstart template, create, deploy, and manage an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio
+description: Using an Azure quickstart template, create, deploy, and manage an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -69,7 +69,7 @@ To get started, create an Azure resource group project as a container for your s
 
    ![Screenshot showing "File" menu open with "New" menu and "Project" selected.](./media/create-serverless-apps-visual-studio/create-new-project-visual-studio.png)
 
-1. After the **Create a new project** window opens, in the search box, find and select the **Azure Resource Group** project template for either C# or Visual Basic. When you're ready, select **Next**. This example continues with C#.
+1. After the **Create a new project** window opens, in the search box, select the **Azure Resource Group** project template for either C# or Visual Basic. When you're ready, select **Next**. This example continues with C#.
 
    ![Screenshot showing "Create a new project" window and search box with "resource group" along with "Azure Resource Group" project template selected.](./media/create-serverless-apps-visual-studio/start-window-find-project-template.png)
 
@@ -87,7 +87,10 @@ To get started, create an Azure resource group project as a container for your s
 
    ![Screenshot showing your created project and solution.](./media/create-serverless-apps-visual-studio/create-serverless-solution.png)
 
-1. Next, deploy your solution to Azure. You must complete this deployment step before you can open, review, and edit your logic app's workflow using the designer in Visual Studio.
+1. Next, deploy your solution to Azure.
+
+   > [!IMPORTANT]
+   > Make sure that you complete the deployment step. Otherwise, you can't open, review, and edit your logic app's workflow using the designer in Visual Studio.
 
 ## Deploy your solution
 
