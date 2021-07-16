@@ -167,7 +167,7 @@ After completing your configuration, enable SSO by selecting **Active** from the
 
   ![Enabling Single Sign-On](./media/linkedinlearning-tutorial/configuration.png "Enabling Single Sign-On")
 
-### Assign Licenses
+### Assign licenses
 
 Once you have enabled SSO, you can automatically assign licenses to your employees by toggling **Automatically provision licenses** to **On** and click **Save**. When you enable this option, users are automatically granted a license when they are authenticated for the first time.
 
