@@ -5,8 +5,8 @@ author: prashmo
 ms.author: prashmo
 ms.date: 12/14/2020
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ---
 
 # Understand IoT Plug and Play digital twins
@@ -306,7 +306,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
+The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-develop/libraries-sdks.md).
 
 ## Digital twin change events
 
@@ -381,6 +381,6 @@ content-encoding:utf-8
 Now that you've learned about digital twins, here are some additional resources:
 
 - [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
-- [Interact with a device from your solution](quickstart-service.md)
+- [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](howto-use-iot-explorer.md)
+- [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md)

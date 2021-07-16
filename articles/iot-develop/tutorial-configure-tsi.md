@@ -6,8 +6,8 @@ ms.author: dpalled
 manager: diviso
 ms.date: 10/14/2020
 ms.topic: tutorial
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 
 # Customer intent: As an IoT solution builder, I want to historize and analyze data from my IoT Plug and Play devices by routing to Time Series Insights.
 ---
@@ -136,7 +136,7 @@ The following details outline the simplest method to synchronize your device DTD
 | `description`  |  `description`  |  `Device with two thermostats and remote reboot.` |
 |`contents` (array)| `variables` (object)  | See the following example.
 
-![Screenshot showing D T D L to Time Series Model type.](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
+![Screenshot showing D T D L to Time Series Model type.](./media/tutorial-configure-tsi/dtdl-to-tsm-type-update.png)
 
 > [!NOTE]
 > This example shows three variables, but each type can have up to 100 variables. Different variables can reference the same telemetry value to do different calculations as needed. For the full list of filters, aggregates, and scalar functions, see [Time Series Insights Gen2 Time Series Expression syntax](/rest/api/time-series-insights/reference-time-series-expression-syntax).

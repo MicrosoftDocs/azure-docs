@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Interact with an IoT Plug and Play device connected to your Azure IoT solution | Microsoft Docs
-description: Quickstart - Use C#, JavaScript, Java, or Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
+title: Tutorial - Interact with an IoT Plug and Play device connected to your Azure IoT solution | Microsoft Docs
+description: Tutorial - Use C#, JavaScript, Java, or Python to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 09/21/2020
-ms.topic: quickstart
-ms.service: iot-pnp
-services: iot-pnp
+ms.topic: tutorial
+ms.service: iot-develop
+services: iot-develop
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-ten
 
@@ -26,7 +26,7 @@ zone_pivot_groups: programming-languages-set-ten
 #Customer intent: As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 
-# Quickstart: Interact with an IoT Plug and Play device that's connected to your solution
+# Tutorial: Interact with an IoT Plug and Play device that's connected to your solution
 
 :::zone pivot="programming-language-csharp"
 
@@ -58,7 +58,7 @@ If you've finished with the quickstarts and tutorials, see [Clean up resources](
 
 ## Next steps
 
-In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about IoT Plug and Play device models, see:
+In this tutorial, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
 > [IoT Plug and Play modeling developer guide](concepts-developer-guide-device.md)
