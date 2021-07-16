@@ -562,9 +562,8 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Cosmos-InvalidAccountKey
 - **Message**: The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used.
-- **Cause**: There is not enough permission to read/write the Azure Cosmos DB data.
-- **Recommendation**: Use the Azure Cosmos DB to read-write the key.
-
+- **Cause**: There is no enough permission to read/write Azure Cosmos DB data.
+- **Recommendation**: Please use the read-write key to access Azure Cosmos DB.
 
 ## Miscellaneous troubleshooting tips
 - **Issue**: Unexpected exception occurred and execution failed.
