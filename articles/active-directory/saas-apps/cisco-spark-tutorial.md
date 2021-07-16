@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2021
+ms.date: 07/16/2021
 ms.author: jeedes
 ---
 
@@ -87,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	`https://web.ciscospark.com/idb/Consumer/metaAlias/<ID>/sp`
 	
 	> [!NOTE]
-	> This value is not real. Update this value with the actual Sign on URL.You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> This value is not real. Copy the lateral [Reply URL](idb/Consumer/metaAlias/<ID>/sp) value and add this value to the [Sign on URL](https://web.ciscospark.com/) to formulate the actual Sign on URL value. You can also refer the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
