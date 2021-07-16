@@ -56,7 +56,7 @@ In this section, you'll set up two [digital twins](concepts-twins-graph.md) in A
 
 To create these twins, you'll first need to upload the thermostat and room [models](concepts-models.md) to your instance to define what these twins look like. You can explore the model code here: [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json) and [Thermostat.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-docs-code/main/models/Thermostat.json).
 
-To upload the models to your twins instance, run the following Azure CLI commands, which upload the models as inline JSON. You can run the commands in [Azure Cloud Shell](../articles/cloud-shell/overview.md) in your browser (use the **Bash** environment), or on your machine if you have the [CLI installed locally](/cli/azure/install-azure-cli).
+To upload the models to your twins instance, run the following Azure CLI commands, which upload the models as inline JSON. You can run the commands in [Azure Cloud Shell](../cloud-shell/overview.md) in your browser (use the **Bash** environment), or on your machine if you have the [CLI installed locally](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az dt model create --dt-name <instance-name> --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' 
