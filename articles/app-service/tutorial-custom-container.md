@@ -648,7 +648,7 @@ az group delete --name myResourceGroup
 
 What you learned:
 
-::: zone pivot="container-linux"
+::: zone pivot="container-windows"
 
 > [!div class="checklist"]
 > * Deploy a custom image to a private container registry
@@ -656,6 +656,7 @@ What you learned:
 > * Update and redeploy the image
 > * Access diagnostic logs
 > * Connect to the container using SSH
+
 ::: zone-end
 
 ::: zone pivot="container-linux"
