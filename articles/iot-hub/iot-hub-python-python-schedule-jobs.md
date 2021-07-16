@@ -108,7 +108,7 @@ In this section, you create a Python console app that responds to a direct metho
         print(twin_patch)
     ```
 
-6. Add the following code to register the handler for the **lockDoor** method. Also include the `main` routine:
+6. Add the following code to register the handlers for the **lockDoor** method as well as twin patches. Also include the `main` routine:
 
     ```python
     def iothub_jobs_sample_run():
@@ -127,11 +127,11 @@ In this section, you create a Python console app that responds to a direct metho
             print("IoTHubDeviceClient sample stopped!")
             client.shutdown()
 
-        if __name__ == '__main__':
-            print ( "Starting the IoT Hub Python jobs sample..." )
-            print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
+    if __name__ == '__main__':
+        print ( "Starting the IoT Hub Python jobs sample..." )
+        print ( "IoTHubDeviceClient waiting for commands, press Ctrl-C to exit" )
 
-            iothub_jobs_sample_run()
+        iothub_jobs_sample_run()
     ```
 
 7. Save and close the **simDevice.py** file.
