@@ -20,7 +20,7 @@
   items:
   - name: Essentials for remote app streaming
     items:
-    - name: Set up managed identities for users
+    - name: Set up managed identities
       href: identities.md
     - name: Deploy apps with MSIX app attach
       href: msix-app-attach.md
