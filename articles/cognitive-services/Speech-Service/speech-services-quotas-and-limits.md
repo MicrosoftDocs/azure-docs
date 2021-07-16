@@ -90,7 +90,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
-<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice).<br/>
+<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-and-custom-voices).<br/>
 <sup>6</sup> Custom Voice is being deprecated and not available for newly created Speech resources. See [additional information](how-to-custom-voice.md#migrate-to-custom-neural-voice).<br/> 
 
 ## Detailed description, Quota adjustment, and best practices
