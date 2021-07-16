@@ -56,11 +56,15 @@ For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API f
 <sup>2</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling),  and [adjustment instructions](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
 
 ### Text-to-Speech Quotas and limits per Speech resource
-In the table below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
+In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
+
+#### General
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| **Max number of Transactions per Second (TPS) per Speech resource. Real-time API. Standard, Neural, Custom and Custom Neural voices** | 200<sup>4</sup> | 200<sup>4</sup> |
+| **Max number of Transactions per Second (TPS) per Speech resource** |  |  |
+| Real-time API. Standard, Neural, Custom and Custom Neural voices | 200<sup>4</sup> | 200<sup>4</sup> |
+| Adjustable | No<sup>4</sup> | No<sup>4</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max Audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
@@ -68,12 +72,20 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | Max Audio length produced per turn | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
 | Max SSML Message size per turn | 64 KB | 64 KB |
-| **Long Audio API specific quotas** |  |  |
+
+#### Long Audio API
+
+| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
+|--|--|--|
 | Min text length | N/A | 400 characters for plain text; 400 [billable characters](text-to-speech.md#pricing-note) for SSML |
 | Max text length | N/A | 10000 paragraphs |
 | Start time | N/A | 10 tasks or 10000 characters accumulated |
-| **Custom Neural Voice and Custom Voice<sup>6</sup> specific quotas** |  |  |
-| Max number of Transactions per Second (TPS) per Speech resource. Real-time API | | See the top of the table |
+
+#### Custom Neural Voice and Custom Voice<sup>6</sup> 
+
+| Quota | Free (F0)<sup>3</sup> | Standard (S0) |
+|--|--|--|
+| Max number of Transactions per Second (TPS) per Speech resource. Real-time API | | [See above](#general) |
 | Max number of data sets per Speech resource | 10 | 500 |
 | Max number of simultaneous dataset upload per Speech resource | 2 | 5 |
 | Max data file size for data import per dataset | 2 GB | 2 GB |
