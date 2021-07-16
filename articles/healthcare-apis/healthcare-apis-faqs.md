@@ -2,13 +2,12 @@
 title: FAQs about Azure Healthcare APIs
 description: This document provides answers to the frequently asked questions about the Azure Healthcare APIs.
 services: healthcare-apis
-author: stevewohl
+author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
-ms.subservice: healthcare-apis
 ms.topic: reference
 ms.date: 07/16/2021
-ms.author: ginale
+ms.author: ginle
 ---
 
 
