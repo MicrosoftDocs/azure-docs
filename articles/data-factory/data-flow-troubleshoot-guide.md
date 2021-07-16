@@ -242,7 +242,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Recommendation**: Update Snowflake staging settings to ensure that only Azure Blob linked service is used.
 
 ### Error code: DF-Snowflake-InvalidStageConfiguration
-- **Message**: Snowflake stage properties should be specified with azure blob + sas authentication.
+- **Message**: Snowflake stage properties should be specified with Azure Blob + SAS authentication.
 - **Cause**: An invalid staging configuration is provided in the Snowflake.
 - **Recommendation**: Ensure that only the Azure Blob + SAS authentication is specified in the Snowflake staging settings.
 
@@ -477,7 +477,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Recommendation**: Please update AdobeIntegration settings to make your partition type is RoundRobin.
 
 ### Error code: DF-AdobeIntegration-InvalidPrivacyRegulation
-- **Message**: Only privacy regulation supported currently is gdpr.
+- **Message**: Only privacy regulation that's currently supported is 'GDPR'.
 - **Cause**: Invalid privacy configurations are provided.
 - **Recommendation**: Please update AdobeIntegration settings while only privacy 'GDPR' is supported.
 
