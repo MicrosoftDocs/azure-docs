@@ -19,8 +19,8 @@ When you have critical applications and business processes relying on Azure reso
 > [!TIP]
 > The information in this document is primarily for __administrators__, as it describes monitoring for the Azure Machine Learning service and associated Azure services. If you are a __data scientist__ or __developer__, and want to monitor information specific to your *model training runs*, see the following documents:
 >
-> * [Start, monitor, and cancel training runs](how-to-manage-runs.md)
-> * [Log metrics for training runs](how-to-track-experiments.md)
+> * [Start, monitor, and cancel training runs](how-to-track-monitor-analyze-runs.md)
+> * [Log metrics for training runs](how-to-log-view-metrics.md)
 > * [Track experiments with MLflow](how-to-use-mlflow.md)
 > * [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
 >
@@ -55,9 +55,9 @@ See [Azure Machine Learning monitoring data reference](monitor-resource-referenc
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
-Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
+Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations. When you need to manage multiple Azure Machine Learning workspaces, you could route logs for all workspaces into the same logging destination and query all logs from a single place.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Machine Learning are listed in [Azure Machine Learning monitoring data reference](monitor-resource-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, the Azure CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Machine Learning are listed in [Azure Machine Learning monitoring data reference](monitor-resource-reference.md#resource-logs).
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -69,6 +69,7 @@ You can configure the following logs for Azure Machine Learning:
 | AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
+
 
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
@@ -106,9 +107,20 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 
 | Table | Description |
 |:---|:---|
-| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
+| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters.|
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
+| AmlComputeInstanceEvent | Events when ML Compute Instance is accessed (read/write). Category includes:ComputeInstanceEvent (very chatty). |
+| AmlDataLabelEvent | Events when data label(s) or its projects is accessed (read, created, or deleted). Category includes:DataLabelReadEvent,DataLabelChangeEvent.  |
+| AmlDataSetEvent | Events when a registered or unregistered ML dataset is accessed (read, created, or deleted). Category includes:DataSetReadEvent,DataSetChangeEvent. |
+| AmlDataStoreEvent | Events when ML datastore is accessed (read, created, or deleted). Category includes:DataStoreReadEvent,DataStoreChangeEvent. |
+| AmlDeploymentEvent | Events when a model deployment happens on ACI or AKS. Category includes:DeploymentReadEvent,DeploymentEventACI,DeploymentEventAKS. |
+| AmlInferencingEvent | Events for inference or related operation on AKS or ACI compute type. Category includes:InferencingOperationACI (very chatty),InferencingOperationAKS (very chatty). |
+| AmlModelsEvent | Events when ML model is accessed (read, created, or deleted). Includes events when packaging of models and assets happen into a ready-to-build packages. Category includes:ModelsReadEvent,ModelsActionEvent .|
+| AmlPipelineEvent | Events when ML pipeline draft or endpoint or module are accessed (read, created, or deleted).Category includes:PipelineReadEvent,PipelineChangeEvent. |
+| AmlRunEvent | Events when ML experiments are accessed (read, created, or deleted). Category includes:RunReadEvent,RunEvent. |
+| AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
+
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
@@ -152,6 +164,17 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     AmlComputeClusterNodeEvent
     | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
     | distinct NodeId
+    ```
+
+When you connect multiple Azure Machine Learning workspaces to the same Log Analytics workspace, you can query across all resources. 
+
++ Get number of running nodes across workspaces and clusters in the last day:
+
+    ```Kusto
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(1d)
+    | summarize avgRunningNodes=avg(TargetNodeCount), maxRunningNodes=max(TargetNodeCount)
+             by Workspace=tostring(split(_ResourceId, "/")[8]), ClusterName, ClusterType, VmSize, VmPriority
     ```
 
 ## Alerts

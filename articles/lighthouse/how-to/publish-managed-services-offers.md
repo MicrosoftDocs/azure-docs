@@ -11,7 +11,7 @@ In this article, you'll learn how to publish a public or private Managed Service
 
 ## Publishing requirements
 
-You need to have a valid [account in Partner Center](../../marketplace/partner-center-portal/create-account.md) to create and publish offers. If you don't have an account already, the [sign-up process](https://aka.ms/joinmarketplace) will lead you through the steps of creating an account in Partner Center and enrolling in the Commercial Marketplace program.
+You need to have a valid [account in Partner Center](../../marketplace/create-account.md) to create and publish offers. If you don't have an account already, the [sign-up process](https://aka.ms/joinmarketplace) will lead you through the steps of creating an account in Partner Center and enrolling in the Commercial Marketplace program.
 
 Per the [Managed Service offer certification requirements](/legal/marketplace/certification-policies#700-managed-services), you must have a [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) in order to publish a Managed Service offer. You must also [enter a lead destination that will create a record in your CRM system](../../marketplace/plan-managed-service-offer.md#customer-leads) each time a customer deploys your offer.
 
@@ -21,7 +21,7 @@ The following table can help determine whether to onboard customers by publishin
 
 |**Consideration**  |**Managed Service offer**  |**ARM templates**  |
 |---------|---------|---------|
-|Requires [Partner Center account](../../marketplace/partner-center-portal/create-account.md)   |Yes         |No        |
+|Requires [Partner Center account](../../marketplace/create-account.md)   |Yes         |No        |
 |Requires [Silver or Gold Cloud Platform competency level](/partner-center/learn-about-competencies) or [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
 |Available to new customers through Azure Marketplace     |Yes     |No       |
 |Can limit offer to specific customers     |Yes (only with private offers, which can't be used with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program)         |Yes         |
@@ -48,7 +48,7 @@ Once a customer adds your offer, they will be able to delegate one or more subsc
 
 Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. More info about this process can be found [here](../../marketplace/review-publish-offer.md).
 
-You can [publish an updated version of your offer](../..//marketplace/partner-center-portal/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
+You can [publish an updated version of your offer](../../marketplace/update-existing-offer.md) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
 
 ## The customer onboarding process
 

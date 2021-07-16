@@ -79,6 +79,8 @@ az vm create \
   --generate-ssh-keys
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ### Azure CLI output message
 
 The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI returns output like this:
@@ -99,7 +101,7 @@ The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI
 
 ## VM public IP
 
-To get the public IP address **myVM2**, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
+To get the public IP address **myVM2**, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
 ```azurecli-interactive
 az network public-ip show \

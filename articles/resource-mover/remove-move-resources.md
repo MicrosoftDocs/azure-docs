@@ -6,7 +6,8 @@ author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/22/2020
-ms.author: raynew
+ms.author: raynew 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an Azure admin,  I want remove resources I've added to a move collection.
 
 ---
@@ -55,7 +56,7 @@ Remove multiple resources as follows:
 
 1. Validate dependencies:
 
-    ````azurepowershell-interactive
+    ```azurepowershell-interactive
     $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
     ```
 
@@ -65,19 +66,19 @@ Remove multiple resources as follows:
 
 2. Retrieve the dependent resources that need to be removed (along with our example virtual network psdemorm-vnet):
 
-    ````azurepowershell-interactive
+    ```azurepowershell-interactive
     $resp.AdditionalInfo[0].InfoMoveResource
     ```
 
     **Output after running cmdlet**
 
-    ![Output text after removing multiple resources from a move collection](./media/remove-move-resources/remove-multiple-get-dependencies.png)
+    ![Output text after retrieving dependent resources that need to be removed](./media/remove-move-resources/remove-multiple-get-dependencies.png)
 
 
 3. Remove all resources, along with the virtual network:
 
     
-    ````azurepowershell-interactive
+    ```azurepowershell-interactive
     Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('PSDemoVM','psdemovm111', 'PSDemoRM-vnet','PSDemoVM-nsg')
     ```
 
@@ -91,7 +92,7 @@ Remove multiple resources as follows:
 Remove an entire move collection from the subscription, as follows:
 
 1. Follow the instructions above to remove resources in the collection using PowerShell.
-2. Run:
+2. Remove a collection as follows:
 
     ```azurepowershell-interactive
     Remove-AzResourceMoverMoveCollection -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"
@@ -120,6 +121,7 @@ What happens when you remove a VM resource from a move collection depends on the
 **Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there.
 **Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.  | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
 **Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
+**Move completed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region. |  Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region.
 
 ## SQL resource state after removing
 
@@ -139,6 +141,7 @@ What happens when you remove an Azure SQL resource from a move collection depend
 **Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. 
 **Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
 **Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
+**Move completed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region.
 
 ## Next steps
 

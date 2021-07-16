@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 10/19/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ---
 
@@ -25,13 +25,13 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
 To create a container in the Azure portal, follow these steps:
 
 1. Navigate to your new storage account in the Azure portal.
-2. In the left menu for the storage account, scroll to the **Blob service** section, then select **Containers**.
-3. Select the **+ Container** button.
-4. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-5. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
-6. Select **OK** to create the container.
+1. In the left menu for the storage account, scroll to the **Data storage** section, then select **Blob containers**.
+1. Select the **+ Container** button.
+1. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For more information about container and blob names, see [Naming and referencing containers, blobs, and metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+1. Set the level of public access to the container. The default level is **Private (no anonymous access)**.
+1. Select **OK** to create the container.
 
-    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Screenshot showing how to create a container in the Azure portal":::
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Screenshot showing how to create a container in the Azure portal" lightbox="media/storage-quickstart-blobs-portal/create-container.png":::
 
 ## Upload a block blob
 

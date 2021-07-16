@@ -85,14 +85,20 @@
     items:
     - name: Routing issues
       href: troubleshoot-route-issues.md
-    - name: Allowed certificate authorities
-      href: troubleshoot-allowed-certificate-authority.md
     - name: Compression
       href: troubleshoot-compression.md
     - name: Cross origin resource sharing
       href: troubleshoot-cross-origin-resources.md
+    - name: Allowed certificate authorities
+      href: https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT
 - name: Reference
   items:
+  - name: Azure Front Door edge locations
+    items:
+    - name: Edge locations by region
+      href: edge-locations.md
+    - name: Edge locations by abbreviation
+      href: edge-locations-by-abbreviation.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.cdn
   - name: REST API

@@ -2,7 +2,7 @@
 title: Tutorial - New policy assignment with Azure portal
 description: In this tutorial, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
 ms.topic: tutorial
-ms.date: 10/07/2020
+ms.date: 04/21/2021
 ---
 
 # Tutorial: Create a policy assignment to identify non-compliant resources
@@ -114,9 +114,9 @@ To remove the assignment created, follow these steps:
 
 ## Next steps
 
-In this tutorial, you assigned a policy definition to a scope and evaluated its compliance report. The policy definition validates that all the resources in the scope are compliant and identifies which ones aren't. Now you are ready to monitor your Azure Arc enabled servers machine with Azure Monitor for VMs.
+In this tutorial, you assigned a policy definition to a scope and evaluated its compliance report. The policy definition validates that all the resources in the scope are compliant and identifies which ones aren't. Now you are ready to monitor your Azure Arc enabled servers machine by enabling [VM insights](../../../azure-monitor/vm/vminsights-overview.md).
 
 To learn how to monitor and view the performance, running process and their dependencies from your machine, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [Enable Azure Monitor for VMs](tutorial-enable-vm-insights.md)
+> [Enable VM insights](tutorial-enable-vm-insights.md)

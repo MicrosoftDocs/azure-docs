@@ -4,7 +4,8 @@ description: This article tells how to deploy a Hybrid Runbook Worker that you c
 services: automation
 ms.subservice: process-automation
 ms.date: 04/02/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Deploy a Windows Hybrid Runbook Worker
 
@@ -81,13 +82,13 @@ There are two methods to automatically deploy a Hybrid Runbook Worker. You can i
 
 ### Importing a runbook from the Runbook Gallery
 
-The import procedure is described in detail in [Import a PowerShell runbook from GitHub with the Azure portal](automation-runbook-gallery.md#import-a-powershell-runbook-from-github-with-the-azure-portal). The name of the runbook to import is **Create Automation Windows HybridWorker**.
+The import procedure is described in detail in [Import runbooks from GitHub with the Azure portal](automation-runbook-gallery.md#import-runbooks-from-github-with-the-azure-portal). The name of the runbook to import is **Create Automation Windows HybridWorker**.
 
 The runbook uses the following parameters.
 
 | Parameter | Status | Description |
 | ------- | ----- | ----------- |
-| `Location` | Mandatory | The location for the Log Analytics workspace. |
+| `Location` | Mandatory | The Location of the automation account in which the script is executed. |
 | `ResourceGroupName` | Mandatory | The resource group for your Automation account. |
 | `AccountName` | Mandatory | The Automation account name in which the Hybrid Run Worker will be registered. |
 | `CreateLA` | Mandatory | If true, uses the value of `WorkspaceName` to create a Log Analytics workspace. If false, the value of `WorkspaceName` must refer to an existing workspace. |

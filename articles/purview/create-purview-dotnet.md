@@ -49,7 +49,7 @@ Next, create a C# .NET console application in Visual Studio:
 
 1. Launch **Visual Studio**.
 2. In the Start window, select **Create a new project** > **Console App (.NET Framework)**. .NET version 4.5.2 or above is required.
-3. In **Project name**, enter **ADFv2QuickStart**.
+3. In **Project name**, enter **PurviewQuickStart**.
 4. Select **Create** to create the project.
 
 ## Install NuGet packages

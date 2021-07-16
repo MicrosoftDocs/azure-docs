@@ -84,6 +84,8 @@ val cosmosCassandra = Map(
     //throughput related settings below - tweak these depending on data volumes. 
     "spark.cassandra.output.batch.size.rows"-> "1",
     "spark.cassandra.output.concurrent.writes" -> "1000",
+    //"spark.cassandra.connection.remoteConnectionsPerExecutor" -> "1", // Spark 3.x
+    "spark.cassandra.connection.connections_per_executor_max"-> "1", // Spark 2.x
     "spark.cassandra.concurrent.reads" -> "512",
     "spark.cassandra.output.batch.grouping.buffer.size" -> "1000",
     "spark.cassandra.connection.keep_alive_ms" -> "600000000"
@@ -101,12 +103,12 @@ DFfromNativeCassandra
   .write
   .format("org.apache.spark.sql.cassandra")
   .options(cosmosCassandra)
-  .mode(SaveMode.Append)
+  .mode(SaveMode.Append) // only required for Spark 3.x
   .save
 ```
 
 > [!NOTE]
-> The `spark.cassandra.output.batch.size.rows` and `spark.cassandra.output.concurrent.writes` values and the number of workers in your Spark cluster are important configurations to tune in order to avoid [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/). Rate limiting happens when requests to Azure Cosmos DB exceed provisioned throughput or [request units](./request-units.md) (RUs). You might need to adjust these settings, depending on the number of executors in the Spark cluster and potentially the size (and therefore RU cost) of each record being written to the target tables.
+> The `spark.cassandra.output.batch.size.rows` and `spark.cassandra.output.concurrent.writes` values and the number of workers in your Spark cluster are important configurations to tune in order to avoid [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-extensions-java-sample-v4/azure-cosmos-cassandra-extensions-java-sample-v4/). Rate limiting happens when requests to Azure Cosmos DB exceed provisioned throughput or [request units](./request-units.md) (RUs). You might need to adjust these settings, depending on the number of executors in the Spark cluster and potentially the size (and therefore RU cost) of each record being written to the target tables.
 
 ## Troubleshoot
 

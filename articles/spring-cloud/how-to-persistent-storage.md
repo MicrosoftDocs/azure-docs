@@ -1,7 +1,7 @@
 ---
 title: How to use persistent storage in Azure Spring Cloud | Microsoft Docs
 description: How to use persistent storage in Azure Spring Cloud
-author: bmitchell287
+author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
@@ -81,5 +81,5 @@ Other operations:
 
 ## Next steps
 
-* Learn about [application and service quotas](spring-cloud-quotas.md).
-* Learn how to [manually scale your application](spring-cloud-howto-scale-manual.md).
+* Learn about [application and service quotas](./quotas.md).
+* Learn how to [manually scale your application](./how-to-scale-manual.md).

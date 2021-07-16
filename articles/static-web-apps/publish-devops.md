@@ -17,20 +17,20 @@ This article demonstrates how to deploy to [Azure Static Web Apps](./overview.md
 In this tutorial, you learn to:
 
 - Set up an Azure Static Web Apps site
-- Create an Azure DevOps Pipeline to build and publish a static web app
+- Create an Azure Pipeline to build and publish a static web app
 
 ## Prerequisites
 
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
-- **Azure DevOps Project:** If you don't have one, you can [create a project for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
-- **Azure DevOps Pipeline:** If you need help getting started, see [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&preserve-view=true).
+- **Azure DevOps project:** If you don't have one, you can [create a project for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
+  - Azure DevOps includes **Azure Pipelines**. If you need help getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
 
-## Create a static web app in an Azure DevOps repository
+## Create a static web app in an Azure DevOps
 
   > [!NOTE]
   > If you have an existing app in your repository, you may skip to the next section.
 
-1. Navigate to your Azure DevOps repository.
+1. Navigate to your repository in Azure Repos.
 
 1. Select **Import** to begin importing a sample application.
   
@@ -48,11 +48,11 @@ In this tutorial, you learn to:
 
 1. Search for **Static Web Apps**.
 
-1. Select **Static Web Apps (Preview)**.
+1. Select **Static Web Apps**.
 
 1. Select **Create**.
 
-1. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code in your Azure DevOps repository.
+1. Under _Deployment details_ ensure that you select **Other**. This enables you to use the code inside Azure Repos.
 
     :::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
@@ -69,7 +69,7 @@ In this tutorial, you learn to:
 
 ## Create the Pipeline Task in Azure DevOps
 
-1. Navigate to the Azure DevOps repository that was created earlier.
+1. Navigate to the repository in Azure Repos that was created earlier.
 
 1. Select **Set up build**.
 
@@ -82,19 +82,20 @@ In this tutorial, you learn to:
 1. Copy and paste the following YAML into your pipeline.
 
     ```yaml
-    trigger:​
-      - main​
-    ​
-    pool:​
-      vmImage: ubuntu-latest​
-    ​
-    steps:​
-      - task: AzureStaticWebApp@0​
-        inputs:​
-          app_location: "/" ​
-          api_location: "api​"
-          output_location: ""
-        env:​
+    trigger:
+      - main
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+      - checkout: self
+        submodules: true
+      - task: AzureStaticWebApp@0
+        inputs:
+          app_location: '/'
+          api_location: 'api'
+          output_location: ''
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 
@@ -105,33 +106,33 @@ In this tutorial, you learn to:
 
     The `azure_static_web_apps_api_token` value is self managed and is manually configured.
 
-1. Select **Variables**.
+2. Select **Variables**.
 
-1. Create a new variable.
+3. Create a new variable.
 
-1. Name the variable **deployment_token** (matching the name in the workflow).
+4. Name the variable **deployment_token** (matching the name in the workflow).
 
-1. Copy the deployment token that you previously pasted into a text editor.
+5. Copy the deployment token that you previously pasted into a text editor.
 
-1. Paste in the deployment token in the _Value_ box.
+6. Paste in the deployment token in the _Value_ box.
 
     :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Variable token":::
 
-1. Select **Keep this value secret**.
+7. Select **Keep this value secret**.
 
-1. Select **OK**.
+8. Select **OK**.
 
-1. Select **Save** to return to your pipeline YAML.
+9. Select **Save** to return to your pipeline YAML.
 
-1. Select **Save and run** to open the _Save and run_ dialog.
+10. Select **Save and run** to open the _Save and run_ dialog.
 
     :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
 
-1. Select **Save and run** to run the pipeline.
+11. Select **Save and run** to run the pipeline.
 
-1. Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration. Note how the _Source_ link now points to the branch and location of the Azure DevOps repository.
+12. Once the deployment is successful, navigate to the Azure Static Web Apps **Overview** which includes links to the deployment configuration. Note how the _Source_ link now points to the branch and location of the Azure DevOps repository.
 
-1. Select the **URL** to see your newly deployed website.
+13. Select the **URL** to see your newly deployed website.
 
     :::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
 

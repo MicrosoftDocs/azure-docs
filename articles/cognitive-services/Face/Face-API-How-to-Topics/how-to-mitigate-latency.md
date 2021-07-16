@@ -3,12 +3,10 @@ title: How to mitigate latency when using the Face service
 titleSuffix: Azure Cognitive Services
 description: Learn how to mitigate latency when using the Face service.
 services: cognitive-services
-author: v-jaswel
 manager: chrhoder
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
-ms.author: v-jawe
 ---
 
 # How to: mitigate latency when using the Face service
@@ -81,7 +79,7 @@ If your computer has a slow connection to the Face service, that will impact the
 Mitigations:
 - When you create your Face subscription, make sure to choose the region closest to where your application is hosted.
 - If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. See the previous section for an example.
-- If longer latencies impact the user experience, choose a timeout threshold (e.g. maximum 5s) before retrying the API call 
+- If longer latencies impact the user experience, choose a timeout threshold (e.g. maximum 5s) before retrying the API call.
 
 ## Next steps
 
@@ -93,4 +91,4 @@ In this guide, you learned how to mitigate latency when using the Face service. 
 ## Related topics
 
 - [Reference documentation (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Reference documentation (.NET SDK)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
+- [Reference documentation (.NET SDK)](/dotnet/api/overview/azure/cognitiveservices/face-readme)

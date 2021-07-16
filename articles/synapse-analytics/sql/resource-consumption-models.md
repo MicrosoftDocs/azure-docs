@@ -8,7 +8,8 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick   
+ms.reviewer: jrasnick    
+ms.custom: devx-track-azurepowershell
 ---
 
 # Synapse SQL resource consumption
@@ -67,7 +68,7 @@ Each performance tier uses a slightly different unit of measure for their data w
 - Gen1 data warehouses are measured in Data Warehouse Units (DWUs).
 - Gen2 data warehouses are measured in compute Data Warehouse Units (cDWUs).
 
-Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
+Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.
 
 As you increase data warehouse units, you're linearly increasing computing resources. Gen2 provides the best query performance and highest scale. Gen2 systems also make the most use of the cache.
 
@@ -132,11 +133,11 @@ To change DWUs:
 
 To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
-```Powershell
+```powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-For more information, see [PowerShell cmdlets for Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+For more information, see [PowerShell cmdlets for Azure Synapse Analytics](/powershell/module/az.synapse)
 
 #### T-SQL
 
@@ -147,7 +148,7 @@ To change the DWUs:
 1. Connect to the master database associated with your server.
 2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest&preserve-view=true) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
-```Sql
+```sql
 ALTER DATABASE MySQLDW
 MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
@@ -168,7 +169,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/?view=azps-6.1.0&preserve-view=true).
 
 ### Check status of DWU changes
 
@@ -203,7 +204,7 @@ This DMV returns information about various management operations on your dedicat
 
 ### The scaling workflow
 
-When you start a scale operation, the system first kills all open sessions, rolling back any open transactions to ensure a consistent state. For scale operations, scaling only occurs after this transactional rollback has completed.  
+When you start a scale operation, the system first kills all open sessions, rolling back any open transactions to ensure a consistent state. For scale operations, scaling only occurs after this transactional rollback has completed.
 
 - For a scale-up operation, the system detaches all compute nodes, provisions the additional compute nodes, and then reattaches to the storage layer.
 - For a scale-down operation, the system detaches all compute nodes and then reattaches only the needed nodes to the storage layer.

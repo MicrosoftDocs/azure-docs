@@ -4,7 +4,8 @@ description: This article tells how to use a webhook to start a runbook in Azure
 services: automation
 ms.subservice: process-automation
 ms.date: 03/18/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Start a runbook from a webhook
 
@@ -131,7 +132,7 @@ The client can't determine when the runbook job completes or its completion stat
 
 ### Use a webhook from an ARM template
 
-Automation webhooks can also be invoked by [Azure Resource Manager (ARM) templates](/azure/azure-resource-manager/templates/overview). The ARM template issues a `POST` request and receives a return code just like any other client. See [Use a webhook](#use-a-webhook).
+Automation webhooks can also be invoked by [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md). The ARM template issues a `POST` request and receives a return code just like any other client. See [Use a webhook](#use-a-webhook).
 
    > [!NOTE]
    > For security reasons, the URI is only returned the first time a template is deployed.
@@ -168,7 +169,7 @@ This sample template creates a test environment and returns the URI for the webh
             }
         },
         "_artifactsLocation": {
-            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation/",
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/",
             "type": "String",
             "metadata": {
                 "description": "URI to artifacts location"

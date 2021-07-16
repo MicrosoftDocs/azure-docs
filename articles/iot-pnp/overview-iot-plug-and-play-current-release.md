@@ -22,17 +22,17 @@ To learn more about how IoT Plug and Play devices work with DTDL, see [IoT Plug 
 
 ## Tools and utilities
 
-- Azure IoT explorer 0.12.0.
+- Azure IoT explorer 0.14.x (Download and install the most recent version of the application)
 
     To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
 
 - VS Code extension 1.0.0.
 
-    To learn more, see [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md).
+    To learn more, see [Lifecycle and tools](concepts-modeling-guide.md#lifecycle-and-tools).
 
 - Visual Studio 2019 extension 1.0.0.
 
-    To learn more, see [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md).
+    To learn more, see [Lifecycle and tools](concepts-modeling-guide.md#lifecycle-and-tools).
 
 - Azure CLI IoT extension 0.10.0.
 

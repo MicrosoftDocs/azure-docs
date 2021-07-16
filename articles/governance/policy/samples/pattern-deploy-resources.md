@@ -56,7 +56,7 @@ three core components:
   template parameter sets the location of the new network watcher resource.
 
   :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json" range="30-44":::
-  
+
 - **parameters** - This property defines parameters that are provided to the **template**. The
   parameter names must match what are defined in **template**. In this example, the parameter is
   named **location** to match. The value of **location** uses the `field()` function again to get

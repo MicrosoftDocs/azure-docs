@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
@@ -15,6 +15,8 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 # Quickstart: Manage Phone Numbers
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+[!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
@@ -38,7 +40,7 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 
 ## Troubleshooting
 
-Common questions and issues:
+Common Questions and Issues:
 
 - Purchasing phone is supported in the US only. To purchase phone numbers, ensure that:
   - The associated Azure subscription billing address is located in the United States. You cannot move a resource to another subscription at this time.

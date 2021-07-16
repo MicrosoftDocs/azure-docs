@@ -127,4 +127,4 @@ For a list of the IoT features supported by the latest version of the tool, see 
 
 ## Next steps
 
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md).
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](howto-manage-digital-twin.md).

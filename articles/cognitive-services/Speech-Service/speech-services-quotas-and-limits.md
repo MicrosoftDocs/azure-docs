@@ -1,20 +1,20 @@
 ---
-title: Speech Services Quotas and Limits
+title: Speech service Quotas and Limits
 titleSuffix: Azure Cognitive Services
-description: Quick reference, detailed description, and best practices on Azure Cognitive Speech Services Quotas and Limits
+description: Quick reference, detailed description, and best practices on Azure Cognitive Speech service Quotas and Limits
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
 ---
 
-# Speech Services Quotas and Limits
+# Speech service Quotas and Limits
 
-This article contains a quick reference and the **detailed description** of Azure Cognitive Speech Services Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices to avoid request throttling. 
+This article contains a quick reference and the **detailed description** of Azure Cognitive Speech service Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices to avoid request throttling. 
 
 ## Quotas and Limits quick reference
 Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resource)
@@ -26,9 +26,9 @@ For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API f
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Concurrent Request limit - Base model** | 1 | 100 (default value) |
+| **Concurrent Request limit - Base model endpoint** | 1 | 100 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
-| **Concurrent Request limit - Custom model** | 1 | 20 (default value) |
+| **Concurrent Request limit - Custom endpoint** | 1 | 100 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 #### Batch Transcription
@@ -70,7 +70,6 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | **Websocket specific quotas**                                                  |                        |                 |
 | Max Audio length produced per turn                                             | 10 min                 | 10 min          |
 | Max SSML Message size per turn                                                 | 64 KB                  | 64 KB           |
-| **REST API limit**                                                             | 20 requests per minute | 300 requests per minute |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -93,9 +92,13 @@ The next sections describe specific cases of adjusting quotas.<br/>
 Jump to [Text-to-Speech. Increasing Transcription Concurrent Request limit for Custom voice](#text-to-speech-increasing-transcription-concurrent-request-limit-for-custom-voice)
 
 ### Speech-to-text: increasing online transcription concurrent request limit
-By default the number of concurrent requests is limited to 20 per Speech resource (Base model) or per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+By default the number of concurrent requests is limited to 100 per Speech resource (Base model) and to 100 per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+>[!NOTE]
+> If you use custom models, please be aware, that one Speech resource may be associated with many custom endpoints hosting many custom model deployments. Each Custom endpoint has the default number of concurrent request limit (100) set by creation. If you need to adjust it, you need to make the adjustment of each custom endpoint **separately**. Please also note, that the value of the number of concurrent request limit for the base model of a Speech resource has **no** effect to the custom endpoints associated with this resource.
+
+
+Increasing the Concurrent Request limit does **not** directly affect your costs. Speech service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Concurrent Request limits for **Base** and **Custom** models need to be adjusted **separately**.
 
@@ -163,7 +166,7 @@ Generally, it is highly recommended to test the workload and the workload patter
 ### Text-to-speech: increasing transcription concurrent request limit for Custom Voice
 By default the number of concurrent requests for a Custom Voice endpoint is limited to 10. For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
-Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+Increasing the Concurrent Request limit does **not** directly affect your costs. Speech service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
 Existing value of Concurrent Request limit parameter is **not** visible via Azure portal, Command-Line tools, or API requests. To verify the existing value, create an Azure Support Request.
 

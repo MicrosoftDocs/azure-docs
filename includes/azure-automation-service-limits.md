@@ -5,7 +5,7 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: "include"
-ms.date: 02/08/2021
+ms.date: 05/04/2021
 ms.author: magoedte
 ms.custom: "include file"
 ---
@@ -34,6 +34,7 @@ ms.custom: "include file"
 | Maximum webhook payload size |  512 kilobytes|
 | Maximum days that job data is retained|30 days|
 | Maximum PowerShell workflow state size |5 MB| Applies to PowerShell workflow runbooks when checkpointing workflow.|
+| Maximum number of tags supported by an Automation account|15||
 
 <sup>1</sup>A sandbox is a shared environment that can be used by multiple jobs. Jobs that use the same sandbox are bound by the resource limitations of the sandbox.
 
@@ -44,6 +45,7 @@ The following table shows the tracked item limits per machine for change trackin
 | **Resource** | **Limit**| **Notes** |
 |---|---|---|
 |File|500||
+|File size|5 MB||
 |Registry|250||
 |Windows software|250|Doesn't include software updates.|
 |Linux packages|1,250||
@@ -57,3 +59,4 @@ The following table shows the limits for Update Management.
 | **Resource** | **Limit**| **Notes** |
 |---|---|---|
 |Number of machines per update deployment|1000||
+|Number of dynamic groups per update deployment |500 ||

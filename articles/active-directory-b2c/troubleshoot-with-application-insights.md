@@ -114,6 +114,50 @@ The entries may be long. Export to CSV for a closer look.
 
 For more information about querying, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
+## See the logs in VS Code extension
+
+We recommend you to install the [Azure AD B2C extension](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) for [VS Code](https://code.visualstudio.com/). With the Azure AD B2C extension, the logs are organized for you by the policy name, correlation ID (the application insights presents the first digit of the correlation ID), and the log timestamp. This feature helps you to find the relevant log based on the local timestamp and see the user journey as executed by Azure AD B2C.
+
+> [!NOTE]
+> The community has developed the vs code extension for Azure AD B2C to help identity developers. The extension is not supported by Microsoft, and is made available strictly as-is.
+
+### Set Application Insights API access
+
+After you set up the Application Insights, and configure the custom policy, you need to get your Application Insights **API ID**, and create **API Key**. Both the API ID and API key are used by Azure AD B2C extension to read the Application Insights events (telemetries). Your API keys should be managed like passwords. Keep it secret.
+
+> [!NOTE]
+> Application Insights instrumentation key that your create earlier is used by Azure AD B2C to send telemetries to Application Insights. You use the instrumentation key only in your Azure AD B2C policy, not in the vs code extension.
+
+To get Application Insights ID and key:
+
+1. In Azure portal, open the Application Insights resource for your application.
+1. Select **Settings**, then select **API Access**.
+1. Copy the **Application ID**
+1. Select **Create API Key**
+1. Check the **Read telemetry** box.
+1. Copy the **Key** before closing the Create API key blade and save it somewhere secure. If you lose the key, you'll need to create another.
+
+    ![Screenshot that demonstrates how to create API access key.](./media/troubleshoot-with-application-insights/application-insights-api-access.png)
+
+### Set up Azure AD B2C VS Code extension
+
+Now the you have Azure Application insights API ID and Key, you can configure the vs code extension to read the logs. Azure AD B2C VS Code extension provides two scopes for settings:
+
+- **User Global Settings** - Settings that apply globally to any instance of VS Code you open.
+- **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened (using VS Code **open folder**).
+
+1. From the **Azure AD B2C Trace** explorer, click on the **Settings** icon.
+
+    ![Screenshot that demonstrates select the application insights settings.](./media/troubleshoot-with-application-insights/app-insights-settings.png)
+
+1. Provide the Azure Application Insights **ID** and **key**.
+1. Click **Save**
+
+After you save the settings the Application insights logs appear on the **Azure AD B2C Trace (App Insights)** window.
+
+![Screenshot of Azure AD B2C extension for vscode, presenting the Azure Application insights trace.](./media/troubleshoot-with-application-insights/vscode-extension-application-insights-trace.png)
+
+
 ## Configure Application Insights in Production
 
 To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration to send only critical error messages to your Application Insights. 
@@ -139,12 +183,8 @@ To improve your production environment performance and better user experience, i
    
 1. Upload and test your policy.
 
+
+
 ## Next steps
 
-The community has developed a user journey viewer to help identity developers. It reads from your Application Insights instance and provides a well-structured view of the user journey events. You obtain the source code and deploy it in your own solution.
-
-The user journey player is not supported by Microsoft, and is made available strictly as-is.
-
-You can find the version of the viewer that reads events from Application Insights on GitHub, here:
-
-[Azure-Samples/active-directory-b2c-advanced-policies](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+- Learn how to [troubleshoot Azure AD B2C custom policies](troubleshoot-custom-policies.md)

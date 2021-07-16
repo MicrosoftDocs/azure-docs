@@ -7,13 +7,11 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Reference documentation overview
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-android-ios.md)]
 
 The following table details the available Communication Services packages along with corresponding reference documentation:
 

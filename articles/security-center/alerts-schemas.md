@@ -70,7 +70,7 @@ Azure Security Center audits generated Security alerts as events in Azure Activi
 
 You can view the security alerts events in Activity Log by searching for the Activate Alert event as shown:
 
-[![Searching the Activity log for the Activate Alert event](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+[![Searching the Activity log for the Activate Alert event.](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
 
 
 ### Sample JSON for alerts sent to Azure Activity Log

@@ -63,7 +63,7 @@
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -556,6 +556,9 @@
             - name: LOWER
               href: /stream-analytics-query/lower-azure-stream-analytics
               maintainContext: true
+            - name: NCHAR
+              href: /stream-analytics-query/nchar-azure-stream-analytics
+              maintainContext: true
             - name: PATINDEX
               href: /stream-analytics-query/patindex-azure-stream-analytics
               maintainContext: true
@@ -567,6 +570,9 @@
               maintainContext: true
             - name: SUBSTRING
               href: /stream-analytics-query/substring-azure-stream-analytics
+              maintainContext: true
+            - name: UNICODE
+              href: /stream-analytics-query/unicode-azure-stream-analytics
               maintainContext: true
             - name: UPPER
               href: /stream-analytics-query/upper-azure-stream-analytics
@@ -584,6 +590,9 @@
               maintainContext: true
             - name: Sliding Window
               href: /stream-analytics-query/sliding-window-azure-stream-analytics
+              maintainContext: true
+            - name: Snapshot Window
+              href: /stream-analytics-query/snapshot-window-azure-stream-analytics
               maintainContext: true
             - name: Tumbling Window
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
@@ -677,7 +686,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.streamanalytics/allversions
   - name: Azure CLI
-    href: /cli/azure/ext/stream-analytics/stream-analytics
+    href: /cli/azure/stream-analytics
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
@@ -688,7 +697,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure
+    href: https://techcommunity.microsoft.com/t5/analytics-on-azure/bg-p/AnalyticsonAzure/label-name/Azure%20Stream%20Analytics
   - name: Feedback forum
     href: https://feedback.azure.com/forums/270577-azure-stream-analytics
   - name: Microsoft Q&A question page

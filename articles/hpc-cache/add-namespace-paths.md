@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 04/22/2021
 ms.author: v-erkel
 ---
 
@@ -60,7 +60,7 @@ From the Azure portal, load the **Namespace** settings page. You can add, change
 
 When using the Azure CLI, you must add a namespace path when you create the storage target. Read [Add a new Azure Blob storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-azure-blob-storage-target) for details.
 
-To update the target's namespace path, use the [az hpc-cache blob-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-update) command. The arguments for the update command are similar to the arguments in the create command, except that you do not pass the container name or storage account.
+To update the target's namespace path, use the [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update) command. The arguments for the update command are similar to the arguments in the create command, except that you do not pass the container name or storage account.
 
 You cannot delete a namespace path from a blob storage target with the Azure CLI, but you can overwrite the path with a different value.
 
@@ -72,27 +72,7 @@ An NFS storage target can have multiple virtual paths, as long as each path repr
 
 When planning your namespace for an NFS storage target, keep in mind that each path must be unique, and can't be a subdirectory of another namespace path. For example, if you have a namespace path that is called ``/parent-a``, you can't also create namespace paths like ``/parent-a/user1`` and ``/parent-a/user2``. Those directory paths are already accessible in the namespace as subdirectories of ``/parent-a``.
 
-All of the namespace paths for an NFS storage system are created on one storage target. Most cache configurations can support up to ten namespace paths per storage target, but larger configurations can support up to 20.
-
-This list shows the maximum number of namespace paths per configuration.
-
-* Up to 2 GB/s throughput:
-
-  * 3 TB cache - 10 namespace paths
-  * 6 TB cache - 10 namespace paths
-  * 12 TB cache - 20 namespace paths
-
-* Up to 4 GB/s throughput:
-
-  * 6 TB cache - 10 namespace paths
-  * 12 TB cache - 10 namespace paths
-  * 24 TB cache -20 namespace paths
-
-* Up to 8 GB/s throughput:
-
-  * 12 TB cache - 10 namespace paths
-  * 24 TB cache - 10 namespace paths
-  * 48 TB cache - 20 namespace paths
+All of the namespace paths for an NFS storage system are created on one storage target.
 
 For each NFS namespace path, provide the client-facing path, the storage system export, and optionally an export subdirectory.
 
@@ -124,13 +104,13 @@ Fill in these values for each namespace path:
 
 When using the Azure CLI, you must add at least one namespace path when you create the storage target. Read [Add a new NFS storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) for details.
 
-To update the target's namespace path or to add additional paths, use the [az hpc-cache nfs-storage-target update](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-update) command. Use the ``--junction`` option to specify all of the namespace paths you want.
+To update the target's namespace path or to add additional paths, use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) command. Use the ``--junction`` option to specify all of the namespace paths you want.
 
 The options used for the update command are similar to the "create" command, except that you do not pass the storage system information (IP address or hostname), and the usage model is optional. Read [Add a new NFS storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) for more details about the syntax of the ``--junction`` option.
 
 ---
 
-### ADLS-NFS namespace paths (PREVIEW)
+### ADLS-NFS namespace paths
 
 Like a regular blob storage target, an ADLS-NFS storage target only has one export, so it can only have one namespace path.
 

@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 06/22/2021
 ms.custom: devx-track-csharp
 
 ---
@@ -20,7 +20,7 @@ Azure Cosmos DB provides three ways to control access to your data.
 | Access control type | Characteristics |
 |---|---|
 | [Primary keys](#primary-keys) | Shared secret allowing any management or data operation. It comes in both read-write and read-only variants. |
-| [Role-based access control](#rbac) (Preview) | Fine-grained, role-based permission model using Azure Active Directory (AAD) identities for authentication. |
+| [Role-based access control](#rbac) | Fine-grained, role-based permission model using Azure Active Directory (AAD) identities for authentication. |
 | [Resource tokens](#resource-tokens)| Fine-grained permission model based on native Azure Cosmos DB users and permissions. |
 
 ## <a id="primary-keys"></a> Primary keys
@@ -58,7 +58,7 @@ The following code sample illustrates how to use the Azure Cosmos DB account end
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
-## <a id="rbac"></a> Role-based access control (Preview)
+## <a id="rbac"></a> Role-based access control
 
 Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that lets you:
 
@@ -123,7 +123,7 @@ User user = await database.CreateUserAsync("User 1");
 
 ### Permissions<a id="permissions"></a>
 
-A permission resource is associated with a user and assigned at the container as well as partition key level. Each user may contain zero or more permissions. A permission resource provides access to a security token that the user needs when trying to access a specific container or data in a specific partition key. There are two available access levels that may be provided by a permission resource:
+A permission resource is associated with a user and assigned to a specific resource. Each user may contain zero or more permissions. A permission resource provides access to a security token that the user needs when trying to access a specific container or data in a specific partition key. There are two available access levels that may be provided by a permission resource:
 
 - All: The user has full permission on the resource.
 - Read: The user can only read the contents of the resource but cannot perform write, update, or delete operations on the resource.
@@ -148,7 +148,7 @@ user.CreatePermissionAsync(
     new PermissionProperties(
         id: "permissionUser1Orders",
         permissionMode: PermissionMode.All,
-        container: benchmark.container,
+        container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 

@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
 ms.author: robinsh
-ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
+ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates. 
 ---
 
@@ -158,7 +158,7 @@ RANDFILE                 = $home/private/random
 new_certs_dir            = $home/certs
 unique_subject           = no
 copy_extensions          = copy 
-default_days           
+default_days             = 365
 default_crl_days         = 90 
 default_md               = sha256
 policy                   = policy_c_o_match
@@ -206,7 +206,7 @@ subjectKeyIdentifier     = hash
 Create a new serial number in the `rootca/db/serial` file for the subordinate CA certificate.
 
 ```bash
-  openssl rand -hex 16 > db/serial
+  openssl rand -hex 16 > ../rootca/db/serial
 ```
 
 >[!IMPORTANT]

@@ -91,12 +91,12 @@ There are several ways to get started. Begin with whichever works best for you. 
 * **At run time: instrument your web app on the server.** Ideal for applications already deployed. Avoids any update to the code.
   * [**ASP.NET or ASP.NET Core applications hosted on Azure Web Apps**](./azure-web-apps.md)
   * [**ASP.NET applications hosted in IIS on Azure VM or Azure virtual machine scale set**](./azure-vm-vmss-apps.md)
-  * [**ASP.NET applications hosted in IIS on-premises VM**](./monitor-performance-live-website-now.md)
+  * [**ASP.NET applications hosted in IIS on-premises server**](./status-monitor-v2-overview.md)
 * **At development time: add Application Insights to your code.** Allows you to customize telemetry collection and send additional telemetry.
   * [ASP.NET Applications](./asp-net.md)
   * [ASP.NET Core Applications](./asp-net-core.md)
   * [.NET Console Applications](./console.md)
-  * [Java](./java-get-started.md)
+  * [Java](./java-in-process-agent.md)
   * [Node.js](./nodejs.md)
   * [Python](./opencensus-python.md)
   * [Other platforms](./platforms.md)
@@ -108,14 +108,14 @@ There are several ways to get started. Begin with whichever works best for you. 
 Get started at runtime with:
 
 * [Azure VM and Azure virtual machine scale set IIS-hosted apps](./azure-vm-vmss-apps.md)
-* [IIS server](./monitor-performance-live-website-now.md)
+* [IIS server](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 Get started at development time with:
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
 * [JavaScript](./javascript.md)
@@ -139,10 +139,10 @@ Get started at development time with:
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
 [ios]: ../app/mobile-center-quickstart.md
-[java]: ./java-get-started.md
+[java]: ./java-in-process-agent.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
-[redfield]: ./monitor-performance-live-website-now.md
+[qna]: ../faq.yml
+[redfield]: ./status-monitor-v2-overview.md
 

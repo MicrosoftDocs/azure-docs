@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 06/29/2021
 ms.author: tamram 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage storage account access keys
@@ -24,18 +24,21 @@ Microsoft recommends that you use Azure Key Vault to manage your access keys, an
 
 You can view and copy your account access keys with the Azure portal, PowerShell, or Azure CLI. The Azure portal also provides a connection string for your storage account that you can copy.
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 To view and copy your storage account access keys or connection string from the Azure portal:
 
 1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
-1. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
-1. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
-1. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
+
+2. Under **Settings**, select **Access keys**. Your account access keys appear, as well as the complete connection string for each key.
+
+3. Locate the **Key** value under **key1**, and click the **Copy** button to copy the account key.
+
+4. Alternately, you can copy the entire connection string. Find the **Connection string** value under **key1**, and click the **Copy** button to copy the connection string.
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Screenshot showing how to view access keys in the Azure portal":::
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To retrieve your account access keys with PowerShell, call the [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey) command.
 
@@ -48,9 +51,9 @@ $storageAccountKey = `
     -Name <storage-account>).Value[0]
 ```
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. 
+To list your account access keys with Azure CLI, call the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values. 
 
 ```azurecli-interactive
 az storage account keys list \
@@ -80,23 +83,138 @@ Two access keys are assigned so that you can rotate your keys. Having two keys e
 > [!WARNING]
 > Regenerating your access keys can affect any applications or Azure services that are dependent on the storage account key. Any clients that use the account key to access the storage account must be updated to use the new key, including media services, cloud, desktop and mobile applications, and graphical user interface applications for Azure Storage, such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-# [Portal](#tab/azure-portal)
+If you plan to manually rotate access keys, Microsoft recommends that you set a key expiration policy, and then use queries in Azure Monitor to determine when it's time to rotate an access key.
+
+### Create a key expiration policy
+
+#### [Portal](#tab/azure-portal)
+
+The ability to set a key expiration policy by using the Azure portal is not yet available. You can use either PowerShell or Azure CLI.
+
+#### [PowerShell](#tab/azure-powershell)
+
+To create a key expiration policy, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-KeyExpirationPeriodInDay` parameter to the number of days an access key can be active before it should be rotated. 
+
+```powershell
+$account = Set-AzStorageAccount -ResourceGroupName <resource-group> -Name `
+    <storage-account-name>  -KeyExpirationPeriodInDay <period-in-days> 
+```
+
+> [!TIP]
+> You can also set the key expiration policy as you create a storage account by setting the `-KeyExpirationPeriodInDay` parameter of the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
+
+To verify that the policy has been applied, use the `KeyPolicy` property of the [PSStorageAccount](/dotnet/api/microsoft.azure.commands.management.storage.models.psstorageaccount) returned to the `$account` variable in the previous command. 
+  
+```powershell
+$account.KeyPolicy
+``` 
+
+The key expiration period appears in the console output.
+
+> [!div class="mx-imgBorder"]
+> ![access key expiration period](./media/storage-account-keys-manage/key-policy-powershell.png)
+
+You might want to rotate existing keys if they've been active for longer than the expiration period. To find out when a key was created, use the `KeyCreationTime` property. 
+  
+```powershell
+$account.KeyCreationTime
+``` 
+
+The access key creation time for both access keys appears in the console output.
+
+> [!div class="mx-imgBorder"]
+> ![access key creation times](./media/storage-account-keys-manage/key-creation-time-powershell.png)
+
+
+#### [Azure CLI](#tab/azure-cli)
+
+To create a key expiration policy on existing storage accounts, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--key-exp-days` parameter to the number of days an access key can be active before it should be rotated. 
+
+```azurecli-interactive
+az storage account update \
+  -n <storage-account-name> \
+  -g <resource-group> --key-exp-days <period-in-days>
+```
+
+> [!TIP]
+> You can also set the key expiration policy as you create a storage account by setting the `-KeyExpirationPeriodInDay` parameter of the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+
+To verify that the policy has been applied, call the [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and use the string `{KeyPolicy:keyPolicy}` for the `-query` parameter.
+  
+```azurecli-interactive
+az storage account show \
+  -n <storage-account-name> \
+  -g <resource-group-name> \
+  --query "{KeyPolicy:keyPolicy}"
+```
+
+The key expiration period appears in the console output.
+
+```json
+{
+  "KeyPolicy": {
+    "keyExpirationPeriodInDays": 5
+  }
+}
+```
+
+
+You might want to rotate existing keys if they've been active for longer than the expiration period. To find out when a key was created, use the  [az storage account show](/cli/azure/storage/account#az_storage_account_show) command, and then use the string `keyCreationTime` for the -query parameter.
+  
+```azurecli-interactive
+az storage account show \
+  -n <storage-account-name> \
+  -g <resource-group-name> \
+  --query "keyCreationTime"
+```
+
+---
+
+### Query for policy violations
+
+If you create a diagnostic setting that [sends logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics) workspace, then you can use an Azure Monitor log query to determine whether a key has expired. 
+
+To determine if a key has expired, enter the following query in the **Log search** bar.
+
+```Kusto
+StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated". 
+```
+
+You can also create a query that helps you determine if a query is nearing expiration. The following query provides this information.
+
+```Kusto
+resources  
+| where type =~ 'microsoft.storage/storageAccounts' 
+| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime)) 
+| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "") 
+| project name, days, KeyExpiryStatus  
+```
+
+### Rotate access keys
+
+#### [Portal](#tab/azure-portal)
 
 To rotate your storage account access keys in the Azure portal:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
-1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
-1. Under **Settings**, select **Access keys**.
-1. To regenerate the primary access key for your storage account, select the **Regenerate** button next to the primary access key.
-1. Update the connection strings in your code to reference the new primary access key.
-1. Regenerate the secondary access key in the same manner.
 
-# [PowerShell](#tab/azure-powershell)
+2. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
+
+3. Under **Settings**, select **Access keys**.
+
+4. To regenerate the primary access key for your storage account, select the **Regenerate** button next to the primary access key.
+
+5. Update the connection strings in your code to reference the new primary access key.
+
+6. Regenerate the secondary access key in the same manner.
+
+#### [PowerShell](#tab/azure-powershell)
 
 To rotate your storage account access keys with PowerShell:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
-1. Call the [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) command to regenerate the primary access key, as shown in the following example:
+
+2. Call the [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) command to regenerate the primary access key, as shown in the following example:
 
     ```powershell
     New-AzStorageAccountKey -ResourceGroupName <resource-group> `
@@ -104,15 +222,17 @@ To rotate your storage account access keys with PowerShell:
       -KeyName key1
     ```
 
-1. Update the connection strings in your code to reference the new primary access key.
-1. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `key2` as the key name instead of `key1`.
+3. Update the connection strings in your code to reference the new primary access key.
 
-# [Azure CLI](#tab/azure-cli)
+4. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `key2` as the key name instead of `key1`.
+
+#### [Azure CLI](#tab/azure-cli)
 
 To rotate your storage account access keys with Azure CLI:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
-1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az-storage-account-keys-renew) command to regenerate the primary access key, as shown in the following example:
+
+2. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) command to regenerate the primary access key, as shown in the following example:
 
     ```azurecli-interactive
     az storage account keys renew \
@@ -122,7 +242,8 @@ To rotate your storage account access keys with Azure CLI:
     ```
 
 1. Update the connection strings in your code to reference the new primary access key.
-1. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `key2` as the key name instead of `key1`.
+
+2. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `key2` as the key name instead of `key1`.
 
 ---
 

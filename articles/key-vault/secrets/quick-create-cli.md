@@ -42,6 +42,8 @@ Use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvaul
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
+## Retrieve a secret from Key Vault
+
 You can now reference this password that you added to Azure Key Vault by using its URI. Use **'https://<your-unique-keyvault-name>.vault.azure.net/secrets/ExamplePassword'** to get the current version.
 
 To view the value contained in the secret as plain text:
@@ -63,4 +65,4 @@ In this quickstart you created a Key Vault and stored a secret in it. To learn m
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn how to [store multiline secrets in Key Vault](multiline-secrets.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

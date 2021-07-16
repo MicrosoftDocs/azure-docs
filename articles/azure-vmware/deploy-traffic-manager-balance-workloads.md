@@ -13,7 +13,7 @@ The gateways have Azure VMware Solution virtual machines (VMs) configured as bac
 
 The diagram shows how Traffic Manager provides load balancing for the applications at the DNS level between regional endpoints. The gateways have backend pool members configured as IIS Servers and referenced as Azure VMware Solution external endpoints. Connection over the virtual network between the two private cloud regions uses an ExpressRoute gateway.   
 
-:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Architecture diagram of the Traffic Manager integration with Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram of the Traffic Manager integration with Azure VMware Solution." lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
 Before you begin, first review the [Prerequisites](#prerequisites) and then we'll walk through the procedures to:
 
@@ -91,7 +91,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 3. Provide the following information and then select **Create**:
 
    - Profile name
-   - Routing method (use [weighted](../traffic-manager/traffic-manager-routing-methods.md)
+   - Routing method (use [weighted](../traffic-manager/traffic-manager-routing-methods.md))
    - Subscription
    - Resource group
 
@@ -127,7 +127,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
 Now that you've covered integrating Azure Traffic Manager with Azure VMware Solution, you may want to learn about:
 
-- [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md).
-- [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
-- [Combining load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- [Measuring Traffic Manager performance](../traffic-manager/traffic-manager-performance-considerations.md).
+- [Using Azure Application Gateway on Azure VMware Solution](protect-azure-vmware-solution-with-application-gateway.md)
+- [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md)
+- [Combining load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
+- [Measuring Traffic Manager performance](../traffic-manager/traffic-manager-performance-considerations.md)

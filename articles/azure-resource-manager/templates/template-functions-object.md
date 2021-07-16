@@ -2,8 +2,9 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 05/13/2021
 ---
+
 # Object functions for ARM templates
 
 Resource Manager provides several functions for working with objects in your Azure Resource Manager template (ARM template):
@@ -16,8 +17,6 @@ Resource Manager provides several functions for working with objects in your Azu
 * [length](#length)
 * [null](#null)
 * [union](#union)
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
 ## contains
 
@@ -39,8 +38,6 @@ Checks whether an array contains a value, an object contains a key, or a string 
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) shows how to use contains with different types:
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -95,31 +92,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'OneTwoThree'
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringTrue bool = contains(stringToTest, 'e')
-output stringFalse bool = contains(stringToTest, 'z')
-output objectTrue bool = contains(objectToTest, 'one')
-output objectFalse bool = contains(objectToTest, 'a')
-output arrayTrue bool = contains(arrayToTest, 'three')
-output arrayFalse bool = contains(arrayToTest, 'four')
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -135,7 +107,9 @@ The output from the preceding example with the default values is:
 
 `createObject(key1, value1, key2, value2, ...)`
 
-Creates an object from the keys and values. The `createObject` function is not supported by Bicep.  Construct an object by using `{}`.
+Creates an object from the keys and values.
+
+The `createObject` function is not supported by Bicep.  Construct an object by using `{}`. See [Objects](../bicep/data-types.md#objects).
 
 ### Parameters
 
@@ -156,8 +130,6 @@ An object with each key and value pair.
 
 The following example creates an object from different types of values.
 
-# [JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -172,26 +144,6 @@ The following example creates an object from different types of values.
   }
 }
 ```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output newObject object = {
-  'intProp': 1
-  'stringProp': 'abc'
-  'boolProp': true
-  'arrayProp': [
-    'a'
-    'b'
-    'c'
-  ]
-  'objectProp': {
-    'key1': 'value1'
-  }
-}
-```
-
----
 
 The output from the preceding example with the default values is an object named `newObject` with the following value:
 
@@ -224,8 +176,6 @@ Returns **True** if the value is empty; otherwise, **False**.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) checks whether an array, object, and string are empty.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -264,20 +214,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param testArray array = []
-param testObject object = {}
-param testString string = ''
-
-output arrayEmpty bool = empty(testArray)
-output objectEmpty bool = empty(testObject)
-output stringEmpty bool = empty(testString)
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -307,8 +243,6 @@ An array or object with the common elements.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json) shows how to use intersection with arrays and objects:
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -355,35 +289,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
-}
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-param secondArray array = [
-  'two'
-  'three'
-]
-
-output objectOutput object = intersection(firstObject, secondObject)
-output arrayOutput array = intersection(firstArray, secondArray)
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -418,8 +323,6 @@ You can also use [null()](#null) to get a null value.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function. Notice that you can pass in **null** for an empty object.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -490,28 +393,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param jsonEmptyObject string = 'null'
-param jsonObject string = '{\'a\': \'b\'}'
-param jsonString string = '\'test\''
-param jsonBoolean string = 'true'
-param jsonInt string = '3'
-param jsonArray string = '[[1,2,3]]'
-param concatValue string = 'demo value'
-
-output emptyObjectOutput bool = empty(json(jsonEmptyObject))
-output objectOutput object = json(jsonObject)
-output stringOutput string =json(jsonString)
-output booleanOutput bool = json(jsonBoolean)
-output intOutput int = json(jsonInt)
-output arrayOutput array = json(jsonArray)
-output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -543,8 +424,6 @@ An int.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) shows how to use length with an array and string:
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -594,32 +473,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-param stringToTest string = 'One Two Three'
-param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
-      'propD-1': 'sub'
-      'propD-2': 'sub'
-  }
-}
-
-output arrayLength int = length(arrayToTest)
-output stringLength int = length(stringToTest)
-output objectLength int = length(objectToTest)
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -632,7 +485,9 @@ The output from the preceding example with the default values is:
 
 `null()`
 
-Returns null. The `null` function is not available in Bicep. Use the `null` keyword instead.
+Returns null.
+
+The `null` function is not available in Bicep. Use the `null` keyword instead.
 
 ### Parameters
 
@@ -645,8 +500,6 @@ A value that is always null.
 ### Example
 
 The following example uses the null function.
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -661,14 +514,6 @@ The following example uses the null function.
   }
 }
 ```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-output emptyOutput bool = empty(null)
-```
-
----
 
 The output from the preceding example is:
 
@@ -697,8 +542,6 @@ An array or object.
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json) shows how to use union with arrays and objects:
-
-# [JSON](#tab/json)
 
 ```json
 {
@@ -745,38 +588,6 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
-}
-
-param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
-}
-
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-
-param secondArray array = [
-  'three'
-  'four'
-]
-
-output objectOutput object = union(firstObject, secondObject)
-output arrayOutput array = union(firstArray, secondArray)
-```
-
----
-
 The output from the preceding example with the default values is:
 
 | Name | Type | Value |
@@ -786,4 +597,4 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).

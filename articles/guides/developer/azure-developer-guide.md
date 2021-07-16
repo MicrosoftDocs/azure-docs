@@ -104,7 +104,7 @@ Azure Spring Cloud is a serverless microservices platform that enables you to bu
 
 > **When to use:** As a fully managed service Azure Spring Cloud is a good choice when you're minimizing operational cost running Spring Boot/Spring Cloud based microservices on Azure. 
 >
-> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/spring-cloud-quickstart.md).
+> **Get started:** [Deploy your first Azure Spring Cloud application](../../spring-cloud/quickstart.md).
 
 
 ### Enhance your applications with Azure services
@@ -272,7 +272,7 @@ You develop these deployments by using an Azure Resource Manager template, which
 
 > **When to use**: Use Resource Manager templates when you want a template-based deployment for your app that you can manage programmatically by using REST APIs, the Azure CLI, and Azure PowerShell.
 >
-> **Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+> **Get started**: To get started using templates, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 ## Understanding accounts, subscriptions, and billing
 

@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/12/2019
+ms.date: 07/05/2021
 ---
 
 # Create Azure Data Factory Data Flow
@@ -15,11 +15,11 @@ ms.date: 02/12/2019
 
 Mapping Data Flows in ADF provide a way to transform data at scale without any coding required. You can design a data transformation job in the data flow designer by constructing a series of transformations. Start with any number of source transformations followed by data transformation steps. Then, complete your data flow with sink to land your results in a destination.
 
-Get started by first creating a new V2 Data Factory from the Azure portal. After creating your new factory, click on the "Author & Monitor" tile to launch the Data Factory UI.
+Get started by first creating a new V2 Data Factory from the Azure portal. After creating your new factory, select "Open" in the "Open Azure Data Factory Studio" tile to launch the Data Factory UI.
 
 ![Screenshot shows the New data factory pane with V2 selected for Version.](media/data-flow/v2portal.png "data flow create")
 
-Once you are in the Data Factory UI, you can use sample Data Flows. The samples are available from the ADF Template Gallery. In ADF, create "Pipeline from Template" and select the Data Flow category from the template gallery.
+Once you are in the Data Factory UI, you can use sample Data Flows. The samples are available from the ADF Template Gallery. In ADF, select "Pipeline templates" tile in the 'Discover more' section of the homepage, and select the Data Flow category from the template gallery.
 
 ![Screenshot shows the Data Flow tab with Transform data using data flow selected.](media/data-flow/template.png "data flow create")
 

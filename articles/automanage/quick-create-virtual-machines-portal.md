@@ -2,12 +2,14 @@
 title: Quickstart - Enable Azure Automanage for VMs in the Azure portal
 description: Learn how to quickly enable Automanage for virtual machines on a new or existing VM in the Azure portal.
 author: ju-shim
+ms.author: jushiman
+ms.date: 02/17/2021
+ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
-ms.topic: quickstart
-ms.date: 02/17/2021
-ms.author: jushiman
+ms.custom:
+  - mode-portal
 ---
 
 
@@ -31,7 +33,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
 
-## Enable Automanage for a single VM
+## Enable Automanage for a single machine
 
 1. Browse to the Virtual Machine that you would like to enable.
 
@@ -45,7 +47,7 @@ Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="Enable on single VM.":::
 
-## Enable Automanage for multiple VMs
+## Enable Automanage for multiple machines
 
 1. In the search bar, search for and select **Automanage – Azure machine best practices**.
 
@@ -54,13 +56,15 @@ Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Enable on existing VM.":::
 
 3. On the **Select machines** blade:
-    1. Filter the VMs list by your **Subscription** and **Resource group**.
+    1. Filter the list by your **Subscription** and **Resource group**.
     1. Check the checkbox of each virtual machine you want to onboard.
     1. Click the **Select** button.
+    > [!NOTE]
+    > You may select both Azure VMs and Arc enabled servers.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
 
-4. Under **Environment**, select your environment type: **Dev/Test** or **Production**. 
+4. Under **Environment**, select your environment type: **Dev/Test** or **Production**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Select environments.":::
 
@@ -70,7 +74,7 @@ Sign in to the [Azure portal](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Browse production environment.":::
 
-5. By default, the **Azure Best Practices** preference is selected for the configuration preferences. To change this, create a new preference or select an existing one. 
+5. By default, the **Azure Best Practices** preference is selected for the configuration preferences. To change this, create a new preference or select an existing one.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="Create preference.":::
 

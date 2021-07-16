@@ -14,8 +14,8 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
-ms.author: allensu
-ms:custom: seodec18
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Azure PowerShell
@@ -299,6 +299,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 # [**Basic SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
@@ -572,6 +574,8 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 4      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ---
 

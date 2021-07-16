@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Edit **User Attributes & Claims**.
 
-1. Click **Add new claim** and enter the name as **administrator** in the textbox.
+1. Click **Add new claim** and enter the name as **administrator** in the textbox (the **administrator** value is case-sensitive).
 
 1. Expand **Claim conditions** and select **Members** from **User type**.
 

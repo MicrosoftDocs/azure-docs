@@ -14,7 +14,7 @@ manager: philmea
 
 # Customize the Azure IoT Central UI
 
-This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
+This article describes how you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
 
 The following screenshot shows a page using the standard theme:
 
@@ -73,4 +73,4 @@ You can also add new entries to the help menu and remove default entries:
 Now that you've learned how to customize the UI in your IoT Central application, here are some suggested next steps:
 
 - [Administer your application](./howto-administer.md)
-- [Add tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
+- [Add tiles to your dashboard](howto-manage-dashboards.md)

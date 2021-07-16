@@ -5,17 +5,15 @@ description: 'Learn how to deploy your Azure Machine Learning models as a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, deploy
-ms.author: mnark
-author: MrudulaN
+ms.topic: how-to
+ms.custom: deploy
+ms.author: gopalv
+author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 03/05/2020
+ms.date: 04/22/2021
 ---
 
-# Deploy a model to Azure Machine Learning compute instances
-
-
+# Deploy a model locally
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
 
@@ -27,7 +25,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace with a compute instance running. For more information, see [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+- An Azure Machine Learning workspace with a compute instance running. For more information, see [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md).
 
 ## Deploy to the compute instances
 
@@ -91,7 +89,7 @@ print("prediction:", resp.text)
 
 ## Next steps
 
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

@@ -1,7 +1,7 @@
 ---
 title: Security controls for Azure Spring Cloud Service
 description: Use security controls built in into Azure Spring Cloud Service.
-author: MikeDodaro
+author: brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -33,4 +33,4 @@ A security control is a quality or feature of an Azure service that contributes 
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)
+* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)
