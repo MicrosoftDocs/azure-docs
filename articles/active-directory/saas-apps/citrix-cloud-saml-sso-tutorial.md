@@ -89,9 +89,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| -----|-----|
 	| cip_sid | user.onpremisesecurityidentifier |
 	| cip_upn | user.userprincipalname |
-	| cip_oid | user.ObjectGuid (Extension Attribute ) |
+	| cip_oid | ObjectGUID (Extension Attribute ) |
 	| cip_email | user.mail |
 	| displayName | user.displayname |
+
+	> [!NOTE]
+	> ObjectGUID must be configured manually according to your requirements.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
@@ -113,6 +116,9 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
+	> [!NOTE]
+	> This user needs to be synced from an AD.For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix Cloud SAML SSO.
+	
 ### Assign the Azure AD test user
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Citrix Cloud SAML SSO.
