@@ -39,7 +39,7 @@ In your local python environment install the package as follows:
 pip install azure-iot-device
 ```
 
-If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Python)](../articles/iot-pnp/tutorial-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Python)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
 
 Clone the Python SDK IoT repository:
 
