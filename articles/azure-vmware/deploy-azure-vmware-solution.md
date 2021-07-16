@@ -4,6 +4,7 @@ description: Use the information gathered in the planning stage to deploy and co
 ms.topic: how-to
 ms.custom: contperf-fy21q4, devx-track-azurecli
 ms.date: 07/09/2021
+
 ---
 
 # Deploy and configure Azure VMware Solution

@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 06/04/2021
+ms.date: 07/16/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -314,6 +314,16 @@ After installing the Connected Machine agent for Linux, the following system-wid
 
     * /var/opt/azcmagent
     * /opt/logs
+
+### Agent resource governance
+
+Arc enabled servers Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
+
+- The Guest Configuration agent limits up to 5% of the CPU to evaluate policies.
+- The Extension Service agent is limited to use up to 5% of the CPU.
+
+   - This only applies to install/uninstall/upgrade operations. Once installed, extensions are responsible for their own resource utilization and the 5% CPU limit does not apply.
+   - The Log Analytics agent and Azure Monitor Agent is allowed to use up to 60% of the CPU during their install/upgrade/uninstall operations on Red Hat Linux, CentOS, and other enterprise Linux variants. The limit is higher for this combination of extensions and operating systems to accommodate the performance impact of [SELinux](https://www.redhat.com/topics/linux/what-is-selinux) on these systems.
 
 ## Next steps
 
