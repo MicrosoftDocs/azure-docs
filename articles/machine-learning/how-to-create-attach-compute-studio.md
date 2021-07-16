@@ -93,7 +93,7 @@ Select **Create** unless you want to configure advanced settings for the compute
 
 Select **Next: Advanced Settings** if you want to:
 
-* Enable SSH access.  Follow the [detailed instructions] below.
+* Enable SSH access.  Follow the [detailed instructions](#enable-ssh) below.
 * Enable virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](./how-to-secure-training-vnet.md) for vnet. 
 * Assign the computer to another user. For more about assigning to other users, see [Create on behalf of](how-to-create-manage-compute-instance.md#on-behalf).
 * Provision with a setup script - for more details about how to create and use a setup script, see [Customize the compute instance with a script](how-to-create-manage-compute-instance.md#setup-script).
