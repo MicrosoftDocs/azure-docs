@@ -1,6 +1,6 @@
 ---
 title: 'Monitor virtual machines with Azure Monitor: Analyze monitoring data'
-description: Describes the different features of Azure Monitor that you can use to analyze the health and performance of your virtual machines.
+description: Learn about the different features of Azure Monitor that you can use to analyze the health and performance of your virtual machines.
 ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -10,9 +10,9 @@ ms.date: 06/21/2021
 ---
 
 # Monitor virtual machines with Azure Monitor: Analyze monitoring data
-This article is part of the [Monitoring virtual machines (VMs) and their workloads in Azure Monitor](monitor-virtual-machine.md) scenario. It describes how to analyze monitoring data for your virtual machines after you've completed their configuration.
+This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to analyze monitoring data for your virtual machines after you've completed their configuration.
 
-After you’ve enabled VM insights on your virtual machines, data will be available for analysis. This article describes the different features of Azure Monitor that you can use to analyze the health and performance of your virtual machines. Several of these features provide a different experience depending on whether you're analyzing a single machine or multiple. Each experience is described here with any unique behavior of each feature depending on which experience is being used.
+After you've enabled VM insights on your virtual machines, data will be available for analysis. This article describes the different features of Azure Monitor that you can use to analyze the health and performance of your virtual machines. Several of these features provide a different experience depending on whether you're analyzing a single machine or multiple. Each experience is described here with any unique behavior of each feature depending on which experience is being used.
 
 > [!NOTE]
 > This article includes guidance on analyzing data that's collected by Azure Monitor and VM insights. For data that you configure to monitor workloads running on virtual machines, see [Monitor workloads](monitor-virtual-machine-workloads.md).

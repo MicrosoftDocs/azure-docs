@@ -1,6 +1,6 @@
 ---
 title: 'Monitor virtual machines with Azure Monitor: Alerts'
-description: Describes how to create alerts from virtual machines and their guest workloads by using Azure Monitor.
+description: Learn how to create alerts from virtual machines and their guest workloads by using Azure Monitor.
 ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -11,7 +11,7 @@ ms.date: 06/21/2021
 
 # Monitor virtual machines with Azure Monitor: Alerts
 
-This article is part of the [Monitoring virtual machines (VMs) and their workloads in Azure Monitor](monitor-virtual-machine.md) scenario. It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. 
+This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. 
 
 > [!NOTE]
 > The alerts described in this article don't include alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md), which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
