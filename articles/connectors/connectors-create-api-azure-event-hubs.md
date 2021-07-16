@@ -3,9 +3,9 @@ title: Connect to Azure Event Hubs
 description: Connect to your event hub, and add a trigger or an action to your workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 05/03/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/16/2021
 tags: connectors
 ---
 
