@@ -148,7 +148,13 @@ Before you can open your logic app using the designer in Visual Studio, you have
 
 ## Create an Azure Functions project
 
-To create a C#-based Azure function from within your solution, use a C# class library by following the steps in [Publish a .NET class library as a Function App](https://azure.microsoft.com/blog/). Otherwise, to create an Azure Functions project and function using JavaScript, Python, F#, PowerShell, Batch, or Bash, follow the steps in [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md).
+To create a C#-based Azure function from within your solution, create a C# class library project by following the [Quickstart: Create your first C# function in Azure using Visual Studio](../azure-functions/functions-create-your-first-function-visual-studio.md). Otherwise, to create an Azure Functions project and function using other languages, follow the following quickstarts:
+
+* [Quickstart: Create a Java function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-java.md)
+* [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-node.md)
+* [Quickstart: Create a PowerShell function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-powershell.md)
+* [Quickstart: Create a Python function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-python.md)
+* [Quickstart: Create a TypeScript function in Azure using Visual Studio Code](../azure-functions/create-first-function-vs-code-typescript.md)
 
 ## Deploy functions from Visual Studio
 
@@ -160,4 +166,4 @@ If you have logic app resources already deployed in Azure, you can edit, manage,
 
 ## Next steps
 
-* For another example using Azure Logic Apps and Azure Functions, review [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage](tutorial-process-email-attachments-workflow.md).
+* For another example using Azure Logic Apps and Azure Functions, try [Tutorial: Automate tasks to process emails by using Azure Logic Apps, Azure Functions, and Azure Storage](tutorial-process-email-attachments-workflow.md)
