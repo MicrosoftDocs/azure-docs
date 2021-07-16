@@ -27,7 +27,7 @@ To enable the autoscale feature, which is not available from the Azure portal, c
 
 When autoscale is enabled, the system calculates and sets the initial Tmax value. The scalability is governed by the maximum throughput RU/s value, or Tmax, and runs between 0.1 *Tmax (or 10% Tmax) and Tmax RU/s.
 
-You can increase the max RU/s or Tmax value and go as high as the service supports. When the service is busy, the throughput RU/s are scaled up to Tmax valu. When the service is idle, the throughput RU/s are scaled down to 10% Tmax value.
+You can increase the max RU/s or Tmax value and go as high as the service supports. When the service is busy, the throughput RU/s are scaled up to Tmax value. When the service is idle, the throughput RU/s are scaled down to 10% Tmax value.
 
 You can also decrease the max RU/s or Tmax value. When you lower the max RU/s, the minimum value you can set it to is: MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 400), rounded to the nearest 1000 RU/s.
 
