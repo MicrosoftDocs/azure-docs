@@ -24,7 +24,7 @@ The following screenshot shows an example of a device template:
 
 The device template has the following sections:
 
-- Model - Use the models to define how your device interacts with your IoT Central application. Each model has a unique model ID and you can customize it with additional capabilities, add interfaces to inherit capabilities, or add new components that are based on other interfaces.
+- Model - Use the model to define how your device interacts with your IoT Central application. Each model has a unique model ID and you can customize it with additional capabilities, add interfaces to inherit capabilities, or add new components that are based on other interfaces.
 - Cloud properties - Use cloud properties to define information that your IoT Central application stores about your devices. For example, a cloud property might record the date a device was last serviced. 
 - Customize - Use customizations to add interface capabilities such as specifying the minimum and maximum temperature ranges.
 - Views - Use views to visualize the data from the device, and forms to manage and control a device.
@@ -36,15 +36,15 @@ To learn more, see [What are device templates?](concepts-device-templates.md).
 
 You have several options for creating device templates:
 
-- Design the device template in IoT Central GUI, and then [implement its device model in your device code](tutorial-connect-device.md).
+- Design the device template in the IoT Central GUI, and then [implement its device model in your device code](tutorial-connect-device.md).
 - Import a device template from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Customize the device template to your requirements in IoT Central.
-- Use a model stored in a model repository to implement your device code. Have the the device send the model Id when it connects to IoT Central. IoT Central uses the model Id to retrieve the model from the repository and creates a device template. You can then add any cloud properties, customizations, and views your IoT Central application needs to the device template.
-- Author a device model using the DTDL. Implement your device code from the model. Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
+- Use a model stored in a model repository to implement your device code. Have the the device send the model Id when it connects to IoT Central. IoT Central uses the model Id to retrieve the model from the repository and create a device template. You can then add any cloud properties, customizations, and views your IoT Central application needs to the device template.
+- Author a device model using the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Implement your device code from the model. Manually import the device model into your IoT Central application, and then add any cloud properties, customizations, and views your IoT Central application needs.
 - You can also add device templates to an IoT Central application using the [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
 
 This section shows you how to import a device template from the catalog and how to customize it using the IoT Central GUI.
 
-This tutorial uses the **ESP32-Azure IoT Kit** device template from the device catalog as an example:
+This example uses the **ESP32-Azure IoT Kit** device template from the device catalog:
 
 1. To add a new device template, select **+ New** on the **Device templates** page.
 1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a pre-configured device template** section.
@@ -74,19 +74,13 @@ To create a device model, you can:
 
 ### Interfaces and components
 
-1. To view model ID, go to **Device Templates** page and select the device template you created.
+1. To view the model ID, go to the **Device Templates** page and select the device template you created.
 
-1. Select the root interface listed in the models and select **Edit identity** to view the model ID.
+1. To view the model ID, select the root interface in the model and select **Edit identity**:
 
-:::image type="content" source="media/howto-set-up-template/root-interface.png" alt-text="Screenshot that shows a root interface for Sensor controller device template.":::
+    :::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
 
-:::image type="content" source="media/howto-set-up-template/view-id.png" alt-text="Screenshot that shows model id for device template root interface.":::
-
-To view component ID, select **Edit identity** on any of the component interfaces.
-
-:::image type="content" source="media/howto-set-up-template/component.png" alt-text="Screenshot that shows a component interface for Sensor controller device template.":::
-
-:::image type="content" source="media/howto-set-up-template/view-component-id.png" alt-text="Screenshot that shows model id for device template component interface.":::
+1. To view the component ID, select **Edit identity** on any of the component interfaces in the model.
 
 To learn more, see the [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
 
@@ -94,15 +88,11 @@ To view and manage the interfaces in your device model:
 
 1. Go to **Device Templates** page and select the device template you created. The interfaces are listed in the **Models** section of the device template. The following screenshot shows an example of the **Sensor Controller** root interface in a device template:
 
-    :::image type="content" source="media/howto-set-up-template/root-interface.png" alt-text="Screenshot that shows root interface for a model"::: 
+    :::image type="content" source="media/howto-set-up-template/device-template.png" alt-text="Screenshot that shows root interface for a model"::: 
 
 1. Select the ellipsis to add an inherited interface or component to the root interface. To learn more about interfaces and component see [multiple components](../../iot-pnp/concepts-modeling-guide.md#multiple-components) in the modeling guide.
 
     :::image type="content" source="media/howto-set-up-template/add-interface.png" alt-text="How to add interface or component ":::
-
-1. Select **+ add capability** to add capability to an interface or component. For example, you can add **Target Temperature** capability to a **SensorTemp** component.
-
-    :::image type="content" source="media/howto-set-up-template/add-capability.png" alt-text="How to add capability":::
 
 1. To export a model or interface select **Export**.
 
@@ -114,9 +104,15 @@ To view and manage the interfaces in your device model:
 
 ### Capabilities
 
+Select **+ Add capability** to add capability to an interface or component. For example, you can add **Target Temperature** capability to a **SensorTemp** component.
+
+:::image type="content" source="media/howto-set-up-template/add-capability.png" alt-text="How to add capability":::
+
 #### Telemetry
 
-Telemetry is a stream of values sent from the device, typically from a sensor. For example, a sensor might report the ambient temperature.
+Telemetry is a stream of values sent from the device, typically from a sensor. For example, a sensor might report the ambient temperature as shown below:
+
+:::image type="content" source="media/howto-set-up-template/telemetry.png" alt-text="How to add telemetry":::
 
 The following table shows the configuration settings for a telemetry capability:
 
@@ -136,7 +132,10 @@ The following table shows the configuration settings for a telemetry capability:
 
 #### Properties
 
-Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. You can set writable properties from IoT Central.
+Properties represent point-in-time values. You can set writable properties from IoT Central.
+For example, a device can use a property to report the target temperature it's trying to reach as shown below:
+
+:::image type="content" source="media/howto-set-up-template/property.png" alt-text="How to add property":::
 
 The following table shows the configuration settings for a property capability:
 
@@ -157,7 +156,9 @@ The following table shows the configuration settings for a property capability:
 
 #### Commands
 
-You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you can call a command to reboot a device in 10 seconds.
+You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you can call a command to reboot a device in 10 seconds as shown below:
+
+:::image type="content" source="media/howto-set-up-template/command.png" alt-text="How to add commands":::
 
 The following table shows the configuration settings for a command capability:
 
@@ -177,6 +178,8 @@ To learn more about how devices implement commands, see [Telemetry, property, an
 #### Offline commands
 
 You can choose queue commands if a device is currently offline by enabling the **Queue if offline** option for a command in the device template.
+
+:::image type="content" source="media/howto-set-up-template/offline-commands.png" alt-text="How to add offline commands":::
 
 This option uses IoT Hub cloud-to-device messages to send notifications to devices. To learn more, see the IoT Hub article [Send cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md).
 
@@ -215,11 +218,13 @@ Use customizations when you need to modify an imported component or add IoT Cent
 
 Generating default views is a quick way to visualize your important device information. The three default views are:
 
+### Default views
+
 - **Commands**: A view with device commands, and allows your operator to dispatch them to your device.
 - **Overview**: A view with device telemetry, displaying charts and metrics.
 - **About**: A view with device information, displaying device properties.
 
-After you've selected **Generate default views**, you see that they've been automatically added under the **Views** section of your device template.
+After you've selected **Generate default views**, they're automatically added under the **Views** section of your device template.
 
 ### Custom views
 
@@ -230,13 +235,13 @@ To add a view to a device template:
 1. Go to your device template, and select **Views**.
 1. Select **Visualizing the Device**.
 1. Enter a name for your view in **View name**.
-1. Select **Start with a visual**  under add tiles and choose the type of visual you want to show on your tile, and then click Add tile (or just drag and drop it on the canvas). Click the gear icon on your new tile to configure the tile.
+1. Select **Start with a visual** under add tiles and choose the type of visual for your tile. Then either select **Add tile** or drag and drop the visual onto the canvas. To configure the tile, select the gear icon.**
 
 :::image type="content" source="media/howto-set-up-template/start-visual.png" alt-text="How to start with a visual"::: 
 
 :::image type="content" source="media/howto-set-up-template/tile.png" alt-text="configure tile"::: 
 
-To view and test your view, select **Configure preview device**. This feature lets you see the view as your operator sees it after it's published. Use this feature to validate that your views show the correct data. You can choose from the following options:
+To test your view, select **Configure preview device**. This feature lets you see the view as an operator sees it after it's published. Use this feature to validate that your views show the correct data. Choose from the following options:
 
 - No preview device.
 - The real test device you've configured for your device template.
@@ -260,8 +265,6 @@ Add forms to a device template to enable operators to manage a device by viewing
 ## Publish a device template
 
 Before you can connect a device that implements your device model, you must publish your device template.
-
-To learn more about modifying a device template it's published, see [Edit an existing device template](howto-edit-device-template.md).
 
 To publish a device template, go to you your device template, and select **Publish**.
 
