@@ -90,18 +90,20 @@ For information on configuring UDR, see [Route network traffic with a routing ta
 
 1. Add __Network rules__, allowing traffic __to__ and __from__ the following service tags:
 
-    * AzureActiveDirectory
-    * AzureMachineLearning
-    * AzureResourceManager
-    * Storage.region
-    * AzureFrontDoor.FirstParty
-    * ContainerRegistry.region - Only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
-    * MicrosoftContainerRegistry.region - Only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    | Service tag | Protocol | Port |
+    | ----- |:-----:|:-----:|
+    | AzureActiveDirectory | TCP | * |
+    | AzureMachineLearning | TCP | * |
+    | AzureResourceManager | TCP | * |
+    | Storage.region       | TCP | 443 |
+    | AzureFrontDoor.FirstParty | TCP | 443 | 
+    | ContainerRegistry.region  | TCP | 443 |
+    | MicrosoftContainerRegistry.region | TCP | 443 |
 
-
-    For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
-
-    For the __protocol__, select `TCP`. For the source and destination __ports__, select `*`.
+    > [!TIP]
+    > * ContainerRegistry.region is only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
+    > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    > * For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
 
