@@ -6,7 +6,7 @@ ms.suite: integration
 author: praveensri
 ms.author: psrivas
 ms.reviewer: estfan, divswa, azla
-ms.topic: article
+ms.topic: reference
 ms.date: 07/15/2021
 ---
 
