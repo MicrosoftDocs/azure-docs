@@ -207,7 +207,7 @@
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
-    href: /power-bi/fundamentals/security-baseline
+    href: /security/benchmark/azure/baselines/power-bi-security-baseline
   - name: Security Center baseline
     href: ../../security-center/security-baseline.md
   - name: Service Bus baseline
