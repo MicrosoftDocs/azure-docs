@@ -70,6 +70,7 @@ On the Register sources (Looker) screen, do the following:
 3. Select a collection or create a new one (Optional)
 
 4. Finish to register the data source.
+
     :::image type="content" source="media/register-scan-looker-source/scan-source.png" alt-text="scan looker source" border="true":::
 
 ## Creating and running a scan

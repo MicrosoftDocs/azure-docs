@@ -83,6 +83,7 @@ On the Register sources (erwin) screen, do the following:
 5.  Select a collection or create a new one (Optional)
 
 6.  Finish to register the data source.
+
     :::image type="content" source="media/register-scan-erwin-source/register-erwin.png" alt-text="register source" border="true":::
     
 
