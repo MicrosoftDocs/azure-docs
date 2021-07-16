@@ -136,7 +136,7 @@ Here are some of the common scenarios you'll use when copying data using `roboco
 
     Note that the File Explorer may not allow you to perform the above operations.
 
-For more information, see [Using robocopy commands](/windows-server/administration/windows-commands/robocopy).
+For more information, see [Using robocopy commands](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy).
 
 ### Linux data copy tool
 
