@@ -43,7 +43,7 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-1.png" alt-text="Screenshot showing how to add DNS zones to an Azure VMware Solution private cloud.":::
 
-1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **10.0.0.53**. Then select **OK**.
+1. Select **FQDN zone**, provide a name and up to three DNS server IP addresses in the format of **10.0.0.53**. Then select **OK**.
 
    :::image type="content" source="media/networking/dns/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
 
