@@ -5,8 +5,8 @@ author: rido-min
 ms.author: rmpablos
 ms.date: 11/19/2020
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-six
 
 #- id: programming-languages-set-twenty-six
@@ -32,7 +32,7 @@ IoT Plug and Play lets you build smart devices that advertise their capabilities
 
 A smart device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
 
-This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-pnp/concepts-convention.md).
+This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-develop/concepts-convention.md).
 
 To build an IoT Plug and Play device, module, or IoT Edge module, follow these steps:
 
@@ -41,7 +41,7 @@ To build an IoT Plug and Play device, module, or IoT Edge module, follow these s
 1. Update your device or module to announce the `model-id` as part of the device connection.
 1. Implement telemetry, properties, and commands using the [IoT Plug and Play conventions](concepts-convention.md)
 
-Once your device or module implementation is ready, use the [Azure IoT explorer](howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
+Once your device or module implementation is ready, use the [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
 
 :::zone pivot="programming-language-ansi-c"
 

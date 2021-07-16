@@ -6,8 +6,8 @@ ms.author: rmpablos
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 
 ---
 

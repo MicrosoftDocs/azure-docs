@@ -5,8 +5,8 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 05/14/2021
 ms.topic: how-to
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ---
 
 # How to convert an existing device to be an IoT Plug and Play device

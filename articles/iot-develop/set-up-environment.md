@@ -1,17 +1,17 @@
 ---
-title: Quickstart - Set up the IoT resources you need for IoT Plug and Play | Microsoft Docs
-description: Quickstart - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
+title: Tutorial - Set up the IoT resources you need for IoT Plug and Play | Microsoft Docs
+description: Tutorial - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
 ms.topic: quickstart
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 
-# Setup IoT Hub and DPS one time before completing any quickstart,tutorial,or how-to
+# Setup IoT Hub and DPS one time before completing any quickstart, tutorial,or how-to
 ---
 
-# Quickstart: Set up your environment for the IoT Plug and Play quickstarts and tutorials
+# Tutorial: Set up your environment for the IoT Plug and Play quickstarts and tutorials
 
 Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You'll also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
 
@@ -125,7 +125,7 @@ The first time you run the tool, you're prompted for the IoT hub connection stri
 
 Configure the tool to use the model files you downloaded previously. From the home page in the tool, select **IoT Plug and Play Settings**, then **+ Add > Local folder**. Select the *models* folder you created previously. Then select **Save** to save the settings.
 
-To learn more, see [Install and use Azure IoT explorer](howto-use-iot-explorer.md).
+To learn more, see [Install and use Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md).
 
 ## Clean up resources
 
@@ -140,4 +140,4 @@ az group delete --name my-pnp-resourcegroup
 Now that you've set up your environment, you can try one of the quickstarts or tutorials such as:
 
 > [!div class="nextstepaction"]
-> [Connect a sample IoT Plug and Play device application to IoT Hub](quickstart-connect-device.md)
+> [Connect a sample IoT Plug and Play device application to IoT Hub](tutorial-connect-device.md)

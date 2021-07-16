@@ -5,8 +5,8 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/10/2020
 ms.topic: how-to
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ms.custom: contperf-fy21q2
 
 #Customer intent: As a solution builder, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
@@ -37,7 +37,7 @@ Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/
 
 ## Use Azure IoT explorer
 
-For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](quickstart-connect-device.md) quickstart.
+For a device, you can either connect your own device, or use one of the sample simulated devices. For some example simulated devices written in different languages, see the [Connect a sample IoT Plug and Play device application to IoT Hub](../iot-develop/tutorial-connect-device.md) tutorial.
 
 ### Connect to your hub
 
@@ -127,4 +127,4 @@ For a list of the IoT features supported by the latest version of the tool, see 
 
 ## Next steps
 
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](howto-manage-digital-twin.md).
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage IoT Plug and Play digital twins](../iot-develop/howto-manage-digital-twin.md).

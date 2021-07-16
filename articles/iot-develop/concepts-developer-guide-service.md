@@ -5,8 +5,8 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 10/01/2020
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 zone_pivot_groups: programming-languages-set-ten
 
 # - id: programming-languages-set-ten

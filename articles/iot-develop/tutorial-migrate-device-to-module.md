@@ -5,8 +5,8 @@ author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 
 #Customer intent: As a device builder, I want to learn how to implement a module that works with IoT Plug and Play.
 ---

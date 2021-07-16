@@ -5,8 +5,8 @@ author: arunmannengal
 ms.author: arunmann
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ---
 
 # Use IoT Plug and Play models in an IoT solution
@@ -120,7 +120,7 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service.md).
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](tutorial-service.md).
 
 ### Custom store
 
@@ -132,12 +132,12 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device. 
 
-1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service.md).  
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](tutorial-service.md).  
 
 ## Next steps
 
 Now that you've learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
 
-- [Interact with a device from your solution](quickstart-service.md)
+- [Interact with a device from your solution](tutorial-service.md)
 - [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](howto-use-iot-explorer.md)
+- [Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md)
