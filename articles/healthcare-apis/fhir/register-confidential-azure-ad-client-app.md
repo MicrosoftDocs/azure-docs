@@ -1,6 +1,6 @@
 ---
-title: Register a confidential client app in Azure AD - FHIR service
-description: Register a confidential client application in Azure Active Directory that authenticates on a user's behalf and requests access to resource applications.
+title: Register a confidential client app in Azure AD - Azure Healthcare APIs - FHIR service
+description: Register a confidential client application in Azure Active Directory
 services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
@@ -77,10 +77,3 @@ Now that you've registered your application, you must select which API permissio
 
 > [!NOTE]
 >The client secret string is visible only once in the Azure portal. When you navigate away from the Certificates & secrets web page and then return back to it, the Value string becomes masked. It's important to make a copy your client secret string immediately after it is generated. If you don't have a backup copy of your client secret, you must repeat the above steps to regenerate it.
- 
-## Next steps
-
-In this article, you were guided through the steps of how to register a confidential client application in the Azure AD. You were also guided through the steps of how to add API permissions to the Azure Healthcare API. Lastly, you were shown how to create an application secret. Furthermore, you can learn how to access your FHIR server using Postman.
- 
->[!div class="nextstepaction"]
->[Access FHIR service with Postman](access-fhir-postman-tutorial.md)

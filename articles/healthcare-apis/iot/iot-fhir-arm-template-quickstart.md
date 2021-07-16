@@ -254,7 +254,7 @@ Once you've deployed your IoT Central application, your two out-of-the-box simul
 
 ## View device data in FHIR service
 
-You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on your FHIR server using Postman. Set up your [Postman to access FHIR service](../fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value.
+You can view the FHIR-based Observation resource(s) created by Azure IoT Connector for FHIR on your FHIR server using Postman. Set up your [Postman to access FHIR service](../azure-api-for-fhir/access-fhir-postman-tutorial.md) and make a `GET` request to `https://your-fhir-server-url/Observation?code=http://loinc.org|8867-4` to view Observation FHIR resources with heart rate value.
 
 > [!TIP]
 > Ensure that your user has appropriate access to FHIR service data plane. Use [Azure role-based access control (Azure RBAC)](../azure-api-for-fhir/configure-azure-rbac.md) to assign required data plane roles.
