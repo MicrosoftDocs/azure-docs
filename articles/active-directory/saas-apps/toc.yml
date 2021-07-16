@@ -1410,6 +1410,8 @@
         href: paloaltonetworks-aperture-tutorial.md
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
+      - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
+        href: palo-alto-networks-cloud-identity-engine---cloud-authentication-service-tutorial.md  
       - name: Palo Alto Networks - GlobalProtect
         href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
@@ -1820,6 +1822,8 @@
         href: smart-global-governance-tutorial.md
       - name: SmartHR
         href: smarthr-tutorial.md
+      - name: SmartHub INFER
+        href: smarthub-infer-tutorial.md  
       - name: SmartKargo
         href: smartkargo-tutorial.md
       - name: SmartLPA
@@ -2018,6 +2022,8 @@
         href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
+      - name: Tulip
+        href: tulip-tutorial.md
       - name: TurboRater
         href: turborater-tutorial.md
       - name: Uberflip
@@ -2158,6 +2164,8 @@
         href: xaitporter-tutorial.md
       - name: xMatters OnDemand
         href: xmatters-ondemand-tutorial.md
+      - name: X-point Cloud
+        href: x-point-cloud-tutorial.md  
       - name: Yardi eLearning
         href: yardielearning-tutorial.md
       - name: YardiOne

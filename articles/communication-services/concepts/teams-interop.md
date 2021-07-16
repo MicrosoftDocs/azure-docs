@@ -60,7 +60,7 @@ Building an Azure Communication Services app using Microsoft 365 identities requ
 3. Application authorization from the end-user or an admin in Azure Active Directory
 4. Authentication of the end user's Microsoft 365 identity
 
-Authentication and authorization of the end-users are performed through [Microsoft Authentication Library flows (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
+Authentication and authorization of the end-users are performed through [Microsoft Authentication Library flows (MSAL)](../../active-directory/develop/msal-overview.md). The following diagram summarizes integrating your calling experiences with authenticated Teams interoperability:
 
 ![Process to enable calling feature for custom Teams endpoint experience](./media/teams-identities/teams-identity-calling-overview.png)
 
