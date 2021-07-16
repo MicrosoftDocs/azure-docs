@@ -13,7 +13,7 @@ ms.date: 07/15/2021
 
 # Use role-based authorization in Azure Cognitive Search
 
-Azure provides a global [role-based access control (RBAC) model](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use role authorization in the following ways:
+Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use role authorization in the following ways:
 
 + Grant search service admin rights that work against any client calling [Azure Resource Manager](../azure-resource-manager/management/overview.md). Roles range from full access (Owner), to read-only access to service information (Reader).
 
@@ -59,7 +59,7 @@ Azure resources have the concept of [control plane and data plane](../azure-reso
 
 ## How to assign roles
 
-Roles can be assigned using any of the [supported approaches](/role-based-access-control/role-assignments-steps.md) described in role-based access control documentation.
+Roles can be assigned using any of the [supported approaches](../role-based-access-control/role-assignments-steps.md) described in role-based access control documentation.
 
 For just the preview roles described above, you will need to also configure your search service to support authorization, and modify code to use an authorization header in requests.
 
@@ -72,7 +72,7 @@ A role assignment for search service administration is required. If you manage a
 + Stable roles: [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Reader](../role-based-access-control/built-in-roles.md#reader)
 + Applies to: Control plane (or service administration)
 
-No service configuration is required. To assign roles, use one of the [approaches supported for Azure role assignments](/role-based-access-control/role-assignments-steps.md).
+No service configuration is required. To assign roles, use one of the [approaches supported for Azure role assignments](../role-based-access-control/role-assignments-steps.md).
 
 ### [**Preview roles**](#tab/rbac-preview)
 
