@@ -16,7 +16,7 @@ This article is part of the [Monitoring AKS with Azure Monitor scenario](monitor
 ## Choosing the alert type
 The most common types of alert rules in Azure Monitor are [metric alerts](../alerts/alerts-metric.md) and [log query alerts](../alerts/alerts-log-query.md). The type of alert rule that you create for a particular scenario will depend on where the data is located that you're alerting on. You may have cases though where data for a particular alerting scenario is available in both Metrics and Logs, and you need to determine which rule type to use. You may also have flexibility in how you collect certain data and let your decision of alert rule type drive your decision for data collection method.
 
-It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in Metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when its either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
+It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. This of course requires that the data you're alerting on is available in Metrics. VM insights currently sends all of its data to Logs, so you must install Azure Monitor agent to use metric alerts with data from the guest operating system. Use Log query alerts with metric data when it's either not available in Metrics or you require additional logic beyond the relatively simple logic for a metric alert rule.
 
 ## Metric alert rules
 
@@ -26,9 +26,9 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 
 The following table lists common and recommended alert rules for AKS.
 
-| Rule Name | COunter Name | Condition | Description  |
+| Rule Name | Counter Name | Condition | Description  |
 |:---|:---|:---|
-| Completed job count| completedJobsCount | Number of completed jobs(more than 6 hours ago) are greater than 0 |
+| Completed job count| completedJobsCount | Number of completed jobs (more than 6 hours ago) is greater than 0 |
 | Container CPU % | cpuExceededPercentage | Average container CPU is greater than 95% |
 | Container working set memory % | memoryWorkingSetExceededPercentage | Average container working set memory is greater than 95% |
 | Failed Pod counts | podCount | Number of Pods in Failed state are greater than 0 |
