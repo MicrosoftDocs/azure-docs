@@ -19,7 +19,7 @@ To complete this quickstart on Windows, install the following software on your l
 
 ### Clone the SDK repository with the sample code
 
-If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](../articles/iot-pnp/quickstart-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 

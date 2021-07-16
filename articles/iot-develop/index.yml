@@ -49,7 +49,7 @@ landingContent:
     - linkListType: tutorial
       links:
         - text: Connect a sample device to IoT Hub
-          url: quickstart-connect-device.md
+          url: tutorial-connect-device.md
         - text: Securely connect IoT devices to the cloud
           url: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
   - title: Device development framework

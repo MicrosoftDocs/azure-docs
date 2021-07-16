@@ -117,102 +117,102 @@
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-device-c.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-device-csharp.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-device-java.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-device-node.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-device-python.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device-c/",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-c-linux.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device-c/",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-c-windows.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device-c/",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-linux.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device-c/",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-node.md",
-      "redirect_url": "/azure/iot-develop",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-service-csharp.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-service-java.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-service-node.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-service-python.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-connect-pnp-device-solution.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service-node/",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/howto-develop-solution.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service-node/",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-solution.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service-node/",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-solution-csharp.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service-node/",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-solution-java.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service-node/",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-pnp-device-solution-node.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service-node/",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": false
     },
     {
@@ -376,23 +376,18 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play-current-release.md",
-      "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play-current-release",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play.md",
       "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-connect-device.md",
-      "redirect_url": "/azure/iot-develop/quickstart-connect-device",
+      "redirect_url": "/azure/iot-develop/tutorial-connect-device",
       "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/iot-pnp/quickstart-service.md",
-      "redirect_url": "/azure/iot-develop/quickstart-service",
+      "redirect_url": "/azure/iot-develop/tutorial-service",
       "redirect_document_id": true
     },
     {
@@ -424,6 +419,11 @@
       "source_path_from_root": "/articles/iot-pnp/howto-use-iot-explorer.md",
       "redirect_url": "/azure/iot-fundamentals/howto-use-iot-explorer",
       "redirect_document_id": true
-    }
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/overview-iot-plug-and-play-current-release.md",
+      "redirect_url": "/azure/iot-develop/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    }  
   ]
 }

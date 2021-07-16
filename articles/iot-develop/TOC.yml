@@ -4,10 +4,6 @@
   items:
   - name: What is IoT device development?
     href: about-iot-develop.md
-  - name: What is IoT Plug and Play?
-    href: overview-iot-plug-and-play.md
-  - name: What's in the current release
-    href: overview-iot-plug-and-play-current-release.md
   - name: Which SDK should I use?
     href: about-iot-sdks.md
 - name: Quickstarts
@@ -44,9 +40,9 @@
       - name: Set up your environment
         href: set-up-environment.md
       - name: Connect a device to IoT Hub
-        href: quickstart-connect-device.md
+        href: tutorial-connect-device.md
       - name: Interact with a device from your solution
-        href: quickstart-service.md
+        href: tutorial-service.md
     - name: Securely connect IoT devices to the cloud
       href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
     - name: Connect a multiple component device
@@ -63,28 +59,34 @@
     href: concepts-overview-connection-options.md
   - name: Overview of device types
     href: concepts-iot-device-types.md
-  - name: Architecture
-    href: concepts-architecture.md
-  - name: Device developer guide
-    href: concepts-developer-guide-device.md
-  - name: Service developer guide
-    href: concepts-developer-guide-service.md
-  - name: Modeling guide
-    href: concepts-modeling-guide.md
-  - name: IoT Plug and Play conventions
-    href: concepts-convention.md
-  - name: IoT Plug and Play bridge
-    href: concepts-iot-pnp-bridge.md
-  - name: Digital twins
-    href: concepts-digital-twin.md
   - name: Device certification
     href: ../certification/program-requirements-pnp.md
-  - name: Model repository
-    href: concepts-model-repository.md
-  - name: Use models in a solution
-    href: concepts-model-discovery.md
-  - name: Model parser
-    href: concepts-model-parser.md
+  - name: Device models
+    items:
+    - name: Modeling guide
+      href: concepts-modeling-guide.md
+    - name: Use models in a solution
+      href: concepts-model-discovery.md
+    - name: Model repository
+      href: concepts-model-repository.md
+    - name: Model parser
+      href: concepts-model-parser.md
+  - name: IoT Plug and Play
+    items:
+    - name: What is IoT Plug and Play?
+      href: overview-iot-plug-and-play.md
+    - name: Architecture
+      href: concepts-architecture.md
+    - name: IoT Plug and Play conventions
+      href: concepts-convention.md
+    - name: Device developer guide
+      href: concepts-developer-guide-device.md
+    - name: Service developer guide
+      href: concepts-developer-guide-service.md
+    - name: Digital twins
+      href: concepts-digital-twin.md
+    - name: IoT Plug and Play bridge
+      href: concepts-iot-pnp-bridge.md
 - name: How to
   items:
   - name: Install and use IoT explorer
