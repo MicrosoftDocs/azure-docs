@@ -77,6 +77,7 @@ The following table lists the version names of Service Fabric and their correspo
 
 | Version name | Windows version number | Linux version number |
 | --- | --- | --- |
+| 8.0 CU2 | 8.0.521.9590 | NA |
 | 8.0 CU1 | 8.0.516.9590 | 8.0.515.1 | 
 | 8.0 RTO | 8.0.514.9590 | 8.0.513.1 | 
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |
