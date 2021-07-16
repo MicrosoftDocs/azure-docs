@@ -135,7 +135,7 @@ The following steps describe the general way to add a trigger, for example, **Wh
 
 ## Trigger polling behavior
 
-All Event Hub triggers are long-polling triggers, which means that when a trigger fires, the trigger processes all the events and then waits for 30 seconds for more events to appear in your Event Hub. If no events are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading events until your Event Hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
+All Event Hubs triggers are long-polling triggers. This behavior means that when a trigger fires, the trigger processes all the events and waits 30 seconds for more events to appear in your event hub. By design, if no events appear in 30 seconds, the trigger is skipped. Otherwise, the trigger continues reading events until your event hub is empty. The next trigger poll happens based on the recurrence interval that you set in the trigger's properties.
 
 For example, if the trigger is set up with four partitions, this delay might take up to two minutes before the trigger finishes polling all the partitions. If no events are received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your event hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
