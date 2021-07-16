@@ -161,7 +161,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-* Access your Citrix Workspace <subdomain>.cloud.com URL directly and initiate the login flow from there.
+* Access your Citrix Workspace URL directly and initiate the login flow from there.
 
 * Log in with your AD-Synced Active Directory user into your Citrix Workspace to complete the test.
 
