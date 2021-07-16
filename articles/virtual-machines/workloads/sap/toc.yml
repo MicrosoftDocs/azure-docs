@@ -161,6 +161,9 @@
       href: sap-supported-product-on-azure.md
   - name: SAP NetWeaver Deployment guide
     href: deployment-guide.md
+    items:
+    - name: Azure VM Extension for SAP
+      href: vm-extension-for-sap.md
   - name: DBMS deployment guides for SAP workload
     items:
     - name: General Azure Virtual Machines DBMS deployment for SAP workload
