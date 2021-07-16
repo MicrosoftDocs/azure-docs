@@ -36,7 +36,7 @@ To get started, you'll need:
 
 - [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- A [Akamai WAF](https://www.akamai.com/us/en/akamai-free-trials.jsp) account.
+- An [Akamai WAF](https://www.akamai.com/us/en/akamai-free-trials.jsp) account.
  
 ## Scenario description
 
