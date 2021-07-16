@@ -202,7 +202,7 @@ For more information about connecting to Azure Sentinel, see [Connect Check Poin
 
 ## Cisco ASA
 
-The Cisco ASA firewall connector connects your Cisco ASA logs to Azure Sentinel. To set up the connection, follow the instructions in the [Cisco ASA Series CLI Configuration Guide](https://aka.ms/asi-syslog-cisco-forwarding).
+The Cisco ASA firewall connector connects your Cisco ASA logs to Azure Sentinel. To set up the connection, follow the instructions in the [Cisco ASA Series CLI Configuration Guide](https://www.cisco.com/c/en/us/support/docs/security/pix-500-series-security-appliances/63884-config-asa-00.html).
 
 For more information about connecting to Azure Sentinel, see [Connect Cisco ASA to Azure Sentinel](connect-cisco.md).
 
