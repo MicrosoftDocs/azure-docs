@@ -81,7 +81,7 @@ items:
     displayName: NER, Named entity recognition, PII, redaction
   - name: Text Analytics for health
     href: How-tos/text-analytics-for-health.md
-  - name: Extractive summarization
+  - name: Summarization
     href: How-tos/extractive-summarization.md
   - name: Use containers
     items:
