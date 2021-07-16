@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/15/2021
+ms.date: 07/16/2021
 ms.author: jeedes
 
 ---
@@ -117,7 +117,7 @@ In this section, you'll create a test user in the Azure portal called B.Simon.
    1. Click **Create**.
 
 	> [!NOTE]
-	> This user needs to be synced from an AD.For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix Cloud SAML SSO.
+	> This user needs to be synced from an Active Directory. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Citrix Cloud SAML SSO.
 	
 ### Assign the Azure AD test user
 
