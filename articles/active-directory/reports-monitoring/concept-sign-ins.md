@@ -161,6 +161,10 @@ The **Location** - The location the connection was initiated from:
 ![Client app filter](./media/concept-sign-ins/client-app-filter.png)
 
 
+> [!NOTE]
+> Due to privacy commitments, Azure AD does not populate this field this field to the home tenant in the case of a cross-tenant scenario.
+
+
 |Name|Modern authentication|Description|
 |---|:-:|---|
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
@@ -180,8 +184,6 @@ The **Location** - The location the connection was initiated from:
 |Reporting Web Services| |Used to retrieve report data in Exchange Online.|
 |Other clients| |Shows all sign-in attempts from users where the client app is not included or unknown.|
 
->[Note]
-> Due to privacy commitments, Azure AD does not populate this field this field to the home tenant in the case of a cross-tenant scenario.
 
 
 
