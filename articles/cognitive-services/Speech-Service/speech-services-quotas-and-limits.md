@@ -85,7 +85,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| Max number of Transactions per Second (TPS) per Speech resource. Real-time API | | [See above](#general) |
+| Max number of Transactions per Second (TPS) per Speech resource. Real-time API | [See above](#general) | [See above](#general) |
 | Max number of data sets per Speech resource | 10 | 500 |
 | Max number of simultaneous dataset upload per Speech resource | 2 | 5 |
 | Max data file size for data import per dataset | 2 GB | 2 GB |
