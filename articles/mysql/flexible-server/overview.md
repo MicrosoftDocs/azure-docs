@@ -132,22 +132,23 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 
 | Region | Availability | Zone redundant HA |
 | --- | --- | --- |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :x: |
 | Central US | :heavy_check_mark: | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: |
-| Canada Central | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :x:|
-| Brazil South | :heavy_check_mark: | :x: |
+| Germany West Central | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :x: |
-
+| UK South | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: |
 ## Contacts
 
 For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
