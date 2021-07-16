@@ -59,7 +59,7 @@ Azure resources have the concept of [control plane and data plane](../azure-reso
 
 ## How to assign roles
 
-Roles can be assigned using any of the [supported approaches](/role-based-access-control/role-assignments-steps.md) described in role-based access control documentation.
+Roles can be assigned using any of the [supported approaches](../role-based-access-control/role-assignments-steps.md) described in role-based access control documentation.
 
 For just the preview roles described above, you will need to also configure your search service to support authorization, and modify code to use an authorization header in requests.
 
@@ -72,7 +72,7 @@ A role assignment for search service administration is required. If you manage a
 + Stable roles: [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Reader](../role-based-access-control/built-in-roles.md#reader)
 + Applies to: Control plane (or service administration)
 
-No service configuration is required. To assign roles, use one of the [approaches supported for Azure role assignments](/role-based-access-control/role-assignments-steps.md).
+No service configuration is required. To assign roles, use one of the [approaches supported for Azure role assignments](../role-based-access-control/role-assignments-steps.md).
 
 ### [**Preview roles**](#tab/rbac-preview)
 
