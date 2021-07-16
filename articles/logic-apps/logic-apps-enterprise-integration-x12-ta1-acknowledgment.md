@@ -12,13 +12,17 @@ ms.date: 07/15/2021
 
 # TA1 technical acknowledgments and error codes for X12 messages in Azure Logic Apps
 
-In Azure Logic Apps, you can create logic app workflows that handle X12 messages for Electronic Data Interchange (EDI) communication when you use **X12** operations. In X12 messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, Azure Logic Apps returns one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
+In Azure Logic Apps, you can create workflows that handle X12 messages for Electronic Data Interchange (EDI) communication when you use **X12** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**X12 Decode** action](logic-apps-enterprise-integration-x12-decode.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
 
-For example, the receiver reports the status from processing an interchange header and trailer by sending a *TA1 technical acknowledgment (ACK)*. When the Interchange Control Header (ISA) and Interchange Control Trailer (IEA) of an X12-encoded message are valid, the receiver sends a positive TA1 ACK, no matter the status of other content. If the ISA and IEA aren't valid, the receiver sends a **TA1 ACK** with an error code instead.
+For example, the receiver reports the status from validating the Interchange Control Header (ISA) and Interchange Control Trailer (IEA) in the received X12-encoded message by sending a *TA1 technical acknowledgment (ACK)*. If this header and trailer are valid, the receiver sends a positive TA1 ACK, no matter the status of other content. If the header and trailer aren't valid, the receiver sends a **TA1 ACK** with an error code instead.
 
-This topic provides a brief overview about the X12 TA1 ACK, describing the TA1 ACK segments in an interchange and the error codes used in those segments. If you're looking for EDIFACT messages instead, review [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md). For more information, review the following documentation:
+The X12 TA1 ACK conforms to the schema for **X12_<*version number*>_TA1.xsd**. The receiver sends the TA1 ACK in an ISA and IEA envelope. However, this ISA and IEA envelope are no different than in any other interchange.
 
+This topic provides a brief overview about the X12 TA1 ACK, including the TA1 ACK segments in an interchange and the error codes used in those segments. For other related information, review the following documentation:
+
+* [X12 997 functional acknowledgments and error codes](logic-apps-enterprise-integration-x12-997-acknowledgment.md)
 * [Exchange X12 messages for B2B enterprise integration](logic-apps-enterprise-integration-x12.md)
+* [Exchange EDIFACT messages for B2B enterprise integration](logic-apps-enterprise-integration-edifact.md)
 * [What is Azure Logic Apps](logic-apps-overview.md)
 * [B2B enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 
@@ -26,7 +30,7 @@ This topic provides a brief overview about the X12 TA1 ACK, describing the TA1 A
 
 ## TA1 ACK segments
 
-The X12 TA1 ACK conforms to the schema for **X12_<*version number*>_TA1.xsd**. Although the receiver sends the TA1 ACK inside an ISA/IEA envelope, the ISA and IEA are no different than any other interchange. The following table describes the TA1 ACK segments within an interchange:
+The following table describes the TA1 ACK segments in an interchange:
 
 | TA1 field | Field name | Mapped to incoming interchange | Value |
 |-----------|------------|--------------------------------|-------|
