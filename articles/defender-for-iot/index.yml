@@ -19,7 +19,7 @@ metadata:
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: What is Azure Defender for IoT for organizations?
+    - title: What is Azure Defender for IoT for end-user organizations?
       itemType: overview # controls the icon image and super-title text
       url: organizations/overview.md
     - title: What's new for organizations?
@@ -41,14 +41,14 @@ highlightedContent:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Azure Defender for IoT for organizations
+    - title: Azure Defender for IoT for end-user organizations 
       links:
         - url: organizations/quickstart-system-prerequisites.md
           itemType: quickstart
           text: System prerequisites
         - url: organizations/getting-started.md
           itemType: quickstart
-          text: Get started with Defender for IoT for organizations
+          text: Get started with Defender for IoT for end-user organizations
         - url: organizations/concept-key-concepts.md
           itemType: quickstart
           text: Key concepts

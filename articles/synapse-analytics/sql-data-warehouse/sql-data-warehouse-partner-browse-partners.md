@@ -31,9 +31,9 @@ When you chose a partner application, Azure Synapse Studio provisions a sandbox 
 
 |  Object  |    Details    |
 | -------- | ------------- |
-| A [dedicated SQL pool](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) named **Partner_[PartnerName]_pool** | DW100c performance level. |
+| A [dedicated SQL pool](./sql-data-warehouse-overview-what-is.md) named **Partner_[PartnerName]_pool** | DW100c performance level. |
 | A [SQL login](/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) named **Partner_[PartnerName]_login** | Created on your `master` database. The password for this SQL login is specified by you at the creation of your trial.|
-| A [database user](/azure/azure-sql/database/logins-create-manage?bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&toc=/azure/synapse-analytics/sql-data-warehouse/toc.json) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
+| A [database user](../../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2fsql-data-warehouse%2ftoc.json) | A new database user, mapped to the new SQL login. This user is added to the db_owner role for the newly created database. |
 
 In all cases, **[PartnerName]** is the name of the third-party ISV who offers the trial. 
 
