@@ -24,7 +24,7 @@ ms.custom: devx-track-azurepowershell
 
 This extension installs NVIDIA GPU drivers on Linux N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
 
-Instructions on manual installation of the drivers and the current supported versions are available [Azure N-series GPU driver setup for Linux](../linux/n-series-driver-setup.md).
+Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series GPU driver setup for Linux](../linux/n-series-driver-setup.md).
 An extension is also available to install NVIDIA GPU drivers on [Windows N-series VMs](hpccompute-gpu-windows.md).
 
 ## Prerequisites
@@ -202,4 +202,3 @@ If you need more help at any point in this article, you can contact the Azure ex
 For more information about extensions, see [Virtual machine extensions and features for Linux](features-linux.md).
 
 For more information about N-series VMs, see [GPU optimized virtual machine sizes](../sizes-gpu.md).
-

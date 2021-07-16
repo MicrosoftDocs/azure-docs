@@ -75,7 +75,7 @@ RedHat:RHEL:7.6:7.6.2019062116
 Extended Update Support (EUS) repositories are available to customers who may want to lock their RHEL VMs to a certain RHEL minor release after provisioning the VM. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. You can also undo the EUS version-locking operation.
 
 >[!NOTE]
-> EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [Red Hat Enterprise Linux Extras Product Life Cycle - Red Hat Customer Portal](https://access.redhat.com/support/policy/updates/extras/).
+> EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed on the [Red Hat Enterprise Linux Extras Product Life Cycle - Red Hat Customer Portal](https://access.redhat.com/support/policy/updates/extras/) page.
 
 At the time of this writing, EUS support has ended for RHEL <= 7.4. See the "Red Hat Enterprise Linux Extended Maintenance" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/#Long_Support) for more details.
 * RHEL 7.4 EUS support ends August 31, 2019
@@ -227,7 +227,7 @@ If you're using a network configuration to further restrict access from RHEL PAY
 >The new Azure US Government images,as of January 2020, will be using Public IP mentioned under Azure Global header above.
 
 >[!NOTE]
->Also, note that Azure Germany is deprecated in favor of public Germany regions. Recommendation for Azure Germany customers is to start pointing to public RHUI using the steps [Red Hat Update Infrastructure](#manual-update-procedure-to-use-the-azure-rhui-servers).
+>Also, note that Azure Germany is deprecated in favor of public Germany regions. Recommendation for Azure Germany customers is to start pointing to public RHUI using the steps on the [Red Hat Update Infrastructure](#manual-update-procedure-to-use-the-azure-rhui-servers) page.
 
 ## Azure RHUI Infrastructure
 
@@ -308,6 +308,3 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 * To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * To learn more about the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
-
-
-

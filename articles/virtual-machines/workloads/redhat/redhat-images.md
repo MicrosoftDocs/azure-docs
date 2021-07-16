@@ -97,7 +97,7 @@ For RHEL 7.x images, there are a few different image types. The following table 
 ## RHEL 8 image types
 
 >[!NOTE]
-> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. More details are available [Chapter 5. Configuring kernel command-line parameters Red Hat Enterprise Linux 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. For more information, see [Chapter 5. Configuring kernel command-line parameters Red Hat Enterprise Linux 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
 
 Details for RHEL 8 image types are below.
 
@@ -192,4 +192,3 @@ Current policy is to keep all previously published images. We reserve the right 
 * To learn more about the Azure Red Hat Update Infrastructure, see [Red Hat Update Infrastructure for on-demand RHEL VMs in Azure](./redhat-rhui.md).
 * To learn more about the RHEL BYOS offer, see [Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure](./byos.md).
 * For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata).
-

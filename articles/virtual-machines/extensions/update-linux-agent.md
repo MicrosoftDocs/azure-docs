@@ -450,4 +450,3 @@ For CoreOS, the above command may not work.
 You will see that the Azure Linux Agent version has been updated to the new version.
 
 For more information regarding the Azure Linux Agent, see [Azure Linux Agent README](https://github.com/Azure/WALinuxAgent).
-
