@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: shortpatti 
   ms.author: v-patsho 
-  ms.date: 07/02/2021 
+  ms.date: 07/16/2021 
 
 
 # card 1
@@ -46,7 +46,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: General
-          url: ./faq.yml
+          url: /azure/azure-vmware/faq
         - text: Customer communication
           url: /azure/azure-vmware/faq#customer-communication
         - text: Configuration and setup 
@@ -124,10 +124,12 @@ landingContent:
         links:
           - text: Configure DHCP 
             url: configure-dhcp-azure-vmware-solution.md
-          - text: Configure DHCP on L2 stretched VMware HCX networks
+          - text: Configure DHCP on L2 stretched networks
             url: configure-l2-stretched-vmware-hcx-networks.md
-          - text: Configure NSX components using Azure 
-            url: configure-nsx-network-components-azure-portal.md
+          - text: Configure DNS forwarder
+            url: configure-dns-azure-vmware-solution.md
+          - text: Configure port mirroring 
+            url: configure-port-mirroring-azure-vmware-solution.md
           - text: Configure GitHub Enterprise Server
             url: ./configure-github-enterprise-server.md
           - text: Enable public internet access

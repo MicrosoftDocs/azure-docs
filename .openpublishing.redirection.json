@@ -13430,6 +13430,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/configure-nsx-network-components-azure-portal.md",
+      "redirect_url": "/azure/azure-vmware/configure-dhcp-azure-vmware-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
       "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
       "redirect_document_id": false
@@ -17319,11 +17324,18 @@
       "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
+
     {
-      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes.md",
-      "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-apis-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/digital-twins/how-to-manage-routes-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
+    },
+
     {
       "source_path_from_root": "/articles/digital-twins/how-to-use-parser.md",
       "redirect_url": "/azure/digital-twins/how-to-parse-models",
@@ -19112,6 +19124,11 @@
     {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
       "redirect_url": "/azure/iot-fundamentals/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-device-sdk-c-serializer.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-device-sdk-c-intro",
       "redirect_document_id": false
     },
     {
@@ -21707,6 +21724,11 @@
     {
       "source_path_from_root": "/articles/logic-apps/create-stateful-stateless-workflows-visual-studio-code.md",
       "redirect_url": "/azure/logic-apps/create-single-tenant-workflows-visual-studio-code",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-serverless-get-started-vs.md",
+      "redirect_url": "/azure/logic-apps/create-serverless-apps-visual-studio",
       "redirect_document_id": true
     },
     {
@@ -41764,6 +41786,11 @@
       "redirect_url": "/azure/active-directory/b2b/claims-mapping",
       "redirect_document_id": true
     },
+	{
+      "source_path_from_root": "/articles/active-directory/hybrid/reference-connect-device-disappearance.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/reference-connect-device-disappearance",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/active-directory/active-directory-b2b-compare-b2c.md",
       "redirect_url": "/azure/active-directory/b2b/compare-with-b2c",
@@ -56412,6 +56439,11 @@
     {
       "source_path": "articles/virtual-machines/troubleshooting/troubleshoot-vm-by-use-nested-virtualization.md",
       "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-by-use-nested-virtualization",
+      "redirect_document_id": false
+    },
+        {
+      "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
+      "redirect_url": "/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
     },
     {

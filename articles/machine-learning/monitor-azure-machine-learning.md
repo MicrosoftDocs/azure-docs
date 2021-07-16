@@ -70,6 +70,7 @@ You can configure the following logs for Azure Machine Learning:
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 
+
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
 
@@ -106,9 +107,20 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 
 | Table | Description |
 |:---|:---|
-| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
+| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters.|
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
+| AmlComputeInstanceEvent | Events when ML Compute Instance is accessed (read/write). Category includes:ComputeInstanceEvent (very chatty). |
+| AmlDataLabelEvent | Events when data label(s) or its projects is accessed (read, created, or deleted). Category includes:DataLabelReadEvent,DataLabelChangeEvent.  |
+| AmlDataSetEvent | Events when a registered or unregistered ML dataset is accessed (read, created, or deleted). Category includes:DataSetReadEvent,DataSetChangeEvent. |
+| AmlDataStoreEvent | Events when ML datastore is accessed (read, created, or deleted). Category includes:DataStoreReadEvent,DataStoreChangeEvent. |
+| AmlDeploymentEvent | Events when a model deployment happens on ACI or AKS. Category includes:DeploymentReadEvent,DeploymentEventACI,DeploymentEventAKS. |
+| AmlInferencingEvent | Events for inference or related operation on AKS or ACI compute type. Category includes:InferencingOperationACI (very chatty),InferencingOperationAKS (very chatty). |
+| AmlModelsEvent | Events when ML model is accessed (read, created, or deleted). Includes events when packaging of models and assets happen into a ready-to-build packages. Category includes:ModelsReadEvent,ModelsActionEvent .|
+| AmlPipelineEvent | Events when ML pipeline draft or endpoint or module are accessed (read, created, or deleted).Category includes:PipelineReadEvent,PipelineChangeEvent. |
+| AmlRunEvent | Events when ML experiments are accessed (read, created, or deleted). Category includes:RunReadEvent,RunEvent. |
+| AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
+
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
