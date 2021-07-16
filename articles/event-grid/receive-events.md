@@ -19,7 +19,7 @@ You need a function app with an HTTP triggered function.
 
 ## Add dependencies
 
-If you're developing in .NET, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Microsoft.Azure.EventGrid` [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). The examples in this article require version 1.4.0 or later.
+If you're developing in .NET, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Azure.Messaging.EventGrid` [NuGet package](https://www.nuget.org/packages/Azure.Messaging.EventGrid).
 
 SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#data-plane-sdks) reference. These packages have the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
 
@@ -30,7 +30,7 @@ Click on the "View Files" link in your Azure Function (right most pane in the Az
   "frameworks": {
     "net46":{
       "dependencies": {
-        "Microsoft.Azure.EventGrid": "2.0.0"
+        "Azure.Messaging.EventGrid": "4.4.0"
       }
     }
    }
