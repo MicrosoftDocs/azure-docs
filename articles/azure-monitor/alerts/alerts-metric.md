@@ -119,7 +119,7 @@ The previous sections described how to create, view, and manage metric alert rul
 6. You can disable a metric alert rule using the following command.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
     ```
 
 7. You can delete a metric alert rule using the following command.

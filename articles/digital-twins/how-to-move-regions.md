@@ -111,7 +111,7 @@ These views confirm that your models, twins, and graph were re-uploaded to the n
 
 If you have endpoints or routes in your original instance, you'll need to re-create them in your new instance. If you don't have any endpoints or routes in your original instance or you don't want to move them to the new instance, you can skip to the [next section](#relink-connected-resources).
 
-Otherwise, follow the steps in [How-to: Manage endpoints and routes](how-to-manage-routes-portal.md) using the new instance. Keep these pointers in mind:
+Otherwise, follow the steps in [How-to: Manage endpoints and routes](how-to-manage-routes.md) using the new instance. Keep these pointers in mind:
 
 * You do *not* need to re-create the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the "Prerequisites" section in the endpoint instructions. You just need to re-create the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.

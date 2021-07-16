@@ -126,11 +126,7 @@
   - name: Connect output
     items:
     - name: Manage endpoints and routes
-      items:
-      - name: Portal
-        href: how-to-manage-routes-portal.md
-      - name: APIs and CLI
-        href: how-to-manage-routes-apis-cli.md
+      href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
     - name: Integrate with Azure Maps
