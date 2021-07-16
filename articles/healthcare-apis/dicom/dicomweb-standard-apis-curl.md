@@ -38,7 +38,7 @@ Once you've deployed an instance of the DICOM service, retrieve the URL for your
 3. Copy the **Service URL** of your DICOM service.
 4. If you haven't already obtained a token, see Get access token for the DICOM service using Azure CLI document. 
 
-For this code, we'll be accessing an unsecured dev/test service. As a safe guard, don't upload any private health information (PHI).
+For this code, we'll be accessing an Public Preview Azure service. It is important that you don't upload any private health information (PHI).
 
 
 ## Working with the DICOM service
@@ -77,7 +77,7 @@ Some programming languages and tools behave differently. For instance, some requ
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
 
-`curl --location --request POST "http://{service-name}.dicom.azurehealthcareapis.com/studies" --header "Accept: application/dicom+json" --header "Content-Type: multipart/related; type=\"application/dicom\"" --header "Authorization: Bearer {token value}"--form "file1=@{path-to-dicoms}/red-triangle.dcm;type=application/dicom" --trace-ascii "trace.txt"`
+`curl --location --request POST "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies" --header "Accept: application/dicom+json" --header "Content-Type: multipart/related; type=\"application/dicom\"" --header "Authorization: Bearer {token value}"--form "file1=@{path-to-dicoms}/red-triangle.dcm;type=application/dicom" --trace-ascii "trace.txt"`
 
 ### Store instances for a specific study
 
@@ -99,7 +99,7 @@ Some programming languages and tools behave differently. For instance, some requ
  * Content-Type: multipart/related; boundary=ABCD1234
  * Content-Type: multipart/related
 
-`curl --request POST "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420" --header "Accept: application/dicom+json" --header "Content-Type: multipart/related; type=\"application/dicom\"" --header "Authorization: Bearer {token value}" --form "file1=@{path-to-dicoms}/blue-circle.dcm;type=application/dicom"`
+`curl --request POST "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420" --header "Accept: application/dicom+json" --header "Content-Type: multipart/related; type=\"application/dicom\"" --header "Authorization: Bearer {token value}" --form "file1=@{path-to-dicoms}/blue-circle.dcm;type=application/dicom"`
 
 ### Store-single-instance
 
@@ -118,7 +118,7 @@ _Details:_
 * Body:
     * Contains a single DICOM file as binary bytes.
 
-`curl --location --request POST "http://{service-name}.dicom.azurehealthcareapis.com/studies" --header "Accept: application/dicom+json" --header "Content-Type: application/dicom" --header "Authorization: Bearer {token value}" --data-binary "@{path-to-dicoms}/green-square.dcm"`
+`curl --location --request POST "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies" --header "Accept: application/dicom+json" --header "Content-Type: application/dicom" --header "Authorization: Bearer {token value}" --data-binary "@{path-to-dicoms}/green-square.dcm"`
 
 ## Retrieving DICOM (WADO)
 
@@ -133,7 +133,7 @@ _Details:_
    * Accept: multipart/related; type="application/dicom"; transfer-syntax=*
    * Authorization: Bearer {token value}
 
-`curl --request GET "https://my-test-workspace-my-test.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420" --header "Accept: multipart/related; type=\"application/dicom\"; transfer-syntax=*" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
+`curl --request GET "https://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420" --header "Accept: multipart/related; type=\"application/dicom\"; transfer-syntax=*" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
 
 This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these are not direct DICOM files, only a text representation of the multipart/related download.
 
@@ -150,7 +150,7 @@ _Details:_
 
 This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these are not direct DICOM files, only a text representation of the multipart/related download.
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/metadata" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"` 
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/metadata" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"` 
 
 ### Retrieve all instances within a series
 
@@ -165,7 +165,7 @@ _Details:_
 
 This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but it's not the DICOM file, only a text representation of the multipart/related download.
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Accept: multipart/related; type=\"application/dicom\"; transfer-syntax=*" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Accept: multipart/related; type=\"application/dicom\"; transfer-syntax=*" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
 
 ### Retrieve metadata of all instances within a series
 
@@ -178,7 +178,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/metadata" --header "Accept: application/dicom+json"--header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/metadata" --header "Accept: application/dicom+json"--header "Authorization: Bearer {token value}"`
  
 ### Retrieve a single instance within a series of a study
 
@@ -191,7 +191,7 @@ _Details:_
    * Accept: application/dicom; transfer-syntax=*
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom; transfer-syntax=*" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom; transfer-syntax=*" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
 
 ### Retrieve metadata of a single instance within a series of a study
 
@@ -204,7 +204,7 @@ _Details:_
   * Accept: application/dicom+json
   * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395/metadata" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395/metadata" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
 
 ### Retrieve one or more frames from a single instance
 
@@ -219,7 +219,7 @@ _Details:_
    * Accept: multipart/related; type="application/octet-stream";
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395/frames/1" --header "Accept: multipart/related; type=\"application/octet-stream\"; transfer-syntax=1.2.840.10008.1.2.1" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395/frames/1" --header "Accept: multipart/related; type=\"application/octet-stream\"; transfer-syntax=1.2.840.10008.1.2.1" --header "Authorization: Bearer {token value}" --output "suppressWarnings.txt"`
 
 ## Query DICOM (QIDO)
 
@@ -238,7 +238,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies?StudyInstanceUID=1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies?StudyInstanceUID=1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
 
 ### Search for series
 
@@ -253,7 +253,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/series?SeriesInstanceUID=1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/series?SeriesInstanceUID=1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
 
 ### Search for series within a study
 
@@ -268,7 +268,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series?SeriesInstanceUID=1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series?SeriesInstanceUID=1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
 
 ### Search for instances
 
@@ -283,7 +283,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/instances?SOPInstanceUID=1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/instances?SOPInstanceUID=1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
 
 ### Search for instances within a study
 
@@ -298,7 +298,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value} 
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/instances?SOPInstanceUID=1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom+json" -header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/instances?SOPInstanceUID=1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom+json" -header "Authorization: Bearer {token value}"`
 
 ### Search for instances within a study and series
 
@@ -313,7 +313,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-`curl --request GET "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances?SOPInstanceUID=1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
+`curl --request GET "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances?SOPInstanceUID=1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Accept: application/dicom+json" --header "Authorization: Bearer {token value}"`
 
 
 ## Delete DICOM 
@@ -330,7 +330,7 @@ _Details:_
 * Headers:
    * Authorization: Bearer {token value}  
 
-`curl --request DELETE "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Authorization: Bearer {token value}"`
+`curl --request DELETE "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652/instances/1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395" --header "Authorization: Bearer {token value}"`
 
 ### Delete a specific series within a study
 
@@ -344,7 +344,7 @@ _Details:_
 * Headers:
    * Authorization: Bearer {token value}
 
-`curl --request DELETE "http://{service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Authorization: Bearer {token value}"`
+`curl --request DELETE "http://{dicom-service-name}.dicom.azurehealthcareapis.com/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/series/1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652" --header "Authorization: Bearer {token value}"`
 
 ### Delete a specific study
 
@@ -358,7 +358,7 @@ _Details:_
 * Headers:
    * Authorization: Bearer {token value}
 
-`curl--request DELETE "http://{service-name}.azurewebsites.net/studies/1.2.826.0.1.3680043.8.498 --header "Authorization: Bearer {token value}"
+`curl--request DELETE "http://{dicom-service-name}.azurewebsites.net/studies/1.2.826.0.1.3680043.8.498 --header "Authorization: Bearer {token value}"
 
 ### Next Steps
 
