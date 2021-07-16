@@ -269,7 +269,8 @@ window(over(stocksymbol),
 ### Distinct count of all column values
 You can use this script to identify key columns and view the cardinality of all columns in your stream with a single script snippet. Add this script as an aggregate transformation to your data flow and it will automatically provide distinct counts of all columns.
 
-```aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
+```
+aggregate(each(match(true()), $$ = countDistinct($$))) ~> KeyPattern
 ```
 
 ## Next steps
