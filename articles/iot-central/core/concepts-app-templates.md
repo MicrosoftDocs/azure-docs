@@ -14,7 +14,7 @@ Application templates in Azure IoT Central are a tool to help you kickstart your
 
 Application templates consist of:
 
-- Sample operator dashboards
+- Sample dashboards
 - Sample device templates
 - Simulated devices producing real-time data
 - Pre-configured rules and jobs

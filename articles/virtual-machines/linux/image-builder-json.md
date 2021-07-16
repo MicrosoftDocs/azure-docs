@@ -3,12 +3,11 @@ title: Create an Azure Image Builder template
 description: Learn how to create a template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
 # Create an Azure Image Builder template 
