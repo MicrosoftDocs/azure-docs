@@ -22,13 +22,15 @@ We recommend that you share access at the gallery level.
 
 ### [Portal](#tab/portal)
 
-<!-- Introduction paragraph if needed. The numbering is automatically controlled, so you can put 1. for each step and the rendering engine will fix the numbers in the live content. -->
+If the user is outside of your organization, they will get an email invitation to join the organization. The user needs to accept the invitation, then they will be able to see the gallery and all of the image definitions and versions in their list of resources.
 
-1. Open the [portal](https://portal.azure.com).
-1. In the search bar, type **<name_of_feature>**.
-1. Select **<name_of_feature>**.
-1. In the left menu under **Settings**, select **<something>**.
-1. In the **<something>** page, select **<something>**.
+1. On the page for your image gallery, in the menu on the left, select **Access control (IAM)**. 
+1. Under **Add a role assignment**, select **Add**. The **Add a role assignment** pane will open. 
+1. Under **Role**, select **Reader**.
+1. Under **assign access to**, leave the default of **Azure AD user, group, or service principal**.
+1. Under **Select**, type in the email address of the person that you would like to invite.
+1. If the user is outside of your organization, you will see the message **This user will be sent an email that enables them to collaborate with Microsoft.** Select the user with the email address and then click **Save**.
+
 
 ### [CLI](#tab/cli)
 
@@ -66,16 +68,6 @@ New-AzRoleAssignment `
    -ResourceName $gallery.Name `
    -ResourceType Microsoft.Compute/galleries `
    -ResourceGroupName $resourceGroup.ResourceGroupName
-
-```
-
-
-
-### [REST](#tab/rest)
-
-<!-- Introduction paragraph if needed -->
-
-```rest
 
 ```
 
