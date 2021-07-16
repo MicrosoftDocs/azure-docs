@@ -135,10 +135,12 @@ The following steps describe the general way to add a trigger, for example, **Wh
 
 ## Trigger polling behavior
 
-All Event Hubs triggers are *long-polling* triggers, which means that the trigger processes all the events and then waits 30 seconds per partition for more events to appear in your event hub. 
+All Event Hub triggers are long-polling triggers, which means that when a trigger fires, the trigger processes all the events and then waits for 30 seconds for more events to appear in your Event Hub. If no events are received in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading events until your Event Hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
 For example, if the trigger is set up with four partitions, this delay might take up to two minutes before the trigger finishes polling all the partitions. If no events are received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your event hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
+The Event Hubs trigger is skipped when there are no events read from the event hub. The connector waits for 30 seconds (long poll) for events to appear if there are no events in 30 secs the trigger is skipped. This is by design. Each time that the trigger runs, it reads events from a partition for 30 secs and wait for events to appear. If no events, the trigger runs after the scheduled time and then try to get events from next partition and keep on repeating this until all partitions are read. If you know which partition will the messages go, you can update the trigger to read events from certain partitions only by setting maximum and minimum partition keys on the trigger. Please refer to the connector documentation below in the topic, https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs:
+     
 ## Trigger checkpoint behavior
 
 When an Event Hubs trigger reads events from each partition in an event hub, the trigger users its own state to maintain information about the stream offset (the event position in a partition) and the partitions from where the trigger reads events.
