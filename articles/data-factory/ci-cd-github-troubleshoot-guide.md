@@ -259,7 +259,7 @@ You want to perform CI/CD during progress and queuing stage of pipeline run.
 When pipeline is in progress/queued stage, you have to monitor the pipeline and  activities at first. Then, you can decide to wait until pipeline to finish or you can cancel the pipeline run. 
  
 #### Resolution
-You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](https://docs.microsoft.com/azure/data-factory/monitor-visually). Then, you can follow [ADF CI/CD Best Practices](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd) to guide you further. 
+You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](./monitor-visually.md). Then, you can follow [ADF CI/CD Best Practices](./continuous-integration-deployment.md#best-practices-for-cicd) to guide you further. 
 
 ### Perform **UNIT TESTING** during ADF development and deployment
 

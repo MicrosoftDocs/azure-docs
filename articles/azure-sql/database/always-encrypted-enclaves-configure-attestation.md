@@ -1,5 +1,5 @@
 ---
-title: "Configure Azure Attestation for your Azure SQL logical server"
+title: "Configure attestation for Always Encrypted using Azure Attestation"
 description: "Configure Azure Attestation for Always Encrypted with secure enclaves in Azure SQL Database."
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted, secure enclaves, SGX, attestation
 services: sql-database
@@ -10,16 +10,13 @@ ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021 
+ms.date: 07/14/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Configure Azure Attestation for your Azure SQL logical server
+# Configure attestation for Always Encrypted using Azure Attestation
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
 [Microsoft Azure Attestation](../../attestation/overview.md) is a solution for attesting Trusted Execution Environments (TEEs), including Intel Software Guard Extensions (Intel SGX) enclaves. 
 
@@ -37,6 +34,9 @@ To use Azure Attestation for attesting Intel SGX enclaves used for [Always Encry
 An [attestation provider](../../attestation/basic-concepts.md#attestation-provider) is a resource in Azure Attestation that evaluates [attestation requests](../../attestation/basic-concepts.md#attestation-request) against [attestation policies](../../attestation/basic-concepts.md#attestation-request) and issues [attestation tokens](../../attestation/basic-concepts.md#attestation-token). 
 
 Attestation policies are specified using the [claim rule grammar](../../attestation/claim-rule-grammar.md).
+
+> [!IMPORTANT]
+> An attestation provider gets created with the default policy for Intel SGX enclaves, which does not validate the code running inside the enclave. Microsoft strongly advises you set the below recommended policy, and not use the default policy, for Always Encrypted with secure enclaves.
 
 Microsoft recommends the following policy for attesting Intel SGX enclaves used for Always Encrypted in Azure SQL Database:
 
@@ -64,7 +64,7 @@ The above policy verifies:
   > One of the main goals of attestation is to convince clients that the binary running in the enclave is the binary that is supposed to run. Attestation policies provide two mechanisms for this purpose. One is the **mrenclave** claim which is the hash of the binary that is supposed to run in an enclave. The problem with the **mrenclave** is that the binary hash changes even with trivial changes to the code, which makes it hard to rev the code running in the enclave. Hence, we recommend the use of the **mrsigner**, which is a hash of a key that is used to sign the enclave binary. When Microsoft revs the enclave, the **mrsigner** stays the same as long as the signing key does not change. In this way, it becomes feasible to deploy updated binaries without breaking customers' applications. 
 
 > [!IMPORTANT]
-> An attestation provider gets created with the default policy for Intel SGX enclaves, which does not validate the code running inside the enclave. Microsoft strongly advises you set the above recommended policy, and not use the default policy, for Always Encrypted with secure enclaves.
+> Microsoft may need to rotate the key used to sign the Always Encrypted enclave binary, which is expected to be a rare event. Before a new version of the enclave binary, signed with a new key, is deployed to Azure SQL Database, this article will be updated to provide a new recommended attestation policy and instructions on how you should update the policy in your attestation providers to ensure your applications continue to work uninterrupted.
 
 For instructions for how to create an attestation provider and configure with an attestation policy using:
 
@@ -77,6 +77,7 @@ For instructions for how to create an attestation provider and configure with an
 - [Quickstart: Set up Azure Attestation with Azure CLI](../../attestation/quickstart-azure-cli.md)
     > [!IMPORTANT]
     > When you configure your attestation policy with Azure CLI, set the `attestation-type` parameter to `SGX-IntelSDK`.
+
 
 ## Determine the attestation URL for your attestation policy
 

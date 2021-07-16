@@ -36,7 +36,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require those with access to the [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) app to perform multi-factor authentication.
+The following steps will help create a Conditional Access policy to require those with access to the [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) app to perform multi-factor authentication.For Azure Government, this should be the Azure Government Cloud Management API app. 
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
