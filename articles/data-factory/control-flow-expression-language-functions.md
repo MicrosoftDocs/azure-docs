@@ -57,7 +57,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 
 In the  control flow activities like ForEach activity, you can provide an array to be iterated over for the property items and use  @item() to iterate over a single enumeration in ForEach activity. For example, if items is an array: [1, 2, 3], @item() returns 1 in the first iteration, 2 in the second iteration, and 3 in the third iteration. You can also use @range(0,10) like expression to iterate ten times starting with 0 ending with 9.
 
-You can use @activity('activity name') to capture output of activity and make decisions. Consider a web actvity called Web1. For placing the output of the first activity in the body of the second, the expression generally looks like: @activity('Web1').output or @activity('Web1').output.data or something similar depending upon what the output of the first activity looks like. 
+You can use @activity('activity name') to capture output of activity and make decisions. Consider a web activity called Web1. For placing the output of the first activity in the body of the second, the expression generally looks like: @activity('Web1').output or @activity('Web1').output.data or something similar depending upon what the output of the first activity looks like. 
 
 ## Examples
 
