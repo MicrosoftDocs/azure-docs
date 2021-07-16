@@ -474,7 +474,7 @@ sections:
           
           * Lack of network connectivity
           * Firewall
-          * An approved private endpoint with public network access disabled that enforces virtual network isolation
+          * Using the portal from a public network for a registry that allows only private access
           * Ad blockers
           * DNS errors
           
