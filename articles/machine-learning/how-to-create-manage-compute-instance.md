@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 10/02/2020
+ms.date: 07/16/2021
 ---
 
 # Create and manage an Azure Machine Learning compute instance
