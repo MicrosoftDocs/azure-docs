@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 author: praveensri
 ms.author: psrivas
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, divswa, azla
 ms.topic: article
 ms.date: 07/15/2021
 ---
