@@ -35,11 +35,11 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
-## Validate tokens from providers
+## Client-directed sign-in
 
-In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
+In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](overview-authentication-authorization.md#authentication-flow)). The [Azure Mobile Apps SDKs](https://github.com/Azure/azure-mobile-apps) use this sign-in flow. This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources.
 
-To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
+To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example:
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -52,9 +52,9 @@ The token format varies slightly according to the provider. See the following ta
 
 | Provider value | Required in request body | Comments |
 |-|-|-|
-| `aad` | `{"access_token":"<access_token>"}` | |
-| `microsoftaccount` | `{"access_token":"<token>"}` | The `expires_in` property is optional. <br/>When requesting the token from Live services, always request the `wl.basic` scope. |
-| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. When specified, it can also optionally be accompanied by the `redirect_uri` property. |
+| `aad` | `{"access_token":"<access_token>"}` | The `id_token`, `refresh_token`, and `expires_in` properties are optional. |
+| `microsoftaccount` | `{"access_token":"<access_token>"}` or `{"authentication_token": "<token>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
+| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. Providing it will add an access token and refresh token to the token store. When specified, it can also optionally be accompanied by the `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
 | | | |
