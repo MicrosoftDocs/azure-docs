@@ -21,6 +21,9 @@ Azure API Management provides built-in analytics for your APIs. Analyze the usag
 * Users
 * Requests
 
+> [!NOTE]
+> Geography values are approximate based on IP address mapping.
+
 :::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="Timeline analytics in portal":::
 
 Use analytics for high-level monitoring and troubleshooting of your APIs. For additional monitoring features, including near real-time metrics and resource logs for diagnostics and auditing, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md).
