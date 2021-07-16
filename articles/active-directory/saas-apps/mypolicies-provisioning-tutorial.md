@@ -27,7 +27,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in my
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A myPolicies tenant](https://mypolicies.com/index.html#section10).
+* [A myPolicies tenant](https://mypolicies.com/).
 * A user account in myPolicies with Admin permissions.
 
 ## Assigning users to myPolicies

@@ -4,7 +4,7 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 06/23/2021
 ---
 
 # Bicep operators
@@ -62,6 +62,23 @@ The numeric operators use integers to do calculations and return integer values.
 > [!NOTE]
 > Subtract and minus use the same operator. The functionality is different because subtract uses two
 > operands and minus uses one operand.
+
+## Operator precedence and associativity
+
+The operators below are listed in descending order of precedence (the higher the position the higher the precedence). Operators listed at the same level have equal precedence.
+
+| Symbol | Type of Operation | Associativity |
+|:-|:-|:-|
+| `(` `)` `[` `]` `.` `::` | Parentheses, array indexers, property accessors, and nested resource accessor  | Left to right |
+| `!` `-` | Unary | Right to left |
+| `%` `*` `/` | Multiplicative | Left to right |
+| `+` `-` | Additive | Left to right |
+| `<=` `<` `>` `>=` | Relational | Left to right |
+| `==` `!=` `=~` `!~` | Equality | Left to right |
+| `&&` | Logical AND | Left to right |
+| `\|\|` | Logical OR | Left to right |
+| `?` `:` | Conditional expression (ternary) | Right to left
+| `??` | Coalesce | Left to right
 
 ## Next steps
 

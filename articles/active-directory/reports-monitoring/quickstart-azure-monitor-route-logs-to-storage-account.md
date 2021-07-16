@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 05/05/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -38,41 +38,41 @@ To use this feature, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
+2. Select **Azure Active Directory** > **Monitoring** > **Audit logs**. 
 
-3. Select **Export Settings**. 
+3. Select **Export Data Settings**. 
 
 4. In the **Diagnostics settings** pane, do either of the following:
-   * To change existing settings, select **Edit setting**.
-   * To add new settings, select **Add diagnostics setting**.  
-     You can have up to three settings. 
+    1. To change existing setting, select **Edit setting** next to the diagnostic setting you want to update.
+    1. To add new settings, select **Add diagnostic setting**.  
+
+    You can have up to three settings.
 
      ![Export settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
-5. Enter a friendly name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). 
+5. Once in the **Diagnostic setting** pane if you are creating a new setting, enter a name for the setting to remind you of its purpose (for example, *Send to Azure storage account*). You can't change the name of an existing setting.
 
-6. Select the **Archive to a storage account** check box, and then select **Storage account**. 
+6. Under **Destination Details** Select the **Archive to a storage account** check box. 
 
-7. Select the Azure subscription and storage account that you want to route the logs to.
- 
-8. Select **OK** to exit the configuration.
+7. Select the Azure subscription in the **Subscription** drop down menu and storage account in the **Storage account** drop down menu that you want to route the logs to.
 
-9. Do either or both of the following:
-    * To send audit logs to the storage account, select the **AuditLogs** check box. 
-    * To send sign-in logs to the storage account, select the **SignInLogs** check box.
+8. Select all the relevant categories in under **Category details**:
 
-10. Use the slider to set the retention of your log data. By default, this value is *0*, which means that logs are retained in the storage account indefinitely. If you set a different value, events older than the number of days selected are automatically cleaned up.
-
-11. Select **Save** to save the setting.
+    Do either or both of the following:
+    1. select the **AuditLogs** check box to send audit logs to the storage account.
+    
+    1. select the **SignInLogs** check box to send sign-in logs to the storage account.
 
     ![Diagnostics settings](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. After about 15 minutes, verify that the logs are pushed to your storage account. Go to the [Azure portal](https://portal.azure.com), select **Storage accounts**, select the storage account that you used earlier, and then select **Blobs**. For **Audit logs**, select **insights-log-audit**. For **Sign-in logs**, select **insights-logs-signin**.
+9. After the categories have been selected, in the **Retention days** field, type in the number of days of retention you need of your log data. By default, this value is *0*, which means that logs are retained in the storage account indefinitely. If you set a different value, events older than the number of days selected are automatically cleaned up.
+ 
+10. Select **Save** to save the setting.
 
-    ![Storage account](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
+11. Close the window to return to the Diagnostic settings pane.
 
 ## Next steps
 
-* [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Frequently asked questions and known issues](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

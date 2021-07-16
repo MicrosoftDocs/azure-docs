@@ -5,10 +5,12 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 06/17/2021
 ---
 
 # Read replicas in Azure Database for MySQL - Flexible Server
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Read replicas in Azure Database for MySQL - Flexible Server is in preview.
@@ -25,7 +27,6 @@ To learn more about MySQL replication features and issues, see the [MySQL replic
 
 > [!NOTE]
 > This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
->
 
 ## Common use cases for read replica
 
@@ -79,7 +80,7 @@ You can stop replication between a source and a replica. After replication is st
 When you choose to stop replication to a replica, it loses all links to its previous source and other replicas. There is no automated failover between a source and its replica.
 
 > [!IMPORTANT]
-> The standalone server can't be made into a replica again.
+>The standalone server can't be made into a replica again.
 > Before you stop replication on a read replica, ensure the replica has all the data that you require.
 
 Learn how to [stop replication to a replica](how-to-read-replicas-portal.md).
@@ -104,6 +105,31 @@ After you have decided you want to failover to a replica:
    Each server has a unique connection string. Update your application to point to the (former) replica instead of the source.
 
 After your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
+
+## Global transaction identifier (GTID)
+
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL Flexible serever. GTID is supported on versions 5.7 and 8.0. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
+
+The following server parameters are available for configuring GTID: 
+
+|**Server parameter**|**Description**|**Default Value**|**Values**|
+|--|--|--|--|
+|`gtid_mode`|Indicates if GTIDs are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
+|`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
+
+> [!NOTE]
+>
+> * After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+>
+> * To change GTID's from one value to another can only be one step at a time in ascending order of modes. For example, if gtid_mode is currently set to OFF_PERMISSIVE, it is possible to change to ON_PERMISSIVE but not to ON.
+>
+> * To keep replication consistent, you cannot update it for a master/replica server.
+>
+> * Recommended to SET enforce_gtid_consistency to ON before you can set gtid_mode=ON
+
+To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](how-to-configure-server-parameters-portal.md), [Azure CLI](how-to-configure-server-parameters-cli.md).
+
+If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. In order to make sure that the replication is consistent, `gtid_mode` cannot be changed once the master or replica server(s) is created with GTID enabled.
 
 ## Considerations and limitations
 

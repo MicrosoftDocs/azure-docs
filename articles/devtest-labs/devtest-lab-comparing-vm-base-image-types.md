@@ -43,7 +43,7 @@ Formulas provide a dynamic way to create VMs from the desired configuration/sett
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
-* [Custom images or formulas?](./devtest-lab-faq.md#blog-post)
+* [Custom images or formulas?](/azure/devtest-labs/devtest-lab-faq#blog-post)
 
 ## Next steps
-- [DevTest Labs FAQ](devtest-lab-faq.md)
+- [DevTest Labs FAQ](devtest-lab-faq.yml)

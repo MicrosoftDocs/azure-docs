@@ -5,7 +5,7 @@ description: Key ideas and concepts for the Metrics Advisor service
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Metrics Advisor glossary of common vocabulary and concepts
 
-This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service .
+This document explains the technical terms used in Metrics Advisor. Use this article to learn about common concepts and objects you might encounter when using the service.
 
 ## Data feed
 
@@ -26,13 +26,20 @@ A data feed is what Metrics Advisor ingests from your data source, such as Cosmo
 * zero or more dimensions
 * one or more measures. 
 
+## Interval
+Metrics need to be monitored at a certain granularity according to business requirements. For example, business Key Performance Indicators (KPIs) are monitored at daily granularity. However, service performance metrics are often monitored at minute/hourly granularity. So the frequency to collect metric data from sources are different.
+
+Metrics Advisor continuously grabs metrics data at each time interval, **the interval is equal to the granularity of the metrics.** Every time, Metrics Advisor runs the query you have written ingests data at this specific interval. Based on this data ingestion mechanism, the query script **should not return all metric data that exists in the database, but needs to limit the result to a single interval.**
+
+<!-- ![What is interval](media/tutorial/what-is-interval.png) -->
+
 ## Metric
 
 A metric is a quantifiable measure that is used to monitor and assess the status of a specific business process. It can be a combination of multiple time series values divided into dimensions. For example a *web health* metric might contain dimensions for *user count* and the *en-us market*.
 
 ## Dimension
 
-A dimension is one or more categorical values. The combination of those values identify a particular univariate time series, for example: country, language, tenant, and so on.
+A dimension is one or more categorical values. The combination of those values identifies a particular univariate time series, for example: country, language, tenant, and so on.
 
 ## Multi-dimensional metric
 
@@ -72,15 +79,15 @@ A measure is a fundamental or unit-specific term and a quantifiable value of the
 
 A time series is a series of data points indexed (or listed or graphed) in chronological order. Most commonly, a time series is a sequence taken at successive, equally spaced points in time. It is a sequence of discrete-time data.
 
-In Metrics Advisor, values of one metric on a specific dimension combination is called one series.
+In Metrics Advisor, values of one metric on a specific dimension combination are called one series.
 
 ## Granularity
 
 Granularity indicates how frequent data points will be generated at the data source. For example, daily, hourly.
 
-## Start time
+## Ingest data since(UTC)
 
-Start time is the time that you want Metrics Advisor to begin ingesting data from your data source. Your data source must have data at the specified start time.
+Ingest data since(UTC) is the time that you want Metrics Advisor to begin ingesting data from your data source. Your data source must have data at the specified ingestion start time.
 
 ## Confidence boundaries
 
@@ -89,7 +96,7 @@ Start time is the time that you want Metrics Advisor to begin ingesting data fro
 
 In Metrics Advisor, confidence boundaries represent the sensitivity of the algorithm used, and are used to filter out overly sensitive anomalies. On the web portal, confidence bounds appear as a transparent blue band. All the points within the band are treated as normal points.
 
-Metrics Advisor provides tools to adjust the sensitivity of the algorithms used. See [How to: Configure metrics and fine tune detecting configuration](how-tos/configure-metrics.md) for more information.
+Metrics Advisor provides tools to adjust the sensitivity of the algorithms used. See [How to: Configure metrics and fine tune detection configuration](how-tos/configure-metrics.md) for more information.
 
 ![Confidence bounds](media/confidence-bounds.png)
 
@@ -100,16 +107,16 @@ Metrics Advisor lets you create and subscribe to real-time alerts. These alerts 
 
 ## Anomaly incident
 
-After a detection configuration is applied to metrics, incidents are generated whenever any series within it has an anomaly. In large data sets this can be overwhelming, so Metrics Advisor groups series of anomalies within a metric into an incident. The service will also evaluate the severity and provide tools for [diagnosing the incident](how-tos/diagnose-incident.md).
+After a detection configuration is applied to metrics, incidents are generated whenever any series within it has an anomaly. In large data sets this can be overwhelming, so Metrics Advisor groups series of anomalies within a metric into an incident. The service will also evaluate the severity and provide tools for [diagnosing an incident](how-tos/diagnose-an-incident.md).
 
-### Incident tree
+### Diagnostic tree
 
 In Metrics Advisor, you can apply anomaly detection on metrics, then Metrics Advisor automatically monitors all time series of all dimension combinations. Whenever there is any anomaly detected, Metrics Advisor aggregates anomalies into incidents.
-After an incident occurs, Metrics Advisor will provide an incident tree with a hierarchy of contributing anomalies, and identify ones with the biggest impact. Each incident has a root cause anomaly, which is the top node of the tree.
+After an incident occurs, Metrics Advisor will provide a diagnostic tree with a hierarchy of contributing anomalies, and identify ones with the biggest impact. Each incident has a root cause anomaly, which is the top node of the tree.
 
 ### Anomaly grouping
 
-Metrics Advisor provides the capability to find related time series with a similar patterns. It can also provide deeper insights into the impact on other dimensions, and correlate the anomalies.
+Metrics Advisor provides the capability to find related time series with similar patterns. It can also provide deeper insights into the impact on other dimensions, and correlate the anomalies.
 
 ### Time series comparison
 

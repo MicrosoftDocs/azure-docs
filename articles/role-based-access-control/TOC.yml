@@ -100,6 +100,8 @@
       href: conditions-role-assignments-cli.md
     - name: REST API
       href: conditions-role-assignments-rest.md
+    - name: ARM template
+      href: conditions-role-assignments-template.md
     - name: Troubleshoot conditions
       href: conditions-troubleshoot.md
   - name: Remove role assignments
@@ -146,7 +148,7 @@
   - name: Resource provider operations
     href: resource-provider-operations.md
   - name: Azure RBAC limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits
   - name: Azure PowerShell
     href: /powershell/module/az.resources
   - name: CLI

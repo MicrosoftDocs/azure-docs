@@ -47,7 +47,8 @@ IoT Central enables the following capabilities to for IoT Edge devices:
   - The commands each module responds to.
   - The relationships between an IoT Edge gateway device and downstream device.
   - Cloud properties that aren't stored on the IoT Edge device.
-  - Customizations, dashboards, and forms that are part of your IoT Central application.
+  - Customizations that change how the UI shows device capabilities.
+  - Device views and forms.
 
   For more information, see the [Connect Azure IoT Edge devices to an Azure IoT Central application](./concepts-iot-edge.md) article.
 
@@ -116,7 +117,7 @@ In an Azure IoT Central application, you can [continuously export your data](how
 
 ## Batch device updates
 
-In an Azure IoT Central application, you can [create and run jobs](howto-run-a-job.md) to manage connected devices. These jobs let you do bulk updates to device properties or settings, or run commands. For example, you can create a job to increase the fan speed for multiple refrigerated vending machines.
+In an Azure IoT Central application, you can [create and run jobs](howto-manage-devices-in-bulk.md) to manage connected devices. These jobs let you do bulk updates to device properties or settings, or run commands. For example, you can create a job to increase the fan speed for multiple refrigerated vending machines.
 
 ## Role-based access control (RBAC)
 
