@@ -7,4 +7,4 @@ ms.date: 09/08/2020
 ms.custom: references_regions
 ---
 
-Before you continue, make sure you've [set up your environment](../articles/iot-pnp/set-up-environment.md), including your IoT hub.
+Before you continue, make sure you've [set up your environment](../articles/iot-develop/set-up-environment.md), including your IoT hub.
