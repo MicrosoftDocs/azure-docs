@@ -158,16 +158,16 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
 
 ## Microsoft Graph API
 
-Follow thgese instructions to assign a role using Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
+Follow these instructions to assign a role using the Microsoft Graph API in [Graph Explorer](https://aka.ms/ge).
 
 ### Assign a role
 
-In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. If you want to see the list of immutable role template IDs of all built-in roles, see this page [Azure AD built-in roles](permissions-reference.md).
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned the Billing Administrator role (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) at tenant scope. If you want to see the list of immutable role template IDs of all built-in roles, see [Azure AD built-in roles](permissions-reference.md).
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **POST** as the HTTP method from the dropdown. 
 3. Select the API version to **beta**.
-4. Use [roleAssignments](https://docs.microsoft.com/graph/api/rbacapplication-post-roleassignments?view=graph-rest-beta&tabs=http) API to assign roles. Add following details to the URL and Request Body and select **Run query**.
+4. Use the [roleAssignments](/graph/api/rbacapplication-post-roleassignments) API to assign roles. Add following details to the URL and Request Body and select **Run query**.
 
 ```HTTP
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
@@ -183,7 +183,7 @@ Content-type: application/json
 
 ### Assign a role using PIM
 
-In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is granted time-bound eligible role assignment to Billing Administrator (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`).
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned a time-bound eligible role assignment to Billing Administrator (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) for 3 hours.
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **POST** as the HTTP method from the dropdown. 
@@ -212,7 +212,7 @@ Content-type: application/json
 
 ```
 
-In the example below, the security principal is granted permanent eligible role assignment to Billing Administrator.
+In the following example, a security principal is assigned a permanent eligible role assignment to Billing Administrator.
 
 ```HTTP
 POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
@@ -235,7 +235,7 @@ Content-type: application/json
 
 ```
 
-To activate the role assignment, follow this - 
+To activate the role assignment, use the following API.
 
 ```HTTP
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests
