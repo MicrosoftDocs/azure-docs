@@ -10,7 +10,7 @@ ms.date: 06/21/2021
 ---
 
 # Monitor virtual machines with Azure Monitor: Configure monitoring
-This article is part of the [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md) scenario. It describes how to configure monitoring of your Azure and hybrid virtual machines in Azure Monitor.
+This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to configure monitoring of your Azure and hybrid virtual machines in Azure Monitor.
 
 This article discusses the most common Azure Monitor features to monitor the virtual machine host and its guest operating system. Depending on your particular environment and business requirements, you might not want to implement all features enabled by this configuration. Each section describes what features are enabled by that configuration and whether it potentially results in additional cost. This information will help you assess whether to perform each step of the configuration. For detailed pricing information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 

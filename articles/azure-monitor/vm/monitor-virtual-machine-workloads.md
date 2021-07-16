@@ -10,7 +10,7 @@ ms.date: 06/21/2021
 ---
 
 # Monitor virtual machines with Azure Monitor: Workloads
-This article is part of the [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md) scenario. It describes how to monitor workloads that are running on the guest operating systems of your virtual machines. This article includes details on analyzing and alerting on different sources of data on your virtual machines.
+This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes how to monitor workloads that are running on the guest operating systems of your virtual machines. This article includes details on analyzing and alerting on different sources of data on your virtual machines.
 
 ## Configure additional data collection
 VM insights collects only performance data from the guest operating system of enabled machines. You can enable the collection of additional performance data, events, and other monitoring data from the agent by configuring the Log Analytics workspace. It's configured only once because any agent that connects to the workspace automatically downloads the configuration and immediately starts collecting the defined data.
