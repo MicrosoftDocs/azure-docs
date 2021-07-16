@@ -103,10 +103,17 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ## Troubleshoot
 
+### Access behind HTTPS proxy
+
 If a public network rule is set, or public access to the registry is denied, attempts to login to the registry from a disallowed public network will fail. Client access from behind an HTTPS proxy will also fail if an access rule for the proxy is not set. You will see an error message similar to `Error response from daemon: login attempt failed with status: 403 Forbidden` or `Looks like you don't have access to registry`.
 
 These errors can also occur if you use an HTTPS proxy that is allowed by a network access rule, but the proxy isn't properly configured in the client environment. Check that both your Docker client and the Docker daemon are configured for proxy behavior. For details, see [HTTP/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) in the Docker documentation.
 
+### Access from Azure Pipelines
+
+If you are using an Azure Pipelines pipeline to access an Azure container registry and configured an IP access rule in the registry, note that the outbound IP address from the pipeline can change, potentially distrupting access to the registry. This problem occurs because the pipeline runs by default using a Microsoft-hosted [agent](/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser) on a virtual machine pool with a changing set of IP addresses.
+
+One workaround is to change the agent used to run the pipleline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a machine you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry firewall access rule.
 
 ## Next steps
 
