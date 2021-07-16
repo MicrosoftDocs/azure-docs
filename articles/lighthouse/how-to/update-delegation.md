@@ -47,7 +47,7 @@ Removing access to the delegation can be done by any user in the managing tenant
 
 ## Deploy the ARM template
 
-Your customer can [deploy the updated template](onboard-customer.md#deploy-the-azure-resource-manager-templates) in the same way that they did previously: in the Azure portal, by using PowerShell, or by using Azure CLI.
+Your customer can [deploy the updated template](onboard-customer.md#deploy-the-azure-resource-manager-template) in the same way that they did previously: in the Azure portal, by using PowerShell, or by using Azure CLI.
 
 After the deployment has been completed, [confirm that it was successful](onboard-customer.md#confirm-successful-onboarding). The updated authorizations will then be in effect for the subscription or resource group(s) that the customer has delegated.
 

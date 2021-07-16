@@ -7,7 +7,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
+ms.date: 07/14/2021
 ---
 
 # Index data from Azure Cosmos DB using SQL, MongoDB, or Cassandra APIs
@@ -231,7 +231,7 @@ SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @High
 
 #### DISTINCT and GROUP BY
 
-Queries using the [DISTINCT keyword](https://docs.microsoft.com/azure/cosmos-db/sql-query-keywords#distinct) or [GROUP BY clause](https://docs.microsoft.com/azure/cosmos-db/sql-query-group-by) are not supported. Azure Cognitive Search relies on [SQL query pagination](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination) to fully enumerate the results of the query. Neither the DISTINCT keyword or GROUP BY clause are compatible with the [continuation tokens](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination#continuation-tokens) used to paginate results.
+Queries using the [DISTINCT keyword](../cosmos-db/sql-query-keywords.md#distinct) or [GROUP BY clause](../cosmos-db/sql-query-group-by.md) are not supported. Azure Cognitive Search relies on [SQL query pagination](../cosmos-db/sql-query-pagination.md) to fully enumerate the results of the query. Neither the DISTINCT keyword or GROUP BY clause are compatible with the [continuation tokens](../cosmos-db/sql-query-pagination.md#continuation-tokens) used to paginate results.
 
 Examples of unsupported queries:
 ```sql
@@ -242,7 +242,8 @@ SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
 SELECT TOP 4 COUNT(1) AS foodGroupCount, f.foodGroup FROM Food f GROUP BY f.foodGroup
 ```
 
-Although there is a workaround to support [SQL query pagination with the DISTINCT keyword by using the ORDER BY clause](https://docs.microsoft.com/azure/cosmos-db/sql-query-pagination#continuation-tokens), it is not compatible with Azure Cognitive Search. The query will return a single JSON value, but Azure Cognitive Search expects a JSON object.
+Although Cosmos DB has a workaround to support [SQL query pagination with the DISTINCT keyword by using the ORDER BY clause](../cosmos-db/sql-query-pagination.md#continuation-tokens), it is not compatible with Azure Cognitive Search. The query will return a single JSON value, whereas Azure Cognitive Search expects a JSON object.
+
 ```sql
 -- The following query returns a single JSON value and isn't supported by Azure Cognitive Search
 SELECT DISTINCT VALUE c.name FROM c ORDER BY c.name
@@ -284,6 +285,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 > For MongoDB collections, Azure Cognitive Search automatically renames the `_id` property to `id`.  
 
 ### Mapping between JSON Data Types and Azure Cognitive Search Data Types
+
 | JSON data type | Compatible target index field types |
 | --- | --- |
 | Bool |Edm.Boolean, Edm.String |
