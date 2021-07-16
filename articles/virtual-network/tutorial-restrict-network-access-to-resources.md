@@ -39,13 +39,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **+ Create a resource** on the upper left corner of the Azure portal.
+1. Select **+ Create a resource** on the upper left corner of the Azure portal. Search for **Virtual Network**, and then select **Create**.
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-resources.png" alt-text="Screenshot of search for virtual network in create a resource page.":::    
 
-1. Search for **Virtual Networking**, and then select **Create**.
-
-1. On the **Basics** tab, enter the following information and then select **Next: IP addresses >**. 
+1. On the **Basics** tab, enter the following information and then select **Next: IP Addresses >**. 
 
    | Setting | Value |
    |----|----|
@@ -56,7 +54,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png" alt-text="Screenshot of basics tab for create a virtual network.":::  
 
-1. On the **IP addresses** tab, select the following IP address settings and then select **Review + create**.
+1. On the **IP Addresses** tab, select the following IP address settings and then select **Review + create**.
    
    | Setting | Value |
    | --- | --- |
@@ -338,8 +336,7 @@ To test network access to a storage account, deploy a VM to each subnet.
     :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/credential-screen.png" alt-text="Screenshot of credential screen for private virtual machine":::
 
     > [!NOTE] 
-    > You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection. You should see the VM start as shown:
-    > :::image type="content" source="./media/tutorial-restrict-network-access-to-resources/certificate-screen.png" alt-text="Screenshot of certificate window for private virtual machine":::
+    > You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
 
 1. Once signed in, open Windows PowerShell. Using the script below, map the Azure file share to drive Z using PowerShell. Replace `<storage-account-key>` and both `<storage-account-name>` variable with values you supplied and made note of earlier in the [Create a storage account](#create-a-storage-account) steps.
 
