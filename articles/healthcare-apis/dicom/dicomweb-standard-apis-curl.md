@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 07/10/2021
+ms.date: 07/16/2021
 ms.author: aersoy
 ---
 
@@ -16,7 +16,14 @@ ms.author: aersoy
 
 This tutorial uses cURL to demonstrate working with the DICOM Service.
 
-In this tutorial, we'll use these [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms). The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
+In this tutorial, we'll use the following [sample .dcm DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms).
+
+* blue-circle.dcm
+* dicom-metadata.csv
+* green-square.dcm
+* red-triangle.dcm 
+
+The file name, studyUID, seriesUID, and instanceUID of the sample DICOM files is as follows:
 
 | File | StudyUID | SeriesUID | InstanceUID |
 | --- | --- | --- | ---|
@@ -36,7 +43,7 @@ Once you've deployed an instance of the DICOM service, retrieve the URL for your
 1. Sign into the [Azure portal](https://ms.portal.azure.com/).
 2. Search **Recent resources** and select your DICOM service instance.
 3. Copy the **Service URL** of your DICOM service.
-4. If you haven't already obtained a token, see Get access token for the DICOM service using Azure CLI document. 
+4. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
 For this code, we'll be accessing an unsecured dev/test service. As a safe guard, don't upload any private health information (PHI).
 
