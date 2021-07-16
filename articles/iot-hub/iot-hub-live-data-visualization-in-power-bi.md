@@ -22,11 +22,11 @@ In this article, you learn how to visualize real-time sensor data that your Azur
 
 ## Prerequisites
 
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts. These articles cover the following requirements:
+* Complete the one of the [Send telemetry](quickstart-send-telemetry-dotnet.md) quickstarts in the development language of your choice. Alternatively, you can use any device app that sends temperature telemetry; for example, the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) or one of the [Embedded device](/azure/iot-develop/quickstart-devkit-mxchip-az3166) quickstarts. These articles cover the following requirements:
   
   * An active Azure subscription.
   * An Azure IoT hub in your subscription.
-  * A client application that sends messages to your Azure IoT hub.
+  * A client app that sends messages to your Azure IoT hub.
 
 * A Power BI account. ([Try Power BI for free](https://powerbi.microsoft.com/))
 
