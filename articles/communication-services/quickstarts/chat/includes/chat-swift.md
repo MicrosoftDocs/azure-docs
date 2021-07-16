@@ -323,3 +323,5 @@ semaphore.wait()
 ## Run the code
 
 In Xcode hit the Run button to build and run the project. In the console you can view the output from the code and the logger output from the ChatClient.
+
+**Note:** Set `Build Settings > Build Options > Enable Bitcode` to `No`. Currently the AzureCommunicationChat SDK for iOS does not support enabling bitcode, the following [Github issue](https://github.com/Azure/azure-sdk-for-ios/issues/787) is tracking this.
