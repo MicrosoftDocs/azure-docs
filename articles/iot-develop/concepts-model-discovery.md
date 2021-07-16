@@ -5,8 +5,8 @@ author: arunmannengal
 ms.author: arunmann
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ---
 
 # Use IoT Plug and Play models in an IoT solution

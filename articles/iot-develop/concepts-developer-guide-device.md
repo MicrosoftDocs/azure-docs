@@ -5,8 +5,8 @@ author: rido-min
 ms.author: rmpablos
 ms.date: 11/19/2020
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 zone_pivot_groups: programming-languages-set-twenty-six
 
 #- id: programming-languages-set-twenty-six

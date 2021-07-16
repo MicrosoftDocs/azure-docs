@@ -5,8 +5,8 @@ author: usivagna
 ms.author: ugans
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ms.custom: mvc
 
 #Customer intent: As a solution or device builder, I want to understand what IoT Plug and Play bridge is and how I can connect existing sensors attached to a Windows or Linux PC as IoT Plug and Play devices.

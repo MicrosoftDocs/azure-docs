@@ -5,8 +5,8 @@ author: prashmo
 ms.author: prashmo
 ms.date: 12/14/2020
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ---
 
 # Understand IoT Plug and Play digital twins

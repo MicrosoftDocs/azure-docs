@@ -5,8 +5,8 @@ author: rido-min
 ms.author: rmpablos
 ms.date: 03/21/2021
 ms.topic: conceptual
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 manager: eliotgra
 ms.custom: references_regions
 

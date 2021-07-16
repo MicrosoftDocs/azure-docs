@@ -5,8 +5,8 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/10/2020
 ms.topic: how-to
-ms.service: iot-pnp
-services: iot-pnp
+ms.service: iot-develop
+services: iot-develop
 ms.custom: contperf-fy21q2
 
 #Customer intent: As a solution builder, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
