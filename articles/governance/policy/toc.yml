@@ -110,6 +110,8 @@
       href: ./samples/iso-27001.md
     - name: New Zealand ISM Restricted
       href: ./samples/new-zealand-ism.md
+    - name: NIST SP 800-53 R5
+      href: ./samples/nist-sp-800-53-r5.md
     - name: NIST SP 800-53 R4
       href: ./samples/nist-sp-800-53-r4.md
     - name: NIST SP 800-171 R2

@@ -29,7 +29,7 @@ You can also use the [Azure portal version of this tutorial](/azure/developer/py
 
 ::: zone pivot="postgres-flexible-server"
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible Server (Preview)](/azure/postgresql/flexible-server/) database. If you cannot use PostgreSQL Flexible Server (Preview), then select the Single Server option above. 
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible Server (Preview)](../postgresql/flexible-server/index.yml) database. If you cannot use PostgreSQL Flexible Server (Preview), then select the Single Server option above. 
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
