@@ -1225,7 +1225,7 @@
             - name: ExpressRoute
               href: insights/network-performance-monitor-expressroute.md
             - name: Pricing
-              href: insights/network-performance-monitor-pricing-faq.md
+              href: insights/network-performance-monitor-pricing-faq.yml
             - name: FAQ
               href: insights/network-performance-monitor-faq.yml
         - name: Office 365
