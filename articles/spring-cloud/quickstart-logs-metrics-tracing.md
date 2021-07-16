@@ -1,7 +1,7 @@
 ---
 title: "Quickstart - Monitoring Azure Spring Cloud apps with logs, metrics, and tracing"
 description: Use log streaming, log analytics, metrics, and tracing to monitor PetClinic sample apps on Azure Spring Cloud.
-author: MikeDodaro
+author: brendm
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart

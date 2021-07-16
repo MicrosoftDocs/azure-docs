@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/01/2021
+ms.date: 07/15/2021
 ms.custom: devx-track-python
 ---
 
@@ -39,7 +39,12 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 ### Inbound configuration
 
-When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from the IP addresses for Azure Batch management and Azure Machine Learning services.
+When using Azure Machine Learning __compute instance__ or __compute cluster__, allow inbound traffic from Azure Batch management and Azure Machine Learning services. When creating the user-defined routes for this traffic, you can use either **IP Addresses** or **service tags** to route the traffic.
+
+> [!IMPORTANT]
+> Using service tags with user-defined routes is currently in preview and may not be fully supported. For more information, see [Virtual Network routing](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes-preview).
+
+# [IP Address routes](#tab/ipaddress)
 
 For the Azure Machine Learning service, you must add the IP address of both the __primary__ and __secondary__ regions. To find the secondary region, see the [Ensure business continuity & disaster recovery using Azure Paired Regions](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if your Azure Machine Learning service is in East US 2, the secondary region is Central US. 
 
@@ -63,13 +68,21 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
     > * [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
     > * [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
 
-
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
-When adding a UDR for the IP addresses, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure portal:
+When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure portal:
 
 :::image type="content" source="./media/how-to-enable-virtual-network/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
+
+# [Service tag routes](#tab/servicetag)
+
+Create user-defined routes for the following service tags:
+
+* `AzureMachineLearning`
+* `BatchNodeManagement.<region>`, where `<region>` is your Azure region.
+
+---
 
 For information on configuring UDR, see [Route network traffic with a routing table](../virtual-network/tutorial-create-route-table-portal.md).
 
@@ -77,18 +90,20 @@ For information on configuring UDR, see [Route network traffic with a routing ta
 
 1. Add __Network rules__, allowing traffic __to__ and __from__ the following service tags:
 
-    * AzureActiveDirectory
-    * AzureMachineLearning
-    * AzureResourceManager
-    * Storage.region
-    * AzureFrontDoor.FirstParty
-    * ContainerRegistry.region - Only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
-    * MicrosoftContainerRegistry.region - Only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    | Service tag | Protocol | Port |
+    | ----- |:-----:|:-----:|
+    | AzureActiveDirectory | TCP | * |
+    | AzureMachineLearning | TCP | * |
+    | AzureResourceManager | TCP | * |
+    | Storage.region       | TCP | 443 |
+    | AzureFrontDoor.FirstParty | TCP | 443 | 
+    | ContainerRegistry.region  | TCP | 443 |
+    | MicrosoftContainerRegistry.region | TCP | 443 |
 
-
-    For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
-
-    For the __protocol__, select `TCP`. For the source and destination __ports__, select `*`.
+    > [!TIP]
+    > * ContainerRegistry.region is only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
+    > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    > * For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
 
@@ -104,6 +119,9 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
+    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+    | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+    
 
     For __Protocol:Port__, select use __http, https__.
 
@@ -176,6 +194,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure Storage Account | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
+| Azure Machine Learning pre-built images | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
 > [!TIP]
 > * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft.
@@ -217,6 +236,19 @@ The hosts in this section are used to install R packages, and are required durin
 
 > [!IMPORTANT]
 > Internally, the R SDK for Azure Machine Learning uses Python packages. So you must also allow Python hosts through the firewall.
+
+### Visual Studio Code hosts
+
+The hosts in this section are used to install Visual Studio Code packages to establish a remote connection between Visual Studio Code and compute instances in your Azure Machine Learning workspace.
+
+> [!NOTE]
+> This is not a complete list of the hosts required for all Visual Studio Code resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+
+| **Host name** | **Purpose** |
+| ---- | ---- |
+|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
+
 ## Next steps
 
 * [Tutorial: Deploy and configure Azure Firewall using the Azure portal](../firewall/tutorial-firewall-deploy-portal.md)
