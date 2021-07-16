@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed by users in your tenant.
-ms.date: 07/13/2021
+ms.date: 07/16/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -26,7 +26,7 @@ The onboarding process requires actions to be taken from within both the service
 
 To onboard a customer's tenant, it must have an active Azure subscription. You'll need to know the following:
 
-- The tenant ID of the service provider's tenant (where you will be managing the customer's resources). If you create your template in the Azure portal, this value is provided automatically.
+- The tenant ID of the service provider's tenant (where you will be managing the customer's resources). If you [create your template in the Azure portal](#create-your-template-in-the-azure-portal), this value is provided automatically.
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider).
 - The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
 
@@ -238,8 +238,6 @@ Once you have created your template, a user in the customer's tenant must deploy
 > If the subscription was created through the [Cloud Solution Provider (CSP) program](../concepts/cloud-solution-provider.md), any user who has the [Admin Agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) role in your service provider tenant can perform the deployment.
 
 The deployment may be done by using PowerShell, by using Azure CLI, or in the Azure portal, as shown below.
-
-
 
 ### PowerShell
 
