@@ -67,7 +67,7 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-2.png" alt-text="Screenshot showing the DNS service tab with the Edit button selected.":::   
 
-1. From the **FQDN zones** drop-down, select the newly created FQDN, and enter the IP address.  Then select **OK**.
+1. From the **FQDN zones** drop-down, select the newly created FQDN, and then select **OK**.
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-3.png" alt-text="Screenshot showing the selected FQDN for the DNS service.":::
 
