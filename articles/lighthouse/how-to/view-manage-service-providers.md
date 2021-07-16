@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # View and manage service providers
 
-The **Service providers** page in the [Azure portal](https://portal.azure.com) gives customers control and visibility for their service providers who use [Azure Lighthouse](../overview.md). Customers can delegate specific resources, look for new offers, remove service provider access, and more.
+The **Service providers** page in the [Azure portal](https://portal.azure.com) gives customers control and visibility for their service providers who use [Azure Lighthouse](../overview.md). Customers can delegate specific resources, review new or updated offers, remove service provider access, and more.
 
 To view this page in the Azure portal, select **All services**, then search for **Service providers** and select it. You can also find this page by entering "Service providers" or "Azure Lighthouse" in the search box near the top of the Azure portal.
 
@@ -30,6 +30,14 @@ In the **Delegations** column, you can see how many subscriptions and/or resourc
 
 To add a new service provider offer from the **Service provider offers** page, select **Add offer**. Select **Private offers** to view offers that a service provider has published for this customer. You can then select an offer, then select **Set up + subscribe**.
 
+## Update service provider offers
+
+After a customer has added an offer, a service provider may publish an updated version of the same offer to Azure Marketplace, such as to add a new role definition. If a new version of the offer has been published, the **Service provider offers** page will show an "update" icon in the row for that offer. Select this icon to see the differences between the current version of the offer and the new one.
+
+ ![Update offer icon](../media/update-offer.jpg)
+
+After reviewing the changes, the customer can choose to update to the new version. The authorizations and other settings specified in the new version will then apply to any subscriptions and/or resource groups that have been delegated for that offer.
+
 ## Remove service provider offers
 
 You can remove a service provider offer at any time by selecting the trash can icon in the row for that offer.
@@ -47,14 +55,6 @@ To delegate subscriptions or resource groups:
 1. In the **Delegate** section, select **Delegate subscriptions** or **Delegate resource groups**.
 1. Choose the subscriptions and/or resource groups you'd like to delegate for this offer, then select **Add**.
 1. Select the checkbox at the bottom of the page to confirm that you want to grant this service provider access to the resources that you've selected, then select **Delegate**.
-
-## Update service provider offers
-
-After a customer has added an offer, a service provider may publish an updated version of the same offer to Azure Marketplace, such as to add a new role definition. If a new version of the offer has been published, the **Service provider offers** page will show an "update" icon in the row for that offer. Select this icon to see the differences between the current version of the offer and the new one.
-
- ![Update offer icon](../media/update-offer.jpg)
-
-After reviewing the changes, the customer can choose to update to the new version. The authorizations and other settings specified in the new version will then apply to any subscriptions and/or resource groups that have been delegated for that offer.
 
 ## View delegations
 
