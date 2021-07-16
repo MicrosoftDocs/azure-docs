@@ -45,18 +45,14 @@ The diagram shows that the NSX-T DNS Service can forward DNS queries to DNS syst
 
 1. Select **FQDN zone** and provide a name, the FQDN zone, and up to three DNS server IP addresses in the format of **10.0.0.53**. Then select **OK**.
 
-   It takes several minutes to complete, and you can follow the progress from **Notifications**.
-
    :::image type="content" source="media/networking/dns/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
-
-create-dns-zone-notification.png
 
    >[!IMPORTANT]
    >While NSX-T allows spaces and other non-alphanumeric characters in a DNS zone name, certain NSX resources such as a DNS Zone are mapped to an Azure resource whose names don’t permit certain characters. 
    >
    >As a result, DNS zone names that would otherwise be valid in NSX-T may need adjustment to adhere to the [Azure resource naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftresources).
 
-   You’ll see a message in the Notifications when the DNS zone has been created.
+      It takes several minutes to complete, and you can follow the progress from **Notifications**. You’ll see a message in the Notifications when the DNS zone has been created.
 
 1. Ignore the message about a default DNS zone. A DNS zone is created for you as part of your private cloud.
 
