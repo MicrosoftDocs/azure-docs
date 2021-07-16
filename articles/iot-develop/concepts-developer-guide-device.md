@@ -32,7 +32,7 @@ IoT Plug and Play lets you build smart devices that advertise their capabilities
 
 A smart device might be implemented directly, use [modules](../iot-hub/iot-hub-devguide-module-twins.md), or use [IoT Edge modules](../iot-edge/about-iot-edge.md).
 
-This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-pnp/concepts-convention.md).
+This guide describes the basic steps required to create a device, module, or IoT Edge module that follows the [IoT Plug and Play conventions](../iot-develop/concepts-convention.md).
 
 To build an IoT Plug and Play device, module, or IoT Edge module, follow these steps:
 

@@ -306,7 +306,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
+The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-develop/libraries-sdks.md).
 
 ## Digital twin change events
 
