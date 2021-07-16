@@ -5,7 +5,7 @@ description: In this document, review about the Teams Embed Capabilities and how
 author: tophpalmer
 ms.author: chpalm
 ms.date: 06/30/2021
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-communication-services
 
 ---
