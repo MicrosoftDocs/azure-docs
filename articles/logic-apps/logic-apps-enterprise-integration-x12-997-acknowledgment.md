@@ -12,9 +12,14 @@ ms.date: 07/15/2021
 
 # 997 functional acknowledgments and error codes for X12 messages in Azure Logic Apps
 
-The X12 997 functional acknowledgment reports the status of a received interchange. It reports each error encountered while processing the received document. Logic App  [X12 Decode](.\logic-apps-enterprise-integration-x12-decode.md) always generates a 4010 compliant 997; however, X12 Encode and Decode can also validate a 5010 compliant 997.  
+The X12 997 functional acknowledgment reports the status from processing an interchange received by 
+
+It reports each error encountered while processing the received document. 
+
+Logic App  [X12 Decode](.\logic-apps-enterprise-integration-x12-decode.md) always generates a 4010 compliant 997. 
+
+However, the X12 Encode and Decode actions can also validate a 5010-compliant 997.  
   
- Like all X12 transaction sets, the 997 ACK is sent inside a GS/GE envelope. The ST and SE are no different than any other transaction set.  
 
 In Azure Logic Apps, you can create logic app workflows that handle X12 messages by using **X12** operations. In X12 messaging, 
 
@@ -28,14 +33,29 @@ This topic provides a brief overview about X12 TA1 technical acknowledgments, in
 * [What is Azure Logic Apps](logic-apps-overview.md)
 * [B2B enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 
-## Transaction set segments for 997 ACK
+In Azure Logic Apps, you can create logic app workflows that handle X12 messages for Electronic Data Interchange (EDI) communication when you use **X12** operations. In X12 messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, Azure Logic Apps returns one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
+
+For example, the receiver reports the status from processing an interchange header and trailer by sending a *TA1 technical acknowledgment (ACK)*. When the Interchange Control Header (ISA) and Interchange Control Trailer (IEA) of an X12-encoded message are valid, the receiver sends a positive **TA1 ACK**, no matter the status of other content. If the ISA and IEA aren't valid, the receiver sends a **TA1 ACK** with an error code instead.
+
+This topic provides a brief overview about X12 TA1 technical acknowledgments, describing the TA1 ACK segments in an interchange and the error codes used in those segments. If you're looking for EDIFACT messages instead, review [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md). For more information, review the following documentation:
+
+* [Exchange X12 messages for B2B enterprise integration](logic-apps-enterprise-integration-x12.md)
+* [What is Azure Logic Apps](logic-apps-overview.md)
+* [B2B enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+
+<a name="997-ack-segments"></a>
+
+## 997 ACK segments
 
 The segments within the transaction set of a 997 ACK are shown in the following table.  
+
+ Like all X12 transaction sets, the 997 ACK is sent inside a GS/GE envelope. The ST and SE are no different than any other transaction set.  
+
 
 The X12 TA1 technical acknowledgment conforms to the schema for **X12_<*version number*>_TA1.xsd**. Although the receiver sends the **TA1 ACK** inside an ISA/IEA envelope, the ISA and IEA are no different than any other interchange. The following table describes the segments within the interchange for a **TA1 ACK**:
 
 
-|Position|Segment<br />ID|Name|Req.<br />Des.|Max. Use|Loop<br />Repeat|  
+| Position| Segment ID | Name |Req. Des.| Max. Use | Loop Repeat|  
 |--------------|-----------------|----------|----------------|--------------|------------------|  
 |010|ST|Transaction Set Header (for the acknowledgment)|M|1|-|  
 |020|AK1|Functional Group Response Header|M|1|-|  
@@ -120,7 +140,10 @@ The optional AK2 segment contains an acknowledgment for a transaction set within
   
 -   AK905 through AK909 can indicate from one to five errors noted in the identified functional group. For a list of the AK905 through AK909 error codes, see [X12 997 Acknowledgment Error Codes](./logic-apps-enterprise-integration-x12-997-acknowledgment-error-codes.md).  
 
-## Error codes
+<a name="997-ack-error-codes"></a>
+
+## 997 ACK error codes
+
 This topic lists the error codes used within the segments of an X12 997 acknowledgment. For more information about these segments, see [X12 997 Acknowledgment](./logic-apps-enterprise-integration-x12-997-acknowledgment.md).  
   
  Each table indicates which error codes specified by the X12 specification are supported in Logic App X12 message processing and which are unsupported.  
