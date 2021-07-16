@@ -36,8 +36,9 @@ After you've deployed an instance of the DICOM service, retrieve the URL for you
 1. Sign into the [Azure portal](https://ms.portal.azure.com/).
 1. Search **Recent resources** and select your DICOM service instance.
 1. Copy the **Service URL** of your DICOM service.
+1. If you haven't already obtained a token, see Get access token for the DICOM service using Azure CLI document. 
 
-For this code, we'll be accessing an unsecured dev/test service. It is important that you don't upload any private health information (PHI).
+For this code, we'll be accessing an Public Preview Azure service. It is important that you don't upload any private health information (PHI).
 
 ## Working with the DICOM service
 
@@ -62,10 +63,10 @@ from urllib3.filepost import encode_multipart_formdata, choose_boundary
 Replace all variable values wrapped in { } with your own values. Additionally, validate that any constructed variables are correct.  For instance, `base_url` is constructed using the default URL for Azure App service. If you're using a custom URL, you'll need to override that value with your own.
 
 ```python
-dicom_server_name = "{server-name}"
+dicom_service_name = "{server-name}"
 path_to_dicoms_dir = "{path to the folder that includes green-square.dcm and other dcm files}"
 
-base_url = f"https://{dicom_server_name}.azurewebsites.net"
+base_url = f"https://{dicom_service_name}.azurewebsites.net"
 
 study_uid = "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"; #StudyInstanceUID for all 3 examples
 series_uid = "1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"; #SeriesInstanceUID for green-square and red-triangle
@@ -103,7 +104,7 @@ The following examples highlight persisting DICOM files.
 
 ### Store instances using `multipart/related`
 
-This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to pre-load the DICOM file (as bytes) into memory. By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload a complete series or study.
+This example demonstrates how to upload a single DICOM file, and it uses a bit of a Python to pre-load the DICOM file (as bytes) into memory. By passing an array of files to the fields parameter of `encode_multipart_related`, multiple files can be uploaded in a single POST. It's sometimes used to upload several instances inside a complete series or study.
 
 _Details:_
 
@@ -161,7 +162,7 @@ _Details:_
 filepath_red = Path(path_to_dicoms_dir).joinpath('red-triangle.dcm')
 filepath_green = Path(path_to_dicoms_dir).joinpath('green-square.dcm')
 
-# Hack. Need to open up and read through file and load bytes into memory 
+# Open up and read through file and load bytes into memory 
 with open(filepath_red,'rb') as reader:
     rawfile_red = reader.read()
 with open(filepath_green,'rb') as reader:
@@ -195,7 +196,7 @@ _Details:_
 #upload blue-circle.dcm
 filepath = Path(path_to_dicoms_dir).joinpath('blue-circle.dcm')
 
-# Hack. Need to open up and read through file and load bytes into memory 
+# Open up and read through file and load bytes into memory 
 with open(filepath,'rb') as reader:
     body = reader.read()
 
