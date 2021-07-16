@@ -2,10 +2,10 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Cognitive Services
-    tocHref: /azure/cognitive-services/
-    topicHref: /azure/cognitive-services/index
+  - name: Applied AI Services
+    tocHref: /azure/applied-ai-services/
+    topicHref: /azure/applied-ai-services/index
     items:
     - name: Immersive Reader
-      tocHref: /azure/cognitive-services/
-      topicHref: /azure/cognitive-services/immersive-reader/index
+      tocHref: /azure/immersive-reader/
+      topicHref: /azure/applied-ai-services/immersive-reader/index
