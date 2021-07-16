@@ -32,8 +32,6 @@ This scenario is intended for customers using Azure Monitor to monitor AKS. It d
 
 
 
-
-
 > [!NOTE]
 > ## Security monitoring
 > Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Azure Sentinel](../../sentinel/overview.md) and [Azure Security Center](../../security-center/security-center-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
@@ -41,7 +39,14 @@ This scenario is intended for customers using Azure Monitor to monitor AKS. It d
 > For information on using the security services to monitor AKS, see [Azure Defender for Kubernetes - the benefits and features](../../security-center/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Azure Sentinel](../../sentinel/connect-azure-kubernetes-service.md).
 
 
+## Container insights
+You will typically start with [Container insights](container-insights-overview.md) in Azure Monitor for analyzing the health and performance of the different components of your AKS cluster. Container insights provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. You don't need to know anything about the underlying data to use Container insights.
 
+[Prometheus](https://prometheus.io/) and [Grafana](https://www.prometheus.io/docs/visualization/grafana/) are CNCF backed widely popular open source tools for kubernetes monitoring. AKS exposes many metrics in Prometheus format which makes Prometheus a popular choice for monitoring. [Container insights](../containers/container-insights-overview.md)has native integration with AKS, collecting critical metrics and logs, alerting on identified issues, and providing visualization with workbooks. It also collects certain Prometheus metrics, and many native Azure Monitor insights are built-up on top of Prometheus metrics. Container insights complements and completes E2E monitoring of AKS including log collection which Prometheus as stand-alone tool doesn’t provide. Many customers use Prometheus integration and Azure Monitor together for E2E monitoring.
+
+Learn more about using Container insights at [Container insights overview](container-insights-overview.md). [Monitoring Azure Kubernetes Service (AKS) - Analyze data](monitor-aks-analyze.md) in this scenario provides explanations of various features of Container insights and the monitoring scenarios that they support.
+
+:::image type="content" source="media/monitor-aks/container-insights.png" alt-text="Container insights" lightbox="media/monitor-aks/container-insights.png":::
 
 ## Next steps
 
