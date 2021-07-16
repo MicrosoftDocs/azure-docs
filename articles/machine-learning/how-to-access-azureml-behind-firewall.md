@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/13/2021
+ms.date: 07/15/2021
 ms.custom: devx-track-python
 ---
 
@@ -90,18 +90,20 @@ For information on configuring UDR, see [Route network traffic with a routing ta
 
 1. Add __Network rules__, allowing traffic __to__ and __from__ the following service tags:
 
-    * AzureActiveDirectory
-    * AzureMachineLearning
-    * AzureResourceManager
-    * Storage.region
-    * AzureFrontDoor.FirstParty
-    * ContainerRegistry.region - Only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
-    * MicrosoftContainerRegistry.region - Only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    | Service tag | Protocol | Port |
+    | ----- |:-----:|:-----:|
+    | AzureActiveDirectory | TCP | * |
+    | AzureMachineLearning | TCP | * |
+    | AzureResourceManager | TCP | * |
+    | Storage.region       | TCP | 443 |
+    | AzureFrontDoor.FirstParty | TCP | 443 | 
+    | ContainerRegistry.region  | TCP | 443 |
+    | MicrosoftContainerRegistry.region | TCP | 443 |
 
-
-    For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
-
-    For the __protocol__, select `TCP`. For the source and destination __ports__, select `*`.
+    > [!TIP]
+    > * ContainerRegistry.region is only needed for custom Docker images. This includes small modifications (such as additional packages) to base images provided by Microsoft.
+    > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
+    > * For entries that contain `region`, replace with the Azure region that you're using. For example, `ContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
 
@@ -117,6 +119,9 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     | **cloud.r-project.org** | Used when installing CRAN packages for R development. |
     | **\*pytorch.org** | Used by some examples based on PyTorch. |
     | **\*.tensorflow.org** | Used by some examples based on Tensorflow. |
+    | **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+    | **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** | Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance.|
+    
 
     For __Protocol:Port__, select use __http, https__.
 
@@ -189,6 +194,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 | Azure Storage Account | core.windows.net | core.usgovcloudapi.net | core.chinacloudapi.cn |
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
+| Azure Machine Learning pre-built images | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
 
 > [!TIP]
 > * __Azure Container Registry__ is required for any custom Docker image. This includes small modifications (such as additional packages) to base images provided by Microsoft.
@@ -227,6 +233,18 @@ The hosts in this section are used to install R packages, and are required durin
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
+
+### Visual Studio Code hosts
+
+The hosts in this section are used to install Visual Studio Code packages to establish a remote connection between Visual Studio Code and compute instances in your Azure Machine Learning workspace.
+
+> [!NOTE]
+> This is not a complete list of the hosts required for all Visual Studio Code resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
+
+| **Host name** | **Purpose** |
+| ---- | ---- |
+|  **update.code.visualstudio.com**</br></br>**\*.vo.msecnd.net** | Used to retrieve VS Code server bits which are installed on the compute instance through a setup script.|
+| **raw.githubusercontent.com/microsoft/vscode-tools-for-ai/master/azureml_remote_websocket_server/\*** |Used to retrieve websocket server bits which are installed on the compute instance. The websocket server is used to transmit requests from Visual Studio Code client (desktop application) to Visual Studio Code server running on the compute instance. |
 
 ## Next steps
 
