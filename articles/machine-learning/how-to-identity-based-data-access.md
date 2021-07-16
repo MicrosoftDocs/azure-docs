@@ -166,6 +166,27 @@ To create datasets with identity-based data access, you have the following optio
 
 When you submit a training job that consumes a dataset created with identity-based data access, the managed identity of the training compute is used for data access authentication. Your Azure Active Directory token isn't used. For this scenario, ensure that the managed identity of the compute is granted at least the Storage Blob Data Reader role from the storage service. For more information, see [Set up managed identity on compute clusters](how-to-create-attach-compute-cluster.md#managed-identity). 
 
+## User Azure AD identity based data access for remote training jobs
+
+When training on Machine Learning Compute Clusters, you can authenticate to storage by user Azure AD identity in credential
+pass-through mode. This authentication mode allows you to set up fine-grained data access, where workspace users can have different levels of access.
+
+In this authentication mode, the AAD auth token is passed to the compute, and made available within the Docker container executing the job. At the end of the job, the token is erased.
+
+First, grant user's Azure AD identity access to storage resources, such as StorageBlobReader access to specific storage account, or ACL-based access to specific folders or files in ADLS Gen 2 storage.
+
+Then, submit a training job with credential pass-through mode enabled.
+
+   ```python
+   run = experiment.submit(src, credential_passthrough=True)
+   ```
+
+> [!NOTE]
+> Using credential pass-through and managed identity based authentication in a same training job is not currently supported.
+
+> [!NOTE]
+> Credential pass-through is supported only for training jobs on Machine Learning Compute Clusters.
+
 ## Next steps
 
 * [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md)
