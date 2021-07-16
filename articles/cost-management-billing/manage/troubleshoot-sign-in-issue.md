@@ -75,4 +75,4 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 ## Contact us for help
 
-If you have questions or need help but can't sign into the Azure portal, [create a support request](http://support.microsoft.com/oas/?prid=15470).
+If you have questions or need help but can't sign into the Azure portal, [create a support request](https://support.microsoft.com/oas/?prid=15470).
