@@ -27,7 +27,7 @@ By utilizing Azure Sentinel in conjunction with Azure AD B2C, you can:
 
 In this tutorial, you’ll learn:
 1. How to transfer the B2C logs to Azure Monitor Logs workspace.
-1. Enable **Azure Sentinel** in that Log Analytics workspace.
+1. Enable **Azure Sentinel** on a Log Analytics workspace.
 1. Create a sample rule in Sentinel that will trigger an incident.
 1. And lastly, configure some automated response.
 
