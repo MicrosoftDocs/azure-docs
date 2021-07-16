@@ -2295,6 +2295,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Clebex
+        href: clebex-provisioning-tutorial.md
       - name: Cloud Academy - SSO
         href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
@@ -2327,6 +2329,8 @@
         href: eletive-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
+      - name: Exium
+        href: exium-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma
