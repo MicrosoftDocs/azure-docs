@@ -247,8 +247,8 @@ This documentation assumes that:
 
    Update file `/etc/fstab` with the file systems for the additional SAP systems that you are deploying to the cluster.  
 
-   * If using Azure NetApp Files, follow the instructions [here](./high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation)  
-   * If using GlusterFS cluster, follow the instructions [here](./high-availability-guide-rhel.md#prepare-for-sap-netweaver-installation)  
+   * If using Azure NetApp Files, follow the instructions [Azure VMs high availability for SAP NW on RHEL with Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md#prepare-for-sap-netweaver-installation)  
+   * If using GlusterFS cluster, follow the instructions [Azure VMs high availability for SAP NW on RHEL](./high-availability-guide-rhel.md#prepare-for-sap-netweaver-installation)  
 
 ### Install ASCS / ERS
 
@@ -814,3 +814,4 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]
+
