@@ -60,13 +60,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| **Max number of Transactions per Second (TPS). Real-time API. Standard, Neural, Custom and Custom Neural voices** | 200<sup>4</sup> | 200<sup>4</sup> |
-| **Concurrent Request limit for Custom Neural voice** |  |  |
-| Default value | N/A | 10 |
-| Adjustable | N/A | Yes<sup>5</sup> |
-| **Concurrent Request limit for Custom voice<sup>6</sup>** |  |  |
-| Default value | 10 | 10 |
-| Adjustable | No<sup>5</sup> | Yes<sup>5</sup> |
+| **Max number of Transactions per Second (TPS) per Speech resource. Real-time API. Standard, Neural, Custom and Custom Neural voices** | 200<sup>4</sup> | 200<sup>4</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max Audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
@@ -79,14 +73,19 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | Max text length | N/A | 10000 paragraphs |
 | Start time | N/A | 10 tasks or 10000 characters accumulated |
 | **Custom Neural Voice and Custom Voice<sup>6</sup> specific quotas** |  |  |
+| Max number of Transactions per Second (TPS) per Speech resource. Real-time API | | See the top of the table |
 | Max number of data sets per Speech resource | 10 | 500 |
 | Max number of simultaneous dataset upload per Speech resource | 2 | 5 |
 | Max data file size for data import per dataset | 2 GB | 2 GB |
 | Upload of long audios or audios without script | No | Yes |
-| Max number of simultaneous model trainings per Speech resource | 1 (Custom Voice<sup>6</sup> only)
- | 3 |
+| Max number of simultaneous model trainings per Speech resource | 1 (Custom Voice<sup>6</sup> only) | 3 |
 | Max number of custom endpoints per Speech resource | 1 (Custom Voice<sup>6</sup> only) | 50 |
-
+| **Concurrent Request limit for Custom Neural voice** |  |  |
+| Default value | N/A | 10 |
+| Adjustable | N/A | Yes<sup>5</sup> |
+| **Concurrent Request limit for Custom voice<sup>6</sup>** |  |  |
+| Default value | 10 | 10 |
+| Adjustable | No<sup>5</sup> | Yes<sup>5</sup> |
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
