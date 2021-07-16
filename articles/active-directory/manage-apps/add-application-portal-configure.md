@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/29/2019
+ms.date: 07/12/2021
 ms.author: davidmu
 ---
 
@@ -69,7 +69,7 @@ To use a custom logo:
 4. Select the icon to upload the logo.
 5. When you're finished, select **Save**.
 
-    ![Screenshot of the Properties screen that shows how to change the logo.](media/add-application-portal/change-logo.png)
+    :::image type="content" source="media/add-application-portal/change-logo.png" alt-text="Screenshot of the Properties screen that shows how to change the logo.":::
 
    > [!NOTE]
    > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the **Properties** pane to see the updated icon.
@@ -84,8 +84,6 @@ You can use the notes field to add any information that is relevant for the mana
 1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
 2. In the **Manage** section, select **Properties** to open the **Properties** pane for editing.
 3. Update the Notes field, select **Save**.
-
-    ![Screenshot of the Properties screen that shows how to change the notes](media/add-application-portal/notes-application.png)
 
 ## Clean up resources
 

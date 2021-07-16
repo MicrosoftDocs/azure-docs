@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 05/18/2021
+ms.date: 07/13/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -132,7 +132,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | File system access | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. | No. Use [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) or [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) to access and load data from Azure Blob Storage as an alternative. |
 | [Geo-restore](recovery-using-backups.md#geo-restore) | Yes | Yes |
 | [Hyperscale architecture](service-tier-hyperscale.md) | Yes | No |
-| [Long-term backup retention - LTR](long-term-retention-overview.md) | Yes, keep automatically taken backups up to 10 years. | Not yet. Use `COPY_ONLY` [manual backups](../managed-instance/transact-sql-tsql-differences-sql-server.md#backup) as a temporary workaround. |
+| [Long-term backup retention - LTR](long-term-retention-overview.md) | Yes, keep automatically taken backups up to 10 years. | Yes, keep automatically taken backups up to 10 years. |
 | Pause/resume | Yes, in [serverless model](serverless-tier-overview.md) | No |
 | [Policy-based management](/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | No | No |
 | Public IP address | Yes. The access can be restricted using firewall or service endpoints.  | Yes. Needs to be explicitly enabled and port 3342 must be enabled in NSG rules. Public IP can be disabled if needed. See [Public endpoint](../managed-instance/public-endpoint-overview.md) for more details. |
@@ -149,7 +149,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [VNet](../../virtual-network/virtual-networks-overview.md) | Partial, it enables restricted access using [VNet Endpoints](vnet-service-endpoint-rule-overview.md) | Yes, SQL Managed Instance is injected in customer's VNet. See [subnet](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) and [VNet](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet) |
 | VNet Service endpoint | [Yes](vnet-service-endpoint-rule-overview.md) | No |
 | VNet Global peering | Yes, using [Private IP and service endpoints](vnet-service-endpoint-rule-overview.md) | Yes, using [Virtual network peering](https://techcommunity.microsoft.com/t5/azure-sql/new-feature-global-vnet-peering-support-for-azure-sql-managed/ba-p/1746913). |
-| [Private connectivity](../../private-link/private-link-overview.md) | Yes, using [Private Link](/azure/private-link/private-endpoint-overview) | Yes, using VNet. | 
+| [Private connectivity](../../private-link/private-link-overview.md) | Yes, using [Private Link](../../private-link/private-endpoint-overview.md) | Yes, using VNet. | 
 
 ## Tools
 
