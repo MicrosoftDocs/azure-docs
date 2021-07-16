@@ -319,4 +319,4 @@ In addition, you can post and tag your question with `azure-virtual-machines-ima
 
 ## Next steps
 
-Learn how to deploy shared images using the [Azure CLI](shared-images-cli.md) or [PowerShell](shared-images-powershell.md).
+Learn how to deploy shared images using the [Azure CLI](create-gallery.md) or [PowerShell](create-gallery.md).

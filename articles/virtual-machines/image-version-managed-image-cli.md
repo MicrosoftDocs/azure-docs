@@ -23,7 +23,7 @@ Images in an image gallery have two components, which we will create in this exa
 
 ## Before you begin
 
-To complete this article, you must have an existing [Shared Image Gallery](shared-images-cli.md). 
+To complete this article, you must have an existing [Shared Image Gallery](create-gallery.md). 
 
 To complete the example in this article, you must have an existing managed image of a generalized VM. For more information, see [Capture a managed image](./linux/capture-image.md). If the managed image contains a data disk, the data disk size cannot be more than 1 TB.
 
