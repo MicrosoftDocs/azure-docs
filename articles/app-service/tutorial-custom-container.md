@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Build and run a custom image in Azure App Service'
-description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate deploy custom software to App Service in a custom container.
+description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate custom software to App Service in a custom container.
 ms.topic: tutorial
 ms.date: 07/16/2021
 ms.author: msangapu
@@ -138,7 +138,7 @@ In the **Basics** tab, configure the settings according to the following table, 
 | ----------------- | ------------ | ----|
 |**Subscription**| Make sure the correct subscription is selected. |  |
 |**Resource Group**| Select **Create new**, type **myResourceGroup**, and click **OK**. |  |
-|**Name**| Type a unique name. | The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name. |
+|**Name**| Type a unique name. | The URL of the web app is `https://<app-name>.azurewebsites.net`, where `<app-name>` is your app name. |
 |**Publish**| Docker container | |
 |**Operating System**| Windows | |
 |**Region**| West Europe | |
@@ -190,7 +190,7 @@ It may take some time for the Windows container to load. To see the progress, na
 https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
 
-The streamed logs looks like this:
+The streamed logs look like this:
 
 ```
 14/09/2018 23:16:19.889 INFO - Site: fonts-win-container - Creating container for image: customfontsample20180914115836.azurecr.io/customfontsample:latest.
@@ -437,7 +437,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
     az account show --query id --output tsv
     ``` 
 
-1. Grant the web app permission to access the container registry:
+1. Grant the managed identity permission to access the container registry:
 
     ```azurecli-interactive
     az role assignment create --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<registry-name> --role "AcrPull"
@@ -489,7 +489,7 @@ You can complete these steps once the image is pushed to the container registry 
 
 1. Once the `az webapp config container set` command completes, the web app should be running in the container on App Service.
 
-    To test the app, browse to `http://<app-name>.azurewebsites.net`, replacing `<app-name>` with the name of your web app. On first access, it may take some time for the app to respond because App Service must pull the entire image from the registry. If the browser times out, just refresh the page. Once the initial image is pulled, subsequent tests will run much faster.
+    To test the app, browse to `https://<app-name>.azurewebsites.net`, replacing `<app-name>` with the name of your web app. On first access, it may take some time for the app to respond because App Service must pull the entire image from the registry. If the browser times out, just refresh the page. Once the initial image is pulled, subsequent tests will run much faster.
 
     ![Successful test of the web app on Azure](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
@@ -517,7 +517,7 @@ While you're waiting for App Service to pull in the image, it's helpful to see e
 
 ## Configure continuous deployment
 
-Your App Service app now can pull the container image securely from your private container registry. However, it doens't know when that image is updated in your registry. Each time you push the updated image to the registry, you must manually trigger an image pull by restarting the App Service app. In this step, you enable CI/CD, so that App Service gets notified of a new image and triggers a pull automatically.
+Your App Service app now can pull the container image securely from your private container registry. However, it doesn't know when that image is updated in your registry. Each time you push the updated image to the registry, you must manually trigger an image pull by restarting the App Service app. In this step, you enable CI/CD, so that App Service gets notified of a new image and triggers a pull automatically.
 
 1. Enable CI/CD in App Service.
 
@@ -533,7 +533,7 @@ Your App Service app now can pull the container image securely from your private
     az acr webhook create --name appserviceCD --registry <registry-name> --uri '<ci-cd-url>' --actions push --scope appsvc-tutorial-custom-image:latest
     ```
 
-1. To test if your webhook is configured properly, ping the webhook and see if you get an 200 OK response.
+1. To test if your webhook is configured properly, ping the webhook and see if you get a 200 OK response.
 
     ```azurecli-interactive
     eventId=$(az acr webhook ping --name appserviceCD --registry <registry-name> --query id --output tsv)
@@ -543,7 +543,7 @@ Your App Service app now can pull the container image securely from your private
     > [!TIP]
     > To see all information about all webhook events, remove the `--query` parameter.
     >
-    > If you're streaming the container log, you should see the message: `Starting container for site`, because the webhook triggers the app to restart. Since you haven't made anything updates to the image, there's nothing new for App Service to pull.
+    > If you're streaming the container log, you should see the message after the webhook ping: `Starting container for site`, because the webhook triggers the app to restart. Since you haven't made anything updates to the image, there's nothing new for App Service to pull.
 
 ## Modify the app code and redeploy
 
@@ -585,7 +585,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
     docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```
 
-1. Once the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `http://<app-name>.azurewebsites.net`.
+1. Once the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.
 
 ## Connect to the container using SSH
 
