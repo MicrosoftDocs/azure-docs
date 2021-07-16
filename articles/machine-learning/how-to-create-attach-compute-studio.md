@@ -209,13 +209,17 @@ If you created your compute instance or compute cluster with SSH access enabled,
     1. Use the tabs at the top to select either **Compute instance** or **Compute clusters** to find your machine.
 1. Select the compute name in the list of resources.
 1. Select **Connect** at the top of the **Details** section.
+
     :::image type="content" source="media/how-to-create-attach-studio/details.png" alt-text="Screenshot: Connect tool at the top of the Details page.":::
+
 1. Copy the connection string.
-1. For Windows, open Powershell or a command prompt
+
+1. For Windows, open Powershell or a command prompt:
     1. Go into the directory or folder where your key is stored
     1. Add the -i flag to the connection string to locate the private key and point to where it is stored:
     
         ```ssh -i <keyname.pem> azureuser@... (rest of connection string)```
+
 1. For Linux users, follow the steps from [Create and use an SSH key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
 
 ## Next steps
