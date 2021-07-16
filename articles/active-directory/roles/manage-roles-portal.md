@@ -183,7 +183,7 @@ Content-type: application/json
 
 ### Assign a role using PIM
 
-In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned a time-bound eligible role assignment to Billing Administrator (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) for 3 hours.
+In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6d81e56f0d` is assigned a time-bound eligible role assignment to Billing Administrator (role definition ID `b0f54661-2d74-4c50-afa3-1ec803f12efe`) for 180 days.
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **POST** as the HTTP method from the dropdown. 
@@ -205,7 +205,7 @@ Content-type: application/json
         "startDateTime": "2021-07-15T19:15:08.941Z",
         "expiration": {
             "type": "AfterDuration",
-            "duration": "PT3H"
+            "duration": "PT180D"
         }
     }
 }
