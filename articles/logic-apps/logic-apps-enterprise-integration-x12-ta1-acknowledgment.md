@@ -20,22 +20,26 @@ This topic provides a brief overview about X12 TA1 technical acknowledgments, in
 * [What is Azure Logic Apps](logic-apps-overview.md)
 * [B2B enterprise integration solutions with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
 
-## Interchange segments for TA1 ACK
+<a name="ta1-ack-segments"></a>
 
-The X12 TA1 technical acknowledgment conforms to the schema for **X12_<*version number*>_TA1.xsd**. Although the receiver sends the **TA1 ACK** inside an ISA/IEA envelope, the ISA and IEA are no different than any other interchange. The following table describes the segments within the interchange for a **TA1 ACK**:
+## TA1 ACK segments
+
+The X12 TA1 ACK conforms to the schema for **X12_<*version number*>_TA1.xsd**. Although the receiver sends the **TA1 ACK** inside an ISA/IEA envelope, the ISA and IEA are no different than any other interchange. The following table describes the **TA1 ACK** segments within an interchange:
 
 | TA1 field | Field name | Mapped to incoming interchange | Value |
 |-----------|------------|--------------------------------|-------|
 | TA101 | Interchange control number | ISA13 - Interchange control number | - |
-| TA102 | Interchange Date | ISA09 Interchange Date | - |
+| TA102 | Interchange Date | ISA09 - Interchange Date | - |
 | TA103 | Interchange Time | ISA10 - Interchange Time | - |
-| TA104 | Interchange ACK Code* <p><p>* Engine behavior is based on data element validation except for security and authentication information, which is based on string comparisons in the configuration information. | N/A | Engine behavior: A, E, or R <p><p>A = Accept <br>E = Interchange accepted with errors <br>R = Interchange rejected or suspended |
-| TA105 | Interchange Note Code | N/A | Processing result error code. <p<p>**Note**: For error codes, review the table in [X12 TA1 acknowledgment error codes](logic-apps-enterprise-integration-x12-ta1-acknowledgment-error-codes.md). |
+| TA104 | Interchange ACK Code* <p><p>* Engine behavior is based on data element validation except for security and authentication information, which is based on string comparisons in the configuration information. | N/A | Engine behavior: A, E, or R <p><p>A = Accept <br>E = Interchange accepted with errors <br>R = Interchange rejected or suspended. For more information, review [TA1 ACK error codes](#ta1-ack-error-codes). |
+| TA105 | Interchange Note Code | N/A | Processing result error code. For more information, review [TA1 ACK error codes](#ta1-ack-error-codes). |
 |||||
 
-## Error codes
+<a name="ta1-ack-error-codes"></a>
 
-This section covers the error codes used in the segments of an [X12 TA1 technical acknowledgment](logic-apps-enterprise-integration-x12-ta1-acknowledgment.md). The following table lists the error codes, as defined by the X12 specification, that are supported and unsupported for X12 message processing in Azure Logic Apps. In the **Engine behavior** column, the TA104 values have the following definitions:
+## TA1 ACK error codes
+
+This section covers the error codes used in [TA1 ACK segments](#ta1-ack-segments). The following table lists supported and unsupported error codes, as defined by the X12 specification, for X12 message processing in Azure Logic Apps. In the **Engine behavior** column, the TA104 values have the following definitions:
 
 * A = Accept
 * E = Interchange accepted with errors

@@ -285,8 +285,7 @@ For this section, select a [schema](../logic-apps/logic-apps-enterprise-integrat
 The **Default** row shows the character set that's used as delimiters for a message schema. If you don't want to use the **Default** character set, you can enter a different set of delimiters for each message type. After you complete each row, a new empty row automatically appears.
 
 > [!TIP]
-> To provide special character values, edit the agreement as JSON 
-> and provide the ASCII value for the special character.
+> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
 
 | Property | Description |
 |----------|-------------|
@@ -393,5 +392,6 @@ To specify these document version numbers and message types, follow these steps:
 
 ## Next steps
 
-* [X12 TA1 technical acknowledgments](logic-apps-enterprise-integration-x12-ta-acknowledgment.md)
+* [X12 TA1 technical acknowledgments and error codes](logic-apps-enterprise-integration-x12-ta1-acknowledgment.md)
+* [X12 997 functional acknowledgments and error codes](logic-apps-enterprise-integration-x12-997-acknowledgment.md)
 * [About connectors in Azure Logic Apps](../connectors/apis-list.md)
