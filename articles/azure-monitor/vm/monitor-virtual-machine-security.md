@@ -1,6 +1,6 @@
 ---
 title: 'Monitor virtual machines with Azure Monitor: Security'
-description: Describes services for monitoring security of virtual machines and how they relate to Azure Monitor. 
+description: Learn about services for monitoring security of virtual machines and how they relate to Azure Monitor. 
 ms.service: azure-monitor
 ms.topic: conceptual
 author: bwren
@@ -10,7 +10,7 @@ ms.date: 06/21/2021
 ---
 
 # Monitor virtual machines with Azure Monitor: Security monitoring
-This article is part of the [Monitoring virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md) scenario. It describes the Azure services for monitoring security for your virtual machines and how they relate to Azure Monitor. Azure Monitor was designed to monitor the availability and performance of your virtual machines and other cloud resources. While the operational data stored in Azure Monitor might be useful for investigating security incidents, other services in Azure were designed to monitor security. 
+This article is part of the [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md) scenario. It describes the Azure services for monitoring security for your virtual machines and how they relate to Azure Monitor. Azure Monitor was designed to monitor the availability and performance of your virtual machines and other cloud resources. While the operational data stored in Azure Monitor might be useful for investigating security incidents, other services in Azure were designed to monitor security. 
 
 > [!IMPORTANT]
 > The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.
@@ -18,7 +18,7 @@ This article is part of the [Monitoring virtual machines and their workloads in 
 ## Azure services for security monitoring
 Azure Monitor focuses on operational data like Activity logs, Metrics, and Log Analytics supported sources, including Windows Events (excluding security events), performance counters, logs, and Syslog. Security monitoring in Azure is performed by Azure Security Center and Azure Sentinel. These services each have additional cost, so you should determine their value in your environment before you implement them.
 
-[Azure Security Center](../../security-center/security-center-introduction.md) collects information about Azure resources and hybrid servers. Although Security Center can collect security events, Security Center focuses on collecting inventory data, assessment scan results, and policy audits to highlight vulnerabilities and recommend corrective actions. Noteworthy features include an interactive Network Map, Just-in-Time VM Access, Adaptive Network hardening, and Adaptive Application Controls to block suspicious executables.
+[Azure Security Center](../../security-center/security-center-introduction.md) collects information about Azure resources and hybrid servers. Although Security Center can collect security events, Security Center focuses on collecting inventory data, assessment scan results, and policy audits to highlight vulnerabilities and recommend corrective actions. Noteworthy features include an interactive network map, just-in-time VM access, adaptive network hardening, and adaptive application controls to block suspicious executables.
 
 [Azure Defender for Servers](../../security-center/azure-defender.md) is the server assessment solution provided by Security Center. Defender for Servers can send Windows Security Events to Log Analytics. Security Center doesn't rely on Windows Security Events for alerting or analysis. Using this feature allows centralized archival of events for investigation or other purposes.
 
