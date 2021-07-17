@@ -69,8 +69,8 @@ Any request that does not meet **both** of these requirements will be rejected b
 > [!IMPORTANT]
 > IMDS is **not** a channel for sensitive data. The API is unauthenticated and open to all processes on the VM. Information exposed through this service should be considered as shared information to all applications running inside the VM.
 
-If you do not want every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
-For example, if only a known system service needs to access instance meta service, you can set a firewall rule on the instance metadata service endpoint, only allowing the specific process to access, or denying the access of rest of the processes. Note you need to make sure no other process needs retrieving the metadata from IMDS before you set the rules.
+If it is not necessry for every process on the VM to access IMDS endpoint, you can set local firewall rules to limit the access. 
+For example, if only a known system service needs to access instance metadata service, you can set a firewall rule on IMDS endpoint, only allowing the specific process(es) to access, or denying access for the rest of the processes. 
 
 
 ## Proxies
