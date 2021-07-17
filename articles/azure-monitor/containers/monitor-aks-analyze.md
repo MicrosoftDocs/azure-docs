@@ -130,7 +130,7 @@ For a list of the tables collected for AKS that you can analyze in metrics explo
 
 :::image type="content" source="media/monitor-aks/log-analytics-queries.png" alt-text="Log Analytics queries for Kubernetes" lightbox="media/monitor-aks/log-analytics-queries.png":::
 
-In addition to Container insights data, you can use log queries to analyze resource logs from AKS. For a list of the log categories available, see [AKS data reference resource logs](monitor-aks-reference.md#resource-logs). You must create a diagnostic setting to collect each category as described in [Collect resource logs](../../aks/monitor-aks-configure.md#collect-resource-logs) before that data will be collected. 
+In addition to Container insights data, you can use log queries to analyze resource logs from AKS. For a list of the log categories available, see [AKS data reference resource logs](../../aks/monitor-aks-reference.md#resource-logs). You must create a diagnostic setting to collect each category as described in [Collect resource logs](monitor-aks-configure.md#collect-resource-logs) before that data will be collected. 
 
 Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table You can distinguish different logs with the **Category** column. For example, retrieve **kube-apiserver** logs with the following query.
 
