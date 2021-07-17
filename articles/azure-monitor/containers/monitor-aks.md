@@ -18,7 +18,6 @@ This article introduces the scenario, provides general concepts for monitoring A
 | Article | Description |
 |:---|:---|
 | [Enable monitoring](monitor-aks-configure.md) | Configuration of Azure Monitor required to monitor AKS clusters. This includes enabling container insights and collecting.  |
-| [Monitor features](monitor-aks-features.md) | Describes Azure Monitor features used to analyze monitoring data for AKS clusters. |
 | [Analyze](monitor-aks-analyze.md) | Analyze the health and performance of different layers in and AKS environment to identify trends and critical information. |
 | [Alerts](monitor-aks-alerts.md)   | Create alerts to proactively identify critical issues in your monitoring data. |
 

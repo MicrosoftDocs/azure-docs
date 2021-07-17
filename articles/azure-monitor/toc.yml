@@ -181,8 +181,6 @@
         href: containers/monitor-aks.md
       - name: Azure Monitor features
         href: containers/monitor-aks-configure.md
-      - name: Monitoring tools
-        href: containers/monitor-aks-features.md
       - name: Analyze data
         href: containers/monitor-aks-analyze.md
       - name: Create alerts
