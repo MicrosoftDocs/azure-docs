@@ -13,9 +13,9 @@ ms.author: robinsh
 
 # Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
 
-You can use Power BI to visualize real-time sensor data that your Azure IoT hub receives. To do so, you configure an Azure Stream Analytics job to consume the data from IoT Hub and route it to a dataset in Power BI.
+You can use Power BI to visualize real-time sensor data that your Azure IoT hub receives. To do so, you configure an Azure Stream Analytics job to consume the data from IoT Hub and route it to a dataset in Power BI. The following diagram provides an overview:
 
-:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="End-to-end diagram" border="false":::
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="End-to-end diagram":::
 
 In this tutorial, you perform the following tasks:
 
@@ -137,9 +137,9 @@ In the Stream Analytics job, select **Overview**, then select **Start** > **Now*
 
 The following steps show you how to create and publish a report using the Power BI service. You can follow these steps, with some modification, if you want to use the "new look" in Power BI. To understand the differences and how to navigate in the "new look", see [The 'new look' of the Power BI service](/power-bi/consumer/service-new-look).
 
-1. Ensure the sample application is running on your device. If not, you can refer to the tutorials under [Setup your device](./iot-hub-raspberry-pi-kit-node-get-started.md).
+1. Make sure the client app is running on your device.
 
-2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account and select **Power BI service** from the top menu.
+2. Sign in to your [Power BI](https://powerbi.microsoft.com/) account and select **Power BI service** from the top menu.
 
 3. Select the workspace you used from the side menu, **My Workspace**.
 
@@ -187,7 +187,7 @@ The following steps show you how to create and publish a report using the Power 
 
     :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png" alt-text="Publish a Microsoft Power BI report":::
 
-Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
+Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
 For another way to visualize data from Azure IoT Hub, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
