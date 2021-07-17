@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/20/2021
+ms.date: 07/17/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -83,7 +83,7 @@ For information that compares member users and guest users, see [What are the de
 
 1. Click the **Classic administrators** tab.
 
-1. Add a checkmark next to the Co-Administrator you want to remove.
+1. Add a check mark next to the Co-Administrator you want to remove.
 
 1. Click **Remove**.
 
@@ -129,6 +129,26 @@ There can only be one Service Administrator per Azure subscription. Changing the
 If the Account Administrator is an Azure AD account, you can change the Service Administrator to an Azure AD account in the same directory, but not in a different directory. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
 
 For more information about Microsoft accounts and Azure AD accounts, see [What is Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
+
+## Remove the Service Administrator
+
+You might want to remove a Service Administrator, for example, if they are no longer with the company. If you do remove the Service Administrator, you must have a user who is assigned the [Owner](built-in-roles.md#owner) role at subscription scope to avoid orphaning the subscription. A subscription Owner has the same access as a Service Administrator.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as subscription Owner or Co-Administrator.
+
+1. Open [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and select a subscription.
+
+1. Click **Access control (IAM)**.
+
+1. Click the **Classic administrators** tab.
+
+1. Add a check mark next to the Service Administrator.
+
+1. Click **Remove**.
+
+1. In the message box that appears, click **Yes**.
+
+    ![Screenshot that removes service administrator.](./media/classic-administrators/service-admin-remove.png)
 
 ## View the Account Administrator
 
