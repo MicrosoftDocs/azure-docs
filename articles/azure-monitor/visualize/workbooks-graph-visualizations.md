@@ -145,6 +145,10 @@ Graphs authors can specify what content goes to the different parts of a node: t
 
 [![Screenshot showing the creation of a graph visualization with field base node coloring.](./media/workbooks-graph-visualizations/graph-field-based.png)](./media/workbooks-graph-visualizations/graph-field-based.png#lightbox)
 
+# Video 
+
+> [!VIDEO https://www.youtube.com/watch?v=ODHczGpGmEQ]
+
 ## Next steps
 
 * Graphs also support Composite bar renderer. To learn more visit the [Composite Bar documentation](workbooks-composite-bar.md).

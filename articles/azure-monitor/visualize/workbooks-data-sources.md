@@ -138,7 +138,11 @@ To avoid automatically making calls to untrusted hosts when using templates, the
 > [!NOTE]
 > Do not write any secrets in any of the fields (`headers`, `parameters`, `body`, `url`), since they will be visible to all of the Workbook users.
 
-This provider supports [JSONPath](workbooks-jsonpath.md).
+This provider supports [JSONPath](workbooks-jsonpath.md). 
+
+## Video 
+
+[!VIDEO https://www.youtube.com/watch?v=EC7n1Oo6D-o]
 
 ## Next steps
 
