@@ -103,7 +103,7 @@ If you enabled monitoring of an AKS cluster configured as follows,
 - Five Kubernetes services (includes kube-system pods, services, and namespace)
 - Collection frequency = 60 secs (default)
 
-You can see the tables and volume of data generated per hour in the assigned Log Analytics workspace. For more information about each of these tables, see [Container records](container-insights-log-query.md#container-records).
+You can see the tables and volume of data generated per hour in the assigned Log Analytics workspace. For more information about each of these tables, see [Azure Monitor Logs tables](../../aks/monitor-aks-reference.md#azure-monitor-logs-tables).
 
 |Table | Size estimate (MB/hour) |
 |------|---------------|

@@ -449,10 +449,10 @@ This section walks through the creation of a metric measurement alert rule using
 
 3. In your list of Log Analytics workspaces, select the workspace supporting Container insights. 
 4. In the pane on the left side, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure log queries.
-5. On the **Logs** page, paste one of the [queries](#resource-utilization-log-queries) provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
+5. On the **Logs** page, paste one of the queries provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
 6. Select **+New alert** to create a log alert.
 7. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
-8. Paste one of the [queries](#resource-utilization-log-queries) provided earlier into the **Search query** field.
+8. Paste one of the queries provided earlier into the **Search query** field.
 9. Configure the alert as follows:
 
     1. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
@@ -469,6 +469,6 @@ This section walks through the creation of a metric measurement alert rule using
 
 ## Next steps
 
-- View [log query examples](container-insights-log-query.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
+- View [log query examples](container-insights-log-query.md) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
 
 - To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](./container-insights-overview.md).
