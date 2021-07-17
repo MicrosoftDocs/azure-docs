@@ -57,6 +57,8 @@
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md
+  - name: About NAT and VPN Gateway
+    href: nat-overview.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
   - name: Security
@@ -225,6 +227,8 @@
         href: vpn-gateway-about-forced-tunneling.md
     - name: Configure gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
+  - name: Configure NAT for VPN Gateway
+    href: nat-howto.md
   - name: Modify a local network gateway
     items:
     - name: Azure portal
@@ -241,7 +245,7 @@
       href: vpn-gateway-download-vpndevicescript.md
     - name: 'Sample: Cisco ASA device (IKEv2/no BGP)'
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-  - name: Monitoring and alerts
+  - name: Health monitoring
     items:
     - name: Monitoring VPN Gateway
       href: monitor-vpn-gateway.md

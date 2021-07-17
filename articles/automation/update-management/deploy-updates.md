@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 06/22/2021
+ms.date: 06/24/2021
 ms.topic: conceptual
 ---
 
@@ -75,7 +75,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
    > Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. There's currently no supported method to enable native classification-data availability on CentOS. See the following for more information about [Update classifications](overview.md#update-classifications).
 
    >[!NOTE]
-   > Deploying updates by update classification may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessments, results may differ from the security updates applied during deployment if your update schedules for Linux has the classification set as **Critical and security updates**. 
+   > Deploying updates by update classification may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL file and this prevents Update Management from properly matching classifications based on filtering rules. Because of the different logic used in security update assessments, results may differ from the security updates applied during deployment. If you have classification set as **Critical** and **Security**, the update deployment will work as expected. Only the *classification of updates* during an assessment is affected.
    >
    > Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged.
 

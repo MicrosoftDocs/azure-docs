@@ -39,9 +39,7 @@ To request elevation data in raster tile format using the Postman app:
 
 3. Enter a **Request name** for the request.
 
-4. Select the collection that you created, and then select **Save**.
-
-5. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL to request the raster tile.
+4. On the **Builder** tab, select the **GET** HTTP method and then enter the following URL to request the raster tile.
 
     ```http
     https://atlas.microsoft.com/map/tile?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&tilesetId=microsoft.dem&zoom=13&x=6074&y=3432
@@ -50,7 +48,7 @@ To request elevation data in raster tile format using the Postman app:
     >[!Important]
     >For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
-6. Select the **Send** button.
+5. Select the **Send** button.
 
     You should receive the raster tile that contains the elevation data in GeoTIFF format. Each pixel within the raster tile raw data is of type `float`. The value of each pixel represents the elevation height in meters.
 

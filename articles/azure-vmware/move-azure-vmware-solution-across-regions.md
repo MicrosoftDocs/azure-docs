@@ -96,7 +96,7 @@ Azure VMware Solution supports all backup solutions. You'll need CloudAdmin priv
 
 2. Select **Manage** > **Connectivity** > **ExpressRoute**.
 
-3. Copy the source’s **ExpressRoute ID**.  You’ll need this to peer between the private clouds.
+3. Copy the source’s **ExpressRoute ID**.  You’ll need it to peer between the private clouds.
 
 
 ### Create the target’s authorization key
@@ -257,7 +257,7 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 >[!NOTE]
 >You'll have multiple features configured on the source NSX-T, so you must copy or read from the source NXS-T and recreate it in the target private cloud. Use L2 Extension to keep same IP address and Mac Address of the VM while migrating Source to target AVS Private Cloud to avoid downtime due to IP change and related configuration.
 
-1. [Configure NSX network components](configure-nsx-network-components-azure-portal.md) required in the target environment under default Tier-1 gateway:
+1. [Configure NSX network components](tutorial-nsx-t-network-segment.md) required in the target environment under default Tier-1 gateway.
 
 1. [Create the security group configuration](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-41CC06DF-1CD4-4233-B43E-492A9A3AD5F6.html).
 
@@ -265,11 +265,11 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 
 1. [Create the gateway firewall policy and rules](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-DE6FE8CB-017E-41C8-85FC-D71CF27F85C2.html).
 
-1. [Create the DHCP server or DHCP relay service](./configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). 
+1. [Create the DHCP server or DHCP relay service](configure-dhcp-azure-vmware-solution.md). 
 
-1. [Configure port mirroring](./configure-nsx-network-components-azure-portal.md#configure-port-mirroring-in-the-azure-portal).
+1. [Configure port mirroring](configure-port-mirroring-azure-vmware-solution.md).
 
-1. [Configure DNS forwarder](./configure-nsx-network-components-azure-portal.md#configure-a-dns-forwarder-in-the-azure-portal).
+1. [Configure DNS forwarder](configure-dns-azure-vmware-solution.md).
 
 1. [Configure a new Tier-1 gateway (other than default)](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A6042263-374F-4292-892E-BC86876325A4.html).  This configuration is based on the NSX-T configured on the source. 
 
