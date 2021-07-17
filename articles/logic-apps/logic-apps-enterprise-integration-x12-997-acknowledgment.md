@@ -92,7 +92,7 @@ The optional AK3 segment reports errors in a data segment and identifies the loc
 | AK301 | Mandatory, identifies the segment in error with the X12 segment ID, for example, NM1. |
 | AK302 | Mandatory, identifies the segment count of the segment in error. The ST segment is `1`, and each segment increments the segment count by one. |
 | AK303 | Mandatory, identifies a bounded loop, which is a loop surrounded by an Loop Start (LS) segment and a Loop End (LE) segment. AK303 contains the values of the LS and LE segments that bound the segment in error. |
-| AK304 | Optional, specifies the code for the error in the data segment. Although AK304 is optional, the element is required when an error exists for the identified segment. For AK304 error codes, review [997 ACK error codes](#997-ack-error-codes). |
+| AK304 | Optional, specifies the code for the error in the data segment. Although AK304 is optional, the element is required when an error exists for the identified segment. For AK304 error codes, review [997 ACK error codes - Data Segment Note](#997-ack-error-codes). |
 |||
 
 ### AK4
@@ -103,7 +103,7 @@ The optional AK4 segment reports errors in a data element or composite data stru
 |---------|-------------|
 | AK401 | Mandatory, a composite data element with the following fields: AK41.1, AK41.2, and AK41.3 <p><p>- AK401.1: Identifies the data element or composite data structure in error using its numerical count. For example, if the second data element in the segment has an error, AK401 equals `2`. <br>AK401.2: Identifies the numerical count of the component data element in a composite data structure that has an error. When AK401 reports an error on a data structure that is not composite, AK401.2 is not valued. <br>- AK41.3: Optional, this field is the repeating data element position. AK41.3 supports inbound 5010 compliant-997. |
 | AK402 | Optional, identifies the simple X12 data element number of the element in error. For example, NM101 is the simple X12 data element number 98. |
-| AK403 | Mandatory, reports the error of the identified element. For AK403 error codes, review [997 ACK error codes](#997-ack-error-codes). |
+| AK403 | Mandatory, reports the error of the identified element. For AK403 error codes, review [997 ACK error codes - Data Element Note](#997-ack-error-codes). |
 | AK404 | Optional, contains a copy of the identified data element in error. AK404 is not used if the error indicates an invalid character. |
 |||
 
@@ -113,8 +113,8 @@ The AK5 segment reports whether the transaction set identified in the AK2 segmen
 
 | Element | Description |
 |---------|-------------|
-| AK501 | Mandatory, specifies whether the identified transaction set is accepted or rejected. For AK501 error codes, review [997 ACK error codes](#997-ack-error-codes). |
-| AK502 - AK506 | Optional, indicate the nature of the error. For AK502 error codes, review [997 ACK error codes](#997-ack-error-codes). |
+| AK501 | Mandatory, specifies whether the identified transaction set is accepted or rejected. For AK501 error codes, review [997 ACK error codes - Transaction Response Trailer](#997-ack-error-codes). |
+| AK502 - AK506 | Optional, indicate the nature of the error. For AK502 error codes, review [997 ACK error codes - Transaction Set Response Trailer](#997-ack-error-codes). |
 |||
 
 ### AK9
@@ -123,109 +123,115 @@ The mandatory AK9 segment indicates whether the functional group identified in t
 
 | Element | Description |
 |---------|-------------|
-| AK901 | Mandatory, specifies whether the functional group identified in AK1 is accepted or rejected. For AK901 error codes, review [997 ACK error codes](#997-ack-error-codes). |
+| AK901 | Mandatory, specifies whether the functional group identified in AK1 is accepted or rejected. For AK901 error codes, review [997 ACK error codes - Functional Group Response Trailer](#997-ack-error-codes). |
 | AK902 | Mandatory, specifies the number of transaction sets included in the identified functional group trailer (GE01). |
 | AK903 | Mandatory, specifies the number of transaction sets received. |
 | AK904 | Mandatory, specifies the number of transaction sets accepted in the identified functional group. |
-| AK905 - AK909 | Optional, indicates from one to five errors noted in the identified functional group. For AK905 to AK909 error codes, review [997 ACK error codes](#997-ack-error-codes). |
+| AK905 - AK909 | Optional, indicates from one to five errors noted in the identified functional group. For AK905 to AK909 error codes, review [997 ACK error codes - Functional Group Response Trailer](#997-ack-error-codes). |
 |||
 
 <a name="997-ack-error-codes"></a>
 
 ## 997 ACK error codes
 
-This topic lists the error codes used within the segments of an X12 997 acknowledgment. For more information about these segments, review [997 ACK segments](#997-ack-segments).
+This section covers the error codes used in [997 ACK segments](#997-ack-segments).  Each table lists the supported and unsupported error codes, as defined by the X12 specification, for X12 message processing in Azure Logic Apps.
 
- Each table indicates which error codes specified by the X12 specification are supported in Logic App X12 message processing and which are unsupported.
+### AK304 error codes - Data Segment Note
 
- **AK304 Error Codes**
+The following table lists the error codes used in the AK304 data element of the AK3 segment (Data Segment Note):
 
- The following table lists the error codes used in the AK304 data element of the AK3 segment (Data Segment Note).
+| Error code | Condition | Supported? |
+|------------|-----------|------------|
+| 1 | Unrecognized segment ID | Yes |
+| 2 | Unexpected segment | Yes |
+| 3 | Mandatory segment missing | Yes |
+| 4 | Loop occurs over maximum times | Yes |
+| 5 | Segment exceeds maximum use | Yes |
+| 6 | Segment not in defined transaction set | Yes |
+| 7 | Segment not in proper sequence | Yes |
+| 8 | Segment has data element errors | Yes |
+| 511 | Trailing separators encountered (custom code) | Yes |
+||||
 
-|Error Code|Condition|Supported?|
-|----------------|---------------|----------------|
-|1|Unrecognized segment ID|Yes|
-|2|Unexpected segment|Yes|
-|3|Mandatory segment missing|Yes|
-|4|Loop occurs over maximum times|Yes|
-|5|Segment exceeds maximum use|Yes|
-|6|Segment not in defined transaction set|Yes|
-|7|Segment not in proper sequence|Yes|
-|8|Segment has data element errors|Yes|
-|511|Trailing separators encountered (custom code)|Yes|
+### AK403 error codes  - Data Element Note
 
- **AK403 Error Codes**
+The following table lists the error codes used in the AK403 data element of the AK4 segment (Data Element Note):
 
- The following table lists the error codes used in the AK403 data element of the AK4 segment (Data Element Note).
+| Error code | Condition | Supported? |
+|------------|-----------|------------|
+| 1 | Mandatory data element missing | Yes |
+| 2 | Conditional required data element missing | Yes |
+| 3 | Too many data elements | Yes |
+| 4 | Data element is too short | Yes |
+| 5 | Data element is too long | Yes |
+| 6 | Invalid character in data element | Yes |
+| 7 | Invalid code value | Yes |
+| 8 | Invalid date | Yes |
+| 9 | Invalid time | Yes |
+| 10 | Exclusion condition violated | Yes |
+||||
 
-|Error Code|Condition|Supported?|
-|----------------|---------------|----------------|
-|1|Mandatory data element missing|Yes|
-|2|Conditional required data element missing|Yes|
-|3|Too many data elements|Yes|
-|4|Data element is too short|Yes|
-|5|Data element is too long|Yes|
-|6|Invalid character in data element|Yes|
-|7|Invalid code value|Yes|
-|8|Invalid date|Yes|
-|9|Invalid time|Yes|
-|10|Exclusion condition violated|Yes|
+### AK501 error codes - Transaction Set Response Trailer
 
- **AK501 Error Codes**
+The following table lists the error codes used in the AK501 data element of the AK5 segment (Transaction Set Response Trailer):
 
- The following table lists the error codes used in the AK501 data element of the AK5 segment (Transaction Set Response Trailer).
+| Error code | Condition | Supported? |
+|------------|-----------|------------|
+| A | Accepted | Yes |
+| E | Accepted but errors were noted | Yes <p><p>**Note**: No error codes lead to a status of `E`. |
+| M | Rejected, message authentication code (MAC) failed | No |
+| P | Partially accepted, at least one transaction set was rejected | Yes |
+| R | Rejected | Yes |
+| W | Rejected, assurance failed validity tests | No |
+| X | Rejected, content after decryption could not be analyzed | No |
+||||
 
-|Error Code|Condition|Supported?|
-|----------------|---------------|----------------|
-|A|Accepted|Yes|
-|E|Accepted but errors were noted|Yes<br /><br /> Note: None of the error codes lead to a status of "E".|
-|M|Rejected, message authentication code (MAC) failed|No|
-|P|Partially accepted, at least one transaction set was rejected|Yes|
-|R|Rejected|Yes|
-|W|Rejected, assurance failed validity tests|No|
-|X|Rejected, content after decryption could not be analyzed|No|
+### AK502 to AK506 error codes - Transaction Set Response Trailer
 
- **AK502 through AK506 Error Codes**
+The following table lists the error codes used in the AK502 to AK506 data elements of the AK5 segment (Transaction Set Response Trailer):
 
- The following table lists the error codes used in the AK502 through AK506 data elements of the AK5 segment (Transaction Set Response Trailer).
+| Error code | Condition | Supported or <br>correlated with AK501? |
+|------------|-----------|-----------------------------------------|
+| 1 | Transaction set not supported | Yes, R |
+| 2 | Transaction set trailer missing | Yes, R |
+| 3 | Transaction set control number in header and trailer do not match | Yes, R |
+| 4 | Number of included segments does not match actual count | Yes, R |
+| 5 | One or more segments in error | Yes, R |
+| 6 | Missing or invalid transaction set identifier | Yes, R |
+| 7 | Missing or invalid transaction set control number, a duplicate transaction number may have occurred | Yes, R |
+| 8 through 27 | - | No |
+||||
 
-|Error Code|Condition|Supported?/<br />Correlated with AK501?|
-|----------------|---------------|------------------------------------------|
-|1|Transaction set not supported|Yes/R|
-|2|Transaction set trailer missing|Yes/R|
-|3|Transaction set control number in header and trailer do not match|Yes/R|
-|4|Number of included segments does not match actual count|Yes/R|
-|5|One or more segments in error|Yes/R|
-|6|Missing or invalid transaction set identifier|Yes/R|
-|7|Missing or invalid transaction set control number (a duplicate transaction number may have occurred)|Yes/R|
-|8 through 27|-|No|
+### AK901 error codes - Functional Group Response Trailer
 
- **AK901 Error Codes**
+The following table lists the error codes used in the AK901 data elements of the AK9 segment (Functional Group Response Trailer):
 
- The following table lists the error codes used in the AK901 data elements of the AK9 segment (Functional Group Response Trailer).
+| Error code | Condition | Supported or <br>correlated with AK501? |
+|------------|-----------|-----------------------------------------|
+| A | Accepted | Yes |
+| E | Accepted, but errors were noted | Yes |
+| M | Rejected, message authentication code (MAC) failed | No |
+| P | Partially accepted, at least one transaction set was rejected | Yes |
+| R | Rejected | Yes |
+| W | Rejected, assurance failed validity tests | No |
+| X | Rejected, content after decryption could not be analyzed | No |
+||||
 
-|Error Code|Condition|Supported?/<br />Correlated with AK501?|
-|----------------|---------------|------------------------------------------|
-|A|Accepted|Yes|
-|E|Accepted, but errors were noted|Yes|
-|M|Rejected, message authentication code (MAC) failed|No|
-|P|Partially accepted, at least one transaction set was rejected|Yes|
-|R|Rejected|Yes|
-|W|Rejected, assurance failed validity tests|No|
-|X|Rejected, content after decryption could not be analyzed|No|
+### AK905 to AK909 error codes - Functional Group Response Trailer
 
- **AK905 through AK909 Error Codes**
+The following table lists the error codes used in the AK905 to AK909 data elements of the AK9 segment (Functional Group Response Trailer):
 
- The following table lists the error codes used in the AK905 through AK909 data elements of the AK9 segment (Functional Group Response Trailer).
-
-|Error Code|Condition|Supported?/<br />Correlated with AK501?|
-|----------------|---------------|------------------------------------------|
-|1|Functional group not supported|No|
-|2|Functional group version not supported|No|
-|3|Functional group trailer missing|Yes|
-|4|Group control number in the functional group header and trailer do not agree|Yes|
-|5|Number of included transaction sets does not match actual count|Yes|
-|6|Group control number violates syntax (a duplicate group control number may have occurred)|Yes|
-|7 through 26|-|No|
+| Error code | Condition | Supported or <br>correlated with AK501? |
+|------------|-----------|-----------------------------------------|
+| 1 | Functional group not supported | No |
+| 2 | Functional group version not supported | No |
+| 3 | Functional group trailer missing | Yes |
+| 4 | Group control number in the functional group header and trailer do not agree | Yes |
+| 5 | Number of included transaction sets does not match actual count | Yes |
+| 6 | Group control number violates syntax, a duplicate group control number may have occurred | Yes |
+| 7 to 26 | - | No |
+||||
 
 ## Next steps
+
+* [Exchange X12 messages for B2B enterprise integration](logic-apps-enterprise-integration-x12.md)
