@@ -11,14 +11,18 @@ ms.date: 7/07/2021
 ms.author: robinsh
 ---
 
-# Visualize real-time sensor data from Azure IoT Hub using Power BI
+# Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
+
+You can use Power BI to visualize real-time sensor data that your Azure IoT hub receives. To do so, you configure an Azure Stream Analytics job to consume the data from IoT Hub and route it to a dataset in Power BI.
 
 :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="End-to-end diagram" border="false":::
 
+In this tutorial, you perform the following tasks:
 
-[!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
-
-In this article, you learn how to visualize real-time sensor data that your Azure IoT hub receives by using Power BI. If you want to try to visualize the data in your IoT hub with a web app, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
+> [!div class="checklist"]
+> * Create a consumer group on your IoT hub.
+> * Create and configure an Azure Stream Analytics job to read temperature telemetry from your consumer group and send it to Power BI.
+> * Configure a report of the temperature data in Power BI and share it to the web.
 
 ## Prerequisites
 
@@ -72,7 +76,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
    **Shared access policy name**: Select the name of the shared access policy you want the Stream Analytics job to use for your IoT hub. For this tutorial, you can select *service*. The *service* policy is created by default on new IoT hubs and grants permission to send and receive on cloud-side endpoints exposed by the IoT hub. To learn more, see [Access control and permissions](iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
-   **Shared access policy key**: This field is auto-filled based on your selection for the shared access policy name.
+   **Shared access policy key**: This field is autofilled based on your selection for the shared access policy name.
 
    **Consumer group**: Select the consumer group you created previously.
 
@@ -114,7 +118,7 @@ Let's start by creating a Stream Analytics job. After you create the job, you de
 
 3. Replace `[YourOutputAlias]` with the output alias of the job.
 
-1. Add a the following `WHERE` clause as the last line of the query. This line ensures that only messages with a **temperature** property will be forwarded to Power BI.
+1. Add the following `WHERE` clause as the last line of the query. This line ensures that only messages with a **temperature** property will be forwarded to Power BI.
 
     ```sql
     WHERE temperature IS NOT NULL
@@ -175,7 +179,7 @@ The following steps show you how to create and publish a report using the Power 
     > :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/contact-admin.png" alt-text="Contact your administrator notification":::
 
 
-11. You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into your blog or website. Copy the link in the **Secure embed code** window and then close the window.
+11. You're provided the report link that you can share with anyone for report access and a code snippet that you can use to integrate the report into a blog or website. Copy the link in the **Secure embed code** window and then close the window.
 
     :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/copy-secure-embed-code.png" alt-text="Copy the embed report link":::
 
@@ -183,13 +187,40 @@ The following steps show you how to create and publish a report using the Power 
 
     :::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/power-bi-web-output.png" alt-text="Publish a Microsoft Power BI report":::
 
-
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/en-us/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
-
-## Next steps
-
-You’ve successfully used Power BI to visualize real-time sensor data from your Azure IoT hub.
 
 For another way to visualize data from Azure IoT Hub, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
 
-[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+## Cleanup resources
+
+In this tutorial, you've created a resource group, an IoT hub, a Stream Analytics job, and a dataset in Power BI. 
+
+If you plan to complete other tutorials, you may want to leave the resource group and IoT hub and reuse them later. 
+
+If you don't need the IoT hub or the other resources you created any longer, you can delete the resource group in the portal. To do so, select the resource group and then select **Delete resource group**. If you want to keep the IoT hub, you can delete other resources from the **Overview** pane of the resource group. To do so, right-click the resource, select **Delete** from the context menu, and follow the prompts. 
+
+### Use the Azure CLI to clean up Azure resources
+
+To remove the resource group and all of its resources, use the [az group delete](/cli/azure/group#az_group_delete) command.
+
+```azurecli-interactive
+az group delete --name {your resource group}
+```
+
+### Clean up Power BI resources
+
+You created a dataset, **PowerBiVisualizationDataSet**, in Power BI. To remove it, sign in to your [Power BI](https://powerbi.microsoft.com/) account. On the left-hand menu under **Workspaces**, select **My workspace**. In the list of datasets under the **DataSets + dataflows** tab, hover over the **PowerBiVisualizationDataSet** dataset. Select the three vertical dots that appear to the right of the dataset name to open the **More options** menu, then select **Delete** and follow the prompts. When you remove the dataset, the report is removed as well.
+
+## Next steps
+
+In this tutorial, you learned how to use Power BI to visualize real-time sensor data from your Azure IoT hub by performing the following tasks:
+
+> [!div class="checklist"]
+> * Create a consumer group on your IoT hub.
+> * Create and configure an Azure Stream Analytics job to read temperature telemetry from your consumer group and send it to Power BI.
+> * Configure a report for the temperature data in Power BI and share it to the web.
+
+Advance to the next tutorial to learn how to manage the state of an IoT device. 
+
+> [!div class="nextstepaction"]
+> [Set up and use metrics and diagnostics with an IoT Hub](tutorial-use-metrics-and-diags.md)
