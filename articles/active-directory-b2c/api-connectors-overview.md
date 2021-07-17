@@ -5,7 +5,7 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 04/30/2021
+ms.date: 07/05/2021
 
 ms.author: mimart
 author: msmimart
@@ -142,7 +142,35 @@ The output claims should look like the following xml snippet:
 </OutputClaims>
 ```
 
-To parse a nested JSON Body response, set the ResolveJsonPathsInJsonTokens metadata to true. In the output claim, set the PartnerClaimType to the JSON path element you want to output.
+### Handling null values 
+
+A null value in a database is used when the value in a column is unknown or missing.  Do not include JSON keys with a `null` value. In the following example, the email returns `null` value:
+
+```json
+{
+  "name": "Emily Smith",
+  "email": null,
+  "loyaltyNumber":  1234
+}
+```
+
+When an element is null, either:
+
+- Omit the key-value pair from the JSON.
+- Return a value that corresponds to the Azure AD B2C claim data type. For example, for a `string` data type, return empty string `""`. For an `integer` data type, return a zero value `0`. For a `dateTime`  data type, return a minimum value `1970-00-00T00:00:00.0000000Z`.
+
+The following example demonstrates how to handle a null value. The email is omitted from the JSON:
+
+```json
+{
+  "name": "Emily Smith",
+  "loyaltyNumber":  1234
+}
+```
+
+### Parse a nested JSON body
+
+To parse a nested JSON body response, set the ResolveJsonPathsInJsonTokens metadata to true. In the output claim, set the PartnerClaimType to the JSON path element you want to output.
 
 ```json
 "contacts": [

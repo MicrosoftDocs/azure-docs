@@ -36,6 +36,11 @@
     "redirect_document_id": false
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-design-guide.md",
+    "redirect_url": "/azure/storage/tables/table-storage-design",
+    "redirect_document_id": false
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/autopilot-faq.md",
     "redirect_url": "/azure/cosmos-db/autoscale-faq",
     "redirect_document_id": true

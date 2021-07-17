@@ -40,6 +40,7 @@ Currently, the following Azure services support sending events to Event Grid. Fo
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure subscriptions](event-schema-subscriptions.md)
 - [Azure Cache for Redis](event-schema-azure-cache.md)
+- [Azure Kubernetes Service (preview)](event-schema-aks.md)
 
 ## Event handlers
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: cawrites
-ms.date: 07/11/2019
+ms.date: 06/23/2021
 ---
 # SQL Server instance migration to Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

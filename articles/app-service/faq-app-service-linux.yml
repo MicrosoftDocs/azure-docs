@@ -23,9 +23,8 @@ sections:
       - question: |
           I want to fork the built-in Docker containers that the platform provides. Where can I find those files?
         answer: |
-          You can find all Docker files on [GitHub](https://github.com/azure-app-service). You can find all Docker containers on [Docker Hub](https://hub.docker.com/u/appsvc/).
-          
-          
+          You can find all Docker files on [GitHub](https://github.com/Azure-App-Service/ImageBuilder).
+                    
       - question: |
           What are the expected values for the Startup File section when I configure the runtime stack?
         answer: |

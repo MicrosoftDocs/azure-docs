@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -178,11 +178,15 @@ After creating a chat thread we can list all chat threads by calling the `listCh
 ```
 chatClient.listThreads { result, _ in
     switch result {
-    case let .success(chatThreadItems):
-        var iterator = chatThreadItems.syncIterator
-            while let chatThreadItem = iterator.next() {
-                print("Thread id: \(chatThreadItem.id)")
-            }
+    case let .success(threads):
+        guard let chatThreadItems = threads.pageItems else {
+            print("No threads returned.")
+            return
+        }
+
+        for chatThreadItem in chatThreadItems {
+            print("Thread id: \(chatThreadItem.id)")
+        }
     case .failure:
         print("Failed to list threads")
     }
@@ -259,10 +263,14 @@ Replace the comment `<RECEIVE MESSAGES>` with the following code:
 ```
 chatThreadClient.listMessages { result, _ in
     switch result {
-    case let .success(messages):
-        var iterator = messages.syncIterator
-        while let message = iterator.next() {
-            print("Received message of type \(message.type)")
+    case let .success(messagesResult):
+        guard let messages = messagesResult.pageItems else {
+            print("No messages returned.")
+            return
+        }
+
+        for message in messages {
+            print("Received message with id: \(message.id)")
         }
 
     case .failure:
@@ -306,9 +314,13 @@ Replace the `<LIST USERS>` comment with the following code:
 ```
 chatThreadClient.listParticipants { result, _ in
     switch result {
-    case let .success(participants):
-        var iterator = participants.syncIterator
-        while let participant = iterator.next() {
+    case let .success(participantsResult):
+        guard let participants = participantsResult.pageItems else {
+            print("No participants returned.")
+            return
+        }
+
+        for participant in participants {
             let user = participant.id as! CommunicationUserIdentifier
             print("User with id: \(user.identifier)")
         }

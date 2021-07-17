@@ -7,6 +7,7 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ---
+
 # Troubleshoot Azure Cache for Redis server-side issues
 
 This section discusses troubleshooting issues that occur because of a condition on an Azure Cache for Redis or the virtual machine(s) hosting it.
@@ -36,10 +37,11 @@ There are several possible changes you can make to help keep memory usage health
 - Break up your large cached objects into smaller related objects.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity.
+- [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
 
 ## High CPU usage or server load
 
-A high server load or CPU usage means the server can't process requests in a timely fashion. The server may be slow to respond and unable to keep up with request rates.
+A high server load or CPU usage means the server can't process requests in a timely fashion. The server might be slow to respond and unable to keep up with request rates.
 
 [Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
 
@@ -47,11 +49,11 @@ There are several changes you can make to mitigate high server load:
 
 - Investigate what is causing CPU spikes such as [long-running commands](#long-running-commands) noted below or page faulting because of high memory pressure.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
-- [Scale](cache-how-to-scale.md) to a larger cache size with more CPU capacity.
+- [Scale](cache-how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
 
 ## Long-running commands
 
-Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. Because Redis command processing is single-threaded, a command that takes time to run will block all others that come after it. You should review the commands that you're issuing to your Redis server to understand their performance impacts. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
+Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. Because Redis command processing is single-threaded, a command that takes time to run blocks all others that come after it. Review the commands that you're issuing to your Redis server to understand their performance impacts. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
 
 Using the [SLOWLOG](https://redis.io/commands/slowlog) command, you can measure expensive commands being executed against the server.
 
@@ -65,12 +67,12 @@ To mitigate situations where network bandwidth usage is close to maximum capacit
 
 - Change client call behavior to reduce network demand.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
-- [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity.
+- [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity. For more information, see [Azure Cache for Redis planning FAQs](/azure/azure-cache-for-redis/cache-planning-faq).
 
 ## Additional information
 
 - [Troubleshoot Azure Cache for Redis client-side issues](cache-troubleshoot-client.md)
 - [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
-- [How can I benchmark and test the performance of my cache?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
-- [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands)
+- [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)
