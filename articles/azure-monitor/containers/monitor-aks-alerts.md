@@ -22,7 +22,7 @@ The most common types of alert rules in Azure Monitor are [metric alerts](../ale
 It's typically the best strategy to use metric alerts instead of log alerts when possible since they're more responsive and stateful. You can create a metric alert on any values you can analyze in metrics explorer. If the logic for your alert rule requires data in Logs, or if it requires more complex logic, then you can use a log query alert rule.
 
 ## Metric alert rules
-Metric alert rules use the same metric values as metrics explorer. In fact, you can create an alert rule directly from metrics explorer with the data you're currently analyzing. You can use any of the values in [AKS data reference metrics](monitor-aks-reference.md#metrics) for metric alert rules.
+Metric alert rules use the same metric values as metrics explorer. In fact, you can create an alert rule directly from metrics explorer with the data you're currently analyzing. You can use any of the values in [AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics) for metric alert rules.
 
 Container insights includes a feature in public preview that creates metric alert rules for your AKS cluster. Ths feature creates new metric values (also in preview) used by the alert rules that you can also use in metrics explorer. See [Recommended metric alerts (preview) from Container insights](container-insights-metric-alerts.md) for details on this feature and on creating metric alerts for AKS.
 
@@ -42,15 +42,6 @@ View your AKS cluster in the Azure portal and select **Logs** from the **Monitor
 Paste the script into query window and click **Run** to verify the results. You may need to temporarily adjust the threshold values to return data for testing.
 
 Click **New alert rule**.
-
-
-```
-
-
-
-
-
-
 
 
 

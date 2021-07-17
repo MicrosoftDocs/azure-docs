@@ -30,8 +30,6 @@ Log alerts can perform two different measurements of the result of a log query, 
 
 ## Resource utilization 
 
-The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-an-alert-rule) section of this article.
-
 **Average CPU utilization as an average of member nodes' CPU utilization every minute**
 
 ```kusto
@@ -215,9 +213,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-The foll
-
-owing query returns pod phase counts based on all phases: *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded*.  
+The following query returns pod phase counts based on all phases: *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded*.  
 
 ```kusto
 let endDateTime = now(); 
@@ -283,9 +279,10 @@ InsightsMetrics
 | where AggregatedValue >= 90
 ```
 
-## Scale out
+## Scale-out
 The following queries should be used with **number of results** alert rules since they include a maximum and minimum threshold included in the query. You could implement them as two **metric measurement** alert rules, one with the maximum threshold and one with the minimum threshold.
-### Pod scale out
+
+**Pod scale-out**
 Alerts when the percentage of scaled out replicas in a deployment exceeds a minimum or maximum threshold. 
 
 ```kusto
@@ -312,7 +309,7 @@ KubePodInventory
     on deployment_hpa
 ```
 
-### Nodepool scale outs 
+Nodepool scale-outs 
 Alerts when the percentage of nodes determined by the auto-scaler settings exceeds a minimum or maximum threshold. 
  
 ```kusto
@@ -335,7 +332,7 @@ KubeNodeInventory
     nodepoolName
 ```
 
-### System containers (replicaset) availability
+**System containers (replicaset) availability**
 Alerts when the available system containers (replicasets) exceeds a minimum or maximum threshold. 
 
 
@@ -379,7 +376,7 @@ KubePodInventory
 
 
 
-### System containers (daemonsets) availability
+**System containers (daemonsets) availability**
 Alerts when the available system containers (daemonsets) exceeds a minimum or maximum threshold. 
  
 ```kusto
@@ -422,7 +419,7 @@ KubePodInventory
 ```
 
 
-### Individual container restarts
+**Individual container restarts**
 Alerts when the individual system container restart count exceeds a threshold for last 10 minutes.
 
  
@@ -439,6 +436,7 @@ KubePodInventory
 | extend startedAt = todynamic(Tags.startedAt)
 | where startedAt >= Timenow
 | summarize arg_max(TimeGenerated, *) by Name
+```
 
 ## Create an alert rule
 

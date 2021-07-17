@@ -31,11 +31,11 @@ See [Configure scraping of Prometheus metrics with Container insights](container
 
 
 ## Collect resource logs
-The logs for AKS control plane components are implemented in Azure as [resource logs](../essentials/resource-logs.md). Container insights doesn't currently use these logs, so you do need to create your own log queries to view and analyze them. See [Analyze resource logs](monitor-aks-analyze.md#analyze-resource-logs) for details on the structure of these logs and how to write queries for them.
+The logs for AKS control plane components are implemented in Azure as [resource logs](../essentials/resource-logs.md). Container insights doesn't currently use these logs, so you do need to create your own log queries to view and analyze them. See [Analyze log data with Log Analytics](monitor-aks-analyze.md#analyze-log-data-with-log-analytics) for details on the structure of these logs and how to write queries for them.
 
 You need to create a diagnostic setting to collect resource logs. You can send the logs to multiple locations, but the most common is to send to the Log Analytics workspace that you configured to support Container insights. See [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md) to create a diagnostic setting for your AKS cluster to send these logs to your Log Analytics workspace. 
 
-There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. See [Resource logs](monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md) for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
+There is a cost for sending resource logs to a workspace, so you should only collect those log categories that you intend to use. See [Resource logs](../../aks/monitor-aks-reference.md#resource-logs) for a description of the categories that are available for AKS and [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md) for details on the cost of ingesting and retaining log data. Start by collecting a minimal number of categories and then modify the diagnostic setting to collect additional categories as your needs increase and as you understand your associated costs.
 
 
 

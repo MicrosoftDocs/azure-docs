@@ -1141,7 +1141,7 @@
       - name: View deployments
         href: containers/container-insights-livedata-deployments.md
     - name: Analyze data with log queries
-      href: containers/container-insights-log-search.md
+      href: containers/container-insights-log-query.md
     - name: Alerting
       items:
       - name: Create log alert rules

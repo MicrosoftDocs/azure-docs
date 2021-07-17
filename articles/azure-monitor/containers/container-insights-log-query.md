@@ -15,7 +15,7 @@ See [Using queries in Azure Monitor Log Analytics](../logs/queries.md) for infor
 ## Open Log Analytics
 There are multiple options for starting Log Analytics, each starting with a different [scope](../logs/scope.md). For access to all data in the workspace, select **Logs** from the **Monitor**. To limit the data to a single Kubernetes cluster, select **Logs** from that cluster's menu. 
 
-:::image type="content" source="media/container-insights-log-query/start-log-analytics.png" alt-text="Start Log Analytics" lightbpx=media/container-insights-log-query/start-log-analytics.png:::
+:::image type="content" source="media/container-insights-log-query/start-log-analytics.png" alt-text="Start Log Analytics" lightbox=media/container-insights-log-query/start-log-analytics.png:::
 
 ## Existing log queries
 You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Click **Queries** at the top of the Log Analytics screen and view queries with a **Resource type** of **Kubernetes Services**. 
@@ -27,7 +27,7 @@ See [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables
 
 
 ## Example log queries
-
+git pul
 It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample queries:
 
 ### List all of a container's lifecycle information
