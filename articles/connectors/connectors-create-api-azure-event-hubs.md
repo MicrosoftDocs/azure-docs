@@ -139,8 +139,6 @@ All Event Hubs triggers are long-polling triggers. This behavior means that when
 
 For example, if the trigger is set up with four partitions, this delay might take up to two minutes before the trigger finishes polling all the partitions. If no events are received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your event hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
-The Event Hubs trigger is skipped when no events are available to read from the event hub. The trigger waits 30 seconds (long poll) for events to appear. By design, if no events appear in 30 seconds, the trigger is skipped. Each time when the trigger runs, the trigger reads events from a partition for 30 seconds, and then waits for events to appear. If no events appear, the trigger runs based on the scheduled time, tries to get events from next partition, and continues repeating the same steps until all partitions are read.
-
 If you know the specific partition where the messages appear, you can update the trigger to read events from only those partitions by setting the trigger's maximum and minimum partition keys. For more information, review the [Add Event Hubs trigger](#add-trigger) section.
      
 ## Trigger checkpoint behavior
