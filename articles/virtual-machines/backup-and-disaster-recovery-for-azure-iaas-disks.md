@@ -145,7 +145,7 @@ If you use locally redundant storage, you must copy the snapshots to a different
 
 ### SQL Server
 
-SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. If the storage account is geo-redundant storage or read-access geo-redundant storage, you can access those backups in the storage account’s secondary datacenter in the event of a disaster, with the same restrictions as previously discussed. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
+SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
 
 ## Other considerations
 
