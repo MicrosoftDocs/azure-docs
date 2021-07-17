@@ -40,11 +40,11 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 1. Navigate to your Azure Cosmos DB account and open the **Features** pane. Select **Continuous Backup** and select **Enable**.
 
-   :::image type="content" source="./media/migrate-continuous-backup/enable-backup-migration.png" alt-text="":::
+   :::image type="content" source="./media/migrate-continuous-backup/enable-backup-migration.png" alt-text="Migrate to continuous mode using Azure portal":::
 
 1. When the migration is in progress, the status shows **Pending.** After the it’s complete, the status changes to **On.** Migration time depends on the size of data in your account.
 
-   :::image type="content" source="./media/migrate-continuous-backup/migration-status.png" alt-text="":::
+   :::image type="content" source="./media/migrate-continuous-backup/migration-status.png" alt-text="Check the status of migration from Azure portal":::
 
 ## Migrate using PowerShell
 
