@@ -88,25 +88,18 @@ Inside your function app project that you created in the [Prerequisites section]
 
 Start by opening the function app project in Visual Studio on your machine and follow the steps below.
 
-#### Step 1: Add a new function 
+1. First, create a new function of type *HTTP-trigger* in the function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
-Add a new function of type *HTTP-trigger* to the function app project in Visual Studio.
+2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png" alt-text="Screenshot of the Visual Studio view to add Azure function of type Http Trigger to a function app project." lightbox="media/how-to-provision-using-device-provisioning-service/add-http-trigger-function-visual-studio.png":::
+3. In the newly created function code file, paste in the following code, rename the function to *DpsAdtAllocationFunc.cs*, and save the file.
 
-#### Step 2: Fill in function code
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
 
-Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
+4. Publish the project with the *DpsAdtAllocationFunc.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-In the newly created function code file, paste in the following code, rename the function to *DpsAdtAllocationFunc.cs*, and save the file.
-
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
-
-#### Step 3: Publish the function app to Azure
-
-Publish the project with *DpsAdtAllocationFunc.cs* function to the function app in Azure.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) section of the *How-to: Set up a function in Azure to process data* article.
 
 ### Create Device Provisioning enrollment
 
@@ -249,23 +242,18 @@ For more about lifecycle events, see [IoT Hub Non-telemetry events](../iot-hub/i
 
 Start by opening the function app project in Visual Studio on your machine and follow the steps below.
 
-#### Step 1: Add a new function
-     
-Add a new function of type *Event Hub Trigger* to the function app project in Visual Studio.
+1. First, create a new function of type *Event Hub Trigger* in the function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#add-a-function-to-your-project).
 
-:::image type="content" source="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png" alt-text="Screenshot of the Visual Studio window showing how to add an Azure function of type Event Hub Trigger in a function app project." lightbox="media/how-to-provision-using-device-provisioning-service/create-event-hub-trigger-function.png":::
+2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
 
-#### Step 2: Fill in function code
+3. In the newly created function code file, paste in the following code, rename the function to *DeleteDeviceInTwinFunc.cs*, and save the file.
 
-In the newly created function code file, paste in the following code, rename the function to `DeleteDeviceInTwinFunc.cs`, and save the file.
+    :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-:::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
+4. Publish the project with the *DeleteDeviceInTwinFunc.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-#### Step 3: Publish the function app to Azure
-
-Publish the project with *DeleteDeviceInTwinFunc.cs* function to the function app in Azure.
-
-[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
+> [!IMPORTANT]
+> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) section of the *How-to: Set up a function in Azure to process data* article.
 
 ### Create an IoT Hub route for lifecycle events
 

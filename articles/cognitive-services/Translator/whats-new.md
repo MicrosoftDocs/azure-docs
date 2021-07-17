@@ -39,7 +39,7 @@ Review the latest updates to the text Translator service. Bookmark this page to 
 
 ### [Text translation support for nine added languages](https://www.microsoft.com/translator/blog/2021/02/22/microsoft-translator-releases-nine-new-languages-for-international-mother-language-day-2021/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for the following languages:
+* Translator service has [text translation language support](language-support.md) for the following languages:
 
   * **Albanian**. An isolate language unrelated to any other and spoken by nearly 8 million people.
   * **Amharic**. An official language of Ethiopia spoken by approximately 32 million people. It's also the liturgical language of the Ethiopian Orthodox church.
@@ -55,7 +55,7 @@ Review the latest updates to the text Translator service. Bookmark this page to 
 
 ### [Text translation support for Inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
+* Translator service has [text translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
 
 ## November 2020
 
@@ -67,13 +67,13 @@ Review the latest updates to the text Translator service. Bookmark this page to 
 
 ### [Text translation support for Canadian French](https://www.microsoft.com/translator/blog/2020/10/20/cest-tiguidou-ca-translator-adds-canadian-french/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for **Canadian French**. Canadian French and European French are similar to one another and are mutually understandable. However, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
+* Translator service has [text translation language support](language-support.md) for **Canadian French**. Canadian French and European French are similar to one another and are mutually understandable. However, there can be significant differences in vocabulary, grammar, writing, and pronunciation. Over 7 million Canadians (20 percent of the population) speak French as their first language.
 
 ## September 2020
 
 ### [Text translation support for Assamese and Axomiya](https://www.microsoft.com/translator/blog/2020/09/29/assamese-text-translation-is-here/)
 
-* Translator service has [text translation language support](language-support.md#text-translation) for **Assamese** also knows as **Axomiya**.  Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
+* Translator service has [text translation language support](language-support.md) for **Assamese** also knows as **Axomiya**.  Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
 
 ## August 2020
 
