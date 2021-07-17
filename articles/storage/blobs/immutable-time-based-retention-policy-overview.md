@@ -30,9 +30,9 @@ For example, suppose that a user creates a time-based retention policy with a re
 
 When you first configure a time-based retention policy, the policy is unlocked for testing purposes. When you have finished testing, you can lock the policy so that it is fully compliant with SEC 17a-4(f) and other regulatory compliance.
 
-You can modify an unlocked policy by shortening or extending the retention period. You can also delete an unlocked policy.
+Both locked and unlocked policies protect against deletes and overwrites. However, you can modify an unlocked policy by shortening or extending the retention period. You can also delete an unlocked policy.
 
-After you have locked a time-based retention policy, the policy cannot be deleted. You can extend the retention period, but you cannot decrease it. A maximum of five increases to the effective retention period is allowed over the lifetime of the policy.
+You cannot delete a locked time-based retention policy. You can extend the retention period, but you cannot decrease it. A maximum of five increases to the effective retention period is allowed over the lifetime of the policy.
 
 > [!IMPORTANT]
 > A time-based retention policy must be locked for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. Microsoft recommends that you lock the policy in a reasonable amount of time, typically less than 24 hours. While the unlocked state provides immutability protection, using the unlocked state for any purpose other than short-term testing is not recommended.
