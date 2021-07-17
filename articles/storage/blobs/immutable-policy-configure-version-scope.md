@@ -1,5 +1,5 @@
 ---
-title: Configure time-based retention policies for blob data
+title: Configure time-based retention policies for blob versions (preview)
 titleSuffix: Azure Storage
 description: Learn how to use WORM (Write Once, Read Many) support for Blob (object) storage to store data in a non-erasable, non-modifiable state for a specified interval.
 services: storage
@@ -10,14 +10,18 @@ ms.topic: how-to
 ms.date: 07/15/2021
 ms.author: tamram
 ms.subservice: blobs 
-ms.custom: devx-track-azurepowershell
 ---
 
-# Configure time-based retention policies for blob data
+# Configure time-based retention policies for blob versions (preview)
 
-Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
+Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. For more information about immutability policies for Azure Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
-This article shows how to set and manage immutability policies and legal holds for data in Blob storage using the Azure portal, PowerShell, or Azure CLI. For more information about immutable storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
+There are two types of immutability policies for blob data:
+
+- **Time-based retention policies** maintain data in a WORM state for a specified interval. To learn more about time-based retention policies, see [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md).
+- **Legal holds** maintain data in a WORM state until the legal hold is explicitly cleared. To learn more about legal holds, see [Legal holds for immutable blob data](immutable-legal-hold-overview.md).
+
+An immutability policy may be scoped either to an individual blob version (preview) or to a container. This article shows how to use the Azure portal to configure an immutability policy that is scoped to a blob version. To learn how to configure an immutability policy that is scoped to a container, see [Configure immutability policies for a container](immutable-policy-configure-container-scope.md).
 
 ## Prerequisites & feature support
 
@@ -29,6 +33,8 @@ The following prerequisites are required to configure version-level retention po
 All access tiers and redundancy configurations are supported. However, if the storage account is geo-replicated to a secondary region, then customer-initiated failover is not supported.
 
 Storage accounts with a hierarchical namespace are not supported.
+
+Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
 
 ## Configure version-level retention policies
 

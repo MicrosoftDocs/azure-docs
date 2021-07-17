@@ -1,5 +1,5 @@
 ---
-title: Legal holds for immutable blob data 
+title: Configure legal holds for blob versions (preview) 
 titleSuffix: Azure Storage
 description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval. Learn how to create legal holds on blob data.
 services: storage
@@ -12,7 +12,7 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Legal holds for immutable blob data
+# Configure legal holds for blob versions
 
 TBD
 

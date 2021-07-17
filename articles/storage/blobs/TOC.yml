@@ -445,8 +445,16 @@
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
         href: storage-blob-change-feed-how-to.md        
-      - name: Set and manage immutability policies
-        href: storage-blob-immutability-policies-manage.md
+      - name: Configure an immutability policy
+        items:
+        - name: Configure a policy scoped to a version
+          items: 
+          - name: Configure version-level time-based retention policies
+            href: immutable-time-based-retention-policy-configure.md
+          - name: Configure version-level legal holds
+            href: immutable-legal-hold-configure-version-scope.md
+        - name: Configure a policy scoped to a container
+          href: immutable-policy-configure-container-scope.md          
     - name: Manage redundancy and failover
       items:
       - name: Change redundancy configuration

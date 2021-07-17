@@ -7,9 +7,8 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 07/17/2021
 ms.author: tamram
-ms.reviewer: hux
 ms.subservice: blobs
 ---
 

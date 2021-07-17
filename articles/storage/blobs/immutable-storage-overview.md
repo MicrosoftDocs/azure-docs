@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 07/17/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -50,7 +50,7 @@ Typical applications include:
 Immutability policies can be scoped to a blob version (preview) or a container. How a blob behaves under an immutability possibility depends on the scope of the policy. For more information about policy scope, see the following sections:
 
 - The **Policy scope** section in [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md#policy-scope)  
-- ??? for legal hold
+- [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
 
 > [!IMPORTANT]
 > Version-level immutability policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
