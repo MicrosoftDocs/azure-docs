@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/15/2021
+ms.date: 07/12/2021
 ms.author: b-juche
 ---
 
@@ -35,11 +35,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     **NetApp add-ons** is the first category of add-ons introduced under **Storage service add-ons**. It provides access to **NetApp Cloud Compliance**. Clicking the **NetApp Cloud Compliance** tile opens a new browser and directs you to the add-on installation page. 
 
-* Features now generally available (GA)   
+* [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md) now generally available (GA)   
 
-    The following Azure NetApp Files features are now generally available. You no longer need to register the features before using them:
-    * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
-    * [Manual QoS capacity pool](manual-qos-capacity-pool-introduction.md)
+    The Manual QoS capacity pool feature is now generally available. You no longer need to register the feature before using it. 
 
 * [Shared AD support for multiple accounts to one Active Directory per region per subscription](create-active-directory-connections.md#shared_ad) (Preview)   
 

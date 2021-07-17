@@ -3,7 +3,7 @@ title: Configure DHCP for Azure VMware Solution
 description: Learn how to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.date: 05/28/2021
+ms.date: 07/13/2021
 
 # Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 
@@ -20,11 +20,12 @@ In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMw
 - [Third-party external DHCP server](#use-a-third-party-external-dhcp-server)
 
 >[!TIP]
->If you want to configure DHCP using a simplified view of NSX-T operations, see [Create a DHCP server or DHCP relay using the Azure portal](configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). The simplified view is targeted at users unfamiliar with NSX-T Manager. 
-
+>If you want to configure DHCP using a simplified view of NSX-T operations, see [Create a DHCP server or DHCP relay using the Azure portal](configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). 
 
 
 >[!IMPORTANT]
+>For clouds created on or after July 1, 2021, the simplified view of NSX-T operations must be used to configure DHCP on the default Tier-1 Gateway in your environment.
+>
 >DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
 
 
@@ -84,6 +85,10 @@ When you create a relay to a DHCP server, you'll also specify the DHCP IP addres
 ## Use a third-party external DHCP server
 
 If you want to use a third-party external DHCP server, you'll create a DHCP relay service in NSX-T Manager. You'll also specify the DHCP IP address range.
+
+
+>[!IMPORTANT]
+>For clouds created on or after July 1, 2021, the simplified view of NSX-T operations must be used to configure DHCP on the default Tier-1 Gateway in your environment.
 
 
 ### Create DHCP relay service

@@ -51,7 +51,7 @@ items:
       href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
-    - name: Join a service to a call
+    - name: Join a service to a call using Call Automation APIs
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
@@ -76,7 +76,7 @@ items:
     href: tutorials/building-app-start.md
   - name: Sign an HTTP request with an HMAC signature using C#
     href: tutorials/hmac-header-tutorial.md
-  - name: Sign and make requests to ACS' SMS API with Postman
+  - name: Sign and make requests to the SMS API with Postman
     href: tutorials/postman-tutorial.md
 - name: Concepts
   expanded: false

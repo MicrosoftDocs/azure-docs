@@ -392,7 +392,10 @@
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Deploy at scale
         displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent  
+        href: deploy-scale.md#azure-monitor-agent 
+      - name: Migrate from legacy agents
+        displayname: Migrate to Azure Monitor agent
+        href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
         href: /azure/azure-monitor/faq#azure-monitor-agent
@@ -804,9 +807,11 @@
       items:
       - name: Overview
         href: app/availability-overview.md
-      - name: URL tests
+      - name: URL ping tests
         displayname: ping, ping tests, availability, GSM, up/down
         href: app/monitor-web-app-availability.md
+      - name: Standard tests
+        href: app/availability-standard-tests.md
       - name: Multi-step tests
         displayname: availability, GSM, visual studio web test, web test
         href: app/availability-multistep.md
@@ -1220,7 +1225,7 @@
             - name: ExpressRoute
               href: insights/network-performance-monitor-expressroute.md
             - name: Pricing
-              href: insights/network-performance-monitor-pricing-faq.md
+              href: insights/network-performance-monitor-pricing-faq.yml
             - name: FAQ
               href: insights/network-performance-monitor-faq.yml
         - name: Office 365

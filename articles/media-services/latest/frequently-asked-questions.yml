@@ -55,7 +55,7 @@ sections:
           - Azure Media Services is a regional service and does not provide [high availability](architecture-high-availability-encoding-concept.md) or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions.  A sample showing how to build a solution for High Availability with Media Services Video on Demand is available as a guide.
       - question: Does Media Services provide high availability or data replication? 
         answer: |
-          -	Azure Media Services is a regional service and does not provide high availability or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions. A sample showing how to build a solution for [High Availability with Media Services Video on Demand](https://docs.microsoft.com/azure/media-services/latest/architecture-high-availability-encoding-concept) is available as a guide.
+          -	Azure Media Services is a regional service and does not provide high availability or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions. A sample showing how to build a solution for [High Availability with Media Services Video on Demand](./architecture-high-availability-encoding-concept.md) is available as a guide.
 
   - name: Using Media Services
     questions:
