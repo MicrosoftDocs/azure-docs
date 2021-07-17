@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 07/15/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -59,11 +59,11 @@ An version-level time-based retention policy can be applied to an individual blo
 
 Version-level time-based retention policies require that blob versioning is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
 
-When versioning is enabled, then when a blob is first uploaded, that version of the blob is the current version. Each time the blob is overwritten, a new version is created that stores the previous state of the blob. A previous blob version may inherit a time-based retention policy from the current version, or a custom retention policy can be configured for that version.
+When versioning is enabled, then when a blob is first uploaded, that version of the blob is the current version. Each time the blob is overwritten, a new version is created that stores the previous state of the blob. A previous blob version may inherit a time-based retention policy from the current version, or you can configure a custom retention policy for that version. Each version may have only a single time-based retention policy configured.
 
 To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability can be easily enabled at create time for a new container. Version-level immutability cannot be disabled after it is enabled, although locked policies can be deleted.
 
-Existing containers must be migrated to support version-level immutability. This process may take some time and is not reversible. To learn more about how to migrate a container to support version-level immutability, see .
+Existing containers must be migrated to support version-level immutability. This process may take some time and is not reversible. To learn more about how to migrate a container to support version-level immutability, see [Configure time-based retention policies for blob data](immutable-time-based-retention-policy-configure.md).
 
 > [!IMPORTANT]
 > Version-level time-based retention policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

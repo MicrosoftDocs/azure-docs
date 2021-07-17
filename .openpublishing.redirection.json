@@ -29132,6 +29132,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-immutable-storage.md",
+      "redirect_url": "/azure/storage/blobs/immutable-storage-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-immutability-policies-manage.md",
+      "redirect_url": "/azure/storage/blobs/immutable-time-based-retention-policy-configure",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-blob-create-account-block-blob.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
       "redirect_document_id": false

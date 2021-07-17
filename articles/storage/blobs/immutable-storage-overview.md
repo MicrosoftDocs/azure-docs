@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 07/15/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -49,7 +49,7 @@ Typical applications include:
 
 Immutability policies can be scoped to a blob version (preview) or a container. How a blob behaves under an immutability possibility depends on the scope of the policy. For more information about policy scope, see the following sections:
 
-- The **Policy scope** section in [Policy scope](immutable-time-based-retention-policy-overview.md#policy-scope)  
+- The **Policy scope** section in [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md#policy-scope)  
 - ??? for legal hold
 
 > [!IMPORTANT]
