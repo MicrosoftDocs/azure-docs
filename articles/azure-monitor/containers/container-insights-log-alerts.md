@@ -20,11 +20,19 @@ To alert for high CPU or memory utilization, or low free disk space on cluster n
 
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
-## Resource utilization log search queries
+## Log query measurements
+Log alerts can perform two different measurements of the result of a log query, each of which support distinct scenarios for monitoring virtual machines.
+
+[Metric measurement](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. These are ideal for numeric data such CPU or network utilization and Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
+
+[Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
+
+
+## Resource utilization 
 
 The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-an-alert-rule) section of this article.
 
-The following query calculates average CPU utilization as an average of member nodes' CPU utilization every minute.  
+**Average CPU utilization as an average of member nodes' CPU utilization every minute**
 
 ```kusto
 let endDateTime = now();
@@ -59,7 +67,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-The following query calculates average memory utilization as an average of member nodes' memory utilization every minute.
+**Average memory utilization as an average of member nodes' memory utilization every minute**
 
 ```kusto
 let endDateTime = now();
@@ -93,10 +101,12 @@ KubeNodeInventory
 | project ClusterName, Computer, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
+
+
 >[!IMPORTANT]
 >The following queries use the placeholder values \<your-cluster-name> and \<your-controller-name> to represent your cluster and controller. Replace them with values specific to your environment when you set up alerts.
 
-The following query calculates the average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute. The measurement is a percentage of the limit set up for a container.
+**Average CPU utilization of all containers in a controller as an average of CPU utilization of every container instance in a controller every minute.**
 
 ```kusto
 let endDateTime = now();
@@ -136,7 +146,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-The following query calculates the average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute. The measurement is a percentage of the limit set up for a container.
+**Average memory utilization of all containers in a controller as an average of memory utilization of every container instance in a controller every minute**
 
 ```kusto
 let endDateTime = now();
@@ -176,7 +186,9 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-The following query returns all nodes and counts that have a status of *Ready* and *NotReady*.
+## Resource availability 
+
+**Nodes and counts that have a status of *Ready* and *NotReady**
 
 ```kusto
 let endDateTime = now();
@@ -203,7 +215,9 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-The following query returns pod phase counts based on all phases: *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded*.  
+The foll
+
+owing query returns pod phase counts based on all phases: *Failed*, *Pending*, *Unknown*, *Running*, or *Succeeded*.  
 
 ```kusto
 let endDateTime = now(); 
@@ -269,6 +283,163 @@ InsightsMetrics
 | where AggregatedValue >= 90
 ```
 
+## Scale out
+The following queries should be used with **number of results** alert rules since they include a maximum and minimum threshold included in the query. You could implement them as two **metric measurement** alert rules, one with the maximum threshold and one with the minimum threshold.
+### Pod scale out
+Alerts when the percentage of scaled out replicas in a deployment exceeds a minimum or maximum threshold. 
+
+```kusto
+let _minthreshold = 70; // minimum threshold 
+let _maxthreshold = 90; // maximum threshold 
+let startDateTime = ago(60m);
+KubePodInventory
+| where TimeGenerated >= startDateTime 
+| where Namespace !in('default', 'kube-system') // List of non system namespace filter goes here.
+| extend labels = todynamic(PodLabel)
+| extend deployment_hpa = reverse(substring(reverse(ControllerName), indexof(reverse(ControllerName), "-") + 1))
+| distinct tostring(deployment_hpa)
+| join kind=inner (InsightsMetrics 
+    | where TimeGenerated > startDateTime 
+    | where Name == 'kube_hpa_status_current_replicas'
+    | extend pTags = todynamic(Tags) //parse the tags for values
+    | extend ns = todynamic(pTags.k8sNamespace) //parse namespace value from tags
+    | extend deployment_hpa = todynamic(pTags.targetName) //parse HPA target name from tags
+    | extend max_reps = todynamic(pTags.spec_max_replicas) // Parse maximum replica settings from HPA deployment
+    | extend desired_reps = todynamic(pTags.status_desired_replicas) // Parse desired replica settings from HPA deployment
+    | summarize arg_max(TimeGenerated, *) by tostring(ns), tostring(deployment_hpa), Cluster=toupper(tostring(split(_ResourceId, '/')[8])), toint(desired_reps), toint(max_reps), scale_out_percentage=(desired_reps * 100 / max_reps)
+    | where scale_out_percentage > _minthreshold and scale_out_percentage <= _maxthreshold
+    )
+    on deployment_hpa
+```
+
+### Nodepool scale outs 
+Alerts when the percentage of nodes determined by the auto-scaler settings exceeds a minimum or maximum threshold. 
+ 
+```kusto
+let nodepoolMaxnodeCount = 10; // the maximum number of nodes in your auto scale setting goes here.
+let _minthreshold = 20;
+let _maxthreshold = 90;
+let startDateTime = 60m;
+KubeNodeInventory
+| where TimeGenerated >= ago(startDateTime)
+| extend nodepoolType = todynamic(Labels) //Parse the labels to get the list of node pool types
+| extend nodepoolName = todynamic(nodepoolType[0].agentpool) // parse the label to get the nodepool name or set the specific nodepool name (like nodepoolName = 'agentpool)'
+| summarize nodeCount = count(Computer) by ClusterName, tostring(nodepoolName), TimeGenerated
+| extend scaledpercent = iff(((nodeCount * 100 / nodepoolMaxnodeCount) >= _minthreshold and (nodeCount * 100 / nodepoolMaxnodeCount) < _maxthreshold), "warn", "normal")
+| where scaledpercent == 'warn'
+| summarize arg_max(TimeGenerated, *) by nodeCount, ClusterName, tostring(nodepoolName)
+| project ClusterName, 
+    TotalNodeCount= strcat("Total Node Count: ", nodeCount),
+    ScaledOutPercentage = (nodeCount * 100 / nodepoolMaxnodeCount),  
+    TimeGenerated, 
+    nodepoolName
+```
+
+### System containers (replicaset) availability
+Alerts when the available system containers (replicasets) exceeds a minimum or maximum threshold. 
+
+
+```kusto
+let startDateTime = 5m; // the minimum time interval goes here
+let _minalertThreshold = 50; //Threshold for minimum and maximum unavailable or not running containers
+let _maxalertThreshold = 70;
+KubePodInventory
+| where TimeGenerated >= ago(startDateTime)
+| distinct ClusterName, TimeGenerated
+| summarize Clustersnapshot = count() by ClusterName
+| join kind=inner (
+    KubePodInventory
+    | where TimeGenerated >= ago(startDateTime)
+    | where Namespace in('default', 'kube-system') and ControllerKind == 'ReplicaSet' // the system namespace filter goes here
+    | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus, ServiceName, PodLabel, Namespace, ContainerStatus
+    | summarize arg_max(TimeGenerated, *), TotalPODCount = count(), podCount = sumif(1, PodStatus == 'Running' or PodStatus != 'Running'), containerNotrunning = sumif(1, ContainerStatus != 'running')
+        by ClusterName, TimeGenerated, ServiceName, PodLabel, Namespace
+    )
+    on ClusterName
+| project ClusterName, ServiceName, podCount, containerNotrunning, containerNotrunningPercent = (containerNotrunning * 100 / podCount), TimeGenerated, PodStatus, PodLabel, Namespace, Environment = tostring(split(ClusterName, '-')[3]), Location = tostring(split(ClusterName, '-')[4]), ContainerStatus
+| where PodStatus == "Running" and containerNotrunningPercent > _minalertThreshold and containerNotrunningPercent < _maxalertThreshold
+| summarize arg_max(TimeGenerated, *), c_entry=count() by PodLabel, ServiceName, ClusterName
+//Below lines are to parse the labels to identify the impacted service/component name
+| extend parseLabel = replace(@'k8s-app', @'k8sapp', PodLabel)
+| extend parseLabel = replace(@'app.kubernetes.io/component', @'appkubernetesiocomponent', parseLabel)
+| extend parseLabel = replace(@'app.kubernetes.io/instance', @'appkubernetesioinstance', parseLabel)
+| extend tags = todynamic(parseLabel)
+| extend tag01 = todynamic(tags[0].app)
+| extend tag02 = todynamic(tags[0].k8sapp)
+| extend tag03 = todynamic(tags[0].appkubernetesiocomponent)
+| extend tag04 = todynamic(tags[0].aadpodidbinding)
+| extend tag05 = todynamic(tags[0].appkubernetesioinstance)
+| extend tag06 = todynamic(tags[0].component)
+| project ClusterName, TimeGenerated,
+    ServiceName = strcat( ServiceName, tag01, tag02, tag03, tag04, tag05, tag06),
+    ContainerUnavailable = strcat("Unavailable Percentage: ", containerNotrunningPercent),
+    PodStatus = strcat("PodStatus: ", PodStatus), 
+    ContainerStatus = strcat("Container Status: ", ContainerStatus)
+```
+
+
+
+### System containers (daemonsets) availability
+Alerts when the available system containers (daemonsets) exceeds a minimum or maximum threshold. 
+ 
+```kusto
+let startDateTime = 5m; // the minimum time interval goes here
+let _minalertThreshold = 50; //Threshold for minimum and maximum unavailable or not running containers
+let _maxalertThreshold = 70;
+KubePodInventory
+| where TimeGenerated >= ago(startDateTime)
+| distinct ClusterName, TimeGenerated
+| summarize Clustersnapshot = count() by ClusterName
+| join kind=inner (
+    KubePodInventory
+    | where TimeGenerated >= ago(startDateTime)
+    | where Namespace in('default', 'kube-system') and ControllerKind == 'DaemonSet' // the system namespace filter goes here
+    | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus, ServiceName, PodLabel, Namespace, ContainerStatus
+    | summarize arg_max(TimeGenerated, *), TotalPODCount = count(), podCount = sumif(1, PodStatus == 'Running' or PodStatus != 'Running'), containerNotrunning = sumif(1, ContainerStatus != 'running')
+        by ClusterName, TimeGenerated, ServiceName, PodLabel, Namespace
+    )
+    on ClusterName
+| project ClusterName, ServiceName, podCount, containerNotrunning, containerNotrunningPercent = (containerNotrunning * 100 / podCount), TimeGenerated, PodStatus, PodLabel, Namespace, Environment = tostring(split(ClusterName, '-')[3]), Location = tostring(split(ClusterName, '-')[4]), ContainerStatus
+//Uncomment the below line to set for automated alert
+| where PodStatus == "Running" and containerNotrunningPercent > _minalertThreshold and containerNotrunningPercent < _maxalertThreshold
+| summarize arg_max(TimeGenerated, *), c_entry=count() by PodLabel, ServiceName, ClusterName
+//Below lines are to parse the labels to identify the impacted service/component name
+| extend parseLabel = replace(@'k8s-app', @'k8sapp', PodLabel)
+| extend parseLabel = replace(@'app.kubernetes.io/component', @'appkubernetesiocomponent', parseLabel)
+| extend parseLabel = replace(@'app.kubernetes.io/instance', @'appkubernetesioinstance', parseLabel)
+| extend tags = todynamic(parseLabel)
+| extend tag01 = todynamic(tags[0].app)
+| extend tag02 = todynamic(tags[0].k8sapp)
+| extend tag03 = todynamic(tags[0].appkubernetesiocomponent)
+| extend tag04 = todynamic(tags[0].aadpodidbinding)
+| extend tag05 = todynamic(tags[0].appkubernetesioinstance)
+| extend tag06 = todynamic(tags[0].component)
+| project ClusterName, TimeGenerated,
+    ServiceName = strcat( ServiceName, tag01, tag02, tag03, tag04, tag05, tag06),
+    ContainerUnavailable = strcat("Unavailable Percentage: ", containerNotrunningPercent),
+    PodStatus = strcat("PodStatus: ", PodStatus), 
+    ContainerStatus = strcat("Container Status: ", ContainerStatus)
+```
+
+
+### Individual container restarts
+Alerts when the individual system container restart count exceeds a threshold for last 10 minutes.
+
+ 
+```kusto
+let _threshold = 10m; 
+let _alertThreshold = 2;
+let Timenow = (datetime(now) - _threshold); 
+let starttime = ago(5m); 
+KubePodInventory
+| where TimeGenerated >= starttime
+| where Namespace in ('default', 'kube-system') // the namespace filter goes here
+| where ContainerRestartCount > _alertThreshold
+| extend Tags = todynamic(ContainerLastStatus)
+| extend startedAt = todynamic(Tags.startedAt)
+| where startedAt >= Timenow
+| summarize arg_max(TimeGenerated, *) by Name
+
 ## Create an alert rule
 
 This section walks through the creation of a metric measurement alert rule using performance data from Container insights. You can use this basic process with a variety of log queries to alert on different performance counters. Use one of the log search queries provided earlier to start with. To create using an ARM template, see [Samples of Log alert creation using Azure Resource Template](../alerts/alerts-log-create-templates.md).
@@ -277,14 +448,13 @@ This section walks through the creation of a metric measurement alert rule using
 >The following procedure to create an alert rule for container resource utilization requires you to switch to a new log alerts API as described in [Switch API preference for log alerts](../alerts/alerts-log-api-switch.md).
 >
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, search for and select **Log Analytics workspaces**.
+
 3. In your list of Log Analytics workspaces, select the workspace supporting Container insights. 
 4. In the pane on the left side, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure log queries.
-5. On the **Logs** page, paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
+5. On the **Logs** page, paste one of the [queries](#resource-utilization-log-queries) provided earlier into the **Search query** field and then select **Run** to validate the results. If you do not perform this step, the **+New alert** option is not available to select.
 6. Select **+New alert** to create a log alert.
 7. In the **Condition** section, select the **Whenever the Custom log search is \<logic undefined>** pre-defined custom log condition. The **custom log search** signal type is automatically selected because we're creating an alert rule directly from the Azure Monitor logs page.  
-8. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field.
+8. Paste one of the [queries](#resource-utilization-log-queries) provided earlier into the **Search query** field.
 9. Configure the alert as follows:
 
     1. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement creates an alert for each object in the query that has a value above our specified threshold.
@@ -301,6 +471,6 @@ This section walks through the creation of a metric measurement alert rule using
 
 ## Next steps
 
-- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
+- View [log query examples](container-insights-log-query.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
 
 - To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](./container-insights-overview.md).
