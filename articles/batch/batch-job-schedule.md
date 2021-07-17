@@ -16,7 +16,7 @@ To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batc
 
 ## Schedule a job in the Azure portal
 
-1. Sign in to [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select the Batch account you want to schedule jobs in.
 1. In the left navigation pane, select **Job schedules**.
 1. Select **Add** to create a new job schedule.
@@ -28,7 +28,7 @@ To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batc
    - **Recurrence interval**: Select **Enabled** if you want to specify the amount of time between jobs. You can have only one job at a time scheduled, so if it is time to create a new job under a job schedule, but the previous job is still running, the Batch service won't create the new job until the previous job finishes.
    - **Start window**: Select **Custom** if you'd like to specify the time interval within which a job must be created. If a job isn't created within this window, no new job will be created until the next recurrence of the schedule.
 
-   :::image type="content" source="media/batch-job-schedule/add-job-schedule-02.png" alt-text="Screenshot of the Add job schedule options in the Azure portal.":::  
+     :::image type="content" source="media/batch-job-schedule/add-job-schedule-02.png" alt-text="Screenshot of the Add job schedule options in the Azure portal.":::  
 
 1. At the bottom of the basic form, specify the pool on which you want the job to run. To choose from a list of pools in your Batch account, select **Update**.
 1. Along with the **Pool ID**, enter the following information:
@@ -39,19 +39,14 @@ To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batc
    - **Max task retry count**: Select **Custom** if you want to specify the number of times a task can be retried, or **Unlimited** if you want the task to be tried for as many times as is needed. This is not the same as the number of retries an API call might have.
    - **When all tasks complete**: The default is NoAction, but you can select **TerminateJob** if you prefer to terminate the job when all tasks have been completed (or if there are no tasks in the job).
    - **When a task fails**: A task fails if the retry count is exhausted or there was an error when starting the task. The default is NoAction, but you can select **PerformExitOptionsJobAction** if you prefer to take the action associated with the task's exit condition if it fails.
+
+     :::image type="content" source="media/batch-job-schedule/add-job-schedule-03.png" alt-text="Screenshot of the job specification options for a new job schedule in the Azure portal.":::
+
 1. Select **Save** to create your job schedule.
 
-You can track the execution of the job by returning to **Job schedules**, selecting the job schedule, then expanding **Execution info**. You can also terminate, delete, or disable the job schedule from this screen.
-
+To track the execution of the job, return to **Job schedules** and select the job schedule. Expand **Execution info** to see details. You can also terminate, delete, or disable the job schedule from this screen.
 
 ## Next steps
 
-- [Create task dependencies to run tasks that depend on other tasks](batch-task-dependencies.md).
-
-
-
-
-
-[2]: ./media/batch-job-schedule/add-job-schedule-03.png
-
-
+- Learn more about [jobs and tasks](jobs-and-tasks.md).
+- [Create task dependencies](batch-task-dependencies.md) to run tasks that depend on other tasks.
