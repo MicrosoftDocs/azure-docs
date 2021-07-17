@@ -215,18 +215,18 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    Connect the iSCSI devices. In the example below, 10.0.0.17 is the IP address of the iSCSI target server and 3260 is the default port. <b>iqn.2006-04.nfs.local:nfs</b> is one of the target names that is listed when you run the first command below (iscsiadm -m discovery).
 
-   <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
-   sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
+   <pre><code>sudo iscsiadm -m discovery --type=st -p <b>10.0.0.17:3260</b>   
+   sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --login
    sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    
    # If you want to use multiple SBD devices, also connect to the second iSCSI target server
-   sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.18:3260</b>   
-   sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.18:3260</b>
+   sudo iscsiadm -m discovery --type=st -p <b>10.0.0.18:3260</b>   
+   sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --login
    sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    
    # If you want to use multiple SBD devices, also connect to the third iSCSI target server
-   sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.19:3260</b>   
-   sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.19:3260</b>
+   sudo iscsiadm -m discovery --type=st -p <b>10.0.0.19:3260</b>   
+   sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --login
    sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
@@ -502,7 +502,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]** Adjust corosync settings.  
+1. **[1]** Adjust corosync settings.  
 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
@@ -541,9 +541,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    }
    </code></pre>
 
-   Then restart the corosync service
+1. **[1]** Push updated corosync.conf to other node
 
-   <pre><code>sudo service corosync restart
+   <pre><code>sudo csync2 -x /etc/corosync/corosync.conf
+   </code></pre>
+
+1. **[1]** Reload corosync configuration
+
+   <pre><code>sudo corosync-cfgtool -R
    </code></pre>
 
 ## Default Pacemaker configuration for SBD
