@@ -29,10 +29,8 @@
     href: prerequisites.md
   - name: Best practices
     items:
-    - name: Workspace architecture considerations
+    - name: Workspace architecture best practices
       href: workspace-architecture-best-practices.md
-    - name: Sample workspace designs
-      href: sample-workspace-designs.md
     - name: General best practices
       href: best-practices.md
     - name: Data collection best practices
@@ -353,6 +351,10 @@
       href: playbook-triggers-actions.md
   - name: Manage Azure Sentinel
     items:
+    - name: Design your workspace architecture
+      href: design-your-workspace-architecture.md
+    - name: Sample workspace designs
+      href: sample-workspace-designs.md
     - name: Manage workspace access
       href: resource-context-rbac.md
     - name: Extend Azure Sentinel across workspaces and tenants
@@ -449,6 +451,8 @@
   items:
   - name: Useful resources
     href: resources.md
+  - name: Sample workspace architecture
+    href: sample-workspace-designs.md
   - name: Azure Sentinel blog
     href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
   - name: Regional availability
