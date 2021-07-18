@@ -399,6 +399,8 @@
         - name: Analyze telemetry data
           href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
+        - name: Monitor metrics
+          href: monitor-metrics.md  
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring

@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 07/05/2021
 ---
 
 # Create plans for a SaaS offer
@@ -139,7 +139,7 @@ After you create one or more plans, you'll see your plan name, plan ID, pricing 
 The actions that are available in the **Action** column of the **Plan overview** tab vary depending on the status of your plan, and may include the following:
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
-- If the plan status is **Live**, the link in the **Action** column will be either **Stop sell plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
+- If the plan status is **Live**, the link in the **Action** column will be either **Stop distribution of a plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 
 ## Before you publish your offer
 

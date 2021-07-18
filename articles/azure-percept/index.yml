@@ -102,9 +102,9 @@ landingContent:
 
   - title: Advanced development with Azure Percept
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: Advanced development overview
+          - text: Advanced development on Azure Percept
             url: overview-advanced-code.md
       - linkListType: how-to-guide
         links:
@@ -113,9 +113,9 @@ landingContent:
 
   - title: Keep your Azure Percept DK up to date
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
-          - text: Azure Percept DK update experience overview
+          - text: Azure Percept DK update experience
             url: overview-update-experience.md
       - linkListType: how-to-guide
         links:
