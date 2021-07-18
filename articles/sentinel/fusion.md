@@ -745,7 +745,15 @@ Azure Sentinel also generates an incident when multiple alerts of different type
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
 - [Scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled)
 
-Such incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the Execution and Defense Evasion stages of an attack.
+Such incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the **Execution** and **Defense Evasion** stages of an attack.
+
+For example, Azure Sentinel would generate an incident for possible Ransomware if the following alerts are triggered on the same host within a specific timeframe:
+
+- Azure Sentinel scheduled alerts (informational): **Windows Error and Warning Events**
+- Azure Defender (medium): **'GandCrab' ransomware was prevented**
+- Microsoft Defender for Endpoint (informational): **'Emotet' malware was detected**
+- Azure Defender (low): **'Tofsee' backdoor was detected**
+- Microsoft Defender for Endpoint (informational): **'Parite' malware was detected**
 
 ## Remote exploitation
 

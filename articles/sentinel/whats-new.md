@@ -44,7 +44,7 @@ Incidents are generated for alerts that are possibly associated with Ransomware 
 
 Supported data connectors include [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md), [Microsoft Cloud App Security](connect-cloud-app-security.md), and [scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled) from inside Azure Sentinel.
 
-For more information, see [Advanced multistage attack detection in Azure Sentinel](fusion.md).
+For more information, see [Advanced multistage attack detection in Azure Sentinel](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview)
 
 
 ### Support for ADX cross-resource queries (Public preview)
