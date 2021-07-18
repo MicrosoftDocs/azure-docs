@@ -58,7 +58,7 @@ Before deploying Azure Sentinel, make sure that your Azure tenant has the follow
 
     For more information about other roles and permissions supported for Azure Sentinel, see [Permissions in Azure Sentinel](roles.md).
 
-- A [Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) is required to house all of the data that Azure Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Workspace best practices](#workspace-best-practices).
+- A [Log Analytics workspace](/azure/azure-monitor/learn/quick-create-workspace) is required to house all of the data that Azure Sentinel will be ingesting and using for its detections, analytics, and other features. For more information, see [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md).
 
 > [!TIP]
 > When setting up your Azure Sentinel workspace, [create a resource group](/azure/azure-resource-manager/management/manage-resource-groups-portal) that's dedicated to Azure Sentinel and the resources that Azure Sentinel users including the Log Analytics workspace, any playbooks, workbooks, and so on.
