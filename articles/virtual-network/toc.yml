@@ -79,10 +79,12 @@
       href: private-ip-addresses.md
     - name: Public IP prefix
       href: public-ip-address-prefix.md
+    - name: Manage public IP addresses
+      href: virtual-network-public-ip-address.md
+    - name: Manage public IP prefix
+      href: manage-public-ip-address-prefix.md
     - name: IPv6 for Azure VNet
       href: ipv6-overview.md
-    - name: Public IPv6 address prefix
-      href: ipv6-public-ip-address-prefix.md
     - name: Routing preference
       href: routing-preference-overview.md
     - name: Routing preference Unmetered
@@ -216,11 +218,11 @@
         href: configure-public-ip-bastion.md
     - name: Create public IP address
       items:
-      - name: Create public IP addresses - Portal
+      - name: Create public IP address - Portal
         href: create-public-ip-portal.md
-      - name: Create public IP addresses - PowerShell
+      - name: Create public IP address - PowerShell
         href: create-public-ip-powershell.md
-      - name: Create public IP addresses - Azure CLI
+      - name: Create public IP address - Azure CLI
         href: create-public-ip-cli.md
       - name: Create public IP address - ARM template
         href: create-public-ip-template.md
@@ -228,8 +230,10 @@
       items:
       - name: Create public IP prefix - Portal
         href: create-public-ip-prefix-portal.md
-      - name: Create public IPv6 prefix
-        href: ipv6-reserve-public-ip-address-prefix.md
+      - name: Create public IP prefix - PowerShell
+        href: create-public-ip-prefix-powershell.md
+      - name: Create public IP prefix - Azure CLI
+        href: create-public-ip-prefix-cli.md
     - name: Upgrade a public IP address
       items:
       - name: Upgrade a public IP address - Portal
@@ -254,34 +258,10 @@
         items:
         - name: Standard Internal Load Balancer with IPv6 - PowerShell
           href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-      - name: Basic public
-        items:
-        - name: Azure PowerShell
-          href: ipv6-add-to-existing-vnet-powershell.md
-        - name: Azure CLI
-          href: ipv6-add-to-existing-vnet-cli.md
-      - name: Basic Public Load Balancer
-        items:  
-        - name: Azure PowerShell
-          href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-        - name: Azure CLI
-          href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-        - name: Resource Manager template
-          href: ipv6-configure-template-json.md
-      - name: Standard Public Load Balancer
-        items: 
-        - name: Azure PowerShell
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-        - name: Azure CLI
-          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-        - name: Resource Manager template
-          href: ipv6-configure-standard-load-balancer-template-json.md
-      - name: Standard Internal Load Balancer
-        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-      - name: Virtual machine scale set with IPv6
-        href: ipv6-virtual-machine-scale-set.md
-      - name: Public IPv6 address prefix
-        href: ipv6-reserve-public-ip-address-prefix.md       
+      - name: Add IPv6 to an IPv4 application- PowerShell
+        href: ipv6-add-to-existing-vnet-powershell.md
+      - name: Add IPv6 to an IPv4 application - Azure CLI
+        href: ipv6-add-to-existing-vnet-cli.md    
     - name: Routing preference
       items:
       - name: Create public IP address
@@ -409,6 +389,8 @@
       href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
       href: virtual-machine-network-throughput.md
+    - name: Virtual machine scale set with IPv6
+      href: ipv6-virtual-machine-scale-set.md 
   - name: Move across regions
     items:
     - name: Network security groups (NSG)
