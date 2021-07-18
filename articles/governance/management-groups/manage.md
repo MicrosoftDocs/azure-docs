@@ -1,7 +1,7 @@
 ---
 title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
-ms.date: 05/01/2021
+ms.date: 06/11/2021
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
@@ -75,7 +75,7 @@ To delete a management group, the following requirements must be met:
 
 1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group
    Contributor"). To see what permissions you have, select the management group and then select
-   **IAM**. To learn more on Azure roles, see  
+   **IAM**. To learn more on Azure roles, see
    [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Delete in the portal
@@ -219,15 +219,16 @@ management group inherits all user access and policies from the parent managemen
 When moving a management group or subscription to be a child of another management group, three
 rules need to be evaluated as true.
 
-If you're doing the move action, you need:
+If you're doing the move action, you need permission at each of the following layers:
 
-- Management group write and Role Assignment write permissions on the child subscription or
-  management group.
-  - Built-in role example **Owner**
-- Management group write access on the target parent management group.
-  - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
-- Management group write access on the existing parent management group.
-  - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
+- Child subscription / management group
+  - `Microsoft.management/managementgroups/write`
+  - `Microsoft.management/managementgroups/subscription/write` (only for Subscriptions)
+  - `Microsoft.Authorization/roleassignment/write`
+- Target parent management group
+  - `Microsoft.management/managementgroups/write`
+- Current parent management group
+  - `Microsoft.management/managementgroups/write`
 
 **Exception**: If the target or the existing parent management group is the Root management group,
 the permissions requirements don't apply. Since the Root management group is the default landing
@@ -314,7 +315,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 ### Move subscriptions in ARM template
 
 To move a subscription in an Azure Resource Manager template (ARM template), use the following
-template.
+template and deploy it at [tenant level](../../azure-resource-manager/templates/deploy-to-tenant.md).
 
 ```json
 {
@@ -336,7 +337,7 @@ template.
     },
     "resources": [
         {
-            "scope": "/", 
+            "scope": "/",
             "type": "Microsoft.Management/managementGroups/subscriptions",
             "apiVersion": "2020-05-01",
             "name": "[concat(parameters('targetMgId'), '/', parameters('subscriptionId'))]",
@@ -363,8 +364,8 @@ template.
 1. In the menu that opens, select if you want a new or use an existing management group.
 
    - Selecting new will create a new management group.
-   - Selecting an existing will present you with a drop-down of all the management groups you can
-     move to this management group.
+   - Selecting an existing will present you with a dropdown list of all the management groups you
+     can move to this management group.
 
    :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot of the 'Add management group' options for creating a new management group." border="false":::
 

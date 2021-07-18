@@ -104,9 +104,8 @@ who has access to Azure resources. Understanding where custom Azure RBAC rules a
 help you verify need and proper implementation, as custom Azure RBAC rules are error prone. This
 blueprint also assigns [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure
 Active Directory authentication for SQL Servers. Using Azure Active Directory authentication
-simplifies permission management and centralizes identity management of database users and other  
-Microsoft
-services.
+simplifies permission management and centralizes identity management of database users and other
+Microsoft services.
 
 - External accounts with owner permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription

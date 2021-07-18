@@ -7,9 +7,8 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 07/13/2021
 ms.author: tamram
-ms.reviewer: artek
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell
 ---
@@ -42,7 +41,6 @@ The following table provides an overview of how to switch from each type of repl
 
 <sup>1</sup> Incurs a one-time egress charge.<br />
 <sup>2</sup> Migrating from LRS to GRS is not supported if the storage account contains blobs in the archive tier.<br />
-<sup>3</sup> Conversion from ZRS to GZRS/RA-GZRS or vice versa is not supported in the following regions: US East 2, US East, Europe West.
 
 > [!CAUTION]
 > If you performed an [account failover](storage-disaster-recovery-guidance.md) for your (RA-)GRS or (RA-)GZRS account, the account is locally redundant (LRS) in the new primary region after the failover. Live migration to ZRS or GZRS for an LRS account resulting from a failover is not supported. This is true even in the case of so-called failback operations. For example, if you perform an account failover from RA-GZRS to the LRS in the secondary region, and then configure it again to RA-GRS and perform another account failover to the original primary region, you can't contact support for the original live migration to RA-GZRS in the primary region. Instead, you'll need to perform a manual migration to ZRS or GZRS.
@@ -107,7 +105,7 @@ During a live migration, you can access data in your storage account with no los
 
 ZRS supports general-purpose v2 accounts only, so make sure to upgrade your storage account before you submit a request for a live migration to ZRS. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). A storage account must contain data to be migrated via live migration.
 
-Live migration is supported only for storage accounts that use LRS or GRS replication. If your account uses RA-GRS, then you need to first change your account's replication type to either LRS or GRS before proceeding. This intermediary step removes the secondary read-only endpoint provided by RA-GRS before migration.
+If your account uses RA-GRS, then you need to first change your account's replication type to either LRS or GRS before proceeding with a live migration. This intermediary step removes the secondary read-only endpoint provided by RA-GRS.
 
 While Microsoft handles your request for live migration promptly, there's no guarantee as to when a live migration will complete. If you need your data migrated to ZRS by a certain date, then Microsoft recommends that you perform a manual migration instead. Generally, the more data you have in your account, the longer it takes to migrate that data.
 
@@ -118,7 +116,7 @@ You must perform a manual migration if:
 - You want to migrate data from ZRS to LRS, GRS or RA-GRS.
 - Your storage account includes data in the archive tier.
 
-You can request live migration through the [Azure Support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
+You can request live migration through the [Azure Support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 > [!IMPORTANT]
 > If you need to migrate more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Details** tab.
@@ -144,7 +142,7 @@ Follow these steps to request a live migration:
 1. Fill out the additional required information on the **Details** tab, then select **Review + create** to review and submit your support ticket. A support person will contact you to provide any assistance you may need.
 
 > [!NOTE]
-> Premium file shares (FileStorage accounts) are only available for LRS and ZRS.
+> Premium file shares are available only for LRS and ZRS.
 >
 > GZRS storage accounts do not currently support the archive tier. See [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) for more details.
 >
@@ -193,7 +191,7 @@ az storage account update -g <resource_group> -n <storage_account> --set kind=St
 
 The costs associated with changing how data is replicated depend on your conversion path. Ordering from least to the most expensive, Azure Storage redundancy offerings include LRS, ZRS, GRS, RA-GRS, GZRS, and RA-GZRS.
 
-For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge because your data (in your primary region) is being replicated to your remote secondary region. This charge is a one-time cost at initial setup. After the data is copied, there are no further migration charges. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+For example, going *from* LRS to any other type of replication will incur additional charges because you are moving to a more sophisticated redundancy level. Migrating *to* GRS or RA-GRS will incur an egress bandwidth charge at the time of migration because your entire storage account is being replicated to the secondary region. All subsequent writes to the primary region also incur egress bandwidth charges to replicate the write to the secondary region. For details on bandwidth charges, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 If you migrate your storage account from GRS to LRS, there is no additional cost, but your replicated data is deleted from the secondary location.
 

@@ -4,7 +4,7 @@ description: How to use Azure HPC Cache to improve access to data stored with Az
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 05/05/2021
 ms.author: v-erkel
 ---
 
@@ -45,7 +45,7 @@ Use the minimum size for the delegated subnet when creating an Azure NetApp File
 
 The minimum size, which is specified with the netmask /28, provides 16 IP addresses. In practice, Azure NetApp Files uses only three of those available IP addresses for volume access. This means that you only need to create three storage targets in your Azure HPC Cache to cover all of the volumes.
 
-If the delegated subnet is too large, it's possible for the Azure NetApp Files volumes to use more IP addresses than a single Azure HPC Cache instance can handle. A single cache has a limit of 10 storage targets for most cache throughput sizes, or 20 storage targets for the largest configurations.
+If the delegated subnet is too large, it's possible for the Azure NetApp Files volumes to use more IP addresses than a single Azure HPC Cache instance can handle. A single cache has a [limit of 10 storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) for most cache throughput/storage size combinations, or 20 storage targets for the largest configurations.
 
 The quickstart example in Azure NetApp Files documentation uses 10.7.0.0/16 for the delegated subnet, which gives a subnet that's too large.
 

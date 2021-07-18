@@ -67,7 +67,7 @@ A populated URL might look like the following:
 > [!NOTE]
 > **Scoped API calls**
 >
-> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2-preview.3/tag`. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
+> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag`. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
 
 ## Get results from the service
 

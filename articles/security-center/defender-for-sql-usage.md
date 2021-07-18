@@ -28,22 +28,30 @@ You'll see alerts when there are suspicious database activities, potential vulne
 |Release state:|General Availability (GA)|
 |Pricing:|**Azure Defender for SQL servers on machines** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|Azure SQL Server (all versions covered by Microsoft support)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China|
 |||
 
 ## Set up Azure Defender for SQL servers on machines
 
 To enable this plan:
 
-[Step 1. Provision the Log Analytics agent on your SQL server's host:](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
+[Step 1. Install the agent extension](#step-1-install-the-agent-extension)
 
-[Step 2. Enable the optional plan in Security Center's pricing and settings page:](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
+[Step 2. Provision the Log Analytics agent on your SQL server's host:](#step-2-provision-the-log-analytics-agent-on-your-sql-servers-host)
+
+[Step 3. Enable the optional plan in Security Center's pricing and settings page:](#step-3-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
 
-### Step 1. Provision the Log Analytics agent on your SQL server's host:
+### Step 1. Install the agent extension
+
+- **SQL Server on Azure VM** - Register your SQL Server VM with the SQL IaaS Agent extension as explained in [Register SQL Server VM with SQL IaaS Agent Extension](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md).
+
+- **SQL Server on Azure Arc** - Install the Azure Arc agent by following the installation methods described in the [Azure Arc documentation](../azure-arc/servers/manage-vm-extensions.md).
+
+### Step 2. Provision the Log Analytics agent on your SQL server's host:
 
 - **SQL Server on Azure VM** - If your SQL machine is hosted on an Azure VM, you can [enable auto provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>](security-center-enable-data-collection.md#auto-provision-mma). Alternatively, you can follow the manual procedure for [Onboard your Azure Stack Hub VMs](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
-- **SQL Server on Azure Arc** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”. Alternatively, you can follow the installation methods described in the [Azure Arc documentation](../azure-arc/servers/manage-vm-extensions.md).
+- **SQL Server on Azure Arc** - If your SQL Server is managed by [Azure Arc](../azure-arc/index.yml) enabled servers, you can deploy the Log Analytics agent using the Security Center recommendation “Log Analytics agent should be installed on your Windows-based Azure Arc machines (Preview)”.
 
 - **SQL Server on-prem** - If your SQL Server is hosted on an on-premises Windows machine without Azure Arc, you have two options for connecting it to Azure:
     
@@ -52,7 +60,7 @@ To enable this plan:
     - **Connect the Windows machine without Azure Arc** - If you choose to connect a SQL Server running on a Windows machine without using Azure Arc, follow the instructions in [Connect Windows machines to Azure Monitor](../azure-monitor/agents/agent-windows.md).
 
 
-### Step 2. Enable the optional plan in Security Center's pricing and settings page:
+### Step 3. Enable the optional plan in Security Center's pricing and settings page:
 
 1. From Security Center's menu, open the **Pricing & settings** page.
 
@@ -60,11 +68,11 @@ To enable this plan:
 
     - If you're using **a non-default workspace**, select the relevant **workspace** (enter the workspace's name in the filter if necessary):
 
-        ![Finding your non-default workspace by title](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
+        ![Finding your non-default workspace by title.](./media/security-center-advanced-iaas-data/pricing-and-settings-workspaces.png)
 
 1. Set the option for **Azure Defender for SQL servers on machines** plan to **on**. 
 
-    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Security Center pricing page with optional plans":::
+    :::image type="content" source="./media/security-center-advanced-iaas-data/sql-servers-on-vms-in-pricing-small.png" alt-text="Security Center pricing page with optional plans.":::
 
     The plan will be enabled on all SQL servers connected to the selected workspace. The protection will be fully active after the first restart of the SQL Server instance.
 
@@ -81,7 +89,7 @@ Alerts are generated by unusual and potentially harmful attempts to access or ex
 
 ## Explore and investigate security alerts
 
-Azure Defender for SQL alerts are available in Security Center's alerts page, the resource's security tab, the [Azure Defender dashboard](azure-defender-dashboard.md), or through the direct link in the alert emails.
+Azure Defender for SQL alerts are available in Security Center's alerts page, the machine's security page, the [Azure Defender dashboard](azure-defender-dashboard.md), or through the direct link in the alert emails.
 
 1. To view alerts, select **Security alerts** from Security Center's menu and select an alert.
 

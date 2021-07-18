@@ -3,8 +3,8 @@ title: 'Tutorial: Configure GitHub AE for automatic user provisioning with Azure
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to GitHub AE.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: d9818c05-e279-45b4-8aad-0fa156abd74e
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure GitHub AE for automatic user provisioning
@@ -29,7 +29,7 @@ This tutorial describes the steps you need to perform in both GitHub AE and Azur
 > * Remove users in GitHub AE when they do not require access anymore
 > * Keep user attributes synchronized between Azure AD and GitHub AE
 > * Provision groups and group memberships in GitHub AE
-> * Single sign-on to [Github AE](./github-ae-tutorial.md) (recommended)
+> * Single sign-on to [GitHub AE](./github-ae-tutorial.md) (recommended)
 
 ## Prerequisites
 

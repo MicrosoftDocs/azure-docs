@@ -11,7 +11,7 @@ ms.custom: devx-track-js, devx-track-csharp
 This article describes how to [validate an HTTP endpoint](webhook-event-delivery.md) to receive events from an Event Subscription and then receive and deserialize events. This article uses an Azure Function for demonstration purposes, however the same concepts apply regardless of where the application is hosted.
 
 > [!NOTE]
-> It is **strongly** recommended that you use an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) when triggering an Azure Function with Event Grid. The use of a generic WebHook trigger here is demonstrative.
+> It is recommended that you use an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) when triggering an Azure Function with Event Grid. It provides an easier and quicker integration between Event Grid and Azure Functions. However, please note that Azure Functions' Event Grid trigger does not support the scenario where the hosted code needs to control the HTTP status code returned to Event Grid. Given this limitation, your code running on an Azure Function would not be able to return a 5XX error to initiate an event delivery retry by Event Grid, for example.
 
 ## Prerequisites
 
@@ -392,7 +392,7 @@ Finally, test that your function can now handle your custom event type:
 
 You can also test this functionality live by [sending a custom event with CURL from the Portal](./custom-event-quickstart-portal.md) or by [posting to a custom topic](./post-to-custom-topic.md)  using any service or application that can POST to an endpoint such as [Postman](https://www.getpostman.com/). Create a custom topic and an event subscription with the endpoint set as the Function URL.
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 ## Next steps
 

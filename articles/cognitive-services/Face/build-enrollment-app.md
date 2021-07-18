@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Build a React app to add users to a Face service
 
-This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to add users into a face recognition service and acquire high-accuracy face data. An integrated system could use an app like this to provide touchless access control, identity verification, attendance tracking, personalization kiosk, or identity verification, based on their face data.
+This guide will show you how to get started with the sample Face enrollment application. The app demonstrates best practices for obtaining meaningful consent to add users into a face recognition service and acquire high-accuracy face data. An integrated system could use an app like this to provide touchless access control, identity verification, attendance tracking, or personalization kiosk, based on their face data.
 
 When launched, the application shows users a detailed consent screen. If the user gives consent, the app prompts for a username and password and then captures a high-quality face image using the device's camera.
 
@@ -84,7 +84,7 @@ To extend the app's functionality to cover the full experience, read the [overvi
 
 #### [Android](#tab/android)
 
-First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp).
+First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 When you're ready to release your app for production, you'll generate a release-ready APK file, which is the package file format for Android apps. This APK file must be signed with a private key. With this release build, you can begin distributing the app to your devices directly. 
 
@@ -94,7 +94,7 @@ Once you've created a signed APK, see the <a href="https://developer.android.com
 
 #### [iOS](#tab/ios)
 
-First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp). To prepare for distribution, you will need to create an app icon, a launch screen, and configure deployment info settings. Follow the [documentation from Xcode](https://developer.apple.com/documentation/Xcode/preparing_your_app_for_distribution) to prepare your app for distribution. 
+First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](../cognitive-services-security.md?tabs=command-line%2ccsharp). To prepare for distribution, you will need to create an app icon, a launch screen, and configure deployment info settings. Follow the [documentation from Xcode](https://developer.apple.com/documentation/Xcode/preparing_your_app_for_distribution) to prepare your app for distribution. 
 
 When you're ready to release your app for production, you'll build an archive of your app. Follow the [Xcode documentation](https://developer.apple.com/documentation/Xcode/distributing_your_app_for_beta_testing_and_releases) on how to create an archive build and options for distributing your app.  
 

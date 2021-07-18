@@ -69,7 +69,7 @@ built-in content, Guest Configuration handles loading these tools automatically.
 |Operating system|Validation tool|Notes|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Side-loaded to a folder only used by Azure Policy. Won't conflict with Windows PowerShell DSC. PowerShell Core isn't added to system path.|
-|Linux|[Chef InSpec](https://www.chef.io/inspec/)| Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
+|Linux|[Chef InSpec](https://www.chef.io/inspec/) | Installs Chef InSpec version 2.2.61 in default location and added to system path. Dependencies for the InSpec package including Ruby and Python are installed as well. |
 
 ### Validation frequency
 
@@ -87,17 +87,20 @@ Azure Resource Graph.
 
 Guest Configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
-compatible. The following table shows a list of supported operating systems on Azure images:
+compatible. The following table shows a list of supported operating systems on Azure images.
+The ".x" text is symbolic to represent new minor versions of Linux distributions.
 
 |Publisher|Name|Versions|
 |-|-|-|
-|Canonical|Ubuntu Server|14.04 - 20.04|
-|Credativ|Debian|8 - 10|
+|Canonical|Ubuntu Server|14.04 - 20.x|
+|Credativ|Debian|8 - 10.x|
 |Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Windows Client|Windows 10|
-|OpenLogic|CentOS|7.3 -8|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
-|Suse|SLES|12 SP3-SP5, 15|
+|OpenLogic|CentOS|7.3 -8.x|
+|Red Hat|Red Hat Enterprise Linux\*|7.4 - 8.x|
+|SUSE|SLES|12 SP3-SP5, 15.x|
+
+\* Red Hat CoreOS isn't supported.
 
 Custom virtual machine images are supported by Guest Configuration policy definitions as long as
 they're one of the operating systems in the table above.
@@ -116,11 +119,12 @@ To communicate with the Guest Configuration resource provider in Azure, machines
 access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
 configure exceptions with [Network Security
 Group](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) rules. The
-[service tag](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" can be
-used to reference the Guest Configuration service rather than manually maintaining the [list of IP
-ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Azure datacenters.
+[service tags](../../../virtual-network/service-tags-overview.md) "AzureArcInfrastructure" and "Storage" can be
+used to reference the Guest Configuration and Storage services rather than manually maintaining the [list of IP
+ranges](https://www.microsoft.com/download/details.aspx?id=56519) for Azure datacenters. Both tags are required
+because Guest Configuration content packages are hosted by Azure Storage.
 
-### Communicate over private link in Azure
+### Communicate over Private Link in Azure
 
 Virtual machines can use [private link](../../../private-link/private-link-overview.md) for
 communication to the Guest Configuration service. Apply tag with the name `EnablePrivateNetworkGC`
@@ -174,12 +178,11 @@ are met on the machine. The requirements are described in section
 
 ### What is a Guest Assignment?
 
-When an Azure Policy is assigned, if it's in the category "Guest Configuration"
-there's metadata included to describe a Guest Assignment.
-You can think of a Guest Assignment as a link between a machine and an Azure Policy scenario.
-For example, the snippet below associates the Azure Windows Baseline configuration
-with minimum version `1.0.0` to any machines in scope of the policy. By default,
-the Guest Assignment will only perform an audit of the machine.
+When an Azure Policy is assigned, if it's in the category "Guest Configuration" there's metadata
+included to describe a Guest Assignment. You can think of a Guest Assignment as a link between a
+machine and an Azure Policy scenario. For example, the following snippet associates the Azure
+Windows Baseline configuration with minimum version `1.0.0` to any machines in scope of the policy.
+By default, the Guest Assignment will only perform an audit of the machine.
 
 ```json
 "metadata": {
@@ -191,11 +194,10 @@ the Guest Assignment will only perform an audit of the machine.
 //additional metadata properties exist
 ```
 
-Guest Assignments are created automatically per machine by the Guest Configuration
-service. The resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
-Azure Policy uses the **complianceStatus** property of the Guest Assignment resource
-to report compliance status. For more information, see [getting compliance
-data](../how-to/get-compliance-data.md).
+Guest Assignments are created automatically per machine by the Guest Configuration service. The
+resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy uses the
+**complianceStatus** property of the Guest Assignment resource to report compliance status. For more
+information, see [getting compliance data](../how-to/get-compliance-data.md).
 
 #### Auditing operating system settings following industry baselines
 
@@ -235,6 +237,29 @@ The Audit policy definitions available for Guest Configuration include the
 **Microsoft.HybridCompute/machines** resource type. Any machines onboarded to
 [Azure Arc for servers](../../../azure-arc/servers/overview.md) that are in the scope of the policy
 assignment are automatically included.
+
+## Availability
+
+Customers designing a highly available solution should consider the redundancy planning requirements for
+[virtual machines](../../../virtual-machines/availability.md) because guest assignments are extensions of
+machine resources in Azure. When guest assignment resources are provisioned in to an Azure region that is
+[paired](../../../best-practices-availability-paired-regions.md), as long as at least one region in the pair
+is available, then guest assignment reports are available. If the Azure region isn't paired and
+it becomes unavailable, then it isn't possible to access reports for a guest assignment until
+the region is restored.
+
+When considering an architecture for highly available applications,
+especially where virtual machines are provisioned in
+[Availability Sets](../../../virtual-machines/availability.md#availability-sets)
+behind a load balancer solution to provide high availability,
+it's best practice to assign the same policy definitions with the same parameters to all machines
+in the solution. If possible, a single policy assignment spanning all
+machines would offer the least administrative overhead.
+
+For machines protected by
+[Azure Site Recovery](../../../site-recovery/site-recovery-overview.md),
+ensure that machines in a secondary site are within scope of Azure Policy assignments
+for the same definitions using the same parameter values as machines in the primary site.
 
 ## Troubleshooting guest configuration
 

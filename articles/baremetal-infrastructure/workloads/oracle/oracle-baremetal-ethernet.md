@@ -2,7 +2,7 @@
 title: Ethernet configuration of BareMetal for Oracle
 description: Learn about the configuration of Ethernet interfaces on BareMetal instances for Oracle workloads.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
 ---
 
@@ -53,7 +53,7 @@ For BareMetal instances, the default will have nine assigned IP addresses on the
 - Ethernet "C" should have an assigned IP address that is used for communication to NFS storage. This type of address shouldn't be maintained in the etc/hosts directory.
 - Ethernet "D" should be used exclusively for global reach setup towards accessing BareMetal instances in your DR region.
 
-## Next step
+## Next steps
 
 Learn more about BareMetal Infrastructure for Oracle architecture.
 

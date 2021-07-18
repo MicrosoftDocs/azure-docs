@@ -4,10 +4,10 @@ description: Create an Azure SQL managed instance on Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/13/2021
 ms.topic: how-to
 ---
 
@@ -16,23 +16,6 @@ ms.topic: how-to
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
-
-## Login to the Azure Arc data controller
-
-Before you can create an instance, log in to the Azure Arc data controller if you are not already logged in.
-
-```console
-azdata login
-```
-
-You will then be prompted for the username, password, and the system namespace.  
-
-```console
-Username: arcadmin
-Password:
-Namespace: arc
-Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
-```
 
 ## Create an Azure SQL Managed Instance
 
@@ -89,10 +72,10 @@ Name    Replicas    ServerEndpoint    State
 sqldemo 1/1         10.240.0.4:32023  Ready
 ```
 
-If you are using AKS or `kubeadm` or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio. However, if you are using the quickstart VM, see the [Connect to Azure Arc enabled SQL Managed Instance](connect-managed-instance.md) article for special instructions.
+If you are using AKS or `kubeadm` or OpenShift etc., you can copy the external IP and port number from here and connect to it using your favorite tool for connecting to a SQL Sever/Azure SQL instance such as Azure Data Studio or SQL Server Management Studio. However, if you are using the quickstart VM, see the [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md) article for special instructions.
 
 
 ## Next steps
-- [Connect to Azure Arc enabled SQL Managed Instance](connect-managed-instance.md)
+- [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)
 - [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
 - [Deploy Azure SQL managed instance using Azure Data Studio](create-sql-managed-instance-azure-data-studio.md)

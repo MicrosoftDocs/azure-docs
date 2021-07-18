@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Bentley - Automatic User Provisioning for automatic 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Bentley - Automatic User Provisioning.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 08778fff-f252-45c2-95d4-cc640c288af3
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Bentley - Automatic User Provisioning for automatic user provisioning
@@ -146,9 +146,6 @@ Once you've configured provisioning, use the following resources to monitor your
 1. Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 2. Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
-
-## Connector limitations
-* The enterprise extension attribute "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager" is not supported and will be removed.
 
 ## Additional resources
 

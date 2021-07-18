@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for Java to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/) | [Sample code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)
+[Library reference documentation](/java/api/com.azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/anomalydetector/azure-ai-anomalydetector) | [Package (Maven)](https://repo1.maven.org/maven2/com/azure/azure-ai-anomalydetector/3.0.0-beta.2/) | [Sample code](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/anomalydetector/azure-ai-anomalydetector/src/samples/java/com/azure/ai/anomalydetector/MultivariateSample.java)
 
 ## Prerequisites
 
@@ -99,6 +99,9 @@ import java.util.stream.Collectors;
 ```
 
 Create variables your resource's Azure endpoint and key. Create another variable for the example data file.
+
+> [!NOTE]
+> You will always have the option of using one of two keys. This is to allow secure key rotation. For the purposes of this quickstart use the first key. 
 
 ```java
 String key = "YOUR_API_KEY";
@@ -236,6 +239,9 @@ while (true) {
 
 ## Export model
 
+> [!NOTE]
+> The export command is intended to be used to allow running Anomaly Detector multivariate models in a containerized environment. This is not currently not supported for multivariate, but support will be added in the future.
+
 To export your trained model use the `exportModelWithResponse`.
 
 ```java
@@ -270,6 +276,14 @@ Run the application with the `run` goal:
 gradle run
 ```
 
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## Next steps
 
-* [Anomaly Detector multivariate best practices](../../concepts/best-practices-multivariate.md)
+* [What is the Anomaly Detector API?](../../overview-multivariate.md)
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

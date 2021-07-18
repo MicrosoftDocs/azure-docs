@@ -23,6 +23,9 @@ Serverless SQL pools let you use SQL without having to reserve capacity. Billing
 Every workspace comes with a pre-configured serverless SQL pool called **Built-in**. 
 
 ## Analyze NYC Taxi data with a serverless SQL pool
+ 
+> [!NOTE]
+> Make sure you have [placed the sample data into the primary storage account](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account)
 
 1. In Synapse Studio, go to the **Develop** hub
 1. Create a new SQL script.
@@ -93,7 +96,7 @@ However, as you continue data exploration, you might want to create some utility
     FROM
         OPENROWSET(
                 BULK '/users/NYCTripSmall.parquet',
-                DATA_SOURCE = 'ContosoLake'
+                DATA_SOURCE = 'ContosoLake',
                 FORMAT='PARQUET'
         ) AS [result]
     ```

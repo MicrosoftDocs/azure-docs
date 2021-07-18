@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -79,7 +79,7 @@ operate as intended.
 To troubleshoot your policy definition, do the following:
 
 1. First, wait the appropriate amount of time for an evaluation to finish and compliance results
-   to become available in Azure portal or SDK.
+   to become available in the Azure portal or SDK.
 
 1. To start a new evaluation scan with Azure PowerShell or the REST API, see
    [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
@@ -185,6 +185,22 @@ resource types.
 If an alias is used, make sure that the alias gets evaluated against only the resource type it
 belongs to by adding a type condition before it. An alternative is to split the policy definition
 into multiple definitions to avoid targeting multiple resource types.
+
+### Scenario: Subscription limit exceeded
+
+#### Issue
+
+An error message on the compliance page in Azure portal is shown when retrieving compliance for
+policy assignments.
+
+#### Cause
+
+The number of subscriptions under the selected scopes in the request has exceeded the limit of 5000
+subscriptions. The compliance results may be partially displayed.
+
+#### Resolution
+
+Select a more granular scope with fewer child subscriptions to see the complete results.
 
 ## Template errors
 
@@ -303,7 +319,7 @@ Ensure that the domains and ports mentioned in the following articles are open:
 The add-on can't reach the Azure Policy service endpoint, and it returns one of the following
 errors:
 
-- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
 - `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
 
 #### Cause

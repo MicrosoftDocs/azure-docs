@@ -148,7 +148,7 @@ The preceding command uses the following information:
   enforced on. It could range from a subscription to resource groups. Be sure to replace
   &lt;scope&gt; with the name of your resource group. The format for a resource group scope is
   `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroup>`.
-- **Policy** – The policy definition ID, based on which you're using to create the assignment. In
+- **Policy** - The policy definition ID, based on which you're using to create the assignment. In
   this case, it's the ID of policy definition _Require a tag on resource groups_. To get the policy
   definition ID, run this command:
   `az policy definition list --query "[?displayName=='Require a tag on resource groups']"`

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/07/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -33,7 +33,7 @@ More details on why security defaults are being made available can be found in A
 
 ## Availability
 
-Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, it is possible security defaults are already enabled in your tenant. To protect all of our users, security defaults is being rolled out to all new tenants created.
+Microsoft is making security defaults available to everyone. The goal is to ensure that all organizations have a basic level of security enabled at no extra cost. You turn on security defaults in the Azure portal. If your tenant was created on or after October 22, 2019, it is possible security defaults are already enabled in your tenant. To protect all of our users, security defaults are being rolled out to all new tenants created.
 
 ### Who's it for?
 
@@ -134,13 +134,16 @@ These free security defaults allow registration and use of Azure AD Multi-Factor
 - ** Users may use verification codes from the Microsoft Authenticator app but can only register using the notification option.
 - *** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
+> [!WARNING]
+> Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
+
 ### Disabled MFA status
 
 If your organization is a previous user of per-user based Azure AD Multi-Factor Authentication, do not be alarmed to not see users in an **Enabled** or **Enforced** status if you look at the Multi-Factor Auth status page. **Disabled** is the appropriate status for users who are using security defaults or Conditional Access based Azure AD Multi-Factor Authentication.
 
 ### Conditional Access
 
-You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which are not available in security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable Conditional Access policies. More information about Azure AD licensing can be found on the [Azure AD pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
+You can use Conditional Access to configure policies similar to security defaults, but with more granularity including user exclusions, which are not available in security defaults. If you're using Conditional Access and have Conditional Access policies enabled in your environment, security defaults won't be available to you. If you have a license that provides Conditional Access but don't have any Conditional Access policies enabled in your environment, you are welcome to use security defaults until you enable Conditional Access policies. More information about Azure AD licensing can be found on the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ![Warning message that you can have security defaults or Conditional Access not both](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

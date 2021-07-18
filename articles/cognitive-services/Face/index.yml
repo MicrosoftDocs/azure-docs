@@ -59,11 +59,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
+            url: quickstarts/client-libraries.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
+            url: quickstarts/client-libraries.md?pivots=programming-language-python
           - text: Using the Go SDK
-            url: ./quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go
+            url: quickstarts/client-libraries.md?pivots=programming-language-go
       - linkListType: how-to-guide
         links:
           - text: Specify a face recognition model
@@ -100,7 +100,7 @@ landingContent:
           - text: REST API
             url: /rest/api/face/
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
+            url: /dotnet/api/overview/azure/cognitiveservices/face-readme
           - text: Python SDK
             url: /python/api/azure-cognitiveservices-vision-face/
           - text: Java SDK

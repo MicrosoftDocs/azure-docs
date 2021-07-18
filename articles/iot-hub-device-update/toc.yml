@@ -1,3 +1,4 @@
+items:
 - name: Device Update for IoT Hub Documentation
   href: index.yml
 - name: Overview
@@ -46,6 +47,8 @@
     href: import-concepts.md
   - name: Import-related schema
     href: import-schema.md
+  - name: Device Update limits
+    href: device-update-limits.md
 
 - name: How-to guides
   items:
@@ -78,17 +81,19 @@
   - name: Control Plane SDK
     items:
       - name: .NET
-        href: /dotnet/api/overview/azure/iot/management?view=azure-dotnet
+        href: /dotnet/api/overview/azure/iot/management
       - name: Python
-        href: /python/api/azure-mgmt-deviceupdate/?view=azure-python
+        href: /python/api/azure-mgmt-deviceupdate/
   - name: Data Plane SDK
     items:
+      - name: .NET
+        href: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - name: JavaScript
-        href: /javascript/api/@azure/iot-device-update/?view=azure-node-preview
+        href: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - name: Java
-        href: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview
+        href: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
       - name: Python
-        href: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview
+        href: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true
 - name: Resources
   items:
   - name: Support and help options
@@ -106,7 +111,7 @@
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

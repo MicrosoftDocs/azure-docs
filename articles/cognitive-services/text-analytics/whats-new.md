@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 07/12/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,49 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## July 2021
+
+### GA release updates
+
+* General availability for [Text Analytics for health](how-tos/text-analytics-for-health.md?tabs=ner) for both containers and hosted API (/health).
+* General availability for [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md?tabs=version-3-1#opinion-mining).
+* General availability for [PII extraction and redaction](how-tos/text-analytics-how-to-entity-linking.md?tabs=version-3-1#personally-identifiable-information-pii).
+* General availability for [Asynchronous (`/analyze`) endpoint](how-tos/text-analytics-how-to-call-api.md?tabs=synchronous#using-the-api-asynchronously).
+* Updated [quickstart](quickstarts/client-libraries-rest-api.md) examples with new SDK. 
+
+## June 2021
+
+### General API updates
+
+* New model-version `2021-06-01` for key phrase extraction based on transformers. It provides:
+  * Support for 10 languages (Latin and CJK). 
+  * Improved key phrase extraction.
+* The `2021-06-01` model version for [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.x, which provides 
+  * Improved AI quality and expanded language support for the *Skill* entity category. 
+  * Added Spanish, French, German, Italian and Portuguese language support for the *Skill* entity category
+* Asynchronous (/analyze) operation and Text Analytics for health (ungated preview) is available in all regions. 
+
+### Text Analytics for health updates
+
+* You no longer need to apply for access to preview Text Analytics for health.
+* A new model version `2021-05-15` for the `/health` endpoint and on-premise container which provides
+    * 5 new entity types: `ALLERGEN`, `CONDITION_SCALE`, `COURSE`, `EXPRESSION` and `MUTATION_TYPE`,
+    * 14 new relation types,
+    * Assertion detection expanded for new entity types and
+    * Linking support for ALLERGEN entity type
+* A new image for the Text Analytics for health container with tag `3.0.016230002-onprem-amd64` and model version `2021-05-15`. This container is available for download from Microsoft Container Registry.
+ 
+## May 2021
+
+* [Custom question answering](../qnamaker/custom-question-answering.md) (previously QnA maker) can now be accessed using a Text Analytics resource. 
+
+### General API updates
+
+* Release of the new API v3.1-preview.5 which includes 
+  * Asynchronous [Analyze API](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous) now supports Sentiment Analysis (SA) and Opinion Mining (OM).
+  * A new query parameter, `LoggingOptOut`, is now available for customers who wish to opt out of logging input text for incident reports.  Learn more about this parameter in the [data privacy](/legal/cognitive-services/text-analytics/data-privacy?context=/azure/cognitive-services/text-analytics/context/context) article.
+* Text Analytics for health and the Analyze asynchronous operations are now available in all regions
 
 ## March 2021
 

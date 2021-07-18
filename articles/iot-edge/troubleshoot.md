@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/01/2021
+ms.date: 05/04/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -108,10 +108,24 @@ sudo iotedge support-bundle --since 6h
 :::moniker-end
 <!-- end 1.2 -->
 
-You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) call to your device to upload the output of the support-bundle command to Azure Blob Storage.
+By default, the `support-bundle` command creates a zip file called **support_bundle.zip** in the directory where the command is called. Use the flag `--output` to specify a different path or file name for the output.
+
+For more information about the command, view its help information.
+
+```bash/cmd
+iotedge support-bundle --help
+```
+
+You can also use the built-in direct method call [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) to upload the output of the support-bundle command to Azure Blob Storage.
 
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
+
+## Review metrics collected from the runtime
+
+The IoT Edge runtime modules produce metrics to help you monitor and understand the health of your IoT Edge devices. Add the **metrics-collector** module to your deployments to handle collecting these metrics and sending them to the cloud for easier monitoring.
+
+For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
 
 ## Check your IoT Edge version
 
@@ -126,7 +140,7 @@ You can verify the installation of IoT Edge on your devices by [monitoring the e
 To get the latest edgeAgent module twin, run the following command from [Azure Cloud Shell](https://shell.azure.com/):
 
    ```azurecli-interactive
-   az iot hub module-twin show --device-id <edge_device_id> --module-id $edgeAgent --hub-name <iot_hub_name>
+   az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name>
    ```
 
 This command will output all the edgeAgent [reported properties](./module-edgeagent-edgehub.md). Here are some helpful ones monitor the status of the device:
@@ -254,11 +268,17 @@ On Windows:
 
 Once the IoT Edge security daemon is running, look at the logs of the containers to detect issues. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing.
 
-```cmd
-iotedge logs <container name>
-```
+You can retrieve the container logs from several places:
 
-You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) call to a module on your device to upload the logs of that module to Azure Blob Storage.
+* On the IoT Edge device, run the following command to view logs:
+
+  ```cmd
+  iotedge logs <container name>
+  ```
+
+* On the Azure portal, use the built-in troubleshoot tool. [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md)
+
+* Use the [UploadModuleLogs direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) to upload the logs of a module to Azure Blob Storage.
 
 ## Clean up container logs
 
@@ -344,7 +364,9 @@ You can also check the messages being sent between IoT Hub and IoT devices. View
 
 ## Restart containers
 
-After investigating the logs and messages for information, you can try restarting containers:
+After investigating the logs and messages for information, you can try restarting containers.
+
+On the IoT Edge device, use the following commands to restart modules:
 
 ```cmd
 iotedge restart <container name>
@@ -355,6 +377,8 @@ Restart the IoT Edge runtime containers:
 ```cmd
 iotedge restart edgeAgent && iotedge restart edgeHub
 ```
+
+You can also restart modules remotely from the Azure portal. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 ## Check your firewall and port configuration rules
 

@@ -3,7 +3,7 @@ title: Exempt an Azure Security Center recommendation from a resource, subscript
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 author: memildin
 ms.author: memildin
-ms.date: 04/21/2021
+ms.date: 05/12/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
@@ -32,7 +32,7 @@ In such cases, you can create an exemption for a recommendation to:
 | Pricing:                        | This is a premium Azure Policy capability that's offered for Azure Defender customers with no additional cost. For other users, charges might apply in the future.                                                                                                                                                                 |
 | Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Limitations:                    | Exemptions can be created only for recommendations included in Security Center's default initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
-| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)                                                                                                                                                                                         |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (US Gov, Azure China)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
 ## Define an exemption
@@ -73,7 +73,7 @@ To create an exemption rule:
     1. Optionally, enter a description.
     1. Select **Create**.
 
-    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group":::
+    :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group.":::
 
     When the exemption takes effect (it might take up to 30 minutes):
     - The recommendation or resources won't impact your secure score.
@@ -84,11 +84,11 @@ To create an exemption rule:
 
     - The information strip at the top of the recommendation details page updates the number of exempted resources:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Number of exempted resources.":::
 
 1. To review your exempted resources, open the **Not applicable** tab:
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption.":::
 
     The reason for each exemption is included in the table (1).
 
@@ -171,6 +171,9 @@ Learn more in the following pages:
 
 ## FAQ - Exemption rules
 
+- [What happens when one recommendation is in multiple policy initiatives?](#what-happens-when-one-recommendation-is-in-multiple-policy-initiatives)
+- [Are there any recommendations that don't support exemption?](#are-there-any-recommendations-that-dont-support-exemption)
+
 ### What happens when one recommendation is in multiple policy initiatives?
 
 Sometimes, a security recommendation appears in more than one policy initiative. If you've got multiple instances of the same recommendation assigned to the same subscription, and you create an exemption for the recommendation, it will affect all of the initiatives that you have permission to edit. 
@@ -186,6 +189,24 @@ If you try to create an exemption for this recommendation, you'll see one of the
 - If you don't have sufficient permissions on both initiatives, you'll see this message instead:
 
     *You have limited permissions to apply the exemption on all the policy initiatives, the exemptions will be created only on the initiatives with sufficient permissions.*
+
+### Are there any recommendations that don't support exemption?
+
+These recommendations don't support exemption:
+
+- Container CPU and memory limits should be enforced
+- Privileged containers should be avoided
+- Container images should be deployed from trusted registries only
+- Containers should listen on allowed ports only
+- Services should listen on allowed ports only
+- Least privileged Linux capabilities should be enforced for container
+- Immutable (read-only) root filesystem should be enforced for containers
+- Container with privilege escalation should be avoided
+- Running containers as root user should be avoided
+- Usage of host networking and ports should be restricted
+- Containers sharing sensitive host namespaces should be avoided
+- Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers
+- Overriding or disabling of containers AppArmor profile should be restricted
 
 
 ## Next steps

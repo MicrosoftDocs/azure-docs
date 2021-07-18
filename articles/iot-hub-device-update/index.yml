@@ -41,12 +41,14 @@ landingContent:
           url: device-update-plug-and-play.md
         - text: Understand device update authentication and authorization
           url: device-update-control-access.md
-        - text: Understand device update agent
+        - text: Understand Device Update agent
           url: device-update-agent-overview.md
-        - text: Understand device update importing
+        - text: Understand Device Update importing
           url: import-concepts.md
-        - text: Understand device update groups
+        - text: Understand Device Update groups
           url: device-update-groups.md
+        - text: Understand Device Update limits
+          url: device-update-limits.md
   - title: Developer guide
     linkLists:
     - linkListType: how-to-guide
@@ -73,14 +75,16 @@ landingContent:
     - linkListType: reference
       links:
       - text: Control Plane - .NET
-        url:  /dotnet/api/overview/azure/iot/management?view=azure-dotnet
+        url:  /dotnet/api/overview/azure/iot/management
       - text: Control Plane - Python
-        url:  /python/api/azure-mgmt-deviceupdate/?view=azure-python
+        url:  /python/api/azure-mgmt-deviceupdate/
     - linkListType: reference
       links:
+      - text: Data Plane - .NET
+        url: /dotnet/api/azure.iot.deviceupdate?view=azure-dotnet-preview&preserve-view=true
       - text: Data Plane - JavaScript
-        url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview
+        url: /javascript/api/@azure/iot-device-update/?view=azure-node-preview&preserve-view=true
       - text: Data Plane - Java
-        url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview
+        url: /java/api/com.azure.iot.deviceupdate?view=azure-java-preview&preserve-view=true
       - text: Data Plane - Python
-        url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview
+        url: /python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate?view=azure-python-preview&preserve-view=true

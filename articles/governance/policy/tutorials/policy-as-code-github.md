@@ -148,7 +148,7 @@ on:
   schedule:
     - cron:  '0 8 * * *'  # runs every morning 8am
 jobs:
-  assess-policy-compliance:    
+  assess-policy-compliance:
     runs-on: ubuntu-latest
     steps:
     - name: Login to Azure
