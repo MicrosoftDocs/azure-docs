@@ -32,7 +32,9 @@ The following image shows a full decision tree flow chart to help you understand
 
 [ ![Azure Sentinel workspace design decision tree.](media/best-practices/workspace-decision-tree.png) ](media/best-practices/workspace-decision-tree.png#lightbox)
 
-The following sections provide a full-text version of this decision tree, as well the following considerations referenced from the decision tree image:
+The following sections provide a full-text version of this decision tree.
+
+The following notes are referenced from the decision tree image:
 
 [Note #1](#note1) | [Note #2](#note2)  | [Note #3](#note3)  | [Note #4](#note4)  | [Note #5](#note5)  | [Note #6](#note6)  | [Note #7](#note7)  | [Note #8](#note8)  | [Note #9](#note9)
 
@@ -50,13 +52,9 @@ Are you planning to enable Azure Sentinel on an existing workspace?
 
 ### Step 2: Keeping data in different Azure geographies?
 
-Do you have regulatory requirements to keep data in different Azure geographies?
+- **If you have regulatory requirements to keep data in different Azure geographies**, use a separate Azure Sentinel workspace for each Azure region that has compliance requirements. For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
 
-If so, use a separate Azure Sentinel workspace for each Azure region that has compliance requirements, and your decision tree ends here.
-
-For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
-
-If you don't need to keep data in different Azure geographies, continue with [step 3](#step-3-do-you-have-multiple-azure-tenants).
+- **If you don't need to keep data in different Azure geographies**, continue with [step 3](#step-3-do-you-have-multiple-azure-tenants).
 
 ### Step 3: Do you have multiple Azure tenants?
 
@@ -64,24 +62,14 @@ If you don't need to keep data in different Azure geographies, continue with [st
 
 - **If you have multiple Azure tenants**, consider whether you're collecting logs that are specific to a tenant boundary, such as Office 365 or Microsoft 365 Defender.
 
-    - **If you don't have any tenant-specific logs**, continue with [step 4](#step-4-splitting-billing--charge-back).
+    - **If you don't have any tenant-specific logs**, continue directly with [step 4](#step-4-splitting-billing--charge-back).
 
-    - **If you *are* collecting tenant-specific logs**, use a separate Azure Sentinel workspace for each Azure AD tenant.
+    - **If you *are* collecting tenant-specific logs**, use a separate Azure Sentinel workspace for each Azure AD tenant. Continue with [step 4](#step-4-splitting-billing--charge-back) for other considerations.
 
         <a name="note1"></a>[Decision tree note #1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant.
 
-        Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages:
-
-        - Data collected by custom connectors will be ingested into custom tables, and therefore can’t leverage all the built-in rules and workbooks.
-
-        - Custom tables are not supported by some of the built-in features, such as UEBA and machine learning rules.
-
-        - Additional cost and effort required for the custom connectors, such as using Azure Functions and Logic Apps.
-
-    > [!IMPORTANT]
-    > If any of these disadvantages are not a concern for your organization, continue with [step 4](#step-4-splitting-billing--charge-back) instead of using separate Azure Sentinel workspaces.
-    >
-
+<!-- NOT INCLUDING THIS BC WE DON"T INCLUDE UNRECOMMENDED THINGS IT WILL ONLY CONFUSE Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages: - Data collected by custom connectors will be ingested into custom tables, and therefore can’t leverage all the built-in rules and workbooks.        - Custom tables are not supported by some of the built-in features, such as UEBA and machine learning rules. - Additional cost and effort required for the custom connectors, such as using Azure Functions and Logic Apps.    > [!IMPORTANT]> If any of these disadvantages are not a concern for your organization, continue with [step 4](#step-4-splitting-billing--charge-back) instead of using separate Azure Sentinel workspaces.>
+-->
 ### Step 4: Splitting billing / charge-back?
 
 If you need to split your billing or charge-back, consider whether the usage reporting or manual cross-charge works for you.
@@ -154,7 +142,7 @@ In addition, to avoid double ingestion costs, consider collecting overlapped dat
         - Sending data from a US region to a EU region;
         - Using a 2:1 compression rate in the agent
 
-        `1000 VMs * (1GB/day ÷ 2) * 30 days/month * $0.05/GB = $750/month bandwidth cost`
+        The calculation for this estimated cost would be: `1000 VMs * (1GB/day ÷ 2) * 30 days/month * $0.05/GB = $750/month bandwidth cost`
 
         This sample cost would be much less expensive when compared with the monthly costs of a separate Azure Sentinel and Log Analytics workspace.
 
