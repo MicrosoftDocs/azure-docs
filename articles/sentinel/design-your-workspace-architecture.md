@@ -32,7 +32,11 @@ The following image shows a full decision tree flow chart to help you understand
 
 [ ![Azure Sentinel workspace design decision tree.](media/best-practices/workspace-decision-tree.png) ](media/best-practices/workspace-decision-tree.png#lightbox)
 
-The following sections provide a full-text version of this decision tree, as well as additional considerations referenced from the decision tree image.
+The following sections provide a full-text version of this decision tree, as well the following considerations referenced from the decision tree image:
+
+[Note #1](#note1) | [Note #2](#note2)  | [Note #3](#note3)  | [Note #4](#note4)  | [Note #5](#note5)  | [Note #6](#note6)  | [Note #7](#note7)  | [Note #8](#note8)  | [Note #9](#note9)
+
+
 
 ### Step 1: New or existing workspace?
 
@@ -64,7 +68,7 @@ If you don't need to keep data in different Azure geographies, continue with [st
 
     - **If you *are* collecting tenant-specific logs**, use a separate Azure Sentinel workspace for each Azure AD tenant.
 
-        [Decision tree note #1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant.
+        <a name="note1"></a>[Decision tree note #1](#decision-tree): Logs specific to tenant boundaries, such as from Office 365 and Microsoft Defender, can only be stored in the workspace within the same tenant.
 
         Although you could use a custom connector to collect tenant-specific logs from a workspace in another tenant, doing so would have the following disadvantages:
 
@@ -90,7 +94,7 @@ If you need to split your billing or charge-back, consider whether the usage rep
 
     - If neither usage reporting or manual cross-charging will work for you, use a separate Azure Sentinel workspace for each cost owner.
 
-    [Decision tree note #2](#decision-tree): For more information, see [Azure Sentinel costs and billing](azure-sentinel-billing.md).
+    <a name="note2"></a>[Decision tree note #2](#decision-tree): For more information, see [Azure Sentinel costs and billing](azure-sentinel-billing.md).
 
 ### Step 5: Collecting any non-SOC data?
 
@@ -104,7 +108,7 @@ If you need to split your billing or charge-back, consider whether the usage rep
 
 #### Combining your SOC and non-SOC data
 
-[Decision tree note #3](#decision-tree): While we generally recommend that customers keep a separate workspace for their non-SOC data so that non-SOC data is not subject to Azure Sentinel costs, there may be situations where combining SOC and non-SOC data is less expensive than separating them.
+<a name="note3"></a>[Decision tree note #3](#decision-tree): While we generally recommend that customers keep a separate workspace for their non-SOC data so that non-SOC data is not subject to Azure Sentinel costs, there may be situations where combining SOC and non-SOC data is less expensive than separating them.
 
 For example, consider an organization that has security logs ingesting at 50 GB/day, operations logs ingesting at 50 GB/day, and a workspace in the East US region.
 
@@ -136,13 +140,13 @@ In addition, to avoid double ingestion costs, consider collecting overlapped dat
 
 - **If you are collecting logs from Azure VMs in *multiple* regions**, how concerned are you about the data egress cost?
 
-    [Decision tree note #4](#decision-tree): Data egress refers to the bandwidth cost for moving data out of Azure datacenters. For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
+    <a name="note4"></a>[Decision tree note #4](#decision-tree): Data egress refers to the bandwidth cost for moving data out of Azure datacenters. For more information, see [Region considerations](workspace-architecture-best-practices.md#region-considerations).
 
     - If reducing the amount of effort required to maintain separate workspaces is a priority, continue with step 7.
 
     - If the data egress cost is enough of a concern to make maintaining separate workspaces worthwhile, use a separate Azure Sentinel workspace for each region where you need reduce the data egress cost.
 
-        [Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the Azure pricing calculator to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Azure Sentinel and Log Analytics ingestion costs.
+        <a name="note5"></a>[Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the Azure pricing calculator to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Azure Sentinel and Log Analytics ingestion costs.
 
         A sample cost might be estimated as follows:
 
@@ -166,7 +170,7 @@ In addition, to avoid double ingestion costs, consider collecting overlapped dat
 
     - If each data owner must have access to the Azure Sentinel portal, use a separate Azure Sentinel workspace for each owner.
 
-        [Decision tree note #6](#decision-tree): Access to the Azure Sentinel portal requires that each user have a role of at least an [Azure Sentinel Reader](/azure/role-based-access-control/built-in-roles), with **Reader** permissions on all tables in the workspace. If a user does not have access to all tables in the workspace, they'll need to use Log Analytics to access the logs in search queries.
+        <a name="note6"></a>[Decision tree note #6](#decision-tree): Access to the Azure Sentinel portal requires that each user have a role of at least an [Azure Sentinel Reader](/azure/role-based-access-control/built-in-roles), with **Reader** permissions on all tables in the workspace. If a user does not have access to all tables in the workspace, they'll need to use Log Analytics to access the logs in search queries.
 
     - If access to the logs via Log Analytics is sufficient for any owners without access to the Azure Sentinel portal, continue with step 8.
 
@@ -188,11 +192,11 @@ In addition, to avoid double ingestion costs, consider collecting overlapped dat
 
 When planning to use resource-context or table level RBAC, consider the following:
 
-- [Decision tree note #7](#decision-tree): To configure resource-context RBAC for non-Azure resources, you may want to associate a Resource ID to the data when sending to Azure Sentinel, so that the permission can be scoped using resource-context RBAC. For more information, see [Explicitly configure resource-context RBAC](resource-context-rbac.md#explicitly-configure-resource-context-rbac) and [Access modes by deployment](/azure/azure-monitor/logs/design-logs-deployment).
+- <a name="note7"></a>[Decision tree note #7](#decision-tree): To configure resource-context RBAC for non-Azure resources, you may want to associate a Resource ID to the data when sending to Azure Sentinel, so that the permission can be scoped using resource-context RBAC. For more information, see [Explicitly configure resource-context RBAC](resource-context-rbac.md#explicitly-configure-resource-context-rbac) and [Access modes by deployment](/azure/azure-monitor/logs/design-logs-deployment).
 
-- [Decision tree note #8](#decision-tree): [Resource permissions](/azure/azure-monitor/logs/manage-access) or [resource-context](/azure/azure-monitor/logs/design-logs-deployment) allows users to view logs only for resources that they have access to. The workspace access mode must be set to **User resource or workspace permissions**. Only tables relevant to the resources where the user has permissions will be included in search results from the **Logs** page in Azure Sentinel.
+- <a name="note8"></a>[Decision tree note #8](#decision-tree): [Resource permissions](/azure/azure-monitor/logs/manage-access) or [resource-context](/azure/azure-monitor/logs/design-logs-deployment) allows users to view logs only for resources that they have access to. The workspace access mode must be set to **User resource or workspace permissions**. Only tables relevant to the resources where the user has permissions will be included in search results from the **Logs** page in Azure Sentinel.
 
-- [Decision tree note #9](#decision-tree): [Table-level RBAC](/azure/azure-monitor/logs/manage-access) allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users. For more information, see [Table-level RBAC in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043).
+- <a name="note9"></a>[Decision tree note #9](#decision-tree): [Table-level RBAC](/azure/azure-monitor/logs/manage-access) allows you to define more granular control to data in a Log Analytics workspace in addition to the other permissions. This control allows you to define specific data types that are accessible only to a specific set of users. For more information, see [Table-level RBAC in Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043).
 
 
 ## Next steps
