@@ -12,7 +12,7 @@ ms.date: 07/18/2021
 
 # Design your Azure Sentinel workspace architecture
 
-This article provides a decision tree to help you make key decisions about how to design your Azure Sentinel workspace architecture. For more information, see [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md).
+This article provides a decision tree to help you make key decisions about how to design your Azure Sentinel workspace architecture. For more information, see [Azure Sentinel sample workspace designs](sample-workspace-designs.md) and [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md).
 
 ## Prerequisites
 
@@ -189,8 +189,9 @@ When planning to use resource-context or table level RBAC, consider the followin
 
 ## Next steps
 
+For examples of this decision tree in practice, see [Azure Sentinel sample workspace designs](sample-workspace-designs.md).
+
 For more information, see:
 
-- [Pre-deployment activities and prerequisites for deploying Azure Sentinel](sample-workspace-designs.md)
 - [Azure Sentinel workspace architecture best practices](workspace-architecture-best-practices.md)
 - [Best practices for Azure Sentinel](best-practices.md)
