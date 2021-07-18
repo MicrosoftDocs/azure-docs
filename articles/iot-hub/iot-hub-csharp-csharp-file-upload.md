@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/18/2021
 ms.author: robinsh
 ms.custom: "mqtt, devx-track-csharp"
 ---

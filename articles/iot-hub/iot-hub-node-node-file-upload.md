@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/18/2021
 ms.custom: mqtt, devx-track-js
 ---
 
