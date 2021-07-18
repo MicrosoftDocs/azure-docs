@@ -145,9 +145,9 @@ Most of the public methods in ADAL Node have equivalents in MSAL Node:
 | ADAL                                | MSAL                              | Notes                             |
 |-------------------------------------|-----------------------------------|-----------------------------------|
 | `acquireToken`                      | `acquireTokenSilent`              | Renamed and now expects an [account](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#accountinfo) object |
-| `acquireTokenWithAuthorizationCode` | `acquireTokenByCode`      |                                   |
+| `acquireTokenWithAuthorizationCode` | `acquireTokenByCode`              |                                   |
 | `acquireTokenWithClientCredentials` | `acquireTokenByClientCredential` |                                   |
-| `acquireTokenWithRefreshToken`      | `acquireTokenByRefreshToken`      |                                   |
+| `acquireTokenWithRefreshToken`      | `acquireTokenByRefreshToken`      | Useful for migrating valid [refresh tokens](#remove-logic-around-refresh-tokens)              |
 | `acquireTokenWithDeviceCode`        | `acquireTokenByDeviceCode`        | Now abstracts user code acquisition (see below) |
 | `acquireTokenWithUsernamePassword`  | `acquireTokenByUsernamePassword`  |                                   |
 
@@ -299,7 +299,7 @@ MSAL Node uses an in-memory token cache by default. You do not need to explicitl
 const msalTokenCache = publicClientApplication.getTokenCache();
 ```
 
-Importantly, your previous token cache with ADAL Node will not be transferable to MSAL Node, since cache schemas are incompatible. However, you may use the refresh tokens your app obtained previously with ADAL Node in MSAL Node. See the section on [refresh tokens](#remove-logic-around-refresh-tokens) for more.
+Importantly, your previous token cache with ADAL Node will not be transferable to MSAL Node, since cache schemas are incompatible. However, you may use the valid refresh tokens your app obtained previously with ADAL Node in MSAL Node. See the section on [refresh tokens](#remove-logic-around-refresh-tokens) for more.
 
 You can also write your cache to disk by providing your own **cache plugin**. The cache plugin must implement the interface [ICachePlugin](https://azuread.github.io/microsoft-authentication-library-for-js/ref/interfaces/_azure_msal_common.icacheplugin.html). Like logging, caching is part of the configuration options and is created with the initialization of the MSAL Node instance:
 
@@ -356,7 +356,7 @@ In ADAL Node, the refresh tokens (RT) were exposed allowing you to develop solut
 - Long running services that do actions including refreshing dashboards on behalf of the users where the users are no longer connected.
 - WebFarm scenarios for enabling the client to bring the RT to the web service (caching is done client side, encrypted cookie, and not server side).
 
-MSAL Node, along with other MSALs, does not expose refresh tokens for security reasons. Instead, MSAL handles refreshing tokens for you. As such, you no longer need to build logic for this. However, you can make use of your previously acquired refresh tokens from ADAL Node's cache. To do this, MSAL Node offers `acquireTokenByRefreshToken`, which is equivalent to ADAL Node's `acquireTokenWithRefreshToken` method:
+MSAL Node, along with other MSALs, does not expose refresh tokens for security reasons. Instead, MSAL handles refreshing tokens for you. As such, you no longer need to build logic for this. However, you **can** make use of your previously acquired (and still valid) refresh tokens from ADAL Node's cache to get a new set of tokens with MSAL Node. To do this, MSAL Node offers `acquireTokenByRefreshToken`, which is equivalent to ADAL Node's `acquireTokenWithRefreshToken` method:
 
 ```javascript
 var msal = require('@azure/msal-node');
@@ -365,17 +365,18 @@ const config = {
     auth: {
         clientId: "ENTER_CLIENT_ID",
         authority: "https://login.microsoftonline.com/ENTER_TENANT_ID",
+        clientSecret: "ENTER_CLIENT_SECRET"
     }
 };
 
-const pca = new msal.PublicClientApplication(config);
+const cca = new msal.ConfidentialClientApplication(config);
 
 const refreshTokenRequest = {
     refreshToken: "", // your previous refresh token here
     scopes: ["user.read"],
 };
 
-pca.acquireTokenByRefreshToken(refreshTokenRequest).then((response) => {
+cca.acquireTokenByRefreshToken(refreshTokenRequest).then((response) => {
     console.log(JSON.stringify(response));
 }).catch((error) => {
     console.log(JSON.stringify(error));
@@ -398,7 +399,7 @@ Once your changes are done, run the app and test your authentication scenario:
 npm start
 ```
 
-## Example: Securing web apps with ADAL Node vs. MSAL Node
+## Example: Acquiring tokens with ADAL Node vs. MSAL Node
 
 The snippet below demonstrates a confidential client web app in the Express.js framework. It performs a sign-in when a user hits the authentication route `/auth`, acquires an access token for Microsoft Graph via the `/redirect` route and then displays the content of the said token.
 
