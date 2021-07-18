@@ -13,16 +13,18 @@ ms.author: robinsh
 
 # Tutorial: Visualize real-time sensor data from Azure IoT Hub using Power BI
 
-You can use Power BI to visualize real-time sensor data that your Azure IoT hub receives. To do so, you configure an Azure Stream Analytics job to consume the data from IoT Hub and route it to a dataset in Power BI. The following diagram provides an overview:
+You can use Microsoft Power BI to visualize real-time sensor data that your Azure IoT hub receives. To do so, you configure an Azure Stream Analytics job to consume the data from IoT Hub and route it to a dataset in Power BI. 
 
-:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="End-to-end diagram":::
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-power-bi/end-to-end-diagram.png" alt-text="End-to-end diagram" border="false":::
+
+ [Microsoft Power BI](https://powerbi.microsoft.com/) is a data visualization tool that you can use to perform self-service and enterprise business intelligence (BI) over large data sets. [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/#overview) is a fully managed, real-time analytics service designed to help you analyze and process fast moving streams of data that can be used to get insights, build reports or trigger alerts and actions. 
 
 In this tutorial, you perform the following tasks:
 
 > [!div class="checklist"]
 > * Create a consumer group on your IoT hub.
 > * Create and configure an Azure Stream Analytics job to read temperature telemetry from your consumer group and send it to Power BI.
-> * Configure a report of the temperature data in Power BI and share it to the web.
+> * Create a report of the temperature data in Power BI and share it to the web.
 
 ## Prerequisites
 
@@ -189,8 +191,6 @@ The following steps show you how to create and publish a report using the Power 
 
 Microsoft also offers the [Power BI mobile apps](https://powerbi.microsoft.com/documentation/powerbi-power-bi-apps-for-mobile-devices/) for viewing and interacting with your Power BI dashboards and reports on your mobile device.
 
-For another way to visualize data from Azure IoT Hub, see [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
-
 ## Cleanup resources
 
 In this tutorial, you've created a resource group, an IoT hub, a Stream Analytics job, and a dataset in Power BI. 
@@ -220,7 +220,7 @@ In this tutorial, you learned how to use Power BI to visualize real-time sensor 
 > * Create and configure an Azure Stream Analytics job to read temperature telemetry from your consumer group and send it to Power BI.
 > * Configure a report for the temperature data in Power BI and share it to the web.
 
-Advance to the next tutorial to learn how to manage the state of an IoT device. 
+For another way to visualize data from Azure IoT Hub, see the following article.
 
 > [!div class="nextstepaction"]
-> [Set up and use metrics and diagnostics with an IoT Hub](tutorial-use-metrics-and-diags.md)
+> [Use a web app to visualize real-time sensor data from Azure IoT Hub](iot-hub-live-data-visualization-in-web-apps.md).
