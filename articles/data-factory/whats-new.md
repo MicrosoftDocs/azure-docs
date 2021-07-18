@@ -21,7 +21,7 @@ Azure Data Factory receives improvements on an ongoing basis. To stay up to date
 
 This page will be updated monthly, so revisit it regularly. 
 
-## July 2021
+## June 2021
 <br>
 <table>
 <tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>

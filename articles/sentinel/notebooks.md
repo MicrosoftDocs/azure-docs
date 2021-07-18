@@ -26,7 +26,7 @@ For example, use notebooks to:
 
 We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take queries from Azure Sentinel and run them directly inside a notebook. Queries use the [Kusto Query Language](https://kusto.azurewebsites.net/docs/kusto/query/index.html). Several notebooks, developed by some of Microsoft's security analysts, are packaged with Azure Sentinel. Some of these notebooks are built for a specific scenario and can be used as-is. Others are intended as samples to illustrate techniques and features that you can copy or adapt for use in your own notebooks. Other notebooks may also be imported from the Azure Sentinel Community GitHub.
 
-The integrated Jupyter experience uses [Azure Notebooks](https://notebooks.azure.com/) to store, share, and execute notebooks. You can also run these notebooks locally if you have a Python environment and Jupyter on your computer, or in other JupterHub environments such as Azure Databricks.
+The integrated Jupyter experience uses [Azure Notebooks](https://notebooks.azure.com/) to store, share, and execute notebooks. You can also run these notebooks locally if you have a Python environment and Jupyter on your computer, or in other JupyterHub environments such as Azure Databricks.
 
 
 ## Notebook components
@@ -53,12 +53,12 @@ The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-
 
 To use the notebooks, you must first have the right permissions, depending on your user role.
 
-As Azure Sentinel notebooks run on [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-ml) (Azure ML) platform, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](/azure/machine-learning/concept-workspace).
+As Azure Sentinel notebooks run on [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (Azure ML) platform, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
 
 |Permission  |Description  |
 |---------|---------|
 |**Azure Sentinel permissions**     |   Like other Azure Sentinel resources, to access notebooks on Azure Sentinel Notebooks blade, an Azure Sentinel Reader, Azure Sentinel Responder, or Azure Sentinel Contributor role is required. <br><br>For more information, see [Permissions in Azure Sentinel](roles.md).|
-|**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](/azure/machine-learning/how-to-assign-roles) and [Azure built-in roles](/azure/role-based-access-control/built-in-roles). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](/azure/role-based-access-control/overview). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](/azure/role-based-access-control/role-assignments-portal)<br>    - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)<br>    - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)<br>   - [REST API](/azure/role-based-access-control/role-assignments-rest)<br>    - [Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template)<br> - [Azure Machine Learning CLI ](/azure/machine-learning/how-to-assign-roles?#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](/azure/machine-learning/how-to-assign-roles#create-custom-role). |
+|**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](../machine-learning/how-to-assign-roles.md) and [Azure built-in roles](../role-based-access-control/built-in-roles.md). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](../role-based-access-control/role-assignments-portal.md)<br>    - [PowerShell](../role-based-access-control/role-assignments-powershell.md)<br>    - [Azure CLI](../role-based-access-control/role-assignments-cli.md)<br>   - [REST API](../role-based-access-control/role-assignments-rest.md)<br>    - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)<br> - [Azure Machine Learning CLI ](../machine-learning/how-to-assign-roles.md#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](../machine-learning/how-to-assign-roles.md#create-custom-role). |
 |     |         |
 
 
@@ -126,7 +126,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
 1. At the top of the page, select a **Compute** instance to use for your notebook server.
 
-    If you don't have a compute instance, [create a new one](/azure/machine-learning/how-to-create-manage-compute-instance?&tabs=python#use-the-script-in-the-studio). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](/azure/machine-learning/how-to-run-jupyter-notebooks).
+    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#use-the-script-in-the-studio). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
 
     Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
 
@@ -135,7 +135,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
 1. Once your notebook server is created and started, you can starting running your notebook cells. In each cell, select the **Run** icon to run your notebook code.
 
-    For more information, see [Command mode shortcuts.](/azure/machine-learning/how-to-run-jupyter-notebooks)
+    For more information, see [Command mode shortcuts.](../machine-learning/how-to-run-jupyter-notebooks.md)
 
 1. If you need to restart the notebook kernel and rerun the notebook cells from the beginning, select **Kernel operations** > **Restart kernel**. For example:
 
@@ -143,7 +143,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
 ## Troubleshooting
 
-If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](/azure/machine-learning/how-to-run-jupyter-notebooks#troubleshooting).
+If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](../machine-learning/how-to-run-jupyter-notebooks.md#troubleshooting).
 
 
 ## Next steps
