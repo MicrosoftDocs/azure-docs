@@ -58,7 +58,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 
 - Azure VMware Solution private cloud deployed as a secondary region.
 
-- DNS resolution to on-premises SRM and virtual cloud appliances.
+- [DNS resolution](configure-dns-azure-vmware-solution.md) to on-premises SRM and virtual cloud appliances.
 
    >[!NOTE]
    >For private clouds created on or after July 1, 2021, you can configure private DNS resolution. For private clouds created before July 1, 2021, that need a private DNS resolution, open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request **Private DNS configuration**.
@@ -285,11 +285,12 @@ If you no longer require SRM, you must uninstall it in a clean manner. Before yo
 
 VMware SRM is a Disaster Recovery solution from VMware.  
 
-- For SRM-related issues in your on-premises environment, contact VMware for support.
+Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances within Azure VMware Solution. 
 
-- For SRM-related issues in your Azure VMware Solution environment, contact Microsoft. Microsoft only supports install/uninstall of SRM and vSphere Replication Manager and scale up/down of vSphere Replication appliances. For all other issues, contact VMware first.   
+For all other issues, such as configuration and replication, contact VMware for support.
 
-VMware and Microsoft support teams engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
+VMware and Microsoft support teams will engage each other as needed to troubleshoot SRM issues on Azure VMware Solution.
+
 
 ## References
 

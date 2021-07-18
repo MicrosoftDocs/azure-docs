@@ -4,6 +4,9 @@ description: Learn to create and configure the networking needed to deploy your 
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
 ms.date: 04/23/2021
+
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
@@ -96,4 +99,4 @@ In this tutorial, you learned how to:
 Continue to the next tutorial to learn how to create the NSX-T network segments that are used for VMs in vCenter.
 
 > [!div class="nextstepaction"]
-> [Create an NSX-T network segment](tutorial-nsx-t-network-segment.md)
+> [Create an NSX-T network segment](./tutorial-nsx-t-network-segment.md)
