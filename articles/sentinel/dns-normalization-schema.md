@@ -122,7 +122,7 @@ Event fields are common to all schemas, and describe the activity itself and the
 | <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | `DNS Server` | The product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
 | **EventProductVersion** | Optional | String | `12.1` | The version of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
 | **EventVendor** | Mandatory | String | `Microsoft` | The vendor of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. |
-| **EventSchemaVersion** | Mandatory | String | `0.1` | The version of the schema documented here is **0.1**. |
+| **EventSchemaVersion** | Mandatory | String | `0.1.1` | The version of the schema documented here is **0.1.1**. |
 | **EventReportUrl** | Optional | String | | A URL provided in the event for a resource that provides more information about the event. |
 | <a name="dvc"></a>**Dvc** | Mandatory       | String     |    `ContosoDc.Contoso.Azure` |           A unique identifier of the device on which the event occurred. <br><br>This field may alias the [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is no apparent device, use the same value as the [Event Product](#eventproduct) field.         |
 | <a name ="dvcipaddr"></a>**DvcIpAddr**           | Recommended | IP Address |  `45.21.42.12` |       The IP Address of the device on which the process event occurred.  |
