@@ -35,8 +35,7 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 
 ### [Workflow automation](#tab/schema-workflow-automation)
 
-For the alerts schema when using workflow automation, see the connectors documentation: 
- https://docs.microsoft.com/connectors/ascalert/
+For the alerts schema when using workflow automation, see the [connectors documentation](/connectors/ascalert/).
 
 
 ### [Continuous export](#tab/schema-continuousexport)
