@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/11/2021
+ms.date: 07/21/2021
 ms.author: memildin
 ---
 
@@ -28,16 +28,16 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 
 ## Availability
 
-| Aspect                          | Details                                                                                                                                                                                                                                                                                                       |
-|---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | General Availability (GA)                                                                                                                                                                                                                                                                                      |
-| Pricing:                        | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
-| Supported platforms:            |  • Azure machines running Windows<br> • Azure Arc machines running Windows|
-| Supported versions of Windows for detection:  |  • Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)|
-| Unsupported operating systems:  |  • Windows 10 (other than EVD or WVD)<br> • Linux|
-| Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China                                                        |
-|                                 |                                                                                                                                                                                                                                                                                                               |
+| Aspect                                       | Details                                                                                                                                                                                                                                                                               |
+|----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                               | • Integration with Defender for Endpoint for Windows - General Availability (GA)<br> • Integration with Defender for Endpoint for Linux - Preview                                                                                                                                     |
+| Pricing:                                     | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
+| Supported platforms:                         | • Azure machines running Windows<br> • Azure Arc machines running Windows                                                                                                                                                                                                             |
+| Supported versions of Windows for detection: | • Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)           |
+| Unsupported operating systems:               | • Windows 10 (other than EVD or WVD)<br> • Linux                                                                                                                                                                                                                                      |
+| Required roles and permissions:              | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
+| Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China                                                         |
+|                                              |                                                                                                                                                                                                                                                                                       |
 
 ## Microsoft Defender for Endpoint features in Security Center
 
@@ -76,8 +76,8 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
     - For **Windows** servers, configure the network settings described in [Configure device proxy and Internet connectivity settings](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
     - For **Windows Server 2019** and [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md) machines, confirm that your machines have the MicrosoftMonitoringAgent extension.
     - For **on-premises** machines, connect them to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) and then use the relevant Security Center recommendation to deploy the Log Analytics agent:
-        - [Log Analytics agent should be installed on your Linux-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
-        - [Log Analytics agent should be installed on your Windows-based Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
+        - [Log Analytics agent should be installed on your **Linux-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)
+        - [Log Analytics agent should be installed on your **Windows-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
     
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
