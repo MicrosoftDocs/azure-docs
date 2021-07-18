@@ -383,7 +383,8 @@ cca.acquireTokenByRefreshToken(refreshTokenRequest).then((response) => {
 });
 ```
 
-We recommend you to destroy the older ADAL Node token cache once you retrieve new refresh tokens with MSAL Node using the `acquireTokenByRefreshToken` method as shown above. 
+> [!NOTE]
+> We recommend you to destroy the older ADAL Node token cache once you utilize the still valid refresh tokens to get a new set of tokens using the MSAL Node's `acquireTokenByRefreshToken` method as shown above.
 
 ## Handle errors and exceptions
 
