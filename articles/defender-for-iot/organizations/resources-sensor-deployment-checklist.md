@@ -1,7 +1,7 @@
 ---
 title: Azure Defender for IoT pre-deployment checklist
 description: This article provides information, and a checklist that should be used prior to deployment when preparing your site.
-ms.date: 4/11/2021
+ms.date: 07/18/2021
 ms.topic: checklist
 ---
 
