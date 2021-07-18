@@ -737,7 +737,7 @@ This scenario is currently in **PREVIEW**.
 
 - **Sign-in event from user with leaked credentials leading to ransomware in cloud app**
 
-### Multiple alerts possibly related to Ransomware activity detected
+### Multiple alerts possibly related to Ransomware activity detected (Public preview)
 
 Azure Sentinel also generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
 
