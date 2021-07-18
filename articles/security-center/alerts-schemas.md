@@ -33,19 +33,6 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 ## The schemas 
 
 
-### [Workflow automation](#tab/schema-workflow-automation)
-
-For the alerts schema when using workflow automation, see the [connectors documentation](/connectors/ascalert/).
-
-
-### [Continuous export](#tab/schema-continuousexport)
-
-Security Center's continuous export feature passes alert data to:
-
-- Azure Event Hub using the same schema as [the alerts API](/rest/api/securitycenter/alerts).
-- Log Analytics workspaces according to the [SecurityAlert schema](/azure/azure-monitor/reference/tables/SecurityAlert) in the Azure Monitor data reference documentation.
-
-
 ### [Azure Sentinel](#tab/schema-sentinel)
 
 The Sentinel Connector gets alerts from Azure Security Center and sends them to the Log Analytics Workspace for Azure Sentinel.
@@ -154,6 +141,18 @@ You can view the security alerts events in Activity Log by searching for the Act
 |**relatedEvents**|Constant - empty array|
 |||
 
+
+### [Workflow automation](#tab/schema-workflow-automation)
+
+For the alerts schema when using workflow automation, see the [connectors documentation](/connectors/ascalert/).
+
+
+### [Continuous export](#tab/schema-continuousexport)
+
+Security Center's continuous export feature passes alert data to:
+
+- Azure Event Hub using the same schema as [the alerts API](/rest/api/securitycenter/alerts).
+- Log Analytics workspaces according to the [SecurityAlert schema](/azure/azure-monitor/reference/tables/SecurityAlert) in the Azure Monitor data reference documentation.
 
 
 
