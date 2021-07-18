@@ -30,7 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
-- [Fusion detections for ransomware activities](#fusion-detections-for-ransomware-activities-public-preview)]
+- [Fusion detections for possible Ransomware activities](#fusion-detections-for-possible-ransomware-activities-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
