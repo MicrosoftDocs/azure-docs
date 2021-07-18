@@ -356,7 +356,7 @@ In ADAL Node, the refresh tokens (RT) were exposed allowing you to develop solut
 - Long running services that do actions including refreshing dashboards on behalf of the users where the users are no longer connected.
 - WebFarm scenarios for enabling the client to bring the RT to the web service (caching is done client side, encrypted cookie, and not server side).
 
-MSAL Node, along with other MSALs, does not expose refresh tokens for security reasons. Instead, MSAL handles refreshing tokens for you. As such, you no longer need to built logic for this. Still, you can make use of your previously acquired refresh tokens from ADAL Node's cache. To do this, MSAL Node offers `acquireTokenByRefreshToken`, which is equivalent to ADAL Node's `acquireTokenWithRefreshToken` method:
+MSAL Node, along with other MSALs, does not expose refresh tokens for security reasons. Instead, MSAL handles refreshing tokens for you. As such, you no longer need to build logic for this. However, you can make use of your previously acquired refresh tokens from ADAL Node's cache. To do this, MSAL Node offers `acquireTokenByRefreshToken`, which is equivalent to ADAL Node's `acquireTokenWithRefreshToken` method:
 
 ```javascript
 var msal = require('@azure/msal-node');
