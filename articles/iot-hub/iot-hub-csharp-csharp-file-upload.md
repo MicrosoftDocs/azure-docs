@@ -41,7 +41,7 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* The sample applications you run in this article is written using C#. For the Azure IoT C# samples, we recommend you have the .NET Core SDK 3.1 or greater on your development machine.
+* The sample applications you run in this article are written using C#. For the Azure IoT C# samples, we recommend you have the .NET Core SDK 3.1 or greater on your development machine.
 
     You can download the .NET Core SDK for multiple platforms from [.NET](https://dotnet.microsoft.com/download).
 
