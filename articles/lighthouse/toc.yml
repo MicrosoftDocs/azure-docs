@@ -50,7 +50,7 @@
     - name: View and manage service providers 
       displayName: customer, update, visibility, control
       href: ./how-to/view-manage-service-providers.md
-    - name: View service provider activity
+    - name: Monitor service provider activity
       displayName: monitor, log, customer, visibility, transparency, control
       href: ./how-to/view-service-provider-activity.md
   - name: Onboarding and delegation management
