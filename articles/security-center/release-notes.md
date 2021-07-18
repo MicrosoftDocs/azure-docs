@@ -26,7 +26,7 @@ To learn about *planned* changes that are coming soon to Security Center, see [I
 Updates in July include:
 
 - [Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps](#assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps)
-- [Compliance over time workbook template added to Azure Monitor Workbooks gallery](#compliance-over-time-workbook-template-added-to-azure-monitor-workbooks-gallery)
+- ['Compliance over time' workbook template added to Azure Monitor Workbooks gallery](#compliance-over-time-workbook-template-added-to-azure-monitor-workbooks-gallery)
 
 ### Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps
 
@@ -37,7 +37,7 @@ Those fields were accessible through the REST API, Azure Resource Graph, continu
 With this change, we're making the information available in the Log Analytics workspace schema and from logic apps.
 
 
-### Compliance over time workbook template added to Azure Monitor Workbooks gallery
+### 'Compliance over time' workbook template added to Azure Monitor Workbooks gallery
 
 In March, we announced the integrated Azure Monitor Workbooks experience in Security Center (see [Azure Monitor Workbooks integrated into Security Center and three templates provided](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)).
 
@@ -45,7 +45,7 @@ The initial release included three templates to build dynamic and visual reports
 
 We've now added a workbook dedicated to tracking a subscription's compliance with the regulatory or industry standards applied to it. 
 
-Learn about using these reports or building your own [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
+Learn about using these reports or building your own in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Azure Security Center's compliance over time workbook":::
 
@@ -561,7 +561,7 @@ Three templates reports are provided:
 - **System Updates** - View missing system updates by resources, OS, severity, and more
 - **Vulnerability Assessment Findings** - View the findings of vulnerability scans of your Azure resources
 
-Learn about using these reports or building your own [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
+Learn about using these reports or building your own in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Secure score over time report.":::
 
