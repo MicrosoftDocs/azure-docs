@@ -739,23 +739,13 @@ This scenario is currently in **PREVIEW**.
 
 ### Multiple alerts possibly related to Ransomware activity detected
 
-This incident is generated when multiple alerts of different types are generated and may be related to Ransomware activity.
-When an incident of this title is generated, use the following steps to investigate:
+Azure Sentinel also generates an incident when multiple alerts of different types are detected from the following data sources, and may be related to Ransomware activity:
 
-1. Review the alerts included in the Fusion incident, including the alert descriptions, entities, timeline, and so on.
+- [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
+- [Microsoft Cloud App Security](connect-cloud-app-security.md)
+- [Scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled)
 
-1. Check with the machine owner to understand whether the highlighted behavior is expected. If the behavior is unexpected, treat the machine as potentially compromised, and remediate as follows:
-
-    1. Isolate the machine from the network to prevent potential lateral movement.
-    1. Run a full anti-malware scan on the machine, following any resulting remediation advice.
-    1. Review the software that's installed and running on the machine, removing any unknown or unwanted packages.
-    1. Revert the machine to a known good state, reinstalling the operating system only if required, and restoring software from a verified malware-free source.
-
-1. Resolve to [Azure Security Center](/azure/security-center/security-center-recommendations) and [Microsoft 365 Defender](/microsoft-365/security/defender-endpoint/tvm-security-recommendation) recommendations for the machine to prevent future breaches.
-
-> [!IMPORTANT]
-> While the alerts generated apply only to the specific device / host noted in the incident description, we recommend that you investigate the entire network to understand the nature of the intrusion, and identify other machines that might be impacted by this attack.
->
+Such incidents are named **Multiple alerts possibly related to Ransomware activity detected**, and are generated when relevant alerts are detected during a specific time-frame and are associated with the Execution and Defense Evasion stages of an attack.
 
 ## Remote exploitation
 
