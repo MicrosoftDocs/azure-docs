@@ -198,6 +198,13 @@ Use the following best practice guidance when creating the Log Analytics workspa
 
 ## Next steps
 
+
+> [!div class="nextstepaction"]
+>[Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md)
+
+> [!div class="nextstepaction"]
+>[Azure Sentinel sample workspace designs](sample-workspace-designs.md)
+
 > [!div class="nextstepaction"]
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
