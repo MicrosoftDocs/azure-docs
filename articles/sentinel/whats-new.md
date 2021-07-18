@@ -30,10 +30,22 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
+- [Fusion detections for ransomware activities](#fusion-detections-for-ransomware-activities)]
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
+
+### Fusion detections for possible Ransomware activities
+
+Azure Sentinel now provides new Fusion detections for possible Ransomware activities, with incidents titled as **Multiple alerts possibly related to Ransomware activity detected**.
+
+Incidents are now generated for alerts that are *possibly* associated with Ransomware activities, when they occur during a specific time-frame, and are associated with the Execution and Defense Evasion stages of an attack. You can use the alerts listed in the incident to analyze the techniques possibly used by attackers to compromise a host/device and to evade detection.
+
+Supported data connectors include [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md), [Microsoft Cloud App Security](connect-cloud-app-security.md), and [scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled) from inside Azure Sentinel.
+
+For more information, see [Advanced multistage attack detection in Azure Sentinel](fusion.md).
+
 
 ### Support for ADX cross-resource queries (Public preview)
 
