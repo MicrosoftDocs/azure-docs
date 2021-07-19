@@ -531,6 +531,8 @@
         href: digicert-tutorial.md
       - name: Direct
         href: direct-tutorial.md
+      - name: directprint.io Cloud Print Adminstration
+        href: directprint-io-cloud-print-adminstration-tutorial.md  
       - name: Directions on Microsoft
         href: ./tutorial-list.md
       - name: Discovery Benefits SSO
