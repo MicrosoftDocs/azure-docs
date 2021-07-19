@@ -29,7 +29,7 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Components and modules
 
-Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot-pnp/concepts-modeling-guide.md).
+Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot-develop/concepts-modeling-guide.md).
 
 Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Default component**:
 
