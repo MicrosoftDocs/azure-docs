@@ -31,9 +31,8 @@ Supported clients:
 
 - The capability is provided using PowerShell
 
-Archive Tier support for SQL Servers in Azure VMs is now generally available in North Europe, Central India, South East Asia, and Australia East. For the detailed list of supported regions, refer to the [support matrix](#support-matrix).
- 
-For the remaining regions for SQL Servers in Azure VMs, Archive Tier support is in limited public preview. Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, use this [link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
+>[!Note]
+>Archive Tier support for SQL Servers in Azure VMs is now generally available in North Europe, Central India, South East Asia, and Australia East. For the detailed list of supported regions, refer to the [support matrix](#support-matrix).    <br><br>    For the remaining regions for SQL Servers in Azure VMs, Archive Tier support is in limited public preview. Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, use this [link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## Get started with PowerShell
 
