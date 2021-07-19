@@ -1579,12 +1579,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "/azure/active-directory-b2c/code-samples",
-      "redirect_url": "/azure/active-directory-b2c/integrate-with-app-code-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "/articles/active-directory-b2c/code-samples",
+      "source_path_from_root": "/articles/active-directory-b2c/code-samples",
       "redirect_url": "/azure/active-directory-b2c/integrate-with-app-code-samples",
       "redirect_document_id": false
     },
