@@ -65,9 +65,9 @@ In this section, you'll create a NAT gateway resource. You'll select the IP addr
 7. Select **Create**.
 
 > [!NOTE]
-> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Tutorial: Create a NAT gateway using the Azure portal](tutorial-create-nat-gateway-portal.md)
+> This is a simple deployment of a NAT gateway. For advanced configuration and setup, see [Tutorial: Create a NAT gateway using the Azure portal](./nat-gateway/tutorial-create-nat-gateway-portal.md)
 >
-> For more information on Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](nat-overview.md)
+> For more information on Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](./nat-gateway/nat-overview.md)
 
 ## Change or remove public IP address
 
@@ -132,16 +132,16 @@ In this section, you'll change the outbound IP configuration to use a public IP 
 * When deploying virtual machines in a virtual network with a NAT gateway, all ingress traffic addressed to the NAT gateway egresses through the NAT gateway. When using a NAT Gateway with a standard public load balancer, all ingress traffic addressed to the NAT gateway public IP address or addresses will egress through the NAT Gateway. 
 
     > [!NOTE] 
-    > Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway-resource.md)
+    > Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Members of the load balancer backend pool would also use the NAT gateway for outbound connections. For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway/nat-gateway-resource.md)
 
-* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence.  For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway-resource.md#timers)
+* NAT gateways and public IP addresses can have a TCP timeout value assigned for how long to keep a connection open before hearing keepalives.  If a public IP is assigned to a NAT Gateway, the timeout value on the IP takes precedence.  For more information, see [Designing virtual networks with NAT gateway resources](./nat-gateway/nat-gateway-resource.md#timers)
 
 ## Caveats
 
-* Public IPv6 address and public IPv6 prefixes aren't supported on NAT gateways at this time. NAT gateways can't be deployed on a virtual network subnet with an IPv6 prefix. For more information, see [Troubleshoot Azure Virtual Network NAT connectivity](troubleshoot-nat.md)
+* Public IPv6 address and public IPv6 prefixes aren't supported on NAT gateways at this time. NAT gateways can't be deployed on a virtual network subnet with an IPv6 prefix. For more information, see [Troubleshoot Azure Virtual Network NAT connectivity](./nat-gateway/troubleshoot-nat.md)
 ## Next steps
 
 In this article, you learned how to create a load NAT gateway and use an existing public IP. You replaced the IP address in a NAT gateway outbound IP configuration. Finally, you changed an outbound IP configuration to use a public IP prefix.
 
-- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](nat-overview.md)
+- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](./nat-gateway/nat-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](public-ip-addresses.md).

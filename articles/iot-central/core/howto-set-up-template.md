@@ -25,7 +25,7 @@ The following screenshot shows an example of a device template:
 The device template has the following sections:
 
 - Model - Use the model to define how your device interacts with your IoT Central application. Each model has a unique model ID and you can customize it with additional capabilities, add interfaces to inherit capabilities, or add new components that are based on other interfaces.
-- Cloud properties - Use cloud properties to define information that your IoT Central application stores about your devices. For example, a cloud property might record the date a device was last serviced. 
+- Cloud properties - Use cloud properties to define information that your IoT Central application stores about your devices. For example, a cloud property might record the date a device was last serviced.
 - Customize - Use customizations to add interface capabilities such as specifying the minimum and maximum temperature ranges.
 - Views - Use views to visualize the data from the device, and forms to manage and control a device.
 

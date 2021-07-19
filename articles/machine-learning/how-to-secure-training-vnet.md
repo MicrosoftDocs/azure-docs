@@ -56,7 +56,7 @@ For information on using a firewall solution, see [Use a firewall with Azure Mac
 To use either a [managed Azure Machine Learning __compute target__](concept-compute-target.md#azure-machine-learning-compute-managed) or an [Azure Machine Learning compute __instance__](concept-compute-instance.md) in a virtual network, the following network requirements must be met:
 
 > [!div class="checklist"]
-> * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
+> * The virtual network must be in the same subscription as the Azure Machine Learning workspace.
 > * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
 > * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. 
 > * If you plan to secure the virtual network by restricting traffic, see the [Required public internet access](#required-public-internet-access) section.
@@ -68,18 +68,39 @@ To use either a [managed Azure Machine Learning __compute target__](concept-comp
 > * Virtual network service endpoint policies do not work for compute cluster/instance system storage accounts
 > * If storage and compute instance are in different regions you might see intermittent timeouts
 
-    
-> [!TIP]
-> The Machine Learning compute instance or cluster automatically allocates additional networking resources __in the resource group that contains the virtual network__. For each compute instance or cluster, the service allocates the following resources:
-> 
-> * One network security group
-> * One public IP address. If you have Azure policy prohibiting Public IP creation then deployment of cluster/instances will fail
-> * One load balancer
-> 
-> In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
+### Dynamically allocated resources
+
+The Machine Learning compute instance or cluster automatically allocates additional networking resources __in the resource group that contains the virtual network__. For each compute instance or cluster, the service allocates the following resources:
+
+* One network security group (NSG). This NSG contains the following rules, which are specific to compute cluster and compute instance:
+
+    * Allow inbound TCP traffic on ports 29876-29877 from the `BatchNodeManagement` service tag.
+    * Allow inbound TCP traffic on port 44224 from the `AzureMachineLearning` service tag.
+
+    The following screenshot shows an example of these rules:
+
+    :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
+
+* One public IP address. If you have Azure policy prohibiting Public IP creation then deployment of cluster/instances will fail
+* One load balancer
+
+For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
+
+For a compute instance, these resources are kept until the instance is deleted. Stopping the instance does not remove the resources. 
+
+> [!IMPORTANT]
 > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure policy which prohibits creation of network security groups.
 
 ### Create a compute cluster in a virtual network
+
+> [!IMPORTANT]
+> Compute clusters can be created in a different region than your workspace. This functionality is in __preview__, and is only available for __compute clusters__, not compute instances. When using a different region for the cluster, the following limitations apply:
+>
+> * If your workspace associated resources, such as storage, are in a different virtual network than the cluster, set up global virtual network peering between the networks. For more information, see [Virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+> * If you are using a private endpoint-enabled workspace, creating the cluster in a different region is __not supported__.
+> * You may see increased network latency and data transfer costs. The latency and costs can occur when creating the cluster, and when running jobs on it.
+
+Guidance such as using NSG rules, user-defined routes, and input/output requirements, apply as normal when using a different region than the workspace.
 
 # [Studio](#tab/azure-studio)
 
@@ -130,6 +151,7 @@ except ComputeTargetException:
     compute_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
                                                            min_nodes=0,
                                                            max_nodes=4,
+                                                           location="westus2",
                                                            vnet_resourcegroup_name=vnet_resourcegroup_name,
                                                            vnet_name=vnet_name,
                                                            subnet_name=subnet_name)

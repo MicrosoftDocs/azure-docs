@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 07/01/2021
+ms.date: 07/15/2021
 ms.author: victorh
 # Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -23,14 +23,14 @@ You can centrally create, enforce, and log application and network connectivity 
 
 To learn about Azure Firewall features, see [Azure Firewall features](features.md).
 
-## Azure Firewall Premium Preview
+## Azure Firewall Premium
 
-Azure Firewall Premium Preview is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. These capabilities include TLS inspection, IDPS, URL filtering, and Web categories.
+Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. These capabilities include TLS inspection, IDPS, URL filtering, and Web categories.
 
-To learn about Azure Firewall Premium Preview features, see [Azure Firewall Premium Preview features](premium-features.md).
+To learn about Azure Firewall Premium features, see [Azure Firewall Premium features](premium-features.md).
 
 
-To see how the Firewall Premium Preview is configured in the Azure portal, see [Azure Firewall Premium Preview in the Azure portal](premium-portal.md).
+To see how the Firewall Premium is configured in the Azure portal, see [Azure Firewall Premium in the Azure portal](premium-portal.md).
 
 
 ## Pricing and SLA
@@ -84,3 +84,4 @@ Azure Firewall has the following known issues:
 - [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
+- [Learn module: Introduction to Azure Firewall](/learn/modules/introduction-azure-firewall/)
