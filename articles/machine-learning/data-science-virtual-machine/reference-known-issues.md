@@ -61,12 +61,12 @@ In order to use docker as a non-root user, your user needs to be member of the d
 
 ### Docker containers cannot interact with the outside via network
 
-By default, docker adds new containers to the so-called "bridge network". If the subnet of that bridge network overlaps
-with the subnet the DSVM is in, no network communication between the host and the container is possible. In that case,
-for instance, web applications running in the container cannot be reached, and the container cannot update packages from
-apt.
+By default, docker adds new containers to the so-called "bridge network", which is `172.17.0.0/16`. If the subnet of
+that bridge network overlaps with the subnet the DSVM is in, no network communication between the host and the container
+is possible. In that case, for instance, web applications running in the container cannot be reached, and the container
+cannot update packages from apt.
 
-To fix, you can change the default subnet for containers in the bridge network. By adding
+To fix the issue, you can change the default subnet for containers in the bridge network. By adding
 
 ```json
 "default-address-pools": [
