@@ -99,11 +99,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 Use the following steps to create a self-hosted IR using the Azure Data Factory or Azure Synapse UI.  In Azure Synapse the steps are the same, but may differ slightly from the screenshots below:
 
-<<<<<<< HEAD
-1. On the **Let's get started** page of the Azure Data Factory or Azure Synapse UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
-=======
-1. On the home page of Azure Data Factory UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
->>>>>>> f751f5a6ff40cc9856bed8ead3997473552c0a45
+1. On the home page of the Azure Data Factory or Azure Synapse UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
 
    :::image type="content" source="media/doc-common-process/get-started-page-manage-button.png" alt-text="The home page Manage button":::
 
