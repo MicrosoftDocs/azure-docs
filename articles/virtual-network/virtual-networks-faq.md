@@ -78,7 +78,7 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.255: Network broadcast address
 
 ### How small and how large can VNets and subnets be?
-The smallest supported IPv4 subnet is /29, and the largest is /8 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
+The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
 
 ### Can I bring my VLANs to Azure using VNets?
 No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
