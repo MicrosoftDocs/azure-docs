@@ -21,7 +21,7 @@ Having an overview of an industrial network diagram, will allow the site enginee
 
 The global network diagram provides a diagram of the industrial OT environment
 
-:::image type="content" source="media/resources-sensor-deployment-checklist/ics-purdue-model.png" alt-text="This is where the Azure Defender for IoT sensor fits in, in the setup.":::
+:::image type="content" source="media/resources-sensor-deployment-checklist/purdue-model.png" alt-text="This is where the Azure Defender for IoT sensor fits in, in the setup.":::
 
 :::image type="content" source="media/resources-sensor-deployment-checklist/backbone-switch.png" alt-text="This is where the Azure Defender for IoT sensor fits in, in the purdue model.":::
 
