@@ -53,7 +53,7 @@ You are getting an error in the connectivity check on the appliance for aka.ms U
 
 **Remediation**
 
-1. Ensure that you have connectivity to internet and have allowlist the URL-aka.ms/* to download the latest versions of the services.
+1. Ensure that you have connectivity to internet and have allowlisted the URL-aka.ms/* to download the latest versions of the services.
 2. Check if there is a proxy/firewall blocking access to this URL. Ensure that you have provided the proxy details correctly in the prerequisites step of the configuration manager.
 3. You can go back to the appliance configuration manager and rerun prerequisites to initiate auto-update.
 3. If retry doesn't help, you can download the *latestcomponents.json* file from [here](https://aka.ms/latestapplianceservices) to check the latest versions of the services that are failing and manually update them from the download links in the file.
