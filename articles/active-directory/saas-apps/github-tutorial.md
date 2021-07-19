@@ -72,14 +72,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-   a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<Organization ID>/sso`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://github.com/orgs/<Organization ID>`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://github.com/orgs/<Organization ID>/saml/consume`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://github.com/orgs/<Organization ID>/sso`
 
 
 	> [!NOTE]
