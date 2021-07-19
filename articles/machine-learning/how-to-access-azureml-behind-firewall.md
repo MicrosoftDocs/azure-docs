@@ -234,9 +234,6 @@ The hosts in this section are used to install R packages, and are required durin
 | ---- | ---- |
 | **cloud.r-project.org** | Used when installing CRAN packages. |
 
-> [!IMPORTANT]
-> Internally, the R SDK for Azure Machine Learning uses Python packages. So you must also allow Python hosts through the firewall.
-
 ### Visual Studio Code hosts
 
 The hosts in this section are used to install Visual Studio Code packages to establish a remote connection between Visual Studio Code and compute instances in your Azure Machine Learning workspace.
