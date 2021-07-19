@@ -2,40 +2,37 @@
 title: Monitor availability with URL ping tests- Azure Monitor 
 description: Set up ping tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly.
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 07/13/2021
 
 ms.reviewer: sdash
 ---
 
 # Monitor availability with URL ping tests
 
-The name "URL ping test" is a bit of a misnomer. To be clear, these tests aren't making any use of ICMP (Internet Control Message Protocol) to check your site's availability. Instead they use more advanced HTTP request functionality to validate whether an endpoint is responding. They also measure the performance associated with that response, and adds the ability to set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
+The name "URL ping test" is a bit of a misnomer. To be clear, these tests are not making any use of ICMP (Internet Control Message Protocol) to check your site's availability. Instead they use more advanced HTTP request functionality to validate whether an endpoint is responding. They also measure the performance associated with that response, and adds the ability to set custom success criteria coupled with more advanced features like parsing dependent requests, and allowing for retries.
+
+In order to create an availability test, you need use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 
 > [!NOTE]
-> Standard ping tests are currently in public preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
+> URL ping tests are categorized as classic tests and can be found under **Add Classic Test** in the Availability pane. For more advanced features, see [Standard tests (preview)](availability-standard-tests.md)
+ 
+## Create a test
 
-> [!NOTE]
-> There are currently no additional charges for the preview feature Standard Ping tests. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using Standard Ping tests after the notice period, you will be billed at the applicable rate.
+To create your first availability request:
+1. In your Application Insights resource open the Availability pane and select  **Add Classic Test**.
 
-## Create a Standard URL ping test
+    :::image type="content" source="./media/monitor-web-app-availability/create-test.png" alt-text="Screenshot of create of create a test." lightbox ="./media/monitor-web-app-availability/create-test.png":::
+1. Name your test and select "URL ping " as the *SKU*.
+1. Enter the URL you wish to test.
+1. Adjust the settings to your needs ( explanation below) and select **Create**.
 
-To create an availability test, you need use an existing Application Insight resource or [create an Application Insights resource](create-new-resource.md).
-
-:::image type="content" source="./media/monitor-web-app-availability/standard-test-post.png" alt-text="Screenshot of standard test info tab.":::
-
-|Setting | Explanation |
-|--------|-------------|
+|Setting| Explanation |
+|----|----|
 |**URL** |  The URL can be any web page you want to test, but it must be visible from the public internet. The URL can include a query string. So, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.|
-|**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources cannot be successfully downloaded within the timeout for the whole test. If the option isn't checked, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which may not be noticeable when manually browsing the site. |
-|**Enable retries**| When the test fails, it's retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. **We recommend this option**. On average, about 80% of failures disappear on retry.|
-| **SSL certificate validation test** | You can verify the SSL certificate on your website to make sure it's correctly installed, valid, trusted, and doesn't give any errors to any of your users. |
-| **Proactive lifetime check** | This enables you to define a set time period before your SSL certificate expires. Once it expires, your test will fail. |
+|**Parse dependent requests**| Test requests images, scripts, style files, and other files that are part of the web page under test. The recorded response time includes the time taken to get these files. The test fails if any of these resources cannot be successfully downloaded within the timeout for the whole test. If the option is not checked, the test only requests the file at the URL you specified. Enabling this option results in a stricter check. The test could fail for cases, which may not be noticeable when manually browsing the site.
+|**Enable retries**|when the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. **We recommend this option**. On average, about 80% of failures disappear on retry.|
 |**Test frequency**| Sets how often the test is run from each test location. With a default frequency of five minutes and five test locations, your site is tested on average every minute.|
-|**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** to ensure that you can distinguish problems in your website from network issues. You can select up to 16 locations.|
-| **Custom headers** | Key value pairs that define the operating parameters. |
-| **HTTP request verb** | Indicate what action you would like to take with your request. IF your chosen verb is not available in the UI you can deploy a standard test using Azure Resource Monitor with the desired choice. |
-| **Request body** | Custom data associated with your HTTP request. You can upload your own files, type in your content, or disable this feature. For raw body content, we support TEXT, JSON, HTML, XML, and JavaScript. |
-
+|**Test locations**| Are the places from where our servers send web requests to your URL. **Our minimum number of recommended test locations is five** in order to insure that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 **If your URL is not visible from the public internet, you can choose to selectively open up your firewall to allow only the test transactions through**. To learn more about the firewall exceptions for our availability test agents, consult the [IP address guide](./ip-addresses.md#availability-tests).
 
@@ -44,16 +41,16 @@ To create an availability test, you need use an existing Application Insight res
 
 ## Success criteria
 
-|Setting| Explanation|
-|-------|------------|
+|Setting| Explanation |
+|----|----|
 | **Test timeout** |Decrease this value to be alerted about slow responses. The test is counted as a failure if the responses from your site have not been received within this period. If you selected **Parse dependent requests**, then all the images, style files, scripts, and other dependent resources must have been received within this period.|
 | **HTTP response** | The returned status code that is counted as a success. 200 is the code that indicates that a normal web page has been returned.|
 | **Content match** | A string, like "Welcome!" We test that an exact case-sensitive match occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it. **Only English characters are supported with content match** |
 
 ## Alerts
 
-|Setting| Explanation|
-|-------|------------|
+|Setting| Explanation |
+|----|----|
 |**Near-realtime (Preview)** | We recommend using Near-realtime alerts. Configuring this type of alert is done after your availability test is created.  |
 |**Alert location threshold**|We recommend a minimum of 3/5 locations. The optimal relationship between alert location threshold and the number of test locations is **alert location threshold** = **number of test locations - 2, with a minimum of five test locations.**|
 
@@ -107,7 +104,7 @@ Availability test results can be visualized with both line and scatter plot view
 
 After a few minutes, select **Refresh** to see your test results.
 
-:::image type="content" source="./media/monitor-web-app-availability/availability-refresh-002.png" alt-text="Screenshot shows the Availability page with the Refresh button highlighted.":::
+:::image type="content" source="./media/monitor-web-app-availability/refresh.png" alt-text="Screenshot shows the Availability page with the Refresh button highlighted." lightbox="./media/monitor-web-app-availability/refresh.png":::
 
 The scatterplot view shows samples of the test results that have diagnostic test-step detail in them. The test engine stores diagnostic detail for tests that have failures. For successful tests, diagnostic details are stored for a subset of the executions. Hover over any of the green/red dots to see the test, test name, and location.
 
@@ -117,7 +114,7 @@ Select a particular test, location, or reduce the time period to see more result
 
 ## Inspect and edit tests
 
-To edit, temporarily disable, or delete a test, select the ellipses next to a test name. It may take up to 20 minutes for configuration changes to propagate to all test agents after a change is made.
+To edit, temporarily disable, or delete a test select the ellipses next to a test name. It may take up to 20 minutes for configuration changes to propagate to all test agents after a change is made.
 
 :::image type="content" source="./media/monitor-web-app-availability/edit.png" alt-text="View test details. Edit and Disable a web test." border="false":::
 
@@ -137,7 +134,7 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-To learn more about the end to end transaction diagnostics experience visit the [transaction diagnostics documentation](./transaction-diagnostics.md).
+To learn more about the end to end transaction diagnostics experience, visit the [transaction diagnostics documentation](./transaction-diagnostics.md).
 
 Select on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code level diagnostics.
 
