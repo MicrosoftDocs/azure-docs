@@ -33,10 +33,6 @@ MABS v3 UR2 supports optimized volume migration. The optimized Volume-to-Volume 
 
 MABS v3 UR2 supports Offline backup using Azure Data Box. With Microsoft Azure Data Box integration, you can overcome the challenge of moving terabytes of backup data from on-premises to Azure storage. Azure Data Box saves the effort required to procure your own Azure-compatible disks and connectors or to provision temporary storage as a staging location. Microsoft also handles the end-to-end transfer logistics, which you can track through the Azure portal. [Learn more](/azure/backup/offline-backup-azure-data-box-dpm-mabs).
 
-### SQL Server 2019 support as MABS database
-
-MABS v3 UR2 supports SQL server 2019 as MABS database. You can install SQL Server on a remote server, or on the MABS server. The database must be installed and running before you install MABS. [Learn more](/azure/backup/backup-azure-microsoft-azure-backup).
-
 ## What's new in MABS V3 UR1
 
 Microsoft Azure Backup Server (MABS) version 3 UR1 is the latest update, and includes critical bug fixes and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3 UR1, see KB article [4534062](https://support.microsoft.com/help/4534062).
