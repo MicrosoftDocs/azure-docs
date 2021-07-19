@@ -4,7 +4,7 @@ description: Learn about managed identity for Azure Data Factory.
 author: nabhishek
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 07/19/2021
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,18 +19,18 @@ This article helps you understand what a managed identity is for Data Factory (f
 
 ## Overview
 
-Managed identities in data factories eliminate the need for data engineers to manage credentials. Managed identities provide an identity for the Data Factory instance when connecting to resources that support Azure Active Directory (Azure AD) authentication. For example, Data Factory can use a managed identity to access resources like [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview), where data admins can securely store credentials or access storage accounts. Data Factory uses the managed identity to obtain Azure AD tokens.
+Managed identities in data factories eliminate the need for data engineers to manage credentials. Managed identities provide an identity for the Data Factory instance when connecting to resources that support Azure Active Directory (Azure AD) authentication. For example, Data Factory can use a managed identity to access resources like [Azure Key Vault](.../key-vault/general/overview.md), where data admins can securely store credentials or access storage accounts. Data Factory uses the managed identity to obtain Azure AD tokens.
 
 There are two types of managed identities supported by Data Factory: 
 
 - **System-assigned:** Data factory allows you to enable a managed identity directly on a service instance. When you allow a system-assigned managed identity during the data factory creation, an identity is created in Azure AD tied to that service instance's lifecycle. By design, only that Azure resource can use this identity to request tokens from Azure AD. So when the resource is deleted, Azure automatically deletes the identity for you.
-- **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) and assign it to one or more instances of a data factory. In user-assigned managed identities, the identity is managed separately from the resources that use it.
+- **User-assigned:** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](.../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and assign it to one or more instances of a data factory. In user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 
 
 Managed identity for Data Factory provides the below benefits:
 
-- [Store credential in Azure Key Vault](https://docs.microsoft.com/en-us/azure/data-factory/store-credentials-in-key-vault), in which case data factory managed identity is used for Azure Key Vault authentication.
+- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case data factory managed identity is used for Azure Key Vault authentication.
 - Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
 - User-assigned managed identity is also used to encrypt/ decrypt data factory meta-data using the customer-managed key stored in Azure Key Vault, providing double encryption. 
 
@@ -60,7 +60,7 @@ If you find your data factory doesn't have a managed identity associated followi
 >- If you update a data factory which already have a managed identity without specifying "identity" parameter in the factory object or without specifying "identity" section in REST request body, you will get an error.
 >- When you delete a data factory, the associated managed identity will be deleted along.
 
-##### Generate managed identity using PowerShell
+##### Generate system-assigned managed identity using PowerShell
 
 Call **Set-AzDataFactoryV2** command, then you see "Identity" fields being newly generated:
 
@@ -76,7 +76,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-##### Generate managed identity using REST API
+##### Generate system-assigned  managed identity using REST API
 
 Call below API with "identity" section in the request body:
 
@@ -120,7 +120,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-##### Generate managed identity using an Azure Resource Manager template
+##### Generate system-assigned managed identity using an Azure Resource Manager template
 
 **Template**: add "identity": { "type": "SystemAssigned" }.
 
@@ -140,7 +140,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-##### Generate managed identity using SDK
+##### Generate system-assigned  managed identity using SDK
 
 Call the data factory create_or_update function with Identity=new FactoryIdentity(). Sample code using .NET:
 
@@ -153,7 +153,7 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-#### Retrieve system-assigned managed identity
+#### <a name="retrieve-managed-identity"></a>  Retrieve system-assigned managed identity
 
 You can retrieve the managed identity from Azure portal or programmatically. The following sections show some samples.
 
@@ -171,7 +171,7 @@ The managed identity information will also show up when you create linked servic
 
 When granting permission, in Azure resource's Access Control (IAM) tab -> Add role assignment -> Assign access to -> select Data Factory under System assigned managed identity -> select by factory name; or in general, you can use object ID or data factory name (as managed identity name) to find this identity. If you need to get managed identity's application ID, you can use PowerShell.
 
-#### Retrieve managed identity using PowerShell
+#### Retrieve system-assigned managed identity using PowerShell
 
 The managed identity principal ID and tenant ID will be returned when you get a specific data factory as follows. Use the **PrincipalId** to grant access:
 
@@ -252,11 +252,11 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## User-assigned managed identity
 
-You can create, delete, manage user-assigned identities in Azure Active Directory. For more details refer [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) documentation. 
+You can create, delete, manage user-assigned managed identities in Azure Active Directory. For more details refer [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) documentation. 
 
 ### Credentials
 
-We are introducing Credentials which can contain user-assigned identities, service principals and also lists the system-assigned managed identity that you can use in the linked services that support Azure Active Directory (AAD) authentication. It helps you consolidate and manage all your AAD-based credentials.  
+We are introducing Credentials which can contain user-assigned managed identities, service principals and also lists the system-assigned managed identity that you can use in the linked services that support Azure Active Directory (AAD) authentication. It helps you consolidate and manage all your AAD-based credentials.  
 
 Below are the generic steps for using a **user-assigned managed identity** in the linked services for authentication. 
 
