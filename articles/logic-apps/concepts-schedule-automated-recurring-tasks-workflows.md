@@ -212,14 +212,14 @@ To run the Recurrence trigger only once on the last day of the month, you have t
 ```json
 "triggers": {
     "Recurrence": {
-       "recurrence": {
-           "frequency": "Month",
-           "interval": 1,
-           "schedule": {
-               "monthDays": [-1]
-           }
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
         },
-      "type": "Recurrence"
+        "type": "Recurrence"
     }
 }
 ```

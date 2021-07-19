@@ -131,14 +131,14 @@ The following example shows how to update the trigger definition so that the tri
 ```json
 "triggers": {
     "Recurrence": {
-       "recurrence": {
-           "frequency": "Month",
-           "interval": 1,
-           "schedule": {
-               "monthDays": [-1]
-           }
+        "recurrence": {
+            "frequency": "Month",
+            "interval": 1,
+            "schedule": {
+                "monthDays": [-1]
+            }
         },
-      "type": "Recurrence"
+        "type": "Recurrence"
     }
 }
 ```
