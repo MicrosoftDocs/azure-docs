@@ -399,7 +399,7 @@
         href: ../role-based-access-control/built-in-roles.md#all
       - name: Azure Sentinel roles
         href: ../role-based-access-control/built-in-roles.md#security
-  - name: Data connector references
+  - name: Data collection references
     items:
     - name: Data source schema reference
       href: data-source-schema-reference.md

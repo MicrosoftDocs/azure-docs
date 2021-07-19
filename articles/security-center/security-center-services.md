@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 07/14/2021
+ms.date: 07/19/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -80,15 +80,15 @@ The following table provides a matrix of:
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
-| Endpoint Protection                                       | Platforms                                              | Security Center Installation | Security Center Discovery |
+| Solution                                                  | Supported platforms                                    | Security Center installation | Security Center discovery |
 |-----------------------------------------------------------|--------------------------------------------------------|------------------------------|---------------------------|
-| Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No, Built in to OS           | Yes                       |
-| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension                | Yes                       |
-| Trend Micro – Deep Security                               | Windows Server Family                                  | No                           | Yes                       |
-| Symantec v12.1.1100+                                      | Windows Server Family                                  | No                           | Yes                       |
-| McAfee v10+                                               | Windows Server Family                                  | No                           | Yes                       |
-| McAfee v10+                                               | Linux Server Family                                    | No                           | Yes                       |
-| Sophos V9+                                                | Linux Server Family                                    | No                           | Yes                       |
+| Microsoft Defender Antivirus                              | Windows Server 2016 or later                           | No (built into OS)           | Yes                       |
+| System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via extension                | Yes                       |
+| Trend Micro – Deep Security                               | Windows Server (all)                                   | No                           | Yes                       |
+| Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
+| McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
+| McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
+| Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
 |                                                           |                                                        |                              |                           |
 
 > [!NOTE]
