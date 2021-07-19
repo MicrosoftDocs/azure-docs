@@ -31,7 +31,7 @@ Almost all the features from the classic deployment model are supported for comp
 
 ### Supported resources for migration
 * Virtual Machines (Cloud Service with VMs)
-* [Cloud Services (with Web/Worker Roles)](https://docs.microsoft.com/azure/cloud-services-extended-support/in-place-migration-overview)
+* [Cloud Services (with Web/Worker Roles)](../cloud-services-extended-support/in-place-migration-overview.md)
 * Availability Sets
 * Storage Accounts
 * Virtual Networks

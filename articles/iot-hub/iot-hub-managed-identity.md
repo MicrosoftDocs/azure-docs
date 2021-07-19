@@ -226,7 +226,7 @@ In this section, we use the [message routing](iot-hub-devguide-messages-d2c.md) 
 3.	Select **Event Hubs Data Sender as role**.
 
     > [!NOTE] 
-    > For storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) as **role**. For service bus, select **Service bus Data Sender** as **role**.
+    > For storage account, select **Storage Blob Data Contributor** ([*not* Contributor or Storage Account Contributor](../storage/blobs/assign-azure-role-data-access.md)) as **role**. For service bus, select **Service bus Data Sender** as **role**.
 
 4.  For user-assigned, choose **User-assigned managed identity** under **Assign access to**. Select your subscription and your user-assigned managed identity in the drop-down list. Click the **Save** button.
 
