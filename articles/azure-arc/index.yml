@@ -41,7 +41,7 @@ highlightedContent:
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: SQL Server on Azure Arc-enabled servers (preview)
+    - title: SQL Server on Azure Arc-enabled servers
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
