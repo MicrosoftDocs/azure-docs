@@ -7,11 +7,11 @@ ms.topic: overview
 
 # Azure Arc external partner validation test process
 
-This document provides an overview of the details required for Arc validated external partners (or new partners) to maintain compatibility with the latest updates of Arc-enabled Kubernetes, Arc-enabled Data Services, and the cluster extensions on top of Arc-enabled Kubernetes. It provides the instructions on how to setup the test environment, review the testing strategy, understand how and when to execute the tests, publish results, and resolve failures. The goal is to provide you with a single point of reference to continue testing on an ongoing basis.
+This document provides an overview of the details required for Arc validated external partners (or new partners) to maintain compatibility with the latest updates of Arc-enabled Kubernetes, Arc-enabled Data Services, and the cluster extensions on top of Arc-enabled Kubernetes. It provides the instructions on how to set up the test environment, review the testing strategy, understand how and when to execute the tests, publish results, and resolve failures. The goal is to provide you with a single point of reference to continue testing on an ongoing basis.
 
 ## Background and terminology
 
-The conformance tests for Arc-enabled Kubernetes, Data Services, and cluster extensions are orchestrated using [sonobuoy](https://github.com/vmware-tanzu/sonobuoy) (a free of charge open source software provided by VMWare). Sonobuoy executes the tests in a container running on a Kubernetes cluster. This allows sonobuoy plugins to directly run on validated partner environments to ensure that they are conformant with the Arc offerings.  
+The conformance tests for Arc-enabled Kubernetes, Data Services, and cluster extensions are orchestrated using [sonobuoy](https://github.com/vmware-tanzu/sonobuoy) (a free of charge open-source software provided by VMware). Sonobuoy executes the tests in a container running on a Kubernetes cluster. This allows sonobuoy plugins to directly run on validated partner environments to ensure that they are conformant with the Arc offerings.  
 
 - Arc platform: Responsible for Arc onboarding K8s clusters, and providing the substrate to deploy Cluster Extensions and Arc for Data Services in directly connected mode.
 
@@ -19,7 +19,7 @@ The conformance tests for Arc-enabled Kubernetes, Data Services, and cluster ext
 
 Conceptual information on the Arc platform and cluster extensions can be found [here](../kubernetes/conceptual-agent-architecture.md). 
 
-The Arc platform and each cluster extension has their own sonobuoy plugins responsible for installing the bits on the cluster, running tests, and cleaning up the resources created to leave the cluster in its original state. These plugins are meant to be black boxes for conformance testing in a bid to reduce as much partner effort as possible.
+The Arc platform and each cluster extension have their own sonobuoy plugins responsible for installing the bits on the cluster, running tests, and cleaning up the resources created to leave the cluster in its original state. These plugins are meant to be black boxes for conformance testing in a bid to reduce as much partner effort as possible.
 
 ## Testing strategy
 
@@ -38,7 +38,7 @@ This section reviews the testing strategy, and how to run the tests is covered l
 |Arc platform (M) ||X ||X |
 |Cluster extension (O) ||X |X |X |
 
-The sonobuoy plugins is configurable to pick specific versions of the platform and the extensions to support the testing strategy. 
+The sonobuoy plugins are configurable to pick specific versions of the platform and the extensions to support the testing strategy. 
 
 For the second and third scenarios, communication is provided from Microsoft to partners to run the tests. For the first scenario, the partners need to inform Microsoft that a new version is available and run the tests for it. 
 
@@ -46,9 +46,9 @@ For the second and third scenarios, communication is provided from Microsoft to 
 
 ## Setting up the test environment
 
-As an Arc validated partner, you’ll need to set up your respective test environment with your distro, any specific ISV/IHV/OEM offerings, etc. This setup can be done either on-premises or in Azure, depending on the feasibility of configuration (for instance, it may not be a trivial effort to set up an IHV offerings on Azure). Once your test cluster is setup, these are the prerequisites for running the tests.
+As an Arc validated partner, you’ll need to set up your respective test environment with your distro, any specific ISV/IHV/OEM offerings, etc. This setup can be done either on-premises or in Azure, depending on the feasibility of configuration (for instance, it may not be simple to set up an IHV offering on Azure). Once your test cluster is set up, these are the prerequisites for running the tests.
 
-1. Setu pthe KUBECONFIG environment variable as the path to your kubeconfig file.
+1. Set up the KUBECONFIG environment variable as the path to your kubeconfig file.
 1. Install [sonobuoy](https://github.com/vmware-tanzu/sonobuoy#installation). Run the latest version to ensure that it's correctly installed. We've tested the plugins with sonobuoy version 0.51.0.
 1. Download and install [git](https://git-scm.com/downloads).
 1. Verify your cluster meets the [network requirements](../kubernetes/quickstart-connect-cluster.md?tabs=azure-cli.md#meet-network-requirements) for the Azure Arc agent to communicate with Azure.
