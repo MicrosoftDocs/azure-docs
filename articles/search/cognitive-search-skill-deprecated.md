@@ -109,123 +109,124 @@ If you need to generate the exact same property names, you will need to add a [s
         }
         ```
         _(After) EntityRecognition skill definition_
-        ```json
+
+```json
         {
-  "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
-  "name": "EntityRecognitionV3",
-  "description": null,
-  "context": "/document",
-  "categories": [
-    "Person"
-  ],
-  "defaultLanguageCode": "en",
-  "minimumPrecision": 0.5,
-  "modelVersion": null,
-  "inputs": [
-    {
-      "name": "text",
-      "source": "/document/content"
-    }
-  ],
-  "outputs": [
-    {
-      "name": "persons",
-      "targetName": "people"
-    }
-  ]
-}
-        ```
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+            "name": "EntityRecognitionV3",
+            "description": null,
+            "context": "/document",
+            "categories": [
+                "Person"
+            ],
+            "defaultLanguageCode": "en",
+            "minimumPrecision": 0.5,
+            "modelVersion": null,
+            "inputs": [
+                {
+                "name": "text",
+                "source": "/document/content"
+                }
+            ],
+            "outputs": [
+                {
+                "name": "persons",
+                "targetName": "people"
+                }
+            ]
+        }
+```
     
     * Slightly complicated migration
 
         _(Before) NamedEntityRecognition skill definition_
-        ```json
-{
-            "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-            "categories": [ "Person", "Location", "Organization" ],
-            "defaultLanguageCode": "en",
-            "minimumPrecision": 0.1,
-            "inputs": [
-            {
-                "name": "text",
-                "source": "/document/content"
-            }
-            ],
-            "outputs": [
-            {
-                "name": "persons",
-                "targetName": "people"
-            },
-            {
-                "name": "entities",
-                "targetName": "entities"
-            }
-            ]
-        }
-        ```
-        _(After) EntityRecognition skill definition_
-        ```json
+```json
+    {
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+        "categories": [ "Person", "Location", "Organization" ],
+        "defaultLanguageCode": "en",
+        "minimumPrecision": 0.1,
+        "inputs": [
         {
-  "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-  "name": "#1",
-  "description": null,
-  "context": "/document/content",
-  "categories": [
-    "Person",
-    "Organization",
-    "Location",
-  ],
-  "defaultLanguageCode": "en",
-  "minimumPrecision": null,
-  "includeTypelessEntities": true,
-  "inputs": [
-    {
-      "name": "text",
-      "source": "/document/content"
+            "name": "text",
+            "source": "/document/content"
+        }
+        ],
+        "outputs": [
+        {
+            "name": "persons",
+            "targetName": "people"
+        },
+        {
+            "name": "entities",
+            "targetName": "entities"
+        }
+        ]
     }
-  ],
-  "outputs": [
-    {
-      "name": "persons",
-      "targetName": "people"
-    },
-    {
-      "name": "organizations",
-      "targetName": "organizations"
-    },
-    {
-      "name": "locations",
-      "targetName": "locations"
-    }
-  ]
-},
-{
-  "@odata.type": "#Microsoft.Skills.Text.V3.EntityLinkingSkill",
-  "name": "EntityLinkingV3",
-  "description": null,
-  "context": "/document",
-  "defaultLanguageCode": "en",
-  "minimumPrecision": 0.5,
-  "modelVersion": null,
-  "inputs": [
-    {
-      "name": "text",
-      "source": "/document/content"
-    },
-    {
-      "name": "languageCode",
-      "source": "/document/language"
-    }
-  ],
-  "outputs": [
-    {
-      "name": "entities",
-      "targetName": "entities"
-    }
-  ]
-}
 ```
 
+        _(After) EntityRecognition skill definition_
+```json
+    {
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+    "name": "#1",
+    "description": null,
+    "context": "/document/content",
+    "categories": [
+        "Person",
+        "Organization",
+        "Location",
+    ],
+    "defaultLanguageCode": "en",
+    "minimumPrecision": null,
+    "includeTypelessEntities": true,
+    "inputs": [
+        {
+        "name": "text",
+        "source": "/document/content"
+        }
+    ],
+    "outputs": [
+        {
+        "name": "persons",
+        "targetName": "people"
+        },
+        {
+        "name": "organizations",
+        "targetName": "organizations"
+        },
+        {
+        "name": "locations",
+        "targetName": "locations"
+        }
+    ]
+    },
+    {
+    "@odata.type": "#Microsoft.Skills.Text.V3.EntityLinkingSkill",
+    "name": "EntityLinkingV3",
+    "description": null,
+    "context": "/document",
+    "defaultLanguageCode": "en",
+    "minimumPrecision": 0.5,
+    "modelVersion": null,
+    "inputs": [
+        {
+        "name": "text",
+        "source": "/document/content"
+        },
+        {
+        "name": "languageCode",
+        "source": "/document/language"
+        }
+    ],
+    "outputs": [
+        {
+        "name": "entities",
+        "targetName": "entities"
+        }
+    ]
+    }
+```
 
 ## MMicrosoft.Skills.Text.SentimentSkill
 
@@ -257,7 +258,7 @@ To migrate to the [SentimentSkill V3](cognitive-search-skill-sentiment-v3.md), y
     * Simple migration
 
         _(Before) Sentiment skill definition_
-        ```json
+```json
         {
             "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
             "name": "Sentiment",
@@ -283,7 +284,7 @@ To migrate to the [SentimentSkill V3](cognitive-search-skill-sentiment-v3.md), y
         }
         ```
         _(After) Sentiment skill V3 definition_
-        ```json
+    ```json
         {
             "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
             "name": "SentimentV3",
@@ -313,12 +314,12 @@ To migrate to the [SentimentSkill V3](cognitive-search-skill-sentiment-v3.md), y
                 }
             ]
         }
-        ```
+```
     
     * Slightly complicated migration
 
         _(Before) Sentiment skill definition_
-        ```json
+```json
         {
             "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
             "name": "Sentiment",
@@ -342,9 +343,9 @@ To migrate to the [SentimentSkill V3](cognitive-search-skill-sentiment-v3.md), y
                 }
             ]
         }
-        ```
+```
         _(After) Sentiment skill V3 definition_
-        ```json
+```json
         {
   "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
   "name": "SentimentV3",
@@ -378,7 +379,7 @@ To migrate to the [SentimentSkill V3](cognitive-search-skill-sentiment-v3.md), y
     }
   ]
 }
-        ```
+```
 > [!NOTE]
 > If you need any additional help updating your enrichment pipeline to use the latest version of the sentiment skill, please contact us directly.   
 
