@@ -46,7 +46,9 @@ The following tables lists [dimensions](/azure/azure-monitor/platform/data-platf
 
 ## Resource logs
 
-The following table lists the resource log categories you can collect for AKS. For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema). When sent to a Log Analytics workspace with a diagnostic setting, the logs are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table with 
+The following table lists the resource log categories you can collect for AKS. These are the logs for AKS control plane components. See [Configure monitoring](monitor-aks.md#configure-monitoring) for information on creating a diagnostic setting to collect these logs. See [How to query logs from Container insights](../azure-monitor/containers/container-insights-log-query.md#resource-logs) for query examples.
+
+For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema). 
 
 | Category                | Description |
 |:---|:---|

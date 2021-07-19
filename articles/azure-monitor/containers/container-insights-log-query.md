@@ -1,5 +1,5 @@
 ---
-title: How to Query Logs from Container insights | Microsoft Docs
+title: How to Query Logs from Container insights
 description: Container insights collects metrics and log data and this article describes the records and includes sample queries.
 ms.topic: conceptual
 ms.date: 07/19/2021
@@ -237,7 +237,7 @@ KubePodInventory
 ```
 
 ## Resource logs
-Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table You can distinguish different logs with the **Category** column. See [AKS reference resource logs](../../aks/monitor-aks-reference.md) for a description of each category. The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. See [Configure monitoring](monitor-aks.md#configure-monitoring) for details.
+Resource logs for AKS are stored in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table You can distinguish different logs with the **Category** column. See [AKS reference resource logs](../../aks/monitor-aks-reference.md) for a description of each category. The following examples require a diagnostic extension to send resource logs for an AKS cluster to a Log Analytics workspace. See [Configure monitoring](../../aks/monitor-aks.md#configure-monitoring) for details.
 
 ### API server logs
 
