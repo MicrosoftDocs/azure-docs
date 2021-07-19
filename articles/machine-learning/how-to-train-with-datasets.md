@@ -297,6 +297,14 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 For multi-node file downloads, all nodes may attempt to download all files in the file dataset from the Azure Storage service, which results in a throttling error. To avoid throttling error, set the environment variable `AZUREML_DOWNLOAD_CONCURRENCY` to a value of 8 times the number of CPU cores divided by the number of nodes as a starting point. Setting up a value for this environment variable may require some experimentation.
 
+The following example assumes 32 cores and 4 nodes.
+
+```python
+from azureml.core.environment import Environment 
+myenv = Environment(name="myenv")
+myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
+```
+
 ### AzureFile storage
 
 **Unable to upload project files to working directory in AzureFile because the storage is overloaded**:
