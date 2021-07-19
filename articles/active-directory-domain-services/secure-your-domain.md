@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/22/2021
+ms.date: 07/19/2021
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -62,11 +62,11 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 
 ![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
 
-## Assess impact of disabling NTLM password sync
+## Assess impact of disabling NTLM password synchronization
 
-If you disable NTLM password synchonization, prepare for apps and operations that will fail if they fall back to using NTLM. For example, using Remote Desktop (RDP) to VMs joined to Azure AD DS, including the admin VM, will revert to NTLM if the RDP connection is using Network Level Authentication (NLA). The connection fails because the RDP client is not joined to Azure AD DS and the RDP client can't request a Kerberos ticket for the VM joined to Azure AD DS.
+While disabling NTLM password synchronization will improve security, many applications and services are not designed to work without it. Connecting to any resource by its IP address, such as DNS server management or RDP, will fail with Access Denied. If you disable NTLM password synchronization and your application/service isn’t working as expected, you'll want to start troubleshooting here.
 
-Another example is that connections to DNS server using IP address or domain name will fail with Access Denied.
+You can check if a failed authentication was using Kerberos or NTLM by setting an Advanced security policy audit under using Group Policy under **Security Settings\Advanced Audit Policy Configuration\System Audit Policies\Audit Logon**. You can audit [event ID 4625(F): An account failed to log on](/windows/security/threat-protection/auditing/event-4625) and see the **Authentication Package** type under **Detailed Authentication Information**.
 
 ## Use PowerShell to harden your domain
 
