@@ -174,7 +174,7 @@ Others might include:
 
 - Citrix Gateway
 
-  [Citrix Gateway](https://docs.citrix.com/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
+  [Citrix Gateway](https://docs.citrix.com/en-us/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
 
 - Cisco VPN
   - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
@@ -217,4 +217,3 @@ See [Troubleshooting Azure AD MFA](https://support.microsoft.com/help/2937344/tr
 ## Next steps
 
 [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
-
