@@ -19,13 +19,13 @@ Learn how to use a managed online endpoint (preview) to deploy your model, so yo
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
-For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md)
+For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
-* To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+* To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * Install and configure the Azure CLI and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
 
