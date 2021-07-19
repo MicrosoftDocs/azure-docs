@@ -33,7 +33,7 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 
 The designer gives you a visual canvas to build, test, and deploy machine learning models. With the designer you can:
 
-+ Drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
++ Drag-and-drop [datasets](#datasets) and [components](#component) onto the canvas.
 + Connect the components to create a [pipeline draft](#pipeline-draft).
 + Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
 + Convert your **training pipelines** to **inference pipelines**.
@@ -71,13 +71,13 @@ Pipeline runs are grouped into [experiments](concept-azure-machine-learning-arch
 
 A machine learning dataset makes it easy to access and work with your data. Several sample datasets are included in the designer for you to experiment with. You can [register](how-to-create-register-datasets.md) more datasets as you need them.
 
-## component
+## Component
 
 A component is an algorithm that you can perform on your data. The designer has several components ranging from data ingress functions to training, scoring, and validation processes.
 
 A component may have a set of parameters that you can use to configure the component's internal algorithms. When you select a component on the canvas, the component's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual components in the designer. 
 
-:::image type="content" source="./media/concept-designer/properties.png" alt-text="Module properties":::
+:::image type="content" source="./media/concept-designer/properties.png" alt-text="Component properties":::
 
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & component reference overview](algorithm-module-reference/module-reference.md). For help with choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).

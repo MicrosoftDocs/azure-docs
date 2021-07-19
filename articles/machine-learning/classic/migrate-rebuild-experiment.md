@@ -39,7 +39,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 
 1. Manually rebuild your experiment with designer components.
     
-    Consult the [module-mapping table](migrate-overview.md#studio-classic-and-designer-module-mapping) to find replacement modules. Many of Studio (classic)'s most popular modules have identical versions in the designer.
+    Consult the [module-mapping table](migrate-overview.md#studio-classic-and-designer-component-mapping) to find replacement modules. Many of Studio (classic)'s most popular modules have identical versions in the designer.
 
     > [!Important]
     > If your experiment uses the Execute R Script module, you need to perform additional steps to migrate your experiment. For more information, see [Migrate R Script modules](migrate-execute-r-script.md).

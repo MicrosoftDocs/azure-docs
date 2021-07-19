@@ -60,7 +60,7 @@ In this example, you create a pipeline parameter that defines how a pipeline fil
    ![Screenshot that shows how to create a pipeline parameter](media/how-to-use-pipeline-parameter/create-pipeline-parameter.png)
 
 
-After you create a pipeline parameter, you must [attach it to the component parameter](#attach-module-parameter-to-pipeline-parameter) that you want to dynamically set.
+After you create a pipeline parameter, you must [attach it to the component parameter](#attach-component-parameter-to-pipeline-parameter) that you want to dynamically set.
 
 ### Option 2: Promote a component parameter
 
