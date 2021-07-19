@@ -7,8 +7,8 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma, danil
 ms.date: 03/10/2021
 ---
