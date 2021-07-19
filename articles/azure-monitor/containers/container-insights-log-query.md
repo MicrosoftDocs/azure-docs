@@ -2,7 +2,7 @@
 title: How to Query Logs from Container insights | Microsoft Docs
 description: Container insights collects metrics and log data and this article describes the records and includes sample queries.
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 07/19/2021
 
 ---
 

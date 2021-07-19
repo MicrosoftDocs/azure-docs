@@ -69,7 +69,7 @@ If you need additional troubleshooting information from the Kubernetes master, s
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: ./view-control-plane-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [aks-master-logs]: monitor-aks-reference.md#resource-logs
