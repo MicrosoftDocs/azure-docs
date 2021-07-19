@@ -38,8 +38,9 @@ For Azure services, use the recommended zone names as described in the following
 |---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
-| Azure Synapse Analytics (Microsoft.Sql/servers) / sqlServer  | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sqlondemand.azuresynapse.net | sqlondemand.azuresynapse.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
@@ -51,6 +52,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Azure Batch (Microsoft.Batch/batchAccounts) / batch account | privatelink.{region}.batch.azure.com | {region}.batch.azure.com |
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
@@ -76,6 +78,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Factory (Microsoft.DataFactory/factories) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
+| Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) / redisCache | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 

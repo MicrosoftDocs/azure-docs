@@ -95,7 +95,7 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
    - For non-persistent VDI deployments on Windows current and down-level, you should delete devices that have **ApproximateLastLogonTimestamp** of older than 15 days.
 
 > [!NOTE]
-> When using non-persistent VDI, if you want to prevent a device join state ensure the following registry key is set:  
+> When using non-persistent VDI, if you want to prevent adding a work or school account ensure the following registry key is set:  
 > `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001`    
 >
 > Ensure you are running Windows 10, version 1803 or higher.  
@@ -108,7 +108,9 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
 > * `%localappdata%\Microsoft\TokenBroker`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\IdentityCRL`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
+> * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WorkplaceJoin`
 >
+> Romaing of the work account's device certificate is not supported. The certificate, issued by "MS-Organization-Access", is stored in the Personal (MY) certificate store of the current user.
 
 
 ### Persistent VDI

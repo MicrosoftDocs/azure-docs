@@ -49,7 +49,7 @@ After the storage account is created, you create a blob container where the appl
 Resources in your cluster can be secured by setting the public access level to **private**. You can grant access in multiple ways:
 
 * Authorize access to blobs and queues by using [Azure Active Directory](../storage/common/storage-auth-aad-app.md).
-* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md).
+* Grant access to Azure blob and queue data by using [Azure RBAC in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 * Delegate access by using a [shared access signature](/rest/api/storageservices/delegate-access-with-shared-access-signature).
 
 The example in the following screenshot uses anonymous read access for blobs.
@@ -183,7 +183,7 @@ The following items are called out specifically due to frequency of usage, but n
 
 * upgradeReplicaSetCheckTimeout is now an integer for managed, but a string on classic SFRP. 
 
-See [managed clusters applications resource types](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json) for full list of properties and types
+See [managed clusters applications resource types](/azure/templates/microsoft.servicefabric/managedclusters/applications?tabs=json) for full list of properties and types
 
 ## Next steps
 

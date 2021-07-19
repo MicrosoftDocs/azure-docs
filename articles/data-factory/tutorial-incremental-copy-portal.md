@@ -6,7 +6,7 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 06/04/2021
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob storage using the Azure portal
@@ -165,8 +165,9 @@ END
 8. Click **Create**.      
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
-10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+10. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create a pipeline
 In this tutorial, you create a pipeline with two Lookup activities, one Copy activity, and one StoredProcedure activity chained in one pipeline.

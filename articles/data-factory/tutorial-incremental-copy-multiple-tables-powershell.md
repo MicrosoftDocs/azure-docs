@@ -7,7 +7,7 @@ ms.reviewer: douglasl, jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 06/04/2021
+ms.date: 07/05/2021
 ---
 
 # Incrementally load data from multiple tables in SQL Server to Azure SQL Database using PowerShell
@@ -811,7 +811,7 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
 
 3. Search for your data factory in the list of data factories, and select it to open the **Data factory** page. 
 
-4. On the **Data factory** page, select **Author & Monitor** to launch Azure Data Factory in a separate tab.
+4. On the **Data factory** page, select **Open** on the **Open Azure Data Factory Studio** tile to launch Azure Data Factory in a separate tab.
 
 5. On the Azure Data Factory home page, select **Monitor** on the left side. 
 
