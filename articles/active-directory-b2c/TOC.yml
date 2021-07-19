@@ -48,7 +48,11 @@
   - name: Clean up and delete tenant
     href: tutorial-delete-tenant.md
 - name: Samples
-  href: code-samples.md
+  items:
+  - name: Integrate Azure AD B2C with your applications
+    href: integrate-with-app-code-samples.md
+  - name: Use API connectors to modify your user flows
+    href: api-connector-samples.md
 - name: Concepts
   items:
   - name: Compare solutions for External Identities
@@ -285,6 +289,8 @@
         href: multi-factor-authentication.md
       - name: Partner integration
         items:
+        - name: BlokSec
+          href: partner-bloksec.md
         - name: HYPR
           href: partner-hypr.md
         - name: Keyless
@@ -374,6 +380,8 @@
       href: partner-onfido.md
   - name: Secure access to legacy and on-premises apps
     items:
+    - name: Datawiza
+      href: partner-datawiza.md
     - name: Ping Identity
       href: partner-ping-identity.md
     - name: Strata
@@ -390,6 +398,8 @@
       href: custom-domain.md
     - name: Web Application Firewall partners
       items:
+      - name: Akamai
+        href: partner-akamai.md
       - name: Cloudflare
         href: partner-cloudflare.md
     - name: Configure web API domains 
