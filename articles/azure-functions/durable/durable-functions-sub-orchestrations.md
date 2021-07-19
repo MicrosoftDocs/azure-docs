@@ -153,9 +153,12 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     # Run multiple device provisioning flows in parallel
     provisioning_tasks = []
+    id_ = 0
     for device_id in device_IDs:
-        provision_task = context.call_sub_orchestrator("DeviceProvisioningOrchestration", device_id)
+        child_id = f"{context.instance_id}:{id_}"
+        provision_task = context.call_sub_orchestrator("DeviceProvisioningOrchestration", device_id, child_id)
         provisioning_tasks.append(provision_task)
+        id_ += 1
 
     yield context.task_all(provisioning_tasks)
 
