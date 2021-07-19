@@ -38,14 +38,14 @@ Web categories lets administrators allow or deny user access to web site categor
 |Sex education     |  Sites relating to sex education, including subjects such as respect for partner, abortion, contraceptives, sexually transmitted diseases, and pregnancy.       |
 |Tasteless     |Sites with offensive or tasteless content, including profanity.          |
 |Violence   | Sites that contain images or text depicting or advocating physical assault against humans, animals, or institutions. Sites of a particularly gruesome nature.         |
-|Weapons      |Sites that depict, sell, review or describe guns and weapons, including for sport.         |
+|Weapons      |Sites that depict, sell, review, or describe guns and weapons, including for sport.         |
 
 
 ## High bandwidth
 
 |Category  |Description  |
 |---------|---------|
-|Image sharing    |   Sites that host digital photographs and images, online photo albums and digital photo exchanges.       |
+|Image sharing    |   Sites that host digital photographs and images, online photo albums, and digital photo exchanges.       |
 |Peer-to-peer    |  Sites that enable direct exchange of files between users without dependence on a central server.        |
 |Streaming media + downloads    |  Sites that deliver streaming content, such as Internet radio, Internet TV or MP3 and live or archived media download sites. Includes fan sites, or official sites run by musicians, bands, or record labels.        |
 |Download sites      | Sites that contain downloadable software, whether shareware, freeware, or for a charge.         |
@@ -57,7 +57,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |Category  |Description  |
 |---------|---------|
 |Business    |   Sites that provide business related information such as corporate web sites. Information, services, or products that help businesses of all sizes to do their day-to-day commercial activities.       |
-|Computers + technology   |Sites that contain information such as product reviews, discussions, and news about computers, software, hardware, peripheral and computer services.          |
+|Computers + technology   |Sites that contain information such as product reviews, discussions, and news about computers, software, hardware, peripheral, and computer services.          |
 |Education   |  Sites sponsored by educational institutions and schools of all types including distance education. Includes general educational and reference materials such as dictionaries, encyclopedias, online courses, teaching aids and discussion guides.       |
 |Finance    | Sites related to banking, finance, payment or investment, including banks, brokerages, online stock trading, stock quotes, fund management, insurance companies, credit unions, credit card companies, and so on.         |
 |Forums + newsgroups     | Sites for sharing information in the form of newsgroups, forums, bulletin boards. Does not include personal blogs.         |
@@ -73,7 +73,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |Search engines + portals   |Sites enabling the searching of the Web, newsgroups, images, directories, and other online content. Includes portal and directory sites such as white/yellow pages.    |
 |Translators     |   Sites that translate Web pages or phrases from one language to another. These sites bypass the proxy server, presenting the risk that unauthorized content may be accessed, similar to using an anonymizer.       |
 |File repository     |  Web pages including collections of shareware, freeware, open source, and other software downloads.        |
-|Web-based email     | Sites that enables users to send and receive email through a web accessible email account.         |
+|Web-based email     | Sites that enable users to send and receive email through a web accessible email account.         |
 |     |         |
 
 
@@ -95,7 +95,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |Category   |Description  |
 |---------|---------|
 |Arts     | Sites with artistic content or relating to artistic institutions such as theaters, museums, galleries, dance companies, photography, and digital graphic resources.   |
-|Fashion + Beauty    | Sites concerning fashion, jewelry, glamour, beauty, modeling, cosmetics or related products or services. Includes product reviews, comparisons, and general consumer information.   |
+|Fashion + Beauty    | Sites concerning fashion, jewelry, glamour, beauty, modeling, cosmetics, or related products or services. Includes product reviews, comparisons, and general consumer information.   |
 |General    | Sites that do not clearly fall into other categories, for example, blank web pages.   |
 |Greeting cards    |Sites that allow people to send and receive greeting cards and postcards.    |
 |Leisure + recreation     | Sites relating to recreational activities and hobbies including zoos, public recreation centers, pools, amusement parks, and hobbies such as gardening, literature, arts & crafts, home improvement, home décor, family, etc. |
