@@ -36,7 +36,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
 
-### Enrich Entities with geolocation data via API
+### Enrich entities with geolocation data via API
 
 Azure Sentinel now supports ingesting geolocation enrichment data from the **Microsoft Threat Intelligence** service via API.
 
