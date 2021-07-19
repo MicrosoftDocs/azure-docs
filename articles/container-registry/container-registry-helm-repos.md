@@ -125,8 +125,8 @@ Run `helm chart list` to confirm you saved the charts in the local registry cach
 
 ```console
 REF                                                      NAME            VERSION DIGEST  SIZE            CREATED
-hello-world:0.1.0                                        hello-world       0.1.0   5899db0 3.2 KiB        2 minutes 
-mycontainerregistry.azurecr.io/helm/hello-world:0.1.0    hello-world       0.1.0   5899db0 3.2 KiB        2 minutes
+hello-world:0.1.0                                        hello-world      0.1.0   5899db0 3.2 KiB        2 minutes 
+mycontainerregistry.azurecr.io/helm/hello-world:0.1.0    hello-world      0.1.0   5899db0 3.2 KiB        2 minutes
 ```
 
 ## Authenticate with the registry
