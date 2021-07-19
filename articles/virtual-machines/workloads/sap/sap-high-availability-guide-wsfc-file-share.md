@@ -172,6 +172,33 @@ You must deploy the SAP ASCS/SCS instances in a separate cluster, with their own
 
 _**Figure 5:** An SAP ASCS/SCS instance and a scale-out file share deployed in two clusters_
 
+## Optional configurations
+
+The following describes how to install multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs. The focus is on small instances like SAP ASCS/SCS in combination with larger instances like an SAP Application Server or a Microsoft SQL Server database.
+
+Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
+
+By installing an SAP Application Server locally on each cluster node, the total number of VMs can be reduced.
+
+While the resource consumption of the SAP ASCS/SCS is fairly small a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
+
+### <a name="86cb3ee0-2091-4b74-be77-64c2e6424f50"></a>SAP Application Servers on WSFC nodes using Windows SOFS
+
+The following shows an example based on Windows SOFS. 
+
+![Figure 6: Windows Server failover clustering configuration in Azure with Windows SOFS and locally installed SAP Application Server][sap-ha-guide-figure-8007A]
+
+> [!NOTE]
+> The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
+>
+### <a name="db335e0d-09b4-416b-b240-afa18505f503"></a> SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS
+
+![Figure 7: SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS][sap-ha-guide-figure-8007B]
+
+> [!NOTE]
+> The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
+>
+
 > [!IMPORTANT]
 > In the Azure cloud, each cluster that is used for SAP and scale-out file shares must be deployed in its own Azure availability set or across Azure Availability Zones. This ensures distributed placement of the cluster VMs across the underlying Azure infrastructure. Availability Zone deployments are supported with this technology.
 >
@@ -337,7 +364,9 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 [sap-ha-guide-figure-8004]:./media/virtual-machines-shared-sap-high-availability-guide/8004.png
 [sap-ha-guide-figure-8005]:./media/virtual-machines-shared-sap-high-availability-guide/8005.png
 [sap-ha-guide-figure-8006]:./media/virtual-machines-shared-sap-high-availability-guide/8006.png
-[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/8007.png
+[sap-ha-guide-figure-8007]:./media/virtual-machines-shared-sap-high-availability-guide/HA-SOFS.png
+[sap-ha-guide-figure-8007A]:./media/virtual-machines-shared-sap-high-availability-guide/HA-SOFS+AS.png
+[sap-ha-guide-figure-8007B]:./media/virtual-machines-shared-sap-high-availability-guide/HA-SQL+ASCS-SOFS.png
 [sap-ha-guide-figure-8008]:./media/virtual-machines-shared-sap-high-availability-guide/8008.png
 [sap-ha-guide-figure-8009]:./media/virtual-machines-shared-sap-high-availability-guide/8009.png
 [sap-ha-guide-figure-8010]:./media/virtual-machines-shared-sap-high-availability-guide/8010.png
