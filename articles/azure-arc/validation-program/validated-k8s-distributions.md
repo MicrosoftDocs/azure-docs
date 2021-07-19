@@ -39,6 +39,7 @@ The following providers and their corresponding Kubernetes distributions have su
 The following cloud providers and their corresponding Kubernetes distributions have successfully passed the conformance tests for Azure Arc-enabled Kubernetes.
 
 |**Public Cloud provider** |**Distribution** |
+|-----------|-----------|
 |Amazon Web Services |[Elastic Kubernetes Service (Amazon EKS)](https://aws.amazon.com/eks) |
 |Google Cloud Platform |[Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine) |
 
