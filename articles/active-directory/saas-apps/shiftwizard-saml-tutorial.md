@@ -35,6 +35,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * ShiftWizard SAML supports **SP** initiated SSO.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Add ShiftWizard SAML from the gallery
 
 To configure the integration of ShiftWizard SAML into Azure AD, you need to add ShiftWizard SAML from the gallery to your list of managed SaaS apps.
@@ -69,7 +72,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, perform the following step:
+
+    In the **Sign on URL** textbox, type the URL:
+    `https://azureadsso.myshiftwizard.com/SSOActiveDirectory`
 
 1. ShiftWizard SAML application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
