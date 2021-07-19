@@ -67,19 +67,11 @@ To migrate a container to support version-level immutable storage in the Azure p
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/migrate-existing-container.png" alt-text="Screenshot showing how to migrate an existing container to support version-level immutability":::
 
-## Configure time-based retention policies
+## Configure a time-based retention policy on a container
 
-Time-based retention policies maintain blob data in a WORM state for a specified interval. For more information about time-based retention policies, see [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md).
+After a container is enabled for version-level immutability, you can specify a default version-level time-based retention policy for the container. The default policy applies to all blob versions in the container, unless you override the policy for an individual version.
 
-You have three options for configuring a time-based retention policy for a blob version:
-
-1. You can configure a default policy that is scoped to the container and that applies to all objects in the container by default. Objects in the container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. See [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy) for details.
-1. You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. See [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob) for details.
-1. You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. See [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob) for details.
-
-### Configure a default time-based retention policy
-
-You can specify a default version-level time-based retention policy on a container that is enabled for version-level immutability. The default policy applies to all blob versions in the container, unless you override the policy for an individual version.
+### Configure a default time-based retention policy on a container
 
 To apply a default version-level immutability policy to a container in the Azure portal, follow these steps:
 
@@ -91,6 +83,30 @@ To apply a default version-level immutability policy to a container in the Azure
 1. Select **OK** to apply the default policy to the container.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
+
+### Determine the scope of a retention policy on a container
+
+To determine the scope of a time-based retention policy in the Azure portal, follow these steps:
+
+1. Navigate to the desired container.
+1. Select the **More** button on the right, then select **Access policy**.
+1. Under **Immutable blob storage**, locate the **Scope** field. If the container is configured with a default version-level retention policy, then the scope is set to *Version*, as shown in the following image:
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/version-scoped-retention-policy.png" alt-text="Screenshot showing default version-level retention policy configured for container":::
+
+1. If the container is configured with a container-level retention policy, then the scope is set to *Container*, as shown in the following image:
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/container-scoped-retention-policy.png" alt-text="Screenshot showing container-level retention policy configured for container":::
+
+## Configure a time-based retention policy on an existing version
+
+Time-based retention policies maintain blob data in a WORM state for a specified interval. For more information about time-based retention policies, see [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md).
+
+You have three options for configuring a time-based retention policy for a blob version:
+
+1. You can configure a default policy that is scoped to the container and that applies to all objects in the container by default. Objects in the container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. See [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy) for details.
+1. You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. See [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob) for details.
+1. You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. See [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob) for details.
 
 ### Configure a retention policy on the current version of a blob
 
@@ -125,19 +141,17 @@ To configure a time-based retention policy on a previous version of a blob, foll
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-retention-policy-previous-version.png" alt-text="Screenshot showing how to configure retention policy for a previous blob version in Azure portal":::
 
-## Determine the scope of a retention policy
+## Configure a time-based retention policy when uploading a blob
 
-To determine the scope of a time-based retention policy in the Azure portal, follow these steps:
+When you use the Azure portal to upload a blob to a container that supports version-level immutability, you have several options for configuring a time-based retention policy for the new blob:
 
-1. Navigate to the desired container.
-1. Select the **More** button on the right, then select **Access policy**.
-1. Under **Immutable blob storage**, locate the **Scope** field. If the container is configured with a default version-level retention policy, then the scope is set to Version, as shown in the following image:
+1. If a default retention policy is configured for the container, you can upload the blob with the container's policy. This option is selected by default when there is a retention policy on the container.
+1. If a default retention policy is configured for the container, you can choose to override the default policy, either by defining a custom retention policy for the new blob, or by uploading the blob with no policy.
+1. If no default policy is configured for the container, then you can upload the blob with a custom policy, or with no policy.
 
-    :::image type="content" source="media/immutable-policy-configure-version-scope/version-scoped-retention-policy.png" alt-text="Screenshot showing default version-level retention policy configured for container":::
+To configure a time-based retention policy when you upload a blob, follow these steps:
 
-1. If the container is configured with a container-level retention policy, then the scope is set to Version, as shown in the following image:
-
-    :::image type="content" source="media/immutable-policy-configure-version-scope/container-scoped-retention-policy.png" alt-text="Screenshot showing container-level retention policy configured for container":::
+???Portal is down right now - will add steps and images when it's back up???
 
 ## Modify an unlocked retention policy
 
