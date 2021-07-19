@@ -1,7 +1,7 @@
 ---
 title: "Tune Model Hyperparameters"
 titleSuffix: Azure Machine Learning
-description: Use the Tune Model Hyperparameters module in the designer to perform a parameter sweep to tune hyper-parameters.
+description: Use the Tune Model Hyperparameters component in the designer to perform a parameter sweep to tune hyper-parameters.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,11 +13,11 @@ ms.date: 10/10/2020
 ---
 # Tune Model Hyperparameters
 
-This article describes how to use the Tune Model Hyperparameters module in Azure Machine Learning designer. The goal is to determine the optimum hyperparameters for a machine learning model. The module builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
+This article describes how to use the Tune Model Hyperparameters component in Azure Machine Learning designer. The goal is to determine the optimum hyperparameters for a machine learning model. The component builds and tests multiple models by using different combinations of settings. It compares metrics over all models to get the combinations of settings. 
 
-The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the right pane of the module. Basically, this module performs a *parameter sweep* over the specified parameter settings. It learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
+The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the right pane of the component. Basically, this component performs a *parameter sweep* over the specified parameter settings. It learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
 
-The module supports the following method for finding the optimum settings for a model: *integrated train and tune.* In this method, you configure a set of parameters to use. You then let the module iterate over multiple combinations. The module measures accuracy until it finds a "best" model. With most learner modules, you can choose which parameters should be changed during the training process, and which should remain fixed.
+The component supports the following method for finding the optimum settings for a model: *integrated train and tune.* In this method, you configure a set of parameters to use. You then let the component iterate over multiple combinations. The component measures accuracy until it finds a "best" model. With most learner components, you can choose which parameters should be changed during the training process, and which should remain fixed.
 
 Depending on how long you want the tuning process to run, you might decide to exhaustively test all combinations. Or you might shorten the process by establishing a grid of parameter combinations and testing a randomized subset of the parameter grid.
 
@@ -32,14 +32,14 @@ Learning the optimal hyperparameters for a machine learning model requires consi
 
 ### Train a model by using a parameter sweep  
 
-This section describes how to perform a basic parameter sweep, which trains a model by using the Tune Model Hyperparameters module.
+This section describes how to perform a basic parameter sweep, which trains a model by using the Tune Model Hyperparameters component.
 
-1.  Add the Tune Model Hyperparameters module to your pipeline in the designer.
+1.  Add the Tune Model Hyperparameters component to your pipeline in the designer.
 
 2.  Connect an untrained model to the leftmost input. 
 
     > [!NOTE] 
-    > **Tune Model Hyperparameters** can only be connect to built-in machine learning algorithm modules, and cannot support customized model built in **Create Python Model**.
+    > **Tune Model Hyperparameters** can only be connect to built-in machine learning algorithm components, and cannot support customized model built in **Create Python Model**.
 
 
 3.  Add the dataset that you want to use for training, and connect it to the middle input of Tune Model Hyperparameters.  
@@ -48,9 +48,9 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 4.  In the right panel of Tune Model Hyperparameters, choose a value for **Parameter sweeping mode**. This option controls how the parameters are selected.
 
-    - **Entire grid**: When you select this option, the module loops over a grid predefined by the system, to try different combinations and identify the best learner. This option is useful when you don't know what the best parameter settings might be and want to try all possible combinations of values.
+    - **Entire grid**: When you select this option, the component loops over a grid predefined by the system, to try different combinations and identify the best learner. This option is useful when you don't know what the best parameter settings might be and want to try all possible combinations of values.
 
-    - **Random sweep**: When you select this option, the module will randomly select parameter values over a system-defined range. You must specify the maximum number of runs that you want the module to execute. This option is useful when you want to increase model performance by using the metrics of your choice but still conserve computing resources.    
+    - **Random sweep**: When you select this option, the component will randomly select parameter values over a system-defined range. You must specify the maximum number of runs that you want the component to execute. This option is useful when you want to increase model performance by using the metrics of your choice but still conserve computing resources.    
 
 5.  For **Label column**, open the column selector to choose a single label column.
 
@@ -60,7 +60,7 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 7.  For **Ranking**, choose a single metric to use for ranking the models.
 
-    When you run a parameter sweep, the module calculates all applicable metrics for the model type and returns them in the **Sweep results** report. The module uses separate metrics for regression and classification models.
+    When you run a parameter sweep, the component calculates all applicable metrics for the model type and returns them in the **Sweep results** report. The component uses separate metrics for regression and classification models.
 
     However, the metric that you choose determines how the models are ranked. Only the top model, as ranked by the chosen metric, is output as a trained model to use for scoring.
 
@@ -72,11 +72,11 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 When training is complete:
 
-+ To view the sweep results, you could either right-click the module, and then select **Visualize**, or right-click left output port of the module to visualize.
++ To view the sweep results, you could either right-click the component, and then select **Visualize**, or right-click left output port of the component to visualize.
 
     The **Sweep results** includes all parameter sweep and accuracy metrics that apply to the model type, and the metric that you selected for ranking determines which model is considered "best."
 
-+ To save a snapshot of the trained model, select the **Outputs+logs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
++ To save a snapshot of the trained model, select the **Outputs+logs** tab in the right panel of the **Train model** component. Select the **Register dataset** icon to save the model as a reusable component.
 
 
 ## Technical notes
@@ -89,13 +89,13 @@ When you set up a parameter sweep, you define the scope of your search. The sear
 
 + **Random sweep**: This option trains a model by using a set number of iterations. 
 
-  You specify a range of values to iterate over, and the module uses a randomly chosen subset of those values. Values are chosen with replacement, meaning that numbers previously chosen at random are not removed from the pool of available numbers. So the chance of any value being selected stays the same across all passes.  
+  You specify a range of values to iterate over, and the component uses a randomly chosen subset of those values. Values are chosen with replacement, meaning that numbers previously chosen at random are not removed from the pool of available numbers. So the chance of any value being selected stays the same across all passes.  
 
 + **Entire grid**: The option to use the entire grid means that every combination is tested. This option is the most thorough, but it requires the most time. 
 
 ### Controlling the length and complexity of training
 
-Iterating over many combinations of settings can be time-consuming, so the module provides several ways to constrain the process:
+Iterating over many combinations of settings can be time-consuming, so the component provides several ways to constrain the process:
 
 + Limit the number of iterations used to test a model.
 + Limit the parameter space.
@@ -139,12 +139,11 @@ However, during training, you must choose a *single* metric to use in ranking th
 
 -   **Coefficient of determination** is a single number that indicates how well data fits a model. A value of one means that the model exactly matches the data. A value of zero means that the data is random or otherwise can't be fit to the model. It's often called *r<sup>2</sup>*, *R<sup>2</sup>*, or *r-squared*.  
 
-### Modules that don't support a parameter sweep
+### components that don't support a parameter sweep
 
 Almost all learners in Azure Machine Learning support cross-validation with an integrated parameter sweep, which lets you choose the parameters to pipeline with. If the learner doesn't support setting a range of values, you can still use it in cross-validation. In this case, a range of allowed values is selected for the sweep. 
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
-
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

@@ -40,7 +40,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
     [!INCLUDE [aml-compare-classic](../../../includes/machine-learning-compare-classic-aml.md)]
 
-3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table below.
+3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer component-mapping](#studio-classic-and-designer-module-mapping) table below.
 
 4. [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md?tabs=azure-portal).
 
@@ -69,16 +69,16 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 1. [Clean up Studio (classic) assets](export-delete-personal-data-dsr.md) to avoid extra charges. You may want to retain assets for fallback until you have validated Azure Machine Learning workloads.
 
-## Studio (classic) and designer module-mapping
+## Studio (classic) and designer component-mapping
 
 Consult the following table to see which modules to use while rebuilding Studio (classic) experiments in the designer.
 
 
 > [!IMPORTANT]
-> The designer implements modules through open-source Python packages rather than C# packages like Studio (classic). Because of this difference, the output of designer modules may vary slightly from their Studio (classic) counterparts.
+> The designer implements modules through open-source Python packages rather than C# packages like Studio (classic). Because of this difference, the output of designer components may vary slightly from their Studio (classic) counterparts.
 
 
-|Category|Studio (classic) module|Replacement designer module|
+|Category|Studio (classic) module|Replacement designer component|
 |--------------|----------------|--------------------------------------|
 |Data input and output|- Enter Data Manually </br> - Export Data </br> - Import Data </br> - Load Trained Model </br> - Unpack Zipped Datasets|- Enter Data Manually </br> - Export Data </br> - Import Data|
 |Data Format Conversions|- Convert to CSV </br> - Convert to Dataset </br> - Convert to ARFF </br> - Convert to SVMLight </br> - Convert to TSV|- Convert to CSV </br> - Convert to Dataset|
@@ -104,9 +104,9 @@ Consult the following table to see which modules to use while rebuilding Studio 
 | Web Service | - Input </br> -   Output | - Input </br>  - Output|
 | Computer Vision| | - Apply Image Transformation </br> - Convert to Image Directory </br> - Init Image Transformation </br> - Split Image Directory  </br> - DenseNet Image Classification   </br>- ResNet Image Classification |
 
-For more information on how to use individual designer modules, see the [designer module reference](../algorithm-module-reference/module-reference.md).
+For more information on how to use individual designer components, see the [designer component reference](../algorithm-module-reference/module-reference.md).
 
-### What if a designer module is missing?
+### What if a designer component is missing?
 
 Azure Machine Learning designer contains the most popular modules from Studio (classic). It also includes new modules that take advantage of the latest machine learning techniques. 
 

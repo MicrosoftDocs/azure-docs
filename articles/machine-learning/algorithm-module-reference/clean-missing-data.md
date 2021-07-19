@@ -1,7 +1,7 @@
 ---
-title:  "Clean Missing Data: Module Reference"
+title:  "Clean Missing Data: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Clean Missing Data module in Azure Machine Learning to remove, replace, or infer missing values.
+description: Learn how to use the Clean Missing Data component in Azure Machine Learning to remove, replace, or infer missing values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,28 +12,28 @@ ms.author: keli19
 ms.date: 02/11/2020
 ---
 
-# Clean Missing Data module
+# Clean Missing Data component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to remove, replace, or infer missing values. 
+Use this component to remove, replace, or infer missing values. 
 
 Data scientists often check data for missing values and then perform various operations to fix the data or insert new values. The goal of such cleaning operations is to prevent problems caused by missing data that can arise when training a model. 
 
-This module supports multiple types of operations for "cleaning" missing values, including:
+This component supports multiple types of operations for "cleaning" missing values, including:
 
 + Replacing missing values with a placeholder, mean, or other value
 + Completely removing rows and columns that have missing values
 + Inferring values based on statistical methods
 
 
-Using this module does not change your source dataset. Instead, it creates a new dataset in your workspace that you can use in the subsequent workflow. You can also save the new, cleaned dataset for reuse.
+Using this component does not change your source dataset. Instead, it creates a new dataset in your workspace that you can use in the subsequent workflow. You can also save the new, cleaned dataset for reuse.
 
-This module also outputs a definition of the transformation used to clean the missing values. You can re-use this transformation on other datasets that have the same schema, by using the [Apply Transformation](./apply-transformation.md) module.  
+This component also outputs a definition of the transformation used to clean the missing values. You can re-use this transformation on other datasets that have the same schema, by using the [Apply Transformation](./apply-transformation.md) component.  
 
 ## How to use Clean Missing Data
 
-This module lets you define a cleaning operation. You can also save the cleaning operation so that you can apply it later to new data. See the following sections of how to create and save a cleaning process: 
+This component lets you define a cleaning operation. You can also save the cleaning operation so that you can apply it later to new data. See the following sections of how to create and save a cleaning process: 
  
 + [To replace missing values](#replace-missing-values)
   
@@ -44,19 +44,19 @@ This module lets you define a cleaning operation. You can also save the cleaning
 
 ### Replace missing values  
 
-Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) module to a set of data, the same cleaning operation is applied to all columns that you select. Therefore, if you need to clean different columns using different methods, use separate instances of the module.
+Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) component to a set of data, the same cleaning operation is applied to all columns that you select. Therefore, if you need to clean different columns using different methods, use separate instances of the component.
 
-1.  Add the [Clean Missing Data](./clean-missing-data.md) module to your pipeline, and connect the dataset that has missing values.  
+1.  Add the [Clean Missing Data](./clean-missing-data.md) component to your pipeline, and connect the dataset that has missing values.  
   
 2.  For **Columns to be cleaned**, choose the columns that contain the missing values you want to change. You can choose multiple columns, but you must use the same replacement method in all selected columns. Therefore, typically you need to clean string columns and numeric columns separately.
 
     For example, to check for missing values in all numeric columns:
 
-    1. Select the **Clean Missing Data** module, and click on **Edit column** in the right panel of the module.
+    1. Select the **Clean Missing Data** component, and click on **Edit column** in the right panel of the component.
 
     3. For **Include**, select **Column types** from the dropdown list, and then select **Numeric**. 
   
-    Any cleaning or replacement method that you choose must be applicable to **all** columns in the selection. If the data in any column is incompatible with the specified operation, the module returns an error and stops the pipeline.
+    Any cleaning or replacement method that you choose must be applicable to **all** columns in the selection. If the data in any column is incompatible with the specified operation, the component returns an error and stops the pipeline.
   
 3.  For **Minimum missing value ratio**, specify the minimum number of missing values required for the operation to be performed.  
   
@@ -110,7 +110,7 @@ Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) modu
 
 ### Results
 
-The module returns two outputs:  
+The component returns two outputs:  
 
 -   **Cleaned dataset**: A dataset comprised of the selected columns, with missing values handled as specified, along with an indicator column, if you selected that option.  
 
@@ -122,7 +122,7 @@ The module returns two outputs:
 
 If you need to repeat cleaning operations often, we recommend that you save your recipe for data cleansing as a *transform*, to reuse with the same dataset. Saving a cleaning transformation is particularly useful if you must frequently re-import and then clean data that has the same schema.  
       
-1.  Add the [Apply Transformation](./apply-transformation.md) module to your pipeline.  
+1.  Add the [Apply Transformation](./apply-transformation.md) component to your pipeline.  
   
 2.  Add the dataset you want to clean, and connect the dataset to the right-hand input port.  
   
@@ -138,4 +138,4 @@ If you need to repeat cleaning operations often, we recommend that you save your
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

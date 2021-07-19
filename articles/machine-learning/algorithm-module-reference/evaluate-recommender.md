@@ -1,7 +1,7 @@
 ---
-title: "Evaluate Recommender: Module reference"
+title: "Evaluate Recommender: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Evaluate Recommender module in Azure Machine Learning to evaluate the accuracy of recommender model predictions.
+description: Learn how to use the Evaluate Recommender component in Azure Machine Learning to evaluate the accuracy of recommender model predictions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,22 +13,22 @@ ms.date: 10/10/2019
 ---
 # Evaluate Recommender
 
-This article describes how to use the Evaluate Recommender module in Azure Machine Learning designer. The goal is to measure the accuracy of predictions that a recommendation model has made. By using this module, you can evaluate different kinds of recommendations:  
+This article describes how to use the Evaluate Recommender component in Azure Machine Learning designer. The goal is to measure the accuracy of predictions that a recommendation model has made. By using this component, you can evaluate different kinds of recommendations:  
   
 -   Ratings predicted for a user and an item    
 -   Items recommended for a user  
   
-When you create predictions by using a recommendation model, slightly different results are returned for each of these supported prediction types. The Evaluate Recommender module deduces the kind of prediction from the column format of the scored dataset. For example, the scored dataset might contain:
+When you create predictions by using a recommendation model, slightly different results are returned for each of these supported prediction types. The Evaluate Recommender component deduces the kind of prediction from the column format of the scored dataset. For example, the scored dataset might contain:
 
 - User-item-rating triples
 - Users and their recommended items
 
-The module also applies the appropriate performance metrics, based on the type of prediction being made. 
+The component also applies the appropriate performance metrics, based on the type of prediction being made. 
 
   
 ## How to configure Evaluate Recommender
 
-The Evaluate Recommender module compares the prediction output by using a recommendation model with the corresponding "ground truth" data. For example, the [Score SVD Recommender](score-svd-recommender.md) module produces scored datasets that you can analyze by using Evaluate Recommender.
+The Evaluate Recommender component compares the prediction output by using a recommendation model with the corresponding "ground truth" data. For example, the [Score SVD Recommender](score-svd-recommender.md) component produces scored datasets that you can analyze by using Evaluate Recommender.
 
 ### Requirements
 
@@ -80,9 +80,9 @@ Before you connect this dataset, we recommend that you sort the dataset so that 
   
 Evaluate Recommender computes the average normalized discounted cumulative gain (NDCG) and returns it in the output dataset.  
   
-Because it's impossible to know the actual "ground truth" for the recommended items, Evaluate Recommender uses the user-item ratings in the test dataset as gains in the computation of the NDCG. To evaluate, the recommender scoring module must only produce recommendations for items with "ground truth" ratings (in the test dataset).  
+Because it's impossible to know the actual "ground truth" for the recommended items, Evaluate Recommender uses the user-item ratings in the test dataset as gains in the computation of the NDCG. To evaluate, the recommender scoring component must only produce recommendations for items with "ground truth" ratings (in the test dataset).  
   
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

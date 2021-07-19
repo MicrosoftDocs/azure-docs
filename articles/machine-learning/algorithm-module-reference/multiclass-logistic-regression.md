@@ -1,7 +1,7 @@
 ---
-title:  "Multiclass Logistic Regression: Module Reference"
+title:  "Multiclass Logistic Regression: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning designer to predict multiple values.
+description: Learn how to use the Multiclass Logistic Regression component in Azure Machine Learning designer to predict multiple values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,15 +11,15 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ---
-# Multiclass Logistic Regression module
+# Multiclass Logistic Regression component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a logistic regression model that can be used to predict multiple values.
+Use this component to create a logistic regression model that can be used to predict multiple values.
 
-Classification using logistic regression is a supervised learning method, and therefore requires a labeled dataset. You train the model by providing the model and the labeled dataset as an input to a module such as [Train Model](./train-model.md). The trained model can then be used to predict values for new input examples.
+Classification using logistic regression is a supervised learning method, and therefore requires a labeled dataset. You train the model by providing the model and the labeled dataset as an input to a component such as [Train Model](./train-model.md). The trained model can then be used to predict values for new input examples.
 
-Azure Machine Learning also provides a [Two-Class Logistic Regression](./two-class-logistic-regression.md) module, which is suited for classification of binary or dichotomous variables.
+Azure Machine Learning also provides a [Two-Class Logistic Regression](./two-class-logistic-regression.md) component, which is suited for classification of binary or dichotomous variables.
 
 ## About multiclass logistic regression
 
@@ -29,7 +29,7 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
 ## Configure a multiclass logistic regression
 
-1. Add the **Multiclass Logistic Regression** module to the pipeline.
+1. Add the **Multiclass Logistic Regression** component to the pipeline.
 
 2. Specify how you want the model to be trained, by setting the **Create trainer mode** option.
 
@@ -51,7 +51,7 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
 8. Connect a labeled dataset, and train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -59,7 +59,7 @@ In multiclass logistic regression, the classifier can be used to predict multipl
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
@@ -69,4 +69,4 @@ In multiclass logistic regression, the classifier can be used to predict multipl
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

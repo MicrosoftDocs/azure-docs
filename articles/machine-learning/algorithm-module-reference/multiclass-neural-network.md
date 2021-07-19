@@ -1,7 +1,7 @@
 ---
-title:  "Multiclass Neural Network: Module Reference"
+title:  "Multiclass Neural Network: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning designer to predict a target that has multi-class values. 
+description: Learn how to use the Multiclass Neural Network component in Azure Machine Learning designer to predict a target that has multi-class values. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,11 +11,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ---
-# Multiclass Neural Network module
+# Multiclass Neural Network component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a neural network model that can be used to predict a target that has multiple values. 
+Use this component to create a neural network model that can be used to predict a target that has multiple values. 
 
 For example, neural networks of this kind might be used in complex computer vision tasks, such as digit or letter recognition, document classification, and pattern recognition.
 
@@ -35,7 +35,7 @@ To compute the output of the network for a particular input, a value is calculat
 
 ## Configure Multiclass Neural Network
 
-1. Add the **MultiClass Neural Network** module to your pipeline in the designer. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
+1. Add the **MultiClass Neural Network** component to your pipeline in the designer. You can find this component under **Machine Learning**, **Initialize**, in the **Classification** category.
 
 2. **Create trainer mode**: Use this option to specify how you want the model to be trained:
 
@@ -74,7 +74,7 @@ To compute the output of the network for a particular input, a value is calculat
 
 14. Train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -82,7 +82,7 @@ To compute the output of the network for a particular input, a value is calculat
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
   
@@ -91,8 +91,8 @@ To compute the output of the network for a particular input, a value is calculat
 
 After training is complete:
 
-- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** component. Select the **Register dataset** icon to save the model as a reusable component.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

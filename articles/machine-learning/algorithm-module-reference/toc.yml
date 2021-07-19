@@ -1,4 +1,4 @@
-- name: Designer algorithms & modules
+- name: Designer algorithms & components
   href: module-reference.md
 - name: Data input and output
   items:
@@ -190,8 +190,7 @@
   items: 
   - name: Web Service Input/Output
     href: web-service-input-output.md
-- name: Module errors & troubleshooting
+- name: component errors & troubleshooting
   href: designer-error-codes.md
 - name: Graph search query syntax
   href: graph-search-syntax.md
-

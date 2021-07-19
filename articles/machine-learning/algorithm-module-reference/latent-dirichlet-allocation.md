@@ -1,7 +1,7 @@
 ---
-title: "Latent Dirichlet Allocation: Module reference"
+title: "Latent Dirichlet Allocation: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Latent Dirichlet Allocation module to group otherwise unclassified text into categories.
+description: Learn how to use the Latent Dirichlet Allocation component to group otherwise unclassified text into categories.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
 ---
-# Latent Dirichlet Allocation module
+# Latent Dirichlet Allocation component
 
-This article describes how to use the Latent Dirichlet Allocation module in Azure Machine Learning designer, to group otherwise unclassified text into categories. 
+This article describes how to use the Latent Dirichlet Allocation component in Azure Machine Learning designer, to group otherwise unclassified text into categories. 
 
 Latent Dirichlet Allocation (LDA) is often used in natural language processing to find texts that are similar. Another common term is *topic modeling*.
 
-This module takes a column of text and generates these outputs:
+This component takes a column of text and generates these outputs:
 
 + The source text, together with a score for each category
 
@@ -25,7 +25,7 @@ This module takes a column of text and generates these outputs:
 
 + A transformation, which you can save and reapply to new text used as input
 
-This module uses the scikit-learn library. For more information about scikit-learn, see the [GitHub repository](https://github.com/scikit-learn/scikit-learn), which includes tutorials and an explanation of the algorithm.
+This component uses the scikit-learn library. For more information about scikit-learn, see the [GitHub repository](https://github.com/scikit-learn/scikit-learn), which includes tutorials and an explanation of the algorithm.
 
 ## More about Latent Dirichlet Allocation
 
@@ -35,17 +35,17 @@ You might prefer a generative model because it avoids making strong assumptions 
 
 The theory is discussed in this paper, available as a PDF download: [Latent Dirichlet Allocation: Blei, Ng, and Jordan](https://ai.stanford.edu/~ang/papers/nips01-lda.pdf).
 
-The implementation in this module is based on the [scikit-learn library](https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/decomposition/_lda.py) for LDA.
+The implementation in this component is based on the [scikit-learn library](https://github.com/scikit-learn/scikit-learn/blob/master/sklearn/decomposition/_lda.py) for LDA.
 
 For more information, see the [Technical notes](#technical-notes) section.
 
 ## How to configure Latent Dirichlet Allocation
 
-This module requires a dataset that contains a column of text, either raw or preprocessed.
+This component requires a dataset that contains a column of text, either raw or preprocessed.
 
-1. Add the **Latent Dirichlet Allocation** module to your pipeline.
+1. Add the **Latent Dirichlet Allocation** component to your pipeline.
 
-2. As input for the module, provide a dataset that contains one or more text columns.
+2. As input for the component, provide a dataset that contains one or more text columns.
 
 3. For **Target columns**, choose one or more columns that contain text to analyze.
 
@@ -70,7 +70,7 @@ This module requires a dataset that contains a column of text, either raw or pre
     + Values in the feature topic matrix will be represented as a probability where `P(word|topic)`.
 
     > [!NOTE] 
-    > In Azure Machine Learning designer, the scikit-learn library no longer supports unnormalized *doc_topic_distr* output from version 0.19. In this module, the **Normalize** parameter can only be applied to *feature Topic matrix* output. *Transformed dataset* output is always normalized.
+    > In Azure Machine Learning designer, the scikit-learn library no longer supports unnormalized *doc_topic_distr* output from version 0.19. In this component, the **Normalize** parameter can only be applied to *feature Topic matrix* output. *Transformed dataset* output is always normalized.
 
 7. Select the option **Show all options**, and then set it to **TRUE** if you want to set the following advanced parameters.
 
@@ -80,7 +80,7 @@ This module requires a dataset that contains a column of text, either raw or pre
 
     + **Alpha parameter**. Specify a prior probability for the sparsity of per-document topic weights. This parameter corresponds to sklearn's `doc_topic_prior` parameter.
 
-    + **Estimated number of documents**. Enter a number that represents your best estimate of the number of documents (rows) that will be processed. This parameter lets the module allocate a hash table of sufficient size. It corresponds to the `total_samples` parameter in scikit-learn.
+    + **Estimated number of documents**. Enter a number that represents your best estimate of the number of documents (rows) that will be processed. This parameter lets the component allocate a hash table of sufficient size. It corresponds to the `total_samples` parameter in scikit-learn.
 
     + **Size of the batch**. Enter a number that indicates how many rows to include in each batch of text sent to the LDA model. This parameter corresponds to the `batch_size` parameter in scikit-learn.
 
@@ -98,11 +98,11 @@ This module requires a dataset that contains a column of text, either raw or pre
 
     This option is useful for controlling the size of the dictionary. But if the number of ngrams in the input exceeds this size, collisions may occur.
 
-10. Submit the pipeline. The LDA module uses Bayes theorem to determine what topics might be associated with individual words. Words are not exclusively associated with any topics or groups. Instead, each n-gram has a learned probability of being associated with any of the discovered classes.
+10. Submit the pipeline. The LDA component uses Bayes theorem to determine what topics might be associated with individual words. Words are not exclusively associated with any topics or groups. Instead, each n-gram has a learned probability of being associated with any of the discovered classes.
 
 ## Results
 
-The module has two outputs:
+The component has two outputs:
 
 + **Transformed dataset**: This output contains the input text, a specified number of discovered categories, and the scores for each text example for each category.
 
@@ -111,11 +111,11 @@ The module has two outputs:
 
 ### LDA transformation
 
-This module also outputs the *LDA transformation* that applies LDA to the dataset.
+This component also outputs the *LDA transformation* that applies LDA to the dataset.
 
 You can save this transformation and reuse it for other datasets. This technique might be useful if you've trained on a large corpus and want to reuse the coefficients or categories.
 
-To reuse this transformation, select the **Register dataset** icon in the right panel of the Latent Dirichlet Allocation module to keep the module under the **Datasets** category in the module list. Then you can connect this module to the [Apply Transformation](apply-transformation.md) module to reuse this transformation.
+To reuse this transformation, select the **Register dataset** icon in the right panel of the Latent Dirichlet Allocation component to keep the component under the **Datasets** category in the component list. Then you can connect this component to the [Apply Transformation](apply-transformation.md) component to reuse this transformation.
 
 ### Refining an LDA model or results
 
@@ -160,7 +160,7 @@ By default, the distributions of outputs for a transformed dataset and feature-t
 + The feature-topic matrix is normalized as the conditional probability of words given a topic. In this case, the sum of each column equals 1.
 
 > [!TIP]
-> Occasionally the module might return an empty topic. Most often, the cause is pseudo-random initialization of the algorithm. If this happens, you can try changing related parameters. For example, change the maximum size of the N-gram dictionary or the number of bits to use for feature hashing.
+> Occasionally the component might return an empty topic. Most often, the cause is pseudo-random initialization of the algorithm. If this happens, you can try changing related parameters. For example, change the maximum size of the N-gram dictionary or the number of bits to use for feature hashing.
 
 ### LDA and topic modeling
 
@@ -174,7 +174,7 @@ Terms are rarely exclusive to any one product. They can refer to other products,
 
 After the term indexes are computed, a distance-based similarity measure compares individual rows of text to determine whether two pieces of text are similar. For example, you might find that the product has multiple names that are strongly correlated. Or, you might find that strongly negative terms are usually associated with a particular product. You can use the similarity measure both to identify related terms and to create recommendations.
 
-###  Module parameters
+###  component parameters
 
 |Name|Type|Range|Optional|Default|Description|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
@@ -200,6 +200,6 @@ After the term indexes are computed, a distance-based similarity measure compare
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 
 
-For a list of errors specific to the modules, see [Exceptions and error codes for the designer](designer-error-codes.md).
+For a list of errors specific to the components, see [Exceptions and error codes for the designer](designer-error-codes.md).

@@ -1,7 +1,7 @@
 ---
-title:  "Enter Data Manually: Module reference"
+title:  "Enter Data Manually: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Enter Data Manually module in Azure Machine Learning to create a small dataset by typing values. The dataset can have multiple columns.
+description: Learn how to use the Enter Data Manually component in Azure Machine Learning to create a small dataset by typing values. The dataset can have multiple columns.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ---
-# Enter Data Manually module
+# Enter Data Manually component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use the **Enter Data Manually** module to create a small dataset by typing values. The dataset can have multiple columns.
+Use the **Enter Data Manually** component to create a small dataset by typing values. The dataset can have multiple columns.
   
-This module can be helpful in scenarios such as:  
+This component can be helpful in scenarios such as:  
   
 - Generating a small set of values for testing.  
 - Creating a short list of labels.  
@@ -25,7 +25,7 @@ This module can be helpful in scenarios such as:
 
 ## Create a dataset 
   
-1. Add the [Enter Data Manually](./enter-data-manually.md) module to your pipeline. You can find this module in the **Data Input and Output** category in Azure Machine Learning. 
+1. Add the [Enter Data Manually](./enter-data-manually.md) component to your pipeline. You can find this component in the **Data Input and Output** category in Azure Machine Learning. 
   
 1. For **DataFormat**, select one of the following options. These options determine how the data that you provide should be parsed. The requirements for each format differ greatly, so be sure to read the related topics.  
   
@@ -56,7 +56,7 @@ This module can be helpful in scenarios such as:
     
      ```text
      % Title: SampleText.ARFF  
-     % Source: Enter Data module  
+     % Source: Enter Data component  
      @ATTRIBUTE SampleText NUMERIC  
      @DATA  
      \<type first data row here>  
@@ -72,7 +72,7 @@ This module can be helpful in scenarios such as:
      1 1:0 2:13 3:3250 4:28   
      ```  
   
-     When you run the [Enter Data Manually](./enter-data-manually.md) module, these lines are converted to a dataset of columns and index values as follows:  
+     When you run the [Enter Data Manually](./enter-data-manually.md) component, these lines are converted to a dataset of columns and index values as follows:  
   
      |Col1|Col2|Col3|Col4|Labels|  
      |-|-|-|-|-|  
@@ -85,10 +85,10 @@ This module can be helpful in scenarios such as:
   
    If you create rows with missing values, you can always filter them out later.  
   
-1. Connect the output port to other modules, and run the pipeline.  
+1. Connect the output port to other components, and run the pipeline.  
   
-   To view the dataset, right-click the module and select **Visualize**.
+   To view the dataset, right-click the component and select **Visualize**.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
-title:  "Partition and Sample: Module reference"
+title:  "Partition and Sample: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Partition and Sample module in Azure Machine Learning to perform sampling on a dataset or to create partitions from your dataset.
+description: Learn how to use the Partition and Sample component in Azure Machine Learning to perform sampling on a dataset or to create partitions from your dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ---
-# Partition and Sample module
+# Partition and Sample component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use the Partition and Sample module to perform sampling on a dataset or to create partitions from your dataset.
+Use the Partition and Sample component to perform sampling on a dataset or to create partitions from your dataset.
 
-Sampling is an important tool in machine learning because it lets you reduce the size of a dataset while maintaining the same ratio of values. This module supports several related tasks that are important in machine learning: 
+Sampling is an important tool in machine learning because it lets you reduce the size of a dataset while maintaining the same ratio of values. This component supports several related tasks that are important in machine learning: 
 
 - Dividing your data into multiple subsections of the same size. 
 
@@ -35,9 +35,9 @@ Sampling is an important tool in machine learning because it lets you reduce the
 
   If you have a lot of data, you might want to use only the first *n* rows while setting up the pipeline, and then switch to using the full dataset when you build your model. You can also use sampling to create a smaller dataset for use in development.
 
-## Configure the module
+## Configure the component
 
-This module supports the following methods for dividing your data into partitions or for sampling. Choose the method first, and then set additional options that the method requires.
+This component supports the following methods for dividing your data into partitions or for sampling. Choose the method first, and then set additional options that the method requires.
 
 - Head
 - Sampling
@@ -48,7 +48,7 @@ This module supports the following methods for dividing your data into partition
 
 Use this mode to get only the first *n* rows. This option is useful if you want to test a pipeline on a small number of rows, and you don't need the data to be balanced or sampled in any way.
 
-1. Add the **Partition and Sample** module to your pipeline in the interface, and connect the dataset.  
+1. Add the **Partition and Sample** component to your pipeline in the interface, and connect the dataset.  
 
 1. **Partition or sample mode**: Set this option to **Head**.
 
@@ -58,13 +58,13 @@ Use this mode to get only the first *n* rows. This option is useful if you want 
 
 1. Submit the pipeline.
 
-The module outputs a single dataset that contains only the specified number of rows. The rows are always read from the top of the dataset.
+The component outputs a single dataset that contains only the specified number of rows. The rows are always read from the top of the dataset.
 
 ### Create a sample of data
 
 This option supports simple random sampling or stratified random sampling. It's useful if you want to create a smaller representative sample dataset for testing.
 
-1. Add the **Partition and Sample** module to your pipeline, and connect the dataset.
+1. Add the **Partition and Sample** component to your pipeline, and connect the dataset.
 
 1. **Partition or sample mode**: Set this option to  **Sampling**.
 
@@ -91,13 +91,13 @@ This option supports simple random sampling or stratified random sampling. It's 
 
 1. Submit the pipeline.
 
-   With this option, the module outputs a single dataset that contains a representative sampling of the data. The remaining, unsampled portion of the dataset is not output. 
+   With this option, the component outputs a single dataset that contains a representative sampling of the data. The remaining, unsampled portion of the dataset is not output. 
 
 ## Split data into partitions
 
 Use this option when you want to divide the dataset into subsets of the data. This option is also useful when you want to create a custom number of folds for cross-validation, or to split rows into several groups.
 
-1. Add the **Partition and Sample** module to your pipeline, and connect the dataset.
+1. Add the **Partition and Sample** component to your pipeline, and connect the dataset.
 
 1. For **Partition or sample mode**, select **Assign to Folds**.
 
@@ -129,15 +129,15 @@ Use this option when you want to divide the dataset into subsets of the data. Th
 
 1. Submit the pipeline.
 
-   With this option, the module outputs multiple datasets. The datasets are partitioned according to the rules that you specified.
+   With this option, the component outputs multiple datasets. The datasets are partitioned according to the rules that you specified.
 
 ### Use data from a predefined partition  
 
 Use this option when you have divided a dataset into multiple partitions and now want to load each partition in turn for further analysis or processing.
 
-1. Add the **Partition and Sample** module to the pipeline.
+1. Add the **Partition and Sample** component to the pipeline.
 
-1. Connect the module to the output of a previous instance of **Partition and Sample**. That instance must have used the **Assign to Folds** option to generate some number of partitions.
+1. Connect the component to the output of a previous instance of **Partition and Sample**. That instance must have used the **Assign to Folds** option to generate some number of partitions.
 
 1. **Partition or sample mode**: Select **Pick Fold**.
 
@@ -147,19 +147,19 @@ Use this option when you have divided a dataset into multiple partitions and now
 
    In addition to grouping the dataset by folds, you can separate the dataset into two groups: a target fold, and everything else. To do this, enter the index of a single fold, and then select the option **Pick complement of the selected fold** to get everything but the data in the specified fold.
 
-1. If you're working with multiple partitions, you must add more instances of the **Partition and Sample** module to handle each partition.
+1. If you're working with multiple partitions, you must add more instances of the **Partition and Sample** component to handle each partition.
 
-   For example, the **Partition and Sample** module in the second row is set to **Assign to Folds**, and the module in the third row is set to **Pick Fold**.   
+   For example, the **Partition and Sample** component in the second row is set to **Assign to Folds**, and the component in the third row is set to **Pick Fold**.   
 
    ![Partition and sample](./media/module/partition-and-sample.png)
 
 1. Submit the pipeline.
 
-   With this option, the module outputs a single dataset that contains only the rows assigned to that fold.
+   With this option, the component outputs a single dataset that contains only the rows assigned to that fold.
 
 > [!NOTE]
 >  You can't view the fold designations directly. They're present only in the metadata.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

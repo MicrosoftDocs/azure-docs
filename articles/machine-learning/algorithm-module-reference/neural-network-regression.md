@@ -1,7 +1,7 @@
 ---
-title:  "Neural Network Regression: Module Reference"
+title:  "Neural Network Regression: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Neural Network Regression module in Azure Machine Learning to create a regression model using a customizable neural network algorithm..
+description: Learn how to use the Neural Network Regression component in Azure Machine Learning to create a regression model using a customizable neural network algorithm..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ---
-# Neural Network Regression module
+# Neural Network Regression component
 
 *Creates a regression model using a neural network algorithm*  
   
  Category: Machine Learning / Initialize Model / Regression
   
-## Module overview  
+## component overview  
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a regression model using a customizable neural network algorithm.
+Use this component to create a regression model using a customizable neural network algorithm.
   
  Although neural networks are widely known for use in deep learning and modeling complex problems such as image recognition, they are easily adapted to regression problems. Any class of statistical models can be termed a neural network if they use adaptive weights and can approximate non-linear functions of their inputs. Thus neural network regression is suited to problems where a more traditional regression model cannot fit a solution.
   
@@ -37,7 +37,7 @@ Neural networks can be extensively customized. This section describes how to cre
   
     If you accept the default neural network architecture,  use the **Properties** pane to set parameters that control the behavior of the neural network, such as the number of nodes in the hidden layer, learning rate, and normalization.
 
-    Start here if you are new to neural networks. The module supports many customizations, as well as model tuning, without deep knowledge of neural networks. 
+    Start here if you are new to neural networks. The component supports many customizations, as well as model tuning, without deep knowledge of neural networks. 
 
 + Define a custom architecture for a neural network 
 
@@ -47,7 +47,7 @@ Neural networks can be extensively customized. This section describes how to cre
 
 ##  <a name="bkmk_DefaultArchitecture"></a> Create a neural network model using the default architecture
 
-1.  Add the **Neural Network Regression** module to your pipeline in the designer. You can find this module under **Machine Learning**, **Initialize**, in the **Regression** category. 
+1.  Add the **Neural Network Regression** component to your pipeline in the designer. You can find this component under **Machine Learning**, **Initialize**, in the **Regression** category. 
   
 2. Indicate how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -78,7 +78,7 @@ Neural networks can be extensively customized. This section describes how to cre
   
 13. Connect a training dataset and train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -86,7 +86,7 @@ Neural networks can be extensively customized. This section describes how to cre
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
   
@@ -97,8 +97,8 @@ Neural networks can be extensively customized. This section describes how to cre
 
 After training is complete:
 
-- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
+- To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** component. Select the **Register dataset** icon to save the model as a reusable component.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

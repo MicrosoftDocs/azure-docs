@@ -1,7 +1,7 @@
 ---
-title: "Convert to Dataset: Module reference"
+title: "Convert to Dataset: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Convert to Dataset module in Azure Machine Learning designer to convert data input to the internal dataset format.
+description: Learn how to use the Convert to Dataset component in Azure Machine Learning designer to convert data input to the internal dataset format.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 10/10/2019
 
 # Convert to Dataset
 
-This article describes how to use the Convert to Dataset module in Azure Machine Learning designer to convert any data for a pipeline to the designer's internal format.
+This article describes how to use the Convert to Dataset component in Azure Machine Learning designer to convert any data for a pipeline to the designer's internal format.
   
 Conversion is not required in most cases. Azure Machine Learning implicitly converts data to its native dataset format when any operation is performed on the data. 
 
@@ -25,11 +25,11 @@ We recommend saving data to the dataset format if you've performed some kind of 
   
 ## How to use Convert to Dataset  
 
-We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepare the dataset before you use Convert to Dataset. You can add or change column names, adjust data types, and make other changes as needed.
+We recommend that you use the [Edit Metadata](edit-metadata.md) component to prepare the dataset before you use Convert to Dataset. You can add or change column names, adjust data types, and make other changes as needed.
 
-1.  Add the Convert to Dataset module to your pipeline. You can find this module in the **Data transformation** category in the designer. 
+1.  Add the Convert to Dataset component to your pipeline. You can find this component in the **Data transformation** category in the designer. 
 
-2. Connect it to any module that outputs a dataset.   
+2. Connect it to any component that outputs a dataset.   
 
     As long as the data is [tabular](/python/api/azureml-core/azureml.data.tabulardataset), you can convert it to a dataset. This includes data loaded through [Import Data](import-data.md), data created through [Enter Data Manually](enter-data-manually.md), or datasets transformed through [Apply Transformation](apply-transformation.md).
 
@@ -51,11 +51,11 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
 
 ## Results
 
-+  To save the resulting dataset with a new name, select on the icon **Register dataset** under the **Outputs** tab in the right panel of the module.  
++  To save the resulting dataset with a new name, select on the icon **Register dataset** under the **Outputs** tab in the right panel of the component.  
   
 ## Technical notes  
 
--   Any module that takes a dataset as input can also take data in the CSV file or the TSV file. Before any module code is run, the inputs are preprocessed. Preprocessing is equivalent to running the Convert to Dataset module on the input.  
+-   Any component that takes a dataset as input can also take data in the CSV file or the TSV file. Before any component code is run, the inputs are preprocessed. Preprocessing is equivalent to running the Convert to Dataset component on the input.  
   
 -   You can't convert from the SVMLight format to a dataset.  
   
@@ -66,4 +66,4 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

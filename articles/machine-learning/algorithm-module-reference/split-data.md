@@ -1,7 +1,7 @@
 ---
-title:  "Split Data: Module reference"
+title:  "Split Data: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Split Data module in Azure Machine Learning to divide a dataset into two distinct sets.
+description: Learn how to use the Split Data component in Azure Machine Learning to divide a dataset into two distinct sets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,21 +11,21 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ---
-# Split Data module
+# Split Data component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use the Split Data module to divide a dataset into two distinct sets.
+Use the Split Data component to divide a dataset into two distinct sets.
 
-This module is useful when you need to separate data into training and testing sets. You can also customize the way that data is divided. Some options support randomization of data. Others are tailored for a certain data type or model type.
+This component is useful when you need to separate data into training and testing sets. You can also customize the way that data is divided. Some options support randomization of data. Others are tailored for a certain data type or model type.
 
-## Configure the module
+## Configure the component
 
 > [!TIP]
 > Before you choose the splitting mode, read all options to determine the type of split you need.
 > If you change the splitting mode, all other options might be reset.
 
-1. Add the **Split Data** module to your pipeline in the designer. You can find this module under **Data Transformation**, in the **Sample and Split** category.
+1. Add the **Split Data** component to your pipeline in the designer. You can find this component under **Data Transformation**, in the **Sample and Split** category.
 
 1. **Splitting mode**: Choose one of the following modes, depending on the type of data you have and how you want to divide it. Each splitting mode has different options.
 
@@ -41,7 +41,7 @@ This module is useful when you need to separate data into training and testing s
 
 ### Split rows
 
-1. Add the [Split Data](./split-data.md) module to your pipeline in the designer, and connect the dataset that you want to split.
+1. Add the [Split Data](./split-data.md) component to your pipeline in the designer, and connect the dataset that you want to split.
   
 1. For **Splitting mode**, select **Split Rows**. 
 
@@ -53,7 +53,7 @@ This module is useful when you need to separate data into training and testing s
   
 1. Select the **Randomized split** option if you want to randomize selection of data into the two groups. This is the preferred option when you're creating training and test datasets.
 
-1. **Random Seed**: Enter a non-negative integer value to start the pseudorandom sequence of instances to be used. This default seed is used in all modules that generate random numbers. 
+1. **Random Seed**: Enter a non-negative integer value to start the pseudorandom sequence of instances to be used. This default seed is used in all components that generate random numbers. 
 
    Specifying a seed makes the results reproducible. If you need to repeat the results of a split operation, you should specify a seed for the random number generator. Otherwise the random seed is set by default to **0**, which means the initial seed value is obtained from the system clock. As a result, the distribution of data might be slightly different each time you perform a split. 
 
@@ -66,7 +66,7 @@ This module is useful when you need to separate data into training and testing s
 
 ## Select a regular expression
 
-1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset that you want to split.  
+1. Add the [Split Data](./split-data.md) component to your pipeline, and connect it as input to the dataset that you want to split.  
   
 1. For **Splitting mode**, select **Regular expression split**.
 
@@ -100,7 +100,7 @@ The first result dataset contains all rows where the index column begins with on
 
 ## Select a relative expression
 
-1. Add the [Split Data](./split-data.md) module to your pipeline, and connect it as input to the dataset that you want to split.
+1. Add the [Split Data](./split-data.md) component to your pipeline, and connect it as input to the dataset that you want to split.
   
 1. For **Splitting mode**, select **Relative Expression**.
   
@@ -120,7 +120,7 @@ The first result dataset contains all rows where the index column begins with on
 
    The expression divides the dataset into two sets of rows: rows with values that meet the condition, and all remaining rows.
 
-The following examples demonstrate how to divide a dataset by using the **Relative Expression** option in the **Split Data** module.  
+The following examples demonstrate how to divide a dataset by using the **Relative Expression** option in the **Split Data** component.  
 
 ### Calendar year
 
@@ -149,4 +149,4 @@ The following expression demonstrates how you can use the column index to select
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

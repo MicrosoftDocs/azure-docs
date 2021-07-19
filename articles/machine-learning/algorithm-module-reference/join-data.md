@@ -1,7 +1,7 @@
 ---
-title: "Join Data: Module Reference"
+title: "Join Data: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Join Data module in Azure Machine Learning designer to merge two datasets together.
+description: Learn how to use the Join Data component in Azure Machine Learning designer to merge two datasets together.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,17 +14,17 @@ ms.date: 11/19/2019
 
 # Join Data
 
-This article describes how to use the **Join Data** module in Azure Machine Learning designer to merge two datasets using a database-style join operation.  
+This article describes how to use the **Join Data** component in Azure Machine Learning designer to merge two datasets using a database-style join operation.  
 
 ## How to configure Join Data
 
 To perform a join on two datasets, they should be related by a key column. Composite keys using multiple columns are also supported. 
 
-1. Add the datasets you want to combine, and then drag the **Join Data** module into your pipeline. 
+1. Add the datasets you want to combine, and then drag the **Join Data** component into your pipeline. 
 
-    You can find the module in the **Data Transformation** category, under **Manipulation**.
+    You can find the component in the **Data Transformation** category, under **Manipulation**.
 
-1. Connect the datasets to the **Join Data** module. 
+1. Connect the datasets to the **Join Data** component. 
  
 1. Select **Launch column selector** to choose key column(s). Remember to choose columns for both the left and right inputs.
 
@@ -34,7 +34,7 @@ To perform a join on two datasets, they should be related by a key column. Compo
     
     For a composite key:
 
-    Select all the key columns from left input and right input in the same order. The **Join Data** module will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
+    Select all the key columns from left input and right input in the same order. The **Join Data** component will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
 
     ![column-selector](media/module/join-data-column-selector.png)
 
@@ -64,4 +64,4 @@ To perform a join on two datasets, they should be related by a key column. Compo
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

@@ -14,11 +14,11 @@ ms.date: 09/26/2020
 
 # ResNet
 
-This article describes how to use the **ResNet** module in Azure Machine Learning designer, to create an image classification model using the ResNet algorithm..  
+This article describes how to use the **ResNet** component in Azure Machine Learning designer, to create an image classification model using the ResNet algorithm..  
 
 This classification algorithm is a supervised learning method, and requires a labeled dataset. 
 > [!NOTE]
-> This module does not support labeled dataset generated from *Data Labeling* in the studio, but only support labeled image directory generated from [Convert to Image Directory](convert-to-image-directory.md) module. 
+> This component does not support labeled dataset generated from *Data Labeling* in the studio, but only support labeled image directory generated from [Convert to Image Directory](convert-to-image-directory.md) component. 
 
 You can train the model by providing a model and a labeled image directory as inputs to [Train Pytorch Model](train-pytorch-model.md). The trained model can then be used to predict values for the new input examples using [Score Image Model](score-image-model.md).
 
@@ -28,7 +28,7 @@ Refer to [this paper](https://pytorch.org/vision/stable/models.html#torchvision.
 
 ## How to configure ResNet
 
-1.  Add the **ResNet** module to your pipeline in the designer.  
+1.  Add the **ResNet** component to your pipeline in the designer.  
 
 2.  For **Model name**, specify name of a certain ResNet structure and you can select from supported resnet: 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'resnet152', 'resnext50\_32x4d', 'resnext101\_32x8d', 'wide_resnet50\_2', 'wide_resnet101\_2'.
 
@@ -36,7 +36,7 @@ Refer to [this paper](https://pytorch.org/vision/stable/models.html#torchvision.
 
 4.  For **Zero init residual**, specify whether to zero-initialize the last batch norm layer in each residual branch. If selected, the residual branch starts with zeros, and each residual block behaves like an identity. This can help with convergence at large batch sizes according to https://arxiv.org/abs/1706.02677.
 
-5.  Connect the output of **ResNet** module, training and validation image dataset module to the [Train Pytorch Model](train-pytorch-model.md). 
+5.  Connect the output of **ResNet** component, training and validation image dataset component to the [Train Pytorch Model](train-pytorch-model.md). 
 
 6.  Submit the pipeline.
 
@@ -46,7 +46,7 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Technical notes  
 
-###  Module parameters  
+###  component parameters  
 
 | Name       | Range | Type    | Default           | Description                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |
@@ -63,4 +63,4 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

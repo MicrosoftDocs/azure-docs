@@ -37,7 +37,7 @@ In Azure Machine Learning, the visual graph is called a **pipeline draft**. In t
 1. In the left navigation pane, select **Designer** > **Easy-to-use prebuilt modules**
     ![Screenshot showing how to create a new pipeline draft.](../media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
-1. Manually rebuild your experiment with designer modules.
+1. Manually rebuild your experiment with designer components.
     
     Consult the [module-mapping table](migrate-overview.md#studio-classic-and-designer-module-mapping) to find replacement modules. Many of Studio (classic)'s most popular modules have identical versions in the designer.
 
@@ -81,7 +81,7 @@ After the run finishes, you can check the results of each module:
     - **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script such as errors and exceptions.
 
 > [!IMPORTANT]
-> Designer modules use open source Python packages, compared to C# packages in Studio (classic). As a result, module output may vary slightly between the designer and Studio (classic). 
+> Designer components use open source Python packages, compared to C# packages in Studio (classic). As a result, module output may vary slightly between the designer and Studio (classic). 
 
 
 ## Next steps

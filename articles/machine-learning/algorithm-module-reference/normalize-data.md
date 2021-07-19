@@ -1,7 +1,7 @@
 ---
-title:  "Normalize Data: Module Reference"
+title:  "Normalize Data: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Normalize Data module in Azure Machine Learning to transform a dataset through *normalization*..
+description: Learn how to use the Normalize Data component in Azure Machine Learning to transform a dataset through *normalization*..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,11 +11,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
 ---
-# Normalize Data module
+# Normalize Data component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to transform a dataset through *normalization*.
+Use this component to transform a dataset through *normalization*.
 
 Normalization is a technique often applied as part of data preparation for machine learning. The goal of normalization is to change the values of numeric columns in the dataset to use a common scale, without distorting differences in the ranges of values or losing information. Normalization is also required for some algorithms to model the data correctly.
 
@@ -23,7 +23,7 @@ For example, assume your input dataset contains one column with values ranging f
 
 *Normalization* avoids these problems by creating new values that maintain the general distribution and ratios in the source data, while keeping values within a scale applied across all numeric columns used in the model.
 
-This module offers several options for transforming numeric data:
+This component offers several options for transforming numeric data:
 
 - You can change all values to a 0-1 scale, or transform the values by representing them as percentile ranks rather than absolute values.
 - You can apply normalization to a single column, or to multiple columns in the same dataset.
@@ -34,9 +34,9 @@ This module offers several options for transforming numeric data:
 
 ##  Configure Normalize Data
 
-You can apply only one normalization method at a time using this module. Therefore, the same normalization method is applied to all columns that you select. To use different normalization methods, use a second instance of **Normalize Data**.
+You can apply only one normalization method at a time using this component. Therefore, the same normalization method is applied to all columns that you select. To use different normalization methods, use a second instance of **Normalize Data**.
 
-1. Add the **Normalize Data** module to your pipeline. You can find the module In Azure Machine Learning, under **Data Transformation**, in the **Scale and Reduce** category.
+1. Add the **Normalize Data** component to your pipeline. You can find the component In Azure Machine Learning, under **Data Transformation**, in the **Scale and Reduce** category.
 
 2. Connect a dataset that contains at least one column of all numbers.
 
@@ -47,7 +47,7 @@ You can apply only one normalization method at a time using this module. Therefo
     If no numeric columns are detected, check the column metadata to verify that the data type of the column is a supported numeric type.
 
     > [!TIP]
-    > To ensure that columns of a specific type are provided as input, try using the [Select Columns in Dataset](./select-columns-in-dataset.md) module before **Normalize Data**.
+    > To ensure that columns of a specific type are provided as input, try using the [Select Columns in Dataset](./select-columns-in-dataset.md) component before **Normalize Data**.
 
 4. **Use 0 for constant columns when checked**:  Select this option when any numeric column contains a single unchanging value. This ensures that such columns are not used in normalization operations.
 
@@ -87,21 +87,21 @@ You can apply only one normalization method at a time using this module. Therefo
     
       ![normalization using the tanh function](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Submit the pipeline, or double-click the **Normalize Data** module and select **Run Selected**. 
+6. Submit the pipeline, or double-click the **Normalize Data** component and select **Run Selected**. 
 
 ## Results
 
-The **Normalize Data** module generates two outputs:
+The **Normalize Data** component generates two outputs:
 
-- To view the transformed values, right-click the module, and select **Visualize**.
+- To view the transformed values, right-click the component, and select **Visualize**.
 
-    By default, values are transformed in place. If you want to compare the transformed values to the original values, use the [Add Columns](./add-columns.md) module to recombine the datasets and view the columns side by side.
+    By default, values are transformed in place. If you want to compare the transformed values to the original values, use the [Add Columns](./add-columns.md) component to recombine the datasets and view the columns side by side.
 
-- To save the transformation so that you can apply the same normalization method to another dataset, select the module, and select **Register dataset** under the **Outputs** tab in the right panel.
+- To save the transformation so that you can apply the same normalization method to another dataset, select the component, and select **Register dataset** under the **Outputs** tab in the right panel.
 
     You can then load the saved transformations from the **Transforms** group of the left navigation pane and apply it to a dataset with the same schema by using [Apply Transformation](apply-transformation.md).  
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

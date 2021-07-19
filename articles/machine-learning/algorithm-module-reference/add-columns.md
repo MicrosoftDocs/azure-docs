@@ -1,7 +1,7 @@
 ---
-title:  "Add Columns: Module Reference"
+title:  "Add Columns: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Add Columns module in the drag-and-drop Azure Machine Learning designer to concatenate two datasets.
+description: Learn how to use the Add Columns component in the drag-and-drop Azure Machine Learning designer to concatenate two datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,16 +12,16 @@ ms.author: keli19
 ms.date: 10/22/2019
 ---
 
-# Add Columns module
+# Add Columns component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to concatenate two datasets. You combine all columns from the two datasets that you specify as inputs to create a single dataset. If you need to concatenate more than two datasets, use several instances of **Add Columns**.
+Use this component to concatenate two datasets. You combine all columns from the two datasets that you specify as inputs to create a single dataset. If you need to concatenate more than two datasets, use several instances of **Add Columns**.
 
 
 
 ## How to configure Add Columns
-1. Add the **Add Columns** module to your pipeline.
+1. Add the **Add Columns** component to your pipeline.
 
 2. Connect the two datasets that you want to concatenate. If you want to combine more than two datasets, you can chain together several combinations of **Add Columns**.
 
@@ -34,7 +34,7 @@ Use this module to concatenate two datasets. You combine all columns from the tw
 ### Results
 After the pipeline has run:
 
-- To see the first rows of the new dataset, right-click the **Add Columns** module and select Visualize. Or Select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.
+- To see the first rows of the new dataset, right-click the **Add Columns** component and select Visualize. Or Select the component and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.
 
 The number of columns in the new dataset equals the sum of the columns of both input datasets.
 
@@ -42,4 +42,4 @@ If there are two columns with the same name in the input datasets, a numeric suf
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

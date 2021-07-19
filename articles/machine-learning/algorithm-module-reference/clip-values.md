@@ -1,7 +1,7 @@
 ---
 title:  "Clip Values"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Clip Values module in Azure Machine Learning to detect outliers and clip or replace their values.
+description: Learn how to use the Clip Values component in Azure Machine Learning to detect outliers and clip or replace their values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,21 +14,21 @@ ms.date: 09/09/2019
 
 # Clip Values
 
-This article describes a module of Azure Machine Learning designer.
+This article describes a component of Azure Machine Learning designer.
 
-Use the Clip Values module to identify and optionally replace data values that are above or below a specified threshold with a mean, a constant, or other substitute value.  
+Use the Clip Values component to identify and optionally replace data values that are above or below a specified threshold with a mean, a constant, or other substitute value.  
 
-You connect the module to a dataset that has the numbers you want to clip, choose the columns to work with, and then set a threshold or range of values, and a replacement method. The module can output either just the results, or the changed values appended to the original dataset.
+You connect the component to a dataset that has the numbers you want to clip, choose the columns to work with, and then set a threshold or range of values, and a replacement method. The component can output either just the results, or the changed values appended to the original dataset.
 
 ## How to configure Clip Values
 
 Before you begin, identify the columns you want to clip, and the method to use. We recommend that you test any clipping method on a small subset of data first.
 
-The module applies the same criteria and replacement method to **all** columns that you include in the selection. Therefore, be sure to exclude columns that you don't want to change.
+The component applies the same criteria and replacement method to **all** columns that you include in the selection. Therefore, be sure to exclude columns that you don't want to change.
 
 If you need to apply clipping methods or different criteria to some columns, you must use a new instance of **Clip Values** for each set of similar columns.
 
-1.  Add the **Clip Values** module to your pipeline and connect it to the dataset you want to modify. You can find this module under **Data Transformation**, in the **Scale and Reduce** category. 
+1.  Add the **Clip Values** component to your pipeline and connect it to the dataset you want to modify. You can find this component under **Data Transformation**, in the **Scale and Reduce** category. 
   
 1.  In **List of columns**, use the Column Selector to choose the columns to which **Clip Values** will be applied.  
   
@@ -82,7 +82,7 @@ If you need to apply clipping methods or different criteria to some columns, you
   
 1.  Submit the pipeline.  
   
-    Right-click the **Clip Values** module and select **Visualize** or select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs**, to review the values and make sure the clipping operation met your expectations.  
+    Right-click the **Clip Values** component and select **Visualize** or select the component and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs**, to review the values and make sure the clipping operation met your expectations.  
  
 ### Examples for clipping using percentiles
 
@@ -116,4 +116,4 @@ Now try the same pipeline using 60 as the upper percentile threshold and 30 as t
  
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

@@ -1,5 +1,5 @@
 ---
-title: "Convert Word to Vector: Module reference"
+title: "Convert Word to Vector: component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use three provided Word2Vec models to extract a vocabulary and its corresponding word embeddings from a corpus of text.
 services: machine-learning
@@ -11,14 +11,14 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
 ---
-# Convert Word to Vector module
+# Convert Word to Vector component
 
-This article describes how to use the Convert Word to Vector module in Azure Machine Learning designer to do these tasks:
+This article describes how to use the Convert Word to Vector component in Azure Machine Learning designer to do these tasks:
 
 - Apply various Word2Vec models (Word2Vec, FastText, GloVe pretrained model) on the corpus of text that you specified as input.
 - Generate a vocabulary with word embeddings.
 
-This module uses the Gensim library. For more information about Gensim, see its [official website](https://radimrehurek.com/gensim/apiref.html), which includes tutorials and an explanation of algorithms.
+This component uses the Gensim library. For more information about Gensim, see its [official website](https://radimrehurek.com/gensim/apiref.html), which includes tutorials and an explanation of algorithms.
 
 ### More about converting words to vectors
 
@@ -26,29 +26,29 @@ Converting words to vectors, or word vectorization, is a natural language proces
 
 Use word embeddings as initial input for NLP downstream tasks such as text classification and sentiment analysis.
 
-Among various word embedding technologies, in this module, we implemented three widely used methods. Two, Word2Vec and FastText, are online-training models. The other is a pretrained model, glove-wiki-gigaword-100. 
+Among various word embedding technologies, in this component, we implemented three widely used methods. Two, Word2Vec and FastText, are online-training models. The other is a pretrained model, glove-wiki-gigaword-100. 
 
 Online-training models are trained on your input data. Pretrained models are trained offline on a larger text corpus (for example, Wikipedia, Google News) that usually contains about 100 billion words. Word embedding then stays constant during word vectorization. Pretrained word models provide benefits such as reduced training time, better word vectors encoded, and improved overall performance.
 
 Here's some information about the methods:
 
-+ Word2Vec is one of the most popular techniques to learn word embeddings by using a shallow neural network. The theory is discussed in this paper, available as a PDF download: [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781.pdf). The implementation in this module is based on the [Gensim library for Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
++ Word2Vec is one of the most popular techniques to learn word embeddings by using a shallow neural network. The theory is discussed in this paper, available as a PDF download: [Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/pdf/1301.3781.pdf). The implementation in this component is based on the [Gensim library for Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html).
 
-+ The FastText theory is explained in this paper, available as a PDF download: [Enriching Word Vectors with Subword Information](https://arxiv.org/pdf/1607.04606.pdf). The implementation in this module is based on the [Gensim library for FastText](https://radimrehurek.com/gensim/models/fasttext.html).
++ The FastText theory is explained in this paper, available as a PDF download: [Enriching Word Vectors with Subword Information](https://arxiv.org/pdf/1607.04606.pdf). The implementation in this component is based on the [Gensim library for FastText](https://radimrehurek.com/gensim/models/fasttext.html).
 
 + The GloVe pretrained model is glove-wiki-gigaword-100. It's a collection of pretrained vectors based on a Wikipedia text corpus, which contains 5.6 billion tokens and 400,000 uncased vocabulary words. A PDF download is available: [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/pubs/glove.pdf).
 
 ## How to configure Convert Word to Vector
 
-This module requires a dataset that contains a column of text. Preprocessed text is better.
+This component requires a dataset that contains a column of text. Preprocessed text is better.
 
-1. Add the **Convert Word to Vector** module to your pipeline.
+1. Add the **Convert Word to Vector** component to your pipeline.
 
-2. As input for the module, provide a dataset that contains one or more text columns.
+2. As input for the component, provide a dataset that contains one or more text columns.
 
 3. For **Target column**, choose only one column that contains text to process.
 
-    Because this module creates a vocabulary from text, the content of columns differs, which leads to different vocabulary contents. That's why the module accepts only one target column.
+    Because this component creates a vocabulary from text, the content of columns differs, which leads to different vocabulary contents. That's why the component accepts only one target column.
 
 4. For  **Word2Vec strategy**, choose from **GloVe pretrained English Model**, **Gensim Word2Vec**, and **Gensim FastText**.
 
@@ -76,7 +76,7 @@ This module requires a dataset that contains a column of text. Preprocessed text
 
     The default vocabulary size is 10,000.
 
-7. For **Minimum word count**, provide a minimum word count. The module will ignore all words that have a frequency lower than this value.
+7. For **Minimum word count**, provide a minimum word count. The component will ignore all words that have a frequency lower than this value.
 
     The default value is 5.
 
@@ -84,11 +84,11 @@ This module requires a dataset that contains a column of text. Preprocessed text
 
 ## Examples
 
-The module has one output:
+The component has one output:
 
 + **Vocabulary with embeddings**: Contains the generated vocabulary, together with each word's embedding. One dimension occupies one column.
 
-The following example shows how the Convert Word to Vector module works. It uses Convert Word to Vector with default settings to the preprocessed Wikipedia SP 500 Dataset.
+The following example shows how the Convert Word to Vector component works. It uses Convert Word to Vector with default settings to the preprocessed Wikipedia SP 500 Dataset.
 
 ### Source dataset
 
@@ -104,7 +104,7 @@ The dataset contains a category column, along with the full text fetched from Wi
 
 ### Output vocabulary with embeddings
 
-The following table contains the output of this module, taking the Wikipedia SP 500 dataset as input. The leftmost column indicates the vocabulary. Its embedding vector is represented by values of remaining columns in the same row.
+The following table contains the output of this component, taking the Wikipedia SP 500 dataset as input. The leftmost column indicates the vocabulary. Its embedding vector is represented by values of remaining columns in the same row.
 
 |Vocabulary|Embedding dim 0|Embedding dim 1|Embedding dim 2|Embedding dim 3|Embedding dim 4|Embedding dim 5|...|Embedding dim 99|
 |-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|-------------|
@@ -129,7 +129,7 @@ This section contains tips and answers to frequently asked questions.
 
 + Difference between online-training and pretrained model:
 
-    In this Convert Word to Vector module, we provided three different strategies: two online-training models and one pretrained model. The online-training models use your input dataset as training data, and generate vocabulary and word vectors during training. The pretrained model is already trained by a much larger text corpus, such as Wikipedia or Twitter text. The pretrained model is actually a collection of word/embedding pairs.  
+    In this Convert Word to Vector component, we provided three different strategies: two online-training models and one pretrained model. The online-training models use your input dataset as training data, and generate vocabulary and word vectors during training. The pretrained model is already trained by a much larger text corpus, such as Wikipedia or Twitter text. The pretrained model is actually a collection of word/embedding pairs.  
 
     The GloVe pre-trained model summarizes a vocabulary from the input dataset and generates an embedding vector for each word from the pretrained model. Without online training, the use of a pretrained model can save training time. It has better performance, especially when the input dataset size is relatively small.
 
@@ -142,6 +142,6 @@ This section contains tips and answers to frequently asked questions.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 
 
-For a list of errors specific to the designer modules, see [Machine Learning error codes](designer-error-codes.md).
+For a list of errors specific to the designer components, see [Machine Learning error codes](designer-error-codes.md).

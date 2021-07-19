@@ -1,7 +1,7 @@
 ---
-title:  "Remove Duplicate Rows: Module Reference"
+title:  "Remove Duplicate Rows: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Remove Duplicate Rows module in Azure Machine Learning to remove potential duplicates from a dataset.
+description: Learn how to use the Remove Duplicate Rows component in Azure Machine Learning to remove potential duplicates from a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,11 +11,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ---
-# Remove Duplicate Rows module
+# Remove Duplicate Rows component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to remove potential duplicates from a dataset.
+Use this component to remove potential duplicates from a dataset.
 
 For example, assume your data looks like the following, and represents multiple records for patients. 
 
@@ -39,14 +39,14 @@ Clearly, this example has multiple columns with potentially duplicate data. Whet
 
 To set the criteria for whether a row is duplicate or not, you specify a single column or a set of columns to use as **keys**. Two rows are considered duplicates only when the values in **all** key columns are equal. If any row has missing value for **keys**, they will not be considered duplicate rows. For example, if Gender and Age are set as Keys in above table,  row 6 and 7 are not duplicate rows given they have missing value in Age.
 
-When you run the module, it creates a candidate dataset, and returns a set of rows that have no duplicates across the set of columns you specified.
+When you run the component, it creates a candidate dataset, and returns a set of rows that have no duplicates across the set of columns you specified.
 
 > [!IMPORTANT]
-> The source dataset is not altered; this module creates a new dataset that is filtered to exclude duplicates, based on the criteria you specify.
+> The source dataset is not altered; this component creates a new dataset that is filtered to exclude duplicates, based on the criteria you specify.
 
 ## How to use Remove Duplicate Rows
 
-1. Add the module to your pipeline. You can find the **Remove Duplicate Rows** module under **Data Transformation**, **Manipulation**.  
+1. Add the component to your pipeline. You can find the **Remove Duplicate Rows** component under **Data Transformation**, **Manipulation**.  
 
 2. Connect the dataset that you want to check for duplicate rows.
 
@@ -66,11 +66,11 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
 
 5. Submit the pipeline.
 
-6. To review the results, right-click the module, and select **Visualize**. 
+6. To review the results, right-click the component, and select **Visualize**. 
 
 > [!TIP]
-> If the results are difficult to understand, or if you want to exclude some columns from consideration, you can remove columns by using the [Select Columns in Dataset](./select-columns-in-dataset.md) module.
+> If the results are difficult to understand, or if you want to exclude some columns from consideration, you can remove columns by using the [Select Columns in Dataset](./select-columns-in-dataset.md) component.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
 title: "Convert to Image Directory"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Convert to Image Directory module to Convert dataset to image directory format.
+description: Learn how to use the Convert to Image Directory component to Convert dataset to image directory format.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 11/12/2020
 ---
 # Convert to Image Directory
 
-This article describes how to use the Convert to Image Directory module to help convert image dataset to *Image Directory* data type, which is standardized data format in image-related tasks like image classification in Azure Machine Learning designer.
+This article describes how to use the Convert to Image Directory component to help convert image dataset to *Image Directory* data type, which is standardized data format in image-related tasks like image classification in Azure Machine Learning designer.
 
 ## How to use Convert to Image Directory  
 
@@ -45,20 +45,20 @@ This article describes how to use the Convert to Image Directory module to help 
     > [!NOTE]
     > For inference, the image dataset folder only needs to contain unclassified images.
 
-1. [Register the image dataset as a file dataset](../how-to-create-register-datasets.md) in your workspace, since the input of Convert to Image Directory module must be a **File dataset**.
+1. [Register the image dataset as a file dataset](../how-to-create-register-datasets.md) in your workspace, since the input of Convert to Image Directory component must be a **File dataset**.
 
-1. Add the registered image dataset to the canvas. You can find your registered dataset in the **Datasets** category in the module list in the left of canvas. Currently Designer does not support visualize image dataset.
+1. Add the registered image dataset to the canvas. You can find your registered dataset in the **Datasets** category in the component list in the left of canvas. Currently Designer does not support visualize image dataset.
 
     > [!WARNING]
-    > You **cannot** use **Import Data** module to import image dataset, because the output type of **Import Data** module is DataFrame Directory, which only contains file path string.
+    > You **cannot** use **Import Data** component to import image dataset, because the output type of **Import Data** component is DataFrame Directory, which only contains file path string.
 
-1. Add the **Convert to Image Directory** module to the canvas. You can find this module in the 'Computer Vision/Image Data Transformation' category in the module list. Connect it to the image dataset.
+1. Add the **Convert to Image Directory** component to the canvas. You can find this component in the 'Computer Vision/Image Data Transformation' category in the component list. Connect it to the image dataset.
     
-3.  Submit the pipeline. This module could be run on either GPU or CPU.
+3.  Submit the pipeline. This component could be run on either GPU or CPU.
 
 ## Results
 
-The output of **Convert to Image Directory** module is in **Image Directory** format, and can be connected to other image-related modules of which the input port format is also Image Directory.
+The output of **Convert to Image Directory** component is in **Image Directory** format, and can be connected to other image-related components of which the input port format is also Image Directory.
 
 ![Convert to Image Directory output](./media/module/convert-to-image-directory-output.png)
 
@@ -78,4 +78,4 @@ The output of **Convert to Image Directory** module is in **Image Directory** fo
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

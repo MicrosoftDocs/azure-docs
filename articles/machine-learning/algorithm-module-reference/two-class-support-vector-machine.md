@@ -1,7 +1,7 @@
 ---
-title:  "Two-Class Support Vector Machine: Module Reference"
+title:  "Two-Class Support Vector Machine: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Two-Class Support Vector Machine module in Azure Machine Learning to create a binary classifier.
+description: Learn how to use the Two-Class Support Vector Machine component in Azure Machine Learning to create a binary classifier.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,15 +12,15 @@ ms.author: keli19
 ms.date: 04/22/2020
 ---
 
-# Two-Class Support Vector Machine module
+# Two-Class Support Vector Machine component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a model that is based on the support vector machine algorithm. 
+Use this component to create a model that is based on the support vector machine algorithm. 
 
 Support vector machines (SVMs) are a well-researched class of supervised learning methods. This particular implementation is suited to prediction of two possible outcomes, based on either continuous or categorical variables.
 
-After defining the model parameters, train the model by using the training modules, and providing a *tagged dataset* that includes a label or outcome column.
+After defining the model parameters, train the model by using the training components, and providing a *tagged dataset* that includes a label or outcome column.
 
 ## About support vector machines
 
@@ -34,13 +34,13 @@ For prediction, the SVM algorithm assigns new examples into one category or the 
 
 For this model type, it is recommended that you normalize the dataset before using it to train the classifier.
   
-1.  Add the **Two-Class Support Vector Machine** module to your pipeline.  
+1.  Add the **Two-Class Support Vector Machine** component to your pipeline.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
 
-    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
 
 3.  For **Number of iterations**, type a number that denotes the number of iterations used when building the model.  
   
@@ -62,7 +62,7 @@ For this model type, it is recommended that you normalize the dataset before usi
   
 9. Connect a labeled dataset, and train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -70,7 +70,7 @@ For this model type, it is recommended that you normalize the dataset before usi
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
   
@@ -80,11 +80,11 @@ For this model type, it is recommended that you normalize the dataset before usi
 
 After training is complete:
 
-+ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** component. Select the **Register dataset** icon to save the model as a reusable component.
 
-+ To use the model for scoring, add the **Score Model** module to a pipeline.
++ To use the model for scoring, add the **Score Model** component to a pipeline.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

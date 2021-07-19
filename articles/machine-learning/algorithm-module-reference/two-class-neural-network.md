@@ -1,7 +1,7 @@
 ---
-title:  "Two-Class Neural Network: Module Reference"
+title:  "Two-Class Neural Network: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Two-Class Neural Network module in Azure Machine Learning to create a binary classifier.
+description: Learn how to use the Two-Class Neural Network component in Azure Machine Learning to create a binary classifier.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,11 +12,11 @@ ms.author: keli19
 ms.date: 04/22/2020
 ---
 
-# Two-Class Neural Network module
+# Two-Class Neural Network component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a neural network model that can be used to predict a target that has only two values.
+Use this component to create a neural network model that can be used to predict a target that has only two values.
 
 Classification using neural networks is a supervised learning method, and therefore requires a *tagged dataset*, which includes a label column. For example, you could use this neural network model to predict binary outcomes such as whether or not a patient has a certain disease, or whether a machine is likely to fail within a specified window of time.  
 
@@ -34,13 +34,13 @@ To compute the output of the network for a particular input, a value is calculat
   
 ## How to configure
 
-1.  Add the **Two-Class Neural Network** module to your pipeline. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.  
+1.  Add the **Two-Class Neural Network** component to your pipeline. You can find this component under **Machine Learning**, **Initialize**, in the **Classification** category.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: Choose this option if you already know how you want to configure the model.
 
-    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.  
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.  
 
 3.  For **Hidden layer specification**, select the type of network architecture to create.  
   
@@ -72,7 +72,7 @@ To compute the output of the network for a particular input, a value is calculat
   
 13. Add a labeled dataset to the pipeline, and train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -80,7 +80,7 @@ To compute the output of the network for a particular input, a value is calculat
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
   
@@ -90,11 +90,11 @@ To compute the output of the network for a particular input, a value is calculat
 
 After training is complete:
 
-+ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** component. Select the **Register dataset** icon to save the model as a reusable component.
 
-+ To use the model for scoring, add the **Score Model** module to a pipeline.
++ To use the model for scoring, add the **Score Model** component to a pipeline.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

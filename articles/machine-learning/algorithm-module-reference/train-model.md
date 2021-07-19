@@ -1,7 +1,7 @@
 ---
-title:  "Train Model: Module Reference"
+title:  "Train Model: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn  how to use the **Train Model** module in Azure Machine Learning to train a classification or regression model. 
+description: Learn  how to use the **Train Model** component in Azure Machine Learning to train a classification or regression model. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,11 +11,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/10/2021
 ---
-# Train Model module
+# Train Model component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
+Use this component to train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
 
 ## How the training process works
 
@@ -28,23 +28,23 @@ In Azure Machine Learning, creating and using a machine learning model is typica
 
 2. Provide a dataset that is labeled, and has data compatible with the algorithm. Connect both the data and the model to **Train Model**.
 
-    What training produces is a specific binary format, the iLearner, that encapsulates the statistical patterns learned from the data. You cannot directly modify or read this format; however, other modules can use this trained model. 
+    What training produces is a specific binary format, the iLearner, that encapsulates the statistical patterns learned from the data. You cannot directly modify or read this format; however, other components can use this trained model. 
     
     You can also view properties of the model. For more information, see the Results section.
 
-3. After training is completed, use the trained model with one of the [scoring modules](./score-model.md), to make predictions on new data.
+3. After training is completed, use the trained model with one of the [scoring components](./score-model.md), to make predictions on new data.
 
 ## How to use Train Model 
     
-1. Add the **Train Model** module to the pipeline.  You can find this module under the **Machine Learning** category. Expand **Train**, and then drag the **Train Model** module into your pipeline.
+1. Add the **Train Model** component to the pipeline.  You can find this component under the **Machine Learning** category. Expand **Train**, and then drag the **Train Model** component into your pipeline.
   
 1.  On the left input, attach the untrained mode. Attach the training dataset to the right-hand input of **Train Model**.
 
     The training dataset must contain a label column. Any rows without labels are ignored.
   
-1.  For **Label column**, click **Edit column** in the right panel of module, and choose a single column that contains outcomes the model can use for training.
+1.  For **Label column**, click **Edit column** in the right panel of component, and choose a single column that contains outcomes the model can use for training.
   
-    - For classification problems, the label column must contain either **categorical** values or **discrete** values. Some examples might be a yes/no rating, a disease classification code or name, or an income group.  If you pick a noncategorical column, the module will return an error during training.
+    - For classification problems, the label column must contain either **categorical** values or **discrete** values. Some examples might be a yes/no rating, a disease classification code or name, or an income group.  If you pick a noncategorical column, the component will return an error during training.
   
     -   For regression problems, the label column must contain **numeric** data that represents the response variable. Ideally the numeric data represents a continuous scale. 
     
@@ -60,13 +60,13 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!IMPORTANT] 
     > If you have an ID column which is the ID of each row, or a text column, which contains too many unique values, **Train Model** may hit an error like "Number of unique values in column: "{column_name}" is greater than allowed.
     >
-    > This is because the column hit the threshold of unique values, and may cause out of memory. You can use [Edit Metadata](edit-metadata.md) to mark that column as **Clear feature** and it will not be used in training, or [Extract N-Gram Features from Text module](extract-n-gram-features-from-text.md) to preprocess text column. See [Designer error code](././designer-error-codes.md) for more error details.
+    > This is because the column hit the threshold of unique values, and may cause out of memory. You can use [Edit Metadata](edit-metadata.md) to mark that column as **Clear feature** and it will not be used in training, or [Extract N-Gram Features from Text component](extract-n-gram-features-from-text.md) to preprocess text column. See [Designer error code](././designer-error-codes.md) for more error details.
 
 ## Model Interpretability
 
 Model interpretability provides possibility to comprehend the ML model and to present the underlying basis for decision-making in a way that is understandable to humans.
 
-Currently **Train Model** module supports [using interpretability package to explain ML models](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Following built-in algorithms are supported:
+Currently **Train Model** component supports [using interpretability package to explain ML models](../how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs). Following built-in algorithms are supported:
 
 - Linear Regression
 - Neural Network Regression
@@ -81,11 +81,11 @@ Currently **Train Model** module supports [using interpretability package to exp
 - Multi-class Logistic Regression
 - Multi-class Neural Network
 
-To generate model explanations, you can select **True** in the drop-down list of **Model Explanation** in Train Model module. By default it is set to False in the **Train Model** module. Please note that generating explanation requires extra compute cost.
+To generate model explanations, you can select **True** in the drop-down list of **Model Explanation** in Train Model component. By default it is set to False in the **Train Model** component. Please note that generating explanation requires extra compute cost.
 
 ![Screenshot showing model explanation checkbox](./media/module/train-model-explanation-checkbox.png)
 
-After the pipeline run completed, you can visit **Explanations** tab in the right pane of **Train Model** module, and explore the model performance, dataset and feature importance.
+After the pipeline run completed, you can visit **Explanations** tab in the right pane of **Train Model** component, and explore the model performance, dataset and feature importance.
 
 ![Screenshot showing model explanation charts](./media/module/train-model-explanations-tab.gif)
 
@@ -96,11 +96,11 @@ To learn more about using model explanations in Azure Machine Learning, refer to
 After the model is trained:
 
 
-+ To use the model in other pipelines, select the module and select the **Register dataset** icon under the **Outputs** tab in right panel. You can access saved models in the module palette under **Datasets**.
++ To use the model in other pipelines, select the component and select the **Register dataset** icon under the **Outputs** tab in right panel. You can access saved models in the component palette under **Datasets**.
 
-+ To use the model in predicting new values, connect it to the [Score Model](./score-model.md) module, together with new input data.
++ To use the model in predicting new values, connect it to the [Score Model](./score-model.md) component, together with new input data.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

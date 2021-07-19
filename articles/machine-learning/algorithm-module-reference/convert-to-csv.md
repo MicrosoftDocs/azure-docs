@@ -1,7 +1,7 @@
 ---
-title:  "Convert to CSV: Module Reference"
+title:  "Convert to CSV: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Convert to CSV module in Azure Machine Learning designer to convert a dataset into a CSV file that can be reused later.
+description: Learn how to use the Convert to CSV component in Azure Machine Learning designer to convert a dataset into a CSV file that can be reused later.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,11 +12,11 @@ ms.author: keli19
 ms.date: 10/22/2019
 ---
 
-# Convert to CSV module
+# Convert to CSV component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to convert a dataset into a CSV format that can be downloaded, exported, or shared with R or Python script modules.
+Use this component to convert a dataset into a CSV format that can be downloaded, exported, or shared with R or Python script components.
 
 ### More about the CSV format 
 
@@ -28,14 +28,14 @@ Even if you do most of your work in Azure Machine Learning, there are times when
 + Save the CSV file to cloud storage and connect to it from Power BI to create visualizations.  
 + Use the CSV format to prepare data for use in R and Python. 
 
-When you convert a dataset to CSV, the csv is saved in your Azure ML workspace. You can use an Azure storage utility to open and use the file directly. You can also access the CSV in the designer by selecting the **Convert to CSV** module, then select the histogram icon under the **Outputs** tab in the right panel to view the output. You can download the CSV from the Results folder to a local directory.  
+When you convert a dataset to CSV, the csv is saved in your Azure ML workspace. You can use an Azure storage utility to open and use the file directly. You can also access the CSV in the designer by selecting the **Convert to CSV** component, then select the histogram icon under the **Outputs** tab in the right panel to view the output. You can download the CSV from the Results folder to a local directory.  
 
 ## How to configure Convert to CSV
 
 
-1.  Add the Convert to CSV module to your pipeline. You can find this module in the **Data Transformation** group in the designer. 
+1.  Add the Convert to CSV component to your pipeline. You can find this component in the **Data Transformation** group in the designer. 
 
-2. Connect it to any module that outputs a dataset.   
+2. Connect it to any component that outputs a dataset.   
   
 3.  Submit the pipeline.
 
@@ -44,10 +44,10 @@ When you convert a dataset to CSV, the csv is saved in your Azure ML workspace. 
 
 Select the **Outputs** tab in the right panel of **Convert to CSV**, and select on one of these icons under the **Port outputs**.  
 
-+ **Register dataset**: Select the icon and save the CSV file back to the Azure ML workspace as a separate dataset. You can find the dataset as a module in the module tree under the **My Datasets** section.
++ **Register dataset**: Select the icon and save the CSV file back to the Azure ML workspace as a separate dataset. You can find the dataset as a component in the component tree under the **My Datasets** section.
 
  + **View output**: Select the eye icon, and follow the instruction to browse the **Results_dataset** folder, and download the data.csv file.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

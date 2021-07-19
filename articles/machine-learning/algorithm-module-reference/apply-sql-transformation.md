@@ -1,7 +1,7 @@
 ---
 title:  "Apply SQL Transformation"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Apply SQL Transformation module in Azure Machine Learning to run a SQLite query on input datasets to transform the data.
+description: Learn how to use the Apply SQL Transformation component in Azure Machine Learning to run a SQLite query on input datasets to transform the data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,9 @@ ms.date: 11/12/2020
 
 # Apply SQL Transformation
 
-This article describes a module of Azure Machine Learning designer.
+This article describes a component of Azure Machine Learning designer.
 
-Using the Apply SQL Transformation module, you can:
+Using the Apply SQL Transformation component, you can:
   
 -   Create tables for results and save the datasets in a portable database.  
   
@@ -25,12 +25,12 @@ Using the Apply SQL Transformation module, you can:
 -   Execute SQL query statements to filter or alter data and return the query results as a data table.  
 
 > [!IMPORTANT]
-> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html).
-> This module will bump data to SQLite, which is in the memory DB, hence the module execution requires much more memory and may hit an `Out of memory` error. Make sure your computer has enough RAM.
+> The SQL engine used in this component is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html).
+> This component will bump data to SQLite, which is in the memory DB, hence the component execution requires much more memory and may hit an `Out of memory` error. Make sure your computer has enough RAM.
 
 ## How to configure Apply SQL Transformation  
 
-The module can take up to three datasets as inputs. When you reference the datasets connected to each input port, you must use the names `t1`, `t2`, and `t3`. The table number indicates the index of the input port.  
+The component can take up to three datasets as inputs. When you reference the datasets connected to each input port, you must use the names `t1`, `t2`, and `t3`. The table number indicates the index of the input port.  
 
 Following is sample code to show how to join two tables. t1 and t2 are two datasets connected to the left and middle input ports of **Apply SQL Transformation**:
 
@@ -48,7 +48,7 @@ on t1.placeID = t3.placeID
   
 The remaining parameter is a SQL query, which uses the SQLite syntax. When typing multiple lines in the **SQL Script** text box, use a semi-colon to terminate each statement. Otherwise, line breaks are converted to spaces.  
 
-This module supports all standard statements of the SQLite syntax. For a list of unsupported statements, see the [Technical Notes](#technical-notes) section.
+This component supports all standard statements of the SQLite syntax. For a list of unsupported statements, see the [Technical Notes](#technical-notes) section.
 
 ##  Technical notes  
 
@@ -75,4 +75,4 @@ In addition to the list of non-supported functions provided on the official SQLi
     
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

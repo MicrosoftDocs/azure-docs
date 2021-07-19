@@ -1,7 +1,7 @@
 ---
-title:  "Create Python Model: Module reference"
+title:  "Create Python Model: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Create Python Model module in Azure Machine Learning to create a custom modeling or data processing module.
+description: Learn how to use the Create Python Model component in Azure Machine Learning to create a custom modeling or data processing component.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,27 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/18/2020
 ---
-# Create Python Model module
+# Create Python Model component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Learn how to use the Create Python Model module to create an untrained model from a Python script. You can base the model on any learner that's included in a Python package in the Azure Machine Learning designer environment. 
+Learn how to use the Create Python Model component to create an untrained model from a Python script. You can base the model on any learner that's included in a Python package in the Azure Machine Learning designer environment. 
 
 After you create the model, you can use [Train Model](train-model.md) to train the model on a dataset, like any other learner in Azure Machine Learning. The trained model can be passed to [Score Model](score-model.md) to make predictions. You can then save the trained model and publish the scoring workflow as a web service.
 
 > [!WARNING]
-> Currently, it's not possible to connect this module to **Tune Model Hyperparameters** module or pass the scored results of a Python model to [Evaluate Model](evaluate-model.md). If you need to tune the hyperparameters or evaluate a model, you can write a custom Python script by using [Execute Python Script](execute-python-script.md) module.
+> Currently, it's not possible to connect this component to **Tune Model Hyperparameters** component or pass the scored results of a Python model to [Evaluate Model](evaluate-model.md). If you need to tune the hyperparameters or evaluate a model, you can write a custom Python script by using [Execute Python Script](execute-python-script.md) component.
 
 
-## Configure the module
+## Configure the component
 
-Use of this module requires intermediate or expert knowledge of Python. The module supports use of any learner that's included in the Python packages already installed in Azure Machine Learning. See the preinstalled Python package list in [Execute Python Script](execute-python-script.md).
-
-> [!NOTE]
-> Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared object or a un-imported module.
+Use of this component requires intermediate or expert knowledge of Python. The component supports use of any learner that's included in the Python packages already installed in Azure Machine Learning. See the preinstalled Python package list in [Execute Python Script](execute-python-script.md).
 
 > [!NOTE]
-> Also pay extra attentions to the pre-installed modules list in [Execute Python Script](execute-python-script.md). Only import pre-installed modules. Please do not install extra packages such as "pip install xgboost" in this script, otherwise errors will be raised when reading models in down-stream modules.
+> Please be very careful when writing your script and makes sure there is no syntax error, such as using a un-declared object or a un-imported component.
+
+> [!NOTE]
+> Also pay extra attentions to the pre-installed components list in [Execute Python Script](execute-python-script.md). Only import pre-installed components. Please do not install extra packages such as "pip install xgboost" in this script, otherwise errors will be raised when reading models in down-stream components.
   
 This article shows how to use **Create Python Model** with a simple pipeline. Here's a diagram of the pipeline:
 
@@ -54,7 +54,7 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
    # The signatures (method names and argument names) of all these methods MUST be exactly the same as the following example.
 
    # Please do not install extra packages such as "pip install xgboost" in this script,
-   # otherwise errors will be raised when reading models in down-stream modules.
+   # otherwise errors will be raised when reading models in down-stream components.
    
    import pandas as pd
    from sklearn.naive_bayes import GaussianNB
@@ -83,9 +83,9 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 
    ```
 
-2. Connect the **Create Python Model** module that you just created to **Train Model** and **Score Model**.
+2. Connect the **Create Python Model** component that you just created to **Train Model** and **Score Model**.
 
-3. If you need to evaluate the model, add an [Execute Python Script](execute-python-script.md) module and edit the Python script.
+3. If you need to evaluate the model, add an [Execute Python Script](execute-python-script.md) component and edit the Python script.
 
    The following script is sample evaluation code:
 
@@ -93,7 +93,7 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 
 
    # The script MUST contain a function named azureml_main
-   # which is the entry point for this module.
+   # which is the entry point for this component.
 
    # imports up here can be used to 
    import pandas as pd
@@ -128,4 +128,4 @@ This article shows how to use **Create Python Model** with a simple pipeline. He
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

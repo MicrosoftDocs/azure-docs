@@ -1,7 +1,7 @@
 ---
-title:  "Evaluate Model: Module Reference"
+title:  "Evaluate Model: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Evaluate Model module in Azure Machine Learning to measure the accuracy of a trained model.
+description: Learn how to use the Evaluate Model component in Azure Machine Learning to measure the accuracy of a trained model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,11 +11,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
 ---
-# Evaluate Model module
+# Evaluate Model component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
+Use this component to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** component computes a set of industry-standard evaluation metrics.
   
  The metrics returned by **Evaluate Model** depend on the type of model that you are evaluating:  
   
@@ -31,18 +31,18 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 ## How to use Evaluate Model
 1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the [Assign Data to Clusters](./assign-data-to-clusters.md) to the left input port of **Evaluate Model**. 
     > [!NOTE] 
-    > If use modules like "Select Columns in Dataset" to select part of input dataset, please ensure
+    > If use components like "Select Columns in Dataset" to select part of input dataset, please ensure
     > Actual label column (used in training), 'Scored Probabilities' column and 'Scored Labels' column exist to calculate metrics like AUC, Accuracy for binary classification/anomaly detection.
     > Actual label column, 'Scored Labels' column exist to calculate metrics for multi-class classification/regression.
     > 'Assignments' column, columns 'DistancesToClusterCenter no.X' (X is centroid index, ranging from 0, ..., Number of centroids-1)     exist to calculate metrics for clustering.
 
     > [!IMPORTANT]
-    > + To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model module requirements.
+    > + To evaluate the results, the output dataset should contain specific score column names, which meet Evaluate Model component requirements.
     > + The `Labels` column will be considered as actual labels.
     > + For regression task, the dataset to evaluate must has one column, named `Regression Scored Labels`, which represents scored labels.
     > + For binary classification task, the dataset to evaluate must has two columns, named `Binary Class Scored Labels`,`Binary Class Scored Probabilities`, which represent scored labels, and probabilities respectively.
     > + For multi classification task, the dataset to evaluate must has one column, named `Multi Class Scored Labels`, which represents scored labels.
-    > If the outputs of the upstream module does not have these columns, you need to modify according to the requirements above.
+    > If the outputs of the upstream component does not have these columns, you need to modify according to the requirements above.
 
 2. [Optional] Connect the **Scored dataset** output of the [Score Model](./score-model.md) or Result dataset output of the Assign Data to Clusters for the second model to the **right** input port of **Evaluate Model**. You can easily compare results from two different models on the same data. The two input algorithms should be the same algorithm type. Or, you might compare scores from two different runs over the same data with different parameters.
 
@@ -53,7 +53,7 @@ Use this module to measure the accuracy of a trained model. You provide a datase
 
 ## Results
 
-After you run **Evaluate Model**, select the module to open up the **Evaluate Model** navigation panel on the right.  Then, choose the **Outputs + Logs** tab, and on that tab the **Data Outputs** section has several icons. The **Visualize** icon has a bar graph icon, and is a first way to see the results.
+After you run **Evaluate Model**, select the component to open up the **Evaluate Model** navigation panel on the right.  Then, choose the **Outputs + Logs** tab, and on that tab the **Data Outputs** section has several icons. The **Visualize** icon has a bar graph icon, and is a first way to see the results.
 
 For binary-classification, after you click **Visualize** icon, you can visualize the binary confusion matrix.
 For multi-classification, you can find the confusion matrix plot file under the **Outputs + Logs** tab like following:
@@ -138,4 +138,4 @@ The following metrics are reported for evaluating clustering models.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

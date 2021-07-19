@@ -1,7 +1,7 @@
 ---
-title:  "Linear Regression: Module Reference"
+title:  "Linear Regression: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Linear Regression module in Azure Machine Learning to create a linear regression model for use in a pipeline.
+description: Learn how to use the Linear Regression component in Azure Machine Learning to create a linear regression model for use in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ---
-# Linear Regression module
-This article describes a module in Azure Machine Learning designer.
+# Linear Regression component
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a linear regression model for use in a pipeline.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
+Use this component to create a linear regression model for use in a pipeline.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
-You use this module to define a linear regression method, and then train a model using a labeled dataset. The trained model can then be used to make predictions.
+You use this component to define a linear regression method, and then train a model using a labeled dataset. The trained model can then be used to make predictions.
 
 ## About linear regression
 
@@ -24,17 +24,17 @@ Linear regression is a common statistical method, which has been adopted in mach
 
 Azure Machine Learning supports a variety of regression models, in addition to linear regression. However, the term "regression" can be interpreted loosely, and some types of regression provided in other tools are not supported.
 
-+ The classic regression problem involves a single independent variable and a dependent variable. This is called *simple regression*.  This module supports simple regression.
++ The classic regression problem involves a single independent variable and a dependent variable. This is called *simple regression*.  This component supports simple regression.
 
 + *Multiple linear regression* involves two or more independent variables that contribute to a single dependent variable. Problems in which multiple inputs are used to predict a single numeric outcome are also  called *multivariate linear regression*.
 
-    The **Linear Regression** module can solve these problems, as can most of the other regression modules.
+    The **Linear Regression** component can solve these problems, as can most of the other regression components.
 
 + *Multi-label regression* is the task of predicting multiple dependent variables within a single model. For example, in multi-label logistic regression, a sample can be assigned to multiple different labels. (This is different from the task of predicting multiple levels within a single class variable.)
 
     This type of regression is not supported in Azure Machine Learning. To predict multiple variables, create a separate learner for each output that you wish to predict.
 
-For years statisticians have been developing increasingly advanced methods for regression. This is true even for linear regression. This module supports two methods to measure error and fit the regression line: ordinary least squares method, and gradient descent.
+For years statisticians have been developing increasingly advanced methods for regression. This is true even for linear regression. This component supports two methods to measure error and fit the regression line: ordinary least squares method, and gradient descent.
 
 - **Gradient descent** is a method that minimizes the amount of error at each step of the model training process. There are many variations on gradient descent and its optimization for various learning problems has been extensively studied. If you choose this option for **Solution method**, you can set a variety of parameters to control the step size, learning rate, and so forth. This option also supports use of an integrated parameter sweep.
 
@@ -44,7 +44,7 @@ For years statisticians have been developing increasingly advanced methods for r
 
 ## Configure Linear Regression
 
-This module supports two methods for fitting a regression model, with different options:
+This component supports two methods for fitting a regression model, with different options:
 
 + [Fit a regression model using ordinary least squares](#create-a-regression-model-using-ordinary-least-squares)
 
@@ -56,9 +56,9 @@ This module supports two methods for fitting a regression model, with different 
 
 ### Create a regression model using ordinary least squares
 
-1. Add the **Linear Regression Model** module to your pipeline in the designer.
+1. Add the **Linear Regression Model** component to your pipeline in the designer.
 
-    You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and then drag the **Linear Regression Model** module to your pipeline.
+    You can find this component in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and then drag the **Linear Regression Model** component to your pipeline.
 
 2. In the **Properties** pane, in the **Solution method** dropdown list, select **Ordinary Least Squares**. This option specifies the computation method used to find the regression line.
 
@@ -75,7 +75,7 @@ This module supports two methods for fitting a regression model, with different 
     Using a seed value is useful if you want to maintain the same results across different runs of the same pipeline. Otherwise, the default is to use a value from the system clock.
 
 
-7. Add the [Train Model](./train-model.md) module to your pipeline, and connect a labeled dataset.
+7. Add the [Train Model](./train-model.md) component to your pipeline, and connect a labeled dataset.
 
 8. Submit the pipeline.
 
@@ -84,14 +84,14 @@ This module supports two methods for fitting a regression model, with different 
 After training is complete:
 
 
-+ To make predictions, connect the trained model to the [Score Model](./score-model.md) module, along with a dataset of new values. 
++ To make predictions, connect the trained model to the [Score Model](./score-model.md) component, along with a dataset of new values. 
 
 
 ### Create a regression model using online gradient descent
 
-1. Add the **Linear Regression Model** module to your pipeline in the designer.
+1. Add the **Linear Regression Model** component to your pipeline in the designer.
 
-    You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and drag the **Linear Regression Model** module to your pipeline
+    You can find this component in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and drag the **Linear Regression Model** component to your pipeline
 
 2. In the **Properties** pane, in the **Solution method** dropdown list, choose **Online Gradient Descent** as the computation method used to find the regression line.
 
@@ -106,7 +106,7 @@ After training is complete:
 
 5. For **Number of training epochs**, type a value that indicates how many times the algorithm should iterate through examples. For datasets with a small number of examples, this number should be large to reach convergence.
 
-6. **Normalize features**: If you have already normalized the numeric data used to train the model, you can deselect this option. By default, the module normalizes all numeric inputs to a range between 0 and 1.
+6. **Normalize features**: If you have already normalized the numeric data used to train the model, you can deselect this option. By default, the component normalizes all numeric inputs to a range between 0 and 1.
 
     > [!NOTE]
     > 
@@ -124,7 +124,7 @@ After training is complete:
 
 12. Train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -132,7 +132,7 @@ After training is complete:
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
@@ -142,9 +142,9 @@ After training is complete:
 
 After training is complete:
 
-+ To make predictions, connect the trained model to the [Score Model](./score-model.md) module, together with new input data.
++ To make predictions, connect the trained model to the [Score Model](./score-model.md) component, together with new input data.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

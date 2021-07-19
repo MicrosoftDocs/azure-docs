@@ -1,7 +1,7 @@
 ---
-title:  "Score Model: Module Reference"
+title:  "Score Model: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Score Model module in Azure Machine Learning to generate predictions using a trained classification or regression model.
+description: Learn how to use the Score Model component in Azure Machine Learning to generate predictions using a trained classification or regression model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,13 +13,13 @@ ms.date: 02/11/2020
 ---
 # Score Model
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to generate predictions using a trained classification or regression model.
+Use this component to generate predictions using a trained classification or regression model.
 
 ## How to use
 
-1. Add the **Score Model** module to your pipeline.
+1. Add the **Score Model** component to your pipeline.
 
 2. Attach a trained model and a dataset containing new input data. 
 
@@ -32,7 +32,7 @@ Use this module to generate predictions using a trained classification or regres
 After you have generated a set of scores using [Score Model](./score-model.md):
 
 + To generate a set of metrics used for evaluating the model's accuracy (performance), you can connect the scored dataset to [Evaluate Model](./evaluate-model.md), 
-+ Right-click the module and select **Visualize** to see a sample of the results.
++ Right-click the component and select **Visualize** to see a sample of the results.
 <!-- + To Save the results to a dataset. -->
 
 The score, or predicted value, can be in many different formats, depending on the model and your input data:
@@ -47,4 +47,4 @@ A common use of scoring is to return the output as part of a predictive web serv
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

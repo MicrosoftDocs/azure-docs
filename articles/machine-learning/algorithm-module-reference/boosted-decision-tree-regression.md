@@ -1,7 +1,7 @@
 ---
-title:  "Boosted Decision Tree Regression: Module Reference"
+title:  "Boosted Decision Tree Regression: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Boosted Decision Tree Regression module in Azure Machine Learning to create an ensemble of regression trees using boosting. 
+description: Learn how to use the Boosted Decision Tree Regression component in Azure Machine Learning to create an ensemble of regression trees using boosting. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,18 +12,18 @@ ms.author: keli19
 ms.date: 08/24/2020
 ---
 
-# Boosted Decision Tree Regression module
+# Boosted Decision Tree Regression component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
+Use this component to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
 
-This module is based LightGBM algorithm.
+This component is based LightGBM algorithm.
   
 This regression method is a supervised learning method, and therefore requires a *labeled dataset*. The label column must contain numerical values.  
 
 > [!NOTE]
-> Use this module only with datasets that use numerical variables.  
+> Use this component only with datasets that use numerical variables.  
 
 After you have defined the model, train it by using the [Train Model](./train-model.md).
 
@@ -48,7 +48,7 @@ The gradient boosting method can also be used for classification problems by red
 
 ## How to configure Boosted Decision Tree Regression
 
-1.  Add the **Boosted  Decision Tree** module to your pipeline. You can find this module under **Machine Learning**, **Initialize**, under the **Regression** category. 
+1.  Add the **Boosted  Decision Tree** component to your pipeline. You can find this component under **Machine Learning**, **Initialize**, under the **Regression** category. 
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -78,7 +78,7 @@ The gradient boosting method can also be used for classification problems by red
 
 9. Train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -86,7 +86,7 @@ The gradient boosting method can also be used for classification problems by red
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
     
@@ -99,8 +99,8 @@ After training is complete:
 
 + To use the model for scoring, connect [Train Model](train-model.md) to [Score Model](./score-model.md), to predict values for new input examples.
 
-+ To save a snapshot of the trained model, select **Outputs** tab in the right panel of **Trained model** and click **Register dataset** icon. The copy of the trained model will be saved as a module in the module tree and will not be updated on successive runs of the pipeline.
++ To save a snapshot of the trained model, select **Outputs** tab in the right panel of **Trained model** and click **Register dataset** icon. The copy of the trained model will be saved as a component in the component tree and will not be updated on successive runs of the pipeline.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

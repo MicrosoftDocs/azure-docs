@@ -1,7 +1,7 @@
 ---
-title: "Permutation Feature Importance: Module reference"
+title: "Permutation Feature Importance: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Permutation Feature Importance module in the designer to compute the permutation feature importance scores of feature variables.
+description: Learn how to use the Permutation Feature Importance component in the designer to compute the permutation feature importance scores of feature variables.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,11 +13,11 @@ ms.date: 02/24/2020
 ---
 # Permutation Feature Importance
 
-This article describes how to use the Permutation Feature Importance module in Azure Machine Learning designer, to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
+This article describes how to use the Permutation Feature Importance component in Azure Machine Learning designer, to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
 
-In this module, feature values are randomly shuffled, one column at a time. The performance of the model is measured before and after. You can choose one of the standard metrics to measure performance.
+In this component, feature values are randomly shuffled, one column at a time. The performance of the model is measured before and after. You can choose one of the standard metrics to measure performance.
 
-The scores that the module returns represent the *change* in the performance of a trained model, after permutation. Important features are usually more sensitive to the shuffling process, so they'll result in higher importance scores. 
+The scores that the component returns represent the *change* in the performance of a trained model, after permutation. Important features are usually more sensitive to the shuffling process, so they'll result in higher importance scores. 
 
 This article provides an overview of the permutation feature, its theoretical basis, and its applications in machine learning: [Permutation Feature Importance](/archive/blogs/machinelearning/permutation-feature-importance).  
 
@@ -25,7 +25,7 @@ This article provides an overview of the permutation feature, its theoretical ba
 
 Generating a set of feature scores requires that you have an already trained model, as well as a test dataset.  
 
-1.  Add the Permutation Feature Importance module to your pipeline. You can find this module in the **Feature Selection** category. 
+1.  Add the Permutation Feature Importance component to your pipeline. You can find this component in the **Feature Selection** category. 
 
 2.  Connect a trained model to the left input. The model must be a regression model or a classification model.  
 
@@ -51,17 +51,17 @@ Generating a set of feature scores requires that you have an already trained mod
 
 6.  Submit the pipeline.  
 
-7.  The module outputs a list of feature columns and the scores associated with them. The list is ranked in descending order of the scores.  
+7.  The component outputs a list of feature columns and the scores associated with them. The list is ranked in descending order of the scores.  
 
 
 ##  Technical notes
 
 Permutation Feature Importance works by randomly changing the values of each feature column, one column at a time. It then evaluates the model. 
 
-The rankings that the module provides are often different from the ones you get from [Filter Based Feature Selection](filter-based-feature-selection.md). Filter Based Feature Selection calculates scores *before* a model is created. 
+The rankings that the component provides are often different from the ones you get from [Filter Based Feature Selection](filter-based-feature-selection.md). Filter Based Feature Selection calculates scores *before* a model is created. 
 
 The reason for the difference is that Permutation Feature Importance doesn't measure the association between a feature and a target value. Instead, it captures how much influence each feature has on predictions from the model.
   
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

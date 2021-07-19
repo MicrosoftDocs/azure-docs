@@ -1,7 +1,7 @@
 ---
-title: "Train SVD Recommender: Module Reference"
+title: "Train SVD Recommender: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Train SVD Recommender module in Azure Machine Learning to train a Bayesian recommender by using the SVD algorithm.
+description: Learn how to use the Train SVD Recommender component in Azure Machine Learning to train a Bayesian recommender by using the SVD algorithm.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,9 @@ ms.date: 03/17/2021
 
 # Train SVD Recommender
 
-This article describes how to use the Train SVD Recommender module in Azure Machine Learning designer. Use this module to train a recommendation model based on the Single Value Decomposition (SVD) algorithm.  
+This article describes how to use the Train SVD Recommender component in Azure Machine Learning designer. Use this component to train a recommendation model based on the Single Value Decomposition (SVD) algorithm.  
 
-The Train SVD Recommender module reads a dataset of user-item-rating triples. It returns a trained SVD recommender. You can then use the trained model to predict ratings or generate recommendations, by connecting the [Score SVD Recommender](score-svd-recommender.md) module.  
+The Train SVD Recommender component reads a dataset of user-item-rating triples. It returns a trained SVD recommender. You can then use the trained model to predict ratings or generate recommendations, by connecting the [Score SVD Recommender](score-svd-recommender.md) component.  
 
 
   
@@ -38,7 +38,7 @@ For more information about the SVD recommender, see the relevant research paper:
 
 ### Prepare data
 
-Before you use the module, your input data must be in the format that the recommendation model expects. A training data set of user-item-rating triples is required.
+Before you use the component, your input data must be in the format that the recommendation model expects. A training data set of user-item-rating triples is required.
 
 + The first column contains user identifiers.
 + The second column contains item identifiers.
@@ -52,7 +52,7 @@ From this sample, you can see that a single user has rated several movies.
 
 ### Train the model
 
-1.  Add the Train SVD Recommender module to your pipeline in the designer, and connect it to the training data.  
+1.  Add the Train SVD Recommender component to your pipeline in the designer, and connect it to the training data.  
    
 2.  For **Number of factors**, specify the number of factors to use with the recommender.  
     
@@ -72,4 +72,4 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

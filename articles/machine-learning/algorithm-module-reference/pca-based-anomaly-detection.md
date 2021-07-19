@@ -1,7 +1,7 @@
 ---
-title: "PCA-Based Anomaly Detection: Module reference"
+title: "PCA-Based Anomaly Detection: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the PCA-Based Anomaly Detection module to create an anomaly detection model based on principal component analysis (PCA).
+description: Learn how to use the PCA-Based Anomaly Detection component to create an anomaly detection model based on principal component analysis (PCA).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,13 +12,13 @@ ms.author: keli19
 ms.date: 02/22/2020
 ---
 
-# PCA-Based Anomaly Detection module
+# PCA-Based Anomaly Detection component
 
-This article describes how to use the PCA-Based Anomaly Detection module in Azure Machine Learning designer, to create an anomaly detection model based on principal component analysis (PCA).
+This article describes how to use the PCA-Based Anomaly Detection component in Azure Machine Learning designer, to create an anomaly detection model based on principal component analysis (PCA).
 
-This module helps you build a model in scenarios where it's easy to get training data from one class, such as valid transactions, but difficult to get sufficient samples of the targeted anomalies. 
+This component helps you build a model in scenarios where it's easy to get training data from one class, such as valid transactions, but difficult to get sufficient samples of the targeted anomalies. 
 
-For example, to detect fraudulent transactions, you often don't have enough examples of fraud to train on. But you might have many examples of good transactions. The PCA-Based Anomaly Detection module solves the problem by analyzing available features to determine what constitutes a "normal" class. The module then applies distance metrics to identify cases that represent anomalies. This approach lets you train a model by using existing imbalanced data.
+For example, to detect fraudulent transactions, you often don't have enough examples of fraud to train on. But you might have many examples of good transactions. The PCA-Based Anomaly Detection component solves the problem by analyzing available features to determine what constitutes a "normal" class. The component then applies distance metrics to identify cases that represent anomalies. This approach lets you train a model by using existing imbalanced data.
 
 ## More about principal component analysis
 
@@ -36,9 +36,9 @@ For more information about how PCA works, and about the implementation for anoma
 
 ## How to configure PCA-Based Anomaly Detection
 
-1. Add the **PCA-Based Anomaly Detection** module to your pipeline in the designer. You can find this module in the **Anomaly Detection** category.
+1. Add the **PCA-Based Anomaly Detection** component to your pipeline in the designer. You can find this component in the **Anomaly Detection** category.
 
-2. In the right panel of the module, select the **Training mode** option. Indicate whether you want to train the model by using a specific set of parameters, or use a parameter sweep to find the best parameters.
+2. In the right panel of the component, select the **Training mode** option. Indicate whether you want to train the model by using a specific set of parameters, or use a parameter sweep to find the best parameters.
 
     If you know how you want to configure the model, select the **Single Parameter** option, and provide a specific set of values as arguments.
 
@@ -63,15 +63,15 @@ For more information about how PCA works, and about the implementation for anoma
 
     This option is selected by default. Deselect it if values have already been normalized through a different method or scale.
 
-6. Connect a tagged training dataset and one of the training modules.
+6. Connect a tagged training dataset and one of the training components.
 
-   If you set the **Create trainer mode** option to **Single Parameter**, use the [Train Anomaly Detection Model](train-anomaly-detection-model.md) module.
+   If you set the **Create trainer mode** option to **Single Parameter**, use the [Train Anomaly Detection Model](train-anomaly-detection-model.md) component.
 
 7. Submit the pipeline.
 
 ## Results
 
-When training is complete, you can save the trained model. Or you can connect it to the [Score Model](score-model.md) module to predict anomaly scores.
+When training is complete, you can save the trained model. Or you can connect it to the [Score Model](score-model.md) component to predict anomaly scores.
 
 To evaluate the results of an anomaly detection model:
 
@@ -81,11 +81,11 @@ To evaluate the results of an anomaly detection model:
 
 2. Ensure that label columns are marked.
 
-    Sometimes the metadata associated with the label column is removed in the pipeline graph. If this happens, when you use the [Evaluate Model](evaluate-model.md) module to compare the results of two anomaly detection models, you might get the error "There is no label column in scored dataset." Or you might get the error "There is no label column in scored dataset to compare."
+    Sometimes the metadata associated with the label column is removed in the pipeline graph. If this happens, when you use the [Evaluate Model](evaluate-model.md) component to compare the results of two anomaly detection models, you might get the error "There is no label column in scored dataset." Or you might get the error "There is no label column in scored dataset to compare."
 
-    You can avoid these errors by adding the [Edit Metadata](edit-metadata.md) module before the [Evaluate Model](evaluate-model.md) module. Use the column selector to choose the class column, and in the **Fields** list, select **Label**.
+    You can avoid these errors by adding the [Edit Metadata](edit-metadata.md) component before the [Evaluate Model](evaluate-model.md) component. Use the column selector to choose the class column, and in the **Fields** list, select **Label**.
 
-3. Use the [Execute Python Script](execute-python-script.md) module to adjust label column categories as **1(positive, normal)** and **0(negative, abnormal)**.
+3. Use the [Execute Python Script](execute-python-script.md) component to adjust label column categories as **1(positive, normal)** and **0(negative, abnormal)**.
 
     ````
     label_column_name = 'XXX'
@@ -103,6 +103,6 @@ For each new input, the anomaly detector first computes its projection on the ei
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 
 
-See [Exceptions and error codes for the designer](designer-error-codes.md) for a list of errors specific to the designer modules.
+See [Exceptions and error codes for the designer](designer-error-codes.md) for a list of errors specific to the designer components.

@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Decision Forest Regression: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Decision Forest Regression component in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,13 +12,13 @@ ms.author: keli19
 ms.date: 04/22/2020
 ---
 
-# Decision Forest Regression module
+# Decision Forest Regression component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a regression model based on an ensemble of decision trees.
+Use this component to create a regression model based on an ensemble of decision trees.
 
-After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) module. The trained model can then be used to make predictions. 
+After you have configured the model, you must train the model using a labeled dataset and the [Train Model](./train-model.md) component. The trained model can then be used to make predictions. 
 
 ## How it works
 
@@ -38,9 +38,9 @@ For more information about the theoretical framework for this algorithm and its 
 
 ## How to configure Decision Forest Regression Model
 
-1. Add the **Decision Forest Regression** module to the pipeline. You can find the module in the designer under **Machine Learning**, **Initialize Model**, and **Regression**.
+1. Add the **Decision Forest Regression** component to the pipeline. You can find the component in the designer under **Machine Learning**, **Initialize Model**, and **Regression**.
 
-2. Open the module properties, and for **Resampling method**, choose the method used to create the individual trees.  You can choose from **Bagging** or **Replicate**.
+2. Open the component properties, and for **Resampling method**, choose the method used to create the individual trees.  You can choose from **Bagging** or **Replicate**.
 
     - **Bagging**: Bagging is also called *bootstrap aggregating*. Each tree in a regression decision forest outputs a Gaussian distribution by way of prediction. The aggregation is to find a Gaussian whose first two moments match the moments of the mixture of Gaussian distributions given by combining all distributions returned by individual trees.
 
@@ -76,7 +76,7 @@ For more information about the theoretical framework for this algorithm and its 
 
 9. Train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -84,7 +84,7 @@ For more information about the theoretical framework for this algorithm and its 
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
@@ -96,8 +96,8 @@ For more information about the theoretical framework for this algorithm and its 
 
 After training is complete:
 
-+ To save a snapshot of the trained model, select the training module, then switch to **Outputs** tab in the right panel. Click on the icon **Register model**.  You can find the saved model as a module in the module tree. 
++ To save a snapshot of the trained model, select the training component, then switch to **Outputs** tab in the right panel. Click on the icon **Register model**.  You can find the saved model as a component in the component tree. 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

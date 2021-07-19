@@ -1,7 +1,7 @@
 ---
-title: Use the Score Wide & Deep Recommender module
+title: Use the Score Wide & Deep Recommender component
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Score Wide & Deep Recommender module in Azure Machine Learning to score recommendation predictions for a dataset.
+description: Learn how to use the Score Wide & Deep Recommender component in Azure Machine Learning to score recommendation predictions for a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 08/12/2020
 ---
 # Score Wide and Deep Recommender
 
-This article describes how to use the **Score Wide and Deep Recommender** module in Azure Machine Learning designer, to create predictions based on a trained recommendation model, based on the Wide & Deep learning from Google.
+This article describes how to use the **Score Wide and Deep Recommender** component in Azure Machine Learning designer, to create predictions based on a trained recommendation model, based on the Wide & Deep learning from Google.
 
 The Wide and Deep recommender can generate two different kinds of predictions:
 
@@ -32,7 +32,7 @@ More details on the Wide and Deep recommender and its underlying theory can be f
 
 ## How to configure Score Wide and Deep Recommender
 
-This module supports different types of recommendations, each with different requirements. Click the link for the type of data you have and the type of recommendation you want to create.
+This component supports different types of recommendations, each with different requirements. Click the link for the type of data you have and the type of recommendation you want to create.
 
 + [Predict ratings](#predict-ratings)
 + [Recommend items](#recommend-items)
@@ -88,11 +88,11 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
 2. To recommend items for a given list of users, set **Recommender prediction kind** to **Item Recommendation**.
 
-3. **Recommended item selection**: Indicate whether you are using the scoring module in production or for model evaluation, by choosing one of these values:
+3. **Recommended item selection**: Indicate whether you are using the scoring component in production or for model evaluation, by choosing one of these values:
 
-    - **From Rated Items (for model evaluation)**: Select this option if you are developing or testing a model. This option enables **evaluation mode**, and the module makes recommendations only from those items in the input dataset that have been rated.
-    - **From All Items**: Select this option if you are setting up an experiment to use in a Web service or production.  This option enables **production mode**, and the module makes recommendations from all items seen during training.
-    - **From Unrated Items (to suggest new items to users)**: Select this option if you want the module to make recommendations only from those items in the training dataset that have not been rated. 
+    - **From Rated Items (for model evaluation)**: Select this option if you are developing or testing a model. This option enables **evaluation mode**, and the component makes recommendations only from those items in the input dataset that have been rated.
+    - **From All Items**: Select this option if you are setting up an experiment to use in a Web service or production.  This option enables **production mode**, and the component makes recommendations from all items seen during training.
+    - **From Unrated Items (to suggest new items to users)**: Select this option if you want the component to make recommendations only from those items in the training dataset that have not been rated. 
 4. Add the dataset for which you want to make predictions, and connect it to **Dataset to score**.
 
     - If you choose the option, **From All Items**, the input dataset should consist of one and only one column, containing the identifiers of users for which to make recommendations.
@@ -149,7 +149,7 @@ This section contains answers to some common questions about using the Wide & De
 
 ###  Cold-start users and recommendations
 
-Typically, to create recommendations, the **Score Wide and Deep Recommender** module requires the same inputs that you used when training the model, including a user ID. That is because the algorithm needs to know if it has learned something about this user during training. 
+Typically, to create recommendations, the **Score Wide and Deep Recommender** component requires the same inputs that you used when training the model, including a user ID. That is because the algorithm needs to know if it has learned something about this user during training. 
 
 However, for new users, you might not have a user ID, only some user features such as age, gender, and so forth.
 
@@ -175,4 +175,4 @@ If you have experimented with the Wide and Deep recommender and then move the mo
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) of Azure Machine Learning. 
+See the [set of components available](module-reference.md) of Azure Machine Learning. 

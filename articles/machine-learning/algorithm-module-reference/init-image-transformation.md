@@ -1,7 +1,7 @@
 ---
 title: "Init Image Transformationply Image Transformation"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Init Image Transformation module in Azure Machine Learning designer to initialize image transformation.
+description: Learn how to use the Init Image Transformation component in Azure Machine Learning designer to initialize image transformation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,11 +13,11 @@ ms.date: 05/26/2020
 ---
 # Init Image Transformation
 
-This article describes how to use the **Init Image Transformation** module in Azure Machine Learning designer, to initialize image transformation to specify how you want image to be transformed.
+This article describes how to use the **Init Image Transformation** component in Azure Machine Learning designer, to initialize image transformation to specify how you want image to be transformed.
 
 ## How to configure Init Image Transformation
 
-1.  Add the **Init Image Transformation** module to your pipeline in the designer. 
+1.  Add the **Init Image Transformation** component to your pipeline in the designer. 
 
 2.  For **Resize**, specify whether to resize the input PIL Image to the given size. If you choose 'True', you can specify the desired output image size in **Size**, by default 256. 
 
@@ -47,20 +47,20 @@ This article describes how to use the **Init Image Transformation** module in Az
 14.  For **Random perspective**, specify whether to performs Perspective transformation of the given PIL Image randomly with probability 0.5.
 
 
-16.  Connect to [Apply Image Transformation](apply-image-transformation.md) module, to apply the transformation specified above to the input image dataset.
+16.  Connect to [Apply Image Transformation](apply-image-transformation.md) component, to apply the transformation specified above to the input image dataset.
 
 17. Submit the pipeline.
 
 ## Results
 
-After transformation is completed, you can find transformed images in the output of [Apply Image Transformation](apply-image-transformation.md) module.
+After transformation is completed, you can find transformed images in the output of [Apply Image Transformation](apply-image-transformation.md) component.
 
 
 ## Technical notes  
 
 Refer to [https://pytorch.org/vision/stable/transforms.html](https://pytorch.org/vision/stable/transforms.html) for more info about image transformation.
 
-###  Module parameters  
+###  component parameters  
 
 | Name                    | Range   | Type    | Default | Description                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
@@ -90,8 +90,8 @@ Refer to [https://pytorch.org/vision/stable/transforms.html](https://pytorch.org
 
 | Name                        | Type                    | Description                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
-| Output image transformation | TransformationDirectory | Output image transformation that can be connected to **Apply Image Transformation** module. |
+| Output image transformation | TransformationDirectory | Output image transformation that can be connected to **Apply Image Transformation** component. |
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
-title:  "Execute Python Script: Module reference"
+title:  "Execute Python Script: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Execute Python Script module in Azure Machine Learning designer to run Python code.
+description: Learn how to use the Execute Python Script component in Azure Machine Learning designer to run Python code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,17 +12,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 06/15/2021
 ---
-# Execute Python Script module
+# Execute Python Script component
 
-This article describes the Execute Python Script module in Azure Machine Learning designer.
+This article describes the Execute Python Script component in Azure Machine Learning designer.
 
-Use this module to run Python code. For more information about the architecture and design principles of Python, see [how run Python code in Azure Machine Learning designer](../how-to-designer-python.md).
+Use this component to run Python code. For more information about the architecture and design principles of Python, see [how run Python code in Azure Machine Learning designer](../how-to-designer-python.md).
 
-With Python, you can perform tasks that existing modules don't support, such as:
+With Python, you can perform tasks that existing components don't support, such as:
 
 + Visualizing data by using `matplotlib`.
 + Using Python libraries to enumerate datasets and models in your workspace.
-+ Reading, loading, and manipulating data from sources that the [Import Data](./import-data.md) module doesn't support.
++ Reading, loading, and manipulating data from sources that the [Import Data](./import-data.md) component doesn't support.
 + Run your own deep learning code. 
 
 ## Supported Python packages
@@ -50,10 +50,10 @@ if spec is None:
 ```
 
 > [!NOTE]
-> If your pipeline contains multiple Execute Python Script modules that need packages that aren't in the preinstalled list, install the packages in each module.
+> If your pipeline contains multiple Execute Python Script components that need packages that aren't in the preinstalled list, install the packages in each component.
 
 > [!WARNING]
-> Excute Python Script module does not support installing packages that depend on extra native libraries with command like "apt-get", such as Java, PyODBC and etc. This is because this module is executed in a simple environment with Python pre-installed only and with non-admin permission.  
+> Excute Python Script component does not support installing packages that depend on extra native libraries with command like "apt-get", such as Java, PyODBC and etc. This is because this component is executed in a simple environment with Python pre-installed only and with non-admin permission.  
 
 ## Access to current workspace and registered datasets
 
@@ -88,14 +88,14 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 ```
 
 ## Upload files
-The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29#upload-file-name--path-or-stream-).
+The Execute Python Script component supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29#upload-file-name--path-or-stream-).
 
-The following example shows how to upload an image file in the Execute Python Script module:
+The following example shows how to upload an image file in the Execute Python Script component:
 
 ```Python
 
 # The script MUST contain a function named azureml_main,
-# which is the entry point for this module.
+# which is the entry point for this component.
 
 # Imports up here can be used to
 import pandas as pd
@@ -126,24 +126,24 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 }
 ```
 
-After the pipeline run is finished, you can preview the image in the right panel of the module.
+After the pipeline run is finished, you can preview the image in the right panel of the component.
 
 > [!div class="mx-imgBorder"]
 > ![Preview of uploaded image](media/module/upload-image-in-python-script.png)
 
 ## How to configure Execute Python Script
 
-The Execute Python Script module contains sample Python code that you can use as a starting point. To configure the Execute Python Script module, provide a set of inputs and Python code to run in the **Python script** text box.
+The Execute Python Script component contains sample Python code that you can use as a starting point. To configure the Execute Python Script component, provide a set of inputs and Python code to run in the **Python script** text box.
 
-1. Add the **Execute Python Script** module to your pipeline.
+1. Add the **Execute Python Script** component to your pipeline.
 
 2. Add and connect on **Dataset1** any datasets from the designer that you want to use for input. Reference this dataset in your Python script as **DataFrame1**.
 
-    Use of a dataset is optional. Use it if you want to generate data by using Python, or use Python code to import the data directly into the module.
+    Use of a dataset is optional. Use it if you want to generate data by using Python, or use Python code to import the data directly into the component.
 
-    This module supports the addition of a second dataset on **Dataset2**. Reference the second dataset in your Python script as **DataFrame2**.
+    This component supports the addition of a second dataset on **Dataset2**. Reference the second dataset in your Python script as **DataFrame2**.
 
-    Datasets stored in Azure Machine Learning are automatically converted to pandas data frames when loaded with this module.
+    Datasets stored in Azure Machine Learning are automatically converted to pandas data frames when loaded with this component.
 
     ![Execute Python input map](media/module/python-module.png)
 
@@ -152,8 +152,8 @@ The Execute Python Script module contains sample Python code that you can use as
     
     1. Bundle the script and other custom resources to a zip file.
     1. Upload the zip file as a **File Dataset** to the studio. 
-    1. Drag the dataset module from the *Datasets* list in the left module pane in the designer authoring page. 
-    1. Connect the dataset module to the **Script Bundle** port of **Execute Python Script** module.
+    1. Drag the dataset component from the *Datasets* list in the left component pane in the designer authoring page. 
+    1. Connect the dataset component to the **Script Bundle** port of **Execute Python Script** component.
     
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
  
@@ -195,7 +195,7 @@ The Execute Python Script module contains sample Python code that you can use as
 5. In the **Python script** text box, type or paste valid Python script.
 
     > [!NOTE]
-    >  Be careful when writing your script. Make sure there are no syntax errors, such as using undeclared variables or unimported modules or functions. Pay extra attention to the preinstalled module list. To import modules that aren't listed, install the corresponding packages in your script, such as:
+    >  Be careful when writing your script. Make sure there are no syntax errors, such as using undeclared variables or unimported components or functions. Pay extra attention to the preinstalled component list. To import components that aren't listed, install the corresponding packages in your script, such as:
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")
@@ -203,7 +203,7 @@ The Execute Python Script module contains sample Python code that you can use as
     
     The **Python script** text box is prepopulated with some instructions in comments, and sample code for data access and output. You must edit or replace this code. Follow Python conventions for indentation and casing:
 
-    + The script must contain a function named `azureml_main` as the entry point for this module.
+    + The script must contain a function named `azureml_main` as the entry point for this component.
     + The entry point function must have two input arguments, `Param<dataframe1>` and `Param<dataframe2>`, even when these arguments aren't used in your script.
     + Zipped files connected to the third input port are unzipped and stored in the directory `.\Script Bundle`, which is also added to the Python `sys.path`. 
 
@@ -212,19 +212,19 @@ The Execute Python Script module contains sample Python code that you can use as
     Two datasets can be returned to the designer, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
 
     > [!WARNING]
-    > It's **Not** recommended to connect to a Database or other external storages in **Execute Python Script Module**. You can use [Import Data module](./import-data.md) and [Export Data module](./export-data.md)     
+    > It's **Not** recommended to connect to a Database or other external storages in **Execute Python Script component**. You can use [Import Data component](./import-data.md) and [Export Data component](./export-data.md)     
 
 6. Submit the pipeline.
 
-    If the module is completed, check the output if as expected.
+    If the component is completed, check the output if as expected.
 
-    If the module is failed, you need to do some troubleshooting. Select the module, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
+    If the component is failed, you need to do some troubleshooting. Select the component, and open **Outputs+logs** in the right pane. Open **70_driver_log.txt** and search **in azureml_main**, then you could find which line caused the error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.
 
 ## Results
 
-The results of any computations by the embedded Python code must be provided as `pandas.DataFrame`, which is automatically converted to the Azure Machine Learning dataset format. You can then use the results with other modules in the pipeline.
+The results of any computations by the embedded Python code must be provided as `pandas.DataFrame`, which is automatically converted to the Azure Machine Learning dataset format. You can then use the results with other components in the pipeline.
 
-The module returns two datasets:  
+The component returns two datasets:  
   
 + **Results Dataset 1**, defined by the first returned pandas data frame in a Python script.
 
@@ -344,4 +344,4 @@ The preinstalled packages are:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

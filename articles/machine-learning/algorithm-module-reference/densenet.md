@@ -1,7 +1,7 @@
 ---
 title: "DenseNet"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the DenseNet module in Azure Machine Learning designer to create an image classification model using the DenseNet algorithm.
+description: Learn how to use the DenseNet component in Azure Machine Learning designer to create an image classification model using the DenseNet algorithm.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,12 +14,12 @@ ms.date: 09/26/2020
 
 # DenseNet
 
-This article describes how to use the **DenseNet** module in Azure Machine Learning designer, to create an image classification model using the Densenet algorithm.  
+This article describes how to use the **DenseNet** component in Azure Machine Learning designer, to create an image classification model using the Densenet algorithm.  
 
 This classification algorithm is a supervised learning method, and requires a labeled image directory. 
 
 > [!NOTE]
-> This module does not support labeled dataset generated from *Data Labeling* in the studio, but only support labeled image directory generated from [Convert to Image Directory](convert-to-image-directory.md) module. 
+> This component does not support labeled dataset generated from *Data Labeling* in the studio, but only support labeled image directory generated from [Convert to Image Directory](convert-to-image-directory.md) component. 
 
 You can train the model by providing the model and the labeled image directory as inputs to [Train Pytorch Model](train-pytorch-model.md). The trained model can then be used to predict values for the new input examples using [Score Image Model](score-image-model.md).
 
@@ -29,7 +29,7 @@ For more information on DenseNet, see the research paper, [Densely Connected Con
 
 ## How to configure DenseNet
 
-1.  Add the **DenseNet** module to your pipeline in the designer.  
+1.  Add the **DenseNet** component to your pipeline in the designer.  
 
 2.  For **Model name**, specify name of a certain DenseNet structure and you can select from supported DenseNet: 'densenet121', 'densenet161', 'densenet169', 'densenet201'.
 
@@ -37,7 +37,7 @@ For more information on DenseNet, see the research paper, [Densely Connected Con
 
 4.  For **Memory efficient**, specify whether to use checkpointing, which is much more memory-efficient but slower. For more information, see the research paper, [Memory-Efficient Implementation of DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
 
-5.  Connect the output of **DenseNet** module, training, and validation image dataset module to the [Train Pytorch Model](train-pytorch-model.md). 
+5.  Connect the output of **DenseNet** component, training, and validation image dataset component to the [Train Pytorch Model](train-pytorch-model.md). 
 
 6. Submit the pipeline.
 
@@ -48,7 +48,7 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Technical notes  
 
-###  Module parameters  
+###  component parameters  
 
 | Name             | Range | Type    | Default     | Description                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
@@ -64,4 +64,4 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

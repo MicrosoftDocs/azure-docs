@@ -1,7 +1,7 @@
 ---
-title:  "Two-Class Logistic Regression: Module Reference"
+title:  "Two-Class Logistic Regression: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Two-Class Logistic Regression module in Azure Machine Learning to create a binary classifier. 
+description: Learn how to use the Two-Class Logistic Regression component in Azure Machine Learning to create a binary classifier. 
 
 services: machine-learning
 ms.service: machine-learning
@@ -12,11 +12,11 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ---
-# Two-Class Logistic Regression module
+# Two-Class Logistic Regression component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to create a logistic regression model that can be used to predict two (and only two) outcomes. 
+Use this component to create a logistic regression model that can be used to predict two (and only two) outcomes. 
 
 Logistic regression is a well-known statistical technique that is used for modeling many kinds of problems. This algorithm is a *supervised learning* method;  therefore, you must provide a dataset that already contains the outcomes to train the model.  
 
@@ -24,21 +24,21 @@ Logistic regression is a well-known statistical technique that is used for model
 
 Logistic regression is a well-known method in statistics that is used to predict the probability of an outcome, and is especially popular for classification tasks. The algorithm predicts the probability of occurrence of an event by fitting data to a logistic function.
   
-In this module, the classification algorithm is optimized for dichotomous or binary variables. if you need to classify multiple outcomes, use the [Multiclass Logistic Regression](./multiclass-logistic-regression.md) module.
+In this component, the classification algorithm is optimized for dichotomous or binary variables. if you need to classify multiple outcomes, use the [Multiclass Logistic Regression](./multiclass-logistic-regression.md) component.
 
 ##  How to configure  
 
-To train this model, you must provide a dataset that contains a label or class column. Because this module is intended for two-class problems, the label or class column must contain exactly two values. 
+To train this model, you must provide a dataset that contains a label or class column. Because this component is intended for two-class problems, the label or class column must contain exactly two values. 
 
 For example, the label column might be [Voted] with possible values of "Yes" or "No". Or, it might be [Credit Risk], with possible values of "High" or "Low". 
   
-1.  Add the **Two-Class Logistic Regression** module to your pipeline.  
+1.  Add the **Two-Class Logistic Regression** component to your pipeline.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
 
-    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
   
 3.  For **Optimization tolerance**, specify a threshold value to use when optimizing the model. If the improvement between iterations falls below the specified threshold, the algorithm is considered to have converged on a solution, and training stops.  
   
@@ -69,7 +69,7 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
   
 8. Add a labeled dataset to the pipeline, and train the model:
 
-    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) component.  
   
     + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
   
@@ -77,7 +77,7 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
     > 
     > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
     > 
-    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) component, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
     > 
     > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
   
@@ -88,9 +88,9 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
 After training is complete:
  
   
-+ To make predictions on new data, use the trained model and new data as input to the [Score Model](./score-model.md) module. 
++ To make predictions on new data, use the trained model and new data as input to the [Score Model](./score-model.md) component. 
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

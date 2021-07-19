@@ -1,7 +1,7 @@
 ---
-title: "Score SVD Recommender: Module reference"
+title: "Score SVD Recommender: component reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Score SVD Recommender module in Azure Machine Learning to score recommendation predictions for a dataset.
+description: Learn how to use the Score SVD Recommender component in Azure Machine Learning to score recommendation predictions for a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 08/10/2020
 ---
 # Score SVD Recommender
 
-This article describes how to use the Score SVD Recommender module in Azure Machine Learning designer. Use this module to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
+This article describes how to use the Score SVD Recommender component in Azure Machine Learning designer. Use this component to create predictions by using a trained recommendation model based on the Single Value Decomposition (SVD) algorithm.
 
 The SVD recommender can generate two different kinds of predictions:
 
@@ -32,13 +32,13 @@ For more information on the SVD recommender algorithm, see the research paper [M
 
 ## How to configure Score SVD Recommender
 
-This module supports two types of predictions, each with different requirements. 
+This component supports two types of predictions, each with different requirements. 
 
 ###  Prediction of ratings
 
 When you predict ratings, the model calculates how a user will react to a particular item, given the training data. The input data for scoring must provide both a user and the item to rate.
 
-1. Add a trained recommendation model to your pipeline, and connect it to **Trained SVD recommender**. You must create the model by using the [Train SVD Recommender](train-SVD-recommender.md) module.
+1. Add a trained recommendation model to your pipeline, and connect it to **Trained SVD recommender**. You must create the model by using the [Train SVD Recommender](train-SVD-recommender.md) component.
 
 2. For **Recommender prediction kind**, select **Rating Prediction**. No other parameters are required.
 
@@ -58,17 +58,17 @@ The output dataset contains three columns: users, items, and the predicted ratin
 
 To recommend items for users, you provide a list of users and items as input. From this data, the model uses its knowledge about existing items and users to generate a list of items with probable appeal to each user. You can customize the number of recommendations returned. And you can set a threshold for the number of previous recommendations that are required to generate a recommendation.
 
-1. Add a trained recommendation model to your pipeline, and connect it to **Trained SVD recommender**.  You must create the model by using the [Train SVD Recommender](train-svd-recommender.md) module.
+1. Add a trained recommendation model to your pipeline, and connect it to **Trained SVD recommender**.  You must create the model by using the [Train SVD Recommender](train-svd-recommender.md) component.
 
 2. To recommend items for a list of users, set **Recommender prediction kind** to **Item Recommendation**.
 
-3. For **Recommended item selection**, indicate whether you're using the scoring module in production or for model evaluation. Choose one of these values:
+3. For **Recommended item selection**, indicate whether you're using the scoring component in production or for model evaluation. Choose one of these values:
 
-    - **From All Items**: Select this option if you're setting up a pipeline to use in a web service or in production.  This option enables *production mode*. The module makes recommendations from all items seen during training.
+    - **From All Items**: Select this option if you're setting up a pipeline to use in a web service or in production.  This option enables *production mode*. The component makes recommendations from all items seen during training.
 
-    - **From Rated Items (for model evaluation)**: Select this option if you're developing or testing a model. This option enables *evaluation mode*. The module makes recommendations only from those items in the input dataset that have been rated.
+    - **From Rated Items (for model evaluation)**: Select this option if you're developing or testing a model. This option enables *evaluation mode*. The component makes recommendations only from those items in the input dataset that have been rated.
     
-    - **From Unrated Items (to suggest new items to users)**: Select this option if you want the module to make recommendations only from those items in the training dataset that have not been rated. 
+    - **From Unrated Items (to suggest new items to users)**: Select this option if you want the component to make recommendations only from those items in the training dataset that have not been rated. 
 
 4. Add the dataset for which you want to make predictions, and connect it to **Dataset to score**.
 
@@ -84,7 +84,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
      The dataset can include a third column of user-item ratings, but this column is ignored.
 
-5. **Maximum number of items to recommend to a user**: Enter the number of items to return for each user. By default, the module recommends five items.
+5. **Maximum number of items to recommend to a user**: Enter the number of items to return for each user. By default, the component recommends five items.
 
 6. **Minimum size of the recommendation pool per user**: Enter a value that indicates how many prior recommendations are required. By default, this parameter is set to 2, meaning at least two other users have recommended the item.
 
@@ -115,4 +115,4 @@ When you operationalize the model, you typically change the prediction mode to m
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

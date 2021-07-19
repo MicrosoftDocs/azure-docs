@@ -1,7 +1,7 @@
 ---
 title: "Split Image Directory"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Split Image Directory module in the designer to divide the images of an image directory into two distinct sets.
+description: Learn how to use the Split Image Directory component in the designer to divide the images of an image directory into two distinct sets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,17 +13,17 @@ ms.date: 09/26/2020
 ---
 # Split Image Directory
 
-This topic describes how to use the Split Image Directory module in Azure Machine Learning designer, to divide the images of an image directory into two distinct sets.
+This topic describes how to use the Split Image Directory component in Azure Machine Learning designer, to divide the images of an image directory into two distinct sets.
 
-This module is particularly useful when you need to separate image data into training and testing sets. 
+This component is particularly useful when you need to separate image data into training and testing sets. 
 
 ## How to configure Split Image Directory
 
-1. Add the **Split Image Directory** module to your pipeline. You can find this module under 'Computer Vision/Image Data Transformation' category.
+1. Add the **Split Image Directory** component to your pipeline. You can find this component under 'Computer Vision/Image Data Transformation' category.
 
-2. Connect it to module of which the output is image directory.
+2. Connect it to component of which the output is image directory.
 
-3. Input **Fraction of images in the first output** to specify the percentage of data to put in the left split, by default 0.9. If the fraction result is not integer, the module uses the smaller near integer.
+3. Input **Fraction of images in the first output** to specify the percentage of data to put in the left split, by default 0.9. If the fraction result is not integer, the component uses the smaller near integer.
 
 
 ## Technical notes
@@ -34,7 +34,7 @@ This module is particularly useful when you need to separate image data into tra
 | --------------------- | -------------- | ------------------------ |
 | Input image directory | ImageDirectory | Image directory to split |
 
-### Module parameters
+### component parameters
 
 | Name                                   | Type  | Range | Optional | Description                            | Default |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
@@ -49,5 +49,4 @@ This module is particularly useful when you need to separate image data into tra
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
-
+See the [set of components available](module-reference.md) to Azure Machine Learning. 

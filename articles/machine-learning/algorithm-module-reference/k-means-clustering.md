@@ -1,7 +1,7 @@
 ---
-title:  "K-Means Clustering: Module Reference"
+title:  "K-Means Clustering: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the K-Means Clustering module in the Azure Machine Learning to train clustering models.
+description: Learn how to use the K-Means Clustering component in the Azure Machine Learning to train clustering models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,9 +11,9 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
 ---
-# Module: K-Means Clustering
+# component: K-Means Clustering
 
-This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer to create an untrained K-means clustering model. 
+This article describes how to use the *K-Means Clustering* component in Azure Machine Learning designer to create an untrained K-means clustering model. 
  
 K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
 
@@ -23,11 +23,11 @@ K-means is one of the simplest and the best known *unsupervised* learning algori
 
 To create a clustering model, you:
 
-* Add this module to your pipeline.
+* Add this component to your pipeline.
 * Connect a dataset.
 * Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
   
-After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a label column is optional. 
+After you've configured the component hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a label column is optional. 
 
 + If your data includes a label, you can use the label values to guide selection of the clusters and optimize the model. 
 
@@ -45,11 +45,11 @@ When it processes the training data, the K-means algorithm begins with an initia
   
 -   The algorithm completed running the specified number of iterations.  
   
- After you've completed the training phase, you use the [Assign Data to Clusters](assign-data-to-clusters.md) module to assign new cases to one of the clusters that you found by using the K-means algorithm. You perform cluster assignment by computing the distance between the new case and the centroid of each cluster. Each new case is assigned to the cluster with the nearest centroid.  
+ After you've completed the training phase, you use the [Assign Data to Clusters](assign-data-to-clusters.md) component to assign new cases to one of the clusters that you found by using the K-means algorithm. You perform cluster assignment by computing the distance between the new case and the centroid of each cluster. Each new case is assigned to the cluster with the nearest centroid.  
 
-## Configure the K-Means Clustering module
+## Configure the K-Means Clustering component
   
-1.  Add the **K-Means Clustering** module to your pipeline.  
+1.  Add the **K-Means Clustering** component to your pipeline.  
   
 2.  To specify how you want the model to be trained, select the **Create trainer mode** option.  
   
@@ -100,7 +100,7 @@ When it processes the training data, the K-means algorithm begins with an initia
 
 10. Train the model.  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, add a tagged dataset and train the model by using the [Train Clustering Model](train-clustering-model.md) module.  
+    -   If you set **Create trainer mode** to **Single Parameter**, add a tagged dataset and train the model by using the [Train Clustering Model](train-clustering-model.md) component.  
   
 ## Results
 
@@ -108,9 +108,9 @@ After you've finished configuring and training the model, you have a model that 
 
 ### Capture a snapshot of the model in your workspace
 
-If you used the [Train Clustering Model](train-clustering-model.md) module:
+If you used the [Train Clustering Model](train-clustering-model.md) component:
 
-1. Select the **Train Clustering Model** module and open the right panel.
+1. Select the **Train Clustering Model** component and open the right panel.
 
 2. Select **Outputs** tab. Select the **Register dataset** icon to save a copy of the trained model.
 
@@ -118,9 +118,9 @@ The saved model represents the training data at the time you saved the model. If
 
 ### See the clustering result dataset 
 
-If you used the [Train Clustering Model](train-clustering-model.md) module:
+If you used the [Train Clustering Model](train-clustering-model.md) component:
 
-1. Right-click the **Train Clustering Model** module.
+1. Right-click the **Train Clustering Model** component.
 
 2. Select **Visualize**.
 
@@ -140,4 +140,4 @@ In general, with clustering models, it's possible that any given configuration w
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning.
+See the [set of components available](module-reference.md) to Azure Machine Learning.

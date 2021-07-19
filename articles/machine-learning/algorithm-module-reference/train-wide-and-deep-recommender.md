@@ -1,7 +1,7 @@
 ---
-title: Use the Train Wide & Deep Recommender module
+title: Use the Train Wide & Deep Recommender component
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Train Wide & Deep Recommender module in Azure Machine Learning designer to train a recommendation model.
+description: Learn how to use the Train Wide & Deep Recommender component in Azure Machine Learning designer to train a recommendation model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,11 +12,11 @@ ms.author: keli19
 ms.date: 03/19/2021
 ---
 # Train Wide & Deep Recommender
-This article describes how to use the **Train Wide & Deep Recommender** module in Azure Machine Learning designer, to train a recommendation model. This module is based on Wide & Deep learning, which is proposed by Google.
+This article describes how to use the **Train Wide & Deep Recommender** component in Azure Machine Learning designer, to train a recommendation model. This component is based on Wide & Deep learning, which is proposed by Google.
 
-The **Train Wide & Deep Recommender** module reads a dataset of user-item-rating triples and, optionally, some user and item features. It returns a trained Wide & Deep recommender.  You can then use the trained model to generate rating predictions or recommendations by using the [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md) module.  
+The **Train Wide & Deep Recommender** component reads a dataset of user-item-rating triples and, optionally, some user and item features. It returns a trained Wide & Deep recommender.  You can then use the trained model to generate rating predictions or recommendations by using the [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md) component.  
 
-<!-- Currently, **Train Wide & Deep Recommender** module supports both single node and distributed training. -->
+<!-- Currently, **Train Wide & Deep Recommender** component supports both single node and distributed training. -->
 
 ## More about recommendation models and the Wide & Deep recommender  
 
@@ -40,7 +40,7 @@ More details on the Wide & Deep recommender and the underlying probabilistic alg
 
 ### Prepare data
 
-Before trying to use the module, make sure your data is in the expected format for the recommendation model. A training data set of **user-item-rating triples** is required, but you can also include user features and item features (if available), in separate datasets.
+Before trying to use the component, make sure your data is in the expected format for the recommendation model. A training data set of **user-item-rating triples** is required, but you can also include user features and item features (if available), in separate datasets.
 
 #### Required dataset of user-item-ratings
 
@@ -81,9 +81,9 @@ For an example, a typical set of item features might look like this:
 
 ### Train the model
 
-1.  Add the **Train Wide and Deep Recommender** module to your experiment in the designer, and connect it to the training dataset.  
+1.  Add the **Train Wide and Deep Recommender** component to your experiment in the designer, and connect it to the training dataset.  
   
-2. If you have a separate dataset of either user features and/or item features, connect them to the **Train Wide and Deep Recommender** module.  
+2. If you have a separate dataset of either user features and/or item features, connect them to the **Train Wide and Deep Recommender** component.  
   
     - **User features dataset**: Connect the dataset that describes users to the second input.
     - **Item features dataset**: Connect the dataset that describes items to the third input.  
@@ -137,13 +137,13 @@ For an example, a typical set of item features might look like this:
 
 <!-- ## Distributed training
 
-In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Wide & Deep Recommender** module.
+In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Wide & Deep Recommender** component.
 
 ### How to enable distributed training
 
-To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
+To enable distributed training for **Train Wide & Deep Recommender** component, you can set in **Run settings** in the right pane of the component. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
 
-1. Select the module and open the right panel. Expand the **Run settings** section.
+1. Select the component and open the right panel. Expand the **Run settings** section.
 
     [![Screenshot showing how to set distributed training in run setting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
 
@@ -164,11 +164,11 @@ You can learn more about distributed training in Azure Machine Learning [here](.
 
 ### Troubleshooting for distributed training
 
-If you enable distributed training for this module, there will be driver logs for each process. `70_driver_log_0` is for master process. You can check driver logs for error details of each process under **Outputs+logs** tab in the right pane.
+If you enable distributed training for this component, there will be driver logs for each process. `70_driver_log_0` is for master process. You can check driver logs for error details of each process under **Outputs+logs** tab in the right pane.
 
 [![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png)](./media/module/distributed-training-error-driver-log.png#lightbox) 
 
-If the module enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
+If the component enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
 
 The following example shows a common error that is **Process count per node** is larger than **Processing Unit** of the compute.
 
@@ -183,9 +183,9 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 The Wide & Deep jointly trains wide linear models and deep neural networks to combine the strengths of memorization and generalization. The wide component accepts a set of raw features and feature transformations to memorize feature interactions. And with less feature engineering, the deep component generalizes to unseen feature combinations through low-dimensional dense feature embeddings. 
 
-In the implementation of Wide & Deep recommender, the module uses a default model structure. The wide component takes user embeddings, item embeddings, and the cross-product transformation of user IDs and item IDs as input. For the deep part of the model, an embedding vector is learnt for each categorical feature. Together with other numeric feature vectors, these vectors are then fed into the deep feed-forward neural network. The wide part and deep part are combined by summing up their final output log odds as the prediction, which finally goes to one common loss function for joint training.
+In the implementation of Wide & Deep recommender, the component uses a default model structure. The wide component takes user embeddings, item embeddings, and the cross-product transformation of user IDs and item IDs as input. For the deep part of the model, an embedding vector is learnt for each categorical feature. Together with other numeric feature vectors, these vectors are then fed into the deep feed-forward neural network. The wide part and deep part are combined by summing up their final output log odds as the prediction, which finally goes to one common loss function for joint training.
 
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) of Azure Machine Learning.
+See the [set of components available](module-reference.md) of Azure Machine Learning.

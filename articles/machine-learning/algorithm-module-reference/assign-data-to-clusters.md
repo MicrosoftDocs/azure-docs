@@ -1,7 +1,7 @@
 ---
-title:  "Assign Data to Cluster: Module Reference"
+title:  "Assign Data to Cluster: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Assign Data to Cluster module in Azure Machine Learning to score clustering model.  
+description: Learn how to use the Assign Data to Cluster component in Azure Machine Learning to score clustering model.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ---
-# Module: Assign Data to Clusters
+# component: Assign Data to Clusters
 
-This article describes how to use the *Assign Data to Clusters* module in Azure Machine Learning designer. The module generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
+This article describes how to use the *Assign Data to Clusters* component in Azure Machine Learning designer. The component generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
 
-The Assign Data to Clusters module returns a dataset that contains the probable assignments for each new data point. 
+The Assign Data to Clusters component returns a dataset that contains the probable assignments for each new data point. 
 
 ## How to use Assign Data to Clusters
   
 1. In Azure Machine Learning designer, locate a previously trained clustering model. You can create and train a clustering model by using either of the following methods:  
   
-    - Configure the K-means clustering algorithm by using the [K-Means Clustering](k-means-clustering.md) module, and train the model by using a dataset and the Train Clustering Model module (this article).  
+    - Configure the K-means clustering algorithm by using the [K-Means Clustering](k-means-clustering.md) component, and train the model by using a dataset and the Train Clustering Model component (this article).  
   
     - You can also add an existing trained clustering model from the **Saved Models** group in your workspace.
 
@@ -42,5 +42,4 @@ The Assign Data to Clusters module returns a dataset that contains the probable 
   
 ### Results
 
-+  To view the values in the dataset, right-click the module, and then select **Visualize**. Or Select the module and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.
-
++  To view the values in the dataset, right-click the component, and then select **Visualize**. Or Select the component and switch to the **Outputs** tab in the right panel, click on the histogram icon in the **Port outputs** to visualize the result.

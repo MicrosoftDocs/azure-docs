@@ -1,7 +1,7 @@
 ---
-title:  "Select Columns in Dataset: Module Reference"
+title:  "Select Columns in Dataset: component Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Select Columns in Dataset  module in Azure Machine Learning to choose a subset of columns to use in downstream operations.
+description: Learn how to use the Select Columns in Dataset  component in Azure Machine Learning to choose a subset of columns to use in downstream operations.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,29 +11,29 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
 ---
-# Select Columns in Dataset module
+# Select Columns in Dataset component
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a component in Azure Machine Learning designer.
 
-Use this module to choose a subset of columns to use in downstream operations. The module does not physically remove the columns from the source dataset; instead, it creates a subset of columns, much like a database *view* or *projection*.
+Use this component to choose a subset of columns to use in downstream operations. The component does not physically remove the columns from the source dataset; instead, it creates a subset of columns, much like a database *view* or *projection*.
 
-This module is useful when you need to limit the columns available for a downstream operation, or if you want to reduce the size of the dataset by removing unneeded columns.
+This component is useful when you need to limit the columns available for a downstream operation, or if you want to reduce the size of the dataset by removing unneeded columns.
 
 The columns in the dataset are output in the same order as in the original data, even if you specify them in a different order.
 
 ## How to use
 
-This module has no parameters. You use the column selector to choose the columns to include or exclude.
+This component has no parameters. You use the column selector to choose the columns to include or exclude.
 
 ### Choose columns by name
 
-There are multiple options in the module for choosing columns by name: 
+There are multiple options in the component for choosing columns by name: 
 
 + Filter and search
 
     Click the **BY NAME** option.
 
-    If you have connected a dataset that is already populated, a list of available columns should appear. If no columns appear, you might need to run upstream modules to view the column list.
+    If you have connected a dataset that is already populated, a list of available columns should appear. If no columns appear, you might need to run upstream components to view the column list.
 
     To filter the list, type in the search box. For example, if you type the letter `w` in the search box, the list is filtered to show the column names that contain the letter `w`.
 
@@ -58,7 +58,7 @@ There are multiple options in the module for choosing columns by name:
 
     1. Click the **WITH RULES** option. 
     2. Select **No columns**, select  **Include**, and then click inside the text box with the red exclamation mark. 
-    3. Paste in or type a comma-separated list of previously validated column names. You cannot save the module if any column has an invalid name, so be sure to check the names beforehand.
+    3. Paste in or type a comma-separated list of previously validated column names. You cannot save the component if any column has an invalid name, so be sure to check the names beforehand.
     
     You can also use this method to specify a list of columns using their index values. 
 
@@ -107,4 +107,4 @@ For example, in a dataset with the columns Col1, Col2, Col3, and Col4, you could
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
+See the [set of components available](module-reference.md) to Azure Machine Learning. 
