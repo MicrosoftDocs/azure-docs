@@ -58,6 +58,14 @@ You can upgrade the extension to the latest version:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
 
+### Installation on Linux
+
+If you are using Linux, the fastest way to install the necessary CLI version and the Machine Learning extension is:
+
+:::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
+
+For more, see [Install the Azure CLI for Linux](cli/azure/install-azure-cli-linux).
+
 ## Set up
 
 Login:
