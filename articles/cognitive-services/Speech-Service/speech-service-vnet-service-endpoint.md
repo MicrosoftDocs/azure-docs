@@ -1,7 +1,7 @@
 ---
 title: Use Virtual Network service endpoints with Speech service
 titleSuffix: Azure Cognitive Services
-description: This article describes how to use Speech service with Azure Virtual Network service endpoint.
+description: This article describes how to use Speech service with an Azure Virtual Network service endpoint.
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
@@ -24,9 +24,9 @@ This article explains how to set up and use Virtual Network service endpoints wi
 This article also describes [how to remove Virtual Network service endpoints later but still use the Speech resource](#use-a-speech-resource-that-has-a-custom-domain-name-but-that-doesnt-have-allowed-virtual-networks).
 
 To set up a Speech resource for Virtual Network service endpoint scenarios, you need to:
-1. [Create a Speech resource custom domain name.](#create-a-custom-domain-name)
-1. [Configure virtual networks and the Speech resource networking settings.](#configure-virtual-networks-and-the-speech-resource-networking-settings)
-1. [Adjust existing applications and solutions.](#adjust-existing-applications-and-solutions)
+1. [Create a custom domain name for the Speech resource](#create-a-custom-domain-name).
+1. [Configure virtual networks and networking settings for the Speech resource](#configure-virtual-networks-and-the-speech-resource-networking-settings).
+1. [Adjust existing applications and solutions](#adjust-existing-applications-and-solutions).
 
 > [!NOTE]
 > Setting up and using Virtual Network service endpoints for Speech service is similar to setting up and using private endpoints. In this article, we refer to the corresponding sections of the [article on using private endpoints](speech-services-private-link.md) when the procedures are the same.
@@ -82,8 +82,8 @@ In this scenario, the **Selected Networks and Private Endpoints** option is sele
 
 In this scenario, private endpoints aren't enabled and one of these statements is true:
 
-- The **Selected Networks and Private Endpoints** option is selected in the networking settings of the Speech resource, but no allowed virtual networks are configured
-- The **All networks** option is selected in the networking settings of the Speech resource
+- The **Selected Networks and Private Endpoints** option is selected in the networking settings of the Speech resource, but no allowed virtual networks are configured.
+- The **All networks** option is selected in the networking settings of the Speech resource.
 
 This scenario is equivalent to [using a Speech resource that has a custom domain name and that doesn't have private endpoints](speech-services-private-link.md#adjust-an-application-to-use-a-speech-resource-without-private-endpoints).
 
