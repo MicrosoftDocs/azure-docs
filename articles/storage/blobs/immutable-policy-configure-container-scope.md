@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/17/2021
+ms.date: 07/19/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -15,11 +15,13 @@ ms.custom: devx-track-azurepowershell
 
 # Configure immutability policies for containers
 
-Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
+Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
-This article shows how to set and manage immutability policies and legal holds for data in Blob storage using the Azure portal, PowerShell, or Azure CLI. For more information about immutable storage, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
+An immutability policy may be scoped either to an individual blob version (preview) or to a container. This article describes how to configure a container-level immutability policy. To learn how to configure version-level immutability policies, see [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md).
 
 ## Set retention policies and legal holds
+
+??? --I plan to rewrite this, but portal is currently down-- ???
 
 ### [Portal](#tab/azure-portal)
 
@@ -188,4 +190,6 @@ Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
 
 ## Next steps
 
-[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)
+- [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
+- [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
+- [Legal holds for immutable blob data](immutable-legal-hold-overview.md)

@@ -7,14 +7,14 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/17/2021
+ms.date: 07/19/2021
 ms.author: tamram
 ms.subservice: blobs 
 ---
 
 # Configure immutability policies for blob versions (preview)
 
-Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds.
+Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
 An immutability policy may be scoped either to an individual blob version (preview) or to a container. This article describes how to configure a version-level immutability policy. To learn how to configure container-level immutability policies, see [Configure immutability policies for containers](immutable-policy-configure-container-scope.md).
 
@@ -104,9 +104,9 @@ Time-based retention policies maintain blob data in a WORM state for a specified
 
 You have three options for configuring a time-based retention policy for a blob version:
 
-1. You can configure a default policy that is scoped to the container and that applies to all objects in the container by default. Objects in the container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. See [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy) for details.
-1. You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. See [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob) for details.
-1. You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. See [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob) for details.
+1. You can configure a default policy that is scoped to the container and that applies to all objects in the container by default. Objects in the container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. For more details, see [Configure a default time-based retention policy on a container](#configure-a-default-time-based-retention-policy-on-a-container).
+1. You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more details, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
+1. You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. For more details, see [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
 
 ### Configure a retention policy on the current version of a blob
 
@@ -202,3 +202,4 @@ To clear a legal hold, navigate to the **Access policy** dialog, select the **Mo
 
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
+- [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
