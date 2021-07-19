@@ -284,7 +284,9 @@
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
       - name: BrowserStack Single Sign-on
-        href: browserstack-single-sign-on-tutorial.md      
+        href: browserstack-single-sign-on-tutorial.md
+      - name: Brushup
+        href: brushup-tutorial.md        
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
