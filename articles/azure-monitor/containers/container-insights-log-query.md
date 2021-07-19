@@ -20,7 +20,7 @@ There are multiple options for starting Log Analytics, each starting with a diff
 ## Existing log queries
 You don't necessarily need to understand how to write a log query to use Log Analytics. There are multiple prebuilt queries that you can select and either run without modification or use as a start to a custom query. Click **Queries** at the top of the Log Analytics screen and view queries with a **Resource type** of **Kubernetes Services**. 
 
-:::image type="content" source="media/monitor-aks/log-analytics-queries.png" alt-text="Log Analytics queries for Kubernetes" lightbox="media/monitor-aks/log-analytics-queries.png":::
+:::image type="content" source="media/container-insights-log-query/log-analytics-queries.png" alt-text="Log Analytics queries for Kubernetes" lightbox="media/container-insights-log-query/log-analytics-queries.png":::
 
 ## Container tables
 See [Azure Monitor table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#kubernetes-services) for a list of tables and their detailed descriptions used by Container insights. All of these tables are available for log queries.
