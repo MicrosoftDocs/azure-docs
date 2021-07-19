@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 07/19/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to get a quick read of CPU and memory usage by a virtual machine on my Azure Stack Edge Pro GPU device.
 ---
@@ -22,9 +22,9 @@ This article describes how to monitor CPU and memory metrics for a virtual machi
 
 The **Metrics** tab for a virtual machine lets you view CPU and memory metrics, adjusting the time period and zooming in on periods of interest.
 
-The VM metrics are based on CPU and memory usage data collected from the VM's guest operating system. SAMPLING INTERVAL? 
+The VM metrics are based on CPU and memory usage data collected from the VM's guest operating system. Resource usage is sampled once per minute.
 
-If a device is disconnected, metrics are cached on the device. As soon as the device is reconnected, the metrics are pushed from the cache and displayed in the VM details.
+If a device is disconnected, metrics are cached on the device. When the device is reconnected, the metrics are pushed from the cache, and the VM **Metrics** are updated.
 
 ## Monitor CPU and memory metrics
 
