@@ -7,8 +7,8 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 05/10/2021
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 07/05/2021
 ---
 
 # Quickstart: Create an Azure Data Factory using ARM template
@@ -49,7 +49,7 @@ Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't al
 
 ## Review template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
@@ -127,9 +127,9 @@ Keep the container page open, because you can use it to verify the output at the
 
 1. Navigate to the **Data factories** page, and select the data factory you created.
 
-2. Select the **Author & Monitor** tile.
+2. Select **Open** on the **Open Azure Data Factory Studio** tile.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Author & Monitor":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-open-tile.png" alt-text="Author & Monitor":::
 
 2. Select the **Author** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 

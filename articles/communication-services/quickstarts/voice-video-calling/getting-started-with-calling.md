@@ -4,7 +4,7 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add calling capabilities to your app using Azure Communication Services.
 author: mikben
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 
@@ -15,22 +15,24 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add voice and video calling to your app.
 
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
+
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Calling with Windows](./includes/get-started-windows.md)]
+[!INCLUDE [Calling with Windows](./includes/get-started/get-started-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/get-started-javascript.md)]
+[!INCLUDE [Calling with JavaScript](./includes/get-started/get-started-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/get-started-android.md)]
+[!INCLUDE [Calling with Android](./includes/get-started/get-started-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/get-started-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/get-started/get-started-ios.md)]
 ::: zone-end
 
 ## Clean up resources

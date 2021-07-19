@@ -1,10 +1,11 @@
 ---
-author: MikeRayMSFT
+
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: include
-ms.date: 03/02/2021
-ms.author: mikeray
+ms.date: 07/13/2021
+ms.author: dinethi
+author: dnethi
 ---
 
 This section explains how to apply a security context constraint (SCC). For the preview release, these relax the security constraints. 
@@ -40,7 +41,7 @@ This section explains how to apply a security context constraint (SCC). For the 
 1. Create the Role & Role Bindings that grants permissions on the SCC to the service account(s).
 
    > [!NOTE]
-   > Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`.
+   > Use the same namespace here and in the `az arcdata dc create` command below. Example is `arc`.
 
    ```console
    oc create -f arc-data-scc-role-rolebinding.yaml

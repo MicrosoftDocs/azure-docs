@@ -8,7 +8,8 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
+ms.reviewer: akjosh 
+ms.custom: devx-track-azurepowershell
 #SIG to SIG
 ---
 
@@ -56,7 +57,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
 
 ## Create the image definition 
 
-You need to create a new image definition that matches the image definition of your source. You can see all of the information you need to recreate the image definition using [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
+You need to create a new image definition that matches the operating system, operating system state, and Hyper-V generation of the image definition containing your source image version. You can see all of the information you need to recreate the image definition using [Get-AzGalleryImageDefinition](/powershell/module/az.compute/get-azgalleryimagedefinition).
 
 ```azurepowershell-interactive
 Get-AzGalleryImageDefinition `
@@ -115,6 +116,10 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
+
+> [!NOTE]
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `-PurchasePlanName`, `-PurchasePlanProduct`, and `-PurchasePlanPublisher` when you create the image definition.
+>
 
 
 ## Create the image version

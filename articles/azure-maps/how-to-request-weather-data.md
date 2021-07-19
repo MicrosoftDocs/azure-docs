@@ -46,17 +46,15 @@ The [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions) re
 
 In this example, you'll use the [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions) to retrieve current weather conditions at coordinates located in Seattle, WA.
 
-1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button. You'll use this collection for the rest of the examples in this document.
+1. Open the Postman app. Select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. 
 
-2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, and then select **Save**.
-
-3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
     https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. Click the blue **Send** button. The response body contains current weather information.
+3. Click the blue **Send** button. The response body contains current weather information.
 
     ```json
     {
@@ -238,7 +236,7 @@ In this example, you'll use the [Get Severe Weather Alerts API](/rest/api/maps/w
 >[!NOTE]
 >This example retrieves severe weather alerts at the time of this writing. It is likely that there are no longer any severe weather alerts at the requested location. To retrieve actual severe alert data when running this example, you'll need to retrieve data at a different coordinate location.
 
-1. Open the Postman app, click **New**, and select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous section or created a new one, and then select **Save**.
+1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
@@ -290,7 +288,7 @@ The [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast) returns de
 
 In this example, you'll use the [Get Daily Forecast API](/rest/api/maps/weather/getdailyforecast) to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
 
-1. Open the Postman app, click **New**, and select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous section or created a new one, and then select **Save**.
+1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
@@ -538,7 +536,7 @@ The [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast) returns 
 
 In this example, you'll use the [Get Hourly Forecast API](/rest/api/maps/weather/gethourlyforecast) to retrieve the hourly weather forecast for the next 12 hours at coordinates located in Seattle, WA.
 
-1. Open the Postman app, click **New**, and select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous section or created a new one, and then select **Save**.
+1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
@@ -639,13 +637,14 @@ In this example, you'll use the [Get Hourly Forecast API](/rest/api/maps/weather
     ]
     }
     ```
+
 ## Request minute-by-minute weather forecast data
 
  The [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast) returns minute-by-minute forecasts for a given location for the next 120 minutes. Users can request weather forecasts in intervals of 1, 5 and 15 minutes. The response includes details such as the type of precipitation (including rain, snow, or a mixture of both), start time, and precipitation intensity value (dBZ).
 
 In this example, you'll use the [Get Minute Forecast API](/rest/api/maps/weather/getminuteforecast) to retrieve the minute-by-minute weather forecast at coordinates located in Seattle, WA. The weather forecast is given for the next 120 minutes. Our query requests that the forecast be given at 15-minute intervals, but you can adjust the parameter to be either 1 or 5 minutes.
 
-1. Open the Postman app, click **New**, and select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous section or created a new one, and then select **Save**.
+1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
 
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 

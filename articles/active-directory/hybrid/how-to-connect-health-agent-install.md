@@ -168,7 +168,7 @@ The "basic" audit level is enabled by default. For more information, see [AD FS 
 3. On the right, select **Filter Current Logs**.
 4. For **Event sources**, select **AD FS Auditing**.
 
-    For more information about audit logs, see [Operations questions](reference-connect-health-faq.md#operations-questions).
+    For more information about audit logs, see [Operations questions](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions).
 
     ![Screenshot showing the Filter Current Log window. In the "Event sources" field, "AD FS auditing" is selected.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 
@@ -204,7 +204,7 @@ If the Azure AD Connect Health for Sync agent registration fails after you succe
 
 Manually register the Azure AD Connect Health agent for Sync by using the following PowerShell command. The Azure AD Connect Health services will start after the agent has been successfully registered.
 
-`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $true -StagingMode $false`
 
 The command takes following parameters:
 
@@ -401,5 +401,5 @@ Check out the following related articles:
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health for Sync](how-to-connect-health-sync.md)
 * [Using Azure AD Connect Health with Azure AD DS](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health version history](reference-connect-health-version-history.md)

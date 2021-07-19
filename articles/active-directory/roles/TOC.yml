@@ -18,7 +18,7 @@
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Microsoft 365 roles
       href: m365-workload-docs.md
-  - name: Group-based role assignments
+  - name: Use groups to manage role assignments
     href: groups-concept.md
   - name: Administrative units  
     href: administrative-units.md
@@ -87,9 +87,9 @@
   - name: Troubleshoot
     items:
     - name: Troubleshoot roles assigned to groups
-      href: groups-faq-troubleshooting.md
+      href: groups-faq-troubleshooting.yml
     - name: Troubleshoot administrative units
-      href: admin-units-faq-troubleshoot.md
+      href: admin-units-faq-troubleshoot.yml
     - name: Get support for Azure AD
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference
@@ -111,6 +111,6 @@
   - name: Azure AD service limits
     href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
   - name:  Azure AD PowerShell
-    href: /powershell/azure/active-directory/overview
-  - name: Graph API
-    href: /graph/api/overview
+    href: /powershell/module/azuread/#directory-roles
+  - name: Microsoft Graph API
+    href: /graph/api/resources/directoryrole

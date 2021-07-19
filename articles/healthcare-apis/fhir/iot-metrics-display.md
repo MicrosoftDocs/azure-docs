@@ -71,6 +71,6 @@ Having access to data plane metrics is essential for monitoring and troubleshoot
 Get answers to frequently asked questions about Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQ](fhir-faq.md)
+>[Azure IoT Connector for FHIR FAQ](fhir-faq.yml)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7. 

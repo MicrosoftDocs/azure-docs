@@ -3,13 +3,13 @@ title: Spatial Analysis operations
 titleSuffix: Azure Cognitive Services
 description: The Spatial Analysis operations.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
+ms.date: 06/08/2021
+ms.author: pafarley
 ---
 
 # Spatial Analysis operations
@@ -78,10 +78,11 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 "gpu_index": 0,
 "do_calibration": true,
 "enable_recalibration": true,
-"calibration_quality_check_frequency_seconds":86400,
+"calibration_quality_check_frequency_seconds": 86400,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
-"calibration_quality_check_one_round_sample_collect_num":10,
-"calibration_quality_check_queue_max_size":1000
+"calibration_quality_check_one_round_sample_collect_num": 10,
+"calibration_quality_check_queue_max_size": 1000,
+"calibration_event_frequency_seconds": -1
 }
 ```
 
@@ -94,9 +95,101 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 | `calibration_quality_check_sample_collect_frequency_seconds` | int | Minimum number of seconds between collecting new data samples for recalibration and quality checking. Default is `300` (5 minutes). Only used when `enable_recalibration=True`.|
 | `calibration_quality_check_one_round_sample_collect_num` | int | Minimum number of new data samples to collect per round of sample collection. Default is `10`. Only used when `enable_recalibration=True`.|
 | `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
+| `calibration_event_frequency_seconds` | int | Output frequency (seconds) of camera calibration events. A value of `-1` indicates that the camera calibration should not be sent unless the camera calibration info has been changed. Default is `-1`.|
 | `enable_breakpad`| bool | Indicates whether you want to enable breakpad, which is used to generate crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
 | `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to False. |
 
+
+### Camera calibration output
+This is an example of the output from camera calibration if enabled. Ellipses indicate more of the same type of objects in a list.
+```
+{
+  "type": "cameraCalibrationEvent",
+  "sourceInfo": {
+    "id": "camera1",
+    "timestamp": "2021-04-20T21:15:59.100Z",
+    "width": 640,
+    "height": 360,
+    "frameId": 531,
+    "cameraCalibrationInfo": {
+      "status": "Calibrated",
+      "cameraHeight": 13.294151306152344,
+      "focalLength": 372.0000305175781,
+      "tiltupAngle": 0.9581864476203918,
+      "lastCalibratedTime": "2021-04-20T21:15:59.058"
+    }
+  },
+  "zonePlacementInfo": {
+    "optimalZoneRegion": {
+      "type": "POLYGON",
+       "points": [
+        {
+          "x": 0.8403755868544601,
+          "y": 0.5515320334261838
+        },
+        {
+          "x": 0.15805946791862285,
+          "y": 0.5487465181058496
+        },
+        ...
+      ],
+      "name": "optimal_zone_region"
+    },
+    "fairZoneRegion": {
+      "type": "POLYGON",
+      "points": [
+        {
+          "x": 0.7871674491392802,
+          "y": 0.7437325905292479
+        },
+        {
+          "x": 0.22065727699530516,
+          "y": 0.7325905292479109
+        },
+        ...
+      ],
+      "name": "fair_zone_region"
+    },
+    "uniformlySpacedPersonBoundingBoxes": [
+      {
+        "type": "RECTANGLE",
+        "points": [
+          {
+            "x": 0.0297339593114241,
+            "y": 0.0807799442896936
+          },
+          {
+            "x": 0.10015649452269171,
+            "y": 0.2757660167130919
+          }
+        ]
+      },
+      ...
+    ],
+    "personBoundingBoxGroundPoints": [
+      {
+        "x": -22.944068908691406,
+        "y": 31.487680435180664
+      },
+      ...
+    ]
+  }
+}
+```
+
+See [Spatial analysis operation output](#spatial-analysis-operation-output) for details on `source_info`.
+
+| ZonePlacementInfo Field Name | Type| Description|
+|---------|---------|---------|
+| `optimalZonePolygon` | object| A polygon in the camera image where lines or zones for your operations can be placed for optimal results. <br/> Each value pair represents the x,y for vertices of a polygon. The polygon represents the areas in which people are tracked or counted and polygon points are based on normalized coordinates (0-1), where the top left corner is (0.0, 0.0) and the bottom right corner is (1.0, 1.0).|
+| `fairZonePolygon` | object| A polygon in the camera image where lines or zones for your operations can be placed for good, but possibly not optimal, results. <br/> See `optimalZonePolygon` above for an in-depth explanation of the contents. |
+| `uniformlySpacedPersonBoundingBoxes` | list | A list of bounding boxes of people within the camera image distributed uniformly in real space. Values are based on normalized coordinates (0-1).|
+| `personBoundingBoxGroundPoints` | list | A list of coordinates on the floor plane relative to the camera. Each coordinate corresponds to the bottom right of the bounding box in `uniformlySpacedPersonBoundingBoxes` with the same index. <br/> See the `centerGroundPoint` field under the [JSON format for cognitiveservices.vision.spatialanalysis-persondistance AI Insights](#json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights) section for more details on how coordinates on the floor plane are calculated. |
+
+Example of the zone placement info output visualized on a video frame:
+![Zone placement info visualization](./media/spatial-analysis/zone-placement-info-visualization.png)
+
+The zone placement info provides suggestions for your configurations, but the guidelines in [Camera configuration](#camera-configuration) must still be followed for best results.
 
 ### Speed Parameter Settings
 You can configure the speed computation through the tracker node parameter settings.
