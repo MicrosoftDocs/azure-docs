@@ -1756,6 +1756,8 @@
         href: sharingcloud-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
+      - name: ShiftWizard SAML
+        href: shiftwizard-saml-tutorial.md  
       - name: ShipHazmat
         href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
