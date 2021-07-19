@@ -205,7 +205,7 @@ The use of third-party Active Directory Group Policy extensions to roll out the 
 
 Seamless SSO doesn't work in private browsing mode on Firefox. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode. Microsoft Edge (legacy) is no longer supported. Seamless SSO supports the next version of Microsoft Edge based on Chromium and it works in InPrivate and Guest mode by design. Seamless SSO may require additional configuration to work in InPrivate and Guest mode with versions of Microsoft Edge Chromium and Google Chrome browsers: 
 
-**AmbientAuthenticationInPrivateModesEnabled** – may need to be configured for InPrivate and / or guest users based on the corresponding documentations: [Microsoft Edge Chromium](https://docs.microsoft.com/deployedge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled); [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled).
+**AmbientAuthenticationInPrivateModesEnabled** – may need to be configured for InPrivate and / or guest users based on the corresponding documentations: [Microsoft Edge Chromium](/DeployEdge/microsoft-edge-policies#ambientauthenticationinprivatemodesenabled); [Google Chrome](https://chromeenterprise.google/policies/?policy=AmbientAuthenticationInPrivateModesEnabled).
 
 ## Step 4: Test the feature
 
