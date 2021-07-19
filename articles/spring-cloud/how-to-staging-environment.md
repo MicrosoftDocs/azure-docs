@@ -1,7 +1,7 @@
 ---
 title: Set up a staging environment in Azure Spring Cloud | Microsoft Docs
 description: Learn how to use blue-green deployment with Azure Spring Cloud
-author: MikeDodaro
+author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/14/2021
@@ -63,7 +63,7 @@ To build the application, follow these steps:
 4. Build the .jar file:
 
    ```azurecli
-   mvn clean packge -DskipTests
+   mvn clean package -DskipTests
    ```
 5. Create the app in your Azure Spring Cloud instance:
 

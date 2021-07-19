@@ -42,7 +42,7 @@ You should have at least contributor rights on both **source** and **target** su
 
 1. Once the validation is successful, select **Next** to start the migration of your private cloud.
 
-   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" Screenshot that shows the validation status of Succeeded.":::
+   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" Screenshot showing the validation status of Succeeded.":::
 
 1. Select the check box indicating you understand that the tools and scripts associated will not work until you update them to use the new resource IDs. Then select **Move**.
 
@@ -61,9 +61,7 @@ The new subscription appears in the private cloud Overview.
 ## Next steps
 Learn more about:
 
-- [Move guidance for networking resources](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
-- [Move guidance for virtual machines](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
-- [Move guidance for App Service resources](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
-
-
-
+- [Move Azure VMware Solution across regions](move-azure-vmware-solution-across-regions.md)
+- [Move guidance for networking resources](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
+- [Move guidance for virtual machines](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md)
+- [Move guidance for App Service resources](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)

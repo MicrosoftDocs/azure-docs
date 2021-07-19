@@ -31,6 +31,7 @@ This section provides a reference for the following API Management policies. For
     -   [Set usage quota by subscription](api-management-access-restriction-policies.md#SetUsageQuota) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
     -   [Set usage quota by key](api-management-access-restriction-policies.md#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
     -   [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+    -   [Validate client certificate](api-management-access-restriction-policies.md#validate-client-certificate) - Enforces that a certificate presented by a client to an API Management instance matches specified validation rules and claims.
 -   [Advanced policies](api-management-advanced-policies.md#AdvancedPolicies)
     -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the evaluation of Boolean expressions.
     -   [Forward request](api-management-advanced-policies.md#ForwardRequest) - Forwards the request to the backend service.

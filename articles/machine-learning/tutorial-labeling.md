@@ -34,7 +34,7 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 ## Create a workspace
 

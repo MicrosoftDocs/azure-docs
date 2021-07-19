@@ -1,8 +1,8 @@
 ---
 title: Use Read preference with the Azure Cosmos DB's API for MongoDB 
 description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB's API for MongoDB
-author: sivethe
-ms.author: sivethe
+author: gahl-levy
+ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
@@ -17,7 +17,7 @@ This article shows how to globally distribute read operations with [MongoDB Read
 
 ## Prerequisites 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
-[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](includes/cosmos-db-emulator-mongodb.md)]
 
 Refer to this [Quickstart](tutorial-global-distribution-mongodb.md) article for instructions on using the Azure portal to set up a Cosmos account with global distribution and then connect to it.
 

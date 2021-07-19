@@ -107,6 +107,8 @@
               href: import-soap-api.md
             - name: Import a SOAP API and convert to REST
               href: restify-soap-api.md
+            - name: Import a WebSocket API
+              href: websocket-api.md
             - name: Import a Web App
               href: import-app-service-as-api.md
             - name: Import a Function App
@@ -136,6 +138,8 @@
               href: zone-redundancy.md
             - name: Provision a self-hosted gateway
               href: api-management-howto-provision-self-hosted-gateway.md
+            - name: Deploy an Azure API Management gateway on Azure Arc
+              href: how-to-deploy-self-hosted-gateway-azure-arc.md
             - name: Deploy a self-hosted gateway to Azure Kubernetes Service
               href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
             - name: Deploy a self-hosted gateway to Kubernetes
@@ -166,7 +170,7 @@
               href: api-management-using-with-vnet.md
             - name: Connect to an internal virtual network
               href: api-management-using-with-internal-vnet.md
-            - name: Integrate Application Gateway in an internal VNET
+            - name: Integrate Application Gateway in an internal virtual network
               href: api-management-howto-integrate-internal-vnet-appgateway.md
             - name: Mutual Certificate authentication
               href: api-management-howto-mutual-certificates.md
@@ -291,6 +295,8 @@
               href: howto-use-analytics.md
             - name: Log events to Azure Event Hubs
               href: api-management-howto-log-event-hubs.md
+            - name: Send events to Event Grid
+              href: how-to-event-grid.md
             - name: Log requests with Azure Application Insights
               href: api-management-howto-app-insights.md
             - name: Configure cloud metrics and logs for self-hosted gateway
@@ -334,24 +340,28 @@
         href: ./policy-reference.md
       - name: Resource log schema
         href: gateway-log-schema-reference.md
+      - name: Event Grid schema
+        href: ../event-grid/event-schema-api-management.md?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json  
 - name: Resources
   items:
       - name: FAQ
-        href: api-management-faq.md
+        href: api-management-faq.yml
       - name: Pricing
         href: https://aka.ms/apimpricing
+      - name: Product updates
+        href: https://aka.ms/apimupdates
+      - name: Release notes
+        href: https://aka.ms/apim/releases
       - name: Regional availability
         href: https://azure.microsoft.com/regions/services/
-      - name: Roadmap
-        href: https://aka.ms/apimroadmap
-      - name: Feature requests
-        href: https://aka.ms/apimwish
       - name: Videos
-        href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
+        href: https://azure.microsoft.com/documentation/videos/index/?service=api-management
       - name: Microsoft Q&A question page
         href: /answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
+      - name: Additional resources
+        href: https://aka.ms/apimlove
       - name: API design guidance
         href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance

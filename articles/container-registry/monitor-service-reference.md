@@ -17,7 +17,7 @@ See [Monitor Azure Container Registry](monitor-service.md) for details on collec
 
 ### Container Registry metrics
 
-Resource Provider and Type: [Microsoft.ContainerRegistry/registries](/azure/azure-monitor/platform/metrics-supported#microsoftcontainerregistryregistries)
+Resource Provider and Type: [Microsoft.ContainerRegistry/registries](../azure-monitor/essentials/metrics-supported.md#microsoftcontainerregistryregistries)
 
 | Metric | Exportable via Diagnostic Settings? | Unit | Aggregation Type | Description | Dimensions  |  
 |:-------|:-----|:-----|:------------|:------------------|:----- |
@@ -31,11 +31,11 @@ Resource Provider and Type: [Microsoft.ContainerRegistry/registries](/azure/azur
 
 <sup>1</sup>Because of layer sharing, registry storage used may be less than the sum of storage for individual repositories. When you [delete](container-registry-delete.md) a repository or tag, you recover only the storage used by manifest files and the unique layers referenced.
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ## Metric Dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 Azure Container Registry has the following dimensions associated with its metrics.
 
@@ -48,11 +48,11 @@ Azure Container Registry has the following dimensions associated with its metric
 
 This section lists the types of resource logs you can collect for Azure Container Registry. 
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
 
 ### Container Registries
 
-Resource Provider and Type: [Microsoft.ContainerRegistry/registries](/azure/azure-monitor/essentials/resource-logs-categories#microsoftcontainerregistryregistries)
+Resource Provider and Type: [Microsoft.ContainerRegistry/registries](../azure-monitor/essentials/resource-logs-categories.md#microsoftcontainerregistryregistries)
 
 | Category | Display Name | Details  |
 |:---------|:-------------|------------------|
@@ -72,13 +72,13 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. | 
 | [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | Metric data emitted by Azure services that measure their health and performance.    |  
 |  [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Login Auditing Logs                             |                                                     
-|  [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Repository Auditing Logs                         |                                                    
+|  [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryrepositoryevents)               | Azure Container Registry Repository Auditing Logs                         |                                                    
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Activity log
 
-The following table lists operations related to Azure Container Registry that may be created in the [Activity log](/azure/azure-monitor/platform/activity-log). This list is not exhaustive.
+The following table lists operations related to Azure Container Registry that may be created in the [Activity log](../azure-monitor/essentials/activity-log.md). This list is not exhaustive.
 
 | Operation | Description |
 |:---|:---|
@@ -100,4 +100,4 @@ The following schemas are in use by Azure Container Registry's resource logs.
 ## Next steps
 
 - See [Monitor Azure Container Registry](monitor-service.md) for a description of monitoring an Azure container registry.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/overview.md) for details on monitoring Azure resources.
