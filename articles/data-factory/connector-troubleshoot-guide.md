@@ -450,7 +450,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Message**: `User does not have permission to perform this action.`
 
-- **Recommendation**: Make sure your configuration in the Azure Synapse Analytics connector must have 'CONTROL' permission on the target database while using PolyBase to load data. For more detailed information, refer to this document: [Required database permission](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#required-database-permission).
+- **Recommendation**: Make sure the user configured in the Azure Synapse Analytics connector must have 'CONTROL' permission on the target database while using PolyBase to load data. For more detailed information, refer to this [document](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#required-database-permission).
 
 
 ## Azure Table Storage
