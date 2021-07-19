@@ -140,10 +140,6 @@ To avoid automatically making calls to untrusted hosts when using templates, the
 
 This provider supports [JSONPath](workbooks-jsonpath.md). 
 
-## Video 
-
-[!VIDEO https://www.youtube.com/watch?v=EC7n1Oo6D-o]
-
 ## Next steps
 
 * [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
