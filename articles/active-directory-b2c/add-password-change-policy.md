@@ -1,7 +1,7 @@
 ---
-title: Configure password change by using custom policies
+title: Set up password change by using custom policies
 titleSuffix: Azure AD B2C
-description: Learn how to enable users to change their password by using custom policies in Azure Active Directory B2C.
+description: Learn how to set up a custom policy so users can change their password in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -15,11 +15,11 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Configure password change by using custom policies in Azure Active Directory B2C
+# Set up password change by using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who is signed in with a local account can change their password without being required to use email verification to prove their identity. The password change flow involves the following steps:
+You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who is signed in with a local account can change their password without using email verification to prove their identity. The password change flow involves the following steps:
 
 1. The user signs in to their local account. If the session is still active, Azure AD B2C authorizes the user and skips to the next step.
 1. In **Old password**, the user verifies their old password. In **New password**, they create and confirm their new password.
@@ -44,7 +44,7 @@ You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who i
 
 ## Add the elements
 
-1. Open your *TrustFrameworkExtensions.xml* file and add the following **ClaimType** element with an identifier of `oldPassword` to the [ClaimsSchema](claimsschema.md) element:
+1. Open your *TrustFrameworkExtensions.xml* file. Add the following **ClaimType** element to the [ClaimsSchema](claimsschema.md) element, with an identifier of `oldPassword`:
 
     ```xml
     <BuildingBlocks>
@@ -138,7 +138,7 @@ You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who i
 1. Save the *TrustFrameworkExtensions.xml* policy file.
 1. Copy the *ProfileEdit.xml* file that you downloaded with the starter pack and name it *ProfileEditPasswordChange.xml*.
 1. Open the new file and update the **PolicyId** attribute with a unique value. This value is the name of your policy. For example, *B2C_1A_profile_edit_password_change*.
-1. Modify the **ReferenceId** attribute in `<DefaultUserJourney>` to match the ID of the new user journey that you created. For example, *PasswordChange*.
+1. Modify the **ReferenceId** attribute in **\<DefaultUserJourney\>** to match the ID of the new user journey that you created. For example, *PasswordChange*.
 1. Save your changes.
 
 ## Upload and test the policy
@@ -160,8 +160,8 @@ You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who i
 
 ## Next steps
 
-- Find the sample policy on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
-- Learn about how you can [configure password complexity in Azure AD B2C](password-complexity.md).
-- Set up a [password reset flow](add-password-reset-policy.md).
+* Find the sample policy on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
+* Learn about how you can [configure password complexity in Azure AD B2C](password-complexity.md).
+* Set up a [password reset flow](add-password-reset-policy.md).
 
 ::: zone-end
