@@ -69,4 +69,4 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 
 - [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements (optional).
 - If you don't want to test your VM image, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) and publish the SIG Image.
-- If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).
+- If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.yml).

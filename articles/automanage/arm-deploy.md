@@ -59,7 +59,7 @@ The `configurationProfileAssignment` value can be one of the following values:
 * "DevTest"
 
 Follow these steps to deploy the ARM template:
-1. Save the below ARM template as `azuredeploy.json`
+1. Save the ARM template above as `azuredeploy.json`
 1. Run the ARM template deployment with `az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json`
 1. Provide the values for machineName, automanageAccountName, and configurationProfileAssignment when prompted
 1. You are done!

@@ -10,6 +10,7 @@ editor: ''
 
 ms.service: media-services
 ms.workload: na
+ms.custom: references_regions
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
@@ -28,6 +29,20 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 
 ## June 2021
+
+### Additional Live Event ingest heartbeat properties for improved diagnostics
+
+Additional live event ingest heartbeat properties have been added to the Event Grid message. This includes the following new fields to assist with diagnosing issues during live ingest.  The **ingestDriftValue** is helpful in scenarios where you need to monitor network latency from the source ingest encoder pushing into the live event. If this value drifts out too far, it can be an indication that the network latency is too high for a successful live streaming event.
+
+See the [LiveEventIngestHeartbeat schema](./monitoring/media-services-event-schemas.md#liveeventingestheartbeat) for more details.
+
+### Private links support is now GA
+
+Support for using Media Services with [private links](../../private-link/index.yml) is now GA and available in all Azure regions including Azure Government clouds.
+Azure Private Link enables you to access Azure PaaS Services and Azure hosted customer-owned/partner services over a Private Endpoint in your virtual network.
+Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet.
+
+For details on how to use Media Services with private links, see [Create a Media Services and Storage account with a Private Link](./security-private-link-how-to.md)
 
 ### New US West 3 region is GA
 

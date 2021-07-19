@@ -105,8 +105,7 @@ In our demo workspace, you can clearly see that 3 Kuberbetes clusters send far m
 
 ### Health tab
 
-This tab shows the workspace health state and when it was last reported, as well as operational [errors and warnings](../logs/monitor-workspace.md) (retrieved from the _LogOperation table).
-
+This tab shows the workspace health state and when it was last reported, as well as operational [errors and warnings](../logs/monitor-workspace.md) (retrieved from the _LogOperation table). You can find more details on the listed issues as well as mitigation steps in [here](../logs/monitor-workspace.md#categories).
 
 :::image type="content" source="media/log-analytics-workspace-insights-overview/workspace-health.png" alt-text="Screenshot of the workspace health tab" lightbox="media/log-analytics-workspace-insights-overview/workspace-health.png":::
 

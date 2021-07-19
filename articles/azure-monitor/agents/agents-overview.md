@@ -32,7 +32,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 ### Linux agents
 
-| | Azure Monitor agent (preview) | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
+| | Azure Monitor agent | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|:---|
 | **Environments supported** | Azure<br>Other cloud (Azure Arc)<br>On-premises (Azure Arc) | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
 | **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
@@ -146,7 +146,8 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
-| Windows Server 2008 R2                                   |   | X | X | X |
+| Windows Server 2008 R2                                   |   |   | X | X |
+| Windows Server 2008 SP2                                   |   | X |  |  |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | X | X | X | X |
 | Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | X | X |   |
 | Windows 7 SP1<br>(Server scenarios only)                 |   | X | X |   |

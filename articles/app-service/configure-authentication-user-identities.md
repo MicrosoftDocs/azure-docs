@@ -18,11 +18,14 @@ For all language frameworks, App Service makes the claims in the incoming token 
 
 Code that is written in any language or framework can get the information that it needs from these headers. 
 
+> [!NOTE]
+> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+
 For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](configure-language-java.md#authenticate-users-easy-auth).
 
 For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. See [working with client identities in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) for more information.
 
-For .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with App Service authentication. To learn more, you can read about it on the [Microsoft.Identity.Web wiki](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb), or see it demonstrated in [this tutorial for a web app accessing Microsoft Graph](/azure/app-service/scenario-secure-app-access-microsoft-graph-as-user?tabs=command-line#install-client-library-packages).
+For .NET Core, [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) supports populating the current user with App Service authentication. To learn more, you can read about it on the [Microsoft.Identity.Web wiki](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb), or see it demonstrated in [this tutorial for a web app accessing Microsoft Graph](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages).
 
 ## Access user claims using the API
 
