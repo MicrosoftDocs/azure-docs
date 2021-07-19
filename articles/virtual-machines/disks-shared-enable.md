@@ -116,7 +116,46 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
-Standard SSD template content.
+Replace the values in this Azure Resource Manager template with your own, before using it:
+
+```rest
+{ 
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dataDiskName": {
+      "type": "string",
+      "defaultValue": "mySharedDisk"
+    },
+    "dataDiskSizeGB": {
+      "type": "int",
+      "defaultValue": 1024
+    },
+    "maxShares": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/disks",
+      "name": "[parameters('dataDiskName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-07-01",
+      "sku": {
+        "name": "StandardSSD_LRS"
+      },
+      "properties": {
+        "creationData": {
+          "createOption": "Empty"
+        },
+        "diskSizeGB": "[parameters('dataDiskSizeGB')]",
+        "maxShares": "[parameters('maxShares')]"
+      }
+    }
+  ] 
+}
+```
 
 ---
 
