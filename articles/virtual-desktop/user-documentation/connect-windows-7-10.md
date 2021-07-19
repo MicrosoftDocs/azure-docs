@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop Windows 10 or 7 - Azure
 description: How to connect to Azure Virtual Desktop using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 07/19/2021
 ms.author: helohr
 manager: femila
 ms.custom: template-how-to
@@ -70,13 +70,14 @@ The resources grouped by workspace will appear in the **Connection Center**.
    |Azure Virtual Desktop (classic)|`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`|
    |Azure Virtual Desktop|`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`|
    |Azure Virtual Desktop (US Gov)|`https://rdweb.wvd.azure.us/api/arm/feeddiscovery`|
+   |Azure Virtual Desktop (China)|`https://rdweb.wvd.azure.cn/api/arm/feeddiscovery`|
    
    - For **Email**, use your email address. 
       
    The client will find the URL associated with your email, provided your admin has enabled [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 
-1. Select **Next**.
-1. Sign in with your user account when prompted.
+2. Select **Next**.
+3. Sign in with your user account when prompted.
 
 The resources grouped by workspace will appear in the **Connection Center**.
 
