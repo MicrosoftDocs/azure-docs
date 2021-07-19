@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2021
+ms.date: 07/19/2021
 ms.author: alkohli
 ---
 
@@ -31,7 +31,7 @@ The following new features are available in the Azure Stack Edge 2106 release.
     - Issues related to guest VM health monitoring such as link flapping, errors in boot log, and reboots.
     - Memory resource consumption over time.
     - Mellanox driver, firmware, and tools.
-    - Tools to debug VM related issues and network health check.
+    - Tools to debug VM-related issues and network health check.
     - Issues that caused Single root I/O virtualization (SR-IOV) VM outbound packets or the traffic from LAN/WAN VM NetAdapters to be dropped.
 - **Log collection improvements** - This release has log collection improvements related to Azure Stack Edge update scenarios.
 
@@ -58,7 +58,7 @@ The following table provides a summary of known issues in the 2106 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
-|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS) and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
+|**1.**|Preview features |For this release, the following features: Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, Azure Arc enabled Kubernetes, VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R, Multi-process service (MPS), and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU  - are all available in preview.  |These features will be generally available in later releases. |
 
 
 ## Known issues from previous releases
