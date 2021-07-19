@@ -40,10 +40,10 @@ You are getting an error in the connectivity check on the appliance.
 
 **Remediation**
 
-1. Ensure that you can connect to the required [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) from the appliance
+1. Ensure that you can connect to the required [URLs](/azure/migrate/migrate-appliance#url-access) from the appliance
 1. Check if there is a proxy or firewall blocking access to these URLs. If you are required to create an allow list, make sure that you include all of the URLs.
 1. If there is a proxy server configured on-premises, make sure that you provide the proxy details correctly by selecting **Setup proxy** in the same step. Make sure that you provide the authorization credentials if the proxy needs them.
-1. Ensure that the server has not been previously used to set up the [replication appliance](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance) or that you have the mobility service agent installed on the server.
+1. Ensure that the server has not been previously used to set up the [replication appliance](/azure/migrate/migrate-replication-appliance) or that you have the mobility service agent installed on the server.
 
 ## Connectivity check failing for aka.ms URL during 'Set up prerequisites'
 
@@ -53,15 +53,15 @@ You are getting an error in the connectivity check on the appliance for aka.ms U
 
 **Remediation**
 
-1. Ensure that you have connectivity to internet and have whitelisted the URL-aka.ms/* to download the latest versions of the services.
+1. Ensure that you have connectivity to internet and have allowlist the URL-aka.ms/* to download the latest versions of the services.
 2. Check if there is a proxy/firewall blocking access to this URL. Ensure that you have provided the proxy details correctly in the prerequisites step of the configuration manager.
 3. You can go back to the appliance configuration manager and rerun prerequisites to initiate auto-update.
-3. If retry doesnt help, you can download the latestcomponents.json file from [here](http://aka.ms/latestapplianceservices) to check the latest versions of the services that are failing and manually update them from the download links in the file.
+3. If retry doesn't help, you can download the *latestcomponents.json* file from [here](https://aka.ms/latestapplianceservices) to check the latest versions of the services that are failing and manually update them from the download links in the file.
 
- If you have enabled the appliance for **private endpoint connectivity**, and don't want to allow access to this URL over internet, you can [disable auto-update](https://docs.microsoft.com/azure/migrate/migrate-appliance#turn-off-auto-update), as the aka.ms link is required for this service.
+ If you have enabled the appliance for **private endpoint connectivity**, and don't want to allow access to this URL over internet, you can [disable auto-update](/azure/migrate/migrate-appliance#turn-off-auto-update), as the aka.ms link is required for this service.
 
 >Note
->If you disable auto-update service, the services running on the appliance will not get the latest updates automatically. To get around this, [update the appliance services manually](https://docs.microsoft.com/azure/migrate/migrate-appliance#manually-update-an-older-version).
+>If you disable auto-update service, the services running on the appliance will not get the latest updates automatically. To get around this, [update the appliance services manually](/azure/migrate/migrate-appliance#manually-update-an-older-version).
 
 ## Auto Update check failing during 'Set up prerequisites'
 
@@ -71,10 +71,10 @@ You are getting an error in the auto update check on the appliance.
 
 **Remediation**
 
-1. Make sure that you created an allow list for the [required URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) and that no proxy or firewall setting is blocking them.
-1. If the update of any appliance component is failing, either rerun the prerequisites or [manually update the appliance services](https://docs.microsoft.com/azure/migrate/migrate-appliance#manually-update-an-older-version).
+1. Make sure that you created an allow list for the [required URLs](/azure/migrate/migrate-appliance#url-access) and that no proxy or firewall setting is blocking them.
+1. If the update of any appliance component is failing, either rerun the prerequisites or [manually update the appliance services](/azure/migrate/migrate-appliance#manually-update-an-older-version).
 
-## Time sync check check failing during 'Set up prerequisites'
+## Time sync check failing during 'Set up prerequisites'
 
 **Error**
 
@@ -115,7 +115,7 @@ This issue happens when the Azure user account that was used to log in from the 
 
 **Remediation**
 1. To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal OR
-2. Assign the required roles and [permissions](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#prepare-azure) to the other Azure user account being used for appliance registration
+2. Assign the required roles and [permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to the other Azure user account being used for appliance registration
 
 ## "Azure Active Directory (AAD) operation failed with status Forbidden" during appliance registration
 
@@ -125,7 +125,7 @@ You are unable to complete registration due to insufficient AAD privileges and g
 
 **Remediation**
 
-Ensure that you have the [required permissions](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#prepare-azure) to create and manage AAD Applications in Azure. You should have the **Application Developer** role OR the user role with **User can register applications** allowed at the tenant level.
+Ensure that you have the [required permissions](/azure/migrate/tutorial-prepare-vmware#prepare-azure) to create and manage AAD Applications in Azure. You should have the **Application Developer** role OR the user role with **User can register applications** allowed at the tenant level.
 
 ## "Forbidden to access Key Vault" during appliance registration
 
@@ -137,7 +137,7 @@ This usually happens when the Azure user account that was used to register the a
 
 **Remediation**
 
-1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account).
+1. Ensure that the currently logged in user account on the appliance has the required permissions on the Key Vault (mentioned in the error message). The user account needs permissions as mentioned [here](/azure/migrate/tutorial-discover-vmware#prepare-an-azure-user-account).
 2. Go to the Key Vault and ensure that your user account has an access policy with all the _Key, Secret and Certificate_ permissions assigned under Key vault Access Policy. Learn more [https://docs.microsoft.com/en-us/azure/key-vault/general/assign-access-policy-portal]
 3. If you have enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same VNet where the Key Vault has been created or it is connected to the Azure VNet (where Key Vault has been created) over a private link. Make sure that the Key Vault private link is resolvable from the appliance. Go to Azure Migrate: Discovery and assessment> Properties to find the details of private endpoints for resources like the Key Vault created during the Azure Migrate key creation. [Learn more](https://go.microsoft.com/fwlink/?linkid=2162447)
 4. If you have the required permissions and connectivity, re-try the registration on the appliance after some time.
@@ -178,8 +178,8 @@ You are unable to validate the added Hyper-V host/cluster due to an error-"Acces
 
 **Remediation**
 
-1. Ensure that you have met all the [prerequisites for the Hyper-V hosts](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#hyper-v-host-requirements). 
-1. Check the steps [**here**](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#prepare-hyper-v-hosts) on how to prepare the Hyper-V hosts manually or using a provisioning PowerShell script.
+1. Ensure that you have met all the [prerequisites for the Hyper-V hosts](/azure/migrate/migrate-support-matrix-hyper-v#hyper-v-host-requirements). 
+1. Check the steps [**here**](/azure/migrate/tutorial-discover-hyper-v#prepare-hyper-v-hosts) on how to prepare the Hyper-V hosts manually or using a provisioning PowerShell script.
 
 ## "The server does not support WS-Management Identify operations" during validation
 
@@ -285,7 +285,7 @@ Ensure password-based authentication is enabled on the linux server using the fo
 2. Set "PasswordAuthentication" option to yes. Save the file.
 3. Restart ssh service by running "service sshd restart"
 
-## "Access is denied" when conecting to physical servers during validation
+## "Access is denied" when connecting to physical servers during validation
 
 **Error**
 
@@ -301,7 +301,7 @@ You are getting this error when you are trying to validate a Windows server thro
 - If you are still facing the issue, make sure that the user account has access permissions to CIMV2 Namespace and sub-namespaces in WMI Control Panel. You can set the access by following these steps:
     1.	Go to the server which is failing validation on the appliance
     2.	Search and select ‘Run’ from the Start menu. In the ‘Run’ dialog box, type wmimgmt.msc in the ‘Open:’ text field and press enter.
-    3.	The wmimgmt console will open where you can find “WMI Control (Local)” in the left panel. Right click on it and select ‘Properties’ from the menu.
+    3.	The wmimgmt console will open where you can find “WMI Control (Local)” in the left panel. Right-click on it and select ‘Properties’ from the menu.
     4.	In the ‘WMI Control (Local) Properties’ dialog box, click on ‘Securities’ tab.
     5.	On the Securities tab, expand the “Root” folder in the namespace tree and select “cimv2” namespace.
     6.	Click on ‘Security’ button that will open ‘Security for ROOT\cimv2’ dialog box.
@@ -312,7 +312,7 @@ You are getting this error when you are trying to validate a Windows server thro
     Remote enable
     10.	Click on “Apply” to enable the permissions set on the user account.
 
-- The same steps are also applicable on a local user account for non-domain/workgroup servers but in some cases, [UAC](https://docs.microsoft.com/windows/win32/wmisdk/user-account-control-and-wmi) filtering may block some WMI properties as the commands run as a standard user, so you can either use a local administrator account or disable UAC so that the local user account is not filtered and instead becomes a full administrator.
+- The same steps are also applicable on a local user account for non-domain/workgroup servers but in some cases, [UAC](/windows/win32/wmisdk/user-account-control-and-wmi) filtering may block some WMI properties as the commands run as a standard user, so you can either use a local administrator account or disable UAC so that the local user account is not filtered and instead becomes a full administrator.
 - Disabling Remote UAC by changing the registry entry that controls Remote UAC is not recommended but may be necessary in a workgroup. The registry entry is HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\system\LocalAccountTokenFilterPolicy. When the value of this entry is zero (0), Remote UAC access token filtering is enabled. When the value is 1, remote UAC is disabled.
 
 ## Appliance is disconnected
