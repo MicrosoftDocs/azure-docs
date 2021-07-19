@@ -67,4 +67,3 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 * `/W:n` n = how many seconds to wait between retries
 
 `/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
-   
