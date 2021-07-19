@@ -66,6 +66,8 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         1. Enter the connection string of your communication services resource.
         
+        1. Select **Create**.
+        
         :::image type="content" source="./media/logic-app/connection-string-auth.png" alt-text="Screenshot that shows the Connection String Authentication configuration.":::
         
     1. Using Service Principal ([Refer Services Principal Creation](../identity/service-principal-from-cli.md)).
@@ -76,6 +78,8 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         1. Enter Tenant Id, Client Id & Client Secret of your Service Principal.
         
         1. Enter ACS Endpoint URL value of your communication services resource.
+        
+        1. Select **Create**.
         
         :::image type="content" source="./media/logic-app/service-principal-auth.png" alt-text="Screenshot that shows the Service Principal Authentication configuration.":::     
 
