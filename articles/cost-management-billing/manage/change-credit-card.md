@@ -96,7 +96,7 @@ To change your credit card, follow these steps:
 1. In the menu on the left, select **Payment methods**.  
     :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot showing payment methods in menu." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
 1. In the **Default payment method** section, select **Replace**.  
-    :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Screenshot showing the Replace option." lightbox="./media/change-credit-card/change-payment-method-mca.png" :::
+    :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Screenshot showing Replace." lightbox="./media/change-credit-card/change-payment-method-mca.png" :::
 1. In the new area on the right, either select an existing card from the drop-down or add a new one by selecting the blue **Add new payment method** link.
 
 ### Edit a credit card
