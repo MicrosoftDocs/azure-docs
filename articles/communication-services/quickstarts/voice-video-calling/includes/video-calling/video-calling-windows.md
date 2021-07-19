@@ -19,7 +19,8 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 ### Install the package
 
-Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling`. 
+Right click your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling`. Make sure Include Preleased is checked and your package source is from
+https://www.nuget.org/api/v2/. 
 
 ### Request access
 
@@ -28,7 +29,7 @@ Check `Internet (Client & Server)` to gain inbound and outbound access to the In
 Check `Microphone` to access the audio feed of the microphone. 
 Check `WebCam` to access the camera of the device. 
 
-Add the following code to your `Package.appxmanifest`. 
+Add the following code to your `Package.appxmanifest` by right-clicking and choosing View Code. 
 ```XML
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
@@ -58,25 +59,35 @@ Open the `MainPage.xaml` of your project and replace the content with following 
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <StackPanel>
-        <TextBox Text="Who would you like to call?" TextWrapping="Wrap" x:Name="CalleeTextBox" Margin="10,10,10,10"></TextBox>
-        <Button Content="Start Call" Click="CallButton_ClickAsync" x:Name="CallButton" Margin="10,10,10,10"></Button>
-        <Button Content="Hang Up" Click="HangupButton_Click" x:Name="HangupButton" Margin="10,10,10,10"></Button>
+        <StackPanel>
+            <TextBox Text="Who would you like to call?" TextWrapping="Wrap" x:Name="CalleeTextBox" Margin="10,10,10,10"></TextBox>
+            <Button Content="Start Call" Click="CallButton_ClickAsync" x:Name="CallButton" Margin="10,10,10,10"></Button>
+            <Button Content="Hang Up" Click="HangupButton_Click" x:Name="HangupButton" Margin="10,10,10,10"></Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+            <MediaElement x:Name="RemoteVideo" AutoPlay="True" Stretch="UniformToFill"/>
+            <MediaElement x:Name="LocalVideo" AutoPlay="True"  Stretch="UniformToFill" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
+        </StackPanel>
     </StackPanel>
-    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-        <MediaElement x:Name="RemoteVideo" AutoPlay="True" Stretch="UniformToFill"/>
-        <MediaElement x:Name="LocalVideo" AutoPlay="True"  Stretch="UniformToFill" HorizontalAlignment="Right"  VerticalAlignment="Bottom"/>
-    </StackPanel>   
 </Page>
 ```
 
-Open the `MainPage.xaml.cs` and replace the content with following implementation: 
+Open to `App.xaml.cs` (right click and choose View Code) and add this line to the top:
+```C#
+using CallingQuickstart;
+```
+
+Open the `MainPage.xaml.cs` (right click and choose View Code) and replace the content with following implementation: 
 ```C#
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-using Azure.Communication;
+using Azure.WinRT.Communication;
 using Azure.Communication.Calling;
+using System.Diagnostics;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace CallingQuickstart
 {
@@ -224,7 +235,7 @@ private async void Agent_OnIncomingCall(object sender, IncomingCall incomingcall
     AcceptCallOptions acceptCallOptions = new AcceptCallOptions();
     acceptCallOptions.VideoOptions = new VideoOptions(localVideoStream);
 
-    call = await incomingcall.Accept(acceptCallOptions);
+    call = await incomingcall.AcceptAsync(acceptCallOptions);
 }
 ```
 
@@ -295,7 +306,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
             });
             break;
         default:
-            System.Console.WriteLine(((Call)sender).State);
+            Debug.WriteLine(((Call)sender).State);
             break;
     }
 }
@@ -309,7 +320,7 @@ End the current call when the `Hang Up` button is clicked.
 private async void HangupButton_Click(object sender, RoutedEventArgs e)
 {
     var hangUpOptions = new HangUpOptions();
-    await call.HangUp(hangUpOptions);
+    await call.HangUpAsync(hangUpOptions);
 }
 ```
 
