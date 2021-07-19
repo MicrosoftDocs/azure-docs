@@ -198,6 +198,9 @@
     href: references-defender-for-iot-glossary.md
 - name: Resources
   items:
+  - name: Pre-deployment checklist
+    displayNAme: pre-deployment
+    href: resources-sensor-deployment-checklist.md
   - name: Tech Community Training sessions
     displayName: training, videos 
     href: resources-training-sessions.md
