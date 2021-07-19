@@ -17,7 +17,7 @@ The conformance tests for Arc-enabled Kubernetes, Data Services, and cluster ext
 
 - Cluster extensions: Other distinct Azure offerings such as Azure Monitor, Azure Defender, etc. packaged and deployed on an Arc connected cluster as extensions.
 
-Conceptual information on the Arc platform and cluster extensions can be found [here](kubernetes/conceptual-agent-architecture.md). 
+Conceptual information on the Arc platform and cluster extensions can be found [here](../kubernetes/conceptual-agent-architecture.md). 
 
 The Arc platform and each cluster extension has their own sonobuoy plugins responsible for installing the bits on the cluster, running tests, and cleaning up the resources created to leave the cluster in its original state. These plugins are meant to be black boxes for conformance testing in a bid to reduce as much partner effort as possible.
 
@@ -51,7 +51,7 @@ As an Arc validated partner, you’ll need to set up your respective test enviro
 1. Setu pthe KUBECONFIG environment variable as the path to your kubeconfig file.
 1. Install [sonobuoy](https://github.com/vmware-tanzu/sonobuoy#installation). Run the latest version to ensure that it's correctly installed. We've tested the plugins with sonobuoy version 0.51.0.
 1. Download and install [git](https://git-scm.com/downloads).
-1. Verify your cluster meets the [network requirements](kubernetes/quickstart-connect-cluster?tabs=azure-cli.md#meet-network-requirements) for the Azure Arc agent to communicate with Azure.
+1. Verify your cluster meets the [network requirements](../kubernetes/quickstart-connect-cluster.md?tabs=azure-cli.md#meet-network-requirements) for the Azure Arc agent to communicate with Azure.
 
 ## Running the tests
 
