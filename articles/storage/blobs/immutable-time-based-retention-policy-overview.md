@@ -37,26 +37,30 @@ You cannot delete a locked time-based retention policy. You can extend the reten
 > [!IMPORTANT]
 > A time-based retention policy must be locked for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. Microsoft recommends that you lock the policy in a reasonable amount of time, typically less than 24 hours. While the unlocked state provides immutability protection, using the unlocked state for any purpose other than short-term testing is not recommended.
 
-## Policy scope
+## Time-based retention policy scope
 
 A time-based retention policy can be configured at either of the following scopes:
 
 - Version-level policy (preview): A time-based retention policy can be configured to apply to a blob version for granular management of sensitive data. You can apply the policy to an individual version, or configure a default policy for a container that will apply by default to all blobs uploaded to that container.
-- Container-level policy: A time-based retention policy that is configured at the container level applies to all blobs in that container. Individual blobs cannot be configured with their own immutability policies.
+- Container-level policy: A time-based retention policy that is configured at the container level applies to all objects in that container. Individual objects cannot be configured with their own immutability policies.
 
-Audit logs are available on the container for both version-level and container-level time-based retention policies.
+Audit logs are available on the container for both version-level and container-level time-based retention policies. Audit logs are not available for a policy that is scoped to a blob version.
 
 ### Version-level policy scope (preview)
 
-Version-level time-based retention policies require that blob versioning is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
+To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
 
-When versioning is enabled, then when a blob is first uploaded, that version of the blob is the current version. Each time the blob is overwritten, a new version is created that stores the previous state of the blob. When you delete the current version of a blob, the current version becomes a previous version and is retained until explicitly deleted. A previous blob version possesses the time-based retention policy that was in effect when the current version became a previous version. Alternately, you can configure a retention policy for a specific previous version. Each version may have only one time-based retention policy configured and one legal hold.
+you can enable support for version-level immutability at the time that you create a container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible. To learn more about how to migrate a container to support version-level immutability, see [Configure time-based retention policies for blob data](immutable-time-based-retention-policy-configure.md).
+
+Version-level time-based retention policies require that [blob versioning](versioning-overview.md) is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
+
+After versioning is enabled, when a blob is first uploaded, that version of the blob is the current version. Each time the blob is overwritten, a new version is created that stores the previous state of the blob. When you delete the current version of a blob, the current version becomes a previous version and is retained until explicitly deleted. A previous blob version possesses the time-based retention policy that was in effect when the current version became a previous version.
 
 If a default policy is in effect for the container, then when an overwrite operation creates a previous version, the new current version inherits the default policy for the container.
 
-To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled, although locked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
+Each version may have only one time-based retention policy configured. A version may also have one legal hold configured. For more details about supported immutability policy configurations based on scope, see [Immutability policy scope](immutable-storage-overview.md#immutability-policy-scope).
 
-Existing containers must be migrated to support version-level immutability. This process may take some time and is not reversible. To learn more about how to migrate a container to support version-level immutability, see [Configure time-based retention policies for blob data](immutable-time-based-retention-policy-configure.md).
+To learn how to configure version-level time-based retention policies, see .
 
 > [!IMPORTANT]
 > Version-level time-based retention policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -64,7 +68,7 @@ Existing containers must be migrated to support version-level immutability. This
 
 #### Configure a policy on the current version
 
-After you enable the feature for a container, you have the option to configure a default time-based retention policy for the container. When you configure a default time-based retention policy for the container and upload a blob, the blob inherits that policy by default. You can also choose to override the default policy for any blob on upload by configuring a custom policy for that blob.
+After you enable support for version-level immutability for a container, you have the option to configure a default time-based retention policy for the container. When you configure a default time-based retention policy for the container and then upload a blob, the blob inherits that policy by default. You can also choose to override the default policy for any blob on upload by configuring a custom policy for that blob.
 
 If the default time-based retention policy for the container is unlocked, then the current version of a blob that inherits the default policy will also have an unlocked policy. After an individual blob is uploaded, you can shorten or extend the retention period for the policy on the current version of the blob, or delete the current version. You can also lock the policy for the current version, even if the default policy on the container remains unlocked.
 
@@ -72,7 +76,7 @@ If the default time-based retention policy for the container is locked, then the
 
 If there is no default policy configured for a container, then you can upload a blob either with a custom policy or with no policy.
 
-If the default policy on a container is modified, then the policies on objects within that container remain unchanged, even if those policies were inherited from the default policy.
+If the default policy on a container is modified, policies on objects within that container remain unchanged, even if those policies were inherited from the default policy.
 
 The following table shows the various options available for setting a time-based retention policy on a blob on upload:
 
@@ -84,7 +88,7 @@ The following table shows the various options available for setting a time-based
 
 #### Configure a policy on a previous version
 
-When versioning is enabled, a write or delete operation to a blob creates a new previous version of that blob that saves the blob's state before the write. By default, a previous version possesses the time-based retention policy that was in effect for the current version, if any, when the current version became a previous version. The new current version inherits the policy on the container, if there is one.
+When versioning is enabled, a write or delete operation to a blob creates a new previous version of that blob that saves the blob's state before the operation. By default, a previous version possesses the time-based retention policy that was in effect for the current version, if any, when the current version became a previous version. The new current version inherits the policy on the container, if there is one.
 
 If the policy inherited by a previous version is unlocked, then the retention interval can be shortened or lengthened, or the policy can be deleted. The policy on a previous version can also be locked for that version, even if the policy on the current version is unlocked.
 
@@ -98,7 +102,7 @@ If the policy on a current version is modified, the policies on existing previou
 
 A container-level time-based retention policy applies to all objects in a container, both new and existing. For an account with a hierarchical namespace, a container-level policy also applies to all directories in the container.
 
-When a time-based retention policy or legal hold is applied on a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that policy-protected container will also move into an immutable state. Once all blobs are in an immutable state, overwrite or delete operations in the immutable container are not allowed. In the case of an account with a hierarchical namespace, blobs cannot be renamed or moved to a different directory.
+When a time-based retention policy is applied to a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that policy-protected container will also move into an immutable state. Once all blobs are in an immutable state, overwrite or delete operations in the immutable container are not allowed. In the case of an account with a hierarchical namespace, blobs cannot be renamed or moved to a different directory.
 
 The following limits apply to container-level retention policies:
 
@@ -125,14 +129,6 @@ Each container with a time-based retention policy enabled provides a policy audi
 The [Azure Activity log](../../azure-monitor/essentials/platform-logs-overview.md) provides a more comprehensive log of all management service activities. [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md) retain information about data operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
 
 Changes to time-based retention policies at the version level are not audited.
-
-## Feature support
-
-Version-level time-based retention policies are supported for general-purpose v2 storage accounts and premium storage accounts for block blobs in all regions.
-
-All access tiers and redundancy configurations are supported. However, if the storage account is geo-replicated to a secondary region, then customer-initiated failover is not supported.
-
-Storage accounts with a hierarchical namespace are not supported.
 
 ## Next steps
 

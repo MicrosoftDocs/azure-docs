@@ -29143,7 +29143,7 @@
     },
     {
       "source_path_from_root": "/articles/storage/blobs/storage-blob-immutability-policies-manage.md",
-      "redirect_url": "/azure/storage/blobs/immutable-time-based-retention-policy-configure",
+      "redirect_url": "/azure/storage/blobs/immutable-policy-configure-version-scope",
       "redirect_document_id": false
     },    
     {

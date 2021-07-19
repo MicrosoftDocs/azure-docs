@@ -1,5 +1,5 @@
 ---
-title: Configure immutability policies for a container
+title: Configure immutability policies for containers
 titleSuffix: Azure Storage
 description: Learn how to configure an immutability policy that is scoped to a container. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state for a specified interval. 
 services: storage
@@ -13,7 +13,7 @@ ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 
-# Configure immutability policies for a container
+# Configure immutability policies for containers
 
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
 
@@ -27,33 +27,33 @@ This article shows how to set and manage immutability policies and legal holds f
 
 2. Select **Access policy** in the container settings. Then select **Add policy** under **Immutable blob storage**.
 
-    ![Container settings in the portal](media/storage-blob-immutability-policies-manage/portal-image-1.png)
+    ![Container settings in the portal](media/immutable-policy-configure-container-scope/portal-image-1.png)
 
 3. To enable time-based retention, select **Time-based retention** from the drop-down menu.
 
-    !["Time-based retention" selected under "Policy type"](media/storage-blob-immutability-policies-manage/portal-image-2.png)
+    !["Time-based retention" selected under "Policy type"](media/immutable-policy-configure-container-scope/portal-image-2.png)
 
 4. Enter the retention interval in days (acceptable values are 1 to 146000 days).
 
-    !["Update retention period to" box](media/storage-blob-immutability-policies-manage/portal-image-5-retention-interval.png)
+    !["Update retention period to" box](media/immutable-policy-configure-container-scope/portal-image-5-retention-interval.png)
 
     The initial state of the policy is unlocked allowing you to test the feature and make changes to the policy before you lock it. Locking the policy is essential for compliance with regulations like SEC 17a-4.
 
 5. Lock the policy. Right-click the ellipsis (**...**), and the following menu appears with additional actions:
 
-    !["Lock policy" on the menu](media/storage-blob-immutability-policies-manage/portal-image-4-lock-policy.png)
+    !["Lock policy" on the menu](media/immutable-policy-configure-container-scope/portal-image-4-lock-policy.png)
 
 6. Select **Lock Policy** and confirm the lock. The policy is now locked and cannot be deleted, only extensions of the retention interval will be allowed. Blob deletes and overrides are not permitted. 
 
-    ![Confirm "Lock policy" on the menu](media/storage-blob-immutability-policies-manage/portal-image-5-lock-policy.png)
+    ![Confirm "Lock policy" on the menu](media/immutable-policy-configure-container-scope/portal-image-5-lock-policy.png)
 
 7. To enable legal holds, select **Add Policy**. Select **Legal hold** from the drop-down menu.
 
-    !["Legal hold" on the menu under "Policy type"](media/storage-blob-immutability-policies-manage/portal-image-legal-hold-selection-7.png)
+    !["Legal hold" on the menu under "Policy type"](media/immutable-policy-configure-container-scope/portal-image-legal-hold-selection-7.png)
 
 8. Create a legal hold with one or more tags.
 
-    !["Tag name" box under the policy type](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
+    !["Tag name" box under the policy type](media/immutable-policy-configure-container-scope/portal-image-set-legal-hold-tags.png)
 
 9. To clear a legal hold, remove the applied legal hold identifier tag.
 
@@ -169,7 +169,7 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ### [Portal](#tab/azure-portal)
 
-![Allow additional append writes](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
+![Allow additional append writes](media/immutable-policy-configure-container-scope/immutable-allow-additional-append-writes.png)
 
 ### [Azure CLI](#tab/azure-cli)
 

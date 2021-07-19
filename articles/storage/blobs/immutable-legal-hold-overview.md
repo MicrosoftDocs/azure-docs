@@ -14,11 +14,11 @@ ms.subservice: blobs
 
 # Legal holds for immutable blob data
 
-A legal hold is a temporary immutability policy that can be applied for legal investigation purposes or general protection policies. A legal hold stores blob data in a Write-Once, Read-Many (WORM) format until it is explicitly cleared. When a legal hold is in effect, blobs can be created and read, but not modified or deleted.
+A legal hold is a temporary immutability policy that can be applied for legal investigation purposes or general protection policies. A legal hold stores blob data in a Write-Once, Read-Many (WORM) format until it is explicitly cleared. When a legal hold is in effect, blobs can be created and read, but not modified or deleted. Use a legal hold when the period of time that the data must be kept in a WORM state is unknown.
 
 For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
-## Policy scope
+## Legal hold scope
 
 A legal hold policy can be configured at either of the following scopes:
 
@@ -36,6 +36,8 @@ Version-level legal hold policies require that blob versioning is enabled for th
 ### Container-level scope
 
 When you configure a legal hold for a container, that hold applies to all objects in the container. When the legal hold is cleared, clients can once again write and delete objects in the container, unless there is also a time-based retention policy in effect for the container.
+
+When a legal hold is applied to a container, all existing blobs move into an immutable WORM state in less than 30 seconds. All new blobs that are uploaded to that policy-protected container will also move into an immutable state. Once all blobs are in an immutable state, overwrite or delete operations in the immutable container are not allowed. In the case of an account with a hierarchical namespace, blobs cannot be renamed or moved to a different directory.
 
 #### Legal hold tags
 

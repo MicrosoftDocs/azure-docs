@@ -192,7 +192,7 @@ items:
           href: immutable-storage-overview.md
         - name: Time-based retention policies
           href: immutable-time-based-retention-policy-overview.md
-        - name: Legal hold policies
+        - name: Legal holds
           href: immutable-legal-hold-overview.md  
     - name: Redundancy and disaster recovery
       items:    
@@ -448,14 +448,10 @@ items:
         href: storage-blob-change-feed-how-to.md        
       - name: Configure an immutability policy
         items:
-        - name: Configure a policy scoped to a version
-          items: 
-          - name: Configure version-level time-based retention policies
-            href: immutable-time-based-retention-policy-configure.md
-          - name: Configure version-level legal holds
-            href: immutable-legal-hold-configure-version-scope.md
-        - name: Configure a policy scoped to a container
-          href: immutable-policy-configure-container-scope.md          
+        - name: Configure version-level immutability policies
+          href: immutable-policy-configure-version-scope.md
+        - name: Configure container-level immutability policies
+          href: immutable-policy-configure-container-scope.md
     - name: Manage redundancy and failover
       items:
       - name: Change redundancy configuration
