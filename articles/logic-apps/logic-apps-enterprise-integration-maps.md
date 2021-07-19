@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 07/13/2021
 ---
 
 # Transform XML with maps in Azure Logic Apps with Enterprise Integration Pack
@@ -33,6 +33,8 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 where you store your maps and other artifacts for enterprise 
 integration and business-to-business (B2B) solutions.
+
+* If your map references an external assembly, you need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32- and 64-bit versions. If you have the option, use the 64-bit version instead.
 
 * If your map references an external assembly, you have to upload 
 *both the assembly and the map* to your integration account. 
