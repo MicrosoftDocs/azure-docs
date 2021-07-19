@@ -23,7 +23,7 @@ This how-to guide outlines the steps to create an [Azure SQL logical server](log
 
 - Version 2.26.1 or later is needed when using The Azure CLI. For more information on the installation and the latest version, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 - [Az 6.1.0](https://www.powershellgallery.com/packages/Az/6.1.0) module or higher is needed when using PowerShell.
-- If you're provisioning a managed instance using The Azure CLI, PowerShell, or Rest API, a virtual network and subnet needs to be created before you begin. For more information, see [Create a virtual network for Azure SQL Managed Instance](../managed-instance/virtual-network-subnet-create-arm-template.md).
+- If you're provisioning a managed instance using the Azure CLI, PowerShell, or Rest API, a virtual network and subnet needs to be created before you begin. For more information, see [Create a virtual network for Azure SQL Managed Instance](../managed-instance/virtual-network-subnet-create-arm-template.md).
 
 ## Permissions
 
@@ -46,7 +46,7 @@ To change the existing properties after server or managed instance creation, oth
 
 # [The Azure CLI](#tab/azure-cli)
 
-The Azure CLI command `az sql server create` is used to provision a new Azure SQL logical server. The below command will provision a new logical server with Azure AD-only authentication enabled.
+The Azure CLI command `az sql server create` is used to provision a new Azure SQL logical server. The below command will provision a new server with Azure AD-only authentication enabled.
 
 The server SQL Administrator login will be automatically created and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this server creation, the SQL Administrator login won't be used.
 
@@ -54,6 +54,7 @@ The server Azure AD admin will be the account you set for `<AzureADAccount>`, an
 
 Replace the following values in the example:
 
+- `<AzureADAccount>`: Can be an Azure AD user or group. For example, `DummyLogin`
 - `<AzureADAccountSID>`: The Azure AD Object ID for the user
 - `<ResourceGroupName>`: Name of the resource group for your Azure SQL logical server
 - `<ServerName>`: Use a unique Azure SQL logical server name
@@ -72,7 +73,7 @@ az sql server show --name <ServerName> --resource-group <ResourceGroupName> --ex
 
 # [PowerShell](#tab/azure-powershell)
 
-The PowerShell command `New-AzSqlServer` is used to provision a new Azure SQL logical server. The below command will provision a new logical server with Azure AD-only authentication enabled. 
+The PowerShell command `New-AzSqlServer` is used to provision a new Azure SQL logical server. The below command will provision a new server with Azure AD-only authentication enabled. 
 
 The server SQL Administrator login will be automatically created and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this server creation, the SQL Administrator login won't be used.
 
@@ -95,7 +96,7 @@ For more information, see [New-AzSqlServer](/powershell/module/az.sql/new-azsqls
 
 The [Servers - Create Or Update](/rest/api/sql/2020-11-01-preview/servers/create-or-update) Rest API can be used to create an Azure SQL logical server with Azure AD-only authentication enabled during provisioning. 
 
-The script below will provision an Azure SQL logical server, set the Azure AD admin as `<AzureADAccount>`, and enable Azure AD-only authentication. The server SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
+The script below will provision a Azure SQL logical server, set the Azure AD admin as `<AzureADAccount>`, and enable Azure AD-only authentication. The server SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
 
 The Azure AD admin, `<AzureADAccount>` can be used to manage the server when the provisioning is complete.
 
