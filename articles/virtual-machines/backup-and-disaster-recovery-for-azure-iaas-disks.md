@@ -9,7 +9,7 @@
   ms.subservice: disks
 ---
 
-# Backup and disaster recovery for Azure IaaS disks
+# Backup and disaster recovery for Azure managed disks
 
 This article explains how to plan for backup and disaster recovery for Azure managed disks.
 
