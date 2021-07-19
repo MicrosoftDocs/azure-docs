@@ -76,7 +76,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-##### Generate system-assigned  managed identity using REST API
+##### Generate system-assigned managed identity using REST API
 
 Call below API with "identity" section in the request body:
 
@@ -140,7 +140,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-##### Generate system-assigned  managed identity using SDK
+##### Generate system-assigned managed identity using SDK
 
 Call the data factory create_or_update function with Identity=new FactoryIdentity(). Sample code using .NET:
 
@@ -158,7 +158,7 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 You can retrieve the managed identity from Azure portal or programmatically. The following sections show some samples.
 
 >[!TIP]
-> If you don't see the managed identity, [generate managed identity](#generate-system-assigned-managed-identity) by updating your factory.
+> If you don't see the managed identity, [generate managed identity](#generate-managed-identity) by updating your factory.
 
 #### Retrieve system-assigned managed identity using Azure portal
 
