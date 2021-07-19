@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/11/2021
+ms.date: 07/19/2021
 ---
 
 # What's new in Azure Sentinel
@@ -30,19 +30,19 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
-- [Enrich Entities with Geolocation data via API](#enrich-entities-with-geolocation-data-via-api)
+- [Enrich Entities with geolocation data via API](#enrich-entities-with-geolocation-data-via-api)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
 
-### Enrich Entities with Geolocation data via API
+### Enrich Entities with geolocation data via API
 
-Azure Sentinel now supports ingesting Geolocation enrichment data from the **Microsoft Threat Intelligence** service via API.
+Azure Sentinel now supports ingesting geolocation enrichment data from the **Microsoft Threat Intelligence** service via API.
 
-The Microsoft Threat Intelligence service combines Geolocation data from Microsoft service to service solutions and third-party partners and vendors.
+The Microsoft Threat Intelligence service combines geolocation data from Microsoft service to service solutions and third-party partners and vendors.
 
-Geolocation data can then be used to analyze and investigate security incidents.
+Geolocation data can then be used to analyze and investigate security incidents. For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md).
 
 
 ### Support for ADX cross-resource queries (Public preview)

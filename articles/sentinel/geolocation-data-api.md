@@ -1,6 +1,6 @@
 ---
-title: Enrich entities in Azure Sentinel with Geolocation data via REST API | Microsoft Docs
-description: This article describes how you can enrich entities in Azure Sentinel with Geolocaiton data using the Microsoft Threat Intelligence REST API.
+title: Enrich entities with geolocation data in Azure Sentinel using REST API  | Microsoft Docs
+description: This article describes how you can enrich entities in Azure Sentinel with geolocation data using the Microsoft Threat Intelligence REST API.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -14,95 +14,116 @@ ms.topic: reference
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2021
+ms.date: 07/19/2021
 ms.author: bagol
 ---
 
-# Enrich entities in Azure Sentinel with Geolocation data via REST API
+# Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)
 
-This article shows you how to enrich entities in Azure Sentinel with Geolocation data using the REST API.
+Azure Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API. This article shows you how to enrich entities in Azure Sentinel with geolocation data using the REST API.
 
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## Common URI parameters
 
-## API examples
+The following are the common URI parameters for the geolocation API:
 
-In the following examples, replace these placeholders with the replacement prescribed in the following table:
 
-| Placeholder | Replace with |
+
+
+| Name | In | Required | Type | Description |
+|-|-|-|-|-|
+| **{subscriptionId}** | path | yes | GUID | The Azure subscription ID |
+| **{resourceGroupName}** | path | yes | string | The name of the resource group within the subscription |
+| **{api-version}** | query | yes | string | The version of the protocol used to make this request. As of April 30 2021, the geolocation API version is *2019-01-01-preview*.|
+| **{ipAddress}** | query | yes | string | The IP Address for which geolocation information is needed, in an IPv4 or IPv6 format.   |
+|
+
+## Enrich IP Address with geolocation information
+
+This command retrieves geolocation data for a given IP Address.
+
+### Request URI
+(URI is a single line, broken up for easy readability)
+
+| Method | Request URI |
 |-|-|
-| **{subscriptionId}** | the name of the subscription to which you are applying the hunting or livestream query. |
-| **{resourceGroupName}** | the name of the resource group to which you are applying the hunting or livestream query. |
-| **{savedSearchId}** | a unique id (GUID) for each hunting query. |
-| **{WorkspaceName}** | the name of the Log Analytics workspace that is the target of the query. |
-| **{DisplayName}** | a display name of your choice for the query. |
-| **{Description}** | a description of the hunting or livestream query. |
-| **{Tactics}** | the relevant MITRE ATT&CK tactics that apply to the query. |
-| **{Query}** | the query expression for your query. |
-|  
+| **GET** | `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.SecurityInsights/enrichment/ip/geodata/?ipaddress={ipAddress}&api-version={api-version}` |
+|
 
-### Example 1
+### Responses
 
-This example shows you how to create or update a hunting query for a given Azure Sentinel workspace.  For a livestream query, replace *“Category”: “Hunting Queries”* with *“Category”: “Livestream Queries”* in the **request body**: 
+|Status code  |Description  |
+|---------|---------|
+|**200**     |   Success      |
+|**400**     |      IP address not provided or is in invalid format    |
+|**404**     | Geolocation data not found for this IP address         |
+|**429**     |      Too many requests, try again in the specified timeframe    |
+|     |         |
 
-#### Request header
+### Fields returned in the response
 
-```http
-PUT https://management.azure.com/subscriptions/{subscriptionId} _
-    /resourcegroups/{resourceGroupName} _
-    /providers/Microsoft.OperationalInsights/workspaces/{workspaceName} _
-    /savedSearches/{savedSearchId}?api-version=2020-03-01-preview
-```
+|Field name  |Description  |
+|---------|---------|
+|**ASN**     |  The autonomous system number associated with this IP address       |
+|**carrier**     |  The name of the carrier for this IP address       |
+|**city**     |   The city where this IP address is located      |
+|**cityCf**     | A numeric rating of confidence that the value in the 'city' field is correct, on a scale of 0-100        |
+|**continent**     | The continent where this IP address is located        |
+|**country**     |The county where this IP address is located        |
+|**countryCf**     |   A numeric rating of confidence that the value in the 'country' field is correct on a scale of 0-100      |
+|**ipAddr**     |   The dotted-decimal or colon-separated string representation of the IP address      |
+|**ipRoutingType**     |   A description of the connection type for this IP address      |
+|**latitude**     |     The latitude of this IP address    |
+|**longitude**     |  The longitude of this IP address       |
+|**organization**     |  The name of the organization for this IP address       |
+|**organizationType**     | The type of the organization for this IP address        |
+|**region**     |    The geographic region where this IP address is located     |
+|**state**     |  The state where this IP address is located       |
+|**stateCf**     | A numeric rating of confidence that the value in the 'state' field is correct on a scale of 0-100        |
+|**stateCode**     |   The abbreviated name for the state where this IP address is located      |
+|     |         |
 
-#### Request body
 
-```json
+## Throttling limits for the API
+
+This API has a limit of 100 calls, per user, per hour.
+
+### Sample response
+
+```rest
+"body":
 {
-"properties": {
-    “Category”: “Hunting Queries”,
-    "DisplayName": "HuntingRule02",
-    "Query": "SecurityEvent | where EventID == \"4688\" | where CommandLine contains \"-noni -ep bypass $\"",
-    “Tags”: [
-        { 
-        “Name”: “Description”,
-        “Value”: “Test Hunting Query”
-        },
-        { 
-        “Name”: “Tactics”,
-        “Value”: “Execution, Discovery”
-        }
-        ]        
-    }
+    "asn": "12345",
+    "carrier": "Microsoft",
+    "city": "Redmond",
+    "cityCf": 90,
+    "continent": "north america",
+    "country": "united states",
+    "countryCf": 99
+    "ipAddr": "1.2.3.4",
+    "ipRoutingType": "fixed",
+    "latitude": "40.2436",
+    "longitude": "-100.8891",
+    "organization": "Microsoft",
+    "organizationType": "tech",
+    "region": "western usa",
+    "state": "washington",
+    "stateCf": null
+    "stateCode": "wa"
 }
-```
-
-### Example 2
-
-This example shows you how to delete a hunting or livestream query for a given Azure Sentinel workspace:
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId} _
-       /resourcegroups/{resourceGroupName} _
-       /providers/Microsoft.OperationalInsights/workspaces/{workspaceName} _
-       /savedSearches/{savedSearchId}?api-version=2020-03-01-preview
-```
-
-### Example 3
-
-This example shows you to retrieve a hunting or livestream query for a given workspace:
-
-```http
-GET https://management.azure.com/subscriptions/{subscriptionId} _
-    /resourcegroups/{resourceGroupName} _
-    /providers/Microsoft.OperationalInsights/workspaces/{workspaceName} _
-    /savedSearches/{savedSearchId}?api-version=2020-03-01-preview
 ```
 
 ## Next steps
 
-In this article, you learned how to manage hunting and livestream queries in Azure Sentinel using the Log Analytics API. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to manage watchlists and their items in Azure Sentinel using the Log Analytics API. To learn more about Azure Sentinel, see the following articles:
 
-- [Proactively hunt for threats](hunting.md)
-- [Use notebooks to run automated hunting campaigns](notebooks.md)
+- Learn more about entities:
+
+    - [Azure Sentinel entity types reference](entities-reference.md)
+    - [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md)
+    - [Map data fields to entities in Azure Sentinel](map-data-fields-to-entities.md)
+
+- Explore other uses of the [Azure Sentinel API](/rest/api/securityinsights/)
