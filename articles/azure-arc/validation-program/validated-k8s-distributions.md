@@ -1,5 +1,5 @@
 ---
-title: Azure Arc validation test process
+title: Validated Azure Arc-enabled Kubernetes distributions
 description: Learn about details required for the Azure Arc validation process to conform to the Arc-enabled Kubernetes, Data Services, and cluster extensions.
 ms.date: 07/19/2021
 ms.topic: overview
