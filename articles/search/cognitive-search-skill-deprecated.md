@@ -228,7 +228,7 @@ If you need to generate the exact same property names, you will need to add a [s
     }
 ```
 
-## MMicrosoft.Skills.Text.SentimentSkill
+## Microsoft.Skills.Text.SentimentSkill
 
 ### Last available api version
 
@@ -380,6 +380,7 @@ To migrate to the [SentimentSkill V3](cognitive-search-skill-sentiment-v3.md), y
   ]
 }
 ```
+
 > [!NOTE]
 > If you need any additional help updating your enrichment pipeline to use the latest version of the sentiment skill, please open a new support request where we can work with you directly.   
 
