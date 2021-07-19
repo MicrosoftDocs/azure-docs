@@ -164,7 +164,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 > When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [Learn about Azure Image Builder](../image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -709,3 +709,4 @@ az resource invoke-action \
 ## Next steps
 
 There are sample .json files for different scenarios in the [Azure Image Builder GitHub](https://github.com/azure/azvmimagebuilder).
+
