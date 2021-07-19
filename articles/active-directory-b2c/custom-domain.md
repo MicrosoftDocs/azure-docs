@@ -122,7 +122,7 @@ A backend refers to your [Azure AD B2C tenant name](tenant-management.md#get-you
     
     **Leave all other fields default.*
     
-    The following screenshot demonstrates how to create a custom host backend the is associated with an Azure AD B2C tenant:
+    The following screenshot demonstrates how to create a custom host backend that is associated with an Azure AD B2C tenant:
     
     ![Add a custom host backend screenshot.](./media/custom-domain/add-a-backend.png)
 
@@ -374,7 +374,12 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 ### Can I use a third-party web application firewall (WAF) with B2C?
 
-To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows.
+To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows. We currently support [Akamai](https://www.akamai.com/) and [Cloudflare](https://www.cloudflare.com/) configuration. For other web application firewalls, contact [Microsoft support](https://support.microsoft.com/).
+
+When you configure third-party web application firewall, such as Akamai, or Cloudflare:
+
+- The connection from the browser to Azure Front Door should always use IPv4 instead of IPv6.
+- The request to the Azure AD B2C endpoint must include the [X-Forwarded-Host](../frontdoor/front-door-http-headers-protocol.md) HTTP header. This HTTP header should contain the original custom domain name. For example, login.contoso.com 
 
 ## Next steps
 
