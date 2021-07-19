@@ -100,8 +100,8 @@ on ContainerID
 | order by TimeGenerated desc
 ```
 
-### Pod scale out (HPA)
-Returns the number of scaled out replicas in each deployment. Calculates the scale out percentage with the maximum number of replicas configured in HPA.
+### Pod scale-out (HPA)
+Returns the number of scaled out replicas in each deployment. Calculates the scale-out percentage with the maximum number of replicas configured in HPA.
 
 
 ```kusto
@@ -128,8 +128,8 @@ KubePodInventory
     on deployment_hpa
 ```
 
-### Nodepool scale outs 
-Returns the number of active nodes in each node pools. Calculates the number of available active node and the max node configuration in the auto-scaler settings to determine the scale out percentage. See commented lines in query to use it for a **number of results** alert rule.
+### Nodepool scale-outs 
+Returns the number of active nodes in each node pool. Calculates the number of available active nodes and the max node configuration in the auto-scaler settings to determine the scale-out percentage. See commented lines in query to use it for a **number of results** alert rule.
 
 ```kusto
 let nodepoolMaxnodeCount = 10; // the maximum number of nodes in your auto scale setting goes here.
@@ -246,7 +246,7 @@ AzureDiagnostics
 | where Category == "kube-apiserver"
 ```
 
-### Count logs for each cateogry
+### Count logs for each category
 
 ```kusto
 AzureDiagnostics
