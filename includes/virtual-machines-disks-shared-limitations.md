@@ -37,7 +37,7 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 #### Regional availability
 
-For P1-P15 sizes, they are currently only available in Central US and East US. All other sizes are available in all regions that managed disks are available. 
+For shared disks on P1-P15 sizes, they are currently only available in Central US and East US. Shared disks on all other other premium SSD sizes are available in all regions that managed disks are available. 
 
 
 ### Standard SSDs

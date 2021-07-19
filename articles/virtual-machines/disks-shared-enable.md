@@ -98,7 +98,7 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 
 # [Portal](#tab/azure-portal)
 
-You cannot currently deploy a standard SSD via the Azure portal. Use either the Azure CLI or the Azure PowerShell module.
+You cannot currently deploy a shared standard SSD via the Azure portal. Use either the Azure CLI, the Azure PowerShell module, or an Azure Resource Manager template.
 
 # [Azure CLI](#tab/azure-cli)
 
