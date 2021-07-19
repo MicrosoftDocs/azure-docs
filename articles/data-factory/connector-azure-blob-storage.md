@@ -267,7 +267,7 @@ These properties are supported for an Azure Blob storage linked service:
 
 ### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-A data factory can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this system-assigned managed identity for Blob storage authentication, which is similar to using your own service principal. It allows this designated factory to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview)
+A data factory can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md), which represents this specific data factory. You can directly use this system-assigned managed identity for Blob storage authentication, which is similar to using your own service principal. It allows this designated factory to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview.md)
 
 For general information about Azure Storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md). To use managed identities for Azure resource authentication, follow these steps:
 
@@ -309,8 +309,8 @@ These properties are supported for an Azure Blob storage linked service:
 }
 ```
 
-### User-assigned managed identities authentication
-A data factory can be assigned with one or multiple [user-assigned managed identities]((data-factory-service-identity.md)). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview)
+### User-assigned managed identity authentication
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Blob storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview.md)
 
 For general information about Azure storage authentication, see [Authenticate access to Azure Storage using Azure Active Directory](../storage/common/storage-auth-aad.md). To use user-assigned managed identity authentication, follow these steps:
 

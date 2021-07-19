@@ -144,12 +144,12 @@ The following properties are supported for the Azure Data Explorer linked servic
 }
 ```
 
-### User-assigned managed identities authentication
-To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview)
+### User-assigned managed identity authentication
+To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview.md)
 
 To use user-assigned managed identity authentication, follow these steps:
 
-1. [Create one or multiple user-assigned managed identities](data-factory-service-identity.md#PLACEHOLDER) and grant permission in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions) for detailed information about roles and permissions and about managing permissions. In general, you must:
+1. [Create one or multiple user-assigned managed identities](data-factory-service-identity.md) and grant permission in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](../azure/data-explorer/manage-database-permissions.md) for detailed information about roles and permissions and about managing permissions. In general, you must:
 
     - **As source**, grant at least the **Database viewer** role to your database
     - **As sink**, grant at least the **Database ingestor** role to your database
