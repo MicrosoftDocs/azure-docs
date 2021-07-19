@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/15/2021
+ms.date: 07/19/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -64,6 +64,9 @@ Follow the guidance for how to [add and validate your custom domain in Azure AD]
 
 Verify each subdomain you plan to use. Verifying just the top-level domain isn't sufficient. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not just the top-level domain *contoso.com*.  
 
+> [!TIP]
+> You can manage your domain with any DNS service. You can also use App Service domains. App Service domains make it easy to manage custom domains for Azure AD B2C. To use App Service domains, [buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain). [Add your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). Then, validate the domain name by [managing custom DNS records](/azure/app-service/manage-custom-dns-buy-domain#manage-custom-dns-records).
+    
 ## Create a new Azure Front Door instance
 
 Follow the steps for [creating a Front Door for your application](../frontdoor/quickstart-create-front-door.md#create-a-front-door-for-your-application) using the default settings for the frontend host and routing rules. 
