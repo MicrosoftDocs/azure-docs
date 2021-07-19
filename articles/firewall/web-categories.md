@@ -25,7 +25,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |Criminal activity|Sites that promote or advise on how to commit illegal or criminal activity, or to avoid detection for such activity. Criminal activity includes murder, building bombs, illegal manipulation of electronic devices, hacking, fraud, and illegal distribution of software.|
 |Dating + personals    |Sites that promote networking for relationships such as dating and marriage, such as matchmaking, online dating, and spousal introduction.|
 |Gambling    |Sites that offer or related to online gambling, lottery, betting agencies involving chance, and casinos.|
-|Hacking    |Sites that promote or advise on how to get unauthorized access to proprietary computer systems, for the purpose of stealing information, perpetrating fraud, creating viruses, or committing other illegal activity related to theft or digital inform.|
+|Hacking    |Sites that promote or advise on how to get unauthorized access to proprietary computer systems, for stealing information, perpetrating fraud, creating viruses, or committing other illegal activity related to theft or digital inform.|
 |Hate + intolerance|Sites that promote a supremacist political agenda, encouraging oppression of people or groups of people based on their race, religion, gender, age, disability, sexual orientation, or nationality.|
 |Illegal drug    |Sites with information on the purchase, manufacture, and use of illegal or recreational drugs, and misuse of prescription drugs and other compounds.|
 |Illegal software    |Sites that illegally distribute software or copyrighted materials such as movies, music, software cracks, illicit serial numbers, illegal license key generators.|
@@ -37,7 +37,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |Self-harm      |Sites that promote actions that are relating to harming oneself, such as suicide, anorexia, bulimia, etc.          |
 |Sex education     |  Sites relating to sex education, including subjects such as respect for partner, abortion, contraceptives, sexually transmitted diseases, and pregnancy.       |
 |Tasteless     |Sites with offensive or tasteless content, including profanity.          |
-|Violence   | Sites that contain images or text depicting or advocating physical assault against humans, animals, or institutions. Sites of a particularly gruesome nature.         |
+|Violence   | Sites that contain images or text depicting or advocating physical assault against humans, animals, or institutions. Sites of gruesome nature.         |
 |Weapons      |Sites that depict, sell, review, or describe guns and weapons, including for sport.         |
 
 
@@ -68,7 +68,7 @@ Web categories lets administrators allow or deny user access to web site categor
 |News  |    Sites covering news and current events such as newspapers, newswire services, personalized news services, broadcasting sites, and magazines.      |
 |Non-profits + NGOs     |   Sites devoted to clubs, communities, unions, and non-profit organizations. Many of these groups exist for educational or charitable purposes.       |
 |Personal sites     |    Sites about or hosted by personal individuals, including those hosted on commercial sites such as Blogger, AOL, etc.      |
-|Private IP addresses      |  Sites that are private IP addresses as defined in RFC 1918, that is, hosts that do not require access to hosts in other enterprises (or require just limited access) and whose IP address may be ambiguous between enterprises but are well defined within a certain enterprise.        |
+|Private IP addresses      |  Sites that are private IP addresses as defined in RFC 1918, that is, hosts that do not require access to hosts in other enterprises (or require limited access) and whose IP address may be ambiguous between enterprises but are well-defined within a certain enterprise.        |
 |Professional networking   | Sites that enable professional networking for online communities.   |
 |Search engines + portals   |Sites enabling the searching of the Web, newsgroups, images, directories, and other online content. Includes portal and directory sites such as white/yellow pages.    |
 |Translators     |   Sites that translate Web pages or phrases from one language to another. These sites bypass the proxy server, presenting the risk that unauthorized content may be accessed, similar to using an anonymizer.       |
@@ -99,12 +99,12 @@ Web categories lets administrators allow or deny user access to web site categor
 |General    | Sites that do not clearly fall into other categories, for example, blank web pages.   |
 |Greeting cards    |Sites that allow people to send and receive greeting cards and postcards.    |
 |Leisure + recreation     | Sites relating to recreational activities and hobbies including zoos, public recreation centers, pools, amusement parks, and hobbies such as gardening, literature, arts & crafts, home improvement, home décor, family, etc. |
-|Nature + conservation     | Sites with information related to environmental issues, sustainable living, ecology, nature and the environment.        |
-|Politics     | Sites that promote political parties or political advocacy, or provide information about political parties, interest groups, elections, legislation or lobbying. Also includes sites that offer legal information and advice.       |
+|Nature + conservation     | Sites with information related to environmental issues, sustainable living, ecology, nature, and the environment.        |
+|Politics     | Sites that promote political parties or political advocacy, or provide information about political parties, interest groups, elections, legislation, or lobbying. Also includes sites that offer legal information and advice.       |
 |Real estate  |Sites relating to commercial or residential real estate services, including renting, purchasing, selling or financing homes, offices, etc.    |
-|Religion    | Sites that deal with faith, human spirituality or religious beliefs, including sites of churches, synagogues, mosques and other houses of worship.         |
+|Religion    | Sites that deal with faith, human spirituality or religious beliefs, including sites of churches, synagogues, mosques, and other houses of worship.         |
 |Restaurants + dining  |Sites that list, review, promote or advertise food, dining or catering services. Includes sites for recipes sites, cooking instruction and tips, food products, and wine advisors.          |
-|Sports   | Sites relating to sports teams, fan clubs, scores and sports news. Relates to all sports, whether professional or recreational.        |
+|Sports   | Sites relating to sports teams, fan clubs, scores, and sports news. Relates to all sports, whether professional or recreational.        |
 |Transportation   | Sites that include information about motor vehicles such as cars, motorcycles, boats, trucks, RVs and the like, including online purchase sites. Includes manufacturer sites, dealerships, review sites, pricing, enthusiast’s clubs, and public transportation etc.    |
 |Travel    | Sites that provide travel and tourism information or online booking or travel services such as airlines, accommodations, car rentals. Includes regional or city information sites.         |
 |Uncategorized     |Sites that have not been categorized, such as new websites, personal sites, and so on.          |
