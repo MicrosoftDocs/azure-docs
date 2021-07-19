@@ -21727,6 +21727,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/logic-apps/logic-apps-serverless-get-started-vs.md",
+      "redirect_url": "/azure/logic-apps/create-serverless-apps-visual-studio",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/index.yml",
       "redirect_url": "/azure/machine-learning/",
       "redirect_document_id": false
@@ -34344,6 +34349,11 @@
     {
       "source_path_from_root": "/articles/mysql/migrate/appendix.md",
       "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/15-appendix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-cleardb-faq.md",
+      "redirect_url": "https://azure.microsoft.com/updates/cleardb-removal-from-the-azure-marketplace/",
       "redirect_document_id": false
     },
     {
