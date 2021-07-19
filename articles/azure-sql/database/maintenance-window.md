@@ -115,7 +115,7 @@ Expected duration of configuring maintenance window on managed instance can be c
 > A short reconfiguration happens at the end of the maintenance operation and typically lasts up to 8 seconds even in case of interrupted long-running transactions. To minimize the impact of the reconfiguration you should schedule the operation outside of the peak hours.
 
 ### IP address space requirements
-Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) as in scaling vCores scenario for corresponding service tier.
+Each new virtual cluster in subnet requires additional IP addresses according to the [virtual cluster IP address allocation](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). Changing maintenance window for existing managed instance also requires [temporary additional IP capacity](../managed-instance/vnet-subnet-determine-size.md#update-scenarios) as in scaling vCores scenario for corresponding service tier.
 
 ### IP address change
 Configuring and changing maintenance window causes change of the IP address of the instance, within the IP address range of the subnet.

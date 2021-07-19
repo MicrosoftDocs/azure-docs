@@ -119,6 +119,6 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also deploy a dedicated host using the [Azure CLI](./linux/dedicated-hosts-cli.md) or [PowerShell](./windows/dedicated-hosts-powershell.md).

@@ -195,8 +195,8 @@ source SQL Server version you are running:
 |Step|SQL Engine and version|Backup/restore method|
 |---|---|---|
 |Put backup to Azure Storage|Prior to 2012 SP1 CU2|Upload .bak file directly to Azure Storage|
-| |2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql.md) syntax|
-| |2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url.md)|
+| |2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql) syntax|
+| |2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Restore from Azure Storage to a managed instance| |[RESTORE FROM URL with SAS CREDENTIAL](../../managed-instance/restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
