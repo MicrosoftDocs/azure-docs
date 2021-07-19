@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 07/19/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to be able to review VM activity in real-time for the compute workloads on my Azure Stack Edge Pro GPU device.
 ---
@@ -17,6 +17,9 @@ ms.author: alkohli
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to view activity logs in the Azure portal for virtual machines on your Azure Stack Edge Pro GPU device.
+
+> [!NOTE]
+> You can zoom in on a VM's CPU and memory usage during periods of activity on the **Metrics** tab for the virtual machine. For more information, see [Monitor VM metrics](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md).
 
 ## View activity logs
 
