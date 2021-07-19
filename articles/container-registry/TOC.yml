@@ -175,7 +175,7 @@
           href: container-registry-check-health.md
           displayName: check, health
         - name: FAQ
-          href: container-registry-faq.md
+          href: container-registry-faq.yml
 - name: Tasks
   expanded: true
   items:

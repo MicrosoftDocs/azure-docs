@@ -2,11 +2,11 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine 
 description: Release notes for the Azure Data Science Virtual Machine
-author: timoklimmer
+author: michalmar
 ms.service: data-science-vm
 
-ms.author: tklimmer
-ms.date: 06/29/2021
+ms.author: mimarusa
+ms.date: 07/16/2021
 ms.topic: reference
 ---
 
@@ -15,6 +15,19 @@ ms.topic: reference
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## 2021-07-12
+
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Main changes:
+
+- Updated to PyTorch 1.9.0
+- Updated Azure CLI to 2.26.1
+- Updated Azure CLI Azure Machine Learnign extension to 1.29.0
+- Update VS Code version 1.58.1
+- Improvement of stability and minor bug fixes 
+
 
 ## 2021-06-22
 

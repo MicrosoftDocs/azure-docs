@@ -81,7 +81,7 @@ Fetch access token for registry 'myregistry.azurecr.io' : OK
 
 For details about error codes returned by the [az acr check-health][az-acr-check-health] command, see the [Health check error reference](container-registry-health-error-reference.md).
 
-See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
+See the [FAQ](container-registry-faq.yml) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 

@@ -78,7 +78,7 @@ The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycreden
 
 This means that you may use `ManagedIdentityCredential` in the same project as `DefaultAzureCredential` or `InteractiveBrowserCredential`, to authenticate a different part of the project.
 
-To use the default Azure credentials, you'll need the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+To use the default Azure credentials, you'll need the Azure Digital Twins instance's URL ([instructions to find](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)). You may also need an [app registration](./how-to-create-app-registration-portal.md) and the registration's [Application (client) ID](./how-to-create-app-registration-portal.md#collect-client-id-and-tenant-id).
 
 In an Azure function, you can use the managed identity credentials like this:
 

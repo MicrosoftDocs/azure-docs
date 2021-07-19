@@ -414,8 +414,12 @@
       href: test-toolkit.md
     - name: Template test cases
       href: template-test-cases.md
+    - name: Parameter file test cases
+      href: parameter-file-test-cases.md
     - name: CreateUiDefinition test cases
       href: createuidefinition-test-cases.md
+    - name: All files test cases
+      href: all-files-test-cases.md
   - name: Template specs
     items:
     - name: Create & deploy template specs
