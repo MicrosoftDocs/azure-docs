@@ -1,6 +1,6 @@
 ---
 title: Validated Azure Arc-enabled Kubernetes distributions
-description: Learn about details required for the Azure Arc validation process to conform to the Arc-enabled Kubernetes, Data Services, and cluster extensions.
+description: Learn about the validated Azure Arc-enabled Kubernetes distributions.
 ms.date: 07/19/2021
 ms.topic: overview
 ---
@@ -21,7 +21,7 @@ The following providers and their corresponding Kubernetes distributions have su
 |**Provider**<br> **name** |**Distribution**<br> **name** |**Version** |**Arc-enabled Kubernetes**<br> **version** |
 |----------|----------|----------|----------|
 |Red Hat |[OpenShift Container Platform](https://www.openshift.com/products/container-platform) |[4.5](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html) |**N** - No<br> **N-1** - Yes<br> **N-2** - Yes |
-|||[4.6](https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-67-release-notes.html |**N** - Yes<br> **N-1** - Yes<br> **N-2** - Yes |
+|||[4.6](https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-67-release-notes.html) |**N** - Yes<br> **N-1** - Yes<br> **N-2** - Yes |
 |||[4.7](https://docs.openshift.com/container-platform/4.7/release_notes/ocp-4-7-release-notes.html) |**N** - Yes<br> **N-1** - Yes<br> **N-2** - Yes |
 |VMWare |[Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid) |TKGm 1.1 |**N** - No<br> **N-1** - Yes<br> **N-2** - Yes |
 |||TKGm 1.2 |**N** - Yes<br> **N-1** - Yes<br> **N-2** - Yes |

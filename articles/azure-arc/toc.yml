@@ -18,7 +18,7 @@
      href: validation-program/overview.md
    - name: Validation test process
      href: validation-program/test-process.md
-   - name: Validated K8s distrobutions
+   - name: Validated K8s distributions
      href: validation-program/validated-k8s-distributions.md
    - name: Validated data services
      href: validation-program/validated-data-services.md
