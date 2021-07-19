@@ -25,7 +25,7 @@ The following are the key reasons to migrate into continuous mode:
 
 ## Pricing impact after migration
 
-Continuous mode comes with some cost impact which when compared to periodic mode because it offers more granular level of data restore. Periodic mode is cheaper than continuous mode.
+Continuous mode comes with some cost impact which when compared to periodic mode because it offers more granular level of data restore.
 
 For example, if you store 1 TB of data and store hourly copy of this data for 30 days. You want lower granularity than an hour to do fine grain restore and looking towards what benefit continuous backup can provide.
 
@@ -120,22 +120,22 @@ The account backup policy migration capability from periodic to continuous mode 
 
 ## Frequently asked questions
 
-* Does the migration only happen at the account level?
+### Does the migration only happen at the account level?
 Yes.
 
-* Does the migration take time? What is the typical time?
+### Does the migration take time? What is the typical time?
 Migration takes time and it depends on the size of data in your account. You can get the migration status using Azure CLI or PowerShell commands.
 
-* Does the migration cause any availability impact/downtime?
+### Does the migration cause any availability impact/downtime?
 No, the migration operation takes place in the background, so the client requests are not impacted. However, we need to perform some backend operations during the migration, and it might take extra time if the account is under heavy load.
 
-* What happens if the conversion fails? Will I still get the periodic backups or get the continuous backups?
+### What happens if the conversion fails? Will I still get the periodic backups or get the continuous backups?
 Once the migration process is started, the account will start to become a continuous mode.  If the migration fails, you must initiate migration again until it succeeds.
 
-* Which API accounts can be targeted for the conversion?
+### Which API accounts can be targeted for the conversion?
 Currently, SQL API accounts with single write region, and that have shared, provisioned, or autoscale provisioned throughput are supported for migration.
 
-* How do I perform a restore to a timestamp before/during/after the migration?
+### How do I perform a restore to a timestamp before/during/after the migration?
 Assume that you started migration at t1 and finished at t5, you can’t use a restore timestamp between t1 and t5.
 
 To restore to a time after t5 because your account is now in continuous mode, you can perform the restore using Azure portal, CLI, or PowerShell like you normally do with continuous account. This self-service restore request can only be done after the migration is complete.

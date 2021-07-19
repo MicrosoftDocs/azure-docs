@@ -58,13 +58,13 @@ datetime.utcfromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S'), where ts is datetim
 
 ## Frequently asked questions
 
-* Can I use this API for accounts with Periodic backup policies?
+### Can I use this API for accounts with Periodic backup policies?
 No. This API can only be used on accounts with continuous backup mode.
 
-* Can I use this API for accounts migrated to continuous mode?
+### Can I use this API for accounts migrated to continuous mode?
 Yes
 
-* What is the typical delay between the write operations and latest restorable timestamp?
+### What is the typical delay between the write operations and latest restorable timestamp?
 Usually, your data is backed up within 100 seconds after the data write operation. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
 ## Next steps
