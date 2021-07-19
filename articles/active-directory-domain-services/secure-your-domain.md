@@ -45,7 +45,7 @@ To complete this article, you need the following resources:
 1. On the left-hand side, select **Security settings**.
 1. Click **Enable** or **Disable** for the following settings:
    - **TLS 1.2 only mode**
-   - **NTLM authentication****
+   - **NTLM authentication**
    - **Password synchronization from on-premises**
    - **NTLM password synchronization from on-premises**
    - **RC4 encryption**
