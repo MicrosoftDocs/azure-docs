@@ -65,7 +65,7 @@ These prerequisites are only required to [run and debug your functions locally](
 
 + [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
 
-+ [Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) recommended. For other supported versions, see [Java versions](functions-reference-java.md#java-versions).
++ [Java 8](/azure/developer/java/fundamentals/java-support-on-azure) recommended. For other supported versions, see [Java versions](functions-reference-java.md#java-versions).
 
 + [Maven 3 or later](https://maven.apache.org/)
 

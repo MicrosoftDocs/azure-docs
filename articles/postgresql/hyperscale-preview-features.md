@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 07/09/2021
 ---
 
 # Preview features for PostgreSQL - Hyperscale (Citus)
@@ -53,6 +53,10 @@ Here are the features currently available for preview:
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
+* **[create_extension()
+  UDF](concepts-hyperscale-extensions.md#use-postgresql-extensions)**.
+  Allows you to create extensions whose installation requires
+  administrative access.
 
 ### Available regions for preview features
 
