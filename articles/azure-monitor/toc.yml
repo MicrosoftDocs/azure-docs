@@ -176,7 +176,7 @@
         href: vm/monitor-virtual-machine-workloads.md
       displayname: VM
     - name: Monitor Kubernetes
-      href: containers/monitor-aks.md
+      href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Deploy
     items:
     - name: Deploy Azure Monitor

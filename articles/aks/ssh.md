@@ -126,7 +126,7 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 
 <!-- INTERNAL LINKS -->
 [view-kubelet-logs]: kubelet-logs.md
-[view-master-logs]: ./view-control-plane-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli

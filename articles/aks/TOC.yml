@@ -300,7 +300,7 @@
     - name: Monitoring and logging
       items:
         - name: Monitor AKS
-          href: ../azure-monitor/containers/monitor-aks.md
+          href: monitor-aks.md
         - name: Monitor reference
           href: monitor-aks-reference.md
         - name: View the kubelet logs
