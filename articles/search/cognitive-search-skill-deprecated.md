@@ -89,7 +89,7 @@ If you need to generate the exact same property names, you will need to add a [s
     * Simple migration
 
         _(Before) EntityRecognition skill definition_
-        ```json
+```json
         {   
             "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
             "categories": [ "Person"],
@@ -107,7 +107,7 @@ If you need to generate the exact same property names, you will need to add a [s
             }
             ]
         }
-        ```
+```
         _(After) EntityRecognition skill definition_
 
 ```json
