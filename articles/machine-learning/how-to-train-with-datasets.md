@@ -228,7 +228,7 @@ Mounting or downloading files of any format are supported for datasets created f
 
 When you **mount** a dataset, you attach the files referenced by the dataset to a directory (mount point) and make it available on the compute target. Mounting is supported for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. If your data size exceeds the compute disk size,  downloading is not possible. For this scenario, we recommend mounting since only the data files used by your script are loaded at the time of processing.
 
-When you **download** a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. If your script processes all files referenced by the dataset, and your compute disk can fit your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services. For multi-node downloads, see the [Troubleshooting section](#troubleshooting). 
+When you **download** a dataset, all the files referenced by the dataset will be downloaded to the compute target. Downloading is supported for all compute types. If your script processes all files referenced by the dataset, and your compute disk can fit your full dataset, downloading is recommended to avoid the overhead of streaming data from storage services. For multi-node downloads see [how to avoid throttling](#troubleshooting). 
 
 > [!NOTE]
 > The download path name should not be longer than 255 alpha-numeric characters for Windows OS. For Linux OS, the download path name should not be longer than 4,096 alpha-numeric characters. Also, for Linux OS the file name (which is the last segment of the download path `/path/to/file/{filename}`) should not be longer than 255 alpha-numeric characters.
@@ -295,7 +295,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 **Dataset initialization failed: StreamAccessException was caused by ThrottlingException**
 
-For multi-node file downloads, all nodes may attempt to download all files in the file dataset from the Azure Storage service, which results in a throttling error. To avoid throttling error, set the environment variable `AZUREML_DOWNLOAD_CONCURRENCY` to a value of 8 times the number of CPU cores divided by the number of nodes as a starting point. Setting up a value for this environment variable may require some experimentation.
+For multi-node file downloads, all nodes may attempt to download all files in the file dataset from the Azure Storage service, which results in a throttling error. To avoid throttling, initially set the environment variable `AZUREML_DOWNLOAD_CONCURRENCY` to a value of 8 times the number of CPU cores divided by the number of nodes. Setting up a value for this environment variable may require some experimentation, so the aforementioned guidance is a starting point.
 
 The following example assumes 32 cores and 4 nodes.
 
