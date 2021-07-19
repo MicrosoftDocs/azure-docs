@@ -4,7 +4,7 @@
   author: roygara
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 07/16/2021
+  ms.date: 07/19/2021
   ms.author: rogarana
   ms.subservice: disks
 ---
@@ -102,9 +102,9 @@ For more details on Azure Disk Backup, see [Overview of Azure Disk Backup](../ba
 
 If you are unable to use Azure Backup, you can implement your own backup mechanism by using snapshots. Creating consistent snapshots for all the disks used by a VM and then replicating those snapshots to another region is complicated. For this reason, Azure considers using the Backup service as a better option than building a custom solution.
 
-If you use read-access geo-redundant storage/geo-redundant storage for disks, snapshots are automatically replicated to a secondary datacenter. If you use locally redundant storage for disks, you need to replicate the data yourself. For more information, see [Back up Azure-unmanaged VM disks with incremental snapshots](windows/incremental-snapshots.md).
+If you use ZRS disks, snapshots are automatically replicated to a secondary datacenter. If you use locally redundant storage for disks, you need to replicate the data yourself.
 
-A snapshot is a representation of an object at a specific point in time. A snapshot incurs billing for the incremental size of the data it holds. For more information, see [Create a blob snapshot](../storage/blobs/snapshots-overview.md).
+A snapshot is a representation of an object at a specific point in time. A snapshot incurs billing for the incremental size of the data it holds. For more information, see [Create an incremental snapshot for managed disks](disks-incremental-snapshots.md).
 
 ### Create snapshots while the VM is running
 
@@ -116,30 +116,26 @@ To avoid this situation, the backup process must implement the following steps:
 
 1.	Flush all the pending writes.
 
-1.	[Create a blob snapshot](../storage/blobs/snapshots-manage-dotnet.md) for all the disks.
+1.	[Create an incremental snapshot for managed disks](disks-incremental-snapshots.md) for all the disks.
 
-Some Windows applications, like SQL Server, provide a coordinated backup mechanism via a volume shadow service to create application-consistent backups. On Linux, you can use a tool like *fsfreeze* for coordinating the disks. This tool provides file-consistent backups, but not application-consistent snapshots. This process is complex, so you should consider using [Azure Backup](../backup/backup-azure-vms-introduction.md) or a third-party backup solution that already implements this procedure.
+Some Windows applications, like SQL Server, provide a coordinated backup mechanism via a volume shadow service to create application-consistent backups. On Linux, you can use a tool like *fsfreeze* for coordinating the disks. This tool provides file-consistent backups, but not application-consistent snapshots. This process is complex, so you should consider using [Azure Disk Backup](../backup/disk-backup-overview.md) or a third-party backup solution that already implements this procedure.
 
 The previous process results in a collection of coordinated snapshots for all of the VM disks, representing a specific point-in-time view of the VM. This is a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. See [Copy the backups to another region](#copy-the-snapshots-to-another-region) for steps to copy the snapshots to another region for DR.
 
 ### Create snapshots while the VM is offline
 
-Another option to create consistent backups is to shut down the VM and take blob snapshots of each disk. Taking blob snapshots is easier than coordinating snapshots of a running VM, but it requires a few minutes of downtime.
-
-
+Another option to create consistent backups is to shut down the VM and take snapshots of each disk. Taking offline snapshots is easier than coordinating snapshots of a running VM, but it requires a few minutes of downtime.
 
 ### Copy the snapshots to another region
 
 Creation of the snapshots alone might not be sufficient for DR. You must also replicate the snapshot backups to another region.
 
-If you use geo-redundant storage or read-access geo-redundant storage for your disks, then the snapshots are replicated to the secondary region automatically. There can be a few minutes of lag before the replication. If the primary datacenter goes down before the snapshots finish replicating, you cannot access the snapshots from the secondary datacenter. The likelihood of this is small.
+If you use ZRS disks, then the snapshots are replicated to the secondary region automatically. There can be a few minutes of lag before the replication. If the primary datacenter goes down before the snapshots finish replicating, you cannot access the snapshots from the secondary datacenter. The likelihood of this is small.
 
 > [!NOTE]
-> Only having the disks in a geo-redundant storage or read-access geo-redundant storage account does not protect the VM from disasters. You must also create coordinated snapshots or use Azure Backup. This is required to recover a VM to a consistent state.
+> If only your disk is ZRS but not the VM, then your VM isn't protected from disasters. You must also create coordinated snapshots or use Azure Backup to protect the VM itself. This is required to recover a VM to a consistent state.
 
-If you use locally redundant storage, you must copy the snapshots to a different storage account immediately after creating the snapshot. The copy target might be a locally redundant storage account in a different region, resulting in the copy being in a remote region. You can also copy the snapshot to a read-access geo-redundant storage account in the same region. In this case, the snapshot is lazily replicated to the remote secondary region. Your backup is protected from disasters at the primary site after the copying and replication is complete.
-
-
+If you use [Locally-redundant storage for managed disks](disks-redundancy.md#locally-redundant-storage-for-managed-disks), you must copy the snapshots to a different region immediately after creating the snapshot. In this case, the snapshot is lazily replicated to the remote secondary region. Your backup is protected from disasters at the primary site after the copying and replication is complete.
 
 ## Other options
 
@@ -157,7 +153,6 @@ Consequently, your backup process can be a combination of two things:
 - Back up the configuration (templates and custom images).
 
 Depending on the backup option you choose, you might have to handle the backup of both the data and the configuration, or the backup service might handle all of that for you.
-
 
 ## Next steps
 
