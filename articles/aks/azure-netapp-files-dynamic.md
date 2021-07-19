@@ -5,19 +5,19 @@ services: container-service
 ms.topic: article
 ms.date: 05/10/2021
 
-#Customer intent: As a cluster operator or developer, I want to learn how to create on-demand ANF volumes that must be used as Kubernetes persistent volumes in an Azure Kubernetes Service (AKS) cluster
+#Customer intent: As a cluster operator or developer, I want to learn how to create on-demand Azure NetApp Files volumes that must be used as Kubernetes persistent volumes in an Azure Kubernetes Service (AKS) cluster
 ---
 
 # Dynamically create and use a persistent volume with Azure NetApp Files in Azure Kubernetes Service (AKS)
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods, and can be dynamically or statically provisioned. This article shows you how to dynamically create an [Azure NetApp Files][anf] volume to be used by pods in an Azure Kubernetes Service (AKS) cluster.
 
-[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Kubernetes users have two options when it comes to using ANF volumes for Kubernetes workloads:
+[Azure NetApp Files][anf] is an enterprise-class, high-performance, metered file storage service running on Azure. Kubernetes users have two options when it comes to using Azure NetApp Files volumes for Kubernetes workloads:
 
-* Create ANF volumes statically. In this scenario, the creation of ANF volumes is achieved external to AKS; ANF volumes are created using `az`/Azure UI and are then exposed to the Kubernetes plane by the creation of a `PersistentVolume`.
-* Create ANF volumes on-demand, orchestrating through Kubernetes. This is the preferred mode of operation for creating multiple ANF volumes directly through Kubernetes, and is achieved using [Trident](https://netapp-trident.readthedocs.io/).
+* Create Azure NetApp Files volumes statically. In this scenario, the creation of volumes is achieved external to AKS; volumes are created using `az`/Azure UI and are then exposed to the Kubernetes plane by the creation of a `PersistentVolume`.
+* Create Azure NetApp Files volumes on-demand, orchestrating through Kubernetes. This is the preferred mode of operation for creating multiple volumes directly through Kubernetes, and is achieved using [Trident](https://netapp-trident.readthedocs.io/).
 
-If you would like to provision ANF volumes statically, read [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netappfiles-static].
+If you would like to provision Azure NetApp Files volumes statically, read [Manually create and use a volume with Azure NetApp Files in Azure Kubernetes Service (AKS)][az-netappfiles-static].
 
 ## Before you begin
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
@@ -33,7 +33,7 @@ The following considerations apply when you use Azure NetApp Files:
 
 * Azure NetApp Files is only available [in selected Azure regions][anf-regions].
 * Before you can use Azure NetApp Files, you must be granted access to the Azure NetApp Files service. To apply for access, you can use the [Azure NetApp Files waitlist submission form][anf-waitlist] or go to https://azure.microsoft.com/services/netapp/#getting-started. You can't access the Azure NetApp Files service until you receive the official confirmation email from the Azure NetApp Files team.
-* After the initial deployment of an AKS cluster, users can choose to provision ANF volumes statically or dynamically. This articles covers the former workflow.
+* After the initial deployment of an AKS cluster, users can choose to provision Azure NetApp Files volumes statically or dynamically. This articles covers the former workflow.
 * To use dynamic provisioning with Azure NetApp Files, install and configure [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 or later.
 
 ## Configure Azure NetApp Files
@@ -106,7 +106,7 @@ Before proceeding to the next step, you will need to:
 
 1. **Install Trident**. This can be achieved using the Trident operator/Trident Helm chart/`tridentctl`. The instructions provided below explain how Trident can be installed using the operator. To learn how the other install methods work, please take a look at the [Trident Install Guide](https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/deploying.html).
 
-2. **Create a Trident Backend**. To instruct Trident about the ANF subscription and where it needs to create ANF volumes, a backend is created. This step requires details about the ANF account that was created in the previous step.
+2. **Create a Trident Backend**. To instruct Trident about the Azure NetApp Files subscription and where it needs to create volumes, a backend is created. This step requires details about the account that was created in the previous step.
 
 ### Install Trident using the Trident operator
 
@@ -201,7 +201,7 @@ secret/backend-tbc-anf-secret created
 tridentbackendconfig.trident.netapp.io/backend-tbc-anf created
 ```
 
-Before running the command, you will need to update `backend-anf.yaml` to include details about the ANF subscription, such as:
+Before running the command, you will need to update `backend-anf.yaml` to include details about the Azure NetApp Files subscription, such as:
 
 * `subscriptionID` for the Azure subscription with Azure NetApp Files enabled. The 
 * `tenantID`, `clientID`, and `clientSecret` from an [App Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) in Azure Active Directory (AD) with sufficient permissions for the Azure NetApp Files service. The App Registration must carry the `Owner` or `Contributor` role that’s predefined by Azure.
@@ -211,7 +211,7 @@ In addition, you can choose to provide a different service level. Azure NetApp F
 
 ## Create a StorageClass
 
-A storage class is used to define how a unit of storage is dynamically created with a persistent volume. To consume ANF volumes, a storage class must be created. Create a file named `anf-storageclass.yaml` and copy in the manifest provided below.
+A storage class is used to define how a unit of storage is dynamically created with a persistent volume. To consume Azure NetApp Files volumes, a storage class must be created. Create a file named `anf-storageclass.yaml` and copy in the manifest provided below.
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -238,7 +238,7 @@ azure-netapp-files   csi.trident.netapp.io   Delete          Immediate          
 
 ## Create a PersistentVolumeClaim
 
-A PersistentVolumeClaim (PVC) is a request for storage by a user. Upon the creation of a PersistentVolumeClaim, Trident automatically creates an ANF volume and makes it available for Kubernetes workloads to consume.
+A PersistentVolumeClaim (PVC) is a request for storage by a user. Upon the creation of a PersistentVolumeClaim, Trident automatically creates an Azure NetApp Files volume and makes it available for Kubernetes workloads to consume.
 
 Create a file named `anf-pvc.yaml` and provide the following manifest. In this example, a 1-TiB volume is created that is *ReadWriteMany*.
 
@@ -271,7 +271,7 @@ anf-pvc   Bound    pvc-bffa315d-3f44-4770-86eb-c922f567a075   1Ti        RWO    
 
 ## Use the persistent volume
 
-After the PVC is created, a pod can be spun up to access the ANF volume. The manifest below can be used to define a NGINX pod that mounts the ANF volume that was created in the previous step. In this example, the volume is mounted at `/mnt/data`.
+After the PVC is created, a pod can be spun up to access the Azure NetApp Files volume. The manifest below can be used to define a NGINX pod that mounts the Azure NetApp Files volume that was created in the previous step. In this example, the volume is mounted at `/mnt/data`.
 
 Create a file named `anf-nginx-pod.yaml` which contains the following manifest:
 
@@ -308,7 +308,7 @@ $  kubectl apply -f anf-nginx-pod.yaml
 pod/nginx-pod created
 ```
 
-Kubernetes has now created a pod with the ANF volume mounted and accessible within the `nginx` container at `/mnt/data`. This can be confirmed by looking at the event logs for the pod using `kubectl describe`:
+Kubernetes has now created a pod with the volume mounted and accessible within the `nginx` container at `/mnt/data`. This can be confirmed by looking at the event logs for the pod using `kubectl describe`:
 
 ```console
 $  kubectl describe pod nginx-pod
@@ -334,7 +334,7 @@ Events:
   Normal  Started                 10s   kubelet                  Started container nginx
 ```
 
-Trident supports a number of features with ANF, such as:
+Trident supports a number of features with Azure NetApp Files, such as:
 
 * [Expanding volumes](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/vol-expansion.html)
 * [On-demand volume snapshots](https://netapp-trident.readthedocs.io/en/latest/kubernetes/operations/tasks/volumes/snapshots.html)
