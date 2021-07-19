@@ -129,7 +129,7 @@ Make sure the server meets the [hardware requirements](./migrate-appliance.md) f
     
     ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
 
-5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your VMware environment** to an Azure Migrate project with **private endpoint connectivity** on **Azure pubic cloud**.
+5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your VMware environment** to an Azure Migrate project with **private endpoint connectivity** on **Azure public cloud**.
 
     :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for private endpoint":::
 
