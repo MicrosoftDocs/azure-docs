@@ -4,7 +4,7 @@ description: How to create an Azure Virtual Desktop host pool by using the Azure
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 07/19/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
 ---
