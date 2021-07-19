@@ -114,7 +114,7 @@ The following properties are supported:
 
 A data factory can be associated with a [system-assigned managed identity](data-factory-service-identity.md), which represents this specific data factory. You can directly use this system-assigned managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from Data Lake Store.
 
-To use system-assigned managed identities authentication, follow these steps.
+To use system-assigned managed identity authentication, follow these steps.
 
 1. [Retrieve the data factory system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the "Service Identity Application ID" generated along with your factory.
 
