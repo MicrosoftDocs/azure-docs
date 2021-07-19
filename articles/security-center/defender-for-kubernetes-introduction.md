@@ -64,7 +64,7 @@ We recommend deploying both, for the most complete protection possible.
 If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 ### Does AKS allow me to install custom VM extensions on my AKS nodes?
-For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent. 
+For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
 
 AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
 

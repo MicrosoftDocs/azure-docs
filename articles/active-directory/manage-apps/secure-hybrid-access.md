@@ -73,7 +73,6 @@ The following SDP vendors offer pre-built solutions and detailed guidance for in
 
 - [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 
-
 - [Silverfort Authentication Platform](./add-application-portal-setup-oidc-sso.md)
 
 - [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
