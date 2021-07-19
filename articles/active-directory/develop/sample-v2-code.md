@@ -64,7 +64,7 @@ The following samples illustrate web applications that sign in users. Some sampl
 > | Ruby |[GitHub repo](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) | Graph Training <br/> &#8226; [Sign in and Microsoft Graph](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) | | |
 
 
-## Desktop applications
+## Desktop public client applications
 
 The following samples show public client desktop applications that access the Microsoft Graph API, or your own web API in the name of the user. Apart from the *Desktop (Console) with Workspace Application Manager (WAM)* sample, all these client applications use the Microsoft Authentication Library (MSAL).
 
@@ -82,15 +82,15 @@ The following samples show public client desktop applications that access the Mi
 
 
 
-## Mobile applications
+## Mobile public client applications
 
 The following samples show public client mobile applications that access the Microsoft Graph API, or your own web API in the name of the user. These client applications use the Microsoft Authentication Library (MSAL).
 
 | Language/Platform     | Code sample |Description |Auth libraries |Auth flow |
 | ----------- | ----------- |----------- |----------- |----------- |
-|   Kotlin |  [GitHub repo](https://docs.microsoft.com/en-gb/azure/active-directory/develop/sample-v2-code)       | &#8226; [Sign in user and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin)       |  MSAL      |   Auth code flow (with PKCE)     |
+|   Kotlin |  [GitHub repo](https://github.com/Azure-Samples/ms-identity-android-kotlin)       | &#8226; [Sign in user and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-kotlin)       |  MSAL      |   Auth code flow (with PKCE)     |
 |   Java |     [GitHub repo](https://github.com/Azure-Samples/ms-identity-android-java)    |   &#8226; [Sign in user and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-android-java)     |     MSAL    |   Auth code flow (with PKCE)     |
-| iOS   |   &#8226; [GitHub repo native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/>&#8226; [GitHub repo nxoauth ](https://docs.microsoft.com/en-gb/azure/active-directory/develop/sample-v2-code)     | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)  <br/>&#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2)     |     MSAL   |   Auth code flow (with PKCE)      |
+| iOS   |   &#8226; [GitHub repo native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc) <br/>&#8226; [GitHub repo nxoauth ](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2)     | &#8226; [Call Microsoft Graph native](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)  <br/>&#8226; [Call Microsoft Graph with Azure AD nxoauth](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2)     |     MSAL   |   Auth code flow (with PKCE)      |
 |  Xamarin  |     [GitHub repo](https://github.com/azure-samples/active-directory-xamarin-native-v2)    | &#8226;   [Call Microsoft Graph or web API](https://github.com/azure-samples/active-directory-xamarin-native-v2)    |    MSAL    |     Auth code flow (with PKCE)   |
 
 
