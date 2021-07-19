@@ -74,7 +74,7 @@ In this section, you'll learn about the validation process that Azure IoT Connec
 |A Patient Resource has not been created in the FHIR service (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the FHIR service.|
 |The Device.patient reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Make sure the Device Resource contains a valid [Reference](https://www.hl7.org/fhir/device-definitions.html#Device.patient) to a Patient Resource.| 
 
-*Reference [Quickstart: Deploy Azure IoT Connector (preview) using Azure portal](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) for a functional description of the Azure IoT Connector for FHIR resolution types (For example: Lookup or Create).
+*Reference [Quickstart: Deploy Azure IoT Connector (preview) using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the Azure IoT Connector for FHIR resolution types (For example: Lookup or Create).
 
 ## Use Metrics to troubleshoot issues in Azure IoT Connector for FHIR (preview)
 
@@ -152,7 +152,7 @@ The mapping file copies should be provided to Azure Technical Support when openi
 > JSON is the only supported format for Device and FHIR mapping files at this time.
 
 > [!TIP]
-> Learn more about the Azure IoT Connector for FHIR [Device and FHIR conversion mapping JSON](iot-mapping-templates.md)
+> Learn more about the Azure IoT Connector for FHIR [Device and FHIR conversion mapping JSON](how-to-use-fhir-mapping-iot.md)
 
 1. Select **"IoT Connector (preview)"** on the lower left side of the FHIR service resource dashboard in the **"Add-ins"** section.
 
@@ -183,6 +183,6 @@ The mapping file copies should be provided to Azure Technical Support when openi
 Check out frequently asked questions about the Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](../fhir/fhir-faq.md)
+>[Azure IoT Connector for FHIR FAQs](iot-faq.md)
 
 *In the Azure portal, Azure IoT Connector for FHIR is referred to as IoT Connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.

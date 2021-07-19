@@ -39,12 +39,14 @@ sections:
           certifications required for the healthcare industry.
           
       - question: Can I migrate my existing production workload from Azure API for FHIR to Healthcare APIs?
-        answer: Yes, as we expand the Healthcare APIs platform, our goal is to minimize the impact to you and provide a seamless migration.
+        answer: No, we do not offer migration capabilities at this time. 
 
       - question: What is the pricing of Azure Healthcare APIs?
-        answer: Azure Healthcare APIs introduces pricing that is based on consumption volumes (API call volume and data storage). With the new pricing model, your costs scale proportionally with the size and maturity of your workload. You will have the flexibility to set performance thresholds on data services to prevent cost overruns. 
+        answer: During the public preview phase, Azure Healthcare APIs is available for you to use at no charge
 
       - question: What regions are Healthcare APIs available?
-        answer:
-          The Healthcare APIs are available in the South Central US and North Europe regions.
+        answer: Please refer to the [Products by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 
           
+      - question: Can you use IoT Central with IoT Connector for FHIR?
+        answer: Health data can be sent to Event Hubs, Azure IoT Hub or Azure IoT Central, and is converted to FHIR resources, which enables care teams to view patient data captured from IoT devices in context with clinical records in FHIR.
+        

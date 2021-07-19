@@ -1,11 +1,11 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with DICOM Services 
-description: This tutorial describes how to use DICOMweb Standard APIs with the DICOM Services. 
+title:  Using DICOMweb&trade;Standard APIs with DICOM service 
+description: This tutorial describes how to use DICOMweb Standard APIs with the DICOM service. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 06/21/2021
+ms.date: 07/10/2021
 ms.author: aersoy
 ---
 
@@ -16,7 +16,7 @@ ms.author: aersoy
 
 This tutorial provides an overview of how to use the DICOMweb&trade; Standard APIs with the DICOM Services.
 
-The DICOM Services supports a subset of the DICOMweb&trade; Standard. This support includes:
+The DICOM service supports a subset of the DICOMweb&trade; Standard. This support includes:
 
 * Store (STOW-RS)
 * Retrieve (WADO-RS)
@@ -31,21 +31,21 @@ To learn more about our support of the DICOM Web Standard APIs, see the [DICOM C
 
 ## Prerequisites
 
-To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Services deployed. If you haven't already deployed an instance of the DICOM Services, see [Deploy DICOM Service using the Azure portal](deploy-dicom-services-in-azure.md).
+To use the DICOMweb&trade; Standard APIs, you must have an instance of the DICOM Services deployed. If you haven't already deployed an instance of the DICOM service, see [Deploy DICOM Service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-## Overview of various methods to use with DICOM Services
+## Overview of various methods to use with DICOM service
 
-Because the DICOM Services is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
+Because the DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
 To see language-specific examples, refer to the examples below. If you open the Postman Collection, you can view examples in several languages including Go, Java, JavaScript, C#, PHP, C, NodeJS, Objective-C, OCaml, PowerShell, Python, Ruby, and Swift.
 
 ### C#
 
-The C# examples use the library included in this repo to simplify access to the API. Refer to the [C# examples](dicomweb-standard-apis-c-sharp.md) to learn how to use C# with the DICOM Service.
+The C# examples use the library included in this repo to simplify access to the API. Refer to the [C# examples](dicomweb-standard-apis-c-sharp.md) to learn how to use C# with the DICOM service.
 
 ### cURL
 
-cURL is a common command-line tool for calling web endpoints that is available for nearly any operating system. [Download cURL](https://curl.haxx.se/download.html) to get started. To use the examples, you'll need to replace the server name with your instance name, and then you must download the [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms) in this repo to a known location on your local file system. To learn how to use cURL with the DICOM Service, see [cURL examples](dicomweb-standard-apis-curl.md).
+cURL is a common command-line tool for calling web endpoints that is available for nearly any operating system. [Download cURL](https://curl.haxx.se/download.html) to get started. To use the examples, you'll need to replace the server name with your instance name, and then you must download the [sample DICOM files](https://github.com/microsoft/dicom-server/tree/main/docs/dcms) in this repo to a known location on your local file system. To learn how to use cURL with the DICOM service, see [cURL examples](dicomweb-standard-apis-curl.md).
 
 ### Postman
 
@@ -57,7 +57,7 @@ To use the Postman collection, you'll need to download the collection locally an
 
 ## Summary
 
-This tutorial provided an overview of the APIs supported by the DICOM Service. Get started using these APIs with the following tools:
+This tutorial provided an overview of the APIs supported by the DICOM service. Get started using these APIs with the following tools:
 
 - [Use DICOM Web Standard APIs with C#](dicomweb-standard-apis-c-sharp.md)
 - [Use DICOM Web Standard APIs with cURL](dicomweb-standard-apis-curl.md)
@@ -65,7 +65,7 @@ This tutorial provided an overview of the APIs supported by the DICOM Service. G
 
 ### Next Steps
 
-For more information about DICOM Services, see
+For more information about DICOM service, see
 
 >[!div class="nextstepaction"]
->[Overview of DICOM Service](dicom-services-overview.md)
+>[Overview of the DICOM service](dicom-services-overview.md)
