@@ -24,7 +24,7 @@ When you connect your machine to Azure Arc-enabled servers, it enables the abili
 
 - Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
 
-- Simplify deployment using other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and Azure Monitor Log Analytics workspace, using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
+- Simplify deployment using other Azure services like Azure Monitor Log Analytics workspace, using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
 
 - Use [Update Management](../../automation/update-management/overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers
 
