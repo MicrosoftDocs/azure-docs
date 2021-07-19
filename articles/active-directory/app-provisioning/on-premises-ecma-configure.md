@@ -152,7 +152,7 @@ To test your configuration, you can use on-demand provisioning of users. For inf
  
     ![Screenshot that shows starting provisioning.](.\media\on-premises-ecma-configure\configure-14.png)
 
-1. Wait several minutes for provisioning to start. It might take up to 40 minutes. You can learn more about the provisioning service performance here. After the provisioning job has completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This step will stop the provisioning service from running in the future.
+1. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This step will stop the provisioning service from running in the future.
 
 ### Verify users were successfully provisioned
 After waiting, check your data source to see if new users are being provisioned.
@@ -163,7 +163,7 @@ After waiting, check your data source to see if new users are being provisioned.
 
 1. Use the provisioning logs to determine which users were provisioned successfully or unsuccessfully.
 1. Build custom alerts, dashboards, and queries by using the Azure Monitor integration.
-1. If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states here.
+1. If the provisioning configuration seems to be in an unhealthy state, the application goes into quarantine. Learn more about quarantine states [here](https://github.com/MicrosoftDocs/azure-docs-pr/compare/application-provisioning-quarantine-status.md?expand=1).
 
 ## Next steps
 
