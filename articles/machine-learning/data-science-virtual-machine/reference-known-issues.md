@@ -22,9 +22,9 @@ Virtual Machine.
 
 ### Connection to desktop environment fails
 
-If you can connect to the DSVM over SSH but not over x2go, you might have set the wrong session type in x2go. To
-connect over x2go, you need the session type in *x2go/session preferences/session* set to *XFCE*. Other desktop
-environments are currently not supported.
+If you can connect to the DSVM over SSH terminal but not over x2go, you might have set the wrong session type in x2go.
+To connect to the DSVM's desktop environment, you need the session type in *x2go/session preferences/session* set to
+*XFCE*. Other desktop environments are currently not supported.
 
 ### Fonts look wrong when connecting to DSVM using x2go
 
@@ -33,17 +33,18 @@ to the DSVM, uncheck the "Set display DPI" checkbox in the "Input/Output" tab of
 
 ### Prompted for unknown password
 
-When you create a DSVM setting *Authentication type* to *SSH Public Key*, you will not be given a password. However,
-in some scenarios, some applications will still ask you for a password. Run `sudo passwd <user_name>` to create a new
-password for a certain user. With `sudo passwd`, you can create a new password for the root user.
+When you create a DSVM setting *Authentication type* to *SSH Public Key* (which is recommended over using password
+authentication), you will not be given a password. However, in some scenarios, some applications will still ask you for
+a password. Run `sudo passwd <user_name>` to create a new password for a certain user. With `sudo passwd`, you can
+create a new password for the root user.
 
-Running these command will not change the configuration of SSH, and allowed login mechanism will be kept the same. 
+Running these command will not change the configuration of SSH, and allowed login mechanisms will be kept the same. 
 
 ### Prompted for password when running sudo command
 
-When running a `sudo` command on an Ubuntu machine, you might be asked to enter your password again to confirm that you
-are really the user who is logged in. This is expected behavior and the default in Linux systems such as Ubuntu.
-However, in some scenarios, a repeated authentication is not necessary and rather annoying.
+When running a `sudo` command on an Ubuntu machine, you might be asked to enter your password again and again to confirm
+that you are really the user who is logged in. This is expected behavior and the default in Linux systems such as
+Ubuntu. However, in some scenarios, a repeated authentication is not necessary and rather annoying.
 
 To disable re-authentication for most cases, you can run the following command in a terminal.
 
