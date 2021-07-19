@@ -4,7 +4,7 @@ description: Configure an Azure managed disk with shared disks so that you can s
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -98,18 +98,7 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal. 
-1. Search for and Select **Disks**.
-1. Select **+ Create** to create a new disk.
-1. Fill in the details, then select **Change size**.
-1. Select standard SSD for the **Disk SKU**.
-
-    :::image type="content" source="media/disks-shared-enable/select-standard-ssd-shared-disk.png" alt-text="Standard screenshot.":::
-
-1. Select the disk size that you want and select **OK**.
-1. Proceed through the deployment until you get to the **Advanced** pane.
-1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
-1. Select **Review + Create**.
+You cannot currently deploy a standard SSD via the Azure portal. Use either the Azure CLI or the Azure PowerShell module.
 
 # [Azure CLI](#tab/azure-cli)
 
