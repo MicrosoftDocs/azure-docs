@@ -1,17 +1,10 @@
 ---
 title: Azure API Management advanced policies | Microsoft Docs
 description: Learn about the advanced policies available for use in Azure API Management. See examples and view additional available resources.
-services: api-management
-documentationcenter: ''
 author: vladvino
-manager: erikre
-editor: ''
-
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/24/2021
+ms.date: 07/19/2021
+ms.service: api-management
 ms.author: apimpm
 ---
 
@@ -25,7 +18,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.
--   [Emit-metric](#emit-metric) - Sends custom metrics to Application Insights at execution.
+-   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
 -   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
 -   [Return response](#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.
@@ -367,12 +360,13 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy scopes:** all scopes
 
-## <a name="emit-metric"></a> Emit Metric
+## Emit metrics
 
 The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
 
 > [!NOTE]
-> For more information about the data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+> * Custom metrics are a [preview feature](..azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
+> * For more information about the API Management data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
 
 ### Policy statement
 
@@ -384,14 +378,14 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 ### Example
 
-Below example sends a custom metric to count the number of requests along with user ID and client IP as custom dimensions.
+The following example sends a custom metric to count the number of API requests along with user ID, client IP, and API ID as custom dimensions.
 
 ```xml
 <policies>
   <inbound>
     <emit-metric name="Request" value="1" namespace="my-metrics"> 
-        <dimension name="User ID" value="@(context.Request.Headers.GetValueOrDefault("User-Id"))" /> 
-        <dimension name="Client IP" value="@(context.Request.ClientIp)" /> 
+        <dimension name="User ID" /> 
+        <dimension name="Client IP" value="@(context.Request.IpAddress)" /> 
         <dimension name="API ID" /> 
     </emit-metric> 
   </inbound>
@@ -420,7 +414,7 @@ Below example sends a custom metric to count the number of requests along with u
 | Attribute | Description                | Required | Type               | Default value  |
 | --------- | -------------------------- | -------- | ------------------ | -------------- |
 | name      | Name of dimension.      | Yes      | string, expression | N/A            |
-| value     | Value of dimension. Can only be omitted if `name` matches one of default dimensions. If so, value is provided as per dimension name. | No       | string, expression | N/A |
+| value     | Value of dimension. Can only be omitted if `name` matches one of the default dimensions. If so, value is provided as per dimension name. | No       | string, expression | N/A |
 
 **Default dimension names that may be used without value:**
 
