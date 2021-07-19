@@ -39,7 +39,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | [Devices](../devices/plan-device-deployment.md) | This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools. |
 
 
-## Deploy hybrid scenarios
+## Deploy hybrid scenarios  
 
 | Capability | Description|
 | -| -|
