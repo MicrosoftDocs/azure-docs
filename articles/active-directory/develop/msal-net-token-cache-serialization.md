@@ -135,7 +135,7 @@ The following code shows how to add an in-memory well partitioned token cache to
        .Build();
 
      // Add an in-memory token cache. Other options available: see below
-     app.UseInMemoryTokenCaches();
+     app.AddInMemoryTokenCaches();
    }
    return clientapp;
   }
@@ -147,14 +147,14 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
      // Add an in-memory token cache
-     app.UseInMemoryTokenCaches();
+     app.AddInMemoryTokenCaches();
 ```
 
 #### Distributed in memory token cache
 
 ```CSharp 
      // In memory distributed token cache
-     app.UseDistributedTokenCaches(services =>
+     app.AddDistributedTokenCaches(services =>
      {
        // In net462/net472, requires to reference Microsoft.Extensions.Caching.Memory
        services.AddDistributedMemoryCache();
@@ -165,7 +165,7 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
      // SQL Server token cache
-     app.UseDistributedTokenCaches(services =>
+     app.AddDistributedTokenCaches(services =>
      {
       services.AddDistributedSqlServerCache(options =>
       {
@@ -189,7 +189,7 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
      // Redis token cache
-     app.UseDistributedTokenCaches(services =>
+     app.AddDistributedTokenCaches(services =>
      {
        // Requires to reference Microsoft.Extensions.Caching.StackExchangeRedis
        services.AddStackExchangeRedisCache(options =>
@@ -204,7 +204,7 @@ The following code shows how to add an in-memory well partitioned token cache to
 
 ```CSharp 
       // Cosmos DB token cache
-      app.UseDistributedTokenCaches(services =>
+      app.AddDistributedTokenCaches(services =>
       {
         // Requires to reference Microsoft.Extensions.Caching.Cosmos (preview)
         services.AddCosmosCache((CosmosCacheOptions cacheOptions) =>
