@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2020
+ms.date: 06/24/2021
 ms.author: apimpm
 ---
 
@@ -25,6 +25,7 @@ This topic provides a reference for the following API Management policies. For i
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to Event Hub](#log-to-eventhub) - Sends messages in the specified format to an Event Hub defined by a Logger entity.
+-   [Emit-metric](#emit-metric) - Sends custom metrics to Application Insights at execution.
 -   [Mock response](#mock-response) - Aborts pipeline execution and returns a mocked response directly to the caller.
 -   [Retry](#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
 -   [Return response](#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.
@@ -357,6 +358,79 @@ Any string can be used as the value to be logged in Event Hubs. In this example 
 | logger-id     | The ID of the Logger registered with your API Management service.         | Yes                                                                  |
 | partition-id  | Specifies the index of the partition where messages are sent.             | Optional. This attribute may not be used if `partition-key` is used. |
 | partition-key | Specifies the value used for partition assignment when messages are sent. | Optional. This attribute may not be used if `partition-id` is used.  |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound, outbound, backend, on-error
+
+-   **Policy scopes:** all scopes
+
+## <a name="emit-metric"></a> Emit Metric
+
+The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
+
+> [!NOTE]
+> For more information about the data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+
+### Policy statement
+
+```xml
+<emit-metric name="name of custom metric" value="value of custom metric" namespace="metric namespace"> 
+    <dimension name="dimension name" value="dimension value" /> 
+</emit-metric> 
+```
+
+### Example
+
+Below example sends a custom metric to count the number of requests along with user ID and client IP as custom dimensions.
+
+```xml
+<policies>
+  <inbound>
+    <emit-metric name="Request" value="1" namespace="my-metrics"> 
+        <dimension name="User ID" value="@(context.Request.Headers.GetValueOrDefault("User-Id"))" /> 
+        <dimension name="Client IP" value="@(context.Request.ClientIp)" /> 
+        <dimension name="API ID" /> 
+    </emit-metric> 
+  </inbound>
+  <outbound>
+  </outbound>
+</policies>
+```
+
+### Elements
+
+| Element     | Description                                                                       | Required |
+| ----------- | --------------------------------------------------------------------------------- | -------- |
+| emit-metric | Root element. The value of this element is the string to emit your custom metric. | Yes      |
+| dimension   | Sub element. Add one or more of these elements for each dimension included in the custom metric.  | Yes      |
+
+### Attributes
+
+#### emit-metric
+| Attribute | Description                | Required | Type               | Default value  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Name of custom metric.      | Yes      | string, expression | N/A            |
+| namespace | Namespace of custom metric. | No       | string, expression | API Management |
+| value     | Value of custom metric.    | No       | int, expression    | 1              |
+
+#### dimension
+| Attribute | Description                | Required | Type               | Default value  |
+| --------- | -------------------------- | -------- | ------------------ | -------------- |
+| name      | Name of dimension.      | Yes      | string, expression | N/A            |
+| value     | Value of dimension. Can only be omitted if `name` matches one of default dimensions. If so, value is provided as per dimension name. | No       | string, expression | N/A |
+
+**Default dimension names that may be used without value:**
+
+* API ID
+* Operation ID
+* Product ID
+* User ID
+* Subscription ID
+* Location ID
+* Gateway ID
 
 ### Usage
 
