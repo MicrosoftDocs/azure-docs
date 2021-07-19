@@ -279,7 +279,7 @@
   - name: Configure AMS - Azure PowerShell
     href: azure-monitor-sap-quickstart-powershell.md
   - name: AMS FAQ
-    href: azure-monitor-faq.md
+    href: azure-monitor-faq.yml
 - name: Reference
   items:
   - name: Azure CLI

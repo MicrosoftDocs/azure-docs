@@ -269,7 +269,7 @@ In this step, you'll use the source NSX-T configuration to configure the target 
 
 1. [Configure port mirroring](configure-port-mirroring-azure-vmware-solution.md).
 
-1. [Configure DNS forwarder](configure-dns-azure-vmware-solution).
+1. [Configure DNS forwarder](configure-dns-azure-vmware-solution.md).
 
 1. [Configure a new Tier-1 gateway (other than default)](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A6042263-374F-4292-892E-BC86876325A4.html).  This configuration is based on the NSX-T configured on the source. 
 
