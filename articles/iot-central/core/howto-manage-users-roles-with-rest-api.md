@@ -18,6 +18,9 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+> [!TIP]
+> The [preview API](/rest/api/iotcentral/2021-04-30preview/users) includes support for the new [organizations feature](howto-create-organizations.md).
+
 ## Manage roles
 
 The REST API lets you list the roles defined in your IoT Central application. Use the following request to retrieve a list of role IDs from your application:
