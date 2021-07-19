@@ -156,7 +156,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
-4. Select **Download**. There are two packages to download: <!--KB 4616970 and KB 4616971--> one for the device software updates (*SoftwareUpdatePackage.exe*) and toher for the Kubernetes updates (*Kubernetes_Package.exe*) respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
+4. Select **Download**. There are two packages to download: <!--KB 4616970 and KB 4616971--> one for the device software updates (*SoftwareUpdatePackage.exe*) and another for the Kubernetes updates (*Kubernetes_Package.exe*), respectively. Download the packages to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
 
 ### Install the update or the hotfix
 
