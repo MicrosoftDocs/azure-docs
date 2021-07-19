@@ -214,7 +214,3 @@ sections:
           
           For billing details, see [Video Analyzer pricing]()<!--add-valid-link.md)--><!--https://azure.microsoft.com/pricing/details/media-services/-->.
           
-      - question: Next steps
-        answer: |
-          [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)
-          
