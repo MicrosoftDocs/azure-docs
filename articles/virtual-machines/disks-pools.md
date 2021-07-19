@@ -40,6 +40,7 @@ Disk pools are currently available in the following regions:
 - West US 2
 - Japan East
 - North Europe
+- West Europe
 - UK South
 
 
