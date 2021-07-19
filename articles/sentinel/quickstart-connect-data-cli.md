@@ -20,9 +20,9 @@ In this quickstart, learn how to use Azure CLI to set up basic Sentinel services
 
     - For physical and virtual machines, you can install the Log Analytics agent that collects the logs and forwards them to Azure Sentinel.
 
-    - For Firewalls and proxies, Azure Sentinel installs the Log Analytics agent on a Linux Syslog server, from which the agent collects the log files and forwards them to Azure Sentinel. 
+    - For firewalls and proxies, Azure Sentinel installs the Log Analytics agent on a Linux Syslog server, from which the agent collects the log files and forwards them to Azure Sentinel. 
 
-    Azure Sentinel comes with a number of connectors for Microsoft solutions, which are available out of the box and provide real-time integration. These data connectors let you connect to:
+    Azure Sentinel comes with a number of data connectors for Microsoft solutions. Some of the connectors are available out of the box and provide real-time integration. These data connectors let you connect to:
 
     - Amazon Web Services (AWS) CloudTrail.
     - Azure Active Directory (Azure AD).
@@ -42,7 +42,9 @@ In this quickstart, learn how to use Azure CLI to set up basic Sentinel services
     |*kind*|The kind of data connector. See the next table for the string value to use for each data connector type.|
     |*etag*|The entity tag (ETag) of the Azure resource. An ETag helps verify that the data connector that you're trying to access is the current version.|
 
-    |Parameter name|Data connection type|Differences|Kind|
+    The following table lists the parameter names than you may specify when you create a data connector using the [az sentinel data-connector create](/cli/azure/sentinel/data-connector#az_sentinel_data_connector_create) Azure CLI command, the corresponding data connection type, any differences in the arguments that you need to include for that data connection type, and the corresponding string value for the *kind* argument.
+
+    |Parameter name|Data connection type|Argument differences|Value for 'kind'|
     |-|-|-|-|
     |*aad-data-connector*|Azure Active Directory (Azure AD) data connector|No differences.|`AzureActiveDirectory`|
     |*aatp-data-connector*|Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, or AATP) data connector|No differences.|`AzureAdvancedThreatProtection`|
@@ -53,15 +55,15 @@ In this quickstart, learn how to use Azure CLI to set up basic Sentinel services
     |*office-data-connector*|Office data connector|Instead of *state*, uses separate state arguments for Exchange and SharePoint (*state-data-types-exchange-state* and *state-data-types-share-point-state*). Specify `Enabled` or `Disabled` for each of those state arguments.|`Office365`|
     |*ti-data-connector*|Threat intelligence (TI) data connector|No differences.|`ThreatIntelligence`|
 
-  For more information, see [Connect data sources](connect-data-sources.md)
+    For more information, see [Connect data sources](connect-data-sources.md).
 
-  After you connect your data sources, either set up Sentinel yourself, or choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
+    After you connect your data sources, either set up Sentinel yourself, or choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
-  After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
+    After your data sources are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](tutorial-investigate-cases.md).
 
 2. Create security alerts
 
-    Focus on what’s important using analytics to create alerts: [az monitor alert](/cli/azure/monitor/alert).
+    Focus on what’s important using analytics to create alerts: [az monitor alert create](/cli/azure/monitor/alert#az_monitor_alert_create).
 
 3. Automate & orchestrate
 
@@ -116,6 +118,7 @@ resourceGroupLocation="Central US"
 logAnalyticsWorkspaceName="contoso-log-analytics-workspace$uniqueId"
 logAnalyticsWorkspaceLocation="East US"
 dataConnectorId="contoso-data-connector-$uniqueId"
+alertName="contoso-alert-$uniqueId"
 
 # Run Azure CLI commands.
 myTenantId=$(az account show --query tenantId)  # Get tenant ID of default subscription.
@@ -128,6 +131,9 @@ az sentinel data-connector create --data-connector-id "$dataConnectorId" \
     --workspace-name "$logAnalyticsWorkspaceName" \
     --resource-group "$resourceGroupName" \
     --aad-data-connector tenant-id="$myTenantId" state=Enabled kind=AzureActiveDirectory etag=*
+az sentinel alert-rule create --workspace-name "$logAnalyticsWorkspaceName" --resource-group "$resourceGroupName" --rule-id 
+az monitor alert create --name $alertName --condition  --target 
+az logic
 ```
 
 ## Next steps
