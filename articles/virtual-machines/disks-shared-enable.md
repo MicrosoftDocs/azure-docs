@@ -2,9 +2,9 @@
 title: Enable shared disks for Azure managed disks
 description: Configure an Azure managed disk with shared disks so that you can share it across multiple VMs
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2021
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell

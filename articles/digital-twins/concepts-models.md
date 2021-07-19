@@ -29,7 +29,7 @@ Models for Azure Digital Twins are defined using the Digital Twins Definition La
 
 You can view the full language specs for DTDL in GitHub: [Digital Twins Definition Language (DTDL) - Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL **version 2** (use of DTDL version 1 with Azure Digital Twins has now been deprecated). 
+DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL **version 2** (use of DTDL version 1 with Azure Digital Twins has now been deprecated). 
 
 The rest of this article summarizes how the language is used in Azure Digital Twins.
 
@@ -183,12 +183,14 @@ This section goes into more detail about **components** in DTDL models.
 
 ### Basic component example
 
-Here is a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat component.
+Here is a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat model as a component.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
 
-> [!NOTE]
-> Note that the component interface (thermostat component) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
+If other models in this solution should also contain a thermostat, they can reference the same thermostat model as a component in their own definitions, just like Room does.
+
+> [!IMPORTANT]
+> The component interface (thermostat in the example above) must be defined in the same array as any interfaces that use it (Room in the example above) in order for the component reference to be found.
 
 ## Model inheritance
 

@@ -698,6 +698,10 @@
               href: how-to-define-unique-keys.md
             - name: Perform transactional batch operations
               href: transactional-batch.md
+        - name: Best Practices
+          items:
+            - name: .NET
+              href: best-practice-dotnet.md
         - name: Performance
           items:
             - name: Query
@@ -741,6 +745,14 @@
               href: migrate-dotnet-v3.md
             - name: Migrate to .NET V2 SDK
               href: migrate-dotnet-v2.md
+        - name: Connectors
+          items:
+            - name: Kafka Connect
+              href: kafka-connector.md
+            - name: Kafka Connect - Source
+              href: kafka-connector-source.md
+            - name: Kafka Connect - Sink
+              href: kafka-connector-sink.md
         - name: Troubleshooting
           items:
             - name: Common errors
@@ -769,6 +781,8 @@
                   href: troubleshoot-dot-net-sdk-request-header-too-large.md
                 - name: Troubleshoot request timeout
                   href: troubleshoot-dot-net-sdk-request-timeout.md
+                - name: Troubleshoot slow requests
+                  href: troubleshoot-dot-net-sdk-slow-request.md
                 - name: Troubleshoot service unavailable
                   href: troubleshoot-service-unavailable.md
             - name: .Java
@@ -861,6 +875,10 @@
               href: certificate-based-authentication.md
             - name: Use Always Encrypted
               href: how-to-always-encrypted.md
+        - name: Client-side development
+          items:
+            - name: Session state and cache provider
+              href: session-state-and-caching-provider.md
         - name: Integrate with other Azure services
           items:
             - name: Change feed Ecommerce solution
@@ -1014,6 +1032,8 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Troubleshoot common issues
           href: cassandra-troubleshoot.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-cassandra.md
         - name: Cassandra and Spark
           items:
             - name: Introduction
@@ -1125,6 +1145,8 @@
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Databricks and Spark (offline)
+              href: mongodb-migrate-databricks.md  
             - name: Post-migration guide
               href: mongodb-post-migration.md
         - name: Upgrade to API version 4.0 or 3.6
@@ -1153,6 +1175,8 @@
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: mongodb/estimate-ru-capacity-planner.md
+        - name: Optimize write performance
+          href: mongodb/optimize-write-performance.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
@@ -1161,6 +1185,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-mongodb.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-mongo.md
         - name: Troubleshoot query performance
           href: mongodb-troubleshoot-query.md
         - name: Troubleshoot common issues
@@ -1250,6 +1276,8 @@
           href: how-to-access-system-properties-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
+        - name: Monitor using Diagnostics Logs
+          href: queries-gremlin.md
         - name: Store and manage Spring Data
           href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
@@ -1330,8 +1358,6 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-table.md
-        - name: Table storage design guide
-          href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates
           href: templates-samples-table.md
           displayName: ARM
@@ -1480,9 +1506,11 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
               href: cosmosdb-monitor-logs-basic-queries.md
+            - name: Troubleshoot issues using advanced queries
+              href: cosmos-db-advanced-queries.md                      
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
-        - name: Configure alerts
+        - name: Configure alerts 
           href: create-alerts.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md

@@ -5,7 +5,7 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: troubleshooting 
-ms.date: 06/21/2021
+ms.date: 06/24/2021
 ---
 
 
@@ -198,9 +198,9 @@ The RWX permission or the dataset property is not set correctly.
 
 - If the target folder has the correct permission and you use the file name property in the data flow to target to the right folder and file name, but the file path property of the dataset is not set to the target file path (usually leave not set), as the example shown in the following pictures, you will encounter this failure because the backend system tries to create files based on the file path of the dataset, and the file path of the dataset doesn't have the correct permission.
     
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Screenshot that shows the file path property"::: 
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-path-property.png" alt-text="Screenshot that shows the file path property."::: 
     
-    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Screenshot that shows the file name property"::: 
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/file-name-property.png" alt-text="Screenshot that shows the file name property."::: 
 
     
     There are two methods to solve this issue:
@@ -463,7 +463,7 @@ Create an Azure Data Lake Gen2 linked service for the storage, and select the Ge
 
 ## Common Data Model format
 
-### Model.Json files with special characters
+### Model.json files with special characters
 
 #### Symptoms 
 You may encounter an issue that the final name of the model.json file contains special characters.  

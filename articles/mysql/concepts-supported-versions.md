@@ -5,13 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
+ms.custom: 
 ms.date: 6/3/2020
 ---
 # Supported Azure Database for MySQL server versions
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 Azure Database for MySQL has been developed from [MySQL Community Edition](https://www.mysql.com/products/community/), using the InnoDB storage engine. The service supports all the current major version supported by the community namely MySQL 5.6, 5.7 and 8.0. MySQL uses the X.Y.Z naming scheme where X is the major version, Y is the minor version, and Z is the bug fix release. For more information about the scheme, see the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
-
-
 
 ## Connect to a gateway node that is running a specific MySQL version
 
@@ -28,7 +29,6 @@ In Azure Database for MySQL service, gateway nodes listens on port 3308 for v5.7
 
 ## Azure Database for MySQL currently supports the following major and minor versions of MySQL:
 
-
 | Version | [Single Server](overview.md) <br/> Current minor version |[Flexible Server (Preview)](./flexible-server/overview.md) <br/> Current minor version  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
 |MySQL Version 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) (Retired) | Not supported|
@@ -38,6 +38,7 @@ In Azure Database for MySQL service, gateway nodes listens on port 3308 for v5.7
 Read the version support policy for retired versions in [version support policy documentation.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## Managing updates and upgrades
+
 The service automatically manages patching for bug fix version updates. For example, 5.7.20 to 5.7.21.  
 
 Major version upgrade is currently supported by service for upgrades from MySQL v5.6 to v5.7. For more details, refer [how to perform major version upgrades](how-to-major-version-upgrade.md). If you'd like to upgrade from 5.7 to 8.0, we recommend you perform [dump and restore](./concepts-migrate-dump-restore.md) to a server that was created with the new engine version.

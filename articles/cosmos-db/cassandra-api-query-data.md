@@ -2,8 +2,8 @@
 title: 'Tutorial: Query data from a Cassandra API account in Azure Cosmos DB'
 description: This tutorial shows how to query user data from an Azure Cosmos DB Cassandra API account by using a Java application.
 ms.service: cosmos-db
-author: kanshiG
-ms.author: govindk
+author: TheovanKraay
+ms.author: thvankra
 ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial

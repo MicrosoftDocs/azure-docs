@@ -46,14 +46,14 @@ Now that you've created an authorization key for the private cloud ExpressRoute 
 
 1. Enter the ExpressRoute ID and the authorization key created in the previous section.
 
-   :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Screenshot that shows the dialog for entering the connection information.":::   
+   :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Screenshot showing the dialog for entering the connection information.":::   
 
 1. Select **Create**. The new connection shows in the on-premises cloud connections list.
 
 >[!TIP]
 >You can delete or disconnect a connection from the list by selecting **More**.  
 >
->:::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Disconnect or deleted an on-premises connection":::
+>:::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Screenshot showing how to disconnect or delete an on-premises connection in Azure VMware Solution.":::
 
 
 ## Verify on-premises network connectivity

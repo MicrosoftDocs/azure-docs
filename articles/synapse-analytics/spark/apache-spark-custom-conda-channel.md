@@ -16,7 +16,7 @@ When installing Python packages, the Conda package manager uses channels to look
 
 - your workspace is data exfiltration protected and outbound connections are blocked.  
 - you have packages that you don't want to upload to public repositories.
-- you want to set up am alternate repository for the users within your workspace.
+- you want to set up an alternate repository for the users within your workspace.
 
 In this article, we'll provide a step-by-step guide to help you create your custom Conda channel within your Azure Data Lake Storage account.
 
