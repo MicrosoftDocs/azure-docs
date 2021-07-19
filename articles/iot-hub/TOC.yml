@@ -72,8 +72,6 @@
           href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
-    - name: Managed identities support
-      href: iot-hub-managed-identity.md
     - name: TLS support
       href: iot-hub-tls-support.md
     - name: Virtual networks support
@@ -310,6 +308,8 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Use Azure CLI
               href: iot-hub-configure-file-upload-cli.md
+        - name: Configure managed identities
+          href: iot-hub-managed-identity.md
         - name: Upgrade an IoT hub
           href: iot-hub-upgrade.md
         - name: Configure IP filtering
