@@ -12,7 +12,7 @@ ms.date: 06/02/2021
 # Monitoring Azure Kubernetes Service (AKS) - Analyze data
 This article is part of the Monitoring AKS in Azure Monitor scenario. It describes using Container insights and other tools to analyze monitoring data to determine the health and performance of your AKS clusters.
 
-## Monitor menu options
+## Access Azure Monitor features
 
 Access Azure Monitor features for all AKS clusters in your subscription from the **Monitor** menu in the Azure portal or for a single AKS cluster from the **Monitor** section of the **Kubernetes services** menu. The screenshot below shows the cluster's **Monitor** menu.
 
@@ -29,9 +29,9 @@ Access Azure Monitor features for all AKS clusters in your subscription from the
 | Workbooks | Open workbook gallery for Kubernetes service. |
 
 ## Monitor layers of AKS with Container insights
-The approach you take to AKS monitoring should be based on factors including scale, topology, organizational roles, and multi-cluster tenancy. This section presents a common strategy that is a bottoms-up approach starting from infrastructure up through applications. Each layer has distinct monitoring requirements. These layers are illustrated in the following diagram and discussed in more detail in the following sections.
+Because of the wide variance in Kubernetes implementations, each customer will have unique requirements for AKS monitoring. The approach you take should be based on factors including scale, topology, organizational roles, and multi-cluster tenancy. This section presents a common strategy that is a bottoms-up approach starting from infrastructure up through applications. Each layer has distinct monitoring requirements. These layers are illustrated in the following diagram and discussed in more detail in the following sections.
 
-:::image type="content" source="media/monitor-aks/layers.png" alt-text="AKS layers":::
+:::image type="content" source="media/monitor-aks/layers.png" alt-text="AKS layers"  border="false":::
 
 ### Level 1 - Cluster level components
 Cluster level includes the following components.
@@ -64,7 +64,7 @@ Azure Monitor and container insights don't yet provide full monitoring for the A
 
 :::image type="content" source="media/monitor-aks/grafana-api-server.png" alt-text="Grafana API server" lightbox="media/monitor-aks/grafana-api-server.png":::
 
-Use the Kubelet workbook to view the health and performance of each kubelet. See [Resource Monitoring workbooks](container-insights-reports.md#resource-monitoring-workbooks) for details on this workbooks. For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](../../aks/kubelet-logs.md).
+Use the **Kubelet** workbook to view the health and performance of each kubelet. See [Resource Monitoring workbooks](container-insights-reports.md#resource-monitoring-workbooks) for details on this workbooks. For troubleshooting scenarios, you can access kubelet logs using the process described at [Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes](../../aks/kubelet-logs.md).
 
 :::image type="content" source="media/monitor-aks/container-insights-kubelet-workbook.png" alt-text="Container insights kubelet workbook" lightbox="media/monitor-aks/container-insights-kubelet-workbook.png":::
 
@@ -113,9 +113,12 @@ Application Insights provides complete monitoring of applications running on AKS
 - [Python](../app/opencensus-python.md)
 - [Other platforms](../app/platforms.md)
 
+See [What is Application Insights?](../app/app-insights-overview.md) 
 
 ## Analyze metric data with metrics explorer
-Use metrics explorer when you want to perform custom analysis of metric data collected for your containers. Metrics explorer allows you plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool.
+Use metrics explorer when you want to perform custom analysis of metric data collected for your containers. Metrics explorer allows you plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. Create a metrics alert to proactively notify you when a metric value crosses a threshold, and pin charts to dashboards for use by different members of your organization.
+
+See [Getting started with Azure Metrics Explorer](../essentials/metrics-getting-started.md) for details on using this tool.
 
 For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics).
 
