@@ -447,7 +447,7 @@
         href: complianceelf-tutorial.md
       - name: Concur
         href: concur-tutorial.md
-      - name: Concur Travel and Expense
+      - name: SAP Concur Travel and Expense
         href: concur-travel-and-expense-tutorial.md
       - name: Condeco
         href: condeco-tutorial.md
@@ -1410,6 +1410,8 @@
         href: paloaltonetworks-aperture-tutorial.md
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
+      - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
+        href: palo-alto-networks-cloud-identity-engine---cloud-authentication-service-tutorial.md  
       - name: Palo Alto Networks - GlobalProtect
         href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
@@ -1820,6 +1822,8 @@
         href: smart-global-governance-tutorial.md
       - name: SmartHR
         href: smarthr-tutorial.md
+      - name: SmartHub INFER
+        href: smarthub-infer-tutorial.md  
       - name: SmartKargo
         href: smartkargo-tutorial.md
       - name: SmartLPA
@@ -2018,6 +2022,8 @@
         href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
+      - name: Tulip
+        href: tulip-tutorial.md
       - name: TurboRater
         href: turborater-tutorial.md
       - name: Uberflip
@@ -2158,6 +2164,8 @@
         href: xaitporter-tutorial.md
       - name: xMatters OnDemand
         href: xmatters-ondemand-tutorial.md
+      - name: X-point Cloud
+        href: x-point-cloud-tutorial.md  
       - name: Yardi eLearning
         href: yardielearning-tutorial.md
       - name: YardiOne
@@ -2287,6 +2295,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Clebex
+        href: clebex-provisioning-tutorial.md
       - name: Cloud Academy - SSO
         href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
@@ -2319,6 +2329,8 @@
         href: eletive-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
+      - name: Exium
+        href: exium-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma

@@ -32,7 +32,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
   - The VNet must be in the same subscription and region as the Batch account you use to create your pool.
   - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
   - You must disable private link service and endpoint network policies. This can be done by using Azure CLI:
-    ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resouce-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+    ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resource-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > For each 100 dedicated or low-priority nodes, Batch allocates one private link service and one load balancer. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to [request a quota increase](batch-quota-limit.md#increase-a-quota) for one or more of these resources. Additionally, no resource locks should be applied to any resource created by Batch, since this prevent cleanup of resources as a result of user-initiated actions such as deleting a pool or resizing to zero.
@@ -107,7 +107,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 ## Outbound access to the internet
 
-In a pool without public IP addresses, your virtual machines won't be able to access the public internet unless you configure your network setup appropriately, such as by using [virtual network NAT](../virtual-network/nat-overview.md). Note that NAT only allows outbound access to the internet from the virtual machines in the virtual network. Batch-created compute nodes won't be publicly accessible, since they don't have public IP addresses associated.
+In a pool without public IP addresses, your virtual machines won't be able to access the public internet unless you configure your network setup appropriately, such as by using [virtual network NAT](../virtual-network/nat-gateway/nat-overview.md). Note that NAT only allows outbound access to the internet from the virtual machines in the virtual network. Batch-created compute nodes won't be publicly accessible, since they don't have public IP addresses associated.
 
 Another way to provide outbound connectivity is to use a user-defined route (UDR). This lets you route traffic to a proxy machine that has public internet access.
 
