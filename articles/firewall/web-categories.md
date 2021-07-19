@@ -12,7 +12,7 @@ ms.author: victorh
 
 # Azure Firewall web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. The categories are organized based on severity under Liability, High-Bandwidth, Business Use, Productivity Loss, General Surfing, and Uncategorized.
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. The categories are organized based on severity under Liability, High-Bandwidth, Business use, Productivity loss, General surfing, and Uncategorized.
 
 ## Liability
 
