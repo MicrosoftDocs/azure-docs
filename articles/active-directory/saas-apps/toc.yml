@@ -284,7 +284,9 @@
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
       - name: BrowserStack Single Sign-on
-        href: browserstack-single-sign-on-tutorial.md      
+        href: browserstack-single-sign-on-tutorial.md
+      - name: Brushup
+        href: brushup-tutorial.md        
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
@@ -533,6 +535,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: ./tutorial-list.md
+      - name: directprint.io Cloud Print Administration
+        href: directprint-io-cloud-print-administration-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -1104,6 +1108,8 @@
         href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
+      - name: Kronos Workforce Dimensions
+        href: kronos-workforce-dimensions-tutorial.md  
       - name: Kudos
         href: kudos-tutorial.md
       - name: Kumolus
@@ -1528,7 +1534,7 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
-      - name: ProProfs Classroom
+      - name: ProProfs Training Maker
         href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
         href: proprofs-knowledge-base-tutorial.md
@@ -1926,6 +1932,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: Taskize Connect
+        href: taskize-connect-tutorial.md
       - name: Teamgo
         href: teamgo-tutorial.md
       - name: Teamphoria
