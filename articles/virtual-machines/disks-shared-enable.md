@@ -53,16 +53,16 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 1. Select **+ Create** to create a new disk.
 1. Fill in the details and select an appropriate region, then select **Change size**.
 
-    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Scre132123enshot." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
+    :::image type="content" source="media/disks-shared-enable/create-shared-disk-basics-pane.png" alt-text="Screenshot of the create a managed disk pane, change size highlighted.." lightbox="media/disks-shared-enable/create-shared-disk-basics-pane.png":::
 
 1. Select the premium SSD size that you want and select **OK**.
 
-    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Screen123213shot" lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/select-premium-shared-disk.png" alt-text="Screenshot of the disk SKU, premium SSD highlighted." lightbox="media/disks-shared-enable/select-premium-shared-disk.png":::
 
 1. Proceed through the deployment until you get to the **Advanced** pane.
 1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
 
-    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Scr123123eenshot." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/enable-premium-shared-disk.png" alt-text="Screenshot of the Advanced pane, Enable shared disk highlighted and set to yes." lightbox="media/disks-shared-enable/enable-premium-shared-disk.png":::
 
 1. Select **Review + Create**.
 
@@ -174,14 +174,14 @@ To deploy a managed disk with the shared disk feature enabled, change the `maxSh
 1. Fill in the details, then select **Change size**.
 1. Select ultra disk for the **Disk SKU**.
 
-    :::image type="content" source="media/disks-shared-enable/select-ultra-shared-disk.png" alt-text="Screensho23t." lightbox="media/disks-shared-enable/select-ultra-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/select-ultra-shared-disk.png" alt-text="Screenshot of the disk SKU, ultra disk highlighted.." lightbox="media/disks-shared-enable/select-ultra-shared-disk.png":::
 
 1. Select the disk size that you want and select **OK**.
 1. Proceed through the deployment until you get to the **Advanced** pane.
 1. Select **Yes** for **Enable shared disk** and select the amount of **Max shares** you want.
 1. Select **Review + Create**.
 
-    :::image type="content" source="media/disks-shared-enable/enable-ultra-shared-disk.png" alt-text="Screens321hot." lightbox="media/disks-shared-enable/enable-ultra-shared-disk.png":::
+    :::image type="content" source="media/disks-shared-enable/enable-ultra-shared-disk.png" alt-text="Screenshot of the Advanced pane, Enable shared disk highlighted." lightbox="media/disks-shared-enable/enable-ultra-shared-disk.png":::
 
 # [Azure CLI](#tab/azure-cli)
 
