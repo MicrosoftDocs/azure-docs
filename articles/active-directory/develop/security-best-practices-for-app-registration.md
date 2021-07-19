@@ -89,7 +89,7 @@ Certain applications can expose resources (via WebAPI) and as such need to defin
 - https://_{string}.{verifiedCustomerDomain}_
 - https://_{string}.{verifiedCustomerDomain}/{string}_
 
-![application id uri](media/active-directory-application-registration-best-practices/appid-uri.png)
+![application id uri](media/active-directory-application-registration-best-practices/app-id-uri.png)
 
 ### AppId URI summary
 
