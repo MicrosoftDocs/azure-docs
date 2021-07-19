@@ -37,26 +37,14 @@ requires substantial, scaled-out, parallel processing capacity. The capacity of 
 ### Number of partitions
 The number of partitions is specified at creation and must be between 1 and the [maximum partition count allowed](../event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) for each pricing tier. 
 
-We recommend that you choose at least as many partitions as you expect to
-require in sustained the [throughput units
-(TU)](../event-hubs-scalability.md#throughput-units), [processing units (PU)](../event-hubs-scalability.md#processing-units) or [capacity units (CU)](../event-hubs-dedicated-overview.md) during the peak load of your application for that particular Event Hub.
+We recommend that you choose at least as many partitions as you expect that are required during the peak load of your application for that particular event hub. You should calculate with a single partition having a throughput capacity of pricing unit of each tier ([throughput units
+(TU)](../event-hubs-scalability.md#throughput-units) for the standard tier, [processing units (PU)](../event-hubs-scalability.md#processing-units) for the premium tier, and [capacity units (CU)](../event-hubs-dedicated-overview.md) for the dedicated tier). You can scale TUs or PUs on your namespace or CUs of your dedicated cluster independent of the partition count. For example, an event hub of the standard tier with 32 partitions or an event hub with 1 partition incur the exact same cost when the namespace is set to 1 TU capacity. 
 
-You should calculate with a single partition having a throughput capacity of pricing unit(TU, PU or CU) of each tier. You can scale the TUs or PUs on your namespace or the CUs of your dedicated cluster independent of the partition count. For example, an Event Hub of the standard tier with 32 partitions or an Event Hub with 1 partition incur the exact same cost when the
-namespace is set to 1 TU capacity. 
+The partition count for an event hub in a [dedicated Event Hubs cluster](../event-hubs-dedicated-overview.md) can be [increased](../dynamically-add-partitions.md) after the event hub has been created, but the distribution of streams across partitions will change when it's done as the mapping of partition keys to partitions changes, so you
+should try hard to avoid such changes if the relative order of events matters in your application.
 
-The partition count for an event hub in a [dedicated Event Hubs cluster](../event-hubs-dedicated-overview.md) can be [increased](../dynamically-add-partitions.md) after the event hub has
-been created, but the distribution of streams across partitions will change when
-it's done as the mapping of partition keys to partitions changes, so you
-should try hard to avoid such changes if the relative order of events matters in
-your application.
-
-Setting the number of partitions to the maximum permitted value is tempting, but
-always keep in mind that your event streams need to be structured such that you
-can indeed take advantage of multiple partitions. If you need absolute order
-preservation across all events or only a handful of substreams, you may not
-be able to take advantage of many partitions. Also, many partitions make the
-processing side more complex. 
-
+Setting the number of partitions to the maximum permitted value is tempting, but always keep in mind that your event streams need to be structured such that you
+can indeed take advantage of multiple partitions. If you need absolute order preservation across all events or only a handful of substreams, you may not be able to take advantage of many partitions. Also, many partitions make the processing side more complex. 
 
 ### Mapping of events to partitions
 You can use a partition key to map incoming event data into specific partitions for the purpose of data organization. The partition key is a sender-supplied value passed into an event hub. It is processed through a static hashing function, which creates the partition assignment. If you don't specify a partition key when publishing an event, a round-robin assignment is used.
