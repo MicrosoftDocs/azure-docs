@@ -1579,6 +1579,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/code-samples.md",
+      "redirect_url": "/azure/active-directory-b2c/integrate-with-app-code-samples",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps",
       "redirect_document_id": false
@@ -34349,6 +34354,11 @@
     {
       "source_path_from_root": "/articles/mysql/migrate/appendix.md",
       "redirect_url": "/azure/mysql/migrate/mysql-on-premises-azure-db/15-appendix",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/store-cleardb-faq.md",
+      "redirect_url": "https://azure.microsoft.com/updates/cleardb-removal-from-the-azure-marketplace/",
       "redirect_document_id": false
     },
     {
