@@ -27,7 +27,7 @@ items:
   expanded: true
   items:
     - name: FAQs
-      href: healthcare-apis-faqs.yml
+      href: healthcare-apis-faqs.md
 
 
 
