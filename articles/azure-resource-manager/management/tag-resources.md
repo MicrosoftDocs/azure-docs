@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 07/15/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -808,6 +808,8 @@ resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
 ## Portal
 
 [!INCLUDE [resource-manager-tag-resource](../../../includes/resource-manager-tag-resources.md)]
+
+Some resources, such [IP Groups in Azure Firewall](../../firewall/ip-groups.md), don't currently support updating tags through the portal. Instead, use the update commands for those resources. For example, you can update tags for an IP group with the [az network ip-group update](/cli/azure/network/ip-group#az_network_ip_group_update) command. 
 
 ## REST API
 

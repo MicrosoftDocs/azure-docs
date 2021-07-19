@@ -1,12 +1,13 @@
 ---
 title: Eav4-series and Easv4-series 
 description: Specifications for the Eav4 and Easv4-series VMs.
-author: migerdes
+author: ayshakeen
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.author: jushiman
+ms.date: 07/13/2021
+ms.author: ayshak
+ms.reviewer: jushiman
 ---
 
 # Eav4 and Easv4-series
