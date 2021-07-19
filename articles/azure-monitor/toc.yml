@@ -1096,7 +1096,7 @@
       href: containers/container-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#container-insights
-    - name: Enable monitoring
+    - name: Configure monitoring
       items:
       - name: Enable monitoring overview 
         href: containers/container-insights-onboard.md
@@ -1124,20 +1124,20 @@
         href: containers/container-insights-agent-config.md
       - name: Update to enable metrics
         href: containers/container-insights-update-metrics.md
-      - name: Monitor
-        items:
-        - name: Monitor performance
-          href: containers/container-insights-analyze.md
-        - name: Monitor GPU performance
-          href: containers/container-insights-gpu-monitoring.md
-        - name: Monitor network configuration
-          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
-        - name: Monitor Deployments & HPAs
-          href: containers/container-insights-deployment-hpa-metrics.md
-        - name: Monitor Persistent Volumes (PVs)
-          href: containers/container-insights-persistent-volumes.md
-        - name: Reports tab
-          href: containers/container-insights-reports.md
+    - name: Monitor
+      items:
+      - name: Monitor performance
+        href: containers/container-insights-analyze.md
+      - name: Monitor GPU performance
+        href: containers/container-insights-gpu-monitoring.md
+      - name: Monitor network configuration
+        href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
+      - name: Monitor Deployments & HPAs
+        href: containers/container-insights-deployment-hpa-metrics.md
+      - name: Monitor Persistent Volumes (PVs)
+        href: containers/container-insights-persistent-volumes.md
+      - name: Reports tab
+        href: containers/container-insights-reports.md
     - name: Log queries
       href: containers/container-insights-log-query.md
     - name: View live data

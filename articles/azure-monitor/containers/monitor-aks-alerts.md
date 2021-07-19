@@ -24,27 +24,17 @@ It's typically the best strategy to use metric alerts instead of log alerts when
 ## Metric alert rules
 Metric alert rules use the same metric values as metrics explorer. In fact, you can create an alert rule directly from metrics explorer with the data you're currently analyzing. You can use any of the values in [AKS data reference metrics](../../aks/monitor-aks-reference.md#metrics) for metric alert rules.
 
-Container insights includes a feature in public preview that creates metric alert rules for your AKS cluster. Ths feature creates new metric values (also in preview) used by the alert rules that you can also use in metrics explorer. See [Recommended metric alerts (preview) from Container insights](container-insights-metric-alerts.md) for details on this feature and on creating metric alerts for AKS.
+Container insights includes a feature in public preview that creates a recommended set of metric alert rules for your AKS cluster. Ths feature creates new metric values (also in preview) used by the alert rules that you can also use in metrics explorer. See [Recommended metric alerts (preview) from Container insights](container-insights-metric-alerts.md) for details on this feature and on creating metric alerts for AKS.
 
 
 ## Log alerts rules
-Log alerts can perform two different measurements of the result of a log query, each of which support distinct scenarios for monitoring virtual machines.
+Use log alert rules to generate an alert from the results of a log query. This may be data collected by Container insights or from AKS resource logs. See [How to create log alerts from Container insights](container-insights-log-alerts.md) for details on log alert rules for AKS and  a set of sample queries designed for alert rules. You can also refer to [How to query logs from Container insights](container-insights-log-query.md) for details on log queries that could be modified for alert rules.
 
 
 
 
-
-
-The following sections provide log queries for different alert rules. 
-
-View your AKS cluster in the Azure portal and select **Logs** from the **Monitoring** menu. 
-
-Paste the script into query window and click **Run** to verify the results. You may need to temporarily adjust the threshold values to return data for testing.
-
-Click **New alert rule**.
-
-
-
+## Prometheus alerts
+For those conditions where Azure Monitor either doesn't have the data required for an alerting condition,or where the alerting may not be responsive enough, you should configure alerts in Prometheus. One example is alerting for the API server. Azure Monitor doesn't collect critical information for the API server including whether it's available or experiencing a bottleneck. You can create a log query alert using the data from the kube-apiserver resource log category, but this can take up to several minutes before you receive an alert which may not be sufficient for your requirements. 
 ## Next steps
 
 * [Analyze monitoring data collected for AKS cluster.](monitor-aks-analyze.md)
