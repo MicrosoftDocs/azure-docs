@@ -2,7 +2,7 @@
 title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
 ms.topic: reference
-ms.date: 07/06/2021
+ms.date: 07/19/2021
 ---
 
 # Supported categories for Azure Resource Logs
@@ -118,15 +118,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ServiceLog|Service Logs|No|
 
 
-## Microsoft.BatchAI/workspaces
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|BaiClusterEvent|BaiClusterEvent|No|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
-|BaiJobEvent|BaiJobEvent|No|
-
-
 ## Microsoft.Blockchain/blockchainMembers
 
 |Category|Category Display Name|Costs To Export|
@@ -196,6 +187,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AuthOperational|Operational Authentication Logs|Yes|
+|CallDiagnosticsPRIVATEPREVIEW|Call Diagnostics Logs - PRIVATE PREVIEW|Yes|
+|CallSummaryPRIVATEPREVIEW|Call Summary Logs - PRIVATE PREVIEW|Yes|
 |ChatOperational|Operational Chat Logs|No|
 |SMSOperational|Operational SMS Logs|No|
 |Usage|Usage Records|No|
@@ -267,6 +260,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ssh|Databricks SSH|No|
 |workspace|Databricks Workspace|No|
 
+
 ## Microsoft.DataCollaboration/workspaces
 
 |Category|Category Display Name|Costs To Export|
@@ -276,6 +270,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Pipelines|Pipelines|No|
 |Proposals|Proposals|No|
 |Scripts|Scripts|No|
+
 
 ## Microsoft.DataFactory/factories
 
@@ -695,8 +690,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|LoadBalancerAlertEvent|Load Balancer Alert Events|No|
-|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
+|LoadBalancerAlertEvent|Load Balancer Alert Events|Yes|
+|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|Yes|
 
 
 ## Microsoft.Network/networksecuritygroups
@@ -772,7 +767,7 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Audit|Audit Logs|No|
+|Audit|Audit|Yes|
 
 
 ## Microsoft.PowerBI/tenants
@@ -868,36 +863,6 @@ If you think there is something is missing, you can open a GitHub comment at the
 |ResourceUsageStats|Resource Usage Statistics|No|
 |SQLSecurityAuditEvents|SQL Security Audit Event|No|
 
-## Microsoft.Sql/managedInstances/databases
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|Errors|Errors|No|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
-|SQLInsights|SQL Insights|No|
-
-
-## Microsoft.Sql/servers/databases
-
-|Category|Category Display Name|Costs To Export|
-|---|---|---|
-|AutomaticTuning|Automatic tuning|No|
-|Blocks|Blocks|No|
-|DatabaseWaitStatistics|Database Wait Statistics|No|
-|Deadlocks|Deadlocks|No|
-|DevOpsOperationsAudit|Devops operations Audit Logs|No|
-|DmsWorkers|Dms Workers|No|
-|Errors|Errors|No|
-|ExecRequests|Exec Requests|No|
-|QueryStoreRuntimeStatistics|Query Store Runtime Statistics|No|
-|QueryStoreWaitStatistics|Query Store Wait Statistics|No|
-|RequestSteps|Request Steps|No|
-|SQLInsights|SQL Insights|No|
-|SqlRequests|Sql Requests|No|
-|SQLSecurityAuditEvents|SQL Security Audit Event|No|
-|Timeouts|Timeouts|No|
-|Waits|Waits|No|
 
 ## Microsoft.Storage/storageAccounts/blobServices
 
@@ -961,6 +926,19 @@ If you think there is something is missing, you can open a GitHub comment at the
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |BigDataPoolAppsEnded|Big Data Pool Applications Ended|No|
+
+
+## Microsoft.Synapse/workspaces/kustoPools
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|Command|Command|Yes|
+|FailedIngestion|Failed ingest operations|Yes|
+|IngestionBatching|Ingestion batching|Yes|
+|Query|Query|Yes|
+|SucceededIngestion|Successful ingest operations|Yes|
+|TableDetails|Table details|Yes|
+|TableUsageStatistics|Table usage statistics|Yes|
 
 
 ## Microsoft.Synapse/workspaces/sqlPools
@@ -1028,11 +1006,9 @@ If you think there is something is missing, you can open a GitHub comment at the
 |AppServicePlatformLogs|App Service Platform logs|No|
 |FunctionAppLogs|Function Application Logs|No|
 
-
 ## Next Steps
 
 * [Learn more about resource logs](../essentials/platform-logs-overview.md)
 * [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
-
