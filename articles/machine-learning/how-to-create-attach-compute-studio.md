@@ -202,11 +202,11 @@ To detach your compute use the following steps:
 
 ## <a name="ssh-access"></a> Connect with SSH access
 
-If you created your compute instance or compute cluster with SSH access enabled, use these steps for access.
+If you created your compute instance with SSH access enabled, use these steps for access.
 
 1. Find the compute in your workspace resources:
     1. On the left, select **Compute**.
-    1. Use the tabs at the top to select either **Compute instance** or **Compute clusters** to find your machine.
+    1. Use the tabs at the top to select **Compute instance**.
 1. Select the compute name in the list of resources.
 1. Select **Connect** at the top of the **Details** section.
 
