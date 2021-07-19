@@ -31,9 +31,8 @@ This section reviews the testing strategy, and how to run the tests is covered l
 
 - New version **O** available for the extension: The partner team needs to run the tests on **M** to **M-2** minor version of the distro, with Arc platform minor version **N** to **N-2** with the latest version **O** of each extension on top.
 
-| |Run tests against |K8 distro **M** to **M-2** |Arc platform **N** to **N-2** |All cluster extensions **O** |
-|--|----------|----------|----------|----------|
-|Updates to|||||
+|Updates to|Run tests against |K8 distro **M** to **M-2** |Arc platform **N** to **N-2** |All cluster extensions **O** |
+|-|----------|----------|----------|----------|
 |Distro (M) |||X |X |
 |Arc platform (M) ||X ||X |
 |Cluster extension (O) ||X |X |X |
