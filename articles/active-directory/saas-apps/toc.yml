@@ -535,6 +535,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: ./tutorial-list.md
+      - name: directprint.io Cloud Print Administration
+        href: directprint-io-cloud-print-administration-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
