@@ -51,7 +51,7 @@ The Azure Data Explorer connector supports the following authentication types. S
 
 - [Service principal authentication](#service-principal-authentication)
 - [System-assigned managed identity authentication](#managed-identity)
-- [User-assigned managed identity authentication](#user-assigned-managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 ### Service principal authentication
 
@@ -106,7 +106,7 @@ The following properties are supported for the Azure Data Explorer linked servic
 
 ### <a name="managed-identity"></a> System-assigned managed identity authentication
 
-To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview).
+To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview.md).
 
 To use system-assigned managed identity authentication, follow these steps to grant permissions:
 
