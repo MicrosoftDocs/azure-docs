@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/11/2021
+ms.date: 07/19/2021
 ---
 
 # What's new in Azure Sentinel
@@ -30,10 +30,24 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## July 2021
 
+- [Microsoft Threat Intelligence Matching Analytics (Public preview)](#microsoft-threat-intelligence-matching-analytics-public-preview)
 - [Support for ADX cross-resource queries (Public preview)](#support-for-adx-cross-resource-queries-public-preview)
 - [Watchlists are in general availability](#watchlists-are-in-general-availability)
 - [Support for data residency in more geos](#support-for-data-residency-in-more-geos)
 - [Bidirectional sync in Azure Defender connector (Public preview)](#bidirectional-sync-in-azure-defender-connector-public-preview)
+
+### Microsoft Threat Intelligence Matching Analytics (Public preview)
+
+Azure Sentinel now provides the built-in **Microsoft Threat Intelligence Matching Analytics** rule, which matches Microsoft-generated threat intelligence data with your logs. This rule generates high-fidelity alerts and incidents, with appropriate severities based on the context of the logs detected. After a match is detected, the indicator is also published to your Azure Sentinel threat intelligence repository.
+
+The **Microsoft Threat Intelligence Matching Analytics** rule currently matches domain indicators against the following log sources:
+
+- [CEF](connect-common-event-format.md)
+- [DNS](connect-dns.md)
+- [Syslog](connect-syslog.md)
+
+For more information, see [Configure a rule to generate security alerts](work-with-threat-indicators.md#configure-a-rule-to-generate-security-alerts) and [Use Microsoft matched threat intelligence (Public preview)](work-with-threat-indicators.md#use-microsoft-matched-threat-intelligence-public-preview).
+
 
 ### Support for ADX cross-resource queries (Public preview)
 
