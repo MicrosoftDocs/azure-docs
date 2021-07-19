@@ -79,13 +79,13 @@ Check that the zipped file is secure, before you deploy it.
 
 6. The installer script does the following:
 
-- Installs agents and a web application.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module.
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+    - Installs agents and a web application.
+    - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+    - Download and installs an IIS rewritable module.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Creates the following files under the path:
+        - **Config Files**: %Programdata%\Microsoft Azure\Config
+        - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
 
