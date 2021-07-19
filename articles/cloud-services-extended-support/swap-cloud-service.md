@@ -19,7 +19,7 @@ After you swap the deployments, you can stage and test your new release by using
 > [!NOTE]
 > You can't swap between an Azure Cloud Services (classic) deployment and an Azure Cloud Services (extended support) deployment.
 
-You must make a cloud service swappable with another cloud service when you deploy the second of a pair of cloud services for the first time. Once the second pair of cloud service is deployed, it canot be made swappable with an existing cloud service in subsquent updates.
+You must make a cloud service swappable with another cloud service when you deploy the second of a pair of cloud services for the first time. Once the second pair of cloud service is deployed, it can not be made swappable with an existing cloud service in subsequent updates.
 
 You can swap the deployments by using an Azure Resource Manager template (ARM template), the Azure portal, or the REST API.
 
