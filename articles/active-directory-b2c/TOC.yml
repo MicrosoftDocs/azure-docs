@@ -434,6 +434,9 @@
     - name: Azure Monitor
       href: azure-monitor.md
       displayName: log, logs, logging, usage, events, reports, reporting, dashboard
+    - name: Azure Sentinel
+      href: azure-sentinel.md
+      displayName: log, logs, logging, events, Azure Monitor, Azure Sentinel, SIEM, threat hunting, Security, Security Orchestration
     - name: Usage analytics
       href: analytics-with-application-insights.md
       displayName: application insights, app insights, reports, reporting
