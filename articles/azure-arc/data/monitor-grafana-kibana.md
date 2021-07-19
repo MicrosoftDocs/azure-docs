@@ -15,7 +15,6 @@ ms.topic: how-to
 
 Kibana and Grafana web dashboards are provided to bring insight and clarity to the Kubernetes namespaces being used by Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
 ## Monitor Azure SQL managed instances on Azure Arc

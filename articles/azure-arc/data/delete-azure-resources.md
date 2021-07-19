@@ -43,7 +43,6 @@ In some cases, you may need to manually delete Azure Arc-enabled data services r
     - [Delete Azure Arc data controller resources using the Azure CLI](#delete-azure-arc-data-controller-resources-using-the-azure-cli)
     - [Delete a resource group using the Azure CLI](#delete-a-resource-group-using-the-azure-cli)
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Delete an entire resource group
 

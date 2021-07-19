@@ -14,7 +14,6 @@ ms.topic: how-to
 
 This article explains how to create a custom configuration template for Azure Arc-enabled data controller. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 One of required parameters during deployment of a data controller, whether in direct mode or indirect mode, is the `--profile-name` parameter. Currently, the available list of built-in profiles can be found via running the query:
 

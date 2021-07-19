@@ -21,7 +21,6 @@ ms.topic: how-to
 
 This document walks you through the steps for installing the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], Azure Data Studio, Azure CLI (az), and the Kubernetes CLI tool (kubectl) on your client machine.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Tools for creating and managing Azure Arc-enabled data services
 

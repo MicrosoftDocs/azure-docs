@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Sizing Guidance
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Overview of sizing guidance
 

@@ -172,7 +172,7 @@
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
-- name: Azure Arc-enabled SQL Managed Instance (preview)
+- name: Azure Arc-enabled SQL Managed Instance
   items:
     - name: Overview
       items:

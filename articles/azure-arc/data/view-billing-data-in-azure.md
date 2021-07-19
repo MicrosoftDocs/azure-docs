@@ -16,7 +16,6 @@ ms.topic: how-to
 > [!IMPORTANT] 
 >  There is no cost to use Azure Arc-enabled data services during the preview period. Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named **hybrid data services** and for resources of a type called **Microsoft.AzureArcData/`<resource type>`**. You will be able to see a record for each data service - Azure Arc that you create, but each record will be billed for $0.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Connectivity Modes - Implications for billing data
 

@@ -15,7 +15,6 @@ ms.topic: overview
 
 This article describes how to prepare to deploy a data controller for Azure Arc-enabled data services in direct connect mode. Deploying Azure Arc data controller requires additional understanding and concepts as described in [Plan to deploy Azure Arc-enabled data services](plan-azure-arc-data-services.md).
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 At a high level, the prerequisites for creating Azure Arc data controller in **direct** connectivity mode include:
 

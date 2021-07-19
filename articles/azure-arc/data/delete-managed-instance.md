@@ -14,7 +14,6 @@ ms.topic: how-to
 # Delete Azure Arc-enabled SQL Managed Instance
 This article describes how you can delete an Azure Arc-enabled SQL Managed Instance.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## View Existing Azure Arc-enabled SQL Managed Instances
 To view SQL Managed Instances, run the following command:

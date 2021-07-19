@@ -17,7 +17,6 @@ This document walks you through the steps for installing Azure SQL Managed Insta
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Create Azure SQL Managed Instance on Azure Arc
 

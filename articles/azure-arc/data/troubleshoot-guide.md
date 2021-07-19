@@ -15,7 +15,6 @@ ms.topic: how-to
 
 This article identifies troubleshooting resources for Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Resources by type
 

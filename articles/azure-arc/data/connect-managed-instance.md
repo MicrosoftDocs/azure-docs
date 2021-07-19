@@ -14,7 +14,6 @@ ms.topic: how-to
 
 This article explains how you can connect to your Azure Arc-enabled SQL Managed Instance. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## View Azure Arc-enabled SQL Managed Instances
 

@@ -13,7 +13,6 @@ ms.topic: how-to
 
 # Get logs to troubleshoot Azure Arc-enabled data services
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 

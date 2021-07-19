@@ -37,7 +37,7 @@ highlightedContent:
       itemType: overview
       url: ./kubernetes/overview.md
     # Card
-    - title: Azure Arc-enabled data services (preview)
+    - title: Azure Arc-enabled data services 
       itemType: overview
       url: ./data/overview.md
     # Card
@@ -89,7 +89,7 @@ conceptualContent:
         url: ./kubernetes/index.yml
         text: See more
     # Card
-    - title: Azure Arc-enabled data services (preview)
+    - title: Azure Arc-enabled data services 
       links:
         - url: ./data/install-client-tools.md
           itemType: deploy
