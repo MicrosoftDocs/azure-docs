@@ -250,6 +250,9 @@ resourceGroup="myResourceGroup"
 vnet="myVirtualNetwork"
 location="westcentralus"
 
+# Create the resource group
+az create group --name $resourceGroup --location $location
+
 # Create our two subnet network 
 az network vnet create -g $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
 az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
