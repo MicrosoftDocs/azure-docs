@@ -32,7 +32,7 @@ The password reset flow involves the following steps:
 
 1. The user enters their email address and selects **Send verification code**. Azure AD B2C sends the verification code to the user's email account. The user copies the verification code from the email, enters the code in the Azure AD B2C password reset page, and then selects **Verify code**.
 
-1. The user can then enter a new password. (After the email is verified, the user can still select the **Change e-mail** button; see [Hiding the change email button](#hiding-the-change-email-button).)
+1. The user can then enter a new password. (After the email is verified, the user can still select the **Change e-mail** button; see [Hide the change email button](#hide-the-change-email-button).)
 
 > [!TIP]
 > A user can change their password by using the self-service password reset flow when they forget their password and want to reset it.
