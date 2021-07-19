@@ -177,7 +177,7 @@ You cannot connect to GIT Enterprise because of permission issues. You can see e
 #### Cause
 
 * You have not configured Oauth for ADF. 
-* Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet)
+* Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true)
 
 #### Resolution 
 
