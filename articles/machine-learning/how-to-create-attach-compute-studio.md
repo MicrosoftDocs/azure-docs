@@ -202,18 +202,22 @@ To detach your compute use the following steps:
 
 ## <a name="ssh-access"></a> Connect with SSH access
 
-If you created your compute instance with SSH access enabled, use these steps for access.
+If you created your compute instance or compute cluster with SSH access enabled, use these steps for access.
 
 1. Find the compute in your workspace resources:
     1. On the left, select **Compute**.
-    1. Use the tabs at the top to select **Compute instance**.
+    1. Use the tabs at the top to select **Compute instance** or **Compute cluster** to find your machine.
 1. Select the compute name in the list of resources.
-1. Select **Connect** at the top of the **Details** section.
+1. Find the connection string:
 
-    :::image type="content" source="media/how-to-create-attach-studio/details.png" alt-text="Screenshot: Connect tool at the top of the Details page.":::
+    * For a **Compute instance**, select **Connect** at the top of the **Details** section.
+
+        :::image type="content" source="media/how-to-create-attach-studio/details.png" alt-text="Screenshot: Connect tool at the top of the Details page.":::
+
+    * For a **Compute cluster**, select **Nodes** at the top, then select the **Connection string** in the table for your node.
+        :::image type="content" source="media/how-to-create-attach-studio/compute-nodes.png" alt-text="Screenshot: Connection string for a node in a compute cluster.":::
 
 1. Copy the connection string.
-
 1. For Windows, open Powershell or a command prompt:
     1. Go into the directory or folder where your key is stored
     1. Add the -i flag to the connection string to locate the private key and point to where it is stored:
