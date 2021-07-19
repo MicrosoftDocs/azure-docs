@@ -55,7 +55,7 @@ When using custom domains, consider the following:
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
-## Add a custom domain name to your tenant
+## Step 1. Add a custom domain name to your Azure AD B2C tenant
 
 Follow the guidance for how to [add and validate your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). After the domain is verified, delete the DNS TXT record you created.
 
@@ -65,30 +65,138 @@ Follow the guidance for how to [add and validate your custom domain in Azure AD]
 Verify each subdomain you plan to use. Verifying just the top-level domain isn't sufficient. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not just the top-level domain *contoso.com*.  
 
 > [!TIP]
-> You can manage your domain with any DNS service. You can also use App Service domains. App Service domains make it easy to manage custom domains for Azure AD B2C. To use App Service domains, [buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain). [Add your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). Then, validate the domain name by [managing custom DNS records](/azure/app-service/manage-custom-dns-buy-domain#manage-custom-dns-records).
+> You can manage your custom domain with any publicly available DNS service. If you don't have a DNS server, we'd recommend you to use App Service domains. App Service domains make it easy to manage custom domains for Azure AD B2C. To use App Service domains, [buy a custom domain name](/azure/app-service/manage-custom-dns-buy-domain). [Add your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). Then, validate the domain name by [managing custom DNS records](/azure/app-service/manage-custom-dns-buy-domain#manage-custom-dns-records).
     
-## Create a new Azure Front Door instance
+## Step 2. Create a new Azure Front Door instance
 
-Follow the steps for [creating a Front Door for your application](../frontdoor/quickstart-create-front-door.md#create-a-front-door-for-your-application) using the default settings for the frontend host and routing rules. 
+Follow these steps to creating a Front Door for your application. For more information, see [creating a Front Door for your application](../frontdoor/quickstart-create-front-door.md#create-a-front-door-for-your-application).
+  
 
-> [!IMPORTANT]
-> For these steps, after you sign in to the Azure portal in step 1, select **Directory + subscription** and choose the directory that contains the Azure subscription you’d like to use for Azure Front Door. This should *not* be the directory containing your Azure AD B2C tenant. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select **Directory + subscription** and choose the directory that contains the Azure subscription you’d like to use for Azure Front Door. This should *not* be the directory containing your Azure AD B2C tenant.
+1. From the home page or the Azure menu, select **Create a resource**. Select **Networking** > **See All** > **Front Door**.
+1. In the **Basics** tab of **Create a Front Door** page, enter or select the following information, and then select **Next: Configuration**.
 
-In the step **Add a backend**, use the following settings:
+    | Setting | Value |
+    | --- | --- |
+    | **Subscription** | Select your subscription. |    
+    | **Resource group** | Select and existing resource group. You can also select **Create new** and enter a name, such as *FrontDoor_b2c*.|
+    | **Resource group location** | Select the location of the resource group. For example, **Central US**. |
 
-* For **Backend host type**, select **Custom host**.  
-* For **Backend host name**, select the hostname for your Azure AD B2C endpoint, <tenant-name>.b2clogin.com. For example, contoso.b2clogin.com. 
-* For **Backend host header**, select the same value you selected for **Backend host name**.
+### 2.1 Add frontend host
 
-![Add a backend](./media/custom-domain/add-a-backend.png)
+The frontend host is the domain name used by your application. You create a Front Door, the default frontend host, which is a subdomain of `azurefd.net`, is included in the URL for delivering Front Door content from your backend by default (for example, https://contoso-frontend.azurefd.net). 
 
-After you add the **backend** to the **backend pool**, disable the **Health probes**.
+Azure Front Door provides the option of associating a custom domain with the default host. With this option, you deliver your Azure AD B2C user interface  with a custom domain in your URL instead of a Front Door owned domain name (for example, https://login.contoso.com).
 
-![Add a backend pool](./media/custom-domain/add-a-backend-pool.png)
+To add a frontend host, follow these steps:
 
-## Set up your custom domain on Azure Front Door
+1. In **Frontends/domains**, select **+** to open **Add a frontend host**.
+1. For **Host name**, enter a globally unique hostname. The host name is not your custom domain. This example uses *contoso-frontend*. Select **Add**.
+1. 
+    ![Add a frontend host screenshot.](./media/custom-domain/add-frontend-host-azure-front-door.png)
 
-Follow the steps to [add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). When creating the `CNAME` record for your custom domain, use the custom domain name you verified earlier in the [Add a custom domain name to your Azure AD](#add-a-custom-domain-name-to-your-tenant) step. 
+### 2.2 Add backend and backend pool
+
+A backend refers to your [host name Azure AD B2C tenant](tenant-management.md#get-your-tenant-name), `tenant-name.b2clogin.com`. To add a backend pool, follow these steps:
+
+1. Still in **Create a Front Door**, in **Backend pools**, select **+** to open **Add a backend pool**.
+
+1. Enter a **Name**. For example, *myBackendPool*. Select **Add a backend**.
+    
+    ![Add a frontend backend pool screenshot.](./media/custom-domain/front-door-add-backend-pool.png)
+
+1. In the **Add a backend** blade, select the following information and select **Add**.
+
+    | Setting | Value |
+    | --- | --- |
+    | **Backend host type**| Select **Custom host**.| 
+    | **Backend host name**| Select the hostname for your Azure AD B2C endpoint, <tenant-name>.b2clogin.com. For example, contoso.b2clogin.com.|
+    | **Backend host header**| Select the same value you selected for **Backend host name**.|
+    
+    **Leave all other fields default.*
+
+    ![Add a custom host backend screenshot.](./media/custom-domain/add-a-backend.png)
+
+1. Select Add on the Add a backend pool blade to complete the configuration of the backend pool.
+
+1. After you add the **backend** to the **backend pool**, disable the **Health probes**.
+
+    ![Add a backend pool and disable the health probes screenshot.](./media/custom-domain/add-a-backend-pool.png)
+
+1. Finally, add a routing rule. A routing rule maps your frontend host to the backend pool. The rule forwards a request for `contoso-frontend.azurefd.net` to myBackendPool.
+
+1. Still in **Create a Front Door**, in **Routing rules**, select **+** to configure a routing rule.
+
+### 2.3 Add a routing rule
+
+The routing rule maps your frontend host to the backend pool. The rule forwards a request for the [frontend host](#21-add-frontend-host) to the [backend](#22-add-backend-and-backend-pool). To add a routing rule, follow these steps:
+
+1. In **Add a rule**, for **Name**, enter *LocationRule*. Accept all the default values, then select **Add** to add the routing rule.
+1. Select **Review + Create**, and then **Create**.
+    
+     ![Create Azure Front Door screenshot.](./media/custom-domain/configuration-azure-front-door.png)
+
+
+## Step 3. Set up your custom domain on Azure Front Door
+
+In this step you add the custom domain you register in [Step 1.](#step-1-add-a-custom-domain-name-to-your-azure-ad-b2c-tenant) to your Front Door. 
+
+### 3.1 Create a CNAME DNS record
+
+Before you can use a custom domain with your Front Door, you must first create a canonical name (CNAME) record with your domain provider to point to your Front Door's default frontend host (say contoso.azurefd.net).
+
+A CNAME record is a type of DNS record that maps a source domain name to a destination domain name. For Azure Front Door, the source domain name is your custom domain name and the destination domain name is your Front Door default hostname you configure in [step 2.1](#21-add-frontend-host). 
+
+After Front Door verifies the CNAME record that you create, traffic addressed to the source custom domain (such as login.contoso.com) is routed to the specified destination Front Door default frontend host, such as `contoso-frontend.azurefd.net`.
+
+For more information, see [add a custom domain to your Front Door](../frontdoor/front-door-custom-domain.md). 
+
+To create a CNAME record for your custom domain:
+
+1. Sign in to the web site of the domain provider for your custom domain.
+
+1. Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**. 
+
+1. Create a CNAME record entry for your custom domain and complete the fields as shown in the following table (field names may vary):
+
+    | Source          | Type  | Destination           |
+    |-----------------|-------|-----------------------|
+    | <login.contoso.com> | CNAME | `contoso-frontend.azurefd.net` |
+
+   - Source: Enter your custom domain name (for example, login.contoso.com).
+
+   - Type: Enter *CNAME*.
+
+   - Destination: Enter your default Front Door frontend host you create in [step 2.1](#21-add-frontend-host). It must be in the following format:_&lt;hostname&gt;_.azurefd.net. For example, `contoso-frontend.azurefd.net`.
+
+1. Save your changes.
+
+### 3.2 Associate the custom domain with your Front Door
+
+After you've registered your custom domain, you can then add it to your Front Door.
+    
+1. On the **Front Door designer** page, select **+** to add a custom domain.
+    
+1. For **Frontend host**, the frontend host to use as the destination domain of your CNAME record is pre-filled and is derived from your Front Door: *&lt;default hostname&gt;*.azurefd.net. It cannot be changed.
+
+1. For **Custom hostname**, enter your custom domain, including the subdomain, to use as the source domain of your CNAME record. For example, login.contoso.com.
+
+1. Select **Add**.
+
+   Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain will be validated.
+
+### 3.3 Update the routing rule
+
+1. In the **Routing rules**, select the routing rule you created in [step 2.3](#23-add-a-routing-rule).
+1. Under the **Frontends/domains** select your custom domain name.
+    
+    ![Update the Azure Front Door routing rule screenshot.](./media/custom-domain/update-routing-rule.png)
+
+1. Select **Update**.
+1. From the main window, select **Save**.
+    
+### 3.4 Configure HTTPS on a Front Door custom domain
 
 After the custom domain name is verified, select **Custom domain name HTTPS**. Then under the **Certificate management type**, select [Front Door management](../frontdoor/front-door-custom-domain-https.md#option-1-default-use-a-certificate-managed-by-front-door), or [Use my own certificate](../frontdoor/front-door-custom-domain-https.md#option-2-use-your-own-certificate). 
 
@@ -96,7 +204,8 @@ The following screenshot shows how to add a custom domain and enable HTTPS using
 
 ![Set up Azure Front Door custom domain](./media/custom-domain/azure-front-door-add-custom-domain.png) 
 
-## Configure CORS
+
+## Step 4. Configure CORS
 
 If you [customize the Azure AD B2C user interface](customize-ui-with-html.md) with an HTML template, you need to [Configure CORS](customize-ui-with-html.md?pivots=b2c-user-flow.md#3-configure-cors) with your custom domain.
 
@@ -110,6 +219,34 @@ Configure Azure Blob storage for Cross-Origin Resource Sharing with the followin
 1. For **Exposed Headers**, enter an asterisk (*).
 1. For **Max age**, enter 200.
 1. Select **Save**.
+
+## Test your custom domain
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Under **Policies**, select **User flows (policies)**.
+1. Select a user flow, and then select **Run user flow**.
+1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Click **Copy to clipboard**.
+
+    ![Copy the authorization request URI](./media/custom-domain/user-flow-run-now.png)
+
+1. In the **Run user flow endpoint** URL, replace the Azure AD B2C domain (<tenant-name>.b2clogin.com) with your custom domain.  
+    For example, instead of:
+
+    ```http
+    https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login
+    ```
+
+    use:
+
+    ```http
+    https://login.contoso.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login    
+    ```
+1. Select **Run user flow**. Your Azure AD B2C policy should load.
+1. Sign-in with Azure AD B2C local account.
+1. Repeat the test with the rest of your policies.
 
 ## Configure your identity provider
 
@@ -147,34 +284,6 @@ The [SAML identity providers](saml-identity-provider-technical-profile.md) metad
 ```http
 https://<custom-domain-name>.b2clogin.com/<tenant-name>/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
-
-## Test your custom domain
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
-1. In the Azure portal, search for and select **Azure AD B2C**.
-1. Under **Policies**, select **User flows (policies)**.
-1. Select a user flow, and then select **Run user flow**.
-1. For **Application**, select the web application named *webapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Copy to clipboard**.
-
-    ![Copy the authorization request URI](./media/custom-domain/user-flow-run-now.png)
-
-1. In the **Run user flow endpoint** URL, replace the Azure AD B2C domain (<tenant-name>.b2clogin.com) with your custom domain.  
-    For example, instead of:
-
-    ```http
-    https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login
-    ```
-
-    use:
-
-    ```http
-    https://login.contoso.com/contoso.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_susi&client_id=63ba0d17-c4ba-47fd-89e9-31b3c2734339&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login    
-    ```
-1. Select **Run user flow**. Your Azure AD B2C policy should load.
-1. Sign-in with both local and social accounts.
-1. Repeat the test with the rest of your policies.
 
 ## Configure your application 
 
