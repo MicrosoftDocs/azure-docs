@@ -11,15 +11,10 @@ ms.custom: references_regions
 
 ---
 
-# Continuous backup with point-in-time restore (Preview) feature in Azure Cosmos DB
+# Continuous backup with point-in-time restore in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-> [!IMPORTANT]
-> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Cosmos DB's point-in-time restore feature(Preview) helps in multiple scenarios such as the following:
+Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
 
 * To recover from an accidental write or delete operation within a container.
 * To restore a deleted account, database, or a container.
@@ -31,7 +26,7 @@ Azure Cosmos DB performs data backup in the background without consuming any ext
 
 The available time window for restore (also known as retention period) is the lower value of the following two: *30 days back in past from now* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period.
 
-In public preview, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account using [Azure portal](continuous-backup-restore-portal.md), [Azure Command Line Interface](continuous-backup-restore-command-line.md) (az CLI), [Azure PowerShell](continuous-backup-restore-powershell.md), or the [Azure Resource Manager](continuous-backup-restore-template.md).
+Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account using [Azure portal](continuous-backup-restore-portal.md), [Azure Command Line Interface](continuous-backup-restore-command-line.md) (az CLI), [Azure PowerShell](continuous-backup-restore-powershell.md), or the [Azure Resource Manager](continuous-backup-restore-template.md).
 
 ## What is restored?
 
@@ -96,9 +91,9 @@ For example, if you have 1-TB of data in two regions then:
 
 * Restore cost is calculated as (1000 * 0.15) = $150 per restore
 
-## Current limitations (public preview)
+## Current limitations
 
-Currently the point in time restore functionality is in public preview and it has the following limitations:
+Currently the point in time restore functionality has the following limitations:
 
 * Only Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra, Table, and Gremlin APIs are not yet supported.
 
@@ -124,7 +119,7 @@ Currently the point in time restore functionality is in public preview and it ha
 
 * The point-in-time restore functionality always restores to a new Azure Cosmos account. Restoring to an existing account is currently not supported. If you are interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative or [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
-* All the new APIs exposed for listing `RestorableDatabaseAccount`, `RestorableSqlDatabases`, `RestorableSqlContainer`, `RestorableMongodbDatabase`, `RestorableMongodbCollection` are subject to changes while the feature is in preview.
+* All the new APIs exposed for listing `RestorableDatabaseAccount`, `RestorableSqlDatabases`, `RestorableSqlContainer`, `RestorableMongodbDatabase`, `RestorableMongodbCollection` are subject to changes.
 
 * After restoring, it is possible that for certain collections the consistent index may be rebuilding. You can check the status of the rebuild operation via the [IndexTransformationProgress](how-to-manage-indexing-policy.md) property.
 

@@ -143,3 +143,11 @@ To restore to a time after t5 because your account is now in continuous mode, yo
 To restore to a time before t1, you can open a support ticket like you normally do with the periodic backup account. The restore time can be any time before, during, or after the migration.  After the migration, you have up to 30 days to perform the periodic restore.  During these 30 days, you can restore based on the backup retention/interval of your account before the migration.  For example, if the backup config was to retain 24 copies at 1 hour interval, then you can restore to anytime between [t1 – 24 hours] and [t1].
 
 ## Next steps
+
+To learn more about continuous backup mode, see the following articles:
+
+* [Introduction to continuous backup mode with point-in-time restore](continuous-backup-restore-introduction.md)
+
+* [Continuous backup mode resource model](continuous-backup-restore-resource-model.md)
+
+* [Configure and manage continuous backup mode](continuous-backup-restore-portal.md) using Azure portal
