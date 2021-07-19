@@ -8,8 +8,8 @@ ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 07/13/2021
 ---
