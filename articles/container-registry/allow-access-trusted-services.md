@@ -38,8 +38,8 @@ Where indicated, access by the trusted service requires additional configuration
 |Trusted service  |Supported usage scenarios  | Configure managed identity with RBAC role
 |---------|---------|------|
 | Azure Security Center | Vulnerability scanning by [Azure Defender for container registries](scan-images-defender.md) | No |
-|ACR Tasks     | [Access a different registry from an ACR Task](container-registry-tasks-cross-registry-authentication.md)       | Yes |
-|Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-docker-image.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image | Yes |
+|ACR Tasks     | [Access the parent registry or a different registry from an ACR Task](container-registry-tasks-cross-registry-authentication.md)       | Yes |
+|Machine Learning | [Deploy](../machine-learning/how-to-deploy-custom-container.md) or [train](../machine-learning/how-to-train-with-custom-image.md) a model in a Machine Learning workspace using a custom Docker container image | Yes |
 |Azure Container Registry | [Import images from another Azure container registry](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | No |
 
 > [!NOTE]
@@ -89,17 +89,19 @@ Here's a typical workflow to enable an instance of a trusted service to access a
 
 The following example demonstrates using ACR Tasks as a trusted service. See [Cross-registry authentication in an ACR task using an Azure-managed identity](container-registry-tasks-cross-registry-authentication.md) for task details.
 
-1. Create or update an Azure container registry, and [push a sample base image](container-registry-tasks-cross-registry-authentication.md#prepare-base-registry) to the registry. This registry is the *base registry* for the scenario.
-1. In a second Azure container registry, [define](container-registry-tasks-cross-registry-authentication.md#define-task-steps-in-yaml-file) and [create](container-registry-tasks-cross-registry-authentication.md#option-2-create-task-with-system-assigned-identity) an ACR task to pull an image from the base registry. Enable a system-assigned managed identity when creating the task.
-1. Assign the task identity [an Azure role to access the base registry](container-registry-tasks-authentication-managed-identity.md#3-grant-the-identity-permissions-to-access-other-azure-resources). For example, assign the AcrPull role, which has permissions to pull images.
-1. [Add managed identity credentials](container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task) to the task.
-1. To confirm that the task bypasses network restrictions, [disable public access](container-registry-access-selected-networks.md#disable-public-network-access) in the base registry.
-1. Run the task. If the base registry and task are configured properly, the task runs successfully, because the base registry allows access.
+1. Create or update an Azure container registry.
+[Create](container-registry-tasks-cross-registry-authentication.md#option-2-create-task-with-system-assigned-identity) an ACR task. 
+    * Enable a system-assigned managed identity when creating the task.
+    * Disable default auth mode (`--auth-mode None`) of the task.
+1. Assign the task identity [an Azure role to access the registry](container-registry-tasks-authentication-managed-identity.md#3-grant-the-identity-permissions-to-access-other-azure-resources). For example, assign the AcrPush role, which has permissions to pull and push images.
+2. [Add managed identity credentials for the registry](container-registry-tasks-authentication-managed-identity.md#4-optional-add-credentials-to-the-task) to the task.
+3. To confirm that the task bypasses network restrictions, [disable public access](container-registry-access-selected-networks.md#disable-public-network-access) in the registry.
+4. Run the task. If the registry and task are configured properly, the task runs successfully, because the registry allows access.
 
 To test disabling access by trusted services:
 
-1. In the base registry, disable the setting to allow access by trusted services.
-1. Run the task again. In this case, the task run fails, because the base registry no longer allows access by the task.
+1. Disable the setting to allow access by trusted services.
+1. Run the task again. In this case, the task run fails, because the registry no longer allows access by the task.
 
 ## Next steps
 

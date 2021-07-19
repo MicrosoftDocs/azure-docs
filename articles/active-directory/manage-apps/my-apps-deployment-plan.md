@@ -140,7 +140,7 @@ By default, all applications to which the user has access and all applications c
 
 ### Plan My Apps collections
 
-Every Azure AD application to which a user has access will appear on My Apps in the All Apps collection. Use collections to group related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on.
+Every Azure AD application to which a user has access will appear on My Apps in the **Apps** collection. Use collections to group related applications and present them on a separate tab, making them easier to find. For example, you can use collections to create logical groupings of applications for specific job roles, tasks, projects, and so on.
 
 End users can also customize their experience by
 

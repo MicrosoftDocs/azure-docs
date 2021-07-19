@@ -51,7 +51,6 @@ You can interact with your workspace in the following ways:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
 + In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
@@ -72,7 +71,7 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | Studio | Python SDK / R SDK       | Azure CLI        | VS Code
+| Workspace management task   | Portal              | Studio | Python SDK      | Azure CLI        | VS Code
 |---------------------------|---------|---------|------------|------------|------------|
 | Create a workspace        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Manage workspace access    | **&check;**   || |  **&check;**    ||
@@ -113,7 +112,7 @@ When you create a new workspace, it automatically creates several Azure resource
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
 > [!NOTE]
-> You can instead use existing Azure resource instances when you create the workspace with the [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace), [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html), or the Azure Machine Learning CLI [using an ARM template](how-to-create-workspace-template.md).
+> You can instead use existing Azure resource instances when you create the workspace with the [Python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace) or the Azure Machine Learning CLI [using an ARM template](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 

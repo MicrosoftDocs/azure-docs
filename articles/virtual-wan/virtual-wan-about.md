@@ -119,7 +119,7 @@ For location information, see the [Virtual WAN partners and locations](virtual-w
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
+If you have pre-existing routes in the Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
 If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md). It is highly encouraged to do the delete step for all hubs in a Virtual WAN.
@@ -134,4 +134,6 @@ Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the
 
 ## Next steps
 
-[Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Tutorial: Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
+- [Learn module: Introduction to Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
+
