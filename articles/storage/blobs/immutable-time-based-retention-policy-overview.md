@@ -1,7 +1,7 @@
 ---
 title: Time-based retention policies for immutable blob data 
 titleSuffix: Azure Storage
-description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval. Learn how to create time-based retention policies.
+description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version (preview) or to a container.
 services: storage
 author: tamram
 
