@@ -155,11 +155,8 @@ landingContent:
         links:
           - text: Create and deploy with Resource Manager templates
             url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
-          - text: "Sample: Connect to Azure Storage and deploy with Azure Pipelines"
-            url: https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections
-          - text: "Sample: Connect to Azure Service Bus and deploy with Azure Pipelines"
-            url: https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/service-bus-connections
-
+          - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
+            url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
   # Card (optional)
   - title: More information
     linkLists:
