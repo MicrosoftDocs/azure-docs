@@ -12,7 +12,7 @@ ms.date: 06/21/2021
 
 #  Data collection best practices
 
-This section reviews best practices for collecting data using Azure Sentinel data connectors. 
+This section reviews best practices for collecting data using Azure Sentinel data connectors.
 
 For more information, see [Connect data sources](connect-data-sources.md), [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
@@ -53,6 +53,8 @@ The following table describes common challenges or requirements, and possible so
 >
 
 ### On-premises Windows log collection
+
+<!--keep bullets consistent-->
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|

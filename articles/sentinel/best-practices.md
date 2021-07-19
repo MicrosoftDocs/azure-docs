@@ -12,6 +12,8 @@ ms.date: 06/21/2021
 
 # Best practices for Azure Sentinel
 
+<!--Comment: For anything that already had existing docs - add a section for this with xrefs out. "additional best practices" - where you can find more information.-->
+
 This article collects best practices and guidance to use when deploying, managing, and using Azure Sentinel, including links to additional articles for more information.
 
 > [!IMPORTANT]
