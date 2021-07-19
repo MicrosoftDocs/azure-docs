@@ -160,13 +160,19 @@ To lock a policy, follow these steps:
 
     :::image type="content" source="media/immutable-time-based-retention-policy-configure/lock-policy-portal.png" alt-text="Screenshot showing how to lock a time-based retention policy in Azure portal":::
 
-## Feature support
+## Configure or clear a legal hold
 
-Version-level time-based retention policies are supported for general-purpose v2 storage accounts and premium storage accounts for block blobs in all regions.
+To configure a legal hold on a blob version, follow these steps:
 
-All access tiers and redundancy configurations are supported. However, if the storage account is geo-replicated to a secondary region, then customer-initiated failover is not supported.
+1. Locate the target version, which may be the current version or a previous version of a blob. Select the **More** button and choose **Access policy**.
+1. Under the **Immutable blob versions** section, select **Add policy**.
+1. Choose **Legal hold** as the policy type, and select **OK** to apply it.
 
-Storage accounts with a hierarchical namespace are not supported.
+The following image shows a current version of a blob with both a time-based retention policy and legal hold configured.
+
+:::image type="content" source="media/immutable-time-based-retention-policy-configure/configure-legal-hold-blob-version.png" alt-text="Screenshot showing legal hold configured for blob version":::
+
+To clear a legal hold, navigate to the **Access policy** dialog, select the **More** button, and choose **Delete**.
 
 ## Next steps
 

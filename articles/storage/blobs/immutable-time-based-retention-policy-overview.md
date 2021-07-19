@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Time-based retention policies for immutable blob data
 
-You can configure a time-based retention policy to store data in a Write-Once, Read-Many (WORM) format for a specified interval. When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. After the retention interval has expired, blobs can be deleted but not overwritten.
+You can configure a time-based retention policy to store data in a Write-Once, Read-Many (WORM) format for a specified interval. When a time-based retention policy is set, clients can create and read blobs, but cannot modify or delete them. After the retention interval has expired, blobs can be deleted but not overwritten.
 
 For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
@@ -32,7 +32,7 @@ When you first configure a time-based retention policy, the policy is unlocked f
 
 Both locked and unlocked policies protect against deletes and overwrites. However, you can modify an unlocked policy by shortening or extending the retention period. You can also delete an unlocked policy.
 
-You cannot delete a locked time-based retention policy. You can extend the retention period, but you cannot decrease it. A maximum of five increases to the effective retention period is allowed over the lifetime of the policy.
+You cannot delete a locked time-based retention policy. You can extend the retention period, but you cannot decrease it. A maximum of five increases to the effective retention period is allowed over the lifetime of a locked policy that is defined at the container level. For a policy configured for a blob version, there is no limit to the number of increase to the effective period. ???true???
 
 > [!IMPORTANT]
 > A time-based retention policy must be locked for the blob to be in a compliant immutable (write and delete protected) state for SEC 17a-4(f) and other regulatory compliance. Microsoft recommends that you lock the policy in a reasonable amount of time, typically less than 24 hours. While the unlocked state provides immutability protection, using the unlocked state for any purpose other than short-term testing is not recommended.
@@ -42,17 +42,17 @@ You cannot delete a locked time-based retention policy. You can extend the reten
 A time-based retention policy can be configured at either of the following scopes:
 
 - Version-level policy (preview): A time-based retention policy can be configured to apply to a blob version for granular management of sensitive data. You can apply the policy to an individual version, or configure a default policy for a container that will apply by default to all blobs uploaded to that container.
-- Container-level policy: A time-based retention policy that is configured at the container level applies to all blobs in that container. Individual blobs cannot be configured with their own policies.
+- Container-level policy: A time-based retention policy that is configured at the container level applies to all blobs in that container. Individual blobs cannot be configured with their own immutability policies.
 
 Audit logs are available on the container for both version-level and container-level time-based retention policies.
 
 ### Version-level policy scope (preview)
 
-You can configure a version-level time-based retention policy on the current version of a blob or on a previous version. The current version of a blob can have its own time-based retention policy, or it can inherit a policy from its parent container. Similarly, previous versions of a blob can have their own time-based retention policies, or can inherit a policy from the current version.
-
 Version-level time-based retention policies require that blob versioning is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
 
 When versioning is enabled, then when a blob is first uploaded, that version of the blob is the current version. Each time the blob is overwritten, a new version is created that stores the previous state of the blob. When you delete the current version of a blob, the current version becomes a previous version and is retained until explicitly deleted. A previous blob version possesses the time-based retention policy that was in effect when the current version became a previous version. Alternately, you can configure a retention policy for a specific previous version. Each version may have only one time-based retention policy configured and one legal hold.
+
+If a default policy is in effect for the container, then when an overwrite operation creates a previous version, the new current version inherits the default policy for the container.
 
 To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled, although locked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
 
@@ -122,7 +122,17 @@ Unlocked time-based retention policies allow the the **AllowProtectedAppendWrite
 
 Each container with a time-based retention policy enabled provides a policy audit log. The audit log includes up to seven time-based retention commands for locked time-based retention policies. Log entries include the user ID, command type, time stamps, and retention interval. The audit log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines.
 
-The [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md) provides a more comprehensive log of all management service activities. [Azure Resource Logs](../../azure-monitor/essentials/platform-logs-overview.md) retain information about data operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+The [Azure Activity log](../../azure-monitor/essentials/platform-logs-overview.md) provides a more comprehensive log of all management service activities. [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md) retain information about data operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+
+Changes to time-based retention policies at the version level are not audited.
+
+## Feature support
+
+Version-level time-based retention policies are supported for general-purpose v2 storage accounts and premium storage accounts for block blobs in all regions.
+
+All access tiers and redundancy configurations are supported. However, if the storage account is geo-replicated to a secondary region, then customer-initiated failover is not supported.
+
+Storage accounts with a hierarchical namespace are not supported.
 
 ## Next steps
 

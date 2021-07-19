@@ -14,10 +14,47 @@ ms.subservice: blobs
 
 # Legal holds for immutable blob data
 
-You can configure a legal retention policy to store data in a Write-Once, Read-Many (WORM) format for a specified interval. When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. After the retention interval has expired, blobs can be deleted but not overwritten.
+A legal hold is a temporary immutability policy that can be applied for legal investigation purposes or general protection policies. A legal hold stores blob data in a Write-Once, Read-Many (WORM) format until it is explicitly cleared. When a legal hold is in effect, blobs can be created and read, but not modified or deleted.
 
 For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
+## Policy scope
+
+A legal hold policy can be configured at either of the following scopes:
+
+- Version-level policy (preview): A legal hold can be configured on an individual blob version level for granular management of sensitive data.
+- Container-level policy: A legal hold that is configured at the container level applies to all blobs in that container. Individual blobs cannot be configured with their own immutability policies.
+
+### Version-level policy scope (preview)
+
+To configure a legal hold on a blob version, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
+
+After version-level immutability is enabled for a container, a legal hold can no longer be set at the container level. Legal holds must be applied to individual blob versions. A legal hold may be configured for the current version or a previous version of a blob.
+
+Version-level legal hold policies require that blob versioning is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
+
+### Container-level scope
+
+When you configure a legal hold for a container, that hold applies to all objects in the container. When the legal hold is cleared, clients can once again write and delete objects in the container, unless there is also a time-based retention policy in effect for the container.
+
+#### Legal hold tags
+
+A container-level legal hold must be associated with one or more user-defined alphanumeric tags that serve as identifier strings. For example, a tag may include a case ID or event name.
+
+#### Audit logging
+
+Each container with a legal hold in effect provides a policy audit log.  the log contains the user ID, command type, time stamps, and legal hold tags. The audit log is retained for the lifetime of the policy, in accordance with the SEC 17a-4(f) regulatory guidelines.
+
+The [Azure Activity log](../../azure-monitor/essentials/platform-logs-overview.md) provides a more comprehensive log of all management service activities. [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md) retain information about data operations. It is the user's responsibility to store those logs persistently, as might be required for regulatory or other purposes.
+
+#### Limits
+
+The following limits apply to container-level legal holds:
+
+- For a storage account, the maximum number of containers with a legal hold setting is 10,000.
+- For a container, the maximum number of legal hold tags is ten.
+- The minimum length of a legal hold tag is three alphanumeric characters. The maximum length is 23 alphanumeric characters.
+- For a container, a maximum of ten legal hold policy audit logs are retained for the duration of the policy.
 
 ## Next steps
 
