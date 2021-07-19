@@ -1,7 +1,7 @@
 ---
 title: Configure immutability policies for blob versions (preview)
 titleSuffix: Azure Storage
-description: Learn how to use WORM (Write Once, Read Many) support for Blob (object) storage to store data in a non-erasable, non-modifiable state for a specified interval.
+description: Learn how to configure version-level time-based retention policies and legal holds (preview) for Blob Storage.
 services: storage
 author: tamram
 

@@ -1,7 +1,7 @@
 ---
 title: Overview of immutability storage for Blob Storage
 titleSuffix: Azure Storage
-description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval.
+description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state. Time-based retention policies store blob data in a WORM state for a specified interval, while legal holds remain in effect until explicitly cleared.
 services: storage
 author: tamram
 

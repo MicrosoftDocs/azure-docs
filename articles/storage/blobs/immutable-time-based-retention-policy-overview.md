@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 # Time-based retention policies for immutable blob data
 
-You can configure a time-based retention policy to store data in a Write-Once, Read-Many (WORM) format for a specified interval. When a time-based retention policy is set, clients can create and read blobs, but cannot modify or delete them. After the retention interval has expired, blobs can be deleted but not overwritten.
+A time-based retention policy stores blob data in a Write-Once, Read-Many (WORM) format for a specified interval. When a time-based retention policy is set, clients can create and read blobs, but cannot modify or delete them. After the retention interval has expired, blobs can be deleted but not overwritten.
 
 For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
@@ -50,7 +50,7 @@ Audit logs are available on the container for both version-level and container-l
 
 To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
 
-you can enable support for version-level immutability at the time that you create a container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible. To learn more about how to migrate a container to support version-level immutability, see [Configure time-based retention policies for blob data](immutable-time-based-retention-policy-configure.md).
+You can enable support for version-level immutability at the time that you create a container. Existing containers can also support version-level immutability, but must undergo a migration process first. This process may take some time and is not reversible..
 
 Version-level time-based retention policies require that [blob versioning](versioning-overview.md) is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
 
@@ -60,7 +60,7 @@ If a default policy is in effect for the container, then when an overwrite opera
 
 Each version may have only one time-based retention policy configured. A version may also have one legal hold configured. For more details about supported immutability policy configurations based on scope, see [Immutability policy scope](immutable-storage-overview.md#immutability-policy-scope).
 
-To learn how to configure version-level time-based retention policies, see .
+To learn how to configure version-level time-based retention policies, see [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md).
 
 > [!IMPORTANT]
 > Version-level time-based retention policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -109,6 +109,8 @@ The following limits apply to container-level retention policies:
 - For a storage account, the maximum number of containers with locked time-based immutable policies is 10,000.
 - For a container, the maximum number of edits to extend the retention interval for a locked time-based policy is five.
 - For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
+
+To learn how to configure a time-based retention policy on a container, see [Configure immutability policies for containers](immutable-policy-configure-container-scope.md).
 
 ## Allow protected append blobs writes
 

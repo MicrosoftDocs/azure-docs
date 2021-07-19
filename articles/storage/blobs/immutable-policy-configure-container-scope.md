@@ -1,7 +1,7 @@
 ---
 title: Configure immutability policies for containers
 titleSuffix: Azure Storage
-description: Learn how to configure an immutability policy that is scoped to a container. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state for a specified interval. 
+description: Learn how to configure an immutability policy that is scoped to a container. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state. 
 services: storage
 author: tamram
 

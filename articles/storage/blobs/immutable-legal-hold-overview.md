@@ -1,7 +1,7 @@
 ---
 title: Legal holds for immutable blob data 
 titleSuffix: Azure Storage
-description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval. Learn how to create legal holds on blob data.
+description: A legal hold stores blob data in a Write-Once, Read-Many (WORM) format until it is explicitly cleared. Use a legal hold when the period of time that the data must be kept in a WORM state is unknown.
 services: storage
 author: tamram
 
@@ -32,6 +32,8 @@ To configure a legal hold on a blob version, you must first enable version-level
 After version-level immutability is enabled for a container, a legal hold can no longer be set at the container level. Legal holds must be applied to individual blob versions. A legal hold may be configured for the current version or a previous version of a blob.
 
 Version-level legal hold policies require that blob versioning is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
+
+To learn more about enabling a version-level legal hold, see [Configure or clear a legal hold](immutable-policy-configure-version-scope.md#configure-or-clear-a-legal-hold).
 
 ### Container-level scope
 
