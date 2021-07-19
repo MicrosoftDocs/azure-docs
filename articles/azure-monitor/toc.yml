@@ -175,16 +175,8 @@
       - name: Monitor workloads
         href: vm/monitor-virtual-machine-workloads.md
       displayname: VM
-    - Name: Monitor Kubernetes
-      items:
-      - name: Overview
-        href: containers/monitor-aks.md
-      - name: Configure monitoring
-        href: containers/monitor-aks-configure.md
-      - name: Analyze data
-        href: containers/monitor-aks-analyze.md
-      - name: Create alerts
-        href: containers/monitor-aks-alerts.md
+    - name: Monitor Kubernetes
+      href: containers/monitor-aks.md
   - name: Deploy
     items:
     - name: Deploy Azure Monitor
@@ -1096,7 +1088,7 @@
       href: containers/container-insights-overview.md
     - name: FAQ
       href: /azure/azure-monitor/faq#container-insights
-    - name: Configure monitoring
+    - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
         href: containers/container-insights-onboard.md

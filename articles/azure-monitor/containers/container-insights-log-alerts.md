@@ -23,11 +23,11 @@ If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Mic
 ## Log query measurements
 Log alerts can perform two different measurements of the result of a log query, each of which support distinct scenarios for monitoring virtual machines.
 
-[Metric measurement](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. These are ideal for numeric data such CPU or network utilization and Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers.
+[Metric measurement](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. These are ideal for numeric data such as CPU.
 
-[Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such and Windows and Syslog events collected by the Log Analytics agent or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple machines have the same error condition.
+[Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple components have the same error condition.
 
-
+See [Comparison of log query alert measures](../vm/monitor-virtual-machine-alerts.md#comparison-of-log-query-alert-measures) for a detailed comparison of creating alert rules for the different measures and the different log query requirements for each.
 ## Resource utilization 
 
 **Average CPU utilization as an average of member nodes' CPU utilization every minute**
