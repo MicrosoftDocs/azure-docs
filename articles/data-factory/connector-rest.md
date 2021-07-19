@@ -4,7 +4,7 @@ description: Learn how to copy data from a cloud or on-premises REST source to s
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 07/19/2021
 ms.author: jianleishen
 ---
 # Copy data from and to a REST endpoint by using Azure Data Factory
@@ -126,7 +126,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 }
 ```
 
-### <a name="managed-identity"></a> Use managed identities for Azure resources authentication
+### <a name="managed-identity"></a> Use system-assigned managed identity authentication
 
 Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -145,6 +145,39 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Use user-assigned managed identity authentication
+Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+
+
+**Example**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }    
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

@@ -221,7 +221,7 @@ These properties are supported for the linked service:
 }
 ```
 
-### Use user-assigned managed identity authentication
+### User-assigned managed identity authentication
 
 A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md). You can use this user-assigned managed identity for Blob storage authentication, which allows to access and copy data from or to Data Lake Storage Gen2. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../azure/active-directory/managed-identities-azure-resources/overview.md)
 
