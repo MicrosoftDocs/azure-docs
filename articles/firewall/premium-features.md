@@ -80,7 +80,7 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
 
 ### Web category logging
-You can view traffic that has been filtered by **Web categories** in Application logs. You can only see a **Web categories** field if it has been explicitly configured in your firewall policy application rules. As an example, if you do not have a rule that explicitly denies *Search Engines*, and a user requests to go to www.bing.com, you will only see a default deny message as opposed to a Web categories message. This is because the web category was not explicitly configured.
+You can view traffic that has been filtered by **Web categories** in the Application logs. **Web categories** field is only displayed if it has been explicitly configured in your firewall policy application rules. For example, if you do not have a rule that explicitly denies *Search Engines*, and a user requests to go to www.bing.com, only a default deny message is displayed as opposed to a Web categories message. This is because the web category was not explicitly configured.
 
 ### Category exceptions
 
