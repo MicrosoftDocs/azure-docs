@@ -566,7 +566,7 @@ Users can download an **Intune-managed browser**:
 
 - **For Android devices**, from the [Google play store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
-- **For Apple devices**, from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) or they can download the [My Apps mobile app for iOS ](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
+- **For Apple devices**, from the [Apple App Store](https://apps.apple.com/us/app/intune-company-portal/id719171358) or they can download the [My Apps mobile app for iOS ](https://appadvice.com/app/my-apps-azure-active-directory/824048653)
 
 **Let users open their apps from a browser extension.**
 
