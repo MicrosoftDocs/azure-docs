@@ -35,9 +35,9 @@ The following table shows how each Blob storage feature is supported with Data L
 |Lifecycle management policies (tiering)|Generally available|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Logging in Azure Monitor|Preview |Preview|[Monitoring Azure Storage](./monitor-blob-storage.md)|
-|Snapshots|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Blob snapshots](snapshots-overview.md)|
+|Snapshots|Preview|Preview|[Blob snapshots](snapshots-overview.md)|
 |Static websites|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
-|Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
+|Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form">|Preview|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Container soft delete|Preview|Preview|[Soft delete for containers](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
 |Custom domains|Preview<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
@@ -53,7 +53,6 @@ The following table shows how each Blob storage feature is supported with Data L
 |Point-in-time restore|Not yet supported|Not yet supported|[Point-in-time restore for block blobs](point-in-time-restore-overview.md)|
 |Blob index tags|Not yet supported|Not yet supported|[Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)|
 
-<div id="preview-form"><sup>1</sup>To use snapshots or immutable storage with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
 <div id="preview-form-2"><sup>2</sup>A custom domain name can map only to the blob service or static website endpoint. The Data Lake storage endpoint is not supported.</a>.  </div>
 
 ## See also
