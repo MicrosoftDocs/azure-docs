@@ -61,7 +61,7 @@
   - name: Manage users and user access
     items:
     - name: Create and manage users
-      displayName: Active Directory, roles, permissions
+      displayName: Active Directory, roles, permissions, password
       href: how-to-create-and-manage-users.md
     - name: Define global user access control
       href: how-to-define-global-user-access-control.md
@@ -196,21 +196,28 @@
     href: resources-frequently-asked-questions.md
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
-- name: Resource
+- name: Resources
   items:
   - name: Pre-deployment checklist
+    displayNAme: pre-deployment
     href: resources-sensor-deployment-checklist.md
-  - name: Build your security skills with Microsoft Learn
-    href: /learn/browse/?term=securityS&terms=securityS
-  - name: Azure Security Center documentation
-    href: ../../security-center/
-  - name: Azure security documentation 
-    href: ../../security/index.yml
-  - name: Azure IoT Security, Privacy, & Compliance blog
-    href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
+  - name: Tech Community Training sessions
+    displayName: training, videos 
+    href: resources-training-sessions.md
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest
+  - name: Security Resources 
+    items:
+    - name: Build your security skills with Microsoft Learn
+      href: /learn/browse/?term=securityS&terms=securityS
+    - name: Azure Security Center documentation
+      href: ../../security-center/
+    - name: Azure security documentation 
+      href: ../../security/index.yml
+    - name: Azure IoT Security, Privacy, & Compliance blog
+      href: https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity
+
