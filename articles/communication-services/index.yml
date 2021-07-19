@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page # Required
   author: mikben
   ms.author: mikben
-  ms.date: 03/10/2021
+  ms.date: 06/30/2021
 
 landingContent:
   - title: About Azure Communication Services
@@ -33,6 +33,8 @@ landingContent:
             url: quickstarts/create-communication-resource.md
           - text: Create and manage user access tokens
             url: quickstarts/access-tokens.md
+          - text: Get a relay token
+            url: quickstarts/relay-token.md
       - linkListType: concept
         links:
           - text: Client and server architecture
@@ -43,16 +45,18 @@ landingContent:
             url: ../event-grid/event-schema-communication-services.md
           - text: Notifications
             url: concepts/notifications.md
+          - text: Best Practices
+            url: concepts/best-practices.md
           - text: Troubleshooting
             url: concepts/troubleshooting-info.md
   - title: Voice and video calling
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Add voice and video calling to your app
+          - text: Add voice calling to your app
             url: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - text: Use the Calling SDK
-            url: quickstarts/voice-video-calling/calling-client-samples.md
+          - text: Add video calling to your app
+            url: quickstarts/voice-video-calling/get-started-with-video-calling.md
       - linkListType: concept
         links:
           - text: Voice and video concepts
@@ -61,6 +65,14 @@ landingContent:
             url: concepts/voice-video-calling/calling-sdk-features.md
           - text: Call flows
             url: concepts/call-flows.md
+  - title: UI Library
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: UI Library overview
+            url: concepts/ui-library/ui-library-overview.md
+          - text: UI Library use cases
+            url: concepts/ui-library/ui-library-use-cases.md
   - title: Telephony and SMS
     linkLists:
       - linkListType: quickstart

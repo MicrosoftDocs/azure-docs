@@ -21,7 +21,7 @@ This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fdatascience%2Fvm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -31,9 +31,9 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/vm-ubuntu-DSVM-GPU-or-CPU/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/application-workloads/datascience/vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
 
 The following resources are defined in the template:
 
@@ -54,7 +54,7 @@ read -p "Enter the Azure location (e.g., centralus):" location &&
 read -p "Enter the authentication type (must be 'password' or 'sshPublicKey') :" authenticationType &&
 read -p "Enter the login name for the administrator account (may not be 'admin'):" adminUsername &&
 read -p "Enter administrator account secure string (value of password or ssh public key):" adminPasswordOrKey &&
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/datascience/vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" &&
 az group create --name $resourceGroupName --location "$location" &&
 az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --parameters adminUsername=$adminUsername authenticationType=$authenticationType adminPasswordOrKey=$adminPasswordOrKey &&
 echo "Press [ENTER] to continue ..." &&

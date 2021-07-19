@@ -66,7 +66,6 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 |Windows 10|Yes\*|Yes|Yes|Yes\*\*\*|N/A
 |Windows 8.1|Yes\*|Yes*\*\*\*|Yes|Yes\*\*\*|N/A
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
-|Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows Server 2012 R2 or above|Yes\*\*|N/A|Yes|Yes\*\*\*|N/A
 |Mac OS X|N/A|N/A|Yes\*\*\*|Yes\*\*\*|Yes\*\*\*
 
@@ -74,7 +73,7 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
  >Microsoft Edge legacy is no longer supported
 
 
-\*Requires Internet Explorer version 11 or later.
+\*Requires Internet Explorer version 11 or later. ([Beginning August 17, 2021, Microsoft 365 apps and services will not support IE 11](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).)
 
 \*\*Requires Internet Explorer version 11 or later. Disable Enhanced Protected Mode.
 
@@ -87,6 +86,6 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
 - [**Deployment Plan**](../manage-apps/plan-sso-deployment.md) - Step-by-step deployment plan.
 - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
-- [**Frequently Asked Questions**](how-to-connect-sso-faq.md) - Answers to frequently asked questions.
+- [**Frequently Asked Questions**](how-to-connect-sso-faq.yml) - Answers to frequently asked questions.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

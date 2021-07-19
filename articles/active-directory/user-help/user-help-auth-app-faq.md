@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 04/28/2021
+ms.date: 06/21/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -89,7 +89,7 @@ On Android, Microsoft recommends allowing the app to access location all the tim
 
 **A**: The Authenticator app collects three types of information:
 
-- Account info you provide when you add your account. This data can be removed by removing your account.
+- Account info you provide when you add your account. After adding your account, depending on the features you enable for the account, your account data might sync down to the app. This data can be removed by removing your account.
 - Diagnostic log data that stays only in the app until you **Send feedback** in the app's top menu to send logs to Microsoft. These logs can contain personal data such as email addresses, server addresses, or IP addresses. They also can contain device data such as device name and operating system version. Any personal data collected is limited to info needed to help troubleshoot app issues. You can browse these log files in the app at any time to see the info being gathered. If you send your log files, Authentication app engineers will use them only to troubleshoot customer-reported issues.
 - Non-personally identifiable usage data, such "started add account flow/successfully added account," or "notification approved." This data is an integral part of our engineering decisions. Your usage helps us determine where we can improve the apps in ways that are important to you. You see a notification of  this data collection when you use the app for the first time. It informs you that it can be turned off on the app's **Settings** page. You can turn this setting on or off at any time.
 
@@ -199,7 +199,13 @@ On Android, Microsoft recommends allowing the app to access location all the tim
 
 **Q**: Why I am having issues with Apple Watch on watchOS 7?
 
-**A**: There is an issue with approving notifications on watchOS 7, and we’re working with Apple to get this fixed. In the meantime, any notifications that require the Microsoft Authenticator watchOS app should be approved on your phone instead.
+**A**: Sometimes, approving or denying a session on watchOS 7 fails with the error message "Failed to communicate with the phone. Make sure to keep your Watch screen awake during future requests. See the FAQs for more info.". There is a known issue with notifications when app lock is enabled or when number matching is required, and we’re working with Apple to get this fixed. In the meantime, any notifications that require the Microsoft Authenticator watchOS app should be approved on your phone instead.
+
+### Signing into an iOS app
+
+**Q**: I’m trying to sign into an iOS app, and I need to approve a notification on the Authenticator app. When I go back to the iOS app, I get stuck. What can I do?
+
+**A**: This is a known issue on iOS 13+. Reach out to your support admin for help, and provide the following details: `Use Azure MFA, not MFA server.`
 
 ### Apple Watch doesn't show accounts
 

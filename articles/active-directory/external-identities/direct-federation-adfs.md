@@ -1,6 +1,6 @@
 ---
-title: Set up direct federation with an AD FS for B2B - Azure AD
-description: Learn how to set up AD FS as an identity provider for direct federation so guests can sign in to your Azure AD apps
+title: Set up SAML/WS-Fed IdP federation with an AD FS for B2B - Azure AD
+description: Learn how to set up AD FS as an identity provider (IdP) for SAML/WS-Fed IdP federation so guests can sign in to your Azure AD apps
 
 services: active-directory
 ms.service: active-directory
@@ -16,20 +16,22 @@ ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
-# Example: Direct federation with Active Directory Federation Services (AD FS) (preview)
+# Example: Configure SAML/WS-Fed based identity provider federation with AD FS (preview)
+
+>[!NOTE]
+>- *Direct federation* in Azure Active Directory is now referred to as *SAML/WS-Fed identity provider (IdP) federation*.
+>- SAML/WS-Fed IdP federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This article describes how to set up [SAML/WS-Fed IdP federation](direct-federation.md) using Active Directory Federation Services (AD FS) as either a SAML 2.0 or WS-Fed IdP. To support federation, certain attributes and claims must be configured at the IdP. To illustrate how to configure an IdP for federation, we’ll use Active Directory Federation Services (AD FS) as an example. We’ll show how to set up AD FS both as a SAML IdP and as a WS-Fed IdP.
 
 > [!NOTE]
-> Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This article describes how to set up AD FS for both SAML and WS-Fed for illustration purposes. For federation integrations where the IdP is AD FS, we recommend using WS-Fed as the protocol.
 
-This article describes how to set up [direct federation](direct-federation.md) using Active Directory Federation Services (AD FS) as either a SAML 2.0 or WS-Fed identity provider. To support direct federation, certain attributes and claims must be configured at the identity provider. To illustrate how to configure an identity provider for direct federation, we’ll use Active Directory Federation Services (AD FS) as an example. We’ll show how to set up AD FS both as a SAML identity provider and as a WS-Fed identity provider.
+## Configure AD FS for SAML 2.0 federation
 
-> [!NOTE]
-> This article describes how to set up AD FS for both SAML and WS-Fed for illustration purposes. For direct federation integrations where the identity provider is AD FS, we recommend using WS-Fed as the protocol. 
+Azure AD B2B can be configured to federate with IdPs that use the SAML protocol with specific requirements listed below. To illustrate the SAML configuration steps, this section shows how to set up AD FS for SAML 2.0.
 
-## Configure AD FS for SAML 2.0 direct federation
-Azure AD B2B can be configured to federate with identity providers that use the SAML protocol with specific requirements listed below. To illustrate the SAML configuration steps, this section shows how to set up AD FS for SAML 2.0. 
-
-To set up direct federation, the following attributes must be received in the SAML 2.0 response from the identity provider. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
+To set up federation, the following attributes must be received in the SAML 2.0 response from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
 
 |Attribute  |Value  |
 |---------|---------|
@@ -37,7 +39,7 @@ To set up direct federation, the following attributes must be received in the SA
 |Audience     |`urn:federation:MicrosoftOnline`         |
 |Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
-The following claims need to be configured in the SAML 2.0 token issued by the identity provider:
+The following claims need to be configured in the SAML 2.0 token issued by the IdP:
 
 
 |Attribute  |Value  |
@@ -46,7 +48,7 @@ The following claims need to be configured in the SAML 2.0 token issued by the i
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 
-The next section illustrates how to configure the required attributes and claims using AD FS as an example of a SAML 2.0 identity provider.
+The next section illustrates how to configure the required attributes and claims using AD FS as an example of a SAML 2.0 IdP.
 
 ### Before you begin
 
@@ -97,12 +99,12 @@ An AD FS server must already be set up and functioning before you begin this pro
 
 3. Click **Finish**. 
 4. The **Edit Claim Rules** window will show the new rules. Click **Apply**. 
-5. Click **OK**. The AD FS server is now configured for direct federation using the SAML 2.0 protocol.
+5. Click **OK**. The AD FS server is now configured for federation using the SAML 2.0 protocol.
 
-## Configure AD FS for WS-Fed direct federation 
-Azure AD B2B can be configured to federate with identity providers that use the WS-Fed protocol with the specific requirements listed below. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. Here, we’ll use Active Directory Federation Services (AD FS) as an example of the WS-Fed identity provider. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, download the Azure AD Identity Provider Compatibility Docs.
+## Configure AD FS for WS-Fed federation 
+Azure AD B2B can be configured to federate with IdPs that use the WS-Fed protocol with the specific requirements listed below. Currently, the two WS-Fed providers have been tested for compatibility with Azure AD include AD FS and Shibboleth. Here, we’ll use Active Directory Federation Services (AD FS) as an example of the WS-Fed IdP. For more information about establishing a relying party trust between a WS-Fed compliant provider with Azure AD, download the Azure AD Identity Provider Compatibility Docs.
 
-To set up direct federation, the following attributes must be received in the WS-Fed message from the identity provider. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
+To set up federation, the following attributes must be received in the WS-Fed message from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually. Step 12 in [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) describes how to find the AD FS endpoints or how to generate your metadata URL, for example `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
  
 |Attribute  |Value  |
 |---------|---------|
@@ -117,7 +119,7 @@ Required claims for the WS-Fed token issued by the IdP:
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-The next section illustrates how to configure the required attributes and claims using AD FS as an example of a WS-Fed identity provider.
+The next section illustrates how to configure the required attributes and claims using AD FS as an example of a WS-Fed IdP.
 
 ### Before you begin
 An AD FS server must already be set up and functioning before you begin this procedure. For help with setting up an AD FS server, see [Create a test AD FS 3.0 instance on an Azure virtual machine](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed).
@@ -147,7 +149,7 @@ An AD FS server must already be set up and functioning before you begin this pro
 
 1.	Select **Finish**. 
 1.	The **Edit Claim Rules** window will show the new rule. Click **Apply**.  
-1.	Click **OK**. The AD FS server is now configured for direct federation using WS-Fed.
+1.	Click **OK**. The AD FS server is now configured for federation using WS-Fed.
 
 ## Next steps
-Next, you'll [configure direct federation in Azure AD](direct-federation.md#step-3-configure-direct-federation-in-azure-ad) either in the Azure AD portal or by using PowerShell. 
+Next, you'll [configure SAML/WS-Fed IdP federation in Azure AD](direct-federation.md#step-3-configure-samlws-fed-idp-federation-in-azure-ad) either in the Azure AD portal or by using PowerShell.

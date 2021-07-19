@@ -10,8 +10,14 @@ ms.subservice: files
 ---
 
 # Overview of share snapshots for Azure Files
-
 Azure Files provides the capability to take share snapshots of file shares. Share snapshots capture the share state at that point in time. In this article, we describe what capabilities share snapshots provide and how you can take advantage of them in your custom use case.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## When to use share snapshots
 

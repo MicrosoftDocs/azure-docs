@@ -33,7 +33,7 @@ A given application instance has two distinct properties: the ApplicationID (als
 > You may find that the terms application and service principal are used interchangeably when loosely referring to an application in the context of authentication related tasks. However, they are two different representations of applications in Azure AD.
  
 
-The ApplicationID represents the global application and is the same for all the application instances across tenants. The ObjectID is a unique value for an application object and represents the service principal. As with users, groups, and other resources, the ObjectID helps uniquely identify an application instance in Azure AD.
+The ApplicationID represents the global application and is the same for all the application instances across tenants. The ObjectID is a unique value for an application object. As with users, groups, and other resources, the ObjectID helps uniquely identify an application instance in Azure AD.
 
 ​​For more detailed information on this topic, see [Application and service principal relationship](../develop/app-objects-and-service-principals.md).
 

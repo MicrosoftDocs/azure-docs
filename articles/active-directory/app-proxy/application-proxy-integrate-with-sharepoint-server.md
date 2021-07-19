@@ -1,6 +1,6 @@
 ---
 title: Enable remote access to SharePoint - Azure Active Directory Application Proxy
-description: Covers the basics about how to integrate an on-premises SharePoint server with Azure Active Directory Application Proxy.
+description: Covers the basics about how to integrate on-premises SharePoint Server with Azure Active Directory Application Proxy.
 services: active-directory
 author: kenwith
 manager: mtillman
@@ -21,7 +21,7 @@ This step-by-step guide explains how to integrate an on-premises SharePoint farm
 
 To perform the configuration, you need the following resources:
 - A SharePoint 2013 farm or newer.
-- An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+- An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - A [custom, verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant.
 - On-premises Active Directory synchronized with Azure AD Connect, through which users can [sign in to Azure](../hybrid/plan-connect-user-signin.md).
 - An Application Proxy connector installed and running on a machine within the corporate domain.
@@ -175,7 +175,7 @@ Configure the KCD so that the Azure AD Application Proxy service can delegate us
 To configure the KCD, follow these steps for each connector machine:
 
 1. Sign in to a domain controller as a domain administrator, and then open Active Directory Users and Computers.
-1. Find the computer running the Azure AD Proxy connector. In this example, it's the SharePoint server itself.
+1. Find the computer running the Azure AD Proxy connector. In this example, it's the computer that's running SharePoint Server.
 1. Double-click the computer, and then select the **Delegation** tab.
 1. Make sure the delegation options are set to **Trust this computer for delegation to the specified services only**. Then, select **Use any authentication protocol**.
 1. Select the **Add** button, select **Users or Computers**, and locate the SharePoint application pool account. For example: `Contoso\spapppool`.

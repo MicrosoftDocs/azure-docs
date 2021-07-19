@@ -100,11 +100,11 @@ To store our certificates securely and make them accessible from multiple device
 
     ![Screenshot that shows Key Vault script output.](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
 
-## Create an IoT Edge device
+## Register an IoT Edge device
 
-To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. After a configured device connects to the hub, we can deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT Hub.
+To connect an Azure IoT Edge device to an IoT hub, we first register a device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. After a configured device connects to the hub, we can deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT Hub.
 
-For this tutorial, we create the new device identity by using Visual Studio Code. You can also complete these steps by using the Azure portal or the Azure CLI.
+For this tutorial, we register the new device identity by using Visual Studio Code. You can also complete these steps by using the Azure portal or the Azure CLI. Whichever method you choose, make sure you obtain the device connection string of your IoT Edge device. The device connection string can be found on the details page of your device on the Azure portal.
 
 1. On your development machine, open Visual Studio Code.
 
@@ -120,79 +120,43 @@ For this tutorial, we create the new device identity by using Visual Studio Code
 
 ## Deploy an Azure virtual machine
 
-We use the [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) image from Azure Marketplace to create our IoT Edge device for this tutorial. The Azure IoT Edge on Ubuntu image installs the latest IoT Edge runtime and its dependencies on startup. We deploy the VM by using:
+We use an Ubuntu 18.04 LTS virtual machine with the Azure IoT Edge runtime installed and configured. The deployment uses an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) maintained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) project repository. It provisions the IoT Edge device your registered in the previous step using the connection string you supply in the template.
 
-- A PowerShell script, `Create-EdgeVM.ps1`.
-- An Azure Resource Manager template, `IoTEdgeVMTemplate.json`.
-- A shell script, `install packages.sh`.
+You can deploy the virtual machine using the Azure portal or Azure CLI. We will show the Azure portal steps. See [Run Azure IoT Edge on Ubuntu Virtual Machines](how-to-install-iot-edge-ubuntuvm.md) for more information.
 
-### Enable programmatic deployment
+### Deploy using Deploy to Azure Button
 
-To use the image from Azure Marketplace in a scripted deployment, we need to enable programmatic deployment for the image.
+1. To use the `iotedge-vm-deploy` ARM template to deploy your Ubuntu 18.04 LTS virtual machine, click the button below:
 
-1. Sign in to the Azure portal.
+    [![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
-1. Select **All services**.
+1. On the newly launched window, fill in the available form fields.
 
-1. In the search bar, enter and select **Marketplace**.
+   | Field | Description |
+   | - | - |
+   | **Subscription** | The active Azure subscription to deploy the virtual machine into. |
+   | **Resource group** | An existing or newly created Resource Group to contain the virtual machine and it's associated resources. |
+   | **DNS Label Prefix** | A required value of your choosing that is used to prefix the hostname of the virtual machine. |
+   | **Admin Username** | A username, which will be provided root privileges on deployment. |
+   | **Device Connection String** | A [device connection string](./how-to-register-device.md) for a device that was created within your intended [IoT Hub](../iot-hub/about-iot-hub.md). |
+   | **VM Size** | The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed
+   | **Ubuntu OS Version** | The version of the Ubuntu OS to be installed on the base virtual machine. |
+   | **Location** | The [geographic region](https://azure.microsoft.com/global-infrastructure/locations/) to deploy the virtual machine into, this value defaults to the location of the selected Resource Group. |
+   | **Authentication Type** | Choose **sshPublicKey** or **password** depending on your preference. |
+   | **Admin Password or Key** | The value of the SSH Public Key or the value of the password depending on the choice of Authentication Type. |
 
-1. In the Marketplace search bar, enter and select **Azure IoT Edge on Ubuntu**.
+1. When all fields have been filled in, select the checkbox at the bottom of the page to accept the terms and select **Review + create** and **Create** to begin the deployment.
 
-1. Select the **Get started** hyperlink to deploy programmatically.
+1. Navigate to your virtual machine in the Azure portal. You can find it through your resource group or by selecting **Virtual machines** under **Azure services** on the portal landing page.
 
-1. Select the **Enable** button, and then select **Save**.
-
-    ![Screenshot that shows enabling programmatic deployment for a virtual machine.](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
-
-1. You'll see a success notification.
-
-### Create a virtual machine
-
-Next, run the script to create the virtual machine for your IoT Edge device.
-
-1. Open a PowerShell window, and go to the **EdgeVM** directory.
-
-    ```powershell
-    cd c:\source\IoTEdgeAndMlSample\EdgeVM
-    ```
-
-1. Run the script to create the virtual machine.
-
-    ```powershell
-    .\Create-EdgeVm.ps1
-    ```
-
-1. When you're prompted, provide values for each parameter. For subscription, resource group, and location, we recommend you use the same values as you have for all resources throughout this tutorial.
-
-    * **Azure Subscription ID**: Found in the Azure portal.
-    * **Resource Group Name**: Memorable name for grouping the resources for this tutorial.
-    * **Location**: Azure location where the virtual machine will be created. For example, westus2 or northeurope. For more, see all [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
-    * **AdminUsername**: The name for the admin account you'll use to sign in to the virtual machine.
-    * **AdminPassword**: The password to set for the admin username on the virtual machine.
-
-1. For the script to set up the VM, sign in to Azure with the credentials associated with the Azure subscription you're using.
-
-1. The script confirms the information for the creation of your VM. Select **y** or **Enter** to continue.
-
-1. The script runs for several minutes as it executes the following steps:
-
-    * Creates the resource group if it doesn't exist already
-    * Creates the virtual machine
-    * Adds NSG exceptions for the VM for ports 22 (SSH), 5671 (AMQP), 5672 (AMPQ), and 443 (TLS)
-    * Installs the [Azure CLI](/cli/azure/install-azure-cli-apt)
-
-1. The script outputs the SSH connection string for connecting to the VM. Copy the connection string for the next step.
-
-    ![Screenshot that shows copying the SSH connection string for a virtual machine.](media/tutorial-machine-learning-edge-05-configure-edge-device/vm-ssh-connection-string.png)
+1. Make note of the **DNS name** of your virtual machine. You will need it to log on to your virtual machine.
 
 ## Connect to your IoT Edge device
 
-The next several sections configure the Azure virtual machine we created. The first step is to connect to the virtual machine.
+1. Open a command prompt, and use following command to log on to your virtual machine. Enter your own information for username and DNS name based on the previous section.
 
-1. Open a command prompt, and paste the SSH connection string you copied from the script output. Enter your own information for username, suffix, and region according to the values you supplied to the PowerShell script in the previous section.
-
-    ```cmd
-    ssh -l <username> iotedge-<suffix>.<region>.cloudapp.azure.com
+    ```bash
+    ssh <adminUsername>@<DNS_name>
     ```
 
 1. When you're prompted to validate the authenticity of the host, enter **yes** and select **Enter**.
@@ -240,25 +204,12 @@ We'll deal with the leaf device later in the tutorial. In this section, download
 
 ## Update the IoT Edge device configuration
 
-The IoT Edge runtime uses the file /etc/iotedge/config.yaml to persist its configuration. We need to update three pieces of information in this file:
+The IoT Edge runtime uses the file /etc/iotedge/config.yaml to persist its configuration. We need to update two pieces of information in this file:
 
-* **Device connection string**: The connection string from this device's identity in IoT Hub
 * **Certificates**: The certificates to use for connections made with downstream devices
 * **Hostname**: The fully qualified domain name (FQDN) of the VM IoT Edge device
 
-The Azure IoT Edge on Ubuntu image that we used to create the IoT Edge VM comes with a shell script that updates the config.yaml file with the connection string.
-
-1. In Visual Studio Code, right-click the IoT Edge device, and then select **Copy Device Connection String**.
-
-    ![Screenshot that shows copying the connection string from Visual Studio Code.](media/tutorial-machine-learning-edge-05-configure-edge-device/copy-device-connection-string-command.png)
-
-1. In your SSH session, run the command to update the config.yaml file with your device connection string.
-
-    ```bash
-    sudo /etc/iotedge/configedge.sh "<your_iothub_edge_device_connection_string>"
-    ```
-
-Next, we'll update the certificates and hostname by directly editing the config.yaml file.
+Update the certificates and hostname by directly editing the config.yaml file.
 
 1. Open the config.yaml file.
 
@@ -301,11 +252,16 @@ Next, we'll update the certificates and hostname by directly editing the config.
     systemctl status iotedge
     ```
 
-1. If you see errors (colored text prefixed with "\[ERROR\]") in the status, examine daemon logs for detailed error information.
+## Troubleshooting
 
-    ```bash
-    journalctl -u iotedge --no-pager --no-full
-    ```
+If you see errors (colored text prefixed with "\[ERROR\]") in the status, examine daemon logs for detailed error information.
+
+   ```bash
+   journalctl -u iotedge --no-pager --no-full
+   ```
+
+For more information on addressing errors, check out the [troubleshooting](troubleshoot.md) page.
+
 ## Clean up resources
 
 This tutorial is part of a set where each article builds on the work done in the previous ones. Wait to clean up any resources until you complete the final tutorial.

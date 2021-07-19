@@ -10,7 +10,7 @@ editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.collection: windows
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

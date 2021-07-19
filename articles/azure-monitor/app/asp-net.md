@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 - Create an [Application Insights workspace-based resource](create-workspace-resource.md).
 
 > [!IMPORTANT]
-> New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+> [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 
 ## Create a basic ASP.NET web app
@@ -259,7 +259,7 @@ This section will guide you through manually adding Application Insights to a te
     ```
 
 7. Update the Web.config file as follows:
-
+    
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <!--
@@ -276,10 +276,12 @@ This section will guide you through manually adding Application Insights to a te
       <system.web>
         <compilation debug="true" targetFramework="4.7.2" />
         <httpRuntime targetFramework="4.7.2" />
+        <!-- Code added for App Insights start -->
         <httpModules>
           <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" />
           <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" />
         </httpModules>
+        <!-- Code added for App Insights end -->
       </system.web>
       <runtime>
         <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
@@ -311,10 +313,12 @@ This section will guide you through manually adding Application Insights to a te
             <assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" />
             <bindingRedirect oldVersion="1.0.0.0-5.2.7.0" newVersion="5.2.7.0" />
           </dependentAssembly>
+          <!-- Code added for App Insights start -->
           <dependentAssembly>
             <assemblyIdentity name="System.Memory" publicKeyToken="cc7b13ffcd2ddd51" culture="neutral" />
             <bindingRedirect oldVersion="0.0.0.0-4.0.1.1" newVersion="4.0.1.1" />
           </dependentAssembly>
+          <!-- Code added for App Insights end -->
         </assemblyBinding>
       </runtime>
       <system.codedom>
@@ -325,12 +329,14 @@ This section will guide you through manually adding Application Insights to a te
       </system.codedom>
       <system.webServer>
         <validation validateIntegratedModeConfiguration="false" />
+        <!-- Code added for App Insights start -->
         <modules>
           <remove name="TelemetryCorrelationHttpModule" />
           <add name="TelemetryCorrelationHttpModule" type="Microsoft.AspNet.TelemetryCorrelation.TelemetryCorrelationHttpModule, Microsoft.AspNet.TelemetryCorrelation" preCondition="managedHandler" />
           <remove name="ApplicationInsightsWebTracking" />
           <add name="ApplicationInsightsWebTracking" type="Microsoft.ApplicationInsights.Web.ApplicationInsightsHttpModule, Microsoft.AI.Web" preCondition="managedHandler" />
         </modules>
+        <!-- Code added for App Insights end -->
       </system.webServer>
     </configuration>
     

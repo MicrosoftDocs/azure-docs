@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 06/01/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common 
@@ -18,14 +18,16 @@ ms.custom: devx-track-azurepowershell
 
 You can configure your storage account to accept requests from secure connections only by setting the **Secure transfer required** property for the storage account. When you require secure transfer, any requests originating from an insecure connection are rejected. Microsoft recommends that you always require secure transfer for all of your storage accounts.
 
-When secure transfer is required, a call to an Azure Storage REST API operation must be made over HTTPS. Any request made over HTTP is rejected.
+When secure transfer is required, a call to an Azure Storage REST API operation must be made over HTTPS. Any request made over HTTP is rejected. By default, the **Secure transfer required** property is enabled when you create a storage account.
 
-Connecting to an Azure File share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1, SMB 3.0 without encryption, or some versions of the Linux SMB client.
+Azure Policy provides a built-in policy to ensure that secure transfer is required for your storage accounts. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
-By default, the **Secure transfer required** property is enabled when you create a storage account.
+Connecting to an Azure file share over SMB without encryption fails when secure transfer is required for the storage account. Examples of insecure connections include those made over SMB 2.1 or SMB 3.x without encryption.
 
 > [!NOTE]
-> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name. And classic storage accounts are not supported.
+> Because Azure Storage doesn't support HTTPS for custom domain names, this option is not applied when you're using a custom domain name.
+> 
+> This secure transfer setting does not apply to TCP. Connections via NFS 3.0 protocol support in Azure Blob Storage using TCP, which is not secured, will succeed.  
 
 ## Require secure transfer in the Azure portal
 

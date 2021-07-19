@@ -1,5 +1,5 @@
 ---
-title: T-SQL feature differences in Synapse SQL
+title: T-SQL feature in Synapse SQL pool
 description: List of Transact-SQL features that are available in Synapse SQL.
 services: synapse analytics
 author: jovanpop-msft
@@ -68,7 +68,7 @@ Query languages used in Synapse SQL can have different supported features depend
 
 ## Security
 
-Synapse SQL enable you to use built-in security features to secure your data and control access. The following table compares high-level differences between Synapse SQL consumption models.
+Synapse SQL pools enable you to use built-in security features to secure your data and control access. The following table compares high-level differences between Synapse SQL consumption models.
 
 |   | Dedicated | Serverless |
 | --- | --- | --- |
@@ -82,15 +82,16 @@ Synapse SQL enable you to use built-in security features to secure your data and
 | **Storage Access Key authentication** | Yes, using [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
 | **Storage [Managed Identity](../security/synapse-workspace-managed-identity.md) authentication** | Yes, using [Managed Service Identity Credential](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest&preserve-view=true) | Yes, using `Managed Identity` credential. |
 | **Storage Application identity authentication** | [Yes](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
-| **Permissions - Object-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the system objects that are supported |
-| **Permissions - Schema-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema |
-| **Permissions - [Database-level](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true)** | Yes | Yes |
-| **Permissions - [Server-level](/sql/relational-databases/security/authentication-access/server-level-roles)** | No | Yes, sysadmin and other server-roles are supported |
-| **Permissions - [Column-level security](../sql-data-warehouse/column-level-security.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)** | Yes | Yes |
-| **Roles/groups** | Yes (database scoped) | Yes (both server and database scoped) |
-| **Security &amp; identity functions** | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SESSION_CONTEXT`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
-| **DATABASE SCOPED CREDENTIAL** | Yes | Yes |
+| **Server-level roles** | No | Yes, sysadmin, public, and other server-roles are supported |
 | **SERVER SCOPED CREDENTIAL** | No | Yes |
+| **Permissions - [Server-level](/sql/relational-databases/security/authentication-access/server-level-roles)** | No | Yes |
+| **Database-scoped roles** | Yes | Yes |
+| **DATABASE SCOPED CREDENTIAL** | Yes | Yes |
+| **Permissions - [Database-level](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true)** | Yes | Yes |
+| **Permissions - Schema-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema |
+| **Permissions - Object-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the system objects that are supported |
+| **Permissions - [Column-level security](../sql-data-warehouse/column-level-security.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)** | Yes | Yes |
+| **Security &amp; identity functions** | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `IS_MEMBER`, `IS_ROLEMEMBER`, `SESSION_USER`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, `OPEN/CLOSE MASTER KEY` | Some Transact-SQL security functions and operators:  `CURRENT_USER`, `HAS_DBACCESS`, `HAS_PERMS_BY_NAME`, `IS_MEMBER', 'IS_ROLEMEMBER`, `IS_SRVROLEMEMBER`, `SESSION_USER`, `SESSION_CONTEXT`, `SUSER_NAME`, `SUSER_SNAME`, `SYSTEM_USER`, `USER`, `USER_NAME`, `EXECUTE AS`, and `REVERT`. Security functions cannot be used to query external data (store the result in variable that can be used in the query).  |
 | **Row-level security** | [Yes](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
 | **Transparent Data Encryption (TDE)** | [Yes](../../azure-sql/database/transparent-data-encryption-tde-overview.md) | No | 
 | **Data Discovery & Classification** | [Yes](../../azure-sql/database/data-discovery-and-classification-overview.md) | No |
@@ -130,7 +131,7 @@ Data that is analyzed can be stored on various storage types. The following tabl
 | **Azure Blob Storage** | Yes | Yes |
 | **Azure SQL (remote)** | No | No |
 | **Azure CosmosDB transactional storage** | No | No |
-| **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link(preview)](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) ([public preview](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json#limitations)) |
+| **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) |
 | **Apache Spark tables (in workspace)** | No | PARQUET tables only using [metadata synchronization](develop-storage-files-spark-tables.md) |
 | **Apache Spark tables (remote)** | No | No |
 | **Databricks tables (remote)** | No | No |
@@ -148,7 +149,7 @@ Data that is analyzed can be stored in various storage formats. The following ta
 | **Hive RC** | [Yes](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
 | **JSON** | Yes | [Yes](query-json-files.md) |
 | **Avro** | No | No |
-| **[Delta-lake](https://delta.io/)** | No | No |
+| **[Delta-lake](https://delta.io/)** | No | [Yes](query-delta-lake-format.md) |
 | **[CDM](/common-data-model/)** | No | No |
 
 ## Next steps
