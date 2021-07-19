@@ -19,6 +19,7 @@ The following Microsoft provided Kubernetes distributions and infrastructure pro
 The following providers and their corresponding Kubernetes distributions have successfully passed the conformance tests for Azure Arc-enabled Kubernetes.
 
 |**Provider**<br> **name** |**Distribution**<br> **name** |**Version** |**Arc-enabled Kubernetes**<br> **version** |
+|----------|----------|----------|----------|
 |Red Hat |[OpenShift Container Platform](https://www.openshift.com/products/container-platform) |[4.5](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html) |**N** - No<br> **N-1** - Yes<br> **N-2** - Yes |
 |||[4.6](https://docs.openshift.com/container-platform/4.6/release_notes/ocp-4-67-release-notes.html |**N** - Yes<br> **N-1** - Yes<br> **N-2** - Yes |
 |||[4.7](https://docs.openshift.com/container-platform/4.7/release_notes/ocp-4-7-release-notes.html) |**N** - Yes<br> **N-1** - Yes<br> **N-2** - Yes |
