@@ -19,7 +19,7 @@ This document describes cognitive skills that are considered deprecated. Use the
 * Last available api version: The last version of the Azure Cognitive Search public API through which skillsets containing the corresponding deprecated skill can be created/updated.
 * End of support: The last day after which the corresponding skill is considered unsupported. Previously created skillsets should still continue to function, but users are recommended to migrate away from a deprecated skill.
 * Recommendations: Migration path forward to use a supported skill. Users are advised to follow the recommendations to continue to receive support.
-/////////////////////////////////
+
 ## Microsoft.Skills.Text.EntityRecognitionSkill
 
 ### Last available api version
@@ -226,7 +226,7 @@ If you need to generate the exact same property names, you will need to add a [s
 }
 ```
 
-//////////////////////////////
+
 ## MMicrosoft.Skills.Text.SentimentSkill
 
 ### Last available api version
