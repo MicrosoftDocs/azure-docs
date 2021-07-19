@@ -137,7 +137,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 8. Notice that the **Monitor** tab on the left is automatically selected.  You need wait for the pipeline run when it is triggered automatically (about after one hour). When it runs, select the pipeline name link **DeltaCopyFromBlobPipeline** to view activity run details or rerun the pipeline. Select **Refresh** to refresh the list.
 
     ![Screenshot shows the Pipeline runs pane.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
-9. There's only one activity (copy activity) in the pipeline, so you see only one entry. Adjust the column width of the **source** and **destination** columns (if necessary) to display more details, you can see the source file (file1.txt) has been copied from  *source/2021/07/15/06/* to *destination/2021/07/15/06/* with the same file name. 
+9. There's only one activity (copy activity) in the pipeline, so you see only one entry. Adjust the column width of the **Source** and **Destination** columns (if necessary) to display more details, you can see the source file (file1.txt) has been copied from  *source/2021/07/15/06/* to *destination/2021/07/15/06/* with the same file name. 
 
     ![Screenshot shows pipeline run details.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
@@ -150,7 +150,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
     > [!NOTE]
     > You might be aware that a new folder path is required to be created. Please adjust the folder name with your UTC time.  For example, if the current UTC time is 7:30 AM on July. 15th, 2021, you can create the folder path as **source/2021/07/15/07/** by the rule of **{Year}/{Month}/{Day}/{Hour}/**.
 
-11. To go back to the **Pipeline runs** view, select **All Pipelines runs**, and wait for the same pipeline being triggered again automatically after another one hour.  
+11. To go back to the **Pipeline runs** view, select **All pipelines runs**, and wait for the same pipeline being triggered again automatically after another one hour.  
 
     ![Screenshot shows the All pipeline runs link to return to that page.](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
