@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2021
+ms.date: 07/14/2021
 ms.author: yelevin
 ---
 
@@ -23,7 +23,10 @@ ms.author: yelevin
 
 > [!IMPORTANT]
 >
-> - Upgrades to the **hunting dashboard** are currently in **PREVIEW**. Items below relating to this upgrade will be marked as "(preview)". See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The cross-resource query experience and upgrades to the **hunting dashboard** (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Azure Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that weren't detected by your security apps or even by your scheduled analytics rules, Azure Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 
@@ -42,6 +45,8 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 - **Use notebooks to power investigation**: Notebooks give you a kind of virtual sandbox environment, complete with its own kernel. You can use notebooks to enhance your hunting and investigations with machine learning, visualization, and data analysis. You can carry out a complete investigation in a notebook, encapsulating the raw data, the code you run on it, the results, and their visualizations, and save the whole thing so that it can be shared with and reused by others in your organization. 
 
 - **Query the stored data**: The data is accessible in tables for you to query. For example, you can query process creation, DNS events, and many other event types.
+
+- **Query data stored in Azure Data Explorer (preview)**: You can create hunting and livestream queries over data stored in Azure Data Explorer. For further information, see details of [constructing cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) in the Azure Monitor documentation.
 
 - **Links to community**: Leverage the power of the greater community to find additional queries and data sources.
  
@@ -101,7 +106,7 @@ In the example above, start with the table name SecurityEvent and add piped elem
 
 1. Click the green triangle and run the query. You can test the query and run it to look for anomalous behavior.
 
-## Useful operators
+## Useful operators and functions
 
 The query language is powerful and has many available operators, some useful ones of which are listed here:
 
@@ -124,6 +129,8 @@ The query language is powerful and has many available operators, some useful one
 **makeset** - Return a dynamic (JSON) array of the set of distinct values that Expr takes in the group
 
 **find** - Find rows that match a predicate across a set of tables.
+
+**adx() (preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Azure Sentinel hunting experience and Log Analytics. For further information see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
 ## Save a query
 
@@ -153,7 +160,12 @@ You can create or modify a query and save it as your own query or share it with 
 
 ## Next steps
 
-In this article, you learned how to run a hunting investigation with Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to run a hunting investigation with Azure Sentinel. 
+
+For more information, see:
 
 - [Use notebooks to run automated hunting campaigns](notebooks.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
+
+Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
+

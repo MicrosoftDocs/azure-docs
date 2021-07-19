@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Back up SAP HANA databases on Azure VMs
   description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: conceptual
-  ms.date: 11/7/2019
+  ms.date: 06/23/2021
     
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
 summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
@@ -15,17 +15,22 @@ sections:
       - question: |
           How many full backups are supported per day?
         answer: |
-          We support only one full backup per day. You can't have differential backup and full backup triggered on the same day.
+          You can have one schedule full backup and multiple on-demand backups in a day.
+
+          | Backup types | Scheduled backup | On-demand backups |
+          | --- | --- | --- |
+          | Full | Only one supported in a day. | Multiple times in a day supported. |
+          | Delta (differential/incremental) | Only one supported in a day. <br><br> **Note** <br> Delta backups can be scheduled only when no full backup is scheduled for the particular day. Also, only one delta backup type (differential/ incremental) can be scheduled in a backup policy. | Multiple times in a day supported. |
 
       - question: |
-          Do successful backup jobs create alerts?
+          Where can I find backup related alerts?
         answer: |
-          No. Successful backup jobs don't generate alerts. Alerts are sent only for backup jobs that fail. Detailed behavior for portal alerts is documented [here](./backup-azure-monitoring-built-in-monitor.md). However, if you're interested having alerts even for successful jobs, you can use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+          Today, successful backup jobs don’t generate alerts. Alerts are generated only for backup jobs that fail. [Learn how](backup-azure-monitoring-built-in-monitor.md) to use the Azure portal to view Backup alerts.
           
       - question: |
           Can I see scheduled backup jobs in the Backup Jobs menu?
         answer: |
-          The Backup Job menu will only show on-demand backup jobs. For scheduled jobs, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
+          The Backup Job menu will only show on-demand backup jobs that are either in progress, have succeeded or failed. For scheduled jobs, use [Azure Monitor](./backup-azure-monitoring-use-azuremonitor.md).
           
       - question: |
           Are future databases automatically added for backup?
@@ -44,14 +49,14 @@ sections:
           A renamed database is treated as a new database. Therefore, the service will treat this situation as if the database weren't found and will fail the backups. The renamed database will appear as a new database and must be configured for protection.
 
       - question: |
-          What are the prerequisites to back up SAP HANA databases on an Azure VM?
+          How do I get started with backing up my SAP HANA databases using Azure Backup?
         answer: |
-          Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections.
+          Refer to the [tutorial](./tutorial-backup-sap-hana-db.md) for a step-by-step guide to get started with Azure Backup for SAP HANA databases. You can also use [CLI](./tutorial-sap-hana-backup-cli.md) to configure and manage backups.
           
       - question: |
-          What permissions should be set so Azure can back up SAP HANA databases?
+          Are there any prerequisites for backing up SAP HANA databases using Azure Backup?
         answer: |
-          Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more about what the pre-registration script does [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+          Refer to the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) for using Azure Backup with SAP HANA.
           
       - question: |
           Will backups work after migrating SAP HANA from SDC to MDC?
@@ -59,14 +64,14 @@ sections:
           Refer to [this section](./backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid) of the troubleshooting guide.
           
       - question: |
-          What should be done while upgrading within the same version?
+          How do I ensure that Backups continue after upgrading my HANA instance within the same HANA version?
         answer: |
           Refer to [this section](backup-azure-sap-hana-database-troubleshoot.md#sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm) in the troubleshooting guide.
           
       - question: |
           Can Azure HANA Backup be set up against a virtual IP (load balancer) and not a virtual machine?
         answer: |
-          Currently we don't have the capability to set up the solution against a virtual IP alone. We need a virtual machine to execute the solution.
+          Currently we don't have the capability to set up the solution against a virtual IP or Proxy. We need a virtual machine to execute the solution.
 
       - question: |
           How can I move an on-demand backup to the local file system instead of the Azure vault?

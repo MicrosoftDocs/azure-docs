@@ -1,12 +1,12 @@
 ---
 title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/06/2020
-ms.author: danis
+ms.date: 07/07/2021
+ms.author: srijangupta
 
 ---
 # Prepare an Ubuntu virtual machine for Azure
@@ -14,8 +14,9 @@ ms.author: danis
 
 Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it is recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
 
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
+* Ubuntu 16.04/Xenial: [xenial-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-azure.vhd.zip)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.zip)
+* Ubuntu 20.04/Focal:  [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.zip)
 
 ## Prerequisites
 This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
@@ -89,7 +90,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 8. Remove cloud-init default configs and leftover netplan artifacts that may conflict with cloud-init provisioning on Azure:
 
     ```console
-    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     # rm -f /etc/cloud/ds-identify.cfg
     # rm -f /etc/netplan/*.yaml
     ```

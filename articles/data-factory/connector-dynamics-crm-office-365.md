@@ -37,8 +37,12 @@ Refer to the following table of supported authentication types and configuration
 |:--- |:--- |:--- |
 | Dataverse <br/><br/> Dynamics 365 online <br/><br/> Dynamics CRM online | Azure Active Directory (Azure AD) service principal <br/><br/> Office 365 | [Dynamics online and Azure AD service-principal or Office 365 authentication](#dynamics-365-and-dynamics-crm-online) |
 | Dynamics 365 on-premises with internet-facing deployment (IFD) <br/><br/> Dynamics CRM 2016 on-premises with IFD <br/><br/> Dynamics CRM 2015 on-premises with IFD | IFD | [Dynamics on-premises with IFD and IFD authentication](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
+
+>[!NOTE]
+>With the [deprecation of regional Discovery Service](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated), Azure Data Factory has upgraded to leverage [global Discovery Service](/powerapps/developer/data-platform/webapi/discover-url-organization-web-api#global-discovery-service) while using Office 365 Authentication.
+
 > [!IMPORTANT]
->If your tenant and user is configured in Azure Active Directory for [conditional access](/azure/active-directory/conditional-access/overview) and/or Multi-Factor Authentication is required, you will not be able to use Office 365 Authentication type. For those situations, you must use a Azure Active Directory (Azure AD) service principal authentication.
+>If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you will not be able to use Office 365 Authentication type. For those situations, you must use a Azure Active Directory (Azure AD) service principal authentication.
 
 For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Sales
@@ -54,7 +58,7 @@ This connector doesn't support other application types like Finance, Operations,
 This Dynamics connector is built on top of [Dynamics XRM tooling](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 ## Prerequisites
-To use this connector with Azure AD service-principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Azure Active Directory. You can find out how to do this [here](/azure/active-directory/develop/howto-create-service-principal-portal). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
+To use this connector with Azure AD service-principal authentication, you must set up server-to-server (S2S) authentication in Dataverse or Dynamics. First register the application user (Service Principal) in Azure Active Directory. You can find out how to do this [here](../active-directory/develop/howto-create-service-principal-portal.md). During application registration you will need to create that user in Dataverse or Dynamics and grant permissions. Those permissions can either be granted directly or indirectly by adding the application user to a team which has been granted permissions in Dataverse or Dynamics. You can find more information on how to set up an application user to authenticate with Dataverse [here](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication). 
 
 
 ## Get started

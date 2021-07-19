@@ -268,7 +268,7 @@ The batching option is important. By default, the library ingresses events indiv
 
 ## Next steps
 
-This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. The second article in this series is [Azure IoT device SDK for C - Serializer](iot-hub-device-sdk-c-serializer.md), which provides similar detail on the **serializer** library.
+This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. 
 
 To learn more about developing for IoT Hub, see the [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 

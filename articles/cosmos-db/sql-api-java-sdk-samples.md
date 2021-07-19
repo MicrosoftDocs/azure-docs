@@ -6,7 +6,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 09/23/2020
+ms.date: 06/08/2021
 ms.custom: devx-track-java
 ms.author: anfeldma
 
@@ -34,7 +34,7 @@ ms.author: anfeldma
 >  
 >- You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 >
->[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+>[!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 >
 
 The latest sample applications that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-cosmos-java-sql-api-samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) GitHub repository. This article provides:
@@ -122,7 +122,7 @@ The [Collection CRUD Samples](https://github.com/Azure/azure-documentdb-java/blo
 
 ## Autoscale collection examples
 
-To learn more about autoscale before running these samples, take a look at these instructions for enabling autoscale in your [account](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) and in your [databases and containers](./provision-throughput-autoscale.md).
+To learn more about autoscale before running these samples, take a look at these instructions for enabling autoscale in your [account](https://azure.microsoft.com/resources/templates/cosmosdb-sql-autoscale/) and in your [databases and containers](./provision-throughput-autoscale.md).
 
 The [autoscale Database CRUD Samples](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java) file shows how to perform the following tasks.
 
