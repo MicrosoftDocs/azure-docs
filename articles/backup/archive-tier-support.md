@@ -206,8 +206,8 @@ Stop protection and delete data deletes all the recovery points. For recovery po
 
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure VM | East US, East US 2, Central US, South Central US, West US, West US 2, West US 3 West Central US, North Central US, Brazil South, Brazil Southeast, Canada East, Canada Central, West Europe, UK South, UK West, Germany Northeast, Germany West Central, Switzerland North, Switzerland West, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia Central, Australia Central 2, South Africa West, South Africa North, Australia Southeast, South India, France Central, France South, Germany North, UAE North, UAE Central, Norway east, Norway west | Australia East, Central India, North Europe, South East Asia |
-| Azure Virtual Machines | All regions | None |
+| SQL Server in Azure VM | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia | Australia East, Central India, North Europe |
+| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe | None |
 
 ## Error codes and troubleshooting steps
 
