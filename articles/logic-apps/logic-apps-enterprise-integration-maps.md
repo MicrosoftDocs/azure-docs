@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: how-tow
+ms.topic: how-to
 ms.date: 07/20/2021
 ---
 
