@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
-ms.author:baselden
+ms.author: baselden
 ---
 # Plan your Azure Active Directory Verifiable Credentials issuance solution (preview)
 
@@ -40,7 +40,7 @@ Each tenant has a single instance of the Azure AD Verifiable Credentials service
 
 ### Microsoft Azure services
 
-![Components of an issuance solution](media/plan-issuance-solution/plan-issuance-solution-azure-services.png)
+![Components of an issuance solution, focusing on Azure services](media/plan-issuance-solution/plan-issuance-solution-azure-services.png)
 
 The **Azure Key Vault** service stores your issuer keys, which are generated when you initiate the Azure AD Verifiable Credentials issuance service. The keys and metadata are used to execute credential management operations and provide message security.
 
@@ -185,9 +185,9 @@ Model based on throughput:
 
 * The issuance service is subject to Azure storage limits. In typical use cases storage should not be a concern. However, if you feel you might exceed storage limits or feel storage might be a bottleneck, review the following: 
 
-   * We recommend reading [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets) as part of your planning process. Azure AD Verifiable Credentials issuance service reads rules and displays files, and results are cached by the service.
+   * We recommend reading [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md) as part of your planning process. Azure AD Verifiable Credentials issuance service reads rules and displays files, and results are cached by the service.
 
-   * We also recommend you review [Performance and scalability checklist for Blob storage - Azure Storage](../../storage/blobs/storage-performance-checklist). 
+   * We also recommend you review [Performance and scalability checklist for Blob storage - Azure Storage](../../storage/blobs/storage-performance-checklist.md). 
 
 As part of your plan for performance, determine what you will monitor to better understand the performance of the solution. In addition to application-level website monitoring, consider the following as you define your VC issuance monitoring strategy:
 
@@ -215,9 +215,9 @@ For scalability, consider implementing metrics for the following:
 
 * Monitor Azure Key Vault and Storage using the following:
 
-   * [Azure Key Vault monitoring and alerting](../../key-vault/general/alert)
+   * [Azure Key Vault monitoring and alerting](../../key-vault/general/alert.md)
 
-   * [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage?tabs=azure-portal)
+   * [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage?tabs=azure-portal.md)
 
 * Monitor the components used for your business logic layer. 
 
@@ -227,9 +227,9 @@ To plan for reliability, we recommend:
 
 * After you define your availability and redundancy goals, use the following guides to understand how to achieve your goals:
 
-   * [Azure Key Vault availability and redundancy - Azure Key Vault](../../key-vault/general/disaster-recovery-guidance)
+   * [Azure Key Vault availability and redundancy - Azure Key Vault](../../key-vault/general/disaster-recovery-guidance.md)
 
-   * [Disaster recovery and storage account failover - Azure Storage](../../storage/common/storage-disaster-recovery-guidance)
+   * [Disaster recovery and storage account failover - Azure Storage](../../storage/common/storage-disaster-recovery-guidance.md)
 
 * For frontend and business layer, your solution can manifest in an unlimited number of ways. As with any solution, for the dependencies you identify, ensure that the dependencies are resilient and monitored. 
 
@@ -241,7 +241,7 @@ Your organization may have specific compliance needs related to your industry, t
 
 **Data residency**: The Azure AD Verifiable Credentials issuance service is deployed in a subset of Azure regions. The service is used for compute functions only. We do not store values of verifiable credentials in Microsoft systems. However, as part of the issuance process, personal data is sent and used when issuing VCs. Using the VC service should not impact data residency requirements. If, as a part of identity verification you store any personal information, that should be stored in a manner and region that meets your compliance requirements. For Azure-related guidance, visit the Microsoft Trust Center website. 
 
-**Revoking credentials**: Determine if your organization will need to revoke credentials. For example, an admin may need to revoke credentials when an employee leaves the company. Or if a credential is issued for a driver’s license, and the holder is caught doing something that would cause the driver’s license to be suspended, the VC might need to be revoked. For more information, see [Revoke a previously issued verifiable credential](../verifiable-credentials/how-to-issuer-revoke).
+**Revoking credentials**: Determine if your organization will need to revoke credentials. For example, an admin may need to revoke credentials when an employee leaves the company. Or if a credential is issued for a driver’s license, and the holder is caught doing something that would cause the driver’s license to be suspended, the VC might need to be revoked. For more information, see [Revoke a previously issued verifiable credential](how-to-issuer-revoke.md).
 
 **Expiring credentials**: Determine if you will expire credentials, and if so under what circumstances. For example, if you issue a VC as proof of having a driver’s license, it might expire after a few years. If you issue a VC as a verification of an association with a user, you may want to expire it annually to ensure users come back annually to get the most updated version of the VC.
 
@@ -265,21 +265,21 @@ As part of your design considerations focused on security, we recommend the foll
 
    * Create a dedicated Key Vault for VC issuance. Limit Azure Key Vault permissions to the Azure AD Verifiable Credentials issuance service and the issuance service frontend website service principal. 
 
-   * Treat Azure Key Vault as a highly privileged system - Azure Key Vault issues credentials to customers. We recommend that no human identities have standing permissions over the Azure Key Vault service. Administrators should have only just I time access to Key Vault. For more best practices for Azure Key Vault usage, refer to [Azure Security Baseline for Key Vault | Microsoft Docs](../../key-vault/general/security-baseline).
+   * Treat Azure Key Vault as a highly privileged system - Azure Key Vault issues credentials to customers. We recommend that no human identities have standing permissions over the Azure Key Vault service. Administrators should have only just I time access to Key Vault. For more best practices for Azure Key Vault usage, refer to [Azure Security Baseline for Key Vault](https://docs.microsoft.com/security/benchmark/azure/baselines/key-vault-security-baseline).
 
 * For service principal that represents the issuance frontend website:
 
-   * Define a dedicated service principal to authorize access Azure Key Vault. If your website is on Azure, we recommend that you use an [Azure Managed Identity](../managed-identities-azure-resources/overview). 
+   * Define a dedicated service principal to authorize access Azure Key Vault. If your website is on Azure, we recommend that you use an [Azure Managed Identity](../managed-identities-azure-resources/overview.md). 
 
    * Treat the service principal that represents the website and the user as a single trust boundary. While it is possible to create multiple websites, there is only one key set for the issuance solution. 
 
 For security logging and monitoring, we recommend the following:
 
-* Enable logging and alerting of Azure Key Vault to track credential issuance operations, key extraction attempts, permission changes, and to monitor and send alert for configuration changes. More information can be found at [How to enable Key Vault logging](../../key-vault/general/howto-logging?tabs=azure-cli). 
+* Enable logging and alerting of Azure Key Vault to track credential issuance operations, key extraction attempts, permission changes, and to monitor and send alert for configuration changes. More information can be found at [How to enable Key Vault logging](../../key-vault/general/howto-logging.md). 
 
-* Enable logging of your Azure Storage account to monitor and send alert for configuration changes. More information can be found at [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage?tabs=azure-portal).
+* Enable logging of your Azure Storage account to monitor and send alert for configuration changes. More information can be found at [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md).
 
-* Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](../../services/azure-sentinel/) for long-term retention.
+* Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel.md) for long-term retention.
 
 * Mitigate spoofing risks by using the following
 
@@ -291,18 +291,18 @@ For security logging and monitoring, we recommend the following:
 
 * Mitigate distributed denial of service (DDOS) and Key Vault resource exhaustion risks. Every request that triggers a VC issuance request generates Key Vault signing operations that accrue towards service limits. We recommend protecting traffic by incorporating authentication or captcha before generating issuance requests.
 
-For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](../../security/benchmarks/) and [Securing Azure environments with Azure Active Directory](../../resources/securing-azure-environments-with-azure-active-directory/). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
+For guidance on managing your Azure environment, we recommend you review [Azure Security Benchmark](https://docs.microsoft.com/security/benchmark/azure/) and [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). These guides provide best practices for managing the underlying Azure resources, including Azure Key Vault, Azure Storage, websites, and other Azure-related services and capabilities.
 
 ## Additional considerations
 
 When you complete your POC, gather all the information and documentation generated, and consider tearing down the issuer configuration. This will help avoid issuing verifiable credentials after your POC timeframe expires. 
 
-For more information on Key Vault implementation and operation, refer to [Best practices to use Key Vault](../../key-vault/general/best-practices). For more information on Securing Azure environments with Active Directory, refer to [Securing Azure environments with Azure Active Directory](../../resources/securing-azure-environments-with-azure-active-directory/). 
+For more information on Key Vault implementation and operation, refer to [Best practices to use Key Vault](../../key-vault/general/best-practices.md). For more information on Securing Azure environments with Active Directory, refer to [Securing Azure environments with Azure Active Directory](https://aka.ms/AzureADSecuredAzure). 
 
 ## Next steps
 
 [Read the architectural overview](introduction-to-verifiable-credentials-architecture.md)
 
-[Plan your verification solution]()
+[Plan your verification solution](plan-verification-solution.md)
 
 [Get started with verifiable credentials](get-started-verifiable-credentials.md)

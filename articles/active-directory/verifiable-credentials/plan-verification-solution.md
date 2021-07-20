@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
-ms.author:baselden
+ms.author: baselden
 ---
 
 # Plan your Azure Active Directory Verifiable Credentials  verification solution (Preview)
@@ -18,7 +18,7 @@ ms.author:baselden
 
 Microsoft’s Azure Active Directory Verifiable Credentials (Azure AD VC) service enables you to trust proofs of user identity without expanding your trust boundary by creating accounts or federating with another identity provider. By using verifiable credentials based on an open standard, a verification exchange enables applications to request credentials that are not bound to a specific domain. This makes it easier to request and verify credentials at scale.
 
-If you haven’t already, we suggest you review the [Azure AD Verifiable Credentials architecture overview](../introduction-to-verifiable-credentials-architecture.md). You may also want to review [Plan your Azure AD Verifiable Credentials issuance solution](../plan-issuance-solution.md).
+If you haven’t already, we suggest you review the [Azure AD Verifiable Credentials architecture overview](introduction-to-verifiable-credentials-architecture.md). You may also want to review [Plan your Azure AD Verifiable Credentials issuance solution](plan-issuance-solution.md).
 
 ## Scope of guidance
 
@@ -26,7 +26,7 @@ This content covers the technical aspects of planning for a verifiable credentia
 
 Supporting technologies that are not specific to verification solutions are out of scope. For example, websites are used in a verifiable credential verification solution but planning a website deployment is not covered in detail.
 
-As you plan your verification solution you must consider what business capability is being added or modified and what IT capabilities can be leveraged or must be added to create the solution. You must also consider what training is needed for the people involved in the business process as well as the people that support the end users and staff of the solution. These topics are not covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](../../architecture/framework/) for information covering these topics.
+As you plan your verification solution you must consider what business capability is being added or modified and what IT capabilities can be leveraged or must be added to create the solution. You must also consider what training is needed for the people involved in the business process as well as the people that support the end users and staff of the solution. These topics are not covered in this content. We recommend reviewing the [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/) for information covering these topics.
 
 ## Components of the solution
 
@@ -57,7 +57,7 @@ Application programming interfaces (APIs) and a software developer kit (SDK) pro
 
 ### ION 
 
-![Azure AD VC APIs and SDKs](./media/plan-verification-solution/verification-solution-ion.png)
+![Azure AD VC ION](./media/plan-verification-solution/verification-solution-ion.png)
 
 Verifiable credential solutions use a decentralized ledger system to record transactions. Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin as its blockchain-styled ledger for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and used by parties to the transaction to perform cryptographic signature checks.
 
@@ -121,7 +121,7 @@ Verifiable credentials can also be used to enable faster onboarding by replacing
 
    * To invite users to Azure AD using B2B collaboration, the RP website can use a service principal that is granted the MS Graph scope of User.Invite.All to create invitations.
 
-   * If your RP is running in Azure, use Managed Identities to call Microsoft Graph; this will remove the risks of managing service principal credentials in code or configuration files. To learn more about Managed identities, go to [Managed identities for Azure resources.](../managed-identities-azure-resources/overview)
+   * If your RP is running in Azure, use Managed Identities to call Microsoft Graph; this will remove the risks of managing service principal credentials in code or configuration files. To learn more about Managed identities, go to [Managed identities for Azure resources.](../managed-identities-azure-resources/overview.md)
 
 ### Accessing high-value applications inside organizations 
 
@@ -324,7 +324,7 @@ As part of your operational planning, consider monitoring the following:
 
 * For security:
 
-   * Enable logging for Key Vault to track signing operations, as well as to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](../../key-vault/general/howto-logging?tabs=azure-cli.md) for more information.
+   * Enable logging for Key Vault to track signing operations, as well as to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](../../key-vault/general/howto-logging.md) for more information.
 
    * Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/) for long-term retention.
 

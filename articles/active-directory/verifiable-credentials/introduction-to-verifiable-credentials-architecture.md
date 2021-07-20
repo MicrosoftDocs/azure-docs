@@ -8,8 +8,9 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
-ms.author:baselden
+ms.author: baselden
 ---
+
 # Azure AD Verifiable Credentials architecture overview (preview)
 
 > [!IMPORTANT]
@@ -254,7 +255,7 @@ In this flow, the credential holder interacts with the issuer to request a verif
 
 1. Submits the artifacts required by the contract to the Azure AD VC Service. The Azure AD VC service returns the VC, signed with the issuer’s DID key and the wallet securely stores the VC.
 
-For detailed information on how to build an issuance solution and architectural considerations, see [Plan your Azure Active Directory Verifiable Credentials issuance solution](plan-issuance.md).
+For detailed information on how to build an issuance solution and architectural considerations, see [Plan your Azure Active Directory Verifiable Credentials issuance solution](plan-issuance-solution.md).
 
 ### Flow 2: Verifiable credential presentation
 
@@ -293,7 +294,7 @@ In this flow, a holder interacts with a relying party (RP) to present a VC as pa
 
 1. Upon validation, the Azure AD VC service calls back the RP with the result. 
 
-For detailed information on how to build a validation solution and architectural considerations, see [Plan your Azure Active Directory Verifiable Credentials verification solution](plan-verification.md).
+For detailed information on how to build a validation solution and architectural considerations, see [Plan your Azure Active Directory Verifiable Credentials verification solution](plan-verification-solution.md).
 
 ## Key Takeaways
 
@@ -321,8 +322,8 @@ To deliver on the aspirations of the [Decentralized Identity Foundation](https:/
 
 Learn more about architecture for verifiable credentials
 
-* [Plan your issuance solution](plan-issuance.md)
+* [Plan your issuance solution](plan-issuance-solution.md)
 
-* [Plan your verification solution](plan-verification.md)
+* [Plan your verification solution](plan-verification-solution.md)
 
 * [Get started with Azure Active Directory Verifiable Credentials](get-started-verifiable-credentials.md)
