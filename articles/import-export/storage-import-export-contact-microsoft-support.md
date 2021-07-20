@@ -36,7 +36,7 @@ Perform the following steps to create a support request:
       |**Summary** | Briefly describe your issue. |
       |**Issue type**|Select **Technical**.|
       |**Subscription**|Choose the subscription used for the resource.|
-      |**Service**|Select **My services**. Then select the **Service type** from the dropdown list. For an import/export order, you'll select **Storage Account Management**, **Blob Storage**, or **File Storage**.<!--Rolled over from previous topic.--|
+      |**Service**|Select **My services**. Then select the **Service type** from the dropdown list. For an import/export order, you'll select **Storage Account Management**, **Blob Storage**, or **File Storage**.|
       |**Resource**|Select the resource.|
  
    1. You'll see a new **Problem type** field. Select the problem type. Then select a problem subtype in the **Problem subtype** field that appears.
