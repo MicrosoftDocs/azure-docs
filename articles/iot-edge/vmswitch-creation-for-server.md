@@ -50,7 +50,7 @@ New-VMSwitch -Name {switchName} Switch" -SwitchType {switchType}
 Get-NetIPAddress -AddressFamily IPv4  -InterfaceIndex {ifIndex}
 ```
 
-6. Using the IP address family and interface index from previous steps, create and set the new gateway IP address.  (E.g If the IPv4 address of the virtual network switch adapter from Step 5 is xxx.xxx.xxx.yyy, you can set the gatewayIp as following xxx.xxx.xxx.1). Check [New-NetIPAddress (NetTCPIP)](https://docs.microsoft.com/powershell/module/nettcpip/new-netipaddress?view=windowsserver2019-ps) for full details.
+6. Using the IP address family and interface index from previous steps, create and set the new gateway IP address.  For example, If the IPv4 address of the virtual network switch adapter is xxx.xxx.xxx.yyy, you can set the gatewayIp as following xxx.xxx.xxx.1. Check [New-NetIPAddress (NetTCPIP)](/powershell/module/nettcpip/new-netipaddress) for full details.
  ```powershell
 New-NetIPAddress -IPAddress {gatewayIp} -PrefixLength 24 -InterfaceIndex {ifIndex}
 ```
