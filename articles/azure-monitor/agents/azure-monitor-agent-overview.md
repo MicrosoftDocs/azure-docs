@@ -9,7 +9,7 @@ ms.custom: references_regions
 ---
 
 # Azure Monitor agent overview
-The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This articles provides an overview of the Azure Monitor agent including how to install it and how to configure data collection.
+The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent including how to install it and how to configure data collection.
 
 ## Relationship to other agents
 The Azure Monitor Agent replaces the following agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](/azure/azure-monitor/faq#is-the-new-azure-monitor-agent-at-parity-with-existing-agents)):
@@ -30,7 +30,7 @@ The methods for defining data collection for the existing agents are distinctly 
 
 - Log Analytics agent gets its configuration from a Log Analytics workspace. This is easy to centrally configure, but difficult to define independent definitions for different virtual machines. It can only send data to a Log Analytics workspace.
 
-- Diagnostic extension has a configuration for each virtual machine. This is easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open source Telegraf agent is required to send data to Azure Monitor Metrics.
+- Diagnostic extension has a configuration for each virtual machine. This is easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open-source Telegraf agent is required to send data to Azure Monitor Metrics.
 
 Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-azure-monitor-agent.md).
 
@@ -39,7 +39,7 @@ Azure Monitor agent coexists with the [generally available agents for Azure Moni
 
 - **Environment requirements.** Azure Monitor agent supports [these operating systems](./agents-overview.md#supported-operating-systems) today latest operating systems and future environment support such as new operating system versions and types of networking requirements will most likely be provided only in this new agent. You should assess whether your environment is supported by Azure Monitor agent. If not, then you may need to stay with the current agent. If Azure Monitor agent supports your current environment, then you should consider transitioning to it.
 - **Current and new feature requirements.** Azure Monitor agent introduces several new capabilities such as filtering, scoping, and multi-homing, but it isn’t at parity yet with the current agents for other functionality such as custom log collection and integration with all solutions ([see solutions in preview](/azure/azure-monitor/faq#which-log-analytics-solutions-are-supported-on-the-new-azure-monitor-agent)). Most new capabilities in Azure Monitor will only be made available with Azure Monitor agent, so over time more functionality will only be available in the new agent. You should consider whether Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. If Azure Monitor agent has all the core capabilities you require then consider transitioning to it. If there are critical features that you require then continue with the current agent until Azure Monitor agent reaches parity.
-- **Tolerance for rework.** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, asses the effort involved. If it will take a significant amount of work, then consider setting up your new environment with the new agent as it is now generally available. A deprecation date published for the Log Analytics agents in August, 2021. The current agents will be supported for several years once deprecation begins.
+- **Tolerance for rework.** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, assess the effort involved. If it will take a significant amount of work, then consider setting up your new environment with the new agent as it is now generally available. A deprecation date published for the Log Analytics agents in August, 2021. The current agents will be supported for several years once deprecation begins.
 
 
 
@@ -53,9 +53,9 @@ Azure Monitor agent is available in all public regions that supports Log Analyti
 ## Coexistence with other agents
 The Azure Monitor agent can coexist with the existing agents so that you can continue to use their existing functionality during evaluation or migration. This is particularly important because of the limitations supporting existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention. 
 
-For example, VM insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You may also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data.
+For example, VM Insights uses the Log Analytics agent to send performance data to a Log Analytics workspace. You may also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data.
 
-As such, ensure you're not collecting the same data from both agents, and if so, ensure they are going to separate destinations.
+As such, ensure you're not collecting the same data from both agents. If you are, ensure they are going to separate destinations.
 
 
 ## Costs
