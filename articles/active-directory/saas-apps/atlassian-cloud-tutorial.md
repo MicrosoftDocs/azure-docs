@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/30/2021
+ms.date: 07/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
@@ -182,6 +182,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    d.	Click **Update**. 
 
       ![Authentication policies](./media/atlassian-cloud-tutorial/policy.png) 
+
+   > [!NOTE]
+   > The admins can test the SAML configuration by only enabling enforced SSO for a subset of users first on a separate authentication policy, and then enabling the policy for all users if there are no issues.
 
 ### Create an Azure AD test user
 
