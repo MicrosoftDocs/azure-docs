@@ -1,5 +1,5 @@
 ---
-title: 'What is Azure AD Connect v2.0. | Microsoft Docs'
+title: 'What is Azure AD Connect v2.0? | Microsoft Docs'
 description: Learn about the next version of Azure AD Connect.
 services: active-directory
 author: billmath
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 
 Azure AD Connect was released several years ago.  Since this time, several of the components that Azure AD Connect uses have been scheduled for deprecation and updated to newer versions.  To attempt to update all of these components individually would take time and planning.  
 
-To address this, we wanted to bundle as much of these newer components into a new, single release, so you only have to update once. This release will be Azure AD Connect V2.0.  This is a new version of the same software used to accomplish your hybrid identity goals that is built using the latest foundational components. 
+To address this, we wanted to bundle as many of these newer components into a new, single release, so you only have to update once. This release will be Azure AD Connect V2.0.  This is a new version of the same software used to accomplish your hybrid identity goals that is built using the latest foundational components. 
 
 ## What are the major changes? 
 
 ### SQL Server 2019 LocalDB 
 
-The previous versions of Azure AD Connect shipped with a SQL Server 2012 LocalDB. V2.0 ships with a SQL Server 2019 LocalDB, which promises enhanced stability and performance and has several security related bug fixes. SQL Server 2012 will go out of extended support in July 2022. For more information see [Microsoft SQL 2019](https://www.microsoft.com/sql-server/sql-server-2019).
+The previous versions of Azure AD Connect shipped with a SQL Server 2012 LocalDB. V2.0 ships with a SQL Server 2019 LocalDB, which promises enhanced stability and performance and has several security-related bug fixes. SQL Server 2012 will go out of extended support in July 2022. For more information see [Microsoft SQL 2019](https://www.microsoft.com/sql-server/sql-server-2019).
 
 ### MSAL authentication library 
 
@@ -53,7 +53,7 @@ This [article](https://docs.microsoft.com/windows-server/get-started-19/install-
 
 ### PowerShell 5.0 
 
-This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so we are making this a new prerequisite for Azure AD Connect.  
+This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so this requirement is a new prerequisite for Azure AD Connect.  
 
 More details about PowerShell prerequisites can be found [here](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
 
