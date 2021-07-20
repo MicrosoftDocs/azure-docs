@@ -28,7 +28,9 @@ In order to set up an Azure Virtual Desktop deployment for your custom apps that
 
 ## Get started
 
-Now that you're ready, let's take a look at how you can set up your Azure Virtual Desktop deployment.
+Now that you're ready, let's take a look at how you can set up your Azure Virtual Desktop deployment. You have two options to set yourself up for success. You can either set up your deployment manually or automatically. The next two sections will describe the differences between these two methods.
+
+### Set up Azure Virtual Desktop manually
 
 You can set up your deployment manually by following these tutorials:
 
@@ -39,6 +41,13 @@ You can set up your deployment manually by following these tutorials:
 3. [Create a host pool to validate service updates](../create-validation-host-pool.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 4. [Set up service alerts](../set-up-service-alerts.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+
+### Set up Azure Virtual Desktop automatically
+
+If you'd prefer an automatic process, you can use the getting started feature to set up your deployment for you. For more information, check out these articles:
+
+- [Deploy Azure Virtual Desktop with the getting started feature](../getting-started-feature.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
+- [Troubleshoot the getting started feature](../troubleshoot-getting-started.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json)
 
 ## Customize and manage Azure Virtual Desktop
 
