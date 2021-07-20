@@ -16,7 +16,7 @@ ms.author: aahi
 
 Multilingual and emoji support has led to Unicode encodings that use more than one [code point](https://wikipedia.org/wiki/Code_point) to represent a single displayed character, called a grapheme. For example, emojis like 🌷 and 👍 may use several characters to compose the shape with additional characters for visual attributes, such as skin tone. Similarly, the Hindi word `अनुच्छेद` is encoded as five letters and three combining marks.
 
-Because of the different lengths of possible multilingual and emoji encodings, the Text Analytics API may return offsets in the response.
+Because of the different lengths of possible multilingual and emoji encodings, Language Services may return offsets in the response.
 
 ## Offsets in the API response. 
 
@@ -32,11 +32,9 @@ Offsets can cause problems when using character-based substring methods, for exa
 
 In .NET, consider using the [StringInfo](/dotnet/api/system.globalization.stringinfo) class, which enables you to work with a string as a series of textual elements, rather than individual character objects. You can also look for grapheme splitter libraries in your preferred software environment. 
 
-The Text Analytics API returns these textual elements as well, for convenience.
+The Language Services returns these textual elements as well, for convenience.
 
-## Offsets in API version 3.1-preview
-
-In version 3.1 of the API, all Text Analytics API endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
+ endpoints that return an offset will support the `stringIndexType` parameter. This parameter adjusts the `offset` and `length` attributes in the API output to match the requested string iteration scheme. Currently, we support three types:
 
 1. `textElement_v8` (default): iterates over graphemes as defined by the [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) standard
 2. `unicodeCodePoint`: iterates over [Unicode Code Points](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), the default scheme for Python 3
