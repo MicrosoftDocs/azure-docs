@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/13/2021
+ms.date: 7/19/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
@@ -158,7 +158,7 @@ Affected environments are:
 - Azure Commercial Cloud
 - Office 365 GCC and WW
 
-For guidance to remove deprecating protocols dependencies, please refer to [EEnable support for TLS 1.2 in your environment, in preparation for upcoming Azure AD TLS 1.0/1.1 deprecation](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+For guidance to remove deprecating protocols dependencies, please refer to [EEnable support for TLS 1.2 in your environment, in preparation for upcoming Azure AD TLS 1.0/1.1 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -390,7 +390,7 @@ Affected environments are:
 - Azure Commercial Cloud
 - Office 365 GCC and WW
 
-Users, services, and applications that interact with Azure Active Directory and Microsoft Graph, should use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365, and Microsoft 365 services. For additional guidance, refer to [Enable support for TLS 1.2 in your environment, in preparation for upcoming deprecation of Azure AD TLS 1.0/1.1](https://docs.microsoft.com/troubleshoot/azure/active-directory/enable-support-tls-environment).
+Users, services, and applications that interact with Azure Active Directory and Microsoft Graph, should use TLS 1.2 and modern cipher suites to maintain a secure connection to Azure Active Directory for Azure, Office 365, and Microsoft 365 services. For additional guidance, refer to [Enable support for TLS 1.2 in your environment, in preparation for upcoming deprecation of Azure AD TLS 1.0/1.1](/troubleshoot/azure/active-directory/enable-support-tls-environment).
 
 ---
 
@@ -2615,7 +2615,7 @@ To learn more about the new App registrations experience, see the [App registrat
 
 We've fixed a known issue whereby when users were required to re-register if they were disabled for per-user Multi-Factor Authentication (MFA) and then enabled for MFA through a Conditional Access policy.
 
-To require users to re-register, you can select the **Required re-register MFA** option from the user's authentication methods in the Azure AD portal. For more information about migrating users from per-user MFA to Conditional Access-based MFA, see [Convert users from per-user MFA to Conditional Access based MFA](../authentication/howto-mfa-getstarted.md#convert-users-from-per-user-mfa-to-conditional-access-based-mfa).
+To require users to re-register, you can select the **Required re-register MFA** option from the user's authentication methods in the Azure AD portal. 
 
 ---
 
