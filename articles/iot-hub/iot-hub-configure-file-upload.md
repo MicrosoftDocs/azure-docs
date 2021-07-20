@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 07/20/2021
 ms.author: robinsh
 ---
 
@@ -14,15 +14,25 @@ ms.author: robinsh
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-## File upload
+This topic shows you how to configure file uploads on your IoT hub using the Azure portal. 
 
-To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure Storage account with your hub. 
+To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account and blob container with your IoT hub. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files. In addition to the storage account and blob container, you can set the time-to-live for the SAS URI and the type of authentication that IoT Hub uses with Azure storage. You can also configure settings for the optional file upload notifications that IoT Hub can deliver to backend services.
+
+## Prerequisites
+
+To complete this article, you need the following:
+
+* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* An Azure IoT hub. If you don't have an IoT hub, see [Create an IoT hub using the portal](iot-hub-create-through-portal.md).
+
+## Configure your IoT hub
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub and select **File upload** to display the file upload properties. Then select **Azure Storage Container** under **Storage container settings**.
 
     :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-settings.png" alt-text="View IoT Hub file upload settings in the portal":::
 
-1. Select an Azure Storage account and blob container in your current subscription to associate with your IoT hub. If necessary, you can create an Azure Storage account on the **Storage accounts** pane and create a blob container on the **Containers** pane. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.
+1. Select an Azure Storage account and blob container in your current subscription to associate with your IoT hub. If necessary, you can create an Azure Storage account on the **Storage accounts** pane and create a blob container on the **Containers** pane. 
 
    :::image type="content" source="./media/iot-hub-configure-file-upload/file-upload-container-selection.png" alt-text="View storage containers for file upload in the portal":::
 
