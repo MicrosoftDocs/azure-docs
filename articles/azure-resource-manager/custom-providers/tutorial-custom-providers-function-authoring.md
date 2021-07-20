@@ -60,7 +60,7 @@ public class CustomResource : ITableEntity
     public ETag ETag { get; set; }
 }
 ```
-**CustomResource** is a simple, generic class that accepts any input data. It's based on **ITableEntity**, which is used to store data. The **CustomResource** class implements all properties from interface **ITableEntity**: **timestamp**, **eTag**, **partitionKey** and **rowKey**.
+**CustomResource** is a simple, generic class that accepts any input data. It's based on **ITableEntity**, which is used to store data. The **CustomResource** class implements all properties from interface **ITableEntity**: **timestamp**, **eTag**, **partitionKey**, and **rowKey**.
 
 ## Support custom provider RESTful methods
 
@@ -106,7 +106,7 @@ Add the following **CreateCustomResource** method to create new resources:
 /// Creates a custom resource and saves it to table storage.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
-/// <param name="tableClient">The client which allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
+/// <param name="tableClient">The client that allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
 /// <param name="azureResourceId">The parsed Azure resource ID.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
@@ -155,7 +155,7 @@ Add the following **RetrieveCustomResource** method to retrieve existing resourc
 /// Retrieves a custom resource.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
-/// <param name="tableClient">The client which allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
+/// <param name="tableClient">The client that allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The HTTP response containing the existing custom resource.</returns>
@@ -188,7 +188,7 @@ Add the following **RemoveCustomResource** method to remove existing resources:
 /// Removes an existing custom resource.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
-/// <param name="tableClient">The client which allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
+/// <param name="tableClient">The client that allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The HTTP response containing the result of the deletion.</returns>
@@ -220,7 +220,7 @@ Add the following **EnumerateAllCustomResources** method to enumerate the existi
 /// Enumerates all the stored custom resources for a given type.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
-/// <param name="tableClient">The client which allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
+/// <param name="tableClient">The client that allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="resourceType">The resource type of the enumeration.</param>
 /// <returns>The HTTP response containing a list of resources stored under 'value'.</returns>
@@ -256,7 +256,7 @@ After all the RESTful methods are added to the function app, update the main **R
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="log">The logger.</param>
-/// <param name="tableClient">The client which allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
+/// <param name="tableClient">The client that allows you to interact with Azure Tables hosted in either Azure storage accounts or Azure Cosmos DB table API.</param>
 /// <returns>The HTTP response for the custom Azure API.</returns>
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log, TableClient tableClient)
 {
