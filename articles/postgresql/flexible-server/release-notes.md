@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/23/2021
+ms.date: 07/21/2021
 
 ---
 
@@ -16,6 +16,15 @@ This page provides latest news and updates regarding feature additions, engine v
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
+
+## Release: July 2021
+
+* Support for [pglogical extension](concepts-logical.md) v2.3.2 with PostgreSQL 11,12, and 13.<sup>$</sup>
+* PgBouncer now has `ignore_startup_parameters` to ignore certain client-side driver's parameters including `extra_float_digits` <sup>$</sup>.
+* Support for `pg_stat_reset_shared('bgwriter');` and `pg_stat_reset_shared('archiver');` to reset the counters shown in the `pg_stat_bgwriter` and `pg_stat_archiver` views <sup>$</sup>.
+* * Several bug fixes, stability, and performance improvements<sup>$</sup>.
+
+<sup>**$**</sup> Your existing servers will be automatically upgraded to the latest supported minor version and also new features are enabled during your server's future maintenance window.
 
 ## Release: June 2021
 
