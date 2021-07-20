@@ -114,7 +114,7 @@ To minimize issues related to throttling (Response Code 429), we recommend using
 *Example.* Your application is using Text-to-Speech and your current workload is 5 TPS (transactions per second). The next second you increase the load to 20 TPS (that is four times more). The Service immediately starts scaling up to fulfill the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.   
 - Test different load increase patterns
   - See [Speech-to-Text example](#speech-to-text-example-of-a-workload-pattern-best-practice)
-- Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and can not be adjusted  
+- Create additional Speech resources in the same or different Regions and distribute the workload among them using "Round Robin" technique. This is especially important for **Text-to-Speech TPS (transactions per second)** parameter, which is set as 200 per Speech Resource and cannot be adjusted  
 
 The next sections describe specific cases of adjusting quotas.<br/>
 Jump to [Text-to-speech: increasing concurrent request limit for Custom Neural and Custom Voices](#text-to-speech-increasing-concurrent-request-limit-for-custom-neural-and-custom-voices)
