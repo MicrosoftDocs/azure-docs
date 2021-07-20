@@ -62,7 +62,7 @@ You can use these backups to:
 
 ### <a id="restore-capabilities"></a>Restore capabilities and features of Azure SQL Database and Azure SQL Managed Instance
 
-This table summarizes the capabilities and features of point in time restore (PITR), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
+This table summarizes the capabilities and features of [point in time restore (PITR)](recovery-using-backups.md#point-in-time-restore), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
 
 | **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long-term backup restore |           
 |----|--|--|--|
