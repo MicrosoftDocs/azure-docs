@@ -55,7 +55,7 @@
     - name: Loops
       items:
       - name: Resources
-        displayName: iteration,copy,multiple,batches,child
+        displayName: iteration,copy,multiple,batches,child,condition,filter
         href: loop-resources.md
       - name: Properties
         displayName: iteration,copy,multiple
