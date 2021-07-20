@@ -1,7 +1,7 @@
 ---
 title: "Tutorial - Use Circuit Breaker Dashboard with Azure Spring Cloud"
 description: Learn how to use circuit Breaker Dashboard with Azure Spring Cloud.
-ms.author: karlerickson
+author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial

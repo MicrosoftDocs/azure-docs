@@ -3,7 +3,7 @@ title: Built-in policy definitions for Azure Spring Cloud
 description: Lists Azure Policy built-in policy definitions for Azure Spring Cloud. These built-in policy definitions provide common approaches to managing your Azure resources.
 ms.date: 07/16/2021
 ms.topic: reference
-ms.author: karlerickson
+author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.custom: subject-policy-reference, devx-track-java

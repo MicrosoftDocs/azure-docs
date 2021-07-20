@@ -1,7 +1,7 @@
 ---
 title: "Manage and monitor app with Azure Spring Boot Actuator"
 description: Learn how to manage and monitor app with Spring Boot Actuator.
-ms.author: karlerickson
+author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Monitor Azure Spring Cloud resources using alerts and action groups | Microsoft Docs"
 description: Learn how to use Spring Cloud alerts.
-ms.author: karlerickson
+author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: tutorial

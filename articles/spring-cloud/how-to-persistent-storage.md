@@ -1,7 +1,7 @@
 ---
 title: How to use persistent storage in Azure Spring Cloud | Microsoft Docs
 description: How to use persistent storage in Azure Spring Cloud
-ms.author: karlerickson
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Map an existing custom domain to Azure Spring Cloud"
 description: How to map an existing custom Distributed Name Service (DNS) name to Azure Spring Cloud
-ms.author: karlerickson
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
