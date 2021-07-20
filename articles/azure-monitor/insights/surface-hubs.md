@@ -14,7 +14,7 @@ ms.date: 01/16/2018
 
 This article describes how you can use the Surface Hub solution in Azure Monitor to monitor Microsoft Surface Hub devices. The solution helps you track the health of your Surface Hubs as well as understand how they are being used.
 
-Each Surface Hub has the Microsoft Monitoring Agent installed. Its through the agent that you can send data from your Surface Hub to a Log Analytics workspace in Azure Monitor. Log files are read from your Surface Hubs and are then are sent to Azure Monitor. Issues like servers being offline, the calendar not syncing, or if the device account is unable to log into Skype are shown in the Surface Hub dashboard in Azure Monitor. By using the data in the dashboard, you can identify devices that are not running, or that are having other problems, and potentially apply fixes for the detected issues.
+Each Surface Hub has the Microsoft Monitoring Agent installed. Its through the agent that you can send data from your Surface Hub to a Log Analytics workspace in Azure Monitor. Log files are read from your Surface Hubs and are then sent to Azure Monitor. Issues like servers being offline, the calendar not syncing, or if the device account is unable to log into Skype are shown in the Surface Hub dashboard in Azure Monitor. By using the data in the dashboard, you can identify devices that are not running, or that are having other problems, and potentially apply fixes for the detected issues.
 
 ## Install and configure the solution
 Use the following information to install and configure the solution. In order to manage your Surface Hubs in Azure Monitor, you'll need the following:
@@ -34,15 +34,15 @@ You'll need the workspace ID and workspace key for the Log Analytics workspace t
 
 Intune is a Microsoft product that allows you to centrally manage the Log Analytics workspace configuration settings that are applied to one or more of your devices. Follow these steps to configure your devices through Intune:
 
-1. Sign in to [Microsoft Endpoint Manager Admin Center](https://endpoint.microsoft.com/)
-2. Navigate to **Devices** > **Configuration profiles**.
-3. Create a new Windows 10 profile and choose templates.
-4. From the list of templates choose **Device restrictions (Windows 10 Team)**
-5. Enter in a name and description for the profile
-6. Under the Azure operational insights section, Enable the setting and provide the Log Analytics *Workspace ID* and *Workspace Key* the policy
-7. Assign the policy to your group of Surface Hub devices and save the policy
+1. Sign in to [Microsoft Endpoint Manager Admin Center](https://endpoint.microsoft.com/).
+2. Go to **Devices** > **Configuration profiles**.
+3. Create a new Windows 10 profile, and then select **templates**.
+4. In the list of templates, select **Device restrictions (Windows 10 Team)**.
+5. Enter a name and description for the profile.
+6. In the **Azure operational insights** section, enable the setting, and then provide the Log Analytics *Workspace ID* and *Workspace Key* for the policy.
+7. Assign the policy to your group of Surface Hub devices and save the policy.
 
-   ![Intune policy](./media/surface-hubs/memac-shub-insights.png)
+   ![Screenshot that shows setting an Intune policy.](./media/surface-hubs/intune.png)
 
 Intune then syncs the Log Analytics settings with the devices in the target group, enrolling them in your Log Analytics workspace.
 
