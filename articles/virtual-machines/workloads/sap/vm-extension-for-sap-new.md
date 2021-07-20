@@ -21,6 +21,8 @@ ms.author: oldoll
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[std-extension]:vm-extension-for-sap-std.md (Standard Version of Azure VM extension for SAP solutions)
+[configure-windows]:vm-extension-for-sap-new.md#a876ee7b-43b4-4782-aa5f-73753b6af0ea (Configure the New Azure VM extension for SAP solutions with PowerShell)
 [troubleshoot-windows]:vm-extension-for-sap-new.md#dee9099b-7b8a-4cdd-86a2-3f6ee964266f (Troubleshooting for Windows)
 [troubleshoot-linux]:vm-extension-for-sap-new.md#02783aa4-5443-43f5-bc11-7af19ebf0c36 (Troubleshooting for Linux)
 [deployment-guide-4.1]:vm-extension-for-sap-new.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
@@ -42,7 +44,7 @@ ms.author: oldoll
 > Make sure to uninstall the VM extension before switching between the standard and the new version of the Azure Extension for SAP.
 
 > [!NOTE]
-> There are two versions of the VM extension. This article covers the **new** version of the Azure VM extension for SAP. For guidance on how to install the new version, see [New Version of Azure VM extension for SAP solutions][new-extension].
+> There are two versions of the VM extension. This article covers the **new** version of the Azure VM extension for SAP. For guidance on how to install the standard version, see [Standard Version of Azure VM extension for SAP solutions][std-extension].
 
 * Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 * Make sure the virtual machine on which the extension is enabled has access to management.azure.com.
@@ -262,7 +264,7 @@ The extension is not installed. Determine whether this is a proxy issue (as desc
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 For a complete and up-to-date list of known issues, see SAP Note [1999351], which has additional troubleshooting information for Azure Extension for SAP.
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-<version>/logapp.txt to the incident.
+If troubleshooting by using SAP Note [1999351] does not resolve the issue, install the extension again as described in [Configure the Azure Extension for SAP][configure-windows]. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-<version>/logapp.txt to the incident.
 
 
 ## Azure Extension Error Codes
