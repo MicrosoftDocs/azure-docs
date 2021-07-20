@@ -39,7 +39,7 @@ Configuring Data-in replication for zone redundant high availability servers is 
 
 ### Filtering
 
-Modifying the parameter `replicate_wild_ignore_table` which was used to create replication filter for tables is currently not supported for Azure Database for MySQL -Flexible servers. 
+Modifying the parameter `replicate_wild_ignore_table` which was used to create replication filter for tables, is currently not supported for Azure Database for MySQL -Flexible servers. 
 
 ### Requirements
 
