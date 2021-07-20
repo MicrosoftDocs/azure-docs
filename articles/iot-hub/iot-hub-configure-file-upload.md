@@ -47,8 +47,6 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 ## Next steps
 
-For an overview of the file upload capabilities of IoT Hub, see [Upload files from a device](iot-hub-devguide-file-upload.md) in the IoT Hub developer guide.
-
-To learn more about managed identities, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
-
-For examples and steps to upload a file from a device to your IoT hub using the Azure IoT device SDKs, see [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md).
+* [Upload files from a device overview](iot-hub-devguide-file-upload.md)
+* [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
+* [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md)

@@ -16,6 +16,8 @@ ms.author: robinsh
 
 To [upload files from a device](iot-hub-devguide-file-upload.md), you must first associate an Azure Storage account with your IoT hub. You can use an existing storage account or create a new one.
 
+## Prerequisites
+
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
@@ -216,10 +218,7 @@ az iot hub update --name {your iot hub name} \
 
 ## Next steps
 
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device](iot-hub-devguide-file-upload.md).
-
-To learn more about managed identities, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md).
-
-For examples and steps to upload a file from a device to your IoT hub using the Azure IoT device SDKs, see [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md).
-
-For more information about Azure CLI commands you can use to configure file upload, see [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update) and [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create).
+* [Upload files from a device overview](iot-hub-devguide-file-upload.md)
+* [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
+* [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md)
+* Azure CLI [az iot hub update](/cli/azure/iot/hub#az_iot_hub_update) and [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) commands

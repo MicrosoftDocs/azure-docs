@@ -19,6 +19,8 @@ To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## Prerequisites
+
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
@@ -121,15 +123,6 @@ Set-AzIotHub `
 
 ## Next steps
 
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device](iot-hub-devguide-file-upload.md).
-
-Follow these links to learn more about managing Azure IoT Hub:
-
-* [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
-* [Monitor your IoT hub](monitor-iot-hub.md)
-
-To further explore the capabilities of IoT Hub, see:
-
-* [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
-* [Secure your IoT solution from the ground up](../iot-fundamentals/iot-security-ground-up.md)
+* [Upload files from a device overview](iot-hub-devguide-file-upload.md)
+* [IoT Hub support for managed identities](./iot-hub-managed-identity.md)
+* [File upload how-to guides](./iot-hub-csharp-csharp-file-upload.md)
