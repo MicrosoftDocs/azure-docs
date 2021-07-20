@@ -53,7 +53,7 @@ sections:
           
           **Is an RTSP simulator available to use during testing and development?**
           
-          Yes, an [RTSP simulator]()<!--add-valid-link.md)--><!-- https://github.com/Azure/video-analyzer/tree/main/utilities/rtspsim-live555 --> edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
+          Yes, an [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) edge module is available for use in the quickstarts and tutorials to support the learning process. This module is provided as best-effort and might not always be available. We recommend strongly that you *not* use the simulator for more than a few hours. You should invest in testing with your actual RTSP source before you plan a production deployment.
           
       - question: Design your AI model 
         answer: |
@@ -105,7 +105,7 @@ sections:
           
            First, be sure that your server can either handle more than one request at a time or work in parallel threads. 
           
-          For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample]()<!--add-valid-link.md)--><!-- https://github.com/Azure/video-analyzer/tree/main/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/avaextension/server/server.py -->: 
+          For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grpc)<!--add-valid-link.md): 
           
           ```
           server = grpc.server(futures.ThreadPoolExecutor(max_workers=3)) 
