@@ -1,3 +1,4 @@
+items:
 - name: Azure Blob Storage documentation
   href: ./index.yml
 - name: Overview
@@ -461,7 +462,7 @@
         href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Azurite to run automated tests
         href: use-azurite-to-run-automated-tests.md
-      - name: Use the Azure Storage emulator
+      - name: Use the Azure Storage emulator (deprecated)
         href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Host a static website
       items:
@@ -609,6 +610,10 @@
         href: ../common/storage-explorer-security.md
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md
+      - name: Storage Explorer manage Azure Blob storage
+        href: ../../vs-azure-tools-storage-explorer-blobs.md
+      - name: Storage Explorer create file shares
+        href: ../../vs-azure-tools-storage-explorer-files.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
@@ -931,6 +936,10 @@
         href: ../common/storage-explorer-security.md
       - name: Storage Explorer blob versioning
         href: ../common/storage-explorer-blob-versioning.md
+      - name: Storage Explorer manage Azure Blob storage
+        href: ../../vs-azure-tools-storage-explorer-blobs.md
+      - name: Storage Explorer create file shares
+        href: ../../vs-azure-tools-storage-explorer-files.md
       - name: Storage Explorer support policy and lifecycle
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility

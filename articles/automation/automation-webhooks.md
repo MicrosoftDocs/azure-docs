@@ -16,7 +16,7 @@ A webhook allows an external service to start a particular runbook in Azure Auto
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
-To understand client requirements for TLS 1.2 with webhooks, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+To understand client requirements for TLS 1.2 with webhooks, see [TLS 1.2 for Azure Automation](automation-managing-data.md#tls-12-for-azure-automation).
 
 ## Webhook properties
 
