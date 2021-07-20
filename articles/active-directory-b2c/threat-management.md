@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 Credential attacks lead to unauthorized access to resources. Passwords that are set by users are required to be reasonably complex. Azure AD B2C has mitigation techniques in place for credential attacks. Mitigation includes detection of brute-force credential attacks and dictionary credential attacks. By using various signals, Azure Active Directory B2C (Azure AD B2C) analyzes the integrity of requests. Azure AD B2C is designed to intelligently differentiate intended users from hackers and botnets.
 
-Azure AD B2C uses a sophisticated strategy to lock accounts. The accounts are locked based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it's an attack. After a password is tried 10 times unsuccessfully (the default attempt threshold), a one-minute lockout occurs. The next time a login is unsuccessful after the account is unlocked (that is, after the account has been automatically unlocked by the service once the lockout period expires), another one-minute lockout occurs and continues for each unsuccessful login. Entering the same, or similar password repeatedly doesn't count as multiple unsuccessful logins. For more information, please see [how smart lockout works](../active-directory/authentication/howto-password-smart-lockout.md).
+Azure AD B2C uses a sophisticated strategy to lock accounts. The accounts are locked based on the IP of the request and the passwords entered. The duration of the lockout also increases based on the likelihood that it's an attack. After a password is tried 10 times unsuccessfully (the default attempt threshold), a one-minute lockout occurs. The next time a login is unsuccessful after the account is unlocked (that is, after the account has been automatically unlocked by the service once the lockout period expires), another one-minute lockout occurs and continues for each unsuccessful login. Entering the same, or similar password repeatedly doesn't count as multiple unsuccessful logins.
 
 > [!NOTE]
 > This feature is supported by [user flows, custom policies](user-flow-overview.md), and [ROPC](add-ropc-policy.md) flows. It’s activated by default so you don’t need to configure it in your user flows or custom policies.
@@ -55,6 +55,8 @@ The smart lockout feature uses many factors to determine when an account should 
 When testing the smart lockout feature, use a distinctive pattern for each password you enter. Consider using password generation web apps, such as [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
 
 When the smart lockout threshold is reached, you'll see the following message while the account is locked: **Your account is temporarily locked to prevent unauthorized use. Try again later**. The error messages can be [localized](localization-string-ids.md#sign-up-or-sign-in-error-messages).
+
+When you test smart lockout, your sign-in requests might be handled by different datacenters due to the geo-distributed and load-balanced nature of the Azure AD authentication service. In that scenario, because each Azure AD datacenter tracks lockout independently, it might take more than your defined lockout threshold number of attempts to cause a lockout. A user has a maximum of (threshold_limit * datacenter_count) number of bad attempts before being completely locked out.
 
 ## Viewing locked-out accounts
 
