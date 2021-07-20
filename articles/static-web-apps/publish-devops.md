@@ -24,6 +24,7 @@ In this tutorial, you learn to:
 - **Active Azure account:** If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - **Azure DevOps project:** If you don't have one, you can [create a project for free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/).
   - Azure DevOps includes **Azure Pipelines**. If you need help getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops).
+  - The Static Web App Pipeline Task currently only works on **Linux** machines. When running the pipeline mentioned below, please ensure it is running on a Linux VM.
 
 ## Create a static web app in an Azure DevOps
 
