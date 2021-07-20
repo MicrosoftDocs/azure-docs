@@ -56,7 +56,6 @@ Azure Arc-enabled data services team has worked with industry partners to valida
 |-----|-----|-----|-----|-----|
 | TKGm v1.3.1 | 1.20.5 | 20.3.3 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
 
-
 ## Validated distributions
 
 !!!!!(This section is copied from [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md)) REPLACE!!!!
