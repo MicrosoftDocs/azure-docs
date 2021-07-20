@@ -201,6 +201,7 @@ The create request body is as follows:
   "backupManagementType": "AzureStorage"
 
  }
+}
 ```
 
 For the complete list of definitions of the request body and other details, refer to [ProtectionContainers-Register](/rest/api/backup/protection-containers/register#azurestoragecontainer).
