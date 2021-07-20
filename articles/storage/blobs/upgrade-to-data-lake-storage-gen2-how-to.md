@@ -134,6 +134,11 @@ az provider register --namespace 'Microsoft.Storage'
 
 7. Expand the **Step 3: Upgrade account** section, and then click **Start upgrade**.
 
+   A message appears which indicates that the migration has completed successfully. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Migration completed page](./media/upgrade-to-data-lake-storage-gen2-how-to/upgrade-to-an-azure-data-lake-gen2-account-completed.png)
+
 ## Migrate data, workloads, and applications 
 
 1. Configure [services in your workloads](data-lake-storage-integrate-with-azure-services.md) to point to either the **Blob service** endpoint or the **Data Lake storage** endpoint.
