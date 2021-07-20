@@ -15,7 +15,7 @@ ms.service: iot-edge
 
 This article shows you how to use Visual Studio 2019 to develop and debug Azure IoT Edge modules.
 
-The Azure IoT Edge Tools for Visual Studio provides the following benefits:
+The Azure IoT Edge Tools for Visual Studio extension provides the following benefits:
 
 * Create, edit, build, run, and debug IoT Edge solutions and modules on your local development computer.
 * Deploy your IoT Edge solution to an IoT Edge device via Azure IoT Hub.
@@ -103,7 +103,7 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 1. On the **Add Module** window, select the type of module you want to develop. You can also select **Existing module** to add an existing IoT Edge module to your deployment. Specify your module name and module image repository.
 
-   Visual Studio auto-populates the repository URL with **localhost:5000/<module name\>**. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then replace **localhost:5000** with the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**.The final result should look like **\<*registry name*\>.azurecr.io/_\<module name\>_**.
+   Visual Studio autopopulates the repository URL with **localhost:5000/<module name\>**. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then replace **localhost:5000** with the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**.The final result should look like **\<*registry name*\>.azurecr.io/_\<module name\>_**.
 
    Select **Add** to add your module to the project.
 
@@ -111,13 +111,11 @@ The IoT Edge project template in Visual Studio creates a solution that can be de
 
 Now you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
-The module folder contains a file for your module code, named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` which describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
+The module folder contains a file for your module code, named either `program.cs` or `main.c` depending on the language you chose. This folder also contains a file named `module.json` that describes the metadata of your module. Various Docker files provide the information needed to build your module as a Windows or Linux container.
 
 The project folder contains a list of all the modules included in that project. Right now it should show only one module, but you can add more. For more information about adding modules to a project, see the [Build and debug multiple modules](#build-and-debug-multiple-modules) section later in this article.
 
-The project folder also contains a file named `deployment.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that will run on a device along with how they will communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary.
-
-To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
+The project folder also contains a file named `deployment.template.json`. This file is a template of an IoT Edge deployment manifest, which defines all the modules that will run on a device along with how they will communicate with each other. For more information about deployment manifests, see [Learn how to deploy modules and establish routes](module-composition.md). If you open this deployment template, you see that the two runtime modules, **edgeAgent** and **edgeHub** are included, along with the custom module that you created in this Visual Studio project. A fourth module named **SimulatedTemperatureSensor** is also included. This default module generates simulated data that you can use to test your modules, or delete if it's not necessary. To see how the simulated temperature sensor works, view the [SimulatedTemperatureSensor.csproj source code](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor).
 
 ## Develop your module
 
@@ -184,7 +182,7 @@ After you're done developing a single module, you might want to run and debug an
 
 1. In **Solution Explorer**, add a second module to the solution by right-clicking the project folder. On the menu, select **Add** > **New IoT Edge Module**.
 
-   ![Add a new module to an existing IoT Edge project](./media/how-to-visual-studio-develop-module/add-new-module.png)
+   ![Add a new module to an existing IoT Edge project](./media/how-to-visual-studio-develop-csharp-module/add-new-module.png)
 
 1. Open the file `deployment.template.json` and you'll see that the new module has been added in the **modules** section. A new route was also added to the **routes** section to send messages from the new module to IoT Hub. If you want to send data from the simulated temperature sensor to the new module, add another route like the following example: 
 
@@ -248,7 +246,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 ## View generated data
 
-1. To monitor the D2C message for a specific IoT-Edge device, select it in your IoT hub in **Cloud Explorer** and then click **Start Monitoring Built-in Event Endpoint** in the **Action** window.
+1. To monitor the D2C message for a specific IoT Edge device, select it in your IoT hub in **Cloud Explorer** and then click **Start Monitoring Built-in Event Endpoint** in the **Action** window.
 
 1. To stop monitoring data, select **Stop Monitoring Built-in Event Endpoint** in the **Action** window.
 
