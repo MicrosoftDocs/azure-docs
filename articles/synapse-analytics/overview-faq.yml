@@ -161,7 +161,7 @@ sections:
       - question: |
           How do I secure access to my Azure Synapse workspace?
         answer: |
-          You can connect to your workspace using [private endpoints](synapse-workspace-managed-private-endpoints.md). When public network access is **enabled**, you can connect to your workspace also from public networks. For more information on public network access, see [Connectivity Settings](security/connectivity-settings.md).
+          You can connect to your workspace using [private endpoints](security/synapse-workspace-managed-private-endpoints.md). When public network access is **enabled**, you can connect to your workspace also from public networks. For more information on public network access, see [Connectivity Settings](security/connectivity-settings.md).
           
 
 
