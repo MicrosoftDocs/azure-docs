@@ -28,7 +28,7 @@ You can import into the Azure Active Directory (Azure AD) ECMA Connector Host a 
 If you already have MIM Sync with your ECMA connector configured, skip to step 10.
 
  1. Prepare a Windows Server 2016 server, which is distinct from the server that will be used for running the Azure AD ECMA Connector Host. This host server should either have a SQL Server 2016 database colocated or have network connectivity to a SQL Server 2016 database. One way to set up this server is by deploying an Azure virtual machine with the image **SQL Server 2016 SP1 Standard on Windows Server 2016**. This server doesn't need internet connectivity other than remote desktop access for setup purposes.
- 1. Create an account for use during the MIM Sync installation. It can be a local account on that Windows Server. To create a local account, open **Control Panel** > **User Accounts**, and add the user account **mimsync**.
+ 1. Create an account for use during the MIM Sync installation. It can be a local account on that Windows Server instance. To create a local account, open **Control Panel** > **User Accounts**, and add the user account **mimsync**.
  1. Add the account created in the previous step to the local Administrators group.
  1. Give the account created earlier the ability to run a service. Start **Local Security Policy** and select **Local Policies** > **User Rights Assignment** > **Log on as a service**. Add the account mentioned earlier.
  1. Install MIM Sync on this host. If you don't have MIM Sync binaries, you can install an evaluation by downloading the zip file from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=48244), mounting the ISO image, and copying the folder **Synchronization Service** to the Windows Server host. Then run the setup program contained in that folder. Evaluation software is time limited and will expire. It isn't intended for production use.
@@ -45,7 +45,7 @@ At this point, the MIM Sync server is no longer needed.
  1. Change to the directory C:\Program Files\Microsoft ECMA2host\Service\ECMA. Ensure there are one or more DLLs already present in that directory. Those DLLs correspond to Microsoft-delivered connectors.
  1. Copy the MA DLL for your connector, and any of its prerequisite DLLs, to that same ECMA subdirectory of the Service directory.
  1. Change to the directory C:\Program Files\Microsoft ECMA2Host\Wizard. Run the program Microsoft.ECMA2Host.ConfigWizard.exe to set up the ECMA Connector Host configuration.
- 1. A new window appears with a list of connectors. By default, no connectors will be present. Select **;New connector**.
+ 1. A new window appears with a list of connectors. By default, no connectors will be present. Select **New connector**.
  1. Specify the management agent XML file that was exported from MIM Sync earlier. Continue with the configuration and schema-mapping instructions from the section "Configure a connector."
 
 ## Next steps
