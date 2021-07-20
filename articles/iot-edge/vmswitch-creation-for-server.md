@@ -63,7 +63,7 @@ New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
 # Create DHCP Server 
 
 >[!WARNING]
->Authorization might be required to deploy a DHCP server in a corporate network environment. Ensure to check if the virtual switch configuration complies with your corporate network's policies. For further information, ensure to check the  [Deploy DHCP Using Windows PowerShell](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-deploy-wps) guide. 
+>Authorization might be required to deploy a DHCP server in a corporate network environment. Check if the virtual switch configuration complies with your corporate network's policies. For further information, check the  [Deploy DHCP Using Windows PowerShell](/windows-server/networking/technologies/dhcp/dhcp-deploy-wps) guide. 
 
 8.	Check if the DHCP Server feature is installed in the device. Look for the **Install State** column.
  ```powershell
