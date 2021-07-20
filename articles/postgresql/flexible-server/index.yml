@@ -46,6 +46,8 @@ landingContent:
             url: concepts-compute-storage.md
           - text: Networking
             url: concepts-networking.md
+          - text: Security
+            url: concepts-security.md
           - text: Postgres versions
             url: concepts-supported-versions.md
           - text: Extensions
