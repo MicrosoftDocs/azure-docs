@@ -35,7 +35,7 @@ Get-VMSwitch -Name "Default Switch" -SwitchType Internal
 ```
 If a vmSwitch named **Default Switch** is already created, you should be able to install IoT Edge for Linux on Windows without following the rest of the steps in this guide.
 
-3. Create a new VM switch with a name and type (Internal | External). Check [New-VMSwitch (Hyper-V)](https://docs.microsoft.com/powershell/module/hyper-v/new-vmswitch?view=windowsserver2019-ps) and [Create a virtual switch for Hyper-V virtual machines](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) for full details and further instructions.
+3. Create a new VM switch with a name and type **Internal** or **External**. Check [New-VMSwitch (Hyper-V)](/powershell/module/hyper-v/new-vmswitch) and [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) for full details and further instructions.
  ```powershell
 New-VMSwitch -Name {switchName} Switch" -SwitchType {switchType}
 ```
