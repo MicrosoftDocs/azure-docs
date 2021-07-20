@@ -66,7 +66,7 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 
 While disabling NTLM password synchronization will improve security, many applications and services are not designed to work without it. Connecting to any resource by its IP address, such as DNS server management or RDP, will fail with Access Denied. If you disable NTLM password synchronization and your application or service isn’t working as expected, you'll want to start troubleshooting here.
 
-You can check if a failed authentication was using Kerberos or NTLM by enabling security audits for the **Logon/Logoff** > **Audit Logon** event category. For more information, see [Enable security audits for Azure Active Directory Domain Services](security-audit-events.md).
+You can check if a failed authentication was using NTLM by enabling security audits for the **Logon/Logoff** > **Audit Logon** event category. For more information, see [Enable security audits for Azure Active Directory Domain Services](security-audit-events.md).
 
 ## Use PowerShell to harden your domain
 
