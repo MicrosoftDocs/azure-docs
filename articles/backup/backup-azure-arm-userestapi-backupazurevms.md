@@ -157,7 +157,7 @@ In the example, the above values translate to:
 
 ### Enabling protection for the Azure VM
 
-After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/2021-02-10/backup-policies/list). Then select the [relevant policy](/rest/api/backup/2021-02-10/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the example below.
+After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](/rest/api/backup/backup-policies/list). Then select the [relevant policy](/rest/api/backup/2021-02-10/protection-policies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the example below.
 
 Enabling protection is an asynchronous *PUT* operation that creates a 'protected item'.
 
