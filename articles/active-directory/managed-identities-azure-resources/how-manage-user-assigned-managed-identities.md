@@ -22,14 +22,14 @@ Managed identities for Azure resources eliminate the need to manage credentials 
 
 There are two types of managed identities: system-assigned and user-assigned. The main difference between them is that system-assigned managed identities have their lifecycle linked to the resource where they're used. User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see [What are managed identities for Azure resources?](overview.md).
 
-::: zone pivot="identity-mi-methods-azp"
-
 In this article, you learn how to create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal.
 
 ## Prerequisites
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). *Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)*.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+
+::: zone pivot="identity-mi-methods-azp"
 
 ## Create a user-assigned managed identity
 
@@ -42,6 +42,8 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     - **Resource group**: Choose a resource group to create the user-assigned managed identity in, or select **Create new** to create a new resource group.
     - **Region**: Choose a region to deploy the user-assigned managed identity, for example, **West US**.
     - **Name**: Enter the name for your user-assigned managed identity, for example, UAI1.
+  
+[!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
   
     ![Screenshot that shows the Create User Assigned Managed Identity pane.](media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 1. Select **Review + create** to review the changes.
@@ -91,11 +93,11 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
 
 ::: zone-end
 
+
+
 ::: zone pivot="identity-mi-methods-azcli"
 
 In this article, you learn how to create, list, delete, or assign a role to a user-assigned managed identity by using the Azure CLI.
-
-## Prerequisites
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -150,15 +152,11 @@ For information on how to assign a user-assigned managed identity to an Azure VM
 
 ::: zone pivot="identity-mi-methods-powershell"
 
-In this article, you learn how to create, list, and delete a user-assigned managed identity by using PowerShell.
-
-## Prerequisites
-
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). *Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)*.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - To run the example scripts, you have two options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
     - Run scripts locally with Azure PowerShell, as described in the next section.
+
+In this article, you learn how to create, list, and delete a user-assigned managed identity by using PowerShell.
 
 ### Configure Azure PowerShell locally
 
@@ -235,17 +233,13 @@ For a full list and more details of the Azure PowerShell managed identities for 
 
 ::: zone pivot="identity-mi-methods-arm"
 
+
 In this article, you create a user-assigned managed identity by using Azure Resource Manager.
 
 You can't list and delete a user-assigned managed identity by using a Resource Manager template. See the following articles to create and list a user-assigned managed identity:
 
 - [List user-assigned managed identity](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [Delete user-assigned managed identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-
-## Prerequisites
-
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). *Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)*.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 
 ## Template creation and editing
 
@@ -304,15 +298,13 @@ For information on how to assign a user-assigned managed identity to an Azure VM
 
 ::: zone pivot="identity-mi-methods-rest"
 
-In this article, you learn how to create, list, and delete a user-assigned managed identity by using CURL to make REST API calls.
 
-## Prerequisites
-
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). *Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)*.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - You can run all the commands in this article either in the cloud or locally:
     - To run in the cloud, use [Azure Cloud Shell](../../cloud-shell/overview.md).
     - To run locally, install [curl](https://curl.haxx.se/download.html) and the [Azure CLI](/cli/azure/install-azure-cli).
+
+
+In this article, you learn how to create, list, and delete a user-assigned managed identity by using CURL to make REST API calls.
 
 ## Obtain a bearer access token
 
