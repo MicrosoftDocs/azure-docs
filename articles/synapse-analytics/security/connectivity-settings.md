@@ -34,7 +34,7 @@ Selecting the **Disable** option will not apply any firewall rules that you may 
 1.    Select the **Networking** tab when you create your workspace in [Azure portal](https://aka.ms/azureportal).
 2.    Under Managed virtual network, select Enable to associate your workspace with Managed virtual network and permit Public network access. 
 
-:::image type="content" source=./media/connectivity-settings/create-synapse-workspace-managed-virtual-network-1.png" alt-text="Create Synapse workspace, networking tab, Managed virtual network setting" lightbox="media/connectivity-settings/create-synapse-workspace-managed-virtual-network-1.png":::
+:::image type="content" source="./media/connectivity-settings/create-synapse-workspace-managed-virtual-network-1.png" alt-text="Create Synapse workspace, networking tab, Managed virtual network setting" lightbox="media/connectivity-settings/create-synapse-workspace-managed-virtual-network-1.png":::
 
 3.    Under **Public network access**, select **Disabled** to deny public access to your workspace. Select **Enable** if you want to allow public access to your workspace.
 
