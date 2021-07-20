@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 07/13/2021
+ms.reviewer: estfan, azla
+ms.topic: how-tow
+ms.date: 07/20/2021
 ---
 
 # Transform XML with maps in Azure Logic Apps with Enterprise Integration Pack
@@ -23,8 +23,24 @@ uses the MMDDYYY date format. You can define and use a map that transforms
 the YYYMMDD date format to the MMDDYYY format before storing the order or 
 invoice details in your customer activity database.
 
-For limits related to integration accounts and artifacts such as maps, 
-see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+> [!NOTE]
+> The Azure Logic Apps service allocates finite memory for processing XML transformations. If you 
+> create logic apps based on the **Logic App (Consumption)** resource type, and your map or payload 
+> transformations have high memory consumption, such transformations might fail, resulting in out 
+> of memory errors. To avoid this scenario, consider these options:
+>
+> * Edit your maps or payloads to reduce memory consumption.
+>
+> * Create your logic apps using the **Logic App (Standard)** resource type instead.
+>
+>   These workflows run in single-tenant Azure Logic Apps, which offers dedicated and flexible options 
+>   for compute and memory resources. For more information, review the following documentation:
+>
+>   * [What is Azure Logic Apps - Resource type and host environments](logic-apps-overview.md#resource-type-and-host-environment-differences)
+>   * [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+>   * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
+
+For limits related to integration accounts and artifacts such as maps, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## Prerequisites
 
