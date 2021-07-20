@@ -10,6 +10,7 @@ ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: baselden
 ---
+
 # Plan your Azure Active Directory Verifiable Credentials issuance solution (preview)
 
  >[!IMPORTANT]
@@ -217,7 +218,7 @@ For scalability, consider implementing metrics for the following:
 
    * [Azure Key Vault monitoring and alerting](../../key-vault/general/alert.md)
 
-   * [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage?tabs=azure-portal.md)
+   * [Monitoring Azure Blob Storage](../../storage/blobs/monitor-blob-storage.md)
 
 * Monitor the components used for your business logic layer. 
 
