@@ -121,6 +121,8 @@ az provider register --namespace 'Microsoft.Storage'
 
    The **Upgrade to a Storage account with Azure Data Lake Gen2 capabilities** configuration page appears.
 
+   > [!div class="mx-imgBorder"]
+   > ![Configuration page](./media/upgrade-to-data-lake-storage-gen2-how-to/upgrade-to-an-azure-data-lake-gen2-account-page.png)
 
 4. Expand the **Step 1: Review account changes before upgrading** section and click **Review and agree to changes**.
 
