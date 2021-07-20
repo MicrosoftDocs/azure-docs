@@ -45,7 +45,7 @@ New-VMSwitch -Name {switchName} Switch" -SwitchType {switchType}
 (Get-NetAdapter -Name '*{switchName}*').ifIndex
 ```
 
-5. Using the interface index from previous step, get the IP address octet of the created switch network adapter. Check [Get-NetIPAddress (NetTCPIP)](https://docs.microsoft.com/powershell/module/nettcpip/get-netipaddress?view=windowsserver2019-ps) for full details. 
+5. Using the interface index from previous step, get the IP address octet of the created switch network adapter. Check [Get-NetIPAddress (NetTCPIP)](/powershell/module/nettcpip/get-netipaddress) for full details. 
  ```powershell
 Get-NetIPAddress -AddressFamily IPv4  -InterfaceIndex {ifIndex}
 ```
