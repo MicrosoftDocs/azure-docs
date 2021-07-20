@@ -8,18 +8,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/21/2021
 ---
 
 # Use role-based authorization in Azure Cognitive Search
 
 Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use role authorization in the following ways:
 
-+ Grant admin rights that work against any client calling [Azure Resource Manager](../azure-resource-manager/management/overview.md). Roles range from full access (Owner), to read-only access to search service information (Reader).
++ Grant a progression of rights to control plane operations on the search service itself through Owner, Contributor, and Reader roles. 
 
-+ (Preview only) Grant permissions for inbound data plane operations, such as creating or querying indexes.
++ Grant permissions for data plane operations, such as creating or querying indexes. This capability is currently in public preview.
 
-+ Grant outbound indexer access to external Azure data sources, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md) to run the search service under. For a search service that runs under a managed identity, you can assign roles on external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
++ Grant outbound indexer access to external Azure data sources, applicable when you [configure a managed identity](search-howto-managed-identities-data-sources.md) to run the search service under. For a search service that is assigned to a managed identity, you can create roles assignments that extend external data services, such as Azure Blob Storage, to allow read access on blobs by your trusted search service.
 
 This article focuses on roles for control plane and data plane operations. For more information about outbound indexer calls, start with [Configure a managed identity](search-howto-managed-identities-data-sources.md).
 

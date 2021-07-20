@@ -8,7 +8,7 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/02/2021
+ms.date: 07/21/2021
 ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
