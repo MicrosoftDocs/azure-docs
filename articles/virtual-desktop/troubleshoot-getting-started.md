@@ -167,13 +167,9 @@ To make sure this is the issue you've encountered:
 
 1. Open the \<prefix\>-deployment resource group and look for **inputValidationRunbook.**
 
-![Graphical user interface, text, application, email Description automatically generated](media/7ce89568bf22be8be3b1c7ed852c0654.png)
-
 2. Under recent jobs there will be a job with failed status. Click on **Failed**.
 
-![Chart Description automatically generated with low confidence](media/0d0dce68aa8cd67fe2b46a1aa450a2fe.png)
-
-1. In the **job details** window, select **Exception**.
+3. In the **job details** window, select **Exception**.
 
 This error happens when the Azure admin UPN you entered isn't correct. To resolve this issue, make sure you're entering the correct username and password are correct, then try again.
 
