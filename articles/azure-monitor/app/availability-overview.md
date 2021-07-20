@@ -2,7 +2,7 @@
 title: Application Insights availability overview 
 description: Set up recurring web tests to monitor availability and responsiveness of your app or website.
 ms.topic: conceptual
-ms.date: 05/04/2021
+ms.date: 07/08/2021
 
 ---
 
@@ -14,9 +14,9 @@ You can set up availability tests for any HTTP or HTTPS endpoint that is accessi
 
 ## Types of availability tests
 
-There are three types of availability tests:
+There are four types of availability tests:
 
-* [URL ping test](monitor-web-app-availability.md): This category has two simple tests you can create through the portal.
+* [URL ping test](monitor-web-app-availability.md): A simple tests you can create through the portal. Standard ping test includes features like using any HTTP request methods (for example `GET`,`HEAD`,`POST`, etc.) or adding custom headers.
 * [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
 * [Custom Track Availability Tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
 

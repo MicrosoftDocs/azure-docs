@@ -50,9 +50,9 @@ Updating code depends on the confidential client scenario. Some steps are common
 
 The confidential client scenarios are as listed below:
 
-- [Daemon scenarios](/active-directory/develop/msal-net-migration-confidential-client?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs, and daemon console applications.
-- [Web api calling downstream web apis](/active-directory/develop/msal-net-migration-confidential-client?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
-- [Web app calling web apis](/active-directory/develop/msal-net-migration-confidential-client?tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign in users and call a downstream web API.
+- [Daemon scenarios](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=daemon#migrate-daemon-scenarios) supported by web apps, web APIs, and daemon console applications.
+- [Web api calling downstream web apis](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=obo#migrate-on-behalf-of-calls-obo-in-web-apis) supported by web APIs calling downstream web APIs on behalf of the user.
+- [Web app calling web apis](/azure/active-directory/develop/msal-net-migration-confidential-client?tabs=authcode#migrate-acquiretokenbyauthorizationcodeasync-in-web-apps) supported by Web apps that sign in users and call a downstream web API.
 
 You may have provided a wrapper around ADAL.NET to handle certificates and caching. This article uses the same approach to illustrate the migration from ADAL.NET to MSAL.NET process. However, this code is only for demonstration purposes. Don't copy/paste these wrappers or integrate them in your code as they are.
 
@@ -69,7 +69,7 @@ The ADAL code for your app uses daemon scenarios if it contains a call to `Authe
 - A resource (App ID URI) as a first parameter.
 - A `IClientAssertionCertificate` or `ClientAssertion` as the second parameter.
 
-It doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using [on behalf of flow](/active-directory/develop/msal-net-migration-confidential-client?#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
+It doesn't have a parameter of type `UserAssertion`. If it does, then your app is a web API, and it's using [on behalf of flow](/azure/active-directory/develop/msal-net-migration-confidential-client?#migrate-on-behalf-of-calls-obo-in-web-apis) scenario.
 
 #### Update the code of daemon scenarios
 

@@ -1,8 +1,8 @@
 ---
 title: Test cases for test toolkit
-description: Describes the tests that are run by the ARM template test toolkit.
+description: Describes the tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 06/30/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
@@ -17,18 +17,31 @@ Test name: **DeploymentTemplate Schema Is Correct**
 
 In your template, you must specify a valid schema value.
 
-The following example **passes** this test.
+This example **fails** because the schema is invalid:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-01-01/deploymentTemplate.json#",
+}
+```
+
+This example displays a **warning** because schema version `2015-01-01` is deprecated and isn't maintained.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+}
+```
+
+The following example **passes** using a valid schema.
 
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "resources": []
 }
 ```
 
-The schema property in the template must be set to one of the following schemas:
+The template's `schema` property must be set to one of the following schemas:
 
 * `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`
 * `https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`
@@ -40,17 +53,39 @@ The schema property in the template must be set to one of the following schemas:
 
 Test name: **Parameters Must Be Referenced**
 
-To reduce confusion in your template, delete any parameters that are defined but not used. This test finds any parameters that aren't used anywhere in the template. Eliminating unused parameters also makes it easier to deploy your template because you don't have to provide unnecessary values.
+This test finds parameters that aren't used in the template or parameters that aren't used in a valid expression.
 
-## Secure parameters can't have hardcoded default
+To reduce confusion in your template, delete any parameters that are defined but not used. Eliminating unused parameters simplifies template deployments because you don't have to provide unnecessary values.
+
+This example **fails** because the expression that references a parameter is missing the leading square bracket (`[`).
+
+```json
+"resources": [
+  {
+    "location": " parameters('location')]"
+  }
+]
+```
+
+This example **passes** because the expression is valid:
+
+```json
+"resources": [
+  {
+    "location": "[parameters('location')]"
+  }
+]
+```
+
+## Secure parameters can't have hard-coded default
 
 Test name: **Secure String Parameters Cannot Have Default**
 
-Don't provide a hard-coded default value for a secure parameter in your template. An empty string is fine for the default value.
+Don't provide a hard-coded default value for a secure parameter in your template. A secure parameter can have an empty string as a default value or use the [newGuid](template-functions-string.md#newguid) function in an expression.
 
 You use the types `secureString` or `secureObject` on parameters that contain sensitive values, like passwords. When a parameter uses a secure type, the value of the parameter isn't logged or stored in the deployment history. This action prevents a malicious user from discovering the sensitive value.
 
-However, when you provide a default value, that value is discoverable by anyone who can access the template or the deployment history.
+When you provide a default value, that value is discoverable by anyone who can access the template or the deployment history.
 
 The following example **fails** this test:
 
@@ -73,13 +108,24 @@ The next example **passes** this test:
 }
 ```
 
-## Environment URLs can't be hardcoded
+This example **passes** because the `newGuid` function is used:
+
+```json
+"parameters": {
+  "secureParameter": {
+    "type": "secureString",
+    "defaultValue": "[newGuid()]"
+  }
+}
+```
+
+## Environment URLs can't be hard-coded
 
 Test name: **DeploymentTemplate Must Not Contain Hardcoded Uri**
 
-Don't hardcode environment URLs in your template. Instead, use the [environment function](template-functions-deployment.md#environment) to dynamically get these URLs during deployment. For a list of the URL hosts that are blocked, see the [test case](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+Don't hard-code environment URLs in your template. Instead, use the [environment](template-functions-deployment.md#environment) function to dynamically get these URLs during deployment. For a list of the URL hosts that are blocked, see the [test case](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
 
-The following example **fails** this test because the URL is hardcoded.
+The following example **fails** this test because the URL is hard-coded.
 
 ```json
 "variables":{
@@ -108,13 +154,13 @@ The following example **passes** this test.
 
 Test name: **Location Should Not Be Hardcoded**
 
-Your templates should have a parameter named location. Use this parameter for setting the location of resources in your template. In the main template (named _azuredeploy.json_ or _mainTemplate.json_), this parameter can default to the resource group location. In linked or nested templates, the location parameter shouldn't have a default location.
+To set a resource's location, your templates should have a parameter named `location` with the type set to  `string`. In the main template, _azuredeploy.json_ or _mainTemplate.json_, this parameter can default to the resource group location. In linked or nested templates, the location parameter shouldn't have a default location.
 
-Users of your template may have limited regions available to them. When you hardcode the resource location, users may be blocked from creating a resource in that region. Users could be blocked even if you set the resource location to `"[resourceGroup().location]"`. The resource group may have been created in a region that other users can't access. Those users are blocked from using the template.
+Template users may have limited access to regions where they can create resources. A hard-coded resource location might block users from creating a resource. The `"[resourceGroup().location]"` expression could block users if the resource group was created in a region the user can't access. Users who are blocked are unable to use the template.
 
-By providing a location parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
+By providing a `location` parameter that defaults to the resource group location, users can use the default value when convenient but also specify a different location.
 
-The following example **fails** this test because location on the resource is set to `resourceGroup().location`.
+The following example **fails** because the resource's `location` is set to `resourceGroup().location`.
 
 ```json
 {
@@ -138,7 +184,7 @@ The following example **fails** this test because location on the resource is se
 }
 ```
 
-The next example uses a location parameter but **fails** this test because the location parameter defaults to a hardcoded location.
+The next example uses a `location` parameter but **fails** because the parameter defaults to a hard-coded location.
 
 ```json
 {
@@ -168,7 +214,7 @@ The next example uses a location parameter but **fails** this test because the l
 }
 ```
 
-Instead, create a parameter that defaults to the resource group location but allows users to provide a different value. The following example **passes** this test when the template is used as the main template.
+The following example **passes** when the template is used as the main template. Create a parameter that defaults to the resource group location but allows users to provide a different value.
 
 ```json
 {
@@ -201,15 +247,16 @@ Instead, create a parameter that defaults to the resource group location but all
 }
 ```
 
-However, if the preceding example is used as a linked template, the test **fails**. When used as a linked template, remove the default value.
+> [!NOTE]
+> If the preceding example is used as a linked template, the test **fails**. When used as a linked template, remove the default value.
 
 ## Resources should have location
 
 Test name: **Resources Should Have Location**
 
-The location for a resource should be set to a [template expression](template-expressions.md) or `global`. The template expression would typically use the location parameter described in the previous test.
+The location for a resource should be set to a [template expression](template-expressions.md) or `global`. The template expression would typically use the `location` parameter described in [Location uses parameter](#location-uses-parameter).
 
-The following example **fails** this test because the location isn't an expression or `global`.
+The following example **fails** this test because the `location` isn't an expression or `global`.
 
 ```json
 {
@@ -235,7 +282,7 @@ The following example **fails** this test because the location isn't an expressi
 }
 ```
 
-The following example **passes** this test.
+The following example **passes** because the resource `location` is set to `global`.
 
 ```json
 {
@@ -246,21 +293,23 @@ The following example **passes** this test.
   "variables": {},
   "resources": [
     {
-      "type": "Microsoft.Maps/accounts",
+      "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2021-02-01",
-      "name": "demoMap",
+      "name": "storageaccount1",
       "location": "global",
+      "kind": "StorageV2",
       "sku": {
-        "name": "S0"
+        "name": "Premium_LRS",
+        "tier": "Premium"
       }
     }
   ],
-  "outputs": {
-  }
+  "outputs": {}
 }
+
 ```
 
-The next example also **passes** this test.
+The next example also **passes** because the `location` parameter uses an expression. The resource `location` uses the expression's value.
 
 ```json
 {
@@ -297,43 +346,65 @@ The next example also **passes** this test.
 
 Test name: **VM Size Should Be A Parameter**
 
-Don't hardcode the virtual machine (VM) size. Provide a parameter so users of your template can modify the size of the deployed virtual machine.
+Don't hard-code the `hardwareProfile` object's `vmSize`. The test fails when the `hardwareProfile` is omitted or contains a hard-coded value. Provide a parameter so users of your template can modify the size of the deployed virtual machine. For more information, see [Microsoft.Compute virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 
-The following example **fails** this test.
+The following example **fails** because the `hardwareProfile` object's `vmSize` is a hard-coded value.
 
 ```json
-"hardwareProfile": {
-  "vmSize": "Standard_D2_v3"
-}
+"resources": [
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2020-12-01",
+    "name": "demoVM",
+    "location": "[parameters('location')]",
+    "properties": {
+      "hardwareProfile": {
+        "vmSize": "Standard_D2_v3"
+      }
+    }
+  }
+]
 ```
 
-Instead, provide a parameter.
+The example **passes** when a parameter specifies a value for `vmSize`:
 
 ```json
-"vmSize": {
-  "type": "string",
-  "defaultValue": "Standard_A2_v2",
-  "metadata": {
-    "description": "Size for the Virtual Machine."
+"parameters": {
+  "vmSizeParameter": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v3",
+    "metadata": {
+      "description": "Size for the virtual machine."
+    }
   }
 }
 ```
 
-Then, set the VM size to that parameter.
+Then, `hardwareProfile` uses an expression for `vmSize` to reference the parameter's value:
 
 ```json
-"hardwareProfile": {
-  "vmSize": "[parameters('vmSize')]"
-}
+"resources": [
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2020-12-01",
+    "name": "demoVM",
+    "location": "[parameters('location')]",
+    "properties": {
+      "hardwareProfile": {
+        "vmSize": "[parameters('vmSizeParameter')]"
+      }
+    }
+  }
+]
 ```
 
 ## Min and max values are numbers
 
 Test name: **Min And Max Value Are Numbers**
 
-If you define min and max values for a parameter, specify them as numbers.
+When you define a parameter with `minValue` and `maxValue`, specify them as numbers. You must use `minValue` and `maxValue` as a pair or the test fails.
 
-The following example **fails** this test:
+The following example **fails** because `minValue` and `maxValue` are strings:
 
 ```json
 "exampleParameter": {
@@ -343,7 +414,16 @@ The following example **fails** this test:
 }
 ```
 
-Instead, provide the values as numbers. The following example **passes** this test:
+The following example **fails** because only `minValue` is used:
+
+```json
+"exampleParameter": {
+  "type": "int",
+  "minValue": 0
+}
+```
+
+The following example **passes** because `minValue` and `maxValue` are numbers:
 
 ```json
 "exampleParameter": {
@@ -353,28 +433,48 @@ Instead, provide the values as numbers. The following example **passes** this te
 }
 ```
 
-You also get this warning if you provide a min or max value, but not the other.
-
 ## Artifacts parameter defined correctly
 
 Test name: **artifacts parameter**
 
 When you include parameters for `_artifactsLocation` and `_artifactsLocationSasToken`, use the correct defaults and types. The following conditions must be met to pass this test:
 
-* if you provide one parameter, you must provide the other
-* `_artifactsLocation` must be a `string`
-* `_artifactsLocation` must have a default value in the main template
-* `_artifactsLocation` can't have a default value in a nested template
-* `_artifactsLocation` must have either `"[deployment().properties.templateLink.uri]"` or the raw repo URL for its default value
-* `_artifactsLocationSasToken` must be a `secureString`
-* `_artifactsLocationSasToken` can only have an empty string for its default value
-* `_artifactsLocationSasToken` can't have a default value in a nested template
+* If you provide one parameter, you must provide the other.
+* `_artifactsLocation` must be a `string`.
+* `_artifactsLocation` must have a default value in the main template.
+* `_artifactsLocation` can't have a default value in a nested template.
+* `_artifactsLocation` must have either `"[deployment().properties.templateLink.uri]"` or the raw repo URL for its default value.
+* `_artifactsLocationSasToken` must be a `secureString`.
+* `_artifactsLocationSasToken` can only have an empty string for its default value.
+* `_artifactsLocationSasToken` can't have a default value in a nested template.
 
 ## Declared variables must be used
 
 Test name: **Variables Must Be Referenced**
 
-To reduce confusion in your template, delete any variables that are defined but not used. This test finds any variables that aren't used anywhere in the template.
+This test finds variables that aren't used in the template or aren't used in a valid expression. To reduce confusion in your template, delete any variables that are defined but not used.
+
+This example **fails** because the expression that references a variable is missing the leading square bracket (`[`).
+
+```json
+"outputs": {
+  "outputVariable": {
+    "type": "string",
+    "value": " variables('varExample')]"
+  }
+}
+```
+
+This example **passes** because the expression is valid:
+
+```json
+"outputs": {
+  "outputVariable": {
+    "type": "string",
+    "value": "[variables('varExample')]"
+  }
+}
+```
 
 ## Dynamic variable should not use concat
 
@@ -382,7 +482,7 @@ Test name: **Dynamic Variable References Should Not Use Concat**
 
 Sometimes you need to dynamically construct a variable based on the value of another variable or parameter. Don't use the [concat](template-functions-string.md#concat) function when setting the value. Instead, use an object that includes the available options and dynamically get one of the properties from the object during deployment.
 
-The following example **passes** this test. The **currentImage** variable is dynamically set during deployment.
+The following example **passes** this test. The `currentImage` variable is dynamically set during deployment.
 
 ```json
 {
@@ -422,13 +522,52 @@ The following example **passes** this test. The **currentImage** variable is dyn
 
 Test name: **apiVersions Should Be Recent**
 
-The API version for each resource should use a recent version. The test evaluates the version you use against the versions available for that resource type.
+The API version for each resource should use a recent version that's hard-coded as a string. The test evaluates the version you use against the versions available for that resource type. An API version that's less than two years old from the date the test was run is considered recent. Don't use a preview version when a more recent version is available.
 
-## Use hardcoded API version
+The following example **fails** because the API version is more than two years old:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2019-06-01",
+    "name": "storageaccount1",
+    "location": "[parameters('location')]"
+  }
+]
+```
+
+The following example **fails** because a preview version is used when a newer version is available:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2020-08-01-preview",
+    "name": "storageaccount1",
+    "location": "[parameters('location')]"
+  }
+]
+```
+
+The following example **passes** because it's a recent version that's not a preview version:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2021-02-01",
+    "name": "storageaccount1",
+    "location": "[parameters('location')]"
+  }
+]
+```
+
+## Use hard-coded API version
 
 Test name: **Providers apiVersions Is Not Permitted**
 
-The API version for a resource type determines which properties are available. Provide a hard-coded API version in your template. Don't retrieve an API version that is determined during deployment. You won't know which properties are available.
+The API version for a resource type determines which properties are available. Provide a hard-coded API version in your template. Don't retrieve an API version that's determined during deployment because you won't know which properties are available.
 
 The following example **fails** this test.
 
@@ -458,7 +597,40 @@ The following example **passes** this test.
 
 Test name: **Template Should Not Contain Blanks**
 
-Don't hardcode properties to an empty value. Empty values include null and empty strings, objects, or arrays. If you've set a property to an empty value, remove that property from your template. However, it's okay to set a property to an empty value during deployment, such as through a parameter.
+Don't hard-code properties to an empty value. Empty values include null and empty strings, objects, or arrays. If a property is set to an empty value, remove that property from your template. You can set a property to an empty value during deployment, such as through a parameter.
+
+The following example **fails** because there are empty properties:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2021-01-01",
+    "name": "storageaccount1",
+    "location": "[parameters('location')]",
+    "sku": {},
+    "kind": ""
+  }
+]
+```
+
+The following example **passes**:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2021-01-01",
+    "name": "storageaccount1",
+    "location": "[parameters('location')]",
+    "sku": {
+      "name": "Standard_LRS",
+      "tier": "Standard"
+    },
+    "kind": "Storage"
+  }
+]
+```
 
 ## Use Resource ID functions
 
@@ -524,9 +696,11 @@ For `reference` and `list*`, the test **fails** when you use `concat` to constru
 
 Test name: **DependsOn Best Practices**
 
-When setting the deployment dependencies, don't use the [if](template-functions-logical.md#if) function to test a condition. If one resource depends on a resource that is [conditionally deployed](conditional-resource-deployment.md), set the dependency as you would with any resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
+When setting the deployment dependencies, don't use the [if](template-functions-logical.md#if) function to test a condition. If one resource depends on a resource that's [conditionally deployed](conditional-resource-deployment.md), set the dependency as you would with any resource. When a conditional resource isn't deployed, Azure Resource Manager automatically removes it from the required dependencies.
 
-The following example **fails** this test.
+The `dependsOn` element can't begin with a [concat](template-functions-array.md#concat) function.
+
+The following example **fails** because it contains an `if` function:
 
 ```json
 "dependsOn": [
@@ -534,7 +708,15 @@ The following example **fails** this test.
 ]
 ```
 
-The next example **passes** this test.
+This example **fails** because it begins with `concat`:
+
+```json
+"dependsOn": [
+  "[concat(variables('storageAccountName'))]"
+]
+```
+
+The following example **passes**:
 
 ```json
 "dependsOn": [
@@ -568,9 +750,9 @@ The following example **passes** this test:
 
 Test name: **adminUsername Should Not Be A Literal**
 
-When setting an admin user name, don't use a literal value.
+When setting an `adminUserName`, don't use a literal value. Create a parameter for the user name and use an expression to reference the parameter's value.
 
-The following example **fails** this test:
+The following example **fails** with a literal value:
 
 ```json
 "osProfile":  {
@@ -578,7 +760,7 @@ The following example **fails** this test:
 }
 ```
 
-Instead, use a parameter. The following example **passes** this test:
+The following example **passes** with an expression:
 
 ```json
 "osProfile": {
@@ -626,13 +808,15 @@ The following example **passes** this test.
 
 Test name: **ManagedIdentityExtension must not be used**
 
-Don't apply the ManagedIdentity extension to a virtual machine. The extension was deprecated in 2019 and should no longer be used.
+Don't apply the `ManagedIdentity` extension to a virtual machine. The extension was deprecated in 2019 and should no longer be used.
 
 ## Outputs can't include secrets
 
 Test name: **Outputs Must Not Contain Secrets**
 
-Don't include any values in the outputs section that potentially expose secrets. The output from a template is stored in the deployment history, so a malicious user could find that information.
+Don't include any values in the `outputs` section that potentially exposes secrets. For example, secure parameters of type `secureString` or `secureObject`, or [list*](template-functions-resource.md#list) functions such as `listKeys`.
+
+The output from a template is stored in the deployment history, so a malicious user could find that information.
 
 The following example **fails** the test because it includes a secure parameter in an output value.
 
@@ -684,7 +868,7 @@ The following example **fails** because it uses a [list*](template-functions-res
 
 Test name: **CommandToExecute Must Use ProtectedSettings For Secrets**
 
-For resources with type `CustomScript`, use the encrypted `protectedSettings` when `commandToExecute` includes secret data such as a password. For example, secret data can be used in secure parameters of type `secureString` or `secureObject`, [list() functions](template-functions-resource.md#list) such as `listKeys()`, or custom scripts.
+For resources with type `CustomScript`, use the encrypted `protectedSettings` when `commandToExecute` includes secret data such as a password. For example, secret data can be used in secure parameters of type `secureString` or `secureObject`, [list*](template-functions-resource.md#list) functions such as `listKeys`, or custom scripts.
 
 Don't use secret data in the `settings` object because it uses clear text. For more information, see [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions), [Windows](
 /azure/virtual-machines/extensions/custom-script-windows), or [Linux](../../virtual-machines/extensions/custom-script-linux.md).
@@ -706,7 +890,7 @@ This example **fails** because `settings` uses `commandToExecute` with a secure 
 }
 ```
 
-This example **fails** because `settings` uses `commandToExecute` with a `listKeys()` function:
+This example **fails** because `settings` uses `commandToExecute` with a `listKeys` function:
 
 ```json
 "properties": {
@@ -734,7 +918,7 @@ This example **passes** because `protectedSettings` uses `commandToExecute` with
 }
 ```
 
-This example **passes** because `protectedSettings` uses `commandToExecute` with a `listKeys()` function:
+This example **passes** because `protectedSettings` uses `commandToExecute` with a `listKeys` function:
 
 ```json
 "properties": {
@@ -749,7 +933,7 @@ This example **passes** because `protectedSettings` uses `commandToExecute` with
 
 Test name: **apiVersions Should Be Recent In Reference Functions**
 
-Ensures the `apiVersions` used in [reference functions](template-functions-resource.md#reference) are recent and aren't preview versions. The test evaluates API versions against the resource providers available versions. An API version that's less than two years old from the date the test was run is considered recent.
+Ensures the `apiVersions` used in [reference](template-functions-resource.md#reference) functions are recent and aren't preview versions. The test evaluates API versions against the resource providers available versions. An API version that's less than two years old from the date the test was run is considered recent.
 
 This example **fails** because the API version is more than two years old:
 
@@ -802,36 +986,42 @@ For example, a `resourceId` function is considered ambiguous:
 
 Test name: **Secure Params In Nested Deployments**
 
-Use the nested template's `expressionEvaluationOptions` object with `inner` scope to evaluate expressions that contain secure parameters of type `secureString` or `secureObject` or [list() functions](template-functions-resource.md#list) such as `listKeys()`. If the `outer` scope is used, expressions are evaluated in clear text within the parent template's scope. The secure value is then visible to anyone with access to the deployment history. The default value of `expressionEvaluationOptions` is `outer`.
+Use the nested template's `expressionEvaluationOptions` object with `inner` scope to evaluate expressions that contain secure parameters of type `secureString` or `secureObject` or [list*](template-functions-resource.md#list) functions such as `listKeys`. If the `outer` scope is used, expressions are evaluated in clear text within the parent template's scope. The secure value is then visible to anyone with access to the deployment history. The default value of `expressionEvaluationOptions` is `outer`.
 
 For more information about nested templates, see [Microsoft.Resources/deployments](/azure/templates/microsoft.resources/deployments) and [Expression evaluation scope in nested templates](linked-templates.md#expression-evaluation-scope-in-nested-templates).
 
-This example **fails** because `expressionEvaluationOptions` uses `outer` scope to evaluate secure parameters or `list()` functions:
+This example **fails** because `expressionEvaluationOptions` uses `outer` scope to evaluate secure parameters or `list*` functions:
 
 ```json
 "resources": [
-{
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2021-04-01",
-  "name": "nestedTemplate",
-  "properties": {
-    "expressionEvaluationOptions": {
-      "scope": "outer"
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2021-04-01",
+    "name": "nestedTemplate",
+    "properties": {
+      "expressionEvaluationOptions": {
+        "scope": "outer"
+      }
     }
+  }
+]
 ```
 
-This example **passes** because `expressionEvaluationOptions` uses `inner` scope to evaluate secure parameters or `list()` functions:
+This example **passes** because `expressionEvaluationOptions` uses `inner` scope to evaluate secure parameters or `list*` functions:
 
 ```json
 "resources": [
-{
-  "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2021-04-01",
-  "name": "nestedTemplate",
-  "properties": {
-    "expressionEvaluationOptions": {
-      "scope": "inner"
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2021-04-01",
+    "name": "nestedTemplate",
+    "properties": {
+      "expressionEvaluationOptions": {
+        "scope": "inner"
+      }
     }
+  }
+]
 ```
 
 ## Next steps

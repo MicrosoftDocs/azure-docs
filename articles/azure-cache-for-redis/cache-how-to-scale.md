@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Scale an Azure Cache for Redis instance
 
-Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. For a Basic, Standard or Premium cache, you can change its size and tier after it's been created to keep up with your application needs. This article shows you how to scale your cache using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.
+Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. For a Basic, Standard or Premium cache, you can change its size and tier after creating it to match your application needs. This article shows you how to scale your cache using the Azure portal, and tools such as Azure PowerShell, and Azure CLI.
 
 ## When to scale
 
@@ -24,7 +24,7 @@ You can monitor the following metrics to help determine if you need to scale.
 * Network Bandwidth
 * CPU Usage
 
-If you determine your cache is no longer meeting your application's requirements, you can scale to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
+If you determine your cache is no longer meeting your application requirements, you can scale it to a larger or smaller cache pricing tier that is right for your application. For more information on determining which cache pricing tier to use, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
 
 ## Scale a cache
 
@@ -113,8 +113,8 @@ The following list contains answers to commonly asked questions about Azure Cach
 * [Will I lose data from my cache during scaling?](#will-i-lose-data-from-my-cache-during-scaling)
 * [Is my custom databases setting affected during scaling?](#is-my-custom-databases-setting-affected-during-scaling)
 * [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
-* With Geo-replication configured, why am I not able to scale my cache or change the shards in a cluster?
-* [Operations that are not supported](#operations-that-are-not-supported)
+* [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication)
+* [Operations that aren't supported](#operations-that-arent-supported)
 * [How long does scaling take?](#how-long-does-scaling-take)
 * [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
 
@@ -133,15 +133,17 @@ No, your cache name and keys are unchanged during a scaling operation.
 
 ### How does scaling work?
 
-* When a **Basic** cache is scaled to a different size, it is shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
-* When a **Basic** cache is scaled to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
-* When a **Standard** cache is scaled to a different size or to a **Premium** cache, one of the replicas is shut down and reprovisioned to the new size and the data transferred over, and then the other replica performs a failover before it is reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
+* When you scale a **Basic** cache to a different size, it's shut down and a new cache is provisioned using the new size. During this time, the cache is unavailable and all data in the cache is lost.
+* When you scale a **Basic** cache to a **Standard** cache, a replica cache is provisioned and the data is copied from the primary cache to the replica cache. The cache remains available during the scaling process.
+* When you scale a **Standard** cache to a different size or to a **Premium** cache, one of the replicas is shut down and reprovisioned to the new size and the data transferred over, and then the other replica does a failover before it's reprovisioned, similar to the process that occurs during a failure of one of the cache nodes.
+* When you scale out a clustered cache, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
+* When you scale in a clustered cache, data is first resharded and then cluster size is reduced to required shards.
 
 ### Will I lose data from my cache during scaling?
 
-* When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
-* When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
-* When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling down a Standard or Premium cache to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
+* When you scale a **Basic** cache to a new size, all data is lost and the cache is unavailable during the scaling operation.
+* When you scale a **Basic** cache to a **Standard** cache, the data in the cache is typically preserved.
+* When you scale a **Standard** cache to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling down a Standard or Premium cache to a smaller size, data can be lost if the data size exceeds the new smaller size when it's scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
 ### Is my custom databases setting affected during scaling?
 
@@ -158,26 +160,35 @@ While Standard and Premium caches have a 99.9% SLA for availability, there's no 
 ### Will my cache be available during scaling?
 
 * **Standard** and **Premium** caches remain available during the scaling operation. However, connection blips can occur while scaling Standard and Premium caches, and also while scaling from Basic to Standard caches. These connection blips are expected to be small and redis clients can generally re-establish their connection instantly.
-* **Basic** caches are offline during scaling operations to a different size. Basic caches remain available when scaling from **Basic** to **Standard** but, may experience a small connection blip. If a connection blip occurs, redis clients can generally re-establish their connection instantly.
+* **Basic** caches are offline during scaling operations to a different size. Basic caches remain available when scaling from **Basic** to **Standard** but might experience a small connection blip. If a connection blip occurs, Redis clients can generally re-establish their connection instantly.
 
-### Scaling limitations with Geo-replication
+### Are there scaling limitations with geo-replication?
 
-Once you have added a Geo-replication link between two caches, you can no longer start a scaling operation or change the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
+With geo-replication configured, you might notice that you cannot scale a cache or change the shards in a cluster. A geo-replication link between two caches prevents you from scaling operation or changing the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
 
-### Operations that are not supported
+### Operations that aren't supported
 
 * You can't scale from a higher pricing tier to a lower pricing tier.
   * You can't scale from a **Premium** cache down to a **Standard** or a **Basic** cache.
   * You can't scale from a **Standard** cache down to a **Basic** cache.
 * You can scale from a **Basic** cache to a **Standard** cache but you can't change the size at the same time. If you need a different size, you can do a scaling operation to the size you want at a later time.
-* You can't scale from a **Basic** cache directly to a **Premium** cache. First scale from **Basic** to **Standard** in one scaling operation, and then scale from **Standard** to **Premium** in an operation later.
+* You can't scale from a **Basic** cache directly to a **Premium** cache. First scale from **Basic** to **Standard** in one scaling operation, and then scale from **Standard** to **Premium** in a later operation.
 * You can't scale from a larger size down to the **C0 (250 MB)** size.
 
 If a scaling operation fails, the service tries to revert the operation, and the cache will revert to the original size.
 
 ### How long does scaling take?
 
-Scaling time depends on how much data is in the cache, with larger amounts of data taking a longer time to complete. Scaling takes approximately 20 minutes. For clustered caches, scaling takes approximately 20 minutes per shard.
+Scaling time depends on a few factors. Here are some factors that can affect how long scaling takes.
+
+* Amount of data: Larger amounts of data take a longer time to be replicated
+* High write requests: Higher number of writes mean more data replicates across nodes or shards
+* High server load: Higher server load means Redis server is busy and has limited CPU cycles to complete data redistribution
+
+Generally, when you scale a cache with no data, it takes approximately 20 minutes. For clustered caches, scaling takes approximately 20 minutes per shard with minimal data.
+
+<!-- Scaling time depends on how much data is in the cache, with larger amounts of data taking a longer time to complete. Scaling takes approximately 20 minutes. For clustered caches, scaling takes approximately 20 minutes per shard.
+ -->
 
 ### How can I tell when scaling is complete?
 

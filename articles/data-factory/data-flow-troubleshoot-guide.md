@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 04/22/2021
+ms.date: 07/08/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -120,6 +120,10 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: A large number of Data Flow activity runs are occurring concurrently on the integration runtime. For more information, see [Azure Data Factory limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recommendation**: If you want to run more Data Flow activities in parallel, distribute them across multiple integration runtimes.
 
+### Error code: 4510
+- **Message**: Unexpected failure during execution. 
+- **Cause**: Since debug clusters work differently from job clusters, excessive debug runs could wear the cluster over time, which could cause memory issues and abrupt restarts.
+- **Recommendation**: Restart Debug cluster. If you are running multiple dataflows during debug session, use activity runs instead because activity level run creates separate session without taxing main debug cluster.
 
 ### Error code: InvalidTemplate
 - **Message**: The pipeline expression cannot be evaluated.
@@ -516,7 +520,7 @@ You may encounter the following issues before the improvement, but after the imp
 
  Before the improvement, the default row delimiter `\n` may be unexpectedly used to parse delimited text files, because when Multiline setting is set to True, it invalidates the row delimiter setting, and the row delimiter is automatically detected based on the first 128 characters. If you fail to detect the actual row delimiter, it would fall back to `\n`.  
 
- After the improvement, any one of the three row delimiters: `\r`, `\n`, `\r\n` should be worked.
+ After the improvement, any one of the three-row delimiters: `\r`, `\n`, `\r\n` should  have worked.
  
  The following example shows you one pipeline behavior change after the improvement:
 

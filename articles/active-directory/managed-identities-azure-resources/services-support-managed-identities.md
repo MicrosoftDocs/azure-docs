@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/28/2021
+ms.date: 06/28/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -97,8 +97,8 @@ Refer to the following document to reconfigure a managed identity if you have mo
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
-| User assigned | Not available | Not available | Not available | Not available |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
@@ -281,11 +281,11 @@ For more information, see [Use managed identities with Azure Machine Learning](.
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not Available | ![Available][check] |
-| User assigned | ![Available][check] | ![Available][check]  | Not Available  | ![Available][check] |
+| User assigned | Not Available  | Not Available  | Not Available  | Not Available  |
 
 Refer to the following list to configure managed identity for Azure Media Services (in regions where available):
 
-- [Azure CLI Tutorial](../../media-services/latest/security-access-storage-managed-identity-cli-tutorial.md)
+- [Azure CLI](../../media-services/latest/security-access-storage-managed-identity-cli-tutorial.md)
 
 ### Azure Policy
 

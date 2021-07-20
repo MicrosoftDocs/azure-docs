@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: mtillman
-author: mtillman
+ms.author: davidmu
+author: davidmu1
 manager: CelesteDG
 ---
 
@@ -20,7 +20,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 ### Updated articles
 
 - [Azure Active Directory application management: What's new](whats-new-docs.md)
-
 
 ## April 2021
 
@@ -42,7 +41,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Configure the admin consent workflow](configure-admin-consent-workflow.md)
 - [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
 - [Integrating Azure Active Directory with applications getting started guide](plan-an-application-integration.md)
-
 
 ## March 2021
 
@@ -71,7 +69,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Azure AD Application Proxy: Version release history](../app-proxy/application-proxy-release-version-history.md)
 - [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](configure-authentication-for-federated-users-portal.md)
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
-
 
 ## February 2021
 

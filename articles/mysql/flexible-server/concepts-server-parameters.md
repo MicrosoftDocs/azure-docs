@@ -9,7 +9,7 @@ ms.date: 11/10/2020
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-flexible-server](../includes/applies-to-flexible-server.md)]
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.

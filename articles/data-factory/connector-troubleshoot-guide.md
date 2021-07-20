@@ -683,7 +683,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Cause**: Port range between 1024 to 65535 is not open for data transfer under passive mode that ADF supports.
 
-- **Recommendation**:  Check the port of the target server. Open port 1024-65535 or port range in between 1024-65535 to SHIR/Azure IR IP address.
+- **Recommendation**:  Check the firewall settings of the target server. Open port 1024-65535 or port range specified in FTP server to SHIR/Azure IR IP address.
 
 
 ## HTTP

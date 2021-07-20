@@ -128,7 +128,7 @@ The information in the rest of this document provides information on what featur
 * For Azure Machine Learning compute instances, the ability to refresh a token lasting more than 24 hours is not available in Azure Government.
 * Model Profiling does not support 4 CPUs in the US-Arizona region.   
 * Sample notebooks may not work in Azure Government if it needs access to public data.
-* IP addresses: The CLI command used in the [VNet and forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
+* IP addresses: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure Government](https://www.microsoft.com/download/details.aspx?id=57063) instead.
 * For scheduled pipelines, we also provide a blob-based trigger mechanism. This mechanism is not supported for CMK workspaces. For enabling a blob-based trigger for CMK workspaces, you have to do extra setup. For more information, see [Trigger a run of a machine learning pipeline from a Logic App](how-to-trigger-published-pipeline.md).
 * Firewalls: When using an Azure Government region, add the following hosts to your firewall setting:
 
@@ -228,7 +228,7 @@ The information in the rest of this document provides information on what featur
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * Sample notebook may not work, if it needs access to public data.
-* IP address ranges: The CLI command used in the [VNet forced tunneling](how-to-secure-training-vnet.md#forced-tunneling) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
+* IP address ranges: The CLI command used in the [required public internet access](how-to-secure-training-vnet.md#required-public-internet-access) instructions does not return IP ranges. Use the [Azure IP ranges and service tags for Azure China](https://www.microsoft.com//download/details.aspx?id=57062) instead.
 * Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled for now, but CI will be supported in the next deployment for the service expansion to all AML regions.
 
 ## Next steps

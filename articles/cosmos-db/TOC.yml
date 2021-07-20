@@ -698,6 +698,10 @@
               href: how-to-define-unique-keys.md
             - name: Perform transactional batch operations
               href: transactional-batch.md
+        - name: Best Practices
+          items:
+            - name: .NET
+              href: best-practice-dotnet.md
         - name: Performance
           items:
             - name: Query
@@ -1129,6 +1133,8 @@
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Databricks and Spark (offline)
+              href: mongodb-migrate-databricks.md  
             - name: Post-migration guide
               href: mongodb-post-migration.md
         - name: Upgrade to API version 4.0 or 3.6
@@ -1157,6 +1163,8 @@
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: mongodb/estimate-ru-capacity-planner.md
+        - name: Optimize write performance
+          href: mongodb/optimize-write-performance.md
         - name: Create a container - MongoDB API
           href: how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
@@ -1490,7 +1498,7 @@
               href: cosmos-db-advanced-queries.md                      
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
-        - name: Configure alerts
+        - name: Configure alerts 
           href: create-alerts.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md

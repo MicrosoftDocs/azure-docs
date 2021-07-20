@@ -32,6 +32,10 @@ To get information about your IoT Central application:
 
     Use the **Copy info** button to copy the information to the clipboard.
 
+## How many IoT Central applications can I deploy in my subscription?
+
+Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+
 ## How do I transfer a device from IoT Hub to IoT Central?
 
 A device can connect to an IoT hub directly using a connection string or using the [Device Provisioning Service (DPS)](../../iot-dps/about-iot-dps.md). IoT Central always uses DPS.
@@ -116,7 +120,7 @@ If the device status is **Unassociated**, it means the device connecting to IoT 
 - A set of devices is added using **Import** on the **Devices** page without specifying the device template.
 - A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
 
-The operator can associate a device to a device template from the **Devices** page using the **Migrate** button. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices.md).
+The operator can associate a device to a device template from the **Devices** page using the **Migrate** button. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
 ## Where can I learn more about IoT Hub?
 

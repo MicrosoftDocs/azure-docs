@@ -298,7 +298,7 @@ This section describes known issues and conditions.
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 - When filtering is scoped to a single container, the `@container` can only be passed if all the index tags in the filter expression are equality checks (key=value).
 - When using the range operator with the `AND` condition, you can only specify the same index tag key name (`"Age" > '013' AND "Age" < '100'`).
-- Versioning and blob index aren't supported. Blob index tags are preserved for versions but aren't passed to the blob index engine.
+- If Versioning is enabled, you can still use index tags on the current version. For previous versions, index tags are preserved for versions but aren't passed to the blob index engine. You cannot query index tags to retrieve previous versions.
 - There is no API to determine if index tags are indexed.
 - Lifecycle management only supports equality checks with blob index match.
 - `Copy Blob` doesn't copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation.

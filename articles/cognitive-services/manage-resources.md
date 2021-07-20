@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 07/02/2021
 ms.author: nitinme
 ---
 
@@ -70,6 +70,11 @@ If you need to find the name of your deleted resources, you can get a list of de
 Get-AzResource -ResourceId /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/deletedAccounts -ApiVersion 2021-04-30 
 ```
 
+### Using the Azure CLI
+
+```azurecli-interactive
+az resource create --subscription {subscriptionID} -g {resourceGroup} -n {resourceName} --location {location} --namespace Microsoft.CognitiveServices --resource-type accounts --properties "{\"restore\": true}"
+```
 
 ## Purge a deleted resource 
 
@@ -102,7 +107,7 @@ Remove-AzResource -ResourceId /subscriptions/{subscriptionID}/providers/Microsof
 ### Using the Azure CLI
 
 ```azurecli-interactive
-az resource delete /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
+az resource delete --ids /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/locations/{location}/resourceGroups/{resourceGroup}/deletedAccounts/{resourceName}
 ```
 
 ## See also

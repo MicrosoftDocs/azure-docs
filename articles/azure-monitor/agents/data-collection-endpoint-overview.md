@@ -25,18 +25,7 @@ Data collection endpoints are ARM resources created within specific regions. An 
 ## Limits
 As this feature is in preview, while there are no feature limitations we do not recommend using it in production environments until generally available.
 
-
-## Enable network isolation via private links
-Data collection endpoints when used in conjuction with the new Azure Monitor agent and data collection rules enable you to configure private links, using [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md), for sending data to Azure Monitor.
-
-
-
-### Prerequisites
-- Azure Monitor Agent running on virtual machines, virtual machine scale sets or Azure Arc for servers. See [Install the Azure Monitor agent](../agents/azure-monitor-agent-install.md).
-- Data collection rules and associations configured for the above resources. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
-- AMPLS resource(s) with other Azure Monitor features added. See [Example connection](../logs/private-link-security.md#example-connection).
-
-### Create endpoint in Azure portal
+## Create endpoint in Azure portal
 You can use the Azure portal to create a data collection endpoint and associate virtual machines in your subscription to that rule. 
 
 > [!NOTE]
@@ -52,11 +41,17 @@ Click **Create** to create a new endpoint. Provide a **Rule name** and specify a
 
 Click **Review + create** to review the details of the data collection endpoint. Click **Create** to create it.
 
-
 ## Sample data collection endpoint
 The sample data collection endpoint below is for virtual machines with Azure Monitor agent and has the following details:
 
-## Next steps
+## Enable network isolation for the Azure Monitor Agent
+You can use data collection endpoints to enable the Azure Monitor agent to communicate to the internet via private links. To do so, you must:
+- Configure the data collection endpoints for the target resources, as part of the data collection rules. This results in the agent using the configured the data collection endpoint for network communications. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
+- Add the data collection endpoints to an [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md#connect-azure-monitor-resources) resource.
+- Ensure **Allow public network access for ingestion** option is set to **No** under the 'Network Isolation' tab of your data collection endpoint resource, as shown below (set to 'No' by default)
 
+![Data collection endpoint network isolation](media/private-link-security/ampls-data-collection-endpoint-network-isolation.png)
+
+## Next steps
 - [Associate endpoint to machines](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
-- [Add endpoint to AMPLS resource](../logs/private-link-security.md#configure-data-collection-endpoints) 
+- [Add endpoint to AMPLS resource](../logs/private-link-security.md#connect-azure-monitor-resources) 

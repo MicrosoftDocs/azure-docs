@@ -171,7 +171,7 @@ In addition to seeing the status of your exports in IoT Central, you can use [Az
 - Number of messages successfully exported to destinations.
 - Number of errors encountered.
 
-To learn more, see [Monitor the overall health of an IoT Central application](howto-monitor-application-health.md).
+To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
 ## Destinations
 

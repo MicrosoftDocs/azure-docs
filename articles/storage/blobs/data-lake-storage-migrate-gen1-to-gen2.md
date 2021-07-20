@@ -4,7 +4,7 @@ description: Migrate Azure Data Lake Storage from Gen1 to Gen2, which is built o
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 03/11/2020
+ms.date: 06/07/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -13,6 +13,8 @@ ms.subservice: data-lake-storage-gen2
 # Migrate Azure Data Lake Storage from Gen1 to Gen2
 
 You can migrate your data, workloads, and applications from Data Lake Storage Gen1 to Data Lake Storage Gen2.
+
+On **Feb 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/). If you use Azure Data Lake Storage Gen1, make sure to migrate to Azure Data Lake Storage Gen2 prior to that date. This article shows you how to do that.
 
 ‎Azure Data Lake Storage Gen2 is built on [Azure Blob storage](storage-blobs-introduction.md) and provides a set of capabilities dedicated to big data analytics. [Data Lake Storage Gen2](https://azure.microsoft.com/services/storage/data-lake-storage/) combines features from [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml), such as file system semantics, directory, and file level security and scale with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 

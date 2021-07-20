@@ -278,14 +278,14 @@
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
+      displayName: benchmark, coremark
       items:
       - name: Linux
-        displayName: Benchmark scores, score, acu
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
-        displayName: Benchmark scores, score, acu
         href: ./windows/compute-benchmark-scores.md
   - name: Dedicated hosts
+    displayName: sole-tenant, sole tenant, isolated, isolation
     items:
     - name: Overview
       displayName: Dedicated hosts, ADH
@@ -1306,7 +1306,7 @@
   - name: Optimize network throughput
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: Best practices
-    href: /virtual-network/concepts-and-best-practices.md?context=/azure/virtual-machines/context/context
+    href: /azure/virtual-network/concepts-and-best-practices
   - name: Create virtual network
     href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
   - name: Filter network traffic
@@ -1932,4 +1932,3 @@
       href: ./linux/faq.yml
     - name: Windows
       href: ./windows/faq.yml
-

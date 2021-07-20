@@ -141,5 +141,5 @@ Currently, a device can only be registered in a single tenant. This limit means 
 To learn about Azure AD authentication and passwordless methods, see the following articles:
 
 - [Learn how passwordless authentication works](concept-authentication-passwordless.md)
-- [Learn about device registration](../devices/overview.md#getting-devices-in-azure-ad)
+- [Learn about device registration](../devices/overview.md)
 - [Learn about Azure AD Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)

@@ -7,15 +7,10 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 06/30/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Azure Virtual Desktop
-
-> [!IMPORTANT]
-> AD FS single sign-on is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article will walk you through the process of configuring Active Directory Federation Service (AD FS) single sign-on (SSO) for Azure Virtual Desktop.
 
@@ -23,9 +18,6 @@ This article will walk you through the process of configuring Active Directory F
 > Azure Virtual Desktop (Classic) doesn't support this feature.
 
 ## Requirements
-
-> [!IMPORTANT]
-> During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
 
 Before configuring AD FS single sign-on, you must have the following setup running in your environment:
 
@@ -226,9 +218,6 @@ This script only has one required parameter, *ADFSAuthority*, which is the URL t
 > You can optionally configure how often users are prompted for credentials by changing the [AD FS single sign-on settings](/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#keep-me-signed-in-for-unauthenticated-devices). By default, users will be prompted every 8 hours on unregistered devices.
 
 ## Configure your Azure Virtual Desktop host pool
-
-> [!IMPORTANT]
-> During public preview, you must configure your host pool to be in the [validation environment](create-validation-host-pool.md).
 
 It's time to configure the AD FS SSO parameters on your Azure Virtual Desktop host pool. To do this, [set up your PowerShell environment](powershell-module.md) for Azure Virtual Desktop if you haven't already and connect to your account.
 

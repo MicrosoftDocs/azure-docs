@@ -13,8 +13,6 @@ ms.author: sroy
 
 This article provides information on the Customers dashboard in Partner Center. This dashboard displays information about your customers, including growth trends, presented in a graphical and downloadable format.
 
-To access the Customers dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Customers**.
-
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
 
@@ -37,6 +35,8 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 ## Elements of the Customers dashboard
 
 The following sections describe how to use the Customers dashboard and how to read the data.
+
+To access the Customers dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Customers**.
 
 ### Month range
 
