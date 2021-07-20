@@ -14,7 +14,7 @@ ms.date: 07/20/2021
 
 To transfer XML data between formats for enterprise integration scenarios 
 in Azure Logic Apps, your logic app can use maps, or more specifically, 
-Extensible Style sheet Language Transformations (XSLT) maps. A map is an XML 
+Extensible Stylesheet Language Transformation (XSLT) maps. A map is an XML 
 document that describes how to convert data from an XML document into another format. 
 
 For example, suppose you regularly receive B2B orders or invoices from 
@@ -50,7 +50,7 @@ For limits related to integration accounts and artifacts such as maps, review [L
 where you store your maps and other artifacts for enterprise 
 integration and business-to-business (B2B) solutions.
 
-* If your map references an external assembly, you need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32- and 64-bit versions. If you have the option, use the 64-bit version instead.
+* If your map references an external assembly, you need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
 
 * If your map references an external assembly, you have to upload 
 *both the assembly and the map* to your integration account. 
@@ -74,7 +74,7 @@ map that references the assembly.
     |------|-------------|
     | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-account-create.md). |
     | Blob container | In this container, you can upload your assembly. You also need this container's location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, find and select your storage account. From your storage account menu, select **Storage Explorer**. |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, select your storage account. From your storage account menu, select **Storage Explorer**. |
     |||
 
   * For maps, you can currently add larger maps by using the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
@@ -248,7 +248,7 @@ shows the number of uploaded assemblies.
 
 ## Create maps
 
-To create an XSLT document you can use as a map, 
+To create an Extensible Stylesheet Language Transformation (XSLT) document you can use as a map, 
 you can use Visual Studio 2015 for creating a 
 BizTalk Integration project by using the 
 [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). 
