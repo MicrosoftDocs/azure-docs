@@ -55,7 +55,7 @@ Get-NetIPAddress -AddressFamily IPv4  -InterfaceIndex {ifIndex}
 New-NetIPAddress -IPAddress {gatewayIp} -PrefixLength 24 -InterfaceIndex {ifIndex}
 ```
 
-7. Create a Network Address Translation (NAT) object that translates an internal network address to an external network. Ensure to use the same IPv4 family address from previous steps. (E.g If the IPv4 address of the virtual network switch adapter from Step 5 is xxx.xxx.xxx.yyy, you can set the natIp as following xxx.xxx.xxx.0). Check [New-NetNat (NetNat)](https://docs.microsoft.com/powershell/module/netnat/new-netnat?view=windowsserver2019-ps) for full details. 
+7. Create a Network Address Translation (NAT) object that translates an internal network address to an external network. Use the same IPv4 family address from previous steps. For example, if the IPv4 address of the virtual network switch adapter is xxx.xxx.xxx.yyy, you can set the natIp as following xxx.xxx.xxx.0. Check [New-NetNat (NetNat)](/powershell/module/netnat/new-netnat) for full details. 
  ```powershell
 New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
 ```
