@@ -200,7 +200,6 @@ The create request body is as follows:
 
   "backupManagementType": "AzureStorage"
 
-
  }
 ```
 
