@@ -98,7 +98,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 * [Opinion mining](#opinion-mining)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner) 
-* [Personally Identifiable Information recognition](#personally-identifiable-information-recognition) 
+* [Personally Identifiable Information recognition](#personally-identifiable-information-pii-recognition) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
