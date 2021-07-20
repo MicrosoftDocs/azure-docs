@@ -494,31 +494,33 @@ The following considerations apply to this kind of deployment:
 
 + You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. 
 
-### Deploy containers
-
-Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used by Core Tools to deploy your project as a custom container image, either to a single function app or to a Kubernetes cluster. 
-
-#### Single container
-
-The following command deploys your Docker-enabled function project as a [custom Docker container](functions-deployment-technologies.md#docker-container). 
-
-```command
-func deploy --name <FUNCTION_APP> --platform kubernetes --registry <DOCKER_USER> 
-```
-
-In the example above, replace `<FUNCTION_APP>` with the name of the function app in Azure and `<DOCKER_USER>` with your registry account name, such as you Docker username. The container is built locally and pushed to your Docker registry account with an image name based on `<FUNCTION_APP>`. You must have the Docker command line tools installed.
-
-To learn more, see the [`func deploy` command](functions-core-tools-reference.md#func-deploy).
-
 ### Kubernetes cluster
 
-The following command deploys your Docker-enabled function project as a [custom Docker container](functions-deployment-technologies.md#docker-container) to a Kubernetes cluster. 
+Functions also lets you define your Functions project to run in a Docker container. Use the [`--docker` option][func init] of `func init` to generate a Dockerfile for your specific language. This file is then used when creating a container to deploy. 
+
+Core Tools can be used to deploy your project as a custom container image to a Kubernetes cluster. The command you use depends on the type of scaler used in the cluster.  
+
+The following command uses the Dockerfile to generate a container and deploy it to a Kubernetes cluster. 
+
+# [KEDA](#tab/keda)
 
 ```command
 func kubernetes deploy --name <DEPLOYMENT_NAME> --registry <REGISTRY_USERNAME> 
 ```
 
 To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes). 
+
+# [Default/KNative](#tab/default)
+
+```command
+func deploy --name <FUNCTION_APP> --platform kubernetes --registry <REGISTRY_USERNAME> 
+```
+
+In the example above, replace `<FUNCTION_APP>` with the name of the function app in Azure and `<REGISTRY_USERNAME>` with your registry account name, such as you Docker username. The container is built locally and pushed to your Docker registry account with an image name based on `<FUNCTION_APP>`. You must have the Docker command line tools installed.
+
+To learn more, see the [`func deploy` command](functions-core-tools-reference.md#func-deploy).
+
+---
 
 ## Monitoring functions
 
