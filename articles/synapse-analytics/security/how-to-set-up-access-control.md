@@ -8,9 +8,9 @@ author: RonyMSFT
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
-ms.date: 12/03/2020 
+ms.date: 7/20/2021
 ms.author: ronytho
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, wiassaf
 ms.custom: subject-rbac-steps
 ---
 
@@ -303,11 +303,10 @@ To manage access, you can add and remove users to the security groups you've set
 
 ## STEP 9: Network Security
 
-As a final step to secure your workspace, you should secure network access, using:
-- [Workspace firewall](./synapse-workspace-ip-firewall.md)
-- [Managed virtual network](./synapse-workspace-managed-vnet.md) 
-- [Private endpoints](./synapse-workspace-managed-private-endpoints.md)
-- [Private Link](../../azure-sql/database/private-endpoint-overview.md)
+As a final step to secure your workspace, you should secure network access, using the [Workspace firewall](./synapse-workspace-ip-firewall.md).
+
+- With a [Managed virtual network](./synapse-workspace-managed-vnet.md) and public network access **enabled**, you can connect to your workspace also from public networks. For more information, see [Connectivity Settings](connectivity-settings.md).
+- Otherwise, you can connect to your workspace using only a [private endpoint](synapse-workspace-managed-private-endpoints.md) and [private Link](../../azure-sql/database/private-endpoint-overview.md).
 
 ## STEP 10: Completion
 
