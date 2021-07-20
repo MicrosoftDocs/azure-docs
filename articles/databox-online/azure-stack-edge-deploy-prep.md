@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/16/2021
+ms.date: 07/20/2021
 ms.author: alkohli
+ms.custom: subject-rbac-steps
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro FPGA so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Prepare to deploy Azure Stack Edge Pro FPGA  
@@ -46,7 +47,42 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 ### For the Azure Stack Edge resource
 
+==========
+BEGIN DRAFT SECTION: *Stopped until we discuss better organization for roles vs. providers that accommodates the new IAM boilerplate.*
+
 Before you begin, make sure that:
+
+* Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported.
+
+* You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
+
+  To grant contributor access, you should be an **Owner** at the subscription level. 
+
+  To grant contributor access to someone else:
+
+  1. Select **Access control (IAM)**.
+
+  1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+
+  1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Type of Contributor? |
+    | Assign access to | User |
+    | Members | [MEMBERS] |
+
+    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)   , in Azure portal, go to **All Services** > **Subscriptions** > **Access control (IAM)** > **+Add** > **Add role assignment**. For more information, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+  * To create any Azure Stack Edge / Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` resource provider is registered. For information on how to register a resource provider, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * To create any IoT Hub resource, make sure that the Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
+* You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* You have your Microsoft Azure storage account with access credentials.
+* You are not blocked by any Azure policy set up by your system administrator. For more information about policies, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
+
+==========END DRAFT SECTION. *Original content commented out below.*
+<!--Before you begin, make sure that:
 
 * Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported.
 
@@ -59,7 +95,7 @@ Before you begin, make sure that:
   * To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
 * You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * You have your Microsoft Azure storage account with access credentials.
-* You are not blocked by any Azure policy set up by your system administrator. For more information about policies, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
+* You are not blocked by any Azure policy set up by your system administrator. For more information about policies, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).-->
 
 ### For the Azure Stack Edge Pro FPGA device
 
