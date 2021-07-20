@@ -48,8 +48,9 @@ Use the following methods in the logging APIs to influence the metrics visualiza
 
 ## Logging with MLflow
 
-We recommend logging model metrics and artifacts with MLflow as it's open source and it supports local mode to cloud portability. The following table and code examples show how to use MLflow to log metrics and artifacts from your training runs. 
+We recommend logging your models, metrics and artifacts with MLflow as it's open source and it supports local mode to cloud portability. The following table and code examples show how to use MLflow to log metrics and artifacts from your training runs. 
 [Learn more about MLflow's logging methods and design patterns](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.log_artifact).
+
 Be sure to install the `mlflow` and `azureml-mlflow` pip packages to your workspace. 
 
 ```conda
@@ -57,14 +58,19 @@ pip install mlflow
 pip install azureml-mlflow
 ```
 
-Set the MLflow tracking URI to point at the Azure Machine Learning backend, to ensure that your metrics and artifacts are logged to your workspace. 
+Set the MLflow tracking URI to point at the Azure Machine Learning backend to ensure that your metrics and artifacts are logged to your workspace. 
 
 ```python
 from azureml.core import Workspace
 import mlflow
+from mlflow.tracking import MlflowClient
 
 ws = Workspace.from_config()
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
+
+mlflow.create_experiment("mlflow-experiment")
+mlflow.set_experiment("mlflow-experiment")
+mlflow_run = mlflow.start_run()
 ```
 
 |Logged Value|Example code| Notes|
@@ -73,9 +79,7 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 |Log a boolean value | `mlfow.log_metric('my_metric', 0)`| 0 = True, 1 = False|
 |Log a string | `mlfow.log_text('foo', 'my_string')`| Logged as an artifact|
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
-|Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`
-||
-
+|Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
 
 ## View run metrics via the SDK
 You can view the metrics of a trained model using `run.get_metrics()`. 
@@ -93,17 +97,18 @@ metrics.get('metric-name')
 # list of metrics in the order they were recorded
 ```
 
-You can also access run information using MLflow through the run object's data and info properties. See the [MLflow.entities.Run object](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) documentation for more information 
+You can also access run information using MLflow through the run object's data and info properties. See the [MLflow.entities.Run object](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) documentation for more information. 
 
-After run has completed, you can retrieve it using the MlFlowClient().
+After the run completes, you can retrieve it using the MlFlowClient().
+
 ```python
 from mlflow.tracking import MlflowClient
 
 # Use MlFlow to retrieve the run that was just completed
-
 client = MlflowClient()
 finished_mlflow_run = MlflowClient().get_run(mlflow_run.info.run_id)
 ```
+
 You can view the metrics, parameters, and tags for the run in the data field of the run object.
 
 ```python
