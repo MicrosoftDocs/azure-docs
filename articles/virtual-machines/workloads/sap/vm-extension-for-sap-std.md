@@ -21,6 +21,7 @@ ms.author: oldoll
 [new-extension]:vm-extension-for-sap-new.md (New Version of Azure VM extension for SAP solutions)
 [configure-windows]:vm-extension-for-sap-std.md#cb095b34-51c9-41f3-aeed-30a16072a1dc (Configure the Azure VM extension for SAP solutions with PowerShell)
 [configure-linux]:vm-extension-for-sap-std.md#c691e304-3524-4bfd-8612-992d5715a689 (Configure the Azure VM extension for SAP solutions with Azure CLI)
+[configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d 
 [troubleshoot-windows]:vm-extension-for-sap-std.md#f566b77e-5427-451b-b4ca-6b93114d51e8 (Troubleshooting for Windows)
 [troubleshoot-linux]:vm-extension-for-sap-std.md#a4dae567-e7fd-4d4b-8279-510b8e5fae4a (Troubleshooting for Linux)
 [healthcheck]:vm-extension-for-sap-std.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure Extension for SAP configuration)
@@ -426,7 +427,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun
 
 #### <a name="0d2847ad-865d-4a4c-a405-f9b7baaa00c7"></a>Run the setup script
 
-Follow the steps in chapter [Configure the Azure Extension for SAP][deployment-guide-4.5] in this guide to install the extension again. Note that some counters might need up to 30 minutes for provisioning.
+Follow the steps in chapter [Configure the Azure Extension for SAP][deployment-guide-run-the-script] in this guide to install the extension again. Note that some counters might need up to 30 minutes for provisioning.
 
 If the errors do not disappear, [contact support][deployment-guide-contact-support].
 
@@ -444,11 +445,11 @@ However, if your generalized and sysprepped OS image already contains the Azure 
   C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\\<version\>\RuntimeSettings
   C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\\<version\>\Status
 
-* Follow the steps in chapter [Configure the Azure Extension for SAP][deployment-guide-4.5] in this guide to install the extension again.
+* Follow the steps in chapter [Configure the Azure Extension for SAP][deployment-guide-run-the-script] in this guide to install the extension again.
 
 #### <a name="e92bc57d-80d9-4a2b-a2f4-16713a22ad89"></a>Fix internet connection
 
-The  Microsoft Azure Virtual Machine running the Azure extension for SAP requires access to the Internet. If this Azure VM is part of an Azure Virtual Network or of an on-premises domain, make sure that the relevant proxy settings are set. These settings must also be valid for the LocalSystem account to access the Internet. Follow chapter [Configure the proxy][deployment-guide-configure-proxy] in this guide.
+The  Microsoft Azure Virtual Machine running the Azure extension for SAP requires access to the Internet. If this Azure VM is part of an Azure Virtual Network or of an on-premises domain, make sure that the relevant proxy settings are set. These settings must also be valid for the LocalSystem account to access the Internet. Follow chapter [Configure the proxy][configure-proxy] in this guide.
 
 In addition, if you need to set a static IP address for your Azure VM, do not set it manually inside the Azure VM, but set it using [Azure PowerShell](../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md), [Azure CLI](../../../virtual-network/virtual-networks-static-private-ip-arm-cli.md) [Azure portal](../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). The static IP is propagated via the Azure DHCP service.
 
