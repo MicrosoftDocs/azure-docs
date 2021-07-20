@@ -159,42 +159,34 @@ Also, take note of the following values to use them later to create a Time Serie
 
 In this section, you'll create an Azure function that will convert twin update events from their original form as JSON Patch documents to JSON objects, containing only updated and added values from your twins.
 
-### Step 1: Create function app
+1. First, create a new function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
-First, create a new function app project in Visual Studio. For instructions on how to do this, see the [Create a function app in Visual Studio](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
+2. Create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
 
-### Step 2: Add a new function
+    :::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
 
-Create a new Azure function called *ProcessDTUpdatetoTSI.cs* to update device telemetry events to the Time Series Insights. The function type will be **Event Hub trigger**.
+3. Add the following packages to your project:
+    * [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
+    * [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
+    * [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
 
-:::image type="content" source="media/how-to-integrate-time-series-insights/create-event-hub-trigger-function.png" alt-text="Screenshot of Visual Studio to create a new Azure function of type event hub trigger.":::
+4. Replace the code in the *ProcessDTUpdatetoTSI.cs* file with the following code:
 
-### Step 3: Fill in function code
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
 
-Add the following packages to your project:
-* [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
-* [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/)
-* [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/)
+    Save your function code.
 
-Replace the code in the *ProcessDTUpdatetoTSI.cs* file with the following code:
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/updateTSI.cs":::
-
-Save your function code.
-
-### Step 4: Publish the function app to Azure
-
-Publish the project with the *ProcessDTUpdatetoTSI.cs* function to a function app in Azure.
-
-For instructions on how to do this, see the section [Publish the function app to Azure](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+5. Publish the project with the *ProcessDTUpdatetoTSI.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 Save the function app name to use later to configure app settings for the two event hubs.
 
-### Step 5: Security access for the function app
+### Configure security for the function app
 
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance.
 
-### Step 6: Configure app settings for the two event hubs
+[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
+
+### Configure app settings for the two event hubs
 
 Next, you'll add environment variables in the function app's settings that allow it to access the twins hub and time series hub.
 
