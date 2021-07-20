@@ -148,19 +148,22 @@ To initialize the tool, provide an IoT Edge device connection string from IoT Hu
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
 
-1. In **Solution Explorer**, right-click **IotEdgeModule1** and select **Set as StartUp Project** from the context menu.
+1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 
    ![Set Start-up Project](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)
 
-1. Press **F5** or click the button below to run the module; it may take 10&ndash;20 seconds the first time you do so.
+1. Press **F5** or click the run button in the toolbar to run the module. It may take 10&ndash;20 seconds the first time you do so.
 
    ![Run Module](./media/how-to-visual-studio-develop-csharp-module/run-module.png)
 
 1. You should see a .NET Core console app start if the module has been initialized successfully.
 
-   ![Module Running](./media/how-to-visual-studio-develop-csharp-module/single-module-run.png)
+1. Set a breakpoint to inspect the module.
 
-1. If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**; if using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**. You can then test it by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. (You cannot run the `curl` command from a PowerShell or command prompt.)
+   * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
+   * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
+
+1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. (You cannot run the `curl` command from a PowerShell or command prompt.)
 
     ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
@@ -168,7 +171,7 @@ Typically, you'll want to test and debug each module before running it within an
 
    ![Debug Single Module](./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png)
 
-    The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
+   The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window.
 
    > [!TIP]
    > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
@@ -179,20 +182,17 @@ Typically, you'll want to test and debug each module before running it within an
 
 After you're done developing a single module, you might want to run and debug an entire solution with multiple modules.
 
-1. In **Solution Explorer**, add a second module to the solution by right-clicking **AzureIoTEdgeApp1** and selecting **Add** > **New IoT Edge Module**. The default name of the second module is **IotEdgeModule2** and will act as another pipe module.
+1. In **Solution Explorer**, add a second module to the solution by right-clicking the project folder. On the menu, select **Add** > **New IoT Edge Module**.
 
-1. Open the file `deployment.template.json` and you'll see **IotEdgeModule2** has been added in the **modules** section. Replace the **routes** section with the following. If you have customized your module names, make sure you update these names to match.
+   ![Add a new module to an existing IoT Edge project](./media/how-to-visual-studio-develop-module/add-new-module.png)
+
+1. Open the file `deployment.template.json` and you'll see that the new module has been added in the **modules** section. A new route was also added to the **routes** section to send messages from the new module to IoT Hub. If you want to send data from the simulated temperature sensor to the new module, add another route like the following example: 
 
     ```json
-        "routes": {
-          "IotEdgeModule1ToIoTHub": "FROM /messages/modules/IotEdgeModule1/outputs/* INTO $upstream",
-          "sensorToIotEdgeModule1": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IotEdgeModule1/inputs/input1\")",
-          "IotEdgeModule2ToIoTHub": "FROM /messages/modules/IotEdgeModule2/outputs/* INTO $upstream",
-          "sensorToIotEdgeModule2": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IotEdgeModule2/inputs/input1\")"
-        },
+   "sensorTo<NewModuleName>": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/<NewModuleName>/inputs/input1\")"
     ```
 
-1. Right-click **AzureIoTEdgeApp1** and select **Set as StartUp Project** from the context menu.
+1. Right-click the project folder and select **Set as StartUp Project** from the context menu.
 
 1. Create your breakpoints and then press **F5** to run and debug multiple modules simultaneously. You should see multiple .NET Core console app windows, which each window representing a different module.
 
@@ -202,7 +202,7 @@ After you're done developing a single module, you might want to run and debug an
 
 ## Build and push images
 
-1. Make sure **AzureIoTEdgeApp1** is the start-up project. Select either **Debug** or **Release** as the configuration to build for your module images.
+1. Make sure the IoT Edge project is the start-up project, not one of the individual modules. Select either **Debug** or **Release** as the configuration to build for your module images.
 
     > [!NOTE]
     > When choosing **Debug**, Visual Studio uses `Dockerfile.(amd64|windows-amd64).debug` to build Docker images. This includes the .NET Core command-line debugger VSDBG in your container image while building it. For production-ready IoT Edge modules, we recommend that you use the **Release** configuration, which uses `Dockerfile.(amd64|windows-amd64)` without VSDBG.
@@ -229,7 +229,10 @@ After you're done developing a single module, you might want to run and debug an
           }
     ```
 
-1. In **Solution Explorer**, right-click **AzureIoTEdgeApp1** and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
+   >[!NOTE]
+   >This article uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+
+1. In **Solution Explorer**, right-click the project folder and select **Build and Push IoT Edge Modules** to build and push the Docker image for each module.
 
 ## Deploy the solution
 
