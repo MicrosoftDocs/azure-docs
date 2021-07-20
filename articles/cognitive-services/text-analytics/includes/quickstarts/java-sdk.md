@@ -86,6 +86,12 @@ import com.azure.ai.textanalytics.TextAnalyticsClient;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import java.util.Arrays;
+import com.azure.core.util.Context;
+import com.azure.core.util.polling.SyncPoller;
+import com.azure.ai.textanalytics.util.AnalyzeHealthcareEntitiesResultCollection;
+import com.azure.ai.textanalytics.util.AnalyzeHealthcareEntitiesPagedIterable;
 ```
 
 # [Version 3.0](#tab/version-3)
@@ -591,6 +597,69 @@ Recognized phrases:
 cat
 veterinarian
 ```
+---
+
+## Extract health entities
+
+# [Version 3.1](#tab/version-3-1)
+
+You can use Text Analytics to perform an asynchronous request to extract healthcare entities from text. The below sample shows a basic example. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeHealthcareEntities.java).
+
+
+```java
+static void healthExample(TextAnalyticsClient client){
+    List<TextDocumentInput> documents = Arrays.asList(
+            new TextDocumentInput("0",
+                    "Prescribed 100mg ibuprofen, taken twice daily."));
+
+    AnalyzeHealthcareEntitiesOptions options = new AnalyzeHealthcareEntitiesOptions().setIncludeStatistics(true);
+
+    SyncPoller<AnalyzeHealthcareEntitiesOperationDetail, AnalyzeHealthcareEntitiesPagedIterable>
+            syncPoller = client.beginAnalyzeHealthcareEntities(documents, options, Context.NONE);
+
+    System.out.printf("Poller status: %s.%n", syncPoller.poll().getStatus());
+    syncPoller.waitForCompletion();
+
+    // Task operation statistics
+    AnalyzeHealthcareEntitiesOperationDetail operationResult = syncPoller.poll().getValue();
+    System.out.printf("Operation created time: %s, expiration time: %s.%n",
+            operationResult.getCreatedAt(), operationResult.getExpiresAt());
+    System.out.printf("Poller status: %s.%n", syncPoller.poll().getStatus());
+
+    for (AnalyzeHealthcareEntitiesResultCollection resultCollection : syncPoller.getFinalResult()) {
+        // Model version
+        System.out.printf(
+                "Results of Azure Text Analytics \"Analyze Healthcare Entities\" Model, version: %s%n",
+                resultCollection.getModelVersion());
+
+        for (AnalyzeHealthcareEntitiesResult healthcareEntitiesResult : resultCollection) {
+            System.out.println("Document ID = " + healthcareEntitiesResult.getId());
+            System.out.println("Document entities: ");
+            // Recognized healthcare entities
+            for (HealthcareEntity entity : healthcareEntitiesResult.getEntities()) {
+                System.out.printf(
+                        "\tText: %s, normalized name: %s, category: %s, subcategory: %s, confidence score: %f.%n",
+                        entity.getText(), entity.getNormalizedText(), entity.getCategory(),
+                        entity.getSubcategory(), entity.getConfidenceScore());
+            }
+            // Recognized healthcare entity relation groups
+            for (HealthcareEntityRelation entityRelation : healthcareEntitiesResult.getEntityRelations()) {
+                System.out.printf("Relation type: %s.%n", entityRelation.getRelationType());
+                for (HealthcareEntityRelationRole role : entityRelation.getRoles()) {
+                    HealthcareEntity entity = role.getEntity();
+                    System.out.printf("\tEntity text: %s, category: %s, role: %s.%n",
+                            entity.getText(), entity.getCategory(), role.getName());
+                }
+            }
+        }
+    }
+}
+```
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
 ---
 
 ## Use the API asynchronously with the Analyze operation
