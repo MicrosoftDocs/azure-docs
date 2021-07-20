@@ -237,6 +237,9 @@
       - name: Azure Percept
         tocHref: /azure/azure-percept/
         topicHref: /azure/azure-percept/
+      - name: Device Development
+        tocHref: /azure/iot-develop/
+        topicHref: /azure/iot-develop/
       - name: Device Update for IoT Hub
         tocHref: /azure/iot-hub-device-update/
         topicHref: /azure/iot-hub-device-update/            
