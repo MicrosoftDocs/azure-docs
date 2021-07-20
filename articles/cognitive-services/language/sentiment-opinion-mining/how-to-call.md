@@ -42,17 +42,17 @@ For example, if a customer leaves feedback about a hotel such as "The room was g
 :::image type="content" source="../../text-analytics/media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../../text-analytics/media/how-tos/opinion-mining.png":::
 
 If you're using the REST API, to get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-<!--
+
 > [!TIP]
-> There are examples of how to use this feature in the [quickstart article](quickstart.md). You can also make example requests and see the JSON output using [Language Studio](https://language.azure.com/tryout/sentiment) 
--->
+> There are examples of how to use this feature in the quickstart article. You can also make example requests and see the JSON output using [Language Studio](https://language.azure.com/tryout/sentiment) 
+
 ### Language and document specification
 
 <!--
-Sentiment Analysis and Opinion Mining accept a variety of languages. See [Supported languages](../language-support.md) for more information. The API may return offsets in the response to support different [multilingual and emoji encodings](multilingual-emoji-support.md). 
+Sentiment Analysis and Opinion Mining accept a variety of languages. See [Supported languages](../language-support.md) for more information. 
 -->
 
-Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection. The collection is submitted in the body of the request.
+Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection. The collection is submitted in the body of the request. The API may return offsets in the response to support different [multilingual and emoji encodings](multilingual-emoji-support.md). 
 
 ## Submit data to the service
 
@@ -63,7 +63,7 @@ To send an API request, You will need your Language service resource endpoint an
 > [!NOTE]
 > You can find the key and endpoint for your Language service resource on the Azure portal. They will be located on the resource's **Key and endpoint** page, under **resource management**. 
 
-Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the [data limits](../data-limits.md) section in the overview.
+Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits article.
 
 The Sentiment Analysis and Opinion Mining API is stateless. No data is stored in your account, and results are returned immediately in the response.
 
@@ -94,4 +94,4 @@ In this article, you learned concepts and workflow for sentiment analysis and op
 
 ## See also
 
-TBD
+* [Language Services overview](../overview.md)

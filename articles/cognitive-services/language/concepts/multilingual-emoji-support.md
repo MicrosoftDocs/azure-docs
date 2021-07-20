@@ -20,7 +20,7 @@ Because of the different lengths of possible multilingual and emoji encodings, t
 
 ## Offsets in the API response. 
 
-Whenever offsets are returned the API response, such as [Named Entity Recognition](../how-tos/text-analytics-how-to-entity-linking.md) or [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md), remember:
+Whenever offsets are returned the API response, remember:
 
 * Elements in the response may be specific to the endpoint that was called. 
 * HTTP POST/GET payloads are encoded in [UTF-8](https://www.w3schools.com/charsets/ref_html_utf8.asp), which may or may not be the default character encoding on your client-side compiler or operating system.
@@ -46,8 +46,4 @@ If the `stringIndexType` requested matches the programming environment of choice
 
 ## See also
 
-* [Text Analytics overview](../overview.md)
-* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)
+* [Language Services overview](../overview.md)
