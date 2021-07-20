@@ -217,9 +217,9 @@ The following describes how to install multiple SAP instances on Azure VMs runni
 
 Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
 
-By installing an SAP Application Server locally on each cluster node, the total number of VMs can be reduced.
+By installing an SAP Application Server or SAP ASCS/SCS locally on each cluster node, the total number of VMs can be reduced.
 
-While the resource consumption of the SAP ASCS/SCS is fairly small a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
+While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
 
 ### <a name="5121771a-7618-4f36-ae14-ccf9ee5f2031"></a>SAP Application Servers on WSFC nodes using NetApp Files SMB
 
