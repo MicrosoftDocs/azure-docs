@@ -81,32 +81,26 @@ When the twin is created successfully, the CLI output from the command should lo
 
 In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events that it receives. Follow the steps below to create and publish the function.
 
-#### Step 1: Create a function app project
+1. First, create a new function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
-First, create a new function app project in Visual Studio. For instructions on how to do this, see the [Create a function app in Visual Studio](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
+2. Add the following packages to your project:
+    * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+    * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+    * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-#### Step 2: Fill in function code
+3. Rename the *Function1.cs* sample function that Visual Studio has generated to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
 
-Add the following packages to your project:
-* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
-* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
-* [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
-Rename the *Function1.cs* sample function that Visual Studio has generated to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
+    Save your function code.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
+4. Publish the project with the *IoTHubtoTwins.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-Save your function code.
+### Configure the function app
 
-#### Step 3: Publish the function app to Azure
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance.
 
-Publish the project with *IoTHubtoTwins.cs* function to a function app in Azure.
-
-For instructions on how to do this, see the section [Publish the function app to Azure](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
-
-#### Step 4: Configure the function app
-
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
+[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
 
 ## Connect your function to IoT Hub
 

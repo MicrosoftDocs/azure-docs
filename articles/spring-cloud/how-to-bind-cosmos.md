@@ -28,9 +28,9 @@ Prerequisites:
 
       ```xml
       <dependency>
-          <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
-          <version>2.1.6</version>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+          <version>3.6.0</version>
       </dependency>
       ```
 

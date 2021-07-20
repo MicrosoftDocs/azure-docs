@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 07/19/2021
 
 ms.author: BaSelden
 author: BarbaraSelden
@@ -111,46 +111,6 @@ Risk policies include:
 - [Require a password change for users that are high-risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
 - [Require MFA for users with medium or high sign-in risk](../identity-protection/howto-identity-protection-configure-risk-policies.md#enable-policies)
 
-### Convert users from per-user MFA to Conditional Access based MFA
-
-If your users were enabled using per-user enabled and enforced Azure AD Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure AD Multi-Factor Authentication.
-
-Run this PowerShell in an ISE window or save as a `.PS1` file to run locally.
-
-```PowerShell
-# Sets the MFA requirement state
-function Set-MfaState {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipelineByPropertyName=$True)]
-        $ObjectId,
-        [Parameter(ValueFromPipelineByPropertyName=$True)]
-        $UserPrincipalName,
-        [ValidateSet("Disabled","Enabled","Enforced")]
-        $State
-    )
-
-    Process {
-        Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
-        $Requirements = @()
-        if ($State -ne "Disabled") {
-            $Requirement =
-                [Microsoft.Online.Administration.StrongAuthenticationRequirement]::new()
-            $Requirement.RelyingParty = "*"
-            $Requirement.State = $State
-            $Requirements += $Requirement
-        }
-
-        Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
-                     -StrongAuthenticationRequirements $Requirements
-    }
-}
-
-# Disable MFA for all users
-Get-MsolUser -All | Set-MfaState -State Disabled
-```
-
 ## Plan user session lifetime
 
 When planning your MFA deployment, it’s important to think about how frequently you would like to prompt your users. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt.
@@ -214,7 +174,7 @@ Others might include:
 
 - Citrix Gateway
 
-  [Citrix Gateway](https://docs.citrix.com/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
+  [Citrix Gateway](https://docs.citrix.com/en-us/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
 
 - Cisco VPN
   - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
@@ -257,4 +217,3 @@ See [Troubleshooting Azure AD MFA](https://support.microsoft.com/help/2937344/tr
 ## Next steps
 
 [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
-
