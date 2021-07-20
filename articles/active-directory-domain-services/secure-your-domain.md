@@ -62,7 +62,7 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 
 ![Screenshot of Compliance settings](media/secure-your-domain/policy-tls.png)
 
-## Assess impact of disabling NTLM password synchronization
+## Audit NTLM failures
 
 While disabling NTLM password synchronization will improve security, many applications and services are not designed to work without it. For example, connecting to any resource by its IP address, such as DNS Server management or RDP, will fail with Access Denied. If you disable NTLM password synchronization and your application or service isn’t working as expected, you'll want to start troubleshooting here.
 
