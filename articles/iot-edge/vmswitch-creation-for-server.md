@@ -70,7 +70,7 @@ New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
 Get-WindowsFeature -Name 'DHCP'
 ```
 
-9.	If not installed, install it by using the following command
+9.	If not installed, install it by using the following command:
  ```powershell
 Install-WindowsFeature -Name 'DHCP' -IncludeManagementTools
 ```
