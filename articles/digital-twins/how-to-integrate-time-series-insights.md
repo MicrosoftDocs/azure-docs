@@ -24,7 +24,6 @@ The solution described in this article will allow you to gather and analyze hist
 ## Prerequisites
 
 Before you can set up a relationship with Time Series Insights, you'll need to set up the following resources:
-* An **IoT hub**. For instructions, see the [Create an IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) section of the *IoT Hub's Send Telemetry* quickstart.
 * An **Azure Digital Twins instance**. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
 * A **model and a twin in the Azure Digital Twins instance**. You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [Add a model and twin](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *Ingest telemetry from IoT Hub* article.
 
@@ -247,7 +246,7 @@ Use the [az dt twin update](/cli/azure/dt/twin?view=azure-cli-latest&preserve-vi
 az dt twin update --dt-name <your-Azure-Digital-Twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
 ```
 
-**Repeat the command at least 4 more times with different temperature values**, to create several data points that can be observed later in the Time Series Insights environment.
+**Repeat the command at least 4 more times with different property values**, to create several data points that can be observed later in the Time Series Insights environment.
 
 > [!TIP]
 > If you want to complete this article with live simulated data instead of manually updating the digital twin values, first make sure you've completed the TIP from the [Prerequisites](#prerequisites) section to set up an Azure function that updates twins from a simulated device.
