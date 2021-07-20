@@ -289,6 +289,16 @@ The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, wh
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
 
+## SCM\_LOGSTREAM\_TIMEOUT
+
+Controls the timeout, in seconds, when connected to streaming logs. The default value is 7200 (2 hours). 
+
+|Key|Sample value|
+|-|-|
+|SCM_LOGSTREAM_TIMEOUT|1800|
+
+The above sample value of `1800` sets a timeout of 30 minutes. To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
+
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
 Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md#windows).
