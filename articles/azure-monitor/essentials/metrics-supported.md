@@ -371,227 +371,227 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total|No Dimensions|ShardId, Port, Primary|
-|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total|No Dimensions|ShardId, Port, Primary|
-|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum|No Dimensions|ShardId, Port, Primary|
-|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum|No Dimensions|ShardId, Port, Primary|
-|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum|No Dimensions|ShardId, Port, Primary|
-|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total|No Dimensions|ShardId, Port, Primary|
-|allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total|No Dimensions|ShardId, Port, Primary|
-|allgetcommands|Yes|Gets (Instance Based)|Count|Total|No Dimensions|ShardId, Port, Primary|
-|alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum|No Dimensions|ShardId, Port, Primary|
-|allpercentprocessortime|Yes|CPU (Instance Based)|Percent|Maximum|No Dimensions|ShardId, Port, Primary|
-|allserverLoad|Yes|Server Load (Instance Based)|Percent|Maximum|No Dimensions|ShardId, Port, Primary|
-|allsetcommands|Yes|Sets (Instance Based)|Count|Total|No Dimensions|ShardId, Port, Primary|
-|alltotalcommandsprocessed|Yes|Total Operations  (Instance Based)|Count|Total|No Dimensions|ShardId, Port, Primary|
-|alltotalkeys|Yes|Total Keys (Instance Based)|Count|Maximum|No Dimensions|ShardId, Port, Primary|
-|allusedmemory|Yes|Used Memory (Instance Based)|Bytes|Maximum|No Dimensions|ShardId, Port, Primary|
-|allusedmemorypercentage|Yes|Used Memory Percentage (Instance Based)|Percent|Maximum|No Dimensions|ShardId, Port, Primary|
-|allusedmemoryRss|Yes|Used Memory RSS (Instance Based)|Bytes|Maximum|No Dimensions|ShardId, Port, Primary|
-|cachehits|Yes|Cache Hits|Count|Total|No Dimensions|ShardId|
-|cachehits0|Yes|Cache Hits (Shard 0)|Count|Total|No Dimensions|No Dimensions|
-|cachehits1|Yes|Cache Hits (Shard 1)|Count|Total|No Dimensions|No Dimensions|
-|cachehits2|Yes|Cache Hits (Shard 2)|Count|Total|No Dimensions|No Dimensions|
-|cachehits3|Yes|Cache Hits (Shard 3)|Count|Total|No Dimensions|No Dimensions|
-|cachehits4|Yes|Cache Hits (Shard 4)|Count|Total|No Dimensions|No Dimensions|
-|cachehits5|Yes|Cache Hits (Shard 5)|Count|Total|No Dimensions|No Dimensions|
-|cachehits6|Yes|Cache Hits (Shard 6)|Count|Total|No Dimensions|No Dimensions|
-|cachehits7|Yes|Cache Hits (Shard 7)|Count|Total|No Dimensions|No Dimensions|
-|cachehits8|Yes|Cache Hits (Shard 8)|Count|Total|No Dimensions|No Dimensions|
-|cachehits9|Yes|Cache Hits (Shard 9)|Count|Total|No Dimensions|No Dimensions|
+|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
+|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
+|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
+|allgetcommands|Yes|Gets (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allpercentprocessortime|Yes|CPU (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allserverLoad|Yes|Server Load (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allsetcommands|Yes|Sets (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alltotalcommandsprocessed|Yes|Total Operations  (Instance Based)|Count|Total||ShardId, Port, Primary|
+|alltotalkeys|Yes|Total Keys (Instance Based)|Count|Maximum||ShardId, Port, Primary|
+|allusedmemory|Yes|Used Memory (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
+|allusedmemorypercentage|Yes|Used Memory Percentage (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
+|allusedmemoryRss|Yes|Used Memory RSS (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
+|cachehits|Yes|Cache Hits|Count|Total||ShardId|
+|cachehits0|Yes|Cache Hits (Shard 0)|Count|Total||No Dimensions|
+|cachehits1|Yes|Cache Hits (Shard 1)|Count|Total||No Dimensions|
+|cachehits2|Yes|Cache Hits (Shard 2)|Count|Total||No Dimensions|
+|cachehits3|Yes|Cache Hits (Shard 3)|Count|Total||No Dimensions|
+|cachehits4|Yes|Cache Hits (Shard 4)|Count|Total||No Dimensions|
+|cachehits5|Yes|Cache Hits (Shard 5)|Count|Total||No Dimensions|
+|cachehits6|Yes|Cache Hits (Shard 6)|Count|Total||No Dimensions|
+|cachehits7|Yes|Cache Hits (Shard 7)|Count|Total||No Dimensions|
+|cachehits8|Yes|Cache Hits (Shard 8)|Count|Total||No Dimensions|
+|cachehits9|Yes|Cache Hits (Shard 9)|Count|Total||No Dimensions|
 |cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average|No Dimensions|ShardId|
-|cachemisses|Yes|Cache Misses|Count|Total|No Dimensions|ShardId|
-|cachemisses0|Yes|Cache Misses (Shard 0)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses1|Yes|Cache Misses (Shard 1)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses2|Yes|Cache Misses (Shard 2)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses3|Yes|Cache Misses (Shard 3)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses4|Yes|Cache Misses (Shard 4)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses5|Yes|Cache Misses (Shard 5)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses6|Yes|Cache Misses (Shard 6)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses7|Yes|Cache Misses (Shard 7)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses8|Yes|Cache Misses (Shard 8)|Count|Total|No Dimensions|No Dimensions|
-|cachemisses9|Yes|Cache Misses (Shard 9)|Count|Total|No Dimensions|No Dimensions|
+|cachemisses|Yes|Cache Misses|Count|Total||ShardId|
+|cachemisses0|Yes|Cache Misses (Shard 0)|Count|Total||No Dimensions|
+|cachemisses1|Yes|Cache Misses (Shard 1)|Count|Total||No Dimensions|
+|cachemisses2|Yes|Cache Misses (Shard 2)|Count|Total||No Dimensions|
+|cachemisses3|Yes|Cache Misses (Shard 3)|Count|Total||No Dimensions|
+|cachemisses4|Yes|Cache Misses (Shard 4)|Count|Total||No Dimensions|
+|cachemisses5|Yes|Cache Misses (Shard 5)|Count|Total||No Dimensions|
+|cachemisses6|Yes|Cache Misses (Shard 6)|Count|Total||No Dimensions|
+|cachemisses7|Yes|Cache Misses (Shard 7)|Count|Total||No Dimensions|
+|cachemisses8|Yes|Cache Misses (Shard 8)|Count|Total||No Dimensions|
+|cachemisses9|Yes|Cache Misses (Shard 9)|Count|Total||No Dimensions|
 |cachemissrate|Yes|Cache Miss Rate|Percent|cachemissrate|No Dimensions|ShardId|
-|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum|No Dimensions|ShardId|
-|cacheRead0|Yes|Cache Read (Shard 0)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead1|Yes|Cache Read (Shard 1)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead2|Yes|Cache Read (Shard 2)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead3|Yes|Cache Read (Shard 3)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead4|Yes|Cache Read (Shard 4)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead5|Yes|Cache Read (Shard 5)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead6|Yes|Cache Read (Shard 6)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead7|Yes|Cache Read (Shard 7)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead8|Yes|Cache Read (Shard 8)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheRead9|Yes|Cache Read (Shard 9)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum|No Dimensions|ShardId|
-|cacheWrite0|Yes|Cache Write (Shard 0)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite1|Yes|Cache Write (Shard 1)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite2|Yes|Cache Write (Shard 2)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite3|Yes|Cache Write (Shard 3)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite4|Yes|Cache Write (Shard 4)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite5|Yes|Cache Write (Shard 5)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite6|Yes|Cache Write (Shard 6)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite7|Yes|Cache Write (Shard 7)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite8|Yes|Cache Write (Shard 8)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|cacheWrite9|Yes|Cache Write (Shard 9)|BytesPerSecond|Maximum|No Dimensions|No Dimensions|
-|connectedclients|Yes|Connected Clients|Count|Maximum|No Dimensions|ShardId|
-|connectedclients0|Yes|Connected Clients (Shard 0)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients1|Yes|Connected Clients (Shard 1)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients2|Yes|Connected Clients (Shard 2)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients3|Yes|Connected Clients (Shard 3)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients4|Yes|Connected Clients (Shard 4)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients5|Yes|Connected Clients (Shard 5)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients6|Yes|Connected Clients (Shard 6)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients7|Yes|Connected Clients (Shard 7)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients8|Yes|Connected Clients (Shard 8)|Count|Maximum|No Dimensions|No Dimensions|
-|connectedclients9|Yes|Connected Clients (Shard 9)|Count|Maximum|No Dimensions|No Dimensions|
-|errors|Yes|Errors|Count|Maximum|No Dimensions|ShardId, ErrorType|
-|evictedkeys|Yes|Evicted Keys|Count|Total|No Dimensions|ShardId|
-|evictedkeys0|Yes|Evicted Keys (Shard 0)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys1|Yes|Evicted Keys (Shard 1)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys2|Yes|Evicted Keys (Shard 2)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys3|Yes|Evicted Keys (Shard 3)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys4|Yes|Evicted Keys (Shard 4)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys5|Yes|Evicted Keys (Shard 5)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys6|Yes|Evicted Keys (Shard 6)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys7|Yes|Evicted Keys (Shard 7)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys8|Yes|Evicted Keys (Shard 8)|Count|Total|No Dimensions|No Dimensions|
-|evictedkeys9|Yes|Evicted Keys (Shard 9)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys|Yes|Expired Keys|Count|Total|No Dimensions|ShardId|
-|expiredkeys0|Yes|Expired Keys (Shard 0)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys1|Yes|Expired Keys (Shard 1)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys2|Yes|Expired Keys (Shard 2)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys3|Yes|Expired Keys (Shard 3)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys4|Yes|Expired Keys (Shard 4)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys5|Yes|Expired Keys (Shard 5)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys6|Yes|Expired Keys (Shard 6)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys7|Yes|Expired Keys (Shard 7)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys8|Yes|Expired Keys (Shard 8)|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys9|Yes|Expired Keys (Shard 9)|Count|Total|No Dimensions|No Dimensions|
-|getcommands|Yes|Gets|Count|Total|No Dimensions|ShardId|
-|getcommands0|Yes|Gets (Shard 0)|Count|Total|No Dimensions|No Dimensions|
-|getcommands1|Yes|Gets (Shard 1)|Count|Total|No Dimensions|No Dimensions|
-|getcommands2|Yes|Gets (Shard 2)|Count|Total|No Dimensions|No Dimensions|
-|getcommands3|Yes|Gets (Shard 3)|Count|Total|No Dimensions|No Dimensions|
-|getcommands4|Yes|Gets (Shard 4)|Count|Total|No Dimensions|No Dimensions|
-|getcommands5|Yes|Gets (Shard 5)|Count|Total|No Dimensions|No Dimensions|
-|getcommands6|Yes|Gets (Shard 6)|Count|Total|No Dimensions|No Dimensions|
-|getcommands7|Yes|Gets (Shard 7)|Count|Total|No Dimensions|No Dimensions|
-|getcommands8|Yes|Gets (Shard 8)|Count|Total|No Dimensions|No Dimensions|
-|getcommands9|Yes|Gets (Shard 9)|Count|Total|No Dimensions|No Dimensions|
-|operationsPerSecond|Yes|Operations Per Second|Count|Maximum|No Dimensions|ShardId|
-|operationsPerSecond0|Yes|Operations Per Second (Shard 0)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond1|Yes|Operations Per Second (Shard 1)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond2|Yes|Operations Per Second (Shard 2)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond3|Yes|Operations Per Second (Shard 3)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond4|Yes|Operations Per Second (Shard 4)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond5|Yes|Operations Per Second (Shard 5)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond6|Yes|Operations Per Second (Shard 6)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond7|Yes|Operations Per Second (Shard 7)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond8|Yes|Operations Per Second (Shard 8)|Count|Maximum|No Dimensions|No Dimensions|
-|operationsPerSecond9|Yes|Operations Per Second (Shard 9)|Count|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime|Yes|CPU|Percent|Maximum|No Dimensions|ShardId|
-|percentProcessorTime0|Yes|CPU (Shard 0)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime1|Yes|CPU (Shard 1)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime2|Yes|CPU (Shard 2)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime3|Yes|CPU (Shard 3)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime4|Yes|CPU (Shard 4)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime5|Yes|CPU (Shard 5)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime6|Yes|CPU (Shard 6)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime7|Yes|CPU (Shard 7)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime8|Yes|CPU (Shard 8)|Percent|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime9|Yes|CPU (Shard 9)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad|Yes|Server Load|Percent|Maximum|No Dimensions|ShardId|
-|serverLoad0|Yes|Server Load (Shard 0)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad1|Yes|Server Load (Shard 1)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad2|Yes|Server Load (Shard 2)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad3|Yes|Server Load (Shard 3)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad4|Yes|Server Load (Shard 4)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad5|Yes|Server Load (Shard 5)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad6|Yes|Server Load (Shard 6)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad7|Yes|Server Load (Shard 7)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad8|Yes|Server Load (Shard 8)|Percent|Maximum|No Dimensions|No Dimensions|
-|serverLoad9|Yes|Server Load (Shard 9)|Percent|Maximum|No Dimensions|No Dimensions|
-|setcommands|Yes|Sets|Count|Total|No Dimensions|ShardId|
-|setcommands0|Yes|Sets (Shard 0)|Count|Total|No Dimensions|No Dimensions|
-|setcommands1|Yes|Sets (Shard 1)|Count|Total|No Dimensions|No Dimensions|
-|setcommands2|Yes|Sets (Shard 2)|Count|Total|No Dimensions|No Dimensions|
-|setcommands3|Yes|Sets (Shard 3)|Count|Total|No Dimensions|No Dimensions|
-|setcommands4|Yes|Sets (Shard 4)|Count|Total|No Dimensions|No Dimensions|
-|setcommands5|Yes|Sets (Shard 5)|Count|Total|No Dimensions|No Dimensions|
-|setcommands6|Yes|Sets (Shard 6)|Count|Total|No Dimensions|No Dimensions|
-|setcommands7|Yes|Sets (Shard 7)|Count|Total|No Dimensions|No Dimensions|
-|setcommands8|Yes|Sets (Shard 8)|Count|Total|No Dimensions|No Dimensions|
-|setcommands9|Yes|Sets (Shard 9)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed|Yes|Total Operations|Count|Total|No Dimensions|ShardId|
-|totalcommandsprocessed0|Yes|Total Operations (Shard 0)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed1|Yes|Total Operations (Shard 1)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed2|Yes|Total Operations (Shard 2)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed3|Yes|Total Operations (Shard 3)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed4|Yes|Total Operations (Shard 4)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed5|Yes|Total Operations (Shard 5)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed6|Yes|Total Operations (Shard 6)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed7|Yes|Total Operations (Shard 7)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed8|Yes|Total Operations (Shard 8)|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed9|Yes|Total Operations (Shard 9)|Count|Total|No Dimensions|No Dimensions|
-|totalkeys|Yes|Total Keys|Count|Maximum|No Dimensions|ShardId|
-|totalkeys0|Yes|Total Keys (Shard 0)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys1|Yes|Total Keys (Shard 1)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys2|Yes|Total Keys (Shard 2)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys3|Yes|Total Keys (Shard 3)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys4|Yes|Total Keys (Shard 4)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys5|Yes|Total Keys (Shard 5)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys6|Yes|Total Keys (Shard 6)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys7|Yes|Total Keys (Shard 7)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys8|Yes|Total Keys (Shard 8)|Count|Maximum|No Dimensions|No Dimensions|
-|totalkeys9|Yes|Total Keys (Shard 9)|Count|Maximum|No Dimensions|No Dimensions|
-|usedmemory|Yes|Used Memory|Bytes|Maximum|No Dimensions|ShardId|
-|usedmemory0|Yes|Used Memory (Shard 0)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory1|Yes|Used Memory (Shard 1)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory2|Yes|Used Memory (Shard 2)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory3|Yes|Used Memory (Shard 3)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory4|Yes|Used Memory (Shard 4)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory5|Yes|Used Memory (Shard 5)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory6|Yes|Used Memory (Shard 6)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory7|Yes|Used Memory (Shard 7)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory8|Yes|Used Memory (Shard 8)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemory9|Yes|Used Memory (Shard 9)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum|No Dimensions|ShardId|
-|usedmemoryRss|Yes|Used Memory RSS|Bytes|Maximum|No Dimensions|ShardId|
-|usedmemoryRss0|Yes|Used Memory RSS (Shard 0)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss1|Yes|Used Memory RSS (Shard 1)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss2|Yes|Used Memory RSS (Shard 2)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss3|Yes|Used Memory RSS (Shard 3)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss4|Yes|Used Memory RSS (Shard 4)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss5|Yes|Used Memory RSS (Shard 5)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss6|Yes|Used Memory RSS (Shard 6)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss7|Yes|Used Memory RSS (Shard 7)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss8|Yes|Used Memory RSS (Shard 8)|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemoryRss9|Yes|Used Memory RSS (Shard 9)|Bytes|Maximum|No Dimensions|No Dimensions|
+|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||ShardId|
+|cacheRead0|Yes|Cache Read (Shard 0)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead1|Yes|Cache Read (Shard 1)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead2|Yes|Cache Read (Shard 2)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead3|Yes|Cache Read (Shard 3)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead4|Yes|Cache Read (Shard 4)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead5|Yes|Cache Read (Shard 5)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead6|Yes|Cache Read (Shard 6)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead7|Yes|Cache Read (Shard 7)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead8|Yes|Cache Read (Shard 8)|BytesPerSecond|Maximum||No Dimensions|
+|cacheRead9|Yes|Cache Read (Shard 9)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum||ShardId|
+|cacheWrite0|Yes|Cache Write (Shard 0)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite1|Yes|Cache Write (Shard 1)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite2|Yes|Cache Write (Shard 2)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite3|Yes|Cache Write (Shard 3)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite4|Yes|Cache Write (Shard 4)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite5|Yes|Cache Write (Shard 5)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite6|Yes|Cache Write (Shard 6)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite7|Yes|Cache Write (Shard 7)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite8|Yes|Cache Write (Shard 8)|BytesPerSecond|Maximum||No Dimensions|
+|cacheWrite9|Yes|Cache Write (Shard 9)|BytesPerSecond|Maximum||No Dimensions|
+|connectedclients|Yes|Connected Clients|Count|Maximum||ShardId|
+|connectedclients0|Yes|Connected Clients (Shard 0)|Count|Maximum||No Dimensions|
+|connectedclients1|Yes|Connected Clients (Shard 1)|Count|Maximum||No Dimensions|
+|connectedclients2|Yes|Connected Clients (Shard 2)|Count|Maximum||No Dimensions|
+|connectedclients3|Yes|Connected Clients (Shard 3)|Count|Maximum||No Dimensions|
+|connectedclients4|Yes|Connected Clients (Shard 4)|Count|Maximum||No Dimensions|
+|connectedclients5|Yes|Connected Clients (Shard 5)|Count|Maximum||No Dimensions|
+|connectedclients6|Yes|Connected Clients (Shard 6)|Count|Maximum||No Dimensions|
+|connectedclients7|Yes|Connected Clients (Shard 7)|Count|Maximum||No Dimensions|
+|connectedclients8|Yes|Connected Clients (Shard 8)|Count|Maximum||No Dimensions|
+|connectedclients9|Yes|Connected Clients (Shard 9)|Count|Maximum||No Dimensions|
+|errors|Yes|Errors|Count|Maximum||ShardId, ErrorType|
+|evictedkeys|Yes|Evicted Keys|Count|Total||ShardId|
+|evictedkeys0|Yes|Evicted Keys (Shard 0)|Count|Total||No Dimensions|
+|evictedkeys1|Yes|Evicted Keys (Shard 1)|Count|Total||No Dimensions|
+|evictedkeys2|Yes|Evicted Keys (Shard 2)|Count|Total||No Dimensions|
+|evictedkeys3|Yes|Evicted Keys (Shard 3)|Count|Total||No Dimensions|
+|evictedkeys4|Yes|Evicted Keys (Shard 4)|Count|Total||No Dimensions|
+|evictedkeys5|Yes|Evicted Keys (Shard 5)|Count|Total||No Dimensions|
+|evictedkeys6|Yes|Evicted Keys (Shard 6)|Count|Total||No Dimensions|
+|evictedkeys7|Yes|Evicted Keys (Shard 7)|Count|Total||No Dimensions|
+|evictedkeys8|Yes|Evicted Keys (Shard 8)|Count|Total||No Dimensions|
+|evictedkeys9|Yes|Evicted Keys (Shard 9)|Count|Total||No Dimensions|
+|expiredkeys|Yes|Expired Keys|Count|Total||ShardId|
+|expiredkeys0|Yes|Expired Keys (Shard 0)|Count|Total||No Dimensions|
+|expiredkeys1|Yes|Expired Keys (Shard 1)|Count|Total||No Dimensions|
+|expiredkeys2|Yes|Expired Keys (Shard 2)|Count|Total||No Dimensions|
+|expiredkeys3|Yes|Expired Keys (Shard 3)|Count|Total||No Dimensions|
+|expiredkeys4|Yes|Expired Keys (Shard 4)|Count|Total||No Dimensions|
+|expiredkeys5|Yes|Expired Keys (Shard 5)|Count|Total||No Dimensions|
+|expiredkeys6|Yes|Expired Keys (Shard 6)|Count|Total||No Dimensions|
+|expiredkeys7|Yes|Expired Keys (Shard 7)|Count|Total||No Dimensions|
+|expiredkeys8|Yes|Expired Keys (Shard 8)|Count|Total||No Dimensions|
+|expiredkeys9|Yes|Expired Keys (Shard 9)|Count|Total||No Dimensions|
+|getcommands|Yes|Gets|Count|Total||ShardId|
+|getcommands0|Yes|Gets (Shard 0)|Count|Total||No Dimensions|
+|getcommands1|Yes|Gets (Shard 1)|Count|Total||No Dimensions|
+|getcommands2|Yes|Gets (Shard 2)|Count|Total||No Dimensions|
+|getcommands3|Yes|Gets (Shard 3)|Count|Total||No Dimensions|
+|getcommands4|Yes|Gets (Shard 4)|Count|Total||No Dimensions|
+|getcommands5|Yes|Gets (Shard 5)|Count|Total||No Dimensions|
+|getcommands6|Yes|Gets (Shard 6)|Count|Total||No Dimensions|
+|getcommands7|Yes|Gets (Shard 7)|Count|Total||No Dimensions|
+|getcommands8|Yes|Gets (Shard 8)|Count|Total||No Dimensions|
+|getcommands9|Yes|Gets (Shard 9)|Count|Total||No Dimensions|
+|operationsPerSecond|Yes|Operations Per Second|Count|Maximum||ShardId|
+|operationsPerSecond0|Yes|Operations Per Second (Shard 0)|Count|Maximum||No Dimensions|
+|operationsPerSecond1|Yes|Operations Per Second (Shard 1)|Count|Maximum||No Dimensions|
+|operationsPerSecond2|Yes|Operations Per Second (Shard 2)|Count|Maximum||No Dimensions|
+|operationsPerSecond3|Yes|Operations Per Second (Shard 3)|Count|Maximum||No Dimensions|
+|operationsPerSecond4|Yes|Operations Per Second (Shard 4)|Count|Maximum||No Dimensions|
+|operationsPerSecond5|Yes|Operations Per Second (Shard 5)|Count|Maximum||No Dimensions|
+|operationsPerSecond6|Yes|Operations Per Second (Shard 6)|Count|Maximum||No Dimensions|
+|operationsPerSecond7|Yes|Operations Per Second (Shard 7)|Count|Maximum||No Dimensions|
+|operationsPerSecond8|Yes|Operations Per Second (Shard 8)|Count|Maximum||No Dimensions|
+|operationsPerSecond9|Yes|Operations Per Second (Shard 9)|Count|Maximum||No Dimensions|
+|percentProcessorTime|Yes|CPU|Percent|Maximum||ShardId|
+|percentProcessorTime0|Yes|CPU (Shard 0)|Percent|Maximum||No Dimensions|
+|percentProcessorTime1|Yes|CPU (Shard 1)|Percent|Maximum||No Dimensions|
+|percentProcessorTime2|Yes|CPU (Shard 2)|Percent|Maximum||No Dimensions|
+|percentProcessorTime3|Yes|CPU (Shard 3)|Percent|Maximum||No Dimensions|
+|percentProcessorTime4|Yes|CPU (Shard 4)|Percent|Maximum||No Dimensions|
+|percentProcessorTime5|Yes|CPU (Shard 5)|Percent|Maximum||No Dimensions|
+|percentProcessorTime6|Yes|CPU (Shard 6)|Percent|Maximum||No Dimensions|
+|percentProcessorTime7|Yes|CPU (Shard 7)|Percent|Maximum||No Dimensions|
+|percentProcessorTime8|Yes|CPU (Shard 8)|Percent|Maximum||No Dimensions|
+|percentProcessorTime9|Yes|CPU (Shard 9)|Percent|Maximum||No Dimensions|
+|serverLoad|Yes|Server Load|Percent|Maximum||ShardId|
+|serverLoad0|Yes|Server Load (Shard 0)|Percent|Maximum||No Dimensions|
+|serverLoad1|Yes|Server Load (Shard 1)|Percent|Maximum||No Dimensions|
+|serverLoad2|Yes|Server Load (Shard 2)|Percent|Maximum||No Dimensions|
+|serverLoad3|Yes|Server Load (Shard 3)|Percent|Maximum||No Dimensions|
+|serverLoad4|Yes|Server Load (Shard 4)|Percent|Maximum||No Dimensions|
+|serverLoad5|Yes|Server Load (Shard 5)|Percent|Maximum||No Dimensions|
+|serverLoad6|Yes|Server Load (Shard 6)|Percent|Maximum||No Dimensions|
+|serverLoad7|Yes|Server Load (Shard 7)|Percent|Maximum||No Dimensions|
+|serverLoad8|Yes|Server Load (Shard 8)|Percent|Maximum||No Dimensions|
+|serverLoad9|Yes|Server Load (Shard 9)|Percent|Maximum||No Dimensions|
+|setcommands|Yes|Sets|Count|Total||ShardId|
+|setcommands0|Yes|Sets (Shard 0)|Count|Total||No Dimensions|
+|setcommands1|Yes|Sets (Shard 1)|Count|Total||No Dimensions|
+|setcommands2|Yes|Sets (Shard 2)|Count|Total||No Dimensions|
+|setcommands3|Yes|Sets (Shard 3)|Count|Total||No Dimensions|
+|setcommands4|Yes|Sets (Shard 4)|Count|Total||No Dimensions|
+|setcommands5|Yes|Sets (Shard 5)|Count|Total||No Dimensions|
+|setcommands6|Yes|Sets (Shard 6)|Count|Total||No Dimensions|
+|setcommands7|Yes|Sets (Shard 7)|Count|Total||No Dimensions|
+|setcommands8|Yes|Sets (Shard 8)|Count|Total||No Dimensions|
+|setcommands9|Yes|Sets (Shard 9)|Count|Total||No Dimensions|
+|totalcommandsprocessed|Yes|Total Operations|Count|Total||ShardId|
+|totalcommandsprocessed0|Yes|Total Operations (Shard 0)|Count|Total||No Dimensions|
+|totalcommandsprocessed1|Yes|Total Operations (Shard 1)|Count|Total||No Dimensions|
+|totalcommandsprocessed2|Yes|Total Operations (Shard 2)|Count|Total||No Dimensions|
+|totalcommandsprocessed3|Yes|Total Operations (Shard 3)|Count|Total||No Dimensions|
+|totalcommandsprocessed4|Yes|Total Operations (Shard 4)|Count|Total||No Dimensions|
+|totalcommandsprocessed5|Yes|Total Operations (Shard 5)|Count|Total||No Dimensions|
+|totalcommandsprocessed6|Yes|Total Operations (Shard 6)|Count|Total||No Dimensions|
+|totalcommandsprocessed7|Yes|Total Operations (Shard 7)|Count|Total||No Dimensions|
+|totalcommandsprocessed8|Yes|Total Operations (Shard 8)|Count|Total||No Dimensions|
+|totalcommandsprocessed9|Yes|Total Operations (Shard 9)|Count|Total||No Dimensions|
+|totalkeys|Yes|Total Keys|Count|Maximum||ShardId|
+|totalkeys0|Yes|Total Keys (Shard 0)|Count|Maximum||No Dimensions|
+|totalkeys1|Yes|Total Keys (Shard 1)|Count|Maximum||No Dimensions|
+|totalkeys2|Yes|Total Keys (Shard 2)|Count|Maximum||No Dimensions|
+|totalkeys3|Yes|Total Keys (Shard 3)|Count|Maximum||No Dimensions|
+|totalkeys4|Yes|Total Keys (Shard 4)|Count|Maximum||No Dimensions|
+|totalkeys5|Yes|Total Keys (Shard 5)|Count|Maximum||No Dimensions|
+|totalkeys6|Yes|Total Keys (Shard 6)|Count|Maximum||No Dimensions|
+|totalkeys7|Yes|Total Keys (Shard 7)|Count|Maximum||No Dimensions|
+|totalkeys8|Yes|Total Keys (Shard 8)|Count|Maximum||No Dimensions|
+|totalkeys9|Yes|Total Keys (Shard 9)|Count|Maximum||No Dimensions|
+|usedmemory|Yes|Used Memory|Bytes|Maximum||ShardId|
+|usedmemory0|Yes|Used Memory (Shard 0)|Bytes|Maximum||No Dimensions|
+|usedmemory1|Yes|Used Memory (Shard 1)|Bytes|Maximum||No Dimensions|
+|usedmemory2|Yes|Used Memory (Shard 2)|Bytes|Maximum||No Dimensions|
+|usedmemory3|Yes|Used Memory (Shard 3)|Bytes|Maximum||No Dimensions|
+|usedmemory4|Yes|Used Memory (Shard 4)|Bytes|Maximum||No Dimensions|
+|usedmemory5|Yes|Used Memory (Shard 5)|Bytes|Maximum||No Dimensions|
+|usedmemory6|Yes|Used Memory (Shard 6)|Bytes|Maximum||No Dimensions|
+|usedmemory7|Yes|Used Memory (Shard 7)|Bytes|Maximum||No Dimensions|
+|usedmemory8|Yes|Used Memory (Shard 8)|Bytes|Maximum||No Dimensions|
+|usedmemory9|Yes|Used Memory (Shard 9)|Bytes|Maximum||No Dimensions|
+|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum||ShardId|
+|usedmemoryRss|Yes|Used Memory RSS|Bytes|Maximum||ShardId|
+|usedmemoryRss0|Yes|Used Memory RSS (Shard 0)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss1|Yes|Used Memory RSS (Shard 1)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss2|Yes|Used Memory RSS (Shard 2)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss3|Yes|Used Memory RSS (Shard 3)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss4|Yes|Used Memory RSS (Shard 4)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss5|Yes|Used Memory RSS (Shard 5)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss6|Yes|Used Memory RSS (Shard 6)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss7|Yes|Used Memory RSS (Shard 7)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss8|Yes|Used Memory RSS (Shard 8)|Bytes|Maximum||No Dimensions|
+|usedmemoryRss9|Yes|Used Memory RSS (Shard 9)|Bytes|Maximum||No Dimensions|
 
 
 ## Microsoft.Cache/redisEnterprise
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|cachehits|Yes|Cache Hits|Count|Total|No Dimensions|No Dimensions|
+|cachehits|Yes|Cache Hits|Count|Total||No Dimensions|
 |cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average|No Dimensions|InstanceId|
-|cachemisses|Yes|Cache Misses|Count|Total|No Dimensions|InstanceId|
-|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum|No Dimensions|InstanceId|
-|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum|No Dimensions|InstanceId|
-|connectedclients|Yes|Connected Clients|Count|Maximum|No Dimensions|InstanceId|
-|errors|Yes|Errors|Count|Maximum|No Dimensions|InstanceId, ErrorType|
-|evictedkeys|Yes|Evicted Keys|Count|Total|No Dimensions|No Dimensions|
-|expiredkeys|Yes|Expired Keys|Count|Total|No Dimensions|No Dimensions|
-|getcommands|Yes|Gets|Count|Total|No Dimensions|No Dimensions|
-|operationsPerSecond|Yes|Operations Per Second|Count|Maximum|No Dimensions|No Dimensions|
-|percentProcessorTime|Yes|CPU|Percent|Maximum|No Dimensions|InstanceId|
-|serverLoad|Yes|Server Load|Percent|Maximum|No Dimensions|No Dimensions|
-|setcommands|Yes|Sets|Count|Total|No Dimensions|No Dimensions|
-|totalcommandsprocessed|Yes|Total Operations|Count|Total|No Dimensions|No Dimensions|
-|totalkeys|Yes|Total Keys|Count|Maximum|No Dimensions|No Dimensions|
-|usedmemory|Yes|Used Memory|Bytes|Maximum|No Dimensions|No Dimensions|
-|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum|No Dimensions|InstanceId|
+|cachemisses|Yes|Cache Misses|Count|Total||InstanceId|
+|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||InstanceId|
+|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum||InstanceId|
+|connectedclients|Yes|Connected Clients|Count|Maximum||InstanceId|
+|errors|Yes|Errors|Count|Maximum||InstanceId, ErrorType|
+|evictedkeys|Yes|Evicted Keys|Count|Total||No Dimensions|
+|expiredkeys|Yes|Expired Keys|Count|Total||No Dimensions|
+|getcommands|Yes|Gets|Count|Total||No Dimensions|
+|operationsPerSecond|Yes|Operations Per Second|Count|Maximum||No Dimensions|
+|percentProcessorTime|Yes|CPU|Percent|Maximum||InstanceId|
+|serverLoad|Yes|Server Load|Percent|Maximum||No Dimensions|
+|setcommands|Yes|Sets|Count|Total||No Dimensions|
+|totalcommandsprocessed|Yes|Total Operations|Count|Total||No Dimensions|
+|totalkeys|Yes|Total Keys|Count|Maximum||No Dimensions|
+|usedmemory|Yes|Used Memory|Bytes|Maximum||No Dimensions|
+|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum||InstanceId|
 
 
 ## Microsoft.Cdn/cdnwebapplicationfirewallpolicies
@@ -1097,41 +1097,41 @@ For important additional information, see [Monitoring Agents Overview](../agents
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|FailedRuns|Yes|Failed Runs|Count|Total|No Dimensions|pipelineName, activityName|
-|SuccessfulRuns|Yes|Successful Runs|Count|Total|No Dimensions|pipelineName, activityName|
+|FailedRuns|Yes|Failed Runs|Count|Total||pipelineName, activityName|
+|SuccessfulRuns|Yes|Successful Runs|Count|Total||pipelineName, activityName|
 
 
 ## Microsoft.DataFactory/factories
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ActivityCancelledRuns|Yes|Cancelled activity runs metrics|Count|Total|No Dimensions|ActivityType, PipelineName, FailureType, Name|
-|ActivityFailedRuns|Yes|Failed activity runs metrics|Count|Total|No Dimensions|ActivityType, PipelineName, FailureType, Name|
-|ActivitySucceededRuns|Yes|Succeeded activity runs metrics|Count|Total|No Dimensions|ActivityType, PipelineName, FailureType, Name|
-|FactorySizeInGbUnits|Yes|Total factory size (GB unit)|Count|Maximum|No Dimensions|No Dimensions|
+|ActivityCancelledRuns|Yes|Cancelled activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
+|ActivityFailedRuns|Yes|Failed activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
+|ActivitySucceededRuns|Yes|Succeeded activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
+|FactorySizeInGbUnits|Yes|Total factory size (GB unit)|Count|Maximum||No Dimensions|
 |IntegrationRuntimeAvailableMemory|Yes|Integration runtime available memory|Bytes|Average|No Dimensions|IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeAvailableNodeNumber|Yes|Integration runtime available node count|Count|Average|No Dimensions|IntegrationRuntimeName|
 |IntegrationRuntimeAverageTaskPickupDelay|Yes|Integration runtime queue duration|Seconds|Average|No Dimensions|IntegrationRuntimeName|
 |IntegrationRuntimeCpuPercentage|Yes|Integration runtime CPU utilization|Percent|Average|No Dimensions|IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeQueueLength|Yes|Integration runtime queue length|Count|Average|No Dimensions|IntegrationRuntimeName|
-|MaxAllowedFactorySizeInGbUnits|Yes|Maximum allowed factory size (GB unit)|Count|Maximum|No Dimensions|No Dimensions|
-|MaxAllowedResourceCount|Yes|Maximum allowed entities count|Count|Maximum|No Dimensions|No Dimensions|
-|PipelineCancelledRuns|Yes|Cancelled pipeline runs metrics|Count|Total|No Dimensions|FailureType, Name|
-|PipelineElapsedTimeRuns|Yes|Elapsed Time Pipeline Runs Metrics|Count|Total|No Dimensions|RunId, Name|
-|PipelineFailedRuns|Yes|Failed pipeline runs metrics|Count|Total|No Dimensions|FailureType, Name|
-|PipelineSucceededRuns|Yes|Succeeded pipeline runs metrics|Count|Total|No Dimensions|FailureType, Name|
-|ResourceCount|Yes|Total entities count|Count|Maximum|No Dimensions|No Dimensions|
-|SSISIntegrationRuntimeStartCancel|Yes|Cancelled SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStartFailed|Yes|Failed SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStartSucceeded|Yes|Succeeded SSIS integration runtime start metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStopStuck|Yes|Stuck SSIS integration runtime stop metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISIntegrationRuntimeStopSucceeded|Yes|Succeeded SSIS integration runtime stop metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionCancel|Yes|Cancelled SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionFailed|Yes|Failed SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|SSISPackageExecutionSucceeded|Yes|Succeeded SSIS package execution metrics|Count|Total|No Dimensions|IntegrationRuntimeName|
-|TriggerCancelledRuns|Yes|Cancelled trigger runs metrics|Count|Total|No Dimensions|Name, FailureType|
-|TriggerFailedRuns|Yes|Failed trigger runs metrics|Count|Total|No Dimensions|Name, FailureType|
-|TriggerSucceededRuns|Yes|Succeeded trigger runs metrics|Count|Total|No Dimensions|Name, FailureType|
+|MaxAllowedFactorySizeInGbUnits|Yes|Maximum allowed factory size (GB unit)|Count|Maximum||No Dimensions|
+|MaxAllowedResourceCount|Yes|Maximum allowed entities count|Count|Maximum||No Dimensions|
+|PipelineCancelledRuns|Yes|Cancelled pipeline runs metrics|Count|Total||FailureType, Name|
+|PipelineElapsedTimeRuns|Yes|Elapsed Time Pipeline Runs Metrics|Count|Total||RunId, Name|
+|PipelineFailedRuns|Yes|Failed pipeline runs metrics|Count|Total||FailureType, Name|
+|PipelineSucceededRuns|Yes|Succeeded pipeline runs metrics|Count|Total||FailureType, Name|
+|ResourceCount|Yes|Total entities count|Count|Maximum||No Dimensions|
+|SSISIntegrationRuntimeStartCancel|Yes|Cancelled SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStartFailed|Yes|Failed SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStartSucceeded|Yes|Succeeded SSIS integration runtime start metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStopStuck|Yes|Stuck SSIS integration runtime stop metrics|Count|Total||IntegrationRuntimeName|
+|SSISIntegrationRuntimeStopSucceeded|Yes|Succeeded SSIS integration runtime stop metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionCancel|Yes|Cancelled SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionFailed|Yes|Failed SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|SSISPackageExecutionSucceeded|Yes|Succeeded SSIS package execution metrics|Count|Total||IntegrationRuntimeName|
+|TriggerCancelledRuns|Yes|Cancelled trigger runs metrics|Count|Total||Name, FailureType|
+|TriggerFailedRuns|Yes|Failed trigger runs metrics|Count|Total||Name, FailureType|
+|TriggerSucceededRuns|Yes|Succeeded trigger runs metrics|Count|Total||Name, FailureType|
 
 
 ## Microsoft.DataLakeAnalytics/accounts
