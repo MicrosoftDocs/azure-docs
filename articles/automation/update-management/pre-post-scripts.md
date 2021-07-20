@@ -98,7 +98,7 @@ The following example is a JSON string passed to the **SoftwareUpdateConfigurati
     "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
     "SoftwareUpdateConfigurationSettings": {
       "operatingSystem": "Windows",
-      "duration": "PT2H0M",
+      "duration": "02:00:00",
       "windows": {
         "excludedKbNumbers": [
           "168934",
