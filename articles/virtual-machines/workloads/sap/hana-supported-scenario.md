@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 This article describes the supported scenarios and architectural details for HANA Large Instances (HLI).
 
 >[!NOTE]
->If your required scenario is not mentioned in this article, contact the Microsoft Service Management team to assess your requirements.
+>If your scenario isn't mentioned in this article, contact the Microsoft Service Management team to assess your requirements.
 Before you set up the HLI unit, validate the design with SAP or your service implementation partner.
 
 ## Terms and definitions
@@ -74,7 +74,7 @@ If necessary, you can define more NIC cards on your own. However, the configurat
 
 >[!NOTE]
 >You might find additional interfaces that are physical interfaces or bonding. 
-You should consider only the previously mentioned interfaces for your use case. Any others can be ignored.
+Consider only the previously mentioned interfaces for your use case. Ignore any others.
 
 The distribution for units with two assigned IP addresses should look as follows:
 
@@ -793,7 +793,7 @@ The following mount points are preconfigured:
 
 ## Next steps
 
-Learn about:
+Learn about deploying HANA Large Instances.
 
-- [Infrastructure and connectivity](./hana-overview-infrastructure-connectivity.md) for HANA Large Instances
-- [High availability and disaster recovery](./hana-overview-high-availability-disaster-recovery.md) for HANA Large Instances
+> [!div class="nextstepaction"]
+> [SAP HANA (Large Instances) deployment](./hana-overview-infrastructure-connectivity.md)
