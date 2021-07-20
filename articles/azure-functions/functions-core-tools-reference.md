@@ -14,7 +14,7 @@ Core Tools commands are organized into the following contexts, each providing a 
 | Command context | Description |
 | ----- | ----- |
 | [`func`](#func-init) | Commands used to create and run functions on your local computer. |
-| [`func azure`](#func-azure-functionapp) | Commands for working with Azure resources, including publishing. |
+| [`func azure`](#func-azure-functionapp-fetch-app-settings) | Commands for working with Azure resources, including publishing. |
 | [`func durable`](#func-durable-delete-task-hub)    | Commands for working with [Durable Functions](./durable/durable-functions-overview.md). |
 | `func extensions` | Commands for installing and managing extensions. |
 | `func kubernetes` | Commands for working with Kubernetes and Azure Functions. |
@@ -217,15 +217,16 @@ The following publish options apply, based on version:
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
+| **`--slot`** | Optional name of a specific slot to which to publish. |
 
 # [v1.x](#tab/v1)
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
 
 ---
 

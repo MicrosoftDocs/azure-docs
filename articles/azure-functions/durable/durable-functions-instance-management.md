@@ -249,10 +249,10 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### Azure Functions Core Tools
 
-It's also possible to get the status of an orchestration instance directly by using the Azure Functions Core Tools `durable get-runtime-status` command.
+It's also possible to get the status of an orchestration instance directly by using the [`func durable get-runtime-status` command](../functions-core-tools-reference.md#func-durable-get-runtime-status) in Core Tools.
 
 > [!NOTE]
-> The Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
+> Core Tools commands are currently only supported when using the default [Azure Storage provider](durable-functions-storage-providers.md) for persisting runtime state.
 
 The `durable get-runtime-status` command takes the following parameters:
 

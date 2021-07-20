@@ -19,7 +19,7 @@ Developing functions on your local computer and publishing them to Azure using C
 > * [Install the Core Tools and dependencies.](#v2)
 > * [Create a function app project from a language-specific template.](#create-a-local-functions-project)
 > * [Register trigger and binding extensions.](#register-extensions)
-> * [Define Storage and other connections.](#local-settings-file)
+> * Define Storage and other connections.
 > * [Create a function from a trigger and language-specific template.](#create-func)
 > * [Run the function locally.](#start)
 > * [Publish the project to Azure.](#publish)
@@ -153,7 +153,7 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 ## Create a local Functions project
 
-A Functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings-file), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
+A Functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
 
 In the terminal window or from a command prompt, run the following command to create the project and local Git repository:
 
