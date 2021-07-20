@@ -138,15 +138,15 @@ You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who i
 1. Save the *TrustFrameworkExtensions.xml* policy file.
 1. Copy the *ProfileEdit.xml* file that you downloaded with the starter pack and name it *ProfileEditPasswordChange.xml*.
 1. Open the new file and update the **PolicyId** attribute with a unique value. This value is the name of your policy. For example, *B2C_1A_profile_edit_password_change*.
-1. Modify the **ReferenceId** attribute in **\<DefaultUserJourney\>** to match the ID of the new user journey that you created. For example, *PasswordChange*.
+1. Modify the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created. For example, *PasswordChange*.
 1. Save your changes.
 
 ## Upload and test the policy
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. To ensure that you're using the directory that contains your Azure AD B2C tenant, in the top menu, select the **Directory + subscription** filter, and then choose the directory that contains your tenant.
-1. In the top-left corner of the Azure portal, select **All services**,  and then search for and select **Azure AD B2C**.
-1. Select **Identity Experience Framework**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the portal toolbar, select the **Directory + subscription** icon, and then select the directory that contains your Azure AD B2C tenant.
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. In the left menu under **Policies**, select **Identity Experience Framework**.
 1. In **Custom Policies**, select **Upload Policy**.
 1. Select **Overwrite the policy if it exists**, and then search for and select the *TrustFrameworkExtensions.xml* file.
 1. Select **Upload**.
@@ -160,7 +160,7 @@ You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who i
 
 ## Next steps
 
-* Find the sample policy on [GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
+* Find the [sample policy on GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 * Learn about how you can [configure password complexity in Azure AD B2C](password-complexity.md).
 * Set up a [password reset flow](add-password-reset-policy.md).
 
