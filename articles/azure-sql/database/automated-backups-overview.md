@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: SQLSourabh 
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
-ms.date: 07/19/2021
+ms.date: 07/20/2021
 ---
 # Automated backups - Azure SQL Database & Azure SQL Managed Instance
 
@@ -60,16 +60,16 @@ You can use these backups to:
 > [!NOTE]
 > In Azure Storage, the term *replication* refers to copying blobs from one location to another. In SQL, *database replication* refers to various technologies used to keep multiple secondary databases synchronized with a primary database.
 
-### <a id="restore-capabilities">Restore capabilities and features of Azure SQL Database and Azure SQL Managed Instance</a>
+### <a id="restore-capabilities"></a>Restore capabilities and features of Azure SQL Database and Azure SQL Managed Instance
 
 This table summarizes the capabilities and features of point in time restore (PITR), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
 
-| **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long term backup restore |           
+| **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long-term backup restore |           
 |----|--|--|--|
 | **Types of SQL backup** | Full, Differential, Log | Replicated copies of PITR backups | Only the full backups | 
-| **Recovery Point Objective (RPO)** |  5-10 minutes, based on compute size and amount of database activity | Up to 1 hour, based on geo-replication\*  |  1 week (or user's policy)|
-| **Recovery Time Objective (RTO)** | Up to 12 hours, see [Recovery](recovery-using-backups.md#recovery-time) | Up to 12 hours, see [Recovery](recovery-using-backups.md#recovery-time) | Dependent on compute size and size of backup | 
-| **Retention** | 7 days by default, Up to 35 days |  Enabled by default, same as source.\*\* | Not enabled by default, Retention Up to 10 years |     
+| **Recovery Point Objective (RPO)** |  5-10 minutes, based on compute size and amount of database activity. | Up to 1 hour, based on geo-replication.\*  |  One week (or user's policy).|
+| **Recovery Time Objective (RTO)** | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | 
+| **Retention** | 7 days by default, Up to 35 days |  Enabled by default, same as source.\*\* | Not enabled by default, Retention Up to 10 years. |     
 | **Azure storage**  | Geo-redundant by default. Can optionally configure zone or locally redundant storage. | Available when PITR backup storage redundancy is set to Geo-redundant. Not available when PITR backup store is zone or locally redundant storage. | Geo-redundant by default. Can configure zone or locally redundant storage. | 
 | **Use to create new database in same region** | Supported | Supported | Supported |
 | **Use to create new database in another region** | Not Supported | Supported in any Azure region | Supported in any Azure region |
@@ -477,7 +477,6 @@ To enforce data residency requirements at an organizational level, these policie
 > Azure policies are not enforced when creating a database via T-SQL. To enforce data residency when creating a database using T-SQL, [use 'LOCAL' or 'ZONE' as input to BACKUP_STORAGE_REDUNDANCY paramater in CREATE DATABASE statement](/sql/t-sql/statements/create-database-transact-sql#create-database-using-zone-redundancy-for-backups).
 
 Learn how to assign policies using the [Azure portal](../../governance/policy/assign-policy-portal.md) or [Azure PowerShell](../../governance/policy/assign-policy-powershell.md)
-
 
 ## Next steps
 
