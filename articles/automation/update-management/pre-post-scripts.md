@@ -3,7 +3,7 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 06/30/2021
+ms.date: 07/20/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -63,36 +63,31 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Linux computer:
 
 ```json
-"SoftwareUpdateConfigurationRunContext": {
-    "SoftwareUpdateConfigurationName": "sampleConfiguration",
-    "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
-    "SoftwareUpdateConfigurationSettings": {
-      "OperatingSystem": 2,
-      "WindowsConfiguration": null,
-      "LinuxConfiguration": {
-       "IncludedPackageClassifications": 7,
-       "ExcludedPackageNameMasks": "fgh xyz",
-       "IncludedPackageNameMasks": "abc bin*",
-       "RebootSetting": "IfRequired"
-      },
-      "Targets": {
-      "azureQueries": null,
-      "nonAzureQueries": ""
-      },
-      "NonAzureComputerNames": [
+"SoftwareUpdateConfigurationSettings": {
+     "OperatingSystem": 2,
+     "WindowsConfiguration": null,
+     "LinuxConfiguration": {
+         "IncludedPackageClassifications": 7,
+         "ExcludedPackageNameMasks": "fgh xyz",
+         "IncludedPackageNameMasks": "abc bin*",
+         "RebootSetting": "IfRequired"
+     },
+     "Targets": {
+         "azureQueries": null,
+         "nonAzureQueries": ""
+     },
+     "NonAzureComputerNames": [
         "box1.contoso.com",
         "box2.contoso.com"
-      ],
-      "AzureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02"
-      ],
-      "Duration": "02:00:00",
-      "PSComputerName": "localhost",
-      "PSShowComputerName": true,
-      "PSSourceJobInstanceId": "00000000-0000-0000-0000-000000000000"
-    }
-  }
+     ],
+     "AzureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
+     ],
+     "Duration": "02:00:00",
+     "PSComputerName": "localhost",
+     "PSShowComputerName": true,
+     "PSSourceJobInstanceId": "2477a37b-5262-4f4f-b636-3a70152901e9"
+ }
 ```
 
 The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Windows computer:
