@@ -205,66 +205,66 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="adl">Azure Data Lake Storage Gen2</span>
 
-* **Account Name**: There are four authentication types for Azure Data Lake Storage Gen2, they are **Basic**, **Azure Data Lake Storage Gen2 Shared Key**, **Service Principal**, and **Service Principal From KeyVault**.
+* **Account Name**: The authentication types for Azure Data Lake Storage Gen2 are basic, Azure Data Lake Storage Gen2 shared key, service principal, and service principal from key vault.
     
-    * **Basic**: The **Account Name** of your Azure Data Lake Storage Gen2. This can be found in your Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys**. 
+    * **Basic**: The **Account Name** of your Azure Data Lake Storage Gen2. You can find this in your Azure storage account (Azure Data Lake Storage Gen2) resource, in **Access keys**. 
 
-    * **Azure Data Lake Storage Gen2 Shared Key**: First, you should specify the account key to access your Azure Data Lake Storage Gen2 （the same as Account Key in *Basic* authentication type）. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting. Then you should [create a credential entity](how-tos/credential-entity.md) for *Azure Data Lake Storage Gen2 Shared Key* type and fill in the account key. 
+    * **Azure Data Lake Storage Gen2 shared key**: First, you specify the account key to access your Azure Data Lake Storage Gen2 (this is the same as the account key in the basic authentication type）. You can find this in Azure storage account (Azure Data Lake Storage Gen2) resource, in **Access keys**. Then, you [create a credential entity](how-tos/credential-entity.md) for Azure Data Lake Storage Gen2 shared key type, and fill in the account key. 
 
-        The account name is the same as *Basic* authentication type.
+        The account name is the same as the basic authentication type.
     
-    * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+    * **Service principal**: A *service principal* is a concrete instance created from the application object, and it inherits certain properties from that application object. A service principal is created in each tenant where the application is used, and it references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
 
-        The account name is the same as **Basic** authentication type.
+        The account name is the same as the basic authentication type.
     
-        **Step 1:** Create and register an Azure AD application and then authorize it to access database, see detail in [Create an AAD app registration](/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step 1:** Create and register an Azure AD application, and then authorize it to access the database. For more information, see [Create an Azure AD app registration](/azure/data-explorer/provision-azure-ad-app).
 
         **Step 2:** Assign roles.
         
         1. In the Azure portal, go to the **Storage accounts** service.
         
-        2. Select the ADLS Gen2 account to use with this application registration.
+        2. Select the Azure Data Lake Storage Gen2 account to use with this application registration.
 
-        3. Click **Access Control (IAM)**.
+        3. Select **Access Control (IAM)**.
 
-        4. Click **+ Add** and select **Add role assignment** from the dropdown menu.
+        4. Select **+ Add**, and select **Add role assignment** from the menu.
 
-        5. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
+        5. Set the **Select** field to the Azure AD application name, and set the role to **Storage Blob Data Contributor**. Then select **Save**.
         
-        ![lake-service-principals](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
+        ![Screenshot that shows the steps to assign roles.](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
 
-        **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when you're adding a data feed for the service principal authentication type. 
         
-    * **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. The account name is the same as *Basic* authentication type.
+    * **Service principal from key vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from key vault](how-tos/credential-entity.md#sp-from-kv). The account name is the same as the basic authentication type.
 
-* **Account Key** (only *Basic* needs): Specify the account key to access your Azure Data Lake Storage Gen2. This could be found in Azure Storage Account (Azure Data Lake Storage Gen2) resource in **Access keys** setting.
+* **Account Key** (only necessary for the basic authentication type): Specify the account key to access your Azure Data Lake Storage Gen2. You can find this in your Azure storage account (Azure Data Lake Storage Gen2) resource, in **Access keys**.
 
-* **File System Name (Container)**: Metrics Advisor will expect your time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field. This can be found in your Azure storage account (Azure Data Lake Storage Gen2)  instance, and click **'Containers'** in **'Data Lake Storage'** section, then you'll see the container name.
+* **File System Name (Container)**: For Metrics Advisor, you store your time series data as blob files (one blob per timestamp), under a single container. This is the container name field. You can find this in your Azure storage account (Azure Data Lake Storage Gen2) instance. In **Data Lake Storage**, select **Containers**, and then you see the container name.
 
-* **Directory Template**: This is the directory template of the Blob file. The following parameters are supported:
+* **Directory Template**: This is the directory template of the blob file. The following parameters are supported:
 
-   * `%Y` is the year formatted as `yyyy`
-   * `%m` is the month formatted as `MM`
-   * `%d` is the day formatted as `dd`
-   * `%h` is the hour formatted as `HH`
-   * `%M` is the minute formatted as `mm`
+   * `%Y` is the year, formatted as `yyyy`.
+   * `%m` is the month, formatted as `MM`.
+   * `%d` is the day, formatted as `dd`.
+   * `%h` is the hour, formatted as `HH`.
+   * `%M` is the minute, formatted as `mm`.
 
    Query sample for a daily metric: `%Y/%m/%d`.
 
    Query sample for an hourly metric: `%Y/%m/%d/%h`.
 
 * **File Template**:
-   Metrics Advisor uses path to find the json file in your Blob storage. This is an example of a Blob file template, which is used to find the json file in your Blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, if you have `%d` in your path, you can add after `%m`. 
+   Metrics Advisor uses a path to find the JSON file in your blob storage. The following is an example of a blob file template, which is used to find the JSON file in your blob storage: `%Y/%m/FileName_%Y-%m-%d-%h-%M.json`. `%Y/%m` is the path, and if you have `%d` in your path, you can add it after `%m`. 
    
    The following parameters are supported:
    
-   * `%Y` is the year formatted as `yyyy`
-   * `%m` is the month formatted as `MM`
-   * `%d` is the day formatted as `dd`
-   * `%h` is the hour formatted as `HH`
-   * `%M` is the minute formatted as `mm`
+   * `%Y` is the year, formatted as `yyyy`.
+   * `%m` is the month, formatted as `MM`.
+   * `%d` is the day, formatted as `dd`.
+   * `%h` is the hour, formatted as `HH`.
+   * `%M` is the minute, formatted as `mm`.
 
-   Currently Metrics Advisor supports the data schema in the JSON files as follows. For example:
+   Metrics Advisor supports the data schema in the JSON files, as in the following example:
 
    ``` JSON
    [
@@ -275,21 +275,19 @@ The following sections specify the parameters required for all authentication ty
 
 ## <span id="eventhubs">Azure Event Hubs</span>
 
-* **Limitations**: There are some limitations with Metrics Advisor Event Hub integration.
+* **Limitations**: Be aware of the following limitations with integration.
 
-   * Metrics Advisor Event Hubs integration doesn't currently support more than 3 active data feeds in one Metrics Advisor instance in public preview.
-   * Metrics Advisor will always start consuming messages from the latest offset, including when re-activating a paused data feed.
+   * Metrics Advisor integration with Event Hubs doesn't currently support more than three active data feeds in one Metrics Advisor instance in public preview.
+   * Metrics Advisor will always start consuming messages from the latest offset, including when reactivating a paused data feed.
    
       * Messages during the data feed pause period will be lost.
-      * The data feed ‘ingestion start time’ is set to the current UTC timestamp automatically when created and is for reference purposes only.
-created, and for reference only.
+      * The data feed ingestion start time is set to the current Coordinated Universal Time timestamp automatically, when the data feed is created. This time is only for reference purposes.
 
-   * Only one data feed can be used per consumer group . To reuse a consumer group from another deleted data feed, you need to wait at least 10 minutes after deletion.
-data feed, it needs to wait at least 10 minutes after deletion.
-   * The connection string and consumer group cannot be modified after the data feed is created.
-   * About messages in Event Hubs: Only JSON is supported, and the JSON values cannot be a nested JSON object. The top-level element can be a JSON object or a JSON array.
+   * Only one data feed can be used per consumer group. To reuse a consumer group from another deleted data feed, you need to wait at least ten minutes after deletion.
+   * The connection string and consumer group can't be modified after the data feed is created.
+   * For Event Hubs messages, only JSON is supported, and the JSON values can't be a nested JSON object. The top-level element can be a JSON object or a JSON array.
     
-    Valid messages as follows:
+    Valid messages are as follows:
 
     ``` JSON
     Single JSON object 
@@ -316,10 +314,10 @@ data feed, it needs to wait at least 10 minutes after deletion.
     ```
 
 
-* **Connection String**: Navigate to the **Event Hubs Instance** first. Then add a new policy or choose an existing Shared access policy. Copy the connection string in the pop-up panel.
-    ![eventhubs](media/datafeeds/entities-eventhubs.jpg)
+* **Connection String**: Go to the instance of Event Hubs. Then add a new policy or choose an existing shared access policy. Copy the connection string in the pop-up panel.
+    ![Screenshot of Event Hubs.](media/datafeeds/entities-eventhubs.jpg)
     
-    ![shared access policies](media/datafeeds/shared-access-policies.jpg)
+    ![Screenshot of shared access policies.](media/datafeeds/shared-access-policies.jpg)
 
     Here's an example of a connection string: 
     ```
@@ -327,47 +325,43 @@ data feed, it needs to wait at least 10 minutes after deletion.
     ```
 
 * **Consumer Group**: A [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) is a view (state, position, or offset) of an entire event hub.
-This can be found on the "Consumer Groups" menu of an Azure Event Hubs instance. A consumer group can only serve one data feed, otherwise, onboard and ingestion will fail. It is recommended that you create a new consumer group for each data feed.
-* **Timestamp**(optional): Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field. The timestamp field is optional. If no timestamp column is chosen, we will use the enqueued time as the timestamp.
+You find this on the **Consumer Groups** menu of an instance of Azure Event Hubs. A consumer group can only serve one data feed. Create a new consumer group for each data feed.
+* **Timestamp** (optional): Metrics Advisor uses the Event Hubs timestamp as the event timestamp, if the user data source doesn't contain a timestamp field. The timestamp field is optional. If no timestamp column is chosen, the service uses the enqueued time as the timestamp.
 
     The timestamp field must match one of these two formats:
     
-    * "YYYY-MM-DDTHH:MM:SSZ" format;
-    * Number of seconds or milliseconds from the epoch of 1970-01-01T00:00:00Z.
-    No matter which timestamp field it will left align to granularity. For example, if timestamp is "2019-01-01T00:03:00Z", granularity is 5 minutes, then Metrics Advisor aligns the timestamp to "2019-01-01T00:00:00Z". If the event timestamp is "2019-01-01T00:10:00Z",  Metrics Advisor uses the timestamp directly without any alignment. 
+    * `YYYY-MM-DDTHH:MM:SSZ`
+    * The number of seconds or milliseconds from the epoch of `1970-01-01T00:00:00Z`.
+    
+    The timestamp will left-align to granularity. For example, if the timestamp is `2019-01-01T00:03:00Z`, granularity is 5 minutes, and then Metrics Advisor aligns the timestamp to `2019-01-01T00:00:00Z`. If the event timestamp is `2019-01-01T00:10:00Z`, Metrics Advisor uses the timestamp directly, without any alignment. 
 
 
-## <span id="log">Azure Log Analytics</span>
+## <span id="log">Azure Monitor Logs</span>
 
-There are three authentication types for Azure Log Analytics, they are **Basic**, **Service Principal** and **Service Principal From KeyVault**.
-* **Basic**: You need to fill in **Tenant ID**, **Client ID**, **Client Secret**, **Workspace ID**.
-   To get **Tenant ID**, **Client ID**, **Client Secret**, see [Register app or web API](../../active-directory/develop/quickstart-register-app.md).
+Azure Monitor Logs has the following authentication types: basic, service principal and service principal from key vault.
+* **Basic**: You need to fill in **Tenant ID**, **Client ID**, **Client Secret**, and **Workspace ID**.
+   To get **Tenant ID**, **Client ID**, and **Client Secret**, see [Register app or web API](../../active-directory/develop/quickstart-register-app.md). You can find **Workspace ID** in the Azure portal.
    
-   * **Tenant ID**: Specify the tenant ID to access your Log Analytics.
-   * **Client ID**: Specify the client ID to access your Log Analytics.
-   * **Client Secret**: Specify the client secret to access your Log Analytics.
-   * **Workspace ID**: Specify the workspace ID of Log Analytics. For **Workspace ID**, you can find it in Azure portal.
-
-    ![workspace id](media/workspace-id.png)
+    ![Screenshot that shows where to find the Workspace ID in the Azure portal.](media/workspace-id.png)
     
-* **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+* **Service principal**: A service principal is a concrete instance created from the application object, and it inherits certain properties from that application object. A service principal is created in each tenant where the application is used, and it references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-     **Step 1:** Create and register an Azure AD application and then authorize it to access a database, see first part in [Create an AAD app registration](/azure/data-explorer/provision-azure-ad-app).
+    **Step 1:** Create and register an Azure AD application, and then authorize it to access a database. For more information, see [Create an Azure AD app registration](/azure/data-explorer/provision-azure-ad-app).
 
     **Step 2:** Assign roles.
     1. In the Azure portal, go to the **Storage accounts** service.
-    2. Click **Access Control (IAM)**.
-    3. Click **+ Add** and select **Add role assignment** from the dropdown menu.
-    4. Set the **Select** field to the Azure AD application name and set role to **Storage Blob Data Contributor**. Click **Save**.
+    2. Select **Access Control (IAM)**.
+    3. Select **+ Add**, and then select **Add role assignment** from the menu.
+    4. Set the **Select** field to the Azure AD application name, and set the role to **Storage Blob Data Contributor**. Then select **Save**.
     
-        ![lake-service-principals](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
+        ![Screenshot that shows how to assign roles.](media/datafeeds/adls-gen-2-app-reg-assign-roles.png)
 
     
-    **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+    **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when you're adding a data feed for the service principal authentication type. 
         
-* **Service Principal From Key Vault** authentication type: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. 
+* **Service principal from key vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from key vault](how-tos/credential-entity.md#sp-from-kv). 
 
-* **Query**: Specify the query of Log Analytics. For more information, see [Log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md)
+* **Query**: Specify the query. For more information, see [Log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
     Sample query:
 
@@ -377,38 +371,38 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
     | summarize [count_per_dimension]=count() by [Dimension]
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
 ## <span id="sql">Azure SQL Database | SQL Server</span>
 
-* **Connection String**: There are five authentication types for Azure SQL Database | SQL Server, they are **Basic**, **Managed Identity**, **Azure SQL Connection String**, **Service Principal** and **Service Principal From KeyVault**.
+* **Connection String**: The authentication types for Azure SQL Database and SQL Server are basic, managed identity, Azure SQL connection string, service principal, and service principal from key vault.
     
-    * **Basic**: Metrics Advisor accepts an [ADO.NET Style Connection String](/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
+    * **Basic**: Metrics Advisor accepts an [ADO.NET style connection string](/dotnet/framework/data/adonet/connection-string-syntax) for a SQL Server data source.
     Here's an example of connection string: 
     
         ```
         Data Source=<Server>;Initial Catalog=<db-name>;User ID=<user-name>;Password=<password>
         ```
     
-    * <span id='jump'>**Managed Identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), you can refer to following steps:
-    1. **Enabling a system-assigned managed identity is a one-click experience.** In Azure portal for your Metrics Advisor workspace, set the status as `on` in **Settings > Identity > System assigned**.
+    * <span id='jump'>**Managed identity**</span>: Managed identity for Azure resources can authorize access to blob and queue data. It does so by using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identity for Azure resources and Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud. To [enable your managed entity](../../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), follow these steps:
+    1. **Enabling a system-assigned managed identity is a one-click experience.** In the Azure portal, for your Metrics Advisor workspace, go to **Settings** > **Identity** > **System assigned**. Then set the status as **on**. 
     
-        ![set status as on](media/datafeeds/set-identity-status.png)
+        ![Screenshot that shows how to set the status as on.](media/datafeeds/set-identity-status.png)
 
-    1. **Enable Azure AD authentication.** In the Azure portal for your data source, click **Set admin** in **Settings > Active Directory admin**, select an **Azure AD user account** to be made an administrator of the server, and click **Select**.
+    1. **Enable Azure AD authentication.** In the Azure portal, for your data source, go to **Settings** > **Active Directory admin**. Select **Set admin**, and select an **Azure AD user account** to be made an administrator of the server. Then, choose **Select**.
     
-        ![set admin](media/datafeeds/set-admin.png)
+        ![Screenshot that shows how to set the admin.](media/datafeeds/set-admin.png)
 
-    1. **Enable managed identity(MI) in Metrics Advisor.** There are 2 ways to choose: edit query in a **database management tool** or **Azure portal**.
+    1. **Enable managed identity (MI) in Metrics Advisor.** You can edit a query in the database management tool or in the Azure portal.
     
-        **Management tool**: In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the User name field, enter the name of the Azure AD account that you set as the server administrator in step 2, for example, test@contoso.com
+        **Management tool**: In your database management tool, select **Active Directory - Universal with MFA support** in the authentication field. In the **User name** field, enter the name of the Azure AD account that you set as the server administrator in step 2. For example, this might be `test@contoso.com`.
     
-        ![set connection detail](media/datafeeds/connection-details.png)
+        ![Screenshot that shows how to set connection details.](media/datafeeds/connection-details.png)
         
-        **Azure portal**: Select Query editor in your SQL database, sign in admin account.
-        ![edit query in Azure Portal](media/datafeeds/query-editor.png)
+        **Azure portal**: In your SQL database, select **Query editor**, and sign in the admin account.
+        ![Screenshot that shows how to edit your query in the Azure portal.](media/datafeeds/query-editor.png)
 
-        Then in the query window, you should execute the following lines (same for management tool method):
+        Then in the query window, run the following (note that this is the same for the management tool method):
     
         ```
         CREATE USER [MI Name] FROM EXTERNAL PROVIDER
@@ -416,18 +410,18 @@ There are three authentication types for Azure Log Analytics, they are **Basic**
         ```
     
         > [!NOTE]
-        > The `MI Name` is the **Managed Identity Name** in Metrics Advisor (for service principal, it should be replaced with **Service Principal name**). Also, you can learn more detail in this document: [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
+        > The `MI Name` is the managed identity name in Metrics Advisor (for service principal, it should be replaced with the service principal name). For more information, see [Authorize with a managed identity](../../storage/common/storage-auth-aad-msi.md#enable-managed-identities-on-a-vm). 
             
-        Here's an example of connection string: 
+        Here's an example of a connection string: 
        
         ```
         Data Source=<Server>;Initial Catalog=<Database>
         ```
         
-    * **Azure SQL Connection String**: 
+    * **Azure SQL connection string**: 
       
 
-        Here's an example of connection string: 
+        Here's an example of a connection string: 
         
         ```
         Data Source=<Server>;Initial Catalog=<Database>;User ID=<user-name>;Password=<password>
