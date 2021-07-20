@@ -25,7 +25,7 @@ This documentation contains the following types of articles:
 
 Use sentiment analysis and find out what people think of your brand or topic by mining the text for clues about positive or negative sentiment. 
 
-The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises [using a container](how-tos/text-analytics-how-to-install-containers.md).
+The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises using a container.
 
 ## Opinion mining
 
@@ -42,9 +42,3 @@ An AI system includes not only the technology, but also the people who will use 
 * [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
 * [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)
 
-
-## Next steps
-
-Follow a quickstart to implement and run a service in your preferred development language.
-
-* [Quickstart: Sentiment Analysis and opinion mining](quickstart.md)

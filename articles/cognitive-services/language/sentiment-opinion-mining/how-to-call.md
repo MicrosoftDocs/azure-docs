@@ -42,15 +42,17 @@ For example, if a customer leaves feedback about a hotel such as "The room was g
 :::image type="content" source="../../text-analytics/media/how-tos/opinion-mining.png" alt-text="A diagram of the Opinion Mining example" lightbox="../../text-analytics/media/how-tos/opinion-mining.png":::
 
 If you're using the REST API, to get Opinion Mining in your results, you must include the `opinionMining=true` flag in a request for sentiment analysis. The Opinion Mining results will be included in the sentiment analysis response. Opinion mining is an extension of Sentiment Analysis and is included in your current [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
-
+<!--
 > [!TIP]
 > There are examples of how to use this feature in the [quickstart article](quickstart.md). You can also make example requests and see the JSON output using [Language Studio](https://language.azure.com/tryout/sentiment) 
-
+-->
 ### Language and document specification
 
+<!--
 Sentiment Analysis and Opinion Mining accept a variety of languages. See [Supported languages](../language-support.md) for more information. The API may return offsets in the response to support different [multilingual and emoji encodings](multilingual-emoji-support.md). 
+-->
 
-Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection, see the [data limits](../overview.md) article. The collection is submitted in the body of the request.
+Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection. The collection is submitted in the body of the request.
 
 ## Submit data to the service
 
@@ -67,7 +69,7 @@ The Sentiment Analysis and Opinion Mining API is stateless. No data is stored in
 
 ### View the results
 
-Output is returned immediately. You can stream the results to an application that accepts JSON or the output of the client libraries, or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../multilingual-emoji-support.md) for more information.
+Output is returned immediately. You can stream the results to an application that accepts JSON or the output of the client libraries, or save the output to a file on the local system. Then, import the output into an application that you can use to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](../concepts/multilingual-emoji-support.md) for more information.
 
 ### Sentiment Analysis and Opinion Mining response
 

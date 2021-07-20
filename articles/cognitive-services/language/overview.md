@@ -20,7 +20,7 @@ Azure Language services is a cloud-based service that provides Natural Language 
 
 Use sentiment analysis and find out what people think of your brand or topic by mining the text for clues about positive or negative sentiment. 
 
-The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises [using a container](how-tos/text-analytics-how-to-install-containers.md).
+The feature provides sentiment labels (such as "negative", "neutral" and "positive") based on the highest confidence score found by the service at a sentence and document-level. This feature also returns confidence scores between 0 and 1 for each document & sentences within it for positive, neutral and negative sentiment. You can also be run the service on premises using a container.
 
 ## Opinion mining
 
