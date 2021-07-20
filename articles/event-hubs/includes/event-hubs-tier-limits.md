@@ -29,7 +29,7 @@ The following table shows limits that may be different for basic, standard, and 
 | Number of schema versions across all schema groups | N/A | 25 | 1000 | 10000 |
 | Throughput per unit | Ingress - 1 MB/s or 1000 events per second<br/>Egress – 2 Mb/s or 4096 events per second | Ingress - 1 MB/s or 1000 events per second<br/>Egress – 2 Mb/s or 4096 events per second | No limits per PU * | No limits per CU * |
 
-\* Depends on various factors such as resource allocation, number of partitions, storage and so on. 
+\* Depends on various factors such as resource allocation, number of partitions, storage, and so on. 
  
 
 > [!NOTE]
