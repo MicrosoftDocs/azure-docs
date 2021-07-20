@@ -95,6 +95,7 @@ To create and set up a self-hosted integration runtime, use the following proced
     ```
 > [!NOTE]
 > Run PowerShell command in Azure government, please see [Connect to Azure Government with PowerShell](../azure-government/documentation-government-get-started-connect-with-ps.md).
+
 ### Create a self-hosted IR via Azure Data Factory UI
 
 Use the following steps to create a self-hosted IR using the Azure Data Factory or Azure Synapse UI.
@@ -109,6 +110,11 @@ Use the following steps to create a self-hosted IR using the Azure Data Factory 
 
    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime.png" alt-text="Create an integration runtime":::
 
+1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
+
+1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
+   :::image type="content" source="media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png" alt-text="Create a selfhosted IR":::
+
 # [Synapse Analytics](#tab/synapse-analytics)
 
 1. On the home page of the Synapse UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
@@ -119,12 +125,12 @@ Use the following steps to create a self-hosted IR using the Azure Data Factory 
 
    :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Create an integration runtime":::
 
+1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
+   :::image type="content" source="media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime-synapse.png" alt-text="Create a selfhosted IR":::
+
 ---
 
-1. On the **Integration runtime setup** page, select **Azure, Self-Hosted**, and then select **Continue**.
-
-1. On the following page, select **Self-Hosted** to create a Self-Hosted IR, and then select **Continue**.
-   :::image type="content" source="media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png" alt-text="Create a selfhosted IR":::
+### Configure a self-hosted IR via Azure Data Factory UI
 
 1. Enter a name for your IR, and select **Create**.
 
