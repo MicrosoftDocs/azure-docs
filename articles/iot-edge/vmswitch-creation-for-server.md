@@ -13,9 +13,7 @@ monikerRange: "=iotedge-2018-06"
 ---
 
 # Azure IoT Edge for Linux on Windows vSwitch creation for Windows Server SKUs 
-For Windows Server users, note that Azure IoT Edge for Linux on Windows does not automatically support the 'Default switch'. Before you can deploy Azure IoT Edge for Linux on Windows, you must set up your vmSwitch on the Windows Server host.
-
-EFLOW deployment functionality does not create a 'Default Switch' automatically because that requires IP configuration for the created switch, a NAT configuration, and installing and configuring a DHCP server. Deployment functionality states that it does not fiddle around with these settings in order to not affect network configurations on productive deployments.
+Azure IoT Edge for Linux on Windows uses a virtual switch on the host machine to communicate with the virtual machine. Windows desktop versions come with a default switch that can be used, but Windows Server does not. Before you can deploy IoT Edge for Linux on Windows to a Windows Server device, you need to create a virtual switch.
 
 This article shows you how to create a vmSwitch on a Windows Server device to install IoT Edge for Linux on Windows with the following steps:
 - Create a vmSwitch
