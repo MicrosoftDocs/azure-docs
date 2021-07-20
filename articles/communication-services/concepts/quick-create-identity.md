@@ -21,7 +21,7 @@ The tool showcases the behavior of the ```Identity SDK``` in a simple user exper
 
 ## Prerequisites
 
-- An Azure Communication Services Resource
+- An [Azure Communication Services resource](../quickstarts/create-communication-resource.md)
 
 ## Create the access tokens
 
@@ -35,5 +35,5 @@ You will see an identity and a user access token generated. You can copy these s
 
 You may also want to:
 
- - [Learn about authentication](../concepts/authentication.md)
- - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
+ - [Learn about authentication](./authentication.md)
+ - [Learn about client and server architecture](./client-and-server-architecture.md)
