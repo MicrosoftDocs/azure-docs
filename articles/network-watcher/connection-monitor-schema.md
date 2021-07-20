@@ -38,7 +38,7 @@ Here are some benefits of Connection Monitor:
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
 There are two types of logs / data ingested into Log Analytics.
-The Test data(ConnectionMonitor_CL query) is updated based on monitoring frequency of a particular test group.
+The Test data(NWConnectionMonitorTestResult query) is updated based on monitoring frequency of a particular test group.
 The Path data(NWConnectionMonitorPathResult query) is updated when there is significant change in loss percentage or round trip time.
 Hence for some time duration test data may keep getting updated while path data is not frequently updated, as both are independent.
 
