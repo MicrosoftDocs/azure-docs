@@ -76,7 +76,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
  1. Download the Azure AD Connect Provisioning Agent Package from the Azure portal.
  1. Accept the terms and select **Download**.
  1. Run the Azure AD Connect provisioning installer AADConnectProvisioningAgentSetup.msi.
- 1. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, , select **Install**.
+ 1. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, select **Install**.
  
     ![Screenshot that shows the Microsoft Azure AD Connect Provisioning Agent Package screen.](media/on-premises-ecma-install/install-1.png)</br>
  1. After this operation finishes, the configuration wizard starts. Select **Next**.
