@@ -12,15 +12,15 @@ manager: cpendle
 
 # Add a snap grid to the map
 
-A snap grid makes it easier to draw shapes with shared edges and nodes, and straighter lines. This is useful when drawing building outlines or network paths on the map.
+A snap grid makes it easier to draw shapes with shared edges and nodes, and straighter lines. Snapping shapes to a grid is useful when drawing building outlines or network paths on the map.
 
-The resolution of the snapping grid is in pixels. The grid is square and relative to the nearest integer zoom level. The grid scales by a factor of 2 relative to physical real-world area with each zoom level.
+The resolution of the snapping grid is in pixels. The grid is square and relative to the nearest integer zoom level. The grid scales by a factor of two relative to physical real-world area with each zoom level.
 
 ## Use a snap grid
 
 Create a snap grid using the `atlas.drawing.SnapGridManager` class and pass in a reference to the map you want to connect the manager to. Set the `showGrid` option to `true` if you want to make the grid visible. To snap a shape to the grid, pass it into the snap grid managers `snapShape` function. If you want to snap an array of positions, pass it into the `snapPositions` function.
 
-The following example snaps a HTML marker to a grid when it is dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires.
+The following example snaps an HTML marker to a grid when it is dragged. Drawing tools are used to snap drawn shapes to the grid when the `drawingcomplete` event fires.
 
 <br/>
 
@@ -33,7 +33,7 @@ The following example snaps a HTML marker to a grid when it is dragged. Drawing 
 
 ## Snap grid options
 
-The following shows the different customization options available for the snap grid manager. The grid line styles can be customized by retrieving the underlying line layer using the snap grid managers `getGridLayer` function.
+The following example shows the different customization options available for the snap grid manager. The grid line styles can be customized by retrieving the underlying line layer using the snap grid managers `getGridLayer` function.
 
 <br/>
 
@@ -46,7 +46,7 @@ The following shows the different customization options available for the snap g
 
 ## Next steps
 
-Learn how to use additional features of the drawing tools module:
+Learn how to use other features of the drawing tools module:
 
 > [!div class="nextstepaction"]
 > [Get shape data](map-get-shape-data.md)
