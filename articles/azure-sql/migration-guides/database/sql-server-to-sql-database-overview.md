@@ -188,7 +188,6 @@ For more assistance, see the following resources that were developed for real-wo
 
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 
-
 ## Next steps
 
 - To start migrating your SQL Server databases to Azure SQL Database, see the [SQL Server to Azure SQL Database migration guide](sql-server-to-sql-database-guide.md).
