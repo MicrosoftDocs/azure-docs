@@ -78,7 +78,7 @@ Yes – upgrades from any previous version of Azure AD Connect to Azure AD Conne
 Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this [article](how-to-connect-import-export-config.md). 
 
 **I have enabled auto upgrade for Azure AD Connect – will I get this new version automatically?** </br> 
-No – Azure AD Connect V2.0 will not be made available for auto upgrade at this time. We are planning to create a future release that will be made available for auto upgrade, and which will help customers who are eligible for auto upgrade to remain in a supported state. 
+No – Azure AD Connect V2.0 will not be made available for auto upgrade at this time. 
 
 **I am not ready to upgrade yet – how much time do I have?** </br>
 You should upgrade to Azure AD Connect V2.0 as soon as you can. For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
