@@ -118,7 +118,7 @@ Use the following steps to create a self-hosted IR using the Azure Data Factory 
 
 # [Synapse Analytics](#tab/synapse-analytics)
 
-1. On the home page of the Synapse UI, select the [Manage tab](./author-management-hub.md) from the leftmost pane.
+1. On the home page of the Synapse UI, select the Manage tab from the leftmost pane.
 
    :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="The home page Manage button":::
 
