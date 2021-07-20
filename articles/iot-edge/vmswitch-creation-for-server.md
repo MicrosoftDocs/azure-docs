@@ -75,7 +75,7 @@ Get-WindowsFeature -Name 'DHCP'
 Install-WindowsFeature -Name 'DHCP' -IncludeManagementTools
 ```
 
-10.	Add the DHCP Server to the default local security groups and restart the server
+10.	Add the DHCP Server to the default local security groups and restart the server.
  ```powershell
 netsh dhcp add securitygroups
 Restart-Service dhcpserver
