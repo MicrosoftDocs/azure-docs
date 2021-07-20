@@ -4,7 +4,7 @@ description: Learn how to create Azure Resource Manager templates for automating
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: how-tow
+ms.topic: how-to
 ms.date: 07/20/2021
 ---
 
