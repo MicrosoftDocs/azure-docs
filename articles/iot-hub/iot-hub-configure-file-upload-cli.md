@@ -22,11 +22,13 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* [Azure CLI](/cli/azure/install-azure-cli).
-
 * An Azure IoT hub. If you don't have an IoT hub, you can use the [`az iot hub create` command](/cli/azure/iot/hub#az_iot_hub_create) to create one or [Create an IoT hub using the portal](iot-hub-create-through-portal.md).
 
 * An Azure Storage account. If you don't have an Azure Storage account, you can use the Azure CLI to create one. For more information, see [Create a storage account](../storage/common/storage-account-create.md).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## Sign in and set your Azure account
 

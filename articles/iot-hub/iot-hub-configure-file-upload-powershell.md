@@ -31,6 +31,15 @@ To complete this tutorial, you need the following:
 
 * An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-account-create.md)
 
+* Use the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell).
+
+   [![Launch Cloud Shell in a new window](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+* If you prefer, [install](/powershell/scripting/install/installing-powershell) PowerShell locally.
+
+  * For a local installation, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps). The module is installed by default in the Azure Cloud Shell PowerShell environment. 
+  * If you're using a local installation, sign in to PowerShell by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command.  To finish the authentication process, follow the steps displayed in your terminal.  For additional sign-in options, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
+
 ## Sign in and set your Azure account
 
 Sign in to your Azure account and select your subscription.
@@ -41,24 +50,24 @@ Sign in to your Azure account and select your subscription.
     Connect-AzAccount
     ```
 
-2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the following command to list the Azure subscriptions available for you to use:
+2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials. Use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) command to list the Azure subscriptions available for you to use:
 
     ```powershell
     Get-AzSubscription
     ```
 
-    Use the following command to select the subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+    Use the [Select-AzContext](/powershell/module/az.accounts/select-azcontex) command to select the subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
 
     ```powershell
-    Select-AzSubscription `
-        -SubscriptionName "{your subscription name}"
+    Select-AzContext `
+        -Name "{your subscription name}"
     ```
 
 ## Retrieve your storage account details
 
 The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.
 
-To configure file uploads from your devices, you need the connection string for an Azure storage account. The storage account must be in the same subscription as your IoT hub. You also need the name of a blob container in the storage account. Use the following command to retrieve your storage account keys:
+To configure file uploads from your devices, you need the connection string for an Azure storage account. The storage account must be in the same subscription as your IoT hub. You also need the name of a blob container in the storage account. Use the [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) command to retrieve your storage account keys:
 
 ```powershell
 Get-AzStorageAccountKey `
@@ -70,7 +79,7 @@ Make a note of the **key1** storage account key value. You need it in the follow
 
 You can either use an existing blob container for your file uploads or create new one:
 
-* To list the existing blob containers in your storage account, use the following commands:
+* To list the existing blob containers in your storage account, use the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) and [Get-AzStorageContainer](/powershell/module/az.storage/get-azstoragecontainer)  commands:
 
     ```powershell
     $ctx = New-AzStorageContext `
@@ -79,7 +88,7 @@ You can either use an existing blob container for your file uploads or create ne
     Get-AzStorageContainer -Context $ctx
     ```
 
-* To create a blob container in your storage account, use the following commands:
+* To create a blob container in your storage account, use the [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) and [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) commands:
 
     ```powershell
     $ctx = New-AzStorageContext `
@@ -107,7 +116,7 @@ The configuration requires the following values:
 
 * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
 
-Use the following PowerShell cmdlet to configure the file upload settings on your IoT hub:
+Use the [Set-AzIotHub](/powershell/module/az.iothub/set-aziothub) command to configure the file upload settings on your IoT hub:
 
 ```powershell
 Set-AzIotHub `
