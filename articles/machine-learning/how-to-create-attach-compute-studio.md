@@ -210,11 +210,11 @@ If you created your compute instance or compute cluster with SSH access enabled,
 1. Select the compute name in the list of resources.
 1. Find the connection string:
 
-    * For a **Compute instance**, select **Connect** at the top of the **Details** section.
+    * For a **compute instance**, select **Connect** at the top of the **Details** section.
 
         :::image type="content" source="media/how-to-create-attach-studio/details.png" alt-text="Screenshot: Connect tool at the top of the Details page.":::
 
-    * For a **Compute cluster**, select **Nodes** at the top, then select the **Connection string** in the table for your node.
+    * For a **compute cluster**, select **Nodes** at the top, then select the **Connection string** in the table for your node.
         :::image type="content" source="media/how-to-create-attach-studio/compute-nodes.png" alt-text="Screenshot: Connection string for a node in a compute cluster.":::
 
 1. Copy the connection string.
