@@ -1,6 +1,6 @@
 ---
 title: Managing Azure Service Bus resources dynamically
-description: This article explains how to use dynamically or programmatically provision Service Bus namespaces and entities.
+description: This article explains how to dynamically or programmatically provision Service Bus namespaces and entities.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/19/2021
@@ -52,6 +52,6 @@ Service Bus client libraries that are used for operations like send and receive 
 |Java|[azure-mgmt-servicebus](https://search.maven.org/artifact/com.microsoft.azure/azure-mgmt-servicebus)|[ManagementClientAsync](https://docs.microsoft.com/java/api/com.microsoft.azure.servicebus.management.managementclientasync?view=azure-java-stable), [ManagementClient](https://docs.microsoft.com/java/api/com.microsoft.azure.servicebus.management.managementclient?view=azure-java-stable)|[Java](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)|
 
 
-## Next Steps
+## Next steps
 - Send messages to and receive messages from queue using the latest Service Bus library: [.NET](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues#send-messages-to-a-queue), [Java](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-queues), [JavaScript](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues), [Python](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-python-how-to-use-queues)
 - Send messages to topic and receive messages from subscription using the latest Service Bus library: .[NET](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions),  [Java](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions), [JavaScript](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions), [Python](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions)
