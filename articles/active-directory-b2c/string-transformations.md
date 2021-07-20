@@ -721,10 +721,10 @@ Checks that a boolean claim is `true`, or `false`. If yes, sets the output claim
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | claimToMatch | string | The claim type, which is to be checked. |
-| InputParameter | matchTo | string | The value to be compared with `claimToMatch`. Possible values: `true`, or `false`. Null value throws an exception. |
+| InputClaim | claimToMatch | string | The claim type, which is to be checked. Null value throws an exception. |
+| InputParameter | matchTo | string | The value to be compared with `claimToMatch` input claim. Possible values: `true`, or `false`.  |
 | InputParameter | outputClaimIfMatched | string | The value to be set if input claim equals to the `matchTo` input parameter. |
-| OutputClaim | outputClaim | string | If input claim equals to the `matchTo` input parameter, this output claim contains the value of `outputClaimIfMatched` input parameter. Or not change, if the aren't match. |
+| OutputClaim | outputClaim | string | If the `claimToMatch` input claim equals to the `matchTo` input parameter, this output claim contains the value of `outputClaimIfMatched` input parameter. |
 
 For example, the following claims transformation checks if the value of **hasPromotionCode** claim is equal to `true`. If yes, return the value to *Promotion code not found*.
 
