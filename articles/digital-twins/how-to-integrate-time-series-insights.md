@@ -188,13 +188,13 @@ Next, **assign an access role** for the function and **configure the application
 
 Next, add environment variables in the function app's settings that allow it to access the **twins hub** and **time series hub**.
 
-Use the twins hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the twins hub connection string:
+Use the **twins hub primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the twins hub connection string:
 
 ```azurecli-interactive
 az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-function-app-name>
 ```
 
-Use the time series hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the time series hub connection string:
+Use the **time series hub primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the time series hub connection string:
 
 ```azurecli-interactive
 az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-function-app-name>
@@ -204,7 +204,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-t
 
 In this section, you'll set up Time Series Insights instance to receive data from your time series hub. For more details about this process, see [Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment](../time-series-insights/tutorial-set-up-environment.md). Follow the steps below to create a time series insights environment.
 
-1. In the [Azure portal](https://portal.azure.com), search for *Time Series Insights environments*, and select the **Add** button. Choose the following options to create the time series environment.
+1. In the [Azure portal](https://portal.azure.com), search for *Time Series Insights environments*, and select the **Create** button. Choose the following options to create the time series environment.
 
     * **Subscription** - Choose your subscription.
         - **Resource group** - Choose your resource group.
@@ -229,7 +229,7 @@ In this section, you'll set up Time Series Insights instance to receive data fro
    * **Subscription** - Choose your Azure subscription.
    * **Event Hub namespace** - Choose the namespace that you created earlier in this article.
    * **Event Hub name** - Choose the **time series hub** name that you created earlier in this article.
-   * **Event Hub access policy name** - Choose the *time series hub auth rule* that you created earlier in this article.
+   * **Event Hub access policy name** - Choose the **time series hub auth rule** that you created earlier in this article.
    * **Event Hub consumer group** - Select *New* and specify a name for your event hub consumer group. Then, select *Add*.
    * **Property name** - Leave this field blank.
     
