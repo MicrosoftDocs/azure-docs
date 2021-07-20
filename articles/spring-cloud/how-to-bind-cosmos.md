@@ -1,11 +1,11 @@
 ---
 title: Bind an Azure Cosmos DB to your Azure Spring Cloud application
 description: Learn how to bind Azure Cosmos DB to your Azure Spring Cloud application
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
@@ -28,9 +28,9 @@ Prerequisites:
 
       ```xml
       <dependency>
-          <groupId>com.microsoft.azure</groupId>
-          <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
-          <version>2.1.6</version>
+          <groupId>com.azure.spring</groupId>
+          <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+          <version>3.6.0</version>
       </dependency>
       ```
 

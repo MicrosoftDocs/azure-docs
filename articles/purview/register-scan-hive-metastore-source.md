@@ -171,10 +171,6 @@ To create and run a new scan, do the following:
         Usage of NOT and special characters are not acceptable.
 
      1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Hive Metastore database to be scanned.
-    
-        > [!Note]
-        > **For scanning Databricks metastore**
-        >
 
         :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
 
