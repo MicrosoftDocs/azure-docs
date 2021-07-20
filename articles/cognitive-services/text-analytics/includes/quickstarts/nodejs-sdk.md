@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 07/15/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
@@ -443,7 +443,7 @@ Document ID: 1
         Score: 0.25
 ```
 
-### Personally Identifying Information (PII) Recognition
+## Personally Identifying Information (PII) recognition
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizePiiEntities()` method and get the `RecognizePIIEntitiesResult` object. Iterate through the list of results, and print the entity name, type, and score.
 
@@ -706,6 +706,94 @@ ID: 0
 
 ---
 
+## Extract health entities
+
+[!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
+
+You can use Text Analytics to perform an asynchronous request to extract healthcare entities from text. The below sample shows a basic example. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeHealthcareEntities.js).
+
+# [Version 3.1](#tab/version-3-1)
+
+```javascript
+async function healthExample(client) {
+    console.log("== Recognize Healthcare Entities Sample ==");
+
+    const documents = [
+        "Prescribed 100mg ibuprofen, taken twice daily."
+      ];
+    const poller = await client.beginAnalyzeHealthcareEntities(documents, "en", {
+      includeStatistics: true
+    });
+  
+    poller.onProgress(() => {
+      console.log(
+        `Last time the operation was updated was on: ${poller.getOperationState().lastModifiedOn}`
+      );
+    });
+    console.log(
+      `The analyze healthcare entities operation was created on ${
+        poller.getOperationState().createdOn
+      }`
+    );
+    console.log(
+      `The analyze healthcare entities operation results will expire on ${
+        poller.getOperationState().expiresOn
+      }`
+    );
+  
+    const results = await poller.pollUntilDone();
+  
+    for await (const result of results) {
+      console.log(`- Document ${result.id}`);
+      if (!result.error) {
+        console.log("\tRecognized Entities:");
+        for (const entity of result.entities) {
+          console.log(`\t- Entity "${entity.text}" of type ${entity.category}`);
+        }
+        if (result.entityRelations && (result.entityRelations.length > 0)) {
+          console.log(`\tRecognized relations between entities:`);
+          for (const relation of result.entityRelations) {
+            console.log(
+              `\t\t- Relation of type ${relation.relationType} found between the following entities:`
+            );
+            for (const role of relation.roles) {
+              console.log(`\t\t\t- "${role.entity.text}" with the role ${role.name}`);
+            }
+          }
+        }
+      } else console.error("\tError:", result.error);
+    }
+  }
+  
+  healthExample(textAnalyticsClient).catch((err) => {
+    console.error("The sample encountered an error:", err);
+  });
+```
+
+### Output
+
+```console
+- Document 0
+    Recognized Entities:
+    - Entity "100mg" of type Dosage
+    - Entity "ibuprofen" of type MedicationName
+    - Entity "twice daily" of type Frequency
+    Recognized relations between entities:
+        - Relation of type DosageOfMedication found between the following entities:   
+                - "100mg" with the role Dosage
+                - "ibuprofen" with the role Medication
+        - Relation of type FrequencyOfMedication found between the following entities:
+                - "ibuprofen" with the role Medication
+                - "twice daily" with the role Frequency
+```
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+---
+
+
 ## Use the API asynchronously with the Analyze operation
 
 # [Version 3.1](#tab/version-3-1)
@@ -769,6 +857,7 @@ async function analyze_example(client) {
         }
     }
 }
+analyze_example(textAnalyticsClient)
 ```
 
 ### Output
