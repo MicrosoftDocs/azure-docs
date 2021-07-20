@@ -33,7 +33,7 @@ For more installation and configuration information, see:
 ## On-premises prerequisites
 
  - A target system, such as a SQL database, in which users can be created, updated, and deleted.
- - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you don't have an ECMA connector ready during configuration, you can validate the end-to-end flow if you have a SQL server in your environment and use the generic SQL connector.
+ - An ECMA 2.0 or later connector for that target system, which supports export, schema retrieval, and optionally full import or delta import operations. If you don't have an ECMA connector ready during configuration, you can validate the end-to-end flow if you have a SQL Server instance in your environment and use the generic SQL connector.
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
 
