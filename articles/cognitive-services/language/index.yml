@@ -1,0 +1,32 @@
+### YamlMime:Landing
+
+title: Language Services documentation
+summary: 'Language Services is a cloud-based service that provides advanced natural language processing over raw text, and includes several main functions.'
+
+metadata:
+  title: Language Services Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: 'Language Services is a cloud-based service that provides advanced natural language processing over raw text, and includes several main functions. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: text-analytics
+  ms.topic: landing-page
+  ms.date: 07/20/2021
+  ms.author: aahi
+
+landingContent:
+- title: About Language Services
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is Language Services
+          url: overview.md
+
+- title: Sentiment analysis   
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Sentiment analysis
+          url: how-tos/text-analytics-how-to-sentiment-analysis.md
