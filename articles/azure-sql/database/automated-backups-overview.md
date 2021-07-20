@@ -7,10 +7,10 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
+author: SQLSourabh 
+ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
-ms.date: 05/17/2021
+ms.date: 07/19/2021
 ---
 # Automated backups - Azure SQL Database & Azure SQL Managed Instance
 
@@ -30,11 +30,11 @@ When you restore a database, the service determines which full, differential, an
 
 ### Backup storage redundancy
 
-By default, SQL Database and SQL Managed Instance store data in geo-redundant [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). This helps to protect against outages impacting backup storage in the primary region and allows you to restore your server to a different region in the event of a disaster. 
+By default, SQL Database and SQL Managed Instance store data in geo-redundant [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). Geo-redundancy helps to protect against outages impacting backup storage in the primary region and allows you to restore your server to a different region in the event of a disaster. 
 
-The option to configure backup storage redundancy provides the flexibility to choose between locally redundant, zone-redundant, or geo-redundant storage blobs for a SQL Managed Instance or a SQL Database. To ensure that your data stays within the same region where your managed instance or SQL database is deployed, you can change the default geo-redundant backup storage redundancy and configure either locally redundant or zone-redundant storage blobs for backups. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. The configured backup storage redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR). 
+The option to configure backup storage redundancy provides the flexibility to choose between locally redundant, zone-redundant, or geo-redundant storage blobs. To ensure that your data stays within the same region where your managed instance or SQL database is deployed, you can change the default geo-redundant backup storage redundancy and configure either locally redundant or zone-redundant storage blobs for backups. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. The configured backup storage redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR). 
 
-For SQL Database, the backup storage redundancy can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. After the backup storage redundancy of an existing database is updated, it may take up to 48 hours for the changes to be applied. Note that, geo-restore is disabled as soon as a database is updated to use local or zone redundant storage. 
+For SQL Database, the backup storage redundancy can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. After the backup storage redundancy of an existing database is updated, it may take up to 48 hours for the changes to be applied. Geo-restore is disabled as soon as a database is updated to use local or zone redundant storage. 
 
 
 > [!IMPORTANT]
@@ -66,17 +66,17 @@ This table summarizes the capabilities and features of point in time restore (PI
 
 | **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long term backup restore |           
 |----|--|--|--|
-| **Types of SQL backup** | Full, Differential, Log | Replicated copies of PITR backups | Only the Full PITR backups | 
-| **Recovery Point Objective (RPO)** |  5-10 minutes, based on compute size and amount of database activity | Up to 1 hour, based on geo-replication\*  |  1 week |
-| **Recovery Time Objective (RTO)** |  5-10 minutes, based on compute size and amount of database activity | Up to 12 hours | Dependent on computer size and size of backup | 
+| **Types of SQL backup** | Full, Differential, Log | Replicated copies of PITR backups | Only the full backups | 
+| **Recovery Point Objective (RPO)** |  5-10 minutes, based on compute size and amount of database activity | Up to 1 hour, based on geo-replication\*  |  1 week (or user's policy)|
+| **Recovery Time Objective (RTO)** | Up to 12 hours, see [Recovery](recovery-using-backups.md#recovery-time) | Up to 12 hours, see [Recovery](recovery-using-backups.md#recovery-time) | Dependent on compute size and size of backup | 
 | **Retention** | 7 days by default, Up to 35 days |  Enabled by default, same as source.\*\* | Not enabled by default, Retention Up to 10 years |     
 | **Azure storage**  | Geo-redundant by default. Can optionally configure zone or locally redundant storage. | Available when PITR backup storage redundancy is set to Geo-redundant. Not available when PITR backup store is zone or locally redundant storage. | Geo-redundant by default. Can configure zone or locally redundant storage. | 
 | **Use to create new database in same region** | Supported | Supported | Supported |
-| **Use to create new database in another region** | Not Supported | Supported in any Azure region | Supported in any Azure region via PowerShell/REST API/ Azure CLI. |
+| **Use to create new database in another region** | Not Supported | Supported in any Azure region | Supported in any Azure region |
 | **Use to create new database in another Subscription** |  Not Supported  |  Not Supported\*\*\* | Not Supported\*\*\*  | 
-| **Restore via Azure portal**| Yes  | Yes| Yes|
-| **Restore via PowerShell** | Yes  | Yes| Yes| 
-| **Restore via Azure CLI** |  Yes  | Yes| Yes| 
+| **Restore via Azure portal**|Yes|Yes|Yes|
+| **Restore via PowerShell** |Yes|Yes|Yes| 
+| **Restore via Azure CLI** |Yes|Yes|Yes| 
 | | | | |
 
 \* For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). 
@@ -161,7 +161,9 @@ For more information about LTR, see [Long-term backup retention](long-term-reten
 
 ## Backup storage costs
 
-The price for backup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
+The price for backup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page. 
+
+For more on purchasing models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
 
 > [!NOTE]
 > Azure invoice will show only the excess backup storage consumed, not the entire backup storage consumption. For example, in a hypothetical scenario, if you have provisioned 4TB of data storage, you will get 4TB of free backup storage space. In case that you have used the total of 5.8TB of backup storage space, Azure invoice will show only 1.8TB, as only excess backup storage used is charged.
@@ -229,7 +231,9 @@ If your database is encrypted with TDE, backups are automatically encrypted at r
 
 ## Backup integrity
 
-On an ongoing basis, the Azure SQL engineering team automatically tests the restore of automated database backups. (This testing is not currently available in SQL Managed Instance.) Upon point-in-time restore, databases also receive DBCC CHECKDB integrity checks.
+On an ongoing basis, the Azure SQL engineering team automatically tests the restore of automated database backups. (This testing is not currently available in SQL Managed Instance. You should schedule DBCC CHECKDB on your databases in SQL Managed Instance, scheduled around on your workload.)
+
+Upon point-in-time restore, databases also receive DBCC CHECKDB integrity checks.
 
 Any issues found during the integrity check will result in an alert to the engineering team. For more information, see [Data Integrity in SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
@@ -254,8 +258,6 @@ You can change the default PITR backup retention period by using the Azure porta
 ### Change the PITR backup retention period by using the Azure portal
 
 To change the PITR backup retention period for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. Select **Backups** in the left pane, then select the **Retention policies** tab. Select the database(s) for which you want to change the PITR backup retention. Then select **Configure retention** from the action bar.
-
-
 
 #### [SQL Database](#tab/single-database)
 
@@ -418,7 +420,7 @@ Find the option to select backup storage redundancy on the **Compute + storage**
 
 #### [SQL Database](#tab/single-database)
 
-To configure backup storage redundancy when creating a new database, you can specify the -BackupStoageRedundancy parameter. Possible values are Geo, Zone, and Local. By default, all SQL Databases use geo-redundant storage for backups. Geo-restore is disabled if a database is created with local or zone redundant backup storage. 
+To configure backup storage redundancy when creating a new database, you can specify the -BackupStorageRedundancy parameter. Possible values are Geo, Zone, and Local. By default, all SQL Databases use geo-redundant storage for backups. Geo-restore is disabled if a database is created with local or zone redundant backup storage. 
 
 ```powershell
 # Create a new database with geo-redundant backup storage.  
@@ -443,7 +445,7 @@ For details visit [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabas
 
 #### [SQL Managed Instance](#tab/managed-instance)
 
-For configuring backup storage redundancy during managed instance creation, you can specify -BackupStoageRedundancy parameter. Possible values are Geo, Zone, and Local.
+For configuring backup storage redundancy during managed instance creation, you can specify -BackupStorageRedundancy parameter. Possible values are Geo, Zone, and Local.
 
 ```powershell
 New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
@@ -480,9 +482,9 @@ Learn how to assign policies using the [Azure portal](../../governance/policy/as
 ## Next steps
 
 - Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other SQL Database business continuity solutions, see [Business continuity overview](business-continuity-high-availability-disaster-recover-hadr-overview.md).
+- For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](long-term-backup-retention-configure.md).
+- For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](long-term-backup-retention-configure.md#using-powershell). 
 - Get more information about how to [restore a database to a point in time by using the Azure portal](recovery-using-backups.md).
 - Get more information about how to [restore a database to a point in time by using PowerShell](scripts/restore-database-powershell.md).
-- For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](long-term-backup-retention-configure.md).
-- For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](long-term-backup-retention-configure.md).
 - To learn all about backup storage consumption on Azure SQL Managed Instance, see [Backup storage consumption on Managed Instance explained](https://aka.ms/mi-backup-explained).
 - To learn how to fine-tune backup storage retention and costs for Azure SQL Managed Instance, see [Fine tuning backup storage costs on Managed Instance](https://aka.ms/mi-backup-tuning).
