@@ -25,7 +25,7 @@ This article shows you how to create a vmSwitch on a Windows Server device to in
 - Hyper-V role installed on the Windows Server device. For more information on how to enable Hyper-V, see [install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
 
 # Create vmSwitch 
-The following steps in this section are a generic guide for a vmSwitch creation. Ensure to check the virtual switch configuration aligns with your networking environment. For more detailed instructions, check the full documentation of each of the commands used.
+The following steps in this section are a generic guide for a vmSwitch creation. Ensure that the virtual switch configuration aligns with your networking environment.
 
 1. Open PowerShell in an elevated session.
 
