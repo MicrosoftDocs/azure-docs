@@ -62,7 +62,7 @@ To start creating your new host pool:
    
    >[!NOTE]
    > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
-   > kd
+   > 
    >If you're accessing the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/).
 
 2. Enter **Azure Virtual Desktop** into the search bar, then find and select **Azure Virtual Desktop** under Services.

@@ -50,7 +50,7 @@ To launch the resource once subscribed, go to the **Connection Center** and doub
 ### Use a user account
 
 1. Select **Subscribe** from the main page.
-1. Sign in with your user account when prompted.
+2. Sign in with your user account when prompted.
 
 The resources grouped by workspace will appear in the **Connection Center**.
 
@@ -62,7 +62,7 @@ The resources grouped by workspace will appear in the **Connection Center**.
 ### Use a specific URL
 
 1. Select **Subscribe with URL** from the main page.
-1. Enter either the *Workspace URL* or an *email address*:
+2. Enter either the *Workspace URL* or an *email address*:
    - For **Workspace URL**, use the URL provided by your admin.
 
    |Available Resources|URL|
@@ -76,8 +76,8 @@ The resources grouped by workspace will appear in the **Connection Center**.
       
    The client will find the URL associated with your email, provided your admin has enabled [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 
-2. Select **Next**.
-3. Sign in with your user account when prompted.
+3. Select **Next**.
+4. Sign in with your user account when prompted.
 
 The resources grouped by workspace will appear in the **Connection Center**.
 

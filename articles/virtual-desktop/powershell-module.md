@@ -44,6 +44,7 @@ Connect-AzAccount
 > ```
 > 
 > To connect to the Azure China portal, run this cmdlet:
+> 
 > ```powershell
 > Connect-AzAccount -EnvironmentName AzureChinaCloud
 > ```
