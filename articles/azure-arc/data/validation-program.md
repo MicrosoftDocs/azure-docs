@@ -44,11 +44,18 @@ Azure Arc-enabled data services team has worked with industry partners to valida
 |-----|-----|-----|-----|-----|
 | Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV:20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | 20.3.4 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
 
-
-
 ### PureStorage
 
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| Portworx Enterprise 2.7 | 1.20.7 | 20.3.5 | SQL Server 2019 (15.0.4138)||
+
 ### VMware
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| TKGm v1.3.1 | 1.20.5 | 20.3.3 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
+
 
 ## Validated distributions
 
