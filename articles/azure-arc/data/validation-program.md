@@ -13,7 +13,7 @@ keywords: "Kubernetes, Arc, Azure, K8s, validation, data services, SQL Managed I
 
 # Azure Arc-enabled data services Kubernetes validation program
 
-Azure Arc-enabled data services team has worked with industry partners to validate specific distributions and solutions to host Azure Arc-enabled data services. This validation extends the [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md) for the data services. Azure Arc-enabled data services validation specifies partner solutions, versions, Kubernetes versions, SQL Server versions, and PostgreSQL Hyperscale versions that have been verified to support the data services. 
+Azure Arc-enabled data services team has worked with industry partners to validate specific distributions and solutions to host Azure Arc-enabled data services. This validation extends the [Azure Arc-enabled Kubernetes validation](../kubernetes/validation-program.md) for the data services. This article identifies partner solutions, versions, Kubernetes versions, SQL Server versions, and PostgreSQL Hyperscale versions that have been verified to support the data services. 
 
 > [!NOTE]
 > At the current time, Azure Arc-enabled SQL Managed Instance is generally available in select regions.
@@ -39,6 +39,12 @@ Azure Arc-enabled data services team has worked with industry partners to valida
 | OpenShift v.7.13 | 1.20.0 | 20.3.5 | SQL Server 2019 (15.0.4138)|postgres 12.3 (Ubuntu 12.3-1)|
 
 ### Nutanix
+
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
+|-----|-----|-----|-----|-----|
+| Karbon 2.2<br/>AOS: 5.19.1.5<br/>AHV:20201105.1021<br/>PC: Version pc.2021.3.02<br/> | 1.19.8-0 | 20.3.4 | SQL Server 2019 (15.0.4123)|postgres 12.3 (Ubuntu 12.3-1)|
+
+
 
 ### PureStorage
 
