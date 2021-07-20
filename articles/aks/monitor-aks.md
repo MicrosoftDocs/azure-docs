@@ -20,7 +20,10 @@ This scenario is intended for customers using Azure Monitor to monitor AKS. It d
 - Monitoring of Kubernetes clusters outside of Azure except for referring to existing content for Azure Arc enabled Kubernetes. 
 - Monitoring of AKS with tools other than Azure Monitor except to fill gaps in Azure Monitor and Container Insights.
 
-
+> [!NOTE]
+> Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Azure Sentinel](../sentinel/overview.md) and [Azure Security Center](../security-center/security-center-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../azure-monitor/vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
+>
+> For information on using the security services to monitor AKS, see [Azure Defender for Kubernetes - the benefits and features](../security-center/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Azure Sentinel](../sentinel/connect-azure-kubernetes-service.md).
 ## Container insights
 This scenario is based on [Container insights](../azure-monitor/containers/container-insights-overview.md), which is a feature in Azure Monitor that monitors the health and performance of managed Kubernetes clusters hosted on AKS in addition to other cluster configurations. Container insights provides interactive views and workbooks that analyze collected data for a variety of monitoring scenarios. 
 
@@ -30,10 +33,6 @@ Learn more about using Container insights at [Container insights overview](../az
 
 :::image type="content" source="media/monitor-aks/container-insights.png" alt-text="Container insights" lightbox="media/monitor-aks/container-insights.png":::
 
-## Security monitoring
-Azure Monitor was designed to monitor the availability and performance of cloud resources. While the operational data stored in Azure Monitor may be useful for investigating security incidents, other services in Azure were designed to monitor security. Security monitoring for AKS is done with [Azure Sentinel](../sentinel/overview.md) and [Azure Security Center](../security-center/security-center-introduction.md). See [Monitor virtual machines with Azure Monitor - Security monitoring](../azure-monitor/vm/monitor-virtual-machine-security.md) for a description of the security monitoring tools in Azure and their relationship to Azure Monitor.
->
-> For information on using the security services to monitor AKS, see [Azure Defender for Kubernetes - the benefits and features](../security-center/defender-for-kubernetes-introduction.md) and  [Connect Azure Kubernetes Service (AKS) diagnostics logs to Azure Sentinel](../sentinel/connect-azure-kubernetes-service.md).
 
 ## Configure monitoring
 The following sections describe the steps required to configure full monitoring of your AKS cluster using Azure Monitor.
@@ -181,9 +180,7 @@ Monitor external components with Prometheus and Grafana or other proprietary too
 ## Analyze metric data with metrics explorer
 Use metrics explorer when you want to perform custom analysis of metric data collected for your containers. Metrics explorer allows you plot charts, visually correlate trends, and investigate spikes and dips in metrics' values. Create a metrics alert to proactively notify you when a metric value crosses a threshold, and pin charts to dashboards for use by different members of your organization.
 
-See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool.
-
-For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](/monitor-aks-reference.md#metrics).
+See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this feature. For a list of the platform metrics collected for AKS, see [Monitoring AKS data reference metrics](/monitor-aks-reference.md#metrics).
 
 :::image type="content" source="media/monitor-aks/metrics-explorer.png" alt-text="Metrics explorer" lightbox="media/monitor-aks/metrics-explorer.png":::
 
