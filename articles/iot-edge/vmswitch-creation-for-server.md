@@ -8,7 +8,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.author: v-tcassi
+ms.author: kgremban
 monikerRange: "=iotedge-2018-06"
 ---
 
