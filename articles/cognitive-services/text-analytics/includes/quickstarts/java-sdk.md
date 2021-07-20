@@ -656,6 +656,26 @@ static void healthExample(TextAnalyticsClient client){
 }
 ```
 
+### output
+
+```console
+Poller status: IN_PROGRESS.
+Operation created time: 2021-07-20T19:45:50Z, expiration time: 2021-07-21T19:45:50Z.
+Poller status: SUCCESSFULLY_COMPLETED.
+Results of Azure Text Analytics "Analyze Healthcare Entities" Model, version: 2021-05-15
+Document ID = 0
+Document entities: 
+	Text: 100mg, normalized name: null, category: Dosage, subcategory: null, confidence score: 1.000000.
+	Text: ibuprofen, normalized name: ibuprofen, category: MedicationName, subcategory: null, confidence score: 1.000000.
+	Text: twice daily, normalized name: null, category: Frequency, subcategory: null, confidence score: 1.000000.
+Relation type: DosageOfMedication.
+	Entity text: 100mg, category: Dosage, role: Dosage.
+	Entity text: ibuprofen, category: MedicationName, role: Medication.
+Relation type: FrequencyOfMedication.
+	Entity text: ibuprofen, category: MedicationName, role: Medication.
+	Entity text: twice daily, category: Frequency, role: Frequency.
+```
+
 # [Version 3.0](#tab/version-3)
 
 This feature is not available in version 3.0.
