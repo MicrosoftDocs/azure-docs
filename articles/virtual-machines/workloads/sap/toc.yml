@@ -104,7 +104,7 @@
     href: deployment-guide.md 
   - name: Azure VM Extension for SAP
     items:
-    - name: Azure VM Extension for SAP
+    - name: Prerequisites Azure VM Extension for SAP
       href: vm-extension-for-sap.md
     - name: Standard Version of Azure VM Extension for SAP
       href: vm-extension-for-sap-std.md
