@@ -427,7 +427,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun
 
 #### <a name="0d2847ad-865d-4a4c-a405-f9b7baaa00c7"></a>Run the setup script
 
-Follow the steps in chapter [Configure the Azure Extension for SAP][deployment-guide-run-the-script] in this guide to install the extension again. Note that some counters might need up to 30 minutes for provisioning.
+Follow the steps in chapter [Configure the Azure Extension for SAP][vm-extension-for-sap-std.md#cb095b34-51c9-41f3-aeed-30a16072a1dc] in this guide to install the extension again. Note that some counters might need up to 30 minutes for provisioning.
 
 If the errors do not disappear, [contact support][deployment-guide-contact-support].
 
@@ -445,7 +445,7 @@ However, if your generalized and sysprepped OS image already contains the Azure 
   C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\\<version\>\RuntimeSettings
   C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\\<version\>\Status
 
-* Follow the steps in chapter [Configure the Azure Extension for SAP][deployment-guide-run-the-script] in this guide to install the extension again.
+* Follow the steps in chapter [Configure the Azure Extension for SAP][vm-extension-for-sap-std.md#cb095b34-51c9-41f3-aeed-30a16072a1dc] in this guide to install the extension again.
 
 #### <a name="e92bc57d-80d9-4a2b-a2f4-16713a22ad89"></a>Fix internet connection
 
