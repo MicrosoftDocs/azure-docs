@@ -63,7 +63,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
 | **Max number of Transactions per Second (TPS) per Speech resource** |  |  |
-| Real-time API. Standard, Neural, Custom and Custom Neural voices | 200<sup>4</sup> | 200<sup>4</sup> |
+| Real-time API. Standard, Neural, Custom, and Custom Neural voices | 200<sup>4</sup> | 200<sup>4</sup> |
 | Adjustable | No<sup>4</sup> | No<sup>4</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max Audio length produced per request | 10 min | 10 min |
