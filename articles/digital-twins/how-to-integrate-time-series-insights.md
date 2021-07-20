@@ -26,7 +26,7 @@ The solution described in this article will allow you to gather and analyze hist
 Before you can set up a relationship with Time Series Insights, you'll need to set up the following resources:
 * An **IoT hub**. For instructions, see the [Create an IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md#create-an-iot-hub) section of the *IoT Hub's Send Telemetry* quickstart.
 * An **Azure Digital Twins instance**. For instructions, see [How-to: Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md).
-* A **model and a twin in the Azure Digital Twins instance**. You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [Add a model and twin](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *How to: Ingest IoT hub* article.
+* A **model and a twin in the Azure Digital Twins instance**. You'll need to update twin's information a few times to see that data tracked in Time Series Insights. For instructions, see the [Add a model and twin](how-to-ingest-iot-hub-data.md#add-a-model-and-twin) section of the *Ingest telemetry from IoT Hub* article.
 
 > [!TIP]
 > In this article, the changing digital twin values that are viewed in Time Series Insights are updated manually for simplicity. However, if you want to complete this article with live simulated data, you can set up an Azure function that updates digital twins based on IoT telemetry events from a simulated device. For instructions, follow [How to: Ingest IoT Hub data](how-to-ingest-iot-hub-data.md), including the final steps to run the device simulator and validate that the data flow works.
@@ -241,7 +241,7 @@ In this section, you'll set up Time Series Insights instance to receive data fro
 
 To begin sending data to Time Series Insights, you'll need to start updating the digital twin properties in Azure Digital Twins with changing data values.
 
-Use the following CLI command to update the *Temperature* property on the thermostat67 twin that you added to your instance in the [Prerequisites section](#prerequisites).
+Use the [az dt twin update](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_update) CLI command to update a property on the twin you added in the [Prerequisites](#prerequisites) section. If you used the twin creation instructions from [Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)), you can use the following command in the local CLI or the Cloud Shell **bash** terminal to update the temperature property on the thermostat67 twin.
 
 ```azurecli-interactive
 az dt twin update --dt-name <your-Azure-Digital-Twins-instance-name> --twin-id thermostat67 --json-patch '{"op":"replace", "path":"/Temperature", "value": 20.5}'
@@ -261,11 +261,11 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/view-environment.png" alt-text="Screenshot of the Azure portal showing the Time Series Insights explorer URL in the overview tab of the Time Series Insights environment." lightbox="media/how-to-integrate-time-series-insights/view-environment.png":::
 
-2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the thermostat67 twin, choose the property *Temperature*, and select **Add**.
+2. In the explorer, you will see the twins in the Azure Digital Twins instance shown on the left. Select the twin you've edited properties for, choose the property you've changed, and select **Add**.
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/add-data.png" alt-text="Screenshot of the Time Series Insights explorer with the steps to select thermostat67, select the property temperature, and select add highlighted." lightbox="media/how-to-integrate-time-series-insights/add-data.png":::
 
-3. You should now see the initial temperature readings from your thermostat, as shown below. 
+3. You should now see the property changes you made reflected in the graph, as shown below. 
 
     :::image type="content" source="media/how-to-integrate-time-series-insights/initial-data.png" alt-text="Screenshot of the Time Series Insights explorer with the initial temperature data, showing a line of random values between 68 and 85." lightbox="media/how-to-integrate-time-series-insights/initial-data.png":::
 
