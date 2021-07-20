@@ -23,8 +23,7 @@ The Azure Active Directory (Azure AD) provisioning service supports a [SCIM 2.0]
 ![Diagram that shows SCIM architecture.](./media/on-premises-scim-provisioning/scim-4.png)
 
 ## Prerequisites
-- An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
-    [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
+- An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). [!INCLUDE [active-directory-p1-license.md](../../../includes/active-directory-p1-license.md)]
 - Administrator role for installing the agent. This task is a one-time effort and should be an Azure account that's either a hybrid administrator or a global administrator. 
 - Administrator role for configuring the application in the cloud (application administrator, cloud application administrator, global administrator, or a custom role with permissions).
 
@@ -55,7 +54,8 @@ To provision users to SCIM-enabled apps:
 
 ## Additional requirements
 * Ensure your [SCIM](https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010) implementation meets the [Azure AD SCIM requirements](use-scim-to-provision-users-and-groups.md).
-  * Azure AD offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation. The code is as is.
+  
+  Azure AD offers open-source [reference code](https://github.com/AzureAD/SCIMReferenceCode/wiki) that developers can use to bootstrap their SCIM implementation. The code is as is.
 * Support the /schemaDiscovery endpoint to reduce configuration required in the Azure portal. 
 
 ## Next steps
