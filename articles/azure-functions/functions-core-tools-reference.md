@@ -41,7 +41,7 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 | **`--docker`** | Creates a Dockerfile for a container using a base image that is based on the chosen `--worker-runtime`. Use this option when you plan to publish to a custom Linux container. |
 | **`--docker-only`** |  Adds a Dockerfile to an existing project. Prompts for the worker-runtime if not specified or set in local.settings.json. Use this option when you plan to publish an existing project to a custom Linux container. |
 | **`--force`** | Initialize the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
-| **`--language`** | Initializes a language specific project. Currently supported when `--worker-runtime` set to `node`. Options are `typescript` and `javascript`. You can also use `--worker-runtime javascript` or `--worker-runtime typescript`.  |
+| **`--language`** | Initializes a language-specific project. Currently supported when `--worker-runtime` set to `node`. Options are `typescript` and `javascript`. You can also use `--worker-runtime javascript` or `--worker-runtime typescript`.  |
 | **`--managed-dependencies`**  | Installs managed dependencies. Currently, only the PowerShell worker runtime supports this functionality. |
 | **`--source-control`** | Controls whether a git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
 | **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `dotnet`, `javascript`,`node` (JavaScript), `powershell`, `python`, and `typescript`. For Java, use [Maven](functions-reference-java.md#create-java-functions). To generate a language-agnostic project with just the project files, use `custom`. When not set, you're prompted to choose your runtime during initialization. |
@@ -52,7 +52,20 @@ When you supply `<PROJECT_FOLDER>`, the project is created in a new folder with 
 
 ## func logs
 
+Gets logs for functions running in a Kubernetes cluster.
 
+```
+func logs --platform kubernetes --name <APP_NAME>
+``` 
+
+The `func logs` action supports the following options:
+
+| Option     | Description                            |
+| ------------------------------------------ | -------------------------------------- |
+| **`--platform`** | Hosting platform for the function app. Supported options: `kubernetes`. |
+| **`--name`** | Function app name in Azure. |
+
+To learn more, see [Azure Functions on Kubernetes with KEDA](functions-kubernetes-keda.md).
 
 ## func new
 
@@ -62,13 +75,13 @@ Creates a new function in the current project based on a template.
 func new
 ``` 
 
-You can also specify these options in the command using the following arguments:
+The `func new` action supports the following options:
 
-| Argument     | Description                            |
+| Option     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--authLevel`** | Lets you set the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). |
 | **`--csx`** | (Version 2.x and later versions.) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
-| **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and later versions, do not use this option or choose a language that matches the worker runtime. |
+| **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and later versions, you don't use this option because the language is defined by the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |
 | **`--template`**, **`-t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
 
@@ -84,20 +97,20 @@ Enables you to invoke a function directly, which is similar to running a functio
 func run
 ```
 
-`func run` supports the following options:
+The `func run` action supports the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--content`**, **`-c`** | Inline content. |
-| **`--debug`**, **`-d`** | Attach a debugger to the host process before running the function.|
-| **`--file`**, **`-f`** | The file name to use as content.|
-| **`--no-interactive`** | Does not prompt for input. Useful for automation scenarios.|
-| **`--timeout`**, **`-t`** | Time to wait (in seconds) until the local Functions host is ready.|
+| **`--content`** | Inline content passed to the function. |
+| **`--debug`** | Attach a debugger to the host process before running the function.|
+| **`--file`** | The file name to use as content.|
+| **`--no-interactive`** | Doesn't prompt for input, which is useful for automation scenarios.|
+| **`--timeout`** | Time to wait (in seconds) until the local Functions host is ready.|
 
 For example, to call an HTTP-triggered function and pass content body, run the following command:
 
 ```
-func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
+func run MyHttpTrigger --content '{\"name\": \"Azure\"}'
 ```
 
 ## func start
@@ -126,8 +139,8 @@ func start
 | **`--language-worker`** | Arguments to configure the language worker. For example, you may enable debugging for language worker by providing [debug port and other required arguments](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). |
 | **`--no-build`** | Don't build the current project before running. For .NET class projects only. The default is `false`.  |
 | **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. |
-| **`--port`**, **`-p`** | The local port to listen on. Default value: 7071. |
-| **`--timeout`**, **`-t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
+| **`--port`** | The local port to listen on. Default value: 7071. |
+| **`--timeout`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
 With the project running, you can [verify individual function endpoints](functions-run-local.md#passing-test-data-to-a-function).
@@ -143,10 +156,10 @@ func host start
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--port`**, **`-p`** | The local port to listen on. Default value: 7071. |
-| **`--pause-on-error`** | Pause for additional input before exiting the process. Used only when launching Core Tools from an integrated development environment (IDE).|
-| **`--script-root`**, **`--prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
-| **`--timeout`**, **`-t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
+| **`--port`** | The local port to listen on. Default value: 7071. |
+| **`--pause-on-error`** | Pause for more input before exiting the process. Used only when launching Core Tools from an integrated development environment (IDE).|
+| **`--script-root`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
+| **`--timeout`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
 In version 1.x, you can also use the [`func run` command](#func-run) to run a specific function and pass test data to it. 
@@ -208,16 +221,16 @@ The following publish options apply, based on version:
 | ------------ | -------------------------------------- |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--build`**, **`-b`** | Performs build action when deploying to a Linux function app. Accepts: `remote` and `local`. |
-| **`--build-native-deps`** | Skips generating .wheels folder when publishing Python function apps. |
+| **`--build-native-deps`** | Skips generating the `.wheels` folder when publishing Python function apps. |
 | **`--csx`** | Publish a C# script (.csx) project. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |
-| **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls 'dotnet build --output bin/publish'. Any parameters passed to this will be appended to the command line. |
-|**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the .funcignore file. |
-| **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
+| **`--dotnet-cli-params`** | When publishing compiled C# (.csproj) functions, the core tools calls `dotnet build --output bin/publish`. Any parameters passed to this will be appended to the command line. |
+|**`--list-ignored-files`** | Displays a list of files that are ignored during publishing, which is based on the `.funcignore` file. |
+| **`--list-included-files`** | Displays a list of files that are published, which is based on the `.funcignore` file. |
 | **`--no-build`** | Project isn't built during publishing. For Python, `pip install` isn't performed. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
 | **`--publish-settings-only`**, **`-o`** |  Only publish settings and skip the content. Default is prompt. |
 | **`--slot`** | Optional name of a specific slot to which to publish. |
 
@@ -226,7 +239,7 @@ The following publish options apply, based on version:
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--overwrite-settings -y`** | Suppress the prompt to overwrite app settings when `--publish-local-settings -i` is used.|
-| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you are using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publish settings in local.settings.json to Azure, prompting to overwrite if the setting already exists. If you're using the Microsoft Azure Storage Emulator, first change the app setting to an [actual storage connection](functions-run-local.md#get-your-storage-connection-strings). |
 
 ---
 
@@ -240,13 +253,13 @@ func azure storage fetch-connection-string <STORAGE_ACCOUNT_NAME>
 
 ## func deploy
 
-Deploys a Functions project to a Linux function app as a custom docker container.
+Deploys a function app in a custom Linux container to a Kubernetes cluster without KEDA.
 
 ```command
 func deploy --name <FUNCTION_APP> --platform kubernetes --registry <DOCKER_USER>
 ```
 
-Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init).     
+This command builds your project as a custom container and publishes it to a Kubernetes cluster using a default scaler or using KNative. To publish to a cluster using KEDA for dynamic scale, instead use the [`func kubernetes deploy` command](#func-kubernetes-deploy). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init).     
 
 The `deploy` action supports the following options:
 
@@ -256,12 +269,12 @@ The `deploy` action supports the following options:
 | **`--max`**  | Optionally, sets the maximum number of function app instances to deploy to. |
 | **`--min`**  | Optionally, sets the minimum number of function app instances to deploy to. |
 | **`--name`** | Function app name (required). |
-| **`--platform`** | Hosting platform for the function app (required). Valid options are: `kubernetes` |
+| **`--platform`** | Hosting platform for the function app (required). Valid options are: `kubernetes` and `knative`.|
 | **`--registry`** | The name of a Docker Registry the current user signed-in to (required). |
 
 Core Tools uses the local Docker CLI to build and publish the image. 
 
-Make sure you Docker is already installed locally. Run the `docker login` command to connect to your account.
+Make sure your Docker is already installed locally. Run the `docker login` command to connect to your account.
 
 ## func durable delete-task-hub
 
@@ -440,13 +453,13 @@ To learn more, see the [Durable Functions documentation](./durable/durable-funct
 
 ## func kubernetes deploy
 
-Deploys a Functions project as a custom docker container to a Kubernetes cluster.
+Deploys a Functions project as a custom docker container to a Kubernetes cluster using KEDA.
 
 ```command
 func kubernetes deploy 
 ```
 
-Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
+This command builds your project as a custom container and publishes it to a Kubernetes cluster using KEDA for dynamic scale. To publish to a cluster using a default scaler or using KNative, instead use the [`func deploy` command](#func-deploy). Custom containers must have a Dockerfile. To create an app with a Dockerfile, use the `--dockerfile` option with the [`func init` command](#func-init). 
 
 The following Kubernetes deployment options are available:
 
@@ -454,7 +467,7 @@ The following Kubernetes deployment options are available:
 | ------------ | -------------------------------------- |
 | **`--dry-run`** | Optionally displays the deployment template, without execution. |
 | **`--config-map-name`** | Optional name of an existing config map with [function app settings](functions-how-to-use-azure-function-app-settings.md#settings) to use in the deployment. Requires `--use-config-map`. The default behavior is to create settings based on the `Values` object in the [local.settings.json file].|
-| **`--cooldown-period`** | The cool-down period (in seconds) after all triggers are no longer active before the deployment scales back down to zero, with a default of 300s. |
+| **`--cooldown-period`** | The cool-down period (in seconds) after all triggers are no longer active before the deployment scales back down to zero, with a default of 300 s. |
 | **`--ignore-errors`** | Continues the deployment after a resource returns an error. The default behavior is to stop on error. |
 | **`--image-name`** | The name of the image to use for the pod deployment and from which to read functions. |
 | **`--keda-version`** | Sets the version of KEDA to install. Valid options are: `v1` and `v2` (default). |
@@ -475,7 +488,7 @@ The following Kubernetes deployment options are available:
 
 Core Tools uses the local Docker CLI to build and publish the image. 
 
-Make sure you Docker is already installed locally. Run the `docker login` command to connect to your account.
+Make sure your Docker is already installed locally. Run the `docker login` command to connect to your account.
 
 To learn more, see [Deploying a function app to Kubernetes](functions-kubernetes-keda.md#deploying-a-function-app-to-kubernetes).
 
@@ -531,7 +544,7 @@ The `add` action supports the following option:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--connectionString`** | Adds the name-value pair to the `ConnectionStrings` collection instead instead of the `Values` collection. The `ConnectionStrings` collection should only be used when required by certain frameworks. To learn more, see [local.settings.json file]. |
+| **`--connectionString`** | Adds the name-value pair to the `ConnectionStrings` collection instead of the `Values` collection. Only use the `ConnectionStrings` collection when required by certain frameworks. To learn more, see [local.settings.json file]. |
 
 ## func settings decrypt
 
@@ -557,7 +570,7 @@ The `delete` action supports the following option:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--connectionString`** | Removes the name-value pair from the `ConnectionStrings` collection instead instead of from the `Values` collection. |
+| **`--connectionString`** | Removes the name-value pair from the `ConnectionStrings` collection instead of from the `Values` collection. |
 
 ## func settings encrypt
 

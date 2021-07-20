@@ -151,6 +151,10 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
 
 ---
 
+### Version 1.x
+
+If you need to install version 1.x of the Core Tools, which runs only on Windows, see the [GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/v1.x/README.md#installing) for more information.
+
 ## Create a local Functions project
 
 A Functions project directory contains the files [host.json](functions-host-json.md) and [local.settings.json](#local-settings), along with subfolders that contain the code for individual functions. This directory is the equivalent of a function app in Azure. To learn more about the Functions folder structure, see the [Azure Functions developers guide](functions-reference.md#folder-structure).
@@ -176,13 +180,13 @@ Certain languages may have additional considerations:
 
 # [C\#](#tab/csharp)
 
-By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). Version 3.x also supports creating functions that [run on .NET 5.0 in an isolated process](dotnet-isolated-process-guide.md). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. 
++ By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). Version 3.x also supports creating functions that [run on .NET 5.0 in an isolated process](dotnet-isolated-process-guide.md). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. 
 
-If you instead want to create and work locally with the same C# script (.csx) files created either in the Azure portal or by using version 1.x tools, you must include the `--csx` parameter when you create and deploy functions. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
++ If you instead want to create and work locally with the same C# script (.csx) files created either in the Azure portal or by using version 1.x tools, you must include the `--csx` parameter when you create and deploy functions. To learn more, see the [func init reference](functions-core-tools-reference.md#func-init).
 
 # [Java](#tab/java)
 
-Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Instead of using `func init` and `func new`, you should follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
++ Java uses a Maven archetype to create the local Functions project, along with your first HTTP triggered function. Instead of using `func init` and `func new`, you should follow the steps in the [Command line quickstart](./create-first-function-cli-java.md).  
 
 # [JavaScript](#tab/node)
 
@@ -224,7 +228,7 @@ If you can't use extension bundles with your non-.NET project,, you can use Core
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-By default, these settings are not migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option] when you publish to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published.
+By default, these settings are not migrated automatically when the project is published to Azure. Use the [`--publish-local-settings` option][func azure functionapp publish] when you publish to make sure these settings are added to the function app in Azure. Values in **ConnectionStrings** are never published.
 
 The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
 
@@ -253,7 +257,7 @@ Even when using the Microsoft Azure Storage Emulator for development, you may wa
 
   ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-# [Azure CLI](#tab/azurecli)
+# [Core Tools](#tab/azurecli)
 
 From the project root, use one of the following commands to download the connection string from Azure:
 
@@ -305,11 +309,11 @@ This example creates a Queue Storage trigger named `MyQueueTrigger`:
 func new --template "Queue Trigger" --name MyQueueTrigger
 ```
 
-To learn more, see [func new](functions-core-tools-reference.md#func-new).
+To learn more, see the [`func new` command](functions-core-tools-reference.md#func-new).
 
 ## <a name="start"></a>Run functions locally
 
-To run a Functions project, you run the Functions host from the root directory of your project. The host enables triggers for all functions in the project. The [start command](functions-core-tools-reference.md#func-start) varies depending on your project language.
+To run a Functions project, you run the Functions host from the root directory of your project. The host enables triggers for all functions in the project. The [`start` command](functions-core-tools-reference.md#func-start) varies depending on your project language.
 
 # [C\#](#tab/csharp)
 
