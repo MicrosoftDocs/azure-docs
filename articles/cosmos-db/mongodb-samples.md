@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+author: gahl-levy
+ms.author: gahllevy
 ms.custom: devx-track-js
 ---
 # Build an app using Node.js and Azure Cosmos DB's API for MongoDB 

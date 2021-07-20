@@ -7,8 +7,8 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma, danil
 ms.date: 03/10/2021
 ---
@@ -195,6 +195,8 @@ Add a filter for **Service name**, and then select **sql database** in the drop-
 
   >[!NOTE]
   > Meters are only visible for counters that are currently in use. If a counter is not available, it is likely that the category is not currently being used. For example, managed instance counters will not be present for customers who do not have a managed instance deployed. Likewise, storage counters will not be visible for resources that are not consuming storage. 
+
+For more information, see [Azure SQL Database cost management](cost-management.md).
 
 ## Encrypted backups
 

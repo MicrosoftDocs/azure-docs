@@ -2,7 +2,6 @@
 title: How to administer Azure Cache for Redis
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
 author: yegu-ms
-
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
@@ -71,7 +70,7 @@ Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-
 
 ## Schedule updates
 
-On the left, **Schedule updates** allow you to choose a maintenance window for your cache instance. A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will make a best effort to start and finish updating Redis server software within the specified time window you define.
+On the left, **Schedule updates** allows you to choose a maintenance window for your cache instance. A maintenance window allows you to control the day(s) and time(s) of a week during which the VM(s) hosting your cache can be updated. Azure Cache for Redis will make a best effort to start and finish updating Redis server software within the specified time window you define.
 
 > [!NOTE]
 > The maintenance window applies to Redis server updates and updates to the Operating System of the VMs hosting the cache. The maintenance window does not apply to Host OS updates to the Hosts hosting the cache VMs or other Azure Networking components. In rare cases, where caches are hosted on older models (you can tell if your cache is on an older model if the DNS name of the cache resolves to a suffix of "cloudapp.net", "chinacloudapp.cn", "usgovcloudapi.net" or "cloudapi.de"), the maintenance window won't apply to Guest OS updates either.
@@ -83,7 +82,7 @@ On the left, **Schedule updates** allow you to choose a maintenance window for y
 
 To specify a maintenance window, check the days you want and specify the maintenance window start hour for each day. Then, select **OK**. The maintenance window time is in UTC.
 
-The default, and minimum, maintenance window for updates is five hours. This value isn't configurable from the Azure portal, but you can configure it in PowerShell using the `MaintenanceWindow` parameter of the [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. For more information, see Can I manage scheduled updates using PowerShell, CLI, or other management tools?
+The default, and minimum, maintenance window for updates is five hours. This value isn't configurable from the Azure portal, but you can configure it in PowerShell using the `MaintenanceWindow` parameter of the [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. For more information, see [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 
 ## Schedule updates FAQ
 

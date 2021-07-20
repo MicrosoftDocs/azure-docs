@@ -20,6 +20,12 @@ This page is updated monthly, so revisit it regularly.
 
 ## June 2021
 
+### Hybrid Runbook Worker support for Ubuntu 20.04 LTS
+
+**Type:** New feature
+
+See [Supported Linux operating systems](./automation-linux-hrw-install.md#supported-linux-operating-systems) for a complete list.
+
 ### Security update for Log Analytics Contributor role
 
 **Type:** Plan for change
@@ -353,7 +359,7 @@ Automation support of service tags allows or denies the traffic for the Automati
 
 **Type:** Plan for change
 
-Azure Automation fully supports TLS 1.2 and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
+Azure Automation fully supports TLS 1.2 and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2. To learn more, see the [documentation](automation-managing-data.md#tls-12-for-azure-automation).
 
 ## January 2020
 

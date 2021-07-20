@@ -72,20 +72,12 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 | Ubuntu 18.04 | April 2028 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 | Ubuntu 16.04 | April 2024 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 
-## Supported .NET runtimes
-
-The following table lists the .NET runtimes supported by Service Fabric:
-
-| Service Fabric runtime | Supported .NET runtimes for Windows |Supported .NET runtimes for Linux |
-| --- | --- | --- |
-| 8.0 CU1 | .NET 5.0, >= .NET Core 2.1, All >= .NET Framework 4.5 | >= .NET Core 2.1|
-| 8.0 RTO | .NET 5.0, >= .NET Core 2.1, All >= .NET Framework 4.5 | >= .NET Core 2.1|
-
 ## Service Fabric version name and number reference
 The following table lists the version names of Service Fabric and their corresponding version numbers.
 
 | Version name | Windows version number | Linux version number |
 | --- | --- | --- |
+| 8.0 CU2 | 8.0.521.9590 | NA |
 | 8.0 CU1 | 8.0.516.9590 | 8.0.515.1 | 
 | 8.0 RTO | 8.0.514.9590 | 8.0.513.1 | 
 | 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |

@@ -19,7 +19,7 @@ In this article, you learn how to create an Azure Machine Learning workspace usi
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 * To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -135,7 +135,7 @@ The output of this command is similar to the following JSON:
 ### Virtual network and private endpoint
 
 > [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
+> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
 
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
 

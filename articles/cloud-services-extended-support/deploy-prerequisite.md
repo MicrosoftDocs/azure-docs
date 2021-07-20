@@ -105,9 +105,9 @@ Deployments that utilized the old diagnostics plugins need the settings removed 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
-## Subscription Access Level
+## Access Control
 
-The subsciption containing networking resources needs to have [network contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+The subscription containing networking resources needs to have [network contributor](../role-based-access-control/built-in-roles.md#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](../role-based-access-control/built-in-roles.md)
 
 ## Key Vault creation 
 
@@ -116,5 +116,5 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

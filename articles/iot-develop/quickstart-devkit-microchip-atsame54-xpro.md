@@ -101,7 +101,9 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 ### Connect the device
 
-1. On the Microchip E54, locate the **Reset** button, the **Ethernet** port, and the Micro USB port, which is labeled **Debug USB**.
+1. On the Microchip E54, locate the **Reset** button, the **Ethernet** port, and the Micro USB port, which is labeled **Debug USB**. Each component is highlighted in the following picture:
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/microchip-xpro-board.png" alt-text="Locate key components on the Microchip E54 evaluation kit board":::
 
 1. Connect the Micro USB cable to the **Debug USB** port on the Microchip E54, and then connect it to your computer.
     > [!NOTE]
@@ -113,7 +115,10 @@ To connect the Microchip E54 to Azure, you'll modify a configuration file for Az
 
 If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, follow the steps in this section; otherwise, skip to [Build the image](#build-the-image). You can complete this quickstart even if you don't have a sensor. The sample code for the device returns simulated data if a real sensor is not present.
 
-1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54.
+1. If you have the Weather Click sensor and the mikroBUS Xplained Pro adapter, install them on the Microchip E54 as shown in the following photo:
+
+    :::image type="content" source="media/quickstart-devkit-microchip-atsame54-xpro/sam-e54-sensor.png" alt-text="Install Weather Click sensor and mikroBUS Xplained Pro adapter on the Microchip ES4":::
+
 1. Reopen the configuration file you edited previously:
 
     *getting-started\Microchip\ATSAME54-XPRO\app\azure_config.h*
