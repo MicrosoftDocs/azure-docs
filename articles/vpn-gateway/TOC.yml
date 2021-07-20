@@ -265,7 +265,7 @@
       href: ipsec-ike-policy-howto.md 
     - name: PowerShell
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: Configure active-active connections
+  - name: Configure active-active gateways
     items: 
     - name: PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
