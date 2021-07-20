@@ -86,7 +86,7 @@ Restart-Service dhcpserver
 Add-DhcpServerV4Scope -Name "AzureIoTEdgeScope" -StartRange {startIp} -EndRange {endIp} -SubnetMask {subnetMask} -State Active
 ```
 
-12.	 Finally, assign the NAT object and gatewayIp to the DHCP server, and restart the server for loading the configuration
+12.	 Finally, assign the NAT object and gatewayIp to the DHCP server, and restart the server to load the configuration.
  ```powershell
  Set-DhcpServerV4OptionValue -ScopeID {natIp} -Router {gatewayIp}
 Restart-service dhcpserver
