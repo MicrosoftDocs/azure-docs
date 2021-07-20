@@ -5,7 +5,7 @@ services: storsimple
 author: alkohli
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 07/19/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -24,70 +24,73 @@ Perform the following steps to create a support request:
      
     ![Basics](./media/storage-import-export-contact-microsoft-support/import-export-support-01.png)
    
-2. In **Basics** for **New support request**:
+1. In **Basics** for **New support request**:
 
    1. Enter required basic information:
 
       |Option|Description|
       |------|-----------|
+      |**Summary** | Briefly describe your issue. |
       |**Issue type**|Select **Technical**.|
       |**Subscription**|Choose the subscription used for the resource.|
-      |**Service**|Select **My services**. In the **Service type** dropdown list, you can select one of the options - **Storage Account Management**, **Blob Storage**, or **File Storage**.|
+      |**Service**|Select **My services**. THen select the **Service type** from the dropdown list. For an import/export order, you'll select **Storage Account Management**, **Blob Storage**, or **File Storage**.<!--Rolled over from previous topic. These are the only services that an import/export might apply to?--|
       |**Resource**|Select the resource.|
-      |**Summary**|Enter a brief summary of the issue.|
  
-   1. Two additional options are displayed. You must select a **Problem type** and **Problem subtype**.
-   1. Select **Next: Solutions>>** to proceed.
+   1. You'll see a new **Problem type** field. Select the problem type. Then select a problem subtype in the **Problem subtype** field that appears.
 
    ![Basics screen for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-02.png)
 
-3. Use the **Solutions** screen to help you fix common issues for the problem you described.
+   Select **Next: Solutions>>** to proceed.
 
-   - Use the **Troubleshooter** tool to help guide you to a specific action for the issue you encountered. Each choice presents more questions to help you drill down to a specific solution.
+1. Use the **Solutions** tab to get expert solutions, provided by Azure engineers, without needing a support ticket.
 
-      ![Scenarios for an issue in the Troubleshooter tool for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-03.png)
+   1. Use the **Diagnostics** fields to provide more info about your problem.
+   1. Enter the **Problem start time**.
+   1. Then select **Submit** to get insights into the problem you described.
 
-      When you've answered all questions, select **Submit** to run diagnostics and get a suggested solution.<!--Clocking through, I can't get actual solution text. Can someone tell me a sequence of options that will produce actual KB?-->
+       ![Scenarios for an issue in the Troubleshooter tool for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-03.png)
 
-       ![Submit an issue in the Troubleshooter tool for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-04.png)
+       Review the insights, which are displayed beneath the **Submit** option. Each insight gives more info about the issue, potential solutions, and links to resources.
 
-   - Use the **Recommended solution** section to find resources that may give you more insight into your issue.
+       ![An insight based on diagnostics entered on the Solutions screen for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-04.png)
+
+      If you don't find the solution to your problem, select **Next: Details>>** to proceed with a support request.
+
+1. Use the **Details** pane to provide info for a support ticket:<!--This seems like too much detail. I went to the level of detail that were required to include the fields noted in the current article. In a Q&A form with no real "gotcha's," this seems like overkill.-->
+
+   - **Problem details**: Describe the problem for Microsoft support. You can attach a file if needed. 
    
-   If you haven't found the solution in **Solutions**, select **Next: Details>>** to proceed with the support request.
+       In **File upload**, select the folder icon to browse to any files you want to upload. To get help with your upload, select the **i** icon by **File upload**.
 
-4. In **Details**, select **Step 2 Problem**. In **Problem**, do the following steps:
-    
-    1. Choose the **Severity** as **C - Minimal impact**. Support will update it if needed.
-    2. Select the **Problem type** as **Data Migration**.<!--Too many substeps. Economize.-->
-    3. Choose the **Category** as **Import - Export**.
-    4. Provide a **Title** for the issue and more **Details**.
-    5. Provide the start date and time for the issue.
-    6. In **File upload**, select the folder icon to browse to any other files you want to upload.
-    7. Check **Share diagnostic information**.
-    8. Select **Next**.
+      ![Problem details, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-05.png)
 
-       ![Problem](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
+   - **Share diagnostic information?** Select **Yes** if you'd like to allow Microsoft support to review diagnostic data from your services. Having access to these diagnostics can help the support representative investigate more quickly.
 
-PICKED UP HERE. 03/16
+     ![Option for sharing diagnostics, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-06.png)
 
-4. In **Details**, enter details about the support issue.<!--Bullets moved in as is from Step 1 to capture level of detail. Rework per Details screen! Reshoot all screens that are needed. Reduce screen size.-->
-   - If you chose **Storage Account Management**, select **Resource**, and **Support plan**.
-    ![Choose Storage Account Management](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
-   - If you chose **Blob Storage**, select **Resource**, **Container names** (optional), and **Support plan**.
-     ![Chose Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-    - If you chose **File Storage**, select **Resource**, **File share names** (optional), and **Support plan**
-      ![Choose File](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)-->
+ 
+   - **Support method**: Indicate the severity of the problem, and tell Microsoft support when and how you'd like to be contacted:
+      - For **Severity**, accept **C - Minimal impact**. Support will increase the severity if needed.
+      - If you select **Live chat** as your **Preferred contact method**, the support engineer will continue working with you over the phone or email until your problem is resolved.
 
-4. In **New support request**, select **Step 3 Contact information**. In **Contact information**, do the following steps:
+     ![Support method options, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-07.png)
 
-   1. In the **Contact options**, provide your preferred contact method (phone or email) and the language. The response time is automatically selected based on your subscription plan.
-   2. In the Contact information, provide your name, email, optional contact, country/region. Select the **Save contact changes for future support requests** checkbox.
-   3. Select **Create**.
+   - **Contact info**: Edit the contact information for your support plan if needed.
+
+     ![Contact info, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-08.png)
+
    
-       ![Contact information](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+   When you finish, select **Next: Review + create >>** to proceed.
 
-      Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
-      After you've submitted your request, a Support engineer will contact you to continue with your request.
+1. Review your support request on the **Review + create** tab. 
+
+   1. If you need to make changes, open the **Details** tab again. 
+   1. When you're ready to submit your support request, select **Create**. 
+      
+      If your preferred contact method was **Live chat**, select **Create and chat** to immediately open a chat session.
+
+    ![Review + create tab for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-09.png)
+
 
 ## Manage a support request
 
@@ -97,15 +100,15 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 1. To get to the help and support page, navigate to **Browse > Help + support**.
 
-    ![Screenshot shows the Help dialog box.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket2.png)   
+    ![Screenshot shows the Help dialog box.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket-01.png)
 
 2. A tabular listing of **Recent support requests** is displayed in **Help + support**.
 
-    ![Screenshot shows the Help + support page with your support request in an open status.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket1.png) 
+    ![Screenshot shows the Help + support page with your support request in an open status.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket-02.png) 
 
 3. Select and click a support request. You can view the status and the details for this request. Select **+ New message** if you want to follow up on this request.
 
-    ![Screenshot shows New message selected for this request.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket3.png) 
+    ![Screenshot shows New message selected for this request.](./media/storage-import-export-contact-microsoft-support/manage-support-ticket-03.png)<!--Crop this down?-->
 
 
 ## Next steps
