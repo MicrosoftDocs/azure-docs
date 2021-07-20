@@ -39,18 +39,28 @@ TLS1.0 and TLS 1.1 are protocols that are deemed unsafe and are being deprecated
 
 ### All binaries signed with SHA2 
 
-We noticed that some components had SHA1 signed binaries. We no longer support SHA1 for downloadable binaries and we upgraded all binaries to SH2 signing. There is no action needed from your side. 
+We noticed that some components had SHA1 signed binaries. We no longer support SHA1 for downloadable binaries and we upgraded all binaries to SHA2 signing. The digital signatures are used to ensure that the updates come directly from Microsoft and were not tampered with during delivery. Because of weaknesses in the SHA-1 algorithm and to align to industry standards, we have changed the signing of Windows updates to use the more secure SHA-2 algorithm."  
+
+There is no action needed from your side. 
 
 ### Windows Server 2012 and Windows Server 2012 R2 are no longer supported 
 
-SQL Server 2019 requires Windows Server 2016 or newer server operating system, so we are dropping support for older Windows Server versions.  
-You cannot install this version on one of these older Windows Server versions, you need to upgrade the Windows Server version to Windows Server 2016 or newer before you can install or upgrade to this version. We suggest you upgrade your Azure AD Connect server to Windows Server 2019, which is the most recent version of the Windows Server operating system.   For more information, see [Install, upgrade, or migrate to Windows Server](https://docs.microsoft.com/windows-server/get-started-19/install-upgrade-migrate-19).
+SQL Server 2019 requires Windows Server 2016 or newer as a server operating system. Since AAD Connect v2 contains SQL Server 2019 components, we no longer can support older Windows Server versions.  
+
+You cannot install this version on an older Windows Server version. We suggest you upgrade your Azure AD Connect server to Windows Server 2019, which is the most recent version of the Windows Server operating system. 
+
+This [article](https://docs.microsoft.com/windows-server/get-started-19/install-upgrade-migrate-19) describes the upgrade from older Windows Server versions to Windows Server 2019. 
 
 ### PowerShell 5.0 
 
-This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so we are making this a new prerequisite for Azure AD Connect.  PowerShell 5 is already part of Windows Server 2016 so you probably do not have to take action as long as you are on a recent Window Server version. 
+This release of Azure AD Connect contains several cmdlets that require PowerShell 5.0, so we are making this a new prerequisite for Azure AD Connect.  
 
-## Azure AD Connect V2.0 FAQ
+More details about PowerShell prerequisites can be found [here](https://docs.microsoft.com/powershell/scripting/windows-powershell/install/windows-powershell-system-requirements?view=powershell-7.1#windows-powershell-50).
+
+ >[!NOTE]
+ >PowerShell 5 is already part of Windows Server 2016 so you probably do not have to take action as long as you are on a recent Window Server version. 
+
+## What else do I need to know? 
 
 
 **Why is this important for me?** </br>
@@ -65,7 +75,7 @@ No – this release does not contain any new functionality. This release only co
 Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in this article to determine what is the best upgrade strategy for you. 
 
 **Can I export the configuration of my current server and import it in Azure AD Connect V2.0?** </br>
-Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this article. 
+Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this [article](how-to-connect-import-export-config.md). 
 
 **I have enabled auto upgrade for Azure AD Connect – will I get this new version automatically?** </br> 
 No – Azure AD Connect V2.0 will not be made available for auto upgrade at this time. We are planning to create a future release that will be made available for auto upgrade, and which will help customers who are eligible for auto upgrade to remain in a supported state. 
