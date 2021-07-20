@@ -164,7 +164,11 @@ msrest.http_logger :     'Azure-AsyncOperation': 'https://management.azure.com/S
 Then track the resulting operation using the location header or Azure-AsyncOperation header with a GET command:
 
 ```http
-GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01
+
+GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/
+azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupoperations/
+b300922a-ad9c-4181-b4cd-d42ea780ad77?api-version=2016-12-01
+
 ```
 
 ### Response body
@@ -188,7 +192,11 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protected-items/delete).
 
 ```http
-DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
+
+DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/
+{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
+
 ```
 
 The parameters {containerName} and {protectedItemName} are as set [here](restore-azure-file-share-rest-api.md#fetch-containername-and-protecteditemname).
