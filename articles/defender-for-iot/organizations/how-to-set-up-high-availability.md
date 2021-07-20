@@ -80,7 +80,7 @@ Verify that both the primary and secondary on-premises management console applia
 
 1. Sign in to the management console.
 
-1. Select **System Settings**from the side menu.
+1. Select **System Settings** from the side menu.
 
 1. Copy the Connection String.
 
@@ -109,7 +109,7 @@ Verify that both the primary and secondary on-premises management console applia
     cyberx-management-deploy-ssh-key <Secondary IP>
     ```
 
-This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
+   This allows the connection between the primary and secondary appliances for backup and restoration purposes between them.
 
 1. Enter the IP address of the secondary and select Enter.
 
