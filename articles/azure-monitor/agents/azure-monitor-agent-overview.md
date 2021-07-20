@@ -83,21 +83,22 @@ See [Supported operating systems](agents-overview.md#supported-operating-systems
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before deploying the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes. If the machine connects through a proxy server to communicate over the Internet, review requirements below to understand the network configuration required.
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes. If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
 
 ### Proxy configuration
 
-The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol (for Azure virtual machines, Azure virtual machine scalesets and Azure Arc for servers). This is configured using extensions settings as described below, and supports both anonymous and basic authentication (username/password) are supported.  
+The Azure Monitor agent extensions for Windows and Linux can communicate either through a proxy server or Log Analytics gateway to Azure Monitor using the HTTPS protocol (for Azure virtual machines, Azure virtual machine scale sets and Azure Arc for servers). This is configured using extensions settings as described below, and supports both anonymous and basic authentication (username/password) are supported.  
 
 1. Use this simple flowchart to determine the values of *setting* and *protectedSetting* parameters first:
-![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent-overview/proxyflowchart.png)
+![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent-overview/proxy-flowchart.png)
+![Flowchart to determine the values of setting and protectedSetting parameters when enabling the extension](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
 2. Once the values *setting* and *protectedSetting* parameters are determined, provide these additional parameters when deploying the Azure Monitor agent using PowerShell commands (examples below for Azure virtual machines):
 
-| Parameter | Value |
-|:---|:---|
-| SettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}} |
-| ProtectedSettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"username": "[username]","password": "[password]"}} |
+	| Parameter | Value |
+	|:---|:---|
+	| SettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}} |
+	| ProtectedSettingString | JSON object from flowchart above, converted to string; skip if not applicable. Example: {"proxy":{"username": "[username]","password": "[password]"}} |
 
 
 # [Windows](#tab/PowerShellWindows)
@@ -109,6 +110,8 @@ Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMo
 ```powershell
 Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
 ```
+
+---
 
 ## Next steps
 
