@@ -75,5 +75,5 @@ Ask your Account Manager or contact [Microsoft Partner Support](https://aka.ms/m
 
 - [Business Applications partner information](https://aka.ms/bizappsisvWeb) (website)
 - [ISV Connect program guide](https://aka.ms/bizappsisvProgram) (PDF)
-- [ISV Connect program partner FAQ](https://pbapstorageprod.blob.core.windows.net/assets/ISV%20Connect%20Partner%20FAQ.pdf) (PDF)
+- [ISV Connect program partner FAQ](https://powerplatformpartners.transform.microsoft.com/download?assetname=assets/ISV%20Connect%20Partner%20FAQ.pdf&download=1) (PDF)
 - [ISV Connect program changes](https://cloudblogs.microsoft.com/dynamics365/bdm/2021/07/14/innovate-and-grow-with-the-simplified-business-applications-isv-connect-program/) (blog post)
