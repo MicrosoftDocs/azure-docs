@@ -22,7 +22,7 @@ This article describes a number of approaches to migrate an Azure Cache for Redi
 
 ## Migration options
 
-There are different ways that you can switch from VNet injection to Private Link. Depending on where your cache is and how your application interacts with it, one method will be more useful than the others. Some of the frequently used migration strategies are detailed below. Your options will vary based off which type of VNet your cache utilizes; ARM VNet or classic VNet. To verify if you’re using a classic or ARM VNet, please navigate to your resource group in the Azure portal. Under ‘type’ for your VNet, it will specify in parentheses if it is a classic VNet. For more information on the deployment models, please reference [this](../azure-resource-manager/management/deployment-models) document.
+There are different ways that you can switch from VNet injection to Private Link. Depending on where your cache is and how your application interacts with it, one method will be more useful than the others. Some of the frequently used migration strategies are detailed below. Your options will vary based off which type of VNet your cache utilizes; ARM VNet or classic VNet. To verify if you’re using a classic or ARM VNet, please navigate to your resource group in the Azure portal. Under ‘type’ for your VNet, it will specify in parentheses if it is a classic VNet. For more information on the deployment models, please reference [this](../azure-resource-manager/management/deployment-models.md) document.
 
 ### If you're using any combination of geo-replication, clustering, or ARM VNet:
 
