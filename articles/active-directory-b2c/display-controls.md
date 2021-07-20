@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -120,35 +120,13 @@ The **ValidationClaimsExchange** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
+| ValidationClaimsExchangeTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
 
-The **ValidationTechnicalProfile** element contains the following attributes:
-
-| Attribute | Required | Description |
-| --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicates whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error will be returned). |
-|ContinueOnSuccess | No | Indicates whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
-
-The **ValidationTechnicalProfile** element contains the following element:
-
-| Element | Occurrences | Description |
-| ------- | ----------- | ----------- |
-| Preconditions | 0:1 | A list of preconditions that must be satisfied for the validation technical profile to execute. |
-
-The **Precondition** element contains the following attributes:
+The **ValidationClaimsExchangeTechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| `Type` | Yes | The type of check or query to perform for the precondition. Possible values: `ClaimsExist` or `ClaimEquals`. `ClaimsExist` specifies that the actions should be performed if the specified claims exist in the user's current claim set. `ClaimEquals` specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
-| `ExecuteActionsIf` | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
-
-The **Precondition** element contains following elements:
-
-| Element | Occurrences | Description |
-| ------- | ----------- | ----------- |
-| Value | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. Specify the value to be checked in another value element.|
-| Action | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`, which specifies that the associated validation technical profile should not be executed. |
+| TechnicalProfileReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
 
 The following example sends and verifies the email address using [Azure AD SSPR technical profile](aad-sspr-technical-profile.md).
 
