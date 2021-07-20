@@ -22,7 +22,7 @@ In order to set up an Azure Virtual Desktop deployment for your custom apps that
 
 - Your custom app. See [How to host custom apps with Azure Virtual Desktop](custom-apps.md) to learn about the types of apps Azure Virtual Desktop supports and how you can serve them to your customers.
 
-- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool.
+- Your domain join credentials. If you don't already have an identity management system compatible with Azure Virtual Desktop, you'll need to set up identity management for your host pool. To learn more, see [Set up managed identities](identities.md).
 
 - An Azure subscription. If you don't already have a subscription, make sure to [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
