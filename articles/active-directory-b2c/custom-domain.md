@@ -34,7 +34,7 @@ The following diagram illustrates Azure Front Door integration:
 1. From an application, a user selects the sign-in button, which takes them to the Azure AD B2C sign-in page. This page specifies a custom domain name.
 1. The web browser resolves the custom domain name to the Azure Front Door IP address. During DNS resolution, a canonical name (CNAME) record with a custom domain name points to your Front Door default front-end host (for example, `contoso.azurefd.net`). 
 1. The traffic addressed to the custom domain (for example, `login.contoso.com`) is routed to the specified Front Door default front-end host (`contoso.azurefd.net`).
-1. Azure Front Door invokes Azure AD B2C content using the Azure AD B2C `<tenant-name>.b2clogin.com` default domain. The request to the Azure AD B2C endpoint includes the [X-Forwarded-Host](../frontdoor/front-door-http-headers-protocol.md) HTTP header. This HTTP header contains the original custom domain name.
+1. Azure Front Door invokes Azure AD B2C content using the Azure AD B2C `<tenant-name>.b2clogin.com` default domain. The request to the Azure AD B2C endpoint includes the original custom domain name.
 1. Azure AD B2C responds to the request by displaying the relevant content and the original custom domain.
 
 ![Custom domain networking diagram](./media/custom-domain/custom-domain-network-flow.png)
@@ -374,12 +374,7 @@ Azure Front Door passes the user's original IP address. It's the IP address that
 
 ### Can I use a third-party web application firewall (WAF) with B2C?
 
-To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows. We currently support [Akamai](https://www.akamai.com/) and [Cloudflare](https://www.cloudflare.com/) configuration. For other web application firewalls, contact [Microsoft support](https://support.microsoft.com/).
-
-When you configure third-party web application firewall, such as Akamai, or Cloudflare:
-
-- The connection from the browser to Azure Front Door should always use IPv4 instead of IPv6.
-- The request to the Azure AD B2C endpoint must include the [X-Forwarded-Host](../frontdoor/front-door-http-headers-protocol.md) HTTP header. This HTTP header should contain the original custom domain name. For example, login.contoso.com 
+To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows, or custom polies.  
 
 ## Next steps
 
