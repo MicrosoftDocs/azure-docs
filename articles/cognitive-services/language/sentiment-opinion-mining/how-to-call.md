@@ -12,7 +12,7 @@ ms.date: 06/10/2021
 ms.author: aahi
 ---
 
-# How to: Sentiment analysis and Opinion Mining
+# How to: Sentiment analysis and Opinion Mining using Language Services
 
 The Language service provides two ways for detecting positive and negative sentiment. Using Sentiment Analysis, you can get sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. You can use Opinion Mining, which provides granular information about the opinions related to words (such as the attributes of products or services) in the text.
 

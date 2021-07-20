@@ -67,13 +67,7 @@ Use containers to deploy API features on-premises. These docker containers enabl
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
 
-* [Transparency note for Language services](../overview.md)
-* [Transparency note for Sentiment Analysis and Opinion Mining](../overview.md)
-* [Integration and responsible use](../overview.md)
-* [Data, privacy and security](../overview.md)
-
-## Next steps
-
-Follow a quickstart to implement and run a service in your preferred development language.
-
-* [Quickstart: Sentiment Analysis and opinion mining](quickstart.md)
+* [Transparency note for Language services](/legal/cognitive-services/text-analytics/transparency-note)
+* [Transparency note for Sentiment Analysis and Opinion Mining](/legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis)
+* [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
+* [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)

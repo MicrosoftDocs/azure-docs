@@ -10,22 +10,6 @@ items:
   items:
   - name: Overview
     href: sentiment-opinion-mining/overview.md
-  - name: Quickstart
-    href: sentiment-opinion-mining/quickstart.md
-  - name: Responsible use of AI
-    items:
-    - name: Transparency notes
-      items:
-      - name: For Language services
-        href: overview.md
-      - name: For Sentiment Analysis
-        href: overview.md
-    - name: Integration and responsible use
-      href: /legal/cognitive-services/text-analytics/guidance-integration-responsible-use
-      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Data, privacy, and security  
-      href: /legal/cognitive-services/text-analytics/data-privacy
-      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Call Sentiment Analysis

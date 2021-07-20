@@ -1,7 +1,7 @@
 ---
 title: Sentiment Analysis and Opinion mining in Azure Language services
 titleSuffix: Azure Cognitive Services
-description: Learn about text mining with the Text Analytics API. Use it for sentiment analysis, language detection, and other forms of Natural Language Processing.
+description: Learn about sentiment analysis and opinion mining with Language Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 07/09/2021
 ms.author: aahi
-keywords: text mining, sentiment analysis, text analytics
+keywords: text mining, sentiment analysis, opinion mining
 ---
 
 # What is the Sentiment Analysis and Opinion Mining API?
@@ -18,10 +18,8 @@ keywords: text mining, sentiment analysis, text analytics
 Azure Language services is a cloud-based service that provides Natural Language Processing (NLP) features for text mining and text analysis, including: sentiment analysis opinion mining.
 
 This documentation contains the following types of articles:
-* [Quickstarts](quickstart.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+
 * [How-to guides](how-to-call.md) contain instructions for using the service in more specific or customized ways.
-* [Concepts](../overview.md) provide in-depth explanations of the service's functionality and features.
-* [Tutorials](../overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 ## Sentiment analysis
 
@@ -39,10 +37,11 @@ These features are a part of Azure Language services, which is a part [Azure Cog
 
 An AI system includes not only the technology, but also the people who will use it, the people who will be affected by it, and the environment in which it is deployed. Read the following articles to learn about responsible AI use and deployment in your systems:
 
-* [Transparency note for Language services](../overview.md)
-* [Transparency note for Sentiment Analysis and Opinion Mining](../overview.md)
-* [Integration and responsible use](../overview.md)
-* [Data, privacy and security](../overview.md)
+* [Transparency note for Language services](/legal/cognitive-services/text-analytics/transparency-note)
+* [Transparency note for Sentiment Analysis and Opinion Mining](/legal/cognitive-services/text-analytics/transparency-note-sentiment-analysis)
+* [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use)
+* [Data, privacy and security](/legal/cognitive-services/text-analytics/data-privacy)
+
 
 ## Next steps
 
