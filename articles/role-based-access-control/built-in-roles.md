@@ -6396,7 +6396,7 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 
 ### Cognitive Services Metrics Advisor Administrator
 
-Full access to the project, including the system level configuration. [Learn more](../cognitive-services/metrics-advisor/how-tos/alerts.md)
+Full access to the project, including the system level configuration. [Learn more](../applied-ai-services/metrics-advisor/how-tos/alerts.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

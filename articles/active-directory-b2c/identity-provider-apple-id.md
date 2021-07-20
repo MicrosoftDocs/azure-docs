@@ -129,7 +129,6 @@ The following json is an example of a call to the Azure function:
 ```json
 {
     "appleTeamId": "ABC123DEFG",
-    "appleKeyId": "URKEYID001",
     "appleServiceId": "com.yourcompany.app1",
     "p8key": "MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQg+s07NiAcuGEu8rxsJBG7ttupF6FRe3bXdHxEipuyK82gCgYIKoZIzj0DAQehRANCAAQnR1W/KbbaihTQayXH3tuAXA8Aei7u7Ij5OdRy6clOgBeRBPy1miObKYVx3ki1msjjG2uGqRbrc1LvjLHINWRD"
 }
