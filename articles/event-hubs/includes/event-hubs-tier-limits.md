@@ -11,7 +11,7 @@ ms.custom: "include file","fasttrack-edit","iot","event-hubs"
 
 ---
 
-The following table shows limits that may be different for basic, standard, and dedicated tiers. In the table CU is [capacity unit](../event-hubs-dedicated-overview.md), PU is [processing unit](../event-hubs-scalability.md#processing-units), TU is [throughput unit](../event-hubs-scalability.md#throughput-units). 
+The following table shows limits that may be different for basic, standard, and dedicated tiers. In the table CU is [capacity unit](../event-hubs-dedicated-overview.md), PU is [profcessing unit](../event-hubs-scalability.md#processing-units), TU is [throughput unit](../event-hubs-scalability.md#throughput-units). 
 
 | Limit | Basic | Standard | Premium |  Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 
@@ -20,9 +20,9 @@ The following table shows limits that may be different for basic, standard, and 
 | Number of brokered connections per namespace | 100 | 5,000 | 10000 per processing unit per PU | 100, 000 per CU |
 | Maximum retention period of event data | 1 day | 7 days | 90 days<br/>1 TB per PU | 90 days<br/>10 TB per CU |
 | Maximum TUs or PUs or CUs |20 TUs | 40 TUs | 16 PUs | 20 CUs |
-| Number of partitions per event hub | 32 | 32 | 100 per event hub <br/>200 per PU | 1024 per event hub<br/> 2000 per CU |
+| Number of partitions per event hub | 32 | 32 | 100 (fixed) | 1024 per event hub<br/> 2000 per CU |
 | Number of namespaces per subscription | 1000 | 1000 | 1000 | 1000 (50 per CU) |
-| Number of event hubs per namespace | 10 | 10 | 100 | 1000 |
+| Number of event hubs per namespace | 10 | 10 | 100 per PU | 1000 |
 | Capture | N/A | Pay per hour | Included | Included |
 | Size of the schema registry (namespace) in mega bytes | N/A | 25 | 100 | 1024 |
 | Number of schema groups in a schema registry or namespace | N/A | 1 - excluding the default group | 100 <br/>1 MB per schema | 1000<br/>1 MB per schema |
