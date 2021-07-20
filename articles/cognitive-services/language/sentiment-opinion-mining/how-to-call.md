@@ -52,7 +52,7 @@ If you're using the REST API, to get Opinion Mining in your results, you must in
 Sentiment Analysis and Opinion Mining accept a variety of languages. See [Supported languages](../language-support.md) for more information. 
 -->
 
-Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection. The collection is submitted in the body of the request. The API may return offsets in the response to support different [multilingual and emoji encodings](multilingual-emoji-support.md). 
+Document size must be under 5,120 characters per document. For the maximum number of documents permitted in a collection. The collection is submitted in the body of the request. The API may return offsets in the response to support different [multilingual and emoji encodings](../concepts/multilingual-emoji-support.md). 
 
 ## Submit data to the service
 

@@ -1,6 +1,6 @@
 items:
 - name: Language services documentation
-  href: overview.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
