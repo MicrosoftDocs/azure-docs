@@ -178,7 +178,7 @@ For endpoints running Linux:
 
 ## FAQ - Security Center's integration with Microsoft Defender for Endpoint
 
-- [What's this "MDE.Windows" extension running on my machine?](#whats-this-mdewindows-extension-running-on-my-machine)
+- [What's this "MDE.Windows"/"MDE.Linux" extension running on my machine?](#whats-this-mdewindowsmdelinux-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
 - [If I already have a license for Microsoft Defender for Endpoint can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [How do I switch from a third-party EDR tool?](#how-do-i-switch-from-a-third-party-edr-tool)
@@ -195,7 +195,7 @@ Security Center automatically deploys the extension to machines running:
 - Linux
 
 > [!IMPORTANT]
-> If you delete the MDE.Windows extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide).
+> If you delete the MDE.Windows extension, it will not remove Microsoft Defender for Endpoint. to 'offboard', see [Offboard Windows servers.](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
 
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
 Defender for Endpoint is included at no additional cost with **Azure Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
