@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 07/20/2021
 ---
 
 # Reference for AS2 message settings in Azure Logic Apps with Enterprise Integration Pack
