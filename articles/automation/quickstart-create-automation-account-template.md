@@ -4,7 +4,7 @@ titleSuffix: Azure Automation
 description: This quickstart shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
 ms.author: magoedte
-ms.date: 01/07/2021
+ms.date: 07/20/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.custom:
@@ -90,7 +90,13 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
-2. Enter the values.
+2. Enter the values. For the **_artifacts Location Sas Token** property, use the value `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+   If you run from PowerShell, include the parameter and its value `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+   If you run from Azure CLI, include the parameter and its value - `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+   For reference about PowerShell/CLI, see the following - [Create Azure Automation account](https://azure.microsoft.com/resources/templates/101-automation/) under the Use the template section.
 
 3. The deployment can take a few minutes to finish. When completed, the output is similar to the following:
 
