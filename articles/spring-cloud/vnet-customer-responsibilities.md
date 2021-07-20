@@ -1,8 +1,8 @@
 ---
 title:  "Customer responsibilities running Azure Spring Cloud in vnet"
 description: This article describes customer responsibilities running Azure Spring Cloud in vnet.
-author:  brendm
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020

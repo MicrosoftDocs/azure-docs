@@ -1,11 +1,11 @@
 ---
 title: How to bind an Azure Database for MySQL instance to your Azure Spring Cloud application
 description: Learn how to bind an Azure Database for MySQL instance to your Azure Spring Cloud application
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
