@@ -142,7 +142,7 @@ echo $spPassword | helm registry login mycontainerregistry.azurecr.io \
 ```
 
 > [!TIP]
-> You can also login to the registry with your [individual AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts.
+> You can also login to the registry with your [individual Azure AD identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) to push and pull Helm charts.
 
 ## Push chart to registry
 
