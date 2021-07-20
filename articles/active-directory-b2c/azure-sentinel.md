@@ -54,7 +54,7 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 
    ![Azure Sentinel](./media/azure-sentinel/azure-sentinel-add.png)
 
-4. Select the workspace created in the previous step.
+4. Select the workspace utilsied in the previous step.
 
    ![Workspace](./media/azure-sentinel/choose-sentinel-workspace.png/)
 
