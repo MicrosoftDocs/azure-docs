@@ -130,15 +130,17 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-1. Click on **Test this application** in Azure portal. This will redirect to Sentry Sign on URL where you can initiate the login flow.  
+1. In the Azure portal, select **Test this application**. You're redirected to the Sentry sign-on URL, where you can initiate the sign-in flow.  
 
-1. Go to Sentry Sign-on URL directly and initiate the login flow from there.
+1. Go to Sentry sign-on URL directly and initiate the sign-in flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Sentry for which you set up the SSO 
+* In the Azure portal, select **Test this application**. You should be automatically signed in to the Sentry for which you set up the SSO. 
 
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Sentry tile in the Access Panel, if configured in SP mode, you are redirected to the application sign-on page for initiating the login flow. If configured in IDP mode, you should be automatically signed in to the Sentry for which you set up the SSO. For more information about Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### Either mode:
+
+You can use the My Apps portal to test the application in any mode. When you click the Sentry tile in the My Apps portal, if configured in SP mode, you are redirected to the application sign-on page to initiate the sign-in flow. If configured in IDP mode, you should be automatically signed in to the Sentry for which you set up the SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
