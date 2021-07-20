@@ -215,7 +215,7 @@ If you created your compute instance or compute cluster with SSH access enabled,
         :::image type="content" source="media/how-to-create-attach-studio/compute-nodes.png" alt-text="Screenshot: Connection string for a node in a compute cluster.":::
 
 1. Copy the connection string.
-1. For Windows, open Powershell or a command prompt:
+1. For Windows, open PowerShell or a command prompt:
     1. Go into the directory or folder where your key is stored
     1. Add the -i flag to the connection string to locate the private key and point to where it is stored:
     

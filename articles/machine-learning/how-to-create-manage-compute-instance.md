@@ -173,7 +173,7 @@ pip install "$PACKAGE"
 conda deactivate
 EOF
 ```
-Note *sudo -u azureuser* does change the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
+The command *sudo -u azureuser* changes the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
 
 You can also use the following environment variables in your script:
 
@@ -197,7 +197,7 @@ Once you store the script, specify it during creation of your compute instance:
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/setup-script.png" alt-text="Provisiona compute instance with a setup script in the studio.":::
 
-Note that if workspace storage is attached to a virtual network you might not be able to access the setup script file unless you are accessing the Studio from within virtual network.
+If workspace storage is attached to a virtual network you might not be able to access the setup script file unless you are accessing the Studio from within virtual network.
 
 ### Use script in a Resource Manager template
 
