@@ -690,8 +690,8 @@ If you think there is something is missing, you can open a GitHub comment at the
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|LoadBalancerAlertEvent|Load Balancer Alert Events|Yes|
-|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|Yes|
+|LoadBalancerAlertEvent|Load Balancer Alert Events|No|
+|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|No|
 
 
 ## Microsoft.Network/networksecuritygroups
