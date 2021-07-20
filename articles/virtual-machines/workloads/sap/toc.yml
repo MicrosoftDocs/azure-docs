@@ -102,6 +102,7 @@
     href: sap-deployment-checklist.md 
   - name: Deploy SAP NetWeaver applications
     href: deployment-guide.md 
+  - name: Azure VM Extension for SAP
     items:
     - name: Azure VM Extension for SAP
       href: vm-extension-for-sap.md
