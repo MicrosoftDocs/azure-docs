@@ -92,7 +92,7 @@ If you want to return values from the deployed resources, you can use a loop in 
 
 ## Resource iteration with condition
 
-The following example demonstrates a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value.
+The following example shows a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value.
 
 ```bicep
 resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent in parents: if(parent.enabled) {
