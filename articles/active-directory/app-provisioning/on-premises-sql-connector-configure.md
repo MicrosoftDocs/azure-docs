@@ -68,8 +68,8 @@ To create a generic SQL connector:
 
      |Property|Description|
      |-----|-----|
-     |DSN File|The Data Source Name file used to connect to the SQL server.|
-     |User Name|The username of an individual with rights to the SQL server. It must be in the form of hostname\sqladminaccount for standalone servers or domain\sqladminaccount for domain member servers.|
+     |DSN File|The Data Source Name file used to connect to the SQL Server instance.|
+     |User Name|The username of an individual with rights to the SQL Server instance. It must be in the form of hostname\sqladminaccount for standalone servers or domain\sqladminaccount for domain member servers.|
      |Password|The password of the username just provided.|
      |DN is Anchor|Unless your environment is known to require these settings, don't select the **DN is Anchor** and **Export Type:Object Replace** checkboxes.|
      |Export Type:Object Replace||
