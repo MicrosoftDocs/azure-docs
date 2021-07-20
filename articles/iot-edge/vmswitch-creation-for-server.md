@@ -81,7 +81,7 @@ netsh dhcp add securitygroups
 Restart-Service dhcpserver
 ```
 
-11.	Configure the DHCP Server scope. Check [Add-DhcpServerv4Scope (DhcpServer)](https://docs.microsoft.com/powershell/module/dhcpserver/add-dhcpserverv4scope?view=windowsserver2019-ps) for full details.  The DHCP server range of IPs is determined by the “startIp” and the “endIp”. For example,  if 100 addresses want to be available, following the xxx.xxx.xxx.yyy IPv4 address of the virtual network switch adapter from Step 5, startIp = xxx.xxx.xxx.100, endIp = xxx.xxx.xxx.200 and subnetMask = 255.255.255.0
+11.	Configure the DHCP Server scope. Check [Add-DhcpServerv4Scope (DhcpServer)](/powershell/module/dhcpserver/add-dhcpserverv4scope) for full details.  The DHCP server range of IPs is determined by the **startIp** and the **endIp**. For example,  if 100 addresses want to be available, following the xxx.xxx.xxx.yyy IPv4 address of the virtual network switch adapter from Step 5, startIp = xxx.xxx.xxx.100, endIp = xxx.xxx.xxx.200 and subnetMask = 255.255.255.0.
  ```powershell
 Add-DhcpServerV4Scope -Name "AzureIoTEdgeScope" -StartRange {startIp} -EndRange {endIp} -SubnetMask {subnetMask} -State Active
 ```
