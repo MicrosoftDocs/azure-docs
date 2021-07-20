@@ -68,7 +68,7 @@ After you create an Azure Functions project, the project template creates a C# p
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings-file).
+* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings).
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you must exclude it from your project source control. Ensure the **Copy to Output Directory** setting for this file is set to **Copy if newer**. 
