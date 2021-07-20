@@ -5,7 +5,7 @@ author: lobrien
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 07/01/2021
+ms.date: 07/15/2021
 ms.author: larryfr
 ms.custom: include file
 ---
@@ -13,16 +13,16 @@ ms.custom: include file
 Azure Machine Learning requires both inbound and outbound access to the public internet. The following tables provide an overview of what access is required and what it is for. The __protocol__ for all items is __TCP__. For service tags that end in `.region`, replace `region` with the Azure region that contains your workspace. For example, `Storage.westus`:
 
 | Direction | Ports | Service tag | Purpose |
-| ----- | ----- | ----- | ----- |
+| ----- |:-----:| ----- | ----- |
 | Inbound | 29876-29877 | BatchNodeManagement | Azure Machine Learning compute instance and compute cluster. |
 | Inbound | 44224 | AzureMachineLearning | Azure Machine Learning compute instance. |
 | Outbound | * | AzureActiveDirectory | Azure Active Directory authentication. |
 | Outbound | * | AzureMachineLearning | Azure Machine Learning. |
 | Outbound | * | AzureResourceManager | Azure Resource Manager. |
-| Outbound | * | Storage.region | Azure Storage Account. |
-| Outbound | * | AzureFrontDoor.FirstParty | Azure Front Door. | 
-| Outbound | * | ContainerRegistry.region | Azure Container Registry. Only needed when using custom Docker images. Including small modifications (such as extra packages) to base images provided by Microsoft. |
-| Outbound | * | MicrosoftContainerRegistry.region | Only needed if you use Docker images provided by Microsoft and enable user-managed dependencies. |
+| Outbound | 443 | Storage.region | Azure Storage Account. |
+| Outbound | 443 | AzureFrontDoor.FirstParty | Azure Front Door. | 
+| Outbound | 443 | ContainerRegistry.region | Azure Container Registry. Only needed when using custom Docker images. Including small modifications (such as extra packages) to base images provided by Microsoft. |
+| Outbound | 443 | MicrosoftContainerRegistry.region | Only needed if you use Docker images provided by Microsoft and enable user-managed dependencies. |
 
 > [!TIP]
 > If you need the IP addresses instead of service tags, use one of the following options:

@@ -198,5 +198,5 @@ Refresh your Power BI report on a schedule, so updated data always appears in th
 
 ## Next steps
 
-- [Import Azure Monitor log data into Power BI](/azure/azure-monitor/visualize/powerbi)
+- [Import Azure Monitor log data into Power BI](../azure-monitor/visualize/powerbi.md)
 - [Power Query M formula language](/powerquery-m/)
