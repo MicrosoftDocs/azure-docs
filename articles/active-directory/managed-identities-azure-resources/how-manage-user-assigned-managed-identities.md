@@ -45,7 +45,7 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
   
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
   
-    ![Screenshot that shows the Create User Assigned Managed Identity pane.](media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+   ![Screenshot that shows the Create User Assigned Managed Identity pane.](media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
 
