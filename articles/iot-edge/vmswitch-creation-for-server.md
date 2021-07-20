@@ -40,7 +40,7 @@ If a vmSwitch named **Default Switch** is already created, you should be able to
 New-VMSwitch -Name {switchName} Switch" -SwitchType {switchType}
 ```
 
-4. Get the interface index of the created switch. [Check Get-NetAdapter (NetAdapter)](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=windowsserver2019-ps) for full details. 
+4. Get the interface index of the created switch. Check [Get-NetAdapter (NetAdapter)](/powershell/module/netadapter/get-netadapter) for full details. 
  ```powershell
 (Get-NetAdapter -Name '*{switchName}*').ifIndex
 ```
