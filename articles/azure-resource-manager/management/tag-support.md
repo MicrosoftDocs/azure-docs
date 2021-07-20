@@ -2562,7 +2562,7 @@ Jump to a resource provider namespace:
 > | servers / restorableDroppedDatabases | No | No |
 > | servers / serviceobjectives | No | No |
 > | servers / tdeCertificates | No | No |
-> | virtualClusters | Yes | Yes |
+> | virtualClusters | No | No |
 
 <a id="sqlnote"></a>
 
