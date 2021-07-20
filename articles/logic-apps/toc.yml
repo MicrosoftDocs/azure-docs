@@ -215,12 +215,9 @@
         href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
       - name: EDIFACT CONTRL message
         href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
-    - name: Exchange RosettaNet messages
-      href: logic-apps-enterprise-integration-rosettanet.md
-    - name: Exchange X12 messages
-      href: logic-apps-enterprise-integration-x12.md
-      items: 
-      - name: Exchange RosettaNet messages
+    - name: RosettaNet messaging
+      items: 	
+      - name: Exchange RosettaNet messages	
         href: logic-apps-enterprise-integration-rosettanet.md
     - name: X12 messaging
       items: 
