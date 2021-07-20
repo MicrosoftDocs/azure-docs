@@ -29,7 +29,7 @@ ms.author: oldoll
 [deployment-guide-figure-1000]:media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-1100]:media/virtual-machines-shared-sap-deployment-guide/1100-azperflib.png
 [azure-cli-2]:/cli/azure/install-azure-cli
-[msdn-set-Azvmaemextension]:https://docs.microsoft.com/powershell/module/az.compute/set-azvmaemextension
+[msdn-set-Azvmaemextension]:/powershell/module/az.compute/set-azvmaemextension
 [deployment-guide-figure-900]:media/virtual-machines-shared-sap-deployment-guide/900-cmd-update-executed.png
 [readiness-check]:vm-extension-for-sap-std.md#6b2561a0-b476-4579-847d-6c68117eb26e (Readiness check)
 [deployment-guide-2.2]:deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP resources)
