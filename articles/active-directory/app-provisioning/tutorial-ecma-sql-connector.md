@@ -318,7 +318,7 @@ Now that your attributes are mapped, you can test on-demand provisioning with on
  1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
  
     ![Screenshot that shows Start provisioning.](.\media\on-premises-ecma-configure\configure-14.png)
- 1. Wait several minutes for provisioning to start. It might take up to 40 minutes. You can learn more about the provisioning service performance here. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+ 1. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
 
 ## Check that users were successfully provisioned
 After waiting, check the SQL database to ensure users are being provisioned.
