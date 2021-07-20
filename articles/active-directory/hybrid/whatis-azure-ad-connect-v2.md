@@ -63,10 +63,10 @@ More details about PowerShell prerequisites can be found [here](https://docs.mic
 ## What else do I need to know? 
 
 
-**Why is this important for me?** </br>
+**Why is this upgrade important for me?** </br>
 Next year several of the components in your current Azure AD Connect server installations will go out of support. If you are using unsupported products, it will be harder for our support team to provide you with the support experience your organization requires. So we recommend all customers to upgrade to this newer version as soon as they can. 
 
-This is especially important since we have had to update our prerequisites for Azure AD Connect and you may need additional time to plan and update your servers to the newer versions of these prerequisites 
+This upgrade is especially important since we have had to update our prerequisites for Azure AD Connect and you may need additional time to plan and update your servers to the newer versions of these prerequisites 
 
 **Is there any new functionality I need to know about?** </br>
 No – this release does not contain any new functionality. This release only contains updates of some of the foundational components on Azure AD Connect. 
@@ -81,7 +81,7 @@ Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 
 No – Azure AD Connect V2.0 will not be made available for auto upgrade at this time. We are planning to create a future release that will be made available for auto upgrade, and which will help customers who are eligible for auto upgrade to remain in a supported state. 
 
 **I am not ready to upgrade yet – how much time do I have?** </br>
-You should upgrade to Azure AD Connect V2.0 as soon as you can. For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
+You should upgrade to Azure AD Connect V2.0 as soon as you can. For the time being we will continue to support older versions of Azure AD Connect, but it may prove difficult to provide a good support experience if some of the components in Azure AD Connect have dropped out of support. This upgrade is particularly important for ADAL and TLS1.0/1.1 as these services might stop working unexpectedly after they are deprecated. 
 
 **I use an external SQL database and do not use SQL 2012 LocalDb – do I still have to upgrade?** </br>
 Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. 
