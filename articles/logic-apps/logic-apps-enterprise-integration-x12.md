@@ -212,7 +212,7 @@ After you set the agreement properties, you can configure how this agreement ide
 | Property | Description |
 |----------|-------------|
 | **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
-| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgements. <p>This settings specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
+| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgements. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
 |||
 
 <a name="outbound-schemas"></a>
@@ -321,7 +321,7 @@ The **Default** row shows the validation rules that are used for an EDI message 
 
 ## HIPAA schemas and message types
 
-When you work with HIPAA schemas and the 277 or 837 message types, you need to perform a few extra steps. The [document version numbers (GS8)](#outbound-control-version-number) for these message types have more than 9 characters, for example, "005010X222A1". Also, some document version numbers map to variant message types. If you don't reference the correct message type in your schema and in your agreement, you get this error message:
+When you work with HIPAA schemas and the 277 or 837 message types, you need to perform a few extra steps. The [document version numbers (GS8)](#outbound-control-version-number) for these message types have more than nine characters, for example, "005010X222A1". Also, some document version numbers map to variant message types. If you don't reference the correct message type in your schema and in your agreement, you get this error message:
 
 `"The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement."`
 
@@ -347,7 +347,7 @@ To specify these document version numbers and message types, follow these steps:
 
    1. In the Azure portal, go to your integration account. Find and download your schema. Replace the message type and rename the schema file, and upload your revised schema to your integration account. For more information, see [Edit schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
 
-   1. In your your agreement's message settings, select the revised schema.
+   1. In your agreement's message settings, select the revised schema.
 
 1. In your agreement's `schemaReferences` object, add another entry that specifies the variant message type that matches your document version number.
 
