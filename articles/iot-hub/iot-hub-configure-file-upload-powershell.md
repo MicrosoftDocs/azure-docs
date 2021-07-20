@@ -31,7 +31,7 @@ To complete this tutorial, you need the following:
 
 * Use the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell).
 
-   [![Launch Cloud Shell in a new window](./media/configure-file-upload-powershell/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   [![Launch Cloud Shell in a new window](./media/iot-hub-configure-file-upload-powershell/hdi-launch-cloud-shell.png)](https://shell.azure.com)
 * If you prefer, [install](/powershell/scripting/install/installing-powershell) PowerShell locally.
 
   * For a local installation, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps). The module is installed by default in the Azure Cloud Shell PowerShell environment. 
