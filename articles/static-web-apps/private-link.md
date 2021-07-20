@@ -111,13 +111,13 @@ In this section, you create a private link for your static web app.
 
 1. In _Resource_ section, enter or select this information:
 
-   | Setting             | Value                                                                                                   |
-   | ------------------- | ------------------------------------------------------------------------------------------------------- |
-   | Connection method   | Select **Connect to an Azure resource in my directory**.                                                |
-   | Subscription        | Select your subscription.                                                                               |
-   | Resource type       | Select **Microsoft.Web/staticSites**.                                                                   |
-   | Resource            | Select **\<your-web-app-name>**. </br> Select the name of the web app you created in the prerequisites. |
-   | Target sub-resource | Select **sites**.                                                                                       |
+   | Setting             | Value                                                                                                          |
+   | ------------------- | -------------------------------------------------------------------------------------------------------------- |
+   | Connection method   | Select **Connect to an Azure resource in my directory**.                                                       |
+   | Subscription        | Select your subscription.                                                                                      |
+   | Resource type       | Select **Microsoft.Web/staticSites**.                                                                          |
+   | Resource            | Select **\<your-static-web-app-name>**. </br> Select the name of the web app you created in the prerequisites. |
+   | Target sub-resource | Select **staticSites**.                                                                                        |
 
 1. Select the **Configuration** tab or the **Next: Configuration** button at the bottom of the screen.
 
@@ -146,4 +146,5 @@ Since your application is no longer publicly available, the only way to access i
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Networking options](./networking-options.md)
+> [!div class="nextstepaction"]
+> [Networking options](./networking-options.md)
