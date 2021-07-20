@@ -6,7 +6,7 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: shahen
-ms.date: 05/21/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-javascript

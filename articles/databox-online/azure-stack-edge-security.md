@@ -29,9 +29,9 @@ The Azure Stack Edge service is a management service that's hosted in Azure. The
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## Azure Stack Edge Pro FPGA device protection
+## Azure Stack Edge device protection
 
-The Azure Stack Edge Pro FPGA device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
+The Azure Stack Edge device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
 
 - Needs an activation key to access the Azure Stack Edge service.
 - Is protected at all times by a device password.

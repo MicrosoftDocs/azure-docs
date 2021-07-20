@@ -5,9 +5,9 @@ description: This article gives an overview of the Azure Video Analyzer for Medi
 services: azure-video-analyzer
 author: Juliako
 manager: femila
-ms.topic: article
+ms.topic: overview
 ms.subservice: azure-video-analyzer-media
-ms.date: 02/05/2021
+ms.date: 07/15/2021
 ms.author: juliako
 ---
 

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 07/13/2021
 
 ms.author: mimart
 author: msmimart
@@ -23,7 +23,9 @@ This article describes the ways guest users can access your resources and the co
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
    > [!IMPORTANT]
-   > - **Starting in the second half of 2021**, Google is [deprecating web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If you’re using Google federation for B2B invitations or [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md), or if you're using self-service sign-up with Gmail, Google Gmail users won't be able to sign in if your apps authenticate users with an embedded web-view. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   >
+   > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
    > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
 
 ## Redemption and sign-in through a common endpoint
@@ -61,9 +63,9 @@ When you add a guest user to your directory by [using the Azure portal](./b2b-qu
 
 ## Redemption limitation with conflicting Contact object
 Sometimes the invited external guest user's email may conflict with an existing [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), resulting in the guest user being created without a proxyAddress. This is a known limitation that prevents guest users from: 
-- Redeeming an invitation through a direct link using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation), [Microsoft Accounts](/azure/active-directory/external-identities/microsoft-account), [Google Federation](/azure/active-directory/external-identities/google-federation), or [Email One-Time Passcode](/azure/active-directory/external-identities/one-time-passcode) accounts. 
-- Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) and [Email One-Time Passcode](/azure/active-directory/external-identities/one-time-passcode) accounts.
-- Signing back into an application after redemption using [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) and [Google Federation](/azure/active-directory/external-identities/google-federation) accounts.
+- Redeeming an invitation through a direct link using [SAML/WS-Fed IdP](./direct-federation.md), [Microsoft Accounts](./microsoft-account.md), [Google Federation](./google-federation.md), or [Email One-Time Passcode](./one-time-passcode.md) accounts. 
+- Redeeming an invitation through an invitation email redemption link using [SAML/WS-Fed IdP](./direct-federation.md) and [Email One-Time Passcode](./one-time-passcode.md) accounts.
+- Signing back into an application after redemption using [SAML/WS-Fed IdP](./direct-federation.md) and [Google Federation](./google-federation.md) accounts.
 
 To unblock users who can't redeem an invitation due to a conflicting [Contact object](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true), follow these steps:
 1. Delete the conflicting Contact object.

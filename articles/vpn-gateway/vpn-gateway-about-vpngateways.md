@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 06/21/2021
+ms.date: 07/08/2021
 ms.author: cherylmc
 ms.custom:
   - contperf-fy21q1
@@ -79,6 +79,7 @@ Subscribe to the RSS feed and view the latest VPN Gateway feature updates on the
 
 ## Next steps
 
-- View the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for additional information.
-- View the [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
-- Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.
+- [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
+- [Learn module: Connect your on-premises network to Azure with VPN Gateway](/learn/modules/connect-on-premises-network-with-vpn-gateway/).
+- [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+

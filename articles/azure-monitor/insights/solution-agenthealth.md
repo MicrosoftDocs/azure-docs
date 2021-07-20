@@ -74,6 +74,7 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | `SCAgentChannel` | Value is *Direct* and/or *SCManagementServer*.|
 | `IsGatewayInstalled` | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
 | `ComputerIP` | The public IP address of the computer. On Azure VMs, this will show the public IP if one is available. For VMs using private IPs, this will display the Azure SNAT address (not the private IP address). |
+| `ComputerPrivateIPs` | List of private IPs of the computer. |
 | `RemoteIPCountry` | Geographic location where computer is deployed.|
 | `ManagementGroupName` | Name of Operations Manager management group.|
 | `SourceComputerId` | Unique ID of computer.|

@@ -80,7 +80,7 @@ If you're not familiar with the process for creating alert rules in Azure Monito
 
 
 ### Machine unavailable
-The most basic requirement is to send an alert when a machine is unavailable. It could be stopped, the guest operating system could be hung, or the agent could be unresponsive. There are a variety of ways to configure this alerting, but the most common is to use the heartbeat sent from the Log Analytics agent. 
+The most basic requirement is to send an alert when a machine is unavailable. It could be stopped, the guest operating system could be unresponsive, or the agent could be unresponsive. There are a variety of ways to configure this alerting, but the most common is to use the heartbeat sent from the Log Analytics agent. 
 
 #### Log query alert rules
 Log query alerts use the [Heartbeat table ](/azure/azure-monitor/reference/tables/heartbeat) which should have a heartbeat record every minute from each machine. 
