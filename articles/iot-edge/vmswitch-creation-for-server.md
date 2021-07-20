@@ -29,7 +29,7 @@ The following steps in this section are a generic guide for a vmSwitch creation.
 
 1. Open PowerShell in an elevated session.
 
-2. Check that the Windows host has NO vmSwitch with the name “Default Switch”. Check [Get-VMSwitch (Hyper-V)](https://docs.microsoft.com/powershell/module/hyper-v/get-vmswitch?view=windowsserver2019-ps) for full details. 
+2. Check that the Windows host has no vmSwitch with the name **Default Switch**. Check [Get-VMSwitch (Hyper-V)](/powershell/module/hyper-v/get-vmswitch) for full details. 
  ```powershell
 Get-VMSwitch -Name "Default Switch" -SwitchType Internal
 ```
