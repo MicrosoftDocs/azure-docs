@@ -11,7 +11,9 @@ ms.subservice: common
 ---
 # Open a support ticket for an Import/Export job
 
-If you encounter any issues with your Import/Export service, you can create a service request for technical support. This article walks you through:
+If you encounter any issues with your Import/Export service, you can create a service request for technical support.  
+
+This article walks you through:
 
 * How to create a support request
 * How to manage a support request lifecycle from within the portal
@@ -58,9 +60,9 @@ Perform the following steps to create a support request:
 
 1. Use the **Details** pane to provide info for a support ticket:<!--This seems like too much detail. I went to the level of detail that were required to include the fields noted in the current article. In a Q&A form with no real "gotcha's," this seems like overkill.-->
 
-   - **Problem details**: Describe the problem for Microsoft support. You can attach a file if needed. 
+   - **Problem details**: Describe the problem for Microsoft support.  
    
-       In **File upload**, select the folder icon to browse to any files you want to upload. To get help with your upload, select the **i** icon by **File upload**.
+       You can attach a file if needed. In **File upload**, select the folder icon to browse to any files you want to upload. To get help with your upload, select the **i** icon by **File upload**.
 
       ![Problem details, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-05.png)
 
@@ -78,16 +80,12 @@ Perform the following steps to create a support request:
    - **Contact info**: Edit the contact information for your support plan if needed.
 
      ![Contact info, on the Details pane for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-08.png)
-
    
    When you finish, select **Next: Review + create >>** to proceed.
 
-1. Review your support request on the **Review + create** tab. 
-
-   1. If you need to make changes, open the **Details** tab again. 
-   1. When you're ready to submit your support request, select **Create**. 
-      
-      If your preferred contact method was **Live chat**, select **Create and chat** to immediately open a chat session.
+1. Review your support request on the **Review + create** tab. If you need to make changes, open **Details** again. 
+ 
+   Select **Create** when you're ready to submit your support request. If your preferred contact method was **Live chat**, select **Create and chat** to immediately start a chat session.
 
     ![Review + create tab for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-09.png)
 
