@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 07/20/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 ---
@@ -89,7 +89,10 @@ In this article you learn how to secure the following training compute resources
     > [!IMPORTANT]
     > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure policy which prohibits creation of network security groups.
 
-* If the Azure Storage Accounts for the workspace are also in a virtual network, they must be in the same virtual network and subnet as the compute instance or cluster. Configure your storage firewall settings to allow communication to the virtual network and subnet that contains the compute.
+* If the Azure Storage Accounts for the workspace are also in the virtual network, use the following guidance on subnet limitations:
+
+    * If you plan to use Azure Machine Learning __studio__ to visualize data or use designer, the storage account must be __in the same subnet as the compute instance or cluster__.
+    * If you plan to use the __SDK__, the storage account can be in a different subnet.
 
     > [!NOTE]
     > Selecting the checkbox for "Allow trusted Microsoft services to access this account" is not sufficient to allow communication from the compute.
