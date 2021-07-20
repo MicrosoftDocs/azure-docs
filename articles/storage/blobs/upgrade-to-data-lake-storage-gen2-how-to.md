@@ -22,7 +22,7 @@ To learn more about these capabilities and evaluate the impact of this upgrade o
 
 To upgrade your account, you must register the `HnsOnMigration` feature with your subscription. Once you've verified that the feature is registered, you must register the Azure Storage resource provider. 
 
-### Step 1: Register the HnsOnMigration feature
+### Step 1: Register the feature
 
 #### [PowerShell](#tab/powershell)
 
@@ -69,6 +69,47 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
 
 ---
 
+### Step 2: Verify that the feature is registered
+
+#### [PowerShell](#tab/powershell)
+
+To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName HnsOnMigration
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To verify that the registration is complete, use the [az feature](/cli/azure/feature#az_feature_show) command.
+
+```azurecli
+az feature show --namespace Microsoft.Storage --name HnsOnMigration
+```
+
+---
+
+### Step 3: Register the Azure Storage resource provider
+
+After your registration is approved, you must re-register the Azure Storage resource provider. 
+
+#### [PowerShell](#tab/powershell)
+
+To register the resource provider, use the [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) command.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To register the resource provider, use the [az provider register](/cli/azure/provider#az_provider_register) command.
+
+```azurecli
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
 
 ## Perform the upgrade
 
@@ -76,9 +117,9 @@ To upgrade your account, you must register the `HnsOnMigration` feature with you
 
 2. Locate your storage account and display the account overview.
 
-3. Select **Migrations**.
+3. Select **Data Lake Gen2 migration**.
 
-   The **Upgrade to an Azure Data Lake Gen2 Account** configuration page appears.
+   The **Upgrade to a Storage account with Azure Data Lake Gen2 capabilities** configuration page appears.
 
    > [!div class="mx-imgBorder"]
    > ![Configuration page](./media/upgrade-to-data-lake-storage-gen2-how-to/upgrade-to-an-azure-data-lake-gen2-account-page.png)
