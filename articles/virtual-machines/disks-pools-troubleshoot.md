@@ -4,7 +4,7 @@ description: Troubleshoot issues with Azure disk pools. Learn about common failu
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 07/19/2021
 ms.author: rogarana
 ms.subservice: disks
 ---

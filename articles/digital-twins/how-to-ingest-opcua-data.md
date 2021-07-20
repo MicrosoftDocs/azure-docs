@@ -263,7 +263,7 @@ az iot hub monitor-events -n <iot-hub-instance> -t 0
 ```
 
 > [!TIP]
-> Try using [Azure IoT Explorer](../iot-pnp/howto-use-iot-explorer.md) to monitor IoT Hub messages.
+> Try using [Azure IoT Explorer](../iot-fundamentals/howto-use-iot-explorer.md) to monitor IoT Hub messages.
 
 #### Verify completion
 
