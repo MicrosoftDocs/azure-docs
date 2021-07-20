@@ -77,7 +77,7 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 
 ## Medical image tasks
 
-Image projects support DICOM image format for X-ray file images. These images can be used to train machine learning models for clinical use.
+Image projects support DICOM image format for X-ray file images.
 
 :::image type="content" source="media/how-to-label-data/x-ray-image.png" alt-text="X-ray DICOM image to be labeled.":::
 
