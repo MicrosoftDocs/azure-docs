@@ -180,15 +180,13 @@ In this section, you'll create an Azure function that will convert twin update e
 
 Save the function app name to use later to configure app settings for the two event hubs.
 
-### Configure security for the function app
+### Configure the function app
 
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance.
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your resources.
 
-[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
+[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 
-### Configure app settings for the two event hubs
-
-Next, you'll add environment variables in the function app's settings that allow it to access the twins hub and time series hub.
+Next, add environment variables in the function app's settings that allow it to access the **twins hub** and **time series hub**.
 
 Use the twins hub **primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the twins hub connection string:
 
