@@ -399,7 +399,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |cachehits7|Yes|Cache Hits (Shard 7)|Count|Total||No Dimensions|
 |cachehits8|Yes|Cache Hits (Shard 8)|Count|Total||No Dimensions|
 |cachehits9|Yes|Cache Hits (Shard 9)|Count|Total||No Dimensions|
-|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average|No Dimensions|ShardId|
+|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average||ShardId|
 |cachemisses|Yes|Cache Misses|Count|Total||ShardId|
 |cachemisses0|Yes|Cache Misses (Shard 0)|Count|Total||No Dimensions|
 |cachemisses1|Yes|Cache Misses (Shard 1)|Count|Total||No Dimensions|
@@ -411,7 +411,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |cachemisses7|Yes|Cache Misses (Shard 7)|Count|Total||No Dimensions|
 |cachemisses8|Yes|Cache Misses (Shard 8)|Count|Total||No Dimensions|
 |cachemisses9|Yes|Cache Misses (Shard 9)|Count|Total||No Dimensions|
-|cachemissrate|Yes|Cache Miss Rate|Percent|cachemissrate|No Dimensions|ShardId|
+|cachemissrate|Yes|Cache Miss Rate|Percent|cachemissrate||ShardId|
 |cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||ShardId|
 |cacheRead0|Yes|Cache Read (Shard 0)|BytesPerSecond|Maximum||No Dimensions|
 |cacheRead1|Yes|Cache Read (Shard 1)|BytesPerSecond|Maximum||No Dimensions|
@@ -575,7 +575,7 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |cachehits|Yes|Cache Hits|Count|Total||No Dimensions|
-|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average|No Dimensions|InstanceId|
+|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average||InstanceId|
 |cachemisses|Yes|Cache Misses|Count|Total||InstanceId|
 |cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||InstanceId|
 |cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum||InstanceId|
@@ -1109,11 +1109,11 @@ For important additional information, see [Monitoring Agents Overview](../agents
 |ActivityFailedRuns|Yes|Failed activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
 |ActivitySucceededRuns|Yes|Succeeded activity runs metrics|Count|Total||ActivityType, PipelineName, FailureType, Name|
 |FactorySizeInGbUnits|Yes|Total factory size (GB unit)|Count|Maximum||No Dimensions|
-|IntegrationRuntimeAvailableMemory|Yes|Integration runtime available memory|Bytes|Average|No Dimensions|IntegrationRuntimeName, NodeName|
-|IntegrationRuntimeAvailableNodeNumber|Yes|Integration runtime available node count|Count|Average|No Dimensions|IntegrationRuntimeName|
-|IntegrationRuntimeAverageTaskPickupDelay|Yes|Integration runtime queue duration|Seconds|Average|No Dimensions|IntegrationRuntimeName|
-|IntegrationRuntimeCpuPercentage|Yes|Integration runtime CPU utilization|Percent|Average|No Dimensions|IntegrationRuntimeName, NodeName|
-|IntegrationRuntimeQueueLength|Yes|Integration runtime queue length|Count|Average|No Dimensions|IntegrationRuntimeName|
+|IntegrationRuntimeAvailableMemory|Yes|Integration runtime available memory|Bytes|Average||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeAvailableNodeNumber|Yes|Integration runtime available node count|Count|Average||IntegrationRuntimeName|
+|IntegrationRuntimeAverageTaskPickupDelay|Yes|Integration runtime queue duration|Seconds|Average||IntegrationRuntimeName|
+|IntegrationRuntimeCpuPercentage|Yes|Integration runtime CPU utilization|Percent|Average||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeQueueLength|Yes|Integration runtime queue length|Count|Average||IntegrationRuntimeName|
 |MaxAllowedFactorySizeInGbUnits|Yes|Maximum allowed factory size (GB unit)|Count|Maximum||No Dimensions|
 |MaxAllowedResourceCount|Yes|Maximum allowed entities count|Count|Maximum||No Dimensions|
 |PipelineCancelledRuns|Yes|Cancelled pipeline runs metrics|Count|Total||FailureType, Name|
