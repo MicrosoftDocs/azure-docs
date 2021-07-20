@@ -29,6 +29,8 @@ ms.author: oldoll
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
 [readiness-check]:vm-extension-for-sap-new.md#5774c1db-1d3c-4b34-8448-3afd0b0f18ab (Readiness check)
 
+[deployment-guide-4.1]:vm-extension-for-sap-new.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
+
 ## Prerequisites
 
 > [!NOTE]
