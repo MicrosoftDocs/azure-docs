@@ -192,7 +192,7 @@ Let us suppose that a Speech resource has the Concurrent Request limit set to 30
 Generally, it is highly recommended to test the workload and the workload patterns before going to production.
 
 ### Text-to-speech: increasing concurrent request limit for Custom Neural and Custom Voices
-By default the number of concurrent requests for Custom Neural Voice and Custom Voice endpoints is limited to 10. For Standard pricing tier this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
+By default the number of concurrent requests for Custom Neural Voice and Custom Voice endpoints is limited to 10. For the Standard pricing tier, this amount can be increased. Before submitting the request, ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
 Increasing the Concurrent Request limit does **not** directly affect your costs. Speech service uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
 
