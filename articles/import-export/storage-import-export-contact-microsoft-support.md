@@ -5,9 +5,10 @@ services: storsimple
 author: alkohli
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/21/2021
 ms.author: alkohli
 ms.subservice: common
+ms.custom: contperf-fy22q1
 ---
 # Open a support ticket for an Import/Export job
 
@@ -35,7 +36,7 @@ Perform the following steps to create a support request:
       |**Summary** | Briefly describe your issue. |
       |**Issue type**|Select **Technical**.|
       |**Subscription**|Choose the subscription used for the resource.|
-      |**Service**|Select **My services**. THen select the **Service type** from the dropdown list. For an import/export order, you'll select **Storage Account Management**, **Blob Storage**, or **File Storage**.<!--Rolled over from previous topic. These are the only services that an import/export might apply to?--|
+      |**Service**|Select **My services**. Then select the **Service type** from the dropdown list. For an import/export order, you'll select **Storage Account Management**, **Blob Storage**, or **File Storage**.<!--Rolled over from previous topic.--|
       |**Resource**|Select the resource.|
  
    1. You'll see a new **Problem type** field. Select the problem type. Then select a problem subtype in the **Problem subtype** field that appears.
