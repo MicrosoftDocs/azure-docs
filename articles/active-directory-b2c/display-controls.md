@@ -128,6 +128,26 @@ The **ValidationClaimsExchangeTechnicalProfile** element contains the following 
 | --------- | -------- | ----------- |
 | TechnicalProfileReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
 
+The **ValidationClaimsExchangeTechnicalProfile** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Preconditions | 0:1 | A list of preconditions that must be satisfied for the validation technical profile to execute. |
+
+The **Precondition** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| `Type` | Yes | The type of check or query to perform for the precondition. Possible values: `ClaimsExist` or `ClaimEquals`. `ClaimsExist` specifies that the actions should be performed if the specified claims exist in the user's current claim set. `ClaimEquals` specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
+| `ExecuteActionsIf` | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
+
+The **Precondition** element contains following elements:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Value | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. Specify the value to be checked in another value element.|
+| Action | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`, which specifies that the associated validation technical profile should not be executed. |
+
 The following example sends and verifies the email address using [Azure AD SSPR technical profile](aad-sspr-technical-profile.md).
 
 ```xml
