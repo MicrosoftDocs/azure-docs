@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 07/15/2021
+ms.date: 07/20/2021
 ms.custom: devx-track-python
 ---
 
@@ -71,7 +71,7 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
-When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example UDR in the Azure portal:
+When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example IP address based UDR in the Azure portal:
 
 :::image type="content" source="./media/how-to-enable-virtual-network/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
 
@@ -81,6 +81,13 @@ Create user-defined routes for the following service tags:
 
 * `AzureMachineLearning`
 * `BatchNodeManagement.<region>`, where `<region>` is your Azure region.
+
+The following commands demonstrate adding routes for these service tags:
+
+```azurecli
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n AzureMLRoute --address-prefix AzureMachineLearning --next-hop-type Internet
+az network route-table route create -g MyResourceGroup --route-table-name MyRouteTable -n BatchRoute --address-prefix BatchNodeManagement.westus2 --next-hop-type Internet
+```
 
 ---
 
