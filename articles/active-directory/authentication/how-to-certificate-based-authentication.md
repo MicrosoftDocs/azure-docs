@@ -29,9 +29,6 @@ Other certificate to user account binding arrangements such as using the subject
 
 Windows sign in with SmartCards isn’t supported directly with Azure AD. Windows SmartCard authentication can be supported on premises for single sign-on (SSO) to cloud resources.  
 
-## Configuration steps
-
-![Configuration steps](media/how-to-certificate-based-authentication/configuration.png)
 
 
 ## Upload the trusted issuers
