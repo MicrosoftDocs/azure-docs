@@ -4,8 +4,8 @@ description: Learn how to deploy Azure Resource Manager templates created for Az
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 07/25/2020 
+ms.topic: how-to
+ms.date: 07/20/2021
 ms.custom: devx-track-azurepowershell
 ---
 
