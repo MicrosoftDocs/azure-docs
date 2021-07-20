@@ -32,15 +32,12 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                               | • Integration with Defender for Endpoint for Windows - General Availability (GA)<br> • Integration with Defender for Endpoint for Linux - Preview                                                                                                                                     |
 | Pricing:                                     | Requires [Azure Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
-| Supported platforms:                         | • Azure machines running Windows/Linux<br> • Azure Arc machines running Windows/Linux                                                                                                                                                                                                 |
-| Supported versions of Windows for detection: | • Windows Server 2019, 2016, 2012 R2, and 2008 R2 SP1<br> • [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)           |
-| Supported versions of Linux for detection:   | The list of supported versions of Linux is available in the Defender for Endpoint documentation [here](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux).           |
-| Unsupported operating systems:               | • Windows 10 (other than EVD or WVD)                                                                                                                                                                                                                                                  |
-| Required roles and permissions:              | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
+| Supported environments:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 10 (other than EVD or WVD)           |
+| Required roles and permissions:              | To enable/disable the integration: **Security admin** or **Owner**<br>To view Defender for Endpoint alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
 | Clouds:                                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure China                                                         |
 |                                              |                                                                                                                                                                                                                                                                                       |
 
-## Microsoft Defender for Endpoint features in Security Center
+## Benefits of integrating Microsoft Defender for Endpoint with Security Center
 
 Microsoft Defender for Endpoint provides:
 
@@ -52,9 +49,9 @@ Microsoft Defender for Endpoint provides:
 
 By integrating Defender for Endpoint with Security Center, you'll benefit from the following additional capabilities:
 
-- **Automated onboarding**. Security Center automatically enables the Defender for Endpoint sensor for all supported machines connected to Security Center.
+- **Automated onboarding**. Security Center automatically enables the Defender for Endpoint sensor on all supported machines connected to Security Center.
 
-- **Single pane of glass**. The Security Center console displays Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
+- **Single pane of glass**. The Security Center portal pages displays Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
@@ -104,7 +101,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 ### [**Linux**](#tab/linux)
 
-To enable the integration for Linux.....
+During this preview, the integration of Defender for Endpoint for Linux
 
 
 --- 
