@@ -24,20 +24,40 @@ landingContent:
         links:
           - text: About Healthcare APIs
             url: healthcare-apis-overview.md
-  - title: What is a workspace?
-    linkLists:
-      - linkListType: concept
-        links:
           - text: About workspace
             url: workspace-overview.md
-  - title: Deploy Healthcare APIs
-    linkLists:
       - linkListType: deploy
         links:
           - text: Getting started with Healthcare APIs
             url: healthcare-apis-quickstart.md
+  
+  - title: FAQs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Healthcare APIs FAQs
+            url: healthcare-apis-faqs.yml
+      - linkListType: reference
+        links:
+          - text: FHIR FAQs
+            url: ./fhir/fhir-faq.md
+          - text: DICOM FAQs
+            url: ./dicom/dicom-services-faqs.yml
+  
+  - title: Transfer & Transform Data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export data
+            url: ./data-transformation/export-data.md
+          - text: Export data to Synapse
+            url: ./data-transformation/move-to-synapse.md
+      - linkListType: concept
+        links:
+          - text: Convert data
+            url: ./data-transformation/convert-data.md
 
-  - title: FHIR
+  - title: FHIR service
     linkLists:
       - linkListType: get-started
         links:
@@ -52,7 +72,7 @@ landingContent:
           - text: Interoperability and Patient Access
             url: ./fhir/cms-tutorial-introduction.md
 
-  - title: DICOM
+  - title: DICOM service
     linkLists:
       - linkListType: get-started
         links:
@@ -82,18 +102,6 @@ landingContent:
           - text: Receive device data through IoT Hub
             url: ./iot/device-data-through-iot-hub.md
 
-  - title: Transfer and Transform Data
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Export data
-            url: ./data-transformation/export-data.md
-          - text: Export data to Synapse
-            url: ./data-transformation/move-to-synapse.md
-      - linkListType: concept
-        links:
-          - text: Convert data
-            url: ./data-transformation/convert-data.md
 
  
             

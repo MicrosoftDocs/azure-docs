@@ -28,6 +28,8 @@ items:
   items:
     - name: FAQs
       href: healthcare-apis-faqs.yml
+    - name: GitHub projects
+      href: github-projects.md
 
 
 
