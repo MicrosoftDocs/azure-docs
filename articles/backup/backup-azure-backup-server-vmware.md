@@ -417,9 +417,9 @@ You can modify the number of jobs by using the registry key as shown below (not 
 > [!NOTE]
 > You can modify the number of jobs to a higher value. If you set the jobs number to 1, replication jobs run serially. To increase the number to a higher value, you must consider the VMware performance. Consider the number of resources in use and additional usage required on VMWare vSphere Server, and determine the number of delta replication jobs to run in parallel. Also, this change will affect only the newly created protection groups. For existing protection groups you must temporarily add another VM to the protection group. This should update the protection group configuration accordingly. You can remove this VM from the protection group after the procedure is completed.
 
-## VMware vSphere 6.7/7.0
+## VMware vSphere 6.7 and 7.0
 
-To back up vSphere 6.7/7.0, do the following:
+To back up vSphere 6.7 and 7.0, do the following:
 
 - Enable TLS 1.2 on the MABS Server
 
