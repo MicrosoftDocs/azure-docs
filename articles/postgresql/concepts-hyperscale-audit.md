@@ -6,15 +6,21 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 07/19/2021
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-Audit logging of database activities in Azure Database for PostgreSQL - Hyperscale (Citus) is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
-
 > [!IMPORTANT]
-> pgAudit is in preview on Azure Database for PostgreSQL - Hyperscale (Citus)
+> The pgAudit extension in Hyperscale (Citus) is currently in preview. This
+> preview version is provided without a service level agreement, and it's not
+> recommended for production workloads. Certain features might not be supported
+> or might have constrained capabilities.
+>
+> You can see a complete list of other new features in [preview features for
+> Hyperscale (Citus)](hyperscale-preview-features.md).
+
+Audit logging of database activities in Azure Database for PostgreSQL - Hyperscale (Citus) is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session and/or object audit logging.
 
 If you want Azure resource-level logs for operations like compute and storage scaling, see the [Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
 

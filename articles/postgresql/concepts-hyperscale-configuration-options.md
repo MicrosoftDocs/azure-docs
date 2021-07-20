@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 04/29/2021
+ms.date: 07/19/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) configuration options
@@ -78,16 +78,7 @@ following values:
 | 19           | 29,184              | 58,368            | 116,812           |
 | 20           | 30,720              | 61,440            | 122,960           |
 
-### Basic tier (preview)
-
-> [!IMPORTANT]
-> The Hyperscale (Citus) basic tier is currently in preview.  This preview
-> version is provided without a service level agreement, and it's not
-> recommended for production workloads. Certain features might not be supported
-> or might have constrained capabilities.
->
-> You can see a complete list of other new features in [preview features for
-> Hyperscale (Citus)](hyperscale-preview-features.md).
+### Basic tier
 
 The Hyperscale (Citus) [basic tier](concepts-hyperscale-tiers.md) is a server
 group with just one node.  Because there isn't a distinction between
