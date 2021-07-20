@@ -28,7 +28,7 @@ The password reset flow involves the following steps:
 1. In the next dialog that appears, the user enters their email address, and then selects **Send verification code**. Azure AD B2C sends a verification code to the user's email account. The user copies the verification code from the email, enters the code in the Azure AD B2C password reset dialog, and then selects **Verify code**.
 1. The user can then enter a new password. (After the email is verified, the user can still select the **Change e-mail** button; see [Hide the change email button](#hide-the-change-email-button).)
 
-![Diagram that shows three dialogs in the password reset flow.](./media/add-password-reset-policy/password-reset-flow.png)
+   ![Diagram that shows three dialogs in the password reset flow.](./media/add-password-reset-policy/password-reset-flow.png)
 
 > [!TIP]
 > A user can change their password by using the self-service password reset flow if they forget their password and want to reset it. Choose one of these user flow options:
@@ -68,7 +68,7 @@ To set up self-service password reset for the sign-up or sign-in user flow:
 1. In the portal toolbar, select the **Directory + subscription** icon, and then select the directory that contains your Azure AD B2C tenant.
 1. Search for and select **Azure AD B2C**.
 1. In the left menu under **Policies**, select **User flows**.
-1. Select a sign-up or sign-in user flow (of type Recommended) to customize.
+1. Select a sign-up or sign-in user flow (Recommended type) to customize.
 1. In the left menu under **Settings**, select **Properties**.
 1. Under **Password configuration**, select **Self-service password reset**.
 1. Select **Save**.
@@ -292,7 +292,7 @@ The following diagram depicts the process:
 1. The user selects the **Forgot your password?** link. Azure AD B2C returns the `AADB2C90118` error code to the application.
 1. The application handles the error code and initiates a new authorization request. The authorization request specifies the password reset policy name, such as *B2C_1_pwd_reset*.
 
-![Diagram that shows the legacy password reset user flow.](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+    ![Diagram that shows the legacy password reset user flow.](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 You can see a basic [ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI), which demonstrates how user flows link.
 

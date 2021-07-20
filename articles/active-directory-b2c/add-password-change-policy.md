@@ -19,12 +19,14 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who is signed in with a local account can change their password without using email verification to prove their identity. The password change flow involves the following steps:
+You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who is signed in with a local account can change their password without using email verification to prove their identity. 
+
+The password change flow involves the following steps:
 
 1. The user signs in to their local account. If the session is still active, Azure AD B2C authorizes the user and skips to the next step.
 1. In **Old password**, the user verifies their old password. In **New password**, they create and confirm their new password.
 
-![Screenshot that shows two numbered dialogs for making a password change.](./media/add-password-change-policy/password-change-flow.png)  
+   ![Screenshot that shows two numbered dialogs for making a password change.](./media/add-password-change-policy/password-change-flow.png)  
 
 > [!TIP]
 > A user can use the password change flow that's described in this article only when they know their password and they want to change their password. We recommend that you also enable [self-service password reset](add-password-reset-policy.md) to support cases in which the user forgets their password.
@@ -40,7 +42,7 @@ You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who i
 ## Prerequisites
 
 * Complete the steps in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
-* If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
+* [Register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
 
 ## Add the elements
 
