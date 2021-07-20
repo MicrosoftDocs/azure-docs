@@ -21,7 +21,7 @@ This article shows you how to create a vmSwitch on a Windows Server device to in
 - Install and set up a DHCP server
 
 # Prerequisites
-- A Windows Server device. For supported Windows versions, see [Operating Systems](./support#operating-systems) 
+- A Windows Server device. For supported Windows versions, see [Operating Systems](support.md#operating-systems) 
 - Hyper-V role installed. For more information on how to enable Hyper-V, see [install the Hyper-V role](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
 
 # Create vmSwitch 
