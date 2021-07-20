@@ -574,7 +574,7 @@ Many triggers and actions have settings to secure inputs, outputs, or both from 
 | Append to array variable <br>Append to string variable <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Recurrence <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until | Append to array variable <br>Append to string variable <br>Compose <br>Decrement variable <br>For each <br>If <br>Increment variable <br>Initialize variable <br>Parse JSON <br>Recurrence <br>Response <br>Scope <br>Set variable <br>Switch <br>Terminate <br>Until <br>Wait |
 |||
 
-### Considerations for securing inputs and outputs
+#### Considerations for securing inputs and outputs
 
 Before using these settings to help you secure this data, review these considerations:
                  
