@@ -78,9 +78,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 Use the [steps above](#portal-create) to start creation of the compute instance.  Then fill out the form as follows:
 
-:::image type="content" source="media/how-to-create-attach-studio/create-compute-instance.png" alt-text="Create a new compute instance":::
-
-
 |Field  |Description  |
 |---------|---------|
 |Compute name     |  <li>Name is required and must be between 3 to 24 characters long.</li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
