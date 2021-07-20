@@ -29,7 +29,8 @@ Previous versions also currently supported include: `3.0.2`
 | update | Yes                | Yes                             |         | 
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
-| patch                          | No        | No        |
+| patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only |
+| patch (conditional)            | No        | No        |
 | delete                         | Yes       | Yes       | See Note  below.|
 | delete (conditional)           | Yes       | Yes       |
 | history                        | Yes       | Yes       |
