@@ -2714,7 +2714,17 @@
             "source_path": "articles/virtual-machines/shared-images-powershell.md",
             "redirect_url": "/azure/virtual-machines/create-gallery",
             "redirect_document_id": false
-          },          
+          },  
+          {
+            "source_path": "articles/virtual-machine-scale-sets/shared-images-cli.md",
+            "redirect_url": "/azure/virtual-machines/create-gallery",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machine-scale-sets/shared-images-powershell.md",
+            "redirect_url": "/azure/virtual-machines/create-gallery",
+            "redirect_document_id": false
+          },        
           {
             "source_path_from_root": "/articles/virtual-machines/linux/deploy-ibm-db2-purescale-azure.md",
             "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/deploy-ibm-db2-purescale-azure",
