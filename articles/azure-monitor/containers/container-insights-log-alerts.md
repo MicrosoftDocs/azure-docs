@@ -18,6 +18,9 @@ Container insights monitors the performance of container workloads that are depl
 
 To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. While metric alerts have lower latency than log alerts, log alerts provide advanced querying and greater sophistication. Log alert queries compare a datetime to the present by using the *now* operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time (UTC) format.)
 
+> [!IMPORTANT]
+> Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before you create any alert rules.
+
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../alerts/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Log query measurements
@@ -26,6 +29,9 @@ Log query alerts can perform two different measurements of the result of a log q
 [Metric measurement](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) create a separate alert for each record in the query results that has a numeric value that exceeds a threshold defined in the alert rule. These are ideal for numeric data such as CPU.
 
 [Number of results](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) create a single alert when a query returns at least a specified number of records. These are ideal for non-numeric data such or for analyzing performance trends across multiple computers. You may also choose this strategy if you want to minimize your number of alerts or possibly create an alert only when multiple components have the same error condition.
+
+> [!NOTE]
+> Resource-centric log alert rules, currently in public preview, will simplify log query alerts and replace the functionality currently provided by metric measurement queries. You can use the AKS cluster as a target for the rule which will better identify it as the affected resource. . When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
 
 ## Create a log query alert rule
 [Comparison of log query alert measures](../vm/monitor-virtual-machine-alerts.md#comparison-of-log-query-alert-measures) provides a complete walkthrough of log query alert rules for each type of measurement, including a comparison of the log queries supporting each. You can use these same processes to create alert rules for AKS clusters using queries similar to the ones in this article..
