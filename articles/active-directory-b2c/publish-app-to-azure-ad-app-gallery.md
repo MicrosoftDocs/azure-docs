@@ -45,7 +45,7 @@ Depending on users' SSO session and Azure AD identity settings, they might be pr
 
 - Provide their email address or phone number.
 - Enter their password or sign in with the [Microsoft authenticator app](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
-- Complete multifactor authentication.
+- Complete multi-factor authentication.
 - Accept the consent page. Your customer's tenant administrator can [grant tenant-wide admin consent to an app](../active-directory/manage-apps/grant-admin-consent.md). When consent is granted, the consent page won't be presented to the user.
 
 Upon successful sign-in, Azure AD returns a token to Azure AD B2C. Azure AD B2C validates and reads the token claims, and then returns a token to your application.
