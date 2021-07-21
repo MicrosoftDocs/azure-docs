@@ -303,9 +303,10 @@ To manage access, you can add and remove users to the security groups you've set
 
 ## STEP 9: Network Security
 
-As a final step to secure your workspace, you should secure network access, using the [Workspace firewall](./synapse-workspace-ip-firewall.md).
+As a final step to secure your workspace, you should secure network access, using the [workspace firewall](./synapse-workspace-ip-firewall.md).
 
-- With a [Managed virtual network](./synapse-workspace-managed-vnet.md) and public network access **enabled**, you can connect to your workspace also from public networks. For more information, see [Connectivity Settings](connectivity-settings.md).
+- With a [managed virtual network](./synapse-workspace-managed-vnet.md) and public network access **enabled**, you can connect to your workspace also from public networks. For more information, see [Connectivity Settings](connectivity-settings.md).
+- Access from public networks is also possible by allowing IPs through the [workspace firewall](./synapse-workspace-ip-firewall.md).
 - Otherwise, you can connect to your workspace using only a [private endpoint](synapse-workspace-managed-private-endpoints.md) and [private Link](../../azure-sql/database/private-endpoint-overview.md).
 
 ## STEP 10: Completion
