@@ -1,6 +1,6 @@
 ---
-title: Associate a virtual machine to a Capacity Reservation in Azure (preview)
-description: Learn how to associate a new or existing virtual machine to a Capacity Reservation.
+title: Associate a virtual machine to a Capacity Reservation group (preview)
+description: Learn how to associate a new or existing virtual machine to a Capacity Reservation group.
 author: ju-shim
 ms.author: vargupt
 ms.service: virtual-machines #Required
@@ -10,18 +10,18 @@ ms.reviewer: cynthn
 ms.custom: template-how-to
 ---
 
-# Associate a VM to a Capacity Reservation 
+# Associate a VM to a Capacity Reservation group
 
 <!-- intro --> 
 
-## Associate a new VM to a Capacity Reservation Group
+## Associate a new VM to a Capacity Reservation group
 
 To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine. This protects the matching reservation in the group from accidental consumption by less critical applications and/or workloads that are not intended to use it.
 
 <!-- API, Portal, ARM tabs -->
 
 
-## Associate an existing VM to Capacity Reservation Group 
+## Associate an existing VM to Capacity Reservation group 
 
 <!-- WORK IN PROGRESS, ASK VARUN FOR AN UPDATE -->
 
