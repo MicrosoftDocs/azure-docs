@@ -368,7 +368,7 @@ app.get('/hello',
 
 The `/hello` endpoint first calls the `passport.authenticate()` function. The authentication function limits access to authenticated users only. 
 
-The authentication function also verifies that the web API is called with the right scopes. The allowed scopes are located in the [configuration file](#configure-the-web-api). 
+The authentication function also verifies that the web API is called with the right scopes. The allowed scopes are located in the [configuration file](#step-6-configure-the-web-api). 
 
 --- 
 
