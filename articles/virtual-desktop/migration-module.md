@@ -4,32 +4,38 @@ title: Migration from Windows Virtual Desktop classic to Azure Resource Manager
 
 # Migration module tool
 
+The migration module tool lets you migrate your organization from Azure Virtual Desktop (classic) to Azure Virtual Desktop automatically. This article will show you how to use the tool. 
+
 ## Requirements
 
-Before you start the migration, make sure you have the following things:
+Before you use the migration module, make sure you have the following things ready:
 
-1. An Azure subscription where you’ll create new Azure service objects
+- An Azure subscription where you’ll create new Azure service objects.
 
-2. You need to be assigned the Contributor role to create Azure objects on your subscription, and the User Access Administrator role to assign users to application groups.
+- You must be assigned the Contributor role to create Azure objects on your subscription, and the User Access Administrator role to assign users to application groups.
 
-3. You need at least RDS Contributor permissions on an RDS tenant or the specific host pools you’re migrating.
+- At least Remote Desktop Services (RDS) Contributor permissions on an RDS tenant or the specific host pools you’re migrating.
 
-4. Latest version of the Microsoft.RdInfra.RDPowershell Powershell module 
+- The latest version of the Microsoft.RdInfra.RDPowershell PowerShell module 
 
-5. Latest version of the Az.DesktopVirtualization Powershell module 
+- The latest version of the Az.DesktopVirtualization PowerShell module 
 
-6. Latest version of the Az.Resources Powershell module 
+- The latest version of the Az.Resources PowerShell module 
 
-7. Download the Migration Module
+- Download the migration module to your computer
 
-8. Must run PowerShell script in PowerShell or PowerShell ISE. At this time the Microsoft.RdInfra.RDPowershell Powershell module does not work in PowerShell Core
+- PowerShell or PowerShell ISE to run the scripts you'll see in this article. The Microsoft.RdInfra.RDPowershell module doesn't currently work in PowerShell Core.
 
 >[!IMPORTANT]
->Migration currently only creates service objects in the US geography. You cannot migrate the objects to a different geography with the tools currently available. If you have more than 200 app groups in Classic, you should not migrate. You should look at re-architecting your environment to reduce the number of app groups within your Azure Active Directory (Azure AD) tenant.
+>Migration currently only creates service objects in the US geography. If you try to migrate your service objects to another geography, it won't work. Also, if you have more than 200 app groups in your Azure Virtual Desktop (classic) deployment, you won't be able to migrate. You'll only be able to migrate if you rebuild your environment to reduce the number of app groups within your Azure Active Directory (Azure AD) tenant.
 
 ## Prepare your PowerShell environment
 
-1. Ensure you have the latest version of Az.Desktop Virtualization and Az.Resources module:
+First, you'll need to prepare your PowerShell environment for the migration process.
+
+To prepare your PowerShell environment:
+
+1. Before you start, make sure you have the latest version of the Az.Desktop Virtualization and Az.Resources modules by running the following cmdlets:
 
     ```powershell
     Get-Module Az.Resources
@@ -38,7 +44,7 @@ Before you start the migration, make sure you have the following things:
     https://www.powershellgallery.com/packages/Az.Resources/
     ```
 
-    If you don’t, then Install and Import the modules:
+    If you don’t, then install and import the modules by running these cmdlets:
 
     ```powershell
     Install-module Az.Resources
@@ -47,20 +53,20 @@ Before you start the migration, make sure you have the following things:
     Import-module Az.DesktopVirtualization
     ```
 
-2. Uninstall the current RDInfra Powershell module:
+2. Next, uninstall the current RDInfra PowerShell module by running this cmdlet:
 
     ```powershell
     Uninstall-Module -Name Microsoft.RDInfra.RDPowershell -AllVersions
     ```
 
-3. Install RDPowershell module:
+3. After that, install the RDPowershell module with this cmdlet:
 
     ```powershell
     Install-Module -Name Microsoft.RDInfra.RDPowershell -RequiredVersion 1.0.2955.0 -force
     Import-module Microsoft.RDInfra.RDPowershell
     ```
 
-4. Check if the right version of the PS module is installed:
+4. Once you're done installing everything, run this cmdlet to make sure you have the right versions of the modules:
 
     ```powershell
     Get-Module Microsoft.RDInfra.RDPowershell
@@ -68,25 +74,25 @@ Before you start the migration, make sure you have the following things:
 
     ![Graphical user interface, text Description automatically generated](media/dbac6c7de0318a265fbaf9fdeee62d9c.jpg)
 
-5. Import Migration module:
+5. Now, let's import the migration module by running this cmdlet:
 
     ```powershell
-    Import-Module <Full path to the location where the migration PS is extracted>\Microsoft.RdInfra.RDPowershell.Migration.psd1
+    Import-Module <Full path to the location where you extracted the migration module>\Microsoft.RdInfra.RDPowershell.Migration.psd1
     ```
 
-6. Sign into classic Windows Virtual Desktop:
+6. Once you're done, sign into Windows Virtual Desktop (classic) in your PowerShell window:
 
     ```powershell
     Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
     ```
 
-7. Sign into Azure Resource Manager
+7. Sign into Azure Resource Manager:
 
     ```powershell
     Login-AzAccount
     ```
 
-8. If you have multiple subscriptions, select the one you want to migrate the Classic resources to:
+8. If you have multiple subscriptions, select the one you want to migrate your resources to with this cmdlet:
 
     ```powershell
     Select-AzSubscription -Subscriptionid <subID>
@@ -94,9 +100,9 @@ Before you start the migration, make sure you have the following things:
 
 9. Register the Resource Provider in Azure portal for the selected subscription.
 
-10. Login to Azure portal. Navigate to Subscriptions > select subscription > >navigate to Resource Provider > select Microsoft.DesktopVirtualization and then click Re-register. You will not see any UI feedback.
+10. Sign in to the Azure portal, then go to **Subscriptions** and select the name of the subscription you want to use. After that, go to **Resource Provider** > **Microsoft.DesktopVirtualization** and select **Re-register**. You won't see anything change in the UI just yet, but your PowerShell environment should now be ready to run the module.
 
-## Migrate Classic resources to Azure Resource Manager
+## Migrate Azure Virtual Desktop (classic) resources to Azure Resource Manager
 
 1. Before you migrate, if you want to understand how the existing Classic resources will get mapped to new Azure Resource Manager resources, use
     
