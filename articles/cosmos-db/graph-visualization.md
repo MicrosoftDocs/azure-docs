@@ -77,7 +77,7 @@ Graphistry automatically transforms your data into interactive, visual investiga
 
 :::image type="content" source="./media/graph-visualization/graphistry/graphistry-demo.png" alt-text="Graphisry demo" border="false":::
 
-Graphistry's breakthrough GPU client/cloud technology has raised the bar for interactive visualization by 100X. That means that you can use all the data you want, and still remain fast, responsive, and interactive. Better yet, all you need is a standard browser and our cloud. If you want to run on your hardware, it’s as easy as installing a Docker. That way you get the analytical power of GPUs without having to think about GPUs.
+With the Graphistry's GPU client/cloud technology you can do interactive visualization. By using their standard browser and the cloud, you can use all the data you want, and still remain fast, responsive, and interactive. If you want to run the browser on your hardware, it’s as easy as installing a Docker. That way you get the analytical power of GPUs without having to think about GPUs.
 :::image type="content" source="./media/graph-visualization/graphistry/graphistry-demo1.webp" alt-text="Graphisry demo1" border="false":::
 ### Useful links
 •	[Documentation](https://www.graphistry.com/docs)
