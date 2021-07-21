@@ -60,7 +60,7 @@ After transformation is completed, you can find transformed images in the output
 
 Refer to [https://pytorch.org/vision/stable/transforms.html](https://pytorch.org/vision/stable/transforms.html) for more info about image transformation.
 
-###  component parameters  
+###  Component parameters  
 
 | Name                    | Range   | Type    | Default | Description                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |

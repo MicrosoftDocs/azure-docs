@@ -174,7 +174,7 @@ Terms are rarely exclusive to any one product. They can refer to other products,
 
 After the term indexes are computed, a distance-based similarity measure compares individual rows of text to determine whether two pieces of text are similar. For example, you might find that the product has multiple names that are strongly correlated. Or, you might find that strongly negative terms are usually associated with a particular product. You can use the similarity measure both to identify related terms and to create recommendations.
 
-###  component parameters
+###  Component parameters
 
 |Name|Type|Range|Optional|Default|Description|  
 |----------|----------|-----------|--------------|-------------|-----------------|  

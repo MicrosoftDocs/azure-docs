@@ -42,7 +42,7 @@ For help with choosing algorithms, see
 | Clustering | Group data together.| [K-Means Clustering](k-means-clustering.md)
 | Classification | Predict a class.  Choose from binary (two-class) or multiclass algorithms.| [Multiclass Boosted Decision Tree](multiclass-boosted-decision-tree.md) <br/> [Multiclass Decision Forest](multiclass-decision-forest.md) <br/> [Multiclass Logistic Regression](multiclass-logistic-regression.md)  <br/> [Multiclass Neural Network](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) <br/> [One vs. One Multiclass](one-vs-one-multiclass.md) <br/>[Two-Class Averaged Perceptron](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)  <br/> [Two-Class Decision Forest](two-class-decision-forest.md) <br/>  [Two-Class Logistic Regression](two-class-logistic-regression.md) <br/> [Two-Class Neural Network](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) | 
 
-## components for building and evaluating models
+## Components for building and evaluating models
 
 | Functionality | Description | component |
 | --- |--- | --- |

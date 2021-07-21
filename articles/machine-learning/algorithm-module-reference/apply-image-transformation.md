@@ -40,7 +40,7 @@ You need to connect an [Init Image Transformation](init-image-transformation.md)
 
 5. To apply a image transformation to a new image directory, submit the pipeline.  
 
-### component parameters
+### Component parameters
 
 | Name | Range | Type | Default                   | Description                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |

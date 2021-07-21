@@ -46,7 +46,7 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Technical notes  
 
-###  component parameters  
+###  Component parameters  
 
 | Name       | Range | Type    | Default           | Description                              |
 | ---------- | ----- | ------- | ----------------- | ---------------------------------------- |

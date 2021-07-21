@@ -17,7 +17,7 @@ ms.date: 04/22/2020
   
  Category: Machine Learning / Initialize Model / Regression
   
-## component overview  
+## Component overview  
 
 This article describes a component in Azure Machine Learning designer.
 

@@ -34,7 +34,7 @@ This component is particularly useful when you need to separate image data into 
 | --------------------- | -------------- | ------------------------ |
 | Input image directory | ImageDirectory | Image directory to split |
 
-### component parameters
+### Component parameters
 
 | Name                                   | Type  | Range | Optional | Description                            | Default |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |

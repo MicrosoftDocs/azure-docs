@@ -127,7 +127,7 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 | Training dataset   | ImageDirectory          | Training dataset                         |
 | Validation dataset | ImageDirectory          | Validation dataset for evaluation every epoch |
 
-###  component parameters  
+###  Component parameters  
 
 | Name          | Range            | Type    | Default | Description                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |

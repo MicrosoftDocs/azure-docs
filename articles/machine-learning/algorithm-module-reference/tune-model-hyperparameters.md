@@ -139,7 +139,7 @@ However, during training, you must choose a *single* metric to use in ranking th
 
 -   **Coefficient of determination** is a single number that indicates how well data fits a model. A value of one means that the model exactly matches the data. A value of zero means that the data is random or otherwise can't be fit to the model. It's often called *r<sup>2</sup>*, *R<sup>2</sup>*, or *r-squared*.  
 
-### components that don't support a parameter sweep
+### Components that don't support a parameter sweep
 
 Almost all learners in Azure Machine Learning support cross-validation with an integrated parameter sweep, which lets you choose the parameters to pipeline with. If the learner doesn't support setting a range of values, you can still use it in cross-validation. In this case, a range of allowed values is selected for the sweep. 
 

@@ -11,7 +11,7 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
 ---
-# component: Assign Data to Clusters
+# Component: Assign Data to Clusters
 
 This article describes how to use the *Assign Data to Clusters* component in Azure Machine Learning designer. The component generates predictions through a clustering model that was trained with the *K-means clustering* algorithm.
 

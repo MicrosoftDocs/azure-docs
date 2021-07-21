@@ -11,7 +11,7 @@ author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
 ---
-# component: K-Means Clustering
+# Component: K-Means Clustering
 
 This article describes how to use the *K-Means Clustering* component in Azure Machine Learning designer to create an untrained K-means clustering model. 
  
