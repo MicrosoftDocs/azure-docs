@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Quickly create Azure Communication Services identities for testing
 titleSuffix: An Azure Communication Services quickstart
-description: Learn how to use the Identities & Access Tokens tool in the Azure Portal to use with samples and for troubleshooting.
+description: Learn how to use the Identities & Access Tokens tool in the Azure portal to use with samples and for troubleshooting.
 author: manoskow
 manager: jken
 services: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # Quickstart: Quickly create Azure Communication Services access tokens for testing
 
-In the [Azure Portal](https://portal.azure.com) Communication Services extension, you can generate a Communication Services identity and access token. This lets you skip creating an authentication service, which makes it easier for you to test the sample apps and simple development scenarios. Note that this feature is intended for small-scale validation and testing and should not be used for production scenarios. For production code, please refer to the [creating access tokens quickstart](../access-tokens.md).
+In the [Azure portal](https://portal.azure.com) Communication Services extension, you can generate a Communication Services identity and access token. This lets you skip creating an authentication service, which makes it easier for you to test the sample apps and simple development scenarios. This feature is intended for small-scale validation and testing and should not be used for production scenarios. For production code, refer to the [creating access tokens quickstart](../access-tokens.md).
 
 The tool showcases the behavior of the ```Identity SDK``` in a simple user experience. Tokens and identities that are created through this tool follow the same behaviors and rules as if they were created using the ```Identity SDK```.  For example, access tokens expire after 24 hours.
 
@@ -23,7 +23,7 @@ The tool showcases the behavior of the ```Identity SDK``` in a simple user exper
 
 ## Create the access tokens
 
-In the [Azure Portal](https://portal.azure.com), navigate to the **Identities & User Access Tokens** blade within your Communication Services resource. 
+In the [Azure portal](https://portal.azure.com), navigate to the **Identities & User Access Tokens** blade within your Communication Services resource. 
 
 Choose the scope of the access tokens. You can select none, one, or multiple. Click **Generate**.
 
