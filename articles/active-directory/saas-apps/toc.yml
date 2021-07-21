@@ -284,7 +284,9 @@
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
       - name: BrowserStack Single Sign-on
-        href: browserstack-single-sign-on-tutorial.md      
+        href: browserstack-single-sign-on-tutorial.md
+      - name: Brushup
+        href: brushup-tutorial.md        
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
@@ -533,6 +535,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: ./tutorial-list.md
+      - name: directprint.io Cloud Print Administration
+        href: directprint-io-cloud-print-administration-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -1104,6 +1108,8 @@
         href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
+      - name: Kronos Workforce Dimensions
+        href: kronos-workforce-dimensions-tutorial.md  
       - name: Kudos
         href: kudos-tutorial.md
       - name: Kumolus
@@ -1528,7 +1534,7 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
-      - name: ProProfs Classroom
+      - name: ProProfs Training Maker
         href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
         href: proprofs-knowledge-base-tutorial.md
@@ -1756,6 +1762,8 @@
         href: sharingcloud-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
+      - name: ShiftWizard SAML
+        href: shiftwizard-saml-tutorial.md  
       - name: ShipHazmat
         href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
@@ -1926,6 +1934,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: Taskize Connect
+        href: taskize-connect-tutorial.md
       - name: Teamgo
         href: teamgo-tutorial.md
       - name: Teamphoria
@@ -2295,6 +2305,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Clebex
+        href: clebex-provisioning-tutorial.md
       - name: Cloud Academy - SSO
         href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
@@ -2327,6 +2339,8 @@
         href: eletive-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
+      - name: Exium
+        href: exium-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma
@@ -2537,6 +2551,8 @@
       items:
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
+      - name: Talentech
+        href: talentech-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
@@ -2549,6 +2565,8 @@
         href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
+      - name: Thrive LXP
+        href: thrive-lxp-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
       - name: Tribeloo
@@ -2587,6 +2605,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zip
+        href: zip-provisioning-tutorial.md
       - name: Zoom
         href: zoom-provisioning-tutorial.md              
       - name: Zscaler
