@@ -1,5 +1,5 @@
 ---
-title: "Select Columns Transform: component reference"
+title: "Select Columns Transform: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Select Columns Transform component in Azure Machine Learning designer to perform a select transformation.
 services: machine-learning

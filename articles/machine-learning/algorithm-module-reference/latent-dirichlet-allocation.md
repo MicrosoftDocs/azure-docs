@@ -1,5 +1,5 @@
 ---
-title: "Latent Dirichlet Allocation: component reference"
+title: "Latent Dirichlet Allocation: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Latent Dirichlet Allocation component to group otherwise unclassified text into categories.
 services: machine-learning

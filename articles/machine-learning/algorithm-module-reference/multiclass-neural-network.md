@@ -1,5 +1,5 @@
 ---
-title:  "Multiclass Neural Network: component Reference"
+title:  "Multiclass Neural Network: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Multiclass Neural Network component in Azure Machine Learning designer to predict a target that has multi-class values. 
 services: machine-learning

@@ -1,5 +1,5 @@
 ---
-title:  "Two-Class Logistic Regression: component Reference"
+title:  "Two-Class Logistic Regression: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Two-Class Logistic Regression component in Azure Machine Learning to create a binary classifier. 
 

@@ -1,5 +1,5 @@
 ---
-title: "Convert to Dataset: component reference"
+title: "Convert to Dataset: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Convert to Dataset component in Azure Machine Learning designer to convert data input to the internal dataset format.
 services: machine-learning

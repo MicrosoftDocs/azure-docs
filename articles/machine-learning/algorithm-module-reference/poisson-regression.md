@@ -1,5 +1,5 @@
 ---
-title: "Poisson Regression: component reference"
+title: "Poisson Regression: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Poisson Regression component in Azure Machine Learning designer to create a Poisson regression model.
 services: machine-learning

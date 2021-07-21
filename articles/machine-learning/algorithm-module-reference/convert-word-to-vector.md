@@ -1,5 +1,5 @@
 ---
-title: "Convert Word to Vector: component reference"
+title: "Convert Word to Vector: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use three provided Word2Vec models to extract a vocabulary and its corresponding word embeddings from a corpus of text.
 services: machine-learning

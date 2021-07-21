@@ -1,5 +1,5 @@
 ---
-title:  "Two-Class Support Vector Machine: component Reference"
+title:  "Two-Class Support Vector Machine: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Two-Class Support Vector Machine component in Azure Machine Learning to create a binary classifier.
 services: machine-learning

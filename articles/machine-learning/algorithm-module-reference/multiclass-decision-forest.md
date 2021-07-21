@@ -1,5 +1,5 @@
 ---
-title:  "Multiclass Decision Forest: component Reference"
+title:  "Multiclass Decision Forest: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Multiclass Decision Forest component in Azure Machine Learning to create a machine learning model based on the *decision forest* algorithm. 
 services: machine-learning

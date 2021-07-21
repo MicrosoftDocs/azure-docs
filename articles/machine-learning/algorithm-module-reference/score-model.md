@@ -1,5 +1,5 @@
 ---
-title:  "Score Model: component Reference"
+title:  "Score Model: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Score Model component in Azure Machine Learning to generate predictions using a trained classification or regression model.
 services: machine-learning

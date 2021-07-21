@@ -1,5 +1,5 @@
 ---
-title:  "Evaluate Model: component Reference"
+title:  "Evaluate Model: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Evaluate Model component in Azure Machine Learning to measure the accuracy of a trained model.
 services: machine-learning

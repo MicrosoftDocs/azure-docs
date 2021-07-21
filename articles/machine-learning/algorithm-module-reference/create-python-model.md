@@ -1,5 +1,5 @@
 ---
-title:  "Create Python Model: component reference"
+title:  "Create Python Model: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Create Python Model component in Azure Machine Learning to create a custom modeling or data processing component.
 services: machine-learning

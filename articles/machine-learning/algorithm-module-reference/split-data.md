@@ -1,5 +1,5 @@
 ---
-title:  "Split Data: component reference"
+title:  "Split Data: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Split Data component in Azure Machine Learning to divide a dataset into two distinct sets.
 services: machine-learning

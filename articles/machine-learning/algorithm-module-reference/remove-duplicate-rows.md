@@ -1,5 +1,5 @@
 ---
-title:  "Remove Duplicate Rows: component Reference"
+title:  "Remove Duplicate Rows: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Remove Duplicate Rows component in Azure Machine Learning to remove potential duplicates from a dataset.
 services: machine-learning

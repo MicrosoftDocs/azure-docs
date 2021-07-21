@@ -1,5 +1,5 @@
 ---
-title:  "Add Rows: component Reference"
+title:  "Add Rows: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Add Rows component in Azure Machine Learning designer to concatenate two datasets.
 services: machine-learning

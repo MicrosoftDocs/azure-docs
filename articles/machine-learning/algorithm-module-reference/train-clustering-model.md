@@ -1,5 +1,5 @@
 ---
-title:  "Train Clustering Model: component Reference"
+title:  "Train Clustering Model: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Clustering Model component in Azure Machine Learning to train clustering models.
 services: machine-learning

@@ -1,5 +1,5 @@
 ---
-title:  "Execute Python Script: component reference"
+title:  "Execute Python Script: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Execute Python Script component in Azure Machine Learning designer to run Python code.
 services: machine-learning

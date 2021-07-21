@@ -35,7 +35,7 @@ Models trained in the designer can also be deployed through the SDK or command-l
 * [An Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 * A completed training pipeline containing one of following components:
-    - [Train Model component](./algorithm-module-reference/train-model.md)
+    - [Train Model Component](./algorithm-module-reference/train-model.md)
     - [Train Anomaly Detection Model component](./algorithm-module-reference/train-anomaly-detection-model.md)
     - [Train Clustering Model component](./algorithm-module-reference/train-clustering-model.md)
     - [Train Pytorch Model component](./algorithm-module-reference/train-pytorch-model.md)

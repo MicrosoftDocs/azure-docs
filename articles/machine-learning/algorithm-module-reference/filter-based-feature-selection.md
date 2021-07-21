@@ -1,5 +1,5 @@
 ---
-title: "Filter Based Feature Selection: component reference"
+title: "Filter Based Feature Selection: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Filter Based Feature Selection component in Azure Machine Learning to identify the features in a dataset with the greatest predictive power.
 services: machine-learning

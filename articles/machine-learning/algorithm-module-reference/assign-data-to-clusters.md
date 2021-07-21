@@ -1,5 +1,5 @@
 ---
-title:  "Assign Data to Cluster: component Reference"
+title:  "Assign Data to Cluster: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Assign Data to Cluster component in Azure Machine Learning to score clustering model.  
 services: machine-learning

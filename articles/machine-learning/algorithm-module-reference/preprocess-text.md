@@ -1,5 +1,5 @@
 ---
-title: "Preprocess Text: component Reference"
+title: "Preprocess Text: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Preprocess Text component in Azure Machine Learning designer to clean and simplify text.
 services: machine-learning

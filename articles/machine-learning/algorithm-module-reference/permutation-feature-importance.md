@@ -1,5 +1,5 @@
 ---
-title: "Permutation Feature Importance: component reference"
+title: "Permutation Feature Importance: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Permutation Feature Importance component in the designer to compute the permutation feature importance scores of feature variables.
 services: machine-learning

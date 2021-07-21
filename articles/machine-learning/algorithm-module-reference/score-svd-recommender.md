@@ -1,5 +1,5 @@
 ---
-title: "Score SVD Recommender: component reference"
+title: "Score SVD Recommender: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Score SVD Recommender component in Azure Machine Learning to score recommendation predictions for a dataset.
 services: machine-learning

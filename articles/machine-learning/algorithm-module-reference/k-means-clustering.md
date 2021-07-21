@@ -1,5 +1,5 @@
 ---
-title:  "K-Means Clustering: component Reference"
+title:  "K-Means Clustering: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the K-Means Clustering component in the Azure Machine Learning to train clustering models.
 services: machine-learning

@@ -1,5 +1,5 @@
 ---
-title:  "Boosted Decision Tree Regression: component Reference"
+title:  "Boosted Decision Tree Regression: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Boosted Decision Tree Regression component in Azure Machine Learning to create an ensemble of regression trees using boosting. 
 services: machine-learning

@@ -1,5 +1,5 @@
 ---
-title: "Train SVD Recommender: component Reference"
+title: "Train SVD Recommender: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train SVD Recommender component in Azure Machine Learning to train a Bayesian recommender by using the SVD algorithm.
 services: machine-learning

@@ -1,5 +1,5 @@
 ---
-title: "Cross Validate Model: component reference"
+title: "Cross Validate Model: Component reference"
 titleSuffix: Azure Machine Learning
 description: Use the Cross-Validate Model component in Azure Machine Learning designer to cross-validate parameter estimates for classification or regression models.
 services: machine-learning

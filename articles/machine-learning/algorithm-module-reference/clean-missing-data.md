@@ -1,5 +1,5 @@
 ---
-title:  "Clean Missing Data: component Reference"
+title:  "Clean Missing Data: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Clean Missing Data component in Azure Machine Learning to remove, replace, or infer missing values.
 services: machine-learning

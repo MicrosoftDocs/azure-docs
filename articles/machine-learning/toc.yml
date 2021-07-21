@@ -102,7 +102,7 @@
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/Azure/azureml-examples
     - name: Designer examples & datasets
-      displayName: example, examples, studio, pipelines, data sets, components
+      displayName: example, examples, studio, pipelines, data sets, modules, components
       href: samples-designer.md
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
@@ -699,7 +699,7 @@
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: reference-azure-machine-learning-cli.md
     - name: Designer component reference
-      displayName: component, reference, algorithm, studio
+      displayName: component, module, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md

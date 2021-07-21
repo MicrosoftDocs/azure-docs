@@ -1,5 +1,5 @@
 ---
-title: "Execute R Script: component reference"
+title: "Execute R Script: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Execute R Script component in Azure Machine Learning designer to run custom R code.
 services: machine-learning

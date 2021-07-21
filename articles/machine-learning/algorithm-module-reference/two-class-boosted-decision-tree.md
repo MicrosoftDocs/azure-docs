@@ -1,5 +1,5 @@
 ---
-title:  "Two-Class Boosted Decision Tree: component Reference"
+title:  "Two-Class Boosted Decision Tree: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Two-Class Boosted Decision Tree component in the designer to create a binary classifier.
 services: machine-learning

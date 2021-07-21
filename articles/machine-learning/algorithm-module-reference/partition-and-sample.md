@@ -1,5 +1,5 @@
 ---
-title:  "Partition and Sample: component reference"
+title:  "Partition and Sample: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Partition and Sample component in Azure Machine Learning to perform sampling on a dataset or to create partitions from your dataset.
 services: machine-learning
