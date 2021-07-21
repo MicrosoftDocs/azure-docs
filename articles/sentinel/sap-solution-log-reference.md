@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
 ms.custom: mvc
-ms.date: 05/12/2021
+ms.date: 07/21/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -34,7 +34,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Records the progress of an application execution so that you can reconstruct it later as needed.
 
-    Available by using RFC with a custom service based on standard services of XBP interface.
+    Available by using RFC with a custom service based on standard services of XBP interface. This log is generated per client.
 
 
 ### ABAPAppLog_CL log schema
@@ -86,7 +86,7 @@ This article is intended for advanced SAP users.
 
     - Other entities in the SAP system, such as user data, roles, addresses.
 
-    Available by using RFC with a custom service based on standard services.
+    Available by using RFC with a custom service based on standard services. This log is generated per client.
 
 ### ABAPChangeDocsLog_CL log schema
 
@@ -130,7 +130,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Includes the Change & Transport System (CTS) logs, including the directory objects and customizations where changes were made.
 
-    Available by using RFC with a custom service based on standard tables and standard services.
+    Available by using RFC with a custom service based on standard tables and standard services. This log is generated with data across all clients.
 
 > [!NOTE]
 > In addition to application logging, change documents, and table recording, all changes that you make to your production system using the Change & Transport System are documented in the CTS and TMS logs.
@@ -166,7 +166,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Provides logging for those tables that are critical or susceptible to audits.
 
-    Available by using RFC with a custom service.
+    Available by using RFC with a custom service. This log is generated with data across all clients.
 
 ### ABAPTableDataLog_CL log schema
 
@@ -196,7 +196,7 @@ This article is intended for advanced SAP users.
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
 
-- **Log purpose**: Monitors Gateway activities. Available by the SAP Control Web Service.
+- **Log purpose**: Monitors Gateway activities. Available by the SAP Control Web Service. This log is generated with data across all clients.
 
 ### GW_CL log schema
 
@@ -218,7 +218,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Records inbound and outbound requests and compiles statistics of the HTTP requests.
 
-    Available by the SAP Control Web Service.
+    Available by the SAP Control Web Service. This log is generated with data across all clients.
 
 ### ICM_CL log schema
 
@@ -240,7 +240,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Combines all background processing job logs (SM37).
 
-    Available by using RFC with a custom service based on standard services of XBP interfaces.
+    Available by using RFC with a custom service based on standard services of XBP interfaces. This log is generated with data across all clients.
 
 ### ABAPJobLog_CL log schema
 
@@ -288,7 +288,7 @@ This article is intended for advanced SAP users.
     - Information that provides a higher level of data, such as successful and unsuccessful sign-in attempts
     - Information that enables the reconstruction of a series of events, such as successful or unsuccessful transaction starts
 
-    Available by using RFC XAL/SAL interfaces. SAL is available starting from version Basis 7.50.
+    Available by using RFC XAL/SAL interfaces. SAL is available starting from version Basis 7.50. This log is generated with data across all clients.
 
 ### ABAPAuditLog_CL log schema
 
@@ -334,7 +334,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Serves as the main log for SAP Printing with the history of spool requests. (SP01).
 
-    Available by using RFC with a custom service based on standard tables.
+    Available by using RFC with a custom service based on standard tables. This log is generated with data across all clients.
 
 ### ABAPSpoolLog_CL log schema
 
@@ -393,7 +393,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Serves as the main log for SAP Printing with the history of spool output requests. (SP02).
 
-    Available by using RFC with a custom service based on standard tables.
+    Available by using RFC with a custom service based on standard tables. This log is generated with data across all clients.
 
 ### ABAPSpoolOutputLog_CL log schema
 
@@ -444,7 +444,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Records all SAP NetWeaver Application Server (SAP NetWeaver AS) ABAP system errors, warnings, user locks because of failed sign-in attempts from known users, and process messages.
 
-    Available by the SAP Control Web Service.
+    Available by the SAP Control Web Service. This log is generated with data across all clients.
 
 ### SysLog_CL log schema
 
@@ -475,7 +475,7 @@ This article is intended for advanced SAP users.
 
     For example, unmapped business processes may be simple release or approval procedures, or more complex business processes such as creating base material and then coordinating the associated departments.
 
-    Available by using RFC with a custom service based on standard tables and standard services.
+    Available by using RFC with a custom service based on standard tables and standard services. This log is generated per client.
 
 ### ABAPWorkflowLog_CL log schema
 
@@ -528,7 +528,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Combines all work process logs. (default: `dev_*`).
 
-    Available by the SAP Control Web Service.
+    Available by the SAP Control Web Service. This log is generated with data across all clients.
 
 ### WP_CL log schema
 
@@ -553,7 +553,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Records user actions, or attempted actions in the SAP HANA database. For example, enables you to log and monitor read access to sensitive data.
 
-    Available by the Sentinel Linux Agent for Syslog.
+    Available by the Sentinel Linux Agent for Syslog. This log is generated with data across all clients.
 
 ### Syslog log schema
 
@@ -577,7 +577,7 @@ This article is intended for advanced SAP users.
 
 - **Log purpose**: Combines all Java files-based logs, including the Security Audit Log, and System (cluster and server process), Performance, and Gateway logs. Also includes Developer Traces and Default Trace logs.
 
-    Available by the SAP Control Web Service.
+    Available by the SAP Control Web Service. This log is generated with data across all clients.
 
 ### JavaFilesLogsCL log schema
 
