@@ -13,13 +13,13 @@ ms.service: azure-communication-services
 
 # Quickstart: Quickly create Azure Communication Services access tokens for testing
 
-In the [Azure Portal](https://portal.azure.com) Communication Services extension, you can generate a Communication Services identity and access token. This reduces the time necessary to run one of the sample apps and enables you to skip creating an authentication service for simple samples. Note that this feature is intended for small-scale validation and testing scenarios and should not be used for production scenarios. For production code, please refer to the [creating access tokens quickstart](../quickstarts/access-tokens.md)
+In the [Azure Portal](https://portal.azure.com) Communication Services extension, you can generate a Communication Services identity and access token. This reduces the time necessary to run one of the sample apps and enables you to skip creating an authentication service for simple samples. Note that this feature is intended for small-scale validation and testing scenarios and should not be used for production scenarios. For production code, please refer to the [creating access tokens quickstart](../access-tokens.md)
 
 The tool showcases the behavior of the ```Identity SDK``` in a simple user experience. Tokens and identities that are created through this tool follow the same behaviors and rules as if they were created using the ```Identity SDK```.  For example, access tokens expire after 24 hours.
 
 ## Prerequisites
 
-- An [Azure Communication Services resource](../quickstarts/create-communication-resource.md)
+- An [Azure Communication Services resource](../create-communication-resource.md)
 
 ## Create the access tokens
 
@@ -33,5 +33,5 @@ You will see an identity and a user access token generated. You can copy these s
 
 You may also want to:
 
- - [Learn about authentication](./authentication.md)
- - [Learn about client and server architecture](./client-and-server-architecture.md)
+ - [Learn about authentication](../../concepts/authentication.md)
+ - [Learn about client and server architecture](../../concepts/client-and-server-architecture.md)
