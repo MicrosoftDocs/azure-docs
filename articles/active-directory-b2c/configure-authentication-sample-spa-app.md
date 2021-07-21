@@ -129,7 +129,7 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 
 |File  |Key  |Value  |
 |---------|---------|---------|
-|authConfig.js|clientId| The SPA ID from [step 2.3](#step-23-register-the-spa-app).|
+|authConfig.js|clientId| The SPA ID from [step 2.3](#step-23-register-the-spa).|
 |policies.js| names| The user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 |policies.js|authorities|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`). Then, replace with the user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow) (for example, `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`).|
 |policies.js|authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
