@@ -26,7 +26,7 @@ To use a custom domain and your tenant ID in the authentication URL, follow the 
 - Update the `Instance` entry with your custom domain.
 - Update the `Domain` entry with your [tenant ID](tenant-management.md#get-your-tenant-id). For more information, see [Use tenant ID](custom-domain.md#optional-use-tenant-id).
 
-The following JSON code shows the app settings before the change: 
+The app settings *before* the change are shown in the following JSON code: 
 
 ```json
 "AzureAdB2C": {
@@ -36,7 +36,7 @@ The following JSON code shows the app settings before the change:
 }
 ```  
 
-The following JSON code shows the app settings after the change: 
+The app settings *after* the change are shown in the following JSON code: 
 
 ```json
 "AzureAdB2C": {
@@ -53,7 +53,7 @@ The `AddMicrosoftIdentityWebAppAuthentication` method in the Microsoft identity 
 To support advanced scenarios, open the *Startup.cs* file and, in the `ConfigureServices` function, replace the `AddMicrosoftIdentityWebAppAuthentication` with the following code snippet: 
 
 ```csharp
-// Configuration to sign-in users with Azure AD B2C
+// Configuration to sign in users with Azure AD B2C
 
 //services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAdB2C");
 
@@ -167,7 +167,7 @@ You can pass parameters between your controller and the *OnRedirectToIdentityPro
     
 ## Account controller
 
-If you want to customize a **Sign-in**, **Sign-up**, or **Sign-out** action, we encourage you to create your own controller. When you have your own controller, you can pass parameters between your controller and the authentication library. The `AccountController` is part of `Microsoft.Identity.Web.UI` NuGet package, which handles the sign-in and sign-out actions. You can find its implementation in the [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
+If you want to customize a *sign-in*, *sign-up*, or *sign-out* action, we encourage you to create your own controller. When you have your own controller, you can pass parameters between your controller and the authentication library. The `AccountController` is part of `Microsoft.Identity.Web.UI` NuGet package, which handles the sign-in and sign-out actions. You can find its implementation in the [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Controllers/AccountController.cs). 
 
 The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** action. The action passes a parameter named `campaign_id` to the authentication library.
 
