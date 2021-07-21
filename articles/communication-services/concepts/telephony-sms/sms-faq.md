@@ -56,4 +56,4 @@ Yes, you can make one request with multiple recipients. Follow this [quickstart]
 
 ##  I received a HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
 
-The 202 returned by the service means that your message has been queued to be sent and not delivered. For insights on delivery, you will need to enable delivery reports. Here is the [quickstart](../../quickstarts/telephony-sms/handle-sms-events) on how to subscribe to delivery report events. Once the events are configured, please check delivery report "deliveryStatus" field for checking success/failure of the message.
+The 202 returned by the service means that your message has been queued to be sent and not delivered. Use [this quickstart](../../quickstarts/telephony-sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
