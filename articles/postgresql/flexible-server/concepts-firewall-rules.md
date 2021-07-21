@@ -55,7 +55,7 @@ Consider the following points when access to the Microsoft Azure Database for Po
 
    * Get static IP addressing instead for your client computers, and then add the static IP address as a firewall rule.
 
-* **Server's IP appears to be public:** Connections to the Azure Database for PostgreSQL server are routed through a publicly accessible Azure gateway. However, the actual server IP is protected by the firewall. For more information, visit the [connectivity architecture article](concepts-connectivity-architecture.md).
+  
 
 * **Cannot connect from Azure resource with allowed IP:** Check whether the **Microsoft.Sql** service endpoint is enabled for the subnet you are connecting from. If **Microsoft.Sql** is enabled, it indicates that you only want to use [VNet service endpoint rules](concepts-data-access-and-security-vnet.md) on that subnet.
 
