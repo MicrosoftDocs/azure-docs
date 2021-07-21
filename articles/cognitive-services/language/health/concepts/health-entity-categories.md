@@ -22,4 +22,4 @@ Use this article to find the entity categories that can be returned by the healt
 
 ## Next steps
 
-* [NER overview](../overview.md)
+* [NER overview](../../named-entity-recognition/overview.md)

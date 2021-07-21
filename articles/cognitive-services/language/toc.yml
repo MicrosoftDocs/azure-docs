@@ -11,7 +11,7 @@ items:
   - name: Concepts
     items:
     - name: Recognized entity categories 
-      href: health/concepts/health-entity-categories
+      href: health/concepts/health-entity-categories.md
 - name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
   items:
   - name: Overview
