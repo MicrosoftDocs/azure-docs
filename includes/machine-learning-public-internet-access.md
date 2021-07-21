@@ -20,7 +20,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | Outbound | 443 | AzureMachineLearning | Azure Machine Learning. |
 | Outbound | 443 | AzureResourceManager | Azure Resource Manager. |
 | Outbound | 443 | Storage.region | Azure Storage Account. |
-| Outbound | 443 | AzureFrontDoor.FirstParty | Azure Front Door. | 
+| Outbound | 443 | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | Azure Front Door. | 
 | Outbound | 443 | ContainerRegistry.region | Azure Container Registry. Only needed when using custom Docker images. Including small modifications (such as extra packages) to base images provided by Microsoft. |
 | Outbound | 443 | MicrosoftContainerRegistry.region | Only needed if you use Docker images provided by Microsoft and enable user-managed dependencies. |
 
