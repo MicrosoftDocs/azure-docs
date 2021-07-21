@@ -76,6 +76,22 @@ Here is a video walkthrough on creating dashboards.
 - Query results need to be imported into Power BI model to configure. Limitation on result size and refresh.
 - Limited data refresh of eight times per day.
 
+## SquaredUp for Azure
+[SquaredUp for Azure](https://squaredup.com/squaredup-for-azure/) provides powerful real-time dashboards designed for your Microsoft Azure applications and cloud hosted infrastructure. It includes native support for querying Azure metrics data using Kusto Query Language (KQL) to create fully interactive, sharable dashboards.
+
+### Advantages
+- Deep integration with Azure utilizing Resource Graph, Cost Management and more. 
+- Native support for both metrics and logs 
+- Preinstalled & configured dashboards with rich visualizations 
+- Easy, flexible authoring experience 
+- Contextual drill-down 
+- Parametrized authoring 
+- Integrations with other data from multiple data sources 
+- Easy to share throughout your organization 
+
+### Limitations
+- Cost to support a Virtual Machine in Azure
+- License cost after 30 day trial
 
 ## Grafana
 [Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](visualize/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
