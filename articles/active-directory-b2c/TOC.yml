@@ -12,17 +12,17 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up sign-in - ASP.NET
+  - name: Set up sign-in for an ASP.NET app
     href: quickstart-web-app-dotnet.md
-  - name: Set up sign-in - Desktop
+  - name: Set up sign-in for a desktop app
     href: quickstart-native-app-desktop.md
-  - name: Set up sign-in - Single page
+  - name: Set up sign-in for a single page app
     href: quickstart-single-page-app.md
 - name: Tutorials
   items:
-  - name: 1 - Create B2C tenant
+  - name: 1 - Create an Azure AD B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Register an application
+  - name: 2 - Register a web application
     href: tutorial-register-applications.md
   - name: 3 - Create user flows and custom policies
     href: tutorial-create-user-flows.md
@@ -115,9 +115,9 @@
         href: enable-authentication-web-application.md
       - name: Authentication options
         href: enable-authentication-web-application-options.md
-    - name: ASP.NET Core web app that calls API
+    - name: ASP.NET Core web app that calls a web API
       items:
-      - name: Configure a sample web app that calls API
+      - name: Configure a sample web app that calls a web API
         href: configure-authentication-sample-web-app-with-api.md
       - name: Enable authentication in your web app
         href: enable-authentication-web-app-with-api.md
@@ -139,7 +139,7 @@
         href: enable-authentication-android-app.md
       - name: Authentication options
         href: enable-authentication-android-app-options.md
-    - name: Enable authentication in your web API
+    - name: Enable authentication in a web API
       href: enable-authentication-web-api.md
     - name: Register a single-page application (SPA)
       href: tutorial-register-spa.md    
@@ -186,9 +186,9 @@
     - name: Resource owner password credentials policy
       href: add-ropc-policy.md
       displayName: ROPC
-    - name: Set up self-serve password reset policy (Deprecated)
+    - name: Set up a self-serve password reset policy (deprecated)
       href: user-flow-self-service-password-reset.md
-    - name: Phone sign-up & sign-in
+    - name: Phone sign-up and sign-in
       href: phone-authentication-user-flows.md
   - name: Identity providers
     items:
@@ -204,9 +204,9 @@
       href: identity-provider-amazon.md
     - name: Apple (Preview)
       href: identity-provider-apple-id.md 
-    - name: Azure AD (Single-tenant)
+    - name: Azure AD (single tenant)
       href: identity-provider-azure-ad-single-tenant.md
-    - name: Azure AD (Multi-tenant)
+    - name: Azure AD (multitenant)
       href: identity-provider-azure-ad-multi-tenant.md
     - name: Azure AD B2C
       href: identity-provider-azure-ad-b2c.md

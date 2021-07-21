@@ -9,7 +9,7 @@ ms.author: mimart
 ---
 The sign-out flow involves following steps:
 
-1. From the app, the user selects to sign out.
-1. The app clears its session objects, and authentication library clears its tokens cache.
-1. The app takes the user to Azure AD B2C logout endpoint to terminate the Azure AD B2C session.
-1. The user is redirected back to the app.
+1. From the app, users sign out.
+1. The app clears its session objects, and the authentication library clears its tokens cache.
+1. The app takes users to the Azure AD B2C logout endpoint to terminate the Azure AD B2C session.
+1. Users are redirected back to the app.
