@@ -77,7 +77,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         1. Enter Tenant Id, Client Id & Client Secret of your Service Principal.
         
-        1. Enter ACS Endpoint URL value of your communication services resource.
+        1. Enter the Communication Services Endpoint URL value of your Communication Services resource.
         
         1. Select **Create**.
         
