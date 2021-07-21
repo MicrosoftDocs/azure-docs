@@ -150,26 +150,22 @@ The mapping file copies should be provided to Azure Technical Support when openi
 > [!TIP]
 > Learn more about the Azure IoT Connector for FHIR [Device and FHIR conversion mapping JSON](how-to-use-fhir-mapping-iot.md)
 
-1. Select **"IoT Connector (preview)"** on the lower left side of the FHIR service resource dashboard in the **"Add-ins"** section.
+1. Select the **"IoT Connector (preview)"** blade on the left side of the Azure Healthcare APIs Workspace.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="Select IoT Connector blade." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
 
-2. Select the **"Connector"** that you'll be copying the conversion mapping JSON from.
+2. Select the name of **IoT Connector** that you'll be copying the conversion mapping JSON from.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > This process may also be used for copying and saving the contents of the **"Configure FHIR mapping"** JSON.
 
-3. Select **"Configure device mapping"**.
-
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
-
-4. Select the contents of the JSON and do a copy operation (for example: Select Ctrl + c). 
+3. Select the contents of the JSON and do a copy operation (for example: Press **Ctrl + C**). 
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
-5. Do a paste operation (for example: Select Ctrl + v) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
+4. Do a paste operation (for example: Press **Ctrl + V**) into a new file within an editor like Microsoft Visual Studio Code or Notepad. Ensure to save the file with the extension **.json**.
 
 > [!TIP]
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the Azure IoT Connector for FHIR, make sure to include copies of your conversion mapping JSON to help with the troubleshooting process.
