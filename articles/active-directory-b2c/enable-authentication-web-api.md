@@ -472,7 +472,8 @@ In the *config.json* file, update the following properties:
 | credentials | issuer| The token issuer `iss` claim value. By default, Azure AD B2C returns the token in the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-ID>/v2.0/`. Replace `<your-tenant-name>` with the first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Replace `<your-tenant-ID>` with your [Azure AD B2C tenant ID](tenant-management.md#get-your-tenant-id). |
 | policies | policyName | The user flows, or custom policy. To learn how to get your user flow or policy, see [Prerequisites](#prerequisites).|
 | resource | scope | The scopes of your web API application registration. To learn how to get your web API scope, see [Prerequisites](#prerequisites).|
-| | | |
+
+---
 
 ## Step 7: Run and test the web API
 
