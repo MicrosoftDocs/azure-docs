@@ -85,7 +85,7 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
   * **Resource group**: East US
   * **Generation**: Generation 2
   * **Gateway type**: Select **VPN**.
-  * **VPN type**: Select **Route*based**.
+  * **VPN type**: Select **Route-based**.
   * **SKU**: VpnGw2
   * **Virtual network**: VNet1
   * **Gateway subnet address range**: 10.1.255.0/27
