@@ -221,7 +221,7 @@ For example: When the holder of a VC wants to use it to access a resource, they 
 
  
 
-![How a decentralized identity system works](media/introduction-to-verifiable-credentials-architecture/how-it-works2.png)
+![How a decentralized identity system works](media/introduction-to-verifiable-credentials-architecture/how-decentralized-works.png)
 
 ### Flow 1: Verifiable credential issuance
 
