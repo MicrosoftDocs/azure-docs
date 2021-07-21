@@ -59,12 +59,13 @@ Before you begin, make sure that:
 
   For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-* The following resource providers are registered. The Azure Storage Resource Provider (SRP) is registered by default.
+* The following resource providers are registered. (Azure Storage Resource Provider (SRP) is by default a registered resource provider.)
 
   * To create an Azure Stack Edge / Data Box Gateway resource, make sure the `Microsoft.DataBoxEdge`provider is registered.
+
   * To create an IoT Hub resource, make sure that the `Microsoft.Devices` provider is registered.
 
-  You must register the resource provider after you assign the RBAC role for that resource type.
+  You must assign the RBAC role for that resource type before you can register the resource provider.
 
   For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
@@ -79,7 +80,9 @@ Before you begin, make sure that:
   * To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.-->
 
 * You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 * You have your Microsoft Azure storage account with access credentials.
+
 * You are not blocked by any Azure policy set up by your system administrator. For more information about policies, see [Quickstart: Create a policy assignment to identify non-compliant resources](../governance/policy/assign-policy-portal.md).
 
 
