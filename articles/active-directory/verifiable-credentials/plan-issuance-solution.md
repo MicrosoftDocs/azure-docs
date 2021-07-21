@@ -127,11 +127,11 @@ This kind of credential is a good fit for identity onboarding scenarios of new e
 
  
 
-![Identity verification use case](media/plan-issuance-solution/plan-issuance-solution-identity-verification-use-case.png)
+![Identity verification use case](media/plan-issuance-solution/plan-issuance-solution-identity-verification-use-cases.png)
 
 **Proof of employment/membership**: a credential is issued to prove a relationship between the user and an institution. This kind of credential is a good fit to access loosely coupled business-to-business applications, such as retailers offering discounts to employees or students. One main value of VCs is their portability: Once issued, the user can use the VC in many scenarios. 
 
-![Proof of employment use case](media/plan-issuance-solution/plan-issuance-solution-employment-proof-use-case.png)
+![Proof of employment use case](media/plan-issuance-solution/plan-issuance-solution-employment-proof-use-cases.png)
 
 For more use cases, see [Verifiable Credentials Use Cases (w3.org)](https://www.w3.org/TR/vc-use-cases/).
 

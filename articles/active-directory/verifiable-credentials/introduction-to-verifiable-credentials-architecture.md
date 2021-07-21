@@ -54,7 +54,7 @@ In decentralized identity systems, control of the lifecycle and usage of the cre
 
 Consider the scenario in the diagram below where Proseware, an e-commerce website, wants to offer Woodgrove employees corporate discounts. 
 
- ![Example of a decentralized identity system](media/introduction-to-verifiable-credentials-architecture/decentralized-identity-structure.png)
+ ![Example of a decentralized identity system](media/introduction-to-verifiable-credentials-architecture/decentralized-architecture.png)
 
 
 Terminology for verifiable credentials (VCs) might be confusing if you're not familiar with VCs. The following definitions are from the [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/) terminology section. After each, we relate them to entities in the preceding diagram.
@@ -221,7 +221,7 @@ For example: When the holder of a VC wants to use it to access a resource, they 
 
  
 
-![How a decentralized identity system works](media/introduction-to-verifiable-credentials-architecture/how-it-works.png)
+![How a decentralized identity system works](media/introduction-to-verifiable-credentials-architecture/how-it-works2.png)
 
 ### Flow 1: Verifiable credential issuance
 

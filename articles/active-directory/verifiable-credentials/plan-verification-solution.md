@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: baselden
+ms.custom: references_regions
 ---
 
 # Plan your Azure Active Directory Verifiable Credentials  verification solution (Preview)
@@ -294,7 +295,7 @@ As you are designing for security, consider the following:
 
 * Do not assign any human identity administrative permissions to the Key Vault. For more information on Key Vault best practices, refer to [Azure Security Baseline for Key Vault](../../key-vault/general/security-baseline.md).
 
-* Review [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/en-us/resources/securing-azure-environments-with-azure-active-directory/) for best practices for managing the supporting services for your solution. 
+* Review [Securing Azure environments with Azure Active Directory](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/) for best practices for managing the supporting services for your solution. 
 
 * Mitigate spoofing risks by:
 
@@ -326,7 +327,7 @@ As part of your operational planning, consider monitoring the following:
 
    * Enable logging for Key Vault to track signing operations, as well as to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](../../key-vault/general/howto-logging.md) for more information.
 
-   * Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/) for long-term retention.
+   * Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for long-term retention.
 
  
 
