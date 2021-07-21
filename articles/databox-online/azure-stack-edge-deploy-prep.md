@@ -1,5 +1,5 @@
 ---
-title: Tutorial to prepare to deploy deploy Azure Stack Edge Pro FPGA via Azure portal in your datacenter
+title: Tutorial to prepare to deploy Azure Stack Edge Pro FPGA via Azure portal in your datacenter
 description: The first tutorial about deploying Azure Stack Edge Pro FPGA involves preparing the Azure portal.
 services: databox
 author: alkohli
