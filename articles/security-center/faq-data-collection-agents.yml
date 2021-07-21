@@ -96,7 +96,7 @@ sections:
           For a full list of the security events collected by the agent, see [What event types are stored for the "Common" and "Minimal" security events settings?](security-center-enable-data-collection.md#what-event-types-are-stored-for-common-and-minimal).
           
           > [!IMPORTANT]
-          > Note that for some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 
+          > For some services, such as Azure Firewall, if you have enabled logging and chosen a chatty resource to log (for example, setting the log to *verbose*) you may see significant impacts on your Log Analytics workspace storage needs. 
           
           
       - question: |
@@ -113,7 +113,10 @@ sections:
           
           - The workspace must be associated with your selected Azure subscription.
           - At a minimum, you must have read permissions to access the workspace.
-          
+
+          > [!NOTE]
+          > A Log Analytics agent and the machine on which it’s running should both report to a Log Analytics workspace in the same tenant. If they’re reporting to different tenants, you won’t get security alerts from that agent.
+
           To select an existing Log Analytics workspace:
           
           1. From Security Center's menu, select **Pricing & settings**.

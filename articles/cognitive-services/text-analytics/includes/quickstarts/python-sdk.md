@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/07/2021
+ms.date: 07/15/2021
 ms.author: aahi
 ---
 
@@ -98,7 +98,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 * [Opinion mining](#opinion-mining)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner) 
-* [Personally Identifiable Information recognition](#personally-identifiable-information-recognition) 
+* [Personally Identifiable Information recognition](#personally-identifiable-information-pii-recognition) 
 * [Entity linking](#entity-linking)
 * [Key phrase extraction](#key-phrase-extraction)
 
@@ -491,7 +491,7 @@ Named Entities:
         Confidence Score:        0.8    Length:          9      Offset:          34
 ```
 
-### Personally Identifiable Information recognition
+## Personally Identifiable Information (PII) recognition
 
 Create a new function called `pii_recognition_example` that takes the client as an argument, then calls the `recognize_pii_entities()` function and iterates through the results. The returned response object will contain the list of detected entities in `entity` if successful, and an `error` if not. For each detected entity, print its Category and Sub-Category if exists.
 
@@ -804,6 +804,70 @@ key_phrase_extraction_example(client)
 
 
 ---
+
+## Extract health entities
+
+You can use Text Analytics to perform an asynchronous request to extract healthcare entities from text. The below sample shows a basic example. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_healthcare_entities.py).
+
+[!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
+
+# [Version 3.1](#tab/version-3-1)
+
+``` python
+def health_example(client):
+    documents = [
+        """
+        Patient needs to take 50 mg of ibuprofen.
+        """
+    ]
+
+    poller = client.begin_analyze_healthcare_entities(documents)
+    result = poller.result()
+
+    docs = [doc for doc in result if not doc.is_error]
+
+    for idx, doc in enumerate(docs):
+        for entity in doc.entities:
+            print("Entity: {}".format(entity.text))
+            print("...Normalized Text: {}".format(entity.normalized_text))
+            print("...Category: {}".format(entity.category))
+            print("...Subcategory: {}".format(entity.subcategory))
+            print("...Offset: {}".format(entity.offset))
+            print("...Confidence score: {}".format(entity.confidence_score))
+        for relation in doc.entity_relations:
+            print("Relation of type: {} has the following roles".format(relation.relation_type))
+            for role in relation.roles:
+                print("...Role '{}' with entity '{}'".format(role.name, role.entity.text))
+        print("------------------------------------------")
+health_example(client)
+```
+
+### Output
+
+```console
+Entity: 50 mg
+...Normalized Text: None
+...Category: Dosage
+...Subcategory: None
+...Offset: 31
+...Confidence score: 1.0
+Entity: ibuprofen
+...Normalized Text: ibuprofen
+...Category: MedicationName
+...Subcategory: None
+...Offset: 40
+...Confidence score: 1.0
+Relation of type: DosageOfMedication has the following roles
+...Role 'Dosage' with entity '50 mg'
+...Role 'Medication' with entity 'ibuprofen'
+```
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
+---
+
 
 ## Use the API asynchronously with the Analyze operation
 
