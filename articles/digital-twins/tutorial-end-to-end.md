@@ -370,65 +370,14 @@ To do this, you'll use the *ProcessDTRoutedData* Azure function to update a Room
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the section that shows the elements after Azure Digital Twins.":::
 
 Here are the actions you will complete to set up this data flow:
-1. Create an Event Grid endpoint in Azure Digital Twins that connects the instance to Event Grid
-2. Set up a route within Azure Digital Twins to send twin property change events to the endpoint
-3. Deploy an Azure Functions app that listens (through [Event Grid](../event-grid/overview.md)) on the endpoint, and updates other twins accordingly
-4. Run the simulated device and query Azure Digital Twins to see the live results
+1. [Create an event grid topic](#create-the-event-grid-topic) to facilitate movement of data between Azure services
+1. [Create an endpoint](#create-the-endpoint) in Azure Digital Twins that connects the instance to the event grid topic
+1. [Set up a route](#create-the-route) within Azure Digital Twins that sends twin property change events to the endpoint
+1. [Set up an Azure function](#connect-the-azure-function) that listens on the event grid topic at the endpoint, receives the twin property change events that are sent there, and updates other twins in the graph accordingly
 
-### Set up endpoint
+[!INCLUDE [digital-twins-twin-to-twin-resources.md](../../includes/digital-twins-twin-to-twin-resources.md)]
 
-[Event Grid](../event-grid/overview.md) is an Azure service that helps you route and deliver events coming from Azure Services to other places within Azure. You can create an [event grid topic](../event-grid/concepts.md) to collect certain events from a source, and then subscribers can listen on the topic to receive the events as they come through.
-
-In this section, you create an event grid topic, and then create an endpoint within Azure Digital Twins that points (sends events) to that topic. 
-
-In Azure Cloud Shell, run the following command to create an event grid topic:
-
-```azurecli-interactive
-az eventgrid topic create --resource-group <your-resource-group> --name <name-for-your-event-grid-topic> --location <region>
-```
-
-> [!TIP]
-> To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
-> ```azurecli-interactive
-> az account list-locations --output table
-> ```
-
-The output from this command is information about the event grid topic you've created.
-
-Next, create an Event Grid endpoint in Azure Digital Twins, which will connect your instance to your event grid topic. Use the command below, filling in the placeholder fields as necessary:
-
-```azurecli-interactive
-az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
-```
-
-The output from this command is information about the endpoint you've created.
-
-You can also verify that the endpoint creation succeeded by running the following command to query your Azure Digital Twins instance for this endpoint:
-
-```azurecli-interactive
-az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
-```
-
-Look for the `provisioningState` field in the output, and check that the value is "Succeeded". It may also say "Provisioning", meaning that the endpoint is still being created. In this case, wait a few seconds and run the command again to check that it has completed successfully.
-
-:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Screenshot of the result of the endpoint query in the Cloud Shell of the Azure portal, showing the endpoint with a provisioningState of Succeeded.":::
-
-Save the names that you gave to your **event grid topic** and your Event Grid **endpoint** in Azure Digital Twins. You will use them later.
-
-### Set up route
-
-Next, create an Azure Digital Twins route that sends events to the Event Grid endpoint you just created.
-
-```azurecli-interactive
-az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
-```
-
-The output from this command is some information about the route you've created.
-
->[!NOTE]
->Endpoints (from the previous step) must be finished provisioning before you can set up an event route that uses them. If the route creation fails because the endpoints aren't ready, wait a few minutes and then try again.
-
-#### Connect the function to Event Grid
+### Connect the Azure function
 
 Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the thermostat67 twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the room21 twin accordingly.
 
@@ -449,9 +398,11 @@ On the *Create Event Subscription* page, fill in the fields as follows (fields f
 
 Back on the *Create Event Subscription* page, select **Create**.
 
-### Run the simulation and see the results
+## Run the simulation and see the results
 
-Now you can run the device simulator to kick off the new event flow you've set up. Go to your Visual Studio window where the _**DeviceSimulator**_ project is open, and run the project.
+Now, events should be able to flow from the simulated device into Azure Digital Twins, and through the Azure Digital Twins graph to update twins as appropriate. In this section, you'll run the device simulator again to kick off the full event flow you've set up, and query Azure Digital Twins to see the live results
+
+Go to your Visual Studio window where the _**DeviceSimulator**_ project is open, and run the project.
 
 Like when you ran the device simulator earlier, a console window will open and display simulated temperature telemetry messages. These events are going through the flow you set up earlier to update the thermostat67 twin, and then going through the flow you set up recently to update the room21 twin to match.
 
