@@ -43,14 +43,14 @@ First, add the Microsoft Identity Web library. This is a set of ASP.NET Core lib
 
 To add the Microsoft Identity Web library, install the packages by running the following commands: 
 
-### For [Visual Studio](#tab/visual-studio)
+# [Visual Studio](#tab/visual-studio)
 
 ```dotnetcli
 dotnet add package Microsoft.Identity.Web
 dotnet add package Microsoft.Identity.Web.UI
 ```
 
-### For [Visual Studio Code](#tab/visual-studio-code)
+# [Visual Studio Code](#tab/visual-studio-code)
 
 ```dotnetcli
 Install-Package Microsoft.Identity.Web
