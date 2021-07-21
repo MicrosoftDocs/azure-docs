@@ -535,6 +535,8 @@ Continue to configure your app to call the web API. For guidance, see the [Prere
 
 Get the complete example on GitHub:
 
-* For [ASP.NET Core](#tab/csharpclient), get the web API by using the [Microsoft identity library](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C/TodoListService).
+# [ASP.NET Core](#tab/csharpclient)
+* Get the web API by using the [Microsoft identity library](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C/TodoListService).
 
-* For [Node.js](#tab/nodejsgeneric), get the web API by using the [Passport.js library](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+# [Node.js](#tab/nodejsgeneric)
+* Get the web API by using the [Passport.js library](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
