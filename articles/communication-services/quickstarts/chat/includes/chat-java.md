@@ -53,7 +53,7 @@ In your POM file, reference the `azure-communication-chat` package with the Chat
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.2-beta.1</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-chat for the latest version --></version>
 </dependency>
 ```
 
@@ -63,7 +63,7 @@ For authentication, your client needs to reference the `azure-communication-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.3</version>
+    <version><!-- Please refer to https://search.maven.org/artifact/com.azure/azure-communication-common for the latest version --></version>
 </dependency>
 ```
 
@@ -186,12 +186,12 @@ Use the `sendMessage` method to send a message to the thread you just created, i
 The response `sendChatMessageResult` contains an `id`, which is the unique ID of the message.
 
 ```Java
-Map<String, String> metadata = new HashMap<String, String>();
 SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
     .setContent("Message content")
     .setType(ChatMessageType.TEXT)
     .setSenderDisplayName("Sender Display Name")
-    .metadata(metadata);
+    .metadata(Collections.<String, String>singletonMap(
+        "attachmentUrl", "https://contoso.com/files/quick-start.docx")));
 
 SendChatMessageResult sendChatMessageResult = chatThreadClient.sendMessage(sendChatMessageOptions);
 String chatMessageId = sendChatMessageResult.getId();
