@@ -74,17 +74,13 @@ To use semantic capabilities in queries, you'll need to make small modifications
 
 Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. It improves the quality of search results in two ways:
 
-* First, it works best on content that is descriptive and informational. Language and semantic models perform better on inputs that contain rich content.
+* First, it promotes matches that are semantically closer to the intent of original query.
 
-* Second, it promotes matches that are semantically closer to the intent of original query.
+* Second, it makes results easier to use when captions, and potentially answers, are present on the page.
 
-* Third, it makes results easier to use when captions, and potentially answers, are present on the page.
+Semantic search is not beneficial in every scenario, and before you move forward, make sure that you have content that can utilize its capabilities. The language models in semantic search work best on searchable content that is information-rich and structured as prose. For example, when evaluating your content for answers, the models scan for and extract a verbatim string that looks like an answer, but won't compose new strings as answers to a query, or as captions for a matching document. To answer the question  "what car has the best gas mileage", an index should have phrases like "Hybrid cars offer the best gas mileage of any cars on the market".
 
-At all times, the engine is working with existing content, and the language models work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
-
-Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return.
-
-In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
+Semantic search cannot correlate or infer information from different pieces of content within the document or corpus of documents. For example, given a query for "resort hotels in a desert" absent any geographical input, the engine won't produce matches for hotels located in Arizona or Nevada, even though both states have deserts. Similarly, if the query includes the clause "in the last 5 years", the engine won't calculate a time interval based on the current date to return. In Cognitive Search, mechanisms that might be helpful for the above scenarios include [synonym maps](search-synonyms.md) that allow you to build associations among terms that are outwardly different, or [date filters](search-query-odata-filter.md) specified as an OData expression.
 
 ## Availability and pricing
 
