@@ -12,7 +12,6 @@ ms.date: 06/21/2021
 
 # Best practices for Azure Sentinel
 
-<!--Comment: For anything that already had existing docs - add a section for this with xrefs out. "additional best practices" - where you can find more information.-->
 
 This article collects best practices and guidance to use when deploying, managing, and using Azure Sentinel, including links to additional articles for more information.
 
@@ -123,9 +122,33 @@ Use a watchlist that combines data from ingested data and external sources, such
 
 During an incident, use watchlists to contain investigation data, and then delete them when your investigation is done to ensure that sensitive data does not remain in view.
 
-## Next steps
+## Additional best practice references
 
-For more information, see [Data collection best practices](best-practices-data.md).
+The Azure Sentinel documentation has additional best practices scattered throughout our articles.
+
+For example, see the following articles for more information:
+
+- **Admin users**:
+
+    - [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md)
+    - [Azure Sentinel costs and billing](azure-sentinel-billing.md)
+    - [Permissions in Azure Sentinel](roles.md)
+    - [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md)
+    - [Data collection best practices](best-practices-data.md)
+    - [Threat intelligence integration in Azure Sentinel](threat-intelligence-integration.md)
+    - [Audit Azure Sentinel queries and activities](audit-sentinel-data.md)
+
+- **Analysts**:
+
+    - [Recommended playbooks](automate-responses-with-playbooks.md#recommended-playbooks)
+    - [Handle false positives in Azure Sentinel](false-positives.md)
+    - [Hunt for threats with Azure Sentinel](hunting.md)
+    - [Commonly used Azure Sentinel workbooks](top-workbooks.md)
+    - [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md)
+    - [Create custom analytics rules to detect threats](tutorial-detect-threats-custom.md)
+    - [Use Jupyter Notebook to hunt for security threats](notebooks.md)
+
+## Next steps
 
 To get started with Azure Sentinel, see:
 

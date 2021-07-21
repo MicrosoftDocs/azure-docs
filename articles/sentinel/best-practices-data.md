@@ -54,7 +54,6 @@ The following table describes common challenges or requirements, and possible so
 
 ### On-premises Windows log collection
 
-<!--keep bullets consistent-->
 
 |Challenge / Requirement  |Possible solutions  |Considerations  |
 |---------|---------|---------|
