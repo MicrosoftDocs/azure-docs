@@ -11,44 +11,93 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/14/2021
+ms.date: 7/15/2021
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## June 2021 Guest OS
+## July 2021 Guest OS
 
 >[!NOTE] 
 
->The June Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the June Guest OS. This list is subject to change. 
+>The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change. 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 21-06 |  [5003646]  |  Latest Cumulative Update(LCU) | 6.32 | June 8, 2021 |
-|  Rel 21-06 |  [4580325]  |  Flash update | 3.98, 4.91, 5.56, 6.32 | Oct 13, 2020 |
-|  Rel 21-06 |  [5003636]  |  IE Cumulative Updates | 2.111, 3.98, 4.91 | June 8, 2021 |
-|  Rel 21-06 |  [5003638]  |  Latest Cumulative Update(LCU) | 5.56 | June 8, 2021 |
-|  Rel 21-06 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | 2.111 | Oct 13, 2020 |
-|  Rel 21-06 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 2.111 | Oct 13, 2020 |
-|  Rel 21-06 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | 4.91 | Oct 13, 2020 |
-|  Rel 21-06 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 4.91 | Oct 13, 2020 |
-|  Rel 21-06 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | 3.98 | Oct 13, 2020 |
-|  Rel 21-06 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | 3.98 | Oct 13, 2020 |
-|  Rel 21-06 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | 6.32 | Feb 9, 2021 |
-|  Rel 21-06 |  [5003667]  |  Monthly Rollup  | 2.111 | June 8, 2021 |
-|  Rel 21-06 |  [5003697]  |  Monthly Rollup  | 3.98 | June 8, 2021 |
-|  Rel 21-06 |  [5003671]  |  Monthly Rollup  | 4.91 | June 8, 2021 |
-|  Rel 21-06 |  [5001401]  |  Servicing Stack update  | 3.98 | Apr 13, 2021 |
-|  Rel 21-06 |  [5001403]  |  Servicing Stack update  | 4.91 | Apr 13, 2021 |
-|  Rel 21-06 OOB |  [4578013]  |  Standalone Security Update  | 4.91 | Aug 19, 2020 |
-|  Rel 21-06 |  [5001402]  |  Servicing Stack update  | 5.56 | Apr 13, 2021 |
-|  Rel 21-06 |  [4592510]  |  Servicing Stack update  | 2.111 | Dec 8, 2020 |
-|  Rel 21-06 |  [5003711]  |  Servicing Stack update  | 6.32 | June 8, 2021 |
-|  Rel 21-06 |  [4494175]  |  Microcode  | 5.56 | Sep 1, 2020 |
-|  Rel 21-06 |  [4494174]  |  Microcode  | 6.32 | Sep 1, 2020 |
-|  Rel 21-06 |  [4052623]  |  Update for Microsoft Defender antimalware platform | 6.32, 5.56 | May 13, 2021 |
+|  Rel 21-07 |  [5004244]  |  Latest Cumulative Update(LCU) | 6.33 | July 13 , 2021 |
+|  Rel 21-07 |  [5004233]  |  IE Cumulative Updates | 2.112, 3.99, 4.92 | July 13 , 2021 |
+|  Rel 21-07 |  [5004238]  |  Latest Cumulative Update(LCU) | 5.57 | July 13 , 2021 |
+|  Rel 21-07 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | 2.112 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 2.112 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | 4.92 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 4.92 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | 3.99 | Oct 13, 2020 |
+|  Rel 21-07 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | 3.99 | Oct 13, 2020 |
+|  Rel 21-07 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | 6.33 | Feb 9, 2021 |
+|  Rel 21-07 |  [5004289]  |  Monthly Rollup  | 2.112 | July 13, 2021 |
+|  Rel 21-07 |  [5004294]  |  Monthly Rollup  | 3.99 | July 13, 2021 |
+|  Rel 21-07 |  [5004298]  |  Monthly Rollup  | 4.92 | July 13, 2021 |
+|  Rel 21-07 |  [5001401]  |  Servicing Stack update  | 3.99 | Apr 13, 2021 |
+|  Rel 21-07 |  [5001403]  |  Servicing Stack update  | 4.92 | Apr 13, 2021 |
+|  Rel 21-07 OOB |  [4578013]  |  Standalone Security Update  | 4.92 | Aug 19, 2020 |
+|  Rel 21-07 |  [5001402]  |  Servicing Stack update  | 5.57 | Apr 13, 2021 |
+|  Rel 21-07 |  [5004378]  |  Servicing Stack update  | 2.112 | July 13, 2021 |
+|  Rel 21-07 |  [5003711]  |  Servicing Stack update  | 6.33 | June 8, 2021 |
+|  Rel 21-07 |  [4494175]  |  Microcode  | 5.57 | Sep 1, 2020 |
+|  Rel 21-07 |  [4494174]  |  Microcode  | 6.33 | Sep 1, 2020 |
+
+[5004244]: https://support.microsoft.com/kb/5004244
+[5004233]: https://support.microsoft.com/kb/5004233
+[5004238]: https://support.microsoft.com/kb/5004238
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4601060]: https://support.microsoft.com/kb/4601060
+[5004289]: https://support.microsoft.com/kb/5004289
+[5004294]: https://support.microsoft.com/kb/5004294
+[5004298]: https://support.microsoft.com/kb/5004298
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[5004378]: https://support.microsoft.com/kb/5004378
+[5003711]: https://support.microsoft.com/kb/5003711
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## June 2021 Guest OS
+
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-06 |  [5003646]  |  Latest Cumulative Update(LCU) | [6.32] | June 8, 2021 |
+|  Rel 21-06 |  [4580325]  |  Flash update | [3.98], [4.91], [5.56], [6.32] | Oct 13, 2020 |
+|  Rel 21-06 |  [5003636]  |  IE Cumulative Updates | [2.111], [3.98], [4.91] | June 8, 2021 |
+|  Rel 21-06 |  [5003638]  |  Latest Cumulative Update(LCU) | [5.56] | June 8, 2021 |
+|  Rel 21-06 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | [2.111] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [2.111] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | [4.91] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | [4.91] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | [3.98] | Oct 13, 2020 |
+|  Rel 21-06 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | [3.98] | Oct 13, 2020 |
+|  Rel 21-06 |  [4601060]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | [6.32] | Feb 9, 2021 |
+|  Rel 21-06 |  [5003667]  |  Monthly Rollup  | [2.111] | June 8, 2021 |
+|  Rel 21-06 |  [5003697]  |  Monthly Rollup  | [3.98] | June 8, 2021 |
+|  Rel 21-06 |  [5003671]  |  Monthly Rollup  | [4.91] | June 8, 2021 |
+|  Rel 21-06 |  [5001401]  |  Servicing Stack update  | [3.98] | Apr 13, 2021 |
+|  Rel 21-06 |  [5001403]  |  Servicing Stack update  | [4.91] | Apr 13, 2021 |
+|  Rel 21-06 OOB |  [4578013]  |  Standalone Security Update  | [4.91] | Aug 19, 2020 |
+|  Rel 21-06 |  [5001402]  |  Servicing Stack update  | [5.56] | Apr 13, 2021 |
+|  Rel 21-06 |  [4592510]  |  Servicing Stack update  | [2.111] | Dec 8, 2020 |
+|  Rel 21-06 |  [5003711]  |  Servicing Stack update  | [6.32] | June 8, 2021 |
+|  Rel 21-06 |  [4494175]  |  Microcode  | [5.56] | Sep 1, 2020 |
+|  Rel 21-06 |  [4494174]  |  Microcode  | [6.32] | Sep 1, 2020 |
+|  Rel 21-06 |  [4052623]  |  Update for Microsoft Defender antimalware platform | [6.32], [5.56] | May 13, 2021 |
 
 [5003646]: https://support.microsoft.com/kb/5003646
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -73,6 +122,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
 [4052623]: https://support.microsoft.com/kb/4052623
+[2.111]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.98]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.91]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.56]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.32]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## May 2021 Guest OS
 
@@ -1039,12 +1093,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 19-10   |  [4516655]  |  SSU   |  [2.91]  |  Sept 10, 2019  |
 |  Rel 19-10   |  [4516055]  |  Non-Security   |  [3.78]  |  Sept 10, 2019  |
 |  Rel 19-10   |  [4512939]  |  SSU   |  [3.78]  |  Sept 10, 2019  |
-|  Rel 19-10   |  [4514370]  |  .Net Framework 3.5   |  [3.78]  |  Sept 10, 2019  |
-|  Rel 19-10   |  [4514368]  |  .Net Framework 4.5.2   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  Sept 10, 2019  |
 |  Rel 19-10   |  [4516067]  |  Non Security   |  [4.71]  |  Sept 10, 2019  |
 |  Rel 19-10   |  [4512938]  |  SSU   |  [4.71]  |  Sept 10, 2019  |
-|  Rel 19-10   |  [4514371]  |  .Net Framework 3.5   |  [4.71]  |  Sept 10, 2019  |
-|  Rel 19-10   |  [4514367]  |  .Net Framework 4.5.2   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  Sept 10, 2019  |
+|  Rel 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  Sept 10, 2019  |
 |  Rel 19-10   |  [4512574]  |  SSU   |  [5.36]  |  Sept 10, 2019  |
 |  Rel 19-10   |  [4512577]  |  SSU   |  [6.12]  |  Sept 10, 2019  |
 

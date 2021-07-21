@@ -284,7 +284,9 @@
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
       - name: BrowserStack Single Sign-on
-        href: browserstack-single-sign-on-tutorial.md      
+        href: browserstack-single-sign-on-tutorial.md
+      - name: Brushup
+        href: brushup-tutorial.md        
       - name: Bugsnag
         href: bugsnag-tutorial.md
       - name: BullseyeTDP
@@ -447,7 +449,7 @@
         href: complianceelf-tutorial.md
       - name: Concur
         href: concur-tutorial.md
-      - name: Concur Travel and Expense
+      - name: SAP Concur Travel and Expense
         href: concur-travel-and-expense-tutorial.md
       - name: Condeco
         href: condeco-tutorial.md
@@ -533,6 +535,8 @@
         href: direct-tutorial.md
       - name: Directions on Microsoft
         href: ./tutorial-list.md
+      - name: directprint.io Cloud Print Administration
+        href: directprint-io-cloud-print-administration-tutorial.md
       - name: Discovery Benefits SSO
         href: discovery-benefits-sso-tutorial.md
       - name: Displayr
@@ -1104,6 +1108,8 @@
         href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
+      - name: Kronos Workforce Dimensions
+        href: kronos-workforce-dimensions-tutorial.md  
       - name: Kudos
         href: kudos-tutorial.md
       - name: Kumolus
@@ -1114,6 +1120,8 @@
         href: lablog-tutorial.md
       - name: Land Gorilla Client
         href: landgorilla-tutorial.md
+      - name: LanSchool Air
+        href: lanschool-air-tutorial.md
       - name: LaunchDarkly
         href: launchdarkly-tutorial.md
       - name: LCVista
@@ -1408,6 +1416,8 @@
         href: paloaltonetworks-aperture-tutorial.md
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
+      - name: Palo Alto Networks Cloud Identity Engine - Cloud Authentication Service
+        href: palo-alto-networks-cloud-identity-engine---cloud-authentication-service-tutorial.md  
       - name: Palo Alto Networks - GlobalProtect
         href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
@@ -1524,7 +1534,7 @@
         href: pronovos-ops-manager-tutorial.md
       - name: Proofpoint on Demand
         href: proofpoint-ondemand-tutorial.md
-      - name: ProProfs Classroom
+      - name: ProProfs Training Maker
         href: proprofs-classroom-tutorial.md  
       - name: ProProfs Knowledge Base
         href: proprofs-knowledge-base-tutorial.md
@@ -1752,6 +1762,8 @@
         href: sharingcloud-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
+      - name: ShiftWizard SAML
+        href: shiftwizard-saml-tutorial.md  
       - name: ShipHazmat
         href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
@@ -1818,6 +1830,8 @@
         href: smart-global-governance-tutorial.md
       - name: SmartHR
         href: smarthr-tutorial.md
+      - name: SmartHub INFER
+        href: smarthub-infer-tutorial.md  
       - name: SmartKargo
         href: smartkargo-tutorial.md
       - name: SmartLPA
@@ -1920,6 +1934,8 @@
         href: target-process-tutorial.md
       - name: TAS
         href: tas-tutorial.md
+      - name: Taskize Connect
+        href: taskize-connect-tutorial.md
       - name: Teamgo
         href: teamgo-tutorial.md
       - name: Teamphoria
@@ -2016,6 +2032,8 @@
         href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
+      - name: Tulip
+        href: tulip-tutorial.md
       - name: TurboRater
         href: turborater-tutorial.md
       - name: Uberflip
@@ -2096,6 +2114,8 @@
         href: waywedo-tutorial.md
       - name: Wdesk
         href: wdesk-tutorial.md
+      - name: Webcargo
+        href: webcargo-tutorial.md  
       - name: webMethods Integration Suite
         href: webmethods-integration-cloud-tutorial.md
       - name: Wedo
@@ -2154,6 +2174,8 @@
         href: xaitporter-tutorial.md
       - name: xMatters OnDemand
         href: xmatters-ondemand-tutorial.md
+      - name: X-point Cloud
+        href: x-point-cloud-tutorial.md  
       - name: Yardi eLearning
         href: yardielearning-tutorial.md
       - name: YardiOne
@@ -2283,6 +2305,8 @@
         href: cisco-webex-provisioning-tutorial.md
       - name: Clarizen One
         href: clarizen-one-provisioning-tutorial.md
+      - name: Clebex
+        href: clebex-provisioning-tutorial.md
       - name: Cloud Academy - SSO
         href: cloud-academy-sso-provisioning-tutorial.md
       - name: Code42
@@ -2315,6 +2339,8 @@
         href: eletive-provisioning-tutorial.md
       - name: Elium
         href: elium-provisioning-tutorial.md
+      - name: Exium
+        href: exium-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Figma
@@ -2505,6 +2531,8 @@
         href: smallstep-ssh-provisioning-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-provisioning-tutorial.md
+      - name: SoSafe
+        href: sosafe-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-web-security-service.md
       - name: Smartfile
@@ -2523,6 +2551,8 @@
       items:
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
+      - name: Talentech
+        href: talentech-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
@@ -2535,6 +2565,8 @@
         href: templafy-openid-connect-provisioning-tutorial.md
       - name: TheOrgWiki
         href: theorgwiki-provisioning-tutorial.md
+      - name: Thrive LXP
+        href: thrive-lxp-provisioning-tutorial.md
       - name: TravelPerk
         href: travelperk-provisioning-tutorial.md
       - name: Tribeloo
@@ -2549,6 +2581,8 @@
         href: visibly-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
+      - name: Vonage
+        href: vonage-provisioning-tutorial.md
       - name: Webroot Security Awareness Training
         href: webroot-security-awareness-training-provisioning-tutorial.md
       - name: WEDO
@@ -2571,6 +2605,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zip
+        href: zip-provisioning-tutorial.md
       - name: Zoom
         href: zoom-provisioning-tutorial.md              
       - name: Zscaler

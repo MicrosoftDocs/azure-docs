@@ -4,6 +4,8 @@
   items:
     - name: What is Azure IoT Hub?
       href: about-iot-hub.md
+    - name: IoT concepts
+      href: iot-concepts.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -207,8 +209,6 @@
               items:
                 - name: Use the IoTHubClient
                   href: iot-hub-device-sdk-c-iothubclient.md
-                - name: Use the serializer
-                  href: iot-hub-device-sdk-c-serializer.md
             - name: Azure IoT C SDK resource information
               href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
             - name: Develop for constrained devices
@@ -485,7 +485,7 @@
       - name: IoT Edge
         href: ../iot-edge/index.yml
       - name: IoT Plug and Play
-        href: ../iot-pnp/index.yml
+        href: ../iot-develop/index.yml
       - name: IoT solution accelerators
         href: ../iot-accelerators/index.yml
       - name: Azure Maps

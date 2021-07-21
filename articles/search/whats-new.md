@@ -7,12 +7,20 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/24/2021
+ms.date: 07/20/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
+
+## July 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Adds programmatic support for indexer connections using managed identities and Azure Active Directory (Azure AD) authentication. | Public preview |
+| [Role-based authorization (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and use new built-in roles to control access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview, using Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
+| [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) service operations to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview |
 
 ## May 2021
 
@@ -86,7 +94,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |February | [PII Detection skill (preview)](cognitive-search-skill-pii-detection.md)  | A cognitive skill that extracts and masks personal information. |
 |February | [Custom Entity Lookup skill (preview)](cognitive-search-skill-custom-entity-lookup.md) | A cognitive skill that finds words and phrases from a list and labels all documents with matching entities.  |
 |January | [Customer-managed key encryption](search-security-manage-encryption-keys.md) | Generally available  |
-|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service).  |
+|January | [IP rules for in-bound firewall support (preview)](service-configure-firewall.md) | New **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update).  |
 |January | [Create a private endpoint (preview)](service-create-private-endpoint.md) | Set up a Private Link for secure connections to your search service. This preview feature has a dependency [Azure Private Link](../private-link/private-link-overview.md) and [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) as part of the solution. |
 
 ## 2019 Archive
