@@ -171,7 +171,7 @@ You'll see all your data collection rules (including those created through the A
 
 ### Create data collection rules using the API
 
-You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating a lot of rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
+You can also create data collection rules using the API ([see schema](/rest/api/monitor/data-collection-rules)), which can make life easier if you're creating many rules (if you're an MSSP, for example). Here's an example you can use as a template for creating a rule:
 
 **Request URL and header**
 

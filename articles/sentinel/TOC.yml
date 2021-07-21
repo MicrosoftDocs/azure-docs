@@ -361,7 +361,7 @@
         href: multiple-workspace-view.md
       - name: Manage your intellectual property in Azure Sentinel
         href: mssp-protect-intellectual-property.md
-    - name: Set up customer managed keys
+    - name: Set up customer-managed keys
       href: customer-managed-keys.md
     - name: Manage your SOC with incident metrics
       href: manage-soc-with-incident-metrics.md

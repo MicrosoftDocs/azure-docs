@@ -182,7 +182,7 @@ Here are some other considerations for moving to a dedicated cluster for cost op
 - All workspaces linked to a cluster must be in the same region.
 - The maximum of workspaces linked to a cluster is 1000.
 - You can unlink a linked workspace from your cluster. The number of link operations on a particular workspace is limited to two in a period of 30 days.
-- You can't move an existing workspace to a customer managed key (CMK) cluster. You need to create the workspace in the cluster.
+- You can't move an existing workspace to a customer-managed  key (CMK) cluster. You need to create the workspace in the cluster.
 - Moving a cluster to another resource group or subscription isn't currently supported.
 - A workspace link to a cluster fails if the workspace is linked to another cluster.
 

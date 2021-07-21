@@ -12,14 +12,14 @@ ms.date: 07/21/2021
 
 # Best practices for Azure Sentinel
 
-This collection of best practices provides guidance to use when deploying, managing, and using Azure Sentinel, including links to additional articles for more information.
+This collection of best practices provides guidance to use when deploying, managing, and using Azure Sentinel, including links to other articles for more information.
 
 > [!IMPORTANT]
 > Before deploying Azure Sentinel, review and complete [pre-deployment activities and prerequisites](prerequisites.md).
 >
 ## Regular SOC activities to perform
 
-Schedule the following Azure Sentinel activities on a regular basis to ensure continued security best practices:
+Schedule the following Azure Sentinel activities regularly to ensure continued security best practices:
 
 ### Daily tasks
 
@@ -31,7 +31,7 @@ Schedule the following Azure Sentinel activities on a regular basis to ensure co
     - [Hunt for threats with Azure Sentinel](hunting.md)
     - [Keep track of data during hunting with Azure Sentinel](bookmarks.md)
 
-- **Analytic rules**.  Review and enable new analytics rules as applicable, including both newly-released or newly-available rules from recently connected data connectors.
+- **Analytic rules**.  Review and enable new analytics rules as applicable, including both newly released or newly available rules from recently connected data connectors.
 
 - **Data connectors**. Review the status, date, and time of the last log received from each data connector to ensure that data is flowing. Check for new connectors, and review ingestion to ensure set limits haven't been exceeded. For more information, see [Data collection best practices](best-practices-data.md) and [Connect data sources](connect-data-sources.md).
 
@@ -44,7 +44,7 @@ Schedule the following Azure Sentinel activities on a regular basis to ensure co
 
 - **Workbook updates**. Verify whether any workbooks have updates that need to be installed. For more information, see [Commonly used Azure Sentinel workbooks](top-workbooks.md).
 
-- **Azure Sentinel GitHub repository review**. Review the [Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel) repository to explore whether there are any new or updated resources of value for your enviroment, such as analytics rules, workbooks, hunting queries, or playbooks.
+- **Azure Sentinel GitHub repository review**. Review the [Azure Sentinel GitHub](https://github.com/Azure/Azure-Sentinel) repository to explore whether there are any new or updated resources of value for your environment, such as analytics rules, workbooks, hunting queries, or playbooks.
 
 - **Azure Sentinel auditing**. Review Azure Sentinel activity to see who has updated or deleted resources, such as analytics rules, bookmarks, and so on. For more information, see [Audit Azure Sentinel queries and activities](audit-sentinel-data.md).
 
@@ -59,7 +59,7 @@ Schedule the following Azure Sentinel activities on a regular basis to ensure co
 
 Azure Sentinel is empowered by the components that send data to your workspace, and is made stronger through integrations with other Microsoft services. Any logs ingested into products such as Microsoft Cloud App Security, Microsoft Defender for Endpoint, and Microsoft Defender for Identity allow these services to create detections, and in turn provide those detections to Azure Sentinel. Logs can also be ingested directly into Azure Sentinel to provide a fuller picture for events and incidents.
 
-For example, the following image shows how Azure Sentinel ingests data from other Microsoft services, as well as multi-cloud and partner platforms to provide coverage for your environment:
+For example, the following image shows how Azure Sentinel ingests data from other Microsoft services and multi-cloud and partner platforms to provide coverage for your environment:
 
 :::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png" alt-text="Azure Sentinel integrating with other Microsoft and partner services":::
 
@@ -119,15 +119,15 @@ To maximize threat intelligence-based detections, make sure to use [threat intel
 - Connect data sources required by the [Fusion](fusion.md) and [TI Map alerts](import-threat-intelligence.md)
 - Ingest indicators from [TAXII and TIP platforms](connect-threat-intelligence.md)
 
-Use indicators of compromise in analytics rules, when threat hunting, investigating logs, or generating additional incidents.
+Use indicators of compromise in analytics rules, when threat hunting, investigating logs, or generating more incidents.
 
-Use a watchlist that combines data from ingested data and external sources, such as enrichment data. For example, create lists of IP address ranges used by your organization or recently terminated employees. Use watchlists with playbooks to gather enrichment data, such as adding malicious IP addresses to watchlists to use during detection, threat hunting and investigations.
+Use a watchlist that combines data from ingested data and external sources, such as enrichment data. For example, create lists of IP address ranges used by your organization or recently terminated employees. Use watchlists with playbooks to gather enrichment data, such as adding malicious IP addresses to watchlists to use during detection, threat hunting, and investigations.
 
 During an incident, use watchlists to contain investigation data, and then delete them when your investigation is done to ensure that sensitive data does not remain in view.
 
 ## Additional best practice references
 
-The Azure Sentinel documentation has additional best practices scattered throughout our articles. For example, see the following articles for more information:
+The Azure Sentinel documentation has more best practice guidance scattered throughout our articles. For example, see the following articles for more information:
 
 - **Admin users**:
 
