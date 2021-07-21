@@ -19,12 +19,153 @@ This document describes cognitive skills that are considered deprecated. Use the
 * Last available api version: The last version of the Azure Cognitive Search public API through which skillsets containing the corresponding deprecated skill can be created/updated.
 * End of support: The last day after which the corresponding skill is considered unsupported. Previously created skillsets should still continue to function, but users are recommended to migrate away from a deprecated skill.
 * Recommendations: Migration path forward to use a supported skill. Users are advised to follow the recommendations to continue to receive support.
+## Microsoft.Skills.Text.NamedEntityRecognitionSkill
+
+### Last available api version
+
+2021-04-30-Preview
+
+### End of support
+
+February 15, 2019
+
+### Recommendations 
+
+Use [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md) instead. It provides most of the functionality of the EntityRecognitionSkill at a higher quality. It also has richer information in its complex output fields.
+
+To migrate to the [Microsoft.Skills.Text.V3.EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md), you will have to perform one or more of the following changes to your skill definition. You can update the skill definition using the [Update Skillset API](/rest/api/searchservice/update-skillset).
+
+> [!NOTE]
+> Currently, confidence score as a concept is not supported. The `minimumPrecision` parameter exists on the `EntityRecognitionSkill` for future use and for backwards compatibility.
+
+1. *(Required)* Change the `@odata.type` from `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` to `"#Microsoft.Skills.Text.V3.EntityRecognitionSkill"`.
+
+2. *(Optional)* If you are making use of the `entities` output, use the `namedEntities` complex collection output from the `EntityRecognitionSkill` instead. You can use the `targetName` in the skill definition to map it to an annotation called `entities`.
+
+3. *(Optional)* If you do not explicitly specify the `categories`, the `EntityRecognitionSkill` can return different type of categories besides those that were supported by the `NamedEntityRecognitionSkill`. If this behavior is undesirable, make sure to explicitly set the `categories` parameter to `["Person", "Location", "Organization"]`.
+
+    _Sample Migration Definitions_
+
+    * Simple migration
+
+        _(Before) NamedEntityRecognition skill definition_
+        ```json
+        {
+            "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+            "categories": [ "Person"],
+            "defaultLanguageCode": "en",
+            "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+            ],
+            "outputs": [
+            {
+                "name": "persons",
+                "targetName": "people"
+            }
+            ]
+        }
+        ```
+        _(After) EntityRecognition skill definition_
+        ```json
+        {
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+            "categories": [ "Person"],
+            "defaultLanguageCode": "en",
+            "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+            ],
+            "outputs": [
+            {
+                "name": "persons",
+                "targetName": "people"
+            }
+            ]
+        }
+        ```
+    
+    * Slightly complicated migration
+
+        _(Before) NamedEntityRecognition skill definition_
+        ```json
+        {
+            "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+            "defaultLanguageCode": "en",
+            "minimumPrecision": 0.1,
+            "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+            ],
+            "outputs": [
+            {
+                "name": "persons",
+                "targetName": "people"
+            },
+            {
+                "name": "entities"
+            }
+            ]
+        }
+        ```
+        _(After) EntityRecognition skill definition_
+        ```json
+        {
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+            "categories": [ "Person", "Location", "Organization" ],
+            "defaultLanguageCode": "en",
+            "minimumPrecision": 0.1,
+            "inputs": [
+            {
+                "name": "text",
+                "source": "/document/content"
+            }
+            ],
+            "outputs": [
+            {
+                "name": "persons",
+                "targetName": "people"
+            }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Skills.Text.V3.EntityLinkingSkill",
+            "name": "EntityLinkingV3",
+            "description": null,
+            "context": "/document",
+            "defaultLanguageCode": "en",
+            "minimumPrecision": 0.5,
+            "modelVersion": null,
+            "inputs": [
+                {
+                "name": "text",
+                "source": "/document/content"
+                },
+                {
+                "name": "languageCode",
+                "source": "/document/language"
+                }
+            ],
+            "outputs": [
+                {
+                "name": "entities",
+                "targetName": "entities"
+                }
+            ]
+        }
+        ```
 
 ## Microsoft.Skills.Text.EntityRecognitionSkill
 
 ### Last available api version
 
-2020-06-30-Preview
+2021-04-30-Preview
 
 ### End of support
 
@@ -38,11 +179,13 @@ To migrate to the [Entity Recognition Skill V3](cognitive-search-skill-entity-re
 
 1. *(Required)* Change the `@odata.type` from `"#Microsoft.Skills.Text.EntityRecognitionSkill"` to `"#Microsoft.Skills.Text.V3.EntityRecognitionSkill"`.
 
-2. *(Optional)* If you are making use of the `entities` output to link entities to well know entities, this feature is now a new skill, the [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md). Add the entity linking skill to your skillset to generate the linked entities.
+2. *(Optional)* If you are making use of the `entities` output to link entities to well known entities, this feature is now a new skill, the [Microsoft.Skills.Text.V3.EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md). Add the entity linking skill to your skillset to generate the linked entities.
 
 3. *(Optional)* If you making use of the `namedEntities` output, there are a few minor changes to the property names.
     1. `value` is renamed to `text`
     2. `confidence` is renamed to `confidenceScore`
+
+4. The `includeTypelessEntities` parameter is no longer supported as the new skill only works with the entity types supported in the categories parameter.
 
 If you need to generate the exact same property names, you will need to add a [shaper skill](cognitive-search-skill-shaper.md) to reshape the output with the required names. For example, this shaper renames the properties to their old values.
 ```json
@@ -232,7 +375,7 @@ If you need to generate the exact same property names, you will need to add a [s
 
 ### Last available api version
 
-2020-06-30-Preview
+2021-04-30-Preview
 
 ### End of support
 
@@ -240,16 +383,16 @@ August 29, 2024
 
 ### Recommendations 
 
-Use [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) instead. It provides an improved model and includes the option to add opinion mining or aspect based sentiment. As the skill is significantly more complex, the outputs are alos very different.
+Use [Microsoft.Skills.Text.V3.SentimentSkill](cognitive-search-skill-sentiment-v3.md) instead. It provides an improved model and includes the option to add opinion mining or aspect based sentiment. As the skill is significantly more complex, the outputs are also very different.
 
 To migrate to the [SentimentSkill V3](cognitive-search-skill-sentiment-v3.md), you will have to perform one or more of the following changes to your skill definition. You can update the skill definition using the [Update Skillset API](/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
-> The skill outputs for the Sentiment Skill V3 is not compatible with the index definition based on the SentimentSkill. You will have to make changes to the index definiton, skillset and indexer output field mappings to replace the sentiment skill with current version.
+> The skill outputs for the Sentiment Skill V3 are not compatible with the index definition based on the SentimentSkill. You will have to make changes to the index definiton, skillset and indexer output field mappings to replace the sentiment skill with current version.
 
 1. *(Required)* Change the `@odata.type` from `"#Microsoft.Skills.Text.SentimentSkill"` to `"#Microsoft.Skills.Text.V3.SentimentSkill"`.
 
-2. *(Required)* The Sentiment Skill V3 provides a `positive`, `neutral` and `negative` score for th overall text and the same scores for each sentence in the overall text. You will need to update the index definition to accept the three double values in place of a single score.
+2. *(Required)* The Sentiment Skill V3 provides a `positive`, `neutral` and `negative` score for the overall text and the same scores for each sentence in the overall text. You will need to update the index definition to accept the three double values in place of a single score.
 
 3. *(Optional)* If you do want to add the opinion mining capability, set the `includeOpinionMining` parameter to true.  You can then map the outputs from the sentences containing the aspect based sentiment.
 
