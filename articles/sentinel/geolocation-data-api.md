@@ -20,7 +20,7 @@ ms.author: bagol
 
 # Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)
 
-Azure Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API. This article shows you how to enrich entities in Azure Sentinel with geolocation data using the REST API.
+This article shows you how to enrich entities in Azure Sentinel with geolocation data using the REST API.
 
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -118,7 +118,7 @@ This API has a limit of 100 calls, per user, per hour.
 
 ## Next steps
 
-In this article, you learned how to manage watchlists and their items in Azure Sentinel using the Log Analytics API. To learn more about Azure Sentinel, see the following articles:
+To learn more about Azure Sentinel, see the following articles:
 
 - Learn more about entities:
 
