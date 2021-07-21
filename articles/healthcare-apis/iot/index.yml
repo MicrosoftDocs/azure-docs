@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: IoT connector
-summary: IoT connector documentation page for Azure Healthcare APIs (preview). 
+title: IoT Connector
+summary: IoT Connector documentation page for Azure Healthcare APIs (preview). 
 
 metadata:
-  title: Azure Healthcare APIs IoT connector
+  title: Azure Healthcare APIs IoT Connector
   description: Data Transformation documentation section for Azure Healthcare APIs
   services: healthcare-apis
   ms.service: healthcare-apis
@@ -19,7 +19,7 @@ metadata:
 
 landingContent:
 
-  - title: Deploy IoT connector
+  - title: Deploy IoT Connector
     linkLists:
       - linkListType: get-started
         links:
@@ -28,7 +28,7 @@ landingContent:
           - text: Deploy IoT Connector Using ARM template
             url: iot-fhir-arm-template-quickstart.md
             
-  - title: Using IoT connector
+  - title: Using IoT Connector
     linkLists:
       - linkListType: concept
         links:
