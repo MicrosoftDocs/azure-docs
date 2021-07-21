@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/19/2021
+ms.date: 07/21/2021
 ms.author: justinha 
 ms.custom: devx-track-azurepowershell
 
@@ -64,7 +64,7 @@ In addition to **Security settings**, Microsoft Azure Policy has a **Compliance*
 
 ## Audit NTLM failures
 
-While disabling NTLM password synchronization will improve security, many applications and services are not designed to work without it. For example, connecting to any resource by its IP address, such as DNS Server management or RDP, will fail with Access Denied. If you disable NTLM password synchronization and your application or service isn’t working as expected, you can check for NTLM authentication failures by enabling security auditing for the **Logon/Logoff** > **Audit Logon** event category. For more information, see [Enable security audits for Azure Active Directory Domain Services](security-audit-events.md).
+While disabling NTLM password synchronization will improve security, many applications and services are not designed to work without it. For example, connecting to any resource by its IP address, such as DNS Server management or RDP, will fail with Access Denied. If you disable NTLM password synchronization and your application or service isn’t working as expected, you can check for NTLM authentication failures by enabling security auditing for the **Logon/Logoff** > **Audit Logon** event category, where NTLM is specified as the **Authentication Package** in the event details. For more information, see [Enable security audits for Azure Active Directory Domain Services](security-audit-events.md).
 
 ## Use PowerShell to harden your domain
 
