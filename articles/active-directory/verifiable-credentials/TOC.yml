@@ -24,7 +24,7 @@
 - name: How-to guides
   expanded: true
   items:
-  - name: Plan and design
+  - name: Plan and design 
     items:
     - name: Architecture planning overview
       href: introduction-to-verifiable-credentials-architecture.md
