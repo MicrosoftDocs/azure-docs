@@ -98,7 +98,6 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
   - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
 - Microsoft.Resources/subscriptions/resourceGroups (Resource groups)
-  - Sample query: [Combine results from two queries into a single result](../samples/samples-by-category.md#combine-results-from-two-queries-into-a-single-result)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
 
