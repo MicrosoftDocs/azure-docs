@@ -220,10 +220,3 @@ read -p "Press [ENTER] to continue: "
 ---
 
 For a step-by-step tutorial that guides you through the process of creating an ARM template, see the [tutorial to create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
-
-## Next steps
-
-In this quickstart guide, you've deployed the FHIR service into your subscription. If you are ready to start using the FHIR service, read more on how to register applications.
-
->[!div class="nextstepaction"]
->[Register Applications Overview](fhir-app-registration.md)

@@ -110,9 +110,3 @@ When using the OSS Microsoft FHIR server for Azure, the server will validate:
 Consult details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
 
 A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the FHIR service does not validate token scopes.
-
-## Next steps
-Now that you know how to walk through token validation, you can complete the tutorial to create a JavaScript application and read FHIR data.
-
->[!div class="nextstepaction"]
->[Web application tutorial](tutorial-web-app-fhir-server.md)
