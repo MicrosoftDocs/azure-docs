@@ -76,10 +76,10 @@ The following example creates a service named *MyDMS* in the resource group *MyD
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 
-$service = New-AzDms -ResourceGroupName myResourceGroup `
+$service = New-AzDms -ResourceGroupName MyDMSResourceGroup `
   -ServiceName MyDMS `
   -Location EastUS `
-  -Sku Basic_2vCores `  
+  -Sku GeneralPurpose_4vCores `  
   -VirtualSubnetId $vSubNet.Id`
 ```
 
