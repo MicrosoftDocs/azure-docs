@@ -183,7 +183,12 @@ sections:
         answer: |
           No. Azure AD Domain Services is a pay-as-you-go Azure service and isn't part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free and Premium). You're billed on an hourly basis, depending on usage.
 
-      - question: |
+     - question: |
+          Can I create a child domain under the Managed Domain?
+        answer: |
+          No. The Azure AD Domain Services has the Single-Domain Single-Forest design, and you cannot create child domains.
+
+ - question: |
           What Azure regions is the service available in?
         answer: |
           Refer to the [Azure Services by region](https://azure.microsoft.com/regions/#services/) page to see a list of the Azure regions where Azure AD Domain Services is available.
