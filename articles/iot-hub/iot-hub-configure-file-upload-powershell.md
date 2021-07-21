@@ -34,15 +34,16 @@ To complete this article, you need the following:
 * Use the PowerShell environment in [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell).
 
    [![Launch Cloud Shell in a new window](./media/iot-hub-configure-file-upload-powershell/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+
 * If you prefer, [install](/powershell/scripting/install/installing-powershell) PowerShell locally.
 
-  * For a local installation, [install the Azure Az PowerShell module](/powershell/azure/install-az-ps). The module is installed by default in the Azure Cloud Shell PowerShell environment. 
-  * If you're using a local installation, sign in to PowerShell by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command.  To finish the authentication process, follow the steps displayed in your terminal.  For additional sign-in options, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+  * [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). (The module is installed by default in the Azure Cloud Shell PowerShell environment.) 
+  * Sign in to PowerShell by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command.  To finish the authentication process, follow the steps displayed in your terminal.  For additional sign-in options, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 
 ## Sign in and set your Azure account
 
-Sign in to your Azure account and select your subscription.
+Sign in to your Azure account and select your subscription. If you're using Azure Cloud Shell, you should be signed in already; however, you still might need to select your Azure subscription if you have multiple subscriptions.
 
 1. At the PowerShell prompt, run the **Connect-AzAccount** cmdlet:
 
@@ -56,12 +57,15 @@ Sign in to your Azure account and select your subscription.
     Get-AzSubscription
     ```
 
-    Use the [Select-AzContext](/powershell/module/az.accounts/select-azcontex) command to select the subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
+    Use the following command to select the subscription that you want to use to run the commands to manage your IoT hub. You can use either the subscription name or ID from the output of the previous command:
 
     ```powershell
-    Select-AzContext `
+    Select-AzSubscription `
         -Name "{your subscription name}"
     ```
+
+    > [!NOTE]
+    > The **Select-AzSubscription** command is an alias of the [Select-AzContext](/powershell/module/az.accounts/select-azcontex) that allows you to use the subscription name (**Name**) or subscription ID (**Id**) returned by the **Get-AzSubscription** command rather than the more complex context name required for the **Select-AzContext** command.
 
 ## Retrieve your storage account details
 
@@ -131,7 +135,7 @@ Set-AzIotHub `
 ```
 
 > [!NOTE]
-> By default, IoT Hub authenticates with Azure Storage using the account key in the connection string. Authentication using either system-assigned or user-assigned managed identities is also available. Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. To learn more, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). Currently, there is no way to set the authentication type in PowerShell. You must use either the [Azure portal](./iot-hub-configure-file-upload.md) or [Azure CLI](./iot-hub-configure-file-upload-cli.md). 
+> By default, IoT Hub authenticates with Azure Storage using the account key in the connection string. Authentication using either system-assigned or user-assigned managed identities is also available. Managed identities provide Azure services with an automatically managed identity in Azure AD in a secure manner. To learn more, see [IoT Hub support for managed identities](./iot-hub-managed-identity.md). Currently, there are not parameters on the **Set-AzIotHub** command to set the authentication type. Instead, you can use either the [Azure portal](./iot-hub-configure-file-upload.md) or [Azure CLI](./iot-hub-configure-file-upload-cli.md). 
 
 ## Next steps
 
