@@ -792,7 +792,8 @@
         "articles/iot-edge/**/*.md": ">=iotedge-2018-06"
       },
       "recommendations": {
-        "articles/cognitive-services/Translator/**/*.md": false
+        "articles/cognitive-services/Translator/**/*.md": false,
+        "articles/azure-video-analyzer/video-analyzer-docs/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
@@ -854,8 +855,8 @@
         "articles/iot-fundamentals/**/*.yml": ["Azure","IoT"],
         "articles/iot-hub/**/*.md": ["Azure","IoT","Azure IoT Hub"],
         "articles/iot-hub/**/*.yml": ["Azure","IoT","Azure IoT Hub"],
-        "articles/iot-pnp/**/*.md": ["Azure","IoT","IoT Plug and Play"],
-        "articles/iot-pnp/**/*.yml": ["Azure","IoT","IoT Plug and Play"],
+        "articles/iot-develop/**/*.md": ["Azure","IoT","IoT Plug and Play", "IoT device devloper"],
+        "articles/iot-develop/**/*.yml": ["Azure","IoT","IoT Plug and Play", "IoT device devloper"],
         "articles/managed-instance-apache-cassandra/**/*.md": ["Azure","Azure Managed instance for Apache Cassandra"],
         "articles/managed-instance-apache-cassandra/**/*.yml": ["Azure","Azure Managed instance for Apache Cassandra"],
         "articles/mariadb/**/*.md": ["Azure","Azure Database for MariaDB"],
