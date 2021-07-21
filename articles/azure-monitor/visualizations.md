@@ -87,7 +87,8 @@ Here is a video walkthrough on creating dashboards.
 - Contextual drill-down 
 - Parametrized authoring 
 - Integrations with other data from multiple data sources 
-- Easy to share throughout your organization 
+- Easy to share throughout your organization
+- Deploy from [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/su.squaredup-for-azure)
 
 ### Limitations
 - Cost to support a Virtual Machine in Azure
