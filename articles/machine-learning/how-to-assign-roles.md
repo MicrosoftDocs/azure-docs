@@ -24,7 +24,7 @@ In this article, you learn how to manage access (authorization) to an Azure Mach
 >
 > * [Control access to Azure Kubernetes cluster resources](../aks/azure-ad-rbac.md)
 > * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
-> * [Use Azure RBAC for access to blob data](../storage/common/storage-auth-aad-rbac-portal.md)
+> * [Use Azure RBAC for access to blob data](../storage/blobs/assign-azure-role-data-access.md)
 
 > [!WARNING]
 > Applying some roles may limit UI functionality in Azure Machine Learning studio for other users. For example, if a user's role does not have the ability to create a compute instance, the option to create a compute instance will not be available in studio. This behavior is expected, and prevents the user from attempting operations that would return an access denied error.
@@ -447,6 +447,42 @@ Allows you to define a role scoped only to labeling data:
     "AssignableScopes": [
         "/subscriptions/<subscription_id>"
     ]
+}
+```
+
+### Labeling Team Lead
+
+Allows you to review and reject the labeled dataset and view labeling insights. In addition to it, this role also allows you to perform the role of a labeler.
+
+`labeling_team_lead_custom_role.json` :
+```json
+{
+    "properties": {
+        "roleName": "Labeling Team Lead",
+        "description": "Team lead for Labeling Projects",
+        "assignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.MachineLearningServices/workspaces/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/labels/reject/action",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+                ],
+                "notActions": [
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/write",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/projects/delete",
+                    "Microsoft.MachineLearningServices/workspaces/labeling/export/action"
+                ],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 

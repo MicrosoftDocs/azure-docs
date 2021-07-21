@@ -4,7 +4,7 @@ description: Learn how to configure role-based access control with Azure Active 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 07/21/2021
 ms.author: thweiss
 ---
 
@@ -344,7 +344,7 @@ The examples below use a service principal with a `ClientSecretCredential` insta
 
 ### In .NET
 
-The Azure Cosmos DB RBAC is currently supported in the `preview` version of the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
+The Azure Cosmos DB RBAC is currently supported in the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(

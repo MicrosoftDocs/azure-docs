@@ -58,6 +58,6 @@ Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services
 7. Once all fields have been completed, move to the **Review and Create** tab to validate your deployment configuration and create your Cloud Service (extended support).
 
 ## Next steps 
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
 - Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)
