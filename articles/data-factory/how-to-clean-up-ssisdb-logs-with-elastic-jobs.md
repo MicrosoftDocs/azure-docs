@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # How to clean up SSISDB logs automatically
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md)]
 
 Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF), you can use it to run SSIS packages deployed into:
 
@@ -37,7 +37,7 @@ Regardless whether you use Azure SQL database server/Managed Instance to host SS
 
 ![SSISDB log clean-up via ADF](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png)
 
-Once your ADF pipeline is prepared, you can attach a schedule trigger to run it periodically, see [How to trigger ADF pipeline on a schedule](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+Once your ADF pipeline is prepared, you can attach a schedule trigger to run it periodically, see [How to trigger ADF pipeline on a schedule](quickstart-create-data-factory-portal#trigger-the-pipeline-on-a-schedule).
 
 ## Clean up SSISDB logs automatically via Azure SQL Managed Instance Agent
 If you use Azure SQL Managed Instance to host SSISDB, you can also use its built-in job orchestrator/scheduler, Azure SQL Managed Instance Agent, to clean up SSISDB logs automatically. If SSISDB is recently created in your Azure SQL Managed Instance, we've also created a T-SQL job called **SSIS Server Maintenance Job** under Azure SQL Managed Instance Agent for this purpose. It's by default disabled and configured with a schedule to run daily.  If you want to enable it and or reconfigure its schedule, you can do so by connecting to your Azure SQL Managed Instance using SSMS. Once connected, on the **Object Explorer** window of SSMS, you can expand the **SQL Server Agent** node, expand the **Jobs** subnode, and double click on the **SSIS Server Maintenance Job** to enable/reconfigure it.
@@ -123,15 +123,15 @@ If you use Azure SQL Database server to host SSISDB, it doesn't have a built-in 
 
 Elastic Database Jobs is an Azure service that can automate and run jobs against a database or group of databases. You can schedule, run, and monitor these jobs by using Azure portal, Azure PowerShell, T-SQL, or REST APIs. Use Elastic Database Jobs to invoke the relevant SSISDB stored procedure for log clean-up one time or on a schedule. You can choose the schedule interval based on SSISDB resource usage to avoid heavy database load.
 
-For more info, see [Manage groups of databases with Elastic Database Jobs](../azure-sql/database/elastic-jobs-overview.md).
+For more info, see [Manage groups of databases with Elastic Database Jobs](../azure-sql/database/elastic-jobs-overview).
 
 The following sections describe how to invoke the relevant SSISDB stored procedure, `[internal].[cleanup_server_retention_window_exclusive]`, which removes SSISDB logs that are outside the configured retention window.
 
 ### Configure Elastic Database Jobs using Azure PowerShell
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm)]
 
-The following Azure PowerShell scripts create a new Elastic Job that invokes SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](../azure-sql/database/elastic-jobs-powershell-create.md).
+The following Azure PowerShell scripts create a new Elastic Job that invokes SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](../azure-sql/database/elastic-jobs-powershell-create).
 
 #### Create parameters
 
@@ -258,7 +258,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ### Configure Elastic Database Jobs using T-SQL
 
-The following T-SQL scripts create a new Elastic Job that invokes SSISDB log clean-up stored procedure. For more info, see [Use T-SQL to create and manage Elastic Database Jobs](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
+The following T-SQL scripts create a new Elastic Job that invokes SSISDB log clean-up stored procedure. For more info, see [Use T-SQL to create and manage Elastic Database Jobs](../azure-sql/database/elastic-jobs-tsql-create-manage).
 
 1. Identify an empty S0/higher service tier of Azure SQL Database or create a new one for your job database. Then create an Elastic Job Agent in [Azure portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
@@ -290,7 +290,7 @@ The following T-SQL scripts create a new Elastic Job that invokes SSISDB log cle
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. Create SSISDB log clean-up user from login in SSISDB and grant it permissions to invoke SSISDB log clean-up stored procedure. For detailed guidance, see [Manage logins](../azure-sql/database/logins-create-manage.md).
+4. Create SSISDB log clean-up user from login in SSISDB and grant it permissions to invoke SSISDB log clean-up stored procedure. For detailed guidance, see [Manage logins](../azure-sql/database/logins-create-manage).
 
     ```sql
     -- Connect to the master database of target server that hosts SSISDB 
@@ -363,6 +363,6 @@ ORDER BY start_time DESC
 
 To manage and monitor your Azure-SSIS IR, see the following articles.
 
-- [Reconfigure the Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime.md)
+- [Reconfigure the Azure-SSIS integration runtime](manage-azure-ssis-integration-runtime)
 
-- [Monitor the Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
+- [Monitor the Azure-SSIS integration runtime](monitor-integration-runtime#azure-ssis-integration-runtime).
