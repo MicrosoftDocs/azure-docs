@@ -134,7 +134,7 @@ To generate a device key, use the key that you copied from your DPS enrollment g
 
 Do not include your enrollment's primary or secondary key in your device code.
 
-# [Linux](#tab/linux)
+#### Derive a key on Linux
 
 On Linux, you can use openssl to generate your derived device key as shown in the following example.
 
@@ -154,9 +154,9 @@ echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | ba
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
-# [Windows](#tab/windows)
+#### Derive a key on Windows
 
-If you are using a Windows workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+On Windows, you can use PowerShell to generate your derived device key as shown in the following example.
 
 Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
@@ -218,6 +218,7 @@ Have the following information ready:
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
+
 1. Open the configuration file on the IoT Edge device.
 
    ```bash
