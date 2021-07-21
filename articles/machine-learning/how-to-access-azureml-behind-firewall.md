@@ -103,7 +103,7 @@ For information on configuring UDR, see [Route network traffic with a routing ta
     | AzureMachineLearning | TCP | 443 |
     | AzureResourceManager | TCP | 443 |
     | Storage.region       | TCP | 443 |
-    | AzureFrontDoor.FirstParty | TCP | 443 | 
+    | AzureFrontDoor.FrontEnd</br>* Not needed in Azure China. | TCP | 443 | 
     | ContainerRegistry.region  | TCP | 443 |
     | MicrosoftContainerRegistry.region | TCP | 443 |
 
