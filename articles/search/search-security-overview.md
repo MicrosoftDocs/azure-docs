@@ -52,7 +52,7 @@ To further control access to your search service, you can create inbound firewal
 
 You can use the portal to [configure inbound access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Connect to a private endpoint (network isolation, no Internet traffic)
 
