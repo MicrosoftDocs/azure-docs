@@ -74,6 +74,7 @@ In the next sections, you'll create a new web API project. Select your programmi
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor
 * [Node.js runtime](https://nodejs.org/en/download/)
 
+---
 
 ## Step 1: Create a protected web API
 
@@ -399,6 +400,8 @@ app.listen(port, () => {
     console.log('Listening on port ' + port);
 });
 ```
+
+---
 
 ## Step 6: Configure the web API
 
