@@ -46,7 +46,7 @@ Security rules in network security groups enable you to filter the type of netwo
 
 While creating the Azure Database for PostgreSQL server, you provide credentials for an administrator role. This administrator role can be used to create additional [PostgreSQL roles](https://www.postgresql.org/docs/current/user-manag.html).
 
-You can also connect to the server using [Azure Active Directory (AAD) authentication](concepts-aad-authentication.md).
+You can also connect to the server using [Azure Active Directory (AAD) authentication](../concepts-aad-authentication.md).
 
 
 ### Azure Defender protection
