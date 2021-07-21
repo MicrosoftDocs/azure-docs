@@ -1,7 +1,7 @@
 ---
 title: Visualize your graph data in Azure Cosmos DB Gremlin API
 
-description: Learn how to integrate Azure Cosmos DB graph data with visualization solutions
+description: Learn how to integrate Azure Cosmos DB graph data with different third party visualization solutions.
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
