@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse connectivity settings
 description: An article that teaches you to configure connectivity settings in Azure Synapse Analytics 
-author: RonyMSFT 
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 07/20/2021 
-ms.author: ronytho 
+ms.date: 07/21/2021 
+author: ashinMSFT 
+ms.author: seshin 
 ms.reviewer: jrasnick, wiassaf
 ---
 
@@ -16,27 +16,27 @@ This article will explain connectivity settings in Azure Synapse Analytics and h
 
 ## Public network access 
 
-Public network access allows you to control the incoming public network connectivity to your Synapse workspace. 
+You can use Public network access to allow the incoming public network connectivity to you Azure Synapse workspace. 
 
-- When public network access is **disabled**, you can connect to your workspace using only [private endpoints](synapse-workspace-managed-private-endpoints.md). 
-- When public network access is **enabled**, you can connect to your workspace also from public networks. You can manage this feature both during and after your workspace creation.
+- When public network access is **disabled**, you can connect to your workspace only using [private endpoints](synapse-workspace-managed-private-endpoints.md). 
+- When public network access is **enabled**, you can connect to your workspace also from public networks. You can manage this feature both during and after your workspace creation. 
 
-> [!Important]
-> These settings only apply to Synapse workspaces associated with Managed VNet.
+> [!IMPORTANT]
+> This feature is only available to Azure Synapse workspaces associated with [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md). However, you can still open your Synapse workspaces to the public network regardless of its association with managed VNet. 
 
-Selecting the **Disable** option will not apply any firewall rules that you may configure. Additionally, your firewall rules will appear grayed out in the Network setting in Synapse portal. And it will be reapplied if you enable Public network access again. 
+Selecting the **Disable** option will not apply any firewall rules that you may configure. Additionally, your firewall rules will appear greyed out in the Network setting in Synapse portal. Your firewall configurations will be reapplied when you enable Public network access again. 
 
-> [!Tip]
+> [!TIP]
 > When you revert to enable, allow some time before editing the firewall rules.
 
 ### Configure public network access when you create your workspace
 
 1.    Select the **Networking** tab when you create your workspace in [Azure portal](https://aka.ms/azureportal).
-2.    Under Managed virtual network, select Enable to associate your workspace with Managed virtual network and permit Public network access. 
+2.    Under Managed virtual network, select **Enable** to associate your workspace with managed virtual network and permit public network access. 
 
     :::image type="content" source="./media/connectivity-settings/create-synapse-workspace-managed-virtual-network-1.png" alt-text="Create Synapse workspace, networking tab, Managed virtual network setting" lightbox="media/connectivity-settings/create-synapse-workspace-managed-virtual-network-1.png":::
 
-3.    Under **Public network access**, select **Disabled** to deny public access to your workspace. Select **Enable** if you want to allow public access to your workspace.
+3.    Under **Public network access**, select **Disable** to deny public access to your workspace. Select **Enable** if you want to allow public access to your workspace.
 
     :::image type="content" source="./media/connectivity-settings/create-synapse-workspace-public-network-access-2.png" alt-text="Create Synapse workspace, networking tab, public network access setting" lightbox="media/connectivity-settings/create-synapse-workspace-public-network-access-2.png"::: 
 
@@ -46,7 +46,7 @@ Selecting the **Disable** option will not apply any firewall rules that you may 
 
 1.    Select your Synapse workspace in [Azure portal](https://aka.ms/azureportal).
 2.    Select **Networking** from the left navigation.
-3.    Select **Disabled** to deny public access to your workspace. Select **Enable** if you want to allow public access to your workspace.
+3.    Select **Disabled** to deny public access to your workspace. Select **Enabled** if you want to allow public access to your workspace.
 
     :::image type="content" source="./media/connectivity-settings/synapse-workspace-networking-public-network-access-3.png" alt-text="In an existing Synapse workspace, networking tab, public network access setting is enabled" lightbox="media/connectivity-settings/synapse-workspace-networking-public-network-access-3.png"::: 
 
