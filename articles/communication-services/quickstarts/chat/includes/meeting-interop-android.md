@@ -29,15 +29,15 @@ Once Teams interoperability is enabled, a Communication Services user can join t
 In your module level build.gradle add the dependency on the chat sdk.
 
 > [!IMPORTANT]
-> Known issue: When using Android Chat and Calling SDK together in the same application, Chat SDK's real-time notifications feature does not work. You will get a dependency resolution issue.
-> While we are working on a solution, you can turn off the real-time notifications feature by adding the following exclusions to the chat sdk dependency in the app's build.gradle file.
+> Known issue: When using Android Chat and Calling SDK together in the same application, the Chat SDK's real-time notifications feature won't work. You'll get a dependency resolution issue. While we're working on a solution, you can turn off the real-time notifications feature by adding the following exclusions to the Chat SDK dependency in the app's `build.gradle` file:
 > 
 > ```groovy
 > implementation ("com.azure.android:azure-communication-chat:1.0.0") {
 >     exclude group: 'com.microsoft', module: 'trouter-client-android'
 > }
 > ```
-> 
+
+
 ## Add the Teams UI layout
 
 Replace the code in activity_main.xml with the following snippet. It adds inputs for the thread id and for sending messages, a button for sending the typed message and a basic chat layout.
