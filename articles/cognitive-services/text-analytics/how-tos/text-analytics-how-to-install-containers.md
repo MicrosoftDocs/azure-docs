@@ -26,7 +26,7 @@ Containers enable you to run the Text Analytic APIs in your own environment and 
 > [!NOTE]
 > * Entity linking and NER are not currently available as a container.
 > * The container image locations may have recently changed. Read this article to see the updated location for this container.
-> * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data Limits](../concepts/data-limits.md).
+> * The free account is limited to 5,000 text records per month and only the **Free** and **Standard** [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics) are valid for containers. For more information on transaction request rates, see [Data Limits](../concepts/data-limits.md).
 
 Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection.
 
