@@ -150,6 +150,42 @@ Verify that the on-premises management console is connected to the ServiceNow in
 
 :::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="Verify the communication occurred by looking at the last sync.":::
 
+## Set up the integrations using a HTTPS proxy
+
+When setting up the Defender for IoT and ServiceNow integration, the on-premises management console and the ServiceNow server communicate using port 443. If the ServiceNow server is behind a proxy, the default port cannot be used.
+
+Defender for IoT supports an HTTPS proxy in the ServiceNow integration by enabling the change of the default port used for integration.
+
+**To configure the proxy**:
+
+1. Edit the global properties on the on-premises management console using the following command:
+
+    ```bash
+    sudo vim /var/cyberx/properties/global.properties
+    ```
+
+2. Add the following parameters:
+
+    - `servicenow.http_proxy.enabled=1`
+
+    - `servicenow.http_proxy.ip=1.179.148.9`
+
+    - `servicenow.http_proxy.port=59125`
+
+3. Select **Save and Exit**.
+
+4. Reset the on-premises management console using the following command: 
+
+    ```bash
+    sudo monit restart all
+    ```
+
+After the configurations are set, all the ServiceNow data is forwarded using the configured proxy.
+
+## Download the Defender for IoT application in ServiceNow
+
+To access the Defender for IoT application within ServiceNow, you will need to download the application form the ServiceNow application store. 
+
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
 state that there are no resources to clean up in this section.
