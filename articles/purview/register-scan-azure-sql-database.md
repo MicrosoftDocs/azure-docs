@@ -138,6 +138,7 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
 1. [Create and install a self-hosted integration runtime](/azure/purview/manage-integration-runtimes) on a personal machine, or a machine inside the same VNet as your database server.
 1. Check your database server firewall to confirm that the SHIR machine has access through the firewall. Add the IP of the machine if it does not already have access.
+1. If your Azure SQL Server is behind a private endpoint or in a VNet, you can use an [ingestion private endpoint](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources) to ensure end-to-end network isolation.
 
 ## Register an Azure SQL Database data source
 
