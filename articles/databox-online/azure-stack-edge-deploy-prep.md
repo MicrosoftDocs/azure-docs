@@ -47,9 +47,6 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 ### For the Azure Stack Edge resource
 
-==========
-BEGIN DRAFT SECTION: *Stopped until we discuss better organization for roles vs. providers that accommodates the new IAM boilerplate.*
-
 Before you begin, make sure that:
 
 * Your Microsoft Azure subscription is enabled for an Azure Stack Edge resource. Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported.
@@ -71,7 +68,7 @@ Before you begin, make sure that:
 
   For information on how to register, go to [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-<!--REPLACES:
+<!--REPLACED TEXT:
 
   * You have owner or contributor access at resource group level for the Azure Stack Edge / Data Box Gateway, IoT Hub, and Azure Storage resources.
 
