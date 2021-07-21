@@ -18,11 +18,11 @@ ms.custom: mvc, devx-track-azurecli
 This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
 In this tutorial you will learn how to:
->[!div class="checklist"]
-> * Create a PostgreSQL flexible server in a virtual network
-> * Create a web app
-> * Add the web app to the virtual network
-> * Connect to Postgres from the web app 
+  >[!div class="checklist"]
+  > * Create a PostgreSQL flexible server in a virtual network
+  > * Create a web app
+  > * Add the web app to the virtual network
+  > * Connect to Postgres from the web app 
 
 ## Prerequisites
 
@@ -134,7 +134,7 @@ az webapp config appsettings set  --name mywebapp --settings DBHOST="<postgres-s
 - The resource group and app name are drawn from the cached values in the .azure/config file.
 - The command creates settings named **DBHOST**, **DBNAME**, **DBUSER***, and **DBPASS**. If your application code is using different name for the database information then use those names for the app settings as mentioned in the code.
 
-Configure the web app to allow all outbound counnections from within the virtual network.
+Configure the web app to allow all outbound connections from within the virtual network.
 ```azurecli
 az webapp config set --name mywebapp --resource-group demoresourcegroup --generic-configurations '{"vnetRouteAllEnabled": true}'
 ```
