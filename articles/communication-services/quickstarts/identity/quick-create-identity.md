@@ -29,7 +29,8 @@ Choose the scope of the access tokens. You can select none, one, or multiple. Cl
 
 You'll see an identity and corresponding user access token generated. You can copy these strings and use them in the [sample apps](https://docs.microsoft.com/azure/communication-services/samples/overview) and other testing scenarios.
 
-## Next Steps
+## Next steps
+
 
 You may also want to:
 
