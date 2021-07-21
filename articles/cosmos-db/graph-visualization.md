@@ -104,7 +104,7 @@ Graphlytic property graph visualization is a perfect enabler for all above menti
 Fraud pattern is a well-known term to every single insurance company, bank or e-commerce enterprise. Modern fraudsters build sophisticated fraud rings and schemes that are hard to unveil with traditional tools. It can cause serious losses if not detected properly and on time. On the other hand, traditional red flag systems with too strict criteria must be adjusted to eliminate false positive indicators, as it would lead to overwhelming fraud indications. Great amounts of time are spent trying to detect complex fraud, paralyzing investigators in their daily tasks.
 The basic idea behind Graphlytic is the fact that the human eye can simply distinguish and find any pattern in a graphical form much easier than in any table or data set. It means that the antifraud analyst can capture fraud schemes within graph visualization more easily, faster and smarter than with solely traditional tools.
 
-:::image type="content" source="./media/graph-visualization/graphlytic/antifraud.gif" alt-text="Graphlytic Fraud detection use case demo":::
+   :::image type="content" source="./media/graph-visualization/graphlytic/antifraud.gif" alt-text="Graphlytic Fraud detection use case demo":::
 
 Useful links:
 * [Documentation](https://graphlytic.biz/doc/)
