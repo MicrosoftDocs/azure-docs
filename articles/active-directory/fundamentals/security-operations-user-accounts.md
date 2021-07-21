@@ -20,7 +20,7 @@ User identity is one of the most important aspects of protecting your organizati
 
 If you have not yet read the [Azure Active Directory (Azure AD) security operations overview](security-operations-introduction.md), we recommend you do so before proceeding.
 
-This article covers general user accounts. For privileged accounts, see Security operations – privileged accounts.
+This article covers general user accounts. For privileged accounts, see [Security operations – privileged accounts](security-operations-privileged-accounts.md).
 
 ## Define a baseline
 
@@ -216,7 +216,7 @@ Configure monitoring on the data within the Azure AD Sign-ins Logs to ensure tha
 
 * **Locations**: Generally, you expect a user account to be in the same geographical location. You also expect sign ins from locations where you have employees or business relations. When the user account comes from a different international location in less time than it would take to travel there, it can indicate the user account is being abused. Note, VPNs can cause false positives, we recommend you monitor for user accounts signing in from geographically distant locations and if possible, use Azure AD Identity Protection to automatically detect and mitigate these risks.
 
-For this risk area we recommend you monitor both standard user accounts and privileged accounts but prioritize investigations of privileged accounts. Privileged accounts are the most important accounts in any Azure AD tenant. For specific guidance for privileged accounts, see Security operations – privileged accounts. 
+For this risk area we recommend you monitor both standard user accounts and privileged accounts but prioritize investigations of privileged accounts. Privileged accounts are the most important accounts in any Azure AD tenant. For specific guidance for privileged accounts, see [Security operations – privileged accounts](security-operations-privileged-accounts.md). 
 
 ### How to detect
 
@@ -265,8 +265,8 @@ The following are listed in order of importance based on the impact and severity
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Multi-factor authentication (MFA) fraud alerts.| High| Azure AD Sign-ins log| Status = failed<br>-and-<br>Details = MFA Denied<br>| Monitor and alert on any entry. |
-| Failed authentications from countries you do not operate out of.| Medium| Azure AD Sign-ins log| Location = <unapproved location>| Monitor and alert on any entries. |
+| Multi-factor authentication (MFA) fraud alerts.| High| Azure AD Sign-ins log| Status = failed<br>-and-<br>Details = MFA denied<br>or<br>Details- MFA denied; Fraud Code Entered from Voice Call| Monitor and alert on any entry. |
+| Failed authentications from countries you do not operate out of.| Medium| Azure AD Sign-ins log| Location = <unapproved location><br>| Monitor and alert on any entries. |
 | Failed authentications for legacy protocols or protocols that are not used .| Medium| Azure AD Sign-ins log| Status = failure<br>-and-<br>Client app = Other Clients, POP, IMAP, MAPI, SMTP, ActiveSync| Monitor and alert on any entries. |
 | Failures blocked by CA.| Medium| Azure AD Sign-ins log| Error code = 53003 <br>-and-<br>Failure reason = blocked by CA| Monitor and alert on any entries. |
 | Increased failed authentications of any type.| Medium| Azure AD Sign-ins log| Capture increases in failures across the board. I.e., total failures for today is >10 % on the same day the previous week.| If you don’t have a set threshold, monitor and alert if failures increase by 10% or greater. |
