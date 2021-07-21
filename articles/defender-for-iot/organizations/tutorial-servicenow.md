@@ -186,6 +186,39 @@ After the configurations are set, all the ServiceNow data is forwarded using the
 
 To access the Defender for IoT application within ServiceNow, you will need to download the application form the ServiceNow application store. 
 
+**To access the Defender for IoT application in ServiceNow**:
+
+1. Navigate to the [ServiceNow application store](https://store.servicenow.com/).
+
+2. Search for `Defender for IoT` or `CyberX IoT/ICS Management`.
+
+   :::image type="content" source="media/tutorial-servicenow/search-results.png" alt-text="Search for CyberX in the search bar.":::
+
+3. Select the application.
+
+   :::image type="content" source="media/tutorial-servicenow/cyberx-app.png" alt-text="Select the application from the list.":::
+
+4. Select **Request App.**
+
+   :::image type="content" source="media/tutorial-servicenow/sign-in.png" alt-text="Sign in to the application with your credentials.":::
+
+5. Sign in, and download the application.
+
+## View Defender for IoT detections in ServiceNow
+
+This article describes the device attributes and alert information presented in ServiceNow.
+
+**To view device attributes**:
+
+1. Sign in to ServiceNow.
+
+2. Navigate to **CyberX Platform**.
+
+3. Navigate to **Inventory**, or **Alert**.
+
+   [:::image type="content" source="media/integration-servicenow/alert-list.png" alt-text="Inventory or Alert":::](media/integration-servicenow/alert-list.png#lightbox)
+
+
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
 state that there are no resources to clean up in this section.
