@@ -74,9 +74,11 @@ To use semantic capabilities in queries, you'll need to make small modifications
 
 Semantic search is a newer technology so it's important to set expectations about what it can and cannot do. It improves the quality of search results in two ways:
 
-* First, it promotes matches that are semantically closer to the intent of original query.
+* First, it works best on content that is descriptive and informational. Language and semantic models perform better on inputs that contain rich content.
 
-* Second, it makes results easier to use when captions, and potentially answers, are present on the page.
+* Second, it promotes matches that are semantically closer to the intent of original query.
+
+* Third, it makes results easier to use when captions, and potentially answers, are present on the page.
 
 At all times, the engine is working with existing content, and the language models work best on searchable content that is structured as prose. Language models used in semantic search are designed to extract an intact string from your content that looks like an answer, but won't try to compose a new string as an answer to a query, or as a caption for a matching document.
 
@@ -86,14 +88,14 @@ In Cognitive Search, mechanisms that might be helpful for the above scenarios in
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check.
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). There is one sign-up for both semantic search and spell check.
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
 | Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
 | Spell check | Any | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | None (free) |
 
-You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged.
+You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged, even if queryType is set to `semantic`.
 
 If you do not want semantic search capability on your search service, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage and charges.
 
@@ -101,4 +103,4 @@ If you do not want semantic search capability on your search service, you can [d
 
 [Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
 
-It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to see semantic ranking in action.
+It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to evaluate its performance on your content.
