@@ -24,11 +24,11 @@ This article uses a sample ASP.NET web application that calls a web API to illus
 
 OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign a user in to an application. This web app sample uses [Microsoft Identity Web](https://www.nuget.org/packages/Microsoft.Identity.Web). Microsoft Identity Web is a set of ASP.NET Core libraries that simplify adding authentication and authorization support to web apps that can call a secure web API. 
 
-The sign-in flow involves following steps:
+The sign-in flow involves the following steps:
 
 1. Users go to the web app and select **Sign-in**.
 1. The app initiates an authentication request and redirects users to Azure AD B2C.
-1. Users [sign up or sign in](add-sign-up-and-sign-in-policy.md) and [reset the password](add-password-reset-policy.md). Alternatively, they sign in with a [social account](add-identity-provider.md).
+1. Users [sign up or sign in](add-sign-up-and-sign-in-policy.md) and [reset the password](add-password-reset-policy.md). Alternatively, they can sign in with a [social account](add-identity-provider.md).
 1. After users sign in, Azure AD B2C returns an authorization code to the app.
 1. The app then does the following:
  
@@ -40,9 +40,9 @@ The sign-in flow involves following steps:
 
 To enable your app to sign in with Azure AD B2C and call a web API, you register two applications in the Azure AD B2C directory.  
 
-- The **web application** registration enables your app to sign in with Azure AD B2C. During the registration, you specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after their authentication with Azure AD B2C is completed. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your app. You also create a *client secret*, which your app uses to securely acquire the tokens.
+- The *web application* registration enables your app to sign in with Azure AD B2C. During the registration, you specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after their authentication with Azure AD B2C is completed. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your app. You also create a *client secret*, which your app uses to securely acquire the tokens.
 
-- The  **web API** registration enables your app to call a secure web API. The registration includes the web API *scopes*. The scopes provide a way to manage permissions to protected resources, such as your web API. You grant the web application permissions to the web API scopes. When an access token is requested, your app specifies the desired permissions in the scope parameter of the request.  
+- The  *web API* registration enables your app to call a secure web API. The registration includes the web API *scopes*. The scopes provide a way to manage permissions to protected resources, such as your web API. You grant the web application permissions to the web API scopes. When an access token is requested, your app specifies the desired permissions in the scope parameter of the request.  
 
 The app architecture and registrations are illustrated in the following diagram:
 
@@ -60,12 +60,12 @@ The app architecture and registrations are illustrated in the following diagram:
 
 A computer that's running either: 
 
-### [Visual Studio](#tab/visual-studio)
+# [Visual Studio](#tab/visual-studio)
 
 * [Visual Studio 2019 16.8 or later](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) with the **ASP.NET and web development** workload
 * [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet)
 
-### [Visual Studio Code](#tab/visual-studio-code)
+# [Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [C# for Visual Studio Code (latest version)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
