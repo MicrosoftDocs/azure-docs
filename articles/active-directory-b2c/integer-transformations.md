@@ -74,10 +74,10 @@ Determines whether a numeric claim is greater, lesser, equal, or not equal to a 
 | InputClaim | inputClaim | int | The first numeric claim to compare whether it is greater, lesser, equal, or not equal than the second number. Null value throws an exception. |
 | InputParameter | CompareToValue | boolean | The second number to compare whether it is greater, lesser, equal, or not equal than the first number. |
 | InputParameter | Operator | string | Possible values: `LESSTHAN`, `GREATERTHAN`, `GREATERTHANOREQUAL`, `LESSTHANOREQUAL`, `EQUAL`, `NOTEQUAL`. |
-| InputParameter | throwError | boolean | Specifies whether this assertion should throw an error if the comparison result is `true`. Possible values: `true` (default), or `false`. <br />&nbsp;<br />When set to `true` (Assert mode), and the comparison result is `true`, an exception will be thrown. When set to `false` (Evaluation mode), the result is a new boolean claim type with a value of `true`, or `false`.| 
+| InputParameter | throwError | boolean | Specifies whether this assertion should throw an error if the comparison result is `true`. Possible values: `true` (default), or `false`. <br />&nbsp;<br />When set to `true` (Assertion mode), and the comparison result is `true`, an exception will be thrown. When set to `false` (Evaluation mode), the result is a new boolean claim type with a value of `true`, or `false`.| 
 | OutputClaim | outputClaim | boolean | If `ThrowError` is set to `false`, this output claim contains `true`, or `false` according to the comparison result. |
 
-### Assert mode
+### Assertion mode
 
 When `throwError` input parameter is `true` (default), the **AssertNumber** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md). 
 
@@ -92,9 +92,9 @@ The **AssertNumberError** self-asserted technical profile metadata controls the 
 </TechnicalProfile>
 ```
 
-For more information how to call the claims transformation in an assert mode, see [AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal), [AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue), and [AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) claims transformations.
+For more information how to call the claims transformation in an assertion mode, see [AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal), [AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue), and [AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) claims transformations.
 
-### Assert mode example
+### Assertion mode example
 
 The following example asserts the number of attempts is over five. The  claims transformation throws an error according to the comparison result. 
 
