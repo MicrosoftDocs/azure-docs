@@ -414,9 +414,9 @@ For some cloud databases, such as Azure SQL Database and Azure Data Lake, you mi
 
 ### Get URL of Azure Relay
 
-One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF portal. Follow these steps:
+One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the ADF or Synapse portal. Follow these steps:
 
-1. Go to ADF portal and select your self-hosted integration runtime.
+1. Go to ADF or Synapse portal and select your self-hosted integration runtime.
 2. In Edit page, select **Nodes**.
 3. Select **View Service URLs** to get all FQDNs.
 
