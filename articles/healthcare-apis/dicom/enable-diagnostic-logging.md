@@ -83,7 +83,7 @@ Run the following query to group operations by **DICOM Resource Type**:
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 
-| summarize count() by FhirResourceType
+| summarize count() by DICOMResourceType
 ```
 
 Run the following query to get all the **failed results**

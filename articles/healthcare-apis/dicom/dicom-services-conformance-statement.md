@@ -72,6 +72,7 @@ DICOM File Size Limit: there is a size limit of 2 GB for a DICOM file by default
 | 204 (No Content)             | No content was provided in the store transaction request. |
 | 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform to the expected UID format. |
 | 401 (Unauthorized)           | The client is not authenticated. |
+| 403 (Forbidden)              | The user is not authorized. |
 | 406 (Not Acceptable)         | The specified `Accept` header is not supported. |
 | 409 (Conflict)               | None of the instances in the store transaction request have been stored. |
 | 415 (Unsupported Media Type) | The provided `Content-Type` is not supported. |
@@ -264,6 +265,7 @@ Cache validation is supported using the `ETag` mechanism. In the response to a m
 | 304 (Not Modified)           | The requested data has not been modified since the last request. Content is not added to the response body in such case. For more information, see the above section **Retrieve Metadata Cache Validation (for Study, Series, or Instance)**. |
 | 400 (Bad Request)            | The request was badly formatted. For example, the provided study instance identifier did not conform to the expected UID format, or the requested transfer-syntax encoding is not supported. |
 | 401 (Unauthorized)           | The client is not authenticated. |
+| 403 (Forbidden)              | The user is not authorized. |
 | 404 (Not Found)              | The specified DICOM resource could not be found. |
 | 406 (Not Acceptable)         | The specified `Accept` header is not supported. |
 | 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
@@ -434,6 +436,7 @@ The query API returns one of the following status codes in the response:
 | 204 (No Content)          | The search completed successfully but returned no results. |
 | 400 (Bad Request)         | The server was unable to perform the query because the query component was invalid. Response body contains details of the failure. |
 | 401 (Unauthorized)        | The client is not authenticated. |
+| 403 (Forbidden)           | The user is not authorized. |
 | 503 (Service Unavailable) | The service is unavailable or busy. Please try again later. |
 
 ### Extra notes
@@ -469,6 +472,7 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 | 204 (No Content)             | When all the SOP instances have been deleted. |
 | 400 (Bad Request)            | The request was badly formatted. |
 | 401 (Unauthorized)           | The client is not authenticated. |
+| 403 (Forbidden)              | The user is not authorized. |
 | 404 (Not Found)              | When the specified series was not found within a study, or the specified instance was not found within the series. |
 | 503 (Service Unavailable)    | The service is unavailable or busy. Please try again later. |
 
