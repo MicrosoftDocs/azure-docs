@@ -18,10 +18,6 @@ You may want to advertise custom routes to all of your point-to-site VPN clients
 
 :::image type="content" source="./media/vpn-gateway-p2s-advertise-custom-routes/custom-routes.png" alt-text="Diagram of advertising custom routes.":::
 
-> [!NOTE]
-> Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
->
-
 ## Advertise custom routes
 
 To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the [Contoso storage account tables](https://contoso.table.core.windows.net).
@@ -50,12 +46,17 @@ To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The fo
 
 You can direct all traffic to the VPN tunnel by advertising 0.0.0.0/1 and 128.0.0.0/1 as custom routes to the clients. The reason for breaking 0.0.0.0/0 into two smaller subnets is that these smaller prefixes are more specific than the default route that may already be configured on the local network adapter and as such will be preferred when routing traffic.
 
+> [!NOTE]
+> Internet connectivity is not provided through the VPN gateway. As a result, all traffic bound for the Internet is dropped.
+>
+
 1. To enable forced tunneling, use the following commands:
 
     ```azurepowershell-interactive    
     $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 0.0.0.0/1 , 128.0.0.0/1
     ```
+
 ## View custom routes
 
 Use the following example to view custom routes:
