@@ -341,6 +341,32 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
+  - name: Capacity reservation
+    items:
+    - name: Overview
+      displayName: on-demand capacity reservation 
+      href: capacity-reservation-overview.md
+    - name: Create a capacity reservation
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-create.md
+    - name: Overallocating capacity reservation
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-overallocate.md
+    - name: Modify a capacity reservation 
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-modify.md
+    - name: Associate a VM
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-associate-vm.md
+    - name: Remove a VM
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-remove-vm.md
+    - name: Associate a VM scale set 
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-associate-vm-scale-set.md
+    - name: Remove a VM scale set
+      displayName: on-demand capacity reservation
+      href: capacity-reservation-remove-vm-scale-set.md
   - name: Create Virtual Machines
     items:
     - name: Linux
