@@ -64,7 +64,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         1. Select ConnectionString Authentication from the drop down options.
         
-        1. Enter the connection string of your communication services resource.
+        1. Enter the connection string of your Communication Services resource.
         
         1. Select **Create**.
         
