@@ -70,7 +70,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
         
         :::image type="content" source="./media/logic-app/connection-string-auth.png" alt-text="Screenshot that shows the Connection String Authentication configuration.":::
         
-    1. Using Service Principal ([Refer Services Principal Creation](../identity/service-principal-from-cli.md)).
+    1. Using Service Principal ([Refer Services Principal Creation](../identity/service-principal-from-cli.md)):
         1. Provide a name for the connection.
         
         1. Select Service principal (Azure AD application) Authentication from the drop down options.
