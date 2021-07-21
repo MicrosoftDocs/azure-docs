@@ -124,7 +124,7 @@ On the incident analysis page, you see a group of related anomalies and diagnost
 
 You can find the summary at the top of the incident analysis page. This summary includes basic information, actions and tracings, and an analyzed root cause. Basic information includes the top impacted series with a diagram, the impact start and end time, the severity, and the total anomalies included.
 
-The analyzed root cause is an automatic analyzed result. Metrics Advisor analyzes all anomalies that are captured on a time series, within one metric with different dimension values at the same timestamp. Then the service performs correlation, clustering group-related anomalies together, and generates advice about a root cause.
+The analyzed root cause is an automatically analyzed result. Metrics Advisor analyzes all anomalies that are captured on a time series, within one metric with different dimension values at the same timestamp. Then the service performs correlation, clustering group-related anomalies together, and generates advice about a root cause.
 
 :::image type="content" source="../media/diagnostics/incident-summary.png" alt-text="Screenshot that shows an incident diagnostic summary." lightbox="../media/diagnostics/incident-summary.png":::
 
