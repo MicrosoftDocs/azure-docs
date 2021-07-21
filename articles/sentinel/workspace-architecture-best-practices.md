@@ -33,6 +33,9 @@ The following image shows an architecture where security and non-security logs g
 
 :::image type="content" source="media/best-practices/separate-workspaces-for-different-logs.png" alt-text="Separate workspaces for security-related logs and non-security logs.":::
 
+> [!IMPORTANT]
+> Costs are one of the main considerations when determining Azure Sentinel architecture. For more information, see [Azure Sentinel costs and billing](azure-sentinel-billing.md).
+>
 ### Working with multiple tenants
 
 If you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, [service to service data connectors](connect-data-sources.md#service-to-service-integration) that work only within their own Azure AD tenant.
@@ -60,22 +63,6 @@ Use [Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer) to help manage
 > [Partner data connectors](partner-data-connectors.md) are typically based on API or agent collections, and therefore are not attached to a specific Azure AD tenant.
 >
 
-### Working with multiple workspaces
-
-If you are working with multiple workspaces, simplify your incident management and investigation by [condensing and listing all incidents from each Azure Sentinel instance in a single location](multiple-workspace-view.md).
-
-To reference data that's held in other Azure Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md).
-
-The best time to use cross-workspace queries is when valuable information is stored in a different workspace, subscription or tenant, and can provide value to your current action. For example, the following code shows a sample cross-workspace query:
-
-```Kusto
-union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Update
-| where TimeGenerated >= ago(1h)
-| where UpdateState == "Needed"
-| summarize dcount(Computer) by Classification
-```
-
-For more information, see [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md).
 
 
 ## Compliance considerations
@@ -115,6 +102,8 @@ Consider the following when working with multiple regions:
 
 - Use templates for your analytics rules, custom queries, workbooks, and other resources to make your deployments more efficient. Deploy the templates instead of manually deploying each resource in each region.
 
+- Connectors that are based on diagnostics settings do not incur in-bandwidth costs. For more information, see [Manage usage and costs with Azure Monitor Logs](/azure/azure-monitor/logs/manage-cost-storage#data-transfer-charges-using-log-analytics).
+
 For example, if you decide to collect logs from Virtual Machines in East US and send them to an Azure Sentinel workspace in West US, you'll be charged ingress costs for the data transfer. Since the Log Analytics agent compresses the data in transit, the size charged for the bandwidth may be lower than the size of the logs in Azure Sentinel.
 
 If you're collecting Syslog and CEF logs from multiple sources around the world, you may want to set up a Syslog collector in the same region as your Azure Sentinel workspace to avoid bandwidth costs, provided that compliance is not a concern.
@@ -122,8 +111,6 @@ If you're collecting Syslog and CEF logs from multiple sources around the world,
 Understanding whether bandwidth costs justify separate Azure Sentinel workspaces depend on the volume of data you need to transfer between regions. Use the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) to estimate your costs.
 
 For more information, see [Data residency in Azure](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/).
-
-<!--	-	There are no bandwidth costs when the logs are collected using Diagnostics settings, like Azure AD, Azure Activity, Azure SQL, or Azure Firewall as stated here. At the time of writing this article, where bandwidth costs apply, the first 5GB/month are free. Summary of Connectors-->
 
 ## Access considerations
 
@@ -171,7 +158,22 @@ Use the following best practice guidance when creating the Log Analytics workspa
 
 - **Use a dedicated workspace cluster if your projected data ingestion is around or more than 1 TB per day**. A [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters) enables you to secure resources for your Azure Sentinel data, which enables better query performance for large data sets. Dedicated clusters also provide the option for more encryption and control of your organization's keys.
 
+### Working with multiple workspaces
 
+If you do need to work with multiple workspaces, simplify your incident management and investigation by [condensing and listing all incidents from each Azure Sentinel instance in a single location](multiple-workspace-view.md).
+
+To reference data that's held in other Azure Sentinel workspaces, such as in [cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks), use [cross-workspace queries](extend-sentinel-across-workspaces-tenants.md).
+
+The best time to use cross-workspace queries is when valuable information is stored in a different workspace, subscription or tenant, and can provide value to your current action. For example, the following code shows a sample cross-workspace query:
+
+```Kusto
+union Update, workspace("contosoretail-it").Update, workspace("WORKSPACE ID").Update
+| where TimeGenerated >= ago(1h)
+| where UpdateState == "Needed"
+| summarize dcount(Computer) by Classification
+```
+
+For more information, see [Protecting MSSP intellectual property in Azure Sentinel](mssp-protect-intellectual-property.md).
 
 
 
@@ -193,6 +195,7 @@ Use the following best practice guidance when creating the Log Analytics workspa
 | Service Principal	Azure Sentinel Contributor	Azure Sentinel’s Resource Group	Automated configuration management tasks                                                                                                                        |                  |                                      |                                      |
 •	When designating permissions for Azure Sentinel usage, Azure Sentinel Responder, Azure Sentinel Reader, Azure Sentinel Contributor will be needed by the users depending on their role within the product. Additional roles related to Azure services outside of Azure Sentinel, Azure Monitor, and Azure Log Analytics may be needed if ingesting data or monitoring those services. Azure AD roles may be required, such as global admin or security admin, when setting up data connectors for services in other Microsoft portals.
 </--> 
+
 
 
 
