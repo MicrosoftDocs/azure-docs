@@ -11,7 +11,7 @@ ms.author: jbeauregardb
 ms.reviewer: mikben
 ---
 
-# Authorize access with Azure Active Directory to your communication resource in your development environment
+# Quickstart: Authenticate using Azure Active Directory (Azure CLI)
 
 The Azure Identity SDK provides Azure Active Directory (Azure AD) token authentication support for Azure SDK packages. The latest versions of the Azure Communication Services SDKs for .NET, Java, Python, and JavaScript integrate with the Azure Identity library to provide a simple and secure means to acquire an OAuth 2.0 token for authorization of Azure Communication Services requests.
 
