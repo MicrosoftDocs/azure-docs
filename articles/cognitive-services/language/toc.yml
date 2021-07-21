@@ -6,13 +6,31 @@ items:
   items:
   - name: What are Language services?
     href: overview.md
+- name: Health
+  items:
+  - name: Concepts
+    items:
+    - name: Recognized entity categories 
+      href: health/concepts/health-entity-categories
+- name: Named Entity Recognition (NER) and Personally Identifying Information (PII)
+  items:
+  - name: Overview
+    href: named-entity-recognition/overview.md
+  - name: How-to guides
+    items:
+    - name: Call NER and PII
+      href: named-entity-recognition/how-to-call.md
+  - name: Concepts
+    items:
+    - name: Recognized entity categories
+      href: named-entity-recognition/concepts/named-entity-categories.md 
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
     href: sentiment-opinion-mining/overview.md
   - name: How-to guides
     items:
-    - name: Call Sentiment Analysis
+    - name: Call Sentiment Analysis and Opinion Mining
       href: sentiment-opinion-mining/how-to-call.md
 - name: Concepts
   items:
