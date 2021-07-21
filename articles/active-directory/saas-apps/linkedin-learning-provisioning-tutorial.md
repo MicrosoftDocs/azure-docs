@@ -47,15 +47,15 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure LinkedIn Learning to support provisioning with Azure AD
 1. Sign into [LinkedIn Learning Settings](https://www.linkedin.com/learning-admin/settings/global). Select **SCIM Setup** then select **Add new SCIM configuration**.
 
-   ![SCIM Setup configuration](./media/linkedinlearning-provisioning-tutorial/learning-scim-settings.png)
+   ![SCIM Setup configuration](./media/linkedin-learning-provisioning-tutorial/learning-scim-settings.png)
 
 2. Enter a name for the configuration, and set **Auto-assign licenses** to On. Then click **Generate token**.
 
-   ![SCIM configuration name](./media/linkedinlearning-provisioning-tutorial/learning-scim-configuration.png)
+   ![SCIM configuration name](./media/linkedin-learning-provisioning-tutorial/learning-scim-configuration.png)
 
 3. After the configuration is created, an **Access token** should be generated. Keep this copied for later.
 
-   ![SCIM access token](./media/linkedinlearning-provisioning-tutorial/learning-scim-token.png)
+   ![SCIM access token](./media/linkedin-learning-provisioning-tutorial/learning-scim-token.png)
 
 4. You may reissue any existing configurations (which will generate a new token) or remove them.
 
@@ -96,7 +96,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input `https://api.linkedin.com/scim` in **Tenant URL**. Input the access token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to LinkedIn Learning. If the connection fails, ensure your LinkedIn Learning account has Admin permissions and try again.
 
- 	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/linkedinlearning-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/linkedin-learning-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
