@@ -48,7 +48,7 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
    :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Screenshot that shows the Logic App Designer and the Azure Communication Services connector with the Send SMS action selected.":::
 
 1. Now create a connection to your Communication Services resource.
-    1. Within the same subscription 
+    1. Within the same subscription:
 
        1. Provide a name for the connection.
 
