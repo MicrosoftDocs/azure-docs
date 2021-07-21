@@ -4,13 +4,14 @@ description: Azure Cosmos DB currently supports a one-way migration from periodi
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/16/2020
+ms.date: 07/21/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
 ---
 
 # Migrate from periodic to continuous backup mode
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure CosmosDB accounts with periodic mode backup policy can be migrated to continuous mode using Azure portal, CLI, or PowerShell. Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
 
@@ -25,12 +26,7 @@ The following are the key reasons to migrate into continuous mode:
 
 ## Pricing impact after migration
 
-Continuous mode comes with some cost impact which when compared to periodic mode because it offers more granular level of data restore.
-
-For example, if you store 1 TB of data and store hourly copy of this data for 30 days. You want lower granularity than an hour to do fine grain restore and looking towards what benefit continuous backup can provide.
-
-* Cost in Periodic mode is calculated as 1000 GB * (24 copies/day * 30 days) * $0.12 (cost in West us)
-* Cost in Continuous mode is calculated as 1000 GB * $0.20 (cost in West US) * Number of regions.
+After you migrate your account to continuous backup mode, the cost with this mode is different when compared to the periodic backup mode. Accounts that have continuous backup enabled will incur an additional monthly charge to store the backup and to restore your data. The continuous mode backup cost is significantly cheaper than periodic mode. To learn more, see the [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing) example.
 
 ## Migrate using portal
 
@@ -123,8 +119,11 @@ The account backup policy migration capability from periodic to continuous mode 
 ### Does the migration only happen at the account level?
 Yes.
 
+### Which accounts support backup migration
+Azure Cosmos DB SQL API and API for MongoDB accounts support migrating from periodic mode to continuous mode.
+
 ### Does the migration take time? What is the typical time?
-Migration takes time and it depends on the size of data in your account. You can get the migration status using Azure CLI or PowerShell commands.
+Migration takes time and it depends on the size of data in your account. You can get the migration status using Azure CLI or PowerShell commands. For large accounts with 10s of terabytes of data, the migration can take up to few days to complete.
 
 ### Does the migration cause any availability impact/downtime?
 No, the migration operation takes place in the background, so the client requests are not impacted. However, we need to perform some backend operations during the migration, and it might take extra time if the account is under heavy load.
@@ -146,8 +145,8 @@ To restore to a time before t1, you can open a support ticket like you normally 
 
 To learn more about continuous backup mode, see the following articles:
 
-* [Introduction to continuous backup mode with point-in-time restore](continuous-backup-restore-introduction.md)
+* [Introduction to continuous backup mode with point-in-time restore.](continuous-backup-restore-introduction.md)
 
-* [Continuous backup mode resource model](continuous-backup-restore-resource-model.md)
+* [Continuous backup mode resource model.](continuous-backup-restore-resource-model.md)
 
-* [Configure and manage continuous backup mode](continuous-backup-restore-portal.md) using Azure portal
+* [Configure and manage continuous backup mode](continuous-backup-restore-portal.md) using Azure portal.
