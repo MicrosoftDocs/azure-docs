@@ -428,21 +428,21 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         ```
   
 
-    * **Service Principal**: A service principal is a concrete instance created from the application object and inherits certain properties from that application object. A service principal is created in each tenant where the application is used and references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+    * **Service principal**: A service principal is a concrete instance created from the application object, and it inherits certain properties from that application object. A service principal is created in each tenant where the application is used, and it references the globally unique app object. The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
     
-        **Step 1:** Create and register an Azure AD application and then authorize it to access a database, see detail in [Create an AAD app registration](/azure/data-explorer/provision-azure-ad-app) documentation.
+        **Step 1:** Create and register an Azure AD application, and then authorize it to access a database. For more information, see [Create an Azure AD app registration](/azure/data-explorer/provision-azure-ad-app).
 
-        **Step 2:** Follow the same steps with [managed identity in SQL Server](#jump), which is mentioned above. 
+        **Step 2:** Follow the steps documented previously, in [managed identity in SQL Server](#jump). 
 
-        **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when adding data feed for Service Principal authentication type. 
+        **Step 3:** [Create a credential entity](how-tos/credential-entity.md) in Metrics Advisor, so that you can choose that entity when you're adding a data feed for the service principal authentication type. 
 
-        Here's an example of connection string: 
+        Here's an example of a connection string: 
         
         ```
         Data Source=<Server>;Initial Catalog=<Database>
         ```
   
-    * **Service Principal From Key Vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. You should create a service principal first, and then store the service principal inside Key Vault.  You can go through [Create a credential entity for Service Principal from Key Vault](how-tos/credential-entity.md#sp-from-kv) to follow detailed procedure to set service principal from key vault. Also, your connection string could be found in Azure SQL Server resource in **Settings > Connection strings** section.
+    * **Service principal from key vault**: Key Vault helps to safeguard cryptographic keys and secret values that cloud apps and services use. By using Key Vault, you can encrypt keys and secret values. Create a service principal first, and then store the service principal inside a key vault. For more details, see [Create a credential entity for service principal from key vault](how-tos/credential-entity.md#sp-from-kv). You can also find your connection string in your Azure SQL Server resource, in **Settings** > **Connection strings**.
         
         Here's an example of connection string: 
         
@@ -450,7 +450,7 @@ Azure Monitor Logs has the following authentication types: basic, service princi
         Data Source=<Server>;Initial Catalog=<Database>
         ```
 
-* **Query**: A SQL query to get and formulate data into multi-dimensional time series data. You can use `@IntervalStart` and `@IntervalEnd` in your query to help with getting expected metrics value in an interval. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
+* **Query**: Use a SQL query to get and formulate data into multi-dimensional time series data. You can use `@IntervalStart` and `@IntervalEnd` in your query to help with getting an expected metrics value in an interval. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
 
 
     Sample query:
@@ -461,13 +461,13 @@ Azure Monitor Logs has the following authentication types: basic, service princi
     
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the **Settings section** then click **Shared access signature**. Check at least "Table" and "Object" checkboxes, then click the Generate SAS and connection string button. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor workspace.
+* **Connection String**: Create a shared access signature (SAS) URL, and fill it in here. The most straightforward way to generate a SAS URL is by using the Azure portal. First, under **Settings**, go to the storage account you want to access. Then select **Shared access signature**. Select the **Table** and **Object** checkboxes, and then select **Generate SAS and connection string**. In the Metrics Advisor workspace, copy and paste the **Table service SAS URL** into the textbox.
 
-    ![azure table generate sas](media/azure-table-generate-sas.png)
+    ![Screenshot that shows how to generate the shared access signature in Azure Table Storage.](media/azure-table-generate-sas.png)
 
-* **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
+* **Table Name**: Specify a table to query against. You can find this in your Azure storage account instance. In the **Table Service** section, select **Tables**.
 
-* **Query**: You can use `@IntervalStart` and `@IntervalEnd` in your query to help with getting expected metrics value in an interval. They should be formatted: `yyyy-MM-ddTHH:mm:ssZ`.
+* **Query**: You can use `@IntervalStart` and `@IntervalEnd` in your query to help with getting an expected metrics value in an interval. They should be formatted as follows: `yyyy-MM-ddTHH:mm:ssZ`.
 
     Sample query:
     
@@ -475,26 +475,12 @@ Azure Monitor Logs has the following authentication types: basic, service princi
     PartitionKey ge '@IntervalStart' and PartitionKey lt '@IntervalEnd'
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
+    For more information, see the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
-<!--
-## <span id="es">Elasticsearch</span>
-
-* **Host**: Specify the master host of Elasticsearch Cluster.
-* **Port**: Specify the master port of Elasticsearch Cluster.
-* **Authorization Header**: Specify the authorization header value of Elasticsearch Cluster.
-* **Query**: Specify the query to get data. Placeholder `@IntervalStart` is supported. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@IntervalStart = 2020-06-21T00:00:00`.
-
-
-* **Request URL**: An HTTP url that can return a JSON. The placeholders %Y,%m,%d,%h,%M are supported: %Y=year in format yyyy, %m=month in format MM, %d=day in format dd, %h=hour in format HH, %M=minute in format mm. For example: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
-* **Request HTTP method**: Use GET or POST.
-* **Request header**: Could add basic authentication. 
-* **Request payload**: Only JSON payload is supported. Placeholder @IntervalStart is supported in the payload. The response should be in the following JSON format: `[{"timestamp": "2018-01-01T00:00:00Z", "market":"en-us", "count":11, "revenue":1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market":"zh-cn", "count":22, "revenue":4.56}]`. For example, when data of `2020-06-21T00:00:00Z` is ingested, `@IntervalStart = 2020-06-21T00:00:00.0000000+00:00)`.
--->
 
 ## <span id="influxdb">InfluxDB (InfluxQL)</span>
 
-* **Connection String**: The connection string to access your InfluxDB.
+* **Connection String**: The connection string to access InfluxDB.
 * **Database**: The database to query against.
 * **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
 
@@ -504,16 +490,16 @@ Azure Monitor Logs has the following authentication types: basic, service princi
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
     
-For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
+For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
 * **User name**: This is optional for authentication. 
 * **Password**: This is optional for authentication. 
 
 ## <span id="mongodb">MongoDB</span>
 
-* **Connection String**: The connection string to access your MongoDB.
+* **Connection String**: The connection string to access MongoDB.
 * **Database**: The database to query against.
-* **Query**: A command to get and formulate data into multi-dimensional time series data for ingestion. We recommend the command is verified on [db.runCommand()](https://docs.mongodb.com/manual/reference/method/db.runCommand/index.html).
+* **Query**: A command to get and formulate data into multi-dimensional time series data for ingestion. Verify the command on [db.runCommand()](https://docs.mongodb.com/manual/reference/method/db.runCommand/index.html).
 
     Sample query:
 
@@ -524,7 +510,7 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
 
 ## <span id="mysql">MySQL</span>
 
-* **Connection String**: The connection string to access your MySQL DB.
+* **Connection String**: The connection string to access MySQL DB.
 * **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
 
     Sample query:
@@ -533,11 +519,11 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn]< @IntervalEnd
     ```
 
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
 
 ## <span id="pgsql">PostgreSQL</span>
 
-* **Connection String**: The connection string to access your PostgreSQL DB.
+* **Connection String**: The connection string to access PostgreSQL DB.
 * **Query**: A query to get and formulate data into multi-dimensional time series data for ingestion.
 
     Sample query:
@@ -545,17 +531,17 @@ For more information, refer to the [tutorial on writing a valid query](tutorials
     ``` SQL
     SELECT [TimestampColumn], [DimensionColumn], [MetricColumn] FROM [TableName] WHERE [TimestampColumn] >= @IntervalStart and [TimestampColumn] < @IntervalEnd
     ```
-    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md) for more specific examples.
+    For more information, refer to the [tutorial on writing a valid query](tutorials/write-a-valid-query.md).
     
-## <span id="csv">Local files(CSV)</span>
+## <span id="csv">Local files (CSV)</span>
 
 > [!NOTE]
-> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV and performs anomaly detection on single time series data. However, for the full experience analyzing on multi-dimensional metrics including real-time data ingestion, anomaly notification, root cause analysis, cross-metric incident analysis, use other supported data sources.
+> This feature is only used for quick system evaluation focusing on anomaly detection. It only accepts static data from a local CSV, and performs anomaly detection on single time series data. For analyzing multi-dimensional metrics, including real-time data ingestion, anomaly notification, root cause analysis, and cross-metric incident analysis, use other supported data sources.
 
 **Requirements on data in CSV:**
-- Have at least one column, which represents measurements to be analyzed. For better and quicker user experience, we recommend you try a CSV file containing two columns: (1) Timestamp column (2) Metric Column. (Timestamp format: 2021-03-30T00:00:00Z, the 'seconds' part is best to be ':00Z'), and the time granularity between every record should be the same.
-- Timestamp column is optional, if there's no timestamp, Metrics Advisor will use timestamp starting from today 00:00:00(UTC) and map each measure in the row at a one-hour interval. If there is timestamp column in CSV and you want to keep it, make sure the data time period follow this rule [historical data processing window].
-- There is no re-ordering or gap-filling happening during data ingestion, make sure your data in CSV is ordered by timestamp  **ascending (ASC)**.
+- Have at least one column, which represents measurements to be analyzed. For a better and quicker user experience, try a CSV file that contains two columns: a timestamp column and a metric column. The timestamp format should be as follows: `2021-03-30T00:00:00Z`, and the `seconds` part is best to be `:00Z`. The time granularity between every record should be the same.
+- The timestamp column is optional. If there's no timestamp, Metrics Advisor will use timestamp starting from today (`00:00:00` Coordinated Universal Time). The service maps each measure in the row at a one-hour interval.
+- There is no re-ordering or gap-filling happening during data ingestion. Make sure that your data in the CSV file is ordered by the timestamp ordering **ascending (ASC)**.
  
 ## Next steps
 
