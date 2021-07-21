@@ -1,5 +1,5 @@
 ---
-title: Plan your azure active Directory Verifiable Credentials issuance solution(preview)
+title: Plan your Azure Active Directory Verifiable Credentials issuance solution(preview)
 description: Learn to plan your end-to-end issuance solution.
 documentationCenter: ''
 author: barbaraselden
@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: baselden
+ms.custom: references_regions
 ---
 
 # Plan your Azure Active Directory Verifiable Credentials issuance solution (preview)
