@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2021
+ms.date: 01/05/2021
 ms.author: yelevin
 
 ---
@@ -248,5 +248,3 @@ In this document, you learned how to connect CEF appliances to Azure Sentinel. T
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
 - [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-
-If your Syslog data connector is not working as expected, try the troubleshooting solutions listed in [Troubleshoot a CEF or Syslog data connector](cef-syslog-troubleshooting.md).

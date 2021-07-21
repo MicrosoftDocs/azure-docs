@@ -20,7 +20,7 @@ If it's unclear to you which data connectors will best serve your environment, s
 
 The free data connectors will start showing value from Azure Sentinel as soon as possible, while you continue to plan other data connectors and budgets.
 
-For your [partner](partner-data-connectors.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices. 
+For your [partner](partner-data-connectors.md) and [custom](create-custom-connector.md) data connectors, start by setting up [Syslog](connect-syslog.md) and [CEF](connect-common-event-format.md) connectors, with the highest priority first, as well as any Linux-based devices.
 
 If your data ingestion becomes too expensive too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview).
 
