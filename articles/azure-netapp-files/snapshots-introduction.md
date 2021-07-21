@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 08/15/2021
 ms.author: b-juche
 ---
 # How Azure NetApp Files snapshots work
@@ -57,7 +57,7 @@ Because a volume snapshot records only the block changes since the latest snapsh
     Azure NetApp Files volumes support up to 255 snapshots per volume. The ability to store many low-impact, frequently created snapshots increases the likelihood that the desired version of data can be successfully recovered.
 
 * Snapshots can be ***vaulted*** to Azure storage.   
-    For compliance and long-term data retention requirements, use the Azure NetApp Files backup functionality to vault snapshots to cost-efficient, ZRS-enabled Azure storage, outside of the volume being protected.  
+    For compliance and long-term data retention requirements, use the [Azure NetApp Files backup](backup-introduction.md) functionality to vault snapshots to cost-efficient, ZRS-enabled Azure storage, outside of the volume being protected.  
 
 * Snapshots provide ***user visibility*** and ***file recoverability***.   
 
@@ -87,7 +87,7 @@ The following diagram shows snapshot traffic in cross-region replication scenari
 
 As described, snapshots are used to create fast, space-efficient backups of Azure NetApp Files volumes, efficiently and quickly, and they provide a means to restore data files or complete volumes very effectively. These online snapshots serve as the first line of defense and cover most data recovery operations.   
 
-To keep snapshots for a longer period of time, or to keep more snapshots than the maximum number of online snapshots, you can vault snapshots from Azure NetApp Files volumes into ZRS-enabled Azure storage.  This is facilitated by the *Azure NetApp Files backup* functionality.  The functionality keeps snapshots for extended amounts of time (up to a year or even longer). Backups are stored on Azure storage, which has a cost advantage over the Azure NetApp Files capacity pool cost, and utilizes a different storage platform to eliminate dependencies and to comply with retention requirements.
+To keep snapshots for a longer period of time, or to keep more snapshots than the maximum number of online snapshots, you can vault snapshots from Azure NetApp Files volumes into ZRS-enabled Azure storage.  This is facilitated by the [*Azure NetApp Files backup*](backup-introduction.md) functionality.  The functionality keeps snapshots for extended amounts of time (up to a year or even longer). Backups are stored on Azure storage, which has a cost advantage over the Azure NetApp Files capacity pool cost, and utilizes a different storage platform to eliminate dependencies and to comply with retention requirements.
 
 To enable snapshot vaulting on your Azure NetApp Files volume, [configure a backup policy](backup-configure-policy-based.md) in the Azure NetApp Files subscription (located under the Data Protection section), and specify the number of Daily, Weekly, and Monthly backups you want to keep. This is all you need to do to expand your data protection with cost-efficient long-term storage.  
 

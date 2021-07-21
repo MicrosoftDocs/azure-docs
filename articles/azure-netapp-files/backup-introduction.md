@@ -76,4 +76,4 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
 * [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
-
+* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
