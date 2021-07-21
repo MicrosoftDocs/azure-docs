@@ -13,6 +13,8 @@ ms.date: 06/08/2021
 ms.author: aahi
 ---
 
+# Supported health entity categories
+
 Use this article to find the entity categories that can be returned by the health feature of Language Services. The health feature runs a predictive model to identify and categorize named entities from an input document.
 
 

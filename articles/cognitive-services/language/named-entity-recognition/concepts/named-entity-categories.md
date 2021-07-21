@@ -1,7 +1,7 @@
 ---
-title: Supported Categories for Named Entity Recognition
+title: Supported Categories for Named Entity Recognition in Azure Language Services
 titleSuffix: Azure Cognitive Services
-description: Learn about the supported entity categories in the Text Analytics API.
+description: Learn about the supported entity categories in the Azure Language Services.
 services: cognitive-services
 author: aahill
 
@@ -19,17 +19,15 @@ Use this article to find the entity categories that can be returned by [Named En
 
 NER includes the ability to detect personal (`PII`) and health (`PHI`) information. Additionally, click on the **Health** tab to see a list of supported categories in Text Analytics for health. 
 
-You can find a list of types returned by version 2.1 in the [migration guide](migration-guide.md?tabs=named-entity-recognition)
-
 ## Entity categories
 
 #### [General](#tab/general)
 
-[!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
+[!INCLUDE [supported entity types - general](../includes/general-entities.md)]
 
 #### [PII](#tab/personal)
 
-[!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
+[!INCLUDE [supported entity types - personally identifying information](../includes/personal-information-entities.md)]
 
 ***
 
