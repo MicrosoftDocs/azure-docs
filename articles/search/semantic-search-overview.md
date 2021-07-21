@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 07/21/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
@@ -86,18 +86,16 @@ In Cognitive Search, mechanisms that might be helpful for the above scenarios in
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). Between preview launch on March 2 through early July, semantic features are offered free of charge.
+Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check.
 
-| Feature | Tier | Region | Sign up | Projected pricing |
+| Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | Starting in early July, expected pricing is USD $500/month for the first 250,000 queries, and $2 for each additional 1,000 queries.  |
+| Semantic search (captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
 | Spell check | Any | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | None (free) |
-
-There is one [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup) for both semantic features and spell check. 
 
 You can use spell check without semantic search, free of charge. Charges for semantic search are levied when query requests include `queryType=semantic` and the search string is not empty (for example, `search=pet friendly hotels in new york`. Empty search (queries where `search=*`) are not charged.
 
-Final pricing information will be documented in the [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/) and in [Estimate and manage costs](search-sku-manage-costs.md).
+If you do not want semantic search capability on your search service, you can [disable semantic search](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) to prevent accidental usage and charges.
 
 ## Next steps
 
