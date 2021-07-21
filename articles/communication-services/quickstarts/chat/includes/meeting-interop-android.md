@@ -274,7 +274,13 @@ Add the `sendMessage()` method to `MainActivity`. It will use the `ChatThreadCli
 
 > [!IMPORTANT]
 > Known issue: Since the Chat SDK's real-time notifications feature does not work together with the Calling SDK's, we will have to poll the `GetMessages` API at predefined intervals. In our sample we will use 3 second intervals.
-> We can obtain the following data from the message list returned by the `GetMessages` API: all the `text` and `html` messages on the thread since joining, changes to the thread roster, updates to the thread topic.
+
+We can obtain the following data from the message list returned by the `GetMessages` API: 
+ - The `text` and `html` messages on the thread since joining
+ - Changes to the thread roster
+ - Updates to the thread topic
+
+
 To the `MainActivity` class, add a handler and a runnable task that will be run at 3 second intervals:
 
 ```
