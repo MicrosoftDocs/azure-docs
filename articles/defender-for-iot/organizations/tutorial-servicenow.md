@@ -73,6 +73,8 @@ A token is needed in order to allow ServiceNow to communicate with Defender for 
 
 Configure Defender for IoT to push alert information to the ServiceNow tables. Defender for IoT alerts will appear in ServiceNow as security incidents. This can be done by defining a Defender for IoT forwarding rule to send alert information to ServiceNow.
 
+**To push alert information to the ServiceNow tables**:
+
 1. Sign in to the on-premises management console.
 
 1. Select **Forwarding**, in the left side pane.
@@ -112,13 +114,41 @@ Configure Defender for IoT to push alert information to the ServiceNow tables. D
   | Client Secret | Enter the client secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
   | Report Type | **Incidents**: Forward a list of alerts that are presented in ServiceNow with an incident ID and short description of each alert.<br /><br />**Defender for IoT Application**: Forward full alert information, including the  sensor details, the engine, the source, and destination addresses. The information is forwarded to the Defender for IoT on the ServiceNow application. |
 
-1. Select **SAVE**. Defenders for IoT alerts appear as incidents in ServiceNow.
+1. Select **SAVE**. 
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+Defender for IoT alerts will now appear as incidents in ServiceNow.
+
+## Send Defender for IoT device attributes to ServiceNow
+
+Configure Defender for IoT to push an extensive range of device attributes to the ServiceNow tables. To send attributes to ServiceNow, you must map your on-premises management console to a ServiceNow instance. This ensures that the Defender for IoT platform can communicate and authenticate with the instance.
+
+**To add a ServiceNow instance**:
+
+1. Sign in to your Defender for IoT on-premises management console.
+
+1. Select **System Settings**, and then **ServiceNow** from the on-premises management console Integration section.
+
+      :::image type="content" source="media/tutorial-servicenow/servicenow.png" alt-text="Select the ServiceNow button.":::
+
+1. Enter the following sync parameters in the ServiceNow Sync dialog box.
+
+    :::image type="content" source="media/tutorial-servicenow/sync.png" alt-text="The ServiceNow sync dialog box.":::
+
+     Parameter | Description |
+    |--|--|
+    | Enable Sync | Enable and disable the sync after defining parameters. |
+    | Sync Frequency (minutes) | By default, information is pushed to ServiceNow every 60 minutes. The minimum is 5 minutes. |
+    | ServiceNow Instance | Enter the ServiceNow instance URL. |
+    | Client ID | Enter the Client ID you received for Defender for IoT in the **Application Registries** page in ServiceNow. |
+    | Client Secret | Enter the Client Secret string you created for Defender for IoT in the **Application Registries** page in ServiceNow. |
+    | Username | Enter the username for this instance. |
+    | Password | Enter the password for this instance. |
+
+1. Select **SAVE**.
+
+Verify that the on-premises management console is connected to the ServiceNow instance by reviewing the Last Sync date.
+
+:::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="Verify the communication occurred by looking at the last sync.":::
 
 <!-- 6. Clean up resources
 Required. If resources were created during the tutorial. If no resources were created, 
