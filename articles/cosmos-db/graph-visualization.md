@@ -1,7 +1,7 @@
 ---
 title: Visualize your graph data in Azure Cosmos DB Gremlin API
 
-description: Learn how to integrate Azure Cosmos DB graph data with visualization solutions
+description: Learn how to integrate Azure Cosmos DB graph data with different third party visualization solutions.
 author: manishmsfte
 ms.author: mansha
 ms.service: cosmos-db
@@ -17,8 +17,6 @@ You can visualize data stored in Azure Cosmos DB Gremlin API by using various da
 
 ## Linkurious Enterprise
 
-:::image type="content" source="./media/graph-visualization/linkurious-logo.jpg" alt-text="Linkurious Logo" border="false":::
-
 [Linkurious Enterprise](https://linkurio.us/product/) uses graph technology and data visualization to turn complex datasets into interactive visual networks. The platform connects to your data sources and enables investigators to seamlessly navigate across billions of entities and relationships. The result is a new ability to detect suspicious relationships without juggling with queries or tables.
 
 The interactive interface of Linkurious Enterprise offers an easy way to investigate complex data. You can search for specific entities, expand connections to uncover hidden relationships, and apply layouts of your choice to untangle complex networks. Linkurious Enterprise is now compatible with Azure Cosmos DB Gremlin API. It's suitable for end-to-end graph visualization scenarios and supports read and write capabilities from the user interface. You can request a [demo of Linkurious with Azure Cosmos DB](https://linkurio.us/contact/)
@@ -32,8 +30,6 @@ The interactive interface of Linkurious Enterprise offers an easy way to investi
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/linkurious.linkurious001?tab=overview)
 
 ## Cambridge Intelligence
-
-:::image type="content" source="./media/graph-visualization/ci-logo.png" alt-text="Cambridge Intelligence logo" border="false":::
 
 [Cambridge Intelligence’s](https://cambridge-intelligence.com/products/) graph visualization toolkits now support Azure Cosmos DB. The following two visualization toolkits are supported by Azure Cosmos DB:
 
@@ -56,14 +52,14 @@ These toolkits let you design high-performance graph visualization and analysis 
 - [Graph visualization use cases](https://cambridge-intelligence.com/use-cases/)
 
 ## Tom Sawyer
-:::image type="content" source="./media/graph-visualization/tomsawyer/tomsawyer-logo.png" alt-text="Tomsawyer Logo" border="false":::
+
 [Tom Sawyer Perspectives](https://www.tomsawyer.com/perspectives/) is a robust platform for building enterprise-class graph and data visualization and analysis applications. It is a low-code graph and data visualization development platform, with integrated design and preview interface and extensive API libraries. The platform integrates enterprise data sources with powerful graph visualization, layout, and analysis technology to solve big data problems.
 
 Perspectives enables developers to quickly develop production-quality, data-oriented visualization applications. Two graphic modules—the Designer and Previewer—are used to build applications to visualize and analyze the specific data that drives each project.
 Using the Designer, developers define the schema, data sources, bindings, rules, views, filters, searches, and analyses. To simplify schema creation, several integrators support schema extraction. Developers can also use the Designer to specify custom toolbars, tooltips, context menus, and graphical viewing and editing behaviors. With the Previewer, they can iteratively view the application design without needing to recompile. When used together, the Designer and Previewer provide an efficient round-trip process that dramatically speeds up application development. Ready to add graph and data visualization to your application? Request a FREE 60-day evaluation of Perspectives. We also offer consulting and training during the evaluation to help ensure a smooth and successful experience.
 :::image type="content" source="./media/graph-visualization/tomsawyer/tomsawyer-perspectives.gif" alt-text="Tomsawyer Perspectives demo" border="false":::
 
-[Tom Sawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB - Gremlin API. Graph Database Browser helps users see and understand connections in their data without extensive knowledge of the query language or schema. So, less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can run queries using Gremlin, Cypher, or SPARQL to gain other insights.
+[Tom Sawyer Graph Database Browser](https://www.tomsawyer.com/graph-database-browser/) makes it easy to visualize and analyze data in Azure Cosmos DB Gremlin API. The Graph Database Browser helps you see and understand connections in your data without extensive knowledge of the query language or the schema. So, less technical users can interact with the data by loading the neighbors of selected nodes and building the visualization in whatever direction they need. Advanced users can run queries using Gremlin, Cypher, or SPARQL to gain other insights.
 Users of all skill levels can take advantage of five unique graph layouts to display the graph in a way that provides the most meaning. And there are built-in centrality, clustering, and path-finding analyses to reveal previously unseen patterns. Using these techniques, organizations can identify critical patterns in areas like fraud detection, customer intelligence, and cybersecurity. Pattern recognition is also important to network analysts in areas such as general IT and network management, logistics, legacy system migration, and business transformation. Try a live demo of Tom Sawyer Graph Database Browser.
 
 :::image type="content" source="./media/graph-visualization/tomsawyer/tomsawyer-databrowser.gif" alt-text="Tomsawyer Data browser demo" border="false":::
@@ -79,13 +75,12 @@ Users of all skill levels can take advantage of five unique graph layouts to dis
 
 
 ## Graphistry
-:::image type="content" source="./media/graph-visualization/graphistry/graphistry-logo.png" alt-text="Graphistry GPU Based" border="false":::
 
-Graphistry brings a human interface to the age of big and complex data. It automatically transforms your data into interactive, visual investigation maps built for the needs of analysts. Quickly surface relationships between events and entities without writing queries or wrangling data. Harness all of your data without worrying about scale, and pivot on the fly to follow anywhere your investigation leads you. Ideal for everything from security, fraud, and IT investigations to 3600 views of customers and supply chains, Graphistry turns the potential of your data into human insight and value.
+Graphistry automatically transforms your data into interactive, visual investigation maps built for the needs of analysts. It can quickly surface relationships between events and entities without having to write queries or wrangle data. You can harness your data without worrying about scale. You can detect security, fraud, and IT investigations to 3600 views of customers and supply chains, Graphistry turns the potential of your data into human insight and value.
 
 :::image type="content" source="./media/graph-visualization/graphistry/graphistry-demo.png" alt-text="Graphisry demo" border="false":::
 
-Graphistry's breakthrough GPU client/cloud technology has raised the bar for interactive visualization by 100X. That means that you can use all the data you want, and still remain fast, responsive, and interactive. Better yet, all you need is a standard browser and our cloud. If you want to run on your hardware, it’s as easy as installing a Docker. That way you get the analytical power of GPUs without having to think about GPUs.
+With the Graphistry's GPU client/cloud technology you can do interactive visualization. By using their standard browser and the cloud, you can use all the data you want, and still remain fast, responsive, and interactive. If you want to run the browser on your hardware, it’s as easy as installing a Docker. That way you get the analytical power of GPUs without having to think about GPUs.
 :::image type="content" source="./media/graph-visualization/graphistry/graphistry-demo1.webp" alt-text="Graphisry demo1" border="false":::
 ### Useful links
 •	[Documentation](https://www.graphistry.com/docs)
@@ -96,23 +91,22 @@ Graphistry's breakthrough GPU client/cloud technology has raised the bar for int
 
 
 ## Graphlytic
-:::image type="content" source="./media/graph-visualization/graphlytic/graphlytic_logo.png" alt-text="Graphlytic Logo" border="false":::
 
 Graphlytic is a highly customizable web application for graph visualization and analysis. Users can interactively explore the graph, look for patterns with the Gremlin language, or use filters to find answers to any graph question. Graph rendering is done with the Cytoscape.js library which allows Graphlytic to render tens of thousands of nodes and hundreds of thousands of relationships at once.
-Graphlytic is compatible with Azure Cosmos DB and can be deployed in Azure in minutes.
+Graphlytic is compatible with Azure Cosmos DB and can be deployed to Azure in minutes.
 Graphlytic’s UI can be customized and extended in many ways, for instance the default [visualization configuration](https://graphlytic.biz/doc/latest/Visualization_settings.html), [data schema](https://graphlytic.biz/doc/latest/Data_schema.html), [style mappings](https://graphlytic.biz/doc/latest/Style_mappers.html), [virtual properties](https://graphlytic.biz/doc/latest/Virtual_properties.html) in the visualization, or custom implemented [widgets](https://graphlytic.biz/doc/latest/Widgets.html) that can enhance the visualization features with bespoke reports or integrations.
-Here are two scenarios being demonstrated:
+The following are two example scenarios:
 - IT Management use case
 Companies running their IT operations on their own infrastructure, Telco, or IP providers, all need a solid network documentation and a functional configuration management. Impact analyses describing interdependencies among network elements (active and passive) are being developed to overcome blackouts, which cause significant financial losses, or even single outages causing no or low availability of service. Bottlenecks and single points of failure are determined and solved. Endpoint as well as route redundancies are being implemented.
 Graphlytic property graph visualization is a perfect enabler for all above mentioned points - network documentation, network configuration management, impact analysis and asset management. It stores and depicts all relevant network configuration information in one place, bringing a completely new added value to IT managers and field technicians.
 
-:::image type="content" source="./media/graph-visualization/graphlytic/it_management.gif" alt-text="Graphlytic IT Management use case demo" :::
+   :::image type="content" source="./media/graph-visualization/graphlytic/it_management.gif" alt-text="Graphlytic IT Management use case demo" :::
 
 - Anti-fraud use case
 Fraud pattern is a well-known term to every single insurance company, bank or e-commerce enterprise. Modern fraudsters build sophisticated fraud rings and schemes that are hard to unveil with traditional tools. It can cause serious losses if not detected properly and on time. On the other hand, traditional red flag systems with too strict criteria must be adjusted to eliminate false positive indicators, as it would lead to overwhelming fraud indications. Great amounts of time are spent trying to detect complex fraud, paralyzing investigators in their daily tasks.
 The basic idea behind Graphlytic is the fact that the human eye can simply distinguish and find any pattern in a graphical form much easier than in any table or data set. It means that the antifraud analyst can capture fraud schemes within graph visualization more easily, faster and smarter than with solely traditional tools.
 
-:::image type="content" source="./media/graph-visualization/graphlytic/antifraud.gif" alt-text="Graphlytic Fraud detection use case demo":::
+   :::image type="content" source="./media/graph-visualization/graphlytic/antifraud.gif" alt-text="Graphlytic Fraud detection use case demo":::
 
 Useful links:
 * [Documentation](https://graphlytic.biz/doc/)
@@ -125,7 +119,6 @@ Useful links:
 * [Single Sign-on Configuration](https://graphlytic.biz/doc/latest/Single_sign-on.html)
 
 ## yWorks
-:::image type="content" source="./media/graph-visualization/yWorks/yWorks-logo.png" alt-text="yWorks Logo" border="false":::
 
 yWorks specializes in the development of professional software solutions that enable the clear visualization of graphs, diagrams, and networks. yWorks has brought together efficient data structures, complex algorithms, and advanced techniques that provide excellent user interaction on a multitude of target platforms. This allows the user to experience highly versatile and sophisticated diagram visualization in applications across many diverse areas.
 
