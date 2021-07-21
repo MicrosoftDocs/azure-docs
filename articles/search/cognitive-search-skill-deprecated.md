@@ -27,7 +27,7 @@ This document describes cognitive skills that are considered deprecated. Use the
 
 ### End of support
 
-February 15, 2019
+August 29, 2024
 
 ### Recommendations 
 
