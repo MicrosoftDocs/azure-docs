@@ -49,7 +49,7 @@ Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaSc
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
-## Begin setting up a page layout
+## Begin setting up a page layout version
 
 If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version to ensure the content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you can specify a page layout version for your pages.
 
@@ -73,7 +73,7 @@ To specify a page layout version for your custom policy pages:
 
 1. Select a [page layout](contentdefinitions.md#select-a-page-layout) for the user interface elements of your application.
 1. Define a [page layout version](contentdefinitions.md#migrating-to-page-layout) with page `contract` version for *all* of the content definitions in your custom policy. The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. 
-1. Learn how to [Migrating to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
+Learn how to [Migrating to page layout](contentdefinitions.md#migrating-to-page-layout) with page version.
 
 The following example shows the content definition identifiers and the corresponding **DataUri** with page contract: 
 
