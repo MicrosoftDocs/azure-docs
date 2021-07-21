@@ -15,15 +15,13 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-This topic shows you how to configure file uploads on your IoT hub using PowerShell. 
+This article shows you how to configure file uploads on your IoT hub using PowerShell. 
 
-To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account and blob container with your IoT hub. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files. In addition to the storage account and blob container, you can set the time-to-live for the SAS URI as well as configure settings for the optional file upload notifications that IoT Hub can deliver to backend services.
+To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account and blob container with your IoT hub. IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files. In addition to the storage account and blob container, you can set the time-to-live for the SAS URI and configure settings for the optional file upload notifications that IoT Hub can deliver to backend services.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
-
-To complete this article, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
@@ -116,7 +114,7 @@ The configuration requires the following values:
 
 * **SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to one hour by default.
 
-* **File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to one day by default.
+* **File notification settings default TTL**: The time-to-live of a file upload notification before it's expired. Set to one day by default.
 
 * **File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification. Set to 10 by default.
 
