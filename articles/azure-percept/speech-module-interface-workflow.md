@@ -15,22 +15,22 @@ This article describes how the Azure Percept speech module interacts with IoT Hu
 
 ## Speech module interaction with IoT hub via Module Twin and Module method
 - IoT Hub uses Module Twin to deploy speech module settings and the settings are saved in the properties. The speech module can update device information and telemetry to IoT hub by Module Twin reported properties.
-- IoT Hub can send control requests to speech module via Module Method.
-- IoT Hub can get speech module status via Module Method.
+- IoT Hub can send control requests to speech module via the Module method.
+- IoT Hub can get speech module status via the Module method.
 
 For more details, please refer to [Understand and use module twins in IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
 
 
 ## Speech module states
 - **IoTInitialized**: Indicates IoT module is initialized and the network between speech module and edge Hub module is connected.
-- **Authenticating**: Azure Ear SoM authentication is processing.
-- **Authenticated**: Azure Ear SoM authentication is finished. If failed, IoT hub will get an error message.
+- **Authenticating**: Azure Audio device authentication is processing.
+- **Authenticated**: Azure Audio device authentication is finished. If failed, IoT hub will get an error message.
 - **MicDiscovering**: Start to enumerate microphone array via ALSA interface.
 - **MicDiscovered**: Enum microphone array is finished. If failed, IoT hub will get an error message.
 - **SpeechConfigured**: CC configuring is finished. If failed, IoT hub will get an error message.
 - **SpeechStarted**: Indicates bot is configured and is running.
 - **SpeechStopped**: Indicates bot is stopped.
-- **DeviceRemoved**: Indicates Azure Ear SoM is removed.
+- **DeviceRemoved**: Indicates Azure Audio device is removed.
 
 
 ## Speech bot states
