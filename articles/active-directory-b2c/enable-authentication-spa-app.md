@@ -381,7 +381,7 @@ To sign in the user, do the following:
 
 ## Step 8: Configure the web API location and scope
 
-To allow your SPA app to call a web API, provide the web API endpoint location, and the [scopes](./configure-authentication-sample-spa-app.md#app-registration-overview) used to authorize access to the web API.
+To allow your SPA app to call a web API, provide the web API endpoint location and the [scopes](./configure-authentication-sample-spa-app.md#app-registration-overview) to use to authorize access to the web API.
 
 To configure the web API location and scopes, do the following:
 
@@ -401,7 +401,7 @@ To configure the web API location and scopes, do the following:
 
 ## Step 9: Call your web API
 
-Define the HTTP request to your API endpoint. The HTTP request is configured to pass the access token that was acquired with MSAL.js into the `Authorization` HTTP header in the request.
+Define the HTTP request to your API endpoint. The HTTP request is configured to pass the access token that was acquired with *MSAL.js* into the `Authorization` HTTP header in the request.
 
 The following code defines the HTTP `GET` request to the API endpoint, passing the access token within the `Authorization` HTTP header. The API location is defined by the `webApi` key in *apiConfig.js*. 
 
@@ -446,7 +446,7 @@ The SPA app uses JavaScript to control the UI elements. For example, it displays
 
 To add the UI elements reference, do the following:
 
-1. Inside the *App* folder, create a new file named *ui.js*.
+1. Inside the *App* folder, create a file named *ui.js*.
 1. Add the following code to the *ui.js* file:
 
     ```javascript
@@ -493,6 +493,6 @@ After you've authenticated successfully, the parsed ID token is displayed on the
 
 ## Next steps
 
-* Learn more [about the code sample](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa).
-* Configure [Authentication options in your own SPA application using Azure AD B2C](enable-authentication-spa-app-options.md).
+* Learn more about the [code sample](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa).
+* Configure [Authentication options in your own SPA application by using Azure AD B2C](enable-authentication-spa-app-options.md).
 * [Enable authentication in your own web API](enable-authentication-web-api.md).
