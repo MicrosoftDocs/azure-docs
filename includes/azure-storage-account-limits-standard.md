@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 06/24/2021
+ ms.date: 02/21/2021
  ms.author: tamram
  ms.custom: include file, references_regions
 ---
@@ -41,7 +41,7 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 
 All non-public cloud regions and the following public cloud regions have default maximum ingress limits of 25 Gbps and default maximum egress limits of 50 Gbps per general-purpose v2 and Blob storage account:
 
-- For locally-redundant storage (LRS) and geo-redundant storage (GRS) accounts:
+- For locally-redundant storage (LRS), geo-redundant storage (GRS), and read-access geo-redundant storage (RA-GRS) accounts:
    - Central India
    - China East
    - China East 2
@@ -50,7 +50,7 @@ All non-public cloud regions and the following public cloud regions have default
    - South Africa North
    - South India
    - West Central US
-- For zone-redundant storage (ZRS) and geo-zone-redundant storage (GZRS) accounts:
+- For zone-redundant storage (ZRS), geo-zone-redundant storage (GZRS), and read-access geo-zone-redundant storage (RA-GZRS) accounts:
    - Brazil South
    - Canada Central
    - Central India
@@ -60,4 +60,5 @@ All non-public cloud regions and the following public cloud regions have default
    - South Africa North
    - South Central US
    - West US 3
-- For  read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) accounts, all regions that are listed as exceptions for LRS, GRS, ZRS, and GZRS accounts.
+
+You can request an increase to these account limits via [Azure Support](https://azure.microsoft.com/support/faq/).
