@@ -1244,9 +1244,6 @@
             href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
-          - name: Repair
-            href: virtual-machines/windows/sql-agent-extension-repair-how-to.md
-
       - name: Migrate
         items:
         - name: SQL Server database to VM

@@ -181,7 +181,13 @@ sections:
           Is it possible to register self-deployed SQL Server VMs with the SQL IaaS Agent extension?
         answer: |
               Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the extension to get the manageability benefits provided by the SQL IaaS extension.    
-          
+      - question: |
+          Is it possible to repair the SQL IaaS agent extension? 
+        answer: |
+              Yes. Navigate to the **SQL virtual machines** resource for your SQL Server VM, and choose **Repair** under **Support & troubleshooting** to open the [repair](sql-agent-extension-manually-register-single-vm.md#repair-extension) page and repair the extension. 
+
+
+
           
   - name: Administration
     questions:
