@@ -15,6 +15,13 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2021-June release
+
+**Speech Studio updates**
+
+- **Custom Neural Voice**: Custom Neural Voice training extended to support South East Asia. New features released to suport data uploading status checking. 
+- **Audio Content Creation**: Released a new feature to support custom lexicon. With this feature, users can easily create their lexicon files and define the customized pronunciation for their audio output. 
+
 ## Text-to-speech 2021-May release
 
 **New languages and voices added for neural TTS**
