@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/21/2021
 ---
 
 # What's new in Azure Sentinel
@@ -38,11 +38,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Enrich entities with geolocation data via API
 
-Azure Sentinel now supports ingesting geolocation enrichment data from the **Microsoft Threat Intelligence** service via API.
+Azure Sentinel now offers an API to enrich your data with geolocation information. Geolocation data can then be used to analyze and investigate security incidents.
 
-The Microsoft Threat Intelligence service combines geolocation data from Microsoft service to service solutions and third-party partners and vendors.
-
-Geolocation data can then be used to analyze and investigate security incidents. For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md).
+For more information, see [Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)](geolocation-data-api.md) and [Classify and analyze data using entities in Azure Sentinel](entities-in-azure-sentinel.md).
 
 
 ### Support for ADX cross-resource queries (Public preview)

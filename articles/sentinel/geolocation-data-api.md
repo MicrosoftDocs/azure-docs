@@ -1,6 +1,6 @@
 ---
 title: Enrich entities with geolocation data in Azure Sentinel using REST API  | Microsoft Docs
-description: This article describes how you can enrich entities in Azure Sentinel with geolocation data using the Microsoft Threat Intelligence REST API.
+description: This article describes how you can enrich entities in Azure Sentinel with geolocation data via REST API.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -14,7 +14,7 @@ ms.topic: reference
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2021
+ms.date: 07/21/2021
 ms.author: bagol
 ---
 
