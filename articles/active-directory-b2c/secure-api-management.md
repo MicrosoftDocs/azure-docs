@@ -29,11 +29,11 @@ Before you begin, make sure that you have the following resources in place:
 
 ## Get Azure AD B2C application ID
 
-When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created in the prerequisites, use the application ID for *webapp1*.
+When you secure an API in Azure API Management with Azure AD B2C, you need several values for the [inbound policy](../api-management/api-management-howto-policies.md) that you create in APIM. First, record the application ID of an application you've previously created in your Azure AD B2C tenant. If you're using the application you created to satisfy the prerequisites, use the application ID for *webapp1*.
 
 To register an application in your Azure AD B2C tenant, you can use our new, unified *App registrations* experience or our legacy *Applications* experience. Learn more about the [new registrations experience](./app-registrations-training-guide.md).
 
-#### [App registrations](#tab/app-reg-ga/)
+# [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -41,7 +41,7 @@ To register an application in your Azure AD B2C tenant, you can use our new, uni
 1. Select **App registrations**, and then select the **Owned applications** tab.
 1. Record the value in the **Application (client) ID** column for *webapp1* or for another application you've previously created.
 
-#### [Applications (Legacy)](#tab/applications-legacy/)
+# [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -62,12 +62,12 @@ Next, get the well-known config URL for one of your Azure AD B2C user flows. You
 
     ![Screenshot of the well-known URI hyperlink on the "Run user flow" page of the Azure portal.](media/secure-apim-with-b2c-token/portal-01-policy-link.png)
 
-1. Select the hyperlink to browse to the OpenID Connect well-known configuration page.
+1. Select the hyperlink to go to the OpenID Connect well-known configuration page.
 1. On the page that opens in your browser, record the `issuer` value. For example:
 
     `https://<tenant-name>.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
-    You'll use this value in the next section when you configure your API in Azure API Management.
+    You'll use this value in the next section, when you configure your API in Azure API Management.
 
 You should now have two URLs recorded for use in the next section: the OpenID Connect well-known configuration endpoint URL and the issuer URI. For example:
 
@@ -166,7 +166,7 @@ With the access token and APIM subscription key recorded, you're now ready to te
 
     ![Screenshot of the Postman UI showing the GET request URL and headers.](media/secure-apim-with-b2c-token/postman-01-headers.png)
 
-1. In Postman, select the **Send** button to execute the request. If you've configured everything correctly, you should be presented with a JSON response with a collection of conference speakers (shown here, truncated):
+1. In Postman, select the **Send** button to execute the request. If you've configured everything correctly, you should be given a JSON response with a collection of conference speakers (shown here, truncated):
 
     ```json
     {
@@ -195,9 +195,9 @@ With the access token and APIM subscription key recorded, you're now ready to te
 
 ### Test an insecure API call
 
-Now that you've made a successful request, test the failure case to ensure that calls to your API with an *invalid* token are rejected as expected. One way to perform the test is to add or change a few characters in the token value, and then execute the same `GET` request as before.
+Now that you've made a successful request, test the failure case to ensure that calls to your API with an *invalid* token are rejected as expected. One way to perform the test is to add or change a few characters in the token value, and then run the same `GET` request as before.
 
-1. Add several characters to the token value to simulate an invalid token. For example, add "INVALID" to the token value, as shown here:
+1. Add several characters to the token value to simulate an invalid token. For example, you could add "INVALID" to the token value, as shown here:
 
     ![Screenshot of the Headers section of Postman UI showing the string INVALID added to token.](media/secure-apim-with-b2c-token/postman-02-invalid-token.png)
 
